@@ -46,7 +46,7 @@
   },
   "business": {
     "applyTitle": "List your business on VaraaAi.Com",
-    "applySubtitle": "Fill in the details below — our team reviews applications within 24–48 hours.",
+    "applySubtitle": "Fill in your details to set up your salon on VaraaAi.Com — it's activated as soon as you verify your email.",
     "name": "Business name",
     "description": "Short description",
     "category": "Service category",
@@ -148,7 +148,7 @@
     "noPending": "No businesses awaiting review."
   },
   "footer": {
-    "tagline": "Vietnam's leading salon, spa & beauty booking platform.",
+    "tagline": "The leading online salon, spa & beauty booking platform.",
     "forCustomers": "Customers",
     "forBusiness": "Business",
     "company": "Company",

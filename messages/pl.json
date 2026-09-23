@@ -46,7 +46,7 @@
   },
   "business": {
     "applyTitle": "Dodaj swoją firmę do VaraaAi.Com",
-    "applySubtitle": "Wypełnij poniższe dane — nasz zespół rozpatruje zgłoszenia w ciągu 24–48 godzin.",
+    "applySubtitle": "Wypełnij dane, aby utworzyć swój salon na VaraaAi.Com — zostanie aktywowany zaraz po potwierdzeniu adresu e-mail.",
     "name": "Nazwa firmy",
     "description": "Krótki opis",
     "category": "Kategoria usług",
@@ -148,7 +148,7 @@
     "noPending": "Brak firm oczekujących na weryfikację."
   },
   "footer": {
-    "tagline": "Wiodąca platforma rezerwacji salonów, spa i usług kosmetycznych w Wietnamie.",
+    "tagline": "Wiodąca internetowa platforma rezerwacji salonów, spa i usług kosmetycznych.",
     "forCustomers": "Klienci",
     "forBusiness": "Firmy",
     "company": "Firma",

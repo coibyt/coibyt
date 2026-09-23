@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { sendMail } from "@/lib/mailer";
+import { sendMail, businessReadyEmail } from "@/lib/mailer";
 import { geocodeAddress } from "@/lib/geocode";
 
 const COUNTRY_NAMES: Record<string, string> = {
@@ -36,14 +36,15 @@ export async function approveBusiness(businessId: string) {
     }
   }
 
-  const isVi = business.owner.locale === "vi";
-  await sendMail({
-    to: business.owner.email,
-    subject: isVi ? "Doanh nghiệp của bạn đã được duyệt!" : "Your business is approved!",
-    html: `<p>${isVi ? "Chúc mừng" : "Congrats"} ${business.owner.name}, <strong>${business.name}</strong> ${
-      isVi ? "đã được duyệt trên VaraaAi.Com." : "has been approved on VaraaAi.Com."
-    }</p>`,
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+  const email = businessReadyEmail({
+    ownerName: business.owner.name,
+    businessName: business.name,
+    dashboardUrl: `${siteUrl}/business/dashboard`,
+    guideUrl: `${siteUrl}/help/getting-started`,
+    locale: business.owner.locale,
   });
+  await sendMail({ to: business.owner.email, ...email });
 
   return business;
 }

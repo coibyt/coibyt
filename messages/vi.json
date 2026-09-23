@@ -46,7 +46,7 @@
   },
   "business": {
     "applyTitle": "Đăng ký doanh nghiệp lên VaraaAi.Com",
-    "applySubtitle": "Điền thông tin bên dưới, đội ngũ VaraaAi sẽ xét duyệt trong vòng 24–48 giờ.",
+    "applySubtitle": "Điền đầy đủ thông tin để khởi tạo salon của bạn trên VaraaAi.Com — salon sẽ được kích hoạt ngay sau khi bạn xác minh email.",
     "name": "Tên doanh nghiệp",
     "description": "Giới thiệu ngắn",
     "category": "Danh mục dịch vụ",
@@ -148,7 +148,7 @@
     "noPending": "Không có doanh nghiệp nào đang chờ duyệt."
   },
   "footer": {
-    "tagline": "Nền tảng đặt lịch salon, spa & làm đẹp hàng đầu Việt Nam.",
+    "tagline": "Nền tảng đặt lịch salon, spa & làm đẹp trực tuyến hàng đầu.",
     "forCustomers": "Khách hàng",
     "forBusiness": "Doanh nghiệp",
     "company": "Công ty",

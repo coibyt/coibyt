@@ -65,6 +65,42 @@ export function verificationEmail(params: { name: string; verifyUrl: string; loc
   };
 }
 
+export function businessReadyEmail(params: {
+  ownerName: string;
+  businessName: string;
+  dashboardUrl: string;
+  guideUrl: string;
+  locale: string;
+}) {
+  const isVi = params.locale === "vi";
+  return {
+    subject: isVi ? "Salon của bạn đã sẵn sàng!" : "Your salon is ready!",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Chúc mừng!" : "Congratulations!"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.ownerName},</p>
+        <p>${
+          isVi
+            ? `<strong>${params.businessName}</strong> đã sẵn sàng hoạt động trên VaraaAi.Com! Khách hàng có thể tìm thấy và đặt lịch với bạn ngay bây giờ.`
+            : `<strong>${params.businessName}</strong> is ready to go on VaraaAi.Com! Customers can now find and book with you.`
+        }</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.dashboardUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${isVi ? "Vào trang quản trị" : "Go to dashboard"}
+          </a>
+        </p>
+        <p>${
+          isVi
+            ? "Chưa biết bắt đầu từ đâu? Xem hướng dẫn từng bước của chúng tôi để đăng dịch vụ, thêm nhân viên và hơn thế nữa:"
+            : "Not sure where to start? Check out our step-by-step guide for adding services, staff, and more:"
+        }</p>
+        <p><a href="${params.guideUrl}" style="color:#624f89">${params.guideUrl}</a></p>
+        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 export function bookingConfirmationEmail(params: {
   customerName: string;
   businessName: string;

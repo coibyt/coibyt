@@ -46,7 +46,7 @@
   },
   "business": {
     "applyTitle": "Trage dein Unternehmen bei VaraaAi.Com ein",
-    "applySubtitle": "Fülle die folgenden Angaben aus — unser Team prüft Anträge innerhalb von 24–48 Stunden.",
+    "applySubtitle": "Fülle deine Angaben aus, um deinen Salon auf VaraaAi.Com einzurichten — er wird aktiviert, sobald du deine E-Mail-Adresse bestätigst.",
     "name": "Name des Unternehmens",
     "description": "Kurzbeschreibung",
     "category": "Dienstleistungskategorie",
@@ -148,7 +148,7 @@
     "noPending": "Keine Unternehmen zur Prüfung ausstehend."
   },
   "footer": {
-    "tagline": "Vietnams führende Buchungsplattform für Salons, Spas und Beauty-Dienstleistungen.",
+    "tagline": "Die führende Online-Buchungsplattform für Salons, Spas und Beauty-Dienstleistungen.",
     "forCustomers": "Kunden",
     "forBusiness": "Unternehmen",
     "company": "Unternehmen",

@@ -46,7 +46,7 @@
   },
   "business": {
     "applyTitle": "Lisää yrityksesi VaraaAi.Comiin",
-    "applySubtitle": "Täytä tiedot alla — tiimimme käsittelee hakemukset 24–48 tunnin kuluessa.",
+    "applySubtitle": "Täytä tiedot perustaaksesi salonkisi VaraaAi.Comiin — se aktivoituu heti, kun vahvistat sähköpostisi.",
     "name": "Yrityksen nimi",
     "description": "Lyhyt kuvaus",
     "category": "Palvelukategoria",
@@ -148,7 +148,7 @@
     "noPending": "Ei tarkistusta odottavia yrityksiä."
   },
   "footer": {
-    "tagline": "Vietnamin johtava kampaamo-, kylpylä- ja kauneuspalveluiden varausalusta.",
+    "tagline": "Johtava verkkovarausalusta kampaamoille, kylpylöille ja kauneuspalveluille.",
     "forCustomers": "Asiakkaat",
     "forBusiness": "Yritykset",
     "company": "Yritys",
