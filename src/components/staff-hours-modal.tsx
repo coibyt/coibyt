@@ -151,7 +151,7 @@ export function StaffHoursModal({
                               )
                             )
                           }
-                          className="input !w-28"
+                          className="input !w-32"
                         />
                         <span className="text-ink-400">–</span>
                         <input
@@ -164,7 +164,7 @@ export function StaffHoursModal({
                               )
                             )
                           }
-                          className="input !w-28"
+                          className="input !w-32"
                         />
                       </>
                     )}
