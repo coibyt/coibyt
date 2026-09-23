@@ -1,0 +1,326 @@
+// VaraaAi.Com — multi-vendor appointment booking marketplace
+// Database: MySQL (Hostinger Cloud Hosting)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Auth
+// ────────────────────────────────────────────────────────────────────
+
+enum UserRole {
+  CUSTOMER
+  BUSINESS_OWNER
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  image         String?
+  password      String? // null when the user only signs in via OAuth
+  phone         String?
+  role          UserRole  @default(CUSTOMER)
+  locale        String    @default("vi")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  accounts Account[]
+  sessions Session[]
+  business Business? // present when role = BUSINESS_OWNER
+  bookings Booking[]
+  reviews  Review[]
+
+  @@index([role])
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Marketplace: businesses, categories, services, staff, availability
+// ────────────────────────────────────────────────────────────────────
+
+enum BusinessStatus {
+  PENDING // awaiting admin approval
+  APPROVED
+  REJECTED
+  SUSPENDED
+}
+
+model Category {
+  id        String   @id @default(cuid())
+  slug      String   @unique
+  nameVi    String
+  nameEn    String
+  icon      String? // lucide-react icon name
+  createdAt DateTime @default(now())
+
+  businesses BusinessCategory[]
+  services   Service[]
+}
+
+model Business {
+  id          String         @id @default(cuid())
+  ownerId     String         @unique
+  owner       User           @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  slug        String         @unique
+  name        String
+  description String?        @db.Text
+  logoUrl     String?
+  coverUrl    String?
+  status      BusinessStatus @default(PENDING)
+  rejectReason String?       @db.Text
+
+  addressLine String?
+  city        String?
+  country     String  @default("VN")
+  lat         Float?
+  lng         Float?
+  phone       String?
+  email       String?
+  website     String?
+
+  timezone String @default("Asia/Ho_Chi_Minh")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  approvedAt DateTime?
+
+  categories BusinessCategory[]
+  services   Service[]
+  staff      Staff[]
+  bookings   Booking[]
+  reviews    Review[]
+  hours      BusinessHours[]
+  closures   BusinessClosure[]
+
+  @@index([status])
+  @@index([city])
+}
+
+model BusinessCategory {
+  businessId String
+  categoryId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([businessId, categoryId])
+}
+
+// Regular weekly opening hours, e.g. Monday 09:00–18:00
+model BusinessHours {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  weekday    Int // 0 = Sunday … 6 = Saturday
+  openMinute Int // minutes since midnight, e.g. 540 = 09:00
+  closeMinute Int // e.g. 1080 = 18:00
+
+  @@index([businessId])
+}
+
+// One-off closures / holidays that override BusinessHours for a specific date
+model BusinessClosure {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  date       DateTime @db.Date
+  reason     String?
+
+  @@unique([businessId, date])
+}
+
+model Staff {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name       String
+  title      String?
+  bio        String?  @db.Text
+  avatarUrl  String?
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+
+  services StaffService[]
+  bookings Booking[]
+  timeOff  StaffTimeOff[]
+
+  @@index([businessId])
+}
+
+// Staff-specific time off (vacation, sick day) blocking bookings
+model StaffTimeOff {
+  id        String   @id @default(cuid())
+  staffId   String
+  staff     Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  startsAt  DateTime
+  endsAt    DateTime
+  reason    String?
+
+  @@index([staffId])
+}
+
+model Service {
+  id           String   @id @default(cuid())
+  businessId   String
+  business     Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  categoryId   String?
+  category     Category? @relation(fields: [categoryId], references: [id])
+  name         String
+  description  String?  @db.Text
+  durationMin  Int // e.g. 60
+  bufferMin    Int      @default(0) // cleanup/prep time added after the appointment
+  priceCents   Int // stored in the smallest currency unit
+  currency     String   @default("VND")
+  depositCents Int? // optional required deposit to confirm a booking
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  staff    StaffService[]
+  bookings Booking[]
+
+  @@index([businessId])
+  @@index([categoryId])
+}
+
+model StaffService {
+  staffId   String
+  serviceId String
+  staff     Staff   @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@id([staffId, serviceId])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Bookings, payments, reviews
+// ────────────────────────────────────────────────────────────────────
+
+enum BookingStatus {
+  PENDING_PAYMENT
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+model Booking {
+  id         String        @id @default(cuid())
+  businessId String
+  business   Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  serviceId  String
+  service    Service       @relation(fields: [serviceId], references: [id])
+  staffId    String?
+  staff      Staff?        @relation(fields: [staffId], references: [id])
+  customerId String
+  customer   User          @relation(fields: [customerId], references: [id])
+
+  startsAt   DateTime
+  endsAt     DateTime
+  status     BookingStatus @default(PENDING_PAYMENT)
+
+  priceCents   Int
+  depositCents Int?
+  currency     String @default("VND")
+
+  customerNote String? @db.Text
+  cancelReason String? @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  payment Payment?
+  review  Review?
+
+  @@index([businessId, startsAt])
+  @@index([staffId, startsAt])
+  @@index([customerId])
+  @@index([status])
+}
+
+enum PaymentProvider {
+  STRIPE
+  VNPAY
+  MOMO
+}
+
+enum PaymentStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+  REFUNDED
+}
+
+model Payment {
+  id          String          @id @default(cuid())
+  bookingId   String          @unique
+  booking     Booking         @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  provider    PaymentProvider
+  status      PaymentStatus   @default(PENDING)
+  amountCents Int
+  currency    String          @default("VND")
+  providerRef String? // Stripe session/intent id, VNPay TxnRef, MoMo orderId
+  rawResponse String?         @db.Text
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([provider, providerRef])
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  bookingId  String   @unique
+  booking    Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id])
+  rating     Int // 1–5
+  comment    String?  @db.Text
+  ownerReply String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  @@index([businessId])
+}

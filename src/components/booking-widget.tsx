@@ -1,0 +1,288 @@
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
+import { addDays, format, isSameDay } from "date-fns";
+import { vi } from "date-fns/locale";
+import { Link } from "@/i18n/navigation";
+import { formatMoney } from "@/lib/money";
+import { CreditCard, Wallet, Landmark, Loader2 } from "lucide-react";
+
+interface StaffOption {
+  id: string;
+  name: string;
+  avatarUrl: string | null;
+}
+
+interface ServiceInfo {
+  id: string;
+  name: string;
+  priceCents: number;
+  depositCents: number | null;
+  currency: string;
+  durationMin: number;
+}
+
+interface Slot {
+  startsAt: string;
+  endsAt: string;
+  staffId: string;
+}
+
+const DAYS_AHEAD = 14;
+const PAYMENT_METHODS = [
+  { id: "STRIPE", icon: CreditCard },
+  { id: "VNPAY", icon: Landmark },
+  { id: "MOMO", icon: Wallet },
+] as const;
+
+export function BookingWidget({
+  businessSlug,
+  service,
+  staffOptions,
+  locale,
+}: {
+  businessSlug: string;
+  service: ServiceInfo;
+  staffOptions: StaffOption[];
+  locale: string;
+}) {
+  const t = useTranslations("service");
+  const tPay = useTranslations("payment");
+  const { data: session, status } = useSession();
+
+  const [staffId, setStaffId] = useState<string>("");
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [slots, setSlots] = useState<Slot[]>([]);
+  const [loadingSlots, setLoadingSlots] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
+  const [provider, setProvider] = useState<(typeof PAYMENT_METHODS)[number]["id"]>("STRIPE");
+  const [note, setNote] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const days = useMemo(
+    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(new Date(), i)),
+    []
+  );
+
+  useEffect(() => {
+    setSelectedSlot(null);
+    setLoadingSlots(true);
+    const params = new URLSearchParams({
+      serviceId: service.id,
+      date: format(selectedDate, "yyyy-MM-dd"),
+    });
+    if (staffId) params.set("staffId", staffId);
+
+    fetch(`/api/businesses/${businessSlug}/availability?${params.toString()}`)
+      .then((r) => r.json())
+      .then((data) => setSlots(data.slots ?? []))
+      .catch(() => setSlots([]))
+      .finally(() => setLoadingSlots(false));
+  }, [businessSlug, service.id, staffId, selectedDate]);
+
+  async function handleSubmit() {
+    if (!selectedSlot) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          serviceId: service.id,
+          staffId: staffId || selectedSlot.staffId,
+          startsAt: selectedSlot.startsAt,
+          customerNote: note || undefined,
+          paymentProvider: provider,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error === "SLOT_UNAVAILABLE" ? t("noSlots") : tPay("failed"));
+        return;
+      }
+      window.location.href = data.redirectUrl;
+    } catch {
+      setError(tPay("failed"));
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  const amountDue = service.depositCents ?? service.priceCents;
+
+  if (status === "unauthenticated") {
+    return (
+      <div className="card p-8 text-center">
+        <p className="mb-4 text-ink-700">
+          {locale === "vi"
+            ? "Vui lòng đăng nhập để đặt lịch."
+            : "Please sign in to book an appointment."}
+        </p>
+        <Link href="/auth/sign-in" className="btn-primary">
+          {locale === "vi" ? "Đăng nhập" : "Sign in"}
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {staffOptions.length > 0 && (
+        <div>
+          <p className="label">{t("selectStaff")}</p>
+          <div className="flex flex-wrap gap-2">
+            <Pill active={staffId === ""} onClick={() => setStaffId("")}>
+              {t("anyStaff")}
+            </Pill>
+            {staffOptions.map((s) => (
+              <Pill key={s.id} active={staffId === s.id} onClick={() => setStaffId(s.id)}>
+                {s.name}
+              </Pill>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div>
+        <p className="label">{t("selectDate")}</p>
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {days.map((d) => (
+            <button
+              key={d.toISOString()}
+              onClick={() => setSelectedDate(d)}
+              className={`flex w-16 shrink-0 flex-col items-center rounded-2xl border py-2.5 text-sm transition-colors ${
+                isSameDay(d, selectedDate)
+                  ? "border-ink-900 bg-ink-900 text-white"
+                  : "border-ink-100 text-ink-700 hover:border-ink-400"
+              }`}
+            >
+              <span className="text-xs opacity-70">
+                {format(d, "EEE", { locale: locale === "vi" ? vi : undefined })}
+              </span>
+              <span className="text-base font-bold">{format(d, "d")}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p className="label">{t("selectTime")}</p>
+        {loadingSlots ? (
+          <p className="flex items-center gap-2 text-sm text-ink-400">
+            <Loader2 className="h-4 w-4 animate-spin" /> ...
+          </p>
+        ) : slots.length === 0 ? (
+          <p className="text-sm text-ink-400">{t("noSlots")}</p>
+        ) : (
+          <div className="grid grid-cols-4 gap-2 sm:grid-cols-6">
+            {slots.map((s) => (
+              <button
+                key={s.startsAt}
+                onClick={() => setSelectedSlot(s)}
+                className={`rounded-xl border py-2 text-sm transition-colors ${
+                  selectedSlot?.startsAt === s.startsAt
+                    ? "border-ink-900 bg-ink-900 text-white"
+                    : "border-ink-100 text-ink-700 hover:border-ink-400"
+                }`}
+              >
+                {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <label className="label" htmlFor="note">
+          {t("note")}
+        </label>
+        <textarea
+          id="note"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          rows={3}
+          className="input"
+        />
+      </div>
+
+      <div>
+        <p className="label">{tPay("choose")}</p>
+        <div className="grid grid-cols-3 gap-2">
+          {PAYMENT_METHODS.map(({ id, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => setProvider(id)}
+              className={`flex flex-col items-center gap-1.5 rounded-xl border py-3 text-xs font-medium transition-colors ${
+                provider === id
+                  ? "border-primary-500 bg-primary-50 text-primary-600"
+                  : "border-ink-100 text-ink-700 hover:border-ink-400"
+              }`}
+            >
+              <Icon className="h-5 w-5" />
+              {tPay(id.toLowerCase() as "stripe" | "vnpay" | "momo")}
+            </button>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-coral-500">{tPay("sandboxNotice")}</p>
+      </div>
+
+      <div className="card space-y-2 p-4">
+        <div className="flex justify-between text-sm text-ink-700">
+          <span>{service.name}</span>
+          <span>{formatMoney(service.priceCents, service.currency, locale)}</span>
+        </div>
+        {service.depositCents && (
+          <div className="flex justify-between text-sm text-ink-400">
+            <span>{t("deposit")}</span>
+            <span>{formatMoney(service.depositCents, service.currency, locale)}</span>
+          </div>
+        )}
+        <div className="flex justify-between border-t border-ink-100 pt-2 font-bold text-ink-900">
+          <span>{t("total")}</span>
+          <span>{formatMoney(amountDue, service.currency, locale)}</span>
+        </div>
+      </div>
+
+      {error && <p className="text-sm text-berry-500">{error}</p>}
+
+      <button
+        onClick={handleSubmit}
+        disabled={!selectedSlot || submitting}
+        className="btn-primary w-full py-3"
+      >
+        {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
+        {t("confirmAndPay")}
+      </button>
+    </div>
+  );
+}
+
+function Pill({
+  active,
+  onClick,
+  children,
+}: {
+  active: boolean;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+        active
+          ? "border-ink-900 bg-ink-900 text-white"
+          : "border-ink-100 text-ink-700 hover:border-ink-400"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}

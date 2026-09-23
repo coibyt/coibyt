@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "VaraaAi.Com — Book salons, spas & beauty services online",
+    "description": "Find and book hair salons, spas, beauty clinics and massage near you in seconds."
+  },
+  "nav": {
+    "search": "Search services, salons...",
+    "forBusiness": "For business",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "dashboard": "Dashboard",
+    "myBookings": "My bookings",
+    "signOut": "Sign out",
+    "admin": "Admin"
+  },
+  "home": {
+    "heroTitle": "Book your next\nappointment in seconds",
+    "heroSubtitle": "Discover top-rated hair salons, spas, nail bars and massage studios near you — book and pay right on VaraaAi.",
+    "searchPlaceholder": "Haircut, facial, massage, salon...",
+    "searchCity": "City",
+    "searchButton": "Search",
+    "categoriesTitle": "Browse by category",
+    "featuredTitle": "Popular near you",
+    "ctaBusinessTitle": "Own a salon or spa?",
+    "ctaBusinessSubtitle": "List your business on VaraaAi.Com, manage bookings and take payments online.",
+    "ctaBusinessButton": "List your business for free"
+  },
+  "auth": {
+    "signInTitle": "Sign in to VaraaAi",
+    "signUpTitle": "Create your account",
+    "name": "Full name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "continueWithGoogle": "Continue with Google",
+    "orDivider": "or",
+    "signInButton": "Sign in",
+    "signUpButton": "Create account",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "createOne": "Sign up",
+    "signInInstead": "Sign in",
+    "invalidCredentials": "Incorrect email or password.",
+    "emailInUse": "This email is already in use.",
+    "passwordMismatch": "Passwords do not match."
+  },
+  "business": {
+    "applyTitle": "List your business on VaraaAi.Com",
+    "applySubtitle": "Fill in the details below — our team reviews applications within 24–48 hours.",
+    "name": "Business name",
+    "description": "Short description",
+    "category": "Service category",
+    "address": "Address",
+    "city": "City",
+    "phone": "Phone number",
+    "submit": "Submit application",
+    "pendingBanner": "Your application is awaiting review by the VaraaAi team. We'll email you the result.",
+    "rejectedBanner": "Your application was not approved.",
+    "dashboardTitle": "Business dashboard",
+    "overview": "Overview",
+    "services": "Services",
+    "staff": "Staff",
+    "bookings": "Bookings",
+    "hours": "Opening hours",
+    "reviews": "Reviews",
+    "settings": "Settings",
+    "addService": "Add service",
+    "addStaff": "Add staff member",
+    "statBookingsToday": "Bookings today",
+    "statRevenueMonth": "Revenue this month",
+    "statAvgRating": "Average rating",
+    "statCompletionRate": "Completion rate"
+  },
+  "service": {
+    "duration": "min",
+    "priceFrom": "From",
+    "bookNow": "Book now",
+    "selectStaff": "Choose staff",
+    "anyStaff": "Any available staff",
+    "selectDate": "Select date",
+    "selectTime": "Select time",
+    "noSlots": "No available times on this day.",
+    "summary": "Booking summary",
+    "deposit": "Deposit",
+    "total": "Total",
+    "confirmAndPay": "Confirm & pay",
+    "note": "Note for the salon (optional)"
+  },
+  "payment": {
+    "choose": "Choose a payment method",
+    "stripe": "International card (Visa/Mastercard)",
+    "vnpay": "VNPay",
+    "momo": "MoMo wallet",
+    "sandboxNotice": "Sandbox mode — no real charge will be made.",
+    "processing": "Processing payment...",
+    "success": "Payment successful! Your booking is confirmed.",
+    "failed": "Payment failed. Please try again."
+  },
+  "booking": {
+    "status": {
+      "PENDING_PAYMENT": "Awaiting payment",
+      "CONFIRMED": "Confirmed",
+      "COMPLETED": "Completed",
+      "CANCELLED": "Cancelled",
+      "NO_SHOW": "No-show"
+    },
+    "cancel": "Cancel booking",
+    "leaveReview": "Leave a review",
+    "myBookingsTitle": "My bookings",
+    "empty": "You don't have any bookings yet."
+  },
+  "review": {
+    "title": "Rate your experience",
+    "ratingLabel": "Service quality",
+    "commentPlaceholder": "Share your experience...",
+    "submit": "Submit review",
+    "thanks": "Thanks for your review!"
+  },
+  "admin": {
+    "title": "System admin",
+    "pendingBusinesses": "Pending businesses",
+    "approve": "Approve",
+    "reject": "Reject",
+    "categories": "Categories",
+    "allBusinesses": "All businesses",
+    "noPending": "No businesses awaiting review."
+  },
+  "footer": {
+    "tagline": "Vietnam's leading salon, spa & beauty booking platform.",
+    "forCustomers": "Customers",
+    "forBusiness": "Business",
+    "company": "Company",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "viewAll": "View all",
+    "vnd": "₫",
+    "min": "min"
+  }
+}

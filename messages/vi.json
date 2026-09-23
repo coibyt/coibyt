@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "title": "VaraaAi.Com — Đặt lịch salon, spa, làm đẹp trực tuyến",
+    "description": "Tìm và đặt lịch hẹn với salon tóc, spa, thẩm mỹ viện, massage gần bạn chỉ trong vài giây."
+  },
+  "nav": {
+    "search": "Tìm dịch vụ, salon...",
+    "forBusiness": "Dành cho doanh nghiệp",
+    "signIn": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "dashboard": "Bảng điều khiển",
+    "myBookings": "Lịch hẹn của tôi",
+    "signOut": "Đăng xuất",
+    "admin": "Quản trị"
+  },
+  "home": {
+    "heroTitle": "Đặt lịch làm đẹp,\nchỉ trong vài chạm",
+    "heroSubtitle": "Khám phá salon tóc, spa, nail, massage được đánh giá cao gần bạn — đặt lịch và thanh toán ngay trên VaraaAi.",
+    "searchPlaceholder": "Cắt tóc, chăm sóc da, massage, salon...",
+    "searchCity": "Thành phố",
+    "searchButton": "Tìm kiếm",
+    "categoriesTitle": "Duyệt theo danh mục",
+    "featuredTitle": "Được yêu thích gần bạn",
+    "ctaBusinessTitle": "Bạn là chủ salon hoặc spa?",
+    "ctaBusinessSubtitle": "Đưa doanh nghiệp của bạn lên VaraaAi.Com, quản lý lịch hẹn và nhận thanh toán trực tuyến.",
+    "ctaBusinessButton": "Đăng ký doanh nghiệp miễn phí"
+  },
+  "auth": {
+    "signInTitle": "Đăng nhập vào VaraaAi",
+    "signUpTitle": "Tạo tài khoản mới",
+    "name": "Họ và tên",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "confirmPassword": "Xác nhận mật khẩu",
+    "continueWithGoogle": "Tiếp tục với Google",
+    "orDivider": "hoặc",
+    "signInButton": "Đăng nhập",
+    "signUpButton": "Tạo tài khoản",
+    "noAccount": "Chưa có tài khoản?",
+    "haveAccount": "Đã có tài khoản?",
+    "createOne": "Đăng ký ngay",
+    "signInInstead": "Đăng nhập",
+    "invalidCredentials": "Email hoặc mật khẩu không đúng.",
+    "emailInUse": "Email này đã được sử dụng.",
+    "passwordMismatch": "Mật khẩu xác nhận không khớp."
+  },
+  "business": {
+    "applyTitle": "Đăng ký doanh nghiệp lên VaraaAi.Com",
+    "applySubtitle": "Điền thông tin bên dưới, đội ngũ VaraaAi sẽ xét duyệt trong vòng 24–48 giờ.",
+    "name": "Tên doanh nghiệp",
+    "description": "Giới thiệu ngắn",
+    "category": "Danh mục dịch vụ",
+    "address": "Địa chỉ",
+    "city": "Thành phố",
+    "phone": "Số điện thoại",
+    "submit": "Gửi đăng ký",
+    "pendingBanner": "Hồ sơ của bạn đang chờ VaraaAi xét duyệt. Chúng tôi sẽ email khi có kết quả.",
+    "rejectedBanner": "Hồ sơ của bạn chưa được duyệt.",
+    "dashboardTitle": "Bảng điều khiển doanh nghiệp",
+    "overview": "Tổng quan",
+    "services": "Dịch vụ",
+    "staff": "Nhân viên",
+    "bookings": "Lịch hẹn",
+    "hours": "Giờ mở cửa",
+    "reviews": "Đánh giá",
+    "settings": "Cài đặt",
+    "addService": "Thêm dịch vụ",
+    "addStaff": "Thêm nhân viên",
+    "statBookingsToday": "Lịch hẹn hôm nay",
+    "statRevenueMonth": "Doanh thu tháng này",
+    "statAvgRating": "Đánh giá trung bình",
+    "statCompletionRate": "Tỷ lệ hoàn thành"
+  },
+  "service": {
+    "duration": "phút",
+    "priceFrom": "Từ",
+    "bookNow": "Đặt lịch",
+    "selectStaff": "Chọn nhân viên",
+    "anyStaff": "Bất kỳ ai còn trống",
+    "selectDate": "Chọn ngày",
+    "selectTime": "Chọn giờ",
+    "noSlots": "Không còn giờ trống trong ngày này.",
+    "summary": "Tóm tắt đặt lịch",
+    "deposit": "Đặt cọc",
+    "total": "Tổng cộng",
+    "confirmAndPay": "Xác nhận & Thanh toán",
+    "note": "Ghi chú cho salon (không bắt buộc)"
+  },
+  "payment": {
+    "choose": "Chọn phương thức thanh toán",
+    "stripe": "Thẻ quốc tế (Visa/Mastercard)",
+    "vnpay": "VNPay",
+    "momo": "Ví MoMo",
+    "sandboxNotice": "Đang ở chế độ thử nghiệm (sandbox) — chưa phát sinh giao dịch thật.",
+    "processing": "Đang xử lý thanh toán...",
+    "success": "Thanh toán thành công! Lịch hẹn của bạn đã được xác nhận.",
+    "failed": "Thanh toán thất bại. Vui lòng thử lại."
+  },
+  "booking": {
+    "status": {
+      "PENDING_PAYMENT": "Chờ thanh toán",
+      "CONFIRMED": "Đã xác nhận",
+      "COMPLETED": "Hoàn thành",
+      "CANCELLED": "Đã huỷ",
+      "NO_SHOW": "Không đến"
+    },
+    "cancel": "Huỷ lịch hẹn",
+    "leaveReview": "Đánh giá",
+    "myBookingsTitle": "Lịch hẹn của tôi",
+    "empty": "Bạn chưa có lịch hẹn nào."
+  },
+  "review": {
+    "title": "Đánh giá trải nghiệm của bạn",
+    "ratingLabel": "Chất lượng dịch vụ",
+    "commentPlaceholder": "Chia sẻ trải nghiệm của bạn...",
+    "submit": "Gửi đánh giá",
+    "thanks": "Cảm ơn bạn đã đánh giá!"
+  },
+  "admin": {
+    "title": "Quản trị hệ thống",
+    "pendingBusinesses": "Doanh nghiệp chờ duyệt",
+    "approve": "Duyệt",
+    "reject": "Từ chối",
+    "categories": "Danh mục",
+    "allBusinesses": "Tất cả doanh nghiệp",
+    "noPending": "Không có doanh nghiệp nào đang chờ duyệt."
+  },
+  "footer": {
+    "tagline": "Nền tảng đặt lịch salon, spa & làm đẹp hàng đầu Việt Nam.",
+    "forCustomers": "Khách hàng",
+    "forBusiness": "Doanh nghiệp",
+    "company": "Công ty",
+    "rights": "Bảo lưu mọi quyền."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "save": "Lưu",
+    "cancel": "Huỷ",
+    "edit": "Sửa",
+    "delete": "Xoá",
+    "back": "Quay lại",
+    "viewAll": "Xem tất cả",
+    "vnd": "₫",
+    "min": "phút"
+  }
+}
