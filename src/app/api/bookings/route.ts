@@ -33,6 +33,15 @@ export async function POST(req: Request) {
 
   const startsAt = new Date(data.startsAt);
 
+  let extraDurationMin = 0;
+  if (data.addOnIds?.length) {
+    const addOns = await prisma.serviceAddOn.findMany({
+      where: { id: { in: data.addOnIds }, businessId: service.businessId, active: true },
+      select: { durationMin: true },
+    });
+    extraDurationMin = addOns.reduce((sum, a) => sum + a.durationMin, 0);
+  }
+
   // Resolve a concrete staff member — required even for "any staff" bookings
   // so the DB overlap check has something to key off.
   let staffId = data.staffId;
@@ -42,6 +51,7 @@ export async function POST(req: Request) {
       businessId: service.businessId,
       serviceId: data.serviceId,
       dateStr,
+      extraDurationMin,
     });
     const match = slots.find(
       (s) => s.startsAt.getTime() === startsAt.getTime()
@@ -70,6 +80,7 @@ export async function POST(req: Request) {
       locale: (session.user as { locale?: "vi" | "en" }).locale ?? "vi",
       siteUrl,
       ipAddr,
+      addOnIds: data.addOnIds,
     });
 
     return NextResponse.json({ bookingId: booking.id, redirectUrl });

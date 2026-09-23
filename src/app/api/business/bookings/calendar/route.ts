@@ -51,6 +51,7 @@ export async function GET(req: Request) {
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true } },
+      addOns: { select: { name: true } },
     },
     orderBy: { startsAt: "asc" },
   });
@@ -69,6 +70,7 @@ export async function GET(req: Request) {
       serviceName: b.service.name,
       customerName: b.customer.name,
       customerPhone: b.customer.phone,
+      addOnNames: b.addOns.map((a) => a.name),
     })),
   });
 }

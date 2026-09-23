@@ -38,6 +38,7 @@ interface CalendarBooking {
   serviceName: string;
   customerName: string;
   customerPhone: string | null;
+  addOnNames: string[];
 }
 
 const HOUR_HEIGHT = 56; // px per hour in the day/week grid
@@ -462,6 +463,11 @@ export function BookingCalendar({
             </div>
             <div className="space-y-1.5 text-sm">
               <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
+              {activeBooking.addOnNames.map((name) => (
+                <p key={name} className="text-ink-400">
+                  + {name}
+                </p>
+              ))}
               {activeBooking.staffName && (
                 <p className="text-ink-400">{activeBooking.staffName}</p>
               )}

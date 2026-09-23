@@ -49,8 +49,12 @@ export async function getAvailableSlots(params: {
   /** Calendar date as "YYYY-MM-DD", meaning that date in the BUSINESS's own
    * timezone — never parsed against the server's own system timezone. */
   dateStr: string;
+  /** Extra minutes tacked on for any add-ons the customer has selected — the
+   * chair is occupied for service + add-ons together, so slots must reflect
+   * the combined duration, not just the base service. */
+  extraDurationMin?: number;
 }): Promise<AvailableSlot[]> {
-  const { businessId, serviceId, staffId, dateStr } = params;
+  const { businessId, serviceId, staffId, dateStr, extraDurationMin = 0 } = params;
 
   const business = await prisma.business.findUnique({
     where: { id: businessId },
@@ -113,7 +117,8 @@ export async function getAvailableSlots(params: {
     windowsByStaff.set(staff.id, clamped);
   }
 
-  const duration = service.durationMin + service.bufferMin;
+  const visibleDuration = service.durationMin + extraDurationMin;
+  const duration = visibleDuration + service.bufferMin;
 
   // Load existing bookings + staff time-off for the day, once, for all staff.
   const [bookings, timeOff] = await Promise.all([
@@ -181,7 +186,7 @@ export async function getAvailableSlots(params: {
     if (freeStaff) {
       slots.push({
         startsAt: slotStartUtc,
-        endsAt: new Date(slotStartUtc.getTime() + service.durationMin * 60_000),
+        endsAt: new Date(slotStartUtc.getTime() + visibleDuration * 60_000),
         staffId: freeStaff.id,
       });
     }

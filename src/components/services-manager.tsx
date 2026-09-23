@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatMoney } from "@/lib/money";
-import { Plus, Trash2, Loader2 } from "lucide-react";
+import { Plus, Trash2, Loader2, Sparkles } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
+import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 
 interface ServiceRow {
   id: string;
@@ -47,6 +48,7 @@ export function ServicesManager({
   const router = useRouter();
 
   const [showForm, setShowForm] = useState(false);
+  const [addOnsFor, setAddOnsFor] = useState<ServiceRow | null>(null);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
 
@@ -91,15 +93,33 @@ export function ServicesManager({
                 {formatMoney(s.priceCents, s.currency, locale)}
               </p>
             </div>
-            <button
-              onClick={() => removeService(s.id)}
-              className="btn-ghost !p-2 text-berry-500"
-              aria-label={tCommon("delete")}
-            >
-              <Trash2 className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setAddOnsFor(s)}
+                className="btn-ghost !p-2 text-ink-700"
+                title={locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}
+              >
+                <Sparkles className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => removeService(s.id)}
+                className="btn-ghost !p-2 text-berry-500"
+                aria-label={tCommon("delete")}
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         ))}
+
+        {addOnsFor && (
+          <ServiceAddOnsModal
+            serviceId={addOnsFor.id}
+            serviceName={addOnsFor.name}
+            locale={locale}
+            onClose={() => setAddOnsFor(null)}
+          />
+        )}
 
       {!showForm ? (
         <button onClick={() => setShowForm(true)} className="btn-outline">

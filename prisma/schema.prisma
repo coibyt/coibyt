@@ -134,6 +134,7 @@ model Business {
   reviews    Review[]
   hours      BusinessHours[]
   closures   BusinessClosure[]
+  addOns     ServiceAddOn[]
 
   @@index([status])
   @@index([city])
@@ -235,6 +236,7 @@ model Service {
 
   staff    StaffService[]
   bookings Booking[]
+  addOns   ServiceAddOnLink[]
 
   @@index([businessId])
   @@index([categoryId])
@@ -247,6 +249,34 @@ model StaffService {
   service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
 
   @@id([staffId, serviceId])
+}
+
+// Optional extras a customer can add on top of a main service (e.g. a
+// "gloss treatment" add-on next to a haircut) — a business-wide catalog,
+// each item opted into per service via ServiceAddOnLink.
+model ServiceAddOn {
+  id          String   @id @default(cuid())
+  businessId  String
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name        String
+  priceCents  Int
+  durationMin Int      @default(0) // extra minutes tacked onto the appointment
+  active      Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  services      ServiceAddOnLink[]
+  bookingAddOns BookingAddOn[]
+
+  @@index([businessId])
+}
+
+model ServiceAddOnLink {
+  serviceId String
+  addOnId   String
+  service   Service      @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  addOn     ServiceAddOn @relation(fields: [addOnId], references: [id], onDelete: Cascade)
+
+  @@id([serviceId, addOnId])
 }
 
 // ────────────────────────────────────────────────────────────────────
@@ -288,6 +318,7 @@ model Booking {
 
   payment Payment?
   review  Review?
+  addOns  BookingAddOn[]
 
   @@index([businessId, startsAt])
   @@index([staffId, startsAt])
@@ -338,4 +369,20 @@ model Review {
   createdAt  DateTime @default(now())
 
   @@index([businessId])
+}
+
+// Add-ons selected for a specific booking. Name/price/duration are snapshot
+// at booking time so a later price change to the catalog item never rewrites
+// history — addOnId is nullable so deleting a catalog item doesn't touch it.
+model BookingAddOn {
+  id          String        @id @default(cuid())
+  bookingId   String
+  booking     Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  addOnId     String?
+  addOn       ServiceAddOn? @relation(fields: [addOnId], references: [id], onDelete: SetNull)
+  name        String
+  priceCents  Int
+  durationMin Int
+
+  @@index([bookingId])
 }

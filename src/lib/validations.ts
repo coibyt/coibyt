@@ -33,6 +33,14 @@ export const serviceSchema = z.object({
   staffIds: z.array(z.string().cuid()).optional(),
 });
 
+export const serviceAddOnSchema = z.object({
+  name: z.string().min(2).max(120),
+  priceCents: z.coerce.number().int().min(0),
+  durationMin: z.coerce.number().int().min(0).max(300).default(0),
+});
+
+export const serviceAddOnLinksSchema = z.array(z.string().cuid());
+
 export const staffSchema = z.object({
   name: z.string().min(2).max(120),
   title: z.string().max(120).optional(),
@@ -55,6 +63,7 @@ export const createBookingSchema = z.object({
   startsAt: z.string().datetime(),
   customerNote: z.string().max(1000).optional(),
   paymentProvider: z.enum(["CASH", "STRIPE", "VNPAY", "MOMO"]),
+  addOnIds: z.array(z.string().cuid()).max(20).optional(),
 });
 
 export const reviewSchema = z.object({

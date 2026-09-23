@@ -19,7 +19,7 @@ export default async function BookingSuccessPage({
 
   const booking = await prisma.booking.findUnique({
     where: { id },
-    include: { business: true, service: true },
+    include: { business: true, service: true, addOns: true },
   });
   if (!booking) notFound();
 
@@ -43,6 +43,11 @@ export default async function BookingSuccessPage({
             timeZone: booking.business.timezone,
           })}
         </p>
+        {booking.addOns.map((a) => (
+          <p key={a.id} className="text-sm text-ink-700">
+            + {a.name} ({formatMoney(a.priceCents, booking.currency, locale)})
+          </p>
+        ))}
         <div className="flex items-center justify-between border-t border-ink-100 pt-2">
           <span className="text-sm text-ink-400">
             {isCash ? t("cash") : undefined}

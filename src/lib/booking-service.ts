@@ -37,15 +37,28 @@ export async function createBookingAndPayment(params: {
   locale: "vi" | "en";
   siteUrl: string;
   ipAddr: string;
+  /** Add-on catalog item ids the customer selected — prices/durations are
+   * always re-read from the DB here, never trusted from the request. */
+  addOnIds?: string[];
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
     include: { business: true },
   });
+
+  const addOns = params.addOnIds?.length
+    ? await prisma.serviceAddOn.findMany({
+        where: { id: { in: params.addOnIds }, businessId: params.businessId, active: true },
+      })
+    : [];
+  const addOnDurationSum = addOns.reduce((sum, a) => sum + a.durationMin, 0);
+  const addOnPriceSum = addOns.reduce((sum, a) => sum + a.priceCents, 0);
+
   const endsAt = addMinutes(
     params.startsAt,
-    service.durationMin + service.bufferMin
+    service.durationMin + addOnDurationSum + service.bufferMin
   );
+  const totalPriceCents = service.priceCents + addOnPriceSum;
 
   const booking = await prisma.$transaction(async (tx) => {
     const conflict = await tx.booking.findFirst({
@@ -59,7 +72,7 @@ export async function createBookingAndPayment(params: {
     });
     if (conflict) throw new SlotUnavailableError();
 
-    return tx.booking.create({
+    const created = await tx.booking.create({
       data: {
         businessId: params.businessId,
         serviceId: params.serviceId,
@@ -67,7 +80,7 @@ export async function createBookingAndPayment(params: {
         customerId: params.customerId,
         startsAt: params.startsAt,
         endsAt,
-        priceCents: service.priceCents,
+        priceCents: totalPriceCents,
         depositCents: service.depositCents,
         currency: service.currency,
         customerNote: params.customerNote,
@@ -76,6 +89,20 @@ export async function createBookingAndPayment(params: {
         status: params.provider === "CASH" ? "CONFIRMED" : "PENDING_PAYMENT",
       },
     });
+
+    if (addOns.length > 0) {
+      await tx.bookingAddOn.createMany({
+        data: addOns.map((a) => ({
+          bookingId: created.id,
+          addOnId: a.id,
+          name: a.name,
+          priceCents: a.priceCents,
+          durationMin: a.durationMin,
+        })),
+      });
+    }
+
+    return created;
   });
 
   if (params.provider === "CASH") {

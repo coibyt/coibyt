@@ -31,6 +31,13 @@ interface Slot {
   staffId: string;
 }
 
+interface AddOnOption {
+  id: string;
+  name: string;
+  priceCents: number;
+  durationMin: number;
+}
+
 const DAYS_AHEAD = 14;
 // "CASH" (pay at the salon) listed first and selected by default — the site
 // doesn't require an online merchant account to start taking bookings.
@@ -45,17 +52,20 @@ export function BookingWidget({
   businessSlug,
   service,
   staffOptions,
+  addOnOptions,
   locale,
   businessTimezone,
 }: {
   businessSlug: string;
   service: ServiceInfo;
   staffOptions: StaffOption[];
+  addOnOptions: AddOnOption[];
   locale: string;
   businessTimezone: string;
 }) {
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
+  const tCommon = useTranslations("common");
   const { data: session, status } = useSession();
 
   // "Today" and every date/time shown here is anchored to the SALON's
@@ -67,6 +77,7 @@ export function BookingWidget({
   );
 
   const [staffId, setStaffId] = useState<string>("");
+  const [selectedAddOnIds, setSelectedAddOnIds] = useState<Set<string>>(new Set());
   const [selectedDate, setSelectedDate] = useState(todayInBusinessTz);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
@@ -81,6 +92,19 @@ export function BookingWidget({
     [todayInBusinessTz]
   );
 
+  const selectedAddOns = addOnOptions.filter((a) => selectedAddOnIds.has(a.id));
+  const addOnPriceSum = selectedAddOns.reduce((sum, a) => sum + a.priceCents, 0);
+  const addOnIdsKey = Array.from(selectedAddOnIds).sort().join(",");
+
+  function toggleAddOn(id: string) {
+    setSelectedAddOnIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  }
+
   useEffect(() => {
     setSelectedSlot(null);
     setLoadingSlots(true);
@@ -89,13 +113,14 @@ export function BookingWidget({
       date: format(selectedDate, "yyyy-MM-dd"),
     });
     if (staffId) params.set("staffId", staffId);
+    if (addOnIdsKey) params.set("addOnIds", addOnIdsKey);
 
     fetch(`/api/businesses/${businessSlug}/availability?${params.toString()}`)
       .then((r) => r.json())
       .then((data) => setSlots(data.slots ?? []))
       .catch(() => setSlots([]))
       .finally(() => setLoadingSlots(false));
-  }, [businessSlug, service.id, staffId, selectedDate]);
+  }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey]);
 
   async function handleSubmit() {
     if (!selectedSlot) return;
@@ -111,6 +136,7 @@ export function BookingWidget({
           startsAt: selectedSlot.startsAt,
           customerNote: note || undefined,
           paymentProvider: provider,
+          addOnIds: Array.from(selectedAddOnIds),
         }),
       });
       const data = await res.json();
@@ -126,10 +152,12 @@ export function BookingWidget({
     }
   }
 
+  const totalServiceCents = service.priceCents + addOnPriceSum;
+
   // Paying online can be for just the deposit; paying at the salon always
   // means the full price, since there's no online step to collect a deposit.
   const amountDue =
-    provider === "CASH" ? service.priceCents : service.depositCents ?? service.priceCents;
+    provider === "CASH" ? totalServiceCents : service.depositCents ?? totalServiceCents;
 
   if (status === "unauthenticated") {
     return (
@@ -148,6 +176,45 @@ export function BookingWidget({
 
   return (
     <div className="space-y-6">
+      {addOnOptions.length > 0 && (
+        <div>
+          <p className="label">
+            {locale === "vi" ? "Dịch vụ phụ (không bắt buộc)" : "Add-ons (optional)"}
+          </p>
+          <div className="space-y-2">
+            {addOnOptions.map((a) => (
+              <label
+                key={a.id}
+                className={`flex cursor-pointer items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-sm transition-colors ${
+                  selectedAddOnIds.has(a.id)
+                    ? "border-primary-500 bg-primary-50"
+                    : "border-ink-100 hover:border-ink-400"
+                }`}
+              >
+                <span className="flex items-center gap-2.5">
+                  <input
+                    type="checkbox"
+                    checked={selectedAddOnIds.has(a.id)}
+                    onChange={() => toggleAddOn(a.id)}
+                  />
+                  <span>
+                    {a.name}
+                    {a.durationMin > 0 && (
+                      <span className="ml-1.5 text-xs text-ink-400">
+                        +{a.durationMin} {tCommon("min")}
+                      </span>
+                    )}
+                  </span>
+                </span>
+                <span className="font-medium text-ink-900">
+                  +{formatMoney(a.priceCents, service.currency, locale)}
+                </span>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
+
       {staffOptions.length > 0 && (
         <div>
           <p className="label">{t("selectStaff")}</p>
@@ -258,6 +325,12 @@ export function BookingWidget({
           <span>{service.name}</span>
           <span>{formatMoney(service.priceCents, service.currency, locale)}</span>
         </div>
+        {selectedAddOns.map((a) => (
+          <div key={a.id} className="flex justify-between text-sm text-ink-700">
+            <span>{a.name}</span>
+            <span>{formatMoney(a.priceCents, service.currency, locale)}</span>
+          </div>
+        ))}
         {provider !== "CASH" && service.depositCents && (
           <div className="flex justify-between text-sm text-ink-400">
             <span>{t("deposit")}</span>

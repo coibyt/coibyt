@@ -22,11 +22,21 @@ export default async function BookServicePage({
       staff: {
         include: { staff: true },
       },
+      addOns: {
+        where: { addOn: { active: true } },
+        include: { addOn: true },
+      },
     },
   });
   if (!service) notFound();
 
   const staffOptions = service.staff.map((s) => s.staff).filter((s) => s.active);
+  const addOnOptions = service.addOns.map((link) => ({
+    id: link.addOn.id,
+    name: link.addOn.name,
+    priceCents: link.addOn.priceCents,
+    durationMin: link.addOn.durationMin,
+  }));
 
   return (
     <div className="container max-w-3xl py-10">
@@ -54,6 +64,7 @@ export default async function BookServicePage({
           durationMin: service.durationMin,
         }}
         staffOptions={staffOptions.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
+        addOnOptions={addOnOptions}
         locale={locale}
         businessTimezone={business.timezone}
       />
