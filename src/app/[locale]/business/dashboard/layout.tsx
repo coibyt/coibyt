@@ -36,6 +36,7 @@ export default async function BusinessDashboardLayout({
     { href: "/business/dashboard/customers", label: t("customers") },
     { href: "/business/dashboard/hours", label: t("hours") },
     { href: "/business/dashboard/reviews", label: t("reviews") },
+    { href: "/business/dashboard/settings", label: t("settings") },
   ];
 
   return (

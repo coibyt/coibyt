@@ -3,6 +3,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 import { sendMail } from "@/lib/mailer";
+import { geocodeAddress } from "@/lib/geocode";
 
 const schema = z.object({
   status: z.enum(["APPROVED", "REJECTED", "SUSPENDED"]),
@@ -32,6 +33,23 @@ export async function PATCH(
     },
     include: { owner: { select: { name: true, email: true, locale: true } } },
   });
+
+  // Best-effort — a missing/unresolvable address just means the business
+  // won't show up on the map yet, it doesn't block approval either way.
+  if (
+    business.status === "APPROVED" &&
+    business.lat === null &&
+    business.addressLine &&
+    business.city
+  ) {
+    const coords = await geocodeAddress(business.addressLine, business.city);
+    if (coords) {
+      await prisma.business.update({
+        where: { id },
+        data: { lat: coords.lat, lng: coords.lng },
+      });
+    }
+  }
 
   const isVi = business.owner.locale === "vi";
   if (business.status === "APPROVED") {

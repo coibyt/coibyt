@@ -1,7 +1,6 @@
-import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
-import { BusinessCard } from "@/components/business-card";
 import { SearchBarHero } from "@/components/search-bar";
+import { SearchResults } from "@/components/search-results";
 import type { Prisma } from "@prisma/client";
 
 export default async function SearchPage({
@@ -13,7 +12,6 @@ export default async function SearchPage({
 }) {
   const { locale } = await params;
   const { q, city, category } = await searchParams;
-  const t = await getTranslations("home");
 
   const where: Prisma.BusinessWhereInput = {
     status: "APPROVED",
@@ -36,8 +34,24 @@ export default async function SearchPage({
     include: {
       reviews: { select: { rating: true } },
       categories: { include: { category: true } },
+      services: { where: { active: true }, select: { priceCents: true, currency: true } },
     },
   });
+
+  const results = businesses.map((b) => ({
+    id: b.id,
+    slug: b.slug,
+    name: b.name,
+    coverUrl: b.coverUrl,
+    city: b.city,
+    lat: b.lat,
+    lng: b.lng,
+    reviews: b.reviews,
+    categories: b.categories,
+    minPriceCents:
+      b.services.length > 0 ? Math.min(...b.services.map((s) => s.priceCents)) : null,
+    currency: b.services[0]?.currency ?? "VND",
+  }));
 
   return (
     <div className="container py-10">
@@ -45,19 +59,7 @@ export default async function SearchPage({
         <SearchBarHero />
       </div>
 
-      {businesses.length === 0 ? (
-        <p className="py-20 text-center text-ink-400">
-          {locale === "vi"
-            ? "Không tìm thấy kết quả phù hợp."
-            : "No matching results."}
-        </p>
-      ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {businesses.map((b) => (
-            <BusinessCard key={b.id} business={b} locale={locale} />
-          ))}
-        </div>
-      )}
+      <SearchResults businesses={results} locale={locale} />
     </div>
   );
 }
