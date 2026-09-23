@@ -34,30 +34,57 @@ function priceIcon(label: string) {
   });
 }
 
-/** Recenters the map whenever the visible business list changes (e.g. after
- * a "near me" search), without remounting the whole map. */
-function FitBounds({ businesses }: { businesses: MapBusiness[] }) {
+function userIcon() {
+  return L.divIcon({
+    className: "",
+    html: `<div style="
+      width:16px;height:16px;border-radius:50%;
+      background:#4285F4;border:3px solid #fff;
+      box-shadow:0 0 0 2px rgba(66,133,244,0.35), 0 2px 6px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [16, 16],
+    iconAnchor: [8, 8],
+  });
+}
+
+/** Centers on the customer's own location once known (so the map actually
+ * shows "areas near you" rather than the whole country); otherwise falls
+ * back to fitting all visible business markers. */
+function FitBounds({
+  businesses,
+  userLocation,
+}: {
+  businesses: MapBusiness[];
+  userLocation: [number, number] | null;
+}) {
   const map = useMap();
   useMemo(() => {
+    if (userLocation) {
+      map.setView(userLocation, 14);
+      return;
+    }
     if (businesses.length === 0) return;
     const bounds = L.latLngBounds(businesses.map((b) => [b.lat, b.lng]));
     map.fitBounds(bounds, { padding: [40, 40], maxZoom: 15 });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [businesses.map((b) => b.id).join(",")]);
+  }, [userLocation?.join(","), businesses.map((b) => b.id).join(",")]);
   return null;
 }
 
 export function SearchMap({
   businesses,
   locale,
+  userLocation = null,
 }: {
   businesses: MapBusiness[];
   locale: string;
+  userLocation?: [number, number] | null;
 }) {
   const center: [number, number] =
-    businesses.length > 0
+    userLocation ??
+    (businesses.length > 0
       ? [businesses[0].lat, businesses[0].lng]
-      : [16.0544, 108.2022]; // Vietnam, roughly central, as a fallback
+      : [16.0544, 108.2022]); // Vietnam, roughly central, as a fallback
 
   return (
     <div className="h-[600px] w-full overflow-hidden rounded-2xl border border-ink-100">
@@ -66,7 +93,8 @@ export function SearchMap({
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <FitBounds businesses={businesses} />
+        <FitBounds businesses={businesses} userLocation={userLocation} />
+        {userLocation && <Marker position={userLocation} icon={userIcon()} />}
         {businesses.map((b) => (
           <Marker
             key={b.id}

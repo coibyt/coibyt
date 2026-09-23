@@ -27,3 +27,24 @@ export async function geocodeAddress(
     return null;
   }
 }
+
+/** Reverse of the above: turns a browser geolocation fix into an ISO
+ * 3166-1 alpha-2 country code, used to auto-pick the site's language. Kept
+ * server-side (via /api/geolocate) because browsers refuse to set a custom
+ * User-Agent on fetch(), which Nominatim's usage policy asks for. */
+export async function reverseGeocodeCountry(lat: number, lng: number): Promise<string | null> {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        "User-Agent": "VaraaAi.Com booking platform (contact: admin@varaaai.com)",
+      },
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { address?: { country_code?: string } };
+    return data.address?.country_code?.toLowerCase() ?? null;
+  } catch {
+    return null;
+  }
+}

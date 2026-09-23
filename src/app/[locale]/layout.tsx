@@ -8,6 +8,7 @@ import { isValidLocale } from "@/i18n/is-valid-locale";
 import { SessionProvider } from "@/components/session-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { LocaleAutoDetect } from "@/components/locale-auto-detect";
 import "../globals.css";
 
 // Be Vietnam Pro is purpose-built for Vietnamese diacritics while still
@@ -15,7 +16,7 @@ import "../globals.css";
 // available match to timma.fi's "Sofia Pro" that also fully supports our
 // primary-language content.
 const sans = Be_Vietnam_Pro({
-  subsets: ["latin", "vietnamese"],
+  subsets: ["latin", "latin-ext", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",
@@ -55,6 +56,7 @@ export default async function LocaleLayout({
       <body className="flex min-h-screen flex-col font-sans">
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
+            <LocaleAutoDetect />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

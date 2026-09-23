@@ -3,7 +3,7 @@ import { Be_Vietnam_Pro } from "next/font/google";
 import "../globals.css";
 
 const sans = Be_Vietnam_Pro({
-  subsets: ["latin", "vietnamese"],
+  subsets: ["latin", "latin-ext", "vietnamese"],
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-sans",
   display: "swap",

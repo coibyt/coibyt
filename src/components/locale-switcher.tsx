@@ -2,24 +2,40 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { isValidLocale } from "@/i18n/is-valid-locale";
+
+const LOCALE_LABELS: Record<string, string> = {
+  vi: "Tiếng Việt",
+  en: "English",
+  fi: "Suomi",
+  pl: "Polski",
+  de: "Deutsch",
+  km: "ខ្មែរ",
+  th: "ไทย",
+};
 
 export function LocaleSwitcher() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
-  function toggle() {
-    const next = locale === "vi" ? "en" : "vi";
-    router.replace(pathname, { locale: next });
+  function onChange(next: string) {
+    if (isValidLocale(next)) router.replace(pathname, { locale: next });
   }
 
   return (
-    <button
-      onClick={toggle}
-      className="btn-ghost !px-3 text-xs font-bold uppercase"
+    <select
+      value={locale}
+      onChange={(e) => onChange(e.target.value)}
       aria-label="Switch language"
+      className="btn-ghost cursor-pointer !px-2 bg-transparent text-xs font-bold uppercase"
     >
-      {locale === "vi" ? "EN" : "VI"}
-    </button>
+      {routing.locales.map((l) => (
+        <option key={l} value={l}>
+          {LOCALE_LABELS[l] ?? l.toUpperCase()}
+        </option>
+      ))}
+    </select>
   );
 }

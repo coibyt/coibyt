@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { List, Map as MapIcon, LocateFixed, Loader2 } from "lucide-react";
 import { BusinessCard } from "@/components/business-card";
@@ -44,10 +44,16 @@ export function SearchResults({
   businesses: BusinessForCard[];
   locale: string;
 }) {
-  const [view, setView] = useState<"list" | "map">("list");
+  const [view, setView] = useState<"list" | "map">("map");
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [locating, setLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
+
+  // Ask for the customer's location as soon as the search page loads, rather
+  // than waiting for them to notice and click "find near me" — the map is
+  // the default view specifically so this has something to center on.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { findNearMe(); }, []);
 
   function findNearMe() {
     if (!navigator.geolocation) {
@@ -150,7 +156,7 @@ export function SearchResults({
           ))}
         </div>
       ) : (
-        <SearchMap businesses={mapBusinesses} locale={locale} />
+        <SearchMap businesses={mapBusinesses} locale={locale} userLocation={userLocation} />
       )}
     </div>
   );
