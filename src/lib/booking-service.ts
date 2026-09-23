@@ -3,6 +3,7 @@ import { addMinutes } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
 import { buildVnpayPaymentUrl } from "@/lib/payments/vnpay";
 import { createMomoPayment } from "@/lib/payments/momo";
+import { sendMail, bookingConfirmationEmail } from "@/lib/mailer";
 import type { PaymentProvider } from "@prisma/client";
 
 export class SlotUnavailableError extends Error {
@@ -11,12 +12,17 @@ export class SlotUnavailableError extends Error {
   }
 }
 
+/** Online gateways create a Payment row and require a redirect+callback.
+ * "CASH" (pay at the salon, the site's default) needs neither — the booking
+ * is confirmed immediately and the customer settles up in person. */
+export type BookingPaymentChoice = PaymentProvider | "CASH";
+
 /**
- * Creates the Booking + Payment rows and kicks off the chosen payment
- * provider's checkout, returning the URL the browser should redirect to.
- * The overlap check is repeated inside the transaction (not just trusted
- * from the availability endpoint the client called earlier) to close the
- * race window between "browse slots" and "confirm booking".
+ * Creates the Booking (+ Payment row for online gateways) and kicks off the
+ * chosen payment provider's checkout, returning the URL the browser should
+ * redirect to. The overlap check is repeated inside the transaction (not
+ * just trusted from the availability endpoint the client called earlier) to
+ * close the race window between "browse slots" and "confirm booking".
  */
 export async function createBookingAndPayment(params: {
   customerId: string;
@@ -27,7 +33,7 @@ export async function createBookingAndPayment(params: {
   staffId: string; // resolved concrete staff, even for "any staff" bookings
   startsAt: Date;
   customerNote?: string;
-  provider: PaymentProvider;
+  provider: BookingPaymentChoice;
   locale: "vi" | "en";
   siteUrl: string;
   ipAddr: string;
@@ -65,10 +71,29 @@ export async function createBookingAndPayment(params: {
         depositCents: service.depositCents,
         currency: service.currency,
         customerNote: params.customerNote,
-        status: "PENDING_PAYMENT",
+        // Pay-at-salon has nothing to wait on, so it's confirmed right away;
+        // online gateways stay PENDING_PAYMENT until their callback fires.
+        status: params.provider === "CASH" ? "CONFIRMED" : "PENDING_PAYMENT",
       },
     });
   });
+
+  if (params.provider === "CASH") {
+    const email = bookingConfirmationEmail({
+      customerName: params.customerName,
+      businessName: service.business.name,
+      serviceName: service.name,
+      startsAt: booking.startsAt,
+      locale: params.locale,
+      businessTimezone: service.business.timezone,
+    });
+    await sendMail({ to: params.customerEmail, ...email });
+
+    return {
+      booking,
+      redirectUrl: `${params.siteUrl}/booking/${booking.id}/success?provider=cash`,
+    };
+  }
 
   const amountCents = booking.depositCents ?? booking.priceCents;
   const orderInfo = `VaraaAi #${booking.id} - ${service.name}`;

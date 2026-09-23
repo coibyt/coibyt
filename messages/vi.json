@@ -83,14 +83,18 @@
     "summary": "Tóm tắt đặt lịch",
     "deposit": "Đặt cọc",
     "total": "Tổng cộng",
+    "dueAtSalon": "Thanh toán tại salon",
     "confirmAndPay": "Xác nhận & Thanh toán",
+    "confirmBooking": "Xác nhận đặt lịch",
     "note": "Ghi chú cho salon (không bắt buộc)"
   },
   "payment": {
     "choose": "Chọn phương thức thanh toán",
+    "cash": "Thanh toán tại salon",
     "stripe": "Thẻ quốc tế (Visa/Mastercard)",
     "vnpay": "VNPay",
     "momo": "Ví MoMo",
+    "cashNotice": "Bạn sẽ thanh toán trực tiếp bằng tiền mặt hoặc thẻ khi đến salon.",
     "sandboxNotice": "Đang ở chế độ thử nghiệm (sandbox) — chưa phát sinh giao dịch thật.",
     "processing": "Đang xử lý thanh toán...",
     "success": "Thanh toán thành công! Lịch hẹn của bạn đã được xác nhận.",

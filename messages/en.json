@@ -83,14 +83,18 @@
     "summary": "Booking summary",
     "deposit": "Deposit",
     "total": "Total",
+    "dueAtSalon": "Due at the salon",
     "confirmAndPay": "Confirm & pay",
+    "confirmBooking": "Confirm booking",
     "note": "Note for the salon (optional)"
   },
   "payment": {
     "choose": "Choose a payment method",
+    "cash": "Pay at the salon",
     "stripe": "International card (Visa/Mastercard)",
     "vnpay": "VNPay",
     "momo": "MoMo wallet",
+    "cashNotice": "You'll pay by cash or card in person when you arrive.",
     "sandboxNotice": "Sandbox mode — no real charge will be made.",
     "processing": "Processing payment...",
     "success": "Payment successful! Your booking is confirmed.",

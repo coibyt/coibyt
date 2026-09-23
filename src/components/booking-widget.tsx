@@ -8,7 +8,7 @@ import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
-import { CreditCard, Wallet, Landmark, Loader2 } from "lucide-react";
+import { CreditCard, Wallet, Landmark, Banknote, Loader2 } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -32,7 +32,10 @@ interface Slot {
 }
 
 const DAYS_AHEAD = 14;
+// "CASH" (pay at the salon) listed first and selected by default — the site
+// doesn't require an online merchant account to start taking bookings.
 const PAYMENT_METHODS = [
+  { id: "CASH", icon: Banknote },
   { id: "STRIPE", icon: CreditCard },
   { id: "VNPAY", icon: Landmark },
   { id: "MOMO", icon: Wallet },
@@ -68,7 +71,7 @@ export function BookingWidget({
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
-  const [provider, setProvider] = useState<(typeof PAYMENT_METHODS)[number]["id"]>("STRIPE");
+  const [provider, setProvider] = useState<(typeof PAYMENT_METHODS)[number]["id"]>("CASH");
   const [note, setNote] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -123,7 +126,10 @@ export function BookingWidget({
     }
   }
 
-  const amountDue = service.depositCents ?? service.priceCents;
+  // Paying online can be for just the deposit; paying at the salon always
+  // means the full price, since there's no online step to collect a deposit.
+  const amountDue =
+    provider === "CASH" ? service.priceCents : service.depositCents ?? service.priceCents;
 
   if (status === "unauthenticated") {
     return (
@@ -226,7 +232,7 @@ export function BookingWidget({
 
       <div>
         <p className="label">{tPay("choose")}</p>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
           {PAYMENT_METHODS.map(({ id, icon: Icon }) => (
             <button
               key={id}
@@ -238,11 +244,13 @@ export function BookingWidget({
               }`}
             >
               <Icon className="h-5 w-5" />
-              {tPay(id.toLowerCase() as "stripe" | "vnpay" | "momo")}
+              {tPay(id.toLowerCase() as "cash" | "stripe" | "vnpay" | "momo")}
             </button>
           ))}
         </div>
-        <p className="mt-2 text-xs text-coral-500">{tPay("sandboxNotice")}</p>
+        <p className="mt-2 text-xs text-ink-400">
+          {provider === "CASH" ? tPay("cashNotice") : tPay("sandboxNotice")}
+        </p>
       </div>
 
       <div className="card space-y-2 p-4">
@@ -250,14 +258,14 @@ export function BookingWidget({
           <span>{service.name}</span>
           <span>{formatMoney(service.priceCents, service.currency, locale)}</span>
         </div>
-        {service.depositCents && (
+        {provider !== "CASH" && service.depositCents && (
           <div className="flex justify-between text-sm text-ink-400">
             <span>{t("deposit")}</span>
             <span>{formatMoney(service.depositCents, service.currency, locale)}</span>
           </div>
         )}
         <div className="flex justify-between border-t border-ink-100 pt-2 font-bold text-ink-900">
-          <span>{t("total")}</span>
+          <span>{provider === "CASH" ? t("dueAtSalon") : t("total")}</span>
           <span>{formatMoney(amountDue, service.currency, locale)}</span>
         </div>
       </div>
@@ -270,7 +278,7 @@ export function BookingWidget({
         className="btn-primary w-full py-3"
       >
         {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-        {t("confirmAndPay")}
+        {provider === "CASH" ? t("confirmBooking") : t("confirmAndPay")}
       </button>
     </div>
   );

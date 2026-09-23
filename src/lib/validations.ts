@@ -54,7 +54,7 @@ export const createBookingSchema = z.object({
   staffId: z.string().cuid().optional(),
   startsAt: z.string().datetime(),
   customerNote: z.string().max(1000).optional(),
-  paymentProvider: z.enum(["STRIPE", "VNPAY", "MOMO"]),
+  paymentProvider: z.enum(["CASH", "STRIPE", "VNPAY", "MOMO"]),
 });
 
 export const reviewSchema = z.object({
