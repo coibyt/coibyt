@@ -17,21 +17,37 @@ interface BusyInterval {
   end: Date;
 }
 
+interface Window {
+  openMinute: number;
+  closeMinute: number;
+}
+
+function clampWindow(w: Window, bound: Window): Window | null {
+  const openMinute = Math.max(w.openMinute, bound.openMinute);
+  const closeMinute = Math.min(w.closeMinute, bound.closeMinute);
+  return openMinute < closeMinute ? { openMinute, closeMinute } : null;
+}
+
+function withinWindows(minute: number, windows: Window[]): boolean {
+  return windows.some((w) => minute >= w.openMinute && minute < w.closeMinute);
+}
+
 /**
  * Computes bookable start times for a given service on a given calendar date,
  * for either one specific staff member or "any staff who can do this service".
  * All wall-clock math (opening hours, slot grid) happens in the business's own
  * timezone; everything returned is a real UTC Date.
+ *
+ * Each staff member follows the business's own opening hours UNLESS they have
+ * their own StaffHours rows configured, in which case those are used instead
+ * (clamped to never exceed the business's hours for that day).
  */
 export async function getAvailableSlots(params: {
   businessId: string;
   serviceId: string;
   staffId?: string;
   /** Calendar date as "YYYY-MM-DD", meaning that date in the BUSINESS's own
-   * timezone — never parsed against the server's own system timezone (a
-   * plain "YYYY-MM-DD" string is guaranteed by the ECMAScript spec to parse
-   * as UTC midnight, which is exactly what we reinterpret via fromZonedTime
-   * below, regardless of what timezone this Node process happens to run in). */
+   * timezone — never parsed against the server's own system timezone. */
   dateStr: string;
 }): Promise<AvailableSlot[]> {
   const { businessId, serviceId, staffId, dateStr } = params;
@@ -71,8 +87,31 @@ export async function getAvailableSlots(params: {
   );
   if (isClosed) return [];
 
-  const hoursToday = business.hours.filter((h) => h.weekday === weekday);
-  if (hoursToday.length === 0) return [];
+  const businessWindowsToday: Window[] = business.hours
+    .filter((h) => h.weekday === weekday)
+    .map((h) => ({ openMinute: h.openMinute, closeMinute: h.closeMinute }));
+  if (businessWindowsToday.length === 0) return [];
+
+  const staffHours = await prisma.staffHours.findMany({
+    where: { staffId: { in: eligibleStaffIds } },
+  });
+  const hasCustomSchedule = new Set(staffHours.map((h) => h.staffId));
+
+  // Effective bookable windows per staff, already clamped to the business's
+  // own hours for this weekday.
+  const windowsByStaff = new Map<string, Window[]>();
+  for (const staff of staffList) {
+    const windows = hasCustomSchedule.has(staff.id)
+      ? staffHours
+          .filter((h) => h.staffId === staff.id && h.weekday === weekday)
+          .map((h) => ({ openMinute: h.openMinute, closeMinute: h.closeMinute }))
+      : businessWindowsToday;
+
+    const clamped = windows
+      .flatMap((w) => businessWindowsToday.map((b) => clampWindow(w, b)))
+      .filter((w): w is Window => w !== null);
+    windowsByStaff.set(staff.id, clamped);
+  }
 
   const duration = service.durationMin + service.bufferMin;
 
@@ -110,36 +149,41 @@ export async function getAvailableSlots(params: {
   const now = new Date();
   const earliestBookable = addMinutes(now, MIN_LEAD_TIME_MIN);
 
+  // Candidate start times = every 15-minute mark that falls inside at least
+  // one staff's effective window (staff can differ, so union across staff).
+  const dayEndMinute = Math.max(
+    ...Array.from(windowsByStaff.values()).flatMap((ws) => ws.map((w) => w.closeMinute)),
+    0
+  );
+
   const slots: AvailableSlot[] = [];
 
-  for (const window of hoursToday) {
-    for (
-      let minute = window.openMinute;
-      minute + duration <= window.closeMinute;
-      minute += SLOT_GRANULARITY_MIN
-    ) {
-      const slotStartLocal = addMinutes(dayStartLocal, minute);
-      const slotStartUtc = fromZonedTime(slotStartLocal, tz);
-      const slotEndUtc = addMinutes(slotStartUtc, duration);
+  for (
+    let minute = 0;
+    minute + duration <= dayEndMinute;
+    minute += SLOT_GRANULARITY_MIN
+  ) {
+    const slotStartLocal = addMinutes(dayStartLocal, minute);
+    const slotStartUtc = fromZonedTime(slotStartLocal, tz);
+    const slotEndUtc = addMinutes(slotStartUtc, duration);
 
-      if (isBefore(slotStartUtc, earliestBookable)) continue;
+    if (isBefore(slotStartUtc, earliestBookable)) continue;
 
-      const freeStaff = staffList.find((staff) => {
-        const busy = busyByStaff.get(staff.id) ?? [];
-        return !busy.some(
-          (b) => slotStartUtc < b.end && slotEndUtc > b.start // overlap test
-        );
-      });
-
-      if (freeStaff) {
-        slots.push({
-          startsAt: slotStartUtc,
-          endsAt: new Date(
-            slotStartUtc.getTime() + service.durationMin * 60_000
-          ),
-          staffId: freeStaff.id,
-        });
+    const freeStaff = staffList.find((staff) => {
+      const windows = windowsByStaff.get(staff.id) ?? [];
+      if (!withinWindows(minute, windows) || !withinWindows(minute + duration - 1, windows)) {
+        return false;
       }
+      const busy = busyByStaff.get(staff.id) ?? [];
+      return !busy.some((b) => slotStartUtc < b.end && slotEndUtc > b.start);
+    });
+
+    if (freeStaff) {
+      slots.push({
+        startsAt: slotStartUtc,
+        endsAt: new Date(slotStartUtc.getTime() + service.durationMin * 60_000),
+        staffId: freeStaff.id,
+      });
     }
   }
 

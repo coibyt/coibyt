@@ -13,7 +13,7 @@ export default async function BusinessBookingsPage({
   const t = await getTranslations("business");
   if (!business) return null;
 
-  const [bookings, staff, hours] = await Promise.all([
+  const [bookings, staff] = await Promise.all([
     prisma.booking.findMany({
       where: { businessId: business.id },
       include: {
@@ -28,13 +28,7 @@ export default async function BusinessBookingsPage({
       where: { businessId: business.id, active: true },
       select: { id: true, name: true },
     }),
-    prisma.businessHours.findMany({ where: { businessId: business.id } }),
   ]);
-
-  const openHourByWeekday: Record<number, [number, number]> = {};
-  for (const h of hours) {
-    openHourByWeekday[h.weekday] = [h.openMinute, h.closeMinute];
-  }
 
   return (
     <div>
@@ -54,7 +48,6 @@ export default async function BusinessBookingsPage({
         locale={locale}
         businessTimezone={business.timezone}
         staff={staff}
-        openHourByWeekday={openHourByWeekday}
       />
     </div>
   );

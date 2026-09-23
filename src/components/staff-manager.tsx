@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { Plus, Trash2, Loader2 } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { Plus, Trash2, Loader2, Clock } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
+import { StaffHoursModal } from "@/components/staff-hours-modal";
 
 interface StaffRow {
   id: string;
@@ -24,11 +25,13 @@ export function StaffManager({
 }) {
   const t = useTranslations("business");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   const router = useRouter();
 
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [hoursFor, setHoursFor] = useState<StaffRow | null>(null);
 
   async function createStaff(e: React.FormEvent) {
     e.preventDefault();
@@ -73,14 +76,32 @@ export function StaffManager({
                 {s.title && <p className="text-xs text-ink-400">{s.title}</p>}
               </div>
             </div>
-            <button
-              onClick={() => removeStaff(s.id)}
-              className="btn-ghost !p-2 text-berry-500"
-            >
-              <Trash2 className="h-4 w-4" />
-            </button>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setHoursFor(s)}
+                className="btn-ghost !p-2 text-ink-700"
+                title={locale === "vi" ? "Giờ làm việc" : "Working hours"}
+              >
+                <Clock className="h-4 w-4" />
+              </button>
+              <button
+                onClick={() => removeStaff(s.id)}
+                className="btn-ghost !p-2 text-berry-500"
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
+            </div>
           </div>
         ))}
+
+        {hoursFor && (
+          <StaffHoursModal
+            staffId={hoursFor.id}
+            staffName={hoursFor.name}
+            locale={locale}
+            onClose={() => setHoursFor(null)}
+          />
+        )}
 
       {!showForm ? (
         <button onClick={() => setShowForm(true)} className="btn-outline">

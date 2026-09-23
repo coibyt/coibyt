@@ -1,9 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { addDays, format } from "date-fns";
-import { toZonedTime } from "date-fns-tz";
+import {
+  addDays,
+  addMonths,
+  addWeeks,
+  endOfMonth,
+  endOfWeek,
+  format,
+  isSameDay,
+  isSameMonth,
+  startOfMonth,
+  startOfWeek,
+} from "date-fns";
+import { fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
 import { formatMoney } from "@/lib/money";
@@ -22,15 +33,24 @@ interface CalendarBooking {
   priceCents: number;
   currency: string;
   staffId: string | null;
+  staffName: string | null;
   customerNote: string | null;
   serviceName: string;
   customerName: string;
   customerPhone: string | null;
 }
 
-const HOUR_HEIGHT = 56; // px per hour in the grid
+const HOUR_HEIGHT = 56; // px per hour in the day/week grid
 const DEFAULT_START_HOUR = 7;
 const DEFAULT_END_HOUR = 21;
+const DRAG_SNAP_MIN = 15;
+const STAFF_DOT_COLORS = [
+  "bg-primary-500",
+  "bg-teal-500",
+  "bg-coral-500",
+  "bg-berry-500",
+  "bg-sage-500",
+];
 
 const STATUS_BG: Record<string, string> = {
   PENDING_PAYMENT: "bg-coral-100 border-coral-400 text-coral-600",
@@ -39,56 +59,75 @@ const STATUS_BG: Record<string, string> = {
   NO_SHOW: "bg-berry-50 border-berry-400 text-berry-600",
 };
 
+type ViewMode = "day" | "week" | "month";
+
 export function BookingCalendar({
   staff,
   businessTimezone,
   locale,
-  openHourByWeekday,
 }: {
   staff: StaffOption[];
   businessTimezone: string;
   locale: string;
-  /** [openMinute, closeMinute] per weekday (0=Sun..6=Sat), if the business is open that day. */
-  openHourByWeekday: Record<number, [number, number]>;
 }) {
   const t = useTranslations("business");
-  const [selectedDate, setSelectedDate] = useState(() =>
-    toZonedTime(new Date(), businessTimezone)
-  );
+  const dfLocale = locale === "vi" ? vi : undefined;
+  const [view, setView] = useState<ViewMode>("day");
+  const [anchorDate, setAnchorDate] = useState(() => toZonedTime(new Date(), businessTimezone));
   const [bookings, setBookings] = useState<CalendarBooking[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeBooking, setActiveBooking] = useState<CalendarBooking | null>(null);
   const [updating, setUpdating] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const draggingId = useRef<string | null>(null);
 
-  const dateStr = format(selectedDate, "yyyy-MM-dd");
-  const weekday = selectedDate.getDay();
-  const hoursToday = openHourByWeekday[weekday];
+  const staffColor = useMemo(() => {
+    const map = new Map<string, string>();
+    staff.forEach((s, i) => map.set(s.id, STAFF_DOT_COLORS[i % STAFF_DOT_COLORS.length]));
+    return map;
+  }, [staff]);
 
-  const startHour = hoursToday
-    ? Math.min(DEFAULT_START_HOUR, Math.floor(hoursToday[0] / 60))
-    : DEFAULT_START_HOUR;
-  const endHour = hoursToday
-    ? Math.max(DEFAULT_END_HOUR, Math.ceil(hoursToday[1] / 60))
-    : DEFAULT_END_HOUR;
-  const totalHours = endHour - startHour;
+  const { rangeStart, rangeEnd, gridStart, gridEnd } = useMemo(() => {
+    if (view === "day") {
+      return { rangeStart: anchorDate, rangeEnd: anchorDate, gridStart: anchorDate, gridEnd: anchorDate };
+    }
+    if (view === "week") {
+      const s = startOfWeek(anchorDate, { weekStartsOn: 1 });
+      const e = endOfWeek(anchorDate, { weekStartsOn: 1 });
+      return { rangeStart: s, rangeEnd: e, gridStart: s, gridEnd: e };
+    }
+    const monthStart = startOfMonth(anchorDate);
+    const monthEnd = endOfMonth(anchorDate);
+    const gs = startOfWeek(monthStart, { weekStartsOn: 1 });
+    const ge = endOfWeek(monthEnd, { weekStartsOn: 1 });
+    return { rangeStart: gs, rangeEnd: ge, gridStart: gs, gridEnd: ge };
+  }, [anchorDate, view]);
+
+  const fromStr = format(rangeStart, "yyyy-MM-dd");
+  const toStr = format(rangeEnd, "yyyy-MM-dd");
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/api/business/bookings/calendar?date=${dateStr}`)
+    fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
       .then((r) => r.json())
       .then((data) => setBookings(data.bookings ?? []))
       .catch(() => setBookings([]))
       .finally(() => setLoading(false));
-  }, [dateStr]);
+  }, [fromStr, toStr]);
 
-  const hourMarks = useMemo(
-    () => Array.from({ length: totalHours + 1 }, (_, i) => startHour + i),
-    [startHour, totalHours]
-  );
-
-  function minutesFromGridStart(iso: string) {
+  function minutesFromMidnight(iso: string) {
     const d = toZonedTime(new Date(iso), businessTimezone);
-    return (d.getHours() - startHour) * 60 + d.getMinutes();
+    return d.getHours() * 60 + d.getMinutes();
+  }
+
+  function bookingsOnDay(day: Date) {
+    return bookings.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
+  }
+
+  function navigate(dir: -1 | 1) {
+    setAnchorDate((d) =>
+      view === "day" ? addDays(d, dir) : view === "week" ? addWeeks(d, dir) : addMonths(d, dir)
+    );
   }
 
   async function updateStatus(id: string, status: string) {
@@ -98,124 +137,314 @@ export function BookingCalendar({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status }),
     });
-    setBookings((prev) =>
-      prev.map((b) => (b.id === id ? { ...b, status } : b))
-    );
+    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
     setUpdating(false);
     setActiveBooking(null);
+  }
+
+  async function rescheduleBooking(booking: CalendarBooking, newStartsAt: Date, newStaffId: string) {
+    const durationMs = new Date(booking.endsAt).getTime() - new Date(booking.startsAt).getTime();
+    const previous = booking;
+    setBookings((prev) =>
+      prev.map((b) =>
+        b.id === booking.id
+          ? {
+              ...b,
+              startsAt: newStartsAt.toISOString(),
+              endsAt: new Date(newStartsAt.getTime() + durationMs).toISOString(),
+              staffId: newStaffId,
+            }
+          : b
+      )
+    );
+    const res = await fetch(`/api/business/bookings/${booking.id}/reschedule`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId }),
+    });
+    if (!res.ok) {
+      setBookings((prev) => prev.map((b) => (b.id === booking.id ? previous : b)));
+      setError(
+        locale === "vi"
+          ? "Không thể chuyển lịch — trùng giờ với lịch hẹn khác."
+          : "Couldn't move it — that time overlaps another booking."
+      );
+      setTimeout(() => setError(null), 4000);
+    }
+  }
+
+  function handleDrop(
+    e: React.DragEvent<HTMLDivElement>,
+    day: Date,
+    columnStaffId: string | undefined,
+    gridTopHour: number
+  ) {
+    e.preventDefault();
+    const id = draggingId.current;
+    draggingId.current = null;
+    const booking = bookings.find((b) => b.id === id);
+    if (!booking) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const offsetY = e.clientY - rect.top;
+    let minutes = gridTopHour * 60 + (offsetY / HOUR_HEIGHT) * 60;
+    minutes = Math.max(0, Math.round(minutes / DRAG_SNAP_MIN) * DRAG_SNAP_MIN);
+
+    // `day` is already a "fake local" Date (derived via toZonedTime earlier),
+    // so its own y/m/d getters read as the business's own calendar date.
+    // Combine that date with the dropped minute-of-day as a naive wall-clock
+    // string and let fromZonedTime resolve the real UTC instant — the same
+    // pattern the availability engine uses, so it can't drift out of sync.
+    const dateStr = format(day, "yyyy-MM-dd");
+    const hh = String(Math.floor(minutes / 60)).padStart(2, "0");
+    const mm = String(minutes % 60).padStart(2, "0");
+    const newStartsAt = fromZonedTime(`${dateStr}T${hh}:${mm}:00`, businessTimezone);
+
+    const staffId = columnStaffId ?? booking.staffId ?? staff[0]?.id;
+    if (!staffId) return;
+    rescheduleBooking(booking, newStartsAt, staffId);
+  }
+
+  const startHour = DEFAULT_START_HOUR;
+  const endHour = DEFAULT_END_HOUR;
+  const totalHours = endHour - startHour;
+  const hourMarks = Array.from({ length: totalHours + 1 }, (_, i) => startHour + i);
+
+  function renderBookingBlock(b: CalendarBooking, compact = false) {
+    const top = ((minutesFromMidnight(b.startsAt) - startHour * 60) / 60) * HOUR_HEIGHT;
+    const height = Math.max(
+      ((minutesFromMidnight(b.endsAt) - minutesFromMidnight(b.startsAt)) / 60) * HOUR_HEIGHT,
+      20
+    );
+    return (
+      <button
+        key={b.id}
+        draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status)}
+        onDragStart={() => (draggingId.current = b.id)}
+        onClick={() => setActiveBooking(b)}
+        className={`absolute left-0.5 right-0.5 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
+          STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
+        }`}
+        style={{ top, height }}
+      >
+        <p className="truncate font-semibold">{b.customerName}</p>
+        {!compact && <p className="truncate">{b.serviceName}</p>}
+        {compact && b.staffName && (
+          <span
+            className={`mr-1 inline-block h-1.5 w-1.5 rounded-full ${
+              staffColor.get(b.staffId ?? "") ?? "bg-ink-400"
+            }`}
+          />
+        )}
+      </button>
+    );
   }
 
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setSelectedDate((d) => addDays(d, -1))}
-            className="btn-ghost !p-2"
-            aria-label="Previous day"
-          >
+          <button onClick={() => navigate(-1)} className="btn-ghost !p-2" aria-label="Previous">
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
-            onClick={() => setSelectedDate(toZonedTime(new Date(), businessTimezone))}
+            onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
             className="btn-outline !px-3 !py-1.5 text-xs"
           >
             {t("today")}
           </button>
-          <button
-            onClick={() => setSelectedDate((d) => addDays(d, 1))}
-            className="btn-ghost !p-2"
-            aria-label="Next day"
-          >
+          <button onClick={() => navigate(1)} className="btn-ghost !p-2" aria-label="Next">
             <ChevronRight className="h-4 w-4" />
           </button>
           <span className="ml-2 text-sm font-semibold text-ink-900">
-            {format(selectedDate, "EEEE, d MMMM yyyy", {
-              locale: locale === "vi" ? vi : undefined,
-            })}
+            {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
+            {view === "week" &&
+              `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
+            {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
           </span>
+          {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
         </div>
-        {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
-      </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-ink-100">
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: `56px repeat(${Math.max(staff.length, 1)}, minmax(160px, 1fr))`,
-          }}
-        >
-          {/* Header row */}
-          <div className="border-b border-r border-ink-100 bg-mist-50" />
-          {staff.length === 0 ? (
-            <div className="border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
-              {t("unassigned")}
-            </div>
-          ) : (
-            staff.map((s) => (
-              <div
-                key={s.id}
-                className="border-b border-l border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700"
-              >
-                {s.name}
-              </div>
-            ))
-          )}
-
-          {/* Time axis column */}
-          <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
-            {hourMarks.map((h) => (
-              <div
-                key={h}
-                className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
-                style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
-              >
-                {String(h).padStart(2, "0")}:00
-              </div>
-            ))}
-          </div>
-
-          {/* Staff columns */}
-          {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => (
-            <div
-              key={s.id || "unassigned"}
-              className="relative border-l border-ink-100"
-              style={{ height: totalHours * HOUR_HEIGHT }}
+        <div className="inline-flex rounded-full border border-ink-100 p-1">
+          {(["day", "week", "month"] as ViewMode[]).map((v) => (
+            <button
+              key={v}
+              onClick={() => setView(v)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                view === v ? "bg-ink-900 text-white" : "text-ink-700"
+              }`}
             >
-              {hourMarks.map((h) => (
-                <div
-                  key={h}
-                  className="absolute w-full border-t border-ink-50"
-                  style={{ top: (h - startHour) * HOUR_HEIGHT }}
-                />
-              ))}
-              {bookings
-                .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
-                .map((b) => {
-                  const top = (minutesFromGridStart(b.startsAt) / 60) * HOUR_HEIGHT;
-                  const height = Math.max(
-                    ((minutesFromGridStart(b.endsAt) - minutesFromGridStart(b.startsAt)) / 60) *
-                      HOUR_HEIGHT,
-                    20
-                  );
-                  return (
-                    <button
-                      key={b.id}
-                      onClick={() => setActiveBooking(b)}
-                      className={`absolute left-0.5 right-0.5 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
-                        STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
-                      }`}
-                      style={{ top, height }}
-                    >
-                      <p className="truncate font-semibold">{b.customerName}</p>
-                      <p className="truncate">{b.serviceName}</p>
-                    </button>
-                  );
-                })}
-            </div>
+              {locale === "vi"
+                ? { day: "Ngày", week: "Tuần", month: "Tháng" }[v]
+                : { day: "Day", week: "Week", month: "Month" }[v]}
+            </button>
           ))}
         </div>
       </div>
+
+      {error && (
+        <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
+      )}
+
+      {view === "day" && (
+        <div className="overflow-x-auto rounded-2xl border border-ink-100">
+          <div
+            className="grid"
+            style={{
+              gridTemplateColumns: `56px repeat(${Math.max(staff.length, 1)}, minmax(160px, 1fr))`,
+            }}
+          >
+            <div className="border-b border-r border-ink-100 bg-mist-50" />
+            {staff.length === 0 ? (
+              <div className="border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
+                {t("unassigned")}
+              </div>
+            ) : (
+              staff.map((s) => (
+                <div
+                  key={s.id}
+                  className="border-b border-l border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700"
+                >
+                  {s.name}
+                </div>
+              ))
+            )}
+
+            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+              {hourMarks.map((h) => (
+                <div
+                  key={h}
+                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
+                >
+                  {String(h).padStart(2, "0")}:00
+                </div>
+              ))}
+            </div>
+
+            {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => (
+              <div
+                key={s.id || "unassigned"}
+                className="relative border-l border-ink-100"
+                style={{ height: totalHours * HOUR_HEIGHT }}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => handleDrop(e, anchorDate, s.id || undefined, startHour)}
+              >
+                {hourMarks.map((h) => (
+                  <div
+                    key={h}
+                    className="absolute w-full border-t border-ink-50"
+                    style={{ top: (h - startHour) * HOUR_HEIGHT }}
+                  />
+                ))}
+                {bookingsOnDay(anchorDate)
+                  .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
+                  .map((b) => renderBookingBlock(b))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {view === "week" && (
+        <div className="overflow-x-auto rounded-2xl border border-ink-100">
+          <div className="grid" style={{ gridTemplateColumns: `56px repeat(7, minmax(120px, 1fr))` }}>
+            <div className="border-b border-r border-ink-100 bg-mist-50" />
+            {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
+              <div
+                key={day.toISOString()}
+                className={`border-b border-l border-ink-100 px-2 py-2 text-center text-xs font-semibold ${
+                  isSameDay(day, toZonedTime(new Date(), businessTimezone))
+                    ? "bg-peach-100 text-ink-900"
+                    : "bg-mist-50 text-ink-700"
+                }`}
+              >
+                {format(day, "EEE d", { locale: dfLocale })}
+              </div>
+            ))}
+
+            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+              {hourMarks.map((h) => (
+                <div
+                  key={h}
+                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
+                >
+                  {String(h).padStart(2, "0")}:00
+                </div>
+              ))}
+            </div>
+
+            {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
+              <div
+                key={day.toISOString()}
+                className="relative border-l border-ink-100"
+                style={{ height: totalHours * HOUR_HEIGHT }}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => handleDrop(e, day, undefined, startHour)}
+              >
+                {hourMarks.map((h) => (
+                  <div
+                    key={h}
+                    className="absolute w-full border-t border-ink-50"
+                    style={{ top: (h - startHour) * HOUR_HEIGHT }}
+                  />
+                ))}
+                {bookingsOnDay(day).map((b) => renderBookingBlock(b, true))}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {view === "month" && (
+        <div className="overflow-hidden rounded-2xl border border-ink-100">
+          <div className="grid grid-cols-7 bg-mist-50 text-center text-xs font-semibold text-ink-700">
+            {Array.from({ length: 7 }, (_, i) => addDays(gridStart, i)).map((d) => (
+              <div key={d.toISOString()} className="border-b border-ink-100 py-2">
+                {format(d, "EEE", { locale: dfLocale })}
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-7">
+            {Array.from(
+              { length: Math.round((gridEnd.getTime() - gridStart.getTime()) / 86_400_000) + 1 },
+              (_, i) => addDays(gridStart, i)
+            ).map((day) => {
+              const dayBookings = bookingsOnDay(day);
+              const inMonth = isSameMonth(day, anchorDate);
+              return (
+                <button
+                  key={day.toISOString()}
+                  onClick={() => {
+                    setAnchorDate(day);
+                    setView("day");
+                  }}
+                  className={`min-h-[92px] border-b border-r border-ink-100 p-2 text-left align-top last:border-r-0 ${
+                    inMonth ? "bg-white" : "bg-mist-50 text-ink-400"
+                  } hover:bg-mist-50`}
+                >
+                  <span
+                    className={`text-xs font-semibold ${
+                      isSameDay(day, toZonedTime(new Date(), businessTimezone))
+                        ? "rounded-full bg-ink-900 px-1.5 py-0.5 text-white"
+                        : "text-ink-700"
+                    }`}
+                  >
+                    {format(day, "d")}
+                  </span>
+                  {dayBookings.length > 0 && (
+                    <p className="mt-1 truncate text-xs text-primary-600">
+                      {dayBookings.length}{" "}
+                      {locale === "vi" ? "lịch hẹn" : dayBookings.length === 1 ? "booking" : "bookings"}
+                    </p>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {activeBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
@@ -233,6 +462,9 @@ export function BookingCalendar({
             </div>
             <div className="space-y-1.5 text-sm">
               <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
+              {activeBooking.staffName && (
+                <p className="text-ink-400">{activeBooking.staffName}</p>
+              )}
               <p className="text-ink-700">
                 {new Date(activeBooking.startsAt).toLocaleString(
                   locale === "vi" ? "vi-VN" : "en-US",

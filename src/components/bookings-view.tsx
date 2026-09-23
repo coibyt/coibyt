@@ -23,13 +23,11 @@ export function BookingsView({
   locale,
   businessTimezone,
   staff,
-  openHourByWeekday,
 }: {
   initialBookings: BookingRow[];
   locale: string;
   businessTimezone: string;
   staff: { id: string; name: string }[];
-  openHourByWeekday: Record<number, [number, number]>;
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -56,12 +54,7 @@ export function BookingsView({
       </div>
 
       {view === "calendar" ? (
-        <BookingCalendar
-          staff={staff}
-          businessTimezone={businessTimezone}
-          locale={locale}
-          openHourByWeekday={openHourByWeekday}
-        />
+        <BookingCalendar staff={staff} businessTimezone={businessTimezone} locale={locale} />
       ) : (
         <BookingsManager
           initialBookings={initialBookings}

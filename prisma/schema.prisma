@@ -185,8 +185,23 @@ model Staff {
   services StaffService[]
   bookings Booking[]
   timeOff  StaffTimeOff[]
+  hours    StaffHours[]
 
   @@index([businessId])
+}
+
+// Per-staff weekly schedule. A staff member with zero rows here just follows
+// the business's own hours (BusinessHours) — this is opt-in customization,
+// not a required setup step for every staff member.
+model StaffHours {
+  id          String @id @default(cuid())
+  staffId     String
+  staff       Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  weekday     Int // 0 = Sunday … 6 = Saturday
+  openMinute  Int
+  closeMinute Int
+
+  @@index([staffId])
 }
 
 // Staff-specific time off (vacation, sick day) blocking bookings
