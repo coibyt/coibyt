@@ -1,0 +1,75 @@
+import { notFound } from "next/navigation";
+import { prisma } from "@/lib/prisma";
+import { formatMoney } from "@/lib/money";
+import { BookingWidget } from "@/components/booking-widget";
+import { isValidLocale } from "@/i18n/is-valid-locale";
+import { routing } from "@/i18n/routing";
+import { EmbedProviders } from "@/app/embed/providers";
+
+export default async function EmbedBookServicePage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string; serviceId: string }>;
+  searchParams: Promise<{ locale?: string }>;
+}) {
+  const { slug, serviceId } = await params;
+  const { locale: rawLocale } = await searchParams;
+  const locale = isValidLocale(rawLocale) ? rawLocale : routing.defaultLocale;
+
+  const business = await prisma.business.findUnique({
+    where: { slug },
+    select: { id: true, slug: true, name: true, status: true, timezone: true },
+  });
+  if (!business || business.status !== "APPROVED") notFound();
+
+  const service = await prisma.service.findFirst({
+    where: { id: serviceId, businessId: business.id, active: true },
+    include: {
+      staff: { include: { staff: true } },
+      addOns: { where: { addOn: { active: true } }, include: { addOn: true } },
+    },
+  });
+  if (!service) notFound();
+
+  const staffOptions = service.staff.map((s) => s.staff).filter((s) => s.active);
+  const addOnOptions = service.addOns.map((link) => ({
+    id: link.addOn.id,
+    name: link.addOn.name,
+    priceCents: link.addOn.priceCents,
+    durationMin: link.addOn.durationMin,
+  }));
+
+  return (
+    <div className="mx-auto max-w-xl p-4">
+      <div className="card mb-4 flex items-center justify-between p-4">
+        <div>
+          <p className="text-xs text-ink-400">{business.name}</p>
+          <h1 className="text-lg font-bold text-ink-900">{service.name}</h1>
+          <p className="text-xs text-ink-400">{service.durationMin} min</p>
+        </div>
+        <span className="font-bold text-ink-900">
+          {formatMoney(service.priceCents, service.currency, locale)}
+        </span>
+      </div>
+
+      <EmbedProviders requestedLocale={rawLocale}>
+        <BookingWidget
+          businessSlug={business.slug}
+          service={{
+            id: service.id,
+            name: service.name,
+            priceCents: service.priceCents,
+            depositCents: service.depositCents,
+            currency: service.currency,
+            durationMin: service.durationMin,
+          }}
+          staffOptions={staffOptions.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
+          addOnOptions={addOnOptions}
+          locale={locale}
+          businessTimezone={business.timezone}
+        />
+      </EmbedProviders>
+    </div>
+  );
+}
