@@ -48,6 +48,7 @@ async function confirmAndNotify(bookingId: string, rawResponse: unknown) {
     serviceName: full.service.name,
     startsAt: full.startsAt,
     locale: full.customer.locale,
+    businessTimezone: full.business.timezone,
   });
   await sendMail({ to: full.customer.email, ...email });
 }

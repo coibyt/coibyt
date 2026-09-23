@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { addDays, format, isSameDay } from "date-fns";
+import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
@@ -42,18 +43,28 @@ export function BookingWidget({
   service,
   staffOptions,
   locale,
+  businessTimezone,
 }: {
   businessSlug: string;
   service: ServiceInfo;
   staffOptions: StaffOption[];
   locale: string;
+  businessTimezone: string;
 }) {
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
   const { data: session, status } = useSession();
 
+  // "Today" and every date/time shown here is anchored to the SALON's
+  // timezone, not the visitor's device — a customer booking a Hanoi salon
+  // from abroad (or with a misconfigured clock) must still see Hanoi time.
+  const todayInBusinessTz = useMemo(
+    () => toZonedTime(new Date(), businessTimezone),
+    [businessTimezone]
+  );
+
   const [staffId, setStaffId] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(todayInBusinessTz);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
@@ -63,8 +74,8 @@ export function BookingWidget({
   const [error, setError] = useState<string | null>(null);
 
   const days = useMemo(
-    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(new Date(), i)),
-    []
+    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
+    [todayInBusinessTz]
   );
 
   useEffect(() => {
@@ -192,6 +203,7 @@ export function BookingWidget({
                 {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
                   hour: "2-digit",
                   minute: "2-digit",
+                  timeZone: businessTimezone,
                 })}
               </button>
             ))}

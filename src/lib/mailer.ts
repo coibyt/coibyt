@@ -40,10 +40,14 @@ export function bookingConfirmationEmail(params: {
   serviceName: string;
   startsAt: Date;
   locale: string;
+  businessTimezone: string;
 }) {
+  // Always render in the salon's own timezone — an email server can run in
+  // any timezone, and the appointment time only means something relative to
+  // where the salon actually is.
   const dateStr = params.startsAt.toLocaleString(
     params.locale === "vi" ? "vi-VN" : "en-US",
-    { dateStyle: "full", timeStyle: "short" }
+    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
   const isVi = params.locale === "vi";
   return {

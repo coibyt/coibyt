@@ -40,6 +40,7 @@ export default async function BusinessBookingsPage({
           customerPhone: b.customer.phone,
         }))}
         locale={locale}
+        businessTimezone={business.timezone}
       />
     </div>
   );

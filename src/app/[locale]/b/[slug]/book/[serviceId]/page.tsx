@@ -12,7 +12,7 @@ export default async function BookServicePage({
 
   const business = await prisma.business.findUnique({
     where: { slug },
-    select: { id: true, slug: true, name: true, status: true },
+    select: { id: true, slug: true, name: true, status: true, timezone: true },
   });
   if (!business || business.status !== "APPROVED") notFound();
 
@@ -55,6 +55,7 @@ export default async function BookServicePage({
         }}
         staffOptions={staffOptions.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
         locale={locale}
+        businessTimezone={business.timezone}
       />
     </div>
   );

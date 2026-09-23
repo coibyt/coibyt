@@ -30,9 +30,11 @@ const NEXT_ACTIONS: Record<string, { label: string; status: string }[]> = {
 export function BookingsManager({
   initialBookings,
   locale,
+  businessTimezone,
 }: {
   initialBookings: BookingRow[];
   locale: string;
+  businessTimezone: string;
 }) {
   const router = useRouter();
   const [updating, setUpdating] = useState<string | null>(null);
@@ -79,6 +81,7 @@ export function BookingsManager({
                 {new Date(b.startsAt).toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
                   dateStyle: "medium",
                   timeStyle: "short",
+                  timeZone: businessTimezone,
                 })}
               </td>
               <td className="px-4 py-3">{formatMoney(b.priceCents, b.currency, locale)}</td>

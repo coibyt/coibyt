@@ -15,6 +15,7 @@ interface BookingRow {
   currency: string;
   businessName: string;
   businessSlug: string;
+  businessTimezone: string;
   serviceName: string;
   hasReview: boolean;
 }
@@ -51,6 +52,7 @@ export function CustomerBookingsList({
               {new Date(b.startsAt).toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
                 dateStyle: "medium",
                 timeStyle: "short",
+                timeZone: b.businessTimezone,
               })}
             </p>
           </div>

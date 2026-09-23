@@ -30,6 +30,7 @@ export default async function BookingSuccessPage({
           {booking.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
             dateStyle: "full",
             timeStyle: "short",
+            timeZone: booking.business.timezone,
           })}
         </p>
         <p className="border-t border-ink-100 pt-2 font-bold text-ink-900">

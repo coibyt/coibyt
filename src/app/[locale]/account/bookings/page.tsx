@@ -18,7 +18,7 @@ export default async function MyBookingsPage({
   const bookings = await prisma.booking.findMany({
     where: { customerId: session!.user.id },
     include: {
-      business: { select: { name: true, slug: true } },
+      business: { select: { name: true, slug: true, timezone: true } },
       service: { select: { name: true } },
       review: { select: { id: true } },
     },
@@ -40,6 +40,7 @@ export default async function MyBookingsPage({
             currency: b.currency,
             businessName: b.business.name,
             businessSlug: b.business.slug,
+            businessTimezone: b.business.timezone,
             serviceName: b.service.name,
             hasReview: !!b.review,
           }))}

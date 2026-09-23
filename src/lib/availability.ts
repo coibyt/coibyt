@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { addMinutes, isBefore, startOfDay } from "date-fns";
+import { addMinutes, isBefore } from "date-fns";
 import { fromZonedTime, toZonedTime } from "date-fns-tz";
 
 const SLOT_GRANULARITY_MIN = 15;
@@ -27,9 +27,14 @@ export async function getAvailableSlots(params: {
   businessId: string;
   serviceId: string;
   staffId?: string;
-  date: Date; // any Date on the target calendar day, business-local
+  /** Calendar date as "YYYY-MM-DD", meaning that date in the BUSINESS's own
+   * timezone — never parsed against the server's own system timezone (a
+   * plain "YYYY-MM-DD" string is guaranteed by the ECMAScript spec to parse
+   * as UTC midnight, which is exactly what we reinterpret via fromZonedTime
+   * below, regardless of what timezone this Node process happens to run in). */
+  dateStr: string;
 }): Promise<AvailableSlot[]> {
-  const { businessId, serviceId, staffId, date } = params;
+  const { businessId, serviceId, staffId, dateStr } = params;
 
   const business = await prisma.business.findUnique({
     where: { id: businessId },
@@ -54,13 +59,15 @@ export async function getAvailableSlots(params: {
   if (staffList.length === 0) return [];
 
   const tz = business.timezone;
-  const zonedDate = toZonedTime(date, tz);
-  const weekday = zonedDate.getDay();
-  const dayStartLocal = startOfDay(zonedDate);
+  const dayStartUtc = fromZonedTime(dateStr, tz);
+  const dayEndUtc = addMinutes(dayStartUtc, 24 * 60);
+  const dayStartLocal = toZonedTime(dayStartUtc, tz); // "fake local" Date for wall-clock arithmetic
+  const weekday = dayStartLocal.getDay();
 
-  // Closure overrides opening hours entirely for this date.
+  // Closure overrides opening hours entirely for this date. BusinessClosure.date
+  // is a plain SQL DATE (no time/zone), so comparing the Y-M-D string is exact.
   const isClosed = business.closures.some(
-    (c) => toZonedTime(c.date, tz).toDateString() === dayStartLocal.toDateString()
+    (c) => c.date.toISOString().slice(0, 10) === dateStr
   );
   if (isClosed) return [];
 
@@ -70,9 +77,6 @@ export async function getAvailableSlots(params: {
   const duration = service.durationMin + service.bufferMin;
 
   // Load existing bookings + staff time-off for the day, once, for all staff.
-  const dayStartUtc = fromZonedTime(dayStartLocal, tz);
-  const dayEndUtc = fromZonedTime(addMinutes(dayStartLocal, 24 * 60), tz);
-
   const [bookings, timeOff] = await Promise.all([
     prisma.booking.findMany({
       where: {

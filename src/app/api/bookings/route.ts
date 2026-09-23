@@ -7,6 +7,8 @@ import {
   SlotUnavailableError,
 } from "@/lib/booking-service";
 import { getAvailableSlots } from "@/lib/availability";
+import { toZonedTime } from "date-fns-tz";
+import { format } from "date-fns";
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -23,7 +25,7 @@ export async function POST(req: Request) {
 
   const service = await prisma.service.findUnique({
     where: { id: data.serviceId },
-    select: { businessId: true },
+    select: { businessId: true, business: { select: { timezone: true } } },
   });
   if (!service) {
     return NextResponse.json({ error: "SERVICE_NOT_FOUND" }, { status: 404 });
@@ -35,10 +37,11 @@ export async function POST(req: Request) {
   // so the DB overlap check has something to key off.
   let staffId = data.staffId;
   if (!staffId) {
+    const dateStr = format(toZonedTime(startsAt, service.business.timezone), "yyyy-MM-dd");
     const slots = await getAvailableSlots({
       businessId: service.businessId,
       serviceId: data.serviceId,
-      date: startsAt,
+      dateStr,
     });
     const match = slots.find(
       (s) => s.startsAt.getTime() === startsAt.getTime()

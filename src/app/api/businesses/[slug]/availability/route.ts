@@ -27,8 +27,7 @@ export async function GET(
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 
-  const date = new Date(`${dateParam}T00:00:00`);
-  if (Number.isNaN(date.getTime())) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
     return NextResponse.json({ error: "INVALID_DATE" }, { status: 400 });
   }
 
@@ -36,7 +35,7 @@ export async function GET(
     businessId: business.id,
     serviceId,
     staffId,
-    date,
+    dateStr: dateParam,
   });
 
   return NextResponse.json({
