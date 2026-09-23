@@ -19,6 +19,9 @@ const ALLOWED_TYPES: Record<string, string> = {
  * own filesystem — see docs/DEPLOYMENT.md for the caveat that a full rebuild
  * on Hostinger *could* wipe this directory if it isn't preserved between
  * deploys, and how to move to real object storage once that matters.
+ *
+ * The returned URL points at /api/uploads/... (src/app/api/uploads/[...path]),
+ * not the file's real /uploads/... static path — see that route for why.
  */
 export async function POST(req: Request) {
   const businessId = await requireOwnedBusinessId();
@@ -49,7 +52,7 @@ export async function POST(req: Request) {
   const buffer = Buffer.from(await file.arrayBuffer());
   await writeFile(path.join(dir, filename), buffer);
 
-  const publicUrl = `/uploads/businesses/${businessId}/${filename}`;
+  const publicUrl = `/api/uploads/businesses/${businessId}/${filename}`;
 
   await prisma.business.update({
     where: { id: businessId },
