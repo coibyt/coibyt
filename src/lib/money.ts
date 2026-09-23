@@ -26,3 +26,9 @@ export function formatMoney(cents: number, currency: string, locale: string) {
 export function toSmallestUnit(amount: number, currency: string) {
   return currency === "VND" ? Math.round(amount) : Math.round(amount * 100);
 }
+
+/** Reverse of the above — turns stored cents back into the whole-currency-unit
+ * amount an owner would type into a form (e.g. 18000 cents, EUR -> 180). */
+export function fromSmallestUnit(cents: number, currency: string) {
+  return currency === "VND" ? cents : cents / 100;
+}

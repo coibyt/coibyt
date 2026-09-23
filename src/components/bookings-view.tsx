@@ -23,11 +23,13 @@ export function BookingsView({
   locale,
   businessTimezone,
   staff,
+  services,
 }: {
   initialBookings: BookingRow[];
   locale: string;
   businessTimezone: string;
   staff: { id: string; name: string }[];
+  services: { id: string; name: string; durationMin: number; priceCents: number; currency: string }[];
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -54,7 +56,12 @@ export function BookingsView({
       </div>
 
       {view === "calendar" ? (
-        <BookingCalendar staff={staff} businessTimezone={businessTimezone} locale={locale} />
+        <BookingCalendar
+          staff={staff}
+          services={services}
+          businessTimezone={businessTimezone}
+          locale={locale}
+        />
       ) : (
         <BookingsManager
           initialBookings={initialBookings}

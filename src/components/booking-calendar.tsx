@@ -11,6 +11,7 @@ import {
   format,
   isSameDay,
   isSameMonth,
+  isWithinInterval,
   startOfMonth,
   startOfWeek,
 } from "date-fns";
@@ -62,12 +63,31 @@ const STATUS_BG: Record<string, string> = {
 
 type ViewMode = "day" | "week" | "month";
 
+interface ServiceOption {
+  id: string;
+  name: string;
+  durationMin: number;
+  priceCents: number;
+  currency: string;
+}
+
+interface NewBookingDraft {
+  startsAt: Date;
+  staffId: string;
+  serviceId: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail: string;
+}
+
 export function BookingCalendar({
   staff,
+  services,
   businessTimezone,
   locale,
 }: {
   staff: StaffOption[];
+  services: ServiceOption[];
   businessTimezone: string;
   locale: string;
 }) {
@@ -81,6 +101,15 @@ export function BookingCalendar({
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const draggingId = useRef<string | null>(null);
+  const [now, setNow] = useState(() => toZonedTime(new Date(), businessTimezone));
+  const [newBooking, setNewBooking] = useState<NewBookingDraft | null>(null);
+  const [creatingBooking, setCreatingBooking] = useState(false);
+  const [newBookingError, setNewBookingError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => setNow(toZonedTime(new Date(), businessTimezone)), 60_000);
+    return () => clearInterval(interval);
+  }, [businessTimezone]);
 
   const staffColor = useMemo(() => {
     const map = new Map<string, string>();
@@ -206,10 +235,98 @@ export function BookingCalendar({
     rescheduleBooking(booking, newStartsAt, staffId);
   }
 
+  // Clicking empty grid space (not an existing booking — see the
+  // stopPropagation in renderBookingBlock) opens the "book for a customer"
+  // modal pre-filled at that time/staff column, mirroring handleDrop's math.
+  function handleGridClick(
+    e: React.MouseEvent<HTMLDivElement>,
+    day: Date,
+    columnStaffId: string | undefined,
+    gridTopHour: number
+  ) {
+    if (services.length === 0) return;
+    const resolvedStaffId = columnStaffId ?? staff[0]?.id;
+    if (!resolvedStaffId) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const offsetY = e.clientY - rect.top;
+    let minutes = gridTopHour * 60 + (offsetY / HOUR_HEIGHT) * 60;
+    minutes = Math.max(0, Math.round(minutes / DRAG_SNAP_MIN) * DRAG_SNAP_MIN);
+
+    const dateStr = format(day, "yyyy-MM-dd");
+    const hh = String(Math.floor(minutes / 60)).padStart(2, "0");
+    const mm = String(minutes % 60).padStart(2, "0");
+    const startsAt = fromZonedTime(`${dateStr}T${hh}:${mm}:00`, businessTimezone);
+
+    setNewBookingError(null);
+    setNewBooking({
+      startsAt,
+      staffId: resolvedStaffId,
+      serviceId: services[0].id,
+      customerName: "",
+      customerPhone: "",
+      customerEmail: "",
+    });
+  }
+
+  async function submitNewBooking() {
+    if (!newBooking) return;
+    setCreatingBooking(true);
+    setNewBookingError(null);
+    const res = await fetch("/api/business/bookings", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        serviceId: newBooking.serviceId,
+        staffId: newBooking.staffId,
+        startsAt: newBooking.startsAt.toISOString(),
+        customerName: newBooking.customerName,
+        customerPhone: newBooking.customerPhone,
+        customerEmail: newBooking.customerEmail || undefined,
+      }),
+    });
+    setCreatingBooking(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setNewBookingError(
+        data.error === "SLOT_UNAVAILABLE"
+          ? locale === "vi"
+            ? "Khung giờ này đã có lịch hẹn khác."
+            : "That time is already booked."
+          : locale === "vi"
+            ? "Có lỗi xảy ra, vui lòng thử lại."
+            : "Something went wrong, please try again."
+      );
+      return;
+    }
+    setNewBooking(null);
+    setLoading(true);
+    fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
+      .then((r) => r.json())
+      .then((data) => setBookings(data.bookings ?? []))
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }
+
   const startHour = DEFAULT_START_HOUR;
   const endHour = DEFAULT_END_HOUR;
   const totalHours = endHour - startHour;
   const hourMarks = Array.from({ length: totalHours + 1 }, (_, i) => startHour + i);
+
+  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+  const nowTop = ((nowMinutes - startHour * 60) / 60) * HOUR_HEIGHT;
+  const nowInRange = nowMinutes >= startHour * 60 && nowMinutes <= endHour * 60;
+
+  function NowLine() {
+    return (
+      <div
+        className="pointer-events-none absolute left-0 right-0 z-10 border-t-2 border-berry-500"
+        style={{ top: nowTop }}
+      >
+        <span className="absolute -left-1 -top-1 h-2 w-2 rounded-full bg-berry-500" />
+      </div>
+    );
+  }
 
   function renderBookingBlock(b: CalendarBooking, compact = false) {
     const top = ((minutesFromMidnight(b.startsAt) - startHour * 60) / 60) * HOUR_HEIGHT;
@@ -222,8 +339,11 @@ export function BookingCalendar({
         key={b.id}
         draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status)}
         onDragStart={() => (draggingId.current = b.id)}
-        onClick={() => setActiveBooking(b)}
-        className={`absolute left-0.5 right-0.5 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
+        onClick={(e) => {
+          e.stopPropagation();
+          setActiveBooking(b);
+        }}
+        className={`absolute left-0.5 right-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
           STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
         style={{ top, height }}
@@ -321,15 +441,17 @@ export function BookingCalendar({
                   {String(h).padStart(2, "0")}:00
                 </div>
               ))}
+              {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
             </div>
 
             {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => (
               <div
                 key={s.id || "unassigned"}
-                className="relative border-l border-ink-100"
+                className="relative cursor-pointer border-l border-ink-100"
                 style={{ height: totalHours * HOUR_HEIGHT }}
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => handleDrop(e, anchorDate, s.id || undefined, startHour)}
+                onClick={(e) => handleGridClick(e, anchorDate, s.id || undefined, startHour)}
               >
                 {hourMarks.map((h) => (
                   <div
@@ -341,6 +463,7 @@ export function BookingCalendar({
                 {bookingsOnDay(anchorDate)
                   .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
                   .map((b) => renderBookingBlock(b))}
+                {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
               </div>
             ))}
           </div>
@@ -374,15 +497,19 @@ export function BookingCalendar({
                   {String(h).padStart(2, "0")}:00
                 </div>
               ))}
+              {nowInRange && isWithinInterval(now, { start: rangeStart, end: rangeEnd }) && (
+                <NowLine />
+              )}
             </div>
 
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
                 key={day.toISOString()}
-                className="relative border-l border-ink-100"
+                className="relative cursor-pointer border-l border-ink-100"
                 style={{ height: totalHours * HOUR_HEIGHT }}
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => handleDrop(e, day, undefined, startHour)}
+                onClick={(e) => handleGridClick(e, day, undefined, startHour)}
               >
                 {hourMarks.map((h) => (
                   <div
@@ -392,6 +519,7 @@ export function BookingCalendar({
                   />
                 ))}
                 {bookingsOnDay(day).map((b) => renderBookingBlock(b, true))}
+                {nowInRange && isSameDay(day, now) && <NowLine />}
               </div>
             ))}
           </div>
@@ -513,6 +641,107 @@ export function BookingCalendar({
                   </button>
                 </>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {newBooking && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <div className="mb-4 flex items-start justify-between">
+              <div>
+                <p className="font-bold text-ink-900">
+                  {locale === "vi" ? "Đặt lịch cho khách" : "Book for a customer"}
+                </p>
+                <p className="text-sm text-ink-400">
+                  {newBooking.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                    timeZone: businessTimezone,
+                  })}
+                </p>
+              </div>
+              <button onClick={() => setNewBooking(null)} className="text-ink-400">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                <select
+                  className="input"
+                  value={newBooking.serviceId}
+                  onChange={(e) => setNewBooking({ ...newBooking, serviceId: e.target.value })}
+                >
+                  {services.map((sv) => (
+                    <option key={sv.id} value={sv.id}>
+                      {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {staff.length > 0 && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <select
+                    className="input"
+                    value={newBooking.staffId}
+                    onChange={(e) => setNewBooking({ ...newBooking, staffId: e.target.value })}
+                  >
+                    {staff.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div>
+                <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
+                <input
+                  required
+                  className="input"
+                  value={newBooking.customerName}
+                  onChange={(e) => setNewBooking({ ...newBooking, customerName: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
+                <input
+                  required
+                  className="input"
+                  value={newBooking.customerPhone}
+                  onChange={(e) => setNewBooking({ ...newBooking, customerPhone: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="label">
+                  Email ({locale === "vi" ? "không bắt buộc" : "optional"})
+                </label>
+                <input
+                  type="email"
+                  className="input"
+                  value={newBooking.customerEmail}
+                  onChange={(e) => setNewBooking({ ...newBooking, customerEmail: e.target.value })}
+                />
+              </div>
+            </div>
+            {newBookingError && <p className="mt-2 text-sm text-berry-500">{newBookingError}</p>}
+            <div className="mt-4 flex gap-2">
+              <button
+                disabled={
+                  creatingBooking || !newBooking.customerName.trim() || !newBooking.customerPhone.trim()
+                }
+                onClick={submitNewBooking}
+                className="btn-primary"
+              >
+                {creatingBooking && <Loader2 className="h-4 w-4 animate-spin" />}
+                {locale === "vi" ? "Đặt lịch" : "Book"}
+              </button>
+              <button onClick={() => setNewBooking(null)} className="btn-ghost">
+                {locale === "vi" ? "Huỷ" : "Cancel"}
+              </button>
             </div>
           </div>
         </div>

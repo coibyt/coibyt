@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { formatMoney } from "@/lib/money";
+import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { Plus, Trash2, Loader2, Sparkles, Pencil } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
@@ -21,14 +21,20 @@ interface ServiceRow {
   staffIds: string[];
 }
 
+// Numeric fields are kept as plain strings while editing — binding them to
+// `number` state (e.g. defaulting to 0) is what caused the old "can't clear
+// the leading zero, new digits land after it" bug on mobile. Converting
+// only happens at the form/API boundary (see saveService and startEdit).
 const emptyForm = {
   name: "",
   description: "",
   categoryId: "",
-  durationMin: 60,
-  bufferMin: 0,
-  priceCents: 0,
-  depositCents: 0,
+  durationMin: "60",
+  bufferMin: "0",
+  // Whole-currency-unit amounts (e.g. "180" meaning 180 EUR), not cents —
+  // converted with toSmallestUnit() right before sending to the API.
+  priceAmount: "",
+  depositAmount: "",
   staffIds: [] as string[],
 };
 
@@ -61,10 +67,11 @@ export function ServicesManager({
       name: s.name,
       description: s.description ?? "",
       categoryId: s.categoryId ?? "",
-      durationMin: s.durationMin,
-      bufferMin: s.bufferMin,
-      priceCents: s.priceCents,
-      depositCents: s.depositCents ?? 0,
+      durationMin: String(s.durationMin),
+      bufferMin: String(s.bufferMin),
+      priceAmount: String(fromSmallestUnit(s.priceCents, s.currency)),
+      depositAmount:
+        s.depositCents !== null ? String(fromSmallestUnit(s.depositCents, s.currency)) : "",
       staffIds: s.staffIds,
     });
     setShowForm(true);
@@ -80,8 +87,17 @@ export function ServicesManager({
     e.preventDefault();
     setSaving(true);
     const body = {
-      ...form,
+      name: form.name,
+      description: form.description,
       categoryId: form.categoryId || undefined,
+      durationMin: Number(form.durationMin) || 0,
+      bufferMin: Number(form.bufferMin) || 0,
+      priceCents: toSmallestUnit(Number(form.priceAmount) || 0, defaultCurrency),
+      depositCents:
+        form.depositAmount.trim() === ""
+          ? undefined
+          : toSmallestUnit(Number(form.depositAmount), defaultCurrency),
+      staffIds: form.staffIds,
       currency: defaultCurrency,
     };
     if (editingId) {
@@ -214,7 +230,7 @@ export function ServicesManager({
                 min={5}
                 className="input"
                 value={form.durationMin}
-                onChange={(e) => setForm({ ...form, durationMin: Number(e.target.value) })}
+                onChange={(e) => setForm({ ...form, durationMin: e.target.value })}
               />
             </div>
             <div>
@@ -224,7 +240,7 @@ export function ServicesManager({
                 min={0}
                 className="input"
                 value={form.bufferMin}
-                onChange={(e) => setForm({ ...form, bufferMin: Number(e.target.value) })}
+                onChange={(e) => setForm({ ...form, bufferMin: e.target.value })}
               />
             </div>
             <div>
@@ -233,9 +249,11 @@ export function ServicesManager({
                 required
                 type="number"
                 min={0}
+                step="0.01"
+                placeholder="0"
                 className="input"
-                value={form.priceCents}
-                onChange={(e) => setForm({ ...form, priceCents: Number(e.target.value) })}
+                value={form.priceAmount}
+                onChange={(e) => setForm({ ...form, priceAmount: e.target.value })}
               />
             </div>
             <div>
@@ -243,9 +261,11 @@ export function ServicesManager({
               <input
                 type="number"
                 min={0}
+                step="0.01"
+                placeholder="0"
                 className="input"
-                value={form.depositCents}
-                onChange={(e) => setForm({ ...form, depositCents: Number(e.target.value) })}
+                value={form.depositAmount}
+                onChange={(e) => setForm({ ...form, depositAmount: e.target.value })}
               />
             </div>
           </div>

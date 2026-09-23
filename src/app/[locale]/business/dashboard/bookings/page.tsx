@@ -13,7 +13,7 @@ export default async function BusinessBookingsPage({
   const t = await getTranslations("business");
   if (!business) return null;
 
-  const [bookings, staff] = await Promise.all([
+  const [bookings, staff, services] = await Promise.all([
     prisma.booking.findMany({
       where: { businessId: business.id },
       include: {
@@ -27,6 +27,10 @@ export default async function BusinessBookingsPage({
     prisma.staff.findMany({
       where: { businessId: business.id, active: true },
       select: { id: true, name: true },
+    }),
+    prisma.service.findMany({
+      where: { businessId: business.id, active: true },
+      select: { id: true, name: true, durationMin: true, priceCents: true, currency: true },
     }),
   ]);
 
@@ -48,6 +52,7 @@ export default async function BusinessBookingsPage({
         locale={locale}
         businessTimezone={business.timezone}
         staff={staff}
+        services={services}
       />
     </div>
   );
