@@ -61,6 +61,7 @@
     "services": "Dịch vụ",
     "staff": "Nhân viên",
     "bookings": "Lịch hẹn",
+    "customers": "Khách hàng",
     "hours": "Giờ mở cửa",
     "reviews": "Đánh giá",
     "settings": "Cài đặt",
@@ -69,7 +70,24 @@
     "statBookingsToday": "Lịch hẹn hôm nay",
     "statRevenueMonth": "Doanh thu tháng này",
     "statAvgRating": "Đánh giá trung bình",
-    "statCompletionRate": "Tỷ lệ hoàn thành"
+    "statCompletionRate": "Tỷ lệ hoàn thành",
+    "calendarView": "Lịch",
+    "listView": "Danh sách",
+    "today": "Hôm nay",
+    "allStaff": "Tất cả nhân viên",
+    "unassigned": "Chưa phân công"
+  },
+  "customers": {
+    "title": "Khách hàng",
+    "subtitle": "Danh sách khách hàng đã từng đặt lịch tại doanh nghiệp của bạn.",
+    "searchPlaceholder": "Tìm theo tên, email hoặc số điện thoại...",
+    "columnName": "Khách hàng",
+    "columnContact": "Liên hệ",
+    "columnVisits": "Số lần đến",
+    "columnLastVisit": "Lần gần nhất",
+    "columnSpent": "Tổng chi tiêu",
+    "empty": "Chưa có khách hàng nào đặt lịch.",
+    "noMatch": "Không tìm thấy khách hàng phù hợp."
   },
   "service": {
     "duration": "phút",

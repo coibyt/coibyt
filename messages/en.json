@@ -61,6 +61,7 @@
     "services": "Services",
     "staff": "Staff",
     "bookings": "Bookings",
+    "customers": "Customers",
     "hours": "Opening hours",
     "reviews": "Reviews",
     "settings": "Settings",
@@ -69,7 +70,24 @@
     "statBookingsToday": "Bookings today",
     "statRevenueMonth": "Revenue this month",
     "statAvgRating": "Average rating",
-    "statCompletionRate": "Completion rate"
+    "statCompletionRate": "Completion rate",
+    "calendarView": "Calendar",
+    "listView": "List",
+    "today": "Today",
+    "allStaff": "All staff",
+    "unassigned": "Unassigned"
+  },
+  "customers": {
+    "title": "Customers",
+    "subtitle": "Everyone who has booked an appointment with your business.",
+    "searchPlaceholder": "Search by name, email or phone...",
+    "columnName": "Customer",
+    "columnContact": "Contact",
+    "columnVisits": "Visits",
+    "columnLastVisit": "Last visit",
+    "columnSpent": "Total spent",
+    "empty": "No customers have booked yet.",
+    "noMatch": "No matching customers found."
   },
   "service": {
     "duration": "min",

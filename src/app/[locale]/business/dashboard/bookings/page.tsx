@@ -1,7 +1,7 @@
 import { getOwnedBusiness } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { getTranslations } from "next-intl/server";
-import { BookingsManager } from "@/components/bookings-manager";
+import { BookingsView } from "@/components/bookings-view";
 
 export default async function BusinessBookingsPage({
   params,
@@ -13,21 +13,33 @@ export default async function BusinessBookingsPage({
   const t = await getTranslations("business");
   if (!business) return null;
 
-  const bookings = await prisma.booking.findMany({
-    where: { businessId: business.id },
-    include: {
-      service: { select: { name: true } },
-      staff: { select: { name: true } },
-      customer: { select: { name: true, email: true, phone: true } },
-    },
-    orderBy: { startsAt: "desc" },
-    take: 100,
-  });
+  const [bookings, staff, hours] = await Promise.all([
+    prisma.booking.findMany({
+      where: { businessId: business.id },
+      include: {
+        service: { select: { name: true } },
+        staff: { select: { name: true } },
+        customer: { select: { name: true, email: true, phone: true } },
+      },
+      orderBy: { startsAt: "desc" },
+      take: 100,
+    }),
+    prisma.staff.findMany({
+      where: { businessId: business.id, active: true },
+      select: { id: true, name: true },
+    }),
+    prisma.businessHours.findMany({ where: { businessId: business.id } }),
+  ]);
+
+  const openHourByWeekday: Record<number, [number, number]> = {};
+  for (const h of hours) {
+    openHourByWeekday[h.weekday] = [h.openMinute, h.closeMinute];
+  }
 
   return (
     <div>
       <h1 className="mb-4 text-xl font-bold text-ink-900">{t("bookings")}</h1>
-      <BookingsManager
+      <BookingsView
         initialBookings={bookings.map((b) => ({
           id: b.id,
           startsAt: b.startsAt.toISOString(),
@@ -41,6 +53,8 @@ export default async function BusinessBookingsPage({
         }))}
         locale={locale}
         businessTimezone={business.timezone}
+        staff={staff}
+        openHourByWeekday={openHourByWeekday}
       />
     </div>
   );
