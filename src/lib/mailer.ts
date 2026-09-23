@@ -34,6 +34,37 @@ export async function sendMail(opts: {
   });
 }
 
+export function verificationEmail(params: { name: string; verifyUrl: string; locale: string }) {
+  const isVi = params.locale === "vi";
+  return {
+    subject: isVi
+      ? "Xác minh email để kích hoạt salon của bạn"
+      : "Verify your email to activate your salon",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Xác minh địa chỉ email" : "Verify your email"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
+        <p>${
+          isVi
+            ? "Nhấp vào nút bên dưới để xác minh email của bạn. Sau khi xác minh, salon của bạn sẽ được kích hoạt ngay — không cần chờ VaraaAi duyệt."
+            : "Click the button below to verify your email. Once verified, your salon is activated immediately — no need to wait for VaraaAi's review."
+        }</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.verifyUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${isVi ? "Xác minh email" : "Verify email"}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:13px">${
+          isVi
+            ? "Nếu nút không hoạt động, dán liên kết này vào trình duyệt:"
+            : "If the button doesn't work, paste this link into your browser:"
+        }<br/>${params.verifyUrl}</p>
+        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 export function bookingConfirmationEmail(params: {
   customerName: string;
   businessName: string;

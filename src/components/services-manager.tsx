@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatMoney } from "@/lib/money";
-import { Plus, Trash2, Loader2, Sparkles } from "lucide-react";
+import { Plus, Trash2, Loader2, Sparkles, Pencil } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 
@@ -50,24 +50,56 @@ export function ServicesManager({
   const router = useRouter();
 
   const [showForm, setShowForm] = useState(false);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [addOnsFor, setAddOnsFor] = useState<ServiceRow | null>(null);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
 
-  async function createService(e: React.FormEvent) {
+  function startEdit(s: ServiceRow) {
+    setEditingId(s.id);
+    setForm({
+      name: s.name,
+      description: s.description ?? "",
+      categoryId: s.categoryId ?? "",
+      durationMin: s.durationMin,
+      bufferMin: s.bufferMin,
+      priceCents: s.priceCents,
+      depositCents: s.depositCents ?? 0,
+      staffIds: s.staffIds,
+    });
+    setShowForm(true);
+  }
+
+  function startCreate() {
+    setEditingId(null);
+    setForm(emptyForm);
+    setShowForm(true);
+  }
+
+  async function saveService(e: React.FormEvent) {
     e.preventDefault();
     setSaving(true);
-    await fetch("/api/business/services", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...form,
-        categoryId: form.categoryId || undefined,
-        currency: defaultCurrency,
-      }),
-    });
+    const body = {
+      ...form,
+      categoryId: form.categoryId || undefined,
+      currency: defaultCurrency,
+    };
+    if (editingId) {
+      await fetch(`/api/business/services/${editingId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+    } else {
+      await fetch("/api/business/services", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+    }
     setSaving(false);
     setForm(emptyForm);
+    setEditingId(null);
     setShowForm(false);
     router.refresh();
   }
@@ -101,6 +133,13 @@ export function ServicesManager({
             </div>
             <div className="flex items-center gap-1">
               <button
+                onClick={() => startEdit(s)}
+                className="btn-ghost !p-2 text-ink-700"
+                aria-label={tCommon("edit")}
+              >
+                <Pencil className="h-4 w-4" />
+              </button>
+              <button
                 onClick={() => setAddOnsFor(s)}
                 className="btn-ghost !p-2 text-ink-700"
                 title={locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}
@@ -128,11 +167,20 @@ export function ServicesManager({
         )}
 
       {!showForm ? (
-        <button onClick={() => setShowForm(true)} className="btn-outline">
+        <button onClick={startCreate} className="btn-outline">
           <Plus className="h-4 w-4" /> {t("addService")}
         </button>
       ) : (
-        <form onSubmit={createService} className="card space-y-4 p-5">
+        <form onSubmit={saveService} className="card space-y-4 p-5">
+          <h3 className="font-semibold text-ink-900">
+            {editingId
+              ? locale === "vi"
+                ? "Sửa dịch vụ"
+                : "Edit service"
+              : locale === "vi"
+                ? "Dịch vụ mới"
+                : "New service"}
+          </h3>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="label">Tên dịch vụ</label>
@@ -203,6 +251,11 @@ export function ServicesManager({
           </div>
           <div>
             <label className="label">Mô tả</label>
+            <p className="mb-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Hiển thị bên dưới tên dịch vụ khi khách chọn dịch vụ này."
+                : "Shown under the service name when a customer picks it."}
+            </p>
             <textarea
               rows={2}
               className="input"
@@ -238,7 +291,10 @@ export function ServicesManager({
             </button>
             <button
               type="button"
-              onClick={() => setShowForm(false)}
+              onClick={() => {
+                setShowForm(false);
+                setEditingId(null);
+              }}
               className="btn-ghost"
             >
               {tCommon("cancel")}

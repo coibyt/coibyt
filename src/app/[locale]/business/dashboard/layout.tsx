@@ -1,3 +1,5 @@
+import { auth } from "@/auth";
+import { prisma } from "@/lib/prisma";
 import { getOwnedBusiness } from "@/lib/current-business";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -21,9 +23,16 @@ export default async function BusinessDashboardLayout({
   }
 
   if (business.status !== "APPROVED") {
+    const session = await auth();
+    const user = session?.user
+      ? await prisma.user.findUnique({
+          where: { id: session.user.id },
+          select: { emailVerified: true },
+        })
+      : null;
     return (
       <div className="container max-w-lg py-16">
-        <PendingBanner status={business.status} />
+        <PendingBanner status={business.status} emailVerified={!!user?.emailVerified} />
       </div>
     );
   }

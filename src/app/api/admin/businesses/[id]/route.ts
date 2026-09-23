@@ -3,16 +3,7 @@ import { requireAdmin } from "@/lib/require-admin";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 import { sendMail } from "@/lib/mailer";
-import { geocodeAddress } from "@/lib/geocode";
-
-const COUNTRY_NAMES: Record<string, string> = {
-  VN: "Vietnam",
-  FI: "Finland",
-  PL: "Poland",
-  DE: "Germany",
-  KH: "Cambodia",
-  TH: "Thailand",
-};
+import { approveBusiness } from "@/lib/approve-business";
 
 const schema = z.object({
   status: z.enum(["APPROVED", "REJECTED", "SUSPENDED"]),
@@ -33,46 +24,19 @@ export async function PATCH(
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
+  if (parsed.data.status === "APPROVED") {
+    const business = await approveBusiness(id);
+    return NextResponse.json({ business });
+  }
+
   const business = await prisma.business.update({
     where: { id },
-    data: {
-      status: parsed.data.status,
-      rejectReason: parsed.data.rejectReason,
-      approvedAt: parsed.data.status === "APPROVED" ? new Date() : undefined,
-    },
+    data: { status: parsed.data.status, rejectReason: parsed.data.rejectReason },
     include: { owner: { select: { name: true, email: true, locale: true } } },
   });
 
-  // Best-effort — a missing/unresolvable address just means the business
-  // won't show up on the map yet, it doesn't block approval either way.
-  // Only reached when the owner skipped the apply form's address-autocomplete
-  // suggestions, since picking one already sets lat/lng directly.
-  if (
-    business.status === "APPROVED" &&
-    business.lat === null &&
-    business.addressLine &&
-    business.city
-  ) {
-    const countryName = COUNTRY_NAMES[business.country] ?? "Vietnam";
-    const coords = await geocodeAddress(business.addressLine, business.city, countryName);
-    if (coords) {
-      await prisma.business.update({
-        where: { id },
-        data: { lat: coords.lat, lng: coords.lng },
-      });
-    }
-  }
-
   const isVi = business.owner.locale === "vi";
-  if (business.status === "APPROVED") {
-    await sendMail({
-      to: business.owner.email,
-      subject: isVi ? "Doanh nghiệp của bạn đã được duyệt!" : "Your business is approved!",
-      html: `<p>${isVi ? "Chúc mừng" : "Congrats"} ${business.owner.name}, <strong>${business.name}</strong> ${
-        isVi ? "đã được duyệt trên VaraaAi.Com." : "has been approved on VaraaAi.Com."
-      }</p>`,
-    });
-  } else if (business.status === "REJECTED") {
+  if (business.status === "REJECTED") {
     await sendMail({
       to: business.owner.email,
       subject: isVi ? "Hồ sơ doanh nghiệp chưa được duyệt" : "Your business application was not approved",

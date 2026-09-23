@@ -11,6 +11,9 @@ declare module "next-auth" {
     user: {
       id: string;
       role: UserRole;
+      // Named distinctly from Auth.js's own `emailVerified: Date | null`
+      // concept (on User/AdapterUser) to avoid colliding with it here.
+      hasVerifiedEmail: boolean;
     } & import("next-auth").DefaultSession["user"];
   }
   interface User {
@@ -74,6 +77,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       if (session.user) {
         session.user.id = token.id as string;
         session.user.role = token.role as UserRole;
+        // Always read fresh — this flips from false to true mid-session the
+        // moment the owner clicks their verification email link, and the
+        // dashboard's own gate depends on that being current, not cached.
+        const dbUser = await prisma.user.findUnique({
+          where: { id: token.id as string },
+          select: { emailVerified: true },
+        });
+        session.user.hasVerifiedEmail = !!dbUser?.emailVerified;
       }
       return session;
     },

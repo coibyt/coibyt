@@ -3,6 +3,8 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { businessApplicationSchema } from "@/lib/validations";
 import { slugify } from "@/lib/slugify";
+import { sendVerificationEmail } from "@/lib/email-verification";
+import { approveBusiness } from "@/lib/approve-business";
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -48,10 +50,26 @@ export async function POST(req: Request) {
     },
   });
 
-  await prisma.user.update({
+  const user = await prisma.user.update({
     where: { id: session.user.id },
     data: { role: "BUSINESS_OWNER" },
+    select: { name: true, email: true, locale: true, emailVerified: true },
   });
+
+  // A verified email (already true for Google sign-ins, which the adapter
+  // marks verified on OAuth link) skips the manual-review step entirely —
+  // an unverified one gets a link that does the same the moment it's clicked.
+  if (user.emailVerified) {
+    await approveBusiness(business.id);
+  } else {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
+    await sendVerificationEmail({
+      email: user.email,
+      name: user.name,
+      locale: user.locale,
+      siteUrl,
+    });
+  }
 
   return NextResponse.json({ business }, { status: 201 });
 }

@@ -15,14 +15,15 @@ export default async function BusinessApplyPage({
   const t = await getTranslations("business");
 
   if (session?.user) {
-    const existing = await prisma.business.findUnique({
-      where: { ownerId: session.user.id },
-    });
+    const [existing, user] = await Promise.all([
+      prisma.business.findUnique({ where: { ownerId: session.user.id } }),
+      prisma.user.findUnique({ where: { id: session.user.id }, select: { emailVerified: true } }),
+    ]);
     if (existing) {
       if (existing.status === "APPROVED") redirect({ href: "/business/dashboard", locale });
       return (
         <div className="container max-w-lg py-16">
-          <PendingBanner status={existing.status} />
+          <PendingBanner status={existing.status} emailVerified={!!user?.emailVerified} />
         </div>
       );
     }

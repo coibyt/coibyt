@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireOwnedBusinessId, requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceSchema } from "@/lib/validations";
 
@@ -15,8 +15,11 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const result = await requireApprovedOwnedBusinessId();
+  if ("error" in result) {
+    return NextResponse.json({ error: result.error }, { status: result.error === "FORBIDDEN" ? 403 : 409 });
+  }
+  const { businessId } = result;
   if (!(await assertOwnership(businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
