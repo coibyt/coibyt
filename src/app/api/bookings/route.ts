@@ -39,7 +39,14 @@ export async function POST(req: Request) {
       where: { id: { in: data.addOnIds }, businessId: service.businessId, active: true },
       select: { durationMin: true },
     });
-    extraDurationMin = addOns.reduce((sum, a) => sum + a.durationMin, 0);
+    extraDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
+  }
+  if (data.extraServiceIds?.length) {
+    const extraServices = await prisma.service.findMany({
+      where: { id: { in: data.extraServiceIds }, businessId: service.businessId, active: true },
+      select: { durationMin: true },
+    });
+    extraDurationMin += extraServices.reduce((sum, s) => sum + s.durationMin, 0);
   }
 
   // Resolve a concrete staff member — required even for "any staff" bookings
@@ -63,8 +70,6 @@ export async function POST(req: Request) {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
-  const ipAddr =
-    req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "127.0.0.1";
 
   try {
     const { booking, redirectUrl } = await createBookingAndPayment({
@@ -79,8 +84,8 @@ export async function POST(req: Request) {
       provider: data.paymentProvider,
       locale: (session.user as { locale?: "vi" | "en" }).locale ?? "vi",
       siteUrl,
-      ipAddr,
       addOnIds: data.addOnIds,
+      extraServiceIds: data.extraServiceIds,
     });
 
     return NextResponse.json({ bookingId: booking.id, redirectUrl });

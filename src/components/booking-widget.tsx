@@ -8,7 +8,7 @@ import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
-import { CreditCard, Wallet, Landmark, Banknote, Loader2 } from "lucide-react";
+import { CreditCard, Landmark, Banknote, Loader2 } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -38,14 +38,29 @@ interface AddOnOption {
   durationMin: number;
 }
 
+interface ExtraServiceInfo {
+  id: string;
+  name: string;
+  priceCents: number;
+  durationMin: number;
+}
+
+export interface BankInfo {
+  bankName: string | null;
+  bankAccountNumber: string | null;
+  bankAccountName: string | null;
+  bankBic: string | null;
+}
+
 const DAYS_AHEAD = 14;
 // "CASH" (pay at the salon) listed first and selected by default — the site
 // doesn't require an online merchant account to start taking bookings.
+// BANK_TRANSFER is only offered once the salon has filled in their account
+// details (see bankInfo below) — there's nothing useful to show otherwise.
 const PAYMENT_METHODS = [
   { id: "CASH", icon: Banknote },
+  { id: "BANK_TRANSFER", icon: Landmark },
   { id: "STRIPE", icon: CreditCard },
-  { id: "VNPAY", icon: Landmark },
-  { id: "MOMO", icon: Wallet },
 ] as const;
 
 export function BookingWidget({
@@ -53,6 +68,8 @@ export function BookingWidget({
   service,
   staffOptions,
   addOnOptions,
+  extraServices = [],
+  bankInfo,
   locale,
   businessTimezone,
 }: {
@@ -60,6 +77,8 @@ export function BookingWidget({
   service: ServiceInfo;
   staffOptions: StaffOption[];
   addOnOptions: AddOnOption[];
+  extraServices?: ExtraServiceInfo[];
+  bankInfo?: BankInfo | null;
   locale: string;
   businessTimezone: string;
 }) {
@@ -95,6 +114,11 @@ export function BookingWidget({
   const selectedAddOns = addOnOptions.filter((a) => selectedAddOnIds.has(a.id));
   const addOnPriceSum = selectedAddOns.reduce((sum, a) => sum + a.priceCents, 0);
   const addOnIdsKey = Array.from(selectedAddOnIds).sort().join(",");
+  const extraServicePriceSum = extraServices.reduce((sum, s) => sum + s.priceCents, 0);
+  const extraServiceIdsKey = extraServices.map((s) => s.id).join(",");
+
+  const hasBankInfo = !!(bankInfo?.bankName && bankInfo?.bankAccountNumber);
+  const paymentMethods = PAYMENT_METHODS.filter((m) => m.id !== "BANK_TRANSFER" || hasBankInfo);
 
   function toggleAddOn(id: string) {
     setSelectedAddOnIds((prev) => {
@@ -114,13 +138,14 @@ export function BookingWidget({
     });
     if (staffId) params.set("staffId", staffId);
     if (addOnIdsKey) params.set("addOnIds", addOnIdsKey);
+    if (extraServiceIdsKey) params.set("extraServiceIds", extraServiceIdsKey);
 
     fetch(`/api/businesses/${businessSlug}/availability?${params.toString()}`)
       .then((r) => r.json())
       .then((data) => setSlots(data.slots ?? []))
       .catch(() => setSlots([]))
       .finally(() => setLoadingSlots(false));
-  }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey]);
+  }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey, extraServiceIdsKey]);
 
   async function handleSubmit() {
     if (!selectedSlot) return;
@@ -137,6 +162,7 @@ export function BookingWidget({
           customerNote: note || undefined,
           paymentProvider: provider,
           addOnIds: Array.from(selectedAddOnIds),
+          extraServiceIds: extraServices.map((s) => s.id),
         }),
       });
       const data = await res.json();
@@ -152,12 +178,12 @@ export function BookingWidget({
     }
   }
 
-  const totalServiceCents = service.priceCents + addOnPriceSum;
+  const totalServiceCents = service.priceCents + addOnPriceSum + extraServicePriceSum;
+  const isOfflinePayment = provider === "CASH" || provider === "BANK_TRANSFER";
 
-  // Paying online can be for just the deposit; paying at the salon always
-  // means the full price, since there's no online step to collect a deposit.
-  const amountDue =
-    provider === "CASH" ? totalServiceCents : service.depositCents ?? totalServiceCents;
+  // Paying online can be for just the deposit; cash and bank transfer always
+  // mean the full price, since there's no online step to collect a deposit.
+  const amountDue = isOfflinePayment ? totalServiceCents : service.depositCents ?? totalServiceCents;
 
   if (status === "unauthenticated") {
     return (
@@ -210,6 +236,32 @@ export function BookingWidget({
                   +{formatMoney(a.priceCents, service.currency, locale)}
                 </span>
               </label>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {extraServices.length > 0 && (
+        <div>
+          <p className="label">
+            {locale === "vi" ? "Dịch vụ đã chọn thêm" : "Also booking"}
+          </p>
+          <div className="space-y-2">
+            {extraServices.map((s) => (
+              <div
+                key={s.id}
+                className="flex items-center justify-between gap-3 rounded-xl border border-ink-100 bg-mist-50 px-3 py-2.5 text-sm"
+              >
+                <span>
+                  {s.name}
+                  <span className="ml-1.5 text-xs text-ink-400">
+                    {s.durationMin} {tCommon("min")}
+                  </span>
+                </span>
+                <span className="font-medium text-ink-900">
+                  {formatMoney(s.priceCents, service.currency, locale)}
+                </span>
+              </div>
             ))}
           </div>
         </div>
@@ -299,8 +351,8 @@ export function BookingWidget({
 
       <div>
         <p className="label">{tPay("choose")}</p>
-        <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {PAYMENT_METHODS.map(({ id, icon: Icon }) => (
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+          {paymentMethods.map(({ id, icon: Icon }) => (
             <button
               key={id}
               onClick={() => setProvider(id)}
@@ -311,13 +363,49 @@ export function BookingWidget({
               }`}
             >
               <Icon className="h-5 w-5" />
-              {tPay(id.toLowerCase() as "cash" | "stripe" | "vnpay" | "momo")}
+              {tPay(id === "BANK_TRANSFER" ? "bankTransfer" : (id.toLowerCase() as "cash" | "stripe"))}
             </button>
           ))}
         </div>
         <p className="mt-2 text-xs text-ink-400">
-          {provider === "CASH" ? tPay("cashNotice") : tPay("sandboxNotice")}
+          {provider === "CASH"
+            ? tPay("cashNotice")
+            : provider === "BANK_TRANSFER"
+              ? tPay("bankTransferNotice")
+              : tPay("sandboxNotice")}
         </p>
+        {provider === "BANK_TRANSFER" && bankInfo && (
+          <div className="mt-2 space-y-1 rounded-xl border border-primary-100 bg-primary-50 p-3 text-xs text-ink-900">
+            {bankInfo.bankName && (
+              <p>
+                <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : "Bank: "}</span>
+                {bankInfo.bankName}
+              </p>
+            )}
+            {bankInfo.bankAccountNumber && (
+              <p>
+                <span className="text-ink-400">
+                  {locale === "vi" ? "Số tài khoản: " : "Account number: "}
+                </span>
+                {bankInfo.bankAccountNumber}
+              </p>
+            )}
+            {bankInfo.bankAccountName && (
+              <p>
+                <span className="text-ink-400">
+                  {locale === "vi" ? "Chủ tài khoản: " : "Account holder: "}
+                </span>
+                {bankInfo.bankAccountName}
+              </p>
+            )}
+            {bankInfo.bankBic && (
+              <p>
+                <span className="text-ink-400">BIC/SWIFT: </span>
+                {bankInfo.bankBic}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="card space-y-2 p-4">
@@ -325,20 +413,26 @@ export function BookingWidget({
           <span>{service.name}</span>
           <span>{formatMoney(service.priceCents, service.currency, locale)}</span>
         </div>
+        {extraServices.map((s) => (
+          <div key={s.id} className="flex justify-between text-sm text-ink-700">
+            <span>{s.name}</span>
+            <span>{formatMoney(s.priceCents, service.currency, locale)}</span>
+          </div>
+        ))}
         {selectedAddOns.map((a) => (
           <div key={a.id} className="flex justify-between text-sm text-ink-700">
             <span>{a.name}</span>
             <span>{formatMoney(a.priceCents, service.currency, locale)}</span>
           </div>
         ))}
-        {provider !== "CASH" && service.depositCents && (
+        {!isOfflinePayment && service.depositCents && (
           <div className="flex justify-between text-sm text-ink-400">
             <span>{t("deposit")}</span>
             <span>{formatMoney(service.depositCents, service.currency, locale)}</span>
           </div>
         )}
         <div className="flex justify-between border-t border-ink-100 pt-2 font-bold text-ink-900">
-          <span>{provider === "CASH" ? t("dueAtSalon") : t("total")}</span>
+          <span>{isOfflinePayment ? t("dueAtSalon") : t("total")}</span>
           <span>{formatMoney(amountDue, service.currency, locale)}</span>
         </div>
       </div>
@@ -351,7 +445,7 @@ export function BookingWidget({
         className="btn-primary w-full py-3"
       >
         {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-        {provider === "CASH" ? t("confirmBooking") : t("confirmAndPay")}
+        {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
       </button>
     </div>
   );

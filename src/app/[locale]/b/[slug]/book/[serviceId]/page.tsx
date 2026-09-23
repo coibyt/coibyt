@@ -5,14 +5,28 @@ import { BookingWidget } from "@/components/booking-widget";
 
 export default async function BookServicePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string; serviceId: string }>;
+  searchParams: Promise<{ extra?: string }>;
 }) {
   const { locale, slug, serviceId } = await params;
+  const { extra } = await searchParams;
+  const extraServiceIds = extra?.split(",").filter(Boolean) ?? [];
 
   const business = await prisma.business.findUnique({
     where: { slug },
-    select: { id: true, slug: true, name: true, status: true, timezone: true },
+    select: {
+      id: true,
+      slug: true,
+      name: true,
+      status: true,
+      timezone: true,
+      bankName: true,
+      bankAccountNumber: true,
+      bankAccountName: true,
+      bankBic: true,
+    },
   });
   if (!business || business.status !== "APPROVED") notFound();
 
@@ -29,6 +43,13 @@ export default async function BookServicePage({
     },
   });
   if (!service) notFound();
+
+  const extraServices = extraServiceIds.length
+    ? await prisma.service.findMany({
+        where: { id: { in: extraServiceIds }, businessId: business.id, active: true },
+        select: { id: true, name: true, priceCents: true, durationMin: true },
+      })
+    : [];
 
   const staffOptions = service.staff.map((s) => s.staff).filter((s) => s.active);
   const addOnOptions = service.addOns.map((link) => ({
@@ -65,6 +86,13 @@ export default async function BookServicePage({
         }}
         staffOptions={staffOptions.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
         addOnOptions={addOnOptions}
+        extraServices={extraServices}
+        bankInfo={{
+          bankName: business.bankName,
+          bankAccountNumber: business.bankAccountNumber,
+          bankAccountName: business.bankAccountName,
+          bankBic: business.bankBic,
+        }}
         locale={locale}
         businessTimezone={business.timezone}
       />

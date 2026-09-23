@@ -3,9 +3,8 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Star, MapPin, Phone, Clock } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { formatMoney } from "@/lib/money";
-import { Link } from "@/i18n/navigation";
 import { ReviewList } from "@/components/review-list";
+import { ServiceSelectionList } from "@/components/service-selection-list";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -16,9 +15,8 @@ export default async function BusinessProfilePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const [t, tService, business] = await Promise.all([
+  const [t, business] = await Promise.all([
     getTranslations("business"),
-    getTranslations("service"),
     prisma.business.findUnique({
       where: { slug },
       include: {
@@ -98,42 +96,16 @@ export default async function BusinessProfilePage({
         <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <h2 className="mb-4 text-lg font-bold text-ink-900">{t("services")}</h2>
-            <div className="space-y-3">
-              {business.services.map((s) => (
-                <div
-                  key={s.id}
-                  className="card flex items-center justify-between gap-4 p-4"
-                >
-                  <div>
-                    <p className="font-semibold text-ink-900">{s.name}</p>
-                    {s.description && (
-                      <p className="mt-0.5 line-clamp-2 text-sm text-ink-400">
-                        {s.description}
-                      </p>
-                    )}
-                    <p className="mt-1 text-xs text-ink-400">
-                      {s.durationMin} {tService("duration")}
-                    </p>
-                  </div>
-                  <div className="flex shrink-0 flex-col items-end gap-2">
-                    <span className="font-semibold text-ink-900">
-                      {formatMoney(s.priceCents, s.currency, locale)}
-                    </span>
-                    <Link
-                      href={`/b/${slug}/book/${s.id}`}
-                      className="btn-accent !px-4 !py-2 text-xs"
-                    >
-                      {tService("bookNow")}
-                    </Link>
-                  </div>
-                </div>
-              ))}
-              {business.services.length === 0 && (
-                <p className="text-sm text-ink-400">
-                  {locale === "vi" ? "Chưa có dịch vụ nào." : "No services yet."}
-                </p>
-              )}
-            </div>
+            <ServiceSelectionList
+              services={business.services}
+              locale={locale}
+              buildHref={(serviceId, extraServiceIds) => {
+                const params = new URLSearchParams();
+                if (extraServiceIds.length) params.set("extra", extraServiceIds.join(","));
+                const qs = params.toString();
+                return `/b/${slug}/book/${serviceId}${qs ? `?${qs}` : ""}`;
+              }}
+            />
 
             <h2 className="mb-4 mt-10 text-lg font-bold text-ink-900">
               {t("reviews")}

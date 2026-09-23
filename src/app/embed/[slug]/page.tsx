@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
-import { formatMoney } from "@/lib/money";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
+import { ServiceSelectionList } from "@/components/service-selection-list";
 
 export default async function EmbedBusinessPage({
   params,
@@ -41,32 +41,15 @@ export default async function EmbedBusinessPage({
         <h1 className="text-lg font-bold text-ink-900">{business.name}</h1>
       </div>
 
-      <div className="space-y-3">
-        {business.services.map((s) => (
-          <div key={s.id} className="card flex items-center justify-between gap-4 p-4">
-            <div>
-              <p className="font-semibold text-ink-900">{s.name}</p>
-              <p className="mt-1 text-xs text-ink-400">{s.durationMin} min</p>
-            </div>
-            <div className="flex shrink-0 flex-col items-end gap-2">
-              <span className="font-semibold text-ink-900">
-                {formatMoney(s.priceCents, s.currency, locale)}
-              </span>
-              <a
-                href={`/embed/${slug}/book/${s.id}?locale=${locale}`}
-                className="btn-accent !px-4 !py-2 text-xs"
-              >
-                {locale === "vi" ? "Đặt lịch" : "Book now"}
-              </a>
-            </div>
-          </div>
-        ))}
-        {business.services.length === 0 && (
-          <p className="text-sm text-ink-400">
-            {locale === "vi" ? "Chưa có dịch vụ nào." : "No services yet."}
-          </p>
-        )}
-      </div>
+      <ServiceSelectionList
+        services={business.services}
+        locale={locale}
+        buildHref={(serviceId, extraServiceIds) => {
+          const params = new URLSearchParams({ locale });
+          if (extraServiceIds.length) params.set("extra", extraServiceIds.join(","));
+          return `/embed/${slug}/book/${serviceId}?${params.toString()}`;
+        }}
+      />
     </div>
   );
 }

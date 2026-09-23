@@ -1,27 +1,18 @@
 import { NextResponse } from "next/server";
 import { requireOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
-import { randomUUID } from "crypto";
 
 const MAX_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
-const ALLOWED_TYPES: Record<string, string> = {
-  "image/jpeg": "jpg",
-  "image/png": "png",
-  "image/webp": "webp",
-};
+const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
 
 /**
- * Saves an uploaded logo/cover image to disk under public/uploads and
- * updates the business record. There's no cloud storage account configured
- * yet (no Cloudinary/S3 credentials), so this writes straight to the app's
- * own filesystem — see docs/DEPLOYMENT.md for the caveat that a full rebuild
- * on Hostinger *could* wipe this directory if it isn't preserved between
- * deploys, and how to move to real object storage once that matters.
- *
- * The returned URL points at /api/uploads/... (src/app/api/uploads/[...path]),
- * not the file's real /uploads/... static path — see that route for why.
+ * Saves an uploaded logo/cover image straight into the database (see
+ * BusinessImage in schema.prisma) rather than to disk. Hostinger's git-based
+ * deploy recreates the app directory from scratch on every push, so a file
+ * written to public/uploads at runtime would silently disappear the next
+ * time this code shipped — which is exactly what happened here twice before
+ * this fix. There's no cloud storage account configured either, so the DB is
+ * the simplest thing that's actually guaranteed to persist.
  */
 export async function POST(req: Request) {
   const businessId = await requireOwnedBusinessId();
@@ -40,19 +31,23 @@ export async function POST(req: Request) {
   if (file.size > MAX_SIZE_BYTES) {
     return NextResponse.json({ error: "FILE_TOO_LARGE" }, { status: 400 });
   }
-  const ext = ALLOWED_TYPES[file.type];
-  if (!ext) {
+  if (!ALLOWED_TYPES.has(file.type)) {
     return NextResponse.json({ error: "UNSUPPORTED_TYPE" }, { status: 400 });
   }
 
-  const dir = path.join(process.cwd(), "public", "uploads", "businesses", businessId);
-  await mkdir(dir, { recursive: true });
-
-  const filename = `${kind}-${randomUUID()}.${ext}`;
   const buffer = Buffer.from(await file.arrayBuffer());
-  await writeFile(path.join(dir, filename), buffer);
+  const imageKind = kind === "logo" ? "LOGO" : "COVER";
 
-  const publicUrl = `/api/uploads/businesses/${businessId}/${filename}`;
+  await prisma.businessImage.upsert({
+    where: { businessId_kind: { businessId, kind: imageKind } },
+    update: { data: buffer, mimeType: file.type },
+    create: { businessId, kind: imageKind, data: buffer, mimeType: file.type },
+  });
+
+  // The version query param busts caches on re-upload — the URL is
+  // otherwise stable, so it's safe to cache aggressively (see the serving
+  // route), unlike the old uuid-per-upload disk filenames.
+  const publicUrl = `/api/business-image/${businessId}/${kind}?v=${Date.now()}`;
 
   await prisma.business.update({
     where: { id: businessId },

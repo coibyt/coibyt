@@ -123,6 +123,13 @@ model Business {
 
   timezone String @default("Asia/Ho_Chi_Minh")
 
+  // Where customers send money for the "bank transfer" payment method —
+  // no automatic reconciliation, same trust model as pay-at-salon cash.
+  bankName          String?
+  bankAccountNumber String?
+  bankAccountName   String?
+  bankBic           String?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   approvedAt DateTime?
@@ -135,6 +142,7 @@ model Business {
   hours      BusinessHours[]
   closures   BusinessClosure[]
   addOns     ServiceAddOn[]
+  images     BusinessImage[]
 
   @@index([status])
   @@index([city])
@@ -234,9 +242,10 @@ model Service {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  staff    StaffService[]
-  bookings Booking[]
-  addOns   ServiceAddOnLink[]
+  staff        StaffService[]
+  bookings     Booking[]
+  addOns       ServiceAddOnLink[]
+  bookingExtra BookingExtraService[]
 
   @@index([businessId])
   @@index([categoryId])
@@ -279,6 +288,28 @@ model ServiceAddOnLink {
   @@id([serviceId, addOnId])
 }
 
+enum ImageKind {
+  LOGO
+  COVER
+}
+
+// Logo/cover bytes live in the DB, not on disk — Hostinger's git-based
+// deploy recreates the app directory from scratch on every push, which
+// silently wiped anything written to public/uploads at runtime. Kept off
+// the Business row itself (a separate model) so ordinary Business queries
+// never pull multi-MB blobs along for the ride.
+model BusinessImage {
+  id         String    @id @default(cuid())
+  businessId String
+  business   Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  kind       ImageKind
+  data       Bytes
+  mimeType   String
+  updatedAt  DateTime  @updatedAt
+
+  @@unique([businessId, kind])
+}
+
 // ────────────────────────────────────────────────────────────────────
 // Bookings, payments, reviews
 // ────────────────────────────────────────────────────────────────────
@@ -316,9 +347,10 @@ model Booking {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  payment Payment?
-  review  Review?
-  addOns  BookingAddOn[]
+  payment       Payment?
+  review        Review?
+  addOns        BookingAddOn[]
+  extraServices BookingExtraService[]
 
   @@index([businessId, startsAt])
   @@index([staffId, startsAt])
@@ -330,6 +362,7 @@ enum PaymentProvider {
   STRIPE
   VNPAY
   MOMO
+  BANK_TRANSFER
 }
 
 enum PaymentStatus {
@@ -380,6 +413,25 @@ model BookingAddOn {
   booking     Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
   addOnId     String?
   addOn       ServiceAddOn? @relation(fields: [addOnId], references: [id], onDelete: SetNull)
+  name        String
+  priceCents  Int
+  durationMin Int
+
+  @@index([bookingId])
+}
+
+// A second (third, fourth...) full service booked in the same visit — e.g.
+// a manicure booked alongside a pedicure — as opposed to a BookingAddOn,
+// which is a small catalog extra tied to one specific service. Snapshot for
+// the same reason as BookingAddOn: history shouldn't move if the service's
+// price changes later, and serviceId is nullable so deleting the service
+// doesn't touch past bookings.
+model BookingExtraService {
+  id          String   @id @default(cuid())
+  bookingId   String
+  booking     Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  serviceId   String?
+  service     Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
   name        String
   priceCents  Int
   durationMin Int

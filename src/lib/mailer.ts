@@ -41,6 +41,14 @@ export function bookingConfirmationEmail(params: {
   startsAt: Date;
   locale: string;
   businessTimezone: string;
+  /** Included only for the bank-transfer payment method, so the customer
+   * has the salon's account details handy without digging through the site. */
+  bankInfo?: {
+    bankName: string | null;
+    bankAccountNumber: string | null;
+    bankAccountName: string | null;
+    bankBic: string | null;
+  };
 }) {
   // Always render in the salon's own timezone — an email server can run in
   // any timezone, and the appointment time only means something relative to
@@ -50,6 +58,19 @@ export function bookingConfirmationEmail(params: {
     { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
   const isVi = params.locale === "vi";
+
+  const bankBlock = params.bankInfo
+    ? `
+      <div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px 16px;border-radius:12px;margin-top:8px">
+        <p style="margin:0 0 6px;font-weight:600">${isVi ? "Thông tin chuyển khoản" : "Bank transfer details"}</p>
+        ${params.bankInfo.bankName ? `<p style="margin:2px 0">${isVi ? "Ngân hàng" : "Bank"}: ${params.bankInfo.bankName}</p>` : ""}
+        ${params.bankInfo.bankAccountNumber ? `<p style="margin:2px 0">${isVi ? "Số tài khoản" : "Account number"}: ${params.bankInfo.bankAccountNumber}</p>` : ""}
+        ${params.bankInfo.bankAccountName ? `<p style="margin:2px 0">${isVi ? "Chủ tài khoản" : "Account holder"}: ${params.bankInfo.bankAccountName}</p>` : ""}
+        ${params.bankInfo.bankBic ? `<p style="margin:2px 0">BIC/SWIFT: ${params.bankInfo.bankBic}</p>` : ""}
+      </div>
+    `
+    : "";
+
   return {
     subject: isVi
       ? `Xác nhận lịch hẹn tại ${params.businessName}`
@@ -64,6 +85,7 @@ export function bookingConfirmationEmail(params: {
             : `Your <strong>${params.serviceName}</strong> appointment at <strong>${params.businessName}</strong> is confirmed.`
         }</p>
         <p style="background:#f2f5f5;padding:12px 16px;border-radius:12px">${dateStr}</p>
+        ${bankBlock}
         <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
       </div>
     `,

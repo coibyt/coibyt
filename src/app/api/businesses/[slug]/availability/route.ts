@@ -12,6 +12,7 @@ export async function GET(
   const staffId = searchParams.get("staffId") ?? undefined;
   const dateParam = searchParams.get("date"); // YYYY-MM-DD
   const addOnIds = searchParams.get("addOnIds")?.split(",").filter(Boolean) ?? [];
+  const extraServiceIds = searchParams.get("extraServiceIds")?.split(",").filter(Boolean) ?? [];
 
   if (!serviceId || !dateParam) {
     return NextResponse.json(
@@ -40,7 +41,14 @@ export async function GET(
       where: { id: { in: addOnIds }, businessId: business.id, active: true },
       select: { durationMin: true },
     });
-    extraDurationMin = addOns.reduce((sum, a) => sum + a.durationMin, 0);
+    extraDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
+  }
+  if (extraServiceIds.length > 0) {
+    const extraServices = await prisma.service.findMany({
+      where: { id: { in: extraServiceIds }, businessId: business.id, active: true },
+      select: { durationMin: true },
+    });
+    extraDurationMin += extraServices.reduce((sum, s) => sum + s.durationMin, 0);
   }
 
   const slots = await getAvailableSlots({
