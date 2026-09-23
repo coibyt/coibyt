@@ -120,8 +120,22 @@ model Business {
   phone       String?
   email       String?
   website     String?
+  facebookUrl  String?
+  instagramUrl String?
+  tiktokUrl    String?
+  whatsapp     String? // phone number in international format, used for a wa.me link
 
   timezone String @default("Asia/Ho_Chi_Minh")
+
+  // The language/currency this salon's own customers should see by default
+  // (e.g. the embed widget's default locale) — distinct from the viewing
+  // customer's own site-wide language preference.
+  defaultLocale   String @default("vi")
+  defaultCurrency String @default("VND")
+
+  // How many hours before the appointment a CUSTOMER can still self-cancel;
+  // past that, only the business can cancel from their own dashboard.
+  cancellationWindowHours Int @default(24)
 
   // Where customers send money for the "bank transfer" payment method —
   // no automatic reconciliation, same trust model as pay-at-salon cash.

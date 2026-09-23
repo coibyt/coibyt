@@ -28,6 +28,63 @@ export async function geocodeAddress(
   }
 }
 
+export interface AddressSuggestion {
+  displayName: string;
+  lat: number;
+  lng: number;
+  addressLine: string | null;
+  city: string | null;
+  /** ISO 3166-1 alpha-2, lowercase (Nominatim's own format) */
+  countryCode: string | null;
+}
+
+/** Address-autocomplete suggestions for the business application form —
+ * unlike geocodeAddress, this returns several candidates with their full
+ * structured address so the owner can pick the exact match themselves,
+ * rather than trusting a single best-guess geocode of free text. */
+export async function searchAddress(query: string): Promise<AddressSuggestion[]> {
+  const url = `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&limit=5&q=${encodeURIComponent(query)}`;
+
+  try {
+    const res = await fetch(url, {
+      headers: {
+        "User-Agent": "VaraaAi.Com booking platform (contact: admin@varaaai.com)",
+      },
+    });
+    if (!res.ok) return [];
+    const results = (await res.json()) as Array<{
+      display_name: string;
+      lat: string;
+      lon: string;
+      address?: {
+        road?: string;
+        house_number?: string;
+        city?: string;
+        town?: string;
+        village?: string;
+        county?: string;
+        country_code?: string;
+      };
+    }>;
+
+    return results.map((r) => {
+      const addr = r.address ?? {};
+      const addressLine = [addr.house_number, addr.road].filter(Boolean).join(" ") || null;
+      const city = addr.city ?? addr.town ?? addr.village ?? addr.county ?? null;
+      return {
+        displayName: r.display_name,
+        lat: parseFloat(r.lat),
+        lng: parseFloat(r.lon),
+        addressLine,
+        city,
+        countryCode: addr.country_code ?? null,
+      };
+    });
+  } catch {
+    return [];
+  }
+}
+
 /** Reverse of the above: turns a browser geolocation fix into an ISO
  * 3166-1 alpha-2 country code, used to auto-pick the site's language. Kept
  * server-side (via /api/geolocate) because browsers refuse to set a custom

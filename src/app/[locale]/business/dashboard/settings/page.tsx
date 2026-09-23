@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { BusinessImagesManager } from "@/components/business-images-manager";
 import { BookingEmbedCard } from "@/components/booking-embed-card";
 import { BankInfoCard } from "@/components/bank-info-card";
+import { ContactLinksCard } from "@/components/contact-links-card";
+import { PreferencesCard } from "@/components/preferences-card";
 
 export default async function BusinessSettingsPage() {
   const business = await getOwnedBusiness();
@@ -17,6 +19,24 @@ export default async function BusinessSettingsPage() {
         coverUrl={business.coverUrl}
         businessName={business.name}
       />
+      <ContactLinksCard
+        contact={{
+          phone: business.phone,
+          email: business.email,
+          website: business.website,
+          facebookUrl: business.facebookUrl,
+          instagramUrl: business.instagramUrl,
+          tiktokUrl: business.tiktokUrl,
+          whatsapp: business.whatsapp,
+        }}
+      />
+      <PreferencesCard
+        preferences={{
+          defaultLocale: business.defaultLocale,
+          defaultCurrency: business.defaultCurrency,
+          cancellationWindowHours: business.cancellationWindowHours,
+        }}
+      />
       <BankInfoCard
         bankInfo={{
           bankName: business.bankName,
@@ -25,7 +45,7 @@ export default async function BusinessSettingsPage() {
           bankBic: business.bankBic,
         }}
       />
-      <BookingEmbedCard slug={business.slug} />
+      <BookingEmbedCard slug={business.slug} defaultLocale={business.defaultLocale} />
     </div>
   );
 }

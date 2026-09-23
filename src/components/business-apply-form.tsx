@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter, Link } from "@/i18n/navigation";
 import { Loader2 } from "lucide-react";
+import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
 
 export function BusinessApplyForm({
   categories,
@@ -22,8 +23,20 @@ export function BusinessApplyForm({
     city: "",
     phone: "",
   });
+  const [pin, setPin] = useState<{ lat: number; lng: number } | null>(null);
+  const [country, setCountry] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  function onAddressSelect(s: AddressSuggestion) {
+    setForm((f) => ({
+      ...f,
+      addressLine: s.addressLine ?? f.addressLine,
+      city: s.city ?? f.city,
+    }));
+    setPin({ lat: s.lat, lng: s.lng });
+    setCountry(s.countryCode ? s.countryCode.toUpperCase() : null);
+  }
 
   if (!isAuthenticated) {
     return (
@@ -45,7 +58,12 @@ export function BusinessApplyForm({
     const res = await fetch("/api/business/apply", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        ...form,
+        lat: pin?.lat,
+        lng: pin?.lng,
+        country: country ?? undefined,
+      }),
     });
     setLoading(false);
     if (!res.ok) {
@@ -92,11 +110,11 @@ export function BusinessApplyForm({
       </div>
       <div>
         <label className="label">{t("address")}</label>
-        <input
-          required
-          className="input"
+        <AddressAutocomplete
           value={form.addressLine}
-          onChange={(e) => setForm({ ...form, addressLine: e.target.value })}
+          onChange={(addressLine) => setForm({ ...form, addressLine })}
+          onSelect={onAddressSelect}
+          pin={pin}
         />
       </div>
       <div>

@@ -1,7 +1,18 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import { Star, MapPin, Phone, Clock } from "lucide-react";
+import {
+  Star,
+  MapPin,
+  Phone,
+  Clock,
+  Mail,
+  Globe,
+  Facebook,
+  Instagram,
+  Music2,
+  MessageCircle,
+} from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { ReviewList } from "@/components/review-list";
 import { ServiceSelectionList } from "@/components/service-selection-list";
@@ -82,13 +93,82 @@ export default async function BusinessProfilePage({
                 </span>
               )}
               {business.phone && (
-                <span className="flex items-center gap-1">
+                <a href={`tel:${business.phone}`} className="flex items-center gap-1 hover:text-ink-900">
                   <Phone className="h-4 w-4" /> {business.phone}
-                </span>
+                </a>
               )}
             </div>
             {business.description && (
               <p className="mt-3 max-w-2xl text-sm text-ink-700">{business.description}</p>
+            )}
+            {(business.email ||
+              business.website ||
+              business.whatsapp ||
+              business.facebookUrl ||
+              business.instagramUrl ||
+              business.tiktokUrl) && (
+              <div className="mt-3 flex flex-wrap items-center gap-3 text-ink-400">
+                {business.email && (
+                  <a href={`mailto:${business.email}`} aria-label="Email" className="hover:text-primary-500">
+                    <Mail className="h-5 w-5" />
+                  </a>
+                )}
+                {business.whatsapp && (
+                  <a
+                    href={`https://wa.me/${business.whatsapp.replace(/[^0-9]/g, "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="hover:text-primary-500"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                  </a>
+                )}
+                {business.website && (
+                  <a
+                    href={business.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Website"
+                    className="hover:text-primary-500"
+                  >
+                    <Globe className="h-5 w-5" />
+                  </a>
+                )}
+                {business.facebookUrl && (
+                  <a
+                    href={business.facebookUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                    className="hover:text-primary-500"
+                  >
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                )}
+                {business.instagramUrl && (
+                  <a
+                    href={business.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    className="hover:text-primary-500"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                )}
+                {business.tiktokUrl && (
+                  <a
+                    href={business.tiktokUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                    className="hover:text-primary-500"
+                  >
+                    <Music2 className="h-5 w-5" />
+                  </a>
+                )}
+              </div>
             )}
           </div>
         </div>

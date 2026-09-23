@@ -19,6 +19,11 @@ export const businessApplicationSchema = z.object({
   addressLine: z.string().min(3).max(200),
   city: z.string().min(2).max(100),
   phone: z.string().min(6).max(20),
+  // Populated when the owner picks an address-autocomplete suggestion —
+  // absent if they just typed free text without selecting one.
+  lat: z.number().min(-90).max(90).optional(),
+  lng: z.number().min(-180).max(180).optional(),
+  country: z.string().length(2).optional(),
 });
 
 export const serviceSchema = z.object({

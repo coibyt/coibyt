@@ -4,13 +4,22 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
 
-export function BookingEmbedCard({ slug }: { slug: string }) {
+export function BookingEmbedCard({
+  slug,
+  defaultLocale,
+}: {
+  slug: string;
+  /** The salon's own configured language (Settings → Salon preferences) —
+   * used for the embed URL regardless of which language the owner currently
+   * happens to be viewing this dashboard in. */
+  defaultLocale: string;
+}) {
   const locale = useLocale();
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState<"url" | "code" | null>(null);
 
   const origin = typeof window !== "undefined" ? window.location.origin : "";
-  const embedUrl = `${origin}/embed/${slug}?locale=${locale}`;
+  const embedUrl = `${origin}/embed/${slug}?locale=${defaultLocale}`;
   const iframeId = `varaaai-embed-${slug}`;
   const embedCode = `<iframe id="${iframeId}" src="${embedUrl}" style="width:100%;border:0;"></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/2.8.3/iframeResizer.min.js"></script>

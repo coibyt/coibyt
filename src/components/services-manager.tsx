@@ -37,11 +37,13 @@ export function ServicesManager({
   staffOptions,
   categories,
   locale,
+  defaultCurrency,
 }: {
   initialServices: ServiceRow[];
   staffOptions: { id: string; name: string }[];
   categories: { id: string; name: string }[];
   locale: string;
+  defaultCurrency: string;
 }) {
   const t = useTranslations("business");
   const tCommon = useTranslations("common");
@@ -58,7 +60,11 @@ export function ServicesManager({
     await fetch("/api/business/services", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, categoryId: form.categoryId || undefined }),
+      body: JSON.stringify({
+        ...form,
+        categoryId: form.categoryId || undefined,
+        currency: defaultCurrency,
+      }),
     });
     setSaving(false);
     setForm(emptyForm);
@@ -174,7 +180,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Giá (VND)</label>
+              <label className="label">Giá ({defaultCurrency})</label>
               <input
                 required
                 type="number"
@@ -185,7 +191,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Tiền cọc (VND, không bắt buộc)</label>
+              <label className="label">Tiền cọc ({defaultCurrency}, không bắt buộc)</label>
               <input
                 type="number"
                 min={0}

@@ -39,6 +39,7 @@ export default async function ServicesPage({
           name: locale === "vi" ? c.nameVi : c.nameEn,
         }))}
         locale={locale}
+        defaultCurrency={business.defaultCurrency}
       />
     </div>
   );

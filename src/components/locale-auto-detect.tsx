@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "@/i18n/navigation";
 import { isValidLocale } from "@/i18n/is-valid-locale";
+import { detectCountry } from "@/lib/detect-country-client";
 
 const COUNTRY_LOCALE: Record<string, string> = {
   vn: "vi",
@@ -16,7 +17,7 @@ const COUNTRY_LOCALE: Record<string, string> = {
   th: "th",
 };
 
-const STORAGE_KEY = "varaaai-locale-detected";
+const FLAG_KEY = "varaaai-locale-detected";
 
 /**
  * Runs once per visitor: asks for their location (the same permission
@@ -31,31 +32,17 @@ export function LocaleAutoDetect() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (typeof window === "undefined" || !navigator.geolocation) return;
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    if (typeof window === "undefined") return;
+    if (localStorage.getItem(FLAG_KEY)) return;
+    localStorage.setItem(FLAG_KEY, "1");
 
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        localStorage.setItem(STORAGE_KEY, "1");
-        try {
-          const res = await fetch(
-            `/api/geolocate?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`
-          );
-          const { countryCode } = await res.json();
-          if (!countryCode) return;
-          const detected = COUNTRY_LOCALE[countryCode] ?? (countryCode !== "vn" ? "en" : "vi");
-          if (isValidLocale(detected) && detected !== currentLocale) {
-            router.replace(pathname, { locale: detected });
-          }
-        } catch {
-          // Staying on the default locale is a fine fallback.
-        }
-      },
-      () => {
-        localStorage.setItem(STORAGE_KEY, "1");
-      },
-      { timeout: 8000 }
-    );
+    detectCountry().then((countryCode) => {
+      if (!countryCode) return;
+      const detected = COUNTRY_LOCALE[countryCode] ?? (countryCode !== "vn" ? "en" : "vi");
+      if (isValidLocale(detected) && detected !== currentLocale) {
+        router.replace(pathname, { locale: detected });
+      }
+    });
     // Only ever run this once, on first mount.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

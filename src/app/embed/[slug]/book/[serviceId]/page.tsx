@@ -15,7 +15,6 @@ export default async function EmbedBookServicePage({
 }) {
   const { slug, serviceId } = await params;
   const { locale: rawLocale, extra } = await searchParams;
-  const locale = isValidLocale(rawLocale) ? rawLocale : routing.defaultLocale;
   const extraServiceIds = extra?.split(",").filter(Boolean) ?? [];
 
   const business = await prisma.business.findUnique({
@@ -26,6 +25,7 @@ export default async function EmbedBookServicePage({
       name: true,
       status: true,
       timezone: true,
+      defaultLocale: true,
       bankName: true,
       bankAccountNumber: true,
       bankAccountName: true,
@@ -33,6 +33,12 @@ export default async function EmbedBookServicePage({
     },
   });
   if (!business || business.status !== "APPROVED") notFound();
+
+  const locale = isValidLocale(rawLocale)
+    ? rawLocale
+    : isValidLocale(business.defaultLocale)
+      ? business.defaultLocale
+      : routing.defaultLocale;
 
   const service = await prisma.service.findFirst({
     where: { id: serviceId, businessId: business.id, active: true },
@@ -71,7 +77,7 @@ export default async function EmbedBookServicePage({
         </span>
       </div>
 
-      <EmbedProviders requestedLocale={rawLocale}>
+      <EmbedProviders requestedLocale={locale}>
         <BookingWidget
           businessSlug={business.slug}
           service={{

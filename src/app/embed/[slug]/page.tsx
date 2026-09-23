@@ -14,13 +14,20 @@ export default async function EmbedBusinessPage({
 }) {
   const { slug } = await params;
   const { locale: rawLocale } = await searchParams;
-  const locale = isValidLocale(rawLocale) ? rawLocale : routing.defaultLocale;
 
   const business = await prisma.business.findUnique({
     where: { slug },
     include: { services: { where: { active: true }, orderBy: { createdAt: "asc" } } },
   });
   if (!business || business.status !== "APPROVED") notFound();
+
+  // Prefer the visitor's explicit ?locale=, then the salon's own configured
+  // default (Settings → Salon preferences) over the site-wide default.
+  const locale = isValidLocale(rawLocale)
+    ? rawLocale
+    : isValidLocale(business.defaultLocale)
+      ? business.defaultLocale
+      : routing.defaultLocale;
 
   return (
     <div className="mx-auto max-w-xl p-4">

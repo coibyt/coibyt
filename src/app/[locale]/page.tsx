@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
 import { SearchBarHero } from "@/components/search-bar";
 import { CategoryCard } from "@/components/category-card";
-import { BusinessCard } from "@/components/business-card";
+import { FeaturedNearby } from "@/components/featured-nearby";
 import { Link } from "@/i18n/navigation";
 
 export default async function HomePage({
@@ -11,18 +11,9 @@ export default async function HomePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const [t, categories, businesses] = await Promise.all([
+  const [t, categories] = await Promise.all([
     getTranslations("home"),
     prisma.category.findMany({ take: 8 }),
-    prisma.business.findMany({
-      where: { status: "APPROVED" },
-      take: 8,
-      orderBy: { createdAt: "desc" },
-      include: {
-        reviews: { select: { rating: true } },
-        categories: { include: { category: true } },
-      },
-    }),
   ]);
 
   return (
@@ -55,20 +46,7 @@ export default async function HomePage({
         </div>
       </section>
 
-      {businesses.length > 0 && (
-        <section className="container py-14">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-2xl font-bold text-ink-900">
-              {t("featuredTitle")}
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {businesses.map((b) => (
-              <BusinessCard key={b.id} business={b} locale={locale} />
-            ))}
-          </div>
-        </section>
-      )}
+      <FeaturedNearby locale={locale} title={t("featuredTitle")} />
 
       <section className="bg-ink-900">
         <div className="container flex flex-col items-center gap-4 py-16 text-center">

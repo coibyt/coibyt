@@ -31,11 +31,26 @@ export function CustomerBookingsList({
   const router = useRouter();
   const [cancelling, setCancelling] = useState<string | null>(null);
   const [reviewingId, setReviewingId] = useState<string | null>(null);
+  const [error, setError] = useState<{ id: string; message: string } | null>(null);
 
   async function cancel(id: string) {
     setCancelling(id);
-    await fetch(`/api/bookings/${id}/cancel`, { method: "POST" });
+    setError(null);
+    const res = await fetch(`/api/bookings/${id}/cancel`, { method: "POST" });
     setCancelling(null);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (data.error === "CANCELLATION_WINDOW_PASSED") {
+        setError({
+          id,
+          message:
+            locale === "vi"
+              ? "Đã quá thời hạn tự hủy lịch hẹn. Vui lòng liên hệ salon để hủy."
+              : "It's too late to cancel this yourself. Please contact the salon directly.",
+        });
+      }
+      return;
+    }
     router.refresh();
   }
 
@@ -55,6 +70,7 @@ export function CustomerBookingsList({
                 timeZone: b.businessTimezone,
               })}
             </p>
+            {error?.id === b.id && <p className="mt-1 text-xs text-berry-500">{error.message}</p>}
           </div>
           <div className="flex items-center gap-3">
             <span className="font-medium text-ink-900">
