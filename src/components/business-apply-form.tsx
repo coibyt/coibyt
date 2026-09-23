@@ -115,6 +115,7 @@ export function BusinessApplyForm({
           onChange={(addressLine) => setForm({ ...form, addressLine })}
           onSelect={onAddressSelect}
           pin={pin}
+          onPinDrag={(lat, lng) => setPin({ lat, lng })}
         />
       </div>
       <div>

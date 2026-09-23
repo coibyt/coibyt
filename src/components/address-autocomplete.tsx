@@ -27,11 +27,15 @@ export function AddressAutocomplete({
   onChange,
   onSelect,
   pin,
+  onPinDrag,
 }: {
   value: string;
   onChange: (value: string) => void;
   onSelect: (suggestion: AddressSuggestion) => void;
   pin: { lat: number; lng: number } | null;
+  /** Lets the owner drag the pin to fine-tune it after picking a suggestion
+   * — omit to render a fixed, non-draggable pin. */
+  onPinDrag?: (lat: number, lng: number) => void;
 }) {
   const locale = useLocale();
   const [suggestions, setSuggestions] = useState<AddressSuggestion[]>([]);
@@ -92,7 +96,14 @@ export function AddressAutocomplete({
       )}
       {pin && (
         <div className="mt-2">
-          <AddressPinMap lat={pin.lat} lng={pin.lng} />
+          <AddressPinMap lat={pin.lat} lng={pin.lng} onDragEnd={onPinDrag} />
+          {onPinDrag && (
+            <p className="mt-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Kéo ghim để chỉnh vị trí chính xác hơn."
+                : "Drag the pin to fine-tune the exact location."}
+            </p>
+          )}
         </div>
       )}
     </div>

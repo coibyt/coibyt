@@ -3,6 +3,7 @@
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import type { LeafletEventHandlerFnMap } from "leaflet";
 
 // Loaded from a CDN instead of bundled — Leaflet's default marker icon
 // paths break under most bundlers (webpack rewrites the asset URLs it
@@ -15,7 +16,27 @@ const pinIcon = L.icon({
   iconAnchor: [12, 41],
 });
 
-export function AddressPinMap({ lat, lng }: { lat: number; lng: number }) {
+export function AddressPinMap({
+  lat,
+  lng,
+  onDragEnd,
+}: {
+  lat: number;
+  lng: number;
+  /** When set, the marker becomes draggable — lets the owner nudge the pin
+   * onto the right building when the geocoded suggestion lands nearby but
+   * not exactly on it. */
+  onDragEnd?: (lat: number, lng: number) => void;
+}) {
+  const eventHandlers: LeafletEventHandlerFnMap | undefined = onDragEnd
+    ? {
+        dragend: (e) => {
+          const pos = e.target.getLatLng();
+          onDragEnd(pos.lat, pos.lng);
+        },
+      }
+    : undefined;
+
   return (
     <div className="h-48 w-full overflow-hidden rounded-xl border border-ink-100">
       {/* Keying on the coordinates remounts the map on a new pick instead of
@@ -32,7 +53,12 @@ export function AddressPinMap({ lat, lng }: { lat: number; lng: number }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[lat, lng]} icon={pinIcon} />
+        <Marker
+          position={[lat, lng]}
+          icon={pinIcon}
+          draggable={!!onDragEnd}
+          eventHandlers={eventHandlers}
+        />
       </MapContainer>
     </div>
   );
