@@ -99,12 +99,7 @@ export default async function BusinessProfilePage({
             <ServiceSelectionList
               services={business.services}
               locale={locale}
-              buildHref={(serviceId, extraServiceIds) => {
-                const params = new URLSearchParams();
-                if (extraServiceIds.length) params.set("extra", extraServiceIds.join(","));
-                const qs = params.toString();
-                return `/b/${slug}/book/${serviceId}${qs ? `?${qs}` : ""}`;
-              }}
+              bookBasePath={`/b/${slug}/book`}
             />
 
             <h2 className="mb-4 mt-10 text-lg font-bold text-ink-900">

@@ -18,13 +18,25 @@ export interface SelectableService {
 export function ServiceSelectionList({
   services,
   locale,
-  buildHref,
+  bookBasePath,
+  extraQueryParams,
 }: {
   services: SelectableService[];
   locale: string;
-  buildHref: (serviceId: string, extraServiceIds: string[]) => string;
+  /** e.g. "/embed/moja-beauty/book" or "/b/moja-beauty/book" — the service id
+   * and any "extra" query param are appended to this. Plain data instead of
+   * a callback: functions can't cross the server/client component boundary. */
+  bookBasePath: string;
+  extraQueryParams?: Record<string, string>;
 }) {
   const [checked, setChecked] = useState<Set<string>>(new Set());
+
+  function buildHref(serviceId: string, extraServiceIds: string[]) {
+    const params = new URLSearchParams(extraQueryParams);
+    if (extraServiceIds.length) params.set("extra", extraServiceIds.join(","));
+    const qs = params.toString();
+    return `${bookBasePath}/${serviceId}${qs ? `?${qs}` : ""}`;
+  }
 
   function toggle(id: string) {
     setChecked((prev) => {

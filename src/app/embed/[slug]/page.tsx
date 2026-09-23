@@ -44,11 +44,8 @@ export default async function EmbedBusinessPage({
       <ServiceSelectionList
         services={business.services}
         locale={locale}
-        buildHref={(serviceId, extraServiceIds) => {
-          const params = new URLSearchParams({ locale });
-          if (extraServiceIds.length) params.set("extra", extraServiceIds.join(","));
-          return `/embed/${slug}/book/${serviceId}?${params.toString()}`;
-        }}
+        bookBasePath={`/embed/${slug}/book`}
+        extraQueryParams={{ locale }}
       />
     </div>
   );
