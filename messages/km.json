@@ -10,6 +10,9 @@
     "signUp": "ចុះឈ្មោះ",
     "dashboard": "ផ្ទាំងគ្រប់គ្រង",
     "myBookings": "ការកក់របស់ខ្ញុំ",
+    "inbox": "ប្រអប់សំបុត្រ",
+    "following": "កំពុងតាមដាន",
+    "feed": "ព័ត៌មាន",
     "signOut": "ចាកចេញ",
     "admin": "អ្នកគ្រប់គ្រង"
   },
@@ -67,6 +70,7 @@
     "bookings": "ការកក់",
     "customers": "អតិថិជន",
     "messages": "សារ",
+    "fanpage": "Fanpage",
     "hours": "ម៉ោងបើក",
     "reviews": "ការវាយតម្លៃ",
     "settings": "ការកំណត់",

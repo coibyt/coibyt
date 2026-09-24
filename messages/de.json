@@ -10,6 +10,9 @@
     "signUp": "Registrieren",
     "dashboard": "Dashboard",
     "myBookings": "Meine Buchungen",
+    "inbox": "Posteingang",
+    "following": "Gefolgt",
+    "feed": "Neuigkeiten",
     "signOut": "Abmelden",
     "admin": "Verwaltung"
   },
@@ -67,6 +70,7 @@
     "bookings": "Buchungen",
     "customers": "Kunden",
     "messages": "Nachrichten",
+    "fanpage": "Fanpage",
     "hours": "Öffnungszeiten",
     "reviews": "Bewertungen",
     "settings": "Einstellungen",

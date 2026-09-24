@@ -10,6 +10,9 @@
     "signUp": "Sign up",
     "dashboard": "Dashboard",
     "myBookings": "My bookings",
+    "inbox": "Inbox",
+    "following": "Following",
+    "feed": "Feed",
     "signOut": "Sign out",
     "admin": "Admin"
   },
@@ -67,6 +70,7 @@
     "bookings": "Bookings",
     "customers": "Customers",
     "messages": "Messages",
+    "fanpage": "Fanpage",
     "hours": "Opening hours",
     "reviews": "Reviews",
     "settings": "Settings",

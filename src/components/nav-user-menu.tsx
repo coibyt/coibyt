@@ -4,7 +4,16 @@ import { useState, useRef, useEffect } from "react";
 import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { ChevronDown, LayoutDashboard, CalendarDays, ShieldCheck, LogOut } from "lucide-react";
+import {
+  ChevronDown,
+  LayoutDashboard,
+  CalendarDays,
+  ShieldCheck,
+  LogOut,
+  MessageCircle,
+  Heart,
+  Newspaper,
+} from "lucide-react";
 
 export function NavUserMenu({
   name,
@@ -60,6 +69,9 @@ export function NavUserMenu({
             <MenuLink href="/admin" icon={ShieldCheck} label={t("admin")} />
           )}
           <MenuLink href="/account/bookings" icon={CalendarDays} label={t("myBookings")} />
+          <MenuLink href="/account/messages" icon={MessageCircle} label={t("inbox")} />
+          <MenuLink href="/account/following" icon={Heart} label={t("following")} />
+          <MenuLink href="/account/feed" icon={Newspaper} label={t("feed")} />
           <button
             onClick={() => signOut()}
             className="flex w-full items-center gap-2.5 px-4 py-2.5 text-left text-sm text-berry-500 hover:bg-berry-50"

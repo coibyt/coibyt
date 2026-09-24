@@ -10,6 +10,9 @@
     "signUp": "Luo tili",
     "dashboard": "Hallintapaneeli",
     "myBookings": "Varaukseni",
+    "inbox": "Viestit",
+    "following": "Seurataan",
+    "feed": "Uutissyöte",
     "signOut": "Kirjaudu ulos",
     "admin": "Ylläpito"
   },
@@ -67,6 +70,7 @@
     "bookings": "Varaukset",
     "customers": "Asiakkaat",
     "messages": "Viestit",
+    "fanpage": "Fanpage",
     "hours": "Aukioloajat",
     "reviews": "Arvostelut",
     "settings": "Asetukset",

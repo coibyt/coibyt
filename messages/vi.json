@@ -10,6 +10,9 @@
     "signUp": "Đăng ký",
     "dashboard": "Bảng điều khiển",
     "myBookings": "Lịch hẹn của tôi",
+    "inbox": "Hộp thư",
+    "following": "Đang theo dõi",
+    "feed": "Bảng tin",
     "signOut": "Đăng xuất",
     "admin": "Quản trị"
   },
@@ -67,6 +70,7 @@
     "bookings": "Lịch hẹn",
     "customers": "Khách hàng",
     "messages": "Tin nhắn",
+    "fanpage": "Fanpage",
     "hours": "Giờ mở cửa",
     "reviews": "Đánh giá",
     "settings": "Cài đặt",

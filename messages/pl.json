@@ -10,6 +10,9 @@
     "signUp": "Zarejestruj się",
     "dashboard": "Panel",
     "myBookings": "Moje rezerwacje",
+    "inbox": "Wiadomości",
+    "following": "Obserwowane",
+    "feed": "Aktualności",
     "signOut": "Wyloguj się",
     "admin": "Administrator"
   },
@@ -67,6 +70,7 @@
     "bookings": "Rezerwacje",
     "customers": "Klienci",
     "messages": "Wiadomości",
+    "fanpage": "Fanpage",
     "hours": "Godziny otwarcia",
     "reviews": "Opinie",
     "settings": "Ustawienia",

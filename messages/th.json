@@ -10,6 +10,9 @@
     "signUp": "สมัครสมาชิก",
     "dashboard": "แดชบอร์ด",
     "myBookings": "การจองของฉัน",
+    "inbox": "กล่องข้อความ",
+    "following": "กำลังติดตาม",
+    "feed": "ฟีดข่าว",
     "signOut": "ออกจากระบบ",
     "admin": "ผู้ดูแลระบบ"
   },
@@ -67,6 +70,7 @@
     "bookings": "การจอง",
     "customers": "ลูกค้า",
     "messages": "ข้อความ",
+    "fanpage": "Fanpage",
     "hours": "เวลาทำการ",
     "reviews": "รีวิว",
     "settings": "การตั้งค่า",
