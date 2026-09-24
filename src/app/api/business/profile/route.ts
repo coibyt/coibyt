@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { timezoneForCountry } from "@/lib/countries";
 
 const profileSchema = z.object({
   name: z.string().min(2).max(120),
@@ -9,7 +10,7 @@ const profileSchema = z.object({
   city: z.string().min(2).max(100),
   lat: z.number().min(-90).max(90).optional(),
   lng: z.number().min(-180).max(180).optional(),
-  country: z.string().length(2).optional(),
+  country: z.string().length(2),
   categoryIds: z.array(z.string().cuid()).min(1).max(10),
 });
 
@@ -34,6 +35,7 @@ export async function PUT(req: Request) {
         lat: data.lat,
         lng: data.lng,
         country: data.country,
+        timezone: timezoneForCountry(data.country) ?? undefined,
       },
     }),
     prisma.businessCategory.deleteMany({ where: { businessId } }),

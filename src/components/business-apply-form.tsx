@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter, Link } from "@/i18n/navigation";
 import { Loader2 } from "lucide-react";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
+import { COUNTRIES } from "@/lib/countries";
 
 export function BusinessApplyForm({
   categories,
@@ -24,7 +25,7 @@ export function BusinessApplyForm({
     phone: "",
   });
   const [pin, setPin] = useState<{ lat: number; lng: number } | null>(null);
-  const [country, setCountry] = useState<string | null>(null);
+  const [country, setCountry] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,7 +36,9 @@ export function BusinessApplyForm({
       city: s.city ?? f.city,
     }));
     setPin({ lat: s.lat, lng: s.lng });
-    setCountry(s.countryCode ? s.countryCode.toUpperCase() : null);
+    // Only pre-fill from the address — never override a country the owner
+    // already picked by hand in the select below.
+    if (!country && s.countryCode) setCountry(s.countryCode.toUpperCase());
   }
 
   if (!isAuthenticated) {
@@ -62,7 +65,7 @@ export function BusinessApplyForm({
         ...form,
         lat: pin?.lat,
         lng: pin?.lng,
-        country: country ?? undefined,
+        country,
       }),
     });
     setLoading(false);
@@ -117,6 +120,29 @@ export function BusinessApplyForm({
           pin={pin}
           onPinDrag={(lat, lng) => setPin({ lat, lng })}
         />
+      </div>
+      <div>
+        <label className="label">
+          {t("country")}
+        </label>
+        <p className="mb-1 text-xs text-ink-400">
+          {t("countryHint")}
+        </p>
+        <select
+          required
+          className="input"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+        >
+          <option value="" disabled>
+            {t("countryPlaceholder")}
+          </option>
+          {COUNTRIES.map((c) => (
+            <option key={c.code} value={c.code}>
+              {c.name}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
         <label className="label">{t("city")}</label>

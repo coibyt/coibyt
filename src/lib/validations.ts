@@ -27,7 +27,9 @@ export const businessApplicationSchema = z.object({
   // absent if they just typed free text without selecting one.
   lat: z.number().min(-90).max(90).optional(),
   lng: z.number().min(-180).max(180).optional(),
-  country: z.string().length(2).optional(),
+  // Drives the salon's timezone (see timezoneForCountry in src/lib/countries.ts)
+  // — required so every new business has a real timezone from day one.
+  country: z.string().length(2),
 });
 
 export const serviceSchema = z.object({

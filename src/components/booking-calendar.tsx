@@ -36,11 +36,34 @@ interface CalendarBooking {
   currency: string;
   staffId: string | null;
   staffName: string | null;
+  customerId: string;
   customerNote: string | null;
   serviceName: string;
   customerName: string;
   customerPhone: string | null;
   addOnNames: string[];
+}
+
+interface CustomerMatch {
+  id: string;
+  name: string;
+  phone: string | null;
+  email: string;
+}
+
+interface CustomerDetail {
+  customer: { name: string; phone: string | null; email: string };
+  visitCount: number;
+  totalSpentCents: number;
+  currency: string;
+  bookings: {
+    id: string;
+    startsAt: string;
+    status: string;
+    serviceName: string;
+    priceCents: number;
+    currency: string;
+  }[];
 }
 
 const HOUR_HEIGHT = 56; // px per hour in the day/week grid
@@ -79,6 +102,13 @@ interface NewBookingDraft {
   customerName: string;
   customerPhone: string;
   customerEmail: string;
+  customerNote: string;
+}
+
+interface PendingReschedule {
+  booking: CalendarBooking;
+  newStartsAt: Date;
+  newStaffId: string;
 }
 
 export function BookingCalendar({
@@ -107,6 +137,11 @@ export function BookingCalendar({
   const [newBooking, setNewBooking] = useState<NewBookingDraft | null>(null);
   const [creatingBooking, setCreatingBooking] = useState(false);
   const [newBookingError, setNewBookingError] = useState<string | null>(null);
+  const [customerMatches, setCustomerMatches] = useState<CustomerMatch[]>([]);
+  const [pendingReschedule, setPendingReschedule] = useState<PendingReschedule | null>(null);
+  const [reschedulingBusy, setReschedulingBusy] = useState(false);
+  const [customerDetail, setCustomerDetail] = useState<CustomerDetail | null>(null);
+  const [loadingCustomerDetail, setLoadingCustomerDetail] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => setNow(toZonedTime(new Date(), businessTimezone)), 60_000);
@@ -176,7 +211,22 @@ export function BookingCalendar({
 
   async function rescheduleBooking(booking: CalendarBooking, newStartsAt: Date, newStaffId: string) {
     const durationMs = new Date(booking.endsAt).getTime() - new Date(booking.startsAt).getTime();
-    const previous = booking;
+    setReschedulingBusy(true);
+    const res = await fetch(`/api/business/bookings/${booking.id}/reschedule`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId }),
+    });
+    setReschedulingBusy(false);
+    if (!res.ok) {
+      setError(
+        locale === "vi"
+          ? "Không thể chuyển lịch — trùng giờ với lịch hẹn khác."
+          : "Couldn't move it — that time overlaps another booking."
+      );
+      setTimeout(() => setError(null), 4000);
+      return;
+    }
     setBookings((prev) =>
       prev.map((b) =>
         b.id === booking.id
@@ -189,20 +239,6 @@ export function BookingCalendar({
           : b
       )
     );
-    const res = await fetch(`/api/business/bookings/${booking.id}/reschedule`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId }),
-    });
-    if (!res.ok) {
-      setBookings((prev) => prev.map((b) => (b.id === booking.id ? previous : b)));
-      setError(
-        locale === "vi"
-          ? "Không thể chuyển lịch — trùng giờ với lịch hẹn khác."
-          : "Couldn't move it — that time overlaps another booking."
-      );
-      setTimeout(() => setError(null), 4000);
-    }
   }
 
   function handleDrop(
@@ -234,7 +270,20 @@ export function BookingCalendar({
 
     const staffId = columnStaffId ?? booking.staffId ?? staff[0]?.id;
     if (!staffId) return;
-    rescheduleBooking(booking, newStartsAt, staffId);
+    if (newStartsAt.getTime() === new Date(booking.startsAt).getTime() && staffId === booking.staffId) {
+      return; // dropped back where it started — nothing to confirm
+    }
+    setPendingReschedule({ booking, newStartsAt, newStaffId: staffId });
+  }
+
+  async function confirmPendingReschedule() {
+    if (!pendingReschedule) return;
+    await rescheduleBooking(
+      pendingReschedule.booking,
+      pendingReschedule.newStartsAt,
+      pendingReschedule.newStaffId
+    );
+    setPendingReschedule(null);
   }
 
   // Clicking empty grid space (not an existing booking — see the
@@ -261,6 +310,7 @@ export function BookingCalendar({
     const startsAt = fromZonedTime(`${dateStr}T${hh}:${mm}:00`, businessTimezone);
 
     setNewBookingError(null);
+    setCustomerMatches([]);
     setNewBooking({
       startsAt,
       staffId: resolvedStaffId,
@@ -268,7 +318,34 @@ export function BookingCalendar({
       customerName: "",
       customerPhone: "",
       customerEmail: "",
+      customerNote: "",
     });
+  }
+
+  useEffect(() => {
+    const phone = newBooking?.customerPhone.trim() ?? "";
+    const name = newBooking?.customerName.trim() ?? "";
+    const q = phone.length >= 3 ? phone : name;
+    if (q.length < 2) {
+      setCustomerMatches([]);
+      return;
+    }
+    const handle = setTimeout(() => {
+      fetch(`/api/business/customers/search?q=${encodeURIComponent(q)}`)
+        .then((r) => r.json())
+        .then((data) => setCustomerMatches(data.customers ?? []))
+        .catch(() => setCustomerMatches([]));
+    }, 250);
+    return () => clearTimeout(handle);
+  }, [newBooking?.customerName, newBooking?.customerPhone]);
+
+  function pickCustomerMatch(c: CustomerMatch) {
+    setNewBooking((prev) =>
+      prev
+        ? { ...prev, customerName: c.name, customerPhone: c.phone ?? "", customerEmail: c.email }
+        : prev
+    );
+    setCustomerMatches([]);
   }
 
   async function submitNewBooking() {
@@ -285,6 +362,7 @@ export function BookingCalendar({
         customerName: newBooking.customerName,
         customerPhone: newBooking.customerPhone,
         customerEmail: newBooking.customerEmail || undefined,
+        customerNote: newBooking.customerNote || undefined,
       }),
     });
     setCreatingBooking(false);
@@ -344,6 +422,7 @@ export function BookingCalendar({
         onClick={(e) => {
           e.stopPropagation();
           setActiveBooking(b);
+          setCustomerDetail(null);
         }}
         className={`absolute left-0.5 right-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
           STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
@@ -601,7 +680,13 @@ export function BookingCalendar({
                   <p className="text-sm text-ink-400">{activeBooking.customerPhone}</p>
                 )}
               </div>
-              <button onClick={() => setActiveBooking(null)} className="text-ink-400">
+              <button
+                onClick={() => {
+                  setActiveBooking(null);
+                  setCustomerDetail(null);
+                }}
+                className="text-ink-400"
+              >
                 <X className="h-5 w-5" />
               </button>
             </div>
@@ -630,6 +715,53 @@ export function BookingCalendar({
                 </p>
               )}
               <BookingStatusBadge status={activeBooking.status} />
+              <button
+                type="button"
+                onClick={() => {
+                  setLoadingCustomerDetail(true);
+                  setCustomerDetail(null);
+                  fetch(`/api/business/customers/${activeBooking.customerId}`)
+                    .then((r) => (r.ok ? r.json() : null))
+                    .then((data) => setCustomerDetail(data))
+                    .finally(() => setLoadingCustomerDetail(false));
+                }}
+                className="font-medium text-primary-600 hover:underline"
+              >
+                {locale === "vi" ? "Chi tiết khách hàng" : "Customer details"}
+              </button>
+              {loadingCustomerDetail && (
+                <p className="flex items-center gap-2 text-ink-400">
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" /> ...
+                </p>
+              )}
+              {customerDetail && (
+                <div className="space-y-2 rounded-lg bg-mist-50 p-3">
+                  {customerDetail.customer.phone && (
+                    <p className="text-ink-700">{customerDetail.customer.phone}</p>
+                  )}
+                  <p className="text-ink-700">
+                    {locale === "vi"
+                      ? `Đã hoàn thành ${customerDetail.visitCount} lượt tại salon này`
+                      : `${customerDetail.visitCount} completed visit${customerDetail.visitCount === 1 ? "" : "s"} at this salon`}
+                    {customerDetail.visitCount > 0 &&
+                      ` · ${formatMoney(customerDetail.totalSpentCents, customerDetail.currency, locale)}`}
+                  </p>
+                  <ul className="max-h-40 space-y-1 overflow-y-auto text-xs text-ink-400">
+                    {customerDetail.bookings.map((b) => (
+                      <li key={b.id} className="flex justify-between gap-2">
+                        <span className="truncate">
+                          {new Date(b.startsAt).toLocaleDateString(
+                            locale === "vi" ? "vi-VN" : "en-US",
+                            { dateStyle: "medium" }
+                          )}{" "}
+                          — {b.serviceName}
+                        </span>
+                        <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {activeBooking.status === "CONFIRMED" && (
@@ -666,23 +798,35 @@ export function BookingCalendar({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card w-full max-w-sm animate-slide-up p-6">
             <div className="mb-4 flex items-start justify-between">
-              <div>
-                <p className="font-bold text-ink-900">
-                  {locale === "vi" ? "Đặt lịch cho khách" : "Book for a customer"}
-                </p>
-                <p className="text-sm text-ink-400">
-                  {newBooking.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
-                    dateStyle: "medium",
-                    timeStyle: "short",
-                    timeZone: businessTimezone,
-                  })}
-                </p>
-              </div>
-              <button onClick={() => setNewBooking(null)} className="text-ink-400">
+              <p className="font-bold text-ink-900">
+                {locale === "vi" ? "Đặt lịch cho khách" : "Book for a customer"}
+              </p>
+              <button
+                onClick={() => {
+                  setNewBooking(null);
+                  setCustomerMatches([]);
+                }}
+                className="text-ink-400"
+              >
                 <X className="h-5 w-5" />
               </button>
             </div>
             <div className="space-y-3">
+              <div>
+                <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
+                <input
+                  type="datetime-local"
+                  className="input"
+                  value={format(toZonedTime(newBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    setNewBooking({
+                      ...newBooking,
+                      startsAt: fromZonedTime(e.target.value, businessTimezone),
+                    });
+                  }}
+                />
+              </div>
               <div>
                 <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
                 <select
@@ -713,22 +857,40 @@ export function BookingCalendar({
                   </select>
                 </div>
               )}
-              <div>
+              <div className="relative">
                 <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
                 <input
                   required
                   className="input"
                   value={newBooking.customerName}
                   onChange={(e) => setNewBooking({ ...newBooking, customerName: e.target.value })}
+                  autoComplete="off"
                 />
+                {customerMatches.length > 0 && (
+                  <ul className="absolute z-10 mt-1 w-full overflow-hidden rounded-xl border border-ink-100 bg-white shadow-popover">
+                    {customerMatches.map((c) => (
+                      <li key={c.id}>
+                        <button
+                          type="button"
+                          onClick={() => pickCustomerMatch(c)}
+                          className="flex w-full flex-col px-3 py-2 text-left text-sm hover:bg-mist-50"
+                        >
+                          <span className="font-medium text-ink-900">{c.name}</span>
+                          {c.phone && <span className="text-xs text-ink-400">{c.phone}</span>}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              <div>
+              <div className="relative">
                 <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
                 <input
                   required
                   className="input"
                   value={newBooking.customerPhone}
                   onChange={(e) => setNewBooking({ ...newBooking, customerPhone: e.target.value })}
+                  autoComplete="off"
                 />
               </div>
               <div>
@@ -740,6 +902,17 @@ export function BookingCalendar({
                   className="input"
                   value={newBooking.customerEmail}
                   onChange={(e) => setNewBooking({ ...newBooking, customerEmail: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                </label>
+                <textarea
+                  rows={2}
+                  className="input"
+                  value={newBooking.customerNote}
+                  onChange={(e) => setNewBooking({ ...newBooking, customerNote: e.target.value })}
                 />
               </div>
             </div>
@@ -755,8 +928,54 @@ export function BookingCalendar({
                 {creatingBooking && <Loader2 className="h-4 w-4 animate-spin" />}
                 {locale === "vi" ? "Đặt lịch" : "Book"}
               </button>
-              <button onClick={() => setNewBooking(null)} className="btn-ghost">
+              <button
+                onClick={() => {
+                  setNewBooking(null);
+                  setCustomerMatches([]);
+                }}
+                className="btn-ghost"
+              >
                 {locale === "vi" ? "Huỷ" : "Cancel"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {pendingReschedule && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <p className="mb-3 text-lg font-bold text-ink-900">
+              {locale === "vi" ? "Chuyển lịch hẹn?" : "Move this booking?"}
+            </p>
+            <p className="mb-3 text-sm text-ink-700">
+              {pendingReschedule.booking.customerName}, {pendingReschedule.booking.serviceName}
+            </p>
+            <p className="mb-4 text-sm text-ink-700">
+              {locale === "vi" ? "Thời gian mới là " : "The new time is "}
+              <span className="font-semibold text-ink-900">
+                {pendingReschedule.newStartsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                  dateStyle: "full",
+                  timeStyle: "short",
+                  timeZone: businessTimezone,
+                })}
+              </span>
+            </p>
+            <div className="flex gap-2">
+              <button
+                disabled={reschedulingBusy}
+                onClick={confirmPendingReschedule}
+                className="btn-primary"
+              >
+                {reschedulingBusy && <Loader2 className="h-4 w-4 animate-spin" />}
+                {locale === "vi" ? "Có, chuyển" : "Yes, move it"}
+              </button>
+              <button
+                disabled={reschedulingBusy}
+                onClick={() => setPendingReschedule(null)}
+                className="btn-ghost"
+              >
+                {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
               </button>
             </div>
           </div>

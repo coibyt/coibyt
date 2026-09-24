@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
+import { COUNTRIES } from "@/lib/countries";
 
 interface CategoryOption {
   id: string;
@@ -17,6 +18,7 @@ export function BusinessProfileCard({
   city: initialCity,
   lat: initialLat,
   lng: initialLng,
+  country: initialCountry,
   categories,
   selectedCategoryIds,
 }: {
@@ -25,6 +27,7 @@ export function BusinessProfileCard({
   city: string | null;
   lat: number | null;
   lng: number | null;
+  country: string;
   categories: CategoryOption[];
   selectedCategoryIds: string[];
 }) {
@@ -35,7 +38,7 @@ export function BusinessProfileCard({
   const [pin, setPin] = useState<{ lat: number; lng: number } | null>(
     initialLat !== null && initialLng !== null ? { lat: initialLat, lng: initialLng } : null
   );
-  const [country, setCountry] = useState<string | null>(null);
+  const [country, setCountry] = useState<string>(initialCountry);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set(selectedCategoryIds));
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -45,7 +48,7 @@ export function BusinessProfileCard({
     setAddressLine(s.addressLine ?? addressLine);
     setCity(s.city ?? city);
     setPin({ lat: s.lat, lng: s.lng });
-    setCountry(s.countryCode ? s.countryCode.toUpperCase() : null);
+    if (s.countryCode) setCountry(s.countryCode.toUpperCase());
   }
 
   function toggleCategory(id: string) {
@@ -74,7 +77,7 @@ export function BusinessProfileCard({
         city,
         lat: pin?.lat,
         lng: pin?.lng,
-        country: country ?? undefined,
+        country,
         categoryIds: Array.from(selectedIds),
       }),
     });
@@ -118,6 +121,22 @@ export function BusinessProfileCard({
         <div>
           <label className="label">{locale === "vi" ? "Thành phố" : "City"}</label>
           <input className="input" value={city} onChange={(e) => setCity(e.target.value)} />
+        </div>
+
+        <div>
+          <label className="label">{locale === "vi" ? "Quốc gia" : "Country"}</label>
+          <p className="mb-1 text-xs text-ink-400">
+            {locale === "vi"
+              ? "Dùng để đặt múi giờ hiển thị trên lịch hẹn và trang đặt lịch của khách."
+              : "Sets the timezone used on your booking calendar and your customers' booking page."}
+          </p>
+          <select className="input" value={country} onChange={(e) => setCountry(e.target.value)}>
+            {COUNTRIES.map((c) => (
+              <option key={c.code} value={c.code}>
+                {c.name}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div>

@@ -49,6 +49,7 @@ export default async function BusinessSettingsPage({
         city={business.city}
         lat={business.lat}
         lng={business.lng}
+        country={business.country}
         categories={allCategories}
         selectedCategoryIds={ownCategoryLinks.map((l) => l.categoryId)}
       />

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { businessApplicationSchema } from "@/lib/validations";
+import { timezoneForCountry } from "@/lib/countries";
 import { slugify } from "@/lib/slugify";
 import { sendVerificationEmail } from "@/lib/email-verification";
 import { approveBusiness } from "@/lib/approve-business";
@@ -45,6 +46,7 @@ export async function POST(req: Request) {
       lat: data.lat,
       lng: data.lng,
       country: data.country,
+      timezone: timezoneForCountry(data.country) ?? "Asia/Ho_Chi_Minh",
       status: "PENDING",
       categories: { create: [{ categoryId: data.categoryId }] },
     },
