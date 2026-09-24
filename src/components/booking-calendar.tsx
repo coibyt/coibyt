@@ -71,7 +71,7 @@ interface CustomerDetail {
 
 const HOUR_HEIGHT = 56; // px per hour in the day/week grid
 const DEFAULT_START_HOUR = 7;
-const DEFAULT_END_HOUR = 21;
+const DEFAULT_END_HOUR = 23;
 const DRAG_SNAP_MIN = 15;
 const STAFF_DOT_COLORS = [
   "bg-primary-500",
@@ -162,6 +162,21 @@ export function BookingCalendar({
   const [resizePreview, setResizePreview] = useState<number | null>(null);
   const resizePreviewRef = useRef<number | null>(null);
   const dayColumnRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const [hiddenStaffIds, setHiddenStaffIds] = useState<Set<string>>(new Set());
+
+  function toggleStaffVisible(staffId: string) {
+    setHiddenStaffIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(staffId)) next.delete(staffId);
+      else next.add(staffId);
+      return next;
+    });
+  }
+
+  const visibleStaff = useMemo(
+    () => staff.filter((s) => !hiddenStaffIds.has(s.id)),
+    [staff, hiddenStaffIds]
+  );
 
   useEffect(() => {
     const interval = setInterval(() => setNow(toZonedTime(new Date(), businessTimezone)), 60_000);
@@ -630,12 +645,41 @@ export function BookingCalendar({
         <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
       )}
 
+      {view === "day" && staff.length > 1 && (
+        <div className="flex flex-wrap items-center gap-2">
+          {staff.map((s) => {
+            const checked = !hiddenStaffIds.has(s.id);
+            return (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => toggleStaffVisible(s.id)}
+                className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
+                  checked
+                    ? "border-ink-900 bg-ink-900 text-white"
+                    : "border-ink-100 bg-white text-ink-400"
+                }`}
+              >
+                <span
+                  className={`flex h-4 w-4 items-center justify-center rounded-full border ${
+                    checked ? "border-white/70 bg-white/20" : "border-ink-200"
+                  }`}
+                >
+                  {checked && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
+                </span>
+                {s.name}
+              </button>
+            );
+          })}
+        </div>
+      )}
+
       {view === "day" && (
         <div className="overflow-x-auto rounded-2xl border border-ink-100">
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `56px repeat(${Math.max(staff.length, 1)}, minmax(160px, 1fr))`,
+              gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(0, 1fr))`,
             }}
           >
             <div className="border-b border-r border-ink-100 bg-mist-50" />
@@ -644,12 +688,20 @@ export function BookingCalendar({
                 {t("unassigned")}
               </div>
             ) : (
-              staff.map((s) => (
+              visibleStaff.map((s) => (
                 <div
                   key={s.id}
-                  className="border-b border-l border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700"
+                  title={s.name}
+                  className="flex items-center justify-center gap-1.5 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
                 >
-                  {s.name}
+                  <span
+                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${
+                      staffColor.get(s.id) ?? "bg-ink-400"
+                    }`}
+                  >
+                    {s.name.trim().charAt(0).toUpperCase() || "?"}
+                  </span>
+                  <span className="hidden truncate lg:inline">{s.name}</span>
                 </div>
               ))
             )}
@@ -667,7 +719,7 @@ export function BookingCalendar({
               {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
             </div>
 
-            {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => {
+            {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
               const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
               const isResizingThis = resizing?.staffId === s.id;
               const openMinute =
