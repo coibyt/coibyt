@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { formatMoney } from "@/lib/money";
 
 let _transporter: nodemailer.Transporter | null = null;
 
@@ -105,9 +106,20 @@ export function bookingConfirmationEmail(params: {
   customerName: string;
   businessName: string;
   serviceName: string;
+  serviceDescription?: string | null;
   startsAt: Date;
   locale: string;
   businessTimezone: string;
+  priceCents: number;
+  currency: string;
+  staffName?: string | null;
+  staffMessage?: string | null;
+  businessAddress?: string | null;
+  businessCity?: string | null;
+  googleMapsUrl?: string | null;
+  businessPhone?: string | null;
+  cancellationWindowHours: number;
+  cancellationPolicy?: string | null;
   /** Included only for the bank-transfer payment method, so the customer
    * has the salon's account details handy without digging through the site. */
   bankInfo?: {
@@ -125,6 +137,7 @@ export function bookingConfirmationEmail(params: {
     { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
   const isVi = params.locale === "vi";
+  const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
 
   const bankBlock = params.bankInfo
     ? `
@@ -137,6 +150,14 @@ export function bookingConfirmationEmail(params: {
       </div>
     `
     : "";
+
+  const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+
+  const cancellationText =
+    params.cancellationPolicy ||
+    (isVi
+      ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${params.cancellationWindowHours} giờ trước giờ hẹn.`
+      : `You can cancel this appointment yourself, up until ${params.cancellationWindowHours} hours before the appointment.`);
 
   return {
     subject: isVi
@@ -151,9 +172,27 @@ export function bookingConfirmationEmail(params: {
             ? `Lịch hẹn <strong>${params.serviceName}</strong> tại <strong>${params.businessName}</strong> của bạn đã được xác nhận.`
             : `Your <strong>${params.serviceName}</strong> appointment at <strong>${params.businessName}</strong> is confirmed.`
         }</p>
-        <p style="background:#f2f5f5;padding:12px 16px;border-radius:12px">${dateStr}</p>
+        <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
+          <p style="margin:2px 0;font-weight:600">${dateStr}</p>
+          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${isVi ? "Dịch vụ" : "Service"}:</span> ${params.serviceName}</p>
+          ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
+          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Nhân viên" : "Staff"}:</span> ${params.staffName}</p>` : ""}
+          <p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Số tiền" : "Amount"}:</span> ${priceStr}</p>
+          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Địa chỉ" : "Address"}:</span> ${addressLine}</p>` : ""}
+          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Điện thoại" : "Phone"}:</span> ${params.businessPhone}</p>` : ""}
+          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${isVi ? "Xem trên Google Maps" : "View on Google Maps"}</a></p>` : ""}
+        </div>
+        ${
+          params.staffMessage
+            ? `<div style="background:#eef2ff;border:1px solid #c7d2fe;padding:12px 16px;border-radius:12px;margin-top:8px"><p style="margin:0">${params.staffMessage}</p></div>`
+            : ""
+        }
         ${bankBlock}
-        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
+        <div style="margin-top:16px">
+          <p style="margin:0 0 4px;font-weight:600">${isVi ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}</p>
+          <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
+        </div>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
       </div>
     `,
   };

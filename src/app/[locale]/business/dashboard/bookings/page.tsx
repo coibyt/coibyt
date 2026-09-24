@@ -59,6 +59,7 @@ export default async function BusinessBookingsPage({
         businessTimezone={business.timezone}
         staff={staff}
         services={services}
+        isOwner={access.isOwner}
       />
     </div>
   );

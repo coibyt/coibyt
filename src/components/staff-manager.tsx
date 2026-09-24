@@ -19,6 +19,9 @@ interface StaffRow {
   canViewCustomers: boolean;
   canViewHours: boolean;
   canViewReviews: boolean;
+  leadTimeMinutes: number;
+  staffMessage: string | null;
+  videoUrls: string[];
 }
 
 const emptyForm = {
@@ -33,6 +36,9 @@ const emptyForm = {
   canViewCustomers: false,
   canViewHours: false,
   canViewReviews: false,
+  leadTimeMinutes: 0,
+  staffMessage: "",
+  videoUrls: ["", "", "", "", ""] as string[],
 };
 
 const PERMISSION_FIELDS = [
@@ -41,6 +47,17 @@ const PERMISSION_FIELDS = [
   { key: "canViewCustomers" as const, vi: "Khách hàng", en: "Customers" },
   { key: "canViewHours" as const, vi: "Giờ mở cửa", en: "Opening hours" },
   { key: "canViewReviews" as const, vi: "Đánh giá", en: "Reviews" },
+];
+
+const LEAD_TIME_OPTIONS = [
+  { minutes: 0, vi: "Không yêu cầu", en: "No minimum" },
+  { minutes: 15, vi: "15 phút", en: "15 minutes" },
+  { minutes: 30, vi: "30 phút", en: "30 minutes" },
+  { minutes: 60, vi: "1 tiếng", en: "1 hour" },
+  { minutes: 120, vi: "2 tiếng", en: "2 hours" },
+  { minutes: 180, vi: "3 tiếng", en: "3 hours" },
+  { minutes: 360, vi: "6 tiếng", en: "6 hours" },
+  { minutes: 720, vi: "12 tiếng", en: "12 hours" },
 ];
 
 export function StaffManager({
@@ -83,6 +100,9 @@ export function StaffManager({
       canViewCustomers: s.canViewCustomers,
       canViewHours: s.canViewHours,
       canViewReviews: s.canViewReviews,
+      leadTimeMinutes: s.leadTimeMinutes,
+      staffMessage: s.staffMessage ?? "",
+      videoUrls: [0, 1, 2, 3, 4].map((i) => s.videoUrls[i] ?? ""),
     });
     setError(null);
     setShowForm(true);
@@ -127,6 +147,14 @@ export function StaffManager({
   async function removeStaff(id: string) {
     await fetch(`/api/business/staff/${id}`, { method: "DELETE" });
     router.refresh();
+  }
+
+  function setVideoUrl(index: number, value: string) {
+    setForm((f) => {
+      const next = [...f.videoUrls];
+      next[index] = value;
+      return { ...f, videoUrls: next };
+    });
   }
 
   function toggleService(id: string) {
@@ -286,6 +314,69 @@ export function StaffManager({
                 value={form.password}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
+            </div>
+          </div>
+
+          <div className="border-t border-ink-100 pt-4">
+            <label className="label">
+              {locale === "vi" ? "Thời gian đặt trước tối thiểu" : "Minimum booking notice"}
+            </label>
+            <p className="mb-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Khách phải đặt trước nhân viên này ít nhất khoảng thời gian này."
+                : "Customers must book this staff member at least this far in advance."}
+            </p>
+            <select
+              className="input"
+              value={form.leadTimeMinutes}
+              onChange={(e) => setForm({ ...form, leadTimeMinutes: Number(e.target.value) })}
+            >
+              {LEAD_TIME_OPTIONS.map((o) => (
+                <option key={o.minutes} value={o.minutes}>
+                  {locale === "vi" ? o.vi : o.en}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="border-t border-ink-100 pt-4">
+            <label className="label">
+              {locale === "vi" ? "Lời nhắn của nhân viên" : "Staff message"} (
+              {locale === "vi" ? "không bắt buộc" : "optional"})
+            </label>
+            <p className="mb-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Hiện ra cho khách khi đặt lịch với nhân viên này, và gửi kèm trong email xác nhận."
+                : "Shown to customers when booking this staff member, and included in their confirmation email."}
+            </p>
+            <textarea
+              rows={2}
+              className="input"
+              value={form.staffMessage}
+              onChange={(e) => setForm({ ...form, staffMessage: e.target.value })}
+            />
+          </div>
+
+          <div className="border-t border-ink-100 pt-4">
+            <label className="label">
+              {locale === "vi" ? "Video giới thiệu (YouTube)" : "Portfolio videos (YouTube)"}
+            </label>
+            <p className="mb-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Khách có thể xem trước khi quyết định đặt lịch với nhân viên này."
+                : "Customers can watch these before deciding to book this staff member."}
+            </p>
+            <div className="space-y-2">
+              {form.videoUrls.map((url, i) => (
+                <input
+                  key={i}
+                  type="url"
+                  placeholder="https://www.youtube.com/watch?v=..."
+                  className="input"
+                  value={url}
+                  onChange={(e) => setVideoUrl(i, e.target.value)}
+                />
+              ))}
             </div>
           </div>
 

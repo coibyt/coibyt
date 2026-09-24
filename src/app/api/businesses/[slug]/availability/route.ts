@@ -64,6 +64,8 @@ export async function GET(
       startsAt: s.startsAt.toISOString(),
       endsAt: s.endsAt.toISOString(),
       staffId: s.staffId,
+      priceCents: s.priceCents,
+      durationMin: s.durationMin,
     })),
   });
 }

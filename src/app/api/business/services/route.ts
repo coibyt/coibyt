@@ -27,14 +27,22 @@ export async function POST(req: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { staffIds, videoUrl, ...data } = parsed.data;
+  const { staffAssignments, videoUrl, ...data } = parsed.data;
 
   const service = await prisma.service.create({
     data: {
       ...data,
       videoUrl: videoUrl || null,
       businessId,
-      staff: staffIds ? { create: staffIds.map((staffId) => ({ staffId })) } : undefined,
+      staff: staffAssignments
+        ? {
+            create: staffAssignments.map((a) => ({
+              staffId: a.staffId,
+              priceCentsOverride: a.priceCentsOverride,
+              durationMinOverride: a.durationMinOverride,
+            })),
+          }
+        : undefined,
     },
   });
   return NextResponse.json({ service }, { status: 201 });

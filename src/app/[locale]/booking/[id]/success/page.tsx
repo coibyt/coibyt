@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { formatMoney } from "@/lib/money";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import { CancellationPolicyLink } from "@/components/cancellation-policy-link";
 
 export default async function BookingSuccessPage({
   params,
@@ -102,6 +103,9 @@ export default async function BookingSuccessPage({
       <Link href="/account/bookings" className="btn-primary">
         {locale === "vi" ? "Xem lịch hẹn của tôi" : "View my bookings"}
       </Link>
+      {booking.business.cancellationPolicy && (
+        <CancellationPolicyLink policy={booking.business.cancellationPolicy} locale={locale} />
+      )}
     </div>
   );
 }

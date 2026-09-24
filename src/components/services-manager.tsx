@@ -7,6 +7,12 @@ import { Plus, Trash2, Loader2, Sparkles, Pencil } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 
+interface StaffAssignment {
+  staffId: string;
+  priceCentsOverride: number | null;
+  durationMinOverride: number | null;
+}
+
 interface ServiceRow {
   id: string;
   name: string;
@@ -19,8 +25,11 @@ interface ServiceRow {
   active: boolean;
   categoryId: string | null;
   videoUrl: string | null;
-  staffIds: string[];
+  staffAssignments: StaffAssignment[];
 }
+
+// Keyed by staffId; blank strings mean "use the service's own price/duration".
+type StaffOverrideForm = Record<string, { priceAmount: string; durationMin: string }>;
 
 // Numeric fields are kept as plain strings while editing — binding them to
 // `number` state (e.g. defaulting to 0) is what caused the old "can't clear
@@ -38,6 +47,7 @@ const emptyForm = {
   depositAmount: "",
   videoUrl: "",
   staffIds: [] as string[],
+  staffOverrides: {} as StaffOverrideForm,
 };
 
 export function ServicesManager({
@@ -75,7 +85,19 @@ export function ServicesManager({
       depositAmount:
         s.depositCents !== null ? String(fromSmallestUnit(s.depositCents, s.currency)) : "",
       videoUrl: s.videoUrl ?? "",
-      staffIds: s.staffIds,
+      staffIds: s.staffAssignments.map((a) => a.staffId),
+      staffOverrides: Object.fromEntries(
+        s.staffAssignments.map((a) => [
+          a.staffId,
+          {
+            priceAmount:
+              a.priceCentsOverride !== null
+                ? String(fromSmallestUnit(a.priceCentsOverride, s.currency))
+                : "",
+            durationMin: a.durationMinOverride !== null ? String(a.durationMinOverride) : "",
+          },
+        ])
+      ),
     });
     setShowForm(true);
   }
@@ -101,7 +123,19 @@ export function ServicesManager({
           ? undefined
           : toSmallestUnit(Number(form.depositAmount), defaultCurrency),
       videoUrl: form.videoUrl.trim() || undefined,
-      staffIds: form.staffIds,
+      staffAssignments: form.staffIds.map((staffId) => {
+        const override = form.staffOverrides[staffId];
+        return {
+          staffId,
+          priceCentsOverride:
+            override?.priceAmount.trim()
+              ? toSmallestUnit(Number(override.priceAmount), defaultCurrency)
+              : undefined,
+          durationMinOverride: override?.durationMin.trim()
+            ? Number(override.durationMin)
+            : undefined,
+        };
+      }),
       currency: defaultCurrency,
     };
     if (editingId) {
@@ -135,6 +169,19 @@ export function ServicesManager({
       staffIds: f.staffIds.includes(id)
         ? f.staffIds.filter((x) => x !== id)
         : [...f.staffIds, id],
+      staffOverrides: f.staffOverrides[id]
+        ? f.staffOverrides
+        : { ...f.staffOverrides, [id]: { priceAmount: "", durationMin: "" } },
+    }));
+  }
+
+  function setStaffOverride(id: string, field: "priceAmount" | "durationMin", value: string) {
+    setForm((f) => ({
+      ...f,
+      staffOverrides: {
+        ...f.staffOverrides,
+        [id]: { ...f.staffOverrides[id], [field]: value },
+      },
     }));
   }
 
@@ -324,6 +371,41 @@ export function ServicesManager({
                   </button>
                 ))}
               </div>
+              {form.staffIds.length > 0 && (
+                <div className="mt-3 space-y-2">
+                  <p className="text-xs text-ink-400">
+                    {locale === "vi"
+                      ? "Để trống nếu nhân viên dùng giá/thời lượng mặc định ở trên."
+                      : "Leave blank for a staff member to use the default price/duration above."}
+                  </p>
+                  {form.staffIds.map((id) => {
+                    const staffName = staffOptions.find((s) => s.id === id)?.name ?? id;
+                    const override = form.staffOverrides[id] ?? { priceAmount: "", durationMin: "" };
+                    return (
+                      <div key={id} className="grid grid-cols-[1fr_auto_auto] items-center gap-2">
+                        <span className="text-sm text-ink-900">{staffName}</span>
+                        <input
+                          type="number"
+                          min={0}
+                          step="0.01"
+                          placeholder={locale === "vi" ? "Giá riêng" : "Own price"}
+                          className="input !w-28 text-xs"
+                          value={override.priceAmount}
+                          onChange={(e) => setStaffOverride(id, "priceAmount", e.target.value)}
+                        />
+                        <input
+                          type="number"
+                          min={5}
+                          placeholder={locale === "vi" ? "Phút riêng" : "Own minutes"}
+                          className="input !w-28 text-xs"
+                          value={override.durationMin}
+                          onChange={(e) => setStaffOverride(id, "durationMin", e.target.value)}
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
           )}
           <div className="flex gap-2">

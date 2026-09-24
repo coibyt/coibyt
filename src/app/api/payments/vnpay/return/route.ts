@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyVnpaySignature } from "@/lib/payments/vnpay";
-import { markBookingPaid } from "@/lib/booking-service";
-import { prisma } from "@/lib/prisma";
-import { sendMail, bookingConfirmationEmail } from "@/lib/mailer";
+import { markBookingPaid, sendBookingConfirmationEmail } from "@/lib/booking-service";
 
 // VNPay redirects the *browser* here with vnp_* query params (this doubles
 // as a lightweight IPN since we don't expose a separate server endpoint for
@@ -28,21 +26,7 @@ export async function GET(req: Request) {
 
   const booking = await markBookingPaid(bookingId, "VNPAY", params);
   if (booking) {
-    const full = await prisma.booking.findUnique({
-      where: { id: bookingId },
-      include: { business: true, service: true, customer: true },
-    });
-    if (full) {
-      const email = bookingConfirmationEmail({
-        customerName: full.customer.name,
-        businessName: full.business.name,
-        serviceName: full.service.name,
-        startsAt: full.startsAt,
-        locale: full.customer.locale,
-        businessTimezone: full.business.timezone,
-      });
-      await sendMail({ to: full.customer.email, ...email });
-    }
+    await sendBookingConfirmationEmail(bookingId);
   }
 
   return NextResponse.redirect(

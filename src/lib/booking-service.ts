@@ -46,6 +46,14 @@ export async function createBookingAndPayment(params: {
     where: { id: params.serviceId },
     include: { business: true },
   });
+  const staff = await prisma.staff.findUnique({ where: { id: params.staffId } });
+  const staffOverride = await prisma.staffService.findUnique({
+    where: { staffId_serviceId: { staffId: params.staffId, serviceId: params.serviceId } },
+  });
+  // A staff member can charge, or take, a different amount than the
+  // service's own base price/duration — see StaffService.*Override.
+  const effectiveServicePriceCents = staffOverride?.priceCentsOverride ?? service.priceCents;
+  const effectiveServiceDurationMin = staffOverride?.durationMinOverride ?? service.durationMin;
 
   const addOns = params.addOnIds?.length
     ? await prisma.serviceAddOn.findMany({
@@ -65,9 +73,9 @@ export async function createBookingAndPayment(params: {
 
   const endsAt = addMinutes(
     params.startsAt,
-    service.durationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
+    effectiveServiceDurationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
   );
-  const totalPriceCents = service.priceCents + addOnPriceSum + extraServicePriceSum;
+  const totalPriceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
 
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";
 
@@ -134,9 +142,20 @@ export async function createBookingAndPayment(params: {
       customerName: params.customerName,
       businessName: service.business.name,
       serviceName: service.name,
+      serviceDescription: service.description,
       startsAt: booking.startsAt,
       locale: params.locale,
       businessTimezone: service.business.timezone,
+      priceCents: booking.priceCents,
+      currency: booking.currency,
+      staffName: staff?.name,
+      staffMessage: staff?.staffMessage,
+      businessAddress: service.business.addressLine,
+      businessCity: service.business.city,
+      googleMapsUrl: service.business.googleMapsUrl,
+      businessPhone: service.business.phone,
+      cancellationWindowHours: service.business.cancellationWindowHours,
+      cancellationPolicy: service.business.cancellationPolicy,
       bankInfo:
         params.provider === "BANK_TRANSFER"
           ? {
@@ -179,6 +198,39 @@ export async function createBookingAndPayment(params: {
   });
 
   return { booking, redirectUrl: session.url! };
+}
+
+/** Builds and sends the confirmation email for an already-confirmed booking
+ * — shared by the three online-payment webhooks (Stripe, MoMo, VNPay), each
+ * of which only learns a booking is paid well after createBookingAndPayment
+ * already returned. */
+export async function sendBookingConfirmationEmail(bookingId: string) {
+  const full = await prisma.booking.findUnique({
+    where: { id: bookingId },
+    include: { business: true, service: true, customer: true, staff: true },
+  });
+  if (!full) return;
+
+  const email = bookingConfirmationEmail({
+    customerName: full.customer.name,
+    businessName: full.business.name,
+    serviceName: full.service.name,
+    serviceDescription: full.service.description,
+    startsAt: full.startsAt,
+    locale: full.customer.locale,
+    businessTimezone: full.business.timezone,
+    priceCents: full.priceCents,
+    currency: full.currency,
+    staffName: full.staff?.name,
+    staffMessage: full.staff?.staffMessage,
+    businessAddress: full.business.addressLine,
+    businessCity: full.business.city,
+    googleMapsUrl: full.business.googleMapsUrl,
+    businessPhone: full.business.phone,
+    cancellationWindowHours: full.business.cancellationWindowHours,
+    cancellationPolicy: full.business.cancellationPolicy,
+  });
+  await sendMail({ to: full.customer.email, ...email });
 }
 
 /** Marks a booking as paid/confirmed and returns it, idempotently. */

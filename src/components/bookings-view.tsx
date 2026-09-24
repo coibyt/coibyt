@@ -24,12 +24,14 @@ export function BookingsView({
   businessTimezone,
   staff,
   services,
+  isOwner,
 }: {
   initialBookings: BookingRow[];
   locale: string;
   businessTimezone: string;
   staff: { id: string; name: string }[];
   services: { id: string; name: string; durationMin: number; priceCents: number; currency: string }[];
+  isOwner: boolean;
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -61,6 +63,7 @@ export function BookingsView({
           services={services}
           businessTimezone={businessTimezone}
           locale={locale}
+          isOwner={isOwner}
         />
       ) : (
         <BookingsManager

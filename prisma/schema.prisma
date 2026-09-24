@@ -141,6 +141,10 @@ model Business {
   // How many hours before the appointment a CUSTOMER can still self-cancel;
   // past that, only the business can cancel from their own dashboard.
   cancellationWindowHours Int @default(24)
+  // Free-text policy shown to the customer after booking and included in
+  // their confirmation email — distinct from cancellationWindowHours, which
+  // only drives the self-cancel cutoff, not what's actually printed.
+  cancellationPolicy String? @db.Text
 
   // Where customers send money for the "bank transfer" payment method —
   // no automatic reconciliation, same trust model as pay-at-salon cash.
@@ -222,6 +226,17 @@ model Staff {
   canViewHours      Boolean  @default(false)
   canViewReviews    Boolean  @default(false)
 
+  // Minutes of advance notice a customer must give to book this staff member
+  // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top
+  // of the platform's own minimum lead time.
+  leadTimeMinutes Int     @default(0)
+  // Shown to the customer when they pick this staff member while booking,
+  // and included in their confirmation email.
+  staffMessage    String? @db.Text
+  // Up to 5 YouTube links to past work, shown as "watch" buttons next to
+  // this staff member on the booking page.
+  videoUrls       Json?
+
   services StaffService[]
   bookings Booking[]
   timeOff  StaffTimeOff[]
@@ -288,6 +303,11 @@ model StaffService {
   serviceId String
   staff     Staff   @relation(fields: [staffId], references: [id], onDelete: Cascade)
   service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  // Null means "use the service's own price/duration" — set only when this
+  // staff member charges or takes a different amount of time for it.
+  priceCentsOverride  Int?
+  durationMinOverride Int?
 
   @@id([staffId, serviceId])
 }

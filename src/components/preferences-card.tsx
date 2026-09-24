@@ -21,6 +21,7 @@ export interface BusinessPreferences {
   defaultLocale: string;
   defaultCurrency: string;
   cancellationWindowHours: number;
+  cancellationPolicy: string;
 }
 
 export function PreferencesCard({ preferences }: { preferences: BusinessPreferences }) {
@@ -100,6 +101,23 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="mt-3">
+        <label className="label">
+          {locale === "vi" ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}
+        </label>
+        <p className="mb-1 text-xs text-ink-400">
+          {locale === "vi"
+            ? "Hiển thị cho khách sau khi đặt chỗ xong và trong email xác nhận."
+            : "Shown to customers right after booking and in their confirmation email."}
+        </p>
+        <textarea
+          rows={3}
+          className="input"
+          value={form.cancellationPolicy}
+          onChange={(e) => setForm({ ...form, cancellationPolicy: e.target.value })}
+        />
       </div>
 
       <button onClick={save} disabled={saving} className="btn-primary mt-4 !px-4 !py-2 text-xs">

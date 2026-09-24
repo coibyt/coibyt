@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyStripeWebhook } from "@/lib/payments/stripe";
-import { markBookingPaid } from "@/lib/booking-service";
-import { prisma } from "@/lib/prisma";
-import { sendMail, bookingConfirmationEmail } from "@/lib/mailer";
+import { markBookingPaid, sendBookingConfirmationEmail } from "@/lib/booking-service";
 import type Stripe from "stripe";
 
 export async function POST(req: Request) {
@@ -35,20 +33,5 @@ export async function POST(req: Request) {
 async function confirmAndNotify(bookingId: string, rawResponse: unknown) {
   const booking = await markBookingPaid(bookingId, "STRIPE", rawResponse);
   if (!booking) return;
-
-  const full = await prisma.booking.findUnique({
-    where: { id: bookingId },
-    include: { business: true, service: true, customer: true },
-  });
-  if (!full) return;
-
-  const email = bookingConfirmationEmail({
-    customerName: full.customer.name,
-    businessName: full.business.name,
-    serviceName: full.service.name,
-    startsAt: full.startsAt,
-    locale: full.customer.locale,
-    businessTimezone: full.business.timezone,
-  });
-  await sendMail({ to: full.customer.email, ...email });
+  await sendBookingConfirmationEmail(bookingId);
 }

@@ -10,6 +10,11 @@ export interface AvailableSlot {
   endsAt: Date;
   /** staffId that would take this booking when the customer picked "any staff" */
   staffId: string;
+  /** This staff member's own price/duration for the base service (their
+   * StaffService override, or the service's own price/duration otherwise) —
+   * add-ons and extra services are summed on top of this by the caller. */
+  priceCents: number;
+  durationMin: number;
 }
 
 interface BusyInterval {
@@ -78,6 +83,19 @@ export async function getAvailableSlots(params: {
   });
   if (staffList.length === 0) return [];
 
+  const overrides = await prisma.staffService.findMany({
+    where: { serviceId, staffId: { in: eligibleStaffIds } },
+    select: { staffId: true, priceCentsOverride: true, durationMinOverride: true },
+  });
+  const overrideByStaff = new Map(overrides.map((o) => [o.staffId, o]));
+  const priceByStaff = new Map<string, number>();
+  const baseDurationByStaff = new Map<string, number>(); // service duration, no add-ons/buffer
+  for (const staff of staffList) {
+    const override = overrideByStaff.get(staff.id);
+    priceByStaff.set(staff.id, override?.priceCentsOverride ?? service.priceCents);
+    baseDurationByStaff.set(staff.id, override?.durationMinOverride ?? service.durationMin);
+  }
+
   const tz = business.timezone;
   const dayStartUtc = fromZonedTime(dateStr, tz);
   const dayEndUtc = addMinutes(dayStartUtc, 24 * 60);
@@ -117,8 +135,14 @@ export async function getAvailableSlots(params: {
     windowsByStaff.set(staff.id, clamped);
   }
 
-  const visibleDuration = service.durationMin + extraDurationMin;
-  const duration = visibleDuration + service.bufferMin;
+  const visibleDurationByStaff = new Map<string, number>();
+  const durationByStaff = new Map<string, number>(); // includes buffer — the chair's actual occupied time
+  for (const staff of staffList) {
+    const visible = baseDurationByStaff.get(staff.id)! + extraDurationMin;
+    visibleDurationByStaff.set(staff.id, visible);
+    durationByStaff.set(staff.id, visible + service.bufferMin);
+  }
+  const minDuration = Math.min(...Array.from(durationByStaff.values()));
 
   // Load existing bookings + staff time-off for the day, once, for all staff.
   const [bookings, timeOff] = await Promise.all([
@@ -152,7 +176,13 @@ export async function getAvailableSlots(params: {
   }
 
   const now = new Date();
-  const earliestBookable = addMinutes(now, MIN_LEAD_TIME_MIN);
+  const earliestBookableByStaff = new Map<string, Date>();
+  for (const staff of staffList) {
+    earliestBookableByStaff.set(
+      staff.id,
+      addMinutes(now, Math.max(MIN_LEAD_TIME_MIN, staff.leadTimeMinutes))
+    );
+  }
 
   // Candidate start times = every 15-minute mark that falls inside at least
   // one staff's effective window (staff can differ, so union across staff).
@@ -165,29 +195,45 @@ export async function getAvailableSlots(params: {
 
   for (
     let minute = 0;
-    minute + duration <= dayEndMinute;
+    minute + minDuration <= dayEndMinute;
     minute += SLOT_GRANULARITY_MIN
   ) {
     const slotStartLocal = addMinutes(dayStartLocal, minute);
     const slotStartUtc = fromZonedTime(slotStartLocal, tz);
-    const slotEndUtc = addMinutes(slotStartUtc, duration);
 
-    if (isBefore(slotStartUtc, earliestBookable)) continue;
-
-    const freeStaff = staffList.find((staff) => {
+    // Prefer the cheapest staff among everyone free at this slot, so an
+    // "any staff" customer gets quoted the lowest price by default. Each
+    // staff member can have their own duration (a StaffService override),
+    // so their own end time — not a shared one — decides their own window
+    // and overlap checks.
+    const freeCandidates = staffList.filter((staff) => {
+      const staffDuration = durationByStaff.get(staff.id)!;
+      const slotEndUtc = addMinutes(slotStartUtc, staffDuration);
+      const earliestBookable = earliestBookableByStaff.get(staff.id)!;
+      if (isBefore(slotStartUtc, earliestBookable)) return false;
       const windows = windowsByStaff.get(staff.id) ?? [];
-      if (!withinWindows(minute, windows) || !withinWindows(minute + duration - 1, windows)) {
+      if (
+        !withinWindows(minute, windows) ||
+        !withinWindows(minute + staffDuration - 1, windows)
+      ) {
         return false;
       }
       const busy = busyByStaff.get(staff.id) ?? [];
       return !busy.some((b) => slotStartUtc < b.end && slotEndUtc > b.start);
     });
+    const freeStaff = freeCandidates.length
+      ? freeCandidates.reduce((cheapest, s) =>
+          priceByStaff.get(s.id)! < priceByStaff.get(cheapest.id)! ? s : cheapest
+        )
+      : undefined;
 
     if (freeStaff) {
       slots.push({
         startsAt: slotStartUtc,
-        endsAt: new Date(slotStartUtc.getTime() + visibleDuration * 60_000),
+        endsAt: new Date(slotStartUtc.getTime() + visibleDurationByStaff.get(freeStaff.id)! * 60_000),
         staffId: freeStaff.id,
+        priceCents: priceByStaff.get(freeStaff.id)!,
+        durationMin: visibleDurationByStaff.get(freeStaff.id)!,
       });
     }
   }

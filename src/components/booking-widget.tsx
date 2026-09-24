@@ -9,12 +9,17 @@ import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
-import { CreditCard, Landmark, Banknote, Loader2 } from "lucide-react";
+import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { CreditCard, Landmark, Banknote, Loader2, PlayCircle } from "lucide-react";
 
 interface StaffOption {
   id: string;
   name: string;
   avatarUrl: string | null;
+  priceCentsOverride: number | null;
+  durationMinOverride: number | null;
+  staffMessage: string | null;
+  videoUrls: string[];
 }
 
 interface ServiceInfo {
@@ -30,6 +35,8 @@ interface Slot {
   startsAt: string;
   endsAt: string;
   staffId: string;
+  priceCents: number;
+  durationMin: number;
 }
 
 interface AddOnOption {
@@ -123,6 +130,25 @@ export function BookingWidget({
   const hasBankInfo = !!(bankInfo?.bankName && bankInfo?.bankAccountNumber);
   const paymentMethods = PAYMENT_METHODS.filter((m) => m.id !== "BANK_TRANSFER" || hasBankInfo);
 
+  // What the service actually costs/takes depends on which staff member ends
+  // up doing it — each can have their own price/duration override. Once a
+  // slot is picked, trust that (the server already resolved the real staff
+  // for "any staff" bookings); before that, preview either the selected
+  // staff's own numbers, or the cheapest staff's when "any" is still picked.
+  const selectedStaff = staffOptions.find((s) => s.id === staffId);
+  const cheapestStaff = staffOptions.reduce<StaffOption | null>((cheapest, s) => {
+    const price = s.priceCentsOverride ?? service.priceCents;
+    const cheapestPrice = cheapest ? (cheapest.priceCentsOverride ?? service.priceCents) : Infinity;
+    return price < cheapestPrice ? s : cheapest;
+  }, null);
+  const previewStaff = selectedStaff ?? cheapestStaff;
+  const effectiveServicePriceCents = selectedSlot
+    ? selectedSlot.priceCents
+    : previewStaff?.priceCentsOverride ?? service.priceCents;
+  const effectiveServiceDurationMin = selectedSlot
+    ? selectedSlot.durationMin
+    : previewStaff?.durationMinOverride ?? service.durationMin;
+
   function toggleAddOn(id: string) {
     setSelectedAddOnIds((prev) => {
       const next = new Set(prev);
@@ -181,7 +207,7 @@ export function BookingWidget({
     }
   }
 
-  const totalServiceCents = service.priceCents + addOnPriceSum + extraServicePriceSum;
+  const totalServiceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
   const isOfflinePayment = provider === "CASH" || provider === "BANK_TRANSFER";
 
   // Paying online can be for just the deposit; cash and bank transfer always
@@ -276,13 +302,43 @@ export function BookingWidget({
           <div className="flex flex-wrap gap-2">
             <Pill active={staffId === ""} onClick={() => setStaffId("")}>
               {t("anyStaff")}
+              {cheapestStaff && (
+                <span className="ml-1 opacity-70">
+                  ·{" "}
+                  {formatMoney(
+                    cheapestStaff.priceCentsOverride ?? service.priceCents,
+                    service.currency,
+                    locale
+                  )}
+                </span>
+              )}
             </Pill>
             {staffOptions.map((s) => (
               <Pill key={s.id} active={staffId === s.id} onClick={() => setStaffId(s.id)}>
                 {s.name}
+                {(s.priceCentsOverride !== null || s.durationMinOverride !== null) && (
+                  <span className="ml-1 opacity-70">
+                    · {formatMoney(s.priceCentsOverride ?? service.priceCents, service.currency, locale)}
+                  </span>
+                )}
               </Pill>
             ))}
           </div>
+          {selectedStaff && (
+            <p className="mt-2 text-xs text-ink-400">
+              {formatMoney(selectedStaff.priceCentsOverride ?? service.priceCents, service.currency, locale)}
+              {" · "}
+              {selectedStaff.durationMinOverride ?? service.durationMin} {tCommon("min")}
+            </p>
+          )}
+          {selectedStaff?.staffMessage && (
+            <p className="mt-2 rounded-xl bg-mist-50 p-2.5 text-sm text-ink-700">
+              {selectedStaff.staffMessage}
+            </p>
+          )}
+          {selectedStaff && selectedStaff.videoUrls.length > 0 && (
+            <StaffVideos videoUrls={selectedStaff.videoUrls} staffName={selectedStaff.name} locale={locale} />
+          )}
         </div>
       )}
 
@@ -436,7 +492,7 @@ export function BookingWidget({
       <div className="card space-y-2 p-4">
         <div className="flex justify-between text-sm text-ink-700">
           <span>{service.name}</span>
-          <span>{formatMoney(service.priceCents, service.currency, locale)}</span>
+          <span>{formatMoney(effectiveServicePriceCents, service.currency, locale)}</span>
         </div>
         {extraServices.map((s) => (
           <div key={s.id} className="flex justify-between text-sm text-ink-700">
@@ -472,6 +528,49 @@ export function BookingWidget({
         {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
         {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
       </button>
+    </div>
+  );
+}
+
+function StaffVideos({
+  videoUrls,
+  staffName,
+  locale,
+}: {
+  videoUrls: string[];
+  staffName: string;
+  locale: string;
+}) {
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const embeds = videoUrls.map((u) => toYoutubeEmbedUrl(u)).filter((u): u is string => !!u);
+  if (embeds.length === 0) return null;
+
+  return (
+    <div className="mt-2">
+      <div className="flex flex-wrap gap-2">
+        {embeds.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => setPlayingIndex((prev) => (prev === i ? null : i))}
+            className="flex items-center gap-1.5 text-sm font-medium text-primary-600 hover:underline"
+          >
+            <PlayCircle className="h-4 w-4" />
+            {locale === "vi" ? `Xem video ${i + 1}` : `Watch video ${i + 1}`}
+          </button>
+        ))}
+      </div>
+      {playingIndex !== null && (
+        <div className="mt-2 aspect-video w-full overflow-hidden rounded-xl">
+          <iframe
+            src={embeds[playingIndex]}
+            title={staffName}
+            className="h-full w-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      )}
     </div>
   );
 }

@@ -111,16 +111,24 @@ interface PendingReschedule {
   newStaffId: string;
 }
 
+interface DayWindow {
+  weekday: number;
+  openMinute: number;
+  closeMinute: number;
+}
+
 export function BookingCalendar({
   staff,
   services,
   businessTimezone,
   locale,
+  isOwner,
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
   businessTimezone: string;
   locale: string;
+  isOwner: boolean;
 }) {
   const t = useTranslations("business");
   const dfLocale = locale === "vi" ? vi : undefined;
@@ -142,11 +150,41 @@ export function BookingCalendar({
   const [reschedulingBusy, setReschedulingBusy] = useState(false);
   const [customerDetail, setCustomerDetail] = useState<CustomerDetail | null>(null);
   const [loadingCustomerDetail, setLoadingCustomerDetail] = useState(false);
+  const [businessHours, setBusinessHours] = useState<DayWindow[]>([]);
+  const [staffHoursMap, setStaffHoursMap] = useState<Map<string, DayWindow[]>>(new Map());
+  const [resizing, setResizing] = useState<{ staffId: string; edge: "open" | "close" } | null>(null);
+  const [resizePreview, setResizePreview] = useState<number | null>(null);
+  const resizePreviewRef = useRef<number | null>(null);
+  const dayColumnRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   useEffect(() => {
     const interval = setInterval(() => setNow(toZonedTime(new Date(), businessTimezone)), 60_000);
     return () => clearInterval(interval);
   }, [businessTimezone]);
+
+  // Working-hours drag-to-resize (see the resize handles in the day view
+  // below) is an owner-only affordance — staff aren't allowed to edit each
+  // other's schedules from the calendar.
+  useEffect(() => {
+    if (!isOwner) return;
+    fetch("/api/business/hours")
+      .then((r) => (r.ok ? r.json() : { hours: [] }))
+      .then((d) => setBusinessHours(d.hours ?? []))
+      .catch(() => setBusinessHours([]));
+  }, [isOwner]);
+
+  useEffect(() => {
+    if (!isOwner || staff.length === 0) return;
+    Promise.all(
+      staff.map((s) =>
+        fetch(`/api/business/staff/${s.id}/hours`)
+          .then((r) => (r.ok ? r.json() : { hours: [] }))
+          .then((d) => [s.id, d.hours ?? []] as const)
+          .catch(() => [s.id, []] as const)
+      )
+    ).then((entries) => setStaffHoursMap(new Map(entries)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOwner, staff.map((s) => s.id).join(",")]);
 
   const staffColor = useMemo(() => {
     const map = new Map<string, string>();
@@ -190,6 +228,88 @@ export function BookingCalendar({
   function bookingsOnDay(day: Date) {
     return bookings.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
   }
+
+  // The staff member's working window for the currently displayed day — from
+  // their own custom schedule if they have one, else the business's own
+  // hours. Only a single continuous window is supported here (most salons
+  // run one shift a day), matching what the two drag handles can represent.
+  function getStaffWindow(staffId: string, weekday: number): DayWindow | null {
+    const customRows = staffHoursMap.get(staffId);
+    if (customRows && customRows.length > 0) {
+      return customRows.find((r) => r.weekday === weekday) ?? null;
+    }
+    return businessHours.find((r) => r.weekday === weekday) ?? null;
+  }
+
+  async function commitStaffHoursResize(staffId: string, edge: "open" | "close", newMinute: number) {
+    const todayWeekday = anchorDate.getDay();
+    const current = getStaffWindow(staffId, todayWeekday) ?? {
+      weekday: todayWeekday,
+      openMinute: DEFAULT_START_HOUR * 60,
+      closeMinute: DEFAULT_END_HOUR * 60,
+    };
+    const updated: DayWindow = {
+      weekday: todayWeekday,
+      openMinute: edge === "open" ? newMinute : current.openMinute,
+      closeMinute: edge === "close" ? newMinute : current.closeMinute,
+    };
+    if (updated.openMinute >= updated.closeMinute) return;
+
+    // A staff member with zero custom rows inherits the business's hours for
+    // every day — resizing just today would otherwise leave every OTHER day
+    // with no row at all, which reads as "closed", not "unchanged". Seed the
+    // full week from the business's own hours the first time this happens.
+    const existingRows = staffHoursMap.get(staffId) ?? [];
+    const baseWeek = existingRows.length > 0 ? existingRows : businessHours;
+    const newWeek = [...baseWeek.filter((r) => r.weekday !== todayWeekday), updated];
+
+    setStaffHoursMap((prev) => new Map(prev).set(staffId, newWeek));
+    await fetch(`/api/business/staff/${staffId}/hours`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(
+        newWeek.map(({ weekday, openMinute, closeMinute }) => ({ weekday, openMinute, closeMinute }))
+      ),
+    });
+  }
+
+  function startResize(staffId: string, edge: "open" | "close", e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    setResizing({ staffId, edge });
+  }
+
+  useEffect(() => {
+    if (!resizing) return;
+    function onMove(e: MouseEvent) {
+      const col = dayColumnRefs.current.get(resizing!.staffId);
+      if (!col) return;
+      const rect = col.getBoundingClientRect();
+      const offsetY = e.clientY - rect.top;
+      let minute = DEFAULT_START_HOUR * 60 + (offsetY / HOUR_HEIGHT) * 60;
+      minute = Math.max(
+        DEFAULT_START_HOUR * 60,
+        Math.min(DEFAULT_END_HOUR * 60, Math.round(minute / DRAG_SNAP_MIN) * DRAG_SNAP_MIN)
+      );
+      resizePreviewRef.current = minute;
+      setResizePreview(minute);
+    }
+    function onUp() {
+      if (resizePreviewRef.current !== null) {
+        commitStaffHoursResize(resizing!.staffId, resizing!.edge, resizePreviewRef.current);
+      }
+      resizePreviewRef.current = null;
+      setResizePreview(null);
+      setResizing(null);
+    }
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseup", onUp);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseup", onUp);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [resizing]);
 
   function navigate(dir: -1 | 1) {
     setAnchorDate((d) =>
@@ -539,28 +659,90 @@ export function BookingCalendar({
               {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
             </div>
 
-            {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => (
-              <div
-                key={s.id || "unassigned"}
-                className="relative cursor-pointer border-l border-ink-100"
-                style={{ height: totalHours * HOUR_HEIGHT }}
-                onDragOver={(e) => e.preventDefault()}
-                onDrop={(e) => handleDrop(e, anchorDate, s.id || undefined, startHour)}
-                onClick={(e) => handleGridClick(e, anchorDate, s.id || undefined, startHour)}
-              >
-                {hourMarks.map((h) => (
-                  <div
-                    key={h}
-                    className="absolute w-full border-t border-ink-50"
-                    style={{ top: (h - startHour) * HOUR_HEIGHT }}
-                  />
-                ))}
-                {bookingsOnDay(anchorDate)
-                  .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
-                  .map((b) => renderBookingBlock(b))}
-                {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
-              </div>
-            ))}
+            {(staff.length === 0 ? [{ id: "", name: "" }] : staff).map((s) => {
+              const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
+              const isResizingThis = resizing?.staffId === s.id;
+              const openMinute =
+                isResizingThis && resizing?.edge === "open" && resizePreview !== null
+                  ? resizePreview
+                  : staffWindow?.openMinute;
+              const closeMinute =
+                isResizingThis && resizing?.edge === "close" && resizePreview !== null
+                  ? resizePreview
+                  : staffWindow?.closeMinute;
+              const openPx =
+                openMinute !== undefined ? ((openMinute - startHour * 60) / 60) * HOUR_HEIGHT : null;
+              const closePx =
+                closeMinute !== undefined ? ((closeMinute - startHour * 60) / 60) * HOUR_HEIGHT : null;
+
+              return (
+                <div
+                  key={s.id || "unassigned"}
+                  ref={(el) => {
+                    if (s.id) {
+                      if (el) dayColumnRefs.current.set(s.id, el);
+                      else dayColumnRefs.current.delete(s.id);
+                    }
+                  }}
+                  className="relative cursor-pointer border-l border-ink-100"
+                  style={{ height: totalHours * HOUR_HEIGHT }}
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={(e) => handleDrop(e, anchorDate, s.id || undefined, startHour)}
+                  onClick={(e) => handleGridClick(e, anchorDate, s.id || undefined, startHour)}
+                >
+                  {hourMarks.map((h) => (
+                    <div
+                      key={h}
+                      className="absolute w-full border-t border-ink-50"
+                      style={{ top: (h - startHour) * HOUR_HEIGHT }}
+                    />
+                  ))}
+                  {isOwner && s.id && (
+                    <>
+                      {openPx !== null && (
+                        <div
+                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-white/60"
+                          style={{ height: Math.max(0, openPx) }}
+                        />
+                      )}
+                      {closePx !== null && (
+                        <div
+                          className="pointer-events-none absolute left-0 right-0 z-10 bg-white/60"
+                          style={{ top: Math.max(0, closePx), bottom: 0 }}
+                        />
+                      )}
+                      {openPx === null && closePx === null && (
+                        <div className="pointer-events-none absolute inset-0 z-10 bg-white/60" />
+                      )}
+                      {openPx !== null && (
+                        <div
+                          onMouseDown={(e) => startResize(s.id, "open", e)}
+                          className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
+                            isResizingThis && resizing?.edge === "open" ? "opacity-100" : "opacity-70 hover:opacity-100"
+                          }`}
+                          style={{ top: openPx - 3 }}
+                          title={locale === "vi" ? "Kéo để đổi giờ bắt đầu" : "Drag to change start time"}
+                        />
+                      )}
+                      {closePx !== null && (
+                        <div
+                          onMouseDown={(e) => startResize(s.id, "close", e)}
+                          className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
+                            isResizingThis && resizing?.edge === "close" ? "opacity-100" : "opacity-70 hover:opacity-100"
+                          }`}
+                          style={{ top: closePx - 3 }}
+                          title={locale === "vi" ? "Kéo để đổi giờ kết thúc" : "Drag to change end time"}
+                        />
+                      )}
+                    </>
+                  )}
+                  {bookingsOnDay(anchorDate)
+                    .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
+                    .map((b) => renderBookingBlock(b))}
+                  {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

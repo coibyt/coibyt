@@ -77,6 +77,7 @@ export default async function BusinessSettingsPage({
           defaultLocale: business.defaultLocale,
           defaultCurrency: business.defaultCurrency,
           cancellationWindowHours: business.cancellationWindowHours,
+          cancellationPolicy: business.cancellationPolicy ?? "",
         }}
       />
       <BankInfoCard

@@ -42,7 +42,15 @@ export const serviceSchema = z.object({
   depositCents: z.coerce.number().int().min(0).optional(),
   currency: z.enum(["VND", "USD", "EUR"]).default("VND"),
   videoUrl: z.string().url().max(300).optional().or(z.literal("")),
-  staffIds: z.array(z.string().cuid()).optional(),
+  staffAssignments: z
+    .array(
+      z.object({
+        staffId: z.string().cuid(),
+        priceCentsOverride: z.number().int().min(0).optional(),
+        durationMinOverride: z.number().int().min(5).optional(),
+      })
+    )
+    .optional(),
 });
 
 export const serviceAddOnSchema = z.object({
@@ -68,6 +76,10 @@ export const staffSchema = z.object({
   canViewCustomers: z.boolean().optional(),
   canViewHours: z.boolean().optional(),
   canViewReviews: z.boolean().optional(),
+  // Minutes of advance notice customers must give to book this staff member.
+  leadTimeMinutes: z.coerce.number().int().min(0).max(1440).optional(),
+  staffMessage: z.string().max(2000).optional().or(z.literal("")),
+  videoUrls: z.array(z.string().url().max(300).or(z.literal(""))).max(5).optional(),
 });
 
 export const businessHoursSchema = z.array(

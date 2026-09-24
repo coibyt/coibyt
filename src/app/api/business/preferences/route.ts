@@ -8,6 +8,7 @@ const preferencesSchema = z.object({
   defaultLocale: z.enum([...routing.locales] as [string, ...string[]]),
   defaultCurrency: z.enum(["VND", "USD", "EUR"]),
   cancellationWindowHours: z.coerce.number().int().min(0).max(168),
+  cancellationPolicy: z.string().max(4000).optional().or(z.literal("")),
 });
 
 export async function PUT(req: Request) {
@@ -22,8 +23,13 @@ export async function PUT(req: Request) {
 
   const business = await prisma.business.update({
     where: { id: businessId },
-    data: parsed.data,
-    select: { defaultLocale: true, defaultCurrency: true, cancellationWindowHours: true },
+    data: { ...parsed.data, cancellationPolicy: parsed.data.cancellationPolicy || null },
+    select: {
+      defaultLocale: true,
+      defaultCurrency: true,
+      cancellationWindowHours: true,
+      cancellationPolicy: true,
+    },
   });
 
   return NextResponse.json(business);

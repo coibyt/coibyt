@@ -22,7 +22,11 @@ export default async function ServicesPage({
   const [services, staff, categories] = await Promise.all([
     prisma.service.findMany({
       where: { businessId: business.id },
-      include: { staff: { select: { staffId: true } } },
+      include: {
+        staff: {
+          select: { staffId: true, priceCentsOverride: true, durationMinOverride: true },
+        },
+      },
       orderBy: { createdAt: "desc" },
     }),
     prisma.staff.findMany({ where: { businessId: business.id, active: true } }),
@@ -37,7 +41,11 @@ export default async function ServicesPage({
       <ServicesManager
         initialServices={services.map((s) => ({
           ...s,
-          staffIds: s.staff.map((x) => x.staffId),
+          staffAssignments: s.staff.map((x) => ({
+            staffId: x.staffId,
+            priceCentsOverride: x.priceCentsOverride,
+            durationMinOverride: x.durationMinOverride,
+          })),
         }))}
         staffOptions={staff.map((s) => ({ id: s.id, name: s.name }))}
         categories={categories.map((c) => ({

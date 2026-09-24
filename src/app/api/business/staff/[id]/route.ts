@@ -25,7 +25,7 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { serviceIds, email, password, ...data } = parsed.data;
+  const { serviceIds, email, password, staffMessage, videoUrls, ...data } = parsed.data;
 
   let userId: string | undefined | null = undefined;
   if (email !== undefined) {
@@ -75,7 +75,12 @@ export async function PATCH(
     }
     return tx.staff.update({
       where: { id },
-      data: { ...data, ...(userId !== undefined ? { userId } : {}) },
+      data: {
+        ...data,
+        ...(staffMessage !== undefined ? { staffMessage: staffMessage || null } : {}),
+        ...(videoUrls !== undefined ? { videoUrls: videoUrls.filter((u) => u) } : {}),
+        ...(userId !== undefined ? { userId } : {}),
+      },
     });
   });
 

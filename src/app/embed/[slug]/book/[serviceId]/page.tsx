@@ -56,7 +56,7 @@ export default async function EmbedBookServicePage({
       })
     : [];
 
-  const staffOptions = service.staff.map((s) => s.staff).filter((s) => s.active);
+  const staffOptions = service.staff.filter((s) => s.staff.active);
   const addOnOptions = service.addOns.map((link) => ({
     id: link.addOn.id,
     name: link.addOn.name,
@@ -88,7 +88,15 @@ export default async function EmbedBookServicePage({
             currency: service.currency,
             durationMin: service.durationMin,
           }}
-          staffOptions={staffOptions.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
+          staffOptions={staffOptions.map((link) => ({
+            id: link.staff.id,
+            name: link.staff.name,
+            avatarUrl: link.staff.avatarUrl,
+            priceCentsOverride: link.priceCentsOverride,
+            durationMinOverride: link.durationMinOverride,
+            staffMessage: link.staff.staffMessage,
+            videoUrls: Array.isArray(link.staff.videoUrls) ? (link.staff.videoUrls as string[]) : [],
+          }))}
           addOnOptions={addOnOptions}
           extraServices={extraServices}
           bankInfo={{

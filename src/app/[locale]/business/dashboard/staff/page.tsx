@@ -46,6 +46,9 @@ export default async function StaffPage({
           canViewCustomers: s.canViewCustomers,
           canViewHours: s.canViewHours,
           canViewReviews: s.canViewReviews,
+          leadTimeMinutes: s.leadTimeMinutes,
+          staffMessage: s.staffMessage,
+          videoUrls: Array.isArray(s.videoUrls) ? (s.videoUrls as string[]) : [],
         }))}
         serviceOptions={services.map((s) => ({ id: s.id, name: s.name }))}
       />

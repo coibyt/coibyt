@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { verifyMomoSignature, type MomoIpnPayload } from "@/lib/payments/momo";
-import { markBookingPaid } from "@/lib/booking-service";
-import { prisma } from "@/lib/prisma";
-import { sendMail, bookingConfirmationEmail } from "@/lib/mailer";
+import { markBookingPaid, sendBookingConfirmationEmail } from "@/lib/booking-service";
 
 // Server-to-server notification MoMo calls directly (MOMO_IPN_URL) —
 // authoritative source of truth for payment status, independent of whether
@@ -20,21 +18,7 @@ export async function POST(req: Request) {
   if (success) {
     const booking = await markBookingPaid(bookingId, "MOMO", payload);
     if (booking) {
-      const full = await prisma.booking.findUnique({
-        where: { id: bookingId },
-        include: { business: true, service: true, customer: true },
-      });
-      if (full) {
-        const email = bookingConfirmationEmail({
-          customerName: full.customer.name,
-          businessName: full.business.name,
-          serviceName: full.service.name,
-          startsAt: full.startsAt,
-          locale: full.customer.locale,
-          businessTimezone: full.business.timezone,
-        });
-        await sendMail({ to: full.customer.email, ...email });
-      }
+      await sendBookingConfirmationEmail(bookingId);
     }
   }
 

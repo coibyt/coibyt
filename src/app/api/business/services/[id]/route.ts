@@ -29,13 +29,18 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { staffIds, videoUrl, ...data } = parsed.data;
+  const { staffAssignments, videoUrl, ...data } = parsed.data;
 
   const service = await prisma.$transaction(async (tx) => {
-    if (staffIds) {
+    if (staffAssignments) {
       await tx.staffService.deleteMany({ where: { serviceId: id } });
       await tx.staffService.createMany({
-        data: staffIds.map((staffId) => ({ staffId, serviceId: id })),
+        data: staffAssignments.map((a) => ({
+          staffId: a.staffId,
+          serviceId: id,
+          priceCentsOverride: a.priceCentsOverride,
+          durationMinOverride: a.durationMinOverride,
+        })),
       });
     }
     return tx.service.update({

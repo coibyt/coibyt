@@ -25,7 +25,8 @@ export async function POST(req: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { serviceIds, avatarUrl, email, password, ...data } = parsed.data;
+  const { serviceIds, avatarUrl, email, password, staffMessage, videoUrls, ...data } = parsed.data;
+  const cleanVideoUrls = videoUrls?.filter((u) => u) ?? [];
 
   let userId: string | undefined;
   if (email) {
@@ -52,6 +53,8 @@ export async function POST(req: Request) {
     data: {
       ...data,
       avatarUrl: avatarUrl || undefined,
+      staffMessage: staffMessage || null,
+      videoUrls: cleanVideoUrls,
       businessId: owned.businessId,
       userId,
       services: serviceIds
