@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
-import { getOwnedBusiness } from "@/lib/current-business";
+import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { BusinessImagesManager } from "@/components/business-images-manager";
 import { BookingEmbedCard } from "@/components/booking-embed-card";
@@ -10,10 +11,19 @@ import { PreferencesCard } from "@/components/preferences-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
 import { AccountSettingsCard } from "@/components/account-settings-card";
 
-export default async function BusinessSettingsPage() {
-  const business = await getOwnedBusiness();
+export default async function BusinessSettingsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const owned = await requireOwnerOnly();
   const t = await getTranslations("business");
-  if (!business) return null;
+  if (!owned) {
+    redirect({ href: "/business/dashboard", locale });
+    return null;
+  }
+  const business = await prisma.business.findUniqueOrThrow({ where: { id: owned.businessId } });
 
   const session = await auth();
   const [allCategories, ownCategoryLinks, currentUser] = await Promise.all([
@@ -56,6 +66,7 @@ export default async function BusinessSettingsPage() {
           instagramUrl: business.instagramUrl,
           tiktokUrl: business.tiktokUrl,
           youtubeUrl: business.youtubeUrl,
+          introVideoUrl: business.introVideoUrl,
           googleMapsUrl: business.googleMapsUrl,
           whatsapp: business.whatsapp,
         }}

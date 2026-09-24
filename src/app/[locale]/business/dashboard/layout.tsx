@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { getOwnedBusiness } from "@/lib/current-business";
+import { getBusinessAccess } from "@/lib/current-business";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
@@ -14,13 +14,15 @@ export default async function BusinessDashboardLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const business = await getOwnedBusiness();
+  const access = await getBusinessAccess();
   const t = await getTranslations("business");
 
-  if (!business) {
+  if (!access) {
     redirect({ href: "/business/apply", locale });
     return;
   }
+
+  const { business, isOwner, permissions } = access;
 
   if (business.status !== "APPROVED") {
     const session = await auth();
@@ -39,13 +41,23 @@ export default async function BusinessDashboardLayout({
 
   const links = [
     { href: "/business/dashboard", label: t("overview") },
-    { href: "/business/dashboard/services", label: t("services") },
-    { href: "/business/dashboard/staff", label: t("staff") },
-    { href: "/business/dashboard/bookings", label: t("bookings") },
-    { href: "/business/dashboard/customers", label: t("customers") },
-    { href: "/business/dashboard/hours", label: t("hours") },
-    { href: "/business/dashboard/reviews", label: t("reviews") },
-    { href: "/business/dashboard/settings", label: t("settings") },
+    ...(isOwner || permissions.services
+      ? [{ href: "/business/dashboard/services", label: t("services") }]
+      : []),
+    ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
+    ...(isOwner || permissions.bookings
+      ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
+      : []),
+    ...(isOwner || permissions.customers
+      ? [{ href: "/business/dashboard/customers", label: t("customers") }]
+      : []),
+    ...(isOwner || permissions.hours
+      ? [{ href: "/business/dashboard/hours", label: t("hours") }]
+      : []),
+    ...(isOwner || permissions.reviews
+      ? [{ href: "/business/dashboard/reviews", label: t("reviews") }]
+      : []),
+    ...(isOwner ? [{ href: "/business/dashboard/settings", label: t("settings") }] : []),
   ];
 
   return (

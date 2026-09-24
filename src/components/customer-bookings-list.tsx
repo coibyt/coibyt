@@ -6,6 +6,7 @@ import { formatMoney } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { ReviewModal } from "@/components/review-modal";
 import { Link, useRouter } from "@/i18n/navigation";
+import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 
 interface BookingRow {
   id: string;
@@ -29,6 +30,7 @@ export function CustomerBookingsList({
 }) {
   const t = useTranslations("booking");
   const router = useRouter();
+  const viewerTimezone = useViewerTimezone();
   const [cancelling, setCancelling] = useState<string | null>(null);
   const [reviewingId, setReviewingId] = useState<string | null>(null);
   const [error, setError] = useState<{ id: string; message: string } | null>(null);
@@ -69,6 +71,17 @@ export function CustomerBookingsList({
                 timeStyle: "short",
                 timeZone: b.businessTimezone,
               })}
+              {viewerTimezone && viewerTimezone !== b.businessTimezone && (
+                <span>
+                  {" · "}
+                  {locale === "vi" ? "giờ của bạn: " : "your time: "}
+                  {new Date(b.startsAt).toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                    dateStyle: "medium",
+                    timeStyle: "short",
+                    timeZone: viewerTimezone,
+                  })}
+                </span>
+              )}
             </p>
             {error?.id === b.id && <p className="mt-1 text-xs text-berry-500">{error.message}</p>}
           </div>

@@ -18,6 +18,8 @@ import {
 import { prisma } from "@/lib/prisma";
 import { ReviewList } from "@/components/review-list";
 import { ServiceSelectionList } from "@/components/service-selection-list";
+import { BusinessIntroVideo } from "@/components/business-intro-video";
+import { BusinessLocationButton } from "@/components/business-location-button";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -102,6 +104,21 @@ export default async function BusinessProfilePage({
             </div>
             {business.description && (
               <p className="mt-3 max-w-2xl text-sm text-ink-700">{business.description}</p>
+            )}
+            {business.introVideoUrl && (
+              <BusinessIntroVideo
+                videoUrl={business.introVideoUrl}
+                businessName={business.name}
+                locale={locale}
+              />
+            )}
+            {business.lat != null && business.lng != null && (
+              <BusinessLocationButton
+                lat={business.lat}
+                lng={business.lng}
+                name={business.name}
+                locale={locale}
+              />
             )}
             {(business.email ||
               business.website ||

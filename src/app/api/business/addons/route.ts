@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceAddOnSchema } from "@/lib/validations";
 
 export async function GET() {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("services");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const addOns = await prisma.serviceAddOn.findMany({
@@ -15,7 +15,7 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("services");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const parsed = serviceAddOnSchema.safeParse(await req.json());

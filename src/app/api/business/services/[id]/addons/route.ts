@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceAddOnLinksSchema } from "@/lib/validations";
 
@@ -12,7 +12,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("services");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   if (!(await assertOwnership(businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
@@ -28,7 +28,7 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("services");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   if (!(await assertOwnership(businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });

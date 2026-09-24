@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { businessHoursSchema } from "@/lib/validations";
 
@@ -12,9 +12,9 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  if (!(await assertOwnership(businessId, id))) {
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  if (!(await assertOwnership(owned.businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 
@@ -30,9 +30,9 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  if (!(await assertOwnership(businessId, id))) {
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  if (!(await assertOwnership(owned.businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 

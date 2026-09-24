@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId, requireApprovedOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId, requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceSchema } from "@/lib/validations";
 
@@ -52,7 +52,7 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("services");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   if (!(await assertOwnership(businessId, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });

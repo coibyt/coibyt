@@ -17,6 +17,7 @@ datasource db {
 enum UserRole {
   CUSTOMER
   BUSINESS_OWNER
+  STAFF
   ADMIN
 }
 
@@ -35,9 +36,10 @@ model User {
 
   accounts Account[]
   sessions Session[]
-  business Business? // present when role = BUSINESS_OWNER
-  bookings Booking[]
-  reviews  Review[]
+  business     Business? // present when role = BUSINESS_OWNER
+  staffProfile Staff? // present when role = STAFF
+  bookings     Booking[]
+  reviews      Review[]
 
   @@index([role])
 }
@@ -123,7 +125,8 @@ model Business {
   facebookUrl   String?
   instagramUrl  String?
   tiktokUrl     String?
-  youtubeUrl    String?
+  youtubeUrl    String? // channel link, shown as an icon
+  introVideoUrl String? // a single YouTube video customers can watch inline to preview the salon
   googleMapsUrl String?
   whatsapp      String? // phone number in international format, used for a wa.me link
 
@@ -206,6 +209,18 @@ model Staff {
   avatarUrl  String?
   active     Boolean  @default(true)
   createdAt  DateTime @default(now())
+
+  // Optional login for this staff member — null means they're just a
+  // schedulable name with no dashboard access of their own. Permissions
+  // below only gate the "view-only" dashboard sections; Staff management
+  // and Settings always stay owner-only regardless of these flags.
+  userId            String?  @unique
+  user              User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  canViewServices   Boolean  @default(false)
+  canViewBookings   Boolean  @default(true)
+  canViewCustomers  Boolean  @default(false)
+  canViewHours      Boolean  @default(false)
+  canViewReviews    Boolean  @default(false)
 
   services StaffService[]
   bookings Booking[]

@@ -1,5 +1,6 @@
-import { getOwnedBusiness } from "@/lib/current-business";
+import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { CustomersManager } from "@/components/customers-manager";
 
@@ -9,9 +10,14 @@ export default async function BusinessCustomersPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const business = await getOwnedBusiness();
+  const access = await getBusinessAccess();
   const t = await getTranslations("customers");
-  if (!business) return null;
+  if (!access) return null;
+  if (!access.isOwner && !access.permissions.customers) {
+    redirect({ href: "/business/dashboard", locale });
+    return null;
+  }
+  const { business } = access;
 
   const bookings = await prisma.booking.findMany({
     where: { businessId: business.id },

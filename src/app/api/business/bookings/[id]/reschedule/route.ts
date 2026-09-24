@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
@@ -17,7 +17,7 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("bookings");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const booking = await prisma.booking.findFirst({

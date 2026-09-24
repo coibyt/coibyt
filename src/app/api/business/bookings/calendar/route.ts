@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
@@ -9,7 +9,7 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /** Bookings for a business-local date range [from, to] (inclusive both
  * ends), for the dashboard's day/week/month calendar views. */
 export async function GET(req: Request) {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("bookings");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const { searchParams } = new URL(req.url);

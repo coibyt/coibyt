@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
 const profileSchema = z.object({
@@ -14,8 +14,9 @@ const profileSchema = z.object({
 });
 
 export async function PUT(req: Request) {
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const businessId = owned.businessId;
 
   const parsed = profileSchema.safeParse(await req.json());
   if (!parsed.success) {

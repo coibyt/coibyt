@@ -8,6 +8,7 @@ import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
+import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { CreditCard, Landmark, Banknote, Loader2 } from "lucide-react";
 
 interface StaffOption {
@@ -86,6 +87,8 @@ export function BookingWidget({
   const tPay = useTranslations("payment");
   const tCommon = useTranslations("common");
   const { data: session, status } = useSession();
+  const viewerTimezone = useViewerTimezone();
+  const showLocalTime = !!viewerTimezone && viewerTimezone !== businessTimezone;
 
   // "Today" and every date/time shown here is anchored to the SALON's
   // timezone, not the visitor's device — a customer booking a Hanoi salon
@@ -307,6 +310,13 @@ export function BookingWidget({
 
       <div>
         <p className="label">{t("selectTime")}</p>
+        {showLocalTime && (
+          <p className="mb-2 text-xs text-ink-400">
+            {locale === "vi"
+              ? `Giờ hiển thị là giờ salon (${businessTimezone}) — giờ của bạn hiện theo dưới mỗi khung giờ.`
+              : `Times shown are the salon's local time (${businessTimezone}) — your own local time is shown under each slot.`}
+          </p>
+        )}
         {loadingSlots ? (
           <p className="flex items-center gap-2 text-sm text-ink-400">
             <Loader2 className="h-4 w-4 animate-spin" /> ...
@@ -325,11 +335,26 @@ export function BookingWidget({
                     : "border-ink-100 text-ink-700 hover:border-ink-400"
                 }`}
               >
-                {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  timeZone: businessTimezone,
-                })}
+                <span className="block">
+                  {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    timeZone: businessTimezone,
+                  })}
+                </span>
+                {showLocalTime && (
+                  <span
+                    className={`block text-[11px] font-normal ${
+                      selectedSlot?.startsAt === s.startsAt ? "text-white/70" : "text-ink-400"
+                    }`}
+                  >
+                    {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      timeZone: viewerTimezone ?? undefined,
+                    })}
+                  </span>
+                )}
               </button>
             ))}
           </div>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
 const MAX_SIZE_BYTES = 5 * 1024 * 1024; // 5MB
@@ -15,8 +15,9 @@ const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
  * the simplest thing that's actually guaranteed to persist.
  */
 export async function POST(req: Request) {
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const businessId = owned.businessId;
 
   const form = await req.formData();
   const file = form.get("file");

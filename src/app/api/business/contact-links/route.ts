@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
 const urlOrEmpty = z.string().url().max(300).optional().or(z.literal(""));
@@ -13,13 +13,15 @@ const contactLinksSchema = z.object({
   instagramUrl: urlOrEmpty,
   tiktokUrl: urlOrEmpty,
   youtubeUrl: urlOrEmpty,
+  introVideoUrl: urlOrEmpty,
   googleMapsUrl: urlOrEmpty,
   whatsapp: z.string().max(30).optional().or(z.literal("")),
 });
 
 export async function PUT(req: Request) {
-  const businessId = await requireOwnedBusinessId();
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const businessId = owned.businessId;
 
   const parsed = contactLinksSchema.safeParse(await req.json());
   if (!parsed.success) {
@@ -37,6 +39,7 @@ export async function PUT(req: Request) {
       instagramUrl: data.instagramUrl || null,
       tiktokUrl: data.tiktokUrl || null,
       youtubeUrl: data.youtubeUrl || null,
+      introVideoUrl: data.introVideoUrl || null,
       googleMapsUrl: data.googleMapsUrl || null,
       whatsapp: data.whatsapp || null,
     },
@@ -48,6 +51,7 @@ export async function PUT(req: Request) {
       instagramUrl: true,
       tiktokUrl: true,
       youtubeUrl: true,
+      introVideoUrl: true,
       googleMapsUrl: true,
       whatsapp: true,
     },

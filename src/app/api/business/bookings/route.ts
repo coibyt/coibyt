@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { createBookingAndPayment, SlotUnavailableError } from "@/lib/booking-service";
 
@@ -41,7 +41,7 @@ async function findOrCreateWalkInCustomer(input: {
 }
 
 export async function POST(req: Request) {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("bookings");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const parsed = businessBookingSchema.safeParse(await req.json());
@@ -89,7 +89,7 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("bookings");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const status = new URL(req.url).searchParams.get("status") ?? undefined;

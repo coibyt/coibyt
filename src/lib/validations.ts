@@ -57,6 +57,15 @@ export const staffSchema = z.object({
   bio: z.string().max(2000).optional(),
   avatarUrl: z.string().url().optional().or(z.literal("")),
   serviceIds: z.array(z.string().cuid()).optional(),
+  // A login is optional — leaving both blank keeps the staff member as a
+  // schedulable name with no dashboard access of their own.
+  email: z.string().email().max(180).optional().or(z.literal("")),
+  password: z.string().min(8).max(72).optional().or(z.literal("")),
+  canViewServices: z.boolean().optional(),
+  canViewBookings: z.boolean().optional(),
+  canViewCustomers: z.boolean().optional(),
+  canViewHours: z.boolean().optional(),
+  canViewReviews: z.boolean().optional(),
 });
 
 export const businessHoursSchema = z.array(

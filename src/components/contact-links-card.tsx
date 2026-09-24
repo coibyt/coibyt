@@ -12,6 +12,7 @@ export interface ContactLinks {
   instagramUrl: string | null;
   tiktokUrl: string | null;
   youtubeUrl: string | null;
+  introVideoUrl: string | null;
   googleMapsUrl: string | null;
   whatsapp: string | null;
 }
@@ -26,6 +27,7 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
     instagramUrl: contact.instagramUrl ?? "",
     tiktokUrl: contact.tiktokUrl ?? "",
     youtubeUrl: contact.youtubeUrl ?? "",
+    introVideoUrl: contact.introVideoUrl ?? "",
     googleMapsUrl: contact.googleMapsUrl ?? "",
     whatsapp: contact.whatsapp ?? "",
   });
@@ -82,7 +84,12 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
         {field("facebookUrl", "Facebook", "https://facebook.com/...")}
         {field("instagramUrl", "Instagram", "https://instagram.com/...")}
         {field("tiktokUrl", "TikTok", "https://tiktok.com/@...")}
-        {field("youtubeUrl", "YouTube", "https://youtube.com/@...")}
+        {field("youtubeUrl", locale === "vi" ? "Kênh YouTube" : "YouTube channel", "https://youtube.com/@...")}
+        {field(
+          "introVideoUrl",
+          locale === "vi" ? "Video giới thiệu salon" : "Salon intro video",
+          "https://youtube.com/watch?v=..."
+        )}
         {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
       </div>
 

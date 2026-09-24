@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { requireOwnedBusinessId } from "@/lib/current-business";
+import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { businessHoursSchema } from "@/lib/validations";
 
 export async function GET() {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("hours");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const hours = await prisma.businessHours.findMany({ where: { businessId } });
@@ -14,7 +14,7 @@ export async function GET() {
 /** Replaces the full weekly schedule in one call — simpler and safer than
  * diffing individual day rows from the client. */
 export async function PUT(req: Request) {
-  const businessId = await requireOwnedBusinessId();
+  const businessId = await requireSectionBusinessId("hours");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const body = await req.json();

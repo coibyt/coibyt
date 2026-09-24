@@ -1,5 +1,6 @@
-import { getOwnedBusiness } from "@/lib/current-business";
+import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { OwnerReviewList } from "@/components/owner-review-list";
 
@@ -9,9 +10,14 @@ export default async function BusinessReviewsPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const business = await getOwnedBusiness();
+  const access = await getBusinessAccess();
   const t = await getTranslations("business");
-  if (!business) return null;
+  if (!access) return null;
+  if (!access.isOwner && !access.permissions.reviews) {
+    redirect({ href: "/business/dashboard", locale });
+    return null;
+  }
+  const { business } = access;
 
   const reviews = await prisma.review.findMany({
     where: { businessId: business.id },

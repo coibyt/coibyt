@@ -20,6 +20,7 @@ import { vi } from "date-fns/locale";
 import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
 import { formatMoney } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
+import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 
 interface StaffOption {
   id: string;
@@ -93,6 +94,7 @@ export function BookingCalendar({
 }) {
   const t = useTranslations("business");
   const dfLocale = locale === "vi" ? vi : undefined;
+  const viewerTimezone = useViewerTimezone();
   const [view, setView] = useState<ViewMode>("day");
   const [anchorDate, setAnchorDate] = useState(() => toZonedTime(new Date(), businessTimezone));
   const [bookings, setBookings] = useState<CalendarBooking[]>([]);
@@ -361,8 +363,22 @@ export function BookingCalendar({
     );
   }
 
+  const showLocalTime = !!viewerTimezone && viewerTimezone !== businessTimezone;
+
   return (
     <div className="space-y-4">
+      {showLocalTime && (
+        <p className="text-xs text-ink-400">
+          {locale === "vi"
+            ? `Lịch hiển thị theo giờ salon (${businessTimezone}) · giờ của bạn hiện tại: `
+            : `Calendar shown in the salon's time (${businessTimezone}) · your local time now: `}
+          {new Date().toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+            timeZone: viewerTimezone ?? undefined,
+          })}
+        </p>
+      )}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2">
           <button onClick={() => navigate(-1)} className="btn-ghost !p-2" aria-label="Previous">
