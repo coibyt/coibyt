@@ -23,7 +23,7 @@ export async function Footer() {
         />
         <FooterColumn
           title={t("forBusiness")}
-          links={[{ href: "/business/apply", label: t("forBusiness") }]}
+          links={[{ href: "/business", label: t("forBusiness") }]}
         />
         <FooterColumn
           title={t("company")}

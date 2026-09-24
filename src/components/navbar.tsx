@@ -24,7 +24,7 @@ export async function Navbar() {
         <nav className="flex items-center gap-2">
           <LocaleSwitcher />
           {!session?.user && (
-            <Link href="/business/apply" className="btn-ghost hidden sm:inline-flex">
+            <Link href="/business" className="btn-ghost hidden sm:inline-flex">
               {t("forBusiness")}
             </Link>
           )}
