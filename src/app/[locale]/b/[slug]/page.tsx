@@ -81,7 +81,12 @@ export default async function BusinessProfilePage({
         )}
       </div>
 
-      <div className="container -mt-12 pb-16">
+      {/* `relative` here isn't decorative — without it this element is a
+          plain non-positioned box, which browsers paint BEFORE the cover
+          photo above (a `position: relative` element) regardless of DOM
+          order. That let the cover visually cover the business name and
+          Follow/Chat buttons wherever the -mt-12 overlap landed. */}
+      <div className="container relative -mt-12 pb-16">
         <div className="card flex flex-col gap-6 p-6 sm:flex-row sm:items-start">
           <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-primary-100 text-2xl font-extrabold text-primary-500 ring-4 ring-white">
             {business.logoUrl ? (
