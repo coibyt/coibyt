@@ -76,6 +76,7 @@ export const staffSchema = z.object({
   canViewCustomers: z.boolean().optional(),
   canViewHours: z.boolean().optional(),
   canViewReviews: z.boolean().optional(),
+  canViewCustomerContactInfo: z.boolean().optional(),
   // Minutes of advance notice customers must give to book this staff member.
   leadTimeMinutes: z.coerce.number().int().min(0).max(1440).optional(),
   staffMessage: z.string().max(2000).optional().or(z.literal("")),

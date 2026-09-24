@@ -130,6 +130,10 @@
       "CANCELLED": "Storniert",
       "NO_SHOW": "Nicht erschienen"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "Vom Kunden storniert",
+      "CANCELLED_BY_SALON": "Vom Salon storniert"
+    },
     "cancel": "Buchung stornieren",
     "leaveReview": "Bewertung abgeben",
     "myBookingsTitle": "Meine Buchungen",

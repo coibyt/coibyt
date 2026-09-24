@@ -6,9 +6,11 @@ import { Loader2 } from "lucide-react";
 
 export function AccountSettingsCard({
   currentEmail,
+  pendingEmail,
   hasPassword,
 }: {
   currentEmail: string;
+  pendingEmail: string | null;
   hasPassword: boolean;
 }) {
   const locale = useLocale();
@@ -36,8 +38,8 @@ export function AccountSettingsCard({
         type: "success",
         text:
           locale === "vi"
-            ? "Đã gửi email xác minh đến địa chỉ mới."
-            : "Verification email sent to the new address.",
+            ? "Đã gửi email xác minh đến địa chỉ mới. Email đăng nhập của bạn sẽ không đổi cho đến khi bạn xác nhận."
+            : "Verification email sent to the new address. Your login email won't change until you confirm it.",
       });
       setEmailPassword("");
     } else {
@@ -107,6 +109,13 @@ export function AccountSettingsCard({
         <p className="text-sm font-medium text-ink-900">
           {locale === "vi" ? "Đổi email" : "Change email"}
         </p>
+        {pendingEmail && (
+          <p className="text-xs text-coral-600">
+            {locale === "vi"
+              ? `Đang chờ xác nhận email mới: ${pendingEmail}. Kiểm tra hộp thư đó để hoàn tất.`
+              : `Awaiting confirmation for ${pendingEmail}. Check that inbox to finish the change.`}
+          </p>
+        )}
         <input
           className="input"
           type="email"

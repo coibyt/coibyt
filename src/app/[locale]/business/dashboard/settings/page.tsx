@@ -35,7 +35,7 @@ export default async function BusinessSettingsPage({
     session?.user
       ? prisma.user.findUnique({
           where: { id: session.user.id },
-          select: { email: true, password: true },
+          select: { email: true, pendingEmail: true, password: true },
         })
       : null,
   ]);
@@ -90,7 +90,11 @@ export default async function BusinessSettingsPage({
       />
       <BookingEmbedCard slug={business.slug} defaultLocale={business.defaultLocale} />
       {currentUser && (
-        <AccountSettingsCard currentEmail={currentUser.email} hasPassword={!!currentUser.password} />
+        <AccountSettingsCard
+          currentEmail={currentUser.email}
+          pendingEmail={currentUser.pendingEmail}
+          hasPassword={!!currentUser.password}
+        />
       )}
     </div>
   );

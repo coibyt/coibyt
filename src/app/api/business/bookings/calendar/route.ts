@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireSectionBusinessId } from "@/lib/current-business";
+import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
@@ -9,8 +9,12 @@ const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /** Bookings for a business-local date range [from, to] (inclusive both
  * ends), for the dashboard's day/week/month calendar views. */
 export async function GET(req: Request) {
-  const businessId = await requireSectionBusinessId("bookings");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const businessId = access.business.id;
+  const canViewContact = access.canViewCustomerContactInfo;
 
   const { searchParams } = new URL(req.url);
   const dateParam = searchParams.get("date"); // back-compat: single day
@@ -51,7 +55,7 @@ export async function GET(req: Request) {
       customerNote: true,
       service: { select: { name: true } },
       staff: { select: { name: true } },
-      customer: { select: { name: true, phone: true } },
+      customer: { select: { name: true, phone: true, email: true } },
       addOns: { select: { name: true } },
       extraServices: { select: { name: true } },
     },
@@ -72,7 +76,8 @@ export async function GET(req: Request) {
       customerNote: b.customerNote,
       serviceName: b.service.name,
       customerName: b.customer.name,
-      customerPhone: b.customer.phone,
+      customerPhone: canViewContact ? b.customer.phone : null,
+      customerEmail: canViewContact ? b.customer.email : null,
       addOnNames: [...b.addOns.map((a) => a.name), ...b.extraServices.map((s) => s.name)],
     })),
   });

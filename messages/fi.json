@@ -130,6 +130,10 @@
       "CANCELLED": "Peruttu",
       "NO_SHOW": "Ei saapunut"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "Asiakas peruutti",
+      "CANCELLED_BY_SALON": "Salonki peruutti"
+    },
     "cancel": "Peru varaus",
     "leaveReview": "Jätä arvostelu",
     "myBookingsTitle": "Varaukseni",

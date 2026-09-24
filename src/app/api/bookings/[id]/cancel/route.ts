@@ -28,7 +28,7 @@ export async function POST(
 
   const updated = await prisma.booking.update({
     where: { id },
-    data: { status: "CANCELLED" },
+    data: { status: "CANCELLED", cancelReason: "CANCELLED_BY_CUSTOMER" },
   });
 
   return NextResponse.json({ booking: updated });

@@ -25,6 +25,10 @@ export interface BusinessAccess {
   isOwner: boolean;
   staffId?: string;
   permissions: StaffPermissions;
+  /** Separate from `permissions.bookings` — a staff member can see the
+   * bookings calendar without seeing customers' phone/email on each booking
+   * unless this is also granted. */
+  canViewCustomerContactInfo: boolean;
 }
 
 /** Resolves the signed-in user to the business they can act on — either as
@@ -39,7 +43,12 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
 
   const owned = await prisma.business.findUnique({ where: { ownerId: session.user.id } });
   if (owned) {
-    return { business: owned, isOwner: true, permissions: OWNER_PERMISSIONS };
+    return {
+      business: owned,
+      isOwner: true,
+      permissions: OWNER_PERMISSIONS,
+      canViewCustomerContactInfo: true,
+    };
   }
 
   const staff = await prisma.staff.findFirst({
@@ -59,6 +68,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       hours: staff.canViewHours,
       reviews: staff.canViewReviews,
     },
+    canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
   };
 }
 

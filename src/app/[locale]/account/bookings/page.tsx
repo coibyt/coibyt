@@ -18,8 +18,21 @@ export default async function MyBookingsPage({
   const bookings = await prisma.booking.findMany({
     where: { customerId: session!.user.id },
     include: {
-      business: { select: { name: true, slug: true, timezone: true } },
+      business: {
+        select: {
+          name: true,
+          slug: true,
+          timezone: true,
+          addressLine: true,
+          city: true,
+          phone: true,
+          googleMapsUrl: true,
+          cancellationPolicy: true,
+          cancellationWindowHours: true,
+        },
+      },
       service: { select: { name: true } },
+      staff: { select: { name: true } },
       review: { select: { id: true } },
     },
     orderBy: { startsAt: "desc" },
@@ -41,6 +54,12 @@ export default async function MyBookingsPage({
             businessName: b.business.name,
             businessSlug: b.business.slug,
             businessTimezone: b.business.timezone,
+            businessAddress: [b.business.addressLine, b.business.city].filter(Boolean).join(", ") || null,
+            businessPhone: b.business.phone,
+            businessGoogleMapsUrl: b.business.googleMapsUrl,
+            cancellationPolicy: b.business.cancellationPolicy,
+            cancellationWindowHours: b.business.cancellationWindowHours,
+            staffName: b.staff?.name ?? null,
             serviceName: b.service.name,
             hasReview: !!b.review,
           }))}

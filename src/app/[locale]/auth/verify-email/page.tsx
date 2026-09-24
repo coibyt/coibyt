@@ -7,12 +7,13 @@ export default async function VerifyEmailPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ status?: string }>;
+  searchParams: Promise<{ status?: string; reason?: string }>;
 }) {
   const { locale } = await params;
-  const { status } = await searchParams;
+  const { status, reason } = await searchParams;
   const isVi = locale === "vi";
   const success = status === "success";
+  const isEmailChange = reason === "email_change";
 
   return (
     <AuthCard
@@ -34,9 +35,13 @@ export default async function VerifyEmailPage({
         )}
         <p className="text-sm text-ink-700">
           {success
-            ? isVi
-              ? "Salon của bạn đã được kích hoạt. Bạn có thể bắt đầu đăng dịch vụ ngay bây giờ."
-              : "Your salon is now activated. You can start adding services right away."
+            ? isEmailChange
+              ? isVi
+                ? "Email đăng nhập của bạn đã được cập nhật."
+                : "Your login email has been updated."
+              : isVi
+                ? "Salon của bạn đã được kích hoạt. Bạn có thể bắt đầu đăng dịch vụ ngay bây giờ."
+                : "Your salon is now activated. You can start adding services right away."
             : isVi
               ? "Liên kết xác minh này đã hết hạn hoặc không còn hợp lệ. Vui lòng yêu cầu gửi lại email xác minh từ trang quản trị."
               : "This verification link has expired or is no longer valid. Please request a new one from your dashboard."}

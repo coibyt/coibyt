@@ -5,6 +5,7 @@ import { z } from "zod";
 
 const patchSchema = z.object({
   status: z.enum(["CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]),
+  cancelReason: z.enum(["CANCELLED_BY_CUSTOMER", "CANCELLED_BY_SALON"]).optional(),
 });
 
 export async function PATCH(
@@ -27,7 +28,7 @@ export async function PATCH(
 
   const updated = await prisma.booking.update({
     where: { id },
-    data: { status: parsed.data.status },
+    data: { status: parsed.data.status, cancelReason: parsed.data.cancelReason },
   });
   return NextResponse.json({ booking: updated });
 }

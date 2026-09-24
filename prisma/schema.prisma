@@ -26,6 +26,10 @@ model User {
   name          String
   email         String    @unique
   emailVerified DateTime?
+  // Set while an email change is awaiting confirmation — `email` itself
+  // stays the old, working address until the new one is verified (see
+  // /api/auth/change-email and /api/auth/verify-email).
+  pendingEmail  String?
   image         String?
   password      String? // null when the user only signs in via OAuth
   phone         String?
@@ -225,6 +229,10 @@ model Staff {
   canViewCustomers  Boolean  @default(false)
   canViewHours      Boolean  @default(false)
   canViewReviews    Boolean  @default(false)
+  // Separate from canViewBookings — a staff member can see the bookings
+  // calendar without seeing customers' phone/email on each booking unless
+  // this is also granted.
+  canViewCustomerContactInfo Boolean @default(false)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

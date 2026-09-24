@@ -130,6 +130,10 @@
       "CANCELLED": "Anulowana",
       "NO_SHOW": "Nieobecność"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "Anulowane przez klienta",
+      "CANCELLED_BY_SALON": "Anulowane przez salon"
+    },
     "cancel": "Anuluj rezerwację",
     "leaveReview": "Zostaw opinię",
     "myBookingsTitle": "Moje rezerwacje",

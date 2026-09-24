@@ -38,12 +38,13 @@ export async function POST(req: Request) {
   const existing = await prisma.user.findUnique({ where: { email: newEmail } });
   if (existing) return NextResponse.json({ error: "EMAIL_IN_USE" }, { status: 409 });
 
-  // Require the new address to be re-verified before it's fully trusted —
-  // this doesn't lock the owner out of anything, since dashboard/service
-  // access is gated on the business's own APPROVED status, not this flag.
+  // Stage the change instead of applying it immediately — `email` keeps
+  // working as the login until the new address is actually confirmed via
+  // the link sent below, so a mistyped or unreachable new address can never
+  // lock the owner out.
   await prisma.user.update({
     where: { id: session.user.id },
-    data: { email: newEmail, emailVerified: null },
+    data: { pendingEmail: newEmail },
   });
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;

@@ -53,7 +53,7 @@ export default async function BusinessBookingsPage({
           serviceName: b.service.name,
           staffName: b.staff?.name ?? null,
           customerName: b.customer.name,
-          customerPhone: b.customer.phone,
+          customerPhone: access.canViewCustomerContactInfo ? b.customer.phone : null,
         }))}
         locale={locale}
         businessTimezone={business.timezone}

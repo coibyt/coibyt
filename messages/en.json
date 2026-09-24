@@ -130,6 +130,10 @@
       "CANCELLED": "Cancelled",
       "NO_SHOW": "No-show"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "Cancelled by customer",
+      "CANCELLED_BY_SALON": "Cancelled by salon"
+    },
     "cancel": "Cancel booking",
     "leaveReview": "Leave a review",
     "myBookingsTitle": "My bookings",

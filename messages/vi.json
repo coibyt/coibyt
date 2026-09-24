@@ -130,6 +130,10 @@
       "CANCELLED": "Đã huỷ",
       "NO_SHOW": "Không đến"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "Khách hủy",
+      "CANCELLED_BY_SALON": "Salon hủy"
+    },
     "cancel": "Huỷ lịch hẹn",
     "leaveReview": "Đánh giá",
     "myBookingsTitle": "Lịch hẹn của tôi",

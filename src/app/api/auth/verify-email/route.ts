@@ -16,10 +16,31 @@ export async function GET(req: Request) {
     return NextResponse.redirect(`${siteUrl}/auth/verify-email?status=invalid`);
   }
 
-  const user = await prisma.user.update({
-    where: { email: record.identifier },
-    data: { emailVerified: new Date() },
-  });
+  // Two cases share this one link format: verifying a brand-new account's
+  // own email (record.identifier already matches a User.email), or
+  // confirming a pending email CHANGE (record.identifier matches someone's
+  // staged User.pendingEmail instead — see /api/auth/change-email, which
+  // never touches the real `email` column until this point).
+  const userByEmail = await prisma.user.findUnique({ where: { email: record.identifier } });
+  let isEmailChange = false;
+  const user = userByEmail
+    ? await prisma.user.update({
+        where: { id: userByEmail.id },
+        data: { emailVerified: new Date() },
+      })
+    : await (async () => {
+        const pending = await prisma.user.findFirst({ where: { pendingEmail: record.identifier } });
+        if (!pending) return null;
+        isEmailChange = true;
+        return prisma.user.update({
+          where: { id: pending.id },
+          data: { email: record.identifier, pendingEmail: null, emailVerified: new Date() },
+        });
+      })();
+
+  if (!user) {
+    return NextResponse.redirect(`${siteUrl}/auth/verify-email?status=invalid`);
+  }
 
   await prisma.verificationToken.delete({ where: { token } }).catch(() => {
     // Already consumed by a concurrent request — fine, the update above is idempotent.
@@ -30,5 +51,7 @@ export async function GET(req: Request) {
     await approveBusiness(business.id);
   }
 
-  return NextResponse.redirect(`${siteUrl}/auth/verify-email?status=success`);
+  return NextResponse.redirect(
+    `${siteUrl}/auth/verify-email?status=success${isEmailChange ? "&reason=email_change" : ""}`
+  );
 }

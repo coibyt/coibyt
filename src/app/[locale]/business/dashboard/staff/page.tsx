@@ -46,6 +46,7 @@ export default async function StaffPage({
           canViewCustomers: s.canViewCustomers,
           canViewHours: s.canViewHours,
           canViewReviews: s.canViewReviews,
+          canViewCustomerContactInfo: s.canViewCustomerContactInfo,
           leadTimeMinutes: s.leadTimeMinutes,
           staffMessage: s.staffMessage,
           videoUrls: Array.isArray(s.videoUrls) ? (s.videoUrls as string[]) : [],

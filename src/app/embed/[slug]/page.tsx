@@ -39,7 +39,7 @@ export default async function EmbedBusinessPage({
               alt=""
               width={48}
               height={48}
-              className="h-full w-full object-cover"
+              className="h-full w-full object-contain"
             />
           ) : (
             business.name.charAt(0)

@@ -41,6 +41,7 @@ interface CalendarBooking {
   serviceName: string;
   customerName: string;
   customerPhone: string | null;
+  customerEmail: string | null;
   addOnNames: string[];
 }
 
@@ -60,6 +61,8 @@ interface CustomerDetail {
     id: string;
     startsAt: string;
     status: string;
+    staffName: string | null;
+    cancelReason: string | null;
     serviceName: string;
     priceCents: number;
     currency: string;
@@ -131,6 +134,8 @@ export function BookingCalendar({
   isOwner: boolean;
 }) {
   const t = useTranslations("business");
+  const tStatus = useTranslations("booking.status");
+  const tCancelReason = useTranslations("booking.cancelReason");
   const dfLocale = locale === "vi" ? vi : undefined;
   const viewerTimezone = useViewerTimezone();
   const [view, setView] = useState<ViewMode>("day");
@@ -138,6 +143,7 @@ export function BookingCalendar({
   const [bookings, setBookings] = useState<CalendarBooking[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeBooking, setActiveBooking] = useState<CalendarBooking | null>(null);
+  const [showCancelPicker, setShowCancelPicker] = useState(false);
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const draggingId = useRef<string | null>(null);
@@ -317,16 +323,17 @@ export function BookingCalendar({
     );
   }
 
-  async function updateStatus(id: string, status: string) {
+  async function updateStatus(id: string, status: string, cancelReason?: string) {
     setUpdating(true);
     await fetch(`/api/business/bookings/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status }),
+      body: JSON.stringify({ status, cancelReason }),
     });
     setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
     setUpdating(false);
     setActiveBooking(null);
+    setShowCancelPicker(false);
   }
 
   async function rescheduleBooking(booking: CalendarBooking, newStartsAt: Date, newStaffId: string) {
@@ -543,6 +550,7 @@ export function BookingCalendar({
           e.stopPropagation();
           setActiveBooking(b);
           setCustomerDetail(null);
+          setShowCancelPicker(false);
         }}
         className={`absolute left-0.5 right-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
           STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
@@ -861,11 +869,15 @@ export function BookingCalendar({
                 {activeBooking.customerPhone && (
                   <p className="text-sm text-ink-400">{activeBooking.customerPhone}</p>
                 )}
+                {activeBooking.customerEmail && (
+                  <p className="text-sm text-ink-400">{activeBooking.customerEmail}</p>
+                )}
               </div>
               <button
                 onClick={() => {
                   setActiveBooking(null);
                   setCustomerDetail(null);
+                  setShowCancelPicker(false);
                 }}
                 className="text-ink-400"
               >
@@ -928,17 +940,26 @@ export function BookingCalendar({
                     {customerDetail.visitCount > 0 &&
                       ` · ${formatMoney(customerDetail.totalSpentCents, customerDetail.currency, locale)}`}
                   </p>
-                  <ul className="max-h-40 space-y-1 overflow-y-auto text-xs text-ink-400">
+                  <ul className="max-h-40 space-y-1.5 overflow-y-auto text-xs text-ink-400">
                     {customerDetail.bookings.map((b) => (
-                      <li key={b.id} className="flex justify-between gap-2">
-                        <span className="truncate">
-                          {new Date(b.startsAt).toLocaleDateString(
-                            locale === "vi" ? "vi-VN" : "en-US",
-                            { dateStyle: "medium" }
-                          )}{" "}
-                          — {b.serviceName}
-                        </span>
-                        <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
+                      <li key={b.id}>
+                        <div className="flex justify-between gap-2">
+                          <span className="truncate">
+                            {new Date(b.startsAt).toLocaleDateString(
+                              locale === "vi" ? "vi-VN" : "en-US",
+                              { dateStyle: "medium" }
+                            )}{" "}
+                            — {b.serviceName}
+                          </span>
+                          <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-x-2">
+                          {b.staffName && <span>{b.staffName}</span>}
+                          <span>{tStatus(b.status as never)}</span>
+                          {b.cancelReason && (
+                            <span>{tCancelReason(b.cancelReason as never)}</span>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>
@@ -964,7 +985,7 @@ export function BookingCalendar({
                   </button>
                   <button
                     disabled={updating}
-                    onClick={() => updateStatus(activeBooking.id, "CANCELLED")}
+                    onClick={() => setShowCancelPicker(true)}
                     className="btn-outline !border-berry-400 !px-3 !py-1.5 text-xs !text-berry-500"
                   >
                     {locale === "vi" ? "Huỷ" : "Cancel"}
@@ -972,6 +993,44 @@ export function BookingCalendar({
                 </>
               )}
             </div>
+
+            {showCancelPicker && (
+              <div className="mt-4 space-y-2 rounded-xl border border-ink-100 p-3">
+                <p className="text-sm font-medium text-ink-900">
+                  {locale === "vi" ? "Lý do hủy?" : "Reason for cancelling?"}
+                </p>
+                <div className="flex flex-col gap-2">
+                  <button
+                    disabled={updating}
+                    onClick={() => updateStatus(activeBooking.id, "NO_SHOW")}
+                    className="btn-outline !justify-start !px-3 !py-2 text-xs"
+                  >
+                    {locale === "vi" ? "Khách hàng không đến" : "Customer didn't show up"}
+                  </button>
+                  <button
+                    disabled={updating}
+                    onClick={() => updateStatus(activeBooking.id, "CANCELLED", "CANCELLED_BY_CUSTOMER")}
+                    className="btn-outline !justify-start !px-3 !py-2 text-xs"
+                  >
+                    {locale === "vi" ? "Hủy từ phía khách hàng" : "Cancelled by the customer"}
+                  </button>
+                  <button
+                    disabled={updating}
+                    onClick={() => updateStatus(activeBooking.id, "CANCELLED", "CANCELLED_BY_SALON")}
+                    className="btn-outline !justify-start !px-3 !py-2 text-xs"
+                  >
+                    {locale === "vi" ? "Hủy từ phía salon" : "Cancelled by the salon"}
+                  </button>
+                  <button
+                    disabled={updating}
+                    onClick={() => setShowCancelPicker(false)}
+                    className="btn-ghost !px-3 !py-2 text-xs"
+                  >
+                    {locale === "vi" ? "Đóng" : "Close"}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

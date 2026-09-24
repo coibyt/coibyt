@@ -130,6 +130,10 @@
       "CANCELLED": "ยกเลิกแล้ว",
       "NO_SHOW": "ไม่มาตามนัด"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "ลูกค้ายกเลิก",
+      "CANCELLED_BY_SALON": "ร้านยกเลิก"
+    },
     "cancel": "ยกเลิกการจอง",
     "leaveReview": "เขียนรีวิว",
     "myBookingsTitle": "การจองของฉัน",

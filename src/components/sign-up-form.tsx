@@ -56,16 +56,6 @@ export function SignUpForm() {
 
   return (
     <div className="space-y-4">
-      <button onClick={() => signIn("google")} className="btn-outline w-full">
-        {t("continueWithGoogle")}
-      </button>
-
-      <div className="flex items-center gap-3 text-xs text-ink-400">
-        <div className="h-px flex-1 bg-ink-100" />
-        {t("orDivider")}
-        <div className="h-px flex-1 bg-ink-100" />
-      </div>
-
       <form onSubmit={onSubmit} className="space-y-4">
         <div>
           <label className="label" htmlFor="name">{t("name")}</label>

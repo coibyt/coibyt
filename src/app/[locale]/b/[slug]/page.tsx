@@ -70,7 +70,7 @@ export default async function BusinessProfilePage({
         <div className="card flex flex-col gap-6 p-6 sm:flex-row sm:items-start">
           <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-primary-100 text-2xl font-extrabold text-primary-500 ring-4 ring-white">
             {business.logoUrl ? (
-              <Image src={business.logoUrl} alt="" width={80} height={80} className="h-full w-full object-cover" />
+              <Image src={business.logoUrl} alt="" width={80} height={80} className="h-full w-full object-contain" />
             ) : (
               business.name.charAt(0)
             )}

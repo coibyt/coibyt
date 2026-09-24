@@ -130,6 +130,10 @@
       "CANCELLED": "បានលុបចោល",
       "NO_SHOW": "មិនបានមក"
     },
+    "cancelReason": {
+      "CANCELLED_BY_CUSTOMER": "បោះបង់ដោយអតិថិជន",
+      "CANCELLED_BY_SALON": "បោះបង់ដោយសាឡុង"
+    },
     "cancel": "លុបចោលការកក់",
     "leaveReview": "ផ្តល់ការវាយតម្លៃ",
     "myBookingsTitle": "ការកក់របស់ខ្ញុំ",

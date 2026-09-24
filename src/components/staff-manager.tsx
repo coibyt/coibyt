@@ -19,6 +19,7 @@ interface StaffRow {
   canViewCustomers: boolean;
   canViewHours: boolean;
   canViewReviews: boolean;
+  canViewCustomerContactInfo: boolean;
   leadTimeMinutes: number;
   staffMessage: string | null;
   videoUrls: string[];
@@ -36,6 +37,7 @@ const emptyForm = {
   canViewCustomers: false,
   canViewHours: false,
   canViewReviews: false,
+  canViewCustomerContactInfo: false,
   leadTimeMinutes: 0,
   staffMessage: "",
   videoUrls: ["", "", "", "", ""] as string[],
@@ -47,6 +49,11 @@ const PERMISSION_FIELDS = [
   { key: "canViewCustomers" as const, vi: "Khách hàng", en: "Customers" },
   { key: "canViewHours" as const, vi: "Giờ mở cửa", en: "Opening hours" },
   { key: "canViewReviews" as const, vi: "Đánh giá", en: "Reviews" },
+  {
+    key: "canViewCustomerContactInfo" as const,
+    vi: "Số điện thoại & email của khách",
+    en: "Customer phone & email",
+  },
 ];
 
 const LEAD_TIME_OPTIONS = [
@@ -100,6 +107,7 @@ export function StaffManager({
       canViewCustomers: s.canViewCustomers,
       canViewHours: s.canViewHours,
       canViewReviews: s.canViewReviews,
+      canViewCustomerContactInfo: s.canViewCustomerContactInfo,
       leadTimeMinutes: s.leadTimeMinutes,
       staffMessage: s.staffMessage ?? "",
       videoUrls: [0, 1, 2, 3, 4].map((i) => s.videoUrls[i] ?? ""),
