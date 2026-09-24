@@ -11,6 +11,8 @@ export interface ContactLinks {
   facebookUrl: string | null;
   instagramUrl: string | null;
   tiktokUrl: string | null;
+  youtubeUrl: string | null;
+  googleMapsUrl: string | null;
   whatsapp: string | null;
 }
 
@@ -23,6 +25,8 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
     facebookUrl: contact.facebookUrl ?? "",
     instagramUrl: contact.instagramUrl ?? "",
     tiktokUrl: contact.tiktokUrl ?? "",
+    youtubeUrl: contact.youtubeUrl ?? "",
+    googleMapsUrl: contact.googleMapsUrl ?? "",
     whatsapp: contact.whatsapp ?? "",
   });
   const [saving, setSaving] = useState(false);
@@ -78,6 +82,8 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
         {field("facebookUrl", "Facebook", "https://facebook.com/...")}
         {field("instagramUrl", "Instagram", "https://instagram.com/...")}
         {field("tiktokUrl", "TikTok", "https://tiktok.com/@...")}
+        {field("youtubeUrl", "YouTube", "https://youtube.com/@...")}
+        {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
       </div>
 
       {error && (

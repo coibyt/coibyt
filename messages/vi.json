@@ -30,6 +30,7 @@
     "signUpTitle": "Tạo tài khoản mới",
     "name": "Họ và tên",
     "email": "Email",
+    "phone": "Số điện thoại",
     "password": "Mật khẩu",
     "confirmPassword": "Xác nhận mật khẩu",
     "continueWithGoogle": "Tiếp tục với Google",

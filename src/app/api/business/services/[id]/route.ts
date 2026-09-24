@@ -29,7 +29,7 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { staffIds, ...data } = parsed.data;
+  const { staffIds, videoUrl, ...data } = parsed.data;
 
   const service = await prisma.$transaction(async (tx) => {
     if (staffIds) {
@@ -38,7 +38,10 @@ export async function PATCH(
         data: staffIds.map((staffId) => ({ staffId, serviceId: id })),
       });
     }
-    return tx.service.update({ where: { id }, data });
+    return tx.service.update({
+      where: { id },
+      data: { ...data, ...(videoUrl !== undefined ? { videoUrl: videoUrl || null } : {}) },
+    });
   });
 
   return NextResponse.json({ service });

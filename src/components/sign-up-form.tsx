@@ -13,6 +13,7 @@ export function SignUpForm() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
   });
@@ -84,6 +85,17 @@ export function SignUpForm() {
             required
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="input"
+          />
+        </div>
+        <div>
+          <label className="label" htmlFor="phone">{t("phone")}</label>
+          <input
+            id="phone"
+            type="tel"
+            required
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
             className="input"
           />
         </div>

@@ -120,10 +120,12 @@ model Business {
   phone       String?
   email       String?
   website     String?
-  facebookUrl  String?
-  instagramUrl String?
-  tiktokUrl    String?
-  whatsapp     String? // phone number in international format, used for a wa.me link
+  facebookUrl   String?
+  instagramUrl  String?
+  tiktokUrl     String?
+  youtubeUrl    String?
+  googleMapsUrl String?
+  whatsapp      String? // phone number in international format, used for a wa.me link
 
   timezone String @default("Asia/Ho_Chi_Minh")
 
@@ -252,6 +254,7 @@ model Service {
   priceCents   Int // stored in the smallest currency unit
   currency     String   @default("VND")
   depositCents Int? // optional required deposit to confirm a booking
+  videoUrl     String? // YouTube preview clip shown next to the service
   active       Boolean  @default(true)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

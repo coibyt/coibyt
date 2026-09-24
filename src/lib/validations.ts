@@ -4,6 +4,10 @@ export const registerSchema = z
   .object({
     name: z.string().min(2).max(100),
     email: z.string().email(),
+    // No assumed country code — this platform serves customers signing up
+    // from many different countries, so the field just takes whatever
+    // format they naturally type (ideally with their own "+CC" prefix).
+    phone: z.string().min(6).max(30),
     password: z.string().min(8).max(72),
     confirmPassword: z.string(),
   })
@@ -35,6 +39,7 @@ export const serviceSchema = z.object({
   priceCents: z.coerce.number().int().min(0),
   depositCents: z.coerce.number().int().min(0).optional(),
   currency: z.enum(["VND", "USD", "EUR"]).default("VND"),
+  videoUrl: z.string().url().max(300).optional().or(z.literal("")),
   staffIds: z.array(z.string().cuid()).optional(),
 });
 

@@ -30,6 +30,7 @@
     "signUpTitle": "Konto erstellen",
     "name": "Vollständiger Name",
     "email": "E-Mail",
+    "phone": "Telefonnummer",
     "password": "Passwort",
     "confirmPassword": "Passwort bestätigen",
     "continueWithGoogle": "Mit Google fortfahren",

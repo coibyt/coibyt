@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const { name, email, password } = parsed.data;
+  const { name, email, phone, password } = parsed.data;
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
 
   const hashed = await bcrypt.hash(password, 12);
   const user = await prisma.user.create({
-    data: { name, email, password: hashed },
+    data: { name, email, phone, password: hashed },
     select: { id: true, name: true, email: true },
   });
 

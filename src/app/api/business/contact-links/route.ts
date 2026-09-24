@@ -12,6 +12,8 @@ const contactLinksSchema = z.object({
   facebookUrl: urlOrEmpty,
   instagramUrl: urlOrEmpty,
   tiktokUrl: urlOrEmpty,
+  youtubeUrl: urlOrEmpty,
+  googleMapsUrl: urlOrEmpty,
   whatsapp: z.string().max(30).optional().or(z.literal("")),
 });
 
@@ -34,6 +36,8 @@ export async function PUT(req: Request) {
       facebookUrl: data.facebookUrl || null,
       instagramUrl: data.instagramUrl || null,
       tiktokUrl: data.tiktokUrl || null,
+      youtubeUrl: data.youtubeUrl || null,
+      googleMapsUrl: data.googleMapsUrl || null,
       whatsapp: data.whatsapp || null,
     },
     select: {
@@ -43,6 +47,8 @@ export async function PUT(req: Request) {
       facebookUrl: true,
       instagramUrl: true,
       tiktokUrl: true,
+      youtubeUrl: true,
+      googleMapsUrl: true,
       whatsapp: true,
     },
   });

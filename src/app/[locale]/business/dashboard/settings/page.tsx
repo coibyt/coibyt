@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import { getOwnedBusiness } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { getTranslations } from "next-intl/server";
@@ -7,18 +8,26 @@ import { BankInfoCard } from "@/components/bank-info-card";
 import { ContactLinksCard } from "@/components/contact-links-card";
 import { PreferencesCard } from "@/components/preferences-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
+import { AccountSettingsCard } from "@/components/account-settings-card";
 
 export default async function BusinessSettingsPage() {
   const business = await getOwnedBusiness();
   const t = await getTranslations("business");
   if (!business) return null;
 
-  const [allCategories, ownCategoryLinks] = await Promise.all([
+  const session = await auth();
+  const [allCategories, ownCategoryLinks, currentUser] = await Promise.all([
     prisma.category.findMany({ select: { id: true, nameVi: true, nameEn: true } }),
     prisma.businessCategory.findMany({
       where: { businessId: business.id },
       select: { categoryId: true },
     }),
+    session?.user
+      ? prisma.user.findUnique({
+          where: { id: session.user.id },
+          select: { email: true, password: true },
+        })
+      : null,
   ]);
 
   return (
@@ -46,6 +55,8 @@ export default async function BusinessSettingsPage() {
           facebookUrl: business.facebookUrl,
           instagramUrl: business.instagramUrl,
           tiktokUrl: business.tiktokUrl,
+          youtubeUrl: business.youtubeUrl,
+          googleMapsUrl: business.googleMapsUrl,
           whatsapp: business.whatsapp,
         }}
       />
@@ -65,6 +76,9 @@ export default async function BusinessSettingsPage() {
         }}
       />
       <BookingEmbedCard slug={business.slug} defaultLocale={business.defaultLocale} />
+      {currentUser && (
+        <AccountSettingsCard currentEmail={currentUser.email} hasPassword={!!currentUser.password} />
+      )}
     </div>
   );
 }

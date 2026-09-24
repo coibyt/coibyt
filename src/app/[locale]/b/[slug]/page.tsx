@@ -12,6 +12,8 @@ import {
   Instagram,
   Music2,
   MessageCircle,
+  Youtube,
+  Map as MapIcon,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { ReviewList } from "@/components/review-list";
@@ -106,7 +108,9 @@ export default async function BusinessProfilePage({
               business.whatsapp ||
               business.facebookUrl ||
               business.instagramUrl ||
-              business.tiktokUrl) && (
+              business.tiktokUrl ||
+              business.youtubeUrl ||
+              business.googleMapsUrl) && (
               <div className="mt-3 flex flex-wrap items-center gap-3 text-ink-400">
                 {business.email && (
                   <a href={`mailto:${business.email}`} aria-label="Email" className="hover:text-primary-500">
@@ -166,6 +170,28 @@ export default async function BusinessProfilePage({
                     className="hover:text-primary-500"
                   >
                     <Music2 className="h-5 w-5" />
+                  </a>
+                )}
+                {business.youtubeUrl && (
+                  <a
+                    href={business.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    className="hover:text-primary-500"
+                  >
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                )}
+                {business.googleMapsUrl && (
+                  <a
+                    href={business.googleMapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Google Maps"
+                    className="hover:text-primary-500"
+                  >
+                    <MapIcon className="h-5 w-5" />
                   </a>
                 )}
               </div>

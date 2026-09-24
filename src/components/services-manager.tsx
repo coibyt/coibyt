@@ -18,6 +18,7 @@ interface ServiceRow {
   currency: string;
   active: boolean;
   categoryId: string | null;
+  videoUrl: string | null;
   staffIds: string[];
 }
 
@@ -35,6 +36,7 @@ const emptyForm = {
   // converted with toSmallestUnit() right before sending to the API.
   priceAmount: "",
   depositAmount: "",
+  videoUrl: "",
   staffIds: [] as string[],
 };
 
@@ -72,6 +74,7 @@ export function ServicesManager({
       priceAmount: String(fromSmallestUnit(s.priceCents, s.currency)),
       depositAmount:
         s.depositCents !== null ? String(fromSmallestUnit(s.depositCents, s.currency)) : "",
+      videoUrl: s.videoUrl ?? "",
       staffIds: s.staffIds,
     });
     setShowForm(true);
@@ -97,6 +100,7 @@ export function ServicesManager({
         form.depositAmount.trim() === ""
           ? undefined
           : toSmallestUnit(Number(form.depositAmount), defaultCurrency),
+      videoUrl: form.videoUrl.trim() || undefined,
       staffIds: form.staffIds,
       currency: defaultCurrency,
     };
@@ -281,6 +285,24 @@ export function ServicesManager({
               className="input"
               value={form.description}
               onChange={(e) => setForm({ ...form, description: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="label">
+              {locale === "vi" ? "Link video YouTube" : "YouTube video link"} (
+              {locale === "vi" ? "không bắt buộc" : "optional"})
+            </label>
+            <p className="mb-1 text-xs text-ink-400">
+              {locale === "vi"
+                ? "Khách có thể nhấp xem trước video dịch vụ này khi đặt lịch."
+                : "Customers can click to preview this service before booking."}
+            </p>
+            <input
+              type="url"
+              placeholder="https://www.youtube.com/watch?v=..."
+              className="input"
+              value={form.videoUrl}
+              onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}
             />
           </div>
           {staffOptions.length > 0 && (

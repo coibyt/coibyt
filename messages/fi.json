@@ -30,6 +30,7 @@
     "signUpTitle": "Luo tilisi",
     "name": "Koko nimi",
     "email": "Sähköposti",
+    "phone": "Puhelinnumero",
     "password": "Salasana",
     "confirmPassword": "Vahvista salasana",
     "continueWithGoogle": "Jatka Googlella",
