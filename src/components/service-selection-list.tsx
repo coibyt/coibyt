@@ -105,8 +105,8 @@ export function ServiceSelectionList({
                     <span className="block font-semibold text-ink-900">{s.name}</span>
                     {s.description && (
                       <span
-                        className={`mt-0.5 block text-sm text-ink-400 ${
-                          checked.has(s.id) ? "" : "line-clamp-1"
+                        className={`mt-0.5 text-sm text-ink-400 ${
+                          checked.has(s.id) ? "block" : "line-clamp-1"
                         }`}
                       >
                         {s.description}
