@@ -556,6 +556,10 @@ export function BookingCalendar({
       ((minutesFromMidnight(b.endsAt) - minutesFromMidnight(b.startsAt)) / 60) * HOUR_HEIGHT,
       20
     );
+    const timeLabel = `${format(toZonedTime(new Date(b.startsAt), businessTimezone), "HH:mm")}–${format(
+      toZonedTime(new Date(b.endsAt), businessTimezone),
+      "HH:mm"
+    )}`;
     return (
       <button
         key={b.id}
@@ -572,8 +576,9 @@ export function BookingCalendar({
         }`}
         style={{ top, height }}
       >
-        <p className="truncate font-semibold">{b.customerName}</p>
-        {!compact && <p className="truncate">{b.serviceName}</p>}
+        <p className="truncate leading-tight opacity-80">{timeLabel}</p>
+        <p className="truncate font-semibold leading-tight">{b.customerName}</p>
+        {!compact && <p className="truncate leading-tight">{b.serviceName}</p>}
         {compact && b.staffName && (
           <span
             className={`mr-1 inline-block h-1.5 w-1.5 rounded-full ${
@@ -701,7 +706,13 @@ export function BookingCalendar({
                   >
                     {s.name.trim().charAt(0).toUpperCase() || "?"}
                   </span>
-                  <span className="hidden truncate lg:inline">{s.name}</span>
+                  <span
+                    className={
+                      visibleStaff.length === 1 ? "truncate" : "hidden truncate lg:inline"
+                    }
+                  >
+                    {s.name}
+                  </span>
                 </div>
               ))
             )}
