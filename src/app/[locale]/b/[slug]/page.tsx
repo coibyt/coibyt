@@ -16,10 +16,13 @@ import {
   Map as MapIcon,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { auth } from "@/auth";
 import { ReviewList } from "@/components/review-list";
 import { ServiceSelectionList } from "@/components/service-selection-list";
 import { BusinessIntroVideo } from "@/components/business-intro-video";
 import { BusinessLocationButton } from "@/components/business-location-button";
+import { FollowButton } from "@/components/follow-button";
+import { BusinessChatButton } from "@/components/business-chat-button";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -30,7 +33,7 @@ export default async function BusinessProfilePage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const [t, business] = await Promise.all([
+  const [t, business, session] = await Promise.all([
     getTranslations("business"),
     prisma.business.findUnique({
       where: { slug },
@@ -46,9 +49,21 @@ export default async function BusinessProfilePage({
         categories: { include: { category: true } },
       },
     }),
+    auth(),
   ]);
 
   if (!business || business.status !== "APPROVED") notFound();
+
+  const [followerCount, isFollowing] = await Promise.all([
+    prisma.businessFollow.count({ where: { businessId: business.id } }),
+    session?.user
+      ? prisma.businessFollow
+          .findUnique({
+            where: { businessId_customerId: { businessId: business.id, customerId: session.user.id } },
+          })
+          .then((f) => !!f)
+      : false,
+  ]);
 
   const avgRating =
     business.reviews.length > 0
@@ -76,7 +91,18 @@ export default async function BusinessProfilePage({
             )}
           </div>
           <div className="flex-1">
-            <h1 className="text-2xl font-bold text-ink-900">{business.name}</h1>
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <h1 className="text-2xl font-bold text-ink-900">{business.name}</h1>
+              <div className="flex flex-wrap gap-2">
+                <FollowButton
+                  businessSlug={slug}
+                  initialFollowing={isFollowing}
+                  initialFollowerCount={followerCount}
+                  locale={locale}
+                />
+                <BusinessChatButton businessSlug={slug} businessName={business.name} locale={locale} />
+              </div>
+            </div>
             <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-400">
               {avgRating && (
                 <span className="flex items-center gap-1 font-medium text-ink-900">

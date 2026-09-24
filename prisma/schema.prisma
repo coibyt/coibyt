@@ -44,6 +44,9 @@ model User {
   staffProfile Staff? // present when role = STAFF
   bookings     Booking[]
   reviews      Review[]
+  conversations   Conversation[]
+  messages        Message[]
+  businessFollows BusinessFollow[]
 
   @@index([role])
 }
@@ -170,6 +173,8 @@ model Business {
   closures   BusinessClosure[]
   addOns     ServiceAddOn[]
   images     BusinessImage[]
+  conversations Conversation[]
+  followers     BusinessFollow[]
 
   @@index([status])
   @@index([city])
@@ -497,4 +502,63 @@ model BookingExtraService {
   durationMin Int
 
   @@index([bookingId])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Chat & following
+// ────────────────────────────────────────────────────────────────────
+
+// One thread per (business, customer) pair — messages flow both ways
+// through it, whether typed by the customer or by the owner/staff replying
+// from the dashboard.
+model Conversation {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  messages Message[]
+
+  @@unique([businessId, customerId])
+  @@index([customerId])
+}
+
+enum MessageSenderType {
+  CUSTOMER
+  BUSINESS
+}
+
+model Message {
+  id             String            @id @default(cuid())
+  conversationId String
+  conversation   Conversation      @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderType     MessageSenderType
+  senderId       String
+  sender         User              @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  content        String?           @db.Text
+  // Image bytes live on the row itself, same reasoning as BusinessImage —
+  // Hostinger's git-based deploy wipes anything written to public/uploads.
+  imageData      Bytes?            @db.LongBlob
+  imageMimeType  String?
+  readAt         DateTime?
+  createdAt      DateTime          @default(now())
+
+  @@index([conversationId, createdAt])
+}
+
+// A customer following a business, for their own reference (e.g. a future
+// "salons you follow" list) — distinct from having booked there before.
+model BusinessFollow {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([businessId, customerId])
+  @@index([customerId])
 }
