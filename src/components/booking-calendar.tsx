@@ -159,6 +159,11 @@ export function BookingCalendar({
   const [businessHours, setBusinessHours] = useState<DayWindow[]>([]);
   const [staffHoursMap, setStaffHoursMap] = useState<Map<string, DayWindow[]>>(new Map());
   const [resizing, setResizing] = useState<{ staffId: string; edge: "open" | "close" } | null>(null);
+  const [pendingHoursChange, setPendingHoursChange] = useState<{
+    staffId: string;
+    edge: "open" | "close";
+    newMinute: number;
+  } | null>(null);
   const [resizePreview, setResizePreview] = useState<number | null>(null);
   const resizePreviewRef = useRef<number | null>(null);
   const dayColumnRefs = useRef<Map<string, HTMLDivElement>>(new Map());
@@ -294,6 +299,22 @@ export function BookingCalendar({
     });
   }
 
+  async function confirmPendingHoursChange() {
+    if (!pendingHoursChange) return;
+    await commitStaffHoursResize(
+      pendingHoursChange.staffId,
+      pendingHoursChange.edge,
+      pendingHoursChange.newMinute
+    );
+    setPendingHoursChange(null);
+    setResizePreview(null);
+  }
+
+  function cancelPendingHoursChange() {
+    setPendingHoursChange(null);
+    setResizePreview(null);
+  }
+
   function startResize(staffId: string, edge: "open" | "close", e: React.MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
@@ -316,10 +337,30 @@ export function BookingCalendar({
       setResizePreview(minute);
     }
     function onUp() {
-      if (resizePreviewRef.current !== null) {
-        commitStaffHoursResize(resizing!.staffId, resizing!.edge, resizePreviewRef.current);
-      }
+      const { staffId, edge } = resizing!;
+      const minute = resizePreviewRef.current;
       resizePreviewRef.current = null;
+
+      // Don't commit yet — show the same "are you sure" confirmation Timma
+      // shows before actually moving a shift boundary. `resizePreview` is
+      // deliberately left set (not cleared here) so the bar stays drawn at
+      // the dropped position while the dialog is open; it's the rendering
+      // below that decides whether to trust it, based on pendingHoursChange.
+      if (minute !== null) {
+        const todayWeekday = anchorDate.getDay();
+        const current = getStaffWindow(staffId, todayWeekday) ?? {
+          weekday: todayWeekday,
+          openMinute: DEFAULT_START_HOUR * 60,
+          closeMinute: DEFAULT_END_HOUR * 60,
+        };
+        const openMinute = edge === "open" ? minute : current.openMinute;
+        const closeMinute = edge === "close" ? minute : current.closeMinute;
+        if (openMinute < closeMinute) {
+          setPendingHoursChange({ staffId, edge, newMinute: minute });
+          setResizing(null);
+          return;
+        }
+      }
       setResizePreview(null);
       setResizing(null);
     }
@@ -732,13 +773,21 @@ export function BookingCalendar({
 
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
               const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
-              const isResizingThis = resizing?.staffId === s.id;
+              // While a drag is in flight OR its confirmation dialog is still
+              // open, trust resizePreview over the saved window so the bar
+              // stays drawn wherever it was dropped until the owner decides.
+              const activeEdit =
+                resizing?.staffId === s.id
+                  ? resizing
+                  : pendingHoursChange?.staffId === s.id
+                    ? pendingHoursChange
+                    : null;
               const openMinute =
-                isResizingThis && resizing?.edge === "open" && resizePreview !== null
+                activeEdit?.edge === "open" && resizePreview !== null
                   ? resizePreview
                   : staffWindow?.openMinute;
               const closeMinute =
-                isResizingThis && resizing?.edge === "close" && resizePreview !== null
+                activeEdit?.edge === "close" && resizePreview !== null
                   ? resizePreview
                   : staffWindow?.closeMinute;
               const openPx =
@@ -789,7 +838,7 @@ export function BookingCalendar({
                         <div
                           onMouseDown={(e) => startResize(s.id, "open", e)}
                           className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
-                            isResizingThis && resizing?.edge === "open" ? "opacity-100" : "opacity-70 hover:opacity-100"
+                            activeEdit?.edge === "open" ? "opacity-100" : "opacity-70 hover:opacity-100"
                           }`}
                           style={{ top: openPx - 3 }}
                           title={locale === "vi" ? "Kéo để đổi giờ bắt đầu" : "Drag to change start time"}
@@ -799,7 +848,7 @@ export function BookingCalendar({
                         <div
                           onMouseDown={(e) => startResize(s.id, "close", e)}
                           className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
-                            isResizingThis && resizing?.edge === "close" ? "opacity-100" : "opacity-70 hover:opacity-100"
+                            activeEdit?.edge === "close" ? "opacity-100" : "opacity-70 hover:opacity-100"
                           }`}
                           style={{ top: closePx - 3 }}
                           title={locale === "vi" ? "Kéo để đổi giờ kết thúc" : "Drag to change end time"}
@@ -1279,6 +1328,37 @@ export function BookingCalendar({
                 onClick={() => setPendingReschedule(null)}
                 className="btn-ghost"
               >
+                {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {pendingHoursChange && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <p className="mb-3 text-lg font-bold text-ink-900">
+              {pendingHoursChange.edge === "open"
+                ? locale === "vi"
+                  ? "Đổi giờ bắt đầu làm việc?"
+                  : "Change the start time?"
+                : locale === "vi"
+                  ? "Đổi giờ kết thúc làm việc?"
+                  : "Change the end time?"}
+            </p>
+            <p className="mb-4 text-sm text-ink-700">
+              {locale === "vi" ? "Giờ mới là " : "The new time is "}
+              <span className="font-semibold text-ink-900">
+                {String(Math.floor(pendingHoursChange.newMinute / 60)).padStart(2, "0")}:
+                {String(pendingHoursChange.newMinute % 60).padStart(2, "0")}
+              </span>
+            </p>
+            <div className="flex gap-2">
+              <button onClick={confirmPendingHoursChange} className="btn-primary">
+                {locale === "vi" ? "Được rồi" : "Confirm"}
+              </button>
+              <button onClick={cancelPendingHoursChange} className="btn-ghost">
                 {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
               </button>
             </div>
