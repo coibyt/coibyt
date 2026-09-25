@@ -197,3 +197,86 @@ export function bookingConfirmationEmail(params: {
     `,
   };
 }
+
+/** Sent whenever the salon (not the customer) moves a booking to a new time
+ * or staff member from the dashboard calendar — same fields as the original
+ * confirmation email (see bookingConfirmationEmail), just framed around the
+ * change rather than the initial booking. Matches the "your booking was
+ * moved" email pattern from timma.fi. */
+export function bookingRescheduledEmail(params: {
+  customerName: string;
+  businessName: string;
+  serviceName: string;
+  serviceDescription?: string | null;
+  startsAt: Date;
+  locale: string;
+  businessTimezone: string;
+  priceCents: number;
+  currency: string;
+  staffName?: string | null;
+  businessAddress?: string | null;
+  businessCity?: string | null;
+  googleMapsUrl?: string | null;
+  businessPhone?: string | null;
+  cancellationWindowHours: number;
+  cancellationPolicy?: string | null;
+  manageBookingUrl: string;
+}) {
+  const dateStr = params.startsAt.toLocaleString(
+    params.locale === "vi" ? "vi-VN" : "en-US",
+    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
+  );
+  const isVi = params.locale === "vi";
+  const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
+  const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+
+  const cancellationText =
+    params.cancellationPolicy ||
+    (isVi
+      ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${params.cancellationWindowHours} giờ trước giờ hẹn.`
+      : `You can cancel this appointment yourself, up until ${params.cancellationWindowHours} hours before the appointment.`);
+
+  return {
+    subject: isVi
+      ? `Lịch hẹn của bạn tại ${params.businessName} đã được dời`
+      : `Your appointment at ${params.businessName} was rescheduled`,
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Lịch hẹn đã được dời" : "Your appointment was moved"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.customerName},</p>
+        <p>${
+          isVi
+            ? `<strong>${params.businessName}</strong> đã dời lịch hẹn <strong>${params.serviceName}</strong> của bạn sang thời gian mới. Đây là email xác nhận tự động.`
+            : `<strong>${params.businessName}</strong> has moved your <strong>${params.serviceName}</strong> appointment to a new time. This is an automated confirmation.`
+        }</p>
+        <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
+          <p style="margin:0 0 8px;font-weight:700;color:#624f89">${isVi ? "✨ Thời gian mới ✨" : "✨ New time ✨"}</p>
+          <p style="margin:2px 0;font-weight:600">${dateStr}</p>
+          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${isVi ? "Dịch vụ" : "Service"}:</span> ${params.serviceName}</p>
+          ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
+          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Nhân viên" : "Staff"}:</span> ${params.staffName}</p>` : ""}
+          <p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Số tiền" : "Amount"}:</span> ${priceStr}</p>
+          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Địa chỉ" : "Address"}:</span> ${addressLine}</p>` : ""}
+          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Điện thoại" : "Phone"}:</span> ${params.businessPhone}</p>` : ""}
+          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${isVi ? "Xem trên Google Maps" : "View on Google Maps"}</a></p>` : ""}
+        </div>
+        <div style="margin-top:16px">
+          <p style="margin:0 0 4px;font-weight:600">${isVi ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}</p>
+          <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
+        </div>
+        <div style="background:#fbeaee;padding:12px 16px;border-radius:12px;margin-top:16px">
+          <p style="margin:0 0 8px;font-weight:600">${isVi ? "Muốn hủy hoặc dời lịch hẹn?" : "Want to cancel or reschedule?"}</p>
+          <p style="margin:0 0 10px;color:#5b6b6c;font-size:13px">${
+            isVi
+              ? "Bạn có thể hủy trong hồ sơ của mình, hoặc liên hệ trực tiếp với salon."
+              : "You can cancel it from your own account, or contact the salon directly."
+          }</p>
+          <a href="${params.manageBookingUrl}" style="background:#0d1718;color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:13px">
+            ${isVi ? "Xem lịch hẹn của tôi" : "View my bookings"}
+          </a>
+        </div>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}

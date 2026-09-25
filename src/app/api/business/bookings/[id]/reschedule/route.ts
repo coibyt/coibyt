@@ -3,6 +3,7 @@ import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
+import { sendBookingRescheduledEmail } from "@/lib/booking-service";
 
 const schema = z.object({
   startsAt: z.string().datetime(),
@@ -61,6 +62,8 @@ export async function PATCH(
         data: { startsAt, endsAt, staffId: parsed.data.staffId },
       });
     });
+
+    await sendBookingRescheduledEmail(id);
 
     return NextResponse.json({ booking: updated });
   } catch (err) {

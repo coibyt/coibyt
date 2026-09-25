@@ -10,7 +10,7 @@ import { Link } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { toYoutubeEmbedUrl } from "@/lib/youtube";
-import { CreditCard, Landmark, Banknote, Loader2, PlayCircle } from "lucide-react";
+import { Landmark, Banknote, Loader2, PlayCircle, X } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -65,10 +65,10 @@ const DAYS_AHEAD = 14;
 // doesn't require an online merchant account to start taking bookings.
 // BANK_TRANSFER is only offered once the salon has filled in their account
 // details (see bankInfo below) — there's nothing useful to show otherwise.
+// International card payment (Stripe) isn't offered on this checkout step.
 const PAYMENT_METHODS = [
   { id: "CASH", icon: Banknote },
   { id: "BANK_TRANSFER", icon: Landmark },
-  { id: "STRIPE", icon: CreditCard },
 ] as const;
 
 export function BookingWidget({
@@ -78,6 +78,8 @@ export function BookingWidget({
   addOnOptions,
   extraServices = [],
   bankInfo,
+  cancellationPolicy,
+  cancellationWindowHours,
   locale,
   businessTimezone,
 }: {
@@ -87,6 +89,8 @@ export function BookingWidget({
   addOnOptions: AddOnOption[];
   extraServices?: ExtraServiceInfo[];
   bankInfo?: BankInfo | null;
+  cancellationPolicy?: string | null;
+  cancellationWindowHours: number;
   locale: string;
   businessTimezone: string;
 }) {
@@ -115,6 +119,8 @@ export function BookingWidget({
   const [note, setNote] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const [showCancellationPolicy, setShowCancellationPolicy] = useState(false);
 
   const days = useMemo(
     () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
@@ -444,7 +450,7 @@ export function BookingWidget({
               }`}
             >
               <Icon className="h-5 w-5" />
-              {tPay(id === "BANK_TRANSFER" ? "bankTransfer" : (id.toLowerCase() as "cash" | "stripe"))}
+              {tPay(id === "BANK_TRANSFER" ? "bankTransfer" : "cash")}
             </button>
           ))}
         </div>
@@ -520,14 +526,64 @@ export function BookingWidget({
 
       {error && <p className="text-sm text-berry-500">{error}</p>}
 
+      <label className="flex items-start gap-2.5 text-sm text-ink-700">
+        <input
+          type="checkbox"
+          checked={acceptedTerms}
+          onChange={(e) => setAcceptedTerms(e.target.checked)}
+          className="mt-0.5"
+        />
+        <span>
+          {locale === "vi" ? "Tôi chấp nhận " : "I accept the "}
+          <button
+            type="button"
+            onClick={() => setShowCancellationPolicy(true)}
+            className="font-medium text-primary-600 underline hover:no-underline"
+          >
+            {locale === "vi" ? "Chính sách hủy bỏ" : "Cancellation Policy"}
+          </button>
+          {locale === "vi" ? " và VaraaAi " : " and VaraaAi "}
+          <Link
+            href="/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary-600 underline hover:no-underline"
+          >
+            {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+          </Link>
+          .
+        </span>
+      </label>
+
       <button
         onClick={handleSubmit}
-        disabled={!selectedSlot || submitting}
+        disabled={!selectedSlot || submitting || !acceptedTerms}
         className="btn-primary w-full py-3"
       >
         {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
         {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
       </button>
+
+      {showCancellationPolicy && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <div className="mb-3 flex items-start justify-between">
+              <p className="text-lg font-bold text-ink-900">
+                {locale === "vi" ? "Chính sách hủy bỏ" : "Cancellation Policy"}
+              </p>
+              <button onClick={() => setShowCancellationPolicy(false)} className="text-ink-400">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <p className="whitespace-pre-line text-sm text-ink-700">
+              {cancellationPolicy ||
+                (locale === "vi"
+                  ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${cancellationWindowHours} giờ trước giờ hẹn.`
+                  : `You can cancel this appointment yourself, up until ${cancellationWindowHours} hours before the appointment.`)}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

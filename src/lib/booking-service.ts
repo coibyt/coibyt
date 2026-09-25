@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
-import { sendMail, bookingConfirmationEmail } from "@/lib/mailer";
+import { sendMail, bookingConfirmationEmail, bookingRescheduledEmail } from "@/lib/mailer";
 import type { PaymentProvider } from "@prisma/client";
 
 export class SlotUnavailableError extends Error {
@@ -229,6 +229,40 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     businessPhone: full.business.phone,
     cancellationWindowHours: full.business.cancellationWindowHours,
     cancellationPolicy: full.business.cancellationPolicy,
+  });
+  await sendMail({ to: full.customer.email, ...email });
+}
+
+/** Notifies the customer by email whenever the salon (not the customer
+ * themself) moves a booking to a new time/staff from the dashboard calendar
+ * — see /api/business/bookings/[id]/reschedule. */
+export async function sendBookingRescheduledEmail(bookingId: string) {
+  const full = await prisma.booking.findUnique({
+    where: { id: bookingId },
+    include: { business: true, service: true, customer: true, staff: true },
+  });
+  if (!full) return;
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+
+  const email = bookingRescheduledEmail({
+    customerName: full.customer.name,
+    businessName: full.business.name,
+    serviceName: full.service.name,
+    serviceDescription: full.service.description,
+    startsAt: full.startsAt,
+    locale: full.customer.locale,
+    businessTimezone: full.business.timezone,
+    priceCents: full.priceCents,
+    currency: full.currency,
+    staffName: full.staff?.name,
+    businessAddress: full.business.addressLine,
+    businessCity: full.business.city,
+    googleMapsUrl: full.business.googleMapsUrl,
+    businessPhone: full.business.phone,
+    cancellationWindowHours: full.business.cancellationWindowHours,
+    cancellationPolicy: full.business.cancellationPolicy,
+    manageBookingUrl: `${siteUrl}/account/bookings`,
   });
   await sendMail({ to: full.customer.email, ...email });
 }

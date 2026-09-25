@@ -27,7 +27,10 @@ export async function Footer() {
         />
         <FooterColumn
           title={t("company")}
-          links={[{ href: "/", label: "VaraaAi.Com" }]}
+          links={[
+            { href: "/", label: "VaraaAi.Com" },
+            { href: "/terms", label: t("terms") },
+          ]}
         />
       </div>
       <div className="border-t border-ink-100 py-4 text-center text-xs text-ink-400">

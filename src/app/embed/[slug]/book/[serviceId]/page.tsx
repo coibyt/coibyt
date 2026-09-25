@@ -30,6 +30,8 @@ export default async function EmbedBookServicePage({
       bankAccountNumber: true,
       bankAccountName: true,
       bankBic: true,
+      cancellationPolicy: true,
+      cancellationWindowHours: true,
     },
   });
   if (!business || business.status !== "APPROVED") notFound();
@@ -105,6 +107,8 @@ export default async function EmbedBookServicePage({
             bankAccountName: business.bankAccountName,
             bankBic: business.bankBic,
           }}
+          cancellationPolicy={business.cancellationPolicy}
+          cancellationWindowHours={business.cancellationWindowHours}
           locale={locale}
           businessTimezone={business.timezone}
         />
