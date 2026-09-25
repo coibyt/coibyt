@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Loader2, ImageIcon, Trash2, X } from "lucide-react";
 
 interface PostRow {
@@ -23,6 +24,7 @@ function youtubeEmbedUrl(url: string) {
 }
 
 export function FanpageManager({ locale }: { locale: string }) {
+  const tDash = useTranslations("dashboard");
   const [posts, setPosts] = useState<PostRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState("");
@@ -78,20 +80,14 @@ export function FanpageManager({ locale }: { locale: string }) {
         <textarea
           rows={3}
           className="input"
-          placeholder={
-            locale === "vi"
-              ? "Chia sẻ điều gì đó với khách hàng đang theo dõi bạn..."
-              : "Share something with your followers..."
-          }
+          placeholder={tDash("fanpageForm.sharePlaceholder")}
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
         <input
           type="url"
           className="input"
-          placeholder={
-            locale === "vi" ? "Liên kết video YouTube (không bắt buộc)" : "YouTube video link (optional)"
-          }
+          placeholder={tDash("fanpageForm.videoLinkPlaceholder")}
           value={videoUrl}
           onChange={(e) => setVideoUrl(e.target.value)}
         />
@@ -125,7 +121,7 @@ export function FanpageManager({ locale }: { locale: string }) {
             className="btn-outline !px-3 !py-1.5 text-xs"
           >
             <ImageIcon className="h-3.5 w-3.5" />
-            {locale === "vi" ? "Thêm ảnh" : "Add photos"}
+            {tDash("fanpageForm.addPhotos")}
           </button>
           <button
             onClick={submit}
@@ -133,7 +129,7 @@ export function FanpageManager({ locale }: { locale: string }) {
             className="btn-primary !px-4 !py-2 text-xs"
           >
             {posting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-            {locale === "vi" ? "Đăng bài" : "Post"}
+            {tDash("fanpageForm.postButton")}
           </button>
         </div>
         {error && <p className="text-sm text-berry-500">{error}</p>}
@@ -144,7 +140,7 @@ export function FanpageManager({ locale }: { locale: string }) {
           <Loader2 className="h-4 w-4 animate-spin" /> ...
         </p>
       ) : posts.length === 0 ? (
-        <p className="text-sm text-ink-400">{locale === "vi" ? "Chưa có bài đăng nào." : "No posts yet."}</p>
+        <p className="text-sm text-ink-400">{tDash("fanpageForm.noPostsYet")}</p>
       ) : (
         <div className="space-y-4">
           {posts.map((p) => {

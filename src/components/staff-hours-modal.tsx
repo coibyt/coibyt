@@ -10,8 +10,6 @@ interface DayRow {
   closeTime: string;
 }
 
-const WEEKDAYS_VI = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
-const WEEKDAYS_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 function toMinutes(time: string) {
   const [h, m] = time.split(":").map(Number);
@@ -36,7 +34,8 @@ export function StaffHoursModal({
   onClose: () => void;
 }) {
   const tCommon = useTranslations("common");
-  const weekdays = locale === "vi" ? WEEKDAYS_VI : WEEKDAYS_EN;
+  const tDash = useTranslations("dashboard");
+  const weekdays = tDash("weekdays");
 
   const [loading, setLoading] = useState(true);
   const [useCustom, setUseCustom] = useState(false);
@@ -97,7 +96,7 @@ export function StaffHoursModal({
       <div className="card w-full max-w-lg animate-slide-up p-6">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-bold text-ink-900">
-            {locale === "vi" ? `Giờ làm việc — ${staffName}` : `Working hours — ${staffName}`}
+            {`${tDash("staffForm.workingHours")} — ${staffName}`}
           </h3>
           <button onClick={onClose} className="text-ink-400">
             <X className="h-5 w-5" />

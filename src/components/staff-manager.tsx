@@ -76,6 +76,7 @@ export function StaffManager({
 }) {
   const t = useTranslations("business");
   const tCommon = useTranslations("common");
+  const tDash = useTranslations("dashboard");
   const locale = useLocale();
   const router = useRouter();
 
@@ -242,7 +243,7 @@ export function StaffManager({
         <form onSubmit={saveStaff} className="card space-y-4 p-5">
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="label">Tên nhân viên</label>
+              <label className="label">{tDash("staffForm.staffName")}</label>
               <input
                 required
                 className="input"
@@ -251,7 +252,7 @@ export function StaffManager({
               />
             </div>
             <div>
-              <label className="label">Chức danh</label>
+              <label className="label">{tDash("staffForm.title")}</label>
               <input
                 className="input"
                 value={form.title}
@@ -260,7 +261,7 @@ export function StaffManager({
             </div>
           </div>
           <div>
-            <label className="label">Giới thiệu</label>
+            <label className="label">{tDash("staffForm.bio")}</label>
             <textarea
               rows={2}
               className="input"
@@ -270,7 +271,7 @@ export function StaffManager({
           </div>
           {serviceOptions.length > 0 && (
             <div>
-              <label className="label">Dịch vụ có thể thực hiện</label>
+              <label className="label">{tDash("staffForm.servicesCanDo")}</label>
               <div className="flex flex-wrap gap-2">
                 {serviceOptions.map((s) => (
                   <button

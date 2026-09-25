@@ -168,6 +168,25 @@
     "terms": "Nutzungsbedingungen",
     "rights": "Alle Rechte vorbehalten."
   },
+  "dashboard": {
+    "weekdays": ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+    "viewModes": { "day": "Tag", "week": "Woche", "month": "Monat" },
+    "staffForm": {
+      "staffName": "Name des Mitarbeiters",
+      "title": "Titel",
+      "bio": "Biografie",
+      "servicesCanDo": "Dienstleistungen, die dieser Mitarbeiter anbieten kann",
+      "workingHours": "Arbeitszeiten",
+      "noLoginYet": "Noch keine Anmeldung"
+    },
+    "fanpageForm": {
+      "sharePlaceholder": "Teilen Sie etwas mit Ihren Followern...",
+      "videoLinkPlaceholder": "YouTube-Videolink (optional)",
+      "addPhotos": "Fotos hinzufügen",
+      "postButton": "Posten",
+      "noPostsYet": "Noch keine Beiträge."
+    }
+  },
   "common": {
     "loading": "Wird geladen...",
     "save": "Speichern",

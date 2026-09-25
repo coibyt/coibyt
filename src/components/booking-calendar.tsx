@@ -134,6 +134,7 @@ export function BookingCalendar({
   isOwner: boolean;
 }) {
   const t = useTranslations("business");
+  const tDash = useTranslations("dashboard");
   const tStatus = useTranslations("booking.status");
   const tCancelReason = useTranslations("booking.cancelReason");
   const dfLocale = locale === "vi" ? vi : undefined;
@@ -679,9 +680,7 @@ export function BookingCalendar({
                 view === v ? "bg-ink-900 text-white" : "text-ink-700"
               }`}
             >
-              {locale === "vi"
-                ? { day: "Ngày", week: "Tuần", month: "Tháng" }[v]
-                : { day: "Day", week: "Week", month: "Month" }[v]}
+              {tDash("viewModes." + v)}
             </button>
           ))}
         </div>

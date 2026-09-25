@@ -10,7 +10,6 @@ interface DayRow {
   closeTime: string; // "18:00"
 }
 
-const WEEKDAYS = ["Chủ Nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 
 function toMinutes(time: string) {
   const [h, m] = time.split(":").map(Number);
@@ -28,6 +27,7 @@ export function HoursEditor({
   initialHours: { weekday: number; openMinute: number; closeMinute: number }[];
 }) {
   const tCommon = useTranslations("common");
+  const tDash = useTranslations("dashboard");
   const [days, setDays] = useState<DayRow[]>(() =>
     Array.from({ length: 7 }, (_, weekday) => {
       const existing = initialHours.find((h) => h.weekday === weekday);
@@ -74,7 +74,7 @@ export function HoursEditor({
                 )
               }
             />
-            {WEEKDAYS[i]}
+            {tDash("weekdays")[i]}
           </label>
           {d.open && (
             <>

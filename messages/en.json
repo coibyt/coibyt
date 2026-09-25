@@ -168,6 +168,25 @@
     "terms": "Terms of Use",
     "rights": "All rights reserved."
   },
+  "dashboard": {
+    "weekdays": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "viewModes": { "day": "Day", "week": "Week", "month": "Month" },
+    "staffForm": {
+      "staffName": "Staff name",
+      "title": "Title",
+      "bio": "Bio",
+      "servicesCanDo": "Services this staff member can provide",
+      "workingHours": "Working hours",
+      "noLoginYet": "No login yet"
+    },
+    "fanpageForm": {
+      "sharePlaceholder": "Share something with your followers...",
+      "videoLinkPlaceholder": "YouTube video link (optional)",
+      "addPhotos": "Add photos",
+      "postButton": "Post",
+      "noPostsYet": "No posts yet."
+    }
+  },
   "common": {
     "loading": "Loading...",
     "save": "Save",

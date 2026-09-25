@@ -168,6 +168,25 @@
     "terms": "Käyttöehdot",
     "rights": "Kaikki oikeudet pidätetään."
   },
+  "dashboard": {
+    "weekdays": ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
+    "viewModes": { "day": "Päivä", "week": "Viikko", "month": "Kuukausi" },
+    "staffForm": {
+      "staffName": "Työntekijän nimi",
+      "title": "Ammattinimike",
+      "bio": "Esittely",
+      "servicesCanDo": "Palvelut, joita tämä työntekijä voi tarjota",
+      "workingHours": "Työajat",
+      "noLoginYet": "Ei vielä kirjautumista"
+    },
+    "fanpageForm": {
+      "sharePlaceholder": "Jaa jotain seuraajillesi...",
+      "videoLinkPlaceholder": "YouTube-videon linkki (valinnainen)",
+      "addPhotos": "Lisää kuvia",
+      "postButton": "Julkaise",
+      "noPostsYet": "Ei vielä julkaisuja."
+    }
+  },
   "common": {
     "loading": "Ladataan...",
     "save": "Tallenna",
