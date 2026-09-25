@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { formatMoney } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
@@ -37,12 +38,23 @@ export function CustomerBookingsList({
 }) {
   const t = useTranslations("booking");
   const router = useRouter();
+  const searchParams = useSearchParams();
   const viewerTimezone = useViewerTimezone();
   const [cancelling, setCancelling] = useState<string | null>(null);
   const [reviewingId, setReviewingId] = useState<string | null>(null);
   const [error, setError] = useState<{ id: string; message: string } | null>(null);
   const [detailFor, setDetailFor] = useState<BookingRow | null>(null);
   const [confirmingCancel, setConfirmingCancel] = useState(false);
+
+  // Deep-linked from the "leave a review" email — auto-opens the modal for
+  // that booking instead of making the customer hunt for it in the list.
+  useEffect(() => {
+    const reviewBookingId = searchParams.get("review");
+    if (reviewBookingId && bookings.some((b) => b.id === reviewBookingId && !b.hasReview)) {
+      setReviewingId(reviewBookingId);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   async function cancel(id: string) {
     setCancelling(id);

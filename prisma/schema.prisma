@@ -414,6 +414,17 @@ model Booking {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Set the moment each automated email actually goes out — the cron job at
+  // /api/cron/reminders reads these as an idempotency guard (never send the
+  // same reminder twice) rather than relying on a narrow time window, so it
+  // stays correct no matter how often that job actually runs. Cleared back
+  // to null on reschedule so a moved booking gets fresh reminders for its
+  // new time — see /api/business/bookings/[id]/reschedule.
+  reminder24hSentAt   DateTime?
+  reminder2hSentAt    DateTime?
+  reminder15minSentAt DateTime?
+  reviewRequestSentAt DateTime?
+
   payment       Payment?
   review        Review?
   addOns        BookingAddOn[]

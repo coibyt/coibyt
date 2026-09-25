@@ -90,6 +90,38 @@ thanh toán để trỏ về domain thật:
   và `ipnUrl` = `https://varaaai.com/api/payments/momo/ipn` (đã đặt sẵn qua
   biến môi trường `MOMO_REDIRECT_URL` / `MOMO_IPN_URL`).
 
+## 7. Cron job — nhắc lịch hẹn & xin đánh giá
+
+Hostinger không tự chạy tác vụ nền, nên 4 email tự động sau chỉ được gửi khi
+có một nguồn bên ngoài gọi định kỳ vào `GET /api/cron/reminders`:
+
+- Nhắc lịch hẹn lúc còn ~24 giờ, ~2 giờ, và ~15 phút trước giờ hẹn.
+- Xin đánh giá 1 ngày sau khi lịch hẹn đã hoàn thành (COMPLETED).
+
+Endpoint này dùng lại biến `APP_SECRET` đã có sẵn trong `.env` (không cần
+thêm biến môi trường mới) — mỗi lần gọi phải kèm secret đó, qua MỘT trong hai
+cách:
+
+```
+https://varaaai.com/api/cron/reminders?secret=<APP_SECRET>
+```
+hoặc header `Authorization: Bearer <APP_SECRET>`.
+
+Mỗi lần gửi được đánh dấu vào cột `reminder*SentAt` / `reviewRequestSentAt`
+của booking đó, nên gọi endpoint này bao nhiêu lần hay bao thường xuyên cũng
+không bao giờ gửi trùng — chỉ ảnh hưởng đến độ chính xác về thời điểm
+(khuyến nghị chạy mỗi 5–10 phút để lời nhắc "còn 15 phút" vẫn còn ý nghĩa).
+
+**Cách 1 — Cron Jobs trong hPanel** (Hostinger Cloud/VPS thường có sẵn mục
+này): hPanel → Advanced → Cron Jobs → tạo job chạy mỗi 5 phút với lệnh:
+```bash
+curl -s "https://varaaai.com/api/cron/reminders?secret=<APP_SECRET>" > /dev/null
+```
+
+**Cách 2 — dịch vụ cron miễn phí bên ngoài** (không cần SSH), ví dụ
+[cron-job.org](https://cron-job.org): tạo một "cronjob" mới, dán URL ở trên,
+đặt tần suất 5 phút.
+
 ## Ghi chú về "server.js"
 
 Next.js ở chế độ `output: "standalone"` (đã cấu hình trong `next.config.mjs`)

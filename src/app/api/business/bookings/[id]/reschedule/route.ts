@@ -59,7 +59,16 @@ export async function PATCH(
 
       return tx.booking.update({
         where: { id },
-        data: { startsAt, endsAt, staffId: parsed.data.staffId },
+        data: {
+          startsAt,
+          endsAt,
+          staffId: parsed.data.staffId,
+          // A moved booking needs fresh reminders for its new time, not
+          // silence because the old time already crossed one of these.
+          reminder24hSentAt: null,
+          reminder2hSentAt: null,
+          reminder15minSentAt: null,
+        },
       });
     });
 

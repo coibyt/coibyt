@@ -88,3 +88,7 @@ Xem chi tiết từng bước tại [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 - Ảnh đại diện/ảnh bìa salon hiện cần dán URL trực tiếp — chưa có upload file
   (cần thêm dịch vụ lưu trữ ảnh, ví dụ Cloudinary hoặc S3-compatible, để tích
   hợp upload thực sự).
+- Email nhắc lịch hẹn (24h/2h/15 phút trước) và email xin đánh giá (1 ngày sau)
+  chỉ được gửi khi có một cron bên ngoài gọi định kỳ `GET /api/cron/reminders`
+  — Hostinger không tự chạy tác vụ nền. Xem hướng dẫn thiết lập ở
+  [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md#7-cron-job--nhắc-lịch-hẹn--xin-đánh-giá).
