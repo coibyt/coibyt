@@ -131,9 +131,12 @@ interface BookingEmailStrings {
   viewMyBookings: string;
   subjectConfirmed: (business: string) => string;
   subjectRescheduled: (business: string) => string;
-  reminderTimeUntil: Record<"24h" | "2h" | "15min", string>;
-  reminderIntro: (business: string, service: string, timeUntil: string) => string;
-  subjectReminder: (business: string, timeUntil: string) => string;
+  // No specific "in X hours" claim here on purpose — a reminder can fire
+  // later than its nominal threshold (e.g. the cron catching up after a
+  // gap), so stating a fixed duration risks telling the customer something
+  // false. The actual scheduled time is always shown accurately below it.
+  reminderIntro: (business: string, service: string) => string;
+  subjectReminder: (business: string) => string;
   reviewHeading: string;
   reviewIntro: (business: string) => string;
   reviewCTA: string;
@@ -168,10 +171,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "Xem lịch hẹn của tôi",
     subjectConfirmed: (b) => `Xác nhận lịch hẹn tại ${b}`,
     subjectRescheduled: (b) => `Lịch hẹn của bạn tại ${b} đã được dời`,
-    reminderTimeUntil: { "24h": "24 giờ", "2h": "2 giờ", "15min": "15 phút" },
-    reminderIntro: (business, service, timeUntil) =>
-      `Còn <strong>${timeUntil}</strong> nữa là đến lịch hẹn <strong>${service}</strong> của bạn tại <strong>${business}</strong>.`,
-    subjectReminder: (business, timeUntil) => `Nhắc lịch hẹn tại ${business} — còn ${timeUntil}`,
+    reminderIntro: (business, service) =>
+      `Lịch hẹn <strong>${service}</strong> của bạn tại <strong>${business}</strong> sắp diễn ra.`,
+    subjectReminder: (business) => `Nhắc lịch hẹn tại ${business}`,
     reviewHeading: "Cảm ơn bạn đã tin tưởng!",
     reviewIntro: (business) =>
       `Cảm ơn bạn đã sử dụng dịch vụ tại <strong>${business}</strong>. Chúng tôi rất mong nhận được đánh giá của bạn để cải thiện chất lượng phục vụ.`,
@@ -205,10 +207,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "View my bookings",
     subjectConfirmed: (b) => `Your appointment at ${b} is confirmed`,
     subjectRescheduled: (b) => `Your appointment at ${b} was rescheduled`,
-    reminderTimeUntil: { "24h": "24 hours", "2h": "2 hours", "15min": "15 minutes" },
-    reminderIntro: (business, service, timeUntil) =>
-      `Your <strong>${service}</strong> appointment at <strong>${business}</strong> is coming up in <strong>${timeUntil}</strong>.`,
-    subjectReminder: (business, timeUntil) => `Reminder: your appointment at ${business} in ${timeUntil}`,
+    reminderIntro: (business, service) =>
+      `Your <strong>${service}</strong> appointment at <strong>${business}</strong> is coming up.`,
+    subjectReminder: (business) => `Reminder: your appointment at ${business}`,
     reviewHeading: "Thanks for visiting!",
     reviewIntro: (business) =>
       `Thank you for using <strong>${business}</strong>'s services. We'd love to hear what you thought — your review helps them improve.`,
@@ -242,10 +243,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "Näytä varaukseni",
     subjectConfirmed: (b) => `Varauksesi paikassa ${b} on vahvistettu`,
     subjectRescheduled: (b) => `Varauksesi paikassa ${b} siirrettiin`,
-    reminderTimeUntil: { "24h": "24 tuntia", "2h": "2 tuntia", "15min": "15 minuuttia" },
-    reminderIntro: (business, service, timeUntil) =>
-      `Varauksesi <strong>${service}</strong> paikassa <strong>${business}</strong> alkaa <strong>${timeUntil}</strong> kuluttua.`,
-    subjectReminder: (business, timeUntil) => `Muistutus: varauksesi paikassa ${business} ${timeUntil} kuluttua`,
+    reminderIntro: (business, service) =>
+      `Varauksesi <strong>${service}</strong> paikassa <strong>${business}</strong> on tulossa pian.`,
+    subjectReminder: (business) => `Muistutus: varauksesi paikassa ${business}`,
     reviewHeading: "Kiitos käynnistä!",
     reviewIntro: (business) =>
       `Kiitos, että käytit <strong>${business}</strong> palveluita. Kertoisitko mielipiteesi? Arviosi auttaa heitä kehittymään.`,
@@ -279,10 +279,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "Zobacz moje rezerwacje",
     subjectConfirmed: (b) => `Twoja wizyta w ${b} została potwierdzona`,
     subjectRescheduled: (b) => `Twoja wizyta w ${b} została przełożona`,
-    reminderTimeUntil: { "24h": "24 godziny", "2h": "2 godziny", "15min": "15 minut" },
-    reminderIntro: (business, service, timeUntil) =>
-      `Twoja wizyta <strong>${service}</strong> w <strong>${business}</strong> zaczyna się za <strong>${timeUntil}</strong>.`,
-    subjectReminder: (business, timeUntil) => `Przypomnienie: Twoja wizyta w ${business} za ${timeUntil}`,
+    reminderIntro: (business, service) =>
+      `Twoja wizyta <strong>${service}</strong> w <strong>${business}</strong> zbliża się.`,
+    subjectReminder: (business) => `Przypomnienie: Twoja wizyta w ${business}`,
     reviewHeading: "Dziękujemy za wizytę!",
     reviewIntro: (business) =>
       `Dziękujemy za skorzystanie z usług <strong>${business}</strong>. Chętnie poznamy Twoją opinię — Twoja recenzja pomoże im się rozwijać.`,
@@ -316,10 +315,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "Meine Termine ansehen",
     subjectConfirmed: (b) => `Dein Termin bei ${b} ist bestätigt`,
     subjectRescheduled: (b) => `Dein Termin bei ${b} wurde verschoben`,
-    reminderTimeUntil: { "24h": "24 Stunden", "2h": "2 Stunden", "15min": "15 Minuten" },
-    reminderIntro: (business, service, timeUntil) =>
-      `Dein Termin für <strong>${service}</strong> bei <strong>${business}</strong> beginnt in <strong>${timeUntil}</strong>.`,
-    subjectReminder: (business, timeUntil) => `Erinnerung: dein Termin bei ${business} in ${timeUntil}`,
+    reminderIntro: (business, service) =>
+      `Dein Termin für <strong>${service}</strong> bei <strong>${business}</strong> steht bald an.`,
+    subjectReminder: (business) => `Erinnerung: dein Termin bei ${business}`,
     reviewHeading: "Danke für deinen Besuch!",
     reviewIntro: (business) =>
       `Danke, dass du die Leistungen von <strong>${business}</strong> genutzt hast. Wir würden uns über dein Feedback freuen — deine Bewertung hilft dem Salon, sich zu verbessern.`,
@@ -353,10 +351,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "មើលការកក់របស់ខ្ញុំ",
     subjectConfirmed: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានបញ្ជាក់`,
     subjectRescheduled: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានផ្លាស់ប្តូរពេលវេលា`,
-    reminderTimeUntil: { "24h": "២៤ ម៉ោង", "2h": "២ ម៉ោង", "15min": "១៥ នាទី" },
-    reminderIntro: (business, service, timeUntil) =>
-      `ការណាត់ជួប <strong>${service}</strong> របស់អ្នកនៅ <strong>${business}</strong> នឹងចាប់ផ្តើមក្នុងរយៈពេល <strong>${timeUntil}</strong> ទៀត។`,
-    subjectReminder: (business, timeUntil) => `ការរំលឹក៖ ការណាត់ជួបរបស់អ្នកនៅ ${business} ក្នុងរយៈពេល ${timeUntil} ទៀត`,
+    reminderIntro: (business, service) =>
+      `ការណាត់ជួប <strong>${service}</strong> របស់អ្នកនៅ <strong>${business}</strong> នឹងមកដល់ឆាប់ៗនេះ។`,
+    subjectReminder: (business) => `ការរំលឹក៖ ការណាត់ជួបរបស់អ្នកនៅ ${business}`,
     reviewHeading: "សូមអរគុណសម្រាប់ការមកលេង!",
     reviewIntro: (business) =>
       `សូមអរគុណដែលបានប្រើសេវាកម្មរបស់ <strong>${business}</strong>។ យើងចង់ដឹងពីមតិយោបល់របស់អ្នក — ការវាយតម្លៃរបស់អ្នកជួយឱ្យពួកគេកែលម្អ។`,
@@ -390,10 +387,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
     viewMyBookings: "ดูการจองของฉัน",
     subjectConfirmed: (b) => `การนัดหมายของคุณที่ ${b} ได้รับการยืนยันแล้ว`,
     subjectRescheduled: (b) => `การนัดหมายของคุณที่ ${b} ถูกเลื่อนเวลา`,
-    reminderTimeUntil: { "24h": "24 ชั่วโมง", "2h": "2 ชั่วโมง", "15min": "15 นาที" },
-    reminderIntro: (business, service, timeUntil) =>
-      `การนัดหมาย <strong>${service}</strong> ของคุณที่ <strong>${business}</strong> จะเริ่มในอีก <strong>${timeUntil}</strong>`,
-    subjectReminder: (business, timeUntil) => `แจ้งเตือน: การนัดหมายของคุณที่ ${business} ในอีก ${timeUntil}`,
+    reminderIntro: (business, service) =>
+      `การนัดหมาย <strong>${service}</strong> ของคุณที่ <strong>${business}</strong> ใกล้ถึงแล้ว`,
+    subjectReminder: (business) => `แจ้งเตือน: การนัดหมายของคุณที่ ${business}`,
     reviewHeading: "ขอบคุณที่ใช้บริการ!",
     reviewIntro: (business) =>
       `ขอบคุณที่ใช้บริการของ <strong>${business}</strong> เราอยากทราบความคิดเห็นของคุณ — รีวิวของคุณช่วยให้ร้านพัฒนาบริการให้ดียิ่งขึ้น`,
@@ -561,12 +557,14 @@ export function bookingRescheduledEmail(params: {
   };
 }
 
-/** Sent by the reminders cron (see /api/cron/reminders) at three fixed
- * lead times before a CONFIRMED booking — 24h, 2h and 15min. Which one this
- * particular call is for is passed in as `kind`; the cron job itself decides
- * when each fires by checking the matching reminder*SentAt column. */
+/** Sent by the reminders cron (see /api/cron/reminders) at three fixed lead
+ * times before a CONFIRMED booking — 24h, 2h and 15min — which the cron job
+ * itself decides by checking the matching reminder*SentAt column. The email
+ * text deliberately never states a specific "in X hours" — a reminder can
+ * fire later than its nominal threshold (e.g. the cron catching up after a
+ * gap), so a hardcoded duration would sometimes be wrong; the accurate
+ * scheduled date/time is shown instead. */
 export function appointmentReminderEmail(params: {
-  kind: "24h" | "2h" | "15min";
   customerName: string;
   businessName: string;
   serviceName: string;
@@ -584,16 +582,15 @@ export function appointmentReminderEmail(params: {
     INTL_LOCALES[params.locale] ?? "en-US",
     { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
-  const timeUntil = s.reminderTimeUntil[params.kind];
   const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
 
   return {
-    subject: s.subjectReminder(params.businessName, timeUntil),
+    subject: s.subjectReminder(params.businessName),
     html: `
       <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.subjectReminder(params.businessName, timeUntil)}</h2>
+        <h2 style="color:#624f89">${s.subjectReminder(params.businessName)}</h2>
         <p>${s.hi} ${params.customerName},</p>
-        <p>${s.reminderIntro(params.businessName, params.serviceName, timeUntil)}</p>
+        <p>${s.reminderIntro(params.businessName, params.serviceName)}</p>
         <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
           <p style="margin:2px 0;font-weight:600">${dateStr}</p>
           <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>

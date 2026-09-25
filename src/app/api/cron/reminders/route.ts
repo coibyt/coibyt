@@ -50,7 +50,6 @@ export async function GET(req: Request) {
   });
   for (const b of due24h) {
     const email = appointmentReminderEmail({
-      kind: "24h",
       customerName: b.customer.name,
       businessName: b.business.name,
       serviceName: b.service.name,
@@ -78,7 +77,6 @@ export async function GET(req: Request) {
   });
   for (const b of due2h) {
     const email = appointmentReminderEmail({
-      kind: "2h",
       customerName: b.customer.name,
       businessName: b.business.name,
       serviceName: b.service.name,
@@ -106,7 +104,6 @@ export async function GET(req: Request) {
   });
   for (const b of due15min) {
     const email = appointmentReminderEmail({
-      kind: "15min",
       customerName: b.customer.name,
       businessName: b.business.name,
       serviceName: b.service.name,
