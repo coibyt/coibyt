@@ -82,7 +82,6 @@ export async function POST(req: Request) {
       startsAt,
       customerNote: data.customerNote,
       provider: data.paymentProvider,
-      locale: (session.user as { locale?: "vi" | "en" }).locale ?? "vi",
       siteUrl,
       addOnIds: data.addOnIds,
       extraServiceIds: data.extraServiceIds,

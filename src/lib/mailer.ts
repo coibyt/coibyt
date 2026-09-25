@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { formatMoney } from "@/lib/money";
+import { formatMoney, INTL_LOCALES } from "@/lib/money";
 
 let _transporter: nodemailer.Transporter | null = null;
 
@@ -102,6 +102,240 @@ export function businessReadyEmail(params: {
   };
 }
 
+// Every string a booking confirmation/reschedule email needs, in each of
+// VaraaAi's 7 supported languages (see src/i18n/routing.ts). Which of these
+// a customer actually receives is driven by the SALON's own country (see
+// localeForCountry in src/lib/countries.ts), not the customer's own account
+// language — a Finland-based salon's customers get Finnish emails.
+interface BookingEmailStrings {
+  hi: string;
+  confirmedHeading: string;
+  confirmedIntro: (service: string, business: string) => string;
+  rescheduledHeading: string;
+  rescheduledIntro: (business: string, service: string) => string;
+  newTimeLabel: string;
+  serviceLabel: string;
+  staffLabel: string;
+  amountLabel: string;
+  addressLabel: string;
+  phoneLabel: string;
+  viewOnMaps: string;
+  cancellationPolicyLabel: string;
+  defaultCancellationPolicy: (hours: number) => string;
+  bankDetailsTitle: string;
+  bankNameLabel: string;
+  accountNumberLabel: string;
+  accountHolderLabel: string;
+  wantToCancelTitle: string;
+  wantToCancelBody: string;
+  viewMyBookings: string;
+  subjectConfirmed: (business: string) => string;
+  subjectRescheduled: (business: string) => string;
+}
+
+const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
+  vi: {
+    hi: "Xin chào",
+    confirmedHeading: "Lịch hẹn đã được xác nhận",
+    confirmedIntro: (service, business) =>
+      `Lịch hẹn <strong>${service}</strong> tại <strong>${business}</strong> của bạn đã được xác nhận.`,
+    rescheduledHeading: "Lịch hẹn đã được dời",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> đã dời lịch hẹn <strong>${service}</strong> của bạn sang thời gian mới. Đây là email xác nhận tự động.`,
+    newTimeLabel: "✨ Thời gian mới ✨",
+    serviceLabel: "Dịch vụ",
+    staffLabel: "Nhân viên",
+    amountLabel: "Số tiền",
+    addressLabel: "Địa chỉ",
+    phoneLabel: "Điện thoại",
+    viewOnMaps: "Xem trên Google Maps",
+    cancellationPolicyLabel: "Chính sách hủy đặt chỗ",
+    defaultCancellationPolicy: (h) =>
+      `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${h} giờ trước giờ hẹn.`,
+    bankDetailsTitle: "Thông tin chuyển khoản",
+    bankNameLabel: "Ngân hàng",
+    accountNumberLabel: "Số tài khoản",
+    accountHolderLabel: "Chủ tài khoản",
+    wantToCancelTitle: "Muốn hủy hoặc dời lịch hẹn?",
+    wantToCancelBody: "Bạn có thể hủy trong hồ sơ của mình, hoặc liên hệ trực tiếp với salon.",
+    viewMyBookings: "Xem lịch hẹn của tôi",
+    subjectConfirmed: (b) => `Xác nhận lịch hẹn tại ${b}`,
+    subjectRescheduled: (b) => `Lịch hẹn của bạn tại ${b} đã được dời`,
+  },
+  en: {
+    hi: "Hi",
+    confirmedHeading: "Appointment confirmed",
+    confirmedIntro: (service, business) =>
+      `Your <strong>${service}</strong> appointment at <strong>${business}</strong> is confirmed.`,
+    rescheduledHeading: "Your appointment was moved",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> has moved your <strong>${service}</strong> appointment to a new time. This is an automated confirmation.`,
+    newTimeLabel: "✨ New time ✨",
+    serviceLabel: "Service",
+    staffLabel: "Staff",
+    amountLabel: "Amount",
+    addressLabel: "Address",
+    phoneLabel: "Phone",
+    viewOnMaps: "View on Google Maps",
+    cancellationPolicyLabel: "Cancellation policy",
+    defaultCancellationPolicy: (h) =>
+      `You can cancel this appointment yourself, up until ${h} hours before the appointment.`,
+    bankDetailsTitle: "Bank transfer details",
+    bankNameLabel: "Bank",
+    accountNumberLabel: "Account number",
+    accountHolderLabel: "Account holder",
+    wantToCancelTitle: "Want to cancel or reschedule?",
+    wantToCancelBody: "You can cancel it from your own account, or contact the salon directly.",
+    viewMyBookings: "View my bookings",
+    subjectConfirmed: (b) => `Your appointment at ${b} is confirmed`,
+    subjectRescheduled: (b) => `Your appointment at ${b} was rescheduled`,
+  },
+  fi: {
+    hi: "Hei",
+    confirmedHeading: "Varaus vahvistettu",
+    confirmedIntro: (service, business) =>
+      `Varauksesi <strong>${service}</strong> paikassa <strong>${business}</strong> on vahvistettu.`,
+    rescheduledHeading: "Varauksesi siirrettiin",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> siirsi varauksesi <strong>${service}</strong> uuteen ajankohtaan. Tämä on automaattinen vahvistusviesti.`,
+    newTimeLabel: "✨ Uusi ajankohta ✨",
+    serviceLabel: "Palvelu",
+    staffLabel: "Palveluntarjoaja",
+    amountLabel: "Summa",
+    addressLabel: "Osoite",
+    phoneLabel: "Puhelin",
+    viewOnMaps: "Näytä Google Mapsissa",
+    cancellationPolicyLabel: "Peruutusehdot",
+    defaultCancellationPolicy: (h) =>
+      `Voit perua varauksen itse profiilistasi aina ${h} tuntiin asti ennen varattua aikaa.`,
+    bankDetailsTitle: "Tilisiirron tiedot",
+    bankNameLabel: "Pankki",
+    accountNumberLabel: "Tilinumero",
+    accountHolderLabel: "Tilinomistaja",
+    wantToCancelTitle: "Haluatko peruuttaa tai siirtää aikaasi?",
+    wantToCancelBody: "Voit perua ajan profiilistasi tai ottaa suoraan yhteyttä liikkeeseen.",
+    viewMyBookings: "Näytä varaukseni",
+    subjectConfirmed: (b) => `Varauksesi paikassa ${b} on vahvistettu`,
+    subjectRescheduled: (b) => `Varauksesi paikassa ${b} siirrettiin`,
+  },
+  pl: {
+    hi: "Cześć",
+    confirmedHeading: "Rezerwacja potwierdzona",
+    confirmedIntro: (service, business) =>
+      `Twoja rezerwacja <strong>${service}</strong> w <strong>${business}</strong> została potwierdzona.`,
+    rescheduledHeading: "Twoja rezerwacja została przełożona",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> przełożył Twoją rezerwację <strong>${service}</strong> na nowy termin. To jest automatyczna wiadomość potwierdzająca.`,
+    newTimeLabel: "✨ Nowy termin ✨",
+    serviceLabel: "Usługa",
+    staffLabel: "Pracownik",
+    amountLabel: "Kwota",
+    addressLabel: "Adres",
+    phoneLabel: "Telefon",
+    viewOnMaps: "Zobacz w Google Maps",
+    cancellationPolicyLabel: "Zasady anulowania",
+    defaultCancellationPolicy: (h) =>
+      `Możesz samodzielnie anulować tę wizytę na swoim koncie, do ${h} godzin przed wizytą.`,
+    bankDetailsTitle: "Dane do przelewu",
+    bankNameLabel: "Bank",
+    accountNumberLabel: "Numer konta",
+    accountHolderLabel: "Właściciel konta",
+    wantToCancelTitle: "Chcesz anulować lub zmienić termin?",
+    wantToCancelBody: "Możesz anulować wizytę na swoim koncie lub skontaktować się bezpośrednio z salonem.",
+    viewMyBookings: "Zobacz moje rezerwacje",
+    subjectConfirmed: (b) => `Twoja wizyta w ${b} została potwierdzona`,
+    subjectRescheduled: (b) => `Twoja wizyta w ${b} została przełożona`,
+  },
+  de: {
+    hi: "Hallo",
+    confirmedHeading: "Termin bestätigt",
+    confirmedIntro: (service, business) =>
+      `Dein Termin für <strong>${service}</strong> bei <strong>${business}</strong> ist bestätigt.`,
+    rescheduledHeading: "Dein Termin wurde verschoben",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> hat deinen Termin für <strong>${service}</strong> auf eine neue Zeit verschoben. Dies ist eine automatische Bestätigung.`,
+    newTimeLabel: "✨ Neue Zeit ✨",
+    serviceLabel: "Leistung",
+    staffLabel: "Mitarbeiter",
+    amountLabel: "Betrag",
+    addressLabel: "Adresse",
+    phoneLabel: "Telefon",
+    viewOnMaps: "Auf Google Maps ansehen",
+    cancellationPolicyLabel: "Stornierungsbedingungen",
+    defaultCancellationPolicy: (h) =>
+      `Du kannst diesen Termin bis zu ${h} Stunden vorher selbst in deinem Konto stornieren.`,
+    bankDetailsTitle: "Bankverbindung",
+    bankNameLabel: "Bank",
+    accountNumberLabel: "Kontonummer",
+    accountHolderLabel: "Kontoinhaber",
+    wantToCancelTitle: "Möchtest du stornieren oder verschieben?",
+    wantToCancelBody: "Du kannst den Termin in deinem Konto stornieren oder dich direkt an den Salon wenden.",
+    viewMyBookings: "Meine Termine ansehen",
+    subjectConfirmed: (b) => `Dein Termin bei ${b} ist bestätigt`,
+    subjectRescheduled: (b) => `Dein Termin bei ${b} wurde verschoben`,
+  },
+  km: {
+    hi: "សួស្តី",
+    confirmedHeading: "ការណាត់ជួបត្រូវបានបញ្ជាក់",
+    confirmedIntro: (service, business) =>
+      `ការណាត់ជួប <strong>${service}</strong> របស់អ្នកនៅ <strong>${business}</strong> ត្រូវបានបញ្ជាក់។`,
+    rescheduledHeading: "ការណាត់ជួបរបស់អ្នកត្រូវបានផ្លាស់ប្តូរពេលវេលា",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> បានផ្លាស់ប្តូរពេលវេលាណាត់ជួប <strong>${service}</strong> របស់អ្នកទៅពេលវេលាថ្មី។ នេះជាអ៊ីមែលបញ្ជាក់ដោយស្វ័យប្រវត្តិ។`,
+    newTimeLabel: "✨ ពេលវេលាថ្មី ✨",
+    serviceLabel: "សេវាកម្ម",
+    staffLabel: "បុគ្គលិក",
+    amountLabel: "ចំនួនទឹកប្រាក់",
+    addressLabel: "អាសយដ្ឋាន",
+    phoneLabel: "លេខទូរស័ព្ទ",
+    viewOnMaps: "មើលនៅលើ Google Maps",
+    cancellationPolicyLabel: "គោលការណ៍ការលុបចោល",
+    defaultCancellationPolicy: (h) =>
+      `អ្នកអាចលុបចោលការណាត់ជួបនេះដោយខ្លួនឯងក្នុងគណនីរបស់អ្នក រហូតដល់ ${h} ម៉ោង មុនម៉ោងណាត់ជួប។`,
+    bankDetailsTitle: "ព័ត៌មានផ្ទេរប្រាក់",
+    bankNameLabel: "ធនាគារ",
+    accountNumberLabel: "លេខគណនី",
+    accountHolderLabel: "ម្ចាស់គណនី",
+    wantToCancelTitle: "ចង់លុបចោល ឬផ្លាស់ប្តូរពេលវេលា?",
+    wantToCancelBody: "អ្នកអាចលុបចោលវានៅក្នុងគណនីរបស់អ្នក ឬទាក់ទងសាឡុងដោយផ្ទាល់។",
+    viewMyBookings: "មើលការកក់របស់ខ្ញុំ",
+    subjectConfirmed: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានបញ្ជាក់`,
+    subjectRescheduled: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានផ្លាស់ប្តូរពេលវេលា`,
+  },
+  th: {
+    hi: "สวัสดี",
+    confirmedHeading: "ยืนยันการนัดหมายแล้ว",
+    confirmedIntro: (service, business) =>
+      `การนัดหมาย <strong>${service}</strong> ของคุณที่ <strong>${business}</strong> ได้รับการยืนยันแล้ว`,
+    rescheduledHeading: "การนัดหมายของคุณถูกเลื่อน",
+    rescheduledIntro: (business, service) =>
+      `<strong>${business}</strong> ได้เลื่อนการนัดหมาย <strong>${service}</strong> ของคุณไปเป็นเวลาใหม่ นี่คืออีเมลยืนยันอัตโนมัติ`,
+    newTimeLabel: "✨ เวลานัดหมายใหม่ ✨",
+    serviceLabel: "บริการ",
+    staffLabel: "พนักงาน",
+    amountLabel: "จำนวนเงิน",
+    addressLabel: "ที่อยู่",
+    phoneLabel: "โทรศัพท์",
+    viewOnMaps: "ดูใน Google Maps",
+    cancellationPolicyLabel: "นโยบายการยกเลิก",
+    defaultCancellationPolicy: (h) =>
+      `คุณสามารถยกเลิกการนัดหมายนี้ได้ด้วยตนเองในบัญชีของคุณ จนถึง ${h} ชั่วโมงก่อนถึงเวลานัดหมาย`,
+    bankDetailsTitle: "ข้อมูลการโอนเงิน",
+    bankNameLabel: "ธนาคาร",
+    accountNumberLabel: "เลขที่บัญชี",
+    accountHolderLabel: "ชื่อบัญชี",
+    wantToCancelTitle: "ต้องการยกเลิกหรือเปลี่ยนเวลานัดหมาย?",
+    wantToCancelBody: "คุณสามารถยกเลิกได้จากบัญชีของคุณเอง หรือติดต่อร้านโดยตรง",
+    viewMyBookings: "ดูการจองของฉัน",
+    subjectConfirmed: (b) => `การนัดหมายของคุณที่ ${b} ได้รับการยืนยันแล้ว`,
+    subjectRescheduled: (b) => `การนัดหมายของคุณที่ ${b} ถูกเลื่อนเวลา`,
+  },
+};
+
+function bookingEmailStrings(locale: string): BookingEmailStrings {
+  return BOOKING_EMAIL_STRINGS[locale] ?? BOOKING_EMAIL_STRINGS.en;
+}
+
 export function bookingConfirmationEmail(params: {
   customerName: string;
   businessName: string;
@@ -129,58 +363,48 @@ export function bookingConfirmationEmail(params: {
     bankBic: string | null;
   };
 }) {
+  const s = bookingEmailStrings(params.locale);
   // Always render in the salon's own timezone — an email server can run in
   // any timezone, and the appointment time only means something relative to
   // where the salon actually is.
   const dateStr = params.startsAt.toLocaleString(
-    params.locale === "vi" ? "vi-VN" : "en-US",
+    INTL_LOCALES[params.locale] ?? "en-US",
     { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
-  const isVi = params.locale === "vi";
   const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
 
   const bankBlock = params.bankInfo
     ? `
       <div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px 16px;border-radius:12px;margin-top:8px">
-        <p style="margin:0 0 6px;font-weight:600">${isVi ? "Thông tin chuyển khoản" : "Bank transfer details"}</p>
-        ${params.bankInfo.bankName ? `<p style="margin:2px 0">${isVi ? "Ngân hàng" : "Bank"}: ${params.bankInfo.bankName}</p>` : ""}
-        ${params.bankInfo.bankAccountNumber ? `<p style="margin:2px 0">${isVi ? "Số tài khoản" : "Account number"}: ${params.bankInfo.bankAccountNumber}</p>` : ""}
-        ${params.bankInfo.bankAccountName ? `<p style="margin:2px 0">${isVi ? "Chủ tài khoản" : "Account holder"}: ${params.bankInfo.bankAccountName}</p>` : ""}
+        <p style="margin:0 0 6px;font-weight:600">${s.bankDetailsTitle}</p>
+        ${params.bankInfo.bankName ? `<p style="margin:2px 0">${s.bankNameLabel}: ${params.bankInfo.bankName}</p>` : ""}
+        ${params.bankInfo.bankAccountNumber ? `<p style="margin:2px 0">${s.accountNumberLabel}: ${params.bankInfo.bankAccountNumber}</p>` : ""}
+        ${params.bankInfo.bankAccountName ? `<p style="margin:2px 0">${s.accountHolderLabel}: ${params.bankInfo.bankAccountName}</p>` : ""}
         ${params.bankInfo.bankBic ? `<p style="margin:2px 0">BIC/SWIFT: ${params.bankInfo.bankBic}</p>` : ""}
       </div>
     `
     : "";
 
   const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
-
   const cancellationText =
-    params.cancellationPolicy ||
-    (isVi
-      ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${params.cancellationWindowHours} giờ trước giờ hẹn.`
-      : `You can cancel this appointment yourself, up until ${params.cancellationWindowHours} hours before the appointment.`);
+    params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
 
   return {
-    subject: isVi
-      ? `Xác nhận lịch hẹn tại ${params.businessName}`
-      : `Your appointment at ${params.businessName} is confirmed`,
+    subject: s.subjectConfirmed(params.businessName),
     html: `
       <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Lịch hẹn đã được xác nhận" : "Appointment confirmed"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.customerName},</p>
-        <p>${
-          isVi
-            ? `Lịch hẹn <strong>${params.serviceName}</strong> tại <strong>${params.businessName}</strong> của bạn đã được xác nhận.`
-            : `Your <strong>${params.serviceName}</strong> appointment at <strong>${params.businessName}</strong> is confirmed.`
-        }</p>
+        <h2 style="color:#624f89">${s.confirmedHeading}</h2>
+        <p>${s.hi} ${params.customerName},</p>
+        <p>${s.confirmedIntro(params.serviceName, params.businessName)}</p>
         <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
           <p style="margin:2px 0;font-weight:600">${dateStr}</p>
-          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${isVi ? "Dịch vụ" : "Service"}:</span> ${params.serviceName}</p>
+          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>
           ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
-          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Nhân viên" : "Staff"}:</span> ${params.staffName}</p>` : ""}
-          <p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Số tiền" : "Amount"}:</span> ${priceStr}</p>
-          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Địa chỉ" : "Address"}:</span> ${addressLine}</p>` : ""}
-          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Điện thoại" : "Phone"}:</span> ${params.businessPhone}</p>` : ""}
-          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${isVi ? "Xem trên Google Maps" : "View on Google Maps"}</a></p>` : ""}
+          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.staffLabel}:</span> ${params.staffName}</p>` : ""}
+          <p style="margin:2px 0"><span style="color:#5b6b6c">${s.amountLabel}:</span> ${priceStr}</p>
+          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.addressLabel}:</span> ${addressLine}</p>` : ""}
+          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.phoneLabel}:</span> ${params.businessPhone}</p>` : ""}
+          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${s.viewOnMaps}</a></p>` : ""}
         </div>
         ${
           params.staffMessage
@@ -189,7 +413,7 @@ export function bookingConfirmationEmail(params: {
         }
         ${bankBlock}
         <div style="margin-top:16px">
-          <p style="margin:0 0 4px;font-weight:600">${isVi ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}</p>
+          <p style="margin:0 0 4px;font-weight:600">${s.cancellationPolicyLabel}</p>
           <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
         </div>
         <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
@@ -222,57 +446,43 @@ export function bookingRescheduledEmail(params: {
   cancellationPolicy?: string | null;
   manageBookingUrl: string;
 }) {
+  const s = bookingEmailStrings(params.locale);
   const dateStr = params.startsAt.toLocaleString(
-    params.locale === "vi" ? "vi-VN" : "en-US",
+    INTL_LOCALES[params.locale] ?? "en-US",
     { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
   );
-  const isVi = params.locale === "vi";
   const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
   const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
-
   const cancellationText =
-    params.cancellationPolicy ||
-    (isVi
-      ? `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${params.cancellationWindowHours} giờ trước giờ hẹn.`
-      : `You can cancel this appointment yourself, up until ${params.cancellationWindowHours} hours before the appointment.`);
+    params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
 
   return {
-    subject: isVi
-      ? `Lịch hẹn của bạn tại ${params.businessName} đã được dời`
-      : `Your appointment at ${params.businessName} was rescheduled`,
+    subject: s.subjectRescheduled(params.businessName),
     html: `
       <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Lịch hẹn đã được dời" : "Your appointment was moved"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.customerName},</p>
-        <p>${
-          isVi
-            ? `<strong>${params.businessName}</strong> đã dời lịch hẹn <strong>${params.serviceName}</strong> của bạn sang thời gian mới. Đây là email xác nhận tự động.`
-            : `<strong>${params.businessName}</strong> has moved your <strong>${params.serviceName}</strong> appointment to a new time. This is an automated confirmation.`
-        }</p>
+        <h2 style="color:#624f89">${s.rescheduledHeading}</h2>
+        <p>${s.hi} ${params.customerName},</p>
+        <p>${s.rescheduledIntro(params.businessName, params.serviceName)}</p>
         <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
-          <p style="margin:0 0 8px;font-weight:700;color:#624f89">${isVi ? "✨ Thời gian mới ✨" : "✨ New time ✨"}</p>
+          <p style="margin:0 0 8px;font-weight:700;color:#624f89">${s.newTimeLabel}</p>
           <p style="margin:2px 0;font-weight:600">${dateStr}</p>
-          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${isVi ? "Dịch vụ" : "Service"}:</span> ${params.serviceName}</p>
+          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>
           ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
-          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Nhân viên" : "Staff"}:</span> ${params.staffName}</p>` : ""}
-          <p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Số tiền" : "Amount"}:</span> ${priceStr}</p>
-          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Địa chỉ" : "Address"}:</span> ${addressLine}</p>` : ""}
-          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${isVi ? "Điện thoại" : "Phone"}:</span> ${params.businessPhone}</p>` : ""}
-          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${isVi ? "Xem trên Google Maps" : "View on Google Maps"}</a></p>` : ""}
+          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.staffLabel}:</span> ${params.staffName}</p>` : ""}
+          <p style="margin:2px 0"><span style="color:#5b6b6c">${s.amountLabel}:</span> ${priceStr}</p>
+          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.addressLabel}:</span> ${addressLine}</p>` : ""}
+          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.phoneLabel}:</span> ${params.businessPhone}</p>` : ""}
+          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${s.viewOnMaps}</a></p>` : ""}
         </div>
         <div style="margin-top:16px">
-          <p style="margin:0 0 4px;font-weight:600">${isVi ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}</p>
+          <p style="margin:0 0 4px;font-weight:600">${s.cancellationPolicyLabel}</p>
           <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
         </div>
         <div style="background:#fbeaee;padding:12px 16px;border-radius:12px;margin-top:16px">
-          <p style="margin:0 0 8px;font-weight:600">${isVi ? "Muốn hủy hoặc dời lịch hẹn?" : "Want to cancel or reschedule?"}</p>
-          <p style="margin:0 0 10px;color:#5b6b6c;font-size:13px">${
-            isVi
-              ? "Bạn có thể hủy trong hồ sơ của mình, hoặc liên hệ trực tiếp với salon."
-              : "You can cancel it from your own account, or contact the salon directly."
-          }</p>
+          <p style="margin:0 0 8px;font-weight:600">${s.wantToCancelTitle}</p>
+          <p style="margin:0 0 10px;color:#5b6b6c;font-size:13px">${s.wantToCancelBody}</p>
           <a href="${params.manageBookingUrl}" style="background:#0d1718;color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:13px">
-            ${isVi ? "Xem lịch hẹn của tôi" : "View my bookings"}
+            ${s.viewMyBookings}
           </a>
         </div>
         <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>

@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
 import { sendMail, bookingConfirmationEmail, bookingRescheduledEmail } from "@/lib/mailer";
+import { localeForCountry } from "@/lib/countries";
 import type { PaymentProvider } from "@prisma/client";
 
 export class SlotUnavailableError extends Error {
@@ -33,7 +34,6 @@ export async function createBookingAndPayment(params: {
   startsAt: Date;
   customerNote?: string;
   provider: BookingPaymentChoice;
-  locale: "vi" | "en";
   siteUrl: string;
   /** Add-on catalog item ids the customer selected — prices/durations are
    * always re-read from the DB here, never trusted from the request. */
@@ -144,7 +144,7 @@ export async function createBookingAndPayment(params: {
       serviceName: service.name,
       serviceDescription: service.description,
       startsAt: booking.startsAt,
-      locale: params.locale,
+      locale: localeForCountry(service.business.country),
       businessTimezone: service.business.timezone,
       priceCents: booking.priceCents,
       currency: booking.currency,
@@ -217,7 +217,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     serviceName: full.service.name,
     serviceDescription: full.service.description,
     startsAt: full.startsAt,
-    locale: full.customer.locale,
+    locale: localeForCountry(full.business.country),
     businessTimezone: full.business.timezone,
     priceCents: full.priceCents,
     currency: full.currency,
@@ -251,7 +251,7 @@ export async function sendBookingRescheduledEmail(bookingId: string) {
     serviceName: full.service.name,
     serviceDescription: full.service.description,
     startsAt: full.startsAt,
-    locale: full.customer.locale,
+    locale: localeForCountry(full.business.country),
     businessTimezone: full.business.timezone,
     priceCents: full.priceCents,
     currency: full.currency,

@@ -3,7 +3,7 @@
  * currency) that just means the whole đồng amount, so 150_000 VND is
  * stored as priceCents = 150000, not 15000000.
  */
-const INTL_LOCALES: Record<string, string> = {
+export const INTL_LOCALES: Record<string, string> = {
   vi: "vi-VN",
   en: "en-US",
   fi: "fi-FI",

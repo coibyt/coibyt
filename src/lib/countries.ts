@@ -187,3 +187,23 @@ export const COUNTRIES: CountryOption[] = [
 export function timezoneForCountry(code: string): string | undefined {
   return COUNTRIES.find((c) => c.code === code)?.timezone;
 }
+
+// The one VaraaAi-supported language (see src/i18n/routing.ts) each country
+// is mapped to for customer-facing transactional emails — e.g. a salon that
+// picked Finland has its customers emailed in Finnish, regardless of each
+// customer's own account language. Any country not listed here falls back
+// to English.
+const COUNTRY_LOCALES: Record<string, string> = {
+  VN: "vi",
+  FI: "fi",
+  PL: "pl",
+  DE: "de",
+  AT: "de",
+  CH: "de",
+  KH: "km",
+  TH: "th",
+};
+
+export function localeForCountry(code: string | null | undefined): string {
+  return (code && COUNTRY_LOCALES[code]) || "en";
+}

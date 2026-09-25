@@ -75,7 +75,6 @@ export async function POST(req: Request) {
       customerNote: data.customerNote,
       // A business-created booking has no online payment step, same as cash.
       provider: "CASH",
-      locale: customer.locale === "en" ? "en" : "vi",
       siteUrl,
     });
     return NextResponse.json({ booking }, { status: 201 });
