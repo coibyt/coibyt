@@ -32,6 +32,17 @@ export const businessApplicationSchema = z.object({
   country: z.string().length(2),
 });
 
+// Used when someone applies to list a business while signed out — the same
+// application fields as businessApplicationSchema, plus the account details
+// needed to create their user row in the same request (see
+// /api/business/apply). That new account is both the business owner AND,
+// once email-verified, an ordinary customer account.
+export const businessApplicationWithAccountSchema = businessApplicationSchema.extend({
+  ownerName: z.string().min(2).max(100),
+  email: z.string().email(),
+  password: z.string().min(8).max(72),
+});
+
 export const serviceSchema = z.object({
   name: z.string().min(2).max(120),
   description: z.string().max(2000).optional(),
