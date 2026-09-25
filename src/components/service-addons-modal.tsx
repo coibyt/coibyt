@@ -24,6 +24,7 @@ export function ServiceAddOnsModal({
   onClose: () => void;
 }) {
   const tCommon = useTranslations("common");
+  const tDash = useTranslations("dashboard");
   const [loading, setLoading] = useState(true);
   const [catalog, setCatalog] = useState<AddOn[]>([]);
   const [checked, setChecked] = useState<Set<string>>(new Set());
@@ -87,7 +88,7 @@ export function ServiceAddOnsModal({
       <div className="card w-full max-w-lg animate-slide-up p-6">
         <div className="mb-4 flex items-center justify-between">
           <h3 className="font-bold text-ink-900">
-            {locale === "vi" ? `Dịch vụ phụ — ${serviceName}` : `Add-ons — ${serviceName}`}
+            {`${tDash("addOnsModal.title")} — ${serviceName}`}
           </h3>
           <button onClick={onClose} className="text-ink-400">
             <X className="h-5 w-5" />
@@ -101,15 +102,13 @@ export function ServiceAddOnsModal({
         ) : (
           <>
             <p className="mb-3 text-sm text-ink-400">
-              {locale === "vi"
-                ? "Chọn các dịch vụ phụ khách hàng có thể thêm khi đặt dịch vụ này."
-                : "Choose which add-ons customers can pick when booking this service."}
+              {tDash("addOnsModal.chooseHint")}
             </p>
 
             <div className="max-h-[40vh] space-y-2 overflow-y-auto pr-1">
               {catalog.length === 0 && !showCreate && (
                 <p className="text-sm text-ink-400">
-                  {locale === "vi" ? "Chưa có dịch vụ phụ nào." : "No add-ons yet."}
+                  {tDash("addOnsModal.noAddOnsYet")}
                 </p>
               )}
               {catalog.map((a) => (
@@ -138,14 +137,14 @@ export function ServiceAddOnsModal({
             {showCreate ? (
               <div className="mt-4 space-y-2 rounded-xl border border-ink-100 p-3">
                 <input
-                  placeholder={locale === "vi" ? "Tên dịch vụ phụ" : "Add-on name"}
+                  placeholder={tDash("addOnsModal.addOnName")}
                   className="input"
                   value={newAddOn.name}
                   onChange={(e) => setNewAddOn({ ...newAddOn, name: e.target.value })}
                 />
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="label">{locale === "vi" ? "Giá (VND)" : "Price (VND)"}</label>
+                    <label className="label">{tDash("addOnsModal.price")} (VND)</label>
                     <input
                       type="number"
                       min={0}
@@ -158,7 +157,7 @@ export function ServiceAddOnsModal({
                   </div>
                   <div>
                     <label className="label">
-                      {locale === "vi" ? "Thêm phút" : "Extra minutes"}
+                      {tDash("addOnsModal.extraMinutes")}
                     </label>
                     <input
                       type="number"
@@ -194,7 +193,7 @@ export function ServiceAddOnsModal({
                 className="btn-outline mt-3 !px-3 !py-1.5 text-xs"
               >
                 <Plus className="h-3.5 w-3.5" />
-                {locale === "vi" ? "Tạo dịch vụ phụ mới" : "Create new add-on"}
+                {tDash("addOnsModal.createNewAddOn")}
               </button>
             )}
 

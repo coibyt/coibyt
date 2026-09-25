@@ -185,6 +185,54 @@
       "addPhotos": "Fotos hinzufügen",
       "postButton": "Posten",
       "noPostsYet": "Noch keine Beiträge."
+    },
+    "servicesForm": {
+      "newService": "Neue Dienstleistung",
+      "editService": "Dienstleistung bearbeiten",
+      "serviceName": "Name der Dienstleistung",
+      "category": "Kategorie",
+      "durationMinutes": "Dauer (Minuten)",
+      "bufferMinutes": "Aufräumzeit danach (Minuten)",
+      "price": "Preis",
+      "deposit": "Anzahlung",
+      "optional": "optional",
+      "description": "Beschreibung",
+      "descriptionHint": "Wird unter dem Namen der Dienstleistung angezeigt, wenn ein Kunde sie auswählt.",
+      "videoLink": "YouTube-Videolink",
+      "videoLinkHint": "Kunden können diese Dienstleistung vor der Buchung in der Vorschau ansehen.",
+      "staffCanDo": "Mitarbeiter, die dies anbieten können",
+      "staffOverrideHint": "Leer lassen, damit ein Mitarbeiter den oben angegebenen Standardpreis/-dauer verwendet.",
+      "ownPrice": "Eigener Preis",
+      "ownMinutes": "Eigene Minuten",
+      "addOns": "Zusatzleistungen"
+    },
+    "contactLinks": {
+      "title": "Kontakt & Social-Media-Links",
+      "subtitle": "Wird auf deiner öffentlichen Seite angezeigt, damit Kunden dich direkt erreichen können.",
+      "phoneNumber": "Telefonnummer",
+      "youtubeChannel": "YouTube-Kanal",
+      "introVideo": "Vorstellungsvideo des Salons",
+      "formatError": "Bitte überprüfe das Format des Links/der E-Mail."
+    },
+    "businessImages": {
+      "coverPhoto": "Titelbild",
+      "coverPhotoHint": "Wird oben auf deiner Unternehmensseite und in Suchergebnissen angezeigt.",
+      "noCoverYet": "Noch kein Titelbild",
+      "uploadCoverPhoto": "Titelbild hochladen",
+      "logo": "Logo",
+      "logoHint": "Ein quadratisches Bild, das als Avatar deines Unternehmens verwendet wird.",
+      "uploadLogo": "Logo hochladen",
+      "imageTooLarge": "Das Bild darf höchstens 5 MB groß sein.",
+      "uploadFailed": "Upload fehlgeschlagen, bitte versuche es erneut."
+    },
+    "addOnsModal": {
+      "title": "Zusatzleistungen",
+      "chooseHint": "Wähle aus, welche Zusatzleistungen Kunden bei der Buchung dieser Dienstleistung hinzufügen können.",
+      "noAddOnsYet": "Noch keine Zusatzleistungen.",
+      "addOnName": "Name der Zusatzleistung",
+      "price": "Preis",
+      "extraMinutes": "Zusätzliche Minuten",
+      "createNewAddOn": "Neue Zusatzleistung erstellen"
     }
   },
   "common": {

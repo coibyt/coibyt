@@ -185,6 +185,54 @@
       "addPhotos": "Dodaj zdjęcia",
       "postButton": "Opublikuj",
       "noPostsYet": "Brak postów."
+    },
+    "servicesForm": {
+      "newService": "Nowa usługa",
+      "editService": "Edytuj usługę",
+      "serviceName": "Nazwa usługi",
+      "category": "Kategoria",
+      "durationMinutes": "Czas trwania (minuty)",
+      "bufferMinutes": "Czas sprzątania po (minuty)",
+      "price": "Cena",
+      "deposit": "Zadatek",
+      "optional": "opcjonalnie",
+      "description": "Opis",
+      "descriptionHint": "Wyświetlane pod nazwą usługi, gdy klient ją wybierze.",
+      "videoLink": "Link do wideo YouTube",
+      "videoLinkHint": "Klienci mogą kliknąć, aby zobaczyć podgląd tej usługi przed rezerwacją.",
+      "staffCanDo": "Pracownicy, którzy mogą to wykonać",
+      "staffOverrideHint": "Pozostaw puste, aby pracownik korzystał z domyślnej ceny/czasu trwania powyżej.",
+      "ownPrice": "Własna cena",
+      "ownMinutes": "Własne minuty",
+      "addOns": "Dodatki"
+    },
+    "contactLinks": {
+      "title": "Kontakt i linki społecznościowe",
+      "subtitle": "Widoczne na Twojej publicznej stronie, aby klienci mogli się z Tobą bezpośrednio skontaktować.",
+      "phoneNumber": "Numer telefonu",
+      "youtubeChannel": "Kanał YouTube",
+      "introVideo": "Wideo powitalne salonu",
+      "formatError": "Sprawdź format linku/e-maila."
+    },
+    "businessImages": {
+      "coverPhoto": "Zdjęcie w tle",
+      "coverPhotoHint": "Wyświetlane na górze strony Twojej firmy i w wynikach wyszukiwania.",
+      "noCoverYet": "Brak zdjęcia w tle",
+      "uploadCoverPhoto": "Prześlij zdjęcie w tle",
+      "logo": "Logo",
+      "logoHint": "Kwadratowy obraz używany jako awatar Twojej firmy.",
+      "uploadLogo": "Prześlij logo",
+      "imageTooLarge": "Obraz musi być mniejszy niż 5 MB.",
+      "uploadFailed": "Przesyłanie nie powiodło się, spróbuj ponownie."
+    },
+    "addOnsModal": {
+      "title": "Dodatki",
+      "chooseHint": "Wybierz dodatki, które klienci mogą dodać podczas rezerwacji tej usługi.",
+      "noAddOnsYet": "Brak dodatków.",
+      "addOnName": "Nazwa dodatku",
+      "price": "Cena",
+      "extraMinutes": "Dodatkowe minuty",
+      "createNewAddOn": "Utwórz nowy dodatek"
     }
   },
   "common": {

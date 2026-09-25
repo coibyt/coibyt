@@ -185,6 +185,54 @@
       "addPhotos": "Lisää kuvia",
       "postButton": "Julkaise",
       "noPostsYet": "Ei vielä julkaisuja."
+    },
+    "servicesForm": {
+      "newService": "Uusi palvelu",
+      "editService": "Muokkaa palvelua",
+      "serviceName": "Palvelun nimi",
+      "category": "Kategoria",
+      "durationMinutes": "Kesto (minuuttia)",
+      "bufferMinutes": "Siivousaika jälkeen (minuuttia)",
+      "price": "Hinta",
+      "deposit": "Käsiraha",
+      "optional": "valinnainen",
+      "description": "Kuvaus",
+      "descriptionHint": "Näytetään palvelun nimen alla, kun asiakas valitsee tämän palvelun.",
+      "videoLink": "YouTube-videon linkki",
+      "videoLinkHint": "Asiakkaat voivat esikatsella tätä palvelua ennen varaamista.",
+      "staffCanDo": "Työntekijät, jotka voivat tehdä tämän",
+      "staffOverrideHint": "Jätä tyhjäksi, jos työntekijä käyttää yllä olevaa oletushintaa/-kestoa.",
+      "ownPrice": "Oma hinta",
+      "ownMinutes": "Omat minuutit",
+      "addOns": "Lisäpalvelut"
+    },
+    "contactLinks": {
+      "title": "Yhteystiedot ja some-linkit",
+      "subtitle": "Näkyy julkisella sivullasi, jotta asiakkaat voivat ottaa sinuun suoraan yhteyttä.",
+      "phoneNumber": "Puhelinnumero",
+      "youtubeChannel": "YouTube-kanava",
+      "introVideo": "Salongin esittelyvideo",
+      "formatError": "Tarkista linkin/sähköpostin muoto."
+    },
+    "businessImages": {
+      "coverPhoto": "Kansikuva",
+      "coverPhotoHint": "Näytetään yrityssivusi yläosassa ja hakutuloksissa.",
+      "noCoverYet": "Ei vielä kansikuvaa",
+      "uploadCoverPhoto": "Lataa kansikuva",
+      "logo": "Logo",
+      "logoHint": "Neliömäinen kuva, jota käytetään yrityksesi kuvakkeena.",
+      "uploadLogo": "Lataa logo",
+      "imageTooLarge": "Kuvan tulee olla alle 5 Mt.",
+      "uploadFailed": "Lataus epäonnistui, yritä uudelleen."
+    },
+    "addOnsModal": {
+      "title": "Lisäpalvelut",
+      "chooseHint": "Valitse lisäpalvelut, joita asiakkaat voivat lisätä varatessaan tätä palvelua.",
+      "noAddOnsYet": "Ei vielä lisäpalveluita.",
+      "addOnName": "Lisäpalvelun nimi",
+      "price": "Hinta",
+      "extraMinutes": "Lisäminuutit",
+      "createNewAddOn": "Luo uusi lisäpalvelu"
     }
   },
   "common": {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 
 export interface ContactLinks {
@@ -18,7 +18,8 @@ export interface ContactLinks {
 }
 
 export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
-  const locale = useLocale();
+  const tDash = useTranslations("dashboard");
+  const tCommon = useTranslations("common");
   const [form, setForm] = useState({
     phone: contact.phone ?? "",
     email: contact.email ?? "",
@@ -68,26 +69,24 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
   return (
     <div className="card p-5">
       <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Liên hệ & mạng xã hội" : "Contact & social links"}
+        {tDash("contactLinks.title")}
       </h2>
       <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Hiển thị trên trang công khai của salon để khách liên hệ trực tiếp."
-          : "Shown on your public page so customers can reach you directly."}
+        {tDash("contactLinks.subtitle")}
       </p>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {field("phone", locale === "vi" ? "Số điện thoại" : "Phone number", "+84 90 123 4567")}
+        {field("phone", tDash("contactLinks.phoneNumber"), "+84 90 123 4567")}
         {field("email", "Email", "salon@example.com")}
-        {field("website", locale === "vi" ? "Website" : "Website", "https://...")}
+        {field("website", "Website", "https://...")}
         {field("whatsapp", "WhatsApp", "+84 90 123 4567")}
         {field("facebookUrl", "Facebook", "https://facebook.com/...")}
         {field("instagramUrl", "Instagram", "https://instagram.com/...")}
         {field("tiktokUrl", "TikTok", "https://tiktok.com/@...")}
-        {field("youtubeUrl", locale === "vi" ? "Kênh YouTube" : "YouTube channel", "https://youtube.com/@...")}
+        {field("youtubeUrl", tDash("contactLinks.youtubeChannel"), "https://youtube.com/@...")}
         {field(
           "introVideoUrl",
-          locale === "vi" ? "Video giới thiệu salon" : "Salon intro video",
+          tDash("contactLinks.introVideo"),
           "https://youtube.com/watch?v=..."
         )}
         {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
@@ -95,9 +94,7 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
 
       {error && (
         <p className="mt-2 text-xs text-berry-500">
-          {locale === "vi"
-            ? "Vui lòng kiểm tra lại định dạng đường link/email."
-            : "Please check the link/email format."}
+          {tDash("contactLinks.formatError")}
         </p>
       )}
 
@@ -107,7 +104,7 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
         ) : saved ? (
           <Check className="h-3.5 w-3.5" />
         ) : null}
-        {locale === "vi" ? "Lưu" : "Save"}
+        {tCommon("save")}
       </button>
     </div>
   );

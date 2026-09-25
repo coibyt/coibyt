@@ -35,7 +35,7 @@ export function StaffHoursModal({
 }) {
   const tCommon = useTranslations("common");
   const tDash = useTranslations("dashboard");
-  const weekdays = tDash("weekdays");
+  const weekdays = tDash.raw("weekdays");
 
   const [loading, setLoading] = useState(true);
   const [useCustom, setUseCustom] = useState(false);

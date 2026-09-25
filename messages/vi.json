@@ -185,6 +185,54 @@
       "addPhotos": "Thêm ảnh",
       "postButton": "Đăng bài",
       "noPostsYet": "Chưa có bài đăng nào."
+    },
+    "servicesForm": {
+      "newService": "Dịch vụ mới",
+      "editService": "Sửa dịch vụ",
+      "serviceName": "Tên dịch vụ",
+      "category": "Danh mục",
+      "durationMinutes": "Thời lượng (phút)",
+      "bufferMinutes": "Thời gian dọn dẹp sau (phút)",
+      "price": "Giá",
+      "deposit": "Tiền cọc",
+      "optional": "không bắt buộc",
+      "description": "Mô tả",
+      "descriptionHint": "Hiển thị bên dưới tên dịch vụ khi khách chọn dịch vụ này.",
+      "videoLink": "Link video YouTube",
+      "videoLinkHint": "Khách có thể nhấp xem trước video dịch vụ này khi đặt lịch.",
+      "staffCanDo": "Nhân viên thực hiện",
+      "staffOverrideHint": "Để trống nếu nhân viên dùng giá/thời lượng mặc định ở trên.",
+      "ownPrice": "Giá riêng",
+      "ownMinutes": "Phút riêng",
+      "addOns": "Dịch vụ phụ"
+    },
+    "contactLinks": {
+      "title": "Liên hệ & mạng xã hội",
+      "subtitle": "Hiển thị trên trang công khai của salon để khách liên hệ trực tiếp.",
+      "phoneNumber": "Số điện thoại",
+      "youtubeChannel": "Kênh YouTube",
+      "introVideo": "Video giới thiệu salon",
+      "formatError": "Vui lòng kiểm tra lại định dạng đường link/email."
+    },
+    "businessImages": {
+      "coverPhoto": "Ảnh bìa",
+      "coverPhotoHint": "Hiển thị đầu trang salon và trong kết quả tìm kiếm.",
+      "noCoverYet": "Chưa có ảnh bìa",
+      "uploadCoverPhoto": "Tải ảnh bìa lên",
+      "logo": "Logo",
+      "logoHint": "Ảnh vuông hiển thị làm biểu tượng salon của bạn.",
+      "uploadLogo": "Tải logo lên",
+      "imageTooLarge": "Ảnh tối đa 5MB.",
+      "uploadFailed": "Tải ảnh thất bại, thử lại."
+    },
+    "addOnsModal": {
+      "title": "Dịch vụ phụ",
+      "chooseHint": "Chọn các dịch vụ phụ khách hàng có thể thêm khi đặt dịch vụ này.",
+      "noAddOnsYet": "Chưa có dịch vụ phụ nào.",
+      "addOnName": "Tên dịch vụ phụ",
+      "price": "Giá",
+      "extraMinutes": "Thêm phút",
+      "createNewAddOn": "Tạo dịch vụ phụ mới"
     }
   },
   "common": {

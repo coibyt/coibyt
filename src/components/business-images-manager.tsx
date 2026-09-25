@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Loader2, Upload } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
@@ -15,7 +15,7 @@ export function BusinessImagesManager({
   coverUrl: string | null;
   businessName: string;
 }) {
-  const locale = useLocale();
+  const tDash = useTranslations("dashboard");
   const router = useRouter();
   const [logo, setLogo] = useState(logoUrl);
   const [cover, setCover] = useState(coverUrl);
@@ -26,7 +26,7 @@ export function BusinessImagesManager({
 
   async function upload(file: File, kind: "logo" | "cover") {
     if (file.size > 5 * 1024 * 1024) {
-      setError(locale === "vi" ? "Ảnh tối đa 5MB." : "Image must be under 5MB.");
+      setError(tDash("businessImages.imageTooLarge"));
       return;
     }
     setUploading(kind);
@@ -38,7 +38,7 @@ export function BusinessImagesManager({
     const data = await res.json();
     setUploading(null);
     if (!res.ok) {
-      setError(locale === "vi" ? "Tải ảnh thất bại, thử lại." : "Upload failed, please try again.");
+      setError(tDash("businessImages.uploadFailed"));
       return;
     }
     if (kind === "logo") setLogo(data.url);
@@ -50,19 +50,17 @@ export function BusinessImagesManager({
     <div className="space-y-6">
       <div className="card p-5">
         <h2 className="mb-1 font-semibold text-ink-900">
-          {locale === "vi" ? "Ảnh bìa" : "Cover photo"}
+          {tDash("businessImages.coverPhoto")}
         </h2>
         <p className="mb-3 text-xs text-ink-400">
-          {locale === "vi"
-            ? "Hiển thị đầu trang salon và trong kết quả tìm kiếm."
-            : "Shown at the top of your business page and in search results."}
+          {tDash("businessImages.coverPhotoHint")}
         </p>
         <div className="relative mb-3 aspect-[3/1] w-full overflow-hidden rounded-xl bg-mist-100">
           {cover ? (
             <Image src={cover} alt="" fill className="object-cover" />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-sm text-ink-400">
-              {locale === "vi" ? "Chưa có ảnh bìa" : "No cover photo yet"}
+              {tDash("businessImages.noCoverYet")}
             </div>
           )}
         </div>
@@ -83,16 +81,14 @@ export function BusinessImagesManager({
           ) : (
             <Upload className="h-3.5 w-3.5" />
           )}
-          {locale === "vi" ? "Tải ảnh bìa lên" : "Upload cover photo"}
+          {tDash("businessImages.uploadCoverPhoto")}
         </button>
       </div>
 
       <div className="card p-5">
-        <h2 className="mb-1 font-semibold text-ink-900">{locale === "vi" ? "Logo" : "Logo"}</h2>
+        <h2 className="mb-1 font-semibold text-ink-900">{tDash("businessImages.logo")}</h2>
         <p className="mb-3 text-xs text-ink-400">
-          {locale === "vi"
-            ? "Ảnh vuông hiển thị làm biểu tượng salon của bạn."
-            : "A square image used as your business's avatar."}
+          {tDash("businessImages.logoHint")}
         </p>
         <div className="mb-3 flex items-center gap-4">
           <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-mist-100">
@@ -121,7 +117,7 @@ export function BusinessImagesManager({
             ) : (
               <Upload className="h-3.5 w-3.5" />
             )}
-            {locale === "vi" ? "Tải logo lên" : "Upload logo"}
+            {tDash("businessImages.uploadLogo")}
           </button>
         </div>
       </div>

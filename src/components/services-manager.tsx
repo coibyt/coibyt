@@ -65,6 +65,7 @@ export function ServicesManager({
 }) {
   const t = useTranslations("business");
   const tCommon = useTranslations("common");
+  const tDash = useTranslations("dashboard");
   const router = useRouter();
 
   const [showForm, setShowForm] = useState(false);
@@ -209,7 +210,7 @@ export function ServicesManager({
               <button
                 onClick={() => setAddOnsFor(s)}
                 className="btn-ghost !p-2 text-ink-700"
-                title={locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}
+                title={tDash("servicesForm.addOns")}
               >
                 <Sparkles className="h-4 w-4" />
               </button>
@@ -240,17 +241,11 @@ export function ServicesManager({
       ) : (
         <form onSubmit={saveService} className="card space-y-4 p-5">
           <h3 className="font-semibold text-ink-900">
-            {editingId
-              ? locale === "vi"
-                ? "Sửa dịch vụ"
-                : "Edit service"
-              : locale === "vi"
-                ? "Dịch vụ mới"
-                : "New service"}
+            {editingId ? tDash("servicesForm.editService") : tDash("servicesForm.newService")}
           </h3>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="label">Tên dịch vụ</label>
+              <label className="label">{tDash("servicesForm.serviceName")}</label>
               <input
                 required
                 className="input"
@@ -259,7 +254,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Danh mục</label>
+              <label className="label">{tDash("servicesForm.category")}</label>
               <select
                 className="input"
                 value={form.categoryId}
@@ -274,7 +269,7 @@ export function ServicesManager({
               </select>
             </div>
             <div>
-              <label className="label">Thời lượng (phút)</label>
+              <label className="label">{tDash("servicesForm.durationMinutes")}</label>
               <input
                 required
                 type="number"
@@ -285,7 +280,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Thời gian dọn dẹp sau (phút)</label>
+              <label className="label">{tDash("servicesForm.bufferMinutes")}</label>
               <input
                 type="number"
                 min={0}
@@ -295,7 +290,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Giá ({defaultCurrency})</label>
+              <label className="label">{tDash("servicesForm.price")} ({defaultCurrency})</label>
               <input
                 required
                 type="number"
@@ -308,7 +303,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">Tiền cọc ({defaultCurrency}, không bắt buộc)</label>
+              <label className="label">{tDash("servicesForm.deposit")} ({defaultCurrency}, {tDash("servicesForm.optional")})</label>
               <input
                 type="number"
                 min={0}
@@ -321,11 +316,9 @@ export function ServicesManager({
             </div>
           </div>
           <div>
-            <label className="label">Mô tả</label>
+            <label className="label">{tDash("servicesForm.description")}</label>
             <p className="mb-1 text-xs text-ink-400">
-              {locale === "vi"
-                ? "Hiển thị bên dưới tên dịch vụ khi khách chọn dịch vụ này."
-                : "Shown under the service name when a customer picks it."}
+              {tDash("servicesForm.descriptionHint")}
             </p>
             <textarea
               rows={2}
@@ -336,13 +329,10 @@ export function ServicesManager({
           </div>
           <div>
             <label className="label">
-              {locale === "vi" ? "Link video YouTube" : "YouTube video link"} (
-              {locale === "vi" ? "không bắt buộc" : "optional"})
+              {tDash("servicesForm.videoLink")} ({tDash("servicesForm.optional")})
             </label>
             <p className="mb-1 text-xs text-ink-400">
-              {locale === "vi"
-                ? "Khách có thể nhấp xem trước video dịch vụ này khi đặt lịch."
-                : "Customers can click to preview this service before booking."}
+              {tDash("servicesForm.videoLinkHint")}
             </p>
             <input
               type="url"
@@ -354,7 +344,7 @@ export function ServicesManager({
           </div>
           {staffOptions.length > 0 && (
             <div>
-              <label className="label">Nhân viên thực hiện</label>
+              <label className="label">{tDash("servicesForm.staffCanDo")}</label>
               <div className="flex flex-wrap gap-2">
                 {staffOptions.map((s) => (
                   <button
@@ -374,9 +364,7 @@ export function ServicesManager({
               {form.staffIds.length > 0 && (
                 <div className="mt-3 space-y-2">
                   <p className="text-xs text-ink-400">
-                    {locale === "vi"
-                      ? "Để trống nếu nhân viên dùng giá/thời lượng mặc định ở trên."
-                      : "Leave blank for a staff member to use the default price/duration above."}
+                    {tDash("servicesForm.staffOverrideHint")}
                   </p>
                   {form.staffIds.map((id) => {
                     const staffName = staffOptions.find((s) => s.id === id)?.name ?? id;
@@ -388,7 +376,7 @@ export function ServicesManager({
                           type="number"
                           min={0}
                           step="0.01"
-                          placeholder={locale === "vi" ? "Giá riêng" : "Own price"}
+                          placeholder={tDash("servicesForm.ownPrice")}
                           className="input !w-28 text-xs"
                           value={override.priceAmount}
                           onChange={(e) => setStaffOverride(id, "priceAmount", e.target.value)}
@@ -396,7 +384,7 @@ export function ServicesManager({
                         <input
                           type="number"
                           min={5}
-                          placeholder={locale === "vi" ? "Phút riêng" : "Own minutes"}
+                          placeholder={tDash("servicesForm.ownMinutes")}
                           className="input !w-28 text-xs"
                           value={override.durationMin}
                           onChange={(e) => setStaffOverride(id, "durationMin", e.target.value)}

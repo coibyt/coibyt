@@ -74,7 +74,7 @@ export function HoursEditor({
                 )
               }
             />
-            {tDash("weekdays")[i]}
+            {tDash.raw("weekdays")[i]}
           </label>
           {d.open && (
             <>

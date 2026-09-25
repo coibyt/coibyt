@@ -185,6 +185,54 @@
       "addPhotos": "Add photos",
       "postButton": "Post",
       "noPostsYet": "No posts yet."
+    },
+    "servicesForm": {
+      "newService": "New service",
+      "editService": "Edit service",
+      "serviceName": "Service name",
+      "category": "Category",
+      "durationMinutes": "Duration (minutes)",
+      "bufferMinutes": "Cleanup time after (minutes)",
+      "price": "Price",
+      "deposit": "Deposit",
+      "optional": "optional",
+      "description": "Description",
+      "descriptionHint": "Shown under the service name when a customer picks it.",
+      "videoLink": "YouTube video link",
+      "videoLinkHint": "Customers can click to preview this service before booking.",
+      "staffCanDo": "Staff who can perform this",
+      "staffOverrideHint": "Leave blank for a staff member to use the default price/duration above.",
+      "ownPrice": "Own price",
+      "ownMinutes": "Own minutes",
+      "addOns": "Add-ons"
+    },
+    "contactLinks": {
+      "title": "Contact & social links",
+      "subtitle": "Shown on your public page so customers can reach you directly.",
+      "phoneNumber": "Phone number",
+      "youtubeChannel": "YouTube channel",
+      "introVideo": "Salon intro video",
+      "formatError": "Please check the link/email format."
+    },
+    "businessImages": {
+      "coverPhoto": "Cover photo",
+      "coverPhotoHint": "Shown at the top of your business page and in search results.",
+      "noCoverYet": "No cover photo yet",
+      "uploadCoverPhoto": "Upload cover photo",
+      "logo": "Logo",
+      "logoHint": "A square image used as your business's avatar.",
+      "uploadLogo": "Upload logo",
+      "imageTooLarge": "Image must be under 5MB.",
+      "uploadFailed": "Upload failed, please try again."
+    },
+    "addOnsModal": {
+      "title": "Add-ons",
+      "chooseHint": "Choose which add-ons customers can pick when booking this service.",
+      "noAddOnsYet": "No add-ons yet.",
+      "addOnName": "Add-on name",
+      "price": "Price",
+      "extraMinutes": "Extra minutes",
+      "createNewAddOn": "Create new add-on"
     }
   },
   "common": {
