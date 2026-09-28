@@ -90,6 +90,83 @@ const STATUS_BG: Record<string, string> = {
 
 type ViewMode = "day" | "week" | "month";
 
+const HOURS_DIALOG: Record<
+  string,
+  {
+    dragStart: string;
+    dragEnd: string;
+    confirmStart: string;
+    confirmEnd: string;
+    newTimeIs: string;
+    confirm: string;
+    cancel: string;
+  }
+> = {
+  vi: {
+    dragStart: "Kéo để đổi giờ bắt đầu",
+    dragEnd: "Kéo để đổi giờ kết thúc",
+    confirmStart: "Đổi giờ bắt đầu làm việc?",
+    confirmEnd: "Đổi giờ kết thúc làm việc?",
+    newTimeIs: "Giờ mới là",
+    confirm: "Được rồi",
+    cancel: "Huỷ bỏ",
+  },
+  en: {
+    dragStart: "Drag to change start time",
+    dragEnd: "Drag to change end time",
+    confirmStart: "Change the start time?",
+    confirmEnd: "Change the end time?",
+    newTimeIs: "The new time is",
+    confirm: "Confirm",
+    cancel: "Cancel",
+  },
+  fi: {
+    dragStart: "Vedä muuttaaksesi alkamisaikaa",
+    dragEnd: "Vedä muuttaaksesi päättymisaikaa",
+    confirmStart: "Haluatko varmasti siirtää työvuoron alkamisaikaa?",
+    confirmEnd: "Haluatko varmasti siirtää työvuoron päättymisaikaa?",
+    newTimeIs: "Uusi aika on",
+    confirm: "OK",
+    cancel: "Peruuta",
+  },
+  pl: {
+    dragStart: "Przeciągnij, aby zmienić godzinę rozpoczęcia",
+    dragEnd: "Przeciągnij, aby zmienić godzinę zakończenia",
+    confirmStart: "Zmienić godzinę rozpoczęcia pracy?",
+    confirmEnd: "Zmienić godzinę zakończenia pracy?",
+    newTimeIs: "Nowa godzina to",
+    confirm: "OK",
+    cancel: "Anuluj",
+  },
+  de: {
+    dragStart: "Ziehen, um die Startzeit zu ändern",
+    dragEnd: "Ziehen, um die Endzeit zu ändern",
+    confirmStart: "Startzeit der Arbeit ändern?",
+    confirmEnd: "Endzeit der Arbeit ändern?",
+    newTimeIs: "Die neue Zeit ist",
+    confirm: "OK",
+    cancel: "Abbrechen",
+  },
+  km: {
+    dragStart: "អូសដើម្បីប្តូរម៉ោងចាប់ផ្តើម",
+    dragEnd: "អូសដើម្បីប្តូរម៉ោងបញ្ចប់",
+    confirmStart: "ប្តូរម៉ោងចាប់ផ្តើមធ្វើការមែនទេ?",
+    confirmEnd: "ប្តូរម៉ោងបញ្ចប់ការងារមែនទេ?",
+    newTimeIs: "ម៉ោងថ្មីគឺ",
+    confirm: "យល់ព្រម",
+    cancel: "បោះបង់",
+  },
+  th: {
+    dragStart: "ลากเพื่อเปลี่ยนเวลาเริ่มงาน",
+    dragEnd: "ลากเพื่อเปลี่ยนเวลาเลิกงาน",
+    confirmStart: "ต้องการเปลี่ยนเวลาเริ่มงานหรือไม่?",
+    confirmEnd: "ต้องการเปลี่ยนเวลาเลิกงานหรือไม่?",
+    newTimeIs: "เวลาใหม่คือ",
+    confirm: "ตกลง",
+    cancel: "ยกเลิก",
+  },
+};
+
 interface ServiceOption {
   id: string;
   name: string;
@@ -135,6 +212,7 @@ export function BookingCalendar({
 }) {
   const t = useTranslations("business");
   const tDash = useTranslations("dashboard");
+  const hd = HOURS_DIALOG[locale] ?? HOURS_DIALOG.en;
   const tStatus = useTranslations("booking.status");
   const tCancelReason = useTranslations("booking.cancelReason");
   const dfLocale = locale === "vi" ? vi : undefined;
@@ -316,7 +394,9 @@ export function BookingCalendar({
     setResizePreview(null);
   }
 
-  function startResize(staffId: string, edge: "open" | "close", e: React.MouseEvent) {
+  // Pointer events (not mouse events) so the same drag works with a finger on
+  // a phone or tablet as well as with a mouse.
+  function startResize(staffId: string, edge: "open" | "close", e: React.PointerEvent) {
     e.preventDefault();
     e.stopPropagation();
     setResizing({ staffId, edge });
@@ -324,7 +404,7 @@ export function BookingCalendar({
 
   useEffect(() => {
     if (!resizing) return;
-    function onMove(e: MouseEvent) {
+    function onMove(e: PointerEvent) {
       const col = dayColumnRefs.current.get(resizing!.staffId);
       if (!col) return;
       const rect = col.getBoundingClientRect();
@@ -365,11 +445,18 @@ export function BookingCalendar({
       setResizePreview(null);
       setResizing(null);
     }
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("mouseup", onUp);
+    function onCancel() {
+      resizePreviewRef.current = null;
+      setResizePreview(null);
+      setResizing(null);
+    }
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onCancel);
     return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("mouseup", onUp);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onCancel);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resizing]);
@@ -833,25 +920,38 @@ export function BookingCalendar({
                       {openPx === null && closePx === null && (
                         <div className="pointer-events-none absolute inset-0 z-10 bg-white/60" />
                       )}
+                      {/* Each handle is a tall, invisible touch target around a thin
+                          visible bar — a 6px line is far too small to grab with a
+                          finger. touch-none stops the page scrolling mid-drag. */}
                       {openPx !== null && (
                         <div
-                          onMouseDown={(e) => startResize(s.id, "open", e)}
-                          className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
-                            activeEdit?.edge === "open" ? "opacity-100" : "opacity-70 hover:opacity-100"
-                          }`}
-                          style={{ top: openPx - 3 }}
-                          title={locale === "vi" ? "Kéo để đổi giờ bắt đầu" : "Drag to change start time"}
-                        />
+                          onPointerDown={(e) => startResize(s.id, "open", e)}
+                          onClick={(e) => e.stopPropagation()}
+                          className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
+                          style={{ top: openPx - 16 }}
+                          title={hd.dragStart}
+                        >
+                          <span
+                            className={`pointer-events-none block h-1.5 w-full rounded-full bg-ink-900 ${
+                              activeEdit?.edge === "open" ? "opacity-100" : "opacity-70"
+                            }`}
+                          />
+                        </div>
                       )}
                       {closePx !== null && (
                         <div
-                          onMouseDown={(e) => startResize(s.id, "close", e)}
-                          className={`absolute left-0 right-0 z-20 h-1.5 cursor-row-resize rounded-full bg-ink-900 ${
-                            activeEdit?.edge === "close" ? "opacity-100" : "opacity-70 hover:opacity-100"
-                          }`}
-                          style={{ top: closePx - 3 }}
-                          title={locale === "vi" ? "Kéo để đổi giờ kết thúc" : "Drag to change end time"}
-                        />
+                          onPointerDown={(e) => startResize(s.id, "close", e)}
+                          onClick={(e) => e.stopPropagation()}
+                          className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
+                          style={{ top: closePx - 16 }}
+                          title={hd.dragEnd}
+                        >
+                          <span
+                            className={`pointer-events-none block h-1.5 w-full rounded-full bg-ink-900 ${
+                              activeEdit?.edge === "close" ? "opacity-100" : "opacity-70"
+                            }`}
+                          />
+                        </div>
                       )}
                     </>
                   )}
@@ -1338,16 +1438,10 @@ export function BookingCalendar({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card w-full max-w-sm animate-slide-up p-6">
             <p className="mb-3 text-lg font-bold text-ink-900">
-              {pendingHoursChange.edge === "open"
-                ? locale === "vi"
-                  ? "Đổi giờ bắt đầu làm việc?"
-                  : "Change the start time?"
-                : locale === "vi"
-                  ? "Đổi giờ kết thúc làm việc?"
-                  : "Change the end time?"}
+              {pendingHoursChange.edge === "open" ? hd.confirmStart : hd.confirmEnd}
             </p>
             <p className="mb-4 text-sm text-ink-700">
-              {locale === "vi" ? "Giờ mới là " : "The new time is "}
+              {hd.newTimeIs}{" "}
               <span className="font-semibold text-ink-900">
                 {String(Math.floor(pendingHoursChange.newMinute / 60)).padStart(2, "0")}:
                 {String(pendingHoursChange.newMinute % 60).padStart(2, "0")}
@@ -1355,10 +1449,10 @@ export function BookingCalendar({
             </p>
             <div className="flex gap-2">
               <button onClick={confirmPendingHoursChange} className="btn-primary">
-                {locale === "vi" ? "Được rồi" : "Confirm"}
+                {hd.confirm}
               </button>
               <button onClick={cancelPendingHoursChange} className="btn-ghost">
-                {locale === "vi" ? "Huỷ bỏ" : "Cancel"}
+                {hd.cancel}
               </button>
             </div>
           </div>
