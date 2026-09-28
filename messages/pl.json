@@ -320,6 +320,8 @@
     "emailInUse": "Ten adres e-mail jest już używany.",
     "wrongPassword": "Obecne hasło jest nieprawidłowe.",
     "genericErrorShort": "Coś poszło nie tak.",
-    "passwordChanged": "Hasło zostało zmienione."
+    "passwordChanged": "Hasło zostało zmienione.",
+    "chainTitle": "Wspólna strona rezerwacji sieci (wszystkie oddziały)",
+    "chainSubtitle": "Jedna wspólna strona z listą wszystkich Twoich oddziałów — klient wybiera oddział i od razu rezerwuje. Możesz ją osadzić na własnej stronie internetowej."
   }
 }

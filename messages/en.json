@@ -320,6 +320,8 @@
     "emailInUse": "That email is already in use.",
     "wrongPassword": "Current password is incorrect.",
     "genericErrorShort": "Something went wrong.",
-    "passwordChanged": "Password changed."
+    "passwordChanged": "Password changed.",
+    "chainTitle": "Chain booking page (all branches)",
+    "chainSubtitle": "One shared page listing all your branches — customers pick a branch and book right away. You can embed it on your own website."
   }
 }

@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOnly, listOwnedBusinesses } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -27,6 +27,10 @@ export default async function BusinessSettingsPage({
   const business = await prisma.business.findUniqueOrThrow({ where: { id: owned.businessId } });
 
   const session = await auth();
+  // The shared "all branches" booking page only exists for owners with 2+ branches.
+  const ownedBranches = session?.user
+    ? (await listOwnedBusinesses(session.user.id)).filter((b) => b.status === "APPROVED")
+    : [];
   const [allCategories, ownCategoryLinks, currentUser] = await Promise.all([
     prisma.category.findMany({ select: { id: true, nameVi: true, nameEn: true } }),
     prisma.businessCategory.findMany({
@@ -94,6 +98,13 @@ export default async function BusinessSettingsPage({
         }}
       />
       <BookingEmbedCard slug={business.slug} defaultLocale={business.defaultLocale} />
+      {ownedBranches.length >= 2 && (
+        <BookingEmbedCard
+          variant="chain"
+          slug={ownedBranches[0].slug}
+          defaultLocale={business.defaultLocale}
+        />
+      )}
       {currentUser && (
         <AccountSettingsCard
           currentEmail={currentUser.email}

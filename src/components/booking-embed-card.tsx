@@ -7,7 +7,10 @@ import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
 export function BookingEmbedCard({
   slug,
   defaultLocale,
+  variant = "branch",
 }: {
+  /** "chain" embeds the shared page listing all of an owner's branches. */
+  variant?: "branch" | "chain";
   slug: string;
   /** The salon's own configured language (Settings → Salon preferences) —
    * used for the embed URL regardless of which language the owner currently
@@ -19,8 +22,9 @@ export function BookingEmbedCard({
   const [copied, setCopied] = useState<"url" | "code" | null>(null);
 
   const origin = typeof window !== "undefined" ? window.location.origin : "";
-  const embedUrl = `${origin}/embed/${slug}?locale=${defaultLocale}`;
-  const iframeId = `varaaai-embed-${slug}`;
+  const isChain = variant === "chain";
+  const embedUrl = `${origin}/embed/${isChain ? "chain/" : ""}${slug}?locale=${defaultLocale}`;
+  const iframeId = `varaaai-embed-${isChain ? "chain-" : ""}${slug}`;
   const embedCode = `<iframe id="${iframeId}" src="${embedUrl}" style="width:100%;border:0;"></iframe>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/2.8.3/iframeResizer.min.js"></script>
 <script>
@@ -35,8 +39,12 @@ export function BookingEmbedCard({
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">{t("embedTitle")}</h2>
-      <p className="mb-3 text-xs text-ink-400">{t("embedSubtitle")}</p>
+      <h2 className="mb-1 font-semibold text-ink-900">
+        {isChain ? t("chainTitle") : t("embedTitle")}
+      </h2>
+      <p className="mb-3 text-xs text-ink-400">
+        {isChain ? t("chainSubtitle") : t("embedSubtitle")}
+      </p>
 
       <div className="mb-3 flex items-center gap-2 rounded-xl border border-ink-100 bg-mist-50 px-3 py-2 text-xs text-ink-700">
         <span className="flex-1 truncate">{embedUrl}</span>

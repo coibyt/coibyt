@@ -320,6 +320,8 @@
     "emailInUse": "Diese E-Mail-Adresse wird bereits verwendet.",
     "wrongPassword": "Das aktuelle Passwort ist falsch.",
     "genericErrorShort": "Etwas ist schiefgelaufen.",
-    "passwordChanged": "Passwort geändert."
+    "passwordChanged": "Passwort geändert.",
+    "chainTitle": "Gemeinsame Buchungsseite der Kette (alle Filialen)",
+    "chainSubtitle": "Eine gemeinsame Seite mit allen deinen Filialen — Kunden wählen eine Filiale und buchen sofort. Du kannst sie in deine eigene Website einbetten."
   }
 }

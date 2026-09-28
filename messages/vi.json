@@ -320,6 +320,8 @@
     "emailInUse": "Email này đã được sử dụng.",
     "wrongPassword": "Mật khẩu hiện tại không đúng.",
     "genericErrorShort": "Có lỗi xảy ra.",
-    "passwordChanged": "Đã đổi mật khẩu."
+    "passwordChanged": "Đã đổi mật khẩu.",
+    "chainTitle": "Trang đặt lịch chuỗi (tất cả chi nhánh)",
+    "chainSubtitle": "Một trang chung liệt kê tất cả chi nhánh của bạn — khách chọn chi nhánh rồi đặt lịch ngay. Có thể dán vào website riêng của bạn."
   }
 }

@@ -10,10 +10,10 @@ export default async function EmbedBusinessPage({
   searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ locale?: string }>;
+  searchParams: Promise<{ locale?: string; chain?: string }>;
 }) {
   const { slug } = await params;
-  const { locale: rawLocale } = await searchParams;
+  const { locale: rawLocale, chain } = await searchParams;
 
   const business = await prisma.business.findUnique({
     where: { slug },
@@ -32,8 +32,26 @@ export default async function EmbedBusinessPage({
       ? business.defaultLocale
       : routing.defaultLocale;
 
+  const backLabel: Record<string, string> = {
+    vi: "Tất cả chi nhánh",
+    en: "All branches",
+    fi: "Kaikki toimipisteet",
+    pl: "Wszystkie oddziały",
+    de: "Alle Filialen",
+    km: "សាខាទាំងអស់",
+    th: "ทุกสาขา",
+  };
+
   return (
     <div className="mx-auto max-w-xl p-4">
+      {chain && (
+        <a
+          href={`/embed/chain/${encodeURIComponent(chain)}?locale=${locale}`}
+          className="mb-3 inline-block text-sm font-medium text-primary-600 hover:underline"
+        >
+          ← {backLabel[locale] ?? backLabel.en}
+        </a>
+      )}
       <div className="mb-5 flex items-center gap-3">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-primary-100 text-lg font-bold text-primary-500">
           {business.logoUrl ? (

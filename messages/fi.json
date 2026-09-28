@@ -320,6 +320,8 @@
     "emailInUse": "Tämä sähköposti on jo käytössä.",
     "wrongPassword": "Nykyinen salasana on väärä.",
     "genericErrorShort": "Jokin meni pieleen.",
-    "passwordChanged": "Salasana vaihdettu."
+    "passwordChanged": "Salasana vaihdettu.",
+    "chainTitle": "Ketjun yhteinen varaussivu (kaikki toimipisteet)",
+    "chainSubtitle": "Yksi yhteinen sivu, jolla näkyvät kaikki toimipisteesi — asiakas valitsee toimipisteen ja varaa heti. Voit upottaa sen omalle verkkosivustollesi."
   }
 }
