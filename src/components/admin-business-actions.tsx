@@ -41,6 +41,28 @@ export function AdminBusinessActions({
       confirmText
     );
 
+  const transfer = async () => {
+    const email = window.prompt(
+      `Chuyển "${name}" sang tài khoản (email) nào? Salon sẽ xuất hiện trong bảng điều khiển của tài khoản đó như một chi nhánh.`
+    )?.trim();
+    if (!email) return;
+    setBusy(true);
+    setError(false);
+    const res = await fetch(`/api/admin/businesses/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ownerEmail: email }),
+    });
+    setBusy(false);
+    if (!res.ok) {
+      window.alert(
+        res.status === 404 ? "Không tìm thấy tài khoản với email này." : "Có lỗi xảy ra, thử lại."
+      );
+      return;
+    }
+    router.refresh();
+  };
+
   const remove = () =>
     run(
       () => fetch(`/api/admin/businesses/${id}`, { method: "DELETE" }),
@@ -72,6 +94,13 @@ export function AdminBusinessActions({
           Tạm ngưng
         </button>
       ) : null}
+      <button
+        disabled={busy}
+        onClick={transfer}
+        className="btn-ghost !px-3 !py-1 text-xs"
+      >
+        Chuyển chủ
+      </button>
       <button
         disabled={busy}
         onClick={remove}

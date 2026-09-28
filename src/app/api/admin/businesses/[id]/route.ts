@@ -5,10 +5,15 @@ import { z } from "zod";
 import { sendMail } from "@/lib/mailer";
 import { approveBusiness } from "@/lib/approve-business";
 
-const schema = z.object({
-  status: z.enum(["APPROVED", "REJECTED", "SUSPENDED"]),
-  rejectReason: z.string().max(1000).optional(),
-});
+const schema = z
+  .object({
+    status: z.enum(["APPROVED", "REJECTED", "SUSPENDED"]).optional(),
+    rejectReason: z.string().max(1000).optional(),
+    // Moves the salon to another user's account — how an admin merges several
+    // branches under one login.
+    ownerEmail: z.string().email().optional(),
+  })
+  .refine((d) => d.status || d.ownerEmail, { message: "NOTHING_TO_UPDATE" });
 
 export async function PATCH(
   req: Request,
@@ -23,6 +28,23 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
+
+  if (parsed.data.ownerEmail) {
+    const newOwner = await prisma.user.findUnique({
+      where: { email: parsed.data.ownerEmail },
+      select: { id: true, role: true },
+    });
+    if (!newOwner) return NextResponse.json({ error: "USER_NOT_FOUND" }, { status: 404 });
+    const [business] = await prisma.$transaction([
+      prisma.business.update({ where: { id }, data: { ownerId: newOwner.id } }),
+      ...(newOwner.role === "CUSTOMER"
+        ? [prisma.user.update({ where: { id: newOwner.id }, data: { role: "BUSINESS_OWNER" } })]
+        : []),
+    ]);
+    return NextResponse.json({ business });
+  }
+
+  if (!parsed.data.status) return NextResponse.json({ error: "INVALID" }, { status: 400 });
 
   if (parsed.data.status === "APPROVED") {
     const current = await prisma.business.findUnique({ where: { id }, select: { status: true } });

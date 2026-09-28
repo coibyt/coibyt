@@ -40,7 +40,7 @@ model User {
 
   accounts Account[]
   sessions Session[]
-  business     Business? // present when role = BUSINESS_OWNER
+  businesses   Business[] // one or more branches when role = BUSINESS_OWNER
   staffProfile Staff? // present when role = STAFF
   bookings     Booking[]
   reviews      Review[]
@@ -112,7 +112,9 @@ model Category {
 
 model Business {
   id          String         @id @default(cuid())
-  ownerId     String         @unique
+  // Not unique: one owner account can run several branches (Business rows) —
+  // the dashboard switches between them via the `varaaai_business` cookie.
+  ownerId     String
   owner       User           @relation(fields: [ownerId], references: [id], onDelete: Cascade)
   slug        String         @unique
   name        String
@@ -179,6 +181,7 @@ model Business {
   followers     BusinessFollow[]
   posts         Post[]
 
+  @@index([ownerId])
   @@index([status])
   @@index([city])
 }

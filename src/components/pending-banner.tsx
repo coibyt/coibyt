@@ -4,6 +4,16 @@ import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 
+const SUSPENDED_TEXT: Record<string, string> = {
+  vi: "Salon này đang bị tạm ngưng hoạt động. Vui lòng liên hệ info@varaaAi.com để biết thêm chi tiết.",
+  en: "This salon is currently suspended. Please contact info@varaaAi.com for details.",
+  fi: "Tämä salonki on tilapäisesti keskeytetty. Ota yhteyttä osoitteeseen info@varaaAi.com saadaksesi lisätietoja.",
+  pl: "Ten salon jest obecnie zawieszony. Skontaktuj się z info@varaaAi.com, aby uzyskać szczegóły.",
+  de: "Dieser Salon ist derzeit gesperrt. Bitte kontaktiere info@varaaAi.com für Details.",
+  km: "សាឡុងនេះកំពុងត្រូវបានផ្អាកជាបណ្តោះអាសន្ន។ សូមទាក់ទង info@varaaAi.com ដើម្បីទទួលព័ត៌មានលម្អិត។",
+  th: "ร้านนี้ถูกระงับชั่วคราว กรุณาติดต่อ info@varaaAi.com เพื่อดูรายละเอียด",
+};
+
 export function PendingBanner({
   status,
   emailVerified,
@@ -24,7 +34,16 @@ export function PendingBanner({
   }
 
   const isRejected = status === "REJECTED";
-  const needsVerification = !isRejected && !emailVerified;
+  const isSuspended = status === "SUSPENDED";
+  const needsVerification = !isRejected && !isSuspended && !emailVerified;
+
+  if (isSuspended) {
+    return (
+      <div className="card border-berry-400 bg-berry-50 p-6 text-center">
+        <p className="text-berry-500">{SUSPENDED_TEXT[locale] ?? SUSPENDED_TEXT.en}</p>
+      </div>
+    );
+  }
 
   return (
     <div

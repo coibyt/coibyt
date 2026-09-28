@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { getBusinessAccess } from "@/lib/current-business";
+import { getBusinessAccess, listOwnedBusinesses } from "@/lib/current-business";
+import { BranchSwitcher } from "@/components/branch-switcher";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
@@ -24,8 +25,16 @@ export default async function BusinessDashboardLayout({
 
   const { business, isOwner, permissions } = access;
 
+  const session = await auth();
+  const branches =
+    isOwner && session?.user
+      ? (await listOwnedBusinesses(session.user.id)).map((b) => ({ id: b.id, name: b.name }))
+      : [];
+  const switcher = isOwner ? (
+    <BranchSwitcher branches={branches} activeId={business.id} locale={locale} />
+  ) : null;
+
   if (business.status !== "APPROVED") {
-    const session = await auth();
     const user = session?.user
       ? await prisma.user.findUnique({
           where: { id: session.user.id },
@@ -34,6 +43,7 @@ export default async function BusinessDashboardLayout({
       : null;
     return (
       <div className="container max-w-lg py-16">
+        {switcher}
         <PendingBanner status={business.status} emailVerified={!!user?.emailVerified} />
       </div>
     );
@@ -67,7 +77,10 @@ export default async function BusinessDashboardLayout({
   return (
     <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-[220px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
-      <div>{children}</div>
+      <div>
+        {switcher}
+        {children}
+      </div>
     </div>
   );
 }

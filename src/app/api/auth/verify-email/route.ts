@@ -46,8 +46,11 @@ export async function GET(req: Request) {
     // Already consumed by a concurrent request — fine, the update above is idempotent.
   });
 
-  const business = await prisma.business.findUnique({ where: { ownerId: user.id } });
-  if (business && business.status === "PENDING") {
+  const pendingBusinesses = await prisma.business.findMany({
+    where: { ownerId: user.id, status: "PENDING" },
+    select: { id: true },
+  });
+  for (const business of pendingBusinesses) {
     await approveBusiness(business.id);
   }
 

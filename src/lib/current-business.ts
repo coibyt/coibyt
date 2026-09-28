@@ -1,6 +1,14 @@
+import { cookies } from "next/headers";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import type { Business } from "@prisma/client";
+
+export const ACTIVE_BUSINESS_COOKIE = "varaaai_business";
+
+/** Every branch the user owns, oldest first. */
+export async function listOwnedBusinesses(userId: string) {
+  return prisma.business.findMany({ where: { ownerId: userId }, orderBy: { createdAt: "asc" } });
+}
 
 export type StaffSection = "services" | "bookings" | "customers" | "hours" | "reviews";
 
@@ -41,7 +49,11 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
   const session = await auth();
   if (!session?.user) return null;
 
-  const owned = await prisma.business.findUnique({ where: { ownerId: session.user.id } });
+  const ownedAll = await listOwnedBusinesses(session.user.id);
+  // An owner can run several branches; the one they last switched to (see
+  // /api/business/switch) is the active one, defaulting to their first.
+  const preferredId = (await cookies()).get(ACTIVE_BUSINESS_COOKIE)?.value;
+  const owned = ownedAll.find((b) => b.id === preferredId) ?? ownedAll[0];
   if (owned) {
     return {
       business: owned,

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
+import { ACTIVE_BUSINESS_COOKIE } from "@/lib/current-business";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { businessApplicationSchema, businessApplicationWithAccountSchema } from "@/lib/validations";
@@ -21,8 +23,13 @@ export async function POST(req: Request) {
   let businessInput: z.infer<typeof businessApplicationSchema>;
 
   if (session?.user) {
-    const existing = await prisma.business.findUnique({ where: { ownerId: session.user.id } });
-    if (existing) {
+    // An owner whose salon is already live may add further branches; one
+    // still waiting for approval/verification can't pile up more applications.
+    const existing = await prisma.business.findMany({
+      where: { ownerId: session.user.id },
+      select: { status: true },
+    });
+    if (existing.some((b) => b.status !== "APPROVED")) {
       return NextResponse.json({ error: "ALREADY_APPLIED" }, { status: 409 });
     }
 
@@ -109,6 +116,15 @@ export async function POST(req: Request) {
       siteUrl,
     });
   }
+
+  // Land the owner on the branch they just created.
+  (await cookies()).set(ACTIVE_BUSINESS_COOKIE, business.id, {
+    path: "/",
+    httpOnly: true,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 60 * 60 * 24 * 365,
+  });
 
   return NextResponse.json({ business }, { status: 201 });
 }

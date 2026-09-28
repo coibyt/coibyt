@@ -7,25 +7,32 @@ import { PendingBanner } from "@/components/pending-banner";
 
 export default async function BusinessApplyPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ branch?: string }>;
 }) {
   const { locale } = await params;
+  const { branch } = await searchParams;
   const session = await auth();
   const t = await getTranslations("business");
 
   if (session?.user) {
-    const [existing, user] = await Promise.all([
-      prisma.business.findUnique({ where: { ownerId: session.user.id } }),
+    const [ownedBusinesses, user] = await Promise.all([
+      prisma.business.findMany({ where: { ownerId: session.user.id }, orderBy: { createdAt: "asc" } }),
       prisma.user.findUnique({ where: { id: session.user.id }, select: { emailVerified: true } }),
     ]);
-    if (existing) {
-      if (existing.status === "APPROVED") redirect({ href: "/business/dashboard", locale });
+    const unapproved = ownedBusinesses.find((b) => b.status !== "APPROVED");
+    if (unapproved) {
       return (
         <div className="container max-w-lg py-16">
-          <PendingBanner status={existing.status} emailVerified={!!user?.emailVerified} />
+          <PendingBanner status={unapproved.status} emailVerified={!!user?.emailVerified} />
         </div>
       );
+    }
+    // Owners with a live salon only see this form when adding another branch.
+    if (ownedBusinesses.length > 0 && branch !== "1") {
+      redirect({ href: "/business/dashboard", locale });
     }
   }
 
