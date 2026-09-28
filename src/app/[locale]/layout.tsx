@@ -11,6 +11,8 @@ import { Footer } from "@/components/footer";
 import { LocaleAutoDetect } from "@/components/locale-auto-detect";
 import "../globals.css";
 
+const GOOGLE_TAG_ID = "GT-PL3VR4KX";
+
 // Be Vietnam Pro is purpose-built for Vietnamese diacritics while still
 // reading as a clean, modern geometric sans in English — the closest
 // available match to timma.fi's "Sofia Pro" that also fully supports our
@@ -53,6 +55,19 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={sans.variable}>
+      <head>
+        {/* Google tag (gtag.js) for Google Ads. Left out of the /embed pages on purpose —
+            those render inside salons' own websites. */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_TAG_ID}');`,
+          }}
+        />
+      </head>
       <body className="flex min-h-screen flex-col font-sans">
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
