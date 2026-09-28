@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown } from "lucide-react";
@@ -75,6 +75,13 @@ export function ServicesManager({
   const [saving, setSaving] = useState(false);
   const [newGroupName, setNewGroupName] = useState("");
   const [groupBusy, setGroupBusy] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Bring the form into view whenever it opens — right below the edited row,
+  // or at the bottom for a new service.
+  useEffect(() => {
+    if (showForm) formRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [showForm, editingId]);
 
   function startEdit(s: ServiceRow) {
     setEditingId(s.id);
@@ -231,7 +238,8 @@ export function ServicesManager({
 
   function renderServiceRow(s: ServiceRow) {
     return (
-      <div key={s.id} className="card flex items-center justify-between gap-4 p-4">
+      <div key={s.id} className="space-y-3">
+      <div className="card flex items-center justify-between gap-4 p-4">
         <div>
           <p className="font-semibold text-ink-900">{s.name}</p>
           <p className="text-xs text-ink-400">
@@ -261,6 +269,8 @@ export function ServicesManager({
             <Trash2 className="h-4 w-4" />
           </button>
         </div>
+      </div>
+      {showForm && editingId === s.id && renderForm()}
       </div>
     );
   }
@@ -363,8 +373,17 @@ export function ServicesManager({
         <button onClick={startCreate} className="btn-outline">
           <Plus className="h-4 w-4" /> {t("addService")}
         </button>
-      ) : (
-        <form onSubmit={saveService} className="card space-y-4 p-5">
+      ) : !editingId ? (
+        renderForm()
+      ) : null}
+    </div>
+  );
+
+  // Shared by "new service" (bottom of the page) and "edit service" (right
+  // under the row being edited, so the owner never has to scroll down).
+  function renderForm() {
+    return (
+        <form ref={formRef} onSubmit={saveService} className="card space-y-4 p-5">
           <h3 className="font-semibold text-ink-900">
             {editingId ? tDash("servicesForm.editService") : tDash("servicesForm.newService")}
           </h3>
@@ -538,7 +557,6 @@ export function ServicesManager({
             </button>
           </div>
         </form>
-      )}
-    </div>
-  );
+    );
+  }
 }
