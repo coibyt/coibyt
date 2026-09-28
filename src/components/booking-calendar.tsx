@@ -907,18 +907,18 @@ export function BookingCalendar({
                     <>
                       {openPx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-white/60"
+                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-ink-400/25"
                           style={{ height: Math.max(0, openPx) }}
                         />
                       )}
                       {closePx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 z-10 bg-white/60"
+                          className="pointer-events-none absolute left-0 right-0 z-10 bg-ink-400/25"
                           style={{ top: Math.max(0, closePx), bottom: 0 }}
                         />
                       )}
                       {openPx === null && closePx === null && (
-                        <div className="pointer-events-none absolute inset-0 z-10 bg-white/60" />
+                        <div className="pointer-events-none absolute inset-0 z-10 bg-ink-400/25" />
                       )}
                       {/* Each handle is a tall, invisible touch target around a thin
                           visible bar — a 6px line is far too small to grab with a
