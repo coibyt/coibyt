@@ -44,7 +44,13 @@ export async function approveBusiness(businessId: string) {
     guideUrl: `${siteUrl}/help/getting-started`,
     locale: business.owner.locale,
   });
-  await sendMail({ to: business.owner.email, ...email });
+  // The salon is already approved at this point, so a mail-server hiccup
+  // must not turn the whole request into an error.
+  try {
+    await sendMail({ to: business.owner.email, ...email });
+  } catch (err) {
+    console.error("[approveBusiness] ready email failed", err);
+  }
 
   return business;
 }
