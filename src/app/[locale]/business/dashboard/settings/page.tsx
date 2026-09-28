@@ -3,6 +3,7 @@ import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
+import { AddBranchButton } from "@/components/branch-switcher";
 import { BusinessImagesManager } from "@/components/business-images-manager";
 import { BookingEmbedCard } from "@/components/booking-embed-card";
 import { BankInfoCard } from "@/components/bank-info-card";
@@ -42,7 +43,10 @@ export default async function BusinessSettingsPage({
 
   return (
     <div className="space-y-6">
-      <h1 className="text-xl font-bold text-ink-900">{t("settings")}</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-xl font-bold text-ink-900">{t("settings")}</h1>
+        <AddBranchButton locale={locale} />
+      </div>
       <BusinessProfileCard
         name={business.name}
         description={business.description}

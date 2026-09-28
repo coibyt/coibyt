@@ -41,34 +41,42 @@ export function BranchSwitcher({
     setSwitching(false);
   }
 
+  // Nothing to switch between with a single branch.
+  if (branches.length <= 1) return null;
+
   return (
     <div className="mb-4 flex flex-wrap items-center gap-2">
-      {branches.length > 1 && (
-        <label className="flex items-center gap-2 text-sm font-medium text-ink-900">
-          {switching ? (
-            <Loader2 className="h-4 w-4 animate-spin text-ink-400" />
-          ) : (
-            <Building2 className="h-4 w-4 text-ink-400" />
-          )}
-          <span className="sr-only">{l.branch}</span>
-          <select
-            className="input !w-auto !py-1.5 text-sm"
-            value={activeId}
-            disabled={switching}
-            onChange={(e) => switchTo(e.target.value)}
-            aria-label={l.branch}
-          >
-            {branches.map((b) => (
-              <option key={b.id} value={b.id}>
-                {b.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      )}
-      <Link href="/business/apply?branch=1" className="btn-ghost !px-3 !py-1.5 text-xs">
-        <Plus className="h-3.5 w-3.5" /> {l.addBranch}
-      </Link>
+      <label className="flex items-center gap-2 text-sm font-medium text-ink-900">
+        {switching ? (
+          <Loader2 className="h-4 w-4 animate-spin text-ink-400" />
+        ) : (
+          <Building2 className="h-4 w-4 text-ink-400" />
+        )}
+        <span className="sr-only">{l.branch}</span>
+        <select
+          className="input !w-auto !py-1.5 text-sm"
+          value={activeId}
+          disabled={switching}
+          onChange={(e) => switchTo(e.target.value)}
+          aria-label={l.branch}
+        >
+          {branches.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.name}
+            </option>
+          ))}
+        </select>
+      </label>
     </div>
+  );
+}
+
+/** Only shown on the Settings page, so owners don't add a branch by accident. */
+export function AddBranchButton({ locale }: { locale: string }) {
+  const l = LABELS[locale] ?? LABELS.en;
+  return (
+    <Link href="/business/apply?branch=1" className="btn-outline !px-3 !py-1.5 text-xs">
+      <Plus className="h-3.5 w-3.5" /> {l.addBranch}
+    </Link>
   );
 }
