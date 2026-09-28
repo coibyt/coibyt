@@ -109,13 +109,9 @@ export async function POST(
     return created;
   });
 
-  // Email the salon owner on a customer's first message, or when they write
-  // again after a week or more of silence — never for every message.
-  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
-  if (
-    access.role === "CUSTOMER" &&
-    (!previousCustomerMessage || Date.now() - previousCustomerMessage.createdAt.getTime() > WEEK_MS)
-  ) {
+  // Email the salon owner only for a customer's very first message in this
+  // conversation — never for every message.
+  if (access.role === "CUSTOMER" && !previousCustomerMessage) {
     try {
       const [business, customer] = await Promise.all([
         prisma.business.findUnique({

@@ -167,6 +167,7 @@ model Business {
 
   categories BusinessCategory[]
   services   Service[]
+  serviceGroups ServiceGroup[]
   staff      Staff[]
   bookings   Booking[]
   reviews    Review[]
@@ -286,10 +287,29 @@ model StaffTimeOff {
   @@index([staffId])
 }
 
+// A salon's own section headings for its service menu ("Nails", "Lash
+// extensions"...), shown as grouped sections on the public page and the
+// services dashboard — distinct from the platform-wide Category, which
+// only drives search.
+model ServiceGroup {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name       String
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  services Service[]
+
+  @@index([businessId])
+}
+
 model Service {
   id           String   @id @default(cuid())
   businessId   String
   business     Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  groupId      String?
+  group        ServiceGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
   categoryId   String?
   category     Category? @relation(fields: [categoryId], references: [id])
   name         String
@@ -311,6 +331,7 @@ model Service {
 
   @@index([businessId])
   @@index([categoryId])
+  @@index([groupId])
 }
 
 model StaffService {

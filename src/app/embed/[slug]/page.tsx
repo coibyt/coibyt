@@ -17,7 +17,10 @@ export default async function EmbedBusinessPage({
 
   const business = await prisma.business.findUnique({
     where: { slug },
-    include: { services: { where: { active: true }, orderBy: { createdAt: "asc" } } },
+    include: {
+      services: { where: { active: true }, orderBy: { createdAt: "asc" } },
+      serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
+    },
   });
   if (!business || business.status !== "APPROVED") notFound();
 
@@ -50,6 +53,7 @@ export default async function EmbedBusinessPage({
 
       <ServiceSelectionList
         services={business.services}
+        groups={business.serviceGroups}
         locale={locale}
         bookBasePath={`/embed/${slug}/book`}
         extraQueryParams={{ locale }}

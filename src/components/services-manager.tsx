@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
-import { Plus, Trash2, Loader2, Sparkles, Pencil } from "lucide-react";
+import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 
@@ -23,7 +23,7 @@ interface ServiceRow {
   depositCents: number | null;
   currency: string;
   active: boolean;
-  categoryId: string | null;
+  groupId: string | null;
   videoUrl: string | null;
   staffAssignments: StaffAssignment[];
 }
@@ -38,7 +38,7 @@ type StaffOverrideForm = Record<string, { priceAmount: string; durationMin: stri
 const emptyForm = {
   name: "",
   description: "",
-  categoryId: "",
+  groupId: "",
   durationMin: "60",
   bufferMin: "0",
   // Whole-currency-unit amounts (e.g. "180" meaning 180 EUR), not cents —
@@ -53,13 +53,13 @@ const emptyForm = {
 export function ServicesManager({
   initialServices,
   staffOptions,
-  categories,
+  groups,
   locale,
   defaultCurrency,
 }: {
   initialServices: ServiceRow[];
   staffOptions: { id: string; name: string }[];
-  categories: { id: string; name: string }[];
+  groups: { id: string; name: string }[];
   locale: string;
   defaultCurrency: string;
 }) {
@@ -73,13 +73,15 @@ export function ServicesManager({
   const [addOnsFor, setAddOnsFor] = useState<ServiceRow | null>(null);
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
+  const [newGroupName, setNewGroupName] = useState("");
+  const [groupBusy, setGroupBusy] = useState(false);
 
   function startEdit(s: ServiceRow) {
     setEditingId(s.id);
     setForm({
       name: s.name,
       description: s.description ?? "",
-      categoryId: s.categoryId ?? "",
+      groupId: s.groupId ?? "",
       durationMin: String(s.durationMin),
       bufferMin: String(s.bufferMin),
       priceAmount: String(fromSmallestUnit(s.priceCents, s.currency)),
@@ -115,7 +117,7 @@ export function ServicesManager({
     const body = {
       name: form.name,
       description: form.description,
-      categoryId: form.categoryId || undefined,
+      groupId: form.groupId || null,
       durationMin: Number(form.durationMin) || 0,
       bufferMin: Number(form.bufferMin) || 0,
       priceCents: toSmallestUnit(Number(form.priceAmount) || 0, defaultCurrency),
@@ -186,44 +188,167 @@ export function ServicesManager({
     }));
   }
 
+  async function addGroup(e: React.FormEvent) {
+    e.preventDefault();
+    const name = newGroupName.trim();
+    if (!name) return;
+    setGroupBusy(true);
+    await fetch("/api/business/service-groups", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name }),
+    });
+    setGroupBusy(false);
+    setNewGroupName("");
+    router.refresh();
+  }
+
+  async function renameGroup(id: string, current: string) {
+    const name = window.prompt(tDash("servicesForm.renameGroup"), current)?.trim();
+    if (!name || name === current) return;
+    await fetch(`/api/business/service-groups/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name }),
+    });
+    router.refresh();
+  }
+
+  async function moveGroup(id: string, move: "up" | "down") {
+    await fetch(`/api/business/service-groups/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ move }),
+    });
+    router.refresh();
+  }
+
+  async function removeGroup(id: string, name: string) {
+    if (!window.confirm(tDash("servicesForm.deleteGroupConfirm", { name }))) return;
+    await fetch(`/api/business/service-groups/${id}`, { method: "DELETE" });
+    router.refresh();
+  }
+
+  function renderServiceRow(s: ServiceRow) {
+    return (
+      <div key={s.id} className="card flex items-center justify-between gap-4 p-4">
+        <div>
+          <p className="font-semibold text-ink-900">{s.name}</p>
+          <p className="text-xs text-ink-400">
+            {s.durationMin} {tCommon("min")} · {formatMoney(s.priceCents, s.currency, locale)}
+          </p>
+        </div>
+        <div className="flex items-center gap-1">
+          <button
+            onClick={() => startEdit(s)}
+            className="btn-ghost !p-2 text-ink-700"
+            aria-label={tCommon("edit")}
+          >
+            <Pencil className="h-4 w-4" />
+          </button>
+          <button
+            onClick={() => setAddOnsFor(s)}
+            className="btn-ghost !p-2 text-ink-700"
+            title={tDash("servicesForm.addOns")}
+          >
+            <Sparkles className="h-4 w-4" />
+          </button>
+          <button
+            onClick={() => removeService(s.id)}
+            className="btn-ghost !p-2 text-berry-500"
+            aria-label={tCommon("delete")}
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const activeServices = initialServices.filter((s) => s.active);
+  const groupIdSet = new Set(groups.map((g) => g.id));
+  const ungroupedServices = activeServices.filter((s) => !s.groupId || !groupIdSet.has(s.groupId));
+
   return (
     <div className="space-y-4">
-      {initialServices
-        .filter((s) => s.active)
-        .map((s) => (
-          <div key={s.id} className="card flex items-center justify-between gap-4 p-4">
-            <div>
-              <p className="font-semibold text-ink-900">{s.name}</p>
-              <p className="text-xs text-ink-400">
-                {s.durationMin} {tCommon("min")} ·{" "}
-                {formatMoney(s.priceCents, s.currency, locale)}
-              </p>
+      <form onSubmit={addGroup} className="flex flex-wrap items-center gap-2">
+        <input
+          className="input !w-64"
+          value={newGroupName}
+          maxLength={100}
+          onChange={(e) => setNewGroupName(e.target.value)}
+          placeholder={tDash("servicesForm.newGroupPlaceholder")}
+        />
+        <button
+          type="submit"
+          disabled={groupBusy || !newGroupName.trim()}
+          className="btn-outline !px-3 !py-2 text-xs"
+        >
+          <Plus className="h-3.5 w-3.5" /> {tDash("servicesForm.addGroup")}
+        </button>
+      </form>
+
+      {groups.map((g, index) => {
+        const items = activeServices.filter((s) => s.groupId === g.id);
+        return (
+          <section key={g.id} className="space-y-2">
+            <div className="flex items-center justify-between gap-2 border-b border-ink-100 pb-1.5">
+              <h2 className="font-bold text-ink-900">
+                {g.name} <span className="text-xs font-normal text-ink-400">({items.length})</span>
+              </h2>
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => moveGroup(g.id, "up")}
+                  disabled={index === 0}
+                  className="btn-ghost !p-1.5 text-ink-700 disabled:opacity-30"
+                  aria-label="Up"
+                >
+                  <ChevronUp className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => moveGroup(g.id, "down")}
+                  disabled={index === groups.length - 1}
+                  className="btn-ghost !p-1.5 text-ink-700 disabled:opacity-30"
+                  aria-label="Down"
+                >
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                <button
+                  onClick={() => renameGroup(g.id, g.name)}
+                  className="btn-ghost !p-1.5 text-ink-700"
+                  aria-label={tCommon("edit")}
+                >
+                  <Pencil className="h-3.5 w-3.5" />
+                </button>
+                <button
+                  onClick={() => removeGroup(g.id, g.name)}
+                  className="btn-ghost !p-1.5 text-berry-500"
+                  aria-label={tCommon("delete")}
+                >
+                  <Trash2 className="h-3.5 w-3.5" />
+                </button>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <button
-                onClick={() => startEdit(s)}
-                className="btn-ghost !p-2 text-ink-700"
-                aria-label={tCommon("edit")}
-              >
-                <Pencil className="h-4 w-4" />
-              </button>
-              <button
-                onClick={() => setAddOnsFor(s)}
-                className="btn-ghost !p-2 text-ink-700"
-                title={tDash("servicesForm.addOns")}
-              >
-                <Sparkles className="h-4 w-4" />
-              </button>
-              <button
-                onClick={() => removeService(s.id)}
-                className="btn-ghost !p-2 text-berry-500"
-                aria-label={tCommon("delete")}
-              >
-                <Trash2 className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        ))}
+            {items.length === 0 ? (
+              <p className="text-xs text-ink-400">{tDash("servicesForm.groupEmpty")}</p>
+            ) : (
+              items.map(renderServiceRow)
+            )}
+          </section>
+        );
+      })}
+
+      {ungroupedServices.length > 0 && (
+        <section className="space-y-2">
+          {groups.length > 0 && (
+            <h2 className="border-b border-ink-100 pb-1.5 font-bold text-ink-900">
+              {tDash("servicesForm.ungrouped")}{" "}
+              <span className="text-xs font-normal text-ink-400">({ungroupedServices.length})</span>
+            </h2>
+          )}
+          {ungroupedServices.map(renderServiceRow)}
+        </section>
+      )}
 
         {addOnsFor && (
           <ServiceAddOnsModal
@@ -254,16 +379,16 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">{tDash("servicesForm.category")}</label>
+              <label className="label">{tDash("servicesForm.group")}</label>
               <select
                 className="input"
-                value={form.categoryId}
-                onChange={(e) => setForm({ ...form, categoryId: e.target.value })}
+                value={form.groupId}
+                onChange={(e) => setForm({ ...form, groupId: e.target.value })}
               >
-                <option value="">—</option>
-                {categories.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name}
+                <option value="">{tDash("servicesForm.groupNone")}</option>
+                {groups.map((g) => (
+                  <option key={g.id} value={g.id}>
+                    {g.name}
                   </option>
                 ))}
               </select>

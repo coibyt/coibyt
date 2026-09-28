@@ -39,6 +39,7 @@ export default async function BusinessProfilePage({
       where: { slug },
       include: {
         services: { where: { active: true }, orderBy: { createdAt: "asc" } },
+        serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
         staff: { where: { active: true } },
         reviews: {
           include: { customer: { select: { name: true, image: true } } },
@@ -252,6 +253,7 @@ export default async function BusinessProfilePage({
             <h2 className="mb-4 text-lg font-bold text-ink-900">{t("services")}</h2>
             <ServiceSelectionList
               services={business.services}
+              groups={business.serviceGroups}
               locale={locale}
               bookBasePath={`/b/${slug}/book`}
             />

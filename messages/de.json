@@ -218,7 +218,15 @@
       "staffOverrideHint": "Leer lassen, damit ein Mitarbeiter den oben angegebenen Standardpreis/-dauer verwendet.",
       "ownPrice": "Eigener Preis",
       "ownMinutes": "Eigene Minuten",
-      "addOns": "Zusatzleistungen"
+      "addOns": "Zusatzleistungen",
+      "group": "Dienstleistungsgruppe",
+      "groupNone": "Keine Gruppe",
+      "newGroupPlaceholder": "Name der neuen Gruppe, z. B. Nägel",
+      "addGroup": "Gruppe hinzufügen",
+      "ungrouped": "Ohne Gruppe",
+      "renameGroup": "Gruppe umbenennen",
+      "deleteGroupConfirm": "Die Gruppe \"{name}\" löschen? Die Dienstleistungen werden nicht gelöscht, sondern erscheinen ohne Gruppe.",
+      "groupEmpty": "In dieser Gruppe gibt es noch keine Dienstleistungen. Wähle die Gruppe beim Hinzufügen oder Bearbeiten einer Dienstleistung."
     },
     "contactLinks": {
       "title": "Kontakt & Social-Media-Links",

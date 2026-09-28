@@ -31,6 +31,11 @@ export async function PATCH(
   }
   const { staffAssignments, videoUrl, ...data } = parsed.data;
 
+  if (data.groupId) {
+    const group = await prisma.serviceGroup.findFirst({ where: { id: data.groupId, businessId } });
+    if (!group) return NextResponse.json({ error: "INVALID_GROUP" }, { status: 400 });
+  }
+
   const service = await prisma.$transaction(async (tx) => {
     if (staffAssignments) {
       await tx.staffService.deleteMany({ where: { serviceId: id } });

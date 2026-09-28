@@ -47,6 +47,8 @@ export const serviceSchema = z.object({
   name: z.string().min(2).max(120),
   description: z.string().max(2000).optional(),
   categoryId: z.string().cuid().optional(),
+  // The salon's own menu section (ServiceGroup); null/absent = ungrouped.
+  groupId: z.string().cuid().nullable().optional(),
   durationMin: z.coerce.number().int().min(5).max(600),
   bufferMin: z.coerce.number().int().min(0).max(180).default(0),
   priceCents: z.coerce.number().int().min(0),

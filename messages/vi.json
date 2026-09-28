@@ -218,7 +218,15 @@
       "staffOverrideHint": "Để trống nếu nhân viên dùng giá/thời lượng mặc định ở trên.",
       "ownPrice": "Giá riêng",
       "ownMinutes": "Phút riêng",
-      "addOns": "Dịch vụ phụ"
+      "addOns": "Dịch vụ phụ",
+      "group": "Nhóm dịch vụ",
+      "groupNone": "Chưa phân nhóm",
+      "newGroupPlaceholder": "Tên nhóm mới, ví dụ: Làm móng tay",
+      "addGroup": "Thêm nhóm",
+      "ungrouped": "Chưa phân nhóm",
+      "renameGroup": "Đổi tên nhóm",
+      "deleteGroupConfirm": "Xóa nhóm \"{name}\"? Các dịch vụ trong nhóm sẽ không bị xóa, chỉ chuyển sang \"Chưa phân nhóm\".",
+      "groupEmpty": "Nhóm này chưa có dịch vụ. Chọn nhóm khi thêm hoặc sửa một dịch vụ."
     },
     "contactLinks": {
       "title": "Liên hệ & mạng xã hội",

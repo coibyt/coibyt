@@ -218,7 +218,15 @@
       "staffOverrideHint": "Jätä tyhjäksi, jos työntekijä käyttää yllä olevaa oletushintaa/-kestoa.",
       "ownPrice": "Oma hinta",
       "ownMinutes": "Omat minuutit",
-      "addOns": "Lisäpalvelut"
+      "addOns": "Lisäpalvelut",
+      "group": "Palveluryhmä",
+      "groupNone": "Ei ryhmää",
+      "newGroupPlaceholder": "Uuden ryhmän nimi, esim. Kädet/kynnet",
+      "addGroup": "Lisää ryhmä",
+      "ungrouped": "Ryhmittelemättömät",
+      "renameGroup": "Nimeä ryhmä uudelleen",
+      "deleteGroupConfirm": "Poistetaanko ryhmä \"{name}\"? Palveluita ei poisteta, ne vain siirtyvät ryhmittelemättömiin.",
+      "groupEmpty": "Tässä ryhmässä ei ole vielä palveluita. Valitse ryhmä lisätessäsi tai muokatessasi palvelua."
     },
     "contactLinks": {
       "title": "Yhteystiedot ja some-linkit",

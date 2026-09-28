@@ -218,7 +218,15 @@
       "staffOverrideHint": "Leave blank for a staff member to use the default price/duration above.",
       "ownPrice": "Own price",
       "ownMinutes": "Own minutes",
-      "addOns": "Add-ons"
+      "addOns": "Add-ons",
+      "group": "Service group",
+      "groupNone": "No group",
+      "newGroupPlaceholder": "New group name, e.g. Nails",
+      "addGroup": "Add group",
+      "ungrouped": "Ungrouped",
+      "renameGroup": "Rename group",
+      "deleteGroupConfirm": "Delete the group \"{name}\"? Its services are not deleted, they just become ungrouped.",
+      "groupEmpty": "No services in this group yet. Pick the group when adding or editing a service."
     },
     "contactLinks": {
       "title": "Contact & social links",

@@ -19,7 +19,7 @@ export default async function ServicesPage({
   }
   const { business } = access;
 
-  const [services, staff, categories] = await Promise.all([
+  const [services, staff, groups] = await Promise.all([
     prisma.service.findMany({
       where: { businessId: business.id },
       include: {
@@ -30,7 +30,10 @@ export default async function ServicesPage({
       orderBy: { createdAt: "desc" },
     }),
     prisma.staff.findMany({ where: { businessId: business.id, active: true } }),
-    prisma.category.findMany(),
+    prisma.serviceGroup.findMany({
+      where: { businessId: business.id },
+      orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
+    }),
   ]);
 
   return (
@@ -48,10 +51,7 @@ export default async function ServicesPage({
           })),
         }))}
         staffOptions={staff.map((s) => ({ id: s.id, name: s.name }))}
-        categories={categories.map((c) => ({
-          id: c.id,
-          name: locale === "vi" ? c.nameVi : c.nameEn,
-        }))}
+        groups={groups.map((g) => ({ id: g.id, name: g.name }))}
         locale={locale}
         defaultCurrency={business.defaultCurrency}
       />

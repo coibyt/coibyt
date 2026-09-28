@@ -218,7 +218,15 @@
       "staffOverrideHint": "Pozostaw puste, aby pracownik korzystał z domyślnej ceny/czasu trwania powyżej.",
       "ownPrice": "Własna cena",
       "ownMinutes": "Własne minuty",
-      "addOns": "Dodatki"
+      "addOns": "Dodatki",
+      "group": "Grupa usług",
+      "groupNone": "Bez grupy",
+      "newGroupPlaceholder": "Nazwa nowej grupy, np. Paznokcie",
+      "addGroup": "Dodaj grupę",
+      "ungrouped": "Bez grupy",
+      "renameGroup": "Zmień nazwę grupy",
+      "deleteGroupConfirm": "Usunąć grupę \"{name}\"? Usługi nie zostaną usunięte, trafią do usług bez grupy.",
+      "groupEmpty": "W tej grupie nie ma jeszcze usług. Wybierz grupę podczas dodawania lub edycji usługi."
     },
     "contactLinks": {
       "title": "Kontakt i linki społecznościowe",
