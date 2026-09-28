@@ -175,6 +175,7 @@ model Business {
   categories BusinessCategory[]
   services   Service[]
   serviceGroups ServiceGroup[]
+  landingPage LandingPage?
   staff      Staff[]
   bookings   Booking[]
   reviews    Review[]
@@ -698,4 +699,76 @@ model SupportMessage {
   createdAt DateTime      @default(now())
 
   @@index([threadId, createdAt])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Landing page — a salon's own publishable marketing page (separate from
+// the always-on /b/[slug] booking profile), editable section by section
+// like Timma's "Website" builder.
+// ────────────────────────────────────────────────────────────────────
+
+model LandingPage {
+  id         String   @id @default(cuid())
+  businessId String   @unique
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  // Hidden from the public until the owner explicitly publishes it.
+  published  Boolean  @default(false)
+
+  // Hero — the top section. Layout: "IMAGE_RIGHT" | "IMAGE_LEFT" | "TEXT_ONLY".
+  heroLayout       String  @default("IMAGE_RIGHT")
+  heroTitle        String?
+  heroText         String? @db.Text
+  heroButtonLabel  String?
+  // "BOOKING" links to the salon's own booking page; "URL" uses heroButtonUrl.
+  heroButtonTarget String  @default("BOOKING")
+  heroButtonUrl    String?
+
+  // Intro/about — optional second section, same shape as the hero.
+  introEnabled      Boolean @default(true)
+  introLayout       String  @default("IMAGE_LEFT")
+  introTitle        String?
+  introText         String? @db.Text
+  introButtonLabel  String?
+  introButtonTarget String  @default("BOOKING")
+  introButtonUrl    String?
+
+  // Highlights — a row of feature cards (see LandingHighlight).
+  highlightsEnabled Boolean @default(true)
+  highlightsTitle   String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  images     LandingImage[]
+  highlights LandingHighlight[]
+}
+
+model LandingHighlight {
+  id            String      @id @default(cuid())
+  landingPageId String
+  landingPage   LandingPage @relation(fields: [landingPageId], references: [id], onDelete: Cascade)
+  sortOrder     Int         @default(0)
+  title         String
+  description   String?     @db.Text
+  buttonLabel   String?
+  buttonTarget  String      @default("BOOKING") // "BOOKING" | "URL"
+  buttonUrl     String?
+
+  @@index([landingPageId])
+}
+
+// Landing-page images live on the row itself, same reasoning as
+// BusinessImage — Hostinger's git-based deploy wipes public/uploads.
+// Keyed by a free-form slot ("hero", "intro", or a highlight's own id) so
+// an arbitrary number of highlight images don't need their own enum.
+model LandingImage {
+  id            String      @id @default(cuid())
+  landingPageId String
+  landingPage   LandingPage @relation(fields: [landingPageId], references: [id], onDelete: Cascade)
+  slot          String
+  data          Bytes
+  mimeType      String
+  updatedAt     DateTime    @updatedAt
+
+  @@unique([landingPageId, slot])
 }

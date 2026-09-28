@@ -126,6 +126,37 @@ export const createBookingSchema = z.object({
   extraServiceIds: z.array(z.string().cuid()).max(10).optional(),
 });
 
+const buttonTargetSchema = z.enum(["BOOKING", "URL"]);
+const layoutSchema = z.enum(["IMAGE_RIGHT", "IMAGE_LEFT", "TEXT_ONLY"]);
+
+export const landingPageSchema = z.object({
+  heroLayout: layoutSchema.optional(),
+  heroTitle: z.string().max(150).optional(),
+  heroText: z.string().max(2000).optional(),
+  heroButtonLabel: z.string().max(60).optional(),
+  heroButtonTarget: buttonTargetSchema.optional(),
+  heroButtonUrl: z.string().url().max(300).optional().or(z.literal("")),
+
+  introEnabled: z.boolean().optional(),
+  introLayout: layoutSchema.optional(),
+  introTitle: z.string().max(150).optional(),
+  introText: z.string().max(2000).optional(),
+  introButtonLabel: z.string().max(60).optional(),
+  introButtonTarget: buttonTargetSchema.optional(),
+  introButtonUrl: z.string().url().max(300).optional().or(z.literal("")),
+
+  highlightsEnabled: z.boolean().optional(),
+  highlightsTitle: z.string().max(150).optional(),
+});
+
+export const landingHighlightSchema = z.object({
+  title: z.string().min(1).max(150),
+  description: z.string().max(2000).optional(),
+  buttonLabel: z.string().max(60).optional(),
+  buttonTarget: buttonTargetSchema.optional(),
+  buttonUrl: z.string().url().max(300).optional().or(z.literal("")),
+});
+
 export const reviewSchema = z.object({
   bookingId: z.string().cuid(),
   rating: z.number().int().min(1).max(5),

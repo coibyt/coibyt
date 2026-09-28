@@ -19,6 +19,7 @@ export default async function BusinessDashboardLayout({
   const access = await getBusinessAccess();
   const t = await getTranslations("business");
   const tSupport = await getTranslations("support");
+  const tDash = await getTranslations("dashboard");
 
   if (!access) {
     redirect({ href: "/business/apply", locale });
@@ -58,6 +59,7 @@ export default async function BusinessDashboardLayout({
       : []),
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
     ...(isOwner ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
+    ...(isOwner ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
       : []),
