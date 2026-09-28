@@ -474,7 +474,14 @@ export function BookingCalendar({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status, cancelReason }),
     });
-    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
+    // A cancelled booking should free up its slot immediately — the calendar
+    // API excludes CANCELLED bookings, so drop it from local state the same
+    // way rather than leaving a stale (unstyled) block on the grid.
+    setBookings((prev) =>
+      status === "CANCELLED"
+        ? prev.filter((b) => b.id !== id)
+        : prev.map((b) => (b.id === id ? { ...b, status } : b))
+    );
     setUpdating(false);
     setActiveBooking(null);
     setShowCancelPicker(false);
