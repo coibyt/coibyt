@@ -323,5 +323,22 @@
     "passwordChanged": "Đã đổi mật khẩu.",
     "chainTitle": "Trang đặt lịch chuỗi (tất cả chi nhánh)",
     "chainSubtitle": "Một trang chung liệt kê tất cả chi nhánh của bạn — khách chọn chi nhánh rồi đặt lịch ngay. Có thể dán vào website riêng của bạn."
+  },
+  "support": {
+    "nav": "Hỗ trợ",
+    "title": "Hỗ trợ",
+    "tabTraining": "Đào tạo",
+    "tabChat": "Trò chuyện với hỗ trợ",
+    "tabAnnouncements": "Thông báo",
+    "noTraining": "Chưa có bài đào tạo nào. Vui lòng quay lại sau.",
+    "watchVideo": "Xem video",
+    "openLink": "Mở hướng dẫn",
+    "chatIntro": "Nhắn tin trực tiếp cho đội ngũ VaraaAi để được hỗ trợ trong quá trình sử dụng website. Chúng tôi sẽ trả lời sớm nhất có thể.",
+    "chatPlaceholder": "Nhập tin nhắn...",
+    "send": "Gửi",
+    "chatEmpty": "Chưa có tin nhắn nào. Hãy gửi câu hỏi đầu tiên của bạn!",
+    "chatError": "Không gửi được, vui lòng thử lại.",
+    "adminName": "Đội ngũ VaraaAi",
+    "noAnnouncements": "Chưa có thông báo nào."
   }
 }

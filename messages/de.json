@@ -323,5 +323,22 @@
     "passwordChanged": "Passwort geändert.",
     "chainTitle": "Gemeinsame Buchungsseite der Kette (alle Filialen)",
     "chainSubtitle": "Eine gemeinsame Seite mit allen deinen Filialen — Kunden wählen eine Filiale und buchen sofort. Du kannst sie in deine eigene Website einbetten."
+  },
+  "support": {
+    "nav": "Support",
+    "title": "Support",
+    "tabTraining": "Schulung",
+    "tabChat": "Chat mit dem Support",
+    "tabAnnouncements": "Mitteilungen",
+    "noTraining": "Noch keine Schulungsmaterialien. Schau bald wieder vorbei.",
+    "watchVideo": "Video ansehen",
+    "openLink": "Anleitung öffnen",
+    "chatIntro": "Schreib direkt dem VaraaAi-Team, um bei der Nutzung der Website Hilfe zu bekommen. Wir antworten so schnell wie möglich.",
+    "chatPlaceholder": "Nachricht eingeben...",
+    "send": "Senden",
+    "chatEmpty": "Noch keine Nachrichten. Stell deine erste Frage!",
+    "chatError": "Senden fehlgeschlagen, bitte versuche es erneut.",
+    "adminName": "VaraaAi-Team",
+    "noAnnouncements": "Noch keine Mitteilungen."
   }
 }

@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { getBusinessAccess, listOwnedBusinesses } from "@/lib/current-business";
 import { BranchSwitcher } from "@/components/branch-switcher";
+import { ownerSupportUnreadCount } from "@/lib/support";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
@@ -17,6 +18,7 @@ export default async function BusinessDashboardLayout({
   const { locale } = await params;
   const access = await getBusinessAccess();
   const t = await getTranslations("business");
+  const tSupport = await getTranslations("support");
 
   if (!access) {
     redirect({ href: "/business/apply", locale });
@@ -72,6 +74,15 @@ export default async function BusinessDashboardLayout({
       ? [{ href: "/business/dashboard/reviews", label: t("reviews") }]
       : []),
     ...(isOwner ? [{ href: "/business/dashboard/settings", label: t("settings") }] : []),
+    ...(isOwner
+      ? [
+          {
+            href: "/business/dashboard/support",
+            label: tSupport("nav"),
+            badge: session?.user ? await ownerSupportUnreadCount(session.user.id) : 0,
+          },
+        ]
+      : []),
   ];
 
   return (

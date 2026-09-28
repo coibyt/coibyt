@@ -323,5 +323,22 @@
     "passwordChanged": "Salasana vaihdettu.",
     "chainTitle": "Ketjun yhteinen varaussivu (kaikki toimipisteet)",
     "chainSubtitle": "Yksi yhteinen sivu, jolla näkyvät kaikki toimipisteesi — asiakas valitsee toimipisteen ja varaa heti. Voit upottaa sen omalle verkkosivustollesi."
+  },
+  "support": {
+    "nav": "Tuki",
+    "title": "Tuki",
+    "tabTraining": "Koulutus",
+    "tabChat": "Chat tuen kanssa",
+    "tabAnnouncements": "Tiedotteet",
+    "noTraining": "Koulutusmateriaalia ei ole vielä. Palaa myöhemmin.",
+    "watchVideo": "Katso video",
+    "openLink": "Avaa ohje",
+    "chatIntro": "Lähetä viesti suoraan VaraaAi-tiimille saadaksesi apua sivuston käytössä. Vastaamme mahdollisimman pian.",
+    "chatPlaceholder": "Kirjoita viesti...",
+    "send": "Lähetä",
+    "chatEmpty": "Ei vielä viestejä. Lähetä ensimmäinen kysymyksesi!",
+    "chatError": "Lähetys epäonnistui, yritä uudelleen.",
+    "adminName": "VaraaAi-tiimi",
+    "noAnnouncements": "Ei vielä tiedotteita."
   }
 }

@@ -6,7 +6,7 @@ export function DashboardSidebar({
   links,
   title,
 }: {
-  links: { href: string; label: string }[];
+  links: { href: string; label: string; badge?: number }[];
   title: string;
 }) {
   const pathname = usePathname();
@@ -30,6 +30,11 @@ export function DashboardSidebar({
               }`}
             >
               {l.label}
+              {l.badge ? (
+                <span className="ml-2 rounded-full bg-berry-500 px-1.5 text-[10px] font-bold leading-4 text-white">
+                  {l.badge}
+                </span>
+              ) : null}
             </Link>
           );
         })}

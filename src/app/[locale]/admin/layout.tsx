@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
+import { adminSupportUnreadCount } from "@/lib/support";
 
 export default async function AdminLayout({
   children,
@@ -20,6 +21,11 @@ export default async function AdminLayout({
     { href: "/admin", label: t("pendingBusinesses") },
     { href: "/admin/businesses", label: t("allBusinesses") },
     { href: "/admin/categories", label: t("categories") },
+    {
+      href: "/admin/support",
+      label: "Hỗ trợ chủ salon",
+      badge: await adminSupportUnreadCount(),
+    },
   ];
 
   return (

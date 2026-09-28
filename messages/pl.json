@@ -323,5 +323,22 @@
     "passwordChanged": "Hasło zostało zmienione.",
     "chainTitle": "Wspólna strona rezerwacji sieci (wszystkie oddziały)",
     "chainSubtitle": "Jedna wspólna strona z listą wszystkich Twoich oddziałów — klient wybiera oddział i od razu rezerwuje. Możesz ją osadzić na własnej stronie internetowej."
+  },
+  "support": {
+    "nav": "Wsparcie",
+    "title": "Wsparcie",
+    "tabTraining": "Szkolenia",
+    "tabChat": "Czat ze wsparciem",
+    "tabAnnouncements": "Ogłoszenia",
+    "noTraining": "Brak materiałów szkoleniowych. Zajrzyj tu wkrótce.",
+    "watchVideo": "Obejrzyj wideo",
+    "openLink": "Otwórz instrukcję",
+    "chatIntro": "Napisz bezpośrednio do zespołu VaraaAi, aby uzyskać pomoc w korzystaniu ze strony. Odpowiemy tak szybko, jak to możliwe.",
+    "chatPlaceholder": "Wpisz wiadomość...",
+    "send": "Wyślij",
+    "chatEmpty": "Brak wiadomości. Wyślij swoje pierwsze pytanie!",
+    "chatError": "Nie udało się wysłać, spróbuj ponownie.",
+    "adminName": "Zespół VaraaAi",
+    "noAnnouncements": "Brak ogłoszeń."
   }
 }

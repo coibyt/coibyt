@@ -49,6 +49,11 @@ model User {
   businessFollows BusinessFollow[]
   postComments    PostComment[]
 
+  // Announcements posted after this moment count as "unread" for a salon
+  // owner — see Announcement below.
+  announcementsSeenAt DateTime?
+  supportThread       SupportThread?
+
   @@index([role])
 }
 
@@ -644,4 +649,53 @@ model PostComment {
   createdAt DateTime @default(now())
 
   @@index([postId, createdAt])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Support hub for salon owners — training links, announcements from the
+// admin, and a direct chat with the admin team.
+// ────────────────────────────────────────────────────────────────────
+
+// A how-to video/page the admin publishes for every salon owner.
+model TrainingResource {
+  id          String   @id @default(cuid())
+  title       String
+  description String?  @db.Text
+  url         String
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+// A notice the admin broadcasts to every salon owner.
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  body      String   @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+}
+
+// One support conversation per salon-owner account (not per branch).
+model SupportThread {
+  id        String   @id @default(cuid())
+  ownerId   String   @unique
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  messages SupportMessage[]
+}
+
+model SupportMessage {
+  id        String        @id @default(cuid())
+  threadId  String
+  thread    SupportThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  fromAdmin Boolean
+  content   String        @db.Text
+  // Set once the other side has opened the thread and seen this message.
+  readAt    DateTime?
+  createdAt DateTime      @default(now())
+
+  @@index([threadId, createdAt])
 }

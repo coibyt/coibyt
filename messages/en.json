@@ -323,5 +323,22 @@
     "passwordChanged": "Password changed.",
     "chainTitle": "Chain booking page (all branches)",
     "chainSubtitle": "One shared page listing all your branches — customers pick a branch and book right away. You can embed it on your own website."
+  },
+  "support": {
+    "nav": "Support",
+    "title": "Support",
+    "tabTraining": "Training",
+    "tabChat": "Chat with support",
+    "tabAnnouncements": "Announcements",
+    "noTraining": "No training material yet. Please check back soon.",
+    "watchVideo": "Watch video",
+    "openLink": "Open guide",
+    "chatIntro": "Message the VaraaAi team directly for help while using the website. We'll reply as soon as we can.",
+    "chatPlaceholder": "Type a message...",
+    "send": "Send",
+    "chatEmpty": "No messages yet. Send your first question!",
+    "chatError": "Couldn't send, please try again.",
+    "adminName": "VaraaAi team",
+    "noAnnouncements": "No announcements yet."
   }
 }
