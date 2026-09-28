@@ -4,6 +4,9 @@ import { prisma } from "@/lib/prisma";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
 import { ServiceSelectionList } from "@/components/service-selection-list";
+import { EmbedTopBar } from "@/components/embed-topbar";
+import { EmbedBookingProgress } from "@/components/embed-booking-progress";
+import { getSiteBranches } from "@/lib/site-branches";
 
 export default async function EmbedBusinessPage({
   params,
@@ -24,6 +27,8 @@ export default async function EmbedBusinessPage({
   });
   if (!business || business.status !== "APPROVED") notFound();
 
+  const siblings = await getSiteBranches(business.ownerId);
+
   // Prefer the visitor's explicit ?locale=, then the salon's own configured
   // default (Settings → Salon preferences) over the site-wide default.
   const locale = isValidLocale(rawLocale)
@@ -32,26 +37,24 @@ export default async function EmbedBusinessPage({
       ? business.defaultLocale
       : routing.defaultLocale;
 
-  const backLabel: Record<string, string> = {
-    vi: "Tất cả chi nhánh",
-    en: "All branches",
-    fi: "Kaikki toimipisteet",
-    pl: "Wszystkie oddziały",
-    de: "Alle Filialen",
-    km: "សាខាទាំងអស់",
-    th: "ทุกสาขา",
-  };
-
   return (
     <div className="mx-auto max-w-xl p-4">
-      {chain && (
-        <a
-          href={`/embed/chain/${encodeURIComponent(chain)}?locale=${locale}`}
-          className="mb-3 inline-block text-sm font-medium text-primary-600 hover:underline"
-        >
-          ← {backLabel[locale] ?? backLabel.en}
-        </a>
-      )}
+      <EmbedTopBar locale={locale} />
+      <EmbedBookingProgress
+        locale={locale}
+        steps={[
+          {
+            state: "done",
+            href:
+              siblings.length > 1
+                ? `/embed/chain/${encodeURIComponent(chain || slug)}?locale=${locale}`
+                : undefined,
+          },
+          { state: "current" },
+          { state: "upcoming" },
+          { state: "upcoming" },
+        ]}
+      />
       <div className="mb-5 flex items-center gap-3">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-primary-100 text-lg font-bold text-primary-500">
           {business.logoUrl ? (

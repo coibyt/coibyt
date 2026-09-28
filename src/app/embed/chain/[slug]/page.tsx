@@ -4,6 +4,8 @@ import { ChevronRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
+import { EmbedTopBar } from "@/components/embed-topbar";
+import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 
 const HEADINGS: Record<string, string> = {
   vi: "Chọn chi nhánh",
@@ -48,6 +50,16 @@ export default async function ChainEmbedPage({
 
   return (
     <div className="mx-auto max-w-xl p-4">
+      <EmbedTopBar locale={locale} />
+      <EmbedBookingProgress
+        locale={locale}
+        steps={[
+          { state: "current" },
+          { state: "upcoming" },
+          { state: "upcoming" },
+          { state: "upcoming" },
+        ]}
+      />
       <h1 className="mb-4 text-lg font-bold text-ink-900">{HEADINGS[locale] ?? HEADINGS.en}</h1>
       <div className="space-y-3">
         {branches.map((b) => (

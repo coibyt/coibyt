@@ -5,16 +5,17 @@ import { BookingWidget } from "@/components/booking-widget";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
 import { EmbedProviders } from "@/app/embed/providers";
+import { getSiteBranches } from "@/lib/site-branches";
 
 export default async function EmbedBookServicePage({
   params,
   searchParams,
 }: {
   params: Promise<{ slug: string; serviceId: string }>;
-  searchParams: Promise<{ locale?: string; extra?: string }>;
+  searchParams: Promise<{ locale?: string; extra?: string; chain?: string }>;
 }) {
   const { slug, serviceId } = await params;
-  const { locale: rawLocale, extra } = await searchParams;
+  const { locale: rawLocale, extra, chain } = await searchParams;
   const extraServiceIds = extra?.split(",").filter(Boolean) ?? [];
 
   const business = await prisma.business.findUnique({
@@ -26,6 +27,7 @@ export default async function EmbedBookServicePage({
       status: true,
       timezone: true,
       defaultLocale: true,
+      ownerId: true,
       bankName: true,
       bankAccountNumber: true,
       bankAccountName: true,
@@ -57,6 +59,8 @@ export default async function EmbedBookServicePage({
         select: { id: true, name: true, priceCents: true, durationMin: true },
       })
     : [];
+
+  const siblings = await getSiteBranches(business.ownerId);
 
   const staffOptions = service.staff.filter((s) => s.staff.active);
   const addOnOptions = service.addOns.map((link) => ({
@@ -111,6 +115,13 @@ export default async function EmbedBookServicePage({
           cancellationWindowHours={business.cancellationWindowHours}
           locale={locale}
           businessTimezone={business.timezone}
+          embedProgress={{
+            step1Href:
+              siblings.length > 1
+                ? `/embed/chain/${encodeURIComponent(chain || slug)}?locale=${locale}`
+                : undefined,
+            step2Href: `/embed/${slug}?locale=${locale}${chain ? `&chain=${encodeURIComponent(chain)}` : ""}`,
+          }}
         />
       </EmbedProviders>
     </div>

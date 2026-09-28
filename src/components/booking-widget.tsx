@@ -8,6 +8,8 @@ import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { GuestBookingAuth } from "@/components/guest-booking-auth";
+import { EmbedTopBar } from "@/components/embed-topbar";
+import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { toYoutubeEmbedUrl } from "@/lib/youtube";
@@ -83,6 +85,7 @@ export function BookingWidget({
   cancellationWindowHours,
   locale,
   businessTimezone,
+  embedProgress,
 }: {
   businessSlug: string;
   service: ServiceInfo;
@@ -94,6 +97,10 @@ export function BookingWidget({
   cancellationWindowHours: number;
   locale: string;
   businessTimezone: string;
+  /** Only set on the /embed booking flow — shows the Location/Service/
+   * Booking/Finish step bar there; the main site's /b/... booking page
+   * already has its own navigation, so this stays unset there. */
+  embedProgress?: { step1Href?: string; step2Href: string };
 }) {
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
@@ -221,12 +228,35 @@ export function BookingWidget({
   // mean the full price, since there's no online step to collect a deposit.
   const amountDue = isOfflinePayment ? totalServiceCents : service.depositCents ?? totalServiceCents;
 
+  const progressBar = embedProgress && (
+    <>
+      <EmbedTopBar locale={locale} />
+      <EmbedBookingProgress
+        locale={locale}
+        steps={[
+          { state: "done", href: embedProgress.step1Href },
+          { state: "done", href: embedProgress.step2Href },
+          selectedSlot
+            ? { state: "done", onClick: () => setSelectedSlot(null) }
+            : { state: "current" },
+          selectedSlot ? { state: "current" } : { state: "upcoming" },
+        ]}
+      />
+    </>
+  );
+
   if (status === "unauthenticated") {
-    return <GuestBookingAuth locale={locale} />;
+    return (
+      <div>
+        {progressBar}
+        <GuestBookingAuth locale={locale} />
+      </div>
+    );
   }
 
   return (
     <div className="space-y-6">
+      {progressBar}
       {addOnOptions.length > 0 && (
         <div>
           <p className="label">
