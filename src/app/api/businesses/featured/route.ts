@@ -8,8 +8,20 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const country = searchParams.get("country")?.trim().toUpperCase();
 
+  // Only salons with at least this many followers earn a homepage spot.
+  const MIN_FOLLOWERS = 2;
+  const popular = await prisma.businessFollow.groupBy({
+    by: ["businessId"],
+    _count: { _all: true },
+    having: { businessId: { _count: { gte: MIN_FOLLOWERS } } },
+  });
+
   const businesses = await prisma.business.findMany({
-    where: { status: "APPROVED", ...(country ? { country } : {}) },
+    where: {
+      status: "APPROVED",
+      id: { in: popular.map((p) => p.businessId) },
+      ...(country ? { country } : {}),
+    },
     take: 8,
     orderBy: { createdAt: "desc" },
     include: {

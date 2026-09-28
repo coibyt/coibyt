@@ -5,6 +5,9 @@ import { formatMoney } from "@/lib/money";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { CancellationPolicyLink } from "@/components/cancellation-policy-link";
+import { FollowButton } from "@/components/follow-button";
+import { BusinessChatButton } from "@/components/business-chat-button";
+import { auth } from "@/auth";
 
 export default async function BookingSuccessPage({
   params,
@@ -24,6 +27,20 @@ export default async function BookingSuccessPage({
     include: { business: true, service: true, addOns: true, extraServices: true },
   });
   if (!booking) notFound();
+
+  const session = await auth();
+  const [followerCount, isFollowing] = await Promise.all([
+    prisma.businessFollow.count({ where: { businessId: booking.businessId } }),
+    session?.user
+      ? prisma.businessFollow
+          .findUnique({
+            where: {
+              businessId_customerId: { businessId: booking.businessId, customerId: session.user.id },
+            },
+          })
+          .then((f) => !!f)
+      : false,
+  ]);
 
   return (
     <div className="container flex max-w-lg flex-col items-center gap-4 py-20 text-center">
@@ -103,6 +120,19 @@ export default async function BookingSuccessPage({
       <Link href="/account/bookings" className="btn-primary">
         {locale === "vi" ? "Xem lịch hẹn của tôi" : "View my bookings"}
       </Link>
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <FollowButton
+          businessSlug={booking.business.slug}
+          initialFollowing={isFollowing}
+          initialFollowerCount={followerCount}
+          locale={locale}
+        />
+        <BusinessChatButton
+          businessSlug={booking.business.slug}
+          businessName={booking.business.name}
+          locale={locale}
+        />
+      </div>
       {booking.business.cancellationPolicy && (
         <CancellationPolicyLink policy={booking.business.cancellationPolicy} locale={locale} />
       )}

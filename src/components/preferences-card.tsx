@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 import { routing } from "@/i18n/routing";
 
@@ -25,7 +25,8 @@ export interface BusinessPreferences {
 }
 
 export function PreferencesCard({ preferences }: { preferences: BusinessPreferences }) {
-  const locale = useLocale();
+  const t = useTranslations("settingsCards");
+  const tCommon = useTranslations("common");
   const [form, setForm] = useState(preferences);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -47,18 +48,12 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Tùy chọn salon" : "Salon preferences"}
-      </h2>
-      <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Ngôn ngữ mặc định cho mã nhúng, tiền tệ mặc định cho dịch vụ mới, và chính sách hủy lịch."
-          : "Default language for your embed code, default currency for new services, and your cancellation policy."}
-      </p>
+      <h2 className="mb-1 font-semibold text-ink-900">{t("prefsTitle")}</h2>
+      <p className="mb-3 text-xs text-ink-400">{t("prefsSubtitle")}</p>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div>
-          <label className="label">{locale === "vi" ? "Ngôn ngữ mặc định" : "Default language"}</label>
+          <label className="label">{t("defaultLanguage")}</label>
           <select
             className="input"
             value={form.defaultLocale}
@@ -72,7 +67,7 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
           </select>
         </div>
         <div>
-          <label className="label">{locale === "vi" ? "Tiền tệ mặc định" : "Default currency"}</label>
+          <label className="label">{t("defaultCurrency")}</label>
           <select
             className="input"
             value={form.defaultCurrency}
@@ -84,9 +79,7 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
           </select>
         </div>
         <div>
-          <label className="label">
-            {locale === "vi" ? "Khách được hủy trước" : "Customers can cancel up to"}
-          </label>
+          <label className="label">{t("cancelUpTo")}</label>
           <select
             className="input"
             value={form.cancellationWindowHours}
@@ -96,7 +89,7 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
           >
             {CANCEL_WINDOW_OPTIONS.map((h) => (
               <option key={h} value={h}>
-                {locale === "vi" ? `${h} giờ trước lịch hẹn` : `${h} hours before`}
+                {t("hoursBefore", { hours: h })}
               </option>
             ))}
           </select>
@@ -104,14 +97,8 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
       </div>
 
       <div className="mt-3">
-        <label className="label">
-          {locale === "vi" ? "Chính sách hủy đặt chỗ" : "Cancellation policy"}
-        </label>
-        <p className="mb-1 text-xs text-ink-400">
-          {locale === "vi"
-            ? "Hiển thị cho khách sau khi đặt chỗ xong và trong email xác nhận."
-            : "Shown to customers right after booking and in their confirmation email."}
-        </p>
+        <label className="label">{t("policyLabel")}</label>
+        <p className="mb-1 text-xs text-ink-400">{t("policyHint")}</p>
         <textarea
           rows={3}
           className="input"
@@ -126,7 +113,7 @@ export function PreferencesCard({ preferences }: { preferences: BusinessPreferen
         ) : saved ? (
           <Check className="h-3.5 w-3.5" />
         ) : null}
-        {locale === "vi" ? "Lưu" : "Save"}
+        {tCommon("save")}
       </button>
     </div>
   );

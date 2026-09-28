@@ -25,7 +25,10 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { serviceIds, email, password, staffMessage, videoUrls, ...data } = parsed.data;
+  // `hours` is only honoured at creation; editing goes through /staff/[id]/hours.
+  const { serviceIds, email, password, staffMessage, videoUrls, hours: _hours, ...data } =
+    parsed.data;
+  void _hours;
 
   let userId: string | undefined | null = undefined;
   if (email !== undefined) {

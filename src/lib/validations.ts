@@ -92,6 +92,18 @@ export const staffSchema = z.object({
   leadTimeMinutes: z.coerce.number().int().min(0).max(1440).optional(),
   staffMessage: z.string().max(2000).optional().or(z.literal("")),
   videoUrls: z.array(z.string().url().max(300).or(z.literal(""))).max(5).optional(),
+  // Optional custom weekly schedule set at creation time — omitted/empty
+  // means the staff member simply follows the salon's own opening hours.
+  hours: z
+    .array(
+      z.object({
+        weekday: z.number().int().min(0).max(6),
+        openMinute: z.number().int().min(0).max(1439),
+        closeMinute: z.number().int().min(1).max(1440),
+      })
+    )
+    .max(7)
+    .optional(),
 });
 
 export const businessHoursSchema = z.array(

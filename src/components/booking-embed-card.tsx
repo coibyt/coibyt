@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
 
 export function BookingEmbedCard({
@@ -14,7 +14,7 @@ export function BookingEmbedCard({
    * happens to be viewing this dashboard in. */
   defaultLocale: string;
 }) {
-  const locale = useLocale();
+  const t = useTranslations("settingsCards");
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState<"url" | "code" | null>(null);
 
@@ -35,14 +35,8 @@ export function BookingEmbedCard({
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Nhúng trang đặt lịch" : "Embed booking page"}
-      </h2>
-      <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Cho phép khách đặt lịch ngay trên website riêng của bạn."
-          : "Let customers book right from your own website."}
-      </p>
+      <h2 className="mb-1 font-semibold text-ink-900">{t("embedTitle")}</h2>
+      <p className="mb-3 text-xs text-ink-400">{t("embedSubtitle")}</p>
 
       <div className="mb-3 flex items-center gap-2 rounded-xl border border-ink-100 bg-mist-50 px-3 py-2 text-xs text-ink-700">
         <span className="flex-1 truncate">{embedUrl}</span>
@@ -56,7 +50,7 @@ export function BookingEmbedCard({
           className="btn-outline !px-3 !py-1.5 text-xs"
         >
           <ExternalLink className="h-3.5 w-3.5" />
-          {locale === "vi" ? "Xem trang" : "View page"}
+          {t("viewPage")}
         </a>
         <button
           onClick={() => copy(embedUrl, "url")}
@@ -67,14 +61,14 @@ export function BookingEmbedCard({
           ) : (
             <Copy className="h-3.5 w-3.5" />
           )}
-          {locale === "vi" ? "Sao chép liên kết" : "Copy link"}
+          {t("copyLink")}
         </button>
         <button
           onClick={() => setShowModal(true)}
           className="btn-primary !px-3 !py-1.5 text-xs"
         >
           <Code2 className="h-3.5 w-3.5" />
-          {locale === "vi" ? "Lấy mã nhúng" : "Get embed code"}
+          {t("getEmbedCode")}
         </button>
       </div>
 
@@ -82,18 +76,12 @@ export function BookingEmbedCard({
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card w-full max-w-lg animate-slide-up p-6">
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-bold text-ink-900">
-                {locale === "vi" ? "Mã nhúng đặt lịch" : "Booking embed code"}
-              </h3>
+              <h3 className="font-bold text-ink-900">{t("embedModalTitle")}</h3>
               <button onClick={() => setShowModal(false)} className="text-ink-400">
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <p className="mb-3 text-sm text-ink-400">
-              {locale === "vi"
-                ? "Dán đoạn mã này vào trang HTML trên website của bạn, ở vị trí bạn muốn hiển thị khung đặt lịch."
-                : "Paste this into your website's HTML wherever you want the booking widget to appear."}
-            </p>
+            <p className="mb-3 text-sm text-ink-400">{t("embedModalHint")}</p>
             <pre className="max-h-64 overflow-auto whitespace-pre-wrap break-all rounded-xl border border-ink-100 bg-mist-50 p-3 text-xs text-ink-900">
               {embedCode}
             </pre>
@@ -104,10 +92,10 @@ export function BookingEmbedCard({
                 ) : (
                   <Copy className="h-4 w-4" />
                 )}
-                {locale === "vi" ? "Sao chép mã" : "Copy code"}
+                {t("copyCode")}
               </button>
               <button onClick={() => setShowModal(false)} className="btn-ghost">
-                {locale === "vi" ? "Đóng" : "Close"}
+                {t("close")}
               </button>
             </div>
           </div>

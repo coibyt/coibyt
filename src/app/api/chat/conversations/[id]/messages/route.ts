@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getConversationAccess } from "@/lib/chat-access";
 import { prisma } from "@/lib/prisma";
+import { sendMail, newChatMessageEmail } from "@/lib/mailer";
+import { localeForCountry } from "@/lib/countries";
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024; // 5MB
 const ALLOWED_IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
@@ -83,6 +85,15 @@ export async function POST(
     return NextResponse.json({ error: "EMPTY_MESSAGE" }, { status: 400 });
   }
 
+  const previousCustomerMessage =
+    access.role === "CUSTOMER"
+      ? await prisma.message.findFirst({
+          where: { conversationId: id, senderType: "CUSTOMER" },
+          orderBy: { createdAt: "desc" },
+          select: { createdAt: true },
+        })
+      : null;
+
   const message = await prisma.$transaction(async (tx) => {
     const created = await tx.message.create({
       data: {
@@ -97,6 +108,39 @@ export async function POST(
     await tx.conversation.update({ where: { id }, data: { updatedAt: new Date() } });
     return created;
   });
+
+  // Email the salon owner on a customer's first message, or when they write
+  // again after a week or more of silence — never for every message.
+  const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+  if (
+    access.role === "CUSTOMER" &&
+    (!previousCustomerMessage || Date.now() - previousCustomerMessage.createdAt.getTime() > WEEK_MS)
+  ) {
+    try {
+      const [business, customer] = await Promise.all([
+        prisma.business.findUnique({
+          where: { id: access.conversation.businessId },
+          include: { owner: { select: { name: true, email: true } } },
+        }),
+        prisma.user.findUnique({ where: { id: access.userId }, select: { name: true } }),
+      ]);
+      if (business) {
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
+        const locale = localeForCountry(business.country);
+        await sendMail({
+          to: business.owner.email,
+          ...newChatMessageEmail({
+            ownerName: business.owner.name,
+            customerName: customer?.name ?? "—",
+            locale,
+            messagesUrl: `${siteUrl}/${locale}/business/dashboard/messages`,
+          }),
+        });
+      }
+    } catch (err) {
+      console.error("[chat new-message email]", err);
+    }
+  }
 
   return NextResponse.json({
     message: {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 
 export interface BankInfo {
@@ -12,7 +12,7 @@ export interface BankInfo {
 }
 
 export function BankInfoCard({ bankInfo }: { bankInfo: BankInfo }) {
-  const locale = useLocale();
+  const t = useTranslations("settingsCards");
   const [form, setForm] = useState({
     bankName: bankInfo.bankName ?? "",
     bankAccountNumber: bankInfo.bankAccountNumber ?? "",
@@ -39,27 +39,21 @@ export function BankInfoCard({ bankInfo }: { bankInfo: BankInfo }) {
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Nhận thanh toán qua chuyển khoản" : "Receive bank transfer payments"}
-      </h2>
-      <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Khách hàng sẽ thấy thông tin này để chuyển khoản trực tiếp cho salon khi đặt lịch."
-          : "Customers will see these details to transfer money directly to your salon when booking."}
-      </p>
+      <h2 className="mb-1 font-semibold text-ink-900">{t("bankTitle")}</h2>
+      <p className="mb-3 text-xs text-ink-400">{t("bankSubtitle")}</p>
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div>
-          <label className="label">{locale === "vi" ? "Tên ngân hàng" : "Bank name"}</label>
+          <label className="label">{t("bankName")}</label>
           <input
             className="input"
             value={form.bankName}
             onChange={(e) => setForm({ ...form, bankName: e.target.value })}
-            placeholder={locale === "vi" ? "VD: Vietcombank" : "e.g. Vietcombank"}
+            placeholder={t("bankNamePlaceholder")}
           />
         </div>
         <div>
-          <label className="label">{locale === "vi" ? "Số tài khoản" : "Account number"}</label>
+          <label className="label">{t("accountNumber")}</label>
           <input
             className="input"
             value={form.bankAccountNumber}
@@ -67,9 +61,7 @@ export function BankInfoCard({ bankInfo }: { bankInfo: BankInfo }) {
           />
         </div>
         <div>
-          <label className="label">
-            {locale === "vi" ? "Tên chủ tài khoản" : "Account holder name"}
-          </label>
+          <label className="label">{t("accountHolder")}</label>
           <input
             className="input"
             value={form.bankAccountName}
@@ -77,12 +69,12 @@ export function BankInfoCard({ bankInfo }: { bankInfo: BankInfo }) {
           />
         </div>
         <div>
-          <label className="label">{locale === "vi" ? "Mã BIC/SWIFT" : "BIC/SWIFT code"}</label>
+          <label className="label">{t("bic")}</label>
           <input
             className="input"
             value={form.bankBic}
             onChange={(e) => setForm({ ...form, bankBic: e.target.value })}
-            placeholder={locale === "vi" ? "Không bắt buộc" : "Optional"}
+            placeholder={t("optional")}
           />
         </div>
       </div>
@@ -93,7 +85,7 @@ export function BankInfoCard({ bankInfo }: { bankInfo: BankInfo }) {
         ) : saved ? (
           <Check className="h-3.5 w-3.5" />
         ) : null}
-        {locale === "vi" ? "Lưu thông tin ngân hàng" : "Save bank details"}
+        {t("saveBank")}
       </button>
     </div>
   );

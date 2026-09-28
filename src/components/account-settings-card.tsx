@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
 
 export function AccountSettingsCard({
@@ -13,7 +13,7 @@ export function AccountSettingsCard({
   pendingEmail: string | null;
   hasPassword: boolean;
 }) {
-  const locale = useLocale();
+  const t = useTranslations("settingsCards");
   const [newEmail, setNewEmail] = useState(currentEmail);
   const [emailPassword, setEmailPassword] = useState("");
   const [emailSaving, setEmailSaving] = useState(false);
@@ -34,13 +34,7 @@ export function AccountSettingsCard({
     });
     setEmailSaving(false);
     if (res.ok) {
-      setEmailMsg({
-        type: "success",
-        text:
-          locale === "vi"
-            ? "Đã gửi email xác minh đến địa chỉ mới. Email đăng nhập của bạn sẽ không đổi cho đến khi bạn xác nhận."
-            : "Verification email sent to the new address. Your login email won't change until you confirm it.",
-      });
+      setEmailMsg({ type: "success", text: t("emailSent") });
       setEmailPassword("");
     } else {
       const data = await res.json().catch(() => ({}));
@@ -48,16 +42,10 @@ export function AccountSettingsCard({
         type: "error",
         text:
           data.error === "EMAIL_IN_USE"
-            ? locale === "vi"
-              ? "Email này đã được sử dụng."
-              : "That email is already in use."
+            ? t("emailInUse")
             : data.error === "INVALID_CURRENT_PASSWORD"
-              ? locale === "vi"
-                ? "Mật khẩu hiện tại không đúng."
-                : "Current password is incorrect."
-              : locale === "vi"
-                ? "Có lỗi xảy ra."
-                : "Something went wrong.",
+              ? t("wrongPassword")
+              : t("genericErrorShort"),
       });
     }
   }
@@ -72,49 +60,27 @@ export function AccountSettingsCard({
     });
     setPwSaving(false);
     if (res.ok) {
-      setPwMsg({
-        type: "success",
-        text: locale === "vi" ? "Đã đổi mật khẩu." : "Password changed.",
-      });
+      setPwMsg({ type: "success", text: t("passwordChanged") });
       setCurrentPassword("");
       setNewPassword("");
     } else {
       const data = await res.json().catch(() => ({}));
       setPwMsg({
         type: "error",
-        text:
-          data.error === "INVALID_CURRENT_PASSWORD"
-            ? locale === "vi"
-              ? "Mật khẩu hiện tại không đúng."
-              : "Current password is incorrect."
-            : locale === "vi"
-              ? "Có lỗi xảy ra."
-              : "Something went wrong.",
+        text: data.error === "INVALID_CURRENT_PASSWORD" ? t("wrongPassword") : t("genericErrorShort"),
       });
     }
   }
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Tài khoản" : "Account"}
-      </h2>
-      <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Đổi email đăng nhập hoặc mật khẩu của bạn."
-          : "Change your login email or password."}
-      </p>
+      <h2 className="mb-1 font-semibold text-ink-900">{t("accountTitle")}</h2>
+      <p className="mb-3 text-xs text-ink-400">{t("accountSubtitle")}</p>
 
       <div className="mb-4 space-y-2 border-b border-ink-100 pb-4">
-        <p className="text-sm font-medium text-ink-900">
-          {locale === "vi" ? "Đổi email" : "Change email"}
-        </p>
+        <p className="text-sm font-medium text-ink-900">{t("changeEmail")}</p>
         {pendingEmail && (
-          <p className="text-xs text-coral-600">
-            {locale === "vi"
-              ? `Đang chờ xác nhận email mới: ${pendingEmail}. Kiểm tra hộp thư đó để hoàn tất.`
-              : `Awaiting confirmation for ${pendingEmail}. Check that inbox to finish the change.`}
-          </p>
+          <p className="text-xs text-coral-600">{t("awaitingEmail", { email: pendingEmail })}</p>
         )}
         <input
           className="input"
@@ -126,7 +92,7 @@ export function AccountSettingsCard({
           <input
             className="input"
             type="password"
-            placeholder={locale === "vi" ? "Mật khẩu hiện tại" : "Current password"}
+            placeholder={t("currentPassword")}
             value={emailPassword}
             onChange={(e) => setEmailPassword(e.target.value)}
           />
@@ -142,25 +108,19 @@ export function AccountSettingsCard({
           className="btn-outline !px-3 !py-1.5 text-xs"
         >
           {emailSaving && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-          {locale === "vi" ? "Cập nhật email" : "Update email"}
+          {t("updateEmail")}
         </button>
       </div>
 
       <div className="space-y-2">
         <p className="text-sm font-medium text-ink-900">
-          {hasPassword
-            ? locale === "vi"
-              ? "Đổi mật khẩu"
-              : "Change password"
-            : locale === "vi"
-              ? "Đặt mật khẩu"
-              : "Set a password"}
+          {hasPassword ? t("changePassword") : t("setPassword")}
         </p>
         {hasPassword && (
           <input
             className="input"
             type="password"
-            placeholder={locale === "vi" ? "Mật khẩu hiện tại" : "Current password"}
+            placeholder={t("currentPassword")}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
@@ -168,7 +128,7 @@ export function AccountSettingsCard({
         <input
           className="input"
           type="password"
-          placeholder={locale === "vi" ? "Mật khẩu mới (tối thiểu 8 ký tự)" : "New password (min. 8 characters)"}
+          placeholder={t("newPasswordPlaceholder")}
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
@@ -183,13 +143,7 @@ export function AccountSettingsCard({
           className="btn-outline !px-3 !py-1.5 text-xs"
         >
           {pwSaving && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
-          {hasPassword
-            ? locale === "vi"
-              ? "Đổi mật khẩu"
-              : "Change password"
-            : locale === "vi"
-              ? "Đặt mật khẩu"
-              : "Set password"}
+          {hasPassword ? t("changePassword") : t("setPassword")}
         </button>
       </div>
     </div>

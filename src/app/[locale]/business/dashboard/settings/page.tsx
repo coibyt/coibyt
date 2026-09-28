@@ -45,6 +45,7 @@ export default async function BusinessSettingsPage({
       <h1 className="text-xl font-bold text-ink-900">{t("settings")}</h1>
       <BusinessProfileCard
         name={business.name}
+        description={business.description}
         addressLine={business.addressLine}
         city={business.city}
         lat={business.lat}

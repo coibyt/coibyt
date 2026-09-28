@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { getTranslations } from "next-intl/server";
-import { BookingStatusBadge } from "@/components/booking-status-badge";
+import { AdminBusinessActions } from "@/components/admin-business-actions";
 
 const STATUS_COLORS: Record<string, string> = {
   APPROVED: "bg-sage-50 text-sage-500",
@@ -27,6 +27,7 @@ export default async function AdminAllBusinessesPage() {
               <th className="px-4 py-3">Chủ sở hữu</th>
               <th className="px-4 py-3">Thành phố</th>
               <th className="px-4 py-3">Trạng thái</th>
+              <th className="px-4 py-3">Thao tác</th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +42,9 @@ export default async function AdminAllBusinessesPage() {
                   <span className={`rounded-full px-2.5 py-1 text-xs font-medium ${STATUS_COLORS[b.status]}`}>
                     {b.status}
                   </span>
+                </td>
+                <td className="px-4 py-3">
+                  <AdminBusinessActions id={b.id} name={b.name} status={b.status} />
                 </td>
               </tr>
             ))}

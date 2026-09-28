@@ -6,6 +6,16 @@ import { MessageCircle, Loader2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { ChatWidget } from "@/components/chat-widget";
 
+const CHAT_LABELS: Record<string, string> = {
+  vi: "Chat với Salon",
+  en: "Chat with salon",
+  fi: "Keskustele salongin kanssa",
+  pl: "Napisz do salonu",
+  de: "Mit dem Salon chatten",
+  km: "ជជែកជាមួយសាឡុង",
+  th: "แชทกับร้าน",
+};
+
 export function BusinessChatButton({
   businessSlug,
   businessName,
@@ -18,6 +28,7 @@ export function BusinessChatButton({
   const { status } = useSession();
   const [conversationId, setConversationId] = useState<string | null>(null);
   const [opening, setOpening] = useState(false);
+  const label = CHAT_LABELS[locale] ?? CHAT_LABELS.en;
 
   if (status === "unauthenticated") {
     return (
@@ -26,7 +37,7 @@ export function BusinessChatButton({
         className="btn-outline !px-4 !py-2 text-xs"
       >
         <MessageCircle className="h-3.5 w-3.5" />
-        {locale === "vi" ? "Chat với Salon" : "Chat with salon"}
+        {label}
       </Link>
     );
   }
@@ -49,7 +60,7 @@ export function BusinessChatButton({
     <>
       <button onClick={openChat} disabled={opening} className="btn-outline !px-4 !py-2 text-xs">
         {opening ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <MessageCircle className="h-3.5 w-3.5" />}
-        {locale === "vi" ? "Chat với Salon" : "Chat with salon"}
+        {label}
       </button>
 
       {conversationId && (

@@ -6,6 +6,7 @@ import { timezoneForCountry } from "@/lib/countries";
 
 const profileSchema = z.object({
   name: z.string().min(2).max(120),
+  description: z.string().max(2000).optional(),
   addressLine: z.string().min(3).max(200),
   city: z.string().min(2).max(100),
   lat: z.number().min(-90).max(90).optional(),
@@ -30,6 +31,7 @@ export async function PUT(req: Request) {
       where: { id: businessId },
       data: {
         name: data.name,
+        description: data.description?.trim() ? data.description.trim() : null,
         addressLine: data.addressLine,
         city: data.city,
         lat: data.lat,

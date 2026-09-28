@@ -92,6 +92,9 @@ export async function POST(req: Request) {
     if (err instanceof SlotUnavailableError) {
       return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
     }
+    if (err instanceof Error && err.message === "BUSINESS_SUSPENDED") {
+      return NextResponse.json({ error: "BUSINESS_SUSPENDED" }, { status: 403 });
+    }
     console.error("[POST /api/bookings]", err);
     return NextResponse.json({ error: "INTERNAL_ERROR" }, { status: 500 });
   }

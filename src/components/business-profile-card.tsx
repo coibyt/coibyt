@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { useLocale } from "next-intl";
+import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
 import { COUNTRIES } from "@/lib/countries";
+import { categoryName } from "@/lib/category-names";
 
 interface CategoryOption {
   id: string;
@@ -14,6 +15,7 @@ interface CategoryOption {
 
 export function BusinessProfileCard({
   name: initialName,
+  description: initialDescription,
   addressLine: initialAddressLine,
   city: initialCity,
   lat: initialLat,
@@ -23,6 +25,7 @@ export function BusinessProfileCard({
   selectedCategoryIds,
 }: {
   name: string;
+  description: string | null;
   addressLine: string | null;
   city: string | null;
   lat: number | null;
@@ -32,7 +35,10 @@ export function BusinessProfileCard({
   selectedCategoryIds: string[];
 }) {
   const locale = useLocale();
+  const t = useTranslations("settingsCards");
+  const tCommon = useTranslations("common");
   const [name, setName] = useState(initialName);
+  const [description, setDescription] = useState(initialDescription ?? "");
   const [addressLine, setAddressLine] = useState(initialAddressLine ?? "");
   const [city, setCity] = useState(initialCity ?? "");
   const [pin, setPin] = useState<{ lat: number; lng: number } | null>(
@@ -43,6 +49,20 @@ export function BusinessProfileCard({
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Country names come from the browser's own locale data, so every language
+  // gets proper names without a hand-maintained translation table.
+  const countryOptions = useMemo(() => {
+    let display: Intl.DisplayNames | null = null;
+    try {
+      display = new Intl.DisplayNames([locale], { type: "region" });
+    } catch {
+      display = null;
+    }
+    return COUNTRIES.map((c) => ({ code: c.code, label: display?.of(c.code) ?? c.name })).sort(
+      (a, b) => a.label.localeCompare(b.label, locale)
+    );
+  }, [locale]);
 
   function onAddressSelect(s: AddressSuggestion) {
     setAddressLine(s.addressLine ?? addressLine);
@@ -62,7 +82,7 @@ export function BusinessProfileCard({
 
   async function save() {
     if (selectedIds.size === 0) {
-      setError(locale === "vi" ? "Chọn ít nhất một danh mục." : "Select at least one category.");
+      setError(t("selectCategory"));
       return;
     }
     setSaving(true);
@@ -73,6 +93,7 @@ export function BusinessProfileCard({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name,
+        description,
         addressLine,
         city,
         lat: pin?.lat,
@@ -86,29 +107,35 @@ export function BusinessProfileCard({
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
     } else {
-      setError(locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : "Something went wrong, please try again.");
+      setError(t("genericError"));
     }
   }
 
   return (
     <div className="card p-5">
-      <h2 className="mb-1 font-semibold text-ink-900">
-        {locale === "vi" ? "Thông tin salon" : "Salon info"}
-      </h2>
-      <p className="mb-3 text-xs text-ink-400">
-        {locale === "vi"
-          ? "Tên, địa chỉ và danh mục dịch vụ hiển thị công khai trên trang của bạn."
-          : "Name, address and service categories shown publicly on your page."}
-      </p>
+      <h2 className="mb-1 font-semibold text-ink-900">{t("profileTitle")}</h2>
+      <p className="mb-3 text-xs text-ink-400">{t("profileSubtitle")}</p>
 
       <div className="space-y-3">
         <div>
-          <label className="label">{locale === "vi" ? "Tên salon" : "Salon name"}</label>
+          <label className="label">{t("salonName")}</label>
           <input className="input" value={name} onChange={(e) => setName(e.target.value)} />
         </div>
 
         <div>
-          <label className="label">{locale === "vi" ? "Địa chỉ" : "Address"}</label>
+          <label className="label">{t("description")}</label>
+          <p className="mb-1 text-xs text-ink-400">{t("descriptionHint")}</p>
+          <textarea
+            rows={3}
+            maxLength={2000}
+            className="input"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label className="label">{t("address")}</label>
           <AddressAutocomplete
             value={addressLine}
             onChange={setAddressLine}
@@ -119,28 +146,24 @@ export function BusinessProfileCard({
         </div>
 
         <div>
-          <label className="label">{locale === "vi" ? "Thành phố" : "City"}</label>
+          <label className="label">{t("city")}</label>
           <input className="input" value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
 
         <div>
-          <label className="label">{locale === "vi" ? "Quốc gia" : "Country"}</label>
-          <p className="mb-1 text-xs text-ink-400">
-            {locale === "vi"
-              ? "Dùng để đặt múi giờ hiển thị trên lịch hẹn và trang đặt lịch của khách."
-              : "Sets the timezone used on your booking calendar and your customers' booking page."}
-          </p>
+          <label className="label">{t("country")}</label>
+          <p className="mb-1 text-xs text-ink-400">{t("countryHint")}</p>
           <select className="input" value={country} onChange={(e) => setCountry(e.target.value)}>
-            {COUNTRIES.map((c) => (
+            {countryOptions.map((c) => (
               <option key={c.code} value={c.code}>
-                {c.name}
+                {c.label}
               </option>
             ))}
           </select>
         </div>
 
         <div>
-          <p className="label">{locale === "vi" ? "Danh mục dịch vụ" : "Service categories"}</p>
+          <p className="label">{t("categories")}</p>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {categories.map((c) => (
               <label
@@ -156,7 +179,7 @@ export function BusinessProfileCard({
                   checked={selectedIds.has(c.id)}
                   onChange={() => toggleCategory(c.id)}
                 />
-                {locale === "vi" ? c.nameVi : c.nameEn}
+                {categoryName(locale, c)}
               </label>
             ))}
           </div>
@@ -171,7 +194,7 @@ export function BusinessProfileCard({
         ) : saved ? (
           <Check className="h-3.5 w-3.5" />
         ) : null}
-        {locale === "vi" ? "Lưu" : "Save"}
+        {tCommon("save")}
       </button>
     </div>
   );

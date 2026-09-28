@@ -5,6 +5,12 @@ import { useTranslations, useLocale } from "next-intl";
 import { Plus, Trash2, Loader2, Clock, Pencil, KeyRound } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { StaffHoursModal } from "@/components/staff-hours-modal";
+import {
+  StaffHoursFields,
+  DEFAULT_STAFF_HOURS,
+  staffHoursPayload,
+  type StaffHoursValue,
+} from "@/components/staff-hours-fields";
 
 interface StaffRow {
   id: string;
@@ -86,10 +92,12 @@ export function StaffManager({
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [hoursFor, setHoursFor] = useState<StaffRow | null>(null);
+  const [newHours, setNewHours] = useState<StaffHoursValue>(DEFAULT_STAFF_HOURS);
 
   function startCreate() {
     setEditingId(null);
     setForm(emptyForm);
+    setNewHours(DEFAULT_STAFF_HOURS);
     setError(null);
     setShowForm(true);
   }
@@ -126,7 +134,7 @@ export function StaffManager({
       {
         method: editingId ? "PATCH" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(editingId ? form : { ...form, hours: staffHoursPayload(newHours) }),
       }
     );
     setSaving(false);
@@ -325,6 +333,14 @@ export function StaffManager({
               />
             </div>
           </div>
+
+          {!editingId && (
+            <div className="border-t border-ink-100 pt-4">
+              <p className="label">{tDash("staffForm.workingHours")}</p>
+              <p className="mb-2 text-xs text-ink-400">{tDash("staffForm.hoursHint")}</p>
+              <StaffHoursFields value={newHours} onChange={setNewHours} />
+            </div>
+          )}
 
           <div className="border-t border-ink-100 pt-4">
             <label className="label">

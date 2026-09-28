@@ -605,6 +605,88 @@ export function appointmentReminderEmail(params: {
   };
 }
 
+const NEW_MESSAGE_STRINGS: Record<
+  string,
+  { subject: (customer: string) => string; heading: string; body: (customer: string) => string; cta: string; hi: string }
+> = {
+  vi: {
+    subject: (c) => `Bạn có tin nhắn mới từ khách hàng ${c}`,
+    heading: "Bạn có tin nhắn mới",
+    body: (c) => `Khách hàng <strong>${c}</strong> vừa nhắn tin cho salon của bạn. Hãy vào website VaraaAi để xem và trả lời.`,
+    cta: "Xem tin nhắn",
+    hi: "Xin chào",
+  },
+  en: {
+    subject: (c) => `New message from ${c}`,
+    heading: "You have a new message",
+    body: (c) => `<strong>${c}</strong> just sent a message to your salon. Log in to VaraaAi to read and reply.`,
+    cta: "View messages",
+    hi: "Hello",
+  },
+  fi: {
+    subject: (c) => `Uusi viesti asiakkaalta ${c}`,
+    heading: "Sait uuden viestin",
+    body: (c) => `<strong>${c}</strong> lähetti viestin salongillesi. Kirjaudu VaraaAihin lukeaksesi ja vastataksesi.`,
+    cta: "Näytä viestit",
+    hi: "Hei",
+  },
+  pl: {
+    subject: (c) => `Nowa wiadomość od klienta ${c}`,
+    heading: "Masz nową wiadomość",
+    body: (c) => `<strong>${c}</strong> wysłał(a) wiadomość do Twojego salonu. Zaloguj się do VaraaAi, aby ją przeczytać i odpowiedzieć.`,
+    cta: "Zobacz wiadomości",
+    hi: "Cześć",
+  },
+  de: {
+    subject: (c) => `Neue Nachricht von ${c}`,
+    heading: "Du hast eine neue Nachricht",
+    body: (c) => `<strong>${c}</strong> hat deinem Salon eine Nachricht geschickt. Melde dich bei VaraaAi an, um sie zu lesen und zu antworten.`,
+    cta: "Nachrichten ansehen",
+    hi: "Hallo",
+  },
+  km: {
+    subject: (c) => `សារថ្មីពីអតិថិជន ${c}`,
+    heading: "អ្នកមានសារថ្មី",
+    body: (c) => `<strong>${c}</strong> ទើបតែផ្ញើសារមកសាឡុងរបស់អ្នក។ សូមចូលទៅ VaraaAi ដើម្បីអាន និងឆ្លើយតប។`,
+    cta: "មើលសារ",
+    hi: "សួស្តី",
+  },
+  th: {
+    subject: (c) => `ข้อความใหม่จากลูกค้า ${c}`,
+    heading: "คุณมีข้อความใหม่",
+    body: (c) => `<strong>${c}</strong> เพิ่งส่งข้อความถึงร้านของคุณ เข้าสู่ระบบ VaraaAi เพื่ออ่านและตอบกลับ`,
+    cta: "ดูข้อความ",
+    hi: "สวัสดี",
+  },
+};
+
+/** Sent to a salon owner when a customer messages for the first time, or
+ * after a week of silence — see the messages POST route. */
+export function newChatMessageEmail(params: {
+  ownerName: string;
+  customerName: string;
+  locale: string;
+  messagesUrl: string;
+}) {
+  const s = NEW_MESSAGE_STRINGS[params.locale] ?? NEW_MESSAGE_STRINGS.en;
+  return {
+    subject: s.subject(params.customerName),
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${s.heading}</h2>
+        <p>${s.hi} ${params.ownerName},</p>
+        <p>${s.body(params.customerName)}</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.messagesUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${s.cta}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 /** Sent by the reminders cron one day after a COMPLETED booking's appointment
  * ended, asking the customer to leave a review — see /api/cron/reminders.
  * `reviewUrl` deep-links straight into the review prompt on the customer's

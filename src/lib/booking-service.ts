@@ -46,6 +46,7 @@ export async function createBookingAndPayment(params: {
     where: { id: params.serviceId },
     include: { business: true },
   });
+  if (service.business.status === "SUSPENDED") throw new Error("BUSINESS_SUSPENDED");
   const staff = await prisma.staff.findUnique({ where: { id: params.staffId } });
   const staffOverride = await prisma.staffService.findUnique({
     where: { staffId_serviceId: { staffId: params.staffId, serviceId: params.serviceId } },
