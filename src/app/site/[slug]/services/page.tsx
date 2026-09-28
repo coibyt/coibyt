@@ -66,13 +66,12 @@ export default async function BusinessServicesPage({
   }
 
   const bookingHref = (serviceId?: string) =>
-    serviceId ? `${prefix}/b/${slug}/book/${serviceId}` : `${prefix}/site/${slug}/booking`;
+    serviceId ? `${prefix}/b/${slug}/book/${serviceId}` : `/site/${slug}/booking`;
 
   return (
     <div>
       <SiteHeader
         locale={locale}
-        prefix={prefix}
         slug={slug}
         businessName={business.name}
         logoUrl={business.logoUrl}

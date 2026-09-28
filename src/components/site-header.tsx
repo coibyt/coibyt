@@ -7,14 +7,12 @@ import { siteStrings } from "@/lib/site-content";
 
 export function SiteHeader({
   locale,
-  prefix,
   slug,
   businessName,
   logoUrl,
   active,
 }: {
   locale: string;
-  prefix: string;
   slug: string;
   businessName: string;
   logoUrl: string | null;
@@ -23,10 +21,13 @@ export function SiteHeader({
   const s = siteStrings(locale);
   const [open, setOpen] = useState(false);
 
+  // These are all /site/* pages themselves — they live outside the
+  // [locale] segment and take their locale from the business's own
+  // defaultLocale, never from a URL path prefix, so no sitePrefix() here.
   const links = [
-    { key: "home" as const, label: s.navHome, href: `${prefix}/site/${slug}` },
-    { key: "services" as const, label: s.navServices, href: `${prefix}/site/${slug}/services` },
-    { key: "booking" as const, label: s.navBooking, href: `${prefix}/site/${slug}/booking` },
+    { key: "home" as const, label: s.navHome, href: `/site/${slug}` },
+    { key: "services" as const, label: s.navServices, href: `/site/${slug}/services` },
+    { key: "booking" as const, label: s.navBooking, href: `/site/${slug}/booking` },
   ];
 
   return (

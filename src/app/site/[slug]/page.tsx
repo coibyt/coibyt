@@ -4,7 +4,7 @@ import { Star } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
-import { siteStrings, sitePrefix } from "@/lib/site-content";
+import { siteStrings } from "@/lib/site-content";
 import { getSiteBranches } from "@/lib/site-branches";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -72,13 +72,12 @@ export default async function BusinessSitePage({
       ? business.defaultLocale
       : routing.defaultLocale;
   const s = siteStrings(locale);
-  const prefix = sitePrefix(locale);
   const branches = await getSiteBranches(business.ownerId);
 
   const imageUrl = (slot: string) =>
     landing.images.some((i) => i.slot === slot) ? `/api/landing-image/${landing.id}/${slot}` : null;
 
-  const bookingHref = `${prefix}/site/${slug}/booking`;
+  const bookingHref = `/site/${slug}/booking`;
   const ctaHref = (target: string, url: string | null) =>
     target === "URL" && url ? url : bookingHref;
 
@@ -110,7 +109,6 @@ export default async function BusinessSitePage({
     <div>
       <SiteHeader
         locale={locale}
-        prefix={prefix}
         slug={slug}
         businessName={business.name}
         logoUrl={business.logoUrl}
