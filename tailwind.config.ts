@@ -14,6 +14,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-sans)", "Segoe UI", "Roboto", "sans-serif"],
+        // Only defined where --font-serif is actually loaded (src/app/site/layout.tsx,
+        // for a salon's own public site) — falls back to the sans stack elsewhere.
+        serif: ["var(--font-serif)", "var(--font-sans)", "Georgia", "serif"],
       },
       colors: {
         ink: {
