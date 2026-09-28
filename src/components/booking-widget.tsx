@@ -7,6 +7,7 @@ import { addDays, format, isSameDay } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
+import { GuestBookingAuth } from "@/components/guest-booking-auth";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { toYoutubeEmbedUrl } from "@/lib/youtube";
@@ -221,18 +222,7 @@ export function BookingWidget({
   const amountDue = isOfflinePayment ? totalServiceCents : service.depositCents ?? totalServiceCents;
 
   if (status === "unauthenticated") {
-    return (
-      <div className="card p-8 text-center">
-        <p className="mb-4 text-ink-700">
-          {locale === "vi"
-            ? "Vui lòng đăng nhập để đặt lịch."
-            : "Please sign in to book an appointment."}
-        </p>
-        <Link href="/auth/sign-in" className="btn-primary">
-          {locale === "vi" ? "Đăng nhập" : "Sign in"}
-        </Link>
-      </div>
-    );
+    return <GuestBookingAuth locale={locale} />;
   }
 
   return (
