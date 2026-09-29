@@ -931,7 +931,16 @@ export function BookingCalendar({
             </div>
           </div>
 
-          <div className="flex max-h-[70vh] overflow-y-auto">
+          <div className="flex max-h-[70vh] items-start overflow-y-auto">
+            {/* items-start (instead of the flex row's default align-items:
+                stretch) keeps both children at their true content height.
+                Under stretch, the flex line's cross-size gets clamped to the
+                container's own max-h-[70vh], and BOTH the frozen hour column
+                and the scrollable body get squashed down to that clamped
+                height — silently clipping away everything below it (visible
+                as a blank white area past a certain scroll depth, worse the
+                later a staff member's working hours end and the more
+                non-working-hours overlay there is below the visible fold). */}
             <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
@@ -1096,7 +1105,10 @@ export function BookingCalendar({
             </div>
           </div>
 
-          <div className="flex max-h-[70vh] overflow-y-auto">
+          <div className="flex max-h-[70vh] items-start overflow-y-auto">
+            {/* See the matching comment in the day view for why items-start
+                is required here (without it, content below a certain scroll
+                depth silently disappears). */}
             <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
