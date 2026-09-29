@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { sendMail, ownerBookingCancelledEmail } from "@/lib/mailer";
+import { localeForCountry } from "@/lib/countries";
 
 export async function POST(
   _req: Request,
@@ -14,7 +16,13 @@ export async function POST(
 
   const booking = await prisma.booking.findFirst({
     where: { id, customerId: session.user.id },
-    include: { business: { select: { cancellationWindowHours: true } } },
+    include: {
+      business: {
+        include: { owner: { select: { name: true, email: true } } },
+      },
+      service: { select: { name: true } },
+      customer: { select: { name: true } },
+    },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   if (!["PENDING_PAYMENT", "CONFIRMED"].includes(booking.status)) {
@@ -30,6 +38,25 @@ export async function POST(
     where: { id },
     data: { status: "CANCELLED", cancelReason: "CANCELLED_BY_CUSTOMER" },
   });
+
+  try {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+    const locale = localeForCountry(booking.business.country);
+    await sendMail({
+      to: booking.business.owner.email,
+      ...ownerBookingCancelledEmail({
+        ownerName: booking.business.owner.name,
+        customerName: booking.customer.name,
+        serviceName: booking.service.name,
+        startsAt: booking.startsAt,
+        locale,
+        businessTimezone: booking.business.timezone,
+        bookingsUrl: `${siteUrl}/${locale}/business/dashboard/bookings`,
+      }),
+    });
+  } catch (err) {
+    console.error("[customer cancel: owner notification]", err);
+  }
 
   return NextResponse.json({ booking: updated });
 }

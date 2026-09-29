@@ -687,6 +687,162 @@ export function newChatMessageEmail(params: {
   };
 }
 
+const OWNER_BOOKING_STRINGS: Record<
+  string,
+  {
+    newSubject: (customer: string) => string;
+    newHeading: string;
+    newBody: (customer: string, service: string, when: string) => string;
+    cancelledSubject: (customer: string) => string;
+    cancelledHeading: string;
+    cancelledBody: (customer: string, service: string, when: string) => string;
+    cta: string;
+    hi: string;
+  }
+> = {
+  vi: {
+    newSubject: (c) => `Có lịch hẹn mới từ ${c}`,
+    newHeading: "Bạn có lịch hẹn mới",
+    newBody: (c, s, w) => `Khách hàng <strong>${c}</strong> vừa đặt lịch hẹn <strong>${s}</strong> vào lúc <strong>${w}</strong>.`,
+    cancelledSubject: (c) => `${c} đã hủy lịch hẹn`,
+    cancelledHeading: "Một lịch hẹn vừa bị hủy",
+    cancelledBody: (c, s, w) => `Khách hàng <strong>${c}</strong> vừa hủy lịch hẹn <strong>${s}</strong> đã đặt vào lúc <strong>${w}</strong>.`,
+    cta: "Xem lịch hẹn",
+    hi: "Xin chào",
+  },
+  en: {
+    newSubject: (c) => `New booking from ${c}`,
+    newHeading: "You have a new booking",
+    newBody: (c, s, w) => `<strong>${c}</strong> just booked <strong>${s}</strong> for <strong>${w}</strong>.`,
+    cancelledSubject: (c) => `${c} cancelled their booking`,
+    cancelledHeading: "A booking was just cancelled",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> just cancelled their <strong>${s}</strong> booking for <strong>${w}</strong>.`,
+    cta: "View bookings",
+    hi: "Hello",
+  },
+  fi: {
+    newSubject: (c) => `Uusi varaus asiakkaalta ${c}`,
+    newHeading: "Sait uuden varauksen",
+    newBody: (c, s, w) => `<strong>${c}</strong> varasi juuri palvelun <strong>${s}</strong> ajankohtaan <strong>${w}</strong>.`,
+    cancelledSubject: (c) => `${c} perui varauksensa`,
+    cancelledHeading: "Varaus peruttiin juuri",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> perui juuri varauksensa <strong>${s}</strong> ajankohtaan <strong>${w}</strong>.`,
+    cta: "Näytä varaukset",
+    hi: "Hei",
+  },
+  pl: {
+    newSubject: (c) => `Nowa rezerwacja od ${c}`,
+    newHeading: "Masz nową rezerwację",
+    newBody: (c, s, w) => `<strong>${c}</strong> właśnie zarezerwował(a) <strong>${s}</strong> na <strong>${w}</strong>.`,
+    cancelledSubject: (c) => `${c} anulował(a) rezerwację`,
+    cancelledHeading: "Rezerwacja została właśnie anulowana",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> właśnie anulował(a) rezerwację <strong>${s}</strong> na <strong>${w}</strong>.`,
+    cta: "Zobacz rezerwacje",
+    hi: "Cześć",
+  },
+  de: {
+    newSubject: (c) => `Neue Buchung von ${c}`,
+    newHeading: "Du hast eine neue Buchung",
+    newBody: (c, s, w) => `<strong>${c}</strong> hat gerade <strong>${s}</strong> für <strong>${w}</strong> gebucht.`,
+    cancelledSubject: (c) => `${c} hat die Buchung storniert`,
+    cancelledHeading: "Eine Buchung wurde gerade storniert",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> hat gerade die Buchung <strong>${s}</strong> für <strong>${w}</strong> storniert.`,
+    cta: "Buchungen ansehen",
+    hi: "Hallo",
+  },
+  km: {
+    newSubject: (c) => `ការកក់ថ្មីពី ${c}`,
+    newHeading: "អ្នកមានការកក់ថ្មី",
+    newBody: (c, s, w) => `<strong>${c}</strong> ទើបតែកក់ <strong>${s}</strong> នៅម៉ោង <strong>${w}</strong>។`,
+    cancelledSubject: (c) => `${c} បានលុបចោលការកក់`,
+    cancelledHeading: "ការកក់មួយទើបតែត្រូវបានលុបចោល",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> ទើបតែលុបចោលការកក់ <strong>${s}</strong> នៅម៉ោង <strong>${w}</strong>។`,
+    cta: "មើលការកក់",
+    hi: "សួស្តី",
+  },
+  th: {
+    newSubject: (c) => `การจองใหม่จาก ${c}`,
+    newHeading: "คุณมีการจองใหม่",
+    newBody: (c, s, w) => `<strong>${c}</strong> เพิ่งจอง <strong>${s}</strong> เวลา <strong>${w}</strong>`,
+    cancelledSubject: (c) => `${c} ยกเลิกการจอง`,
+    cancelledHeading: "การจองเพิ่งถูกยกเลิก",
+    cancelledBody: (c, s, w) => `<strong>${c}</strong> เพิ่งยกเลิกการจอง <strong>${s}</strong> เวลา <strong>${w}</strong>`,
+    cta: "ดูการจอง",
+    hi: "สวัสดี",
+  },
+};
+
+/** Sent to the salon owner whenever a customer books a new appointment —
+ * see createBookingAndPayment (offline providers) and
+ * sendBookingConfirmationEmail (online providers, called from the payment
+ * webhooks once a Stripe/MoMo/VNPay payment actually succeeds). */
+export function ownerNewBookingEmail(params: {
+  ownerName: string;
+  customerName: string;
+  serviceName: string;
+  startsAt: Date;
+  locale: string;
+  businessTimezone: string;
+  bookingsUrl: string;
+}) {
+  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
+  const dateStr = params.startsAt.toLocaleString(
+    INTL_LOCALES[params.locale] ?? "en-US",
+    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
+  );
+  return {
+    subject: s.newSubject(params.customerName),
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${s.newHeading}</h2>
+        <p>${s.hi} ${params.ownerName},</p>
+        <p>${s.newBody(params.customerName, params.serviceName, dateStr)}</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${s.cta}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
+/** Sent to the salon owner whenever a customer cancels their own booking —
+ * see /api/bookings/[id]/cancel. Not sent when the salon itself cancels a
+ * booking from the dashboard, since the owner already knows about that. */
+export function ownerBookingCancelledEmail(params: {
+  ownerName: string;
+  customerName: string;
+  serviceName: string;
+  startsAt: Date;
+  locale: string;
+  businessTimezone: string;
+  bookingsUrl: string;
+}) {
+  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
+  const dateStr = params.startsAt.toLocaleString(
+    INTL_LOCALES[params.locale] ?? "en-US",
+    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
+  );
+  return {
+    subject: s.cancelledSubject(params.customerName),
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${s.cancelledHeading}</h2>
+        <p>${s.hi} ${params.ownerName},</p>
+        <p>${s.cancelledBody(params.customerName, params.serviceName, dateStr)}</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${s.cta}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 /** Sent by the reminders cron one day after a COMPLETED booking's appointment
  * ended, asking the customer to leave a review — see /api/cron/reminders.
  * `reviewUrl` deep-links straight into the review prompt on the customer's

@@ -1,7 +1,12 @@
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
-import { sendMail, bookingConfirmationEmail, bookingRescheduledEmail } from "@/lib/mailer";
+import {
+  sendMail,
+  bookingConfirmationEmail,
+  bookingRescheduledEmail,
+  ownerNewBookingEmail,
+} from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
 import type { PaymentProvider } from "@prisma/client";
 
@@ -44,7 +49,7 @@ export async function createBookingAndPayment(params: {
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
-    include: { business: true },
+    include: { business: { include: { owner: { select: { name: true, email: true } } } } },
   });
   if (service.business.status === "SUSPENDED") throw new Error("BUSINESS_SUSPENDED");
   const staff = await prisma.staff.findUnique({ where: { id: params.staffId } });
@@ -168,6 +173,16 @@ export async function createBookingAndPayment(params: {
           : undefined,
     });
     await sendMail({ to: params.customerEmail, ...email });
+    await notifyOwnerOfNewBooking({
+      ownerName: service.business.owner.name,
+      ownerEmail: service.business.owner.email,
+      customerName: params.customerName,
+      serviceName: service.name,
+      startsAt: booking.startsAt,
+      businessCountry: service.business.country,
+      businessTimezone: service.business.timezone,
+      siteUrl: params.siteUrl,
+    });
 
     return {
       booking,
@@ -201,6 +216,35 @@ export async function createBookingAndPayment(params: {
   return { booking, redirectUrl: session.url! };
 }
 
+/** Emails the salon owner about a new customer booking — best-effort, so a
+ * mail failure never blocks the booking itself from going through. */
+async function notifyOwnerOfNewBooking(params: {
+  ownerName: string;
+  ownerEmail: string;
+  customerName: string;
+  serviceName: string;
+  startsAt: Date;
+  businessCountry: string;
+  businessTimezone: string;
+  siteUrl: string;
+}) {
+  try {
+    const locale = localeForCountry(params.businessCountry);
+    const email = ownerNewBookingEmail({
+      ownerName: params.ownerName,
+      customerName: params.customerName,
+      serviceName: params.serviceName,
+      startsAt: params.startsAt,
+      locale,
+      businessTimezone: params.businessTimezone,
+      bookingsUrl: `${params.siteUrl}/${locale}/business/dashboard/bookings`,
+    });
+    await sendMail({ to: params.ownerEmail, ...email });
+  } catch (err) {
+    console.error("[notifyOwnerOfNewBooking]", err);
+  }
+}
+
 /** Builds and sends the confirmation email for an already-confirmed booking
  * — shared by the three online-payment webhooks (Stripe, MoMo, VNPay), each
  * of which only learns a booking is paid well after createBookingAndPayment
@@ -208,7 +252,12 @@ export async function createBookingAndPayment(params: {
 export async function sendBookingConfirmationEmail(bookingId: string) {
   const full = await prisma.booking.findUnique({
     where: { id: bookingId },
-    include: { business: true, service: true, customer: true, staff: true },
+    include: {
+      business: { include: { owner: { select: { name: true, email: true } } } },
+      service: true,
+      customer: true,
+      staff: true,
+    },
   });
   if (!full) return;
 
@@ -232,6 +281,16 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     cancellationPolicy: full.business.cancellationPolicy,
   });
   await sendMail({ to: full.customer.email, ...email });
+  await notifyOwnerOfNewBooking({
+    ownerName: full.business.owner.name,
+    ownerEmail: full.business.owner.email,
+    customerName: full.customer.name,
+    serviceName: full.service.name,
+    startsAt: full.startsAt,
+    businessCountry: full.business.country,
+    businessTimezone: full.business.timezone,
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com",
+  });
 }
 
 /** Notifies the customer by email whenever the salon (not the customer
