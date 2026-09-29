@@ -46,6 +46,10 @@ export async function createBookingAndPayment(params: {
   /** Other full services booked in the same visit (e.g. manicure + pedicure)
    * — same "never trust the client" treatment as addOnIds. */
   extraServiceIds?: string[];
+  /** Whether this booking gets any automated email at all (confirmation,
+   * reschedule, cancellation, reminders) — always true for a customer's own
+   * booking; only the salon's manual-add-booking form ever passes false. */
+  sendNotificationEmails?: boolean;
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
@@ -113,6 +117,7 @@ export async function createBookingAndPayment(params: {
         // confirmed right away; online gateways stay PENDING_PAYMENT until
         // their callback fires.
         status: isOffline ? "CONFIRMED" : "PENDING_PAYMENT",
+        notificationEmailsEnabled: params.sendNotificationEmails ?? true,
       },
     });
 
@@ -144,45 +149,47 @@ export async function createBookingAndPayment(params: {
   });
 
   if (isOffline) {
-    const email = bookingConfirmationEmail({
-      customerName: params.customerName,
-      businessName: service.business.name,
-      serviceName: service.name,
-      serviceDescription: service.description,
-      startsAt: booking.startsAt,
-      locale: localeForCountry(service.business.country),
-      businessTimezone: service.business.timezone,
-      priceCents: booking.priceCents,
-      currency: booking.currency,
-      staffName: staff?.name,
-      staffMessage: staff?.staffMessage,
-      businessAddress: service.business.addressLine,
-      businessCity: service.business.city,
-      googleMapsUrl: service.business.googleMapsUrl,
-      businessPhone: service.business.phone,
-      cancellationWindowHours: service.business.cancellationWindowHours,
-      cancellationPolicy: service.business.cancellationPolicy,
-      bankInfo:
-        params.provider === "BANK_TRANSFER"
-          ? {
-              bankName: service.business.bankName,
-              bankAccountNumber: service.business.bankAccountNumber,
-              bankAccountName: service.business.bankAccountName,
-              bankBic: service.business.bankBic,
-            }
-          : undefined,
-    });
-    await sendMail({ to: params.customerEmail, ...email });
-    await notifyOwnerOfNewBooking({
-      ownerName: service.business.owner.name,
-      ownerEmail: service.business.owner.email,
-      customerName: params.customerName,
-      serviceName: service.name,
-      startsAt: booking.startsAt,
-      businessCountry: service.business.country,
-      businessTimezone: service.business.timezone,
-      siteUrl: params.siteUrl,
-    });
+    if (booking.notificationEmailsEnabled) {
+      const email = bookingConfirmationEmail({
+        customerName: params.customerName,
+        businessName: service.business.name,
+        serviceName: service.name,
+        serviceDescription: service.description,
+        startsAt: booking.startsAt,
+        locale: localeForCountry(service.business.country),
+        businessTimezone: service.business.timezone,
+        priceCents: booking.priceCents,
+        currency: booking.currency,
+        staffName: staff?.name,
+        staffMessage: staff?.staffMessage,
+        businessAddress: service.business.addressLine,
+        businessCity: service.business.city,
+        googleMapsUrl: service.business.googleMapsUrl,
+        businessPhone: service.business.phone,
+        cancellationWindowHours: service.business.cancellationWindowHours,
+        cancellationPolicy: service.business.cancellationPolicy,
+        bankInfo:
+          params.provider === "BANK_TRANSFER"
+            ? {
+                bankName: service.business.bankName,
+                bankAccountNumber: service.business.bankAccountNumber,
+                bankAccountName: service.business.bankAccountName,
+                bankBic: service.business.bankBic,
+              }
+            : undefined,
+      });
+      await sendMail({ to: params.customerEmail, ...email });
+      await notifyOwnerOfNewBooking({
+        ownerName: service.business.owner.name,
+        ownerEmail: service.business.owner.email,
+        customerName: params.customerName,
+        serviceName: service.name,
+        startsAt: booking.startsAt,
+        businessCountry: service.business.country,
+        businessTimezone: service.business.timezone,
+        siteUrl: params.siteUrl,
+      });
+    }
 
     return {
       booking,
@@ -260,6 +267,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     },
   });
   if (!full) return;
+  if (!full.notificationEmailsEnabled) return;
 
   const email = bookingConfirmationEmail({
     customerName: full.customer.name,
@@ -302,6 +310,7 @@ export async function sendBookingRescheduledEmail(bookingId: string) {
     include: { business: true, service: true, customer: true, staff: true },
   });
   if (!full) return;
+  if (!full.notificationEmailsEnabled) return;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 

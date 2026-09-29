@@ -39,23 +39,25 @@ export async function POST(
     data: { status: "CANCELLED", cancelReason: "CANCELLED_BY_CUSTOMER" },
   });
 
-  try {
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
-    const locale = localeForCountry(booking.business.country);
-    await sendMail({
-      to: booking.business.owner.email,
-      ...ownerBookingCancelledEmail({
-        ownerName: booking.business.owner.name,
-        customerName: booking.customer.name,
-        serviceName: booking.service.name,
-        startsAt: booking.startsAt,
-        locale,
-        businessTimezone: booking.business.timezone,
-        bookingsUrl: `${siteUrl}/${locale}/business/dashboard/bookings`,
-      }),
-    });
-  } catch (err) {
-    console.error("[customer cancel: owner notification]", err);
+  if (booking.notificationEmailsEnabled) {
+    try {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+      const locale = localeForCountry(booking.business.country);
+      await sendMail({
+        to: booking.business.owner.email,
+        ...ownerBookingCancelledEmail({
+          ownerName: booking.business.owner.name,
+          customerName: booking.customer.name,
+          serviceName: booking.service.name,
+          startsAt: booking.startsAt,
+          locale,
+          businessTimezone: booking.business.timezone,
+          bookingsUrl: `${siteUrl}/${locale}/business/dashboard/bookings`,
+        }),
+      });
+    } catch (err) {
+      console.error("[customer cancel: owner notification]", err);
+    }
   }
 
   return NextResponse.json({ booking: updated });

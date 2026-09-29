@@ -454,6 +454,14 @@ model Booking {
   customerNote String? @db.Text
   cancelReason String? @db.Text
 
+  // Always true for a customer's own booking (confirmation/reminder emails
+  // are the whole point). For a booking the salon adds manually from the
+  // calendar, the owner opts in via a checkbox — off by default, since a
+  // manually-added walk-in/phone booking usually doesn't need automated
+  // email traffic. Gates every email tied to this booking: confirmation,
+  // reschedule, cancellation, and the reminder/review cron.
+  notificationEmailsEnabled Boolean @default(true)
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

@@ -43,6 +43,7 @@ export async function GET(req: Request) {
   const due24h = await prisma.booking.findMany({
     where: {
       status: "CONFIRMED",
+      notificationEmailsEnabled: true,
       startsAt: { lte: new Date(now.getTime() + 24 * HOUR_MS), gt: now },
       reminder24hSentAt: null,
     },
@@ -70,6 +71,7 @@ export async function GET(req: Request) {
   const due2h = await prisma.booking.findMany({
     where: {
       status: "CONFIRMED",
+      notificationEmailsEnabled: true,
       startsAt: { lte: new Date(now.getTime() + 2 * HOUR_MS), gt: now },
       reminder2hSentAt: null,
     },
@@ -97,6 +99,7 @@ export async function GET(req: Request) {
   const due15min = await prisma.booking.findMany({
     where: {
       status: "CONFIRMED",
+      notificationEmailsEnabled: true,
       startsAt: { lte: new Date(now.getTime() + 15 * MIN_MS), gt: now },
       reminder15minSentAt: null,
     },
@@ -124,6 +127,7 @@ export async function GET(req: Request) {
   const dueReview = await prisma.booking.findMany({
     where: {
       status: "COMPLETED",
+      notificationEmailsEnabled: true,
       endsAt: { lte: new Date(now.getTime() - 24 * HOUR_MS) },
       reviewRequestSentAt: null,
       review: null,

@@ -197,6 +197,7 @@ interface NewBookingDraft {
   customerPhone: string;
   customerEmail: string;
   customerNote: string;
+  sendNotificationEmails: boolean;
 }
 
 interface PendingReschedule {
@@ -676,6 +677,7 @@ export function BookingCalendar({
       customerPhone: "",
       customerEmail: "",
       customerNote: "",
+      sendNotificationEmails: false,
     });
   }
 
@@ -720,6 +722,7 @@ export function BookingCalendar({
         customerPhone: newBooking.customerPhone,
         customerEmail: newBooking.customerEmail || undefined,
         customerNote: newBooking.customerNote || undefined,
+        sendNotificationEmails: newBooking.sendNotificationEmails,
       }),
     });
     setCreatingBooking(false);
@@ -1596,6 +1599,26 @@ export function BookingCalendar({
                   onChange={(e) => setNewBooking({ ...newBooking, customerNote: e.target.value })}
                 />
               </div>
+              <label className="flex items-start gap-2 text-sm text-ink-700">
+                <input
+                  type="checkbox"
+                  className="mt-0.5"
+                  checked={newBooking.sendNotificationEmails}
+                  onChange={(e) =>
+                    setNewBooking({ ...newBooking, sendNotificationEmails: e.target.checked })
+                  }
+                />
+                <span>
+                  {locale === "vi"
+                    ? "Gửi email xác nhận và nhắc lịch cho khách hàng"
+                    : "Send the customer a confirmation and reminder emails"}
+                  <span className="block text-xs text-ink-400">
+                    {locale === "vi"
+                      ? "Bạn cũng sẽ nhận được email thông báo về lịch hẹn này."
+                      : "You'll also get an email notifying you about this booking."}
+                  </span>
+                </span>
+              </label>
             </div>
             {newBookingError && <p className="mt-2 text-sm text-berry-500">{newBookingError}</p>}
             <div className="mt-4 flex gap-2">

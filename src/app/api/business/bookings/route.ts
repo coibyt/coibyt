@@ -12,6 +12,7 @@ const businessBookingSchema = z.object({
   customerPhone: z.string().min(3).max(30),
   customerEmail: z.string().email().optional(),
   customerNote: z.string().max(1000).optional(),
+  sendNotificationEmails: z.boolean().optional(),
 });
 
 /** A walk-in/phone customer usually isn't a VaraaAi member yet — reuse their
@@ -76,6 +77,9 @@ export async function POST(req: Request) {
       // A business-created booking has no online payment step, same as cash.
       provider: "CASH",
       siteUrl,
+      // Off by default for a manually-added booking — the owner opts in via
+      // a checkbox, unlike a customer's own booking which always emails.
+      sendNotificationEmails: data.sendNotificationEmails ?? false,
     });
     return NextResponse.json({ booking }, { status: 201 });
   } catch (err) {
