@@ -496,11 +496,11 @@ export function BookingCalendar({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status, cancelReason }),
     });
-    // A cancelled booking should free up its slot immediately — the calendar
-    // API excludes CANCELLED bookings, so drop it from local state the same
-    // way rather than leaving a stale (unstyled) block on the grid.
+    // A cancelled or no-show booking should disappear immediately — the
+    // calendar API excludes both, so drop it from local state the same way
+    // rather than leaving a stale block on the grid.
     setBookings((prev) =>
-      status === "CANCELLED"
+      status === "CANCELLED" || status === "NO_SHOW"
         ? prev.filter((b) => b.id !== id)
         : prev.map((b) => (b.id === id ? { ...b, status } : b))
     );
@@ -988,18 +988,18 @@ export function BookingCalendar({
                     <>
                       {openPx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-ink-400/25"
+                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-blue-100/60"
                           style={{ height: Math.max(0, openPx) }}
                         />
                       )}
                       {closePx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 z-10 bg-ink-400/25"
+                          className="pointer-events-none absolute left-0 right-0 z-10 bg-blue-100/60"
                           style={{ top: Math.max(0, closePx), bottom: 0 }}
                         />
                       )}
                       {openPx === null && closePx === null && (
-                        <div className="pointer-events-none absolute inset-0 z-10 bg-ink-400/25" />
+                        <div className="pointer-events-none absolute inset-0 z-10 bg-blue-100/60" />
                       )}
                       {/* Each handle is a tall, invisible touch target around a thin
                           visible bar — a 6px line is far too small to grab with a

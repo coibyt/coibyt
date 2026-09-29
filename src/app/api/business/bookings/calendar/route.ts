@@ -41,7 +41,10 @@ export async function GET(req: Request) {
       businessId,
       startsAt: { lt: rangeEndUtc },
       endsAt: { gt: rangeStartUtc },
-      status: { not: "CANCELLED" },
+      // Neither a cancellation nor a no-show leaves anything left to do for
+      // that slot — both free it up for a new booking (see availability.ts),
+      // so neither belongs cluttering the live calendar grid either.
+      status: { notIn: ["CANCELLED", "NO_SHOW"] },
     },
     select: {
       id: true,
