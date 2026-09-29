@@ -872,7 +872,7 @@ export function BookingCalendar({
               gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
             }}
           >
-            <div className="sticky top-0 z-30 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="sticky left-0 top-0 z-40 border-b border-r border-ink-100 bg-mist-50" />
             {staff.length === 0 ? (
               <div className="sticky top-0 z-30 border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
                 {t("unassigned")}
@@ -902,7 +902,7 @@ export function BookingCalendar({
               ))
             )}
 
-            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+            <div className="sticky left-0 z-30 border-r border-ink-100 bg-white" style={{ height: totalHours * HOUR_HEIGHT }}>
               {hourMarks.map((h) => (
                 <div
                   key={h}
@@ -959,6 +959,13 @@ export function BookingCalendar({
                       key={h}
                       className="absolute w-full border-t border-ink-50"
                       style={{ top: (h - startHour) * HOUR_HEIGHT }}
+                    />
+                  ))}
+                  {hourMarks.map((h) => (
+                    <div
+                      key={`${h}-half`}
+                      className="absolute w-full border-t border-dashed border-ink-100"
+                      style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                     />
                   ))}
                   {isOwner && s.id && (
@@ -1027,7 +1034,7 @@ export function BookingCalendar({
       {view === "week" && (
         <div className="max-h-[70vh] overflow-auto rounded-2xl border border-ink-100">
           <div className="grid" style={{ gridTemplateColumns: `56px repeat(7, minmax(120px, 1fr))` }}>
-            <div className="sticky top-0 z-30 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="sticky left-0 top-0 z-40 border-b border-r border-ink-100 bg-mist-50" />
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
                 key={day.toISOString()}
@@ -1041,7 +1048,7 @@ export function BookingCalendar({
               </div>
             ))}
 
-            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+            <div className="sticky left-0 z-30 border-r border-ink-100 bg-white" style={{ height: totalHours * HOUR_HEIGHT }}>
               {hourMarks.map((h) => (
                 <div
                   key={h}
@@ -1070,6 +1077,13 @@ export function BookingCalendar({
                     key={h}
                     className="absolute w-full border-t border-ink-50"
                     style={{ top: (h - startHour) * HOUR_HEIGHT }}
+                  />
+                ))}
+                {hourMarks.map((h) => (
+                  <div
+                    key={`${h}-half`}
+                    className="absolute w-full border-t border-dashed border-ink-100"
+                    style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                   />
                 ))}
                 {bookingsOnDay(day).map((b) => renderBookingBlock(b, true))}
