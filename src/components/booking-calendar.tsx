@@ -266,6 +266,16 @@ export function BookingCalendar({
   const [resizePreview, setResizePreview] = useState<number | null>(null);
   const resizePreviewRef = useRef<number | null>(null);
   const dayColumnRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  // Header and body each have their own horizontal scroller (see the comment
+  // above the day/week grid markup for why they're split apart); this keeps
+  // the header's columns aligned with the body's as the owner scrolls sideways.
+  const headerScrollRef = useRef<HTMLDivElement | null>(null);
+  const bodyScrollRef = useRef<HTMLDivElement | null>(null);
+  const syncHeaderScroll = () => {
+    if (headerScrollRef.current && bodyScrollRef.current) {
+      headerScrollRef.current.scrollLeft = bodyScrollRef.current.scrollLeft;
+    }
+  };
   const [hiddenStaffIds, setHiddenStaffIds] = useState<Set<string>>(new Set());
 
   function toggleStaffVisible(staffId: string) {
@@ -865,66 +875,85 @@ export function BookingCalendar({
       )}
 
       {view === "day" && (
-        <div className="flex max-h-[70vh] overflow-y-auto rounded-2xl border border-ink-100">
-          {/* Frozen hour column — a flex sibling of the horizontally-scrolling
-              grid below, not a grid item inside it. position:sticky on a grid
-              item's inline axis is unreliable once a grid has many columns
-              (its "stuck" travel range silently caps out well short of the
-              full scroll distance in some browsers), so the hour labels stay
-              visible by construction instead: this panel is simply never
-              part of the region that scrolls sideways. */}
-          <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
-            <div className="sticky top-0 z-40 h-20 border-b border-r border-ink-100 bg-mist-50" />
-            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
-              {hourMarks.map((h) => (
-                <div
-                  key={h}
-                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
-                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
-                >
-                  {String(h).padStart(2, "0")}:00
-                </div>
-              ))}
-              {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
+        <div className="flex flex-col overflow-hidden rounded-2xl border border-ink-100">
+          {/* Header row and body row each have their own [frozen cell, scrolling
+              content] pair instead of relying on position:sticky. Sticky broke
+              two different ways here: (1) sticky-left on a grid item's inline
+              axis silently stops tracking scroll past ~300px in some browsers,
+              and (2) once the hour column was pulled out into its own
+              horizontally-non-scrolling flex sibling, any position:sticky
+              nested inside the horizontally-scrolling div started resolving
+              its containing block against THAT div (because overflow-x:auto
+              alone makes an element "a scroll container" for sticky purposes,
+              for both axes) instead of the real vertical scroller, breaking
+              vertical stickiness too. Splitting header and body into separate
+              rows — the header simply isn't part of any vertically-scrolling
+              region, so it never needs to stick — sidesteps both bugs. The
+              two rows' horizontal scroll positions are kept in sync manually. */}
+          <div className="flex">
+            <div className="h-20 w-14 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
+              <div
+                className="grid"
+                style={{
+                  gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
+                }}
+              >
+                {staff.length === 0 ? (
+                  <div className="flex h-20 items-center border-b border-ink-100 bg-mist-50 px-3 text-xs font-semibold text-ink-700">
+                    {t("unassigned")}
+                  </div>
+                ) : (
+                  visibleStaff.map((s) => (
+                    <div
+                      key={s.id}
+                      title={s.name}
+                      className="flex h-20 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
+                    >
+                      {s.avatarUrl ? (
+                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                          <Image src={s.avatarUrl} alt="" fill className="object-cover" />
+                        </div>
+                      ) : (
+                        <span
+                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${
+                            staffColor.get(s.id) ?? "bg-ink-400"
+                          }`}
+                        >
+                          {s.name.trim().charAt(0).toUpperCase() || "?"}
+                        </span>
+                      )}
+                      <span className="w-full truncate text-center">{s.name}</span>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
 
-          <div className="min-w-0 flex-1 overflow-x-auto overflow-y-clip">
+          <div className="flex max-h-[70vh] overflow-y-auto">
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+              <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+                {hourMarks.map((h) => (
+                  <div
+                    key={h}
+                    className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                    style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
+                  >
+                    {String(h).padStart(2, "0")}:00
+                  </div>
+                ))}
+                {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
+              </div>
+            </div>
+
+            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto">
           <div
             className="grid"
             style={{
               gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
             }}
           >
-            {staff.length === 0 ? (
-              <div className="sticky top-0 z-30 flex h-20 items-center border-b border-ink-100 bg-mist-50 px-3 text-xs font-semibold text-ink-700">
-                {t("unassigned")}
-              </div>
-            ) : (
-              visibleStaff.map((s) => (
-                <div
-                  key={s.id}
-                  title={s.name}
-                  className="sticky top-0 z-30 flex h-20 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
-                >
-                  {s.avatarUrl ? (
-                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                      <Image src={s.avatarUrl} alt="" fill className="object-cover" />
-                    </div>
-                  ) : (
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${
-                        staffColor.get(s.id) ?? "bg-ink-400"
-                      }`}
-                    >
-                      {s.name.trim().charAt(0).toUpperCase() || "?"}
-                    </span>
-                  )}
-                  <span className="w-full truncate text-center">{s.name}</span>
-                </div>
-              ))
-            )}
-
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
               const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
               // While a drag is in flight OR its confirmation dialog is still
@@ -1038,47 +1067,55 @@ export function BookingCalendar({
               );
             })}
           </div>
+            </div>
           </div>
         </div>
       )}
 
       {view === "week" && (
-        <div className="flex max-h-[70vh] overflow-y-auto rounded-2xl border border-ink-100">
-          {/* Frozen hour column — see the matching comment in the day view
-              for why this is a flex sibling rather than a sticky grid item. */}
-          <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
-            <div className="sticky top-0 z-40 h-12 border-b border-r border-ink-100 bg-mist-50" />
-            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
-              {hourMarks.map((h) => (
-                <div
-                  key={h}
-                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
-                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
-                >
-                  {String(h).padStart(2, "0")}:00
-                </div>
-              ))}
-              {nowInRange && isWithinInterval(now, { start: rangeStart, end: rangeEnd }) && (
-                <NowLine />
-              )}
+        <div className="flex flex-col overflow-hidden rounded-2xl border border-ink-100">
+          {/* See the matching comment in the day view for why header/body are
+              split into separate rows instead of using position:sticky. */}
+          <div className="flex">
+            <div className="h-12 w-14 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
+              <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
+                {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
+                  <div
+                    key={day.toISOString()}
+                    className={`flex h-12 items-center justify-center border-b border-l border-ink-100 px-2 text-center text-xs font-semibold ${
+                      isSameDay(day, toZonedTime(new Date(), businessTimezone))
+                        ? "bg-peach-100 text-ink-900"
+                        : "bg-mist-50 text-ink-700"
+                    }`}
+                  >
+                    {format(day, "EEE d", { locale: dfLocale })}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="min-w-0 flex-1 overflow-x-auto overflow-y-clip">
-          <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
-            {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
-              <div
-                key={day.toISOString()}
-                className={`sticky top-0 z-30 flex h-12 items-center justify-center border-b border-l border-ink-100 px-2 text-center text-xs font-semibold ${
-                  isSameDay(day, toZonedTime(new Date(), businessTimezone))
-                    ? "bg-peach-100 text-ink-900"
-                    : "bg-mist-50 text-ink-700"
-                }`}
-              >
-                {format(day, "EEE d", { locale: dfLocale })}
+          <div className="flex max-h-[70vh] overflow-y-auto">
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+              <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+                {hourMarks.map((h) => (
+                  <div
+                    key={h}
+                    className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                    style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
+                  >
+                    {String(h).padStart(2, "0")}:00
+                  </div>
+                ))}
+                {nowInRange && isWithinInterval(now, { start: rangeStart, end: rangeEnd }) && (
+                  <NowLine />
+                )}
               </div>
-            ))}
+            </div>
 
+            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto">
+          <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
                 key={day.toISOString()}
@@ -1107,6 +1144,7 @@ export function BookingCalendar({
               </div>
             ))}
           </div>
+            </div>
           </div>
         </div>
       )}
