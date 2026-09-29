@@ -29,7 +29,7 @@ export function BookingsView({
   initialBookings: BookingRow[];
   locale: string;
   businessTimezone: string;
-  staff: { id: string; name: string }[];
+  staff: { id: string; name: string; avatarUrl: string | null }[];
   services: { id: string; name: string; durationMin: number; priceCents: number; currency: string }[];
   isOwner: boolean;
 }) {

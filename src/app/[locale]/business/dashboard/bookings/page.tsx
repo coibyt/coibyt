@@ -32,7 +32,7 @@ export default async function BusinessBookingsPage({
     }),
     prisma.staff.findMany({
       where: { businessId: business.id, active: true },
-      select: { id: true, name: true },
+      select: { id: true, name: true, avatar: { select: { id: true } } },
     }),
     prisma.service.findMany({
       where: { businessId: business.id, active: true },
@@ -57,7 +57,11 @@ export default async function BusinessBookingsPage({
         }))}
         locale={locale}
         businessTimezone={business.timezone}
-        staff={staff}
+        staff={staff.map((s) => ({
+          id: s.id,
+          name: s.name,
+          avatarUrl: s.avatar ? `/api/staff-avatar/${s.id}` : null,
+        }))}
         services={services}
         isOwner={access.isOwner}
       />

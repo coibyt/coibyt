@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
   addDays,
@@ -25,6 +26,7 @@ import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 interface StaffOption {
   id: string;
   name: string;
+  avatarUrl: string | null;
 }
 
 interface CalendarBooking {
@@ -867,7 +869,7 @@ export function BookingCalendar({
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(0, 1fr))`,
+              gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
             }}
           >
             <div className="sticky top-0 z-30 border-b border-r border-ink-100 bg-mist-50" />
@@ -880,22 +882,22 @@ export function BookingCalendar({
                 <div
                   key={s.id}
                   title={s.name}
-                  className="sticky top-0 z-30 flex items-center justify-center gap-1.5 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
+                  className="sticky top-0 z-30 flex flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
                 >
-                  <span
-                    className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${
-                      staffColor.get(s.id) ?? "bg-ink-400"
-                    }`}
-                  >
-                    {s.name.trim().charAt(0).toUpperCase() || "?"}
-                  </span>
-                  <span
-                    className={
-                      visibleStaff.length === 1 ? "truncate" : "hidden truncate lg:inline"
-                    }
-                  >
-                    {s.name}
-                  </span>
+                  {s.avatarUrl ? (
+                    <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                      <Image src={s.avatarUrl} alt="" fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${
+                        staffColor.get(s.id) ?? "bg-ink-400"
+                      }`}
+                    >
+                      {s.name.trim().charAt(0).toUpperCase() || "?"}
+                    </span>
+                  )}
+                  <span className="w-full truncate text-center">{s.name}</span>
                 </div>
               ))
             )}
