@@ -816,42 +816,14 @@ export function BookingCalendar({
           })}
         </p>
       )}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <button onClick={() => navigate(-1)} className="btn-ghost !p-2" aria-label="Previous">
-            <ChevronLeft className="h-4 w-4" />
-          </button>
-          <button
-            onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
-            className="btn-outline !px-3 !py-1.5 text-xs"
-          >
-            {t("today")}
-          </button>
-          <button onClick={() => navigate(1)} className="btn-ghost !p-2" aria-label="Next">
-            <ChevronRight className="h-4 w-4" />
-          </button>
-          <span className="ml-2 text-sm font-semibold text-ink-900">
-            {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
-            {view === "week" &&
-              `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
-            {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
-          </span>
-          {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
-        </div>
-
-        <div className="inline-flex rounded-full border border-ink-100 p-1">
-          {(["day", "week", "month"] as ViewMode[]).map((v) => (
-            <button
-              key={v}
-              onClick={() => setView(v)}
-              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-                view === v ? "bg-ink-900 text-white" : "text-ink-700"
-              }`}
-            >
-              {tDash("viewModes." + v)}
-            </button>
-          ))}
-        </div>
+      <div className="flex items-center gap-2">
+        <span className="text-sm font-semibold text-ink-900">
+          {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
+          {view === "week" &&
+            `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
+          {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
+        </span>
+        {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
       </div>
 
       {error && (
@@ -859,7 +831,7 @@ export function BookingCalendar({
       )}
 
       {view === "day" && staff.length > 1 && (
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1">
           {staff.map((s) => {
             const checked = !hiddenStaffIds.has(s.id);
             return (
@@ -867,7 +839,7 @@ export function BookingCalendar({
                 key={s.id}
                 type="button"
                 onClick={() => toggleStaffVisible(s.id)}
-                className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
+                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
                   checked
                     ? "border-ink-900 bg-ink-900 text-white"
                     : "border-ink-100 bg-white text-ink-400"
@@ -1151,6 +1123,35 @@ export function BookingCalendar({
           </div>
         </div>
       )}
+
+      <div className="sticky bottom-4 z-30 flex justify-center">
+        <div className="flex items-center gap-1 rounded-full border border-ink-100 bg-white p-1 shadow-popover">
+          <button onClick={() => navigate(-1)} className="btn-ghost !p-2" aria-label="Previous">
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <button
+            onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
+            className="btn-outline !border-0 !px-3 !py-1.5 text-xs"
+          >
+            {t("today")}
+          </button>
+          <button onClick={() => navigate(1)} className="btn-ghost !p-2" aria-label="Next">
+            <ChevronRight className="h-4 w-4" />
+          </button>
+          <span className="mx-1 h-5 w-px bg-ink-100" />
+          {(["day", "week", "month"] as ViewMode[]).map((v) => (
+            <button
+              key={v}
+              onClick={() => setView(v)}
+              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                view === v ? "bg-ink-900 text-white" : "text-ink-700"
+              }`}
+            >
+              {tDash("viewModes." + v)}
+            </button>
+          ))}
+        </div>
+      </div>
 
       {activeBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
