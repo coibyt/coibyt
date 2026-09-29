@@ -865,16 +865,39 @@ export function BookingCalendar({
       )}
 
       {view === "day" && (
-        <div className="max-h-[70vh] overflow-auto rounded-2xl border border-ink-100">
+        <div className="flex max-h-[70vh] overflow-y-auto rounded-2xl border border-ink-100">
+          {/* Frozen hour column — a flex sibling of the horizontally-scrolling
+              grid below, not a grid item inside it. position:sticky on a grid
+              item's inline axis is unreliable once a grid has many columns
+              (its "stuck" travel range silently caps out well short of the
+              full scroll distance in some browsers), so the hour labels stay
+              visible by construction instead: this panel is simply never
+              part of the region that scrolls sideways. */}
+          <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+            <div className="sticky top-0 z-40 h-20 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
+              {hourMarks.map((h) => (
+                <div
+                  key={h}
+                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
+                >
+                  {String(h).padStart(2, "0")}:00
+                </div>
+              ))}
+              {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
+            </div>
+          </div>
+
+          <div className="min-w-0 flex-1 overflow-x-auto overflow-y-clip">
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
+              gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
             }}
           >
-            <div className="sticky left-0 top-0 z-40 border-b border-r border-ink-100 bg-mist-50" />
             {staff.length === 0 ? (
-              <div className="sticky top-0 z-30 border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
+              <div className="sticky top-0 z-30 flex h-20 items-center border-b border-ink-100 bg-mist-50 px-3 text-xs font-semibold text-ink-700">
                 {t("unassigned")}
               </div>
             ) : (
@@ -882,7 +905,7 @@ export function BookingCalendar({
                 <div
                   key={s.id}
                   title={s.name}
-                  className="sticky top-0 z-30 flex flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
+                  className="sticky top-0 z-30 flex h-20 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
                 >
                   {s.avatarUrl ? (
                     <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -901,19 +924,6 @@ export function BookingCalendar({
                 </div>
               ))
             )}
-
-            <div className="sticky left-0 z-30 border-r border-ink-100 bg-white" style={{ height: totalHours * HOUR_HEIGHT }}>
-              {hourMarks.map((h) => (
-                <div
-                  key={h}
-                  className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
-                  style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
-                >
-                  {String(h).padStart(2, "0")}:00
-                </div>
-              ))}
-              {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
-            </div>
 
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
               const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
@@ -1028,27 +1038,17 @@ export function BookingCalendar({
               );
             })}
           </div>
+          </div>
         </div>
       )}
 
       {view === "week" && (
-        <div className="max-h-[70vh] overflow-auto rounded-2xl border border-ink-100">
-          <div className="grid" style={{ gridTemplateColumns: `56px repeat(7, minmax(120px, 1fr))` }}>
-            <div className="sticky left-0 top-0 z-40 border-b border-r border-ink-100 bg-mist-50" />
-            {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
-              <div
-                key={day.toISOString()}
-                className={`sticky top-0 z-30 border-b border-l border-ink-100 px-2 py-2 text-center text-xs font-semibold ${
-                  isSameDay(day, toZonedTime(new Date(), businessTimezone))
-                    ? "bg-peach-100 text-ink-900"
-                    : "bg-mist-50 text-ink-700"
-                }`}
-              >
-                {format(day, "EEE d", { locale: dfLocale })}
-              </div>
-            ))}
-
-            <div className="sticky left-0 z-30 border-r border-ink-100 bg-white" style={{ height: totalHours * HOUR_HEIGHT }}>
+        <div className="flex max-h-[70vh] overflow-y-auto rounded-2xl border border-ink-100">
+          {/* Frozen hour column — see the matching comment in the day view
+              for why this is a flex sibling rather than a sticky grid item. */}
+          <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+            <div className="sticky top-0 z-40 h-12 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
               {hourMarks.map((h) => (
                 <div
                   key={h}
@@ -1062,6 +1062,22 @@ export function BookingCalendar({
                 <NowLine />
               )}
             </div>
+          </div>
+
+          <div className="min-w-0 flex-1 overflow-x-auto overflow-y-clip">
+          <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
+            {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
+              <div
+                key={day.toISOString()}
+                className={`sticky top-0 z-30 flex h-12 items-center justify-center border-b border-l border-ink-100 px-2 text-center text-xs font-semibold ${
+                  isSameDay(day, toZonedTime(new Date(), businessTimezone))
+                    ? "bg-peach-100 text-ink-900"
+                    : "bg-mist-50 text-ink-700"
+                }`}
+              >
+                {format(day, "EEE d", { locale: dfLocale })}
+              </div>
+            ))}
 
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
@@ -1090,6 +1106,7 @@ export function BookingCalendar({
                 {nowInRange && isSameDay(day, now) && <NowLine />}
               </div>
             ))}
+          </div>
           </div>
         </div>
       )}
