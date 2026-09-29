@@ -288,7 +288,10 @@
       "saveBeforeImage": "บันทึกก่อน แล้วกดแก้ไขเพื่อเพิ่มรูปภาพ",
       "highlightTitleLabel": "หัวข้อ",
       "highlightDescLabel": "คำอธิบาย",
-      "deleteHighlightConfirm": "ลบ \"{title}\" หรือไม่?"
+      "deleteHighlightConfirm": "ลบ \"{title}\" หรือไม่?",
+      "heroSlides": "รูปภาพสไลด์ (สูงสุด 5 รูป)",
+      "heroSlidesHint": "รูปเหล่านี้จะเปลี่ยนอัตโนมัติที่หน้าแรก หากยังไม่ได้อัปโหลด จะแสดงสไลด์เริ่มต้นแทน",
+      "removeImage": "ลบรูปภาพ"
     }
   },
   "common": {

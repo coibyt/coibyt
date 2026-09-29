@@ -288,7 +288,10 @@
       "saveBeforeImage": "Tallenna tämä ensin, ja lisää kuva muokkaamalla sitä.",
       "highlightTitleLabel": "Otsikko",
       "highlightDescLabel": "Kuvaus",
-      "deleteHighlightConfirm": "Poistetaanko \"{title}\"?"
+      "deleteHighlightConfirm": "Poistetaanko \"{title}\"?",
+      "heroSlides": "Liukuvat kuvat (enintään 5)",
+      "heroSlidesHint": "Nämä vaihtuvat automaattisesti etusivulla. Jos yhtään ei ole ladattu, näytetään oletuskuva.",
+      "removeImage": "Poista kuva"
     }
   },
   "common": {

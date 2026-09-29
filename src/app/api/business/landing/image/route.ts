@@ -34,7 +34,8 @@ export async function POST(req: Request) {
     update: {},
     create: { businessId: owned.businessId },
   });
-  if (slot !== "hero" && slot !== "intro") {
+  const isHeroSlide = /^hero-slide-[0-4]$/.test(slot);
+  if (slot !== "hero" && slot !== "intro" && !isHeroSlide) {
     const highlight = await prisma.landingHighlight.findFirst({
       where: { id: slot, landingPageId: landing.id },
       select: { id: true },
@@ -51,4 +52,22 @@ export async function POST(req: Request) {
 
   const url = `/api/landing-image/${landing.id}/${slot}?v=${Date.now()}`;
   return NextResponse.json({ url });
+}
+
+/** Removes one slot's image — currently only used to clear a hero slide, so
+ * the owner can drop back below 5 without replacing it with another photo. */
+export async function DELETE(req: Request) {
+  const owned = await requireOwnerOnly();
+  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+
+  const { slot } = await req.json();
+  if (typeof slot !== "string" || !slot) {
+    return NextResponse.json({ error: "INVALID_SLOT" }, { status: 400 });
+  }
+
+  const landing = await prisma.landingPage.findUnique({ where: { businessId: owned.businessId } });
+  if (!landing) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+
+  await prisma.landingImage.deleteMany({ where: { landingPageId: landing.id, slot } });
+  return NextResponse.json({ ok: true });
 }

@@ -288,7 +288,10 @@
       "saveBeforeImage": "រក្សាទុកមុននេះសិន រួចចុចកែសម្រួលដើម្បីបន្ថែមរូបភាព។",
       "highlightTitleLabel": "ចំណងជើង",
       "highlightDescLabel": "ការពិពណ៌នា",
-      "deleteHighlightConfirm": "លុប \"{title}\"?"
+      "deleteHighlightConfirm": "លុប \"{title}\"?",
+      "heroSlides": "រូបភាពស្លាយ (រហូតដល់ ៥)",
+      "heroSlidesHint": "រូបទាំងនេះនឹងផ្លាស់ប្តូរដោយស្វ័យប្រវត្តិនៅទំព័រដើម។ ប្រសិនបើមិនទាន់មានរូបភាព នឹងបង្ហាញស្លាយលំនាំដើម។",
+      "removeImage": "លុបរូបភាព"
     }
   },
   "common": {

@@ -288,7 +288,10 @@
       "saveBeforeImage": "Lưu mục này trước, sau đó bấm sửa để thêm ảnh.",
       "highlightTitleLabel": "Tiêu đề",
       "highlightDescLabel": "Mô tả",
-      "deleteHighlightConfirm": "Xóa mục \"{title}\"?"
+      "deleteHighlightConfirm": "Xóa mục \"{title}\"?",
+      "heroSlides": "Ảnh trình chiếu (tối đa 5)",
+      "heroSlidesHint": "Các ảnh sẽ tự động chuyển đổi trên trang chủ. Chưa tải ảnh nào thì trang chủ sẽ hiện ảnh mặc định.",
+      "removeImage": "Xóa ảnh"
     }
   },
   "common": {

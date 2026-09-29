@@ -31,7 +31,7 @@ export interface SiteContact {
   whatsapp: string | null;
 }
 
-function minutesToTime(min: number) {
+export function minutesToTime(min: number) {
   const h = Math.floor(min / 60).toString().padStart(2, "0");
   const m = (min % 60).toString().padStart(2, "0");
   return `${h}:${m}`;
@@ -157,7 +157,7 @@ const WEEKDAY_SHORT: Record<string, string[]> = {
   th: ["จ", "อ", "พ", "พฤ", "ศ", "ส", "อา"],
 };
 
-function WeekdayHoursList({
+export function WeekdayHoursList({
   locale,
   hoursByDay,
   closedLabel,

@@ -288,7 +288,10 @@
       "saveBeforeImage": "Speichere dies zuerst und klicke dann auf Bearbeiten, um ein Bild hinzuzufügen.",
       "highlightTitleLabel": "Titel",
       "highlightDescLabel": "Beschreibung",
-      "deleteHighlightConfirm": "\"{title}\" löschen?"
+      "deleteHighlightConfirm": "\"{title}\" löschen?",
+      "heroSlides": "Slider-Bilder (bis zu 5)",
+      "heroSlidesHint": "Diese wechseln automatisch auf der Startseite. Ohne hochgeladene Bilder wird eine Standardfolie angezeigt.",
+      "removeImage": "Bild entfernen"
     }
   },
   "common": {

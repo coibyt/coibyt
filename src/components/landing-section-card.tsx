@@ -30,6 +30,7 @@ export function LandingSectionCard({
   saving,
   enabled,
   onToggleEnabled,
+  imageArea,
 }: {
   heading: string;
   imageSlot: string;
@@ -40,6 +41,9 @@ export function LandingSectionCard({
   saving: boolean;
   enabled?: boolean;
   onToggleEnabled?: (v: boolean) => void;
+  /** Replaces the default single-image upload — used for the hero, which
+   * manages up to 5 slider images instead of one photo. */
+  imageArea?: React.ReactNode;
 }) {
   const tDash = useTranslations("dashboard");
   const tCommon = useTranslations("common");
@@ -110,19 +114,20 @@ export function LandingSectionCard({
             />
           </div>
 
-          {value.layout !== "TEXT_ONLY" && (
-            <div>
-              <p className="label">{tDash("landing.image")}</p>
-              <LandingImageUpload
-                slot={imageSlot}
-                initialUrl={initialImageUrl}
-                onUploaded={() => {}}
-                uploadLabel={tDash("landing.uploadImage")}
-                tooLargeError={tDash("landing.imageTooLarge")}
-                unsupportedError={tDash("landing.imageUnsupported")}
-              />
-            </div>
-          )}
+          {value.layout !== "TEXT_ONLY" &&
+            (imageArea ?? (
+              <div>
+                <p className="label">{tDash("landing.image")}</p>
+                <LandingImageUpload
+                  slot={imageSlot}
+                  initialUrl={initialImageUrl}
+                  onUploaded={() => {}}
+                  uploadLabel={tDash("landing.uploadImage")}
+                  tooLargeError={tDash("landing.imageTooLarge")}
+                  unsupportedError={tDash("landing.imageUnsupported")}
+                />
+              </div>
+            ))}
 
           <div className="grid gap-3 sm:grid-cols-2">
             <div>

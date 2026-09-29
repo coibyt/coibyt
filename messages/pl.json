@@ -288,7 +288,10 @@
       "saveBeforeImage": "Najpierw zapisz, a następnie edytuj, aby dodać zdjęcie.",
       "highlightTitleLabel": "Tytuł",
       "highlightDescLabel": "Opis",
-      "deleteHighlightConfirm": "Usunąć \"{title}\"?"
+      "deleteHighlightConfirm": "Usunąć \"{title}\"?",
+      "heroSlides": "Zdjęcia w slajderze (do 5)",
+      "heroSlidesHint": "Zmieniają się automatycznie na stronie głównej. Bez przesłanych zdjęć pokazywany jest domyślny slajd.",
+      "removeImage": "Usuń zdjęcie"
     }
   },
   "common": {

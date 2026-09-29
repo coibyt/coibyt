@@ -8,6 +8,9 @@ import { siteStrings } from "@/lib/site-content";
 import { getSiteBranches } from "@/lib/site-branches";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { HeroSlider } from "@/components/hero-slider";
+
+const HERO_SLIDE_SLOTS = ["hero-slide-0", "hero-slide-1", "hero-slide-2", "hero-slide-3", "hero-slide-4"];
 
 interface SectionData {
   layout: string;
@@ -76,6 +79,12 @@ export default async function BusinessSitePage({
 
   const imageUrl = (slot: string) =>
     landing.images.some((i) => i.slot === slot) ? `/api/landing-image/${landing.id}/${slot}` : null;
+  // Falls back to the older single "hero" image slot for salons that
+  // uploaded one before the multi-slide slider existed, so switching to the
+  // slider never silently drops a photo they already had live.
+  const heroSlideUrlsRaw = HERO_SLIDE_SLOTS.map(imageUrl).filter((u): u is string => !!u);
+  const legacyHero = imageUrl("hero");
+  const heroSlideUrls = heroSlideUrlsRaw.length > 0 ? heroSlideUrlsRaw : legacyHero ? [legacyHero] : [];
 
   const bookingHref = `/site/${slug}/booking`;
   const ctaHref = (target: string, url: string | null) =>
@@ -115,7 +124,7 @@ export default async function BusinessSitePage({
         active="home"
       />
 
-      <LandingSection data={hero} ctaHref={ctaHref} large />
+      <LandingSection data={hero} ctaHref={ctaHref} large heroSlides={heroSlideUrls} />
 
       {landing.introEnabled && <LandingSection data={intro} ctaHref={ctaHref} />}
 
@@ -229,14 +238,23 @@ function LandingSection({
   data,
   ctaHref,
   large = false,
+  heroSlides,
 }: {
   data: SectionData;
   ctaHref: (target: string, url: string | null) => string;
   large?: boolean;
+  /** Only meaningful when `large` (the hero) — its rotating slider images,
+   * shown in place of the single static photo other sections use. */
+  heroSlides?: string[];
 }) {
-  if (!data.title && !data.text && !data.imageUrl) return null;
+  // The hero always shows (its own booking button falls back to a default
+  // label, and its image area falls back to a generated slider) unless the
+  // owner explicitly hasn't written any title/text for it AND picked a
+  // non-text layout with no photo of their own — everything else always has
+  // at least title/text/image to justify rendering.
+  if (!large && !data.title && !data.text && !data.imageUrl) return null;
   const imageFirst = data.layout === "IMAGE_LEFT";
-  const textOnly = data.layout === "TEXT_ONLY" || !data.imageUrl;
+  const textOnly = data.layout === "TEXT_ONLY" || (!large && !data.imageUrl);
 
   const heading = data.title && (
     <h1
@@ -274,9 +292,11 @@ function LandingSection({
       {button && <div>{button}</div>}
     </div>
   );
-  const imageBlock = (
+  const imageBlock = large ? (
+    <HeroSlider images={heroSlides ?? []} />
+  ) : (
     <div className="relative aspect-square w-full flex-1 overflow-hidden rounded-[2rem] bg-mist-100 sm:aspect-[4/3]">
-      <Image src={data.imageUrl!} alt="" fill priority={large} className="object-cover" />
+      <Image src={data.imageUrl!} alt="" fill className="object-cover" />
     </div>
   );
 

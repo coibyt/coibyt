@@ -36,6 +36,7 @@ export default async function LandingDashboardPage({
     const has = landing.images.some((i) => i.slot === slot);
     return has ? `/api/landing-image/${landing.id}/${slot}` : null;
   };
+  const heroSlideUrls = [0, 1, 2, 3, 4].map((i) => imageUrl(`hero-slide-${i}`));
 
   return (
     <div className="space-y-5">
@@ -60,6 +61,7 @@ export default async function LandingDashboardPage({
           highlightsEnabled: landing.highlightsEnabled,
           highlightsTitle: landing.highlightsTitle,
           heroImageUrl: imageUrl("hero"),
+          heroSlideUrls,
           introImageUrl: imageUrl("intro"),
           highlights: landing.highlights.map((h) => ({
             id: h.id,

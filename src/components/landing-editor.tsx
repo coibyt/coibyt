@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { LandingSectionCard, type LandingSectionValue } from "@/components/landing-section-card";
 import { LandingHighlightsManager, type HighlightRow } from "@/components/landing-highlights-manager";
+import { HeroSlidesManager } from "@/components/hero-slides-manager";
 
 export interface LandingData {
   id: string;
@@ -24,6 +25,7 @@ export interface LandingData {
   highlightsEnabled: boolean;
   highlightsTitle: string | null;
   heroImageUrl: string | null;
+  heroSlideUrls: (string | null)[];
   introImageUrl: string | null;
   highlights: HighlightRow[];
 }
@@ -99,6 +101,7 @@ export function LandingEditor({ landing }: { landing: LandingData }) {
         onChange={(patch) => setHero((h) => ({ ...h, ...patch }))}
         onSave={saveHero}
         saving={savingHero}
+        imageArea={<HeroSlidesManager initialUrls={landing.heroSlideUrls} />}
       />
       <LandingSectionCard
         heading={tDash("landing.introTitle")}

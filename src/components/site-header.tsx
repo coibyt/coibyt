@@ -16,7 +16,7 @@ export function SiteHeader({
   slug: string;
   businessName: string;
   logoUrl: string | null;
-  active: "home" | "services" | "booking";
+  active: "home" | "services" | "booking" | "about" | "contact";
 }) {
   const s = siteStrings(locale);
   const [open, setOpen] = useState(false);
@@ -28,7 +28,10 @@ export function SiteHeader({
     { key: "home" as const, label: s.navHome, href: `/site/${slug}` },
     { key: "services" as const, label: s.navServices, href: `/site/${slug}/services` },
     { key: "booking" as const, label: s.navBooking, href: `/site/${slug}/booking` },
+    { key: "about" as const, label: s.navAbout, href: `/site/${slug}/about` },
+    { key: "contact" as const, label: s.navContact, href: `/site/${slug}/contact` },
   ];
+  const bookingHref = links.find((l) => l.key === "booking")!.href;
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur">
@@ -63,7 +66,7 @@ export function SiteHeader({
         </nav>
 
         <div className="flex items-center gap-2">
-          <a href={links[2].href} className="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">
+          <a href={bookingHref} className="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">
             {s.bookNow}
           </a>
           <button
@@ -94,7 +97,7 @@ export function SiteHeader({
               </a>
             ))}
             <a
-              href={links[2].href}
+              href={bookingHref}
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 justify-center !py-3"
             >

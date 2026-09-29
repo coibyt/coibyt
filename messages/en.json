@@ -288,7 +288,10 @@
       "saveBeforeImage": "Save this first, then click edit to add an image.",
       "highlightTitleLabel": "Title",
       "highlightDescLabel": "Description",
-      "deleteHighlightConfirm": "Delete \"{title}\"?"
+      "deleteHighlightConfirm": "Delete \"{title}\"?",
+      "heroSlides": "Slider images (up to 5)",
+      "heroSlidesHint": "These rotate automatically on the homepage. With none uploaded, a default slide is shown instead.",
+      "removeImage": "Remove image"
     }
   },
   "common": {
