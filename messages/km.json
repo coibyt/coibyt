@@ -84,6 +84,9 @@
     "listView": "បញ្ជី",
     "today": "ថ្ងៃនេះ",
     "allStaff": "បុគ្គលិកទាំងអស់",
+    "hideAllStaff": "លាក់ទាំងអស់",
+    "showAllStaff": "បង្ហាញទាំងអស់",
+    "selectStaffToView": "ជ្រើសរើសបុគ្គលិកយ៉ាងហោចណាស់ម្នាក់ដើម្បីមើលប្រតិទិន។",
     "unassigned": "មិនទាន់កំណត់"
   },
   "customers": {

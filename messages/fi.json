@@ -84,6 +84,9 @@
     "listView": "Lista",
     "today": "Tänään",
     "allStaff": "Koko henkilökunta",
+    "hideAllStaff": "Piilota kaikki",
+    "showAllStaff": "Näytä kaikki",
+    "selectStaffToView": "Valitse vähintään yksi työntekijä nähdäksesi kalenterin.",
     "unassigned": "Ei määritetty"
   },
   "customers": {

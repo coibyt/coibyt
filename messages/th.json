@@ -84,6 +84,9 @@
     "listView": "รายการ",
     "today": "วันนี้",
     "allStaff": "พนักงานทั้งหมด",
+    "hideAllStaff": "ซ่อนทั้งหมด",
+    "showAllStaff": "แสดงทั้งหมด",
+    "selectStaffToView": "เลือกพนักงานอย่างน้อยหนึ่งคนเพื่อดูปฏิทิน",
     "unassigned": "ยังไม่ได้มอบหมาย"
   },
   "customers": {

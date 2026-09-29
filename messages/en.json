@@ -84,6 +84,9 @@
     "listView": "List",
     "today": "Today",
     "allStaff": "All staff",
+    "hideAllStaff": "Hide all",
+    "showAllStaff": "Show all",
+    "selectStaffToView": "Select at least one staff member to view the calendar.",
     "unassigned": "Unassigned"
   },
   "customers": {

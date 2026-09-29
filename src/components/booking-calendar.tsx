@@ -287,6 +287,10 @@ export function BookingCalendar({
     });
   }
 
+  function toggleAllStaffVisible() {
+    setHiddenStaffIds((prev) => (prev.size > 0 ? new Set() : new Set(staff.map((s) => s.id))));
+  }
+
   const visibleStaff = useMemo(
     () => staff.filter((s) => !hiddenStaffIds.has(s.id)),
     [staff, hiddenStaffIds]
@@ -847,6 +851,13 @@ export function BookingCalendar({
 
       {view === "day" && staff.length > 1 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
+          <button
+            type="button"
+            onClick={toggleAllStaffVisible}
+            className="flex shrink-0 items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-700 transition-colors hover:bg-mist-50"
+          >
+            {hiddenStaffIds.size > 0 ? t("showAllStaff") : t("hideAllStaff")}
+          </button>
           {staff.map((s) => {
             const checked = !hiddenStaffIds.has(s.id);
             return (
@@ -874,7 +885,13 @@ export function BookingCalendar({
         </div>
       )}
 
-      {view === "day" && (
+      {view === "day" && staff.length > 0 && visibleStaff.length === 0 && (
+        <div className="rounded-2xl border border-dashed border-ink-200 bg-mist-50 px-4 py-10 text-center text-sm text-ink-400">
+          {t("selectStaffToView")}
+        </div>
+      )}
+
+      {view === "day" && (staff.length === 0 || visibleStaff.length > 0) && (
         <div className="flex flex-col overflow-hidden rounded-2xl border border-ink-100">
           {/* Header row and body row each have their own [frozen cell, scrolling
               content] pair instead of relying on position:sticky. Sticky broke

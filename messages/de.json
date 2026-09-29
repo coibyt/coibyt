@@ -84,6 +84,9 @@
     "listView": "Liste",
     "today": "Heute",
     "allStaff": "Alle Mitarbeiter",
+    "hideAllStaff": "Alle ausblenden",
+    "showAllStaff": "Alle anzeigen",
+    "selectStaffToView": "Wähle mindestens einen Mitarbeiter aus, um den Kalender zu sehen.",
     "unassigned": "Nicht zugewiesen"
   },
   "customers": {

@@ -84,6 +84,9 @@
     "listView": "Lista",
     "today": "Dzisiaj",
     "allStaff": "Cały personel",
+    "hideAllStaff": "Ukryj wszystkich",
+    "showAllStaff": "Pokaż wszystkich",
+    "selectStaffToView": "Wybierz co najmniej jednego pracownika, aby zobaczyć kalendarz.",
     "unassigned": "Nieprzypisany"
   },
   "customers": {

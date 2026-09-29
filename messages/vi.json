@@ -84,6 +84,9 @@
     "listView": "Danh sách",
     "today": "Hôm nay",
     "allStaff": "Tất cả nhân viên",
+    "hideAllStaff": "Ẩn tất cả",
+    "showAllStaff": "Hiện tất cả",
+    "selectStaffToView": "Chọn ít nhất một nhân viên để xem lịch hẹn.",
     "unassigned": "Chưa phân công"
   },
   "customers": {
