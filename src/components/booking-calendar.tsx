@@ -867,9 +867,9 @@ export function BookingCalendar({
               gridTemplateColumns: `56px repeat(${Math.max(visibleStaff.length, 1)}, minmax(0, 1fr))`,
             }}
           >
-            <div className="border-b border-r border-ink-100 bg-mist-50" />
+            <div className="sticky top-16 z-30 border-b border-r border-ink-100 bg-mist-50" />
             {staff.length === 0 ? (
-              <div className="border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
+              <div className="sticky top-16 z-30 border-b border-ink-100 bg-mist-50 px-3 py-2 text-xs font-semibold text-ink-700">
                 {t("unassigned")}
               </div>
             ) : (
@@ -877,7 +877,7 @@ export function BookingCalendar({
                 <div
                   key={s.id}
                   title={s.name}
-                  className="flex items-center justify-center gap-1.5 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
+                  className="sticky top-16 z-30 flex items-center justify-center gap-1.5 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
                 >
                   <span
                     className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ${
@@ -1022,11 +1022,11 @@ export function BookingCalendar({
       {view === "week" && (
         <div className="overflow-x-auto rounded-2xl border border-ink-100">
           <div className="grid" style={{ gridTemplateColumns: `56px repeat(7, minmax(120px, 1fr))` }}>
-            <div className="border-b border-r border-ink-100 bg-mist-50" />
+            <div className="sticky top-16 z-30 border-b border-r border-ink-100 bg-mist-50" />
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
                 key={day.toISOString()}
-                className={`border-b border-l border-ink-100 px-2 py-2 text-center text-xs font-semibold ${
+                className={`sticky top-16 z-30 border-b border-l border-ink-100 px-2 py-2 text-center text-xs font-semibold ${
                   isSameDay(day, toZonedTime(new Date(), businessTimezone))
                     ? "bg-peach-100 text-ink-900"
                     : "bg-mist-50 text-ink-700"
