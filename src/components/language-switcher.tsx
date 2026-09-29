@@ -13,11 +13,11 @@ const LOCALE_LABELS: Record<string, string> = {
   th: "ไทย",
 };
 
-/** Lets a customer switch language mid-booking on the embed flow — the
- * embed pages take their locale from `?locale=`, not the URL path, so this
- * just rewrites that one query param and keeps everything else (chain,
- * extra, etc.) intact. */
-export function EmbedLanguageSwitcher({ locale }: { locale: string }) {
+/** Lets a customer switch language on any chrome-free page that takes its
+ * locale from `?locale=` rather than the URL path (the /embed booking flow
+ * and the /site public website) — rewrites just that one query param and
+ * keeps everything else (chain, extra, etc.) intact. */
+export function LanguageSwitcher({ locale }: { locale: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

@@ -86,7 +86,7 @@ export default async function BusinessSitePage({
   const legacyHero = imageUrl("hero");
   const heroSlideUrls = heroSlideUrlsRaw.length > 0 ? heroSlideUrlsRaw : legacyHero ? [legacyHero] : [];
 
-  const bookingHref = `/site/${slug}/booking`;
+  const bookingHref = `/site/${slug}/booking?locale=${locale}`;
   const ctaHref = (target: string, url: string | null) =>
     target === "URL" && url ? url : bookingHref;
 

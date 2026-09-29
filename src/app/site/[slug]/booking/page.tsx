@@ -88,7 +88,7 @@ export default async function BusinessBookingPage({
                 return (
                   <a
                     key={b.slug}
-                    href={`/site/${b.slug}/booking`}
+                    href={`/site/${b.slug}/booking?locale=${locale}`}
                     className={`flex items-center gap-3 rounded-2xl border p-4 transition-colors ${
                       isCurrent
                         ? "border-primary-500 bg-primary-50"

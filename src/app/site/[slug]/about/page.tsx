@@ -112,7 +112,7 @@ export default async function BusinessAboutPage({
       )}
 
       <section className="border-t border-ink-100 bg-ink-900 py-14 text-center">
-        <a href={`/site/${slug}/booking`} className="btn-accent !px-8 !py-3.5 text-base">
+        <a href={`/site/${slug}/booking?locale=${locale}`} className="btn-accent !px-8 !py-3.5 text-base">
           {s.bookNow}
         </a>
       </section>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { siteStrings } from "@/lib/site-content";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 export function SiteHeader({
   locale,
@@ -22,14 +23,16 @@ export function SiteHeader({
   const [open, setOpen] = useState(false);
 
   // These are all /site/* pages themselves — they live outside the
-  // [locale] segment and take their locale from the business's own
-  // defaultLocale, never from a URL path prefix, so no sitePrefix() here.
+  // [locale] segment and take their locale from `?locale=`, never from a
+  // URL path prefix, so every internal link carries it forward explicitly
+  // (same reasoning as /embed) — otherwise a customer's language choice
+  // would reset to the salon's default the moment they clicked another tab.
   const links = [
-    { key: "home" as const, label: s.navHome, href: `/site/${slug}` },
-    { key: "services" as const, label: s.navServices, href: `/site/${slug}/services` },
-    { key: "booking" as const, label: s.navBooking, href: `/site/${slug}/booking` },
-    { key: "about" as const, label: s.navAbout, href: `/site/${slug}/about` },
-    { key: "contact" as const, label: s.navContact, href: `/site/${slug}/contact` },
+    { key: "home" as const, label: s.navHome, href: `/site/${slug}?locale=${locale}` },
+    { key: "services" as const, label: s.navServices, href: `/site/${slug}/services?locale=${locale}` },
+    { key: "booking" as const, label: s.navBooking, href: `/site/${slug}/booking?locale=${locale}` },
+    { key: "about" as const, label: s.navAbout, href: `/site/${slug}/about?locale=${locale}` },
+    { key: "contact" as const, label: s.navContact, href: `/site/${slug}/contact?locale=${locale}` },
   ];
   const bookingHref = links.find((l) => l.key === "booking")!.href;
 
@@ -66,6 +69,9 @@ export function SiteHeader({
         </nav>
 
         <div className="flex items-center gap-2">
+          <div className="hidden sm:block">
+            <LanguageSwitcher locale={locale} />
+          </div>
           <a href={bookingHref} className="btn-primary hidden !px-5 !py-2.5 text-sm sm:inline-flex">
             {s.bookNow}
           </a>
@@ -103,6 +109,9 @@ export function SiteHeader({
             >
               {s.bookNow}
             </a>
+            <div className="mt-3 flex justify-center">
+              <LanguageSwitcher locale={locale} />
+            </div>
           </div>
         </nav>
       )}

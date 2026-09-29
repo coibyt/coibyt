@@ -1,6 +1,6 @@
 import { LogIn } from "lucide-react";
 import { sitePrefix } from "@/lib/site-content";
-import { EmbedLanguageSwitcher } from "@/components/embed-language-switcher";
+import { LanguageSwitcher } from "@/components/language-switcher";
 
 const SIGN_IN_LABEL: Record<string, string> = {
   vi: "Đăng nhập hoặc đăng ký",
@@ -20,7 +20,7 @@ export function EmbedTopBar({ locale }: { locale: string }) {
   const label = SIGN_IN_LABEL[locale] ?? SIGN_IN_LABEL.en;
   return (
     <div className="mb-3 flex items-center justify-between gap-3">
-      <EmbedLanguageSwitcher locale={locale} />
+      <LanguageSwitcher locale={locale} />
       <a
         href={`${sitePrefix(locale)}/auth/sign-in`}
         target="_blank"
