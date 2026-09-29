@@ -17,8 +17,8 @@ import {
 } from "date-fns";
 import { fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { ChevronLeft, ChevronRight, Loader2, X } from "lucide-react";
-import { formatMoney } from "@/lib/money";
+import { ChevronLeft, ChevronRight, Loader2, Pencil, X } from "lucide-react";
+import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 
@@ -35,6 +35,7 @@ interface CalendarBooking {
   priceCents: number;
   currency: string;
   staffId: string | null;
+  serviceId: string;
   staffName: string | null;
   customerId: string;
   customerNote: string | null;
@@ -43,6 +44,19 @@ interface CalendarBooking {
   customerPhone: string | null;
   customerEmail: string | null;
   addOnNames: string[];
+}
+
+interface EditBookingDraft {
+  bookingId: string;
+  startsAt: Date;
+  staffId: string;
+  serviceId: string;
+  priceAmount: string; // whole-currency-unit string, e.g. "180" for 180 EUR
+  currency: string;
+  customerNote: string;
+  customerName: string;
+  customerPhone: string;
+  customerEmail: string;
 }
 
 interface CustomerMatch {
@@ -223,6 +237,9 @@ export function BookingCalendar({
   const [loading, setLoading] = useState(true);
   const [activeBooking, setActiveBooking] = useState<CalendarBooking | null>(null);
   const [showCancelPicker, setShowCancelPicker] = useState(false);
+  const [editBooking, setEditBooking] = useState<EditBookingDraft | null>(null);
+  const [savingEdit, setSavingEdit] = useState(false);
+  const [editError, setEditError] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const draggingId = useRef<string | null>(null);
@@ -316,13 +333,18 @@ export function BookingCalendar({
   const fromStr = format(rangeStart, "yyyy-MM-dd");
   const toStr = format(rangeEnd, "yyyy-MM-dd");
 
-  useEffect(() => {
+  function reloadBookings() {
     setLoading(true);
-    fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
+    return fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
       .then((r) => r.json())
       .then((data) => setBookings(data.bookings ?? []))
       .catch(() => setBookings([]))
       .finally(() => setLoading(false));
+  }
+
+  useEffect(() => {
+    reloadBookings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fromStr, toStr]);
 
   function minutesFromMidnight(iso: string) {
@@ -485,6 +507,63 @@ export function BookingCalendar({
     setUpdating(false);
     setActiveBooking(null);
     setShowCancelPicker(false);
+  }
+
+  function startEditBooking(booking: CalendarBooking) {
+    setEditError(null);
+    setEditBooking({
+      bookingId: booking.id,
+      startsAt: new Date(booking.startsAt),
+      staffId: booking.staffId ?? staff[0]?.id ?? "",
+      serviceId: booking.serviceId,
+      priceAmount: String(fromSmallestUnit(booking.priceCents, booking.currency)),
+      currency: booking.currency,
+      customerNote: booking.customerNote ?? "",
+      customerName: booking.customerName,
+      customerPhone: booking.customerPhone ?? "",
+      customerEmail: booking.customerEmail ?? "",
+    });
+  }
+
+  async function submitEditBooking() {
+    if (!editBooking) return;
+    setSavingEdit(true);
+    setEditError(null);
+    const res = await fetch(`/api/business/bookings/${editBooking.bookingId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        serviceId: editBooking.serviceId,
+        staffId: editBooking.staffId || undefined,
+        startsAt: editBooking.startsAt.toISOString(),
+        priceCents: toSmallestUnit(Number(editBooking.priceAmount) || 0, editBooking.currency),
+        customerNote: editBooking.customerNote,
+        customerName: editBooking.customerName,
+        customerPhone: editBooking.customerPhone.trim() || undefined,
+        customerEmail: editBooking.customerEmail || undefined,
+      }),
+    });
+    setSavingEdit(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setEditError(
+        data.error === "SLOT_UNAVAILABLE"
+          ? locale === "vi"
+            ? "Khung giờ này đã có lịch hẹn khác."
+            : "That time is already booked."
+          : data.error === "EMAIL_IN_USE"
+            ? locale === "vi"
+              ? "Email này đã được dùng cho một tài khoản khác."
+              : "That email is already used by another account."
+            : locale === "vi"
+              ? "Có lỗi xảy ra, vui lòng thử lại."
+              : "Something went wrong, please try again."
+      );
+      return;
+    }
+    setEditBooking(null);
+    setActiveBooking(null);
+    reloadBookings();
   }
 
   async function rescheduleBooking(booking: CalendarBooking, newStartsAt: Date, newStaffId: string) {
@@ -658,12 +737,7 @@ export function BookingCalendar({
       return;
     }
     setNewBooking(null);
-    setLoading(true);
-    fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
-      .then((r) => r.json())
-      .then((data) => setBookings(data.bookings ?? []))
-      .catch(() => {})
-      .finally(() => setLoading(false));
+    reloadBookings();
   }
 
   const startHour = DEFAULT_START_HOUR;
@@ -1091,16 +1165,27 @@ export function BookingCalendar({
                   <p className="text-sm text-ink-400">{activeBooking.customerEmail}</p>
                 )}
               </div>
-              <button
-                onClick={() => {
-                  setActiveBooking(null);
-                  setCustomerDetail(null);
-                  setShowCancelPicker(false);
-                }}
-                className="text-ink-400"
-              >
-                <X className="h-5 w-5" />
-              </button>
+              <div className="flex items-center gap-3">
+                {activeBooking.status !== "CANCELLED" && (
+                  <button
+                    onClick={() => startEditBooking(activeBooking)}
+                    className="text-ink-400 hover:text-primary-600"
+                    aria-label={locale === "vi" ? "Sửa cuộc hẹn" : "Edit booking"}
+                  >
+                    <Pencil className="h-4 w-4" />
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    setActiveBooking(null);
+                    setCustomerDetail(null);
+                    setShowCancelPicker(false);
+                  }}
+                  className="text-ink-400"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
             </div>
             <div className="space-y-1.5 text-sm">
               <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
@@ -1249,6 +1334,142 @@ export function BookingCalendar({
                 </div>
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {editBooking && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <div className="mb-4 flex items-start justify-between">
+              <p className="font-bold text-ink-900">
+                {locale === "vi" ? "Sửa cuộc hẹn" : "Edit booking"}
+              </p>
+              <button onClick={() => setEditBooking(null)} className="text-ink-400">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
+                <input
+                  type="datetime-local"
+                  className="input"
+                  value={format(toZonedTime(editBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    setEditBooking({
+                      ...editBooking,
+                      startsAt: fromZonedTime(e.target.value, businessTimezone),
+                    });
+                  }}
+                />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                <select
+                  className="input"
+                  value={editBooking.serviceId}
+                  onChange={(e) => {
+                    const sv = services.find((s) => s.id === e.target.value);
+                    setEditBooking({
+                      ...editBooking,
+                      serviceId: e.target.value,
+                      ...(sv ? { priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)), currency: sv.currency } : {}),
+                    });
+                  }}
+                >
+                  {services.map((sv) => (
+                    <option key={sv.id} value={sv.id}>
+                      {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {staff.length > 0 && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <select
+                    className="input"
+                    value={editBooking.staffId}
+                    onChange={(e) => setEditBooking({ ...editBooking, staffId: e.target.value })}
+                  >
+                    {staff.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Giá" : "Price"} ({editBooking.currency})
+                </label>
+                <input
+                  type="number"
+                  min="0"
+                  className="input"
+                  value={editBooking.priceAmount}
+                  onChange={(e) => setEditBooking({ ...editBooking, priceAmount: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
+                <input
+                  required
+                  className="input"
+                  value={editBooking.customerName}
+                  onChange={(e) => setEditBooking({ ...editBooking, customerName: e.target.value })}
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
+                <input
+                  className="input"
+                  value={editBooking.customerPhone}
+                  onChange={(e) => setEditBooking({ ...editBooking, customerPhone: e.target.value })}
+                  autoComplete="off"
+                />
+              </div>
+              <div>
+                <label className="label">
+                  Email ({locale === "vi" ? "không bắt buộc" : "optional"})
+                </label>
+                <input
+                  type="email"
+                  className="input"
+                  value={editBooking.customerEmail}
+                  onChange={(e) => setEditBooking({ ...editBooking, customerEmail: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                </label>
+                <textarea
+                  rows={2}
+                  className="input"
+                  value={editBooking.customerNote}
+                  onChange={(e) => setEditBooking({ ...editBooking, customerNote: e.target.value })}
+                />
+              </div>
+            </div>
+            {editError && <p className="mt-2 text-sm text-berry-500">{editError}</p>}
+            <div className="mt-4 flex gap-2">
+              <button
+                disabled={savingEdit || !editBooking.customerName.trim()}
+                onClick={submitEditBooking}
+                className="btn-primary"
+              >
+                {savingEdit && <Loader2 className="h-4 w-4 animate-spin" />}
+                {locale === "vi" ? "Lưu" : "Save"}
+              </button>
+              <button onClick={() => setEditBooking(null)} className="btn-ghost">
+                {locale === "vi" ? "Huỷ" : "Cancel"}
+              </button>
+            </div>
           </div>
         </div>
       )}
