@@ -191,7 +191,12 @@
       "workingHours": "Arbeitszeiten",
       "noLoginYet": "Noch keine Anmeldung",
       "customHours": "Eigene Arbeitszeiten für diesen Mitarbeiter festlegen (Standard: Öffnungszeiten des Salons)",
-      "hoursHint": "Nicht anhaken, damit der Mitarbeiter den Öffnungszeiten des Salons folgt. Du kannst dies später über das Uhr-Symbol ändern."
+      "hoursHint": "Nicht anhaken, damit der Mitarbeiter den Öffnungszeiten des Salons folgt. Du kannst dies später über das Uhr-Symbol ändern.",
+      "avatar": "Profilbild",
+      "uploadAvatar": "Bild hochladen",
+      "removeAvatar": "Bild entfernen",
+      "avatarError": "Bild konnte nicht hochgeladen werden, versuche es erneut.",
+      "saveBeforeAvatar": "Speichere diesen Mitarbeiter zuerst und klicke dann auf Bearbeiten, um ein Bild hinzuzufügen."
     },
     "fanpageForm": {
       "sharePlaceholder": "Teilen Sie etwas mit Ihren Followern...",

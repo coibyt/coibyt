@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Plus, Trash2, Loader2, Clock, Pencil, KeyRound } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { StaffHoursModal } from "@/components/staff-hours-modal";
+import { StaffAvatarUpload } from "@/components/staff-avatar-upload";
 import {
   StaffHoursFields,
   DEFAULT_STAFF_HOURS,
@@ -17,6 +19,7 @@ interface StaffRow {
   name: string;
   title: string | null;
   bio: string | null;
+  avatarUrl: string | null;
   active: boolean;
   serviceIds: string[];
   email: string | null;
@@ -93,6 +96,7 @@ export function StaffManager({
   const [error, setError] = useState<string | null>(null);
   const [hoursFor, setHoursFor] = useState<StaffRow | null>(null);
   const [newHours, setNewHours] = useState<StaffHoursValue>(DEFAULT_STAFF_HOURS);
+  const [editingAvatarUrl, setEditingAvatarUrl] = useState<string | null>(null);
 
   function startCreate() {
     setEditingId(null);
@@ -104,6 +108,7 @@ export function StaffManager({
 
   function startEdit(s: StaffRow) {
     setEditingId(s.id);
+    setEditingAvatarUrl(s.avatarUrl);
     setForm({
       name: s.name,
       title: s.title ?? "",
@@ -190,9 +195,15 @@ export function StaffManager({
         .map((s) => (
           <div key={s.id} className="card flex items-center justify-between gap-4 p-4">
             <div className="flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-500">
-                {s.name.charAt(0)}
-              </span>
+              {s.avatarUrl ? (
+                <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-mist-100">
+                  <Image src={s.avatarUrl} alt="" fill className="object-cover" />
+                </div>
+              ) : (
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-500">
+                  {s.name.charAt(0)}
+                </span>
+              )}
               <div>
                 <p className="font-semibold text-ink-900">{s.name}</p>
                 {s.title && <p className="text-xs text-ink-400">{s.title}</p>}
@@ -249,6 +260,20 @@ export function StaffManager({
         </button>
       ) : (
         <form onSubmit={saveStaff} className="card space-y-4 p-5">
+          {editingId ? (
+            <div>
+              <label className="label">{tDash("staffForm.avatar")}</label>
+              <StaffAvatarUpload
+                staffId={editingId}
+                initialUrl={editingAvatarUrl}
+                uploadLabel={tDash("staffForm.uploadAvatar")}
+                removeLabel={tDash("staffForm.removeAvatar")}
+                errorLabel={tDash("staffForm.avatarError")}
+              />
+            </div>
+          ) : (
+            <p className="text-xs text-ink-400">{tDash("staffForm.saveBeforeAvatar")}</p>
+          )}
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
               <label className="label">{tDash("staffForm.staffName")}</label>

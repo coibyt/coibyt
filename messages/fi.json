@@ -191,7 +191,12 @@
       "workingHours": "Työajat",
       "noLoginYet": "Ei vielä kirjautumista",
       "customHours": "Aseta tälle työntekijälle omat työajat (oletuksena salongin aukioloajat)",
-      "hoursHint": "Jätä valitsematta, jos työntekijä noudattaa salongin aukioloaikoja. Voit muuttaa tätä myöhemmin kellokuvakkeesta."
+      "hoursHint": "Jätä valitsematta, jos työntekijä noudattaa salongin aukioloaikoja. Voit muuttaa tätä myöhemmin kellokuvakkeesta.",
+      "avatar": "Profiilikuva",
+      "uploadAvatar": "Lataa kuva",
+      "removeAvatar": "Poista kuva",
+      "avatarError": "Kuvan lataus epäonnistui, yritä uudelleen.",
+      "saveBeforeAvatar": "Tallenna tämä työntekijä ensin ja lisää sitten kuva muokkaamalla."
     },
     "fanpageForm": {
       "sharePlaceholder": "Jaa jotain seuraajillesi...",

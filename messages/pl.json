@@ -191,7 +191,12 @@
       "workingHours": "Godziny pracy",
       "noLoginYet": "Brak logowania",
       "customHours": "Ustaw własne godziny pracy dla tego pracownika (domyślnie godziny otwarcia salonu)",
-      "hoursHint": "Pozostaw niezaznaczone, aby pracownik pracował w godzinach otwarcia salonu. Możesz to zmienić później ikoną zegara."
+      "hoursHint": "Pozostaw niezaznaczone, aby pracownik pracował w godzinach otwarcia salonu. Możesz to zmienić później ikoną zegara.",
+      "avatar": "Zdjęcie profilowe",
+      "uploadAvatar": "Prześlij zdjęcie",
+      "removeAvatar": "Usuń zdjęcie",
+      "avatarError": "Nie udało się przesłać zdjęcia, spróbuj ponownie.",
+      "saveBeforeAvatar": "Najpierw zapisz tego pracownika, a następnie kliknij edytuj, aby dodać zdjęcie."
     },
     "fanpageForm": {
       "sharePlaceholder": "Udostępnij coś swoim obserwatorom...",

@@ -266,8 +266,21 @@ model Staff {
   bookings Booking[]
   timeOff  StaffTimeOff[]
   hours    StaffHours[]
+  avatar   StaffAvatar?
 
   @@index([businessId])
+}
+
+// Kept off the Staff row itself, same reasoning as BusinessImage/LandingImage
+// — ordinary staff queries (the dashboard list, booking dropdowns) never pull
+// a multi-MB blob along for the ride.
+model StaffAvatar {
+  id        String   @id @default(cuid())
+  staffId   String   @unique
+  staff     Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  data      Bytes
+  mimeType  String
+  updatedAt DateTime @updatedAt
 }
 
 // Per-staff weekly schedule. A staff member with zero rows here just follows

@@ -191,7 +191,12 @@
       "workingHours": "Working hours",
       "noLoginYet": "No login yet",
       "customHours": "Set custom hours for this staff member (defaults to the salon's opening hours)",
-      "hoursHint": "Leave unchecked to follow the salon's opening hours. You can change this later with the clock icon."
+      "hoursHint": "Leave unchecked to follow the salon's opening hours. You can change this later with the clock icon.",
+      "avatar": "Avatar photo",
+      "uploadAvatar": "Upload photo",
+      "removeAvatar": "Remove photo",
+      "avatarError": "Couldn't upload the photo, try again.",
+      "saveBeforeAvatar": "Save this staff member first, then click edit to add a photo."
     },
     "fanpageForm": {
       "sharePlaceholder": "Share something with your followers...",

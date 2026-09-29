@@ -191,7 +191,12 @@
       "workingHours": "Giờ làm việc",
       "noLoginYet": "Chưa có tài khoản đăng nhập",
       "customHours": "Đặt giờ làm việc riêng cho nhân viên này (mặc định theo giờ mở cửa salon)",
-      "hoursHint": "Bỏ trống để nhân viên làm việc theo giờ mở cửa của salon. Bạn vẫn có thể chỉnh lại sau bằng biểu tượng đồng hồ."
+      "hoursHint": "Bỏ trống để nhân viên làm việc theo giờ mở cửa của salon. Bạn vẫn có thể chỉnh lại sau bằng biểu tượng đồng hồ.",
+      "avatar": "Ảnh đại diện",
+      "uploadAvatar": "Tải ảnh lên",
+      "removeAvatar": "Xóa ảnh",
+      "avatarError": "Không tải được ảnh, thử lại.",
+      "saveBeforeAvatar": "Lưu nhân viên này trước, sau đó bấm sửa để thêm ảnh đại diện."
     },
     "fanpageForm": {
       "sharePlaceholder": "Chia sẻ điều gì đó với khách hàng đang theo dõi bạn...",
