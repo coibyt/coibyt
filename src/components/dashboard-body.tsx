@@ -31,8 +31,14 @@ export function DashboardBody({
 
   return (
     <SwitcherSlotContext.Provider value={{ setSlot }}>
-      {slot ? createPortal(switcher, slot) : switcher && <div className="mb-4">{switcher}</div>}
-      {children}
+      {/* A single wrapping element, not a bare fragment — the parent lays this
+       * out as one grid column, and a fragment here would spill the switcher
+       * and children out as separate top-level grid items, letting children
+       * wrap onto a new grid row underneath the sidebar instead of beside it. */}
+      <div>
+        {slot ? createPortal(switcher, slot) : switcher && <div className="mb-4">{switcher}</div>}
+        {children}
+      </div>
     </SwitcherSlotContext.Provider>
   );
 }
