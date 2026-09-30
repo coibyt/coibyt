@@ -7,6 +7,7 @@ import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
 import { PendingBanner } from "@/components/pending-banner";
+import { DashboardBody } from "@/components/dashboard-body";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -33,9 +34,10 @@ export default async function BusinessDashboardLayout({
     isOwner && session?.user
       ? (await listOwnedBusinesses(session.user.id)).map((b) => ({ id: b.id, name: b.name }))
       : [];
-  const switcher = isOwner ? (
-    <BranchSwitcher branches={branches} activeId={business.id} locale={locale} />
-  ) : null;
+  const switcher =
+    isOwner && branches.length > 1 ? (
+      <BranchSwitcher branches={branches} activeId={business.id} locale={locale} />
+    ) : null;
 
   if (business.status !== "APPROVED") {
     const user = session?.user
@@ -46,7 +48,7 @@ export default async function BusinessDashboardLayout({
       : null;
     return (
       <div className="container max-w-lg py-16">
-        {switcher}
+        {switcher && <div className="mb-4">{switcher}</div>}
         <PendingBanner status={business.status} emailVerified={!!user?.emailVerified} />
       </div>
     );
@@ -91,10 +93,7 @@ export default async function BusinessDashboardLayout({
   return (
     <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-[220px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
-      <div>
-        {switcher}
-        {children}
-      </div>
+      <DashboardBody switcher={switcher}>{children}</DashboardBody>
     </div>
   );
 }

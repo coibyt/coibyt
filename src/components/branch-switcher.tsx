@@ -45,16 +45,16 @@ export function BranchSwitcher({
   if (branches.length <= 1) return null;
 
   return (
-    <div className="mb-4 flex flex-wrap items-center gap-2">
-      <label className="flex items-center gap-2 text-sm font-medium text-ink-900">
+    <div className="flex flex-wrap items-center gap-2">
+      <label className="flex min-w-0 items-center gap-2 text-sm font-medium text-ink-900">
         {switching ? (
-          <Loader2 className="h-4 w-4 animate-spin text-ink-400" />
+          <Loader2 className="h-4 w-4 shrink-0 animate-spin text-ink-400" />
         ) : (
-          <Building2 className="h-4 w-4 text-ink-400" />
+          <Building2 className="h-4 w-4 shrink-0 text-ink-400" />
         )}
         <span className="sr-only">{l.branch}</span>
         <select
-          className="input !w-auto !py-1.5 text-sm"
+          className="input !w-auto max-w-[120px] truncate !py-1.5 text-sm sm:max-w-[220px]"
           value={activeId}
           disabled={switching}
           onChange={(e) => switchTo(e.target.value)}
