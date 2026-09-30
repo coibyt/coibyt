@@ -187,6 +187,7 @@ export async function createBookingAndPayment(params: {
         startsAt: booking.startsAt,
         businessCountry: service.business.country,
         businessTimezone: service.business.timezone,
+        businessName: service.business.name,
         siteUrl: params.siteUrl,
       });
     }
@@ -233,6 +234,7 @@ async function notifyOwnerOfNewBooking(params: {
   startsAt: Date;
   businessCountry: string;
   businessTimezone: string;
+  businessName: string;
   siteUrl: string;
 }) {
   try {
@@ -244,6 +246,7 @@ async function notifyOwnerOfNewBooking(params: {
       startsAt: params.startsAt,
       locale,
       businessTimezone: params.businessTimezone,
+      businessName: params.businessName,
       bookingsUrl: `${params.siteUrl}/${locale}/business/dashboard/bookings`,
     });
     await sendMail({ to: params.ownerEmail, ...email });
@@ -297,6 +300,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     startsAt: full.startsAt,
     businessCountry: full.business.country,
     businessTimezone: full.business.timezone,
+    businessName: full.business.name,
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com",
   });
 }

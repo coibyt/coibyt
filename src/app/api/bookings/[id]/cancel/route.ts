@@ -52,6 +52,7 @@ export async function POST(
           startsAt: booking.startsAt,
           locale,
           businessTimezone: booking.business.timezone,
+          businessName: booking.business.name,
           bookingsUrl: `${siteUrl}/${locale}/business/dashboard/bookings`,
         }),
       });

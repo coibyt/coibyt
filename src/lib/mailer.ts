@@ -698,6 +698,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (customer: string, service: string, when: string) => string;
     cta: string;
     hi: string;
+    branchLabel: string;
   }
 > = {
   vi: {
@@ -709,6 +710,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `Khách hàng <strong>${c}</strong> vừa hủy lịch hẹn <strong>${s}</strong> đã đặt vào lúc <strong>${w}</strong>.`,
     cta: "Xem lịch hẹn",
     hi: "Xin chào",
+    branchLabel: "Chi nhánh",
   },
   en: {
     newSubject: (c) => `New booking from ${c}`,
@@ -719,6 +721,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> just cancelled their <strong>${s}</strong> booking for <strong>${w}</strong>.`,
     cta: "View bookings",
     hi: "Hello",
+    branchLabel: "Branch",
   },
   fi: {
     newSubject: (c) => `Uusi varaus asiakkaalta ${c}`,
@@ -729,6 +732,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> perui juuri varauksensa <strong>${s}</strong> ajankohtaan <strong>${w}</strong>.`,
     cta: "Näytä varaukset",
     hi: "Hei",
+    branchLabel: "Toimipiste",
   },
   pl: {
     newSubject: (c) => `Nowa rezerwacja od ${c}`,
@@ -739,6 +743,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> właśnie anulował(a) rezerwację <strong>${s}</strong> na <strong>${w}</strong>.`,
     cta: "Zobacz rezerwacje",
     hi: "Cześć",
+    branchLabel: "Oddział",
   },
   de: {
     newSubject: (c) => `Neue Buchung von ${c}`,
@@ -749,6 +754,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> hat gerade die Buchung <strong>${s}</strong> für <strong>${w}</strong> storniert.`,
     cta: "Buchungen ansehen",
     hi: "Hallo",
+    branchLabel: "Filiale",
   },
   km: {
     newSubject: (c) => `ការកក់ថ្មីពី ${c}`,
@@ -759,6 +765,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> ទើបតែលុបចោលការកក់ <strong>${s}</strong> នៅម៉ោង <strong>${w}</strong>។`,
     cta: "មើលការកក់",
     hi: "សួស្តី",
+    branchLabel: "សាខា",
   },
   th: {
     newSubject: (c) => `การจองใหม่จาก ${c}`,
@@ -769,6 +776,7 @@ const OWNER_BOOKING_STRINGS: Record<
     cancelledBody: (c, s, w) => `<strong>${c}</strong> เพิ่งยกเลิกการจอง <strong>${s}</strong> เวลา <strong>${w}</strong>`,
     cta: "ดูการจอง",
     hi: "สวัสดี",
+    branchLabel: "สาขา",
   },
 };
 
@@ -784,6 +792,7 @@ export function ownerNewBookingEmail(params: {
   locale: string;
   businessTimezone: string;
   bookingsUrl: string;
+  businessName: string;
 }) {
   const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
   const dateStr = params.startsAt.toLocaleString(
@@ -797,6 +806,7 @@ export function ownerNewBookingEmail(params: {
         <h2 style="color:#624f89">${s.newHeading}</h2>
         <p>${s.hi} ${params.ownerName},</p>
         <p>${s.newBody(params.customerName, params.serviceName, dateStr)}</p>
+        <p style="color:#5b6b6c;font-size:13px">${s.branchLabel}: <strong style="color:#25302f">${params.businessName}</strong></p>
         <p style="text-align:center;margin:24px 0">
           <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
             ${s.cta}
@@ -819,6 +829,7 @@ export function ownerBookingCancelledEmail(params: {
   locale: string;
   businessTimezone: string;
   bookingsUrl: string;
+  businessName: string;
 }) {
   const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
   const dateStr = params.startsAt.toLocaleString(
@@ -832,6 +843,7 @@ export function ownerBookingCancelledEmail(params: {
         <h2 style="color:#624f89">${s.cancelledHeading}</h2>
         <p>${s.hi} ${params.ownerName},</p>
         <p>${s.cancelledBody(params.customerName, params.serviceName, dateStr)}</p>
+        <p style="color:#5b6b6c;font-size:13px">${s.branchLabel}: <strong style="color:#25302f">${params.businessName}</strong></p>
         <p style="text-align:center;margin:24px 0">
           <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
             ${s.cta}
