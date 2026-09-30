@@ -23,7 +23,7 @@ export default async function StaffPage({
       include: {
         services: { select: { serviceId: true } },
         user: { select: { email: true } },
-        avatar: { select: { id: true } },
+        avatar: { select: { id: true, updatedAt: true } },
       },
       orderBy: { createdAt: "desc" },
     }),
@@ -39,7 +39,7 @@ export default async function StaffPage({
           name: s.name,
           title: s.title,
           bio: s.bio,
-          avatarUrl: s.avatar ? `/api/staff-avatar/${s.id}` : null,
+          avatarUrl: s.avatar ? `/api/staff-avatar/${s.id}?v=${s.avatar.updatedAt.getTime()}` : null,
           active: s.active,
           serviceIds: s.services.map((x) => x.serviceId),
           email: s.user?.email ?? null,

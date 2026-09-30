@@ -40,7 +40,7 @@ export default async function BusinessAboutPage({
       staff: {
         where: { active: true },
         orderBy: { createdAt: "asc" },
-        select: { id: true, name: true, title: true, bio: true, avatar: { select: { id: true } } },
+        select: { id: true, name: true, title: true, bio: true, avatar: { select: { id: true, updatedAt: true } } },
       },
     },
   });
@@ -92,7 +92,12 @@ export default async function BusinessAboutPage({
                 >
                   <div className="relative aspect-square w-full overflow-hidden bg-mist-100">
                     {member.avatar ? (
-                      <Image src={`/api/staff-avatar/${member.id}`} alt="" fill className="object-cover" />
+                      <Image
+                        src={`/api/staff-avatar/${member.id}?v=${member.avatar.updatedAt.getTime()}`}
+                        alt=""
+                        fill
+                        className="object-cover"
+                      />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-primary-300">
                         {member.name.charAt(0)}

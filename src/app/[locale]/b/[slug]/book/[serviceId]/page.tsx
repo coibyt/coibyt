@@ -36,7 +36,7 @@ export default async function BookServicePage({
     where: { id: serviceId, businessId: business.id, active: true },
     include: {
       staff: {
-        include: { staff: { include: { avatar: { select: { id: true } } } } },
+        include: { staff: { include: { avatar: { select: { id: true, updatedAt: true } } } } },
       },
       addOns: {
         where: { addOn: { active: true } },
@@ -89,7 +89,9 @@ export default async function BookServicePage({
         staffOptions={staffOptions.map((link) => ({
           id: link.staff.id,
           name: link.staff.name,
-          avatarUrl: link.staff.avatar ? `/api/staff-avatar/${link.staff.id}` : null,
+          avatarUrl: link.staff.avatar
+            ? `/api/staff-avatar/${link.staff.id}?v=${link.staff.avatar.updatedAt.getTime()}`
+            : null,
           priceCentsOverride: link.priceCentsOverride,
           durationMinOverride: link.durationMinOverride,
           staffMessage: link.staff.staffMessage,
