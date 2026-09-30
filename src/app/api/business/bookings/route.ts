@@ -8,6 +8,9 @@ const businessBookingSchema = z.object({
   serviceId: z.string().cuid(),
   staffId: z.string().cuid(),
   startsAt: z.string().datetime(),
+  // Lets the salon shorten/extend this one booking beyond the service's own
+  // duration — optional, and only ever read from this owner-only route.
+  endsAt: z.string().datetime().optional(),
   customerName: z.string().min(1).max(120),
   customerPhone: z.string().min(3).max(30),
   customerEmail: z.string().email().optional(),
@@ -56,6 +59,10 @@ export async function POST(req: Request) {
   });
   if (!service) return NextResponse.json({ error: "SERVICE_NOT_FOUND" }, { status: 404 });
 
+  if (data.endsAt && new Date(data.endsAt) <= new Date(data.startsAt)) {
+    return NextResponse.json({ error: "INVALID_TIME_RANGE" }, { status: 400 });
+  }
+
   const customer = await findOrCreateWalkInCustomer({
     name: data.customerName,
     phone: data.customerPhone,
@@ -73,6 +80,7 @@ export async function POST(req: Request) {
       serviceId: data.serviceId,
       staffId: data.staffId,
       startsAt: new Date(data.startsAt),
+      endsAtOverride: data.endsAt ? new Date(data.endsAt) : undefined,
       customerNote: data.customerNote,
       // A business-created booking has no online payment step, same as cash.
       provider: "CASH",

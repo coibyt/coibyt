@@ -37,6 +37,10 @@ export async function createBookingAndPayment(params: {
   serviceId: string;
   staffId: string; // resolved concrete staff, even for "any staff" bookings
   startsAt: Date;
+  /** Lets the salon's own dashboard shorten/extend one specific booking
+   * instead of always using the service's (+ add-ons'/extra services') fixed
+   * duration — never accepted from the public customer-facing booking flow. */
+  endsAtOverride?: Date;
   customerNote?: string;
   provider: BookingPaymentChoice;
   siteUrl: string;
@@ -81,10 +85,12 @@ export async function createBookingAndPayment(params: {
   const extraServiceDurationSum = extraServices.reduce((sum, s) => sum + s.durationMin, 0);
   const extraServicePriceSum = extraServices.reduce((sum, s) => sum + s.priceCents, 0);
 
-  const endsAt = addMinutes(
-    params.startsAt,
-    effectiveServiceDurationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
-  );
+  const endsAt =
+    params.endsAtOverride ??
+    addMinutes(
+      params.startsAt,
+      effectiveServiceDurationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
+    );
   const totalPriceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
 
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";

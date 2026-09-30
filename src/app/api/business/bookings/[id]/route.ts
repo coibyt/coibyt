@@ -14,6 +14,9 @@ const patchSchema = z.object({
   serviceId: z.string().cuid().optional(),
   staffId: z.string().cuid().optional(),
   startsAt: z.string().datetime().optional(),
+  // Lets the salon shorten/extend this one booking beyond the service's own
+  // duration — when omitted, endsAt is still derived from the service as before.
+  endsAt: z.string().datetime().optional(),
   priceCents: z.number().int().min(0).optional(),
   customerNote: z.string().max(1000).optional(),
   customerName: z.string().min(1).max(120).optional(),
@@ -55,6 +58,7 @@ export async function PATCH(
     data.serviceId === undefined &&
     data.staffId === undefined &&
     data.startsAt === undefined &&
+    data.endsAt === undefined &&
     !editsContact &&
     data.priceCents === undefined &&
     data.customerNote === undefined
@@ -98,17 +102,27 @@ export async function PATCH(
     }
 
     const startsAt = data.startsAt ? new Date(data.startsAt) : booking.startsAt;
-    const endsAt = addMinutes(startsAt, service.durationMin + service.bufferMin);
+    // An explicit endsAt (the salon dragging/typing a shorter or longer
+    // duration for this one booking) always wins over the service's own
+    // fixed duration.
+    const endsAt = data.endsAt
+      ? new Date(data.endsAt)
+      : addMinutes(startsAt, service.durationMin + service.bufferMin);
+
+    if (endsAt <= startsAt) {
+      return NextResponse.json({ error: "INVALID_TIME_RANGE" }, { status: 400 });
+    }
 
     // Only treat this as an actual schedule change (re-check overlap, reset
-    // reminders, email the customer) when the service, staff or start time
-    // genuinely differ from what's already saved — the edit form always
-    // resubmits all three fields, even when the salon only fixed a phone
-    // number or price.
+    // reminders, email the customer) when the service, staff, start or end
+    // time genuinely differ from what's already saved — the edit form always
+    // resubmits all of these, even when the salon only fixed a phone number
+    // or price.
     const scheduleChanged =
       service.id !== booking.serviceId ||
       staffId !== booking.staffId ||
-      startsAt.getTime() !== booking.startsAt.getTime();
+      startsAt.getTime() !== booking.startsAt.getTime() ||
+      endsAt.getTime() !== booking.endsAt.getTime();
 
     const updated = await prisma.$transaction(async (tx) => {
       if (scheduleChanged && staffId) {

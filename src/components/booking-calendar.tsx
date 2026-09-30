@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
   addDays,
+  addMinutes,
   addMonths,
   addWeeks,
   endOfMonth,
@@ -52,6 +53,7 @@ interface CalendarBooking {
 interface EditBookingDraft {
   bookingId: string;
   startsAt: Date;
+  endsAt: Date;
   staffId: string;
   serviceId: string;
   priceAmount: string; // whole-currency-unit string, e.g. "180" for 180 EUR
@@ -194,6 +196,7 @@ interface ServiceOption {
 
 interface NewBookingDraft {
   startsAt: Date;
+  endsAt: Date;
   staffId: string;
   serviceId: string;
   customerName: string;
@@ -539,6 +542,7 @@ export function BookingCalendar({
     setEditBooking({
       bookingId: booking.id,
       startsAt: new Date(booking.startsAt),
+      endsAt: new Date(booking.endsAt),
       staffId: booking.staffId ?? staff[0]?.id ?? "",
       serviceId: booking.serviceId,
       priceAmount: String(fromSmallestUnit(booking.priceCents, booking.currency)),
@@ -561,6 +565,7 @@ export function BookingCalendar({
         serviceId: editBooking.serviceId,
         staffId: editBooking.staffId || undefined,
         startsAt: editBooking.startsAt.toISOString(),
+        endsAt: editBooking.endsAt.toISOString(),
         priceCents: toSmallestUnit(Number(editBooking.priceAmount) || 0, editBooking.currency),
         customerNote: editBooking.customerNote,
         customerName: editBooking.customerName,
@@ -695,6 +700,7 @@ export function BookingCalendar({
     setCustomerMatches([]);
     setNewBooking({
       startsAt,
+      endsAt: addMinutes(startsAt, services[0].durationMin),
       staffId: resolvedStaffId,
       serviceId: services[0].id,
       customerName: "",
@@ -742,6 +748,7 @@ export function BookingCalendar({
         serviceId: newBooking.serviceId,
         staffId: newBooking.staffId,
         startsAt: newBooking.startsAt.toISOString(),
+        endsAt: newBooking.endsAt.toISOString(),
         customerName: newBooking.customerName,
         customerPhone: newBooking.customerPhone,
         customerEmail: newBooking.customerEmail || undefined,
@@ -1485,12 +1492,39 @@ export function BookingCalendar({
                   value={format(toZonedTime(editBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
                   onChange={(e) => {
                     if (!e.target.value) return;
+                    const newStartsAt = fromZonedTime(e.target.value, businessTimezone);
+                    // Keep the duration the salon already set for this booking
+                    // (default or manually adjusted) — moving the start time
+                    // shouldn't silently shrink or stretch it.
+                    const durationMs = editBooking.endsAt.getTime() - editBooking.startsAt.getTime();
                     setEditBooking({
                       ...editBooking,
-                      startsAt: fromZonedTime(e.target.value, businessTimezone),
+                      startsAt: newStartsAt,
+                      endsAt: new Date(newStartsAt.getTime() + durationMs),
                     });
                   }}
                 />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Giờ kết thúc" : "End time"}</label>
+                <input
+                  type="time"
+                  className="input"
+                  value={format(toZonedTime(editBooking.endsAt, businessTimezone), "HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    const dateStr = format(toZonedTime(editBooking.startsAt, businessTimezone), "yyyy-MM-dd");
+                    setEditBooking({
+                      ...editBooking,
+                      endsAt: fromZonedTime(`${dateStr}T${e.target.value}:00`, businessTimezone),
+                    });
+                  }}
+                />
+                <p className="mt-1 text-xs text-ink-400">
+                  {locale === "vi"
+                    ? "Có thể rút ngắn hoặc kéo dài thời lượng cuộc hẹn này."
+                    : "Shorten or extend this one appointment's duration."}
+                </p>
               </div>
               <div>
                 <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
@@ -1502,7 +1536,13 @@ export function BookingCalendar({
                     setEditBooking({
                       ...editBooking,
                       serviceId: e.target.value,
-                      ...(sv ? { priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)), currency: sv.currency } : {}),
+                      ...(sv
+                        ? {
+                            priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)),
+                            currency: sv.currency,
+                            endsAt: addMinutes(editBooking.startsAt, sv.durationMin),
+                          }
+                        : {}),
                     });
                   }}
                 >
@@ -1583,10 +1623,21 @@ export function BookingCalendar({
                 />
               </div>
             </div>
+            {editBooking.endsAt <= editBooking.startsAt && (
+              <p className="mt-2 text-sm text-berry-500">
+                {locale === "vi"
+                  ? "Giờ kết thúc phải sau giờ bắt đầu."
+                  : "End time must be after the start time."}
+              </p>
+            )}
             {editError && <p className="mt-2 text-sm text-berry-500">{editError}</p>}
             <div className="mt-4 flex gap-2">
               <button
-                disabled={savingEdit || !editBooking.customerName.trim()}
+                disabled={
+                  savingEdit ||
+                  !editBooking.customerName.trim() ||
+                  editBooking.endsAt <= editBooking.startsAt
+                }
                 onClick={submitEditBooking}
                 className="btn-primary"
               >
@@ -1627,19 +1678,50 @@ export function BookingCalendar({
                   value={format(toZonedTime(newBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
                   onChange={(e) => {
                     if (!e.target.value) return;
+                    const newStartsAt = fromZonedTime(e.target.value, businessTimezone);
+                    const durationMs = newBooking.endsAt.getTime() - newBooking.startsAt.getTime();
                     setNewBooking({
                       ...newBooking,
-                      startsAt: fromZonedTime(e.target.value, businessTimezone),
+                      startsAt: newStartsAt,
+                      endsAt: new Date(newStartsAt.getTime() + durationMs),
                     });
                   }}
                 />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Giờ kết thúc" : "End time"}</label>
+                <input
+                  type="time"
+                  className="input"
+                  value={format(toZonedTime(newBooking.endsAt, businessTimezone), "HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    const dateStr = format(toZonedTime(newBooking.startsAt, businessTimezone), "yyyy-MM-dd");
+                    setNewBooking({
+                      ...newBooking,
+                      endsAt: fromZonedTime(`${dateStr}T${e.target.value}:00`, businessTimezone),
+                    });
+                  }}
+                />
+                <p className="mt-1 text-xs text-ink-400">
+                  {locale === "vi"
+                    ? "Có thể rút ngắn hoặc kéo dài thời lượng cuộc hẹn này."
+                    : "Shorten or extend this one appointment's duration."}
+                </p>
               </div>
               <div>
                 <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
                 <select
                   className="input"
                   value={newBooking.serviceId}
-                  onChange={(e) => setNewBooking({ ...newBooking, serviceId: e.target.value })}
+                  onChange={(e) => {
+                    const sv = services.find((s) => s.id === e.target.value);
+                    setNewBooking({
+                      ...newBooking,
+                      serviceId: e.target.value,
+                      ...(sv ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) } : {}),
+                    });
+                  }}
                 >
                   {services.map((sv) => (
                     <option key={sv.id} value={sv.id}>
@@ -1743,11 +1825,21 @@ export function BookingCalendar({
                 </span>
               </label>
             </div>
+            {newBooking.endsAt <= newBooking.startsAt && (
+              <p className="mt-2 text-sm text-berry-500">
+                {locale === "vi"
+                  ? "Giờ kết thúc phải sau giờ bắt đầu."
+                  : "End time must be after the start time."}
+              </p>
+            )}
             {newBookingError && <p className="mt-2 text-sm text-berry-500">{newBookingError}</p>}
             <div className="mt-4 flex gap-2">
               <button
                 disabled={
-                  creatingBooking || !newBooking.customerName.trim() || !newBooking.customerPhone.trim()
+                  creatingBooking ||
+                  !newBooking.customerName.trim() ||
+                  !newBooking.customerPhone.trim() ||
+                  newBooking.endsAt <= newBooking.startsAt
                 }
                 onClick={submitNewBooking}
                 className="btn-primary"
