@@ -266,6 +266,12 @@
       "extraMinutes": "Extra minutes",
       "createNewAddOn": "Create new add-on"
     },
+    "addOnsPage": {
+      "title": "Add-ons",
+      "hint": "Manage your salon's full list of add-ons. Open a service to choose which add-ons apply to it.",
+      "backToServices": "Services",
+      "deleteConfirm": "Delete add-on \"{name}\"? It will no longer apply to any service."
+    },
     "landing": {
       "nav": "Landing page",
       "publishTitle": "Publish landing page",

@@ -266,6 +266,12 @@
       "extraMinutes": "Dodatkowe minuty",
       "createNewAddOn": "Utwórz nowy dodatek"
     },
+    "addOnsPage": {
+      "title": "Dodatki",
+      "hint": "Zarządzaj pełną listą dodatków swojego salonu. Otwórz usługę, aby wybrać, które dodatki jej dotyczą.",
+      "backToServices": "Usługi",
+      "deleteConfirm": "Usunąć dodatek \"{name}\"? Nie będzie już dotyczył żadnej usługi."
+    },
     "landing": {
       "nav": "Strona docelowa",
       "publishTitle": "Opublikuj stronę docelową",

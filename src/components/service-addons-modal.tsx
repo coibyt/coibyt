@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2, Plus, X } from "lucide-react";
-import { formatMoney } from "@/lib/money";
+import { formatMoney, toSmallestUnit } from "@/lib/money";
 
 interface AddOn {
   id: string;
@@ -16,11 +16,13 @@ export function ServiceAddOnsModal({
   serviceId,
   serviceName,
   locale,
+  currency,
   onClose,
 }: {
   serviceId: string;
   serviceName: string;
   locale: string;
+  currency: string;
   onClose: () => void;
 }) {
   const tCommon = useTranslations("common");
@@ -30,7 +32,7 @@ export function ServiceAddOnsModal({
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
   const [showCreate, setShowCreate] = useState(false);
-  const [newAddOn, setNewAddOn] = useState({ name: "", priceCents: 0, durationMin: 0 });
+  const [newAddOn, setNewAddOn] = useState({ name: "", priceAmount: "", durationMin: 0 });
   const [creating, setCreating] = useState(false);
 
   useEffect(() => {
@@ -60,14 +62,18 @@ export function ServiceAddOnsModal({
     const res = await fetch("/api/business/addons", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newAddOn),
+      body: JSON.stringify({
+        name: newAddOn.name,
+        priceCents: toSmallestUnit(Number(newAddOn.priceAmount) || 0, currency),
+        durationMin: newAddOn.durationMin,
+      }),
     });
     const data = await res.json();
     setCreating(false);
     if (res.ok) {
       setCatalog((prev) => [data.addOn, ...prev]);
       setChecked((prev) => new Set(prev).add(data.addOn.id));
-      setNewAddOn({ name: "", priceCents: 0, durationMin: 0 });
+      setNewAddOn({ name: "", priceAmount: "", durationMin: 0 });
       setShowCreate(false);
     }
   }
@@ -128,7 +134,7 @@ export function ServiceAddOnsModal({
                     )}
                   </span>
                   <span className="font-medium text-ink-900">
-                    {formatMoney(a.priceCents, "VND", locale)}
+                    {formatMoney(a.priceCents, currency, locale)}
                   </span>
                 </label>
               ))}
@@ -144,14 +150,16 @@ export function ServiceAddOnsModal({
                 />
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="label">{tDash("addOnsModal.price")} (VND)</label>
+                    <label className="label">
+                      {tDash("addOnsModal.price")} ({currency})
+                    </label>
                     <input
                       type="number"
                       min={0}
                       className="input"
-                      value={newAddOn.priceCents}
+                      value={newAddOn.priceAmount}
                       onChange={(e) =>
-                        setNewAddOn({ ...newAddOn, priceCents: Number(e.target.value) })
+                        setNewAddOn({ ...newAddOn, priceAmount: e.target.value })
                       }
                     />
                   </div>

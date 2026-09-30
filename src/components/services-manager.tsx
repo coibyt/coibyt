@@ -377,6 +377,7 @@ export function ServicesManager({
             serviceId={addOnsFor.id}
             serviceName={addOnsFor.name}
             locale={locale}
+            currency={defaultCurrency}
             onClose={() => setAddOnsFor(null)}
           />
         )}

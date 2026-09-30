@@ -266,6 +266,12 @@
       "extraMinutes": "Lisäminuutit",
       "createNewAddOn": "Luo uusi lisäpalvelu"
     },
+    "addOnsPage": {
+      "title": "Lisäpalvelut",
+      "hint": "Hallitse salonkisi kaikkia lisäpalveluita. Avaa palvelu valitaksesi, mitkä lisäpalvelut siihen kuuluvat.",
+      "backToServices": "Palvelut",
+      "deleteConfirm": "Poistetaanko lisäpalvelu \"{name}\"? Se ei enää kuulu mihinkään palveluun."
+    },
     "landing": {
       "nav": "Aloitussivu",
       "publishTitle": "Julkaise aloitussivu",

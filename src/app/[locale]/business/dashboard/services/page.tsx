@@ -1,8 +1,9 @@
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { redirect } from "@/i18n/navigation";
+import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ServicesManager } from "@/components/services-manager";
+import { Sparkles } from "lucide-react";
 
 export default async function ServicesPage({
   params,
@@ -12,6 +13,7 @@ export default async function ServicesPage({
   const { locale } = await params;
   const access = await getBusinessAccess();
   const t = await getTranslations("business");
+  const tDash = await getTranslations("dashboard");
   if (!access) return null;
   if (!access.isOwner && !access.permissions.services) {
     redirect({ href: "/business/dashboard", locale });
@@ -40,6 +42,12 @@ export default async function ServicesPage({
     <div>
       <div className="mb-4 flex items-center justify-between">
         <h1 className="text-xl font-bold text-ink-900">{t("services")}</h1>
+        <Link
+          href="/business/dashboard/services/addons"
+          className="btn-outline !px-3 !py-1.5 text-xs"
+        >
+          <Sparkles className="h-3.5 w-3.5" /> {tDash("addOnsPage.title")}
+        </Link>
       </div>
       <ServicesManager
         initialServices={services.map((s) => ({

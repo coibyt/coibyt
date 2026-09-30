@@ -266,6 +266,12 @@
       "extraMinutes": "Thêm phút",
       "createNewAddOn": "Tạo dịch vụ phụ mới"
     },
+    "addOnsPage": {
+      "title": "Dịch vụ phụ",
+      "hint": "Quản lý toàn bộ dịch vụ phụ của salon. Vào từng dịch vụ chính để chọn dịch vụ phụ nào áp dụng cho dịch vụ đó.",
+      "backToServices": "Dịch vụ",
+      "deleteConfirm": "Xóa dịch vụ phụ \"{name}\"? Nó sẽ không còn được áp dụng cho bất kỳ dịch vụ nào."
+    },
     "landing": {
       "nav": "Trang landing",
       "publishTitle": "Xuất bản trang landing",

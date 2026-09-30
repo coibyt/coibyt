@@ -266,6 +266,12 @@
       "extraMinutes": "Zusätzliche Minuten",
       "createNewAddOn": "Neue Zusatzleistung erstellen"
     },
+    "addOnsPage": {
+      "title": "Zusatzleistungen",
+      "hint": "Verwalte die vollständige Liste der Zusatzleistungen deines Salons. Öffne eine Dienstleistung, um auszuwählen, welche Zusatzleistungen dafür gelten.",
+      "backToServices": "Dienstleistungen",
+      "deleteConfirm": "Zusatzleistung \"{name}\" löschen? Sie gilt dann für keine Dienstleistung mehr."
+    },
     "landing": {
       "nav": "Landingpage",
       "publishTitle": "Landingpage veröffentlichen",
