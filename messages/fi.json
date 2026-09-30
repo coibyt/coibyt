@@ -300,6 +300,25 @@
       "heroSlides": "Liukuvat kuvat (enintään 5)",
       "heroSlidesHint": "Nämä vaihtuvat automaattisesti etusivulla. Jos yhtään ei ole ladattu, näytetään oletuskuva.",
       "removeImage": "Poista kuva"
+    },
+    "marketing": {
+      "nav": "Markkinointi",
+      "subtitle": "Lähetä sähköposti aiemmin varanneille asiakkaille ja kutsu heidät takaisin.",
+      "composeTitle": "Kirjoita uusi viesti",
+      "recipientCount": "Lähetetään {count} aiemmalle asiakkaalle.",
+      "subjectLabel": "Sähköpostin aihe",
+      "subjectPlaceholder": "Esim. -20% seuraavasta käynnistä!",
+      "messageLabel": "Viesti",
+      "messagePlaceholder": "Kirjoita viesti asiakkaillesi...",
+      "sendButton": "Lähetä sähköposti",
+      "confirmText": "Tämä sähköposti lähetetään {count} asiakkaalle. Haluatko varmasti lähettää sen?",
+      "confirmSend": "Vahvista lähetys",
+      "cancel": "Peruuta",
+      "sentSuccess": "Lähetetty onnistuneesti {count} asiakkaalle.",
+      "sendError": "Jokin meni pieleen, yritä uudelleen.",
+      "historyTitle": "Lähetyshistoria",
+      "historyEmpty": "Et ole vielä lähettänyt markkinointisähköposteja.",
+      "historyRecipients": "{count} vastaanottajaa"
     }
   },
   "common": {

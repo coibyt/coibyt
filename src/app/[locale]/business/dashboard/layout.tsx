@@ -60,6 +60,7 @@ export default async function BusinessDashboardLayout({
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
     ...(isOwner ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
     ...(isOwner ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
+    ...(isOwner ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav") }] : []),
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
       : []),

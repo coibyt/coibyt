@@ -300,6 +300,25 @@
       "heroSlides": "Slider-Bilder (bis zu 5)",
       "heroSlidesHint": "Diese wechseln automatisch auf der Startseite. Ohne hochgeladene Bilder wird eine Standardfolie angezeigt.",
       "removeImage": "Bild entfernen"
+    },
+    "marketing": {
+      "nav": "Marketing",
+      "subtitle": "Sende eine E-Mail an Kunden, die schon einmal bei dir gebucht haben, und lade sie wieder ein.",
+      "composeTitle": "Neue E-Mail verfassen",
+      "recipientCount": "Wird an {count} frühere Kunden gesendet.",
+      "subjectLabel": "Betreff",
+      "subjectPlaceholder": "Z. B. 20 % Rabatt auf deinen nächsten Termin!",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Schreibe eine Nachricht an deine Kunden...",
+      "sendButton": "E-Mail senden",
+      "confirmText": "Diese E-Mail wird an {count} Kunden gesendet. Möchtest du sie wirklich senden?",
+      "confirmSend": "Versand bestätigen",
+      "cancel": "Abbrechen",
+      "sentSuccess": "Erfolgreich an {count} Kunden gesendet.",
+      "sendError": "Etwas ist schiefgelaufen, bitte versuche es erneut.",
+      "historyTitle": "Versandverlauf",
+      "historyEmpty": "Du hast noch keine Marketing-E-Mails gesendet.",
+      "historyRecipients": "{count} Empfänger"
     }
   },
   "common": {

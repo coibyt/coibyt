@@ -38,6 +38,10 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
+  // Opted out of a salon's bulk marketing emails via the unsubscribe link.
+  // Never gates transactional email (confirmations, reminders, receipts).
+  marketingOptOut Boolean @default(false)
+
   accounts Account[]
   sessions Session[]
   businesses   Business[] // one or more branches when role = BUSINESS_OWNER
@@ -186,10 +190,28 @@ model Business {
   conversations Conversation[]
   followers     BusinessFollow[]
   posts         Post[]
+  emailCampaigns EmailCampaign[]
 
   @@index([ownerId])
   @@index([status])
   @@index([city])
+}
+
+// A one-off marketing email an owner composes and sends to everyone who has
+// ever booked with them (past customers only — never a random mailing list).
+// Kept as a log for the dashboard's campaign history; the recipient list
+// itself isn't stored, since it's re-derived fresh from bookings each send
+// so a customer who unsubscribes or a new booking never goes stale.
+model EmailCampaign {
+  id             String   @id @default(cuid())
+  businessId     String
+  business       Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  subject        String
+  bodyHtml       String   @db.Text
+  recipientCount Int
+  createdAt      DateTime @default(now())
+
+  @@index([businessId, createdAt])
 }
 
 model BusinessCategory {

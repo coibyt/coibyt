@@ -300,6 +300,25 @@
       "heroSlides": "Slider images (up to 5)",
       "heroSlidesHint": "These rotate automatically on the homepage. With none uploaded, a default slide is shown instead.",
       "removeImage": "Remove image"
+    },
+    "marketing": {
+      "nav": "Marketing",
+      "subtitle": "Send an email to customers who've booked with you before, inviting them back.",
+      "composeTitle": "Compose a new email",
+      "recipientCount": "Will be sent to {count} past customers.",
+      "subjectLabel": "Email subject",
+      "subjectPlaceholder": "E.g. 20% off your next visit!",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write a message to your customers...",
+      "sendButton": "Send email",
+      "confirmText": "This email will be sent to {count} customers. Are you sure you want to send it?",
+      "confirmSend": "Confirm send",
+      "cancel": "Cancel",
+      "sentSuccess": "Successfully sent to {count} customers.",
+      "sendError": "Something went wrong, please try again.",
+      "historyTitle": "Send history",
+      "historyEmpty": "You haven't sent any marketing emails yet.",
+      "historyRecipients": "{count} recipients"
     }
   },
   "common": {

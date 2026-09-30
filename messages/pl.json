@@ -300,6 +300,25 @@
       "heroSlides": "Zdjęcia w slajderze (do 5)",
       "heroSlidesHint": "Zmieniają się automatycznie na stronie głównej. Bez przesłanych zdjęć pokazywany jest domyślny slajd.",
       "removeImage": "Usuń zdjęcie"
+    },
+    "marketing": {
+      "nav": "Marketing",
+      "subtitle": "Wyślij e-mail do klientów, którzy wcześniej się u Ciebie umawiali, zapraszając ich ponownie.",
+      "composeTitle": "Napisz nową wiadomość",
+      "recipientCount": "Zostanie wysłane do {count} dotychczasowych klientów.",
+      "subjectLabel": "Temat wiadomości",
+      "subjectPlaceholder": "Np. -20% na kolejną wizytę!",
+      "messageLabel": "Treść",
+      "messagePlaceholder": "Napisz wiadomość do swoich klientów...",
+      "sendButton": "Wyślij e-mail",
+      "confirmText": "Ta wiadomość zostanie wysłana do {count} klientów. Czy na pewno chcesz ją wysłać?",
+      "confirmSend": "Potwierdź wysyłkę",
+      "cancel": "Anuluj",
+      "sentSuccess": "Pomyślnie wysłano do {count} klientów.",
+      "sendError": "Coś poszło nie tak, spróbuj ponownie.",
+      "historyTitle": "Historia wysyłek",
+      "historyEmpty": "Nie wysłałeś jeszcze żadnych e-maili marketingowych.",
+      "historyRecipients": "{count} odbiorców"
     }
   },
   "common": {

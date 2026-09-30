@@ -300,6 +300,25 @@
       "heroSlides": "Ảnh trình chiếu (tối đa 5)",
       "heroSlidesHint": "Các ảnh sẽ tự động chuyển đổi trên trang chủ. Chưa tải ảnh nào thì trang chủ sẽ hiện ảnh mặc định.",
       "removeImage": "Xóa ảnh"
+    },
+    "marketing": {
+      "nav": "Marketing",
+      "subtitle": "Gửi email tới những khách hàng đã từng đặt lịch với bạn để mời họ quay lại.",
+      "composeTitle": "Soạn email mới",
+      "recipientCount": "Sẽ được gửi tới {count} khách hàng đã từng đặt lịch.",
+      "subjectLabel": "Tiêu đề email",
+      "subjectPlaceholder": "Ví dụ: Ưu đãi 20% cho lượt hẹn tiếp theo!",
+      "messageLabel": "Nội dung",
+      "messagePlaceholder": "Viết lời nhắn gửi tới khách hàng của bạn...",
+      "sendButton": "Gửi email",
+      "confirmText": "Email này sẽ được gửi tới {count} khách hàng. Bạn có chắc chắn muốn gửi không?",
+      "confirmSend": "Xác nhận gửi",
+      "cancel": "Huỷ",
+      "sentSuccess": "Đã gửi thành công tới {count} khách hàng.",
+      "sendError": "Có lỗi xảy ra, vui lòng thử lại.",
+      "historyTitle": "Lịch sử đã gửi",
+      "historyEmpty": "Bạn chưa gửi email marketing nào.",
+      "historyRecipients": "{count} người nhận"
     }
   },
   "common": {

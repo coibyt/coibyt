@@ -873,3 +873,33 @@ export function reviewRequestEmail(params: {
     `,
   };
 }
+
+/** A one-off marketing email an owner composes from the dashboard and sends
+ * to their own past customers (see /api/business/marketing/send). `bodyHtml`
+ * is expected to already be escaped/line-break-converted by the caller —
+ * this function only adds the business-name header and the unsubscribe
+ * footer, never touches the owner's raw message. */
+export function marketingEmail(params: {
+  businessName: string;
+  bodyHtml: string;
+  locale: string;
+  unsubscribeUrl: string;
+}) {
+  const isVi = params.locale === "vi";
+  return {
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <p style="color:#5b6b6c;font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">${params.businessName}</p>
+        <div style="color:#25302f;font-size:15px;line-height:1.6">${params.bodyHtml}</div>
+        <hr style="border:none;border-top:1px solid #e4e9e9;margin:24px 0" />
+        <p style="color:#5b6b6c;font-size:12px">
+          ${isVi ? "Email này được gửi bởi" : "This email was sent by"} ${params.businessName} ${isVi ? "qua" : "via"} VaraaAi.Com.
+          <br/>
+          <a href="${params.unsubscribeUrl}" style="color:#5b6b6c;text-decoration:underline">${
+            isVi ? "Hủy nhận email quảng cáo" : "Unsubscribe from marketing emails"
+          }</a>
+        </p>
+      </div>
+    `,
+  };
+}
