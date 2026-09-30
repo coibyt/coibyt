@@ -42,8 +42,8 @@ export default async function BusinessBookingsPage({
 
   return (
     <div>
-      <h1 className="mb-4 text-xl font-bold text-ink-900">{t("bookings")}</h1>
       <BookingsView
+        title={t("bookings")}
         initialBookings={bookings.map((b) => ({
           id: b.id,
           startsAt: b.startsAt.toISOString(),

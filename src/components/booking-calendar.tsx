@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import {
@@ -220,12 +221,19 @@ export function BookingCalendar({
   businessTimezone,
   locale,
   isOwner,
+  headerSlot,
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
   businessTimezone: string;
   locale: string;
   isOwner: boolean;
+  // When given, the timezone note + current date/range label are portaled
+  // into this element instead of rendered inline — lets the parent put them
+  // in the same row as the page title and the Calendar/List toggle, which
+  // live outside this component, without lifting `view`/`anchorDate` state
+  // up (both are used pervasively throughout this file).
+  headerSlot?: HTMLElement | null;
 }) {
   const t = useTranslations("business");
   const tDash = useTranslations("dashboard");
@@ -821,10 +829,10 @@ export function BookingCalendar({
 
   const showLocalTime = !!viewerTimezone && viewerTimezone !== businessTimezone;
 
-  return (
-    <div className="space-y-4">
+  const headerContent = (
+    <>
       {showLocalTime && (
-        <p className="text-xs text-ink-400">
+        <span className="whitespace-nowrap text-xs text-ink-400">
           {locale === "vi"
             ? `Lịch hiển thị theo giờ salon (${businessTimezone}) · giờ của bạn hiện tại: `
             : `Calendar shown in the salon's time (${businessTimezone}) · your local time now: `}
@@ -833,17 +841,25 @@ export function BookingCalendar({
             minute: "2-digit",
             timeZone: viewerTimezone ?? undefined,
           })}
-        </p>
-      )}
-      <div className="flex items-center gap-2">
-        <span className="text-sm font-semibold text-ink-900">
-          {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
-          {view === "week" &&
-            `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
-          {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
         </span>
+      )}
+      <span className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink-900">
+        {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
+        {view === "week" &&
+          `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
+        {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
         {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
-      </div>
+      </span>
+    </>
+  );
+
+  return (
+    <div className="space-y-4">
+      {headerSlot ? (
+        createPortal(headerContent, headerSlot)
+      ) : (
+        <div className="flex flex-col gap-2">{headerContent}</div>
+      )}
 
       {error && (
         <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
