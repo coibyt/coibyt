@@ -85,7 +85,7 @@ interface CustomerDetail {
   }[];
 }
 
-const HOUR_HEIGHT = 56; // px per hour in the day/week grid
+const HOUR_HEIGHT = 40; // px per hour in the day/week grid — short enough to need less scrolling
 const DEFAULT_START_HOUR = 7;
 const DEFAULT_END_HOUR = 23;
 const DRAG_SNAP_MIN = 15;
@@ -1022,7 +1022,7 @@ export function BookingCalendar({
                   {hourMarks.map((h) => (
                     <div
                       key={h}
-                      className="absolute w-full border-t border-ink-50"
+                      className="absolute w-full border-t border-ink-200"
                       style={{ top: (h - startHour) * HOUR_HEIGHT }}
                     />
                   ))}
@@ -1157,7 +1157,7 @@ export function BookingCalendar({
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute w-full border-t border-ink-50"
+                    className="absolute w-full border-t border-ink-200"
                     style={{ top: (h - startHour) * HOUR_HEIGHT }}
                   />
                 ))}
