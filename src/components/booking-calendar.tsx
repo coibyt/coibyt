@@ -1022,7 +1022,7 @@ export function BookingCalendar({
                   {hourMarks.map((h) => (
                     <div
                       key={h}
-                      className="absolute w-full border-t border-ink-200"
+                      className="absolute w-full border-t border-ink-400/40"
                       style={{ top: (h - startHour) * HOUR_HEIGHT }}
                     />
                   ))}
@@ -1157,7 +1157,7 @@ export function BookingCalendar({
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute w-full border-t border-ink-200"
+                    className="absolute w-full border-t border-ink-400/40"
                     style={{ top: (h - startHour) * HOUR_HEIGHT }}
                   />
                 ))}
