@@ -832,7 +832,14 @@ export function BookingCalendar({
   const headerContent = (
     <>
       {showLocalTime && (
-        <span className="whitespace-nowrap text-xs text-ink-400">
+        <span
+          className="text-xs text-ink-400 md:min-w-0 md:truncate"
+          title={
+            locale === "vi"
+              ? `Lịch hiển thị theo giờ salon (${businessTimezone})`
+              : `Calendar shown in the salon's time (${businessTimezone})`
+          }
+        >
           {locale === "vi"
             ? `Lịch hiển thị theo giờ salon (${businessTimezone}) · giờ của bạn hiện tại: `
             : `Calendar shown in the salon's time (${businessTimezone}) · your local time now: `}
@@ -843,7 +850,7 @@ export function BookingCalendar({
           })}
         </span>
       )}
-      <span className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink-900">
+      <span className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink-900 md:shrink-0">
         {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
         {view === "week" &&
           `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}

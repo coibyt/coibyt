@@ -45,8 +45,8 @@ export function BookingsView({
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:justify-between">
-        <div className="flex flex-wrap items-center gap-3">
+      <div className="flex flex-col gap-3 md:flex-row md:items-center">
+        <div className="flex shrink-0 flex-wrap items-center gap-3">
           <h1 className="text-xl font-bold text-ink-900">{title}</h1>
           <div className="inline-flex rounded-full border border-ink-100 p-1">
             <button
@@ -70,7 +70,7 @@ export function BookingsView({
         {view === "calendar" && (
           <div
             ref={setHeaderSlot}
-            className="flex flex-wrap items-center gap-x-3 gap-y-1 md:justify-end"
+            className="flex flex-col gap-1 md:min-w-0 md:flex-1 md:flex-row md:items-center md:justify-end md:gap-x-3"
           />
         )}
       </div>
