@@ -908,7 +908,7 @@ export function BookingCalendar({
               region, so it never needs to stick — sidesteps both bugs. The
               two rows' horizontal scroll positions are kept in sync manually. */}
           <div className="flex">
-            <div className="h-20 w-14 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="h-20 w-7 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
             <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
               <div
                 className="grid"
@@ -958,15 +958,15 @@ export function BookingCalendar({
                 as a blank white area past a certain scroll depth, worse the
                 later a staff member's working hours end and the more
                 non-working-hours overlay there is below the visible fold). */}
-            <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 28 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                    className="absolute -translate-y-1/2 pr-1.5 text-right text-xs text-ink-400"
                     style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
                   >
-                    {String(h).padStart(2, "0")}:00
+                    {h}
                   </div>
                 ))}
                 {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
@@ -1103,7 +1103,7 @@ export function BookingCalendar({
           {/* See the matching comment in the day view for why header/body are
               split into separate rows instead of using position:sticky. */}
           <div className="flex">
-            <div className="h-12 w-14 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="h-12 w-7 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
             <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
               <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
                 {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
@@ -1126,15 +1126,15 @@ export function BookingCalendar({
             {/* See the matching comment in the day view for why items-start
                 is required here (without it, content below a certain scroll
                 depth silently disappears). */}
-            <div className="flex shrink-0 flex-col bg-white" style={{ width: 56 }}>
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 28 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute -translate-y-1/2 pr-2 text-right text-xs text-ink-400"
+                    className="absolute -translate-y-1/2 pr-1.5 text-right text-xs text-ink-400"
                     style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
                   >
-                    {String(h).padStart(2, "0")}:00
+                    {h}
                   </div>
                 ))}
                 {nowInRange && isWithinInterval(now, { start: rangeStart, end: rangeEnd }) && (
