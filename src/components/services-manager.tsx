@@ -446,6 +446,21 @@ export function ServicesManager({
               />
             </div>
             <div>
+              <label className="label">{tDash("servicesForm.currency")}</label>
+              <select
+                className="input"
+                value={formCurrency}
+                onChange={(e) => setFormCurrency(e.target.value)}
+              >
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+              {editingId && (
+                <p className="mt-1 text-xs text-ink-400">{tDash("servicesForm.currencyHint")}</p>
+              )}
+            </div>
+            <div>
               <label className="label">{tDash("servicesForm.price")} ({formCurrency})</label>
               <input
                 required

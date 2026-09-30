@@ -216,6 +216,8 @@
       "durationMinutes": "Kesto (minuuttia)",
       "bufferMinutes": "Siivousaika jälkeen (minuuttia)",
       "price": "Hinta",
+      "currency": "Valuutta",
+      "currencyHint": "Vaihtaminen ei muunna hintaa automaattisesti — syötä hinta uudelleen uudessa valuutassa.",
       "deposit": "Käsiraha",
       "optional": "valinnainen",
       "description": "Kuvaus",

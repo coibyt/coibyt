@@ -216,6 +216,8 @@
       "durationMinutes": "Thời lượng (phút)",
       "bufferMinutes": "Thời gian dọn dẹp sau (phút)",
       "price": "Giá",
+      "currency": "Đơn vị tiền tệ",
+      "currencyHint": "Đổi đơn vị không tự động quy đổi giá — hãy nhập lại giá theo đơn vị mới.",
       "deposit": "Tiền cọc",
       "optional": "không bắt buộc",
       "description": "Mô tả",

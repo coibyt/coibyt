@@ -216,6 +216,8 @@
       "durationMinutes": "Czas trwania (minuty)",
       "bufferMinutes": "Czas sprzątania po (minuty)",
       "price": "Cena",
+      "currency": "Waluta",
+      "currencyHint": "Zmiana nie przelicza automatycznie ceny — wprowadź cenę ponownie w nowej walucie.",
       "deposit": "Zadatek",
       "optional": "opcjonalnie",
       "description": "Opis",

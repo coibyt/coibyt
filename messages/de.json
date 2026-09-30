@@ -216,6 +216,8 @@
       "durationMinutes": "Dauer (Minuten)",
       "bufferMinutes": "Aufräumzeit danach (Minuten)",
       "price": "Preis",
+      "currency": "Währung",
+      "currencyHint": "Die Änderung rechnet den Preis nicht automatisch um — gib ihn in der neuen Währung neu ein.",
       "deposit": "Anzahlung",
       "optional": "optional",
       "description": "Beschreibung",

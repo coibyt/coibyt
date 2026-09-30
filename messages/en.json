@@ -216,6 +216,8 @@
       "durationMinutes": "Duration (minutes)",
       "bufferMinutes": "Cleanup time after (minutes)",
       "price": "Price",
+      "currency": "Currency",
+      "currencyHint": "Changing this doesn't convert the price — re-enter it in the new currency.",
       "deposit": "Deposit",
       "optional": "optional",
       "description": "Description",
