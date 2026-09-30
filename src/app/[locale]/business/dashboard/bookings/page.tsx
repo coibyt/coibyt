@@ -36,7 +36,14 @@ export default async function BusinessBookingsPage({
     }),
     prisma.service.findMany({
       where: { businessId: business.id, active: true },
-      select: { id: true, name: true, durationMin: true, priceCents: true, currency: true },
+      select: {
+        id: true,
+        name: true,
+        durationMin: true,
+        priceCents: true,
+        currency: true,
+        staff: { select: { staffId: true } },
+      },
     }),
   ]);
 
@@ -62,7 +69,14 @@ export default async function BusinessBookingsPage({
           name: s.name,
           avatarUrl: s.avatar ? `/api/staff-avatar/${s.id}?v=${s.avatar.updatedAt.getTime()}` : null,
         }))}
-        services={services}
+        services={services.map((s) => ({
+          id: s.id,
+          name: s.name,
+          durationMin: s.durationMin,
+          priceCents: s.priceCents,
+          currency: s.currency,
+          staffIds: s.staff.map((x) => x.staffId),
+        }))}
         isOwner={access.isOwner}
       />
     </div>

@@ -192,6 +192,16 @@ interface ServiceOption {
   durationMin: number;
   priceCents: number;
   currency: string;
+  // Staff members this service is assigned to (see the Services page's
+  // per-service "add-ons"/staff picker) — used to only show a staff member
+  // the services they're actually set up to perform, instead of every
+  // service the salon offers.
+  staffIds: string[];
+}
+
+function servicesForStaff(services: ServiceOption[], staffId: string): ServiceOption[] {
+  if (!staffId) return services;
+  return services.filter((s) => s.staffIds.includes(staffId));
 }
 
 interface NewBookingDraft {
@@ -696,13 +706,16 @@ export function BookingCalendar({
     const mm = String(minutes % 60).padStart(2, "0");
     const startsAt = fromZonedTime(`${dateStr}T${hh}:${mm}:00`, businessTimezone);
 
+    const eligibleServices = servicesForStaff(services, resolvedStaffId);
+    const defaultService = eligibleServices[0] ?? services[0];
+
     setNewBookingError(null);
     setCustomerMatches([]);
     setNewBooking({
       startsAt,
-      endsAt: addMinutes(startsAt, services[0].durationMin),
+      endsAt: addMinutes(startsAt, defaultService.durationMin),
       staffId: resolvedStaffId,
-      serviceId: services[0].id,
+      serviceId: defaultService.id,
       customerName: "",
       customerPhone: "",
       customerEmail: "",
@@ -1474,7 +1487,7 @@ export function BookingCalendar({
 
       {editBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
             <div className="mb-4 flex items-start justify-between">
               <p className="font-bold text-ink-900">
                 {locale === "vi" ? "Sửa cuộc hẹn" : "Edit booking"}
@@ -1483,7 +1496,7 @@ export function BookingCalendar({
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="space-y-3">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
                 <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
                 <input
@@ -1526,40 +1539,30 @@ export function BookingCalendar({
                     : "Shorten or extend this one appointment's duration."}
                 </p>
               </div>
-              <div>
-                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
-                <select
-                  className="input"
-                  value={editBooking.serviceId}
-                  onChange={(e) => {
-                    const sv = services.find((s) => s.id === e.target.value);
-                    setEditBooking({
-                      ...editBooking,
-                      serviceId: e.target.value,
-                      ...(sv
-                        ? {
-                            priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)),
-                            currency: sv.currency,
-                            endsAt: addMinutes(editBooking.startsAt, sv.durationMin),
-                          }
-                        : {}),
-                    });
-                  }}
-                >
-                  {services.map((sv) => (
-                    <option key={sv.id} value={sv.id}>
-                      {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
-                    </option>
-                  ))}
-                </select>
-              </div>
               {staff.length > 0 && (
                 <div>
                   <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
                   <select
                     className="input"
                     value={editBooking.staffId}
-                    onChange={(e) => setEditBooking({ ...editBooking, staffId: e.target.value })}
+                    onChange={(e) => {
+                      const newStaffId = e.target.value;
+                      const eligible = servicesForStaff(services, newStaffId);
+                      const stillValid = eligible.some((s) => s.id === editBooking.serviceId);
+                      const fallback = !stillValid ? eligible[0] : undefined;
+                      setEditBooking({
+                        ...editBooking,
+                        staffId: newStaffId,
+                        ...(fallback
+                          ? {
+                              serviceId: fallback.id,
+                              priceAmount: String(fromSmallestUnit(fallback.priceCents, fallback.currency)),
+                              currency: fallback.currency,
+                              endsAt: addMinutes(editBooking.startsAt, fallback.durationMin),
+                            }
+                          : {}),
+                      });
+                    }}
                   >
                     {staff.map((s) => (
                       <option key={s.id} value={s.id}>
@@ -1569,6 +1572,41 @@ export function BookingCalendar({
                   </select>
                 </div>
               )}
+              <div>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                {servicesForStaff(services, editBooking.staffId).length === 0 ? (
+                  <p className="text-sm text-berry-500">
+                    {locale === "vi"
+                      ? "Nhân viên này chưa được gán dịch vụ nào. Vào mục Nhân viên để thêm."
+                      : "This staff member has no services assigned yet — add some from the Staff page."}
+                  </p>
+                ) : (
+                  <select
+                    className="input"
+                    value={editBooking.serviceId}
+                    onChange={(e) => {
+                      const sv = services.find((s) => s.id === e.target.value);
+                      setEditBooking({
+                        ...editBooking,
+                        serviceId: e.target.value,
+                        ...(sv
+                          ? {
+                              priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)),
+                              currency: sv.currency,
+                              endsAt: addMinutes(editBooking.startsAt, sv.durationMin),
+                            }
+                          : {}),
+                      });
+                    }}
+                  >
+                    {servicesForStaff(services, editBooking.staffId).map((sv) => (
+                      <option key={sv.id} value={sv.id}>
+                        {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
               <div>
                 <label className="label">
                   {locale === "vi" ? "Giá" : "Price"} ({editBooking.currency})
@@ -1631,12 +1669,13 @@ export function BookingCalendar({
               </p>
             )}
             {editError && <p className="mt-2 text-sm text-berry-500">{editError}</p>}
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex shrink-0 gap-2">
               <button
                 disabled={
                   savingEdit ||
                   !editBooking.customerName.trim() ||
-                  editBooking.endsAt <= editBooking.startsAt
+                  editBooking.endsAt <= editBooking.startsAt ||
+                  servicesForStaff(services, editBooking.staffId).length === 0
                 }
                 onClick={submitEditBooking}
                 className="btn-primary"
@@ -1654,7 +1693,7 @@ export function BookingCalendar({
 
       {newBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-          <div className="card w-full max-w-sm animate-slide-up p-6">
+          <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
             <div className="mb-4 flex items-start justify-between">
               <p className="font-bold text-ink-900">
                 {locale === "vi" ? "Đặt lịch cho khách" : "Book for a customer"}
@@ -1669,7 +1708,7 @@ export function BookingCalendar({
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="space-y-3">
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
                 <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
                 <input
@@ -1709,34 +1748,25 @@ export function BookingCalendar({
                     : "Shorten or extend this one appointment's duration."}
                 </p>
               </div>
-              <div>
-                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
-                <select
-                  className="input"
-                  value={newBooking.serviceId}
-                  onChange={(e) => {
-                    const sv = services.find((s) => s.id === e.target.value);
-                    setNewBooking({
-                      ...newBooking,
-                      serviceId: e.target.value,
-                      ...(sv ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) } : {}),
-                    });
-                  }}
-                >
-                  {services.map((sv) => (
-                    <option key={sv.id} value={sv.id}>
-                      {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
-                    </option>
-                  ))}
-                </select>
-              </div>
               {staff.length > 0 && (
                 <div>
                   <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
                   <select
                     className="input"
                     value={newBooking.staffId}
-                    onChange={(e) => setNewBooking({ ...newBooking, staffId: e.target.value })}
+                    onChange={(e) => {
+                      const newStaffId = e.target.value;
+                      const eligible = servicesForStaff(services, newStaffId);
+                      const stillValid = eligible.some((s) => s.id === newBooking.serviceId);
+                      const fallback = !stillValid ? eligible[0] : undefined;
+                      setNewBooking({
+                        ...newBooking,
+                        staffId: newStaffId,
+                        ...(fallback
+                          ? { serviceId: fallback.id, endsAt: addMinutes(newBooking.startsAt, fallback.durationMin) }
+                          : {}),
+                      });
+                    }}
                   >
                     {staff.map((s) => (
                       <option key={s.id} value={s.id}>
@@ -1746,6 +1776,35 @@ export function BookingCalendar({
                   </select>
                 </div>
               )}
+              <div>
+                <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
+                {servicesForStaff(services, newBooking.staffId).length === 0 ? (
+                  <p className="text-sm text-berry-500">
+                    {locale === "vi"
+                      ? "Nhân viên này chưa được gán dịch vụ nào. Vào mục Nhân viên để thêm."
+                      : "This staff member has no services assigned yet — add some from the Staff page."}
+                  </p>
+                ) : (
+                  <select
+                    className="input"
+                    value={newBooking.serviceId}
+                    onChange={(e) => {
+                      const sv = services.find((s) => s.id === e.target.value);
+                      setNewBooking({
+                        ...newBooking,
+                        serviceId: e.target.value,
+                        ...(sv ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) } : {}),
+                      });
+                    }}
+                  >
+                    {servicesForStaff(services, newBooking.staffId).map((sv) => (
+                      <option key={sv.id} value={sv.id}>
+                        {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
               <div className="relative">
                 <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
                 <input
@@ -1833,13 +1892,14 @@ export function BookingCalendar({
               </p>
             )}
             {newBookingError && <p className="mt-2 text-sm text-berry-500">{newBookingError}</p>}
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex shrink-0 gap-2">
               <button
                 disabled={
                   creatingBooking ||
                   !newBooking.customerName.trim() ||
                   !newBooking.customerPhone.trim() ||
-                  newBooking.endsAt <= newBooking.startsAt
+                  newBooking.endsAt <= newBooking.startsAt ||
+                  servicesForStaff(services, newBooking.staffId).length === 0
                 }
                 onClick={submitNewBooking}
                 className="btn-primary"

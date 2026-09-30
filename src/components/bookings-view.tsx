@@ -33,7 +33,14 @@ export function BookingsView({
   locale: string;
   businessTimezone: string;
   staff: { id: string; name: string; avatarUrl: string | null }[];
-  services: { id: string; name: string; durationMin: number; priceCents: number; currency: string }[];
+  services: {
+    id: string;
+    name: string;
+    durationMin: number;
+    priceCents: number;
+    currency: string;
+    staffIds: string[];
+  }[];
   isOwner: boolean;
 }) {
   const t = useTranslations("business");
