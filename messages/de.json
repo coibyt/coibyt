@@ -272,6 +272,17 @@
       "backToServices": "Dienstleistungen",
       "deleteConfirm": "Zusatzleistung \"{name}\" löschen? Sie gilt dann für keine Dienstleistung mehr."
     },
+    "affiliatesPage": {
+      "title": "Affiliate-Marketing",
+      "hint": "Füge einen Werber hinzu (Mitarbeiter oder externer Partner), lege seine Provision in % fest und teile dann seinen eigenen Link. VaraaAi verfolgt und summiert nur die Provisionen — du zahlst sie selbst, außerhalb des Systems.",
+      "empty": "Noch keine Affiliates.",
+      "createNew": "Neuen Affiliate hinzufügen",
+      "name": "Name",
+      "commissionPercent": "Provision (%)",
+      "commissionLabel": "Provision: {percent}%",
+      "statsLine": "{count} Buchungen · Provision gesamt: {total}",
+      "deleteConfirm": "\"{name}\" löschen? Ihr Empfehlungslink funktioniert dann nicht mehr."
+    },
     "landing": {
       "nav": "Landingpage",
       "publishTitle": "Landingpage veröffentlichen",
@@ -338,7 +349,8 @@
     "back": "Zurück",
     "viewAll": "Alle anzeigen",
     "vnd": "₫",
-    "min": "Min."
+    "min": "Min.",
+    "copy": "Kopieren"
   },
   "settingsCards": {
     "profileTitle": "Salon-Informationen",

@@ -272,6 +272,17 @@
       "backToServices": "Dịch vụ",
       "deleteConfirm": "Xóa dịch vụ phụ \"{name}\"? Nó sẽ không còn được áp dụng cho bất kỳ dịch vụ nào."
     },
+    "affiliatesPage": {
+      "title": "Tiếp thị liên kết",
+      "hint": "Thêm người tiếp thị (nhân viên hoặc cộng tác viên bên ngoài), ấn định % hoa hồng, rồi chia sẻ link riêng của họ. VaraaAi chỉ theo dõi và tính hoa hồng — bạn tự thanh toán cho họ bên ngoài hệ thống.",
+      "empty": "Chưa có người tiếp thị liên kết nào.",
+      "createNew": "Thêm người tiếp thị mới",
+      "name": "Tên",
+      "commissionPercent": "Hoa hồng (%)",
+      "commissionLabel": "Hoa hồng: {percent}%",
+      "statsLine": "{count} lịch hẹn · Tổng hoa hồng: {total}",
+      "deleteConfirm": "Xoá \"{name}\"? Link giới thiệu của họ sẽ ngừng hoạt động."
+    },
     "landing": {
       "nav": "Trang landing",
       "publishTitle": "Xuất bản trang landing",
@@ -338,7 +349,8 @@
     "back": "Quay lại",
     "viewAll": "Xem tất cả",
     "vnd": "₫",
-    "min": "phút"
+    "min": "phút",
+    "copy": "Sao chép"
   },
   "settingsCards": {
     "profileTitle": "Thông tin salon",

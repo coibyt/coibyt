@@ -272,6 +272,17 @@
       "backToServices": "Palvelut",
       "deleteConfirm": "Poistetaanko lisäpalvelu \"{name}\"? Se ei enää kuulu mihinkään palveluun."
     },
+    "affiliatesPage": {
+      "title": "Kumppanuusmarkkinointi",
+      "hint": "Lisää suosittelija (työntekijä tai ulkopuolinen kumppani), aseta hänen provisio-%:nsa ja jaa hänen oma linkkinsä. VaraaAi vain seuraa ja laskee provisiot — maksat ne itse järjestelmän ulkopuolella.",
+      "empty": "Ei vielä kumppaneita.",
+      "createNew": "Lisää uusi kumppani",
+      "name": "Nimi",
+      "commissionPercent": "Provisio (%)",
+      "commissionLabel": "Provisio: {percent}%",
+      "statsLine": "{count} varausta · Provisiot yhteensä: {total}",
+      "deleteConfirm": "Poistetaanko \"{name}\"? Hänen suosittelulinkkinsä lakkaa toimimasta."
+    },
     "landing": {
       "nav": "Aloitussivu",
       "publishTitle": "Julkaise aloitussivu",
@@ -338,7 +349,8 @@
     "back": "Takaisin",
     "viewAll": "Näytä kaikki",
     "vnd": "₫",
-    "min": "min"
+    "min": "min",
+    "copy": "Kopioi"
   },
   "settingsCards": {
     "profileTitle": "Salongin tiedot",

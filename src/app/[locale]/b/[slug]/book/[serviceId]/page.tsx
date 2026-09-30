@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { formatMoney } from "@/lib/money";
 import { BookingWidget } from "@/components/booking-widget";
+import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
 
 export default async function BookServicePage({
   params,
@@ -63,6 +65,9 @@ export default async function BookServicePage({
 
   return (
     <div className="container max-w-3xl py-10">
+      <Suspense fallback={null}>
+        <AffiliateCookieSetter businessId={business.id} />
+      </Suspense>
       <div className="card mb-6 flex items-center justify-between p-5">
         <div>
           <p className="text-sm text-ink-400">{business.name}</p>

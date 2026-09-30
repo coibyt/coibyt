@@ -50,6 +50,10 @@ export async function createBookingAndPayment(params: {
   /** Other full services booked in the same visit (e.g. manicure + pedicure)
    * — same "never trust the client" treatment as addOnIds. */
   extraServiceIds?: string[];
+  /** The affiliate code from the customer's `varaaai_aff_<businessId>` cookie
+   * (see AffiliateCookieSetter), if any — re-validated against this
+   * business's own active affiliates here, never trusted as-is. */
+  affiliateCode?: string;
   /** Whether this booking gets any automated email at all (confirmation,
    * reschedule, cancellation, reminders) — always true for a customer's own
    * booking; only the salon's manual-add-booking form ever passes false. */
@@ -93,6 +97,15 @@ export async function createBookingAndPayment(params: {
     );
   const totalPriceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
 
+  const affiliate = params.affiliateCode
+    ? await prisma.affiliate.findFirst({
+        where: { code: params.affiliateCode, businessId: params.businessId, active: true },
+      })
+    : null;
+  const affiliateCommissionCents = affiliate
+    ? Math.round((totalPriceCents * affiliate.commissionPercent) / 100)
+    : null;
+
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";
 
   const booking = await prisma.$transaction(async (tx) => {
@@ -119,6 +132,8 @@ export async function createBookingAndPayment(params: {
         depositCents: service.depositCents,
         currency: service.currency,
         customerNote: params.customerNote,
+        affiliateId: affiliate?.id,
+        affiliateCommissionCents,
         // Cash and bank transfer have nothing online to wait on, so they're
         // confirmed right away; online gateways stay PENDING_PAYMENT until
         // their callback fires.

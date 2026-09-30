@@ -272,6 +272,17 @@
       "backToServices": "Usługi",
       "deleteConfirm": "Usunąć dodatek \"{name}\"? Nie będzie już dotyczył żadnej usługi."
     },
+    "affiliatesPage": {
+      "title": "Marketing afiliacyjny",
+      "hint": "Dodaj promotora (pracownika lub zewnętrznego partnera), ustaw jego % prowizji, a następnie udostępnij jego własny link. VaraaAi tylko śledzi i sumuje prowizje — wypłacasz je samodzielnie, poza systemem.",
+      "empty": "Brak partnerów afiliacyjnych.",
+      "createNew": "Dodaj nowego partnera",
+      "name": "Nazwa",
+      "commissionPercent": "Prowizja (%)",
+      "commissionLabel": "Prowizja: {percent}%",
+      "statsLine": "{count} rezerwacji · Suma prowizji: {total}",
+      "deleteConfirm": "Usunąć \"{name}\"? Jego link polecający przestanie działać."
+    },
     "landing": {
       "nav": "Strona docelowa",
       "publishTitle": "Opublikuj stronę docelową",
@@ -338,7 +349,8 @@
     "back": "Wstecz",
     "viewAll": "Zobacz wszystko",
     "vnd": "₫",
-    "min": "min"
+    "min": "min",
+    "copy": "Kopiuj"
   },
   "settingsCards": {
     "profileTitle": "Informacje o salonie",

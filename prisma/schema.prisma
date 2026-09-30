@@ -191,6 +191,7 @@ model Business {
   followers     BusinessFollow[]
   posts         Post[]
   emailCampaigns EmailCampaign[]
+  affiliates     Affiliate[]
 
   @@index([ownerId])
   @@index([status])
@@ -498,6 +499,15 @@ model Booking {
   reminder15minSentAt DateTime?
   reviewRequestSentAt DateTime?
 
+  // Set when this booking came in through an affiliate's referral link (see
+  // Affiliate below). commissionCents is a snapshot of the affiliate's
+  // commissionPercent at booking time, in this booking's own currency — so a
+  // later change to the affiliate's rate never rewrites the payout owed on
+  // past bookings.
+  affiliateId              String?
+  affiliate                Affiliate? @relation(fields: [affiliateId], references: [id])
+  affiliateCommissionCents Int?
+
   payment       Payment?
   review        Review?
   addOns        BookingAddOn[]
@@ -507,6 +517,28 @@ model Booking {
   @@index([staffId, startsAt])
   @@index([customerId])
   @@index([status])
+  @@index([affiliateId])
+}
+
+// A referral partner (an outside promoter, or a salon's own staff member)
+// who earns a set commission percentage on bookings placed through their own
+// tracking link/code — see the ?aff= query param on the public business page
+// and AffiliateCookieSetter. Tracking-only: VaraaAi never moves the actual
+// commission payout, the salon owner pays it separately and uses this only
+// as a running tally of what they owe each partner.
+model Affiliate {
+  id                String   @id @default(cuid())
+  businessId        String
+  business          Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name              String
+  code              String   @unique
+  commissionPercent Float
+  active            Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  bookings Booking[]
+
+  @@index([businessId])
 }
 
 enum PaymentProvider {

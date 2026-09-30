@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { createBookingSchema } from "@/lib/validations";
@@ -70,6 +71,7 @@ export async function POST(req: Request) {
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
+  const affiliateCode = (await cookies()).get(`varaaai_aff_${service.businessId}`)?.value;
 
   try {
     const { booking, redirectUrl } = await createBookingAndPayment({
@@ -85,6 +87,7 @@ export async function POST(req: Request) {
       siteUrl,
       addOnIds: data.addOnIds,
       extraServiceIds: data.extraServiceIds,
+      affiliateCode,
     });
 
     return NextResponse.json({ bookingId: booking.id, redirectUrl });

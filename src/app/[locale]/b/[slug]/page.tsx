@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import {
@@ -23,6 +24,7 @@ import { BusinessIntroVideo } from "@/components/business-intro-video";
 import { BusinessLocationButton } from "@/components/business-location-button";
 import { FollowButton } from "@/components/follow-button";
 import { BusinessChatButton } from "@/components/business-chat-button";
+import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -76,6 +78,9 @@ export default async function BusinessProfilePage({
 
   return (
     <div>
+      <Suspense fallback={null}>
+        <AffiliateCookieSetter businessId={business.id} />
+      </Suspense>
       <div className="relative h-56 w-full bg-mist-100 sm:h-72">
         {business.coverUrl && (
           <Image src={business.coverUrl} alt="" fill className="object-cover" />

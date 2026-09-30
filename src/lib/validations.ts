@@ -162,3 +162,8 @@ export const reviewSchema = z.object({
   rating: z.number().int().min(1).max(5),
   comment: z.string().max(2000).optional(),
 });
+
+export const affiliateSchema = z.object({
+  name: z.string().min(1).max(120),
+  commissionPercent: z.coerce.number().min(0).max(100),
+});
