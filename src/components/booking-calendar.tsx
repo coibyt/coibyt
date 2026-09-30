@@ -913,7 +913,7 @@ export function BookingCalendar({
               <div
                 className="grid"
                 style={{
-                  gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
+                  gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(64px, 1fr))`,
                 }}
               >
                 {staff.length === 0 ? (
@@ -925,7 +925,7 @@ export function BookingCalendar({
                     <div
                       key={s.id}
                       title={s.name}
-                      className="flex h-20 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
+                      className="flex h-20 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
                     >
                       {s.avatarUrl ? (
                         <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -977,7 +977,7 @@ export function BookingCalendar({
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(112px, 1fr))`,
+              gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(64px, 1fr))`,
             }}
           >
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
