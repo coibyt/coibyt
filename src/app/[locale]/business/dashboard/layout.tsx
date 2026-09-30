@@ -91,7 +91,7 @@ export default async function BusinessDashboardLayout({
   ];
 
   return (
-    <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-[220px_1fr]">
+    <div className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[180px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
       <DashboardBody switcher={switcher}>{children}</DashboardBody>
     </div>
