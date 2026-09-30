@@ -72,6 +72,16 @@ export function ServicesManager({
   const [editingId, setEditingId] = useState<string | null>(null);
   const [addOnsFor, setAddOnsFor] = useState<ServiceRow | null>(null);
   const [form, setForm] = useState(emptyForm);
+  // A service keeps whatever currency it was created with — changing the
+  // business's default only applies to new services (see the settings page
+  // copy). Editing an existing service must reuse ITS OWN currency for
+  // interpreting/saving the price fields, never the current default: the
+  // price amounts shown in the form (from fromSmallestUnit below) are
+  // denominated in the service's own currency, so re-submitting them under a
+  // different currency — e.g. re-saving an old 200,000 VND service after the
+  // business switched its default to EUR — would silently turn "200000" into
+  // 200,000.00 EUR instead of leaving the price alone.
+  const [formCurrency, setFormCurrency] = useState(defaultCurrency);
   const [saving, setSaving] = useState(false);
   const [newGroupName, setNewGroupName] = useState("");
   const [groupBusy, setGroupBusy] = useState(false);
@@ -85,6 +95,7 @@ export function ServicesManager({
 
   function startEdit(s: ServiceRow) {
     setEditingId(s.id);
+    setFormCurrency(s.currency);
     setForm({
       name: s.name,
       description: s.description ?? "",
@@ -114,6 +125,7 @@ export function ServicesManager({
 
   function startCreate() {
     setEditingId(null);
+    setFormCurrency(defaultCurrency);
     setForm(emptyForm);
     setShowForm(true);
   }
@@ -127,11 +139,11 @@ export function ServicesManager({
       groupId: form.groupId || null,
       durationMin: Number(form.durationMin) || 0,
       bufferMin: Number(form.bufferMin) || 0,
-      priceCents: toSmallestUnit(Number(form.priceAmount) || 0, defaultCurrency),
+      priceCents: toSmallestUnit(Number(form.priceAmount) || 0, formCurrency),
       depositCents:
         form.depositAmount.trim() === ""
           ? undefined
-          : toSmallestUnit(Number(form.depositAmount), defaultCurrency),
+          : toSmallestUnit(Number(form.depositAmount), formCurrency),
       videoUrl: form.videoUrl.trim() || undefined,
       staffAssignments: form.staffIds.map((staffId) => {
         const override = form.staffOverrides[staffId];
@@ -139,14 +151,14 @@ export function ServicesManager({
           staffId,
           priceCentsOverride:
             override?.priceAmount.trim()
-              ? toSmallestUnit(Number(override.priceAmount), defaultCurrency)
+              ? toSmallestUnit(Number(override.priceAmount), formCurrency)
               : undefined,
           durationMinOverride: override?.durationMin.trim()
             ? Number(override.durationMin)
             : undefined,
         };
       }),
-      currency: defaultCurrency,
+      currency: formCurrency,
     };
     if (editingId) {
       await fetch(`/api/business/services/${editingId}`, {
@@ -434,7 +446,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">{tDash("servicesForm.price")} ({defaultCurrency})</label>
+              <label className="label">{tDash("servicesForm.price")} ({formCurrency})</label>
               <input
                 required
                 type="number"
@@ -447,7 +459,7 @@ export function ServicesManager({
               />
             </div>
             <div>
-              <label className="label">{tDash("servicesForm.deposit")} ({defaultCurrency}, {tDash("servicesForm.optional")})</label>
+              <label className="label">{tDash("servicesForm.deposit")} ({formCurrency}, {tDash("servicesForm.optional")})</label>
               <input
                 type="number"
                 min={0}
