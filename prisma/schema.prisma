@@ -176,6 +176,12 @@ model Business {
   updatedAt DateTime @updatedAt
   approvedAt DateTime?
 
+  // Set once, at signup, when this salon came in through a platform
+  // affiliate's referral link (see PlatformAffiliate and
+  // PlatformAffiliateCookieSetter) — never changes afterward.
+  referredByAffiliateId String?
+  referredByAffiliate   PlatformAffiliate? @relation(fields: [referredByAffiliateId], references: [id])
+
   categories BusinessCategory[]
   services   Service[]
   serviceGroups ServiceGroup[]
@@ -196,6 +202,7 @@ model Business {
   @@index([ownerId])
   @@index([status])
   @@index([city])
+  @@index([referredByAffiliateId])
 }
 
 // A one-off marketing email an owner composes and sends to everyone who has
@@ -508,6 +515,17 @@ model Booking {
   affiliate                Affiliate? @relation(fields: [affiliateId], references: [id])
   affiliateCommissionCents Int?
 
+  // Set on EVERY booking this business ever takes, once its
+  // referredByAffiliate signup has met the qualifying bar (see
+  // isBusinessReferralQualified) — an ongoing cut of this business's
+  // bookings for whoever referred the owner to VaraaAi itself, distinct
+  // from `affiliate` above (which credits whoever referred this one
+  // customer). Snapshotted the same way: a later rate change never
+  // rewrites commission already owed on past bookings.
+  platformAffiliateId              String?
+  platformAffiliate                PlatformAffiliate? @relation(fields: [platformAffiliateId], references: [id])
+  platformAffiliateCommissionCents Int?
+
   payment       Payment?
   review        Review?
   addOns        BookingAddOn[]
@@ -518,6 +536,7 @@ model Booking {
   @@index([customerId])
   @@index([status])
   @@index([affiliateId])
+  @@index([platformAffiliateId])
 }
 
 // A referral partner (an outside promoter, or a salon's own staff member)
@@ -539,6 +558,24 @@ model Affiliate {
   bookings Booking[]
 
   @@index([businessId])
+}
+
+// A platform-level referral partner (a sale/agent, an existing salon owner,
+// or a customer) who earns an ongoing commission percentage on every booking
+// a salon they referred to VaraaAi ever takes — set up by an admin, not a
+// salon owner, and tracked against the `?aff=` link on the public /business
+// landing page (see PlatformAffiliateCookieSetter). Tracking-only, same as
+// Affiliate: VaraaAi never moves the payout itself.
+model PlatformAffiliate {
+  id                String   @id @default(cuid())
+  name              String
+  code              String   @unique
+  commissionPercent Float
+  active            Boolean  @default(true)
+  createdAt         DateTime @default(now())
+
+  referredBusinesses Business[]
+  bookings           Booking[]
 }
 
 enum PaymentProvider {

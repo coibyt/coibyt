@@ -21,6 +21,7 @@ export default async function AdminLayout({
     { href: "/admin", label: t("pendingBusinesses") },
     { href: "/admin/businesses", label: t("allBusinesses") },
     { href: "/admin/categories", label: t("categories") },
+    { href: "/admin/platform-affiliates", label: t("platformAffiliatesPage.title") },
     {
       href: "/admin/support",
       label: "Hỗ trợ chủ salon",

@@ -161,7 +161,19 @@
     "reject": "Odrzuć",
     "categories": "Kategorie",
     "allBusinesses": "Wszystkie firmy",
-    "noPending": "Brak firm oczekujących na weryfikację."
+    "noPending": "Brak firm oczekujących na weryfikację.",
+    "platformAffiliatesPage": {
+      "title": "Marketing afiliacyjny",
+      "hint": "Dodaj polecającego (sprzedawcę, właściciela salonu lub klienta), aby promował program rejestracji właścicieli salonów. Gdy polecony przez niego salon zostanie zatwierdzony i uzupełni profil (adres, godziny otwarcia, usługi), polecający otrzymuje % prowizji od każdej przyszłej rezerwacji tego salonu. VaraaAi tylko śledzi i sumuje prowizje — wypłacasz je samodzielnie, poza systemem.",
+      "empty": "Brak partnerów afiliacyjnych.",
+      "createNew": "Dodaj nowego partnera",
+      "name": "Nazwa",
+      "commissionPercent": "Prowizja (%)",
+      "commissionLabel": "Prowizja: {percent}%",
+      "referredCount": "{count} poleconych salonów",
+      "commissionOwed": "Suma prowizji:",
+      "deleteConfirm": "Usunąć \"{name}\"? Jego link polecający przestanie działać."
+    }
   },
   "footer": {
     "tagline": "Wiodąca internetowa platforma rezerwacji salonów, spa i usług kosmetycznych.",

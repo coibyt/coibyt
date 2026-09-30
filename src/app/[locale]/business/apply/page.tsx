@@ -1,9 +1,11 @@
+import { Suspense } from "react";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { BusinessApplyForm } from "@/components/business-apply-form";
 import { PendingBanner } from "@/components/pending-banner";
+import { PlatformAffiliateCookieSetter } from "@/components/platform-affiliate-cookie-setter";
 
 export default async function BusinessApplyPage({
   params,
@@ -40,6 +42,9 @@ export default async function BusinessApplyPage({
 
   return (
     <div className="container max-w-lg py-16">
+      <Suspense fallback={null}>
+        <PlatformAffiliateCookieSetter />
+      </Suspense>
       <h1 className="mb-1 text-2xl font-bold text-ink-900">{t("applyTitle")}</h1>
       <p className="mb-6 text-sm text-ink-400">{t("applySubtitle")}</p>
       <BusinessApplyForm

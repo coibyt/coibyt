@@ -81,6 +81,11 @@ export async function POST(req: Request) {
     slug = `${baseSlug}-${++n}`;
   }
 
+  const platformAffCode = (await cookies()).get("varaaai_platform_aff")?.value;
+  const platformAffiliate = platformAffCode
+    ? await prisma.platformAffiliate.findFirst({ where: { code: platformAffCode, active: true } })
+    : null;
+
   const business = await prisma.business.create({
     data: {
       ownerId,
@@ -93,6 +98,7 @@ export async function POST(req: Request) {
       lat: businessInput.lat,
       lng: businessInput.lng,
       country: businessInput.country,
+      referredByAffiliateId: platformAffiliate?.id,
       timezone: timezoneForCountry(businessInput.country) ?? "Asia/Ho_Chi_Minh",
       status: "PENDING",
       categories: { create: [{ categoryId: businessInput.categoryId }] },

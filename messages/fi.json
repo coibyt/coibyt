@@ -161,7 +161,19 @@
     "reject": "Hylkää",
     "categories": "Kategoriat",
     "allBusinesses": "Kaikki yritykset",
-    "noPending": "Ei tarkistusta odottavia yrityksiä."
+    "noPending": "Ei tarkistusta odottavia yrityksiä.",
+    "platformAffiliatesPage": {
+      "title": "Kumppanuusmarkkinointi",
+      "hint": "Lisää suosittelija (myyjä, salongin omistaja tai asiakas) markkinoimaan salongin omistajaksi rekisteröitymistä. Kun suosittelun kautta tullut salonki hyväksytään ja sen profiili on täydellinen (osoite, aukioloajat, palvelut), suosittelija ansaitsee provisio-%:n kaikista kyseisen salongin tulevista varauksista. VaraaAi vain seuraa ja laskee provisiot — maksat ne itse järjestelmän ulkopuolella.",
+      "empty": "Ei vielä kumppaneita.",
+      "createNew": "Lisää uusi kumppani",
+      "name": "Nimi",
+      "commissionPercent": "Provisio (%)",
+      "commissionLabel": "Provisio: {percent}%",
+      "referredCount": "{count} suositeltua salonkia",
+      "commissionOwed": "Provisiot yhteensä:",
+      "deleteConfirm": "Poistetaanko \"{name}\"? Hänen suosittelulinkkinsä lakkaa toimimasta."
+    }
   },
   "footer": {
     "tagline": "Johtava verkkovarausalusta kampaamoille, kylpylöille ja kauneuspalveluille.",

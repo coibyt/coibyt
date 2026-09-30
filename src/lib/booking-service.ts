@@ -106,6 +106,29 @@ export async function createBookingAndPayment(params: {
     ? Math.round((totalPriceCents * affiliate.commissionPercent) / 100)
     : null;
 
+  // A salon only starts earning its referring platform affiliate a cut once
+  // its profile clears a minimum bar (an address, opening hours, and at
+  // least one active service) — not the instant it's approved, since a
+  // brand-new application usually has none of that yet. Checked on every
+  // booking rather than once at signup, since the owner can take a while to
+  // finish setting up after being approved.
+  let platformAffiliate = null;
+  if (service.business.referredByAffiliateId) {
+    const [hoursCount, activeServiceCount] = await Promise.all([
+      prisma.businessHours.count({ where: { businessId: params.businessId } }),
+      prisma.service.count({ where: { businessId: params.businessId, active: true } }),
+    ]);
+    const profileComplete = !!service.business.addressLine && hoursCount > 0 && activeServiceCount > 0;
+    if (profileComplete) {
+      platformAffiliate = await prisma.platformAffiliate.findFirst({
+        where: { id: service.business.referredByAffiliateId, active: true },
+      });
+    }
+  }
+  const platformAffiliateCommissionCents = platformAffiliate
+    ? Math.round((totalPriceCents * platformAffiliate.commissionPercent) / 100)
+    : null;
+
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";
 
   const booking = await prisma.$transaction(async (tx) => {
@@ -134,6 +157,8 @@ export async function createBookingAndPayment(params: {
         customerNote: params.customerNote,
         affiliateId: affiliate?.id,
         affiliateCommissionCents,
+        platformAffiliateId: platformAffiliate?.id,
+        platformAffiliateCommissionCents,
         // Cash and bank transfer have nothing online to wait on, so they're
         // confirmed right away; online gateways stay PENDING_PAYMENT until
         // their callback fires.

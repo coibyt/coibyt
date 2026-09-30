@@ -161,7 +161,19 @@
     "reject": "Ablehnen",
     "categories": "Kategorien",
     "allBusinesses": "Alle Unternehmen",
-    "noPending": "Keine Unternehmen zur Prüfung ausstehend."
+    "noPending": "Keine Unternehmen zur Prüfung ausstehend.",
+    "platformAffiliatesPage": {
+      "title": "Affiliate-Marketing",
+      "hint": "Füge einen Werber hinzu (Verkäufer, Salonbesitzer oder Kunde), der das Registrierungsprogramm für Salonbesitzer bewirbt. Sobald ein von ihm geworbener Salon genehmigt ist und ein vollständiges Profil hat (Adresse, Öffnungszeiten, Dienstleistungen), verdient der Werber eine Provision in % auf jede zukünftige Buchung dieses Salons. VaraaAi verfolgt und summiert nur die Provisionen — du zahlst sie selbst, außerhalb des Systems.",
+      "empty": "Noch keine Affiliates.",
+      "createNew": "Neuen Affiliate hinzufügen",
+      "name": "Name",
+      "commissionPercent": "Provision (%)",
+      "commissionLabel": "Provision: {percent}%",
+      "referredCount": "{count} geworbene Salons",
+      "commissionOwed": "Provision gesamt:",
+      "deleteConfirm": "\"{name}\" löschen? Ihr Empfehlungslink funktioniert dann nicht mehr."
+    }
   },
   "footer": {
     "tagline": "Die führende Online-Buchungsplattform für Salons, Spas und Beauty-Dienstleistungen.",

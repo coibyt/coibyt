@@ -17,7 +17,9 @@ import {
   Instagram,
   MapPin,
 } from "lucide-react";
+import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
+import { PlatformAffiliateCookieSetter } from "@/components/platform-affiliate-cookie-setter";
 
 // Icon + accent color for each benefit card, in the same order as each
 // locale's `benefits` array below — kept separate from the copy so the 7
@@ -378,6 +380,9 @@ export default async function BusinessLandingPage({
 
   return (
     <div>
+      <Suspense fallback={null}>
+        <PlatformAffiliateCookieSetter />
+      </Suspense>
       {/* Hero */}
       <section className="bg-peach-100">
         <div className="container flex flex-col items-center gap-6 py-16 text-center sm:py-24">

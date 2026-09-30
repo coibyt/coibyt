@@ -161,7 +161,19 @@
     "reject": "Từ chối",
     "categories": "Danh mục",
     "allBusinesses": "Tất cả doanh nghiệp",
-    "noPending": "Không có doanh nghiệp nào đang chờ duyệt."
+    "noPending": "Không có doanh nghiệp nào đang chờ duyệt.",
+    "platformAffiliatesPage": {
+      "title": "Tiếp thị liên kết",
+      "hint": "Thêm người giới thiệu (sale, chủ salon, hoặc khách hàng) quảng bá chương trình đăng ký làm chủ salon. Khi salon họ giới thiệu được duyệt và hoàn thiện đủ hồ sơ (địa chỉ, giờ mở cửa, dịch vụ), người giới thiệu sẽ nhận % hoa hồng trên mọi lịch hẹn của salon đó về sau. VaraaAi chỉ theo dõi và tính hoa hồng — bạn tự thanh toán bên ngoài hệ thống.",
+      "empty": "Chưa có người tiếp thị liên kết nào.",
+      "createNew": "Thêm người tiếp thị mới",
+      "name": "Tên",
+      "commissionPercent": "Hoa hồng (%)",
+      "commissionLabel": "Hoa hồng: {percent}%",
+      "referredCount": "{count} salon đã giới thiệu",
+      "commissionOwed": "Tổng hoa hồng:",
+      "deleteConfirm": "Xoá \"{name}\"? Link giới thiệu của họ sẽ ngừng hoạt động."
+    }
   },
   "footer": {
     "tagline": "Nền tảng đặt lịch salon, spa & làm đẹp trực tuyến hàng đầu.",
