@@ -349,7 +349,18 @@
       "sendError": "Coś poszło nie tak, spróbuj ponownie.",
       "historyTitle": "Historia wysyłek",
       "historyEmpty": "Nie wysłałeś jeszcze żadnych e-maili marketingowych.",
-      "historyRecipients": "{count} odbiorców"
+      "historyRecipients": "{count} odbiorców",
+      "insufficientPoints": "Za mało punktów Vara do wysyłki — potrzebujesz {required}, masz {available}. Zalicz się lub udostępnij swój link polecający, aby zdobyć więcej."
+    },
+    "varaPoints": {
+      "balanceLabel": "Saldo punktów Vara",
+      "checkIn": "Zalicz się (+5)",
+      "checkedInToday": "Zaliczono dzisiaj",
+      "referralTitle": "Link polecający program właściciela salonu",
+      "referralHint": "Udostępnij ten link — każdy nowy odwiedzający (unikalne IP) daje Ci +1 punkt, a gdy ktoś się zarejestruje i uzupełni profil salonu, otrzymujesz +1000 punktów.",
+      "copy": "Kopiuj",
+      "referralStats": "{clicks} wyświetleń · {signups} zarejestrowanych · {qualified} uzupełniło profil",
+      "historyTitle": "Historia punktów"
     }
   },
   "common": {

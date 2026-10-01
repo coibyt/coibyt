@@ -21,6 +21,9 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<{ sent: number } | null>(null);
   const [error, setError] = useState(false);
+  const [insufficientPoints, setInsufficientPoints] = useState<{ required: number; available: number } | null>(
+    null
+  );
   const [campaigns, setCampaigns] = useState<Campaign[] | null>(null);
 
   async function loadCampaigns() {
@@ -35,6 +38,7 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
   async function send() {
     setSending(true);
     setError(false);
+    setInsufficientPoints(null);
     const res = await fetch("/api/business/marketing/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -43,6 +47,13 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
     setSending(false);
     setConfirming(false);
     if (!res.ok) {
+      if (res.status === 402) {
+        const data = await res.json().catch(() => null);
+        if (data?.error === "INSUFFICIENT_VARA_POINTS") {
+          setInsufficientPoints({ required: data.required, available: data.available });
+          return;
+        }
+      }
       setError(true);
       return;
     }
@@ -105,6 +116,14 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
         {error && (
           <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">
             {tDash("marketing.sendError")}
+          </p>
+        )}
+        {insufficientPoints && (
+          <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">
+            {tDash("marketing.insufficientPoints", {
+              required: insufficientPoints.required,
+              available: insufficientPoints.available,
+            })}
           </p>
         )}
 

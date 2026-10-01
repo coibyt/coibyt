@@ -349,7 +349,18 @@
       "sendError": "เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง",
       "historyTitle": "ประวัติการส่ง",
       "historyEmpty": "คุณยังไม่เคยส่งอีเมลการตลาดเลย",
-      "historyRecipients": "ผู้รับ {count} คน"
+      "historyRecipients": "ผู้รับ {count} คน",
+      "insufficientPoints": "คะแนน Vara ไม่พอสำหรับส่ง — ต้องการ {required} คะแนน คุณมี {available} คะแนน เช็คอินหรือแชร์ลิงก์แนะนำเพื่อรับคะแนนเพิ่ม"
+    },
+    "varaPoints": {
+      "balanceLabel": "ยอดคะแนน Vara",
+      "checkIn": "เช็คอิน (+5)",
+      "checkedInToday": "เช็คอินวันนี้แล้ว",
+      "referralTitle": "ลิงก์แนะนำโปรแกรมเจ้าของร้าน",
+      "referralHint": "แชร์ลิงก์นี้ — ผู้เยี่ยมชมใหม่แต่ละคน (IP ไม่ซ้ำ) จะให้คุณ +1 คะแนน และเมื่อมีคนสมัครและกรอกข้อมูลร้านครบถ้วน คุณจะได้รับ +1000 คะแนน",
+      "copy": "คัดลอก",
+      "referralStats": "{clicks} ครั้งที่เข้าชม · {signups} สมัครแล้ว · {qualified} กรอกข้อมูลครบ",
+      "historyTitle": "ประวัติคะแนนล่าสุด"
     }
   },
   "common": {

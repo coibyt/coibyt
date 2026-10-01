@@ -9,6 +9,7 @@ import { timezoneForCountry } from "@/lib/countries";
 import { slugify } from "@/lib/slugify";
 import { sendVerificationEmail } from "@/lib/email-verification";
 import { approveBusiness } from "@/lib/approve-business";
+import { awardSignupBonusIfFirstBusiness, checkAndAwardReferralBonus } from "@/lib/vara-points";
 import type { z } from "zod";
 
 export async function POST(req: Request) {
@@ -81,10 +82,20 @@ export async function POST(req: Request) {
     slug = `${baseSlug}-${++n}`;
   }
 
+  // The same `?aff=` cookie feeds two separate referral programs sharing one
+  // code space: the admin-run PlatformAffiliate commission program, and an
+  // owner's own vara-points link (see PlatformAffiliateCookieSetter and
+  // src/lib/vara-points.ts). A code only ever matches one or the other.
   const platformAffCode = (await cookies()).get("varaaai_platform_aff")?.value;
-  const platformAffiliate = platformAffCode
-    ? await prisma.platformAffiliate.findFirst({ where: { code: platformAffCode, active: true } })
-    : null;
+  const [platformAffiliate, referringOwner] = platformAffCode
+    ? await Promise.all([
+        prisma.platformAffiliate.findFirst({ where: { code: platformAffCode, active: true } }),
+        prisma.user.findUnique({ where: { referralCode: platformAffCode } }),
+      ])
+    : [null, null];
+  // An owner can't earn their own referral bonus by applying for a second
+  // branch through their own link.
+  const referredByOwnerId = referringOwner && referringOwner.id !== ownerId ? referringOwner.id : undefined;
 
   const business = await prisma.business.create({
     data: {
@@ -99,6 +110,7 @@ export async function POST(req: Request) {
       lng: businessInput.lng,
       country: businessInput.country,
       referredByAffiliateId: platformAffiliate?.id,
+      referredByOwnerId,
       timezone: timezoneForCountry(businessInput.country) ?? "Asia/Ho_Chi_Minh",
       status: "PENDING",
       categories: { create: [{ categoryId: businessInput.categoryId }] },
@@ -106,6 +118,8 @@ export async function POST(req: Request) {
   });
 
   await prisma.user.update({ where: { id: ownerId }, data: { role: "BUSINESS_OWNER" } });
+  await awardSignupBonusIfFirstBusiness(ownerId);
+  await checkAndAwardReferralBonus(business.id);
 
   // A verified email (already true for Google sign-ins, which the adapter
   // marks verified on OAuth link) skips the manual-review step entirely —

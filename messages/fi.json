@@ -349,7 +349,18 @@
       "sendError": "Jokin meni pieleen, yritä uudelleen.",
       "historyTitle": "Lähetyshistoria",
       "historyEmpty": "Et ole vielä lähettänyt markkinointisähköposteja.",
-      "historyRecipients": "{count} vastaanottajaa"
+      "historyRecipients": "{count} vastaanottajaa",
+      "insufficientPoints": "Ei tarpeeksi vara-pisteitä lähettämiseen — tarvitset {required}, sinulla on {available}. Kirjaudu sisään tai jaa suositteluslinkkisi ansaitaksesi lisää."
+    },
+    "varaPoints": {
+      "balanceLabel": "Vara-pisteiden saldo",
+      "checkIn": "Kirjaudu sisään (+5)",
+      "checkedInToday": "Kirjauduttu tänään",
+      "referralTitle": "Salongin omistajaksi -suositteluslinkki",
+      "referralHint": "Jaa tämä linkki — jokainen uusi kävijä (yksilöllinen IP) tuo sinulle +1 pisteen, ja kun joku rekisteröityy ja täyttää salonkinsa profiilin, saat +1000 pistettä.",
+      "copy": "Kopioi",
+      "referralStats": "{clicks} katselua · {signups} rekisteröitynyt · {qualified} täyttänyt profiilin",
+      "historyTitle": "Viimeisimmät pistetapahtumat"
     }
   },
   "common": {

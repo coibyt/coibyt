@@ -349,7 +349,18 @@
       "sendError": "Etwas ist schiefgelaufen, bitte versuche es erneut.",
       "historyTitle": "Versandverlauf",
       "historyEmpty": "Du hast noch keine Marketing-E-Mails gesendet.",
-      "historyRecipients": "{count} Empfänger"
+      "historyRecipients": "{count} Empfänger",
+      "insufficientPoints": "Nicht genug Vara-Punkte zum Senden — benötigt werden {required}, du hast {available}. Checke ein oder teile deinen Empfehlungslink, um mehr zu verdienen."
+    },
+    "varaPoints": {
+      "balanceLabel": "Vara-Punktestand",
+      "checkIn": "Einchecken (+5)",
+      "checkedInToday": "Heute eingecheckt",
+      "referralTitle": "Empfehlungslink fürs Salonbesitzer-Programm",
+      "referralHint": "Teile diesen Link — jeder neue Besucher (eindeutige IP) bringt dir +1 Punkt, und wenn sich jemand registriert und sein Salonprofil vervollständigt, erhältst du +1000 Punkte.",
+      "copy": "Kopieren",
+      "referralStats": "{clicks} Aufrufe · {signups} registriert · {qualified} Profil vervollständigt",
+      "historyTitle": "Letzte Punktehistorie"
     }
   },
   "common": {

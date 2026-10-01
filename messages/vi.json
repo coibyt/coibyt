@@ -349,7 +349,18 @@
       "sendError": "Có lỗi xảy ra, vui lòng thử lại.",
       "historyTitle": "Lịch sử đã gửi",
       "historyEmpty": "Bạn chưa gửi email marketing nào.",
-      "historyRecipients": "{count} người nhận"
+      "historyRecipients": "{count} người nhận",
+      "insufficientPoints": "Không đủ điểm Vara để gửi — cần {required} điểm, bạn hiện có {available} điểm. Hãy điểm danh hoặc chia sẻ link giới thiệu để kiếm thêm điểm."
+    },
+    "varaPoints": {
+      "balanceLabel": "Điểm Vara hiện có",
+      "checkIn": "Điểm danh +5 điểm",
+      "checkedInToday": "Đã điểm danh hôm nay",
+      "referralTitle": "Link giới thiệu làm chủ salon",
+      "referralHint": "Chia sẻ link này — mỗi lượt xem từ IP mới được +1 điểm, và khi có người đăng ký rồi hoàn thiện hồ sơ salon, bạn được thưởng +1000 điểm.",
+      "copy": "Sao chép",
+      "referralStats": "{clicks} lượt xem · {signups} người đã đăng ký · {qualified} đã hoàn thiện hồ sơ",
+      "historyTitle": "Lịch sử điểm gần đây"
     }
   },
   "common": {

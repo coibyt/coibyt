@@ -3,6 +3,7 @@ import { z } from "zod";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { timezoneForCountry } from "@/lib/countries";
+import { checkAndAwardReferralBonus } from "@/lib/vara-points";
 
 const profileSchema = z.object({
   name: z.string().min(2).max(120),
@@ -46,5 +47,6 @@ export async function PUT(req: Request) {
     }),
   ]);
 
+  await checkAndAwardReferralBonus(businessId);
   return NextResponse.json({ ok: true });
 }

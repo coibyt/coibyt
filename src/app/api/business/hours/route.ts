@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { businessHoursSchema } from "@/lib/validations";
+import { checkAndAwardReferralBonus } from "@/lib/vara-points";
 
 export async function GET() {
   const businessId = await requireSectionBusinessId("hours");
@@ -30,5 +31,6 @@ export async function PUT(req: Request) {
     }),
   ]);
 
+  await checkAndAwardReferralBonus(businessId);
   return NextResponse.json({ ok: true });
 }

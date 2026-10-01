@@ -349,7 +349,18 @@
       "sendError": "Something went wrong, please try again.",
       "historyTitle": "Send history",
       "historyEmpty": "You haven't sent any marketing emails yet.",
-      "historyRecipients": "{count} recipients"
+      "historyRecipients": "{count} recipients",
+      "insufficientPoints": "Not enough vara points to send — this needs {required}, you have {available}. Check in or share your referral link to earn more."
+    },
+    "varaPoints": {
+      "balanceLabel": "Vara points balance",
+      "checkIn": "Check in (+5)",
+      "checkedInToday": "Checked in today",
+      "referralTitle": "Become-a-salon-owner referral link",
+      "referralHint": "Share this link — each new visitor (unique IP) earns you +1 point, and when someone signs up and completes their salon profile, you earn +1000 points.",
+      "copy": "Copy",
+      "referralStats": "{clicks} views · {signups} signed up · {qualified} completed their profile",
+      "historyTitle": "Recent points history"
     }
   },
   "common": {

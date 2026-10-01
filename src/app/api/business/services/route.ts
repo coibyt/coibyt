@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireSectionBusinessId, requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceSchema } from "@/lib/validations";
+import { checkAndAwardReferralBonus } from "@/lib/vara-points";
 
 export async function GET() {
   const businessId = await requireSectionBusinessId("services");
@@ -50,5 +51,6 @@ export async function POST(req: Request) {
         : undefined,
     },
   });
+  await checkAndAwardReferralBonus(businessId);
   return NextResponse.json({ service }, { status: 201 });
 }

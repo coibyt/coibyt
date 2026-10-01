@@ -4,6 +4,7 @@ import { requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail, marketingEmail } from "@/lib/mailer";
 import { unsubscribeToken } from "@/lib/marketing-email";
+import { awardPoints } from "@/lib/vara-points";
 
 const schema = z.object({
   subject: z.string().trim().min(1).max(150),
@@ -32,7 +33,7 @@ export async function POST(req: Request) {
 
   const business = await prisma.business.findUniqueOrThrow({
     where: { id: businessId },
-    select: { name: true },
+    select: { name: true, ownerId: true },
   });
 
   const bookings = await prisma.booking.findMany({
@@ -46,6 +47,21 @@ export async function POST(req: Request) {
   const recipients = bookings
     .map((b) => b.customer)
     .filter((c) => !c.marketingOptOut && !c.email.endsWith("@walkin.varaaai.com"));
+
+  // Vara points belong to the owner account (shared across every branch they
+  // run), never to the branch itself or whoever on staff happens to click
+  // Send — one point per email, checked up front so a campaign either goes
+  // out in full or not at all, never partially.
+  const owner = await prisma.user.findUniqueOrThrow({
+    where: { id: business.ownerId },
+    select: { varaPoints: true },
+  });
+  if (recipients.length > owner.varaPoints) {
+    return NextResponse.json(
+      { error: "INSUFFICIENT_VARA_POINTS", required: recipients.length, available: owner.varaPoints },
+      { status: 402 }
+    );
+  }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
   const bodyHtml = escapeHtml(message).replace(/\n/g, "<br/>");
@@ -69,6 +85,11 @@ export async function POST(req: Request) {
   await prisma.emailCampaign.create({
     data: { businessId, subject, bodyHtml, recipientCount: sentCount },
   });
+  // Only the emails that actually went out are charged — a provider failure
+  // on some recipients shouldn't cost the owner points for nothing sent.
+  if (sentCount > 0) {
+    await awardPoints(business.ownerId, -sentCount, "EMAIL_SENT");
+  }
 
   return NextResponse.json({ sent: sentCount, total: recipients.length });
 }

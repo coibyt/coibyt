@@ -42,6 +42,22 @@ model User {
   // Never gates transactional email (confirmations, reminders, receipts).
   marketingOptOut Boolean @default(false)
 
+  // "Vara points" — a salon-owner account's shared balance across every
+  // branch they run, spent 1-per-email on marketing sends (see
+  // /api/business/marketing/send) and earned via daily check-in and the
+  // owner's own "become a salon owner" referral link. See VaraPointTransaction
+  // for the full ledger; this column is always that ledger's running total.
+  varaPoints Int @default(0)
+  // "YYYY-MM-DD" (UTC) of the last daily check-in claimed — a plain string,
+  // not a DateTime, so "already checked in today" is a single string compare
+  // with no timezone math.
+  varaLastCheckinDate String?
+  // This owner's own code for the salon-owner signup program — set the
+  // first time they become an owner. Shares the `?aff=` URL/cookie
+  // mechanism with the admin-run PlatformAffiliate program, but rewards
+  // vara points instead of a commission.
+  referralCode String? @unique
+
   accounts Account[]
   sessions Session[]
   businesses   Business[] // one or more branches when role = BUSINESS_OWNER
@@ -52,6 +68,11 @@ model User {
   messages        Message[]
   businessFollows BusinessFollow[]
   postComments    PostComment[]
+  varaPointTransactions VaraPointTransaction[]
+  referralClicksReceived ReferralClick[]
+  // Businesses created by someone who signed up through this owner's own
+  // referral link (see Business.referredByOwner below).
+  referredBusinesses Business[] @relation("BusinessReferredByOwner")
 
   // Announcements posted after this moment count as "unread" for a salon
   // owner — see Announcement below.
@@ -182,6 +203,17 @@ model Business {
   referredByAffiliateId String?
   referredByAffiliate   PlatformAffiliate? @relation(fields: [referredByAffiliateId], references: [id])
 
+  // Set once, at signup, when this salon came in through another salon
+  // owner's own vara-points referral link (distinct from referredByAffiliate
+  // above, which is the admin-run commission program). referralBonusAwarded
+  // flips true the first time this business's profile clears the qualifying
+  // bar (address + hours + an active service — see checkAndAwardReferralBonus
+  // in src/lib/vara-points.ts), at which point referredByOwner is paid their
+  // one-time 1000-point bonus.
+  referredByOwnerId    String?
+  referredByOwner      User?    @relation("BusinessReferredByOwner", fields: [referredByOwnerId], references: [id])
+  referralBonusAwarded Boolean  @default(false)
+
   categories BusinessCategory[]
   services   Service[]
   serviceGroups ServiceGroup[]
@@ -202,6 +234,7 @@ model Business {
   @@index([ownerId])
   @@index([status])
   @@index([city])
+  @@index([referredByOwnerId])
   @@index([referredByAffiliateId])
 }
 
@@ -576,6 +609,43 @@ model PlatformAffiliate {
 
   referredBusinesses Business[]
   bookings           Booking[]
+}
+
+enum VaraPointReason {
+  SIGNUP_BONUS
+  DAILY_CHECKIN
+  REFERRAL_CLICK
+  REFERRAL_SIGNUP_BONUS
+  EMAIL_SENT
+}
+
+// Full ledger behind User.varaPoints — every earn and spend is one row here,
+// so the running balance on User is always reconstructable/auditable. amount
+// is positive for an earn, negative for a spend (currently only EMAIL_SENT).
+model VaraPointTransaction {
+  id        String           @id @default(cuid())
+  userId    String
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Int
+  reason    VaraPointReason
+  createdAt DateTime         @default(now())
+
+  @@index([userId, createdAt])
+}
+
+// One row per unique visitor (by hashed IP) who has ever landed on an
+// owner's own referral link — caps that link's "1 point per visitor" reward
+// at once per IP, forever, regardless of how many times they revisit. The IP
+// itself is never stored, only an HMAC of it (see hashIp in vara-points.ts).
+model ReferralClick {
+  id        String   @id @default(cuid())
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  ipHash    String
+  createdAt DateTime @default(now())
+
+  @@unique([ownerId, ipHash])
+  @@index([ownerId])
 }
 
 enum PaymentProvider {

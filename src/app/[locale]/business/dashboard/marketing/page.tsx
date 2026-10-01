@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { MarketingComposer } from "@/components/marketing-composer";
+import { VaraPointsPanel } from "@/components/vara-points-panel";
 import { Users } from "lucide-react";
 
 export default async function MarketingDashboardPage({
@@ -41,6 +42,7 @@ export default async function MarketingDashboardPage({
           <Users className="h-3.5 w-3.5" /> {t("affiliatesPage.title")}
         </Link>
       </div>
+      <VaraPointsPanel locale={locale} />
       <MarketingComposer initialRecipientCount={recipientCount} />
     </div>
   );
