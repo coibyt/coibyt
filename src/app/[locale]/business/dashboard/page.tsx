@@ -57,7 +57,12 @@ export default async function DashboardOverviewPage({
     <div className="space-y-6">
       <h1 className="text-xl font-bold text-ink-900">{t("overview")}</h1>
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard icon={CalendarCheck} label={t("statBookingsToday")} value={String(bookingsToday)} />
+        <StatCard
+          icon={CalendarCheck}
+          label={t("statBookingsToday")}
+          value={String(bookingsToday)}
+          href="/business/dashboard/bookings"
+        />
         <StatCard
           icon={Wallet}
           label={t("statRevenueMonth")}
