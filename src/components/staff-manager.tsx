@@ -145,6 +145,7 @@ export function StaffManager({
     setSaving(false);
     if (!res.ok) {
       const data = await res.json().catch(() => null);
+      const passwordTooShort = !!data?.error?.fieldErrors?.password;
       setError(
         data?.error === "EMAIL_IN_USE"
           ? locale === "vi"
@@ -154,9 +155,13 @@ export function StaffManager({
             ? locale === "vi"
               ? "Cần đặt mật khẩu khi thêm email đăng nhập."
               : "A password is required when adding a login email."
-            : locale === "vi"
-              ? "Có lỗi xảy ra, vui lòng thử lại."
-              : "Something went wrong, please try again."
+            : passwordTooShort
+              ? locale === "vi"
+                ? "Mật khẩu phải có ít nhất 8 ký tự."
+                : "Password must be at least 8 characters."
+              : locale === "vi"
+                ? "Có lỗi xảy ra, vui lòng thử lại."
+                : "Something went wrong, please try again."
       );
       return;
     }
@@ -346,14 +351,15 @@ export function StaffManager({
                 placeholder={
                   editingId
                     ? locale === "vi"
-                      ? "Mật khẩu mới (bỏ trống nếu giữ nguyên)"
-                      : "New password (leave blank to keep)"
+                      ? "Mật khẩu mới, tối thiểu 8 ký tự (bỏ trống nếu giữ nguyên)"
+                      : "New password, min. 8 characters (leave blank to keep)"
                     : locale === "vi"
                       ? "Mật khẩu (tối thiểu 8 ký tự)"
                       : "Password (min. 8 characters)"
                 }
                 className="input"
                 value={form.password}
+                minLength={8}
                 onChange={(e) => setForm({ ...form, password: e.target.value })}
               />
             </div>
