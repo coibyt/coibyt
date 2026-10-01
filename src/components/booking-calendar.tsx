@@ -48,6 +48,7 @@ interface CalendarBooking {
   customerPhone: string | null;
   customerEmail: string | null;
   addOnNames: string[];
+  addOnIds: string[];
 }
 
 interface EditBookingDraft {
@@ -56,6 +57,7 @@ interface EditBookingDraft {
   endsAt: Date;
   staffId: string;
   serviceId: string;
+  addOnIds: string[];
   priceAmount: string; // whole-currency-unit string, e.g. "180" for 180 EUR
   currency: string;
   customerNote: string;
@@ -204,11 +206,27 @@ function servicesForStaff(services: ServiceOption[], staffId: string): ServiceOp
   return services.filter((s) => s.staffIds.includes(staffId));
 }
 
+interface AddOnOption {
+  id: string;
+  name: string;
+  priceCents: number;
+  durationMin: number;
+  // Main services this add-on can be tacked onto (see the Services page's
+  // "Dịch vụ phụ" picker) — used to only show add-ons that actually apply to
+  // whichever main service is currently selected.
+  serviceIds: string[];
+}
+
+function addOnsForService(addOns: AddOnOption[], serviceId: string): AddOnOption[] {
+  return addOns.filter((a) => a.serviceIds.includes(serviceId));
+}
+
 interface NewBookingDraft {
   startsAt: Date;
   endsAt: Date;
   staffId: string;
   serviceId: string;
+  addOnIds: string[];
   customerName: string;
   customerPhone: string;
   customerEmail: string;
@@ -231,6 +249,7 @@ interface DayWindow {
 export function BookingCalendar({
   staff,
   services,
+  addOns,
   businessTimezone,
   locale,
   isOwner,
@@ -238,6 +257,7 @@ export function BookingCalendar({
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
+  addOns: AddOnOption[];
   businessTimezone: string;
   locale: string;
   isOwner: boolean;
@@ -555,12 +575,47 @@ export function BookingCalendar({
       endsAt: new Date(booking.endsAt),
       staffId: booking.staffId ?? staff[0]?.id ?? "",
       serviceId: booking.serviceId,
+      addOnIds: booking.addOnIds,
       priceAmount: String(fromSmallestUnit(booking.priceCents, booking.currency)),
       currency: booking.currency,
       customerNote: booking.customerNote ?? "",
       customerName: booking.customerName,
       customerPhone: booking.customerPhone ?? "",
       customerEmail: booking.customerEmail ?? "",
+    });
+  }
+
+  // Ticking/unticking an add-on nudges both the price and end time by
+  // exactly that add-on's own amount — a delta on top of whatever's already
+  // there, rather than recomputing from scratch, so it doesn't clobber a
+  // price the salon already hand-adjusted for some other reason.
+  function toggleEditBookingAddOn(addOn: AddOnOption) {
+    if (!editBooking) return;
+    const adding = !editBooking.addOnIds.includes(addOn.id);
+    const nextIds = adding
+      ? [...editBooking.addOnIds, addOn.id]
+      : editBooking.addOnIds.filter((id) => id !== addOn.id);
+    const deltaMin = adding ? addOn.durationMin : -addOn.durationMin;
+    const deltaAmount = fromSmallestUnit(adding ? addOn.priceCents : -addOn.priceCents, editBooking.currency);
+    setEditBooking({
+      ...editBooking,
+      addOnIds: nextIds,
+      endsAt: addMinutes(editBooking.endsAt, deltaMin),
+      priceAmount: String((Number(editBooking.priceAmount) || 0) + deltaAmount),
+    });
+  }
+
+  function toggleNewBookingAddOn(addOn: AddOnOption) {
+    if (!newBooking) return;
+    const adding = !newBooking.addOnIds.includes(addOn.id);
+    const nextIds = adding
+      ? [...newBooking.addOnIds, addOn.id]
+      : newBooking.addOnIds.filter((id) => id !== addOn.id);
+    const deltaMin = adding ? addOn.durationMin : -addOn.durationMin;
+    setNewBooking({
+      ...newBooking,
+      addOnIds: nextIds,
+      endsAt: addMinutes(newBooking.endsAt, deltaMin),
     });
   }
 
@@ -576,6 +631,7 @@ export function BookingCalendar({
         staffId: editBooking.staffId || undefined,
         startsAt: editBooking.startsAt.toISOString(),
         endsAt: editBooking.endsAt.toISOString(),
+        addOnIds: editBooking.addOnIds,
         priceCents: toSmallestUnit(Number(editBooking.priceAmount) || 0, editBooking.currency),
         customerNote: editBooking.customerNote,
         customerName: editBooking.customerName,
@@ -716,6 +772,7 @@ export function BookingCalendar({
       endsAt: addMinutes(startsAt, defaultService.durationMin),
       staffId: resolvedStaffId,
       serviceId: defaultService.id,
+      addOnIds: [],
       customerName: "",
       customerPhone: "",
       customerEmail: "",
@@ -762,6 +819,7 @@ export function BookingCalendar({
         staffId: newBooking.staffId,
         startsAt: newBooking.startsAt.toISOString(),
         endsAt: newBooking.endsAt.toISOString(),
+        addOnIds: newBooking.addOnIds,
         customerName: newBooking.customerName,
         customerPhone: newBooking.customerPhone,
         customerEmail: newBooking.customerEmail || undefined,
@@ -1556,6 +1614,7 @@ export function BookingCalendar({
                         ...(fallback
                           ? {
                               serviceId: fallback.id,
+                              addOnIds: [],
                               priceAmount: String(fromSmallestUnit(fallback.priceCents, fallback.currency)),
                               currency: fallback.currency,
                               endsAt: addMinutes(editBooking.startsAt, fallback.durationMin),
@@ -1589,6 +1648,7 @@ export function BookingCalendar({
                       setEditBooking({
                         ...editBooking,
                         serviceId: e.target.value,
+                        addOnIds: [],
                         ...(sv
                           ? {
                               priceAmount: String(fromSmallestUnit(sv.priceCents, sv.currency)),
@@ -1607,6 +1667,29 @@ export function BookingCalendar({
                   </select>
                 )}
               </div>
+              {addOnsForService(addOns, editBooking.serviceId).length > 0 && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}</label>
+                  <div className="space-y-1.5">
+                    {addOnsForService(addOns, editBooking.serviceId).map((a) => (
+                      <label
+                        key={a.id}
+                        className="flex items-center justify-between gap-2 rounded-xl border border-ink-100 px-3 py-2 text-sm"
+                      >
+                        <span className="flex items-center gap-2">
+                          <input
+                            type="checkbox"
+                            checked={editBooking.addOnIds.includes(a.id)}
+                            onChange={() => toggleEditBookingAddOn(a)}
+                          />
+                          {a.name}
+                        </span>
+                        <span className="text-ink-700">{formatMoney(a.priceCents, editBooking.currency, locale)}</span>
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
               <div>
                 <label className="label">
                   {locale === "vi" ? "Giá" : "Price"} ({editBooking.currency})
@@ -1763,7 +1846,11 @@ export function BookingCalendar({
                         ...newBooking,
                         staffId: newStaffId,
                         ...(fallback
-                          ? { serviceId: fallback.id, endsAt: addMinutes(newBooking.startsAt, fallback.durationMin) }
+                          ? {
+                              serviceId: fallback.id,
+                              addOnIds: [],
+                              endsAt: addMinutes(newBooking.startsAt, fallback.durationMin),
+                            }
                           : {}),
                       });
                     }}
@@ -1793,6 +1880,7 @@ export function BookingCalendar({
                       setNewBooking({
                         ...newBooking,
                         serviceId: e.target.value,
+                        addOnIds: [],
                         ...(sv ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) } : {}),
                       });
                     }}
@@ -1805,6 +1893,48 @@ export function BookingCalendar({
                   </select>
                 )}
               </div>
+              {addOnsForService(addOns, newBooking.serviceId).length > 0 && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}</label>
+                  <div className="space-y-1.5">
+                    {addOnsForService(addOns, newBooking.serviceId).map((a) => {
+                      const sv = services.find((s) => s.id === newBooking.serviceId);
+                      const currency = sv?.currency ?? "VND";
+                      return (
+                        <label
+                          key={a.id}
+                          className="flex items-center justify-between gap-2 rounded-xl border border-ink-100 px-3 py-2 text-sm"
+                        >
+                          <span className="flex items-center gap-2">
+                            <input
+                              type="checkbox"
+                              checked={newBooking.addOnIds.includes(a.id)}
+                              onChange={() => toggleNewBookingAddOn(a)}
+                            />
+                            {a.name}
+                          </span>
+                          <span className="text-ink-700">{formatMoney(a.priceCents, currency, locale)}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                  {(() => {
+                    const sv = services.find((s) => s.id === newBooking.serviceId);
+                    if (!sv) return null;
+                    const addOnTotal = addOnsForService(addOns, newBooking.serviceId)
+                      .filter((a) => newBooking.addOnIds.includes(a.id))
+                      .reduce((sum, a) => sum + a.priceCents, 0);
+                    return (
+                      <p className="mt-1.5 text-xs text-ink-400">
+                        {locale === "vi" ? "Tổng cộng" : "Total"}:{" "}
+                        <span className="font-medium text-ink-900">
+                          {formatMoney(sv.priceCents + addOnTotal, sv.currency, locale)}
+                        </span>
+                      </p>
+                    );
+                  })()}
+                </div>
+              )}
               <div className="relative">
                 <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
                 <input

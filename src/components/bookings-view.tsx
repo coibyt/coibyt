@@ -26,6 +26,7 @@ export function BookingsView({
   businessTimezone,
   staff,
   services,
+  addOns,
   isOwner,
 }: {
   title: string;
@@ -40,6 +41,13 @@ export function BookingsView({
     priceCents: number;
     currency: string;
     staffIds: string[];
+  }[];
+  addOns: {
+    id: string;
+    name: string;
+    priceCents: number;
+    durationMin: number;
+    serviceIds: string[];
   }[];
   isOwner: boolean;
 }) {
@@ -95,6 +103,7 @@ export function BookingsView({
         <BookingCalendar
           staff={staff}
           services={services}
+          addOns={addOns}
           businessTimezone={businessTimezone}
           locale={locale}
           isOwner={isOwner}

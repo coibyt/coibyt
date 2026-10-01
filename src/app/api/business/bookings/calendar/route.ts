@@ -60,7 +60,7 @@ export async function GET(req: Request) {
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
-      addOns: { select: { name: true } },
+      addOns: { select: { name: true, addOnId: true } },
       extraServices: { select: { name: true } },
     },
     orderBy: { startsAt: "asc" },
@@ -84,6 +84,7 @@ export async function GET(req: Request) {
       customerPhone: canViewContact ? b.customer.phone : null,
       customerEmail: canViewContact ? b.customer.email : null,
       addOnNames: [...b.addOns.map((a) => a.name), ...b.extraServices.map((s) => s.name)],
+      addOnIds: b.addOns.map((a) => a.addOnId).filter((x): x is string => x !== null),
     })),
   });
 }

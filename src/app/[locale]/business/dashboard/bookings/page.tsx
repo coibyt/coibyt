@@ -19,7 +19,7 @@ export default async function BusinessBookingsPage({
   }
   const { business } = access;
 
-  const [bookings, staff, services] = await Promise.all([
+  const [bookings, staff, services, addOns] = await Promise.all([
     prisma.booking.findMany({
       where: { businessId: business.id },
       include: {
@@ -43,6 +43,16 @@ export default async function BusinessBookingsPage({
         priceCents: true,
         currency: true,
         staff: { select: { staffId: true } },
+      },
+    }),
+    prisma.serviceAddOn.findMany({
+      where: { businessId: business.id, active: true },
+      select: {
+        id: true,
+        name: true,
+        priceCents: true,
+        durationMin: true,
+        services: { select: { serviceId: true } },
       },
     }),
   ]);
@@ -76,6 +86,13 @@ export default async function BusinessBookingsPage({
           priceCents: s.priceCents,
           currency: s.currency,
           staffIds: s.staff.map((x) => x.staffId),
+        }))}
+        addOns={addOns.map((a) => ({
+          id: a.id,
+          name: a.name,
+          priceCents: a.priceCents,
+          durationMin: a.durationMin,
+          serviceIds: a.services.map((x) => x.serviceId),
         }))}
         isOwner={access.isOwner}
       />

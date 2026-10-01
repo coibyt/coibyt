@@ -11,6 +11,7 @@ const businessBookingSchema = z.object({
   // Lets the salon shorten/extend this one booking beyond the service's own
   // duration — optional, and only ever read from this owner-only route.
   endsAt: z.string().datetime().optional(),
+  addOnIds: z.array(z.string().cuid()).optional(),
   customerName: z.string().min(1).max(120),
   customerPhone: z.string().min(3).max(30),
   customerEmail: z.string().email().optional(),
@@ -81,6 +82,7 @@ export async function POST(req: Request) {
       staffId: data.staffId,
       startsAt: new Date(data.startsAt),
       endsAtOverride: data.endsAt ? new Date(data.endsAt) : undefined,
+      addOnIds: data.addOnIds,
       customerNote: data.customerNote,
       // A business-created booking has no online payment step, same as cash.
       provider: "CASH",

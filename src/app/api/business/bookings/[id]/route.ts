@@ -17,6 +17,10 @@ const patchSchema = z.object({
   // Lets the salon shorten/extend this one booking beyond the service's own
   // duration — when omitted, endsAt is still derived from the service as before.
   endsAt: z.string().datetime().optional(),
+  // Full replacement of this booking's add-ons (not a delta) — when given,
+  // the booking's existing BookingAddOn rows are replaced with a fresh
+  // snapshot of these catalog items' current name/price/duration.
+  addOnIds: z.array(z.string().cuid()).optional(),
   priceCents: z.number().int().min(0).optional(),
   customerNote: z.string().max(1000).optional(),
   customerName: z.string().min(1).max(120).optional(),
@@ -59,6 +63,7 @@ export async function PATCH(
     data.staffId === undefined &&
     data.startsAt === undefined &&
     data.endsAt === undefined &&
+    data.addOnIds === undefined &&
     !editsContact &&
     data.priceCents === undefined &&
     data.customerNote === undefined
@@ -67,6 +72,15 @@ export async function PATCH(
   }
 
   try {
+    // Re-read from the catalog rather than trusting whatever name/price the
+    // client might send — same "never trust the client" rule as creating a
+    // booking, and it snapshots the current catalog values onto the booking.
+    const newAddOns = data.addOnIds?.length
+      ? await prisma.serviceAddOn.findMany({
+          where: { id: { in: data.addOnIds }, businessId, active: true },
+        })
+      : [];
+
     if (editsContact) {
       if (data.customerEmail && data.customerEmail !== booking.customer.email) {
         const conflict = await prisma.user.findUnique({ where: { email: data.customerEmail } });
@@ -137,6 +151,21 @@ export async function PATCH(
           select: { id: true },
         });
         if (conflict) throw new Error("SLOT_UNAVAILABLE");
+      }
+
+      if (data.addOnIds !== undefined) {
+        await tx.bookingAddOn.deleteMany({ where: { bookingId: id } });
+        if (newAddOns.length > 0) {
+          await tx.bookingAddOn.createMany({
+            data: newAddOns.map((a) => ({
+              bookingId: id,
+              addOnId: a.id,
+              name: a.name,
+              priceCents: a.priceCents,
+              durationMin: a.durationMin,
+            })),
+          });
+        }
       }
 
       return tx.booking.update({
