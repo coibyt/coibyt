@@ -1,7 +1,7 @@
-import nodemailer from "nodemailer";
+import nodemailer, { type Transporter } from "nodemailer";
 import { formatMoney, INTL_LOCALES } from "@/lib/money";
 
-let _transporter: nodemailer.Transporter | null = null;
+let _transporter: Transporter | null = null;
 
 function getTransporter() {
   if (!_transporter) {
