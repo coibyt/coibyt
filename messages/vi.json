@@ -343,6 +343,7 @@
       "messagePlaceholder": "Viết lời nhắn gửi tới khách hàng của bạn...",
       "sendButton": "Gửi email",
       "confirmText": "Email này sẽ được gửi tới {count} khách hàng. Bạn có chắc chắn muốn gửi không?",
+      "confirmCost": "Gửi tới {count} khách hàng sẽ tốn {cost} điểm Vara. Sau khi gửi bạn còn lại {remaining} điểm.",
       "confirmSend": "Xác nhận gửi",
       "cancel": "Huỷ",
       "sentSuccess": "Đã gửi thành công tới {count} khách hàng.",
@@ -350,7 +351,9 @@
       "historyTitle": "Lịch sử đã gửi",
       "historyEmpty": "Bạn chưa gửi email marketing nào.",
       "historyRecipients": "{count} người nhận",
-      "insufficientPoints": "Không đủ điểm Vara để gửi — cần {required} điểm, bạn hiện có {available} điểm. Hãy điểm danh hoặc chia sẻ link giới thiệu để kiếm thêm điểm."
+      "insufficientPoints": "Không đủ điểm Vara để gửi — cần {required} điểm, bạn hiện có {available} điểm. Hãy điểm danh hoặc chia sẻ link giới thiệu để kiếm thêm điểm.",
+      "cooldownNotice": "{count} khách đã nhận email từ bạn trong 72 giờ qua — để tránh làm phiền, họ sẽ được bỏ qua trừ khi bạn chọn gửi luôn.",
+      "includeCooldownLabel": "Gửi luôn cho {count} khách này (tốn thêm 5 điểm Vara/khách)"
     },
     "varaPoints": {
       "balanceLabel": "Điểm Vara hiện có",

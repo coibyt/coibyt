@@ -343,6 +343,7 @@
       "messagePlaceholder": "Schreibe eine Nachricht an deine Kunden...",
       "sendButton": "E-Mail senden",
       "confirmText": "Diese E-Mail wird an {count} Kunden gesendet. Möchtest du sie wirklich senden?",
+      "confirmCost": "Der Versand an {count} Kunden kostet {cost} Vara-Punkte. Danach hast du noch {remaining} übrig.",
       "confirmSend": "Versand bestätigen",
       "cancel": "Abbrechen",
       "sentSuccess": "Erfolgreich an {count} Kunden gesendet.",
@@ -350,7 +351,9 @@
       "historyTitle": "Versandverlauf",
       "historyEmpty": "Du hast noch keine Marketing-E-Mails gesendet.",
       "historyRecipients": "{count} Empfänger",
-      "insufficientPoints": "Nicht genug Vara-Punkte zum Senden — benötigt werden {required}, du hast {available}. Checke ein oder teile deinen Empfehlungslink, um mehr zu verdienen."
+      "insufficientPoints": "Nicht genug Vara-Punkte zum Senden — benötigt werden {required}, du hast {available}. Checke ein oder teile deinen Empfehlungslink, um mehr zu verdienen.",
+      "cooldownNotice": "{count} Kunden haben innerhalb der letzten 72 Stunden eine E-Mail von dir erhalten — sie werden übersprungen, außer du entscheidest dich, ihnen trotzdem zu senden.",
+      "includeCooldownLabel": "Auch an diese {count} Kunden senden (kostet 5 zusätzliche Vara-Punkte pro Kunde)"
     },
     "varaPoints": {
       "balanceLabel": "Vara-Punktestand",

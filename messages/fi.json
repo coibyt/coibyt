@@ -343,6 +343,7 @@
       "messagePlaceholder": "Kirjoita viesti asiakkaillesi...",
       "sendButton": "Lähetä sähköposti",
       "confirmText": "Tämä sähköposti lähetetään {count} asiakkaalle. Haluatko varmasti lähettää sen?",
+      "confirmCost": "Lähettäminen {count} asiakkaalle maksaa {cost} vara-pistettä. Sinulle jää {remaining} pistettä sen jälkeen.",
       "confirmSend": "Vahvista lähetys",
       "cancel": "Peruuta",
       "sentSuccess": "Lähetetty onnistuneesti {count} asiakkaalle.",
@@ -350,7 +351,9 @@
       "historyTitle": "Lähetyshistoria",
       "historyEmpty": "Et ole vielä lähettänyt markkinointisähköposteja.",
       "historyRecipients": "{count} vastaanottajaa",
-      "insufficientPoints": "Ei tarpeeksi vara-pisteitä lähettämiseen — tarvitset {required}, sinulla on {available}. Kirjaudu sisään tai jaa suositteluslinkkisi ansaitaksesi lisää."
+      "insufficientPoints": "Ei tarpeeksi vara-pisteitä lähettämiseen — tarvitset {required}, sinulla on {available}. Kirjaudu sisään tai jaa suositteluslinkkisi ansaitaksesi lisää.",
+      "cooldownNotice": "{count} asiakasta on saanut sinulta sähköpostin viimeisen 72 tunnin aikana — heidät ohitetaan, jollet valitse lähettää heille joka tapauksessa.",
+      "includeCooldownLabel": "Lähetä myös näille {count} asiakkaalle (maksaa 5 ylimääräistä vara-pistettä per asiakas)"
     },
     "varaPoints": {
       "balanceLabel": "Vara-pisteiden saldo",

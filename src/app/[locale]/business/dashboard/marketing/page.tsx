@@ -1,7 +1,7 @@
 import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { requireOwnerOnly } from "@/lib/current-business";
-import { prisma } from "@/lib/prisma";
+import { getMarketingRecipients } from "@/lib/marketing-recipients";
 import { MarketingComposer } from "@/components/marketing-composer";
 import { VaraPointsPanel } from "@/components/vara-points-panel";
 import { Users } from "lucide-react";
@@ -19,14 +19,9 @@ export default async function MarketingDashboardPage({
   }
   const t = await getTranslations("dashboard");
 
-  const bookings = await prisma.booking.findMany({
-    where: { businessId: owned.businessId },
-    distinct: ["customerId"],
-    select: { customer: { select: { email: true, marketingOptOut: true } } },
-  });
-  const recipientCount = bookings.filter(
-    (b) => !b.customer.marketingOptOut && !b.customer.email.endsWith("@walkin.varaaai.com")
-  ).length;
+  const { eligible, cooldown } = await getMarketingRecipients(owned.businessId);
+  const recipientCount = eligible.length;
+  const cooldownCount = cooldown.length;
 
   return (
     <div className="space-y-5">
@@ -43,7 +38,7 @@ export default async function MarketingDashboardPage({
         </Link>
       </div>
       <VaraPointsPanel locale={locale} />
-      <MarketingComposer initialRecipientCount={recipientCount} />
+      <MarketingComposer initialRecipientCount={recipientCount} initialCooldownCount={cooldownCount} />
     </div>
   );
 }

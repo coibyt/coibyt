@@ -73,6 +73,7 @@ model User {
   // Businesses created by someone who signed up through this owner's own
   // referral link (see Business.referredByOwner below).
   referredBusinesses Business[] @relation("BusinessReferredByOwner")
+  emailRecipientCooldowns EmailRecipientCooldown[]
 
   // Announcements posted after this moment count as "unread" for a salon
   // owner — see Announcement below.
@@ -230,6 +231,7 @@ model Business {
   posts         Post[]
   emailCampaigns EmailCampaign[]
   affiliates     Affiliate[]
+  emailRecipientCooldowns EmailRecipientCooldown[]
 
   @@index([ownerId])
   @@index([status])
@@ -617,6 +619,7 @@ enum VaraPointReason {
   REFERRAL_CLICK
   REFERRAL_SIGNUP_BONUS
   EMAIL_SENT
+  EMAIL_SENT_COOLDOWN_BYPASS
 }
 
 // Full ledger behind User.varaPoints — every earn and spend is one row here,
@@ -646,6 +649,24 @@ model ReferralClick {
 
   @@unique([ownerId, ipHash])
   @@index([ownerId])
+}
+
+// The last time a marketing email actually went out to a given customer
+// from a given business — the 72-hour anti-spam cooldown in
+// /api/business/marketing/send reads this to decide whether a recipient is
+// still "fresh" (1 point) or needs the cooldown bypassed (5 points, see
+// EMAIL_SENT_COOLDOWN_BYPASS). One row per (business, customer) pair, always
+// overwritten with the latest send — no history needed beyond "most recent".
+model EmailRecipientCooldown {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  lastSentAt DateTime
+
+  @@unique([businessId, customerId])
+  @@index([customerId])
 }
 
 enum PaymentProvider {

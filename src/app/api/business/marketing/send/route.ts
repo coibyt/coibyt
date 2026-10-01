@@ -5,10 +5,18 @@ import { prisma } from "@/lib/prisma";
 import { sendMail, marketingEmail } from "@/lib/mailer";
 import { unsubscribeToken } from "@/lib/marketing-email";
 import { awardPoints } from "@/lib/vara-points";
+import {
+  getMarketingRecipients,
+  EMAIL_SENT_POINTS,
+  EMAIL_COOLDOWN_BYPASS_POINTS,
+} from "@/lib/marketing-recipients";
 
 const schema = z.object({
   subject: z.string().trim().min(1).max(150),
   message: z.string().trim().min(1).max(5000),
+  // Also email recipients still inside the 72h anti-spam cooldown, at
+  // EMAIL_COOLDOWN_BYPASS_POINTS/email instead of EMAIL_SENT_POINTS.
+  includeCooldown: z.boolean().optional().default(false),
 });
 
 function escapeHtml(text: string) {
@@ -29,36 +37,35 @@ export async function POST(req: Request) {
 
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
-  const { subject, message } = parsed.data;
+  const { subject, message, includeCooldown } = parsed.data;
 
   const business = await prisma.business.findUniqueOrThrow({
     where: { id: businessId },
     select: { name: true, ownerId: true },
   });
 
-  const bookings = await prisma.booking.findMany({
-    where: { businessId },
-    distinct: ["customerId"],
-    select: {
-      customer: { select: { id: true, email: true, name: true, locale: true, marketingOptOut: true } },
-    },
-  });
-
-  const recipients = bookings
-    .map((b) => b.customer)
-    .filter((c) => !c.marketingOptOut && !c.email.endsWith("@walkin.varaaai.com"));
+  const { eligible, cooldown } = await getMarketingRecipients(businessId);
+  // Recipients still in cooldown are only included (and only cost anything)
+  // when the owner explicitly opts in — otherwise they're simply skipped,
+  // same as before this feature existed.
+  const taggedRecipients = [
+    ...eligible.map((customer) => ({ customer, cooldownBypass: false })),
+    ...(includeCooldown ? cooldown.map((customer) => ({ customer, cooldownBypass: true })) : []),
+  ];
+  const projectedCost =
+    eligible.length * EMAIL_SENT_POINTS + (includeCooldown ? cooldown.length * EMAIL_COOLDOWN_BYPASS_POINTS : 0);
 
   // Vara points belong to the owner account (shared across every branch they
   // run), never to the branch itself or whoever on staff happens to click
-  // Send — one point per email, checked up front so a campaign either goes
-  // out in full or not at all, never partially.
+  // Send — checked up front so a campaign either goes out in full or not at
+  // all, never partially.
   const owner = await prisma.user.findUniqueOrThrow({
     where: { id: business.ownerId },
     select: { varaPoints: true },
   });
-  if (recipients.length > owner.varaPoints) {
+  if (projectedCost > owner.varaPoints) {
     return NextResponse.json(
-      { error: "INSUFFICIENT_VARA_POINTS", required: recipients.length, available: owner.varaPoints },
+      { error: "INSUFFICIENT_VARA_POINTS", required: projectedCost, available: owner.varaPoints },
       { status: 402 }
     );
   }
@@ -67,7 +74,7 @@ export async function POST(req: Request) {
   const bodyHtml = escapeHtml(message).replace(/\n/g, "<br/>");
 
   const results = await Promise.allSettled(
-    recipients.map((customer) => {
+    taggedRecipients.map(({ customer }) => {
       const unsubscribeUrl = `${siteUrl}/api/marketing/unsubscribe?u=${customer.id}&t=${unsubscribeToken(
         customer.id
       )}`;
@@ -80,16 +87,38 @@ export async function POST(req: Request) {
       return sendMail({ to: customer.email, subject, html: email.html });
     })
   );
-  const sentCount = results.filter((r) => r.status === "fulfilled").length;
+
+  const sent = taggedRecipients.filter((_, i) => results[i].status === "fulfilled");
+  const sentEligible = sent.filter((r) => !r.cooldownBypass).length;
+  const sentCooldown = sent.filter((r) => r.cooldownBypass).length;
+  const sentCount = sentEligible + sentCooldown;
 
   await prisma.emailCampaign.create({
     data: { businessId, subject, bodyHtml, recipientCount: sentCount },
   });
   // Only the emails that actually went out are charged — a provider failure
   // on some recipients shouldn't cost the owner points for nothing sent.
-  if (sentCount > 0) {
-    await awardPoints(business.ownerId, -sentCount, "EMAIL_SENT");
+  if (sentEligible > 0) {
+    await awardPoints(business.ownerId, -sentEligible * EMAIL_SENT_POINTS, "EMAIL_SENT");
+  }
+  if (sentCooldown > 0) {
+    await awardPoints(business.ownerId, -sentCooldown * EMAIL_COOLDOWN_BYPASS_POINTS, "EMAIL_SENT_COOLDOWN_BYPASS");
   }
 
-  return NextResponse.json({ sent: sentCount, total: recipients.length });
+  // Restart the 72h cooldown clock for everyone actually emailed, whether
+  // they were already fresh or just had it paid-bypassed.
+  if (sent.length > 0) {
+    const now = new Date();
+    await Promise.all(
+      sent.map(({ customer }) =>
+        prisma.emailRecipientCooldown.upsert({
+          where: { businessId_customerId: { businessId, customerId: customer.id } },
+          update: { lastSentAt: now },
+          create: { businessId, customerId: customer.id, lastSentAt: now },
+        })
+      )
+    );
+  }
+
+  return NextResponse.json({ sent: sentCount, total: taggedRecipients.length });
 }

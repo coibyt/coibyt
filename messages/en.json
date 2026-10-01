@@ -343,6 +343,7 @@
       "messagePlaceholder": "Write a message to your customers...",
       "sendButton": "Send email",
       "confirmText": "This email will be sent to {count} customers. Are you sure you want to send it?",
+      "confirmCost": "Sending to {count} customers will cost {cost} vara points. You'll have {remaining} left afterward.",
       "confirmSend": "Confirm send",
       "cancel": "Cancel",
       "sentSuccess": "Successfully sent to {count} customers.",
@@ -350,7 +351,9 @@
       "historyTitle": "Send history",
       "historyEmpty": "You haven't sent any marketing emails yet.",
       "historyRecipients": "{count} recipients",
-      "insufficientPoints": "Not enough vara points to send — this needs {required}, you have {available}. Check in or share your referral link to earn more."
+      "insufficientPoints": "Not enough vara points to send — this needs {required}, you have {available}. Check in or share your referral link to earn more.",
+      "cooldownNotice": "{count} customers received an email from you within the last 72 hours — they'll be skipped unless you choose to send to them anyway.",
+      "includeCooldownLabel": "Also send to these {count} customers (costs an extra 5 vara points each)"
     },
     "varaPoints": {
       "balanceLabel": "Vara points balance",

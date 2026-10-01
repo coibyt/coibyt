@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Loader2, Send, Mail } from "lucide-react";
 
+const EMAIL_SENT_POINTS = 1;
+const EMAIL_COOLDOWN_BYPASS_POINTS = 5;
+
 interface Campaign {
   id: string;
   subject: string;
@@ -11,12 +14,21 @@ interface Campaign {
   createdAt: string;
 }
 
-export function MarketingComposer({ initialRecipientCount }: { initialRecipientCount: number }) {
+export function MarketingComposer({
+  initialRecipientCount,
+  initialCooldownCount,
+}: {
+  initialRecipientCount: number;
+  initialCooldownCount: number;
+}) {
   const tDash = useTranslations("dashboard");
   const locale = useLocale();
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [recipientCount, setRecipientCount] = useState(initialRecipientCount);
+  const [cooldownCount, setCooldownCount] = useState(initialCooldownCount);
+  const [includeCooldown, setIncludeCooldown] = useState(false);
+  const [varaPoints, setVaraPoints] = useState<number | null>(null);
   const [confirming, setConfirming] = useState(false);
   const [sending, setSending] = useState(false);
   const [result, setResult] = useState<{ sent: number } | null>(null);
@@ -31,9 +43,28 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
     if (res.ok) setCampaigns((await res.json()).campaigns);
   }
 
+  async function loadRecipients() {
+    const res = await fetch("/api/business/marketing/recipients");
+    if (res.ok) {
+      const d = await res.json();
+      setRecipientCount(d.count);
+      setCooldownCount(d.cooldownCount);
+    }
+  }
+
+  async function loadVaraPoints() {
+    const res = await fetch("/api/business/vara");
+    if (res.ok) setVaraPoints((await res.json()).varaPoints);
+  }
+
   useEffect(() => {
     loadCampaigns();
+    loadVaraPoints();
   }, []);
+
+  const cost = recipientCount * EMAIL_SENT_POINTS + (includeCooldown ? cooldownCount * EMAIL_COOLDOWN_BYPASS_POINTS : 0);
+  const totalRecipients = recipientCount + (includeCooldown ? cooldownCount : 0);
+  const remaining = varaPoints !== null ? varaPoints - cost : null;
 
   async function send() {
     setSending(true);
@@ -42,7 +73,7 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
     const res = await fetch("/api/business/marketing/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ subject, message }),
+      body: JSON.stringify({ subject, message, includeCooldown }),
     });
     setSending(false);
     setConfirming(false);
@@ -61,14 +92,13 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
     setResult({ sent: data.sent });
     setSubject("");
     setMessage("");
+    setIncludeCooldown(false);
     loadCampaigns();
-    fetch("/api/business/marketing/recipients")
-      .then((r) => r.json())
-      .then((d) => setRecipientCount(d.count))
-      .catch(() => {});
+    loadRecipients();
+    loadVaraPoints();
   }
 
-  const canSend = subject.trim().length > 0 && message.trim().length > 0 && recipientCount > 0;
+  const canSend = subject.trim().length > 0 && message.trim().length > 0 && totalRecipients > 0;
 
   return (
     <div className="space-y-5">
@@ -78,6 +108,11 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
           <p className="mt-1 text-xs text-ink-400">
             {tDash("marketing.recipientCount", { count: recipientCount })}
           </p>
+          {cooldownCount > 0 && (
+            <p className="mt-1 text-xs text-ink-400">
+              {tDash("marketing.cooldownNotice", { count: cooldownCount })}
+            </p>
+          )}
         </div>
 
         <div>
@@ -107,6 +142,18 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
             className="w-full rounded-xl border border-ink-100 px-3 py-2 text-sm outline-none focus:border-primary-500"
           />
         </div>
+
+        {cooldownCount > 0 && (
+          <label className="flex items-center gap-2 text-sm text-ink-700">
+            <input
+              type="checkbox"
+              checked={includeCooldown}
+              onChange={(e) => setIncludeCooldown(e.target.checked)}
+              className="h-4 w-4 rounded border-ink-200"
+            />
+            {tDash("marketing.includeCooldownLabel", { count: cooldownCount })}
+          </label>
+        )}
 
         {result && (
           <p className="rounded-lg bg-sage-50 px-3 py-2 text-sm text-sage-700">
@@ -140,7 +187,9 @@ export function MarketingComposer({ initialRecipientCount }: { initialRecipientC
         ) : (
           <div className="space-y-3 rounded-xl border border-ink-100 bg-mist-50 p-4">
             <p className="text-sm text-ink-700">
-              {tDash("marketing.confirmText", { count: recipientCount })}
+              {remaining !== null
+                ? tDash("marketing.confirmCost", { count: totalRecipients, cost, remaining })
+                : tDash("marketing.confirmText", { count: totalRecipients })}
             </p>
             <div className="flex gap-2">
               <button

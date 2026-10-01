@@ -343,6 +343,7 @@
       "messagePlaceholder": "Napisz wiadomość do swoich klientów...",
       "sendButton": "Wyślij e-mail",
       "confirmText": "Ta wiadomość zostanie wysłana do {count} klientów. Czy na pewno chcesz ją wysłać?",
+      "confirmCost": "Wysłanie do {count} klientów będzie kosztować {cost} punktów Vara. Po wysyłce zostanie Ci {remaining} punktów.",
       "confirmSend": "Potwierdź wysyłkę",
       "cancel": "Anuluj",
       "sentSuccess": "Pomyślnie wysłano do {count} klientów.",
@@ -350,7 +351,9 @@
       "historyTitle": "Historia wysyłek",
       "historyEmpty": "Nie wysłałeś jeszcze żadnych e-maili marketingowych.",
       "historyRecipients": "{count} odbiorców",
-      "insufficientPoints": "Za mało punktów Vara do wysyłki — potrzebujesz {required}, masz {available}. Zalicz się lub udostępnij swój link polecający, aby zdobyć więcej."
+      "insufficientPoints": "Za mało punktów Vara do wysyłki — potrzebujesz {required}, masz {available}. Zalicz się lub udostępnij swój link polecający, aby zdobyć więcej.",
+      "cooldownNotice": "{count} klientów otrzymało od Ciebie e-mail w ciągu ostatnich 72 godzin — zostaną pominięci, jeśli nie zdecydujesz się wysłać do nich mimo to.",
+      "includeCooldownLabel": "Wyślij również do tych {count} klientów (dodatkowo 5 punktów Vara za klienta)"
     },
     "varaPoints": {
       "balanceLabel": "Saldo punktów Vara",

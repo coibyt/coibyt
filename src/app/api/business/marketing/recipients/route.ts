@@ -1,20 +1,12 @@
 import { NextResponse } from "next/server";
 import { requireOwnerOnly } from "@/lib/current-business";
-import { prisma } from "@/lib/prisma";
+import { getMarketingRecipients } from "@/lib/marketing-recipients";
 
 export async function GET() {
   const owned = await requireOwnerOnly();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
-  const bookings = await prisma.booking.findMany({
-    where: { businessId: owned.businessId },
-    distinct: ["customerId"],
-    select: { customer: { select: { email: true, marketingOptOut: true } } },
-  });
+  const { eligible, cooldown } = await getMarketingRecipients(owned.businessId);
 
-  const count = bookings.filter(
-    (b) => !b.customer.marketingOptOut && !b.customer.email.endsWith("@walkin.varaaai.com")
-  ).length;
-
-  return NextResponse.json({ count });
+  return NextResponse.json({ count: eligible.length, cooldownCount: cooldown.length });
 }
