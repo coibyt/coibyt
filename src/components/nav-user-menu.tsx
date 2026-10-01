@@ -62,7 +62,7 @@ export function NavUserMenu({
           role="menu"
           className="animate-slide-up absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-ink-100 bg-white py-1 shadow-popover"
         >
-          {role === "BUSINESS_OWNER" && (
+          {(role === "BUSINESS_OWNER" || role === "STAFF") && (
             <MenuLink href="/business/dashboard" icon={LayoutDashboard} label={t("dashboard")} />
           )}
           {role === "ADMIN" && (
