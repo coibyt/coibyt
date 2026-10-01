@@ -186,17 +186,19 @@ export function MarketingComposer({
           </button>
         ) : (
           <div className="space-y-3 rounded-xl border border-ink-100 bg-mist-50 p-4">
-            <p className="text-sm text-ink-700">
-              {remaining !== null
-                ? tDash("marketing.confirmCost", { count: totalRecipients, cost, remaining })
-                : tDash("marketing.confirmText", { count: totalRecipients })}
+            <p className={`text-sm ${remaining !== null && remaining < 0 ? "text-berry-500" : "text-ink-700"}`}>
+              {remaining !== null && remaining < 0
+                ? tDash("marketing.insufficientPoints", { required: cost, available: varaPoints ?? 0 })
+                : remaining !== null
+                  ? tDash("marketing.confirmCost", { count: totalRecipients, cost, remaining })
+                  : tDash("marketing.confirmText", { count: totalRecipients })}
             </p>
             <div className="flex gap-2">
               <button
                 type="button"
                 onClick={send}
-                disabled={sending}
-                className="btn-accent !px-4 !py-2 text-sm"
+                disabled={sending || (remaining !== null && remaining < 0)}
+                className="btn-accent !px-4 !py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {sending && <Loader2 className="h-4 w-4 animate-spin" />}
                 {tDash("marketing.confirmSend")}

@@ -27,6 +27,7 @@ const REASON_LABELS: Record<string, { vi: string; en: string }> = {
   REFERRAL_CLICK: { vi: "Lượt xem link giới thiệu", en: "Referral link view" },
   REFERRAL_SIGNUP_BONUS: { vi: "Giới thiệu salon mới thành công", en: "Referred a new salon" },
   EMAIL_SENT: { vi: "Gửi email marketing", en: "Marketing email sent" },
+  EMAIL_SENT_COOLDOWN_BYPASS: { vi: "Gửi email trước 72 giờ", en: "Early resend (cooldown bypass)" },
 };
 
 export function VaraPointsPanel({ locale }: { locale: string }) {
