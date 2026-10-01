@@ -12,6 +12,7 @@ import { LocaleAutoDetect } from "@/components/locale-auto-detect";
 import "../globals.css";
 
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
+const META_PIXEL_ID = "7997185890363074";
 
 // Be Vietnam Pro is purpose-built for Vietnamese diacritics while still
 // reading as a clean, modern geometric sans in English — the closest
@@ -67,6 +68,31 @@ gtag('js', new Date());
 gtag('config', '${GOOGLE_TAG_ID}');`,
           }}
         />
+        {/* Meta Pixel for Facebook/Instagram Ads — same /embed exclusion
+            reasoning as the Google tag above. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${META_PIXEL_ID}');
+fbq('track', 'PageView');`,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
       </head>
       <body className="flex min-h-screen flex-col font-sans">
         <NextIntlClientProvider messages={messages}>
