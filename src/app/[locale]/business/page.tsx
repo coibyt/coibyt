@@ -20,6 +20,7 @@ import {
 import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
 import { PlatformAffiliateCookieSetter } from "@/components/platform-affiliate-cookie-setter";
+import { OfferCountdown } from "@/components/offer-countdown";
 
 // Icon + accent color for each benefit card, in the same order as each
 // locale's `benefits` array below — kept separate from the copy so the 7
@@ -394,6 +395,7 @@ export default async function BusinessLandingPage({
           </h1>
           <p className="max-w-xl text-base text-ink-700 sm:text-lg">{t.heroSubtitle}</p>
           <div className="flex flex-col items-center gap-3">
+            <OfferCountdown locale={locale} />
             <Link href="/business/apply" className="btn-accent !px-8 !py-3.5 text-base">
               {t.ctaPrimary}
             </Link>
