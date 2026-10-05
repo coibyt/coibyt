@@ -521,7 +521,6 @@ export function BookingCalendar({
           ...b,
           slotKey: sl.key,
           serviceName: sl.name,
-          priceCents: sl.priceCents,
           startsAt: sl.startsAt,
           endsAt: sl.endsAt,
           staffId: sl.staffId,
