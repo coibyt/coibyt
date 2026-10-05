@@ -4,6 +4,7 @@ import { SearchBarHero } from "@/components/search-bar";
 import { CategoryCard } from "@/components/category-card";
 import { FeaturedNearby } from "@/components/featured-nearby";
 import { Link } from "@/i18n/navigation";
+import { OfferCountdown } from "@/components/offer-countdown";
 
 export default async function HomePage({
   params,
@@ -56,6 +57,7 @@ export default async function HomePage({
           <p className="max-w-md text-sm text-ink-100">
             {t("ctaBusinessSubtitle")}
           </p>
+          <OfferCountdown locale={locale} compact />
           <Link href="/business/apply" className="btn-accent mt-2">
             {t("ctaBusinessButton")}
           </Link>

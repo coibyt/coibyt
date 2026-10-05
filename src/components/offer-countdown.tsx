@@ -52,15 +52,15 @@ export function OfferCountdown({ locale, compact = false }: { locale: string; co
 
   if (compact) {
     return (
-      <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-ink-100">
+      <div className="flex items-center justify-center gap-1.5 whitespace-nowrap text-xs text-ink-100 sm:gap-2 sm:text-sm">
         <span className="font-semibold">{labels.title}</span>
         {parts.map((p) => (
           <span
             key={p.label}
-            className="inline-flex items-baseline gap-1 rounded-md bg-white/10 px-2 py-0.5 tabular-nums"
+            className="inline-flex items-baseline gap-0.5 rounded-md bg-white/10 px-1.5 py-0.5 tabular-nums sm:gap-1 sm:px-2"
           >
             <span className="font-bold text-white">{String(p.value).padStart(2, "0")}</span>
-            <span className="text-[10px] uppercase tracking-wide text-ink-200">{p.label}</span>
+            <span className="text-[9px] uppercase tracking-wide text-ink-200 sm:text-[10px]">{p.label}</span>
           </span>
         ))}
       </div>
