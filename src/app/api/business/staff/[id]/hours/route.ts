@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { businessHoursSchema } from "@/lib/validations";
 
@@ -7,14 +7,18 @@ async function assertOwnership(businessId: string, staffId: string) {
   return prisma.staff.findFirst({ where: { id: staffId, businessId } });
 }
 
+/** Owners can read any staff member's schedule; staff can only read their own. */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const owned = await requireOwnerOnly();
-  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  if (!(await assertOwnership(owned.businessId, id))) {
+  const access = await getBusinessAccess();
+  if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  if (!access.isOwner && access.staffId !== id) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  if (!(await assertOwnership(access.business.id, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 

@@ -29,6 +29,7 @@ interface StaffRow {
   canViewHours: boolean;
   canViewReviews: boolean;
   canViewCustomerContactInfo: boolean;
+  canViewAllBookings: boolean;
   leadTimeMinutes: number;
   staffMessage: string | null;
   videoUrls: string[];
@@ -47,6 +48,7 @@ const emptyForm = {
   canViewHours: false,
   canViewReviews: false,
   canViewCustomerContactInfo: false,
+  canViewAllBookings: true,
   leadTimeMinutes: 0,
   staffMessage: "",
   videoUrls: ["", "", "", "", ""] as string[],
@@ -122,6 +124,7 @@ export function StaffManager({
       canViewHours: s.canViewHours,
       canViewReviews: s.canViewReviews,
       canViewCustomerContactInfo: s.canViewCustomerContactInfo,
+      canViewAllBookings: s.canViewAllBookings,
       leadTimeMinutes: s.leadTimeMinutes,
       staffMessage: s.staffMessage ?? "",
       videoUrls: [0, 1, 2, 3, 4].map((i) => s.videoUrls[i] ?? ""),
@@ -452,6 +455,32 @@ export function StaffManager({
                 </label>
               ))}
             </div>
+            {form.canViewBookings && (
+              <div className="mt-3 space-y-1.5 rounded-xl bg-mist-50 p-3">
+                <label className="flex items-center gap-2 text-sm text-ink-700">
+                  <input
+                    type="radio"
+                    name="bookingScope"
+                    checked={form.canViewAllBookings}
+                    onChange={() => setForm({ ...form, canViewAllBookings: true })}
+                  />
+                  {locale === "vi"
+                    ? "Xem lịch hẹn của tất cả nhân viên"
+                    : "View everyone's bookings"}
+                </label>
+                <label className="flex items-center gap-2 text-sm text-ink-700">
+                  <input
+                    type="radio"
+                    name="bookingScope"
+                    checked={!form.canViewAllBookings}
+                    onChange={() => setForm({ ...form, canViewAllBookings: false })}
+                  />
+                  {locale === "vi"
+                    ? "Chỉ xem lịch hẹn của nhân viên này"
+                    : "Only view this staff member's bookings"}
+                </label>
+              </div>
+            )}
           </div>
 
           {error && <p className="text-sm text-berry-500">{error}</p>}

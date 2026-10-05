@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
-import { requireSectionBusinessId } from "@/lib/current-business";
+import { getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { businessHoursSchema } from "@/lib/validations";
 import { checkAndAwardReferralBonus } from "@/lib/vara-points";
 
+/** Read-only and already public on the salon's own page, so any owner or
+ * staff member of the business may read it — writing still needs "hours". */
 export async function GET() {
-  const businessId = await requireSectionBusinessId("hours");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
-  const hours = await prisma.businessHours.findMany({ where: { businessId } });
+  const hours = await prisma.businessHours.findMany({ where: { businessId: access.business.id } });
   return NextResponse.json({ hours });
 }
 

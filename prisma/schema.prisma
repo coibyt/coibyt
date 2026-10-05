@@ -315,6 +315,10 @@ model Staff {
   // calendar without seeing customers' phone/email on each booking unless
   // this is also granted.
   canViewCustomerContactInfo Boolean @default(false)
+  // When false (and canViewBookings is true), this staff member only sees and
+  // acts on bookings assigned to them — never another staff member's. Defaults
+  // to true so existing staff keep seeing the whole salon's calendar.
+  canViewAllBookings Boolean @default(true)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

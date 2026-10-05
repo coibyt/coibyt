@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { requireSectionBusinessId } from "@/lib/current-business";
+import { bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
@@ -33,11 +33,15 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireSectionBusinessId("bookings");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const businessId = access.business.id;
+  const scopeStaffId = bookingStaffScope(access);
 
   const booking = await prisma.booking.findFirst({
-    where: { id, businessId },
+    where: { id, businessId, ...(scopeStaffId ? { staffId: scopeStaffId } : {}) },
     include: { service: true, customer: true },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
@@ -47,6 +51,9 @@ export async function PATCH(
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
   const data = parsed.data;
+  if (scopeStaffId && data.staffId !== undefined && data.staffId !== scopeStaffId) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
 
   if (data.status) {
     const updated = await prisma.booking.update({

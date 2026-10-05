@@ -37,6 +37,9 @@ export interface BusinessAccess {
    * bookings calendar without seeing customers' phone/email on each booking
    * unless this is also granted. */
   canViewCustomerContactInfo: boolean;
+  /** Always true for the owner; for staff, false means booking views and
+   * actions are confined to bookings assigned to this staff member. */
+  canViewAllBookings: boolean;
 }
 
 /** Resolves the signed-in user to the business they can act on — either as
@@ -60,6 +63,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       isOwner: true,
       permissions: OWNER_PERMISSIONS,
       canViewCustomerContactInfo: true,
+      canViewAllBookings: true,
     };
   }
 
@@ -81,7 +85,15 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       reviews: staff.canViewReviews,
     },
     canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
+    canViewAllBookings: staff.canViewAllBookings,
   };
+}
+
+/** The staff id a booking query/action must be confined to — null when the
+ * caller may see everyone's bookings (owner, or unrestricted staff). */
+export function bookingStaffScope(access: BusinessAccess): string | null {
+  if (access.isOwner || access.canViewAllBookings) return null;
+  return access.staffId ?? null;
 }
 
 /** Returns the signed-in user's own Business row (as owner or permitted

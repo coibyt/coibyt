@@ -246,6 +246,23 @@ interface DayWindow {
   closeMinute: number;
 }
 
+function formatMinuteOfDay(minute: number) {
+  return `${String(Math.floor(minute / 60)).padStart(2, "0")}:${String(minute % 60).padStart(2, "0")}`;
+}
+
+function OwnShiftBanner({ window, locale }: { window: DayWindow | null; locale: string }) {
+  const vi = locale === "vi";
+  return (
+    <div className="rounded-xl border border-teal-200 bg-teal-50 px-4 py-2.5 text-sm font-medium text-teal-700">
+      {window
+        ? `${vi ? "Giờ làm việc của bạn hôm nay" : "Your working hours today"}: ${formatMinuteOfDay(window.openMinute)} – ${formatMinuteOfDay(window.closeMinute)}`
+        : vi
+          ? "Hôm nay bạn không có lịch làm việc."
+          : "You're not scheduled to work today."}
+    </div>
+  );
+}
+
 export function BookingCalendar({
   staff,
   services,
@@ -253,6 +270,7 @@ export function BookingCalendar({
   businessTimezone,
   locale,
   isOwner,
+  viewerStaffId,
   headerSlot,
 }: {
   staff: StaffOption[];
@@ -261,6 +279,7 @@ export function BookingCalendar({
   businessTimezone: string;
   locale: string;
   isOwner: boolean;
+  viewerStaffId: string | null;
   // When given, the timezone note + current date/range label are portaled
   // into this element instead of rendered inline — lets the parent put them
   // in the same row as the page title and the Calendar/List toggle, which
@@ -352,6 +371,23 @@ export function BookingCalendar({
       .then((d) => setBusinessHours(d.hours ?? []))
       .catch(() => setBusinessHours([]));
   }, [isOwner]);
+
+  // A staff member only ever needs their own shift window (plus the salon's
+  // hours as the fallback), so they load just that — not every colleague's.
+  const [ownHoursLoaded, setOwnHoursLoaded] = useState(false);
+  useEffect(() => {
+    if (isOwner || !viewerStaffId) return;
+    Promise.all([
+      fetch("/api/business/hours")
+        .then((r) => (r.ok ? r.json() : { hours: [] }))
+        .then((d) => setBusinessHours(d.hours ?? []))
+        .catch(() => setBusinessHours([])),
+      fetch(`/api/business/staff/${viewerStaffId}/hours`)
+        .then((r) => (r.ok ? r.json() : { hours: [] }))
+        .then((d) => setStaffHoursMap(new Map([[viewerStaffId, d.hours ?? []]])))
+        .catch(() => setStaffHoursMap(new Map())),
+    ]).finally(() => setOwnHoursLoaded(true));
+  }, [isOwner, viewerStaffId]);
 
   useEffect(() => {
     if (!isOwner || staff.length === 0) return;
@@ -948,6 +984,13 @@ export function BookingCalendar({
 
       {error && (
         <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
+      )}
+
+      {view === "day" && !isOwner && viewerStaffId && ownHoursLoaded && (
+        <OwnShiftBanner
+          window={getStaffWindow(viewerStaffId, anchorDate.getDay())}
+          locale={locale}
+        />
       )}
 
       {view === "day" && staff.length > 1 && (

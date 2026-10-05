@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getBusinessAccess } from "@/lib/current-business";
+import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
@@ -15,6 +15,7 @@ export async function GET(req: Request) {
   }
   const businessId = access.business.id;
   const canViewContact = access.canViewCustomerContactInfo;
+  const scopeStaffId = bookingStaffScope(access);
 
   const { searchParams } = new URL(req.url);
   const dateParam = searchParams.get("date"); // back-compat: single day
@@ -39,6 +40,7 @@ export async function GET(req: Request) {
   const bookings = await prisma.booking.findMany({
     where: {
       businessId,
+      ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
       startsAt: { lt: rangeEndUtc },
       endsAt: { gt: rangeStartUtc },
       // Neither a cancellation nor a no-show leaves anything left to do for

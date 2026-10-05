@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireSectionBusinessId } from "@/lib/current-business";
+import { bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { createBookingAndPayment, SlotUnavailableError } from "@/lib/booking-service";
 
@@ -46,14 +46,21 @@ async function findOrCreateWalkInCustomer(input: {
 }
 
 export async function POST(req: Request) {
-  const businessId = await requireSectionBusinessId("bookings");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const businessId = access.business.id;
 
   const parsed = businessBookingSchema.safeParse(await req.json());
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
   const data = parsed.data;
+  const scopeStaffId = bookingStaffScope(access);
+  if (scopeStaffId && data.staffId !== scopeStaffId) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
 
   const service = await prisma.service.findFirst({
     where: { id: data.serviceId, businessId, active: true },
@@ -102,13 +109,21 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-  const businessId = await requireSectionBusinessId("bookings");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const businessId = access.business.id;
+  const scopeStaffId = bookingStaffScope(access);
 
   const status = new URL(req.url).searchParams.get("status") ?? undefined;
 
   const bookings = await prisma.booking.findMany({
-    where: { businessId, ...(status ? { status: status as never } : {}) },
+    where: {
+      businessId,
+      ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
+      ...(status ? { status: status as never } : {}),
+    },
     include: {
       service: { select: { name: true } },
       staff: { select: { name: true } },

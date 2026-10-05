@@ -1,4 +1,4 @@
-import { getBusinessAccess } from "@/lib/current-business";
+import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -18,10 +18,11 @@ export default async function BusinessBookingsPage({
     return null;
   }
   const { business } = access;
+  const scopeStaffId = bookingStaffScope(access);
 
   const [bookings, staff, services, addOns] = await Promise.all([
     prisma.booking.findMany({
-      where: { businessId: business.id },
+      where: { businessId: business.id, ...(scopeStaffId ? { staffId: scopeStaffId } : {}) },
       include: {
         service: { select: { name: true } },
         staff: { select: { name: true } },
@@ -31,7 +32,11 @@ export default async function BusinessBookingsPage({
       take: 100,
     }),
     prisma.staff.findMany({
-      where: { businessId: business.id, active: true },
+      where: {
+        businessId: business.id,
+        active: true,
+        ...(scopeStaffId ? { id: scopeStaffId } : {}),
+      },
       select: { id: true, name: true, avatar: { select: { id: true, updatedAt: true } } },
     }),
     prisma.service.findMany({
@@ -95,6 +100,7 @@ export default async function BusinessBookingsPage({
           serviceIds: a.services.map((x) => x.serviceId),
         }))}
         isOwner={access.isOwner}
+        viewerStaffId={access.staffId ?? null}
       />
     </div>
   );
