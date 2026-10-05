@@ -364,6 +364,10 @@
       "copy": "Copy",
       "referralStats": "{clicks} views · {signups} signed up · {qualified} completed their profile",
       "historyTitle": "Recent points history"
+    },
+    "giftCards": {
+      "nav": "Gift cards",
+      "subtitle": "Create and sell gift cards, check and redeem them when customers visit"
     }
   },
   "common": {

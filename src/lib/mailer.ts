@@ -21,6 +21,7 @@ export async function sendMail(opts: {
   to: string;
   subject: string;
   html: string;
+  attachments?: { filename: string; content: Buffer; cid?: string; contentType?: string }[];
 }) {
   // In local dev without SMTP configured, log instead of throwing so the
   // booking flow can still be exercised end-to-end.

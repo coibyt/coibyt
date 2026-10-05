@@ -364,6 +364,10 @@
       "copy": "Sao chép",
       "referralStats": "{clicks} lượt xem · {signups} người đã đăng ký · {qualified} đã hoàn thiện hồ sơ",
       "historyTitle": "Lịch sử điểm gần đây"
+    },
+    "giftCards": {
+      "nav": "Thẻ quà tặng",
+      "subtitle": "Tạo và bán thẻ quà tặng, kiểm tra và dùng thẻ khi khách đến"
     }
   },
   "common": {

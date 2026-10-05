@@ -364,6 +364,10 @@
       "copy": "Kopioi",
       "referralStats": "{clicks} katselua · {signups} rekisteröitynyt · {qualified} täyttänyt profiilin",
       "historyTitle": "Viimeisimmät pistetapahtumat"
+    },
+    "giftCards": {
+      "nav": "Lahjakortit",
+      "subtitle": "Luo ja myy lahjakortteja, tarkista ja käytä kun asiakas tulee"
     }
   },
   "common": {

@@ -364,6 +364,10 @@
       "copy": "Kopieren",
       "referralStats": "{clicks} Aufrufe · {signups} registriert · {qualified} Profil vervollständigt",
       "historyTitle": "Letzte Punktehistorie"
+    },
+    "giftCards": {
+      "nav": "Geschenkgutscheine",
+      "subtitle": "Gutscheine erstellen und verkaufen, bei Besuch prüfen und einlösen"
     }
   },
   "common": {

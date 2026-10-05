@@ -364,6 +364,10 @@
       "copy": "Kopiuj",
       "referralStats": "{clicks} wyświetleń · {signups} zarejestrowanych · {qualified} uzupełniło profil",
       "historyTitle": "Historia punktów"
+    },
+    "giftCards": {
+      "nav": "Karty podarunkowe",
+      "subtitle": "Twórz i sprzedawaj karty podarunkowe, sprawdzaj i realizuj przy wizycie"
     }
   },
   "common": {

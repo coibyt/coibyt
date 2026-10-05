@@ -9,6 +9,7 @@ import { getSiteBranches } from "@/lib/site-branches";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { HeroSlider } from "@/components/hero-slider";
+import { GiftCardSale } from "@/components/gift-card-sale";
 
 const HERO_SLIDE_SLOTS = ["hero-slide-0", "hero-slide-1", "hero-slide-2", "hero-slide-3", "hero-slide-4"];
 
@@ -114,6 +115,12 @@ export default async function BusinessSitePage({
       ? business.reviews.reduce((sum, r) => sum + r.rating, 0) / business.reviews.length
       : null;
 
+  const giftCards = await prisma.giftCard.findMany({
+    where: { businessId: business.id, active: true },
+    include: { service: { select: { name: true } } },
+    orderBy: { createdAt: "desc" },
+  });
+
   return (
     <div>
       <SiteHeader
@@ -205,6 +212,29 @@ export default async function BusinessSitePage({
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {giftCards.length > 0 && (
+        <section className="border-t border-ink-100 bg-peach-50">
+          <div className="container py-16">
+            <h2 className="mb-8 text-center font-serif text-3xl font-semibold text-ink-900">
+              {locale === "vi" ? "Thẻ quà tặng" : "Gift cards"}
+            </h2>
+            <GiftCardSale
+              locale={locale}
+              cards={giftCards.map((c) => ({
+                id: c.id,
+                name: c.name,
+                serviceName: c.service.name,
+                discountPercent: c.discountPercent,
+                validDays: c.validDays,
+                maxUses: c.maxUses,
+                salePriceCents: c.salePriceCents,
+                currency: c.currency,
+              }))}
+            />
           </div>
         </section>
       )}
