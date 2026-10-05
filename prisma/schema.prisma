@@ -232,6 +232,7 @@ model Business {
   emailCampaigns          EmailCampaign[]
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
+  giftCards               GiftCard[]
 
   @@index([ownerId])
   @@index([status])
@@ -357,9 +358,9 @@ model StaffAvatar {
 // the business's own hours (BusinessHours) — this is opt-in customization,
 // not a required setup step for every staff member.
 model StaffHours {
-  id          String @id @default(cuid())
+  id          String  @id @default(cuid())
   staffId     String
-  staff       Staff  @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  staff       Staff   @relation(fields: [staffId], references: [id], onDelete: Cascade)
   weekday     Int // 0 = Sunday … 6 = Saturday
   openMinute  Int
   closeMinute Int
@@ -425,6 +426,7 @@ model Service {
   bookings     Booking[]
   addOns       ServiceAddOnLink[]
   bookingExtra BookingExtraService[]
+  giftCards    GiftCard[]
 
   @@index([businessId])
   @@index([categoryId])
@@ -1001,4 +1003,66 @@ model LandingImage {
   updatedAt     DateTime    @updatedAt
 
   @@unique([landingPageId, slot])
+}
+
+// A gift card template a salon creates for one of its services: a percentage
+// discount, valid for a number of days after activation and usable a set
+// number of times. Sold through the salon's booking page (see GiftCardPurchase).
+model GiftCard {
+  id              String   @id @default(cuid())
+  businessId      String
+  business        Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  serviceId       String
+  service         Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  name            String
+  discountPercent Int
+  validDays       Int
+  maxUses         Int
+  salePriceCents  Int
+  currency        String
+  active          Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  purchases GiftCardPurchase[]
+
+  @@index([businessId])
+  @@index([serviceId])
+}
+
+enum GiftCardStatus {
+  PENDING_PAYMENT
+  ACTIVE
+  CANCELLED
+}
+
+// One card sold to a customer. Activated when the salon confirms payment; the
+// code and QR token are what the customer presents at the salon.
+model GiftCardPurchase {
+  id          String         @id @default(cuid())
+  giftCardId  String
+  giftCard    GiftCard       @relation(fields: [giftCardId], references: [id], onDelete: Cascade)
+  businessId  String
+  buyerName   String
+  buyerEmail  String
+  buyerPhone  String?
+  code        String         @unique
+  status      GiftCardStatus @default(PENDING_PAYMENT)
+  activatedAt DateTime?
+  expiresAt   DateTime?
+  usesLeft    Int
+  createdAt   DateTime       @default(now())
+
+  redemptions GiftCardRedemption[]
+
+  @@index([businessId, status])
+}
+
+model GiftCardRedemption {
+  id         String           @id @default(cuid())
+  purchaseId String
+  purchase   GiftCardPurchase @relation(fields: [purchaseId], references: [id], onDelete: Cascade)
+  bookingId  String?
+  createdAt  DateTime         @default(now())
+
+  @@index([purchaseId])
 }
