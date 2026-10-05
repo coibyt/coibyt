@@ -1284,6 +1284,32 @@ export function BookingCalendar({
                       style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                     />
                   ))}
+                  {!isOwner && viewerStaffId && s.id === viewerStaffId && ownHoursLoaded && (
+                    <>
+                      {openPx !== null && closePx !== null ? (
+                        <>
+                          <div
+                            className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-blue-100/60"
+                            style={{ height: Math.max(0, openPx) }}
+                          />
+                          <div
+                            className="pointer-events-none absolute left-0 right-0 z-10 bg-blue-100/60"
+                            style={{ top: Math.max(0, closePx), bottom: 0 }}
+                          />
+                          <div
+                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-ink-900"
+                            style={{ top: Math.max(0, openPx) }}
+                          />
+                          <div
+                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-ink-900"
+                            style={{ top: Math.max(0, closePx) }}
+                          />
+                        </>
+                      ) : (
+                        <div className="pointer-events-none absolute inset-0 z-10 bg-blue-100/60" />
+                      )}
+                    </>
+                  )}
                   {isOwner && s.id && (
                     <>
                       {openPx !== null && (
