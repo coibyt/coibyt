@@ -24,6 +24,7 @@ import { ChevronLeft, ChevronRight, Loader2, Pencil, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
+import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
 
 interface StaffOption {
   id: string;
@@ -336,7 +337,7 @@ export function BookingCalendar({
   const [customerDetail, setCustomerDetail] = useState<CustomerDetail | null>(null);
   const [loadingCustomerDetail, setLoadingCustomerDetail] = useState(false);
   const [businessHours, setBusinessHours] = useState<DayWindow[]>([]);
-  const [staffHoursMap, setStaffHoursMap] = useState<Map<string, DayWindow[]>>(new Map());
+  const [staffHoursMap, setStaffHoursMap] = useState<Map<string, StaffHourRow[]>>(new Map());
   const [resizing, setResizing] = useState<{ staffId: string; edge: "open" | "close" } | null>(null);
   const [pendingHoursChange, setPendingHoursChange] = useState<{
     staffId: string;
@@ -494,17 +495,26 @@ export function BookingCalendar({
   // their own custom schedule if they have one, else the business's own
   // hours. Only a single continuous window is supported here (most salons
   // run one shift a day), matching what the two drag handles can represent.
-  function getStaffWindow(staffId: string, weekday: number): DayWindow | null {
-    const customRows = staffHoursMap.get(staffId);
-    if (customRows && customRows.length > 0) {
-      return customRows.find((r) => r.weekday === weekday) ?? null;
-    }
+  function getStaffWindow(staffId: string, date: Date): DayWindow | null {
+    const period = activeStaffPeriod(
+      groupStaffHours(staffHoursMap.get(staffId) ?? []),
+      format(date, "yyyy-MM-dd")
+    );
+    const weekday = date.getDay();
+    if (period) return period.windows.find((r) => r.weekday === weekday) ?? null;
     return businessHours.find((r) => r.weekday === weekday) ?? null;
+  }
+
+  async function reloadStaffHours(staffId: string) {
+    const r = await fetch(`/api/business/staff/${staffId}/hours`);
+    if (!r.ok) return;
+    const d = await r.json();
+    setStaffHoursMap((prev) => new Map(prev).set(staffId, d.hours ?? []));
   }
 
   async function commitStaffHoursResize(staffId: string, edge: "open" | "close", newMinute: number) {
     const todayWeekday = anchorDate.getDay();
-    const current = getStaffWindow(staffId, todayWeekday) ?? {
+    const current = getStaffWindow(staffId, anchorDate) ?? {
       weekday: todayWeekday,
       openMinute: DEFAULT_START_HOUR * 60,
       closeMinute: DEFAULT_END_HOUR * 60,
@@ -516,22 +526,30 @@ export function BookingCalendar({
     };
     if (updated.openMinute >= updated.closeMinute) return;
 
-    // A staff member with zero custom rows inherits the business's hours for
-    // every day — resizing just today would otherwise leave every OTHER day
-    // with no row at all, which reads as "closed", not "unchanged". Seed the
-    // full week from the business's own hours the first time this happens.
-    const existingRows = staffHoursMap.get(staffId) ?? [];
-    const baseWeek = existingRows.length > 0 ? existingRows : businessHours;
-    const newWeek = [...baseWeek.filter((r) => r.weekday !== todayWeekday), updated];
+    // Resizing edits the schedule period that applies to this date. With no
+    // period in force, the week is seeded from the salon's own hours as an
+    // open-ended period, so the other days don't silently become "closed".
+    const period = activeStaffPeriod(
+      groupStaffHours(staffHoursMap.get(staffId) ?? []),
+      format(anchorDate, "yyyy-MM-dd")
+    );
+    const baseWindows = period ? period.windows : businessHours;
+    const newWindows = [...baseWindows.filter((r) => r.weekday !== todayWeekday), updated];
+    const from = period?.validFrom ?? null;
+    const until = period?.validUntil ?? null;
 
-    setStaffHoursMap((prev) => new Map(prev).set(staffId, newWeek));
     await fetch(`/api/business/staff/${staffId}/hours`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(
-        newWeek.map(({ weekday, openMinute, closeMinute }) => ({ weekday, openMinute, closeMinute }))
-      ),
+      body: JSON.stringify({
+        from,
+        until,
+        oldFrom: from,
+        oldUntil: until,
+        hours: newWindows.map(({ weekday, openMinute, closeMinute }) => ({ weekday, openMinute, closeMinute })),
+      }),
     });
+    await reloadStaffHours(staffId);
   }
 
   async function confirmPendingHoursChange() {
@@ -585,7 +603,7 @@ export function BookingCalendar({
       // below that decides whether to trust it, based on pendingHoursChange.
       if (minute !== null) {
         const todayWeekday = anchorDate.getDay();
-        const current = getStaffWindow(staffId, todayWeekday) ?? {
+        const current = getStaffWindow(staffId, anchorDate) ?? {
           weekday: todayWeekday,
           openMinute: DEFAULT_START_HOUR * 60,
           closeMinute: DEFAULT_END_HOUR * 60,
@@ -1023,7 +1041,7 @@ export function BookingCalendar({
 
       {view === "day" && !isOwner && viewerStaffId && ownHoursLoaded && (
         <OwnShiftBanner
-          window={getStaffWindow(viewerStaffId, anchorDate.getDay())}
+          window={getStaffWindow(viewerStaffId, anchorDate)}
           locale={locale}
         />
       )}
@@ -1160,7 +1178,7 @@ export function BookingCalendar({
             }}
           >
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
-              const staffWindow = s.id ? getStaffWindow(s.id, anchorDate.getDay()) : null;
+              const staffWindow = s.id ? getStaffWindow(s.id, anchorDate) : null;
               // While a drag is in flight OR its confirmation dialog is still
               // open, trust resizePreview over the saved window so the bar
               // stays drawn wherever it was dropped until the owner decides.

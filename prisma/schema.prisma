@@ -363,6 +363,11 @@ model StaffHours {
   weekday     Int // 0 = Sunday … 6 = Saturday
   openMinute  Int
   closeMinute Int
+  // Date range this weekly schedule applies to, as YYYY-MM-DD in the salon's
+  // timezone. Both null = always. A day outside every range falls back to the
+  // salon's own opening hours (see staffWindowsForDate in src/lib/staff-hours.ts).
+  validFrom   String?
+  validUntil  String?
 
   @@index([staffId])
 }

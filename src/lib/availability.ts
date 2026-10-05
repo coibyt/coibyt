@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { addMinutes, isBefore } from "date-fns";
 import { fromZonedTime, toZonedTime } from "date-fns-tz";
+import { activeStaffPeriod, groupStaffHours, type HoursPeriod } from "@/lib/staff-hours";
 
 const SLOT_GRANULARITY_MIN = 15;
 const MIN_LEAD_TIME_MIN = 30; // can't book fewer than 30 minutes from now
@@ -114,19 +115,26 @@ export async function getAvailableSlots(params: {
     .map((h) => ({ openMinute: h.openMinute, closeMinute: h.closeMinute }));
   if (businessWindowsToday.length === 0) return [];
 
-  const staffHours = await prisma.staffHours.findMany({
+  const staffHourRows = await prisma.staffHours.findMany({
     where: { staffId: { in: eligibleStaffIds } },
   });
-  const hasCustomSchedule = new Set(staffHours.map((h) => h.staffId));
+  const periodsByStaff = new Map<string, HoursPeriod[]>();
+  for (const staff of staffList) {
+    periodsByStaff.set(
+      staff.id,
+      groupStaffHours(staffHourRows.filter((h) => h.staffId === staff.id))
+    );
+  }
 
   // Effective bookable windows per staff, already clamped to the business's
   // own hours for this weekday.
   const windowsByStaff = new Map<string, Window[]>();
   for (const staff of staffList) {
-    const windows = hasCustomSchedule.has(staff.id)
-      ? staffHours
-          .filter((h) => h.staffId === staff.id && h.weekday === weekday)
-          .map((h) => ({ openMinute: h.openMinute, closeMinute: h.closeMinute }))
+    const period = activeStaffPeriod(periodsByStaff.get(staff.id) ?? [], dateStr);
+    const windows = period
+      ? period.windows
+          .filter((w) => w.weekday === weekday)
+          .map((w) => ({ openMinute: w.openMinute, closeMinute: w.closeMinute }))
       : businessWindowsToday;
 
     const clamped = windows
