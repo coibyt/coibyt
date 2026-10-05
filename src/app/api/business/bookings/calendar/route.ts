@@ -123,6 +123,7 @@ export async function GET(req: Request) {
         endsAt: sl.endsAt.toISOString(),
       })),
       addOnNames: b.addOns.map((a) => a.name),
+      addOns: b.addOns.map((a) => ({ name: a.name, priceCents: a.priceCents })),
       addOnIds: b.addOns.map((a) => a.addOnId).filter((x): x is string => x !== null),
     })),
   });

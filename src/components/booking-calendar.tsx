@@ -62,6 +62,7 @@ interface CalendarBooking {
   customerPhone: string | null;
   customerEmail: string | null;
   addOnNames: string[];
+  addOns: { name: string; priceCents: number }[];
   addOnIds: string[];
 }
 
@@ -1573,44 +1574,48 @@ export function BookingCalendar({
               </div>
             </div>
             <div className="space-y-1.5 text-sm">
-              {activeBooking.slots.length > 1 ? (
-                <ul className="space-y-2">
-                  {activeBooking.slots.map((sl) => (
-                    <li key={sl.key} className="rounded-lg border border-ink-100 p-2">
-                      <p className="font-medium text-ink-900">{sl.name}</p>
-                      <p className="text-xs text-ink-400">
-                        {formatInTimeZone(sl.startsAt, businessTimezone, "HH:mm")}–
-                        {formatInTimeZone(sl.endsAt, businessTimezone, "HH:mm")}
-                        {sl.staffName ? ` · ${sl.staffName}` : ""}
+              <ul className="space-y-2">
+                {activeBooking.slots.map((sl) => (
+                  <li key={sl.key} className="rounded-lg border border-ink-100 p-2">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="font-medium text-ink-900">
+                        {sl.kind === "extra" ? "+ " : ""}
+                        {sl.name}
                       </p>
-                      <p className="text-xs font-semibold text-ink-700">
+                      <p className="shrink-0 text-sm font-semibold text-ink-900">
                         {formatMoney(sl.priceCents, activeBooking.currency, locale)}
                       </p>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <>
-                  <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
-                  {activeBooking.staffName && (
-                    <p className="text-ink-400">{activeBooking.staffName}</p>
-                  )}
-                </>
-              )}
-              {activeBooking.addOnNames.map((name) => (
-                <p key={name} className="text-ink-400">
-                  + {name}
-                </p>
-              ))}
+                    </div>
+                    <p className="text-xs text-ink-400">
+                      {formatInTimeZone(sl.startsAt, businessTimezone, "HH:mm")}–
+                      {formatInTimeZone(sl.endsAt, businessTimezone, "HH:mm")}
+                      {sl.staffName ? ` · ${sl.staffName}` : ""}
+                    </p>
+                  </li>
+                ))}
+                {activeBooking.addOns.map((a) => (
+                  <li key={`addon-${a.name}`} className="flex items-start justify-between gap-3 rounded-lg border border-ink-100 p-2">
+                    <p className="font-medium text-ink-700">+ {a.name}</p>
+                    <p className="shrink-0 text-sm font-semibold text-ink-900">
+                      {formatMoney(a.priceCents, activeBooking.currency, locale)}
+                    </p>
+                  </li>
+                ))}
+              </ul>
               <p className="text-ink-700">
                 {new Date(activeBooking.startsAt).toLocaleString(
                   locale === "vi" ? "vi-VN" : "en-US",
                   { dateStyle: "medium", timeStyle: "short", timeZone: businessTimezone }
                 )}
               </p>
-              <p className="font-semibold text-ink-900">
-                {formatMoney(activeBooking.priceCents, activeBooking.currency, locale)}
-              </p>
+              <div className="flex items-center justify-between border-t border-ink-100 pt-2">
+                <span className="text-sm font-medium text-ink-700">
+                  {locale === "vi" ? "Tổng cộng (cần thu)" : "Total to collect"}
+                </span>
+                <span className="text-lg font-bold text-ink-900">
+                  {formatMoney(activeBooking.priceCents, activeBooking.currency, locale)}
+                </span>
+              </div>
               {activeBooking.customerNote && (
                 <p className="rounded-lg bg-mist-50 p-2 text-ink-700">
                   {activeBooking.customerNote}
