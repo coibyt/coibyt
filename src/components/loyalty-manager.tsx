@@ -20,7 +20,15 @@ interface CardRow {
   rewardsEarned: number;
 }
 
-export function LoyaltyManager({ locale, defaultCurrency }: { locale: string; defaultCurrency: string }) {
+export function LoyaltyManager({
+  locale,
+  defaultCurrency,
+  initialCode = "",
+}: {
+  locale: string;
+  defaultCurrency: string;
+  initialCode?: string;
+}) {
   const vi = locale === "vi";
   const [program, setProgram] = useState<Program>({
     pointsRequired: 5,
@@ -35,7 +43,7 @@ export function LoyaltyManager({ locale, defaultCurrency }: { locale: string; de
   const [member, setMember] = useState({ customerName: "", customerEmail: "", customerPhone: "" });
   const [adding, setAdding] = useState(false);
   const [memberError, setMemberError] = useState<string | null>(null);
-  const [scanCode, setScanCode] = useState("");
+  const [scanCode, setScanCode] = useState(initialCode.toUpperCase());
   const [scanMsg, setScanMsg] = useState<{ ok: boolean; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
 

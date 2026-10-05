@@ -1,5 +1,6 @@
+import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
-import { randomGiftCode, giftCardQrPng } from "@/lib/gift-cards";
+import { randomGiftCode } from "@/lib/gift-cards";
 
 export async function newLoyaltyToken() {
   for (let i = 0; i < 5; i++) {
@@ -10,8 +11,15 @@ export async function newLoyaltyToken() {
   throw new Error("COULD_NOT_GENERATE_TOKEN");
 }
 
+/** The QR opens the salon's scan page with the card code already filled in, so
+ * a plain phone camera is enough — no app needed. */
+export function loyaltyScanUrl(token: string) {
+  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+  return `${site}/business/dashboard/loyalty?code=${encodeURIComponent(token)}`;
+}
+
 export function loyaltyQrPng(token: string) {
-  return giftCardQrPng(token);
+  return QRCode.toBuffer(loyaltyScanUrl(token), { type: "png", width: 240, margin: 1 });
 }
 
 /** Completed visits by this customer (matched on email) since the card was
