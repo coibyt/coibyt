@@ -20,7 +20,8 @@ async function assertOwnership(businessId: string, staffId: string) {
   return prisma.staff.findFirst({ where: { id: staffId, businessId } });
 }
 
-/** Owners can read any staff member's schedule; staff can only read their own. */
+/** Read-only for anyone on the salon's team — the shared calendar shows every
+ * column's working hours. Only the owner can change them (PUT below). */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -28,9 +29,6 @@ export async function GET(
   const { id } = await params;
   const access = await getBusinessAccess();
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  if (!access.isOwner && access.staffId !== id) {
-    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  }
   if (!(await assertOwnership(access.business.id, id))) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }

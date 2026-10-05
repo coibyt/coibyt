@@ -437,8 +437,8 @@ export function BookingCalendar({
       .catch(() => setBusinessHours([]));
   }, [isOwner]);
 
-  // A staff member only ever needs their own shift window (plus the salon's
-  // hours as the fallback), so they load just that — not every colleague's.
+  // A staff member sees working hours on the columns they can view (their own,
+  // or everyone's when they may see the whole calendar), read-only.
   const [ownHoursLoaded, setOwnHoursLoaded] = useState(false);
   useEffect(() => {
     if (isOwner || !viewerStaffId) return;
@@ -447,12 +447,19 @@ export function BookingCalendar({
         .then((r) => (r.ok ? r.json() : { hours: [] }))
         .then((d) => setBusinessHours(d.hours ?? []))
         .catch(() => setBusinessHours([])),
-      fetch(`/api/business/staff/${viewerStaffId}/hours`)
-        .then((r) => (r.ok ? r.json() : { hours: [] }))
-        .then((d) => setStaffHoursMap(new Map([[viewerStaffId, d.hours ?? []]])))
-        .catch(() => setStaffHoursMap(new Map())),
-    ]).finally(() => setOwnHoursLoaded(true));
-  }, [isOwner, viewerStaffId]);
+      ...staff.map((s) =>
+        fetch(`/api/business/staff/${s.id}/hours`)
+          .then((r) => (r.ok ? r.json() : { hours: [] }))
+          .then((d) => [s.id, d.hours ?? []] as const)
+          .catch(() => [s.id, []] as const)
+      ),
+    ]).then((results) => {
+      const entries = results.slice(1) as (readonly [string, StaffHourRow[]])[];
+      setStaffHoursMap(new Map(entries));
+      setOwnHoursLoaded(true);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOwner, viewerStaffId, staff.map((s) => s.id).join(",")]);
 
   useEffect(() => {
     if (!isOwner || staff.length === 0) return;
@@ -1284,7 +1291,7 @@ export function BookingCalendar({
                       style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                     />
                   ))}
-                  {!isOwner && viewerStaffId && s.id === viewerStaffId && ownHoursLoaded && (
+                  {!isOwner && viewerStaffId && s.id && ownHoursLoaded && (
                     <>
                       {openPx !== null && closePx !== null ? (
                         <>
