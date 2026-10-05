@@ -567,6 +567,7 @@ export default async function BusinessLandingPage({
           <InfinityIcon className="h-8 w-8 text-primary-300" />
           <h2 className="text-2xl font-bold text-white sm:text-3xl">{t.finalTitle}</h2>
           <p className="max-w-md text-sm text-ink-100">{t.finalBody}</p>
+          <OfferCountdown locale={locale} compact />
           <Link href="/business/apply" className="btn-accent mt-2 !px-8 !py-3.5 text-base">
             {t.finalCta}
           </Link>

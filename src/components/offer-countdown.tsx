@@ -21,7 +21,7 @@ function remainingMs(now: number) {
   return CYCLE_MS - ((now - CYCLE_ANCHOR_MS) % CYCLE_MS);
 }
 
-export function OfferCountdown({ locale }: { locale: string }) {
+export function OfferCountdown({ locale, compact = false }: { locale: string; compact?: boolean }) {
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export function OfferCountdown({ locale }: { locale: string }) {
   }, []);
 
   const labels = LABELS[locale] ?? LABELS.en;
-  if (now === null) return <div className="h-32" aria-hidden />;
+  if (now === null) return <div className={compact ? "h-6" : "h-32"} aria-hidden />;
 
   const left = remainingMs(now);
   const totalSec = Math.floor(left / 1000);
@@ -49,6 +49,23 @@ export function OfferCountdown({ locale }: { locale: string }) {
   ];
   const r = 34;
   const circumference = 2 * Math.PI * r;
+
+  if (compact) {
+    return (
+      <div className="flex flex-wrap items-center justify-center gap-2 text-sm text-ink-100">
+        <span className="font-semibold">{labels.title}</span>
+        {parts.map((p) => (
+          <span
+            key={p.label}
+            className="inline-flex items-baseline gap-1 rounded-md bg-white/10 px-2 py-0.5 tabular-nums"
+          >
+            <span className="font-bold text-white">{String(p.value).padStart(2, "0")}</span>
+            <span className="text-[10px] uppercase tracking-wide text-ink-200">{p.label}</span>
+          </span>
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center gap-3">
