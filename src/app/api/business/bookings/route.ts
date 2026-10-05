@@ -98,6 +98,7 @@ export async function POST(req: Request) {
       // a checkbox, unlike a customer's own booking which always emails.
       sendNotificationEmails: data.sendNotificationEmails ?? false,
       source: "MANUAL",
+      allowOverlap: true,
     });
     return NextResponse.json({ booking }, { status: 201 });
   } catch (err) {

@@ -59,6 +59,8 @@ export async function createBookingAndPayment(params: {
    * booking; only the salon's manual-add-booking form ever passes false. */
   sendNotificationEmails?: boolean;
   source?: "WEBSITE" | "MANUAL";
+  /** The salon adding a booking itself may double-book a staff member. */
+  allowOverlap?: boolean;
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
@@ -142,7 +144,7 @@ export async function createBookingAndPayment(params: {
       },
       select: { id: true },
     });
-    if (conflict) throw new SlotUnavailableError();
+    if (conflict && !params.allowOverlap) throw new SlotUnavailableError();
 
     const created = await tx.booking.create({
       data: {

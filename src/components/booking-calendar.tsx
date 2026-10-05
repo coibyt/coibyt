@@ -267,6 +267,49 @@ interface DayWindow {
   closeMinute: number;
 }
 
+function blockKey(b: CalendarBlock) {
+  return `${b.id}|${b.slotKey}`;
+}
+
+/** Splits blocks that overlap in time into side-by-side lanes, so two bookings
+ * on the same chair both stay visible instead of covering each other. */
+function laneLayout(blocks: CalendarBlock[]) {
+  const ms = (iso: string) => new Date(iso).getTime();
+  const sorted = [...blocks].sort(
+    (a, b) => ms(a.startsAt) - ms(b.startsAt) || ms(b.endsAt) - ms(a.endsAt)
+  );
+  const result = new Map<string, { lane: number; lanes: number }>();
+  let group: CalendarBlock[] = [];
+  let groupEnd = -Infinity;
+
+  const flush = () => {
+    const laneEnds: number[] = [];
+    const placed: [CalendarBlock, number][] = [];
+    for (const b of group) {
+      let lane = laneEnds.findIndex((end) => end <= ms(b.startsAt));
+      if (lane === -1) {
+        lane = laneEnds.length;
+        laneEnds.push(ms(b.endsAt));
+      } else {
+        laneEnds[lane] = ms(b.endsAt);
+      }
+      placed.push([b, lane]);
+    }
+    for (const [b, lane] of placed) {
+      result.set(blockKey(b), { lane, lanes: laneEnds.length });
+    }
+    group = [];
+  };
+
+  for (const b of sorted) {
+    if (group.length > 0 && ms(b.startsAt) >= groupEnd) flush();
+    group.push(b);
+    groupEnd = Math.max(groupEnd, ms(b.endsAt));
+  }
+  flush();
+  return result;
+}
+
 function formatMinuteOfDay(minute: number) {
   return `${String(Math.floor(minute / 60)).padStart(2, "0")}:${String(minute % 60).padStart(2, "0")}`;
 }
@@ -947,7 +990,7 @@ export function BookingCalendar({
     );
   }
 
-  function renderBookingBlock(b: CalendarBlock, compact = false) {
+  function renderBookingBlock(b: CalendarBlock, compact = false, lane?: { lane: number; lanes: number }) {
     const top = ((minutesFromMidnight(b.startsAt) - startHour * 60) / 60) * HOUR_HEIGHT;
     const height = Math.max(
       ((minutesFromMidnight(b.endsAt) - minutesFromMidnight(b.startsAt)) / 60) * HOUR_HEIGHT,
@@ -968,12 +1011,23 @@ export function BookingCalendar({
           setCustomerDetail(null);
           setShowCancelPicker(false);
         }}
-        className={`absolute left-0.5 right-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
+        className={`absolute z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
+          lane ? "" : "left-0.5 right-0.5"
+        } ${
           b.source === "MANUAL"
             ? "bg-violet-50 border-violet-500 text-violet-700"
             : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
-        style={{ top, height }}
+        style={
+          lane
+            ? {
+                top,
+                height,
+                left: `calc(${(lane.lane / lane.lanes) * 100}% + 2px)`,
+                width: `calc(${100 / lane.lanes}% - 4px)`,
+              }
+            : { top, height }
+        }
       >
         <p className="truncate leading-tight opacity-80">{timeLabel}</p>
         <p className="truncate font-semibold leading-tight">{b.customerName}</p>
@@ -1282,9 +1336,13 @@ export function BookingCalendar({
                       )}
                     </>
                   )}
-                  {bookingsOnDay(anchorDate)
-                    .filter((b) => (staff.length === 0 ? true : b.staffId === s.id))
-                    .map((b) => renderBookingBlock(b))}
+                  {(() => {
+                    const columnBlocks = bookingsOnDay(anchorDate).filter(
+                      (b) => (staff.length === 0 ? true : b.staffId === s.id)
+                    );
+                    const lanes = laneLayout(columnBlocks);
+                    return columnBlocks.map((b) => renderBookingBlock(b, false, lanes.get(blockKey(b))));
+                  })()}
                   {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
                 </div>
               );

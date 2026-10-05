@@ -157,7 +157,7 @@ export async function PATCH(
           },
           select: { id: true },
         });
-        if (conflict) throw new Error("SLOT_UNAVAILABLE");
+        if (conflict && !access.isOwner) throw new Error("SLOT_UNAVAILABLE");
       }
 
       if (data.addOnIds !== undefined) {

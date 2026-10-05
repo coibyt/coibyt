@@ -117,9 +117,11 @@ export async function PATCH(
       select: { id: true },
     }),
   ]);
-  if (timeOff) return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
-  if (otherBookings.length > 0 || otherExtras.length > 0) {
-    return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+  if (!access.isOwner) {
+    if (timeOff) return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+    if (otherBookings.length > 0 || otherExtras.length > 0) {
+      return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+    }
   }
 
   // The moved booking's own services on the same staff member must not overlap.
@@ -130,7 +132,9 @@ export async function PATCH(
       s.startsAt < newEnd &&
       s.endsAt > newStart
   );
-  if (ownOverlap) return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+  if (ownOverlap && !access.isOwner) {
+    return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
+  }
 
   const placed = booking.extraServices.every((e) => e.startsAt && e.endsAt);
 
