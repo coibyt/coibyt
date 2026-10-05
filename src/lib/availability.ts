@@ -145,13 +145,22 @@ export async function getAvailableSlots(params: {
   const minDuration = Math.min(...Array.from(durationByStaff.values()));
 
   // Load existing bookings + staff time-off for the day, once, for all staff.
-  const [bookings, timeOff] = await Promise.all([
+  const [bookings, extraSlots, timeOff] = await Promise.all([
     prisma.booking.findMany({
       where: {
         staffId: { in: eligibleStaffIds },
         status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
         startsAt: { lt: dayEndUtc },
         endsAt: { gt: dayStartUtc },
+      },
+      select: { staffId: true, startsAt: true, endsAt: true },
+    }),
+    prisma.bookingExtraService.findMany({
+      where: {
+        staffId: { in: eligibleStaffIds },
+        startsAt: { lt: dayEndUtc },
+        endsAt: { gt: dayStartUtc },
+        booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
       },
       select: { staffId: true, startsAt: true, endsAt: true },
     }),
@@ -170,6 +179,10 @@ export async function getAvailableSlots(params: {
   for (const b of bookings) {
     if (!b.staffId) continue;
     busyByStaff.get(b.staffId)?.push({ start: b.startsAt, end: b.endsAt });
+  }
+  for (const x of extraSlots) {
+    if (!x.staffId || !x.startsAt || !x.endsAt) continue;
+    busyByStaff.get(x.staffId)?.push({ start: x.startsAt, end: x.endsAt });
   }
   for (const t of timeOff) {
     busyByStaff.get(t.staffId)?.push({ start: t.startsAt, end: t.endsAt });

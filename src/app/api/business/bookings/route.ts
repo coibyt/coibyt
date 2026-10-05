@@ -97,6 +97,7 @@ export async function POST(req: Request) {
       // Off by default for a manually-added booking — the owner opts in via
       // a checkbox, unlike a customer's own booking which always emails.
       sendNotificationEmails: data.sendNotificationEmails ?? false,
+      source: "MANUAL",
     });
     return NextResponse.json({ booking }, { status: 201 });
   } catch (err) {

@@ -3,6 +3,7 @@ import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
+import { serviceSlots } from "@/lib/booking-slots";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -40,9 +41,26 @@ export async function GET(req: Request) {
   const bookings = await prisma.booking.findMany({
     where: {
       businessId,
-      ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
-      startsAt: { lt: rangeEndUtc },
-      endsAt: { gt: rangeStartUtc },
+      AND: [
+        scopeStaffId
+          ? {
+              OR: [
+                { staffId: scopeStaffId },
+                { extraServices: { some: { staffId: scopeStaffId } } },
+              ],
+            }
+          : {},
+        {
+          OR: [
+            { startsAt: { lt: rangeEndUtc }, endsAt: { gt: rangeStartUtc } },
+            {
+              extraServices: {
+                some: { startsAt: { lt: rangeEndUtc }, endsAt: { gt: rangeStartUtc } },
+              },
+            },
+          ],
+        },
+      ],
       // Neither a cancellation nor a no-show leaves anything left to do for
       // that slot — both free it up for a new booking (see availability.ts),
       // so neither belongs cluttering the live calendar grid either.
@@ -59,11 +77,24 @@ export async function GET(req: Request) {
       serviceId: true,
       customerId: true,
       customerNote: true,
+      source: true,
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
-      addOns: { select: { name: true, addOnId: true } },
-      extraServices: { select: { name: true } },
+      addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
+      extraServices: {
+        select: {
+          id: true,
+          name: true,
+          priceCents: true,
+          durationMin: true,
+          staffId: true,
+          startsAt: true,
+          endsAt: true,
+          staff: { select: { name: true } },
+        },
+        orderBy: { id: "asc" },
+      },
     },
     orderBy: { startsAt: "asc" },
   });
@@ -85,7 +116,13 @@ export async function GET(req: Request) {
       customerName: b.customer.name,
       customerPhone: canViewContact ? b.customer.phone : null,
       customerEmail: canViewContact ? b.customer.email : null,
-      addOnNames: [...b.addOns.map((a) => a.name), ...b.extraServices.map((s) => s.name)],
+      source: b.source,
+      slots: serviceSlots(b).map((sl) => ({
+        ...sl,
+        startsAt: sl.startsAt.toISOString(),
+        endsAt: sl.endsAt.toISOString(),
+      })),
+      addOnNames: b.addOns.map((a) => a.name),
       addOnIds: b.addOns.map((a) => a.addOnId).filter((x): x is string => x !== null),
     })),
   });

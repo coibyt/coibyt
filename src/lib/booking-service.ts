@@ -58,6 +58,7 @@ export async function createBookingAndPayment(params: {
    * reschedule, cancellation, reminders) — always true for a customer's own
    * booking; only the salon's manual-add-booking form ever passes false. */
   sendNotificationEmails?: boolean;
+  source?: "WEBSITE" | "MANUAL";
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
@@ -163,6 +164,7 @@ export async function createBookingAndPayment(params: {
         // confirmed right away; online gateways stay PENDING_PAYMENT until
         // their callback fires.
         status: isOffline ? "CONFIRMED" : "PENDING_PAYMENT",
+        source: params.source ?? "WEBSITE",
         notificationEmailsEnabled: params.sendNotificationEmails ?? true,
       },
     });

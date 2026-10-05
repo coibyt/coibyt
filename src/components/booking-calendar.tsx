@@ -18,7 +18,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from "date-fns";
-import { fromZonedTime, toZonedTime } from "date-fns-tz";
+import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { ChevronLeft, ChevronRight, Loader2, Pencil, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
@@ -31,8 +31,21 @@ interface StaffOption {
   avatarUrl: string | null;
 }
 
+interface ServiceSlotView {
+  key: string;
+  kind: "primary" | "extra";
+  name: string;
+  priceCents: number;
+  startsAt: string;
+  endsAt: string;
+  staffId: string | null;
+  staffName: string | null;
+}
+
 interface CalendarBooking {
   id: string;
+  source: "WEBSITE" | "MANUAL";
+  slots: ServiceSlotView[];
   startsAt: string;
   endsAt: string;
   status: string;
@@ -50,6 +63,13 @@ interface CalendarBooking {
   addOnNames: string[];
   addOnIds: string[];
 }
+
+/** One service of a booking as its own calendar block — the booking's own
+ * fields plus that service's time, staff, name and price. */
+type CalendarBlock = CalendarBooking & {
+  slotKey: string;
+  priceCents: number;
+};
 
 interface EditBookingDraft {
   bookingId: string;
@@ -235,7 +255,7 @@ interface NewBookingDraft {
 }
 
 interface PendingReschedule {
-  booking: CalendarBooking;
+  booking: CalendarBlock;
   newStartsAt: Date;
   newStaffId: string;
 }
@@ -446,8 +466,28 @@ export function BookingCalendar({
     return d.getHours() * 60 + d.getMinutes();
   }
 
+  // Every service of every booking becomes its own block, placed by its own
+  // time and staff — so a multi-service booking can show its services in
+  // different columns and be moved one at a time.
+  const calendarBlocks = useMemo<CalendarBlock[]>(
+    () =>
+      bookings.flatMap((b) =>
+        (b.slots ?? []).map((sl) => ({
+          ...b,
+          slotKey: sl.key,
+          serviceName: sl.name,
+          priceCents: sl.priceCents,
+          startsAt: sl.startsAt,
+          endsAt: sl.endsAt,
+          staffId: sl.staffId,
+          staffName: sl.staffName,
+        }))
+      ),
+    [bookings]
+  );
+
   function bookingsOnDay(day: Date) {
-    return bookings.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
+    return calendarBlocks.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
   }
 
   // The staff member's working window for the currently displayed day — from
@@ -698,10 +738,9 @@ export function BookingCalendar({
     reloadBookings();
   }
 
-  async function rescheduleBooking(booking: CalendarBooking, newStartsAt: Date, newStaffId: string) {
-    const durationMs = new Date(booking.endsAt).getTime() - new Date(booking.startsAt).getTime();
+  async function rescheduleBooking(block: CalendarBlock, newStartsAt: Date, newStaffId: string) {
     setReschedulingBusy(true);
-    const res = await fetch(`/api/business/bookings/${booking.id}/reschedule`, {
+    const res = await fetch(`/api/business/bookings/${block.id}/services/${block.slotKey}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId }),
@@ -716,18 +755,7 @@ export function BookingCalendar({
       setTimeout(() => setError(null), 4000);
       return;
     }
-    setBookings((prev) =>
-      prev.map((b) =>
-        b.id === booking.id
-          ? {
-              ...b,
-              startsAt: newStartsAt.toISOString(),
-              endsAt: new Date(newStartsAt.getTime() + durationMs).toISOString(),
-              staffId: newStaffId,
-            }
-          : b
-      )
-    );
+    await reloadBookings();
   }
 
   function handleDrop(
@@ -737,9 +765,9 @@ export function BookingCalendar({
     gridTopHour: number
   ) {
     e.preventDefault();
-    const id = draggingId.current;
+    const dragKey = draggingId.current;
     draggingId.current = null;
-    const booking = bookings.find((b) => b.id === id);
+    const booking = calendarBlocks.find((b) => `${b.id}|${b.slotKey}` === dragKey);
     if (!booking) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
@@ -901,7 +929,7 @@ export function BookingCalendar({
     );
   }
 
-  function renderBookingBlock(b: CalendarBooking, compact = false) {
+  function renderBookingBlock(b: CalendarBlock, compact = false) {
     const top = ((minutesFromMidnight(b.startsAt) - startHour * 60) / 60) * HOUR_HEIGHT;
     const height = Math.max(
       ((minutesFromMidnight(b.endsAt) - minutesFromMidnight(b.startsAt)) / 60) * HOUR_HEIGHT,
@@ -915,7 +943,7 @@ export function BookingCalendar({
       <button
         key={b.id}
         draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status)}
-        onDragStart={() => (draggingId.current = b.id)}
+        onDragStart={() => (draggingId.current = `${b.id}|${b.slotKey}`)}
         onClick={(e) => {
           e.stopPropagation();
           setActiveBooking(b);
@@ -923,13 +951,20 @@ export function BookingCalendar({
           setShowCancelPicker(false);
         }}
         className={`absolute left-0.5 right-0.5 z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
-          STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
+          b.source === "MANUAL"
+            ? "bg-violet-50 border-violet-500 text-violet-700"
+            : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
         style={{ top, height }}
       >
         <p className="truncate leading-tight opacity-80">{timeLabel}</p>
         <p className="truncate font-semibold leading-tight">{b.customerName}</p>
-        {!compact && <p className="truncate leading-tight">{b.serviceName}</p>}
+        {!compact && (
+          <p className="truncate leading-tight">
+            {b.slotKey !== "primary" ? "+ " : ""}
+            {b.serviceName}
+          </p>
+        )}
         {compact && b.staffName && (
           <span
             className={`mr-1 inline-block h-1.5 w-1.5 rounded-full ${
@@ -1436,15 +1471,35 @@ export function BookingCalendar({
               </div>
             </div>
             <div className="space-y-1.5 text-sm">
-              <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
+              {activeBooking.slots.length > 1 ? (
+                <ul className="space-y-2">
+                  {activeBooking.slots.map((sl) => (
+                    <li key={sl.key} className="rounded-lg border border-ink-100 p-2">
+                      <p className="font-medium text-ink-900">{sl.name}</p>
+                      <p className="text-xs text-ink-400">
+                        {formatInTimeZone(sl.startsAt, businessTimezone, "HH:mm")}–
+                        {formatInTimeZone(sl.endsAt, businessTimezone, "HH:mm")}
+                        {sl.staffName ? ` · ${sl.staffName}` : ""}
+                      </p>
+                      <p className="text-xs font-semibold text-ink-700">
+                        {formatMoney(sl.priceCents, activeBooking.currency, locale)}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <>
+                  <p className="font-medium text-ink-900">{activeBooking.serviceName}</p>
+                  {activeBooking.staffName && (
+                    <p className="text-ink-400">{activeBooking.staffName}</p>
+                  )}
+                </>
+              )}
               {activeBooking.addOnNames.map((name) => (
                 <p key={name} className="text-ink-400">
                   + {name}
                 </p>
               ))}
-              {activeBooking.staffName && (
-                <p className="text-ink-400">{activeBooking.staffName}</p>
-              )}
               <p className="text-ink-700">
                 {new Date(activeBooking.startsAt).toLocaleString(
                   locale === "vi" ? "vi-VN" : "en-US",

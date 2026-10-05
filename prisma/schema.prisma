@@ -47,7 +47,7 @@ model User {
   // /api/business/marketing/send) and earned via daily check-in and the
   // owner's own "become a salon owner" referral link. See VaraPointTransaction
   // for the full ledger; this column is always that ledger's running total.
-  varaPoints Int @default(0)
+  varaPoints          Int     @default(0)
   // "YYYY-MM-DD" (UTC) of the last daily check-in claimed — a plain string,
   // not a DateTime, so "already checked in today" is a single string compare
   // with no timezone math.
@@ -56,23 +56,23 @@ model User {
   // first time they become an owner. Shares the `?aff=` URL/cookie
   // mechanism with the admin-run PlatformAffiliate program, but rewards
   // vara points instead of a commission.
-  referralCode String? @unique
+  referralCode        String? @unique
 
-  accounts Account[]
-  sessions Session[]
-  businesses   Business[] // one or more branches when role = BUSINESS_OWNER
-  staffProfile Staff? // present when role = STAFF
-  bookings     Booking[]
-  reviews      Review[]
-  conversations   Conversation[]
-  messages        Message[]
-  businessFollows BusinessFollow[]
-  postComments    PostComment[]
-  varaPointTransactions VaraPointTransaction[]
-  referralClicksReceived ReferralClick[]
+  accounts                Account[]
+  sessions                Session[]
+  businesses              Business[] // one or more branches when role = BUSINESS_OWNER
+  staffProfile            Staff? // present when role = STAFF
+  bookings                Booking[]
+  reviews                 Review[]
+  conversations           Conversation[]
+  messages                Message[]
+  businessFollows         BusinessFollow[]
+  postComments            PostComment[]
+  varaPointTransactions   VaraPointTransaction[]
+  referralClicksReceived  ReferralClick[]
   // Businesses created by someone who signed up through this owner's own
   // referral link (see Business.referredByOwner below).
-  referredBusinesses Business[] @relation("BusinessReferredByOwner")
+  referredBusinesses      Business[]               @relation("BusinessReferredByOwner")
   emailRecipientCooldowns EmailRecipientCooldown[]
 
   // Announcements posted after this moment count as "unread" for a salon
@@ -142,27 +142,27 @@ model Category {
 }
 
 model Business {
-  id          String         @id @default(cuid())
+  id           String         @id @default(cuid())
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.
-  ownerId     String
-  owner       User           @relation(fields: [ownerId], references: [id], onDelete: Cascade)
-  slug        String         @unique
-  name        String
-  description String?        @db.Text
-  logoUrl     String?
-  coverUrl    String?
-  status      BusinessStatus @default(PENDING)
-  rejectReason String?       @db.Text
+  ownerId      String
+  owner        User           @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  slug         String         @unique
+  name         String
+  description  String?        @db.Text
+  logoUrl      String?
+  coverUrl     String?
+  status       BusinessStatus @default(PENDING)
+  rejectReason String?        @db.Text
 
-  addressLine String?
-  city        String?
-  country     String  @default("VN")
-  lat         Float?
-  lng         Float?
-  phone       String?
-  email       String?
-  website     String?
+  addressLine   String?
+  city          String?
+  country       String  @default("VN")
+  lat           Float?
+  lng           Float?
+  phone         String?
+  email         String?
+  website       String?
   facebookUrl   String?
   instagramUrl  String?
   tiktokUrl     String?
@@ -181,11 +181,11 @@ model Business {
 
   // How many hours before the appointment a CUSTOMER can still self-cancel;
   // past that, only the business can cancel from their own dashboard.
-  cancellationWindowHours Int @default(24)
+  cancellationWindowHours Int     @default(24)
   // Free-text policy shown to the customer after booking and included in
   // their confirmation email — distinct from cancellationWindowHours, which
   // only drives the self-cancel cutoff, not what's actually printed.
-  cancellationPolicy String? @db.Text
+  cancellationPolicy      String? @db.Text
 
   // Where customers send money for the "bank transfer" payment method —
   // no automatic reconciliation, same trust model as pay-at-salon cash.
@@ -194,8 +194,8 @@ model Business {
   bankAccountName   String?
   bankBic           String?
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
   approvedAt DateTime?
 
   // Set once, at signup, when this salon came in through a platform
@@ -212,25 +212,25 @@ model Business {
   // in src/lib/vara-points.ts), at which point referredByOwner is paid their
   // one-time 1000-point bonus.
   referredByOwnerId    String?
-  referredByOwner      User?    @relation("BusinessReferredByOwner", fields: [referredByOwnerId], references: [id])
-  referralBonusAwarded Boolean  @default(false)
+  referredByOwner      User?   @relation("BusinessReferredByOwner", fields: [referredByOwnerId], references: [id])
+  referralBonusAwarded Boolean @default(false)
 
-  categories BusinessCategory[]
-  services   Service[]
-  serviceGroups ServiceGroup[]
-  landingPage LandingPage?
-  staff      Staff[]
-  bookings   Booking[]
-  reviews    Review[]
-  hours      BusinessHours[]
-  closures   BusinessClosure[]
-  addOns     ServiceAddOn[]
-  images     BusinessImage[]
-  conversations Conversation[]
-  followers     BusinessFollow[]
-  posts         Post[]
-  emailCampaigns EmailCampaign[]
-  affiliates     Affiliate[]
+  categories              BusinessCategory[]
+  services                Service[]
+  serviceGroups           ServiceGroup[]
+  landingPage             LandingPage?
+  staff                   Staff[]
+  bookings                Booking[]
+  reviews                 Review[]
+  hours                   BusinessHours[]
+  closures                BusinessClosure[]
+  addOns                  ServiceAddOn[]
+  images                  BusinessImage[]
+  conversations           Conversation[]
+  followers               BusinessFollow[]
+  posts                   Post[]
+  emailCampaigns          EmailCampaign[]
+  affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
 
   @@index([ownerId])
@@ -268,11 +268,11 @@ model BusinessCategory {
 
 // Regular weekly opening hours, e.g. Monday 09:00–18:00
 model BusinessHours {
-  id         String   @id @default(cuid())
-  businessId String
-  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
-  weekday    Int // 0 = Sunday … 6 = Saturday
-  openMinute Int // minutes since midnight, e.g. 540 = 09:00
+  id          String   @id @default(cuid())
+  businessId  String
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  weekday     Int // 0 = Sunday … 6 = Saturday
+  openMinute  Int // minutes since midnight, e.g. 540 = 09:00
   closeMinute Int // e.g. 1080 = 18:00
 
   @@index([businessId])
@@ -304,13 +304,13 @@ model Staff {
   // schedulable name with no dashboard access of their own. Permissions
   // below only gate the "view-only" dashboard sections; Staff management
   // and Settings always stay owner-only regardless of these flags.
-  userId            String?  @unique
-  user              User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
-  canViewServices   Boolean  @default(false)
-  canViewBookings   Boolean  @default(true)
-  canViewCustomers  Boolean  @default(false)
-  canViewHours      Boolean  @default(false)
-  canViewReviews    Boolean  @default(false)
+  userId                     String? @unique
+  user                       User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+  canViewServices            Boolean @default(false)
+  canViewBookings            Boolean @default(true)
+  canViewCustomers           Boolean @default(false)
+  canViewHours               Boolean @default(false)
+  canViewReviews             Boolean @default(false)
   // Separate from canViewBookings — a staff member can see the bookings
   // calendar without seeing customers' phone/email on each booking unless
   // this is also granted.
@@ -318,7 +318,7 @@ model Staff {
   // When false (and canViewBookings is true), this staff member only sees and
   // acts on bookings assigned to them — never another staff member's. Defaults
   // to true so existing staff keep seeing the whole salon's calendar.
-  canViewAllBookings Boolean @default(true)
+  canViewAllBookings         Boolean @default(true)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top
@@ -331,11 +331,12 @@ model Staff {
   // this staff member on the booking page.
   videoUrls       Json?
 
-  services StaffService[]
-  bookings Booking[]
-  timeOff  StaffTimeOff[]
-  hours    StaffHours[]
-  avatar   StaffAvatar?
+  services             StaffService[]
+  bookings             Booking[]
+  timeOff              StaffTimeOff[]
+  hours                StaffHours[]
+  avatar               StaffAvatar?
+  bookingExtraServices BookingExtraService[]
 
   @@index([businessId])
 }
@@ -368,12 +369,12 @@ model StaffHours {
 
 // Staff-specific time off (vacation, sick day) blocking bookings
 model StaffTimeOff {
-  id        String   @id @default(cuid())
-  staffId   String
-  staff     Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
-  startsAt  DateTime
-  endsAt    DateTime
-  reason    String?
+  id       String   @id @default(cuid())
+  staffId  String
+  staff    Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  startsAt DateTime
+  endsAt   DateTime
+  reason   String?
 
   @@index([staffId])
 }
@@ -396,24 +397,24 @@ model ServiceGroup {
 }
 
 model Service {
-  id           String   @id @default(cuid())
+  id           String        @id @default(cuid())
   businessId   String
-  business     Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  business     Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
   groupId      String?
   group        ServiceGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
   categoryId   String?
-  category     Category? @relation(fields: [categoryId], references: [id])
+  category     Category?     @relation(fields: [categoryId], references: [id])
   name         String
-  description  String?  @db.Text
+  description  String?       @db.Text
   durationMin  Int // e.g. 60
-  bufferMin    Int      @default(0) // cleanup/prep time added after the appointment
+  bufferMin    Int           @default(0) // cleanup/prep time added after the appointment
   priceCents   Int // stored in the smallest currency unit
-  currency     String   @default("VND")
+  currency     String        @default("VND")
   depositCents Int? // optional required deposit to confirm a booking
   videoUrl     String? // YouTube preview clip shown next to the service
-  active       Boolean  @default(true)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  active       Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 
   staff        StaffService[]
   bookings     Booking[]
@@ -502,19 +503,20 @@ enum BookingStatus {
 }
 
 model Booking {
-  id         String        @id @default(cuid())
+  id         String   @id @default(cuid())
   businessId String
-  business   Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
   serviceId  String
-  service    Service       @relation(fields: [serviceId], references: [id])
+  service    Service  @relation(fields: [serviceId], references: [id])
   staffId    String?
-  staff      Staff?        @relation(fields: [staffId], references: [id])
+  staff      Staff?   @relation(fields: [staffId], references: [id])
   customerId String
-  customer   User          @relation(fields: [customerId], references: [id])
+  customer   User     @relation(fields: [customerId], references: [id])
 
-  startsAt   DateTime
-  endsAt     DateTime
-  status     BookingStatus @default(PENDING_PAYMENT)
+  startsAt DateTime
+  endsAt   DateTime
+  status   BookingStatus @default(PENDING_PAYMENT)
+  source   BookingSource @default(WEBSITE)
 
   priceCents   Int
   depositCents Int?
@@ -630,12 +632,12 @@ enum VaraPointReason {
 // so the running balance on User is always reconstructable/auditable. amount
 // is positive for an earn, negative for a spend (currently only EMAIL_SENT).
 model VaraPointTransaction {
-  id        String           @id @default(cuid())
+  id        String          @id @default(cuid())
   userId    String
-  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount    Int
   reason    VaraPointReason
-  createdAt DateTime         @default(now())
+  createdAt DateTime        @default(now())
 
   @@index([userId, createdAt])
 }
@@ -742,16 +744,32 @@ model BookingAddOn {
 // price changes later, and serviceId is nullable so deleting the service
 // doesn't touch past bookings.
 model BookingExtraService {
-  id          String   @id @default(cuid())
+  id          String    @id @default(cuid())
   bookingId   String
-  booking     Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  booking     Booking   @relation(fields: [bookingId], references: [id], onDelete: Cascade)
   serviceId   String?
-  service     Service? @relation(fields: [serviceId], references: [id], onDelete: SetNull)
+  service     Service?  @relation(fields: [serviceId], references: [id], onDelete: SetNull)
   name        String
   priceCents  Int
   durationMin Int
+  // Null until the salon moves this service on the calendar — until then it
+  // runs back-to-back after the primary service under the booking's staff
+  // (see serviceSlots in src/lib/booking-slots.ts). Once set, it has its own
+  // time and staff, which is what availability and conflict checks read.
+  staffId     String?
+  staff       Staff?    @relation(fields: [staffId], references: [id], onDelete: SetNull)
+  startsAt    DateTime?
+  endsAt      DateTime?
 
   @@index([bookingId])
+  @@index([staffId, startsAt])
+}
+
+// Where a booking came from: a customer on the public booking page, or the
+// salon adding it from its own dashboard. Only drives calendar colouring.
+enum BookingSource {
+  WEBSITE
+  MANUAL
 }
 
 // ────────────────────────────────────────────────────────────────────
@@ -836,9 +854,9 @@ model Post {
 }
 
 model PostImage {
-  id     String @id @default(cuid())
-  postId String
-  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  id            String @id @default(cuid())
+  postId        String
+  post          Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
   // Bytes live on the row itself, same reasoning as BusinessImage/Message —
   // Hostinger's git-based deploy wipes anything written to public/uploads.
   imageData     Bytes  @db.LongBlob
