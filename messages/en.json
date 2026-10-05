@@ -14,7 +14,8 @@
     "following": "Following",
     "feed": "Feed",
     "signOut": "Sign out",
-    "admin": "Admin"
+    "admin": "Admin",
+    "loyalty": "Loyalty cards"
   },
   "home": {
     "heroTitle": "Book your next\nappointment in seconds",
@@ -368,6 +369,10 @@
     "giftCards": {
       "nav": "Gift cards",
       "subtitle": "Create and sell gift cards, check and redeem them when customers visit"
+    },
+    "loyalty": {
+      "nav": "Loyalty cards",
+      "subtitle": "Give customers a loyalty card, scan it each visit and apply rewards"
     }
   },
   "common": {

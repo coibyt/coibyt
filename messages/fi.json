@@ -14,7 +14,8 @@
     "following": "Seurataan",
     "feed": "Uutissyöte",
     "signOut": "Kirjaudu ulos",
-    "admin": "Ylläpito"
+    "admin": "Ylläpito",
+    "loyalty": "Kanta"
   },
   "home": {
     "heroTitle": "Varaa seuraava\najanvarauksesi sekunneissa",
@@ -368,6 +369,10 @@
     "giftCards": {
       "nav": "Lahjakortit",
       "subtitle": "Luo ja myy lahjakortteja, tarkista ja käytä kun asiakas tulee"
+    },
+    "loyalty": {
+      "nav": "Kanta",
+      "subtitle": "Anna asiakkaille kanta, skannaa se joka käynnillä ja myönnä etu"
     }
   },
   "common": {

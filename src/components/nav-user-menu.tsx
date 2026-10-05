@@ -13,6 +13,7 @@ import {
   MessageCircle,
   Heart,
   Newspaper,
+  Gift,
 } from "lucide-react";
 
 export function NavUserMenu({
@@ -69,6 +70,7 @@ export function NavUserMenu({
             <MenuLink href="/admin" icon={ShieldCheck} label={t("admin")} />
           )}
           <MenuLink href="/account/bookings" icon={CalendarDays} label={t("myBookings")} />
+          <MenuLink href="/account/loyalty" icon={Gift} label={t("loyalty")} />
           <MenuLink href="/account/messages" icon={MessageCircle} label={t("inbox")} />
           <MenuLink href="/account/following" icon={Heart} label={t("following")} />
           <MenuLink href="/account/feed" icon={Newspaper} label={t("feed")} />

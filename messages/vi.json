@@ -14,7 +14,8 @@
     "following": "Đang theo dõi",
     "feed": "Bảng tin",
     "signOut": "Đăng xuất",
-    "admin": "Quản trị"
+    "admin": "Quản trị",
+    "loyalty": "Thẻ tích điểm"
   },
   "home": {
     "heroTitle": "Đặt lịch làm đẹp,\nchỉ trong vài chạm",
@@ -368,6 +369,10 @@
     "giftCards": {
       "nav": "Thẻ quà tặng",
       "subtitle": "Tạo và bán thẻ quà tặng, kiểm tra và dùng thẻ khi khách đến"
+    },
+    "loyalty": {
+      "nav": "Thẻ tích điểm",
+      "subtitle": "Cấp thẻ tích điểm cho khách, quét QR mỗi lần đến và áp dụng ưu đãi"
     }
   },
   "common": {

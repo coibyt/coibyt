@@ -14,7 +14,8 @@
     "following": "Gefolgt",
     "feed": "Neuigkeiten",
     "signOut": "Abmelden",
-    "admin": "Verwaltung"
+    "admin": "Verwaltung",
+    "loyalty": "Treuekarten"
   },
   "home": {
     "heroTitle": "Buche deinen nächsten\nTermin in Sekunden",
@@ -368,6 +369,10 @@
     "giftCards": {
       "nav": "Geschenkgutscheine",
       "subtitle": "Gutscheine erstellen und verkaufen, bei Besuch prüfen und einlösen"
+    },
+    "loyalty": {
+      "nav": "Treuekarten",
+      "subtitle": "Kunden eine Treuekarte geben, bei jedem Besuch scannen und Vorteile einlösen"
     }
   },
   "common": {

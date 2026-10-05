@@ -14,7 +14,8 @@
     "following": "Obserwowane",
     "feed": "Aktualności",
     "signOut": "Wyloguj się",
-    "admin": "Administrator"
+    "admin": "Administrator",
+    "loyalty": "Karty lojalnościowe"
   },
   "home": {
     "heroTitle": "Zarezerwuj kolejną\nwizytę w kilka sekund",
@@ -368,6 +369,10 @@
     "giftCards": {
       "nav": "Karty podarunkowe",
       "subtitle": "Twórz i sprzedawaj karty podarunkowe, sprawdzaj i realizuj przy wizycie"
+    },
+    "loyalty": {
+      "nav": "Karty lojalnościowe",
+      "subtitle": "Wydawaj klientom kartę, skanuj ją przy każdej wizycie i stosuj nagrody"
     }
   },
   "common": {

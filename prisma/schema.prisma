@@ -233,6 +233,8 @@ model Business {
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
   giftCards               GiftCard[]
+  loyaltyCards            LoyaltyCard[]
+  loyaltyProgram          LoyaltyProgram?
 
   @@index([ownerId])
   @@index([status])
@@ -1065,4 +1067,48 @@ model GiftCardRedemption {
   createdAt  DateTime         @default(now())
 
   @@index([purchaseId])
+}
+
+// The salon's loyalty rule: every N visits earns a discount. One per salon.
+model LoyaltyProgram {
+  id              String   @id @default(cuid())
+  businessId      String   @unique
+  business        Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  pointsRequired  Int
+  discountPercent Int
+  priceCents      Int
+  currency        String
+  updatedAt       DateTime @updatedAt
+}
+
+// A customer's loyalty card at one salon. Activated by the salon (which sends
+// the QR by email). Points are scans, but a scan only counts while there are
+// more completed visits than scans — see src/lib/loyalty.ts.
+model LoyaltyCard {
+  id            String   @id @default(cuid())
+  businessId    String
+  business      Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerName  String
+  customerEmail String
+  customerPhone String?
+  token         String   @unique
+  points        Int      @default(0)
+  totalScans    Int      @default(0)
+  rewardReady   Boolean  @default(false)
+  rewardsEarned Int      @default(0)
+  activatedAt   DateTime @default(now())
+  createdAt     DateTime @default(now())
+
+  scans LoyaltyScan[]
+
+  @@unique([businessId, customerEmail])
+}
+
+model LoyaltyScan {
+  id        String      @id @default(cuid())
+  cardId    String
+  card      LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+
+  @@index([cardId])
 }
