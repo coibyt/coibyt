@@ -30,7 +30,11 @@ interface CustomerDetail {
     serviceName: string;
     priceCents: number;
     currency: string;
+    customerNote: string | null;
+    loyaltyScans: string[];
+    rewardApplied: boolean;
   }[];
+  loyalty: { pointsRequired: number; discountPercent: number } | null;
 }
 
 export function CustomersManager({
@@ -182,6 +186,25 @@ export function CustomersManager({
                         <span>{tStatus(b.status as never)}</span>
                         {b.cancelReason && <span>{tCancelReason(b.cancelReason as never)}</span>}
                       </div>
+                      {b.loyaltyScans.length > 0 && (
+                        <div className="mt-1 flex flex-wrap gap-1">
+                          {b.loyaltyScans.map((time, i) => (
+                            <span key={i} className="rounded-md bg-sage-50 px-1.5 py-0.5 font-medium text-sage-700">
+                              {locale === "vi" ? `+1 điểm · ${time}` : `+1 point · ${time}`}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                      {b.rewardApplied && (
+                        <p className="mt-1 rounded-md bg-berry-50 px-2 py-1 font-semibold text-berry-500">
+                          {locale === "vi"
+                            ? `Đã giảm ${detail.loyalty?.discountPercent ?? 0}% do tích đủ ${detail.loyalty?.pointsRequired ?? 0} điểm`
+                            : `${detail.loyalty?.discountPercent ?? 0}% off applied after ${detail.loyalty?.pointsRequired ?? 0} points`}
+                        </p>
+                      )}
+                      {b.customerNote && (
+                        <p className="mt-1 whitespace-pre-line rounded-md bg-white px-2 py-1 text-ink-700">{b.customerNote}</p>
+                      )}
                     </li>
                   ))}
                 </ul>
