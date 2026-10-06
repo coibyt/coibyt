@@ -1768,13 +1768,11 @@ export function BookingCalendar({
             <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
                 <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
-                <input
-                  type="datetime-local"
-                  className="input"
+                <QuarterHourField
                   value={format(toZonedTime(editBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
-                  onChange={(e) => {
-                    if (!e.target.value) return;
-                    const newStartsAt = fromZonedTime(e.target.value, businessTimezone);
+                  onChange={(v) => {
+                    if (!v) return;
+                    const newStartsAt = fromZonedTime(v, businessTimezone);
                     // Keep the duration the salon already set for this booking
                     // (default or manually adjusted) — moving the start time
                     // shouldn't silently shrink or stretch it.
@@ -2005,13 +2003,11 @@ export function BookingCalendar({
             <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
               <div>
                 <label className="label">{locale === "vi" ? "Ngày & giờ" : "Date & time"}</label>
-                <input
-                  type="datetime-local"
-                  className="input"
+                <QuarterHourField
                   value={format(toZonedTime(newBooking.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
-                  onChange={(e) => {
-                    if (!e.target.value) return;
-                    const newStartsAt = fromZonedTime(e.target.value, businessTimezone);
+                  onChange={(v) => {
+                    if (!v) return;
+                    const newStartsAt = fromZonedTime(v, businessTimezone);
                     const durationMs = newBooking.endsAt.getTime() - newBooking.startsAt.getTime();
                     setNewBooking({
                       ...newBooking,
@@ -2326,6 +2322,50 @@ export function BookingCalendar({
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+/** Date, hour, and a minute picker in 15-minute steps. Keeps an off-grid minute
+ * (an older booking at 17:20) selectable so opening the form never changes it. */
+function QuarterHourField({ value, onChange }: { value: string; onChange: (next: string) => void }) {
+  const [date, time] = value.split("T");
+  const [hh, mm] = (time ?? "00:00").split(":");
+  const minute = Number(mm);
+  const minuteOptions = [0, 15, 30, 45].includes(minute)
+    ? [0, 15, 30, 45]
+    : [0, 15, 30, 45, minute].sort((a, b) => a - b);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return (
+    <div className="grid grid-cols-[1fr_auto_auto] gap-2">
+      <input
+        type="date"
+        className="input"
+        value={date}
+        onChange={(e) => e.target.value && onChange(`${e.target.value}T${hh}:${mm}`)}
+      />
+      <select
+        className="input !w-20"
+        value={hh}
+        onChange={(e) => onChange(`${date}T${e.target.value}:${mm}`)}
+      >
+        {Array.from({ length: 24 }, (_, h) => (
+          <option key={h} value={pad(h)}>
+            {pad(h)}
+          </option>
+        ))}
+      </select>
+      <select
+        className="input !w-20"
+        value={mm}
+        onChange={(e) => onChange(`${date}T${hh}:${e.target.value}`)}
+      >
+        {minuteOptions.map((m) => (
+          <option key={m} value={pad(m)}>
+            {pad(m)}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
