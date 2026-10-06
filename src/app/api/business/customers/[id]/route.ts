@@ -1,28 +1,33 @@
 import { NextResponse } from "next/server";
-import { requireSectionBusinessId } from "@/lib/current-business";
+import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { formatInTimeZone } from "date-fns-tz";
 
-/** A single customer's history with this business — who they are and every
- * visit, so an owner clicking into a booking can see how many times this
- * person has come in before without leaving the calendar. */
+/** A customer's history across the branches this viewer can see. Loyalty
+ * points belong to the branch the card was issued by, so only visits at the
+ * current branch are matched to scans. */
 export async function GET(
   _req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const businessId = await requireSectionBusinessId("bookings");
-  if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const currentId = access.business.id;
+  const scopeIds = await customerScopeBusinessIds(access);
 
   const business = await prisma.business.findUnique({
-    where: { id: businessId },
+    where: { id: currentId },
     select: { timezone: true, loyaltyProgram: { select: { pointsRequired: true, discountPercent: true } } },
   });
 
   const bookings = await prisma.booking.findMany({
-    where: { businessId, customerId: id },
+    where: { businessId: { in: scopeIds }, customerId: id },
     select: {
       id: true,
+      businessId: true,
       startsAt: true,
       customerNote: true,
       status: true,
@@ -31,6 +36,7 @@ export async function GET(
       cancelReason: true,
       service: { select: { name: true } },
       staff: { select: { name: true } },
+      business: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
     },
     orderBy: { startsAt: "desc" },
@@ -44,11 +50,11 @@ export async function GET(
   const completed = bookings.filter((b) => b.status === "COMPLETED");
 
   // A scan only counts while there are more completed visits than scans, so
-  // the Nth scan belongs to the Nth completed visit (in order) since the card
-  // was activated. A reward is applied after every Nth scan.
+  // the Nth scan belongs to the Nth completed visit (in order) at this branch
+  // since the card was activated. A reward is applied after every Nth scan.
   const timezone = business?.timezone ?? "UTC";
   const card = await prisma.loyaltyCard.findUnique({
-    where: { businessId_customerEmail: { businessId, customerEmail: customer.email.toLowerCase() } },
+    where: { businessId_customerEmail: { businessId: currentId, customerEmail: customer.email.toLowerCase() } },
     select: {
       activatedAt: true,
       rewardsEarned: true,
@@ -58,7 +64,7 @@ export async function GET(
   const pointsRequired = business?.loyaltyProgram?.pointsRequired ?? 0;
   const visitsInOrder = card
     ? completed
-        .filter((b) => b.startsAt >= card.activatedAt)
+        .filter((b) => b.businessId === currentId && b.startsAt >= card.activatedAt)
         .sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime())
         .map((b) => b.id)
     : [];
@@ -79,6 +85,7 @@ export async function GET(
     currency: bookings[0].currency,
     bookings: bookings.map((b) => ({
       id: b.id,
+      branchName: b.business.name,
       startsAt: b.startsAt.toISOString(),
       status: b.status,
       staffName: b.staff?.name ?? null,

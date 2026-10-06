@@ -142,3 +142,14 @@ export async function requireApprovedOwnedBusinessId(): Promise<
   if (business.status !== "APPROVED") return { error: "NOT_APPROVED" };
   return { businessId: business.id };
 }
+
+/** The branches whose customers this viewer may see together. An owner sees
+ * every branch they run; staff see only the branch they work at. */
+export async function customerScopeBusinessIds(access: BusinessAccess): Promise<string[]> {
+  if (!access.isOwner) return [access.business.id];
+  const branches = await prisma.business.findMany({
+    where: { ownerId: access.business.ownerId },
+    select: { id: true },
+  });
+  return branches.map((b) => b.id);
+}

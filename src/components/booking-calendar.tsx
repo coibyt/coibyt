@@ -102,6 +102,7 @@ interface CustomerDetail {
   currency: string;
   bookings: {
     id: string;
+    branchName: string;
     startsAt: string;
     status: string;
     staffName: string | null;
@@ -1677,6 +1678,7 @@ export function BookingCalendar({
                           <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
                         </div>
                         <div className="flex flex-wrap gap-x-2">
+                          <span className="font-medium text-ink-700">{b.branchName}</span>
                           {b.staffName && <span>{b.staffName}</span>}
                           <span>{tStatus(b.status as never)}</span>
                           {b.cancelReason && (

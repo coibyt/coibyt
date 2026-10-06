@@ -1,4 +1,4 @@
-import { getBusinessAccess } from "@/lib/current-business";
+import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -17,11 +17,12 @@ export default async function BusinessCustomersPage({
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
-  const { business } = access;
-
+  const scopeIds = await customerScopeBusinessIds(access);
   const bookings = await prisma.booking.findMany({
-    where: { businessId: business.id },
+    where: { businessId: { in: scopeIds } },
     select: {
+      businessId: true,
+      business: { select: { name: true } },
       startsAt: true,
       priceCents: true,
       currency: true,
