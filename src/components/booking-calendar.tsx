@@ -109,7 +109,11 @@ interface CustomerDetail {
     serviceName: string;
     priceCents: number;
     currency: string;
+    customerNote: string | null;
+    loyaltyScans: string[];
+    rewardApplied: boolean;
   }[];
+  loyalty: { pointsRequired: number; discountPercent: number } | null;
 }
 
 const HOUR_HEIGHT = 40; // px per hour in the day/week grid — short enough to need less scrolling
@@ -1679,6 +1683,27 @@ export function BookingCalendar({
                             <span>{tCancelReason(b.cancelReason as never)}</span>
                           )}
                         </div>
+                        {b.loyaltyScans.length > 0 && (
+                          <div className="mt-1 flex flex-wrap gap-1">
+                            {b.loyaltyScans.map((time, i) => (
+                              <span key={i} className="rounded-md bg-sage-50 px-1.5 py-0.5 text-xs font-medium text-sage-700">
+                                {locale === "vi" ? `+1 điểm · ${time}` : `+1 point · ${time}`}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                        {b.rewardApplied && (
+                          <p className="mt-1 rounded-md bg-berry-50 px-2 py-1 text-xs font-semibold text-berry-500">
+                            {locale === "vi"
+                              ? `Đã giảm ${customerDetail.loyalty?.discountPercent ?? 0}% do tích đủ ${customerDetail.loyalty?.pointsRequired ?? 0} điểm`
+                              : `${customerDetail.loyalty?.discountPercent ?? 0}% off applied after ${customerDetail.loyalty?.pointsRequired ?? 0} points`}
+                          </p>
+                        )}
+                        {b.customerNote && (
+                          <p className="mt-1 whitespace-pre-line rounded-md bg-mist-50 px-2 py-1 text-xs text-ink-700">
+                            {b.customerNote}
+                          </p>
+                        )}
                       </li>
                     ))}
                   </ul>

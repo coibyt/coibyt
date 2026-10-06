@@ -79,9 +79,13 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
 
 /** The salon gives the discount: the card goes back to zero for the next cycle. */
 export async function applyLoyaltyReward(businessId: string, cardId: string) {
-  const result = await prisma.loyaltyCard.updateMany({
-    where: { id: cardId, businessId, rewardReady: true },
-    data: { points: 0, rewardReady: false, rewardsEarned: { increment: 1 } },
+  return prisma.$transaction(async (tx) => {
+    const result = await tx.loyaltyCard.updateMany({
+      where: { id: cardId, businessId, rewardReady: true },
+      data: { points: 0, rewardReady: false, rewardsEarned: { increment: 1 } },
+    });
+    if (result.count === 0) return false;
+    await tx.loyaltyReward.create({ data: { cardId } });
+    return true;
   });
-  return result.count > 0;
 }

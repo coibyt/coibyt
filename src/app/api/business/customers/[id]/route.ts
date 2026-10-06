@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { formatInTimeZone } from "date-fns-tz";
 
 /** A single customer's history with this business — who they are and every
  * visit, so an owner clicking into a booking can see how many times this
@@ -13,11 +14,17 @@ export async function GET(
   const businessId = await requireSectionBusinessId("bookings");
   if (!businessId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
+  const business = await prisma.business.findUnique({
+    where: { id: businessId },
+    select: { timezone: true, loyaltyProgram: { select: { pointsRequired: true, discountPercent: true } } },
+  });
+
   const bookings = await prisma.booking.findMany({
     where: { businessId, customerId: id },
     select: {
       id: true,
       startsAt: true,
+      customerNote: true,
       status: true,
       priceCents: true,
       currency: true,
@@ -36,6 +43,18 @@ export async function GET(
   const customer = bookings[0].customer;
   const completed = bookings.filter((b) => b.status === "COMPLETED");
 
+  // Loyalty activity lands on the day of the visit it belongs to, so the owner
+  // can read each visit's points and any reward applied that day.
+  const timezone = business?.timezone ?? "UTC";
+  const card = await prisma.loyaltyCard.findUnique({
+    where: { businessId_customerEmail: { businessId, customerEmail: customer.email.toLowerCase() } },
+    select: {
+      scans: { select: { createdAt: true } },
+      rewards: { select: { createdAt: true } },
+    },
+  });
+  const dayOf = (d: Date) => formatInTimeZone(d, timezone, "yyyy-MM-dd");
+
   return NextResponse.json({
     customer: { name: customer.name, phone: customer.phone, email: customer.email },
     visitCount: completed.length,
@@ -50,6 +69,19 @@ export async function GET(
       serviceName: b.service.name,
       priceCents: b.priceCents,
       currency: b.currency,
+      customerNote: b.customerNote,
+      loyaltyScans: card
+        ? card.scans
+            .filter((x) => dayOf(x.createdAt) === dayOf(b.startsAt))
+            .map((x) => formatInTimeZone(x.createdAt, timezone, "HH:mm"))
+        : [],
+      rewardApplied: card ? card.rewards.some((r) => dayOf(r.createdAt) === dayOf(b.startsAt)) : false,
     })),
+    loyalty: business?.loyaltyProgram
+      ? {
+          pointsRequired: business.loyaltyProgram.pointsRequired,
+          discountPercent: business.loyaltyProgram.discountPercent,
+        }
+      : null,
   });
 }

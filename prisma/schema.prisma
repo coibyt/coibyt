@@ -1099,12 +1099,24 @@ model LoyaltyCard {
   activatedAt   DateTime @default(now())
   createdAt     DateTime @default(now())
 
-  scans LoyaltyScan[]
+  scans   LoyaltyScan[]
+  rewards LoyaltyReward[]
 
   @@unique([businessId, customerEmail])
 }
 
 model LoyaltyScan {
+  id        String      @id @default(cuid())
+  cardId    String
+  card      LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+
+  @@index([cardId])
+}
+
+// Each time the salon applies a loyalty reward, so the customer's history can
+// show it on the day it happened.
+model LoyaltyReward {
   id        String      @id @default(cuid())
   cardId    String
   card      LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
