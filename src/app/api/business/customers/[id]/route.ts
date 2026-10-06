@@ -43,17 +43,34 @@ export async function GET(
   const customer = bookings[0].customer;
   const completed = bookings.filter((b) => b.status === "COMPLETED");
 
-  // Loyalty activity lands on the day of the visit it belongs to, so the owner
-  // can read each visit's points and any reward applied that day.
+  // A scan only counts while there are more completed visits than scans, so
+  // the Nth scan belongs to the Nth completed visit (in order) since the card
+  // was activated. A reward is applied after every Nth scan.
   const timezone = business?.timezone ?? "UTC";
   const card = await prisma.loyaltyCard.findUnique({
     where: { businessId_customerEmail: { businessId, customerEmail: customer.email.toLowerCase() } },
     select: {
-      scans: { select: { createdAt: true } },
-      rewards: { select: { createdAt: true } },
+      activatedAt: true,
+      rewardsEarned: true,
+      scans: { select: { createdAt: true }, orderBy: { createdAt: "asc" } },
     },
   });
-  const dayOf = (d: Date) => formatInTimeZone(d, timezone, "yyyy-MM-dd");
+  const pointsRequired = business?.loyaltyProgram?.pointsRequired ?? 0;
+  const visitsInOrder = card
+    ? completed
+        .filter((b) => b.startsAt >= card.activatedAt)
+        .sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime())
+        .map((b) => b.id)
+    : [];
+  const matched = new Map<string, { time: string; rewardApplied: boolean }>();
+  if (card) {
+    card.scans.forEach((scan, i) => {
+      const visitId = visitsInOrder[i];
+      if (!visitId) return;
+      const rewardApplied = pointsRequired > 0 && (i + 1) % pointsRequired === 0 && (i + 1) / pointsRequired <= card.rewardsEarned;
+      matched.set(visitId, { time: formatInTimeZone(scan.createdAt, timezone, "HH:mm"), rewardApplied });
+    });
+  }
 
   return NextResponse.json({
     customer: { name: customer.name, phone: customer.phone, email: customer.email },
@@ -70,12 +87,8 @@ export async function GET(
       priceCents: b.priceCents,
       currency: b.currency,
       customerNote: b.customerNote,
-      loyaltyScans: card
-        ? card.scans
-            .filter((x) => dayOf(x.createdAt) === dayOf(b.startsAt))
-            .map((x) => formatInTimeZone(x.createdAt, timezone, "HH:mm"))
-        : [],
-      rewardApplied: card ? card.rewards.some((r) => dayOf(r.createdAt) === dayOf(b.startsAt)) : false,
+      loyaltyScans: matched.has(b.id) ? [matched.get(b.id)!.time] : [],
+      rewardApplied: matched.get(b.id)?.rewardApplied ?? false,
     })),
     loyalty: business?.loyaltyProgram
       ? {
