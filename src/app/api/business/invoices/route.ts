@@ -83,10 +83,14 @@ export async function POST(req: Request) {
       }
     }
 
-    const subtotalCents = data.lines.reduce((sum, l) => sum + l.qty * l.unitPriceCents, 0);
+    // Line prices are what the customer actually pays — VAT-inclusive,
+    // same convention as every price elsewhere in the app (and as
+    // Booksalon/Timma show it) — so VAT is extracted out of the total
+    // rather than added on top of it.
+    const totalCents = data.lines.reduce((sum, l) => sum + l.qty * l.unitPriceCents, 0);
     const vatPercent = business.invoiceVatPercent ?? 0;
-    const vatCents = Math.round((subtotalCents * vatPercent) / 100);
-    const totalCents = subtotalCents + vatCents;
+    const vatCents = Math.round((totalCents * vatPercent) / (100 + vatPercent));
+    const subtotalCents = totalCents - vatCents;
 
     const token = randomInvoiceToken();
     const [invoice] = await prisma.$transaction([

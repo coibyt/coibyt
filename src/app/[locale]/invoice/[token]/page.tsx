@@ -10,10 +10,11 @@ interface InvoiceLineView {
 }
 
 /** Public — the token alone is the access key, same trust model as a
- * loyalty/gift-card QR. This is what the PDF's QR code points to, so a
- * customer who lost the paper receipt can always come back and re-download
- * it (see the PDF endpoint at /api/invoices/[token]/pdf). Rendered in the
- * viewer's own locale (the URL's [locale] segment), same as the PDF. */
+ * loyalty/gift-card QR. A customer who lost the paper receipt (or just has
+ * the QR from the checkout panel) can always come back here to see the
+ * invoice again. Rendered in the viewer's own locale (the URL's [locale]
+ * segment). No PDF download here — see booking-calendar.tsx's checkout
+ * panel for why that isn't offered to customers directly. */
 export default async function PublicInvoicePage({
   params,
 }: {
@@ -102,15 +103,6 @@ export default async function PublicInvoicePage({
           </p>
           {invoice.note && <p className="text-ink-400">{invoice.note}</p>}
         </div>
-
-        <a
-          href={`/api/invoices/${token}/pdf?locale=${locale}`}
-          target="_blank"
-          rel="noreferrer"
-          className="btn-primary inline-flex !px-4 !py-2 text-sm"
-        >
-          {l.downloadPdf}
-        </a>
       </div>
     </div>
   );
