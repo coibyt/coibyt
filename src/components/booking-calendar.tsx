@@ -90,6 +90,31 @@ interface EditBookingDraft {
   customerEmail: string;
 }
 
+// "Đến quầy thanh toán" — the dashboard's pay-at-the-counter checkout. Line
+// prices start from the booking's own service/add-on prices but the salon
+// can adjust each before confirming, same as Timma's "Hinta/kpl" field.
+interface CheckoutLineDraft {
+  name: string;
+  qty: number;
+  unitPriceAmount: string; // whole-currency-unit string, same convention as EditBookingDraft.priceAmount
+}
+
+interface CheckoutDraft {
+  bookingId: string;
+  currency: string;
+  lines: CheckoutLineDraft[];
+  paymentMethod: "CASH" | "BANK_TRANSFER" | "GIFT_CARD";
+  giftCardCode: string;
+  note: string;
+}
+
+interface CheckoutResult {
+  number: string;
+  totalCents: number;
+  currency: string;
+  publicUrl: string;
+}
+
 interface CustomerMatch {
   id: string;
   name: string;
@@ -386,6 +411,10 @@ export function BookingCalendar({
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [jumpingToBookingId, setJumpingToBookingId] = useState<string | null>(null);
+  const [checkout, setCheckout] = useState<CheckoutDraft | null>(null);
+  const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
+  const [checkoutDone, setCheckoutDone] = useState<CheckoutResult | null>(null);
   const draggingId = useRef<string | null>(null);
   const [now, setNow] = useState(() => toZonedTime(new Date(), businessTimezone));
   const [newBooking, setNewBooking] = useState<NewBookingDraft | null>(null);
@@ -796,6 +825,76 @@ export function BookingCalendar({
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function openCheckout(booking: CalendarBooking) {
+    setCheckoutError(null);
+    setCheckoutDone(null);
+    setCheckout({
+      bookingId: booking.id,
+      currency: booking.currency,
+      lines: [
+        ...booking.slots.map((sl) => ({
+          name: sl.name,
+          qty: 1,
+          unitPriceAmount: String(fromSmallestUnit(sl.priceCents, booking.currency)),
+        })),
+        ...booking.addOns.map((a) => ({
+          name: a.name,
+          qty: 1,
+          unitPriceAmount: String(fromSmallestUnit(a.priceCents, booking.currency)),
+        })),
+      ],
+      paymentMethod: "CASH",
+      giftCardCode: "",
+      note: "",
+    });
+  }
+
+  async function submitCheckout() {
+    if (!checkout) return;
+    setCheckingOut(true);
+    setCheckoutError(null);
+    const res = await fetch("/api/business/invoices", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        bookingId: checkout.bookingId,
+        lines: checkout.lines.map((l) => ({
+          name: l.name,
+          qty: l.qty,
+          unitPriceCents: toSmallestUnit(Number(l.unitPriceAmount) || 0, checkout.currency),
+        })),
+        paymentMethod: checkout.paymentMethod,
+        giftCardCode: checkout.paymentMethod === "GIFT_CARD" ? checkout.giftCardCode.trim() : undefined,
+        note: checkout.note.trim() || undefined,
+      }),
+    });
+    const data = await res.json();
+    setCheckingOut(false);
+    if (!res.ok) {
+      setCheckoutError(
+        data.error === "NEEDS_INVOICE_SETTINGS"
+          ? locale === "vi"
+            ? "Cần điền thông tin xuất hóa đơn ở trang Cài đặt trước."
+            : "Fill in the invoice details on the Settings page first."
+          : data.error === "GIFT_CARD_CODE_REQUIRED"
+            ? locale === "vi"
+              ? "Nhập mã thẻ quà tặng."
+              : "Enter the gift card code."
+            : typeof data.error === "string" && data.error.startsWith("GIFT_CARD_")
+              ? locale === "vi"
+                ? "Thẻ quà tặng không hợp lệ hoặc đã dùng hết."
+                : "That gift card isn't valid or has no uses left."
+              : locale === "vi"
+                ? "Có lỗi xảy ra, vui lòng thử lại."
+                : "Something went wrong — please try again."
+      );
+      return;
+    }
+    setBookings((prev) => prev.map((b) => (b.id === checkout.bookingId ? { ...b, status: "COMPLETED" } : b)));
+    setActiveBooking(null);
+    setCheckoutDone(data);
+  }
 
   // Ticking/unticking an add-on nudges both the price and end time by
   // exactly that add-on's own amount — a delta on top of whatever's already
@@ -1792,6 +1891,13 @@ export function BookingCalendar({
                 <>
                   <button
                     disabled={updating}
+                    onClick={() => openCheckout(activeBooking)}
+                    className="btn-primary !bg-primary-500 !px-3 !py-1.5 text-xs hover:!bg-primary-600"
+                  >
+                    {locale === "vi" ? "Đến quầy thanh toán" : "Pay at the counter"}
+                  </button>
+                  <button
+                    disabled={updating}
                     onClick={() => updateStatus(activeBooking.id, "COMPLETED")}
                     className="btn-primary !bg-sage-500 !px-3 !py-1.5 text-xs hover:!bg-sage-600"
                   >
@@ -2081,6 +2187,153 @@ export function BookingCalendar({
                 {locale === "vi" ? "Huỷ" : "Cancel"}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {checkout && !checkoutDone && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
+            <div className="mb-4 flex items-start justify-between">
+              <p className="font-bold text-ink-900">
+                {locale === "vi" ? "Đến quầy thanh toán" : "Pay at the counter"}
+              </p>
+              <button onClick={() => setCheckout(null)} className="text-ink-400">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="min-h-0 flex-1 space-y-3 overflow-y-auto pr-1">
+              <div className="space-y-2">
+                {checkout.lines.map((line, i) => (
+                  <div key={i} className="flex items-center gap-2">
+                    <span className="flex-1 truncate text-sm text-ink-700">{line.name}</span>
+                    <input
+                      type="number"
+                      min={0}
+                      step="0.01"
+                      className="input !w-24 text-right"
+                      value={line.unitPriceAmount}
+                      onChange={(e) => {
+                        const lines = [...checkout.lines];
+                        lines[i] = { ...lines[i], unitPriceAmount: e.target.value };
+                        setCheckout({ ...checkout, lines });
+                      }}
+                    />
+                    <span className="text-xs text-ink-400">{checkout.currency}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="flex justify-between border-t border-ink-100 pt-2 text-sm font-semibold text-ink-900">
+                <span>{locale === "vi" ? "Tổng cộng" : "Total"}</span>
+                <span>
+                  {formatMoney(
+                    checkout.lines.reduce(
+                      (sum, l) => sum + toSmallestUnit(Number(l.unitPriceAmount) || 0, checkout.currency) * l.qty,
+                      0
+                    ),
+                    checkout.currency,
+                    locale
+                  )}
+                </span>
+              </p>
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Hình thức thanh toán" : "Payment method"}
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(["CASH", "BANK_TRANSFER", "GIFT_CARD"] as const).map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => setCheckout({ ...checkout, paymentMethod: m })}
+                      className={`rounded-lg border px-2 py-2 text-xs font-medium ${
+                        checkout.paymentMethod === m
+                          ? "border-primary-500 bg-primary-50 text-primary-600"
+                          : "border-ink-100 text-ink-700"
+                      }`}
+                    >
+                      {m === "CASH"
+                        ? locale === "vi"
+                          ? "Tiền mặt"
+                          : "Cash"
+                        : m === "BANK_TRANSFER"
+                          ? locale === "vi"
+                            ? "Qua ngân hàng"
+                            : "Bank transfer"
+                          : locale === "vi"
+                            ? "Thẻ quà tặng"
+                            : "Gift card"}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              {checkout.paymentMethod === "GIFT_CARD" && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Mã thẻ quà tặng" : "Gift card code"}</label>
+                  <input
+                    className="input"
+                    value={checkout.giftCardCode}
+                    onChange={(e) => setCheckout({ ...checkout, giftCardCode: e.target.value })}
+                  />
+                </div>
+              )}
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Thêm thông tin vào biên lai" : "Add info to the receipt"}
+                </label>
+                <textarea
+                  className="input"
+                  rows={2}
+                  value={checkout.note}
+                  onChange={(e) => setCheckout({ ...checkout, note: e.target.value })}
+                />
+              </div>
+            </div>
+            {checkoutError && <p className="mt-2 text-sm text-berry-500">{checkoutError}</p>}
+            <div className="mt-4 flex shrink-0 gap-2">
+              <button
+                disabled={checkingOut || (checkout.paymentMethod === "GIFT_CARD" && !checkout.giftCardCode.trim())}
+                onClick={submitCheckout}
+                className="btn-primary"
+              >
+                {checkingOut && <Loader2 className="h-4 w-4 animate-spin" />}
+                {locale === "vi" ? "Xác nhận thanh toán" : "Confirm payment"}
+              </button>
+              <button onClick={() => setCheckout(null)} className="btn-ghost">
+                {locale === "vi" ? "Huỷ" : "Cancel"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {checkoutDone && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6 text-center">
+            <p className="mb-1 font-bold text-ink-900">
+              {locale === "vi" ? "Đã xác nhận thanh toán" : "Payment confirmed"}
+            </p>
+            <p className="mb-4 text-sm text-ink-400">{checkoutDone.number}</p>
+            <p className="mb-4 text-2xl font-bold text-ink-900">
+              {formatMoney(checkoutDone.totalCents, checkoutDone.currency, locale)}
+            </p>
+            <a
+              href={checkoutDone.publicUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-outline mb-2 inline-flex w-full justify-center !py-2 text-sm"
+            >
+              {locale === "vi" ? "Xem / tải hóa đơn" : "View / download invoice"}
+            </a>
+            <button
+              onClick={() => {
+                setCheckout(null);
+                setCheckoutDone(null);
+              }}
+              className="btn-ghost w-full"
+            >
+              {locale === "vi" ? "Đóng" : "Close"}
+            </button>
           </div>
         </div>
       )}

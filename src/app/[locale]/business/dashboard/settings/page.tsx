@@ -7,6 +7,7 @@ import { AddBranchButton } from "@/components/branch-switcher";
 import { BusinessImagesManager } from "@/components/business-images-manager";
 import { BookingEmbedCard } from "@/components/booking-embed-card";
 import { BankInfoCard } from "@/components/bank-info-card";
+import { InvoiceInfoCard } from "@/components/invoice-info-card";
 import { ContactLinksCard } from "@/components/contact-links-card";
 import { PreferencesCard } from "@/components/preferences-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
@@ -95,6 +96,14 @@ export default async function BusinessSettingsPage({
           bankAccountNumber: business.bankAccountNumber,
           bankAccountName: business.bankAccountName,
           bankBic: business.bankBic,
+        }}
+      />
+      <InvoiceInfoCard
+        invoiceInfo={{
+          invoiceCompanyName: business.invoiceCompanyName,
+          invoiceCompanyAddress: business.invoiceCompanyAddress,
+          invoiceTaxId: business.invoiceTaxId,
+          invoiceVatPercent: business.invoiceVatPercent,
         }}
       />
       <BookingEmbedCard slug={business.slug} defaultLocale={business.defaultLocale} />

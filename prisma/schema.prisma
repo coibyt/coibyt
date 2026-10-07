@@ -194,6 +194,14 @@ model Business {
   bankAccountName   String?
   bankBic           String?
 
+  // Printed on every invoice issued from the "pay at the counter" checkout —
+  // set once on the Settings page before the salon can issue invoices at all
+  // (see POST /api/business/invoices).
+  invoiceCompanyName    String?
+  invoiceCompanyAddress String? @db.Text
+  invoiceTaxId          String? // business ID / tax number
+  invoiceVatPercent     Float?  @default(0)
+
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
   approvedAt DateTime?
@@ -1123,4 +1131,47 @@ model LoyaltyReward {
   createdAt DateTime    @default(now())
 
   @@index([cardId])
+}
+
+// A receipt issued from the dashboard's "pay at the counter" checkout — see
+// src/lib/invoices.ts. businessId/bookingId/customerId are plain ids (not
+// Prisma relations), same convention as GiftCardPurchase, since nothing else
+// needs to join through this table. The company/VAT fields are a snapshot of
+// the business's Settings at the moment of issue, so a later edit there never
+// changes an invoice already handed to a customer.
+model Invoice {
+  id         String @id @default(cuid())
+  businessId String
+  bookingId  String?
+  customerId String
+
+  number String // display number, e.g. INV-20261007-AB12
+  token  String @unique // the public /invoice/[token] link encoded in the QR
+
+  lines         Json // [{ name, qty, unitPriceCents, totalCents }]
+  subtotalCents Int
+  vatPercent    Float
+  vatCents      Int
+  totalCents    Int
+  currency      String
+
+  paymentMethod InvoicePaymentMethod
+  giftCardCode  String?
+  note          String? @db.Text
+
+  companyName    String?
+  companyAddress String? @db.Text
+  companyTaxId   String?
+
+  createdAt DateTime @default(now())
+
+  @@index([businessId, createdAt])
+  @@index([bookingId])
+  @@index([customerId])
+}
+
+enum InvoicePaymentMethod {
+  CASH
+  BANK_TRANSFER
+  GIFT_CARD
 }
