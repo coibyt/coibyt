@@ -11,16 +11,16 @@ export async function GET(
   { params }: { params: Promise<{ token: string }> }
 ) {
   const { token } = await params;
-  const found = await findInvoiceByToken(token);
-  if (!found) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-
-  const { searchParams } = new URL(req.url);
-  const localeParam = searchParams.get("locale");
-  const locale = SUPPORTED_LOCALES.includes(localeParam as InvoiceLocale)
-    ? (localeParam as InvoiceLocale)
-    : "vi";
-
   try {
+    const found = await findInvoiceByToken(token);
+    if (!found) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+
+    const { searchParams } = new URL(req.url);
+    const localeParam = searchParams.get("locale");
+    const locale = SUPPORTED_LOCALES.includes(localeParam as InvoiceLocale)
+      ? (localeParam as InvoiceLocale)
+      : "vi";
+
     const pdf = await renderInvoicePdf(toInvoiceData(found.invoice, found.customer, locale));
     return new NextResponse(new Uint8Array(pdf), {
       headers: {

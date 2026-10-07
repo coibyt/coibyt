@@ -420,6 +420,7 @@ export function BookingCalendar({
   const [invoiceEmailInput, setInvoiceEmailInput] = useState("");
   const [sendingInvoiceEmail, setSendingInvoiceEmail] = useState(false);
   const [invoiceEmailSent, setInvoiceEmailSent] = useState(false);
+  const [invoiceEmailPdfAttached, setInvoiceEmailPdfAttached] = useState(true);
   const [invoiceEmailError, setInvoiceEmailError] = useState<string | null>(null);
   const [showInvoiceQr, setShowInvoiceQr] = useState(false);
   const draggingId = useRef<string | null>(null);
@@ -924,6 +925,8 @@ export function BookingCalendar({
     });
     setSendingInvoiceEmail(false);
     if (res.ok) {
+      const data = await res.json().catch(() => null);
+      setInvoiceEmailPdfAttached(data?.pdfAttached !== false);
       setInvoiceEmailSent(true);
       return;
     }
@@ -2400,7 +2403,13 @@ export function BookingCalendar({
               </div>
               {invoiceEmailSent && (
                 <p className="text-xs font-medium text-sage-600">
-                  {locale === "vi" ? "Đã gửi email cho khách." : "Email sent to the customer."}
+                  {invoiceEmailPdfAttached
+                    ? locale === "vi"
+                      ? "Đã gửi email cho khách."
+                      : "Email sent to the customer."
+                    : locale === "vi"
+                      ? "Đã gửi email kèm liên kết hóa đơn (không đính kèm được file PDF lần này)."
+                      : "Email sent with a link to the invoice (couldn't attach the PDF this time)."}
                 </p>
               )}
               {invoiceEmailError && <p className="text-xs text-berry-500">{invoiceEmailError}</p>}

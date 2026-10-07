@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { newInvoiceNumber, randomInvoiceToken, invoicePublicUrl, invoiceQrPng } from "@/lib/invoices";
+import { newInvoiceNumber, randomInvoiceToken, invoicePublicUrl, invoiceQrPng, withDbRetry } from "@/lib/invoices";
 import { redeemGiftCard } from "@/lib/gift-cards";
 
 const lineSchema = z.object({
@@ -38,87 +38,96 @@ export async function POST(req: Request) {
   }
   const data = parsed.data;
 
-  const business = await prisma.business.findUnique({
-    where: { id: businessId },
-    select: {
-      invoiceCompanyName: true,
-      invoiceCompanyAddress: true,
-      invoiceTaxId: true,
-      invoiceVatPercent: true,
-      defaultCurrency: true,
-      defaultLocale: true,
-    },
-  });
-  if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-  if (!business.invoiceCompanyName) {
-    return NextResponse.json({ error: "NEEDS_INVOICE_SETTINGS" }, { status: 400 });
-  }
-
-  const booking = await prisma.booking.findFirst({
-    where: {
-      id: data.bookingId,
-      businessId,
-      ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
-    },
-    select: { id: true, customerId: true, currency: true, status: true },
-  });
-  if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-
-  if (data.paymentMethod === "GIFT_CARD") {
-    if (!data.giftCardCode) {
-      return NextResponse.json({ error: "GIFT_CARD_CODE_REQUIRED" }, { status: 400 });
+  try {
+    const business = await withDbRetry(() =>
+      prisma.business.findUnique({
+        where: { id: businessId },
+        select: {
+          invoiceCompanyName: true,
+          invoiceCompanyAddress: true,
+          invoiceTaxId: true,
+          invoiceVatPercent: true,
+          defaultCurrency: true,
+          defaultLocale: true,
+        },
+      })
+    );
+    if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+    if (!business.invoiceCompanyName) {
+      return NextResponse.json({ error: "NEEDS_INVOICE_SETTINGS" }, { status: 400 });
     }
-    const redeemed = await redeemGiftCard({
-      businessId,
-      code: data.giftCardCode,
-      bookingId: booking.id,
-    });
-    if (!redeemed.ok) {
-      return NextResponse.json({ error: `GIFT_CARD_${redeemed.reason}` }, { status: 409 });
-    }
-  }
 
-  const subtotalCents = data.lines.reduce((sum, l) => sum + l.qty * l.unitPriceCents, 0);
-  const vatPercent = business.invoiceVatPercent ?? 0;
-  const vatCents = Math.round((subtotalCents * vatPercent) / 100);
-  const totalCents = subtotalCents + vatCents;
+    const booking = await withDbRetry(() =>
+      prisma.booking.findFirst({
+        where: {
+          id: data.bookingId,
+          businessId,
+          ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
+        },
+        select: { id: true, customerId: true, currency: true, status: true },
+      })
+    );
+    if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
-  const token = randomInvoiceToken();
-  const [invoice] = await prisma.$transaction([
-    prisma.invoice.create({
-      data: {
+    if (data.paymentMethod === "GIFT_CARD") {
+      if (!data.giftCardCode) {
+        return NextResponse.json({ error: "GIFT_CARD_CODE_REQUIRED" }, { status: 400 });
+      }
+      const redeemed = await redeemGiftCard({
         businessId,
+        code: data.giftCardCode,
         bookingId: booking.id,
-        customerId: booking.customerId,
-        number: newInvoiceNumber(),
-        token,
-        lines: data.lines.map((l) => ({ ...l, totalCents: l.qty * l.unitPriceCents })),
-        subtotalCents,
-        vatPercent,
-        vatCents,
-        totalCents,
-        currency: booking.currency,
-        paymentMethod: data.paymentMethod,
-        giftCardCode: data.paymentMethod === "GIFT_CARD" ? data.giftCardCode : null,
-        note: data.note || null,
-        companyName: business.invoiceCompanyName,
-        companyAddress: business.invoiceCompanyAddress,
-        companyTaxId: business.invoiceTaxId,
-      },
-    }),
-    ...(booking.status !== "COMPLETED"
-      ? [prisma.booking.update({ where: { id: booking.id }, data: { status: "COMPLETED" as const } })]
-      : []),
-  ]);
+      });
+      if (!redeemed.ok) {
+        return NextResponse.json({ error: `GIFT_CARD_${redeemed.reason}` }, { status: 409 });
+      }
+    }
 
-  const qr = await invoiceQrPng(invoice.token, business.defaultLocale);
-  return NextResponse.json({
-    id: invoice.id,
-    number: invoice.number,
-    token: invoice.token,
-    totalCents: invoice.totalCents,
-    currency: invoice.currency,
-    publicUrl: invoicePublicUrl(invoice.token, business.defaultLocale),
-    qrDataUri: `data:image/png;base64,${qr.toString("base64")}`,
-  });
+    const subtotalCents = data.lines.reduce((sum, l) => sum + l.qty * l.unitPriceCents, 0);
+    const vatPercent = business.invoiceVatPercent ?? 0;
+    const vatCents = Math.round((subtotalCents * vatPercent) / 100);
+    const totalCents = subtotalCents + vatCents;
+
+    const token = randomInvoiceToken();
+    const [invoice] = await prisma.$transaction([
+      prisma.invoice.create({
+        data: {
+          businessId,
+          bookingId: booking.id,
+          customerId: booking.customerId,
+          number: newInvoiceNumber(),
+          token,
+          lines: data.lines.map((l) => ({ ...l, totalCents: l.qty * l.unitPriceCents })),
+          subtotalCents,
+          vatPercent,
+          vatCents,
+          totalCents,
+          currency: booking.currency,
+          paymentMethod: data.paymentMethod,
+          giftCardCode: data.paymentMethod === "GIFT_CARD" ? data.giftCardCode : null,
+          note: data.note || null,
+          companyName: business.invoiceCompanyName,
+          companyAddress: business.invoiceCompanyAddress,
+          companyTaxId: business.invoiceTaxId,
+        },
+      }),
+      ...(booking.status !== "COMPLETED"
+        ? [prisma.booking.update({ where: { id: booking.id }, data: { status: "COMPLETED" as const } })]
+        : []),
+    ]);
+
+    const qr = await invoiceQrPng(invoice.token, business.defaultLocale);
+    return NextResponse.json({
+      id: invoice.id,
+      number: invoice.number,
+      token: invoice.token,
+      totalCents: invoice.totalCents,
+      currency: invoice.currency,
+      publicUrl: invoicePublicUrl(invoice.token, business.defaultLocale),
+      qrDataUri: `data:image/png;base64,${qr.toString("base64")}`,
+    });
+  } catch (err) {
+    console.error("[POST /api/business/invoices]", err);
+    return NextResponse.json({ error: "INTERNAL_ERROR" }, { status: 500 });
+  }
 }

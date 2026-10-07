@@ -70,16 +70,31 @@ export interface InvoiceData {
   locale: string;
 }
 
+/** The connection to the remote MySQL has been observed dropping briefly and
+ * reconnecting on its own — one retry after a short pause rides out that
+ * kind of blip instead of failing a request over it. */
+export async function withDbRetry<T>(fn: () => Promise<T>): Promise<T> {
+  try {
+    return await fn();
+  } catch (err) {
+    console.error("[withDbRetry] query failed, retrying once", err);
+    await new Promise((r) => setTimeout(r, 500));
+    return fn();
+  }
+}
+
 /** The token alone gates access, same trust model as the loyalty/gift-card
  * QR codes — anyone with the link (or who scans the printed QR) can view and
  * download that one invoice, nothing else. */
 export async function findInvoiceByToken(token: string) {
-  const invoice = await prisma.invoice.findUnique({ where: { token } });
+  const invoice = await withDbRetry(() => prisma.invoice.findUnique({ where: { token } }));
   if (!invoice) return null;
-  const customer = await prisma.user.findUnique({
-    where: { id: invoice.customerId },
-    select: { name: true, email: true, phone: true },
-  });
+  const customer = await withDbRetry(() =>
+    prisma.user.findUnique({
+      where: { id: invoice.customerId },
+      select: { name: true, email: true, phone: true },
+    })
+  );
   return { invoice, customer };
 }
 
