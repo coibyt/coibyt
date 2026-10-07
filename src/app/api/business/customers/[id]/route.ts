@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { formatInTimeZone } from "date-fns-tz";
+import { invoicePublicUrl } from "@/lib/invoices";
 
 /** A customer's history across the branches this viewer can see. Loyalty
  * points belong to the branch the card was issued by, so only visits at the
@@ -20,7 +21,11 @@ export async function GET(
 
   const business = await prisma.business.findUnique({
     where: { id: currentId },
-    select: { timezone: true, loyaltyProgram: { select: { pointsRequired: true, discountPercent: true } } },
+    select: {
+      timezone: true,
+      defaultLocale: true,
+      loyaltyProgram: { select: { pointsRequired: true, discountPercent: true } },
+    },
   });
 
   const bookings = await prisma.booking.findMany({
@@ -45,6 +50,17 @@ export async function GET(
   if (bookings.length === 0) {
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
+
+  // A booking checked out through "Đến quầy thanh toán" gets its own
+  // Invoice row (see src/app/api/business/invoices/route.ts) — surfaced here
+  // so the owner can reopen or resend a past visit's invoice without having
+  // to remember when it was issued.
+  const invoices = await prisma.invoice.findMany({
+    where: { bookingId: { in: bookings.map((b) => b.id) } },
+    select: { id: true, token: true, bookingId: true },
+  });
+  const invoiceByBooking = new Map(invoices.map((inv) => [inv.bookingId, inv]));
+  const locale = business?.defaultLocale ?? "vi";
 
   const customer = bookings[0].customer;
   const completed = bookings.filter((b) => b.status === "COMPLETED");
@@ -97,6 +113,10 @@ export async function GET(
       customerNote: b.customerNote,
       loyaltyScans: matched.has(b.id) ? [matched.get(b.id)!.time] : [],
       rewardApplied: matched.get(b.id)?.rewardApplied ?? false,
+      invoiceId: invoiceByBooking.get(b.id)?.id ?? null,
+      invoiceUrl: invoiceByBooking.get(b.id)
+        ? invoicePublicUrl(invoiceByBooking.get(b.id)!.token, locale)
+        : null,
     })),
     loyalty: business?.loyaltyProgram
       ? {

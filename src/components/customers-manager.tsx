@@ -36,6 +36,8 @@ interface CustomerDetail {
     customerNote: string | null;
     loyaltyScans: string[];
     rewardApplied: boolean;
+    invoiceId: string | null;
+    invoiceUrl: string | null;
   }[];
   loyalty: { pointsRequired: number; discountPercent: number } | null;
 }
@@ -63,6 +65,20 @@ export function CustomersManager({
   const [detail, setDetail] = useState<CustomerDetail | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
   const [jumpingToBookingId, setJumpingToBookingId] = useState<string | null>(null);
+  const [resendingInvoiceId, setResendingInvoiceId] = useState<string | null>(null);
+  const [resendInvoiceResult, setResendInvoiceResult] = useState<{ id: string; ok: boolean } | null>(null);
+
+  async function resendInvoice(invoiceId: string, email: string) {
+    setResendingInvoiceId(invoiceId);
+    setResendInvoiceResult(null);
+    const res = await fetch(`/api/business/invoices/${invoiceId}/email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+    setResendingInvoiceId(null);
+    setResendInvoiceResult({ id: invoiceId, ok: res.ok });
+  }
 
   async function openBooking(bookingId: string, bookingBusinessId: string) {
     setJumpingToBookingId(bookingId);
@@ -249,6 +265,41 @@ export function CustomersManager({
                       )}
                       {b.customerNote && (
                         <p className="mt-1 whitespace-pre-line rounded-md bg-white px-2 py-1 text-ink-700">{b.customerNote}</p>
+                      )}
+                      {b.invoiceId && b.invoiceUrl && (
+                        <div className="mt-1 flex flex-wrap items-center gap-2 rounded-md bg-sage-50 px-2 py-1 text-sage-700">
+                          <span className="font-medium">
+                            {locale === "vi" ? "Đã xuất hóa đơn" : "Invoice issued"}
+                          </span>
+                          <a href={b.invoiceUrl} target="_blank" rel="noreferrer" className="underline">
+                            {locale === "vi" ? "Xem hóa đơn" : "View invoice"}
+                          </a>
+                          {canManageBookings && !detail.customer.email.includes("@walkin.") && (
+                            <button
+                              type="button"
+                              disabled={resendingInvoiceId === b.invoiceId}
+                              onClick={() => resendInvoice(b.invoiceId!, detail.customer.email)}
+                              className="underline disabled:opacity-50"
+                            >
+                              {resendingInvoiceId === b.invoiceId
+                                ? "..."
+                                : locale === "vi"
+                                  ? "Gửi lại cho khách"
+                                  : "Resend to customer"}
+                            </button>
+                          )}
+                          {resendInvoiceResult?.id === b.invoiceId && (
+                            <span className={resendInvoiceResult.ok ? "text-sage-700" : "text-berry-500"}>
+                              {resendInvoiceResult.ok
+                                ? locale === "vi"
+                                  ? "Đã gửi"
+                                  : "Sent"
+                                : locale === "vi"
+                                  ? "Gửi lỗi"
+                                  : "Failed"}
+                            </span>
+                          )}
+                        </div>
                       )}
                     </li>
                   ))}
