@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Search, Loader2, X } from "lucide-react";
 import { formatMoney } from "@/lib/money";
+import { getPathname, useRouter } from "@/i18n/navigation";
 
 interface CustomerRow {
   id: string;
@@ -23,6 +24,7 @@ interface CustomerDetail {
   currency: string;
   bookings: {
     id: string;
+    businessId: string;
     branchName: string;
     startsAt: string;
     status: string;
@@ -41,17 +43,44 @@ interface CustomerDetail {
 export function CustomersManager({
   customers,
   locale,
+  currentBusinessId,
+  canManageBookings,
 }: {
   customers: CustomerRow[];
   locale: string;
+  // The branch currently active in the dashboard — a visit at a different
+  // one of the owner's branches needs switching to before the bookings page
+  // can open it.
+  currentBusinessId: string;
+  canManageBookings: boolean;
 }) {
   const t = useTranslations("customers");
   const tStatus = useTranslations("booking.status");
   const tCancelReason = useTranslations("booking.cancelReason");
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [detailFor, setDetailFor] = useState<CustomerRow | null>(null);
   const [detail, setDetail] = useState<CustomerDetail | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
+  const [jumpingToBookingId, setJumpingToBookingId] = useState<string | null>(null);
+
+  async function openBooking(bookingId: string, bookingBusinessId: string) {
+    setJumpingToBookingId(bookingId);
+    try {
+      if (bookingBusinessId !== currentBusinessId) {
+        await fetch("/api/business/switch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ businessId: bookingBusinessId }),
+        });
+        window.location.href = `${getPathname({ href: "/business/dashboard/bookings", locale })}?edit=${bookingId}`;
+        return;
+      }
+      router.push(`/business/dashboard/bookings?edit=${bookingId}`);
+    } finally {
+      setJumpingToBookingId(null);
+    }
+  }
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -182,11 +211,25 @@ export function CustomersManager({
                         </span>
                         <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
                       </div>
-                      <div className="mt-1 flex flex-wrap gap-x-2 text-ink-400">
+                      <div className="mt-1 flex flex-wrap items-center gap-x-2 text-ink-400">
                         <span className="font-medium text-ink-700">{b.branchName}</span>
                         {b.staffName && <span>{b.staffName}</span>}
                         <span>{tStatus(b.status as never)}</span>
                         {b.cancelReason && <span>{tCancelReason(b.cancelReason as never)}</span>}
+                        {canManageBookings && (
+                          <button
+                            type="button"
+                            disabled={jumpingToBookingId === b.id}
+                            onClick={() => openBooking(b.id, b.businessId)}
+                            className="font-medium text-primary-600 hover:underline disabled:opacity-50"
+                          >
+                            {jumpingToBookingId === b.id
+                              ? "..."
+                              : locale === "vi"
+                                ? "Sửa cuộc hẹn này"
+                                : "Edit this booking"}
+                          </button>
+                        )}
                       </div>
                       {b.loyaltyScans.length > 0 && (
                         <div className="mt-1 flex flex-wrap gap-1">

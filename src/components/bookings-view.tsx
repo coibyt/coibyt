@@ -29,6 +29,7 @@ export function BookingsView({
   addOns,
   isOwner,
   viewerStaffId,
+  businessId,
 }: {
   title: string;
   initialBookings: BookingRow[];
@@ -52,6 +53,7 @@ export function BookingsView({
   }[];
   isOwner: boolean;
   viewerStaffId: string | null;
+  businessId: string;
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -111,6 +113,7 @@ export function BookingsView({
           isOwner={isOwner}
           viewerStaffId={viewerStaffId}
           headerSlot={headerSlot}
+          businessId={businessId}
         />
       ) : (
         <BookingsManager

@@ -74,7 +74,12 @@ export default async function BusinessCustomersPage({
     <div>
       <h1 className="mb-1 text-xl font-bold text-ink-900">{t("title")}</h1>
       <p className="mb-4 text-sm text-ink-400">{t("subtitle")}</p>
-      <CustomersManager customers={customers} locale={locale} />
+      <CustomersManager
+        customers={customers}
+        locale={locale}
+        currentBusinessId={access.business.id}
+        canManageBookings={access.isOwner || access.permissions.bookings}
+      />
     </div>
   );
 }

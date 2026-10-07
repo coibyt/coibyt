@@ -1,9 +1,105 @@
 import { NextResponse } from "next/server";
-import { bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
+import {
+  bookingStaffScope,
+  customerScopeBusinessIds,
+  getBusinessAccess,
+  requireSectionBusinessId,
+} from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
 import { sendBookingRescheduledEmail } from "@/lib/booking-service";
+import { serviceSlots } from "@/lib/booking-slots";
+
+/** One booking by id, for jumping straight from a customer's visit history
+ * (on the customers page, or the "Chi tiết khách hàng" panel on this page)
+ * into that exact booking's edit form. An owner can reach a booking at any
+ * of their branches this way, even one that isn't the active branch. */
+export async function GET(
+  _req: Request,
+  { params }: { params: Promise<{ id: string }> }
+) {
+  const { id } = await params;
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const scopeIds = await customerScopeBusinessIds(access);
+  const scopeStaffId = bookingStaffScope(access);
+
+  const booking = await prisma.booking.findFirst({
+    where: {
+      id,
+      businessId: { in: scopeIds },
+      ...(scopeStaffId
+        ? { OR: [{ staffId: scopeStaffId }, { extraServices: { some: { staffId: scopeStaffId } } }] }
+        : {}),
+    },
+    select: {
+      id: true,
+      businessId: true,
+      startsAt: true,
+      endsAt: true,
+      status: true,
+      priceCents: true,
+      currency: true,
+      staffId: true,
+      serviceId: true,
+      customerId: true,
+      customerNote: true,
+      source: true,
+      business: { select: { name: true } },
+      service: { select: { name: true } },
+      staff: { select: { name: true } },
+      customer: { select: { name: true, phone: true, email: true } },
+      addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
+      extraServices: {
+        select: {
+          id: true,
+          name: true,
+          priceCents: true,
+          durationMin: true,
+          staffId: true,
+          startsAt: true,
+          endsAt: true,
+          staff: { select: { name: true } },
+        },
+        orderBy: { id: "asc" },
+      },
+    },
+  });
+  if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+
+  const canViewContact = access.canViewCustomerContactInfo;
+  return NextResponse.json({
+    id: booking.id,
+    businessId: booking.businessId,
+    branchName: booking.business.name,
+    startsAt: booking.startsAt.toISOString(),
+    endsAt: booking.endsAt.toISOString(),
+    status: booking.status,
+    priceCents: booking.priceCents,
+    currency: booking.currency,
+    staffId: booking.staffId,
+    serviceId: booking.serviceId,
+    staffName: booking.staff?.name ?? null,
+    customerId: booking.customerId,
+    customerNote: booking.customerNote,
+    serviceName: booking.service.name,
+    customerName: booking.customer.name,
+    customerPhone: canViewContact ? booking.customer.phone : null,
+    customerEmail: canViewContact ? booking.customer.email : null,
+    source: booking.source,
+    slots: serviceSlots(booking).map((sl) => ({
+      ...sl,
+      startsAt: sl.startsAt.toISOString(),
+      endsAt: sl.endsAt.toISOString(),
+    })),
+    addOnNames: booking.addOns.map((a) => a.name),
+    addOns: booking.addOns.map((a) => ({ name: a.name, priceCents: a.priceCents })),
+    addOnIds: booking.addOns.map((a) => a.addOnId).filter((x): x is string => x !== null),
+  });
+}
 
 const patchSchema = z.object({
   status: z.enum(["CONFIRMED", "COMPLETED", "CANCELLED", "NO_SHOW"]).optional(),

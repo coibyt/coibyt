@@ -85,6 +85,7 @@ export async function GET(
     currency: bookings[0].currency,
     bookings: bookings.map((b) => ({
       id: b.id,
+      businessId: b.businessId,
       branchName: b.business.name,
       startsAt: b.startsAt.toISOString(),
       status: b.status,

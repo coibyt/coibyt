@@ -101,6 +101,7 @@ export default async function BusinessBookingsPage({
         }))}
         isOwner={access.isOwner}
         viewerStaffId={access.staffId ?? null}
+        businessId={business.id}
       />
     </div>
   );

@@ -3,7 +3,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { getPathname, useRouter } from "@/i18n/navigation";
 import {
   addDays,
   addMinutes,
@@ -102,6 +104,7 @@ interface CustomerDetail {
   currency: string;
   bookings: {
     id: string;
+    businessId: string;
     branchName: string;
     startsAt: string;
     status: string;
@@ -342,6 +345,7 @@ export function BookingCalendar({
   isOwner,
   viewerStaffId,
   headerSlot,
+  businessId,
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
@@ -356,7 +360,13 @@ export function BookingCalendar({
   // live outside this component, without lifting `view`/`anchorDate` state
   // up (both are used pervasively throughout this file).
   headerSlot?: HTMLElement | null;
+  // The branch currently loaded into this page — used to tell whether a
+  // customer-history visit belongs here (open its edit form in place) or at
+  // another of the owner's branches (switch branches, then land back here).
+  businessId: string;
 }) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const t = useTranslations("business");
   const tDash = useTranslations("dashboard");
   const hd = HOURS_DIALOG[locale] ?? HOURS_DIALOG.en;
@@ -375,6 +385,7 @@ export function BookingCalendar({
   const [editError, setEditError] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [jumpingToBookingId, setJumpingToBookingId] = useState<string | null>(null);
   const draggingId = useRef<string | null>(null);
   const [now, setNow] = useState(() => toZonedTime(new Date(), businessTimezone));
   const [newBooking, setNewBooking] = useState<NewBookingDraft | null>(null);
@@ -733,6 +744,58 @@ export function BookingCalendar({
       customerEmail: booking.customerEmail ?? "",
     });
   }
+
+  // Opens a booking straight into its own edit form from a customer's visit
+  // history — same branch jumps there in place; a visit at another of the
+  // owner's branches switches the active branch first, then lands back on
+  // this page with `?edit=` so the effect below picks it back up.
+  async function openBookingFromHistory(bookingId: string, bookingBusinessId: string) {
+    setJumpingToBookingId(bookingId);
+    try {
+      if (bookingBusinessId !== businessId) {
+        await fetch("/api/business/switch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ businessId: bookingBusinessId }),
+        });
+        window.location.href = `${getPathname({ href: "/business/dashboard/bookings", locale })}?edit=${bookingId}`;
+        return;
+      }
+      const res = await fetch(`/api/business/bookings/${bookingId}`);
+      if (!res.ok) return;
+      const data: CalendarBooking = await res.json();
+      setActiveBooking(null);
+      setCustomerDetail(null);
+      if (data.status === "CANCELLED") {
+        setActiveBooking(data);
+      } else {
+        startEditBooking(data);
+      }
+    } finally {
+      setJumpingToBookingId(null);
+    }
+  }
+
+  // Lands here after `openBookingFromHistory` switched branches — picks the
+  // booking back up on this (now active) branch and opens it the same way,
+  // then drops the query param so a refresh doesn't reopen it.
+  useEffect(() => {
+    const editId = searchParams.get("edit");
+    if (!editId) return;
+    (async () => {
+      const res = await fetch(`/api/business/bookings/${editId}`);
+      if (res.ok) {
+        const data: CalendarBooking = await res.json();
+        if (data.status === "CANCELLED") {
+          setActiveBooking(data);
+        } else {
+          startEditBooking(data);
+        }
+      }
+      router.replace("/business/dashboard/bookings");
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Ticking/unticking an add-on nudges both the price and end time by
   // exactly that add-on's own amount — a delta on top of whatever's already
@@ -1677,13 +1740,25 @@ export function BookingCalendar({
                           </span>
                           <span className="shrink-0">{formatMoney(b.priceCents, b.currency, locale)}</span>
                         </div>
-                        <div className="flex flex-wrap gap-x-2">
+                        <div className="flex flex-wrap items-center gap-x-2">
                           <span className="font-medium text-ink-700">{b.branchName}</span>
                           {b.staffName && <span>{b.staffName}</span>}
                           <span>{tStatus(b.status as never)}</span>
                           {b.cancelReason && (
                             <span>{tCancelReason(b.cancelReason as never)}</span>
                           )}
+                          <button
+                            type="button"
+                            disabled={jumpingToBookingId === b.id}
+                            onClick={() => openBookingFromHistory(b.id, b.businessId)}
+                            className="font-medium text-primary-600 hover:underline disabled:opacity-50"
+                          >
+                            {jumpingToBookingId === b.id
+                              ? "..."
+                              : locale === "vi"
+                                ? "Sửa cuộc hẹn này"
+                                : "Edit this booking"}
+                          </button>
                         </div>
                         {b.loyaltyScans.length > 0 && (
                           <div className="mt-1 flex flex-wrap gap-1">
