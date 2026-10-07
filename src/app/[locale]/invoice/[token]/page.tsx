@@ -1,12 +1,6 @@
 import { notFound } from "next/navigation";
-import { findInvoiceByToken } from "@/lib/invoices";
+import { findInvoiceByToken, invoiceLabels, paymentMethodLabel } from "@/lib/invoices";
 import { formatMoney } from "@/lib/money";
-
-const PAYMENT_METHOD_LABEL: Record<string, { vi: string; en: string }> = {
-  CASH: { vi: "Tiền mặt", en: "Cash" },
-  BANK_TRANSFER: { vi: "Chuyển khoản ngân hàng", en: "Bank transfer" },
-  GIFT_CARD: { vi: "Thẻ quà tặng", en: "Gift card" },
-};
 
 interface InvoiceLineView {
   name: string;
@@ -18,14 +12,15 @@ interface InvoiceLineView {
 /** Public — the token alone is the access key, same trust model as a
  * loyalty/gift-card QR. This is what the PDF's QR code points to, so a
  * customer who lost the paper receipt can always come back and re-download
- * it (see the PDF endpoint at /api/invoices/[token]/pdf). */
+ * it (see the PDF endpoint at /api/invoices/[token]/pdf). Rendered in the
+ * viewer's own locale (the URL's [locale] segment), same as the PDF. */
 export default async function PublicInvoicePage({
   params,
 }: {
   params: Promise<{ locale: string; token: string }>;
 }) {
   const { locale, token } = await params;
-  const vi = locale !== "en";
+  const l = invoiceLabels(locale);
   const found = await findInvoiceByToken(token);
   if (!found) notFound();
   const { invoice, customer } = found;
@@ -36,17 +31,17 @@ export default async function PublicInvoicePage({
       <div className="card space-y-5 p-6">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
-            <h1 className="text-lg font-bold text-ink-900">{invoice.companyName ?? (vi ? "Hóa đơn" : "Invoice")}</h1>
+            <h1 className="text-lg font-bold text-ink-900">{invoice.companyName ?? l.fallbackTitle}</h1>
             {invoice.companyAddress && <p className="text-xs text-ink-400">{invoice.companyAddress}</p>}
             {invoice.companyTaxId && (
               <p className="text-xs text-ink-400">
-                {vi ? "MST/ID DN" : "Tax ID"}: {invoice.companyTaxId}
+                {l.taxId}: {invoice.companyTaxId}
               </p>
             )}
           </div>
           <div className="text-right text-xs text-ink-400">
             <p className="font-semibold text-ink-900">{invoice.number}</p>
-            <p>{invoice.createdAt.toLocaleString(vi ? "vi-VN" : "en-US")}</p>
+            <p>{invoice.createdAt.toLocaleString(locale)}</p>
           </div>
         </div>
 
@@ -61,19 +56,19 @@ export default async function PublicInvoicePage({
         <table className="w-full text-sm">
           <thead>
             <tr className="border-b border-ink-100 text-left text-xs uppercase text-ink-400">
-              <th className="py-2">{vi ? "Dịch vụ" : "Service"}</th>
-              <th className="py-2 text-right">{vi ? "SL" : "Qty"}</th>
-              <th className="py-2 text-right">{vi ? "Đơn giá" : "Unit"}</th>
-              <th className="py-2 text-right">{vi ? "Thành tiền" : "Total"}</th>
+              <th className="py-2">{l.service}</th>
+              <th className="py-2 text-right">{l.qty}</th>
+              <th className="py-2 text-right">{l.unit}</th>
+              <th className="py-2 text-right">{l.lineTotal}</th>
             </tr>
           </thead>
           <tbody>
-            {lines.map((l, i) => (
+            {lines.map((line, i) => (
               <tr key={i} className="border-b border-ink-50">
-                <td className="py-2">{l.name}</td>
-                <td className="py-2 text-right">{l.qty}</td>
-                <td className="py-2 text-right">{formatMoney(l.unitPriceCents, invoice.currency, locale)}</td>
-                <td className="py-2 text-right">{formatMoney(l.totalCents, invoice.currency, locale)}</td>
+                <td className="py-2">{line.name}</td>
+                <td className="py-2 text-right">{line.qty}</td>
+                <td className="py-2 text-right">{formatMoney(line.unitPriceCents, invoice.currency, locale)}</td>
+                <td className="py-2 text-right">{formatMoney(line.totalCents, invoice.currency, locale)}</td>
               </tr>
             ))}
           </tbody>
@@ -81,7 +76,7 @@ export default async function PublicInvoicePage({
 
         <div className="ml-auto max-w-[220px] space-y-1 text-sm">
           <div className="flex justify-between text-ink-400">
-            <span>{vi ? "Tạm tính" : "Subtotal"}</span>
+            <span>{l.subtotal}</span>
             <span>{formatMoney(invoice.subtotalCents, invoice.currency, locale)}</span>
           </div>
           <div className="flex justify-between text-ink-400">
@@ -89,26 +84,25 @@ export default async function PublicInvoicePage({
             <span>{formatMoney(invoice.vatCents, invoice.currency, locale)}</span>
           </div>
           <div className="flex justify-between text-base font-bold text-ink-900">
-            <span>{vi ? "Tổng cộng" : "Total"}</span>
+            <span>{l.total}</span>
             <span>{formatMoney(invoice.totalCents, invoice.currency, locale)}</span>
           </div>
         </div>
 
         <div className="space-y-1 text-sm text-ink-700">
           <p>
-            {vi ? "Hình thức thanh toán" : "Payment method"}:{" "}
-            <b>{PAYMENT_METHOD_LABEL[invoice.paymentMethod][vi ? "vi" : "en"]}</b>
+            {l.paymentMethod}: <b>{paymentMethodLabel(invoice.paymentMethod, locale)}</b>
           </p>
           {invoice.note && <p className="text-ink-400">{invoice.note}</p>}
         </div>
 
         <a
-          href={`/api/invoices/${token}/pdf?locale=${vi ? "vi" : "en"}`}
+          href={`/api/invoices/${token}/pdf?locale=${locale}`}
           target="_blank"
           rel="noreferrer"
           className="btn-primary inline-flex !px-4 !py-2 text-sm"
         >
-          {vi ? "Tải xuống PDF" : "Download PDF"}
+          {l.downloadPdf}
         </a>
       </div>
     </div>
