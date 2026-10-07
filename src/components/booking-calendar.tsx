@@ -925,11 +925,18 @@ export function BookingCalendar({
     setSendingInvoiceEmail(false);
     if (res.ok) {
       setInvoiceEmailSent(true);
-    } else {
-      setInvoiceEmailError(
-        locale === "vi" ? "Không gửi được email, vui lòng thử lại." : "Couldn't send the email — please try again."
-      );
+      return;
     }
+    const data = await res.json().catch(() => null);
+    setInvoiceEmailError(
+      data?.error === "SEND_FAILED"
+        ? locale === "vi"
+          ? "Máy chủ gửi email đang gặp sự cố, vui lòng thử lại sau."
+          : "The mail server had a problem — please try again shortly."
+        : locale === "vi"
+          ? "Không gửi được email, vui lòng thử lại."
+          : "Couldn't send the email — please try again."
+    );
   }
 
   // Ticking/unticking an add-on nudges both the price and end time by

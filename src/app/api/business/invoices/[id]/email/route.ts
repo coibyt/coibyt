@@ -43,7 +43,15 @@ export async function POST(
   if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   const locale = business.defaultLocale;
-  const pdf = await renderInvoicePdf(toInvoiceData(invoice, customer, locale));
+
+  let pdf: Buffer;
+  try {
+    pdf = await renderInvoicePdf(toInvoiceData(invoice, customer, locale));
+  } catch (err) {
+    console.error("[POST /api/business/invoices/[id]/email] PDF render failed", err);
+    return NextResponse.json({ error: "PDF_RENDER_FAILED" }, { status: 500 });
+  }
+
   const email = invoiceEmail({
     customerName: customer?.name ?? "",
     businessName: business.name,
@@ -52,14 +60,19 @@ export async function POST(
     locale,
   });
 
-  await sendMail({
-    to: parsed.data.email,
-    subject: email.subject,
-    html: email.html,
-    attachments: [
-      { filename: `${invoice.number}.pdf`, content: pdf, contentType: "application/pdf" },
-    ],
-  });
+  try {
+    await sendMail({
+      to: parsed.data.email,
+      subject: email.subject,
+      html: email.html,
+      attachments: [
+        { filename: `${invoice.number}.pdf`, content: pdf, contentType: "application/pdf" },
+      ],
+    });
+  } catch (err) {
+    console.error("[POST /api/business/invoices/[id]/email] sendMail failed", err);
+    return NextResponse.json({ error: "SEND_FAILED" }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }
