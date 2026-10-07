@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { findInvoiceByToken, invoiceLabels, paymentMethodLabel } from "@/lib/invoices";
+import { findInvoiceByToken, invoiceLabels, invoiceQrPng, paymentMethodLabel } from "@/lib/invoices";
 import { formatMoney } from "@/lib/money";
 
 interface InvoiceLineView {
@@ -25,6 +25,8 @@ export default async function PublicInvoicePage({
   if (!found) notFound();
   const { invoice, customer } = found;
   const lines = invoice.lines as unknown as InvoiceLineView[];
+  const qr = await invoiceQrPng(token, locale);
+  const qrDataUri = `data:image/png;base64,${qr.toString("base64")}`;
 
   return (
     <div className="container max-w-2xl space-y-6 py-10">
@@ -39,11 +41,16 @@ export default async function PublicInvoicePage({
               </p>
             )}
           </div>
-          <div className="text-right text-xs text-ink-400">
-            <p className="font-semibold text-ink-900">{invoice.number}</p>
-            <p>{invoice.createdAt.toLocaleString(locale)}</p>
+          <div className="flex shrink-0 items-start gap-3">
+            <div className="text-right text-xs text-ink-400">
+              <p className="font-semibold text-ink-900">{invoice.number}</p>
+              <p>{invoice.createdAt.toLocaleString(locale)}</p>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- a base64 data URI, not a remote image next/image can optimize */}
+            <img src={qrDataUri} alt="QR" width={72} height={72} className="shrink-0 rounded-md border border-ink-100" />
           </div>
         </div>
+        <p className="-mt-3 text-right text-[11px] text-ink-400">{l.scanToView}</p>
 
         {customer && (
           <div className="rounded-lg bg-mist-50 p-3 text-sm">
