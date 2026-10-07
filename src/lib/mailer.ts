@@ -887,6 +887,91 @@ export function reviewRequestEmail(params: {
   };
 }
 
+const INVOICE_EMAIL_STRINGS: Record<
+  string,
+  { subject: (number: string) => string; heading: string; body: (business: string) => string; viewCTA: string; hi: string }
+> = {
+  vi: {
+    subject: (n) => `Hóa đơn ${n}`,
+    heading: "Hóa đơn của bạn",
+    body: (b) => `Đính kèm đây là hóa đơn cho dịch vụ bạn vừa sử dụng tại <strong>${b}</strong>.`,
+    viewCTA: "Xem hóa đơn trực tuyến",
+    hi: "Xin chào",
+  },
+  en: {
+    subject: (n) => `Invoice ${n}`,
+    heading: "Your invoice",
+    body: (b) => `Attached is the invoice for the service you just had at <strong>${b}</strong>.`,
+    viewCTA: "View invoice online",
+    hi: "Hi",
+  },
+  fi: {
+    subject: (n) => `Lasku ${n}`,
+    heading: "Laskusi",
+    body: (b) => `Liitteenä lasku palvelusta, jonka sait juuri paikassa <strong>${b}</strong>.`,
+    viewCTA: "Näytä lasku verkossa",
+    hi: "Hei",
+  },
+  pl: {
+    subject: (n) => `Faktura ${n}`,
+    heading: "Twoja faktura",
+    body: (b) => `W załączniku znajduje się faktura za usługę, z której właśnie skorzystałeś(aś) w <strong>${b}</strong>.`,
+    viewCTA: "Zobacz fakturę online",
+    hi: "Cześć",
+  },
+  de: {
+    subject: (n) => `Rechnung ${n}`,
+    heading: "Deine Rechnung",
+    body: (b) => `Im Anhang findest du die Rechnung für die Leistung, die du gerade bei <strong>${b}</strong> erhalten hast.`,
+    viewCTA: "Rechnung online ansehen",
+    hi: "Hallo",
+  },
+  km: {
+    subject: (n) => `វិក្កយបត្រ ${n}`,
+    heading: "វិក្កយបត្ររបស់អ្នក",
+    body: (b) => `ភ្ជាប់មកជាមួយនេះគឺវិក្កយបត្រសម្រាប់សេវាកម្មដែលអ្នកទើបតែទទួលបាននៅ <strong>${b}</strong>។`,
+    viewCTA: "មើលវិក្កយបត្រតាមអ៊ីនធឺណិត",
+    hi: "សួស្តី",
+  },
+  th: {
+    subject: (n) => `ใบแจ้งหนี้ ${n}`,
+    heading: "ใบแจ้งหนี้ของคุณ",
+    body: (b) => `แนบมาพร้อมนี้คือใบแจ้งหนี้สำหรับบริการที่คุณเพิ่งใช้ที่ <strong>${b}</strong>`,
+    viewCTA: "ดูใบแจ้งหนี้ออนไลน์",
+    hi: "สวัสดี",
+  },
+};
+
+/** Sent from the dashboard's "pay at the counter" checkout, on request —
+ * the owner enters the customer's email and sends the already-issued
+ * invoice (as a PDF attachment) right there. See
+ * POST /api/business/invoices/[id]/email. */
+export function invoiceEmail(params: {
+  customerName: string;
+  businessName: string;
+  invoiceNumber: string;
+  viewUrl: string;
+  locale: string;
+}) {
+  const s = INVOICE_EMAIL_STRINGS[params.locale] ?? INVOICE_EMAIL_STRINGS.en;
+  return {
+    subject: s.subject(params.invoiceNumber),
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${s.heading}</h2>
+        <p>${s.hi} ${params.customerName},</p>
+        <p>${s.body(params.businessName)}</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.viewUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${s.viewCTA}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 /** A one-off marketing email an owner composes from the dashboard and sends
  * to their own past customers (see /api/business/marketing/send). `bodyHtml`
  * is expected to already be escaped/line-break-converted by the caller —

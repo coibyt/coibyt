@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { newInvoiceNumber, randomInvoiceToken, invoicePublicUrl } from "@/lib/invoices";
+import { newInvoiceNumber, randomInvoiceToken, invoicePublicUrl, invoiceQrPng } from "@/lib/invoices";
 import { redeemGiftCard } from "@/lib/gift-cards";
 
 const lineSchema = z.object({
@@ -46,6 +46,7 @@ export async function POST(req: Request) {
       invoiceTaxId: true,
       invoiceVatPercent: true,
       defaultCurrency: true,
+      defaultLocale: true,
     },
   });
   if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
@@ -110,12 +111,14 @@ export async function POST(req: Request) {
       : []),
   ]);
 
+  const qr = await invoiceQrPng(invoice.token, business.defaultLocale);
   return NextResponse.json({
     id: invoice.id,
     number: invoice.number,
     token: invoice.token,
     totalCents: invoice.totalCents,
     currency: invoice.currency,
-    publicUrl: invoicePublicUrl(invoice.token),
+    publicUrl: invoicePublicUrl(invoice.token, business.defaultLocale),
+    qrDataUri: `data:image/png;base64,${qr.toString("base64")}`,
   });
 }

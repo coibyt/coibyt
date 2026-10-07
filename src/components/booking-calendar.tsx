@@ -109,10 +109,12 @@ interface CheckoutDraft {
 }
 
 interface CheckoutResult {
+  id: string;
   number: string;
   totalCents: number;
   currency: string;
   publicUrl: string;
+  qrDataUri: string;
 }
 
 interface CustomerMatch {
@@ -415,6 +417,11 @@ export function BookingCalendar({
   const [checkingOut, setCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [checkoutDone, setCheckoutDone] = useState<CheckoutResult | null>(null);
+  const [invoiceEmailInput, setInvoiceEmailInput] = useState("");
+  const [sendingInvoiceEmail, setSendingInvoiceEmail] = useState(false);
+  const [invoiceEmailSent, setInvoiceEmailSent] = useState(false);
+  const [invoiceEmailError, setInvoiceEmailError] = useState<string | null>(null);
+  const [showInvoiceQr, setShowInvoiceQr] = useState(false);
   const draggingId = useRef<string | null>(null);
   const [now, setNow] = useState(() => toZonedTime(new Date(), businessTimezone));
   const [newBooking, setNewBooking] = useState<NewBookingDraft | null>(null);
@@ -892,8 +899,37 @@ export function BookingCalendar({
       return;
     }
     setBookings((prev) => prev.map((b) => (b.id === checkout.bookingId ? { ...b, status: "COMPLETED" } : b)));
+    // A walk-in placeholder address (see booking-service.ts) isn't a real
+    // inbox — leave the field blank rather than prefill something that'll
+    // just bounce.
+    const customerEmail = activeBooking?.customerEmail ?? "";
+    setInvoiceEmailInput(customerEmail.includes("@walkin.") ? "" : customerEmail);
+    setSendingInvoiceEmail(false);
+    setInvoiceEmailSent(false);
+    setInvoiceEmailError(null);
+    setShowInvoiceQr(false);
     setActiveBooking(null);
     setCheckoutDone(data);
+  }
+
+  async function sendInvoiceEmail() {
+    if (!checkoutDone || !invoiceEmailInput.trim()) return;
+    setSendingInvoiceEmail(true);
+    setInvoiceEmailError(null);
+    setInvoiceEmailSent(false);
+    const res = await fetch(`/api/business/invoices/${checkoutDone.id}/email`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: invoiceEmailInput.trim() }),
+    });
+    setSendingInvoiceEmail(false);
+    if (res.ok) {
+      setInvoiceEmailSent(true);
+    } else {
+      setInvoiceEmailError(
+        locale === "vi" ? "Không gửi được email, vui lòng thử lại." : "Couldn't send the email — please try again."
+      );
+    }
   }
 
   // Ticking/unticking an add-on nudges both the price and end time by
@@ -2321,10 +2357,71 @@ export function BookingCalendar({
               href={checkoutDone.publicUrl}
               target="_blank"
               rel="noreferrer"
-              className="btn-outline mb-2 inline-flex w-full justify-center !py-2 text-sm"
+              className="btn-outline mb-4 inline-flex w-full justify-center !py-2 text-sm"
             >
               {locale === "vi" ? "Xem / tải hóa đơn" : "View / download invoice"}
             </a>
+
+            <div className="mb-3 space-y-2 text-left">
+              <label className="label">
+                {locale === "vi" ? "Gửi hóa đơn qua email" : "Email the invoice"}
+              </label>
+              <div className="flex gap-2">
+                <input
+                  type="email"
+                  className="input"
+                  placeholder={locale === "vi" ? "email@khachhang.com" : "customer@email.com"}
+                  value={invoiceEmailInput}
+                  onChange={(e) => {
+                    setInvoiceEmailInput(e.target.value);
+                    setInvoiceEmailSent(false);
+                  }}
+                />
+                <button
+                  disabled={sendingInvoiceEmail || !invoiceEmailInput.trim()}
+                  onClick={sendInvoiceEmail}
+                  className="btn-primary shrink-0 !px-3 !py-2 text-sm"
+                >
+                  {sendingInvoiceEmail ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : locale === "vi" ? (
+                    "Gửi"
+                  ) : (
+                    "Send"
+                  )}
+                </button>
+              </div>
+              {invoiceEmailSent && (
+                <p className="text-xs font-medium text-sage-600">
+                  {locale === "vi" ? "Đã gửi email cho khách." : "Email sent to the customer."}
+                </p>
+              )}
+              {invoiceEmailError && <p className="text-xs text-berry-500">{invoiceEmailError}</p>}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowInvoiceQr((v) => !v)}
+              className="btn-outline mb-3 inline-flex w-full justify-center !py-2 text-sm"
+            >
+              {showInvoiceQr
+                ? locale === "vi"
+                  ? "Ẩn mã QR"
+                  : "Hide QR code"
+                : locale === "vi"
+                  ? "Hiện mã QR"
+                  : "Show QR code"}
+            </button>
+            {showInvoiceQr && (
+              <div className="mb-3 flex flex-col items-center gap-1">
+                {/* eslint-disable-next-line @next/next/no-img-element -- a base64 data URI, not a remote image next/image can optimize */}
+                <img src={checkoutDone.qrDataUri} alt="QR" width={160} height={160} className="rounded-lg border border-ink-100" />
+                <p className="text-xs text-ink-400">
+                  {locale === "vi" ? "Khách quét mã để tải hóa đơn" : "Customer scans to download the invoice"}
+                </p>
+              </div>
+            )}
+
             <button
               onClick={() => {
                 setCheckout(null);
