@@ -691,10 +691,10 @@ export function BookingCalendar({
       if (!col) return;
       const rect = col.getBoundingClientRect();
       const offsetY = e.clientY - rect.top;
-      let minute = DEFAULT_START_HOUR * 60 + (offsetY / HOUR_HEIGHT) * 60;
+      let minute = startHour * 60 + (offsetY / HOUR_HEIGHT) * 60;
       minute = Math.max(
-        DEFAULT_START_HOUR * 60,
-        Math.min(DEFAULT_END_HOUR * 60, Math.round(minute / DRAG_SNAP_MIN) * DRAG_SNAP_MIN)
+        startHour * 60,
+        Math.min(endHour * 60, Math.round(minute / DRAG_SNAP_MIN) * DRAG_SNAP_MIN)
       );
       resizePreviewRef.current = minute;
       setResizePreview(minute);
