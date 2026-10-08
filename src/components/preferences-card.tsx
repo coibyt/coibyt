@@ -28,6 +28,19 @@ const LOCALE_LABELS: Record<string, string> = {
   ru: "Russian",
   sk: "Slovak",
   uk: "Ukrainian",
+  no: "Norwegian",
+  da: "Danish",
+  nl: "Dutch",
+  it: "Italian",
+  es: "Spanish",
+  he: "Hebrew",
+  hi: "Hindi",
+  id: "Indonesian",
+  ms: "Malay",
+  fil: "Filipino",
+  ar: "Arabic",
+  tr: "Turkish",
+  pt: "Portuguese",
 };
 
 const CANCEL_WINDOW_OPTIONS = [12, 24, 48, 72];

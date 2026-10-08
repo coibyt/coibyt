@@ -26,6 +26,19 @@ const LOCALE_LABELS: Record<string, string> = {
   ru: "Russian",
   sk: "Slovak",
   uk: "Ukrainian",
+  no: "Norwegian",
+  da: "Danish",
+  nl: "Dutch",
+  it: "Italian",
+  es: "Spanish",
+  he: "Hebrew",
+  hi: "Hindi",
+  id: "Indonesian",
+  ms: "Malay",
+  fil: "Filipino",
+  ar: "Arabic",
+  tr: "Turkish",
+  pt: "Portuguese",
 };
 
 /** Lets a customer switch language on any chrome-free page that takes its
