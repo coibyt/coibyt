@@ -13,6 +13,21 @@ const LOCALE_LABELS: Record<string, string> = {
   de: "Deutsch",
   km: "ខ្មែរ",
   th: "ไทย",
+  sv: "Svenska",
+  fr: "Français",
+  ko: "한국어",
+  ja: "日本語",
+  zh: "中文",
+  lv: "Latviešu",
+  et: "Eesti",
+  be: "Беларуская",
+  bg: "Български",
+  cs: "Čeština",
+  hu: "Magyar",
+  ro: "Română",
+  ru: "Русский",
+  sk: "Slovenčina",
+  uk: "Українська",
 };
 
 export function LocaleSwitcher() {
