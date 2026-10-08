@@ -11,6 +11,7 @@ import {
   addMinutes,
   addMonths,
   addWeeks,
+  eachDayOfInterval,
   endOfMonth,
   endOfWeek,
   format,
@@ -1209,8 +1210,34 @@ export function BookingCalendar({
     reloadBookings();
   }
 
-  const startHour = DEFAULT_START_HOUR;
-  const endHour = DEFAULT_END_HOUR;
+  // The grid's vertical range follows the salon's own opening hours for
+  // whatever day(s) are on screen (day view: that one day; week view: the
+  // union across the visible week) instead of a fixed 7–23 span — a salon
+  // that closes at 20:00 doesn't need three empty hours below its last
+  // booking. Falls back to the old default on a day with no hours set, and
+  // always widens to include any booking that happens to fall outside
+  // business hours (a manual early/late booking must never be clipped off
+  // the grid).
+  const visibleDays = view === "week" ? eachDayOfInterval({ start: gridStart, end: gridEnd }) : [anchorDate];
+  const { startHour, endHour } = useMemo(() => {
+    const weekdays = new Set(visibleDays.map((d) => d.getDay()));
+    const windows = businessHours.filter((h) => weekdays.has(h.weekday));
+    let openMin = windows.length > 0 ? Math.min(...windows.map((w) => w.openMinute)) : DEFAULT_START_HOUR * 60;
+    let closeMin = windows.length > 0 ? Math.max(...windows.map((w) => w.closeMinute)) : DEFAULT_END_HOUR * 60;
+
+    for (const block of calendarBlocks) {
+      const day = toZonedTime(new Date(block.startsAt), businessTimezone);
+      if (!visibleDays.some((d) => isSameDay(d, day))) continue;
+      openMin = Math.min(openMin, minutesFromMidnight(block.startsAt));
+      closeMin = Math.max(closeMin, minutesFromMidnight(block.endsAt));
+    }
+
+    return {
+      startHour: Math.max(0, Math.floor(openMin / 60)),
+      endHour: Math.min(24, Math.ceil(closeMin / 60)),
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [businessHours, calendarBlocks, visibleDays.map((d) => format(d, "yyyy-MM-dd")).join(","), businessTimezone]);
   const totalHours = endHour - startHour;
   const hourMarks = Array.from({ length: totalHours + 1 }, (_, i) => startHour + i);
 
