@@ -244,6 +244,7 @@
       "addOns": "Dodatki",
       "group": "Grupa usług",
       "groupNone": "Bez grupy",
+      "groupCustom": "Twoje grupy",
       "newGroupPlaceholder": "Nazwa nowej grupy, np. Paznokcie",
       "addGroup": "Dodaj grupę",
       "ungrouped": "Bez grupy",

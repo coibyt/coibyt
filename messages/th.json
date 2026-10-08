@@ -244,6 +244,7 @@
       "addOns": "บริการเสริม",
       "group": "กลุ่มบริการ",
       "groupNone": "ไม่มีกลุ่ม",
+      "groupCustom": "กลุ่มของคุณ",
       "newGroupPlaceholder": "ชื่อกลุ่มใหม่ เช่น ทำเล็บ",
       "addGroup": "เพิ่มกลุ่ม",
       "ungrouped": "ยังไม่จัดกลุ่ม",

@@ -244,6 +244,7 @@
       "addOns": "Dịch vụ phụ",
       "group": "Nhóm dịch vụ",
       "groupNone": "Chưa phân nhóm",
+      "groupCustom": "Nhóm của bạn",
       "newGroupPlaceholder": "Tên nhóm mới, ví dụ: Làm móng tay",
       "addGroup": "Thêm nhóm",
       "ungrouped": "Chưa phân nhóm",

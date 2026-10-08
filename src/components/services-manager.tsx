@@ -24,6 +24,7 @@ interface ServiceRow {
   currency: string;
   active: boolean;
   groupId: string | null;
+  categoryId: string | null;
   videoUrl: string | null;
   staffAssignments: StaffAssignment[];
 }
@@ -39,6 +40,7 @@ const emptyForm = {
   name: "",
   description: "",
   groupId: "",
+  categoryId: "",
   durationMin: "60",
   bufferMin: "0",
   // Whole-currency-unit amounts (e.g. "180" meaning 180 EUR), not cents —
@@ -54,12 +56,18 @@ export function ServicesManager({
   initialServices,
   staffOptions,
   groups,
+  categories,
   locale,
   defaultCurrency,
 }: {
   initialServices: ServiceRow[];
   staffOptions: { id: string; name: string }[];
   groups: { id: string; name: string }[];
+  // The platform's standard categories (same ones as the homepage's "Duyệt
+  // theo danh mục"), offered as a ready-made alternative to a custom group —
+  // picking one tags the service with Service.categoryId instead of
+  // groupId, so the public site can show its name translated per viewer.
+  categories: { id: string; name: string }[];
   locale: string;
   defaultCurrency: string;
 }) {
@@ -100,6 +108,7 @@ export function ServicesManager({
       name: s.name,
       description: s.description ?? "",
       groupId: s.groupId ?? "",
+      categoryId: s.categoryId ?? "",
       durationMin: String(s.durationMin),
       bufferMin: String(s.bufferMin),
       priceAmount: String(fromSmallestUnit(s.priceCents, s.currency)),
@@ -137,6 +146,7 @@ export function ServicesManager({
       name: form.name,
       description: form.description,
       groupId: form.groupId || null,
+      categoryId: form.categoryId || null,
       durationMin: Number(form.durationMin) || 0,
       bufferMin: Number(form.bufferMin) || 0,
       priceCents: toSmallestUnit(Number(form.priceAmount) || 0, formCurrency),
@@ -289,7 +299,16 @@ export function ServicesManager({
 
   const activeServices = initialServices.filter((s) => s.active);
   const groupIdSet = new Set(groups.map((g) => g.id));
-  const ungroupedServices = activeServices.filter((s) => !s.groupId || !groupIdSet.has(s.groupId));
+  const afterCustomGroups = activeServices.filter((s) => !s.groupId || !groupIdSet.has(s.groupId));
+
+  // A service tagged with one of the platform's standard categories (instead
+  // of a custom group) gets its own section here too, so the list the owner
+  // sees matches how the public site will actually group it.
+  const categoryById = new Map(categories.map((c) => [c.id, c.name]));
+  const categorySections = categories
+    .map((c) => ({ id: c.id, name: c.name, items: afterCustomGroups.filter((s) => s.categoryId === c.id) }))
+    .filter((sec) => sec.items.length > 0);
+  const ungroupedServices = afterCustomGroups.filter((s) => !s.categoryId || !categoryById.has(s.categoryId));
 
   return (
     <div className="space-y-4">
@@ -360,9 +379,18 @@ export function ServicesManager({
         );
       })}
 
+      {categorySections.map((sec) => (
+        <section key={sec.id} className="space-y-2">
+          <h2 className="border-b border-ink-100 pb-1.5 font-bold text-ink-900">
+            {sec.name} <span className="text-xs font-normal text-ink-400">({sec.items.length})</span>
+          </h2>
+          {sec.items.map(renderServiceRow)}
+        </section>
+      ))}
+
       {ungroupedServices.length > 0 && (
         <section className="space-y-2">
-          {groups.length > 0 && (
+          {(groups.length > 0 || categorySections.length > 0) && (
             <h2 className="border-b border-ink-100 pb-1.5 font-bold text-ink-900">
               {tDash("servicesForm.ungrouped")}{" "}
               <span className="text-xs font-normal text-ink-400">({ungroupedServices.length})</span>
@@ -414,15 +442,33 @@ export function ServicesManager({
               <label className="label">{tDash("servicesForm.group")}</label>
               <select
                 className="input"
-                value={form.groupId}
-                onChange={(e) => setForm({ ...form, groupId: e.target.value })}
+                value={form.groupId ? `group:${form.groupId}` : form.categoryId ? `category:${form.categoryId}` : ""}
+                onChange={(e) => {
+                  const [kind, id] = e.target.value.split(":");
+                  setForm({
+                    ...form,
+                    groupId: kind === "group" ? id : "",
+                    categoryId: kind === "category" ? id : "",
+                  });
+                }}
               >
                 <option value="">{tDash("servicesForm.groupNone")}</option>
-                {groups.map((g) => (
-                  <option key={g.id} value={g.id}>
-                    {g.name}
-                  </option>
-                ))}
+                {groups.length > 0 && (
+                  <optgroup label={tDash("servicesForm.groupCustom")}>
+                    {groups.map((g) => (
+                      <option key={g.id} value={`group:${g.id}`}>
+                        {g.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
+                <optgroup label={tDash("servicesForm.category")}>
+                  {categories.map((c) => (
+                    <option key={c.id} value={`category:${c.id}`}>
+                      {c.name}
+                    </option>
+                  ))}
+                </optgroup>
               </select>
             </div>
             <div>

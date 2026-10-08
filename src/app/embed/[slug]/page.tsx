@@ -7,6 +7,7 @@ import { ServiceSelectionList } from "@/components/service-selection-list";
 import { EmbedTopBar } from "@/components/embed-topbar";
 import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { getSiteBranches } from "@/lib/site-branches";
+import { categoryNameMap } from "@/lib/service-groups";
 
 export default async function EmbedBusinessPage({
   params,
@@ -36,6 +37,7 @@ export default async function EmbedBusinessPage({
     : isValidLocale(business.defaultLocale)
       ? business.defaultLocale
       : routing.defaultLocale;
+  const catNames = await categoryNameMap(locale);
 
   return (
     <div className="mx-auto max-w-xl p-4">
@@ -73,7 +75,10 @@ export default async function EmbedBusinessPage({
       </div>
 
       <ServiceSelectionList
-        services={business.services}
+        services={business.services.map((s) => ({
+          ...s,
+          categoryName: s.categoryId ? (catNames.get(s.categoryId) ?? null) : null,
+        }))}
         groups={business.serviceGroups}
         locale={locale}
         bookBasePath={`/embed/${slug}/book`}

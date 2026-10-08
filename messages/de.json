@@ -244,6 +244,7 @@
       "addOns": "Zusatzleistungen",
       "group": "Dienstleistungsgruppe",
       "groupNone": "Keine Gruppe",
+      "groupCustom": "Deine Gruppen",
       "newGroupPlaceholder": "Name der neuen Gruppe, z. B. Nägel",
       "addGroup": "Gruppe hinzufügen",
       "ungrouped": "Ohne Gruppe",

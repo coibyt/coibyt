@@ -9,6 +9,7 @@ import { getSiteBranches } from "@/lib/site-branches";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { ServiceSelectionList } from "@/components/service-selection-list";
+import { categoryNameMap } from "@/lib/service-groups";
 
 export default async function BusinessBookingPage({
   params,
@@ -56,6 +57,7 @@ export default async function BusinessBookingPage({
   const s = siteStrings(locale);
   const prefix = sitePrefix(locale);
   const branches = await getSiteBranches(business.ownerId);
+  const catNames = await categoryNameMap(locale);
 
   return (
     <div>
@@ -118,7 +120,10 @@ export default async function BusinessBookingPage({
       <section className="border-t border-ink-100">
         <div className="container max-w-3xl py-14">
           <ServiceSelectionList
-            services={business.services}
+            services={business.services.map((sv) => ({
+              ...sv,
+              categoryName: sv.categoryId ? (catNames.get(sv.categoryId) ?? null) : null,
+            }))}
             groups={business.serviceGroups}
             locale={locale}
             bookBasePath={`${prefix}/b/${slug}/book`}

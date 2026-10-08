@@ -25,6 +25,7 @@ import { BusinessLocationButton } from "@/components/business-location-button";
 import { FollowButton } from "@/components/follow-button";
 import { BusinessChatButton } from "@/components/business-chat-button";
 import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
+import { categoryNameMap } from "@/lib/service-groups";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -56,6 +57,8 @@ export default async function BusinessProfilePage({
   ]);
 
   if (!business || business.status !== "APPROVED") notFound();
+
+  const catNames = await categoryNameMap(locale);
 
   const [followerCount, isFollowing] = await Promise.all([
     prisma.businessFollow.count({ where: { businessId: business.id } }),
@@ -257,7 +260,10 @@ export default async function BusinessProfilePage({
           <div className="lg:col-span-2">
             <h2 className="mb-4 text-lg font-bold text-ink-900">{t("services")}</h2>
             <ServiceSelectionList
-              services={business.services}
+              services={business.services.map((s) => ({
+                ...s,
+                categoryName: s.categoryId ? (catNames.get(s.categoryId) ?? null) : null,
+              }))}
               groups={business.serviceGroups}
               locale={locale}
               bookBasePath={`/b/${slug}/book`}

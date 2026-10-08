@@ -7,6 +7,7 @@ import { siteStrings, sitePrefix } from "@/lib/site-content";
 import { getSiteBranches } from "@/lib/site-branches";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { categoryNameMap } from "@/lib/service-groups";
 
 export default async function BusinessServicesPage({
   params,
@@ -55,12 +56,26 @@ export default async function BusinessServicesPage({
   const s = siteStrings(locale);
   const prefix = sitePrefix(locale);
   const branches = await getSiteBranches(business.ownerId);
+  const catNames = await categoryNameMap(locale);
 
   const groupIdSet = new Set(business.serviceGroups.map((g) => g.id));
   const sections = business.serviceGroups
     .map((g) => ({ id: g.id, name: g.name, services: business.services.filter((sv) => sv.groupId === g.id) }))
     .filter((sec) => sec.services.length > 0);
-  const ungrouped = business.services.filter((sv) => !sv.groupId || !groupIdSet.has(sv.groupId));
+
+  // A service without a custom group but tagged with one of the platform's
+  // standard categories gets its own section, named in the viewer's own
+  // language (see src/lib/service-groups.ts).
+  const afterCustomGroups = business.services.filter((sv) => !sv.groupId || !groupIdSet.has(sv.groupId));
+  const categoryIds = Array.from(new Set(afterCustomGroups.map((sv) => sv.categoryId).filter((id): id is string => !!id)));
+  for (const categoryId of categoryIds) {
+    const name = catNames.get(categoryId);
+    if (!name) continue;
+    const services = afterCustomGroups.filter((sv) => sv.categoryId === categoryId);
+    if (services.length > 0) sections.push({ id: categoryId, name, services });
+  }
+
+  const ungrouped = afterCustomGroups.filter((sv) => !sv.categoryId || !catNames.has(sv.categoryId));
   if (ungrouped.length > 0) {
     sections.push({ id: "__other", name: sections.length > 0 ? s.services : "", services: ungrouped });
   }

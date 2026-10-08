@@ -244,6 +244,7 @@
       "addOns": "Add-ons",
       "group": "Service group",
       "groupNone": "No group",
+      "groupCustom": "Your groups",
       "newGroupPlaceholder": "New group name, e.g. Nails",
       "addGroup": "Add group",
       "ungrouped": "Ungrouped",

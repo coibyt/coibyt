@@ -14,6 +14,10 @@ export interface SelectableService {
   currency: string;
   videoUrl?: string | null;
   groupId?: string | null;
+  // Already localized server-side (see categoryNameMap in
+  // src/lib/service-groups.ts) — this component never needs to know about
+  // the Category model itself, just a name to group under.
+  categoryName?: string | null;
 }
 
 export interface ServiceGroupOption {
@@ -151,13 +155,32 @@ export function ServiceSelectionList({
       items: services.filter((s) => s.groupId === g.id),
     }))
     .filter((section) => section.items.length > 0);
-  const ungrouped = services.filter((s) => !s.groupId || !groupIds.has(s.groupId));
-  if (ungrouped.length > 0) {
+
+  // Services without a custom group but tagged with one of the platform's
+  // standard categories (see Service.categoryId) get their own section too,
+  // named after that category in the viewer's own language.
+  const afterCustomGroups = services.filter((s) => !s.groupId || !groupIds.has(s.groupId));
+  const categoryOrder: string[] = [];
+  const byCategory = new Map<string, SelectableService[]>();
+  const trulyUngrouped: SelectableService[] = [];
+  for (const s of afterCustomGroups) {
+    if (s.categoryName) {
+      if (!byCategory.has(s.categoryName)) categoryOrder.push(s.categoryName);
+      byCategory.set(s.categoryName, [...(byCategory.get(s.categoryName) ?? []), s]);
+    } else {
+      trulyUngrouped.push(s);
+    }
+  }
+  for (const name of categoryOrder) {
+    sections.push({ key: `category:${name}`, title: name, items: byCategory.get(name)! });
+  }
+
+  if (trulyUngrouped.length > 0) {
     sections.push({
       key: "__other",
       // No heading at all when the salon hasn't defined any groups.
       title: sections.length > 0 ? l.other : null,
-      items: ungrouped,
+      items: trulyUngrouped,
     });
   }
 

@@ -244,6 +244,7 @@
       "addOns": "Lisäpalvelut",
       "group": "Palveluryhmä",
       "groupNone": "Ei ryhmää",
+      "groupCustom": "Omat ryhmäsi",
       "newGroupPlaceholder": "Uuden ryhmän nimi, esim. Kädet/kynnet",
       "addGroup": "Lisää ryhmä",
       "ungrouped": "Ryhmittelemättömät",
