@@ -1,6 +1,7 @@
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { redirect } from "@/i18n/navigation";
 import { FanpageManager } from "@/components/fanpage-manager";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function FanpagePage({
   params,
@@ -8,7 +9,7 @@ export default async function FanpagePage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -16,6 +17,7 @@ export default async function FanpagePage({
 
   return (
     <div>
+      {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
       <h1 className="mb-1 text-xl font-bold text-ink-900">Fanpage</h1>
       <p className="mb-4 text-sm text-ink-400">
         {locale === "vi"

@@ -330,6 +330,14 @@ model Staff {
   // acts on bookings assigned to them — never another staff member's. Defaults
   // to true so existing staff keep seeing the whole salon's calendar.
   canViewAllBookings         Boolean @default(true)
+  // Grants read-only access to every other dashboard section too — Fanpage,
+  // Trang landing, Marketing, Thẻ quà tặng, Thẻ tích điểm, Hỗ trợ — none of
+  // which this staff model otherwise exposes at all. Still never Staff
+  // management or Settings (see the note above), and "read-only" here is
+  // enforced the same way every other staff view already is: each section's
+  // own write endpoints stay owner-only, so granting this never hands out
+  // any new ability to create/edit/delete anything — only to see the page.
+  canViewAllPagesReadOnly    Boolean @default(false)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

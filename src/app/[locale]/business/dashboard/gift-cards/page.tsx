@@ -1,12 +1,13 @@
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { requireOwnerOnly, getOwnedBusiness } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer, getOwnedBusiness } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { GiftCardsManager } from "@/components/gift-cards-manager";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function GiftCardsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -23,6 +24,7 @@ export default async function GiftCardsPage({ params }: { params: Promise<{ loca
 
   return (
     <div className="space-y-6">
+      {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
       <div>
         <h1 className="text-xl font-bold text-ink-900">{t("giftCards.nav")}</h1>
         <p className="mt-1 text-sm text-ink-400">{t("giftCards.subtitle")}</p>

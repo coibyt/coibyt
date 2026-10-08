@@ -1,9 +1,10 @@
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { LandingPublishCard } from "@/components/landing-publish-card";
 import { LandingEditor } from "@/components/landing-editor";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function LandingDashboardPage({
   params,
@@ -11,7 +12,7 @@ export default async function LandingDashboardPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -40,6 +41,7 @@ export default async function LandingDashboardPage({
 
   return (
     <div className="space-y-5">
+      {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
       <h1 className="text-xl font-bold text-ink-900">{t("landing.nav")}</h1>
       <LandingPublishCard slug={business.slug} initialPublished={landing.published} />
       <LandingEditor

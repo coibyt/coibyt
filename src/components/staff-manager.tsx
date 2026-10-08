@@ -30,6 +30,7 @@ interface StaffRow {
   canViewReviews: boolean;
   canViewCustomerContactInfo: boolean;
   canViewAllBookings: boolean;
+  canViewAllPagesReadOnly: boolean;
   leadTimeMinutes: number;
   staffMessage: string | null;
   videoUrls: string[];
@@ -49,6 +50,7 @@ const emptyForm = {
   canViewReviews: false,
   canViewCustomerContactInfo: false,
   canViewAllBookings: true,
+  canViewAllPagesReadOnly: false,
   leadTimeMinutes: 0,
   staffMessage: "",
   videoUrls: ["", "", "", "", ""] as string[],
@@ -125,6 +127,7 @@ export function StaffManager({
       canViewReviews: s.canViewReviews,
       canViewCustomerContactInfo: s.canViewCustomerContactInfo,
       canViewAllBookings: s.canViewAllBookings,
+      canViewAllPagesReadOnly: s.canViewAllPagesReadOnly,
       leadTimeMinutes: s.leadTimeMinutes,
       staffMessage: s.staffMessage ?? "",
       videoUrls: [0, 1, 2, 3, 4].map((i) => s.videoUrls[i] ?? ""),
@@ -481,6 +484,24 @@ export function StaffManager({
                 </label>
               </div>
             )}
+            <label className="mt-3 flex items-start gap-2 rounded-xl bg-mist-50 p-3 text-sm text-ink-700">
+              <input
+                type="checkbox"
+                className="mt-0.5"
+                checked={form.canViewAllPagesReadOnly}
+                onChange={(e) => setForm({ ...form, canViewAllPagesReadOnly: e.target.checked })}
+              />
+              <span>
+                {locale === "vi"
+                  ? "Cho xem tất cả các trang trong trang quản lý doanh nghiệp (chỉ xem, không được sửa đổi)"
+                  : "Let them view every page in the business dashboard (view-only, can't make changes)"}
+                <span className="mt-0.5 block text-xs text-ink-400">
+                  {locale === "vi"
+                    ? "Áp dụng cho mọi trang trừ Nhân viên và Cài đặt — ví dụ Fanpage, Trang landing, Marketing, Thẻ quà tặng, Thẻ tích điểm."
+                    : "Covers every page except Staff and Settings — e.g. Fanpage, Landing page, Marketing, Gift cards, Loyalty cards."}
+                </span>
+              </span>
+            </label>
           </div>
 
           {error && <p className="text-sm text-berry-500">{error}</p>}

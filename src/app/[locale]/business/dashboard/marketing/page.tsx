@@ -1,9 +1,10 @@
 import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { getMarketingRecipients } from "@/lib/marketing-recipients";
 import { MarketingComposer } from "@/components/marketing-composer";
 import { VaraPointsPanel } from "@/components/vara-points-panel";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 import { Users } from "lucide-react";
 
 export default async function MarketingDashboardPage({
@@ -12,7 +13,7 @@ export default async function MarketingDashboardPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -25,6 +26,7 @@ export default async function MarketingDashboardPage({
 
   return (
     <div className="space-y-5">
+      {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
       <div className="flex items-start justify-between gap-3">
         <div>
           <h1 className="text-xl font-bold text-ink-900">{t("marketing.nav")}</h1>

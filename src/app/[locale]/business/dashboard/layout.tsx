@@ -27,7 +27,11 @@ export default async function BusinessDashboardLayout({
     return;
   }
 
-  const { business, isOwner, permissions } = access;
+  const { business, isOwner, permissions, viewOnlyEverywhere } = access;
+  // A "view all pages, read-only" staff member sees these links too — Staff
+  // management, Settings and Support stay owner-only regardless (see
+  // requireOwnerOrReadOnlyViewer).
+  const canViewReadOnlyPages = isOwner || viewOnlyEverywhere;
 
   const session = await auth();
   const branches =
@@ -60,11 +64,11 @@ export default async function BusinessDashboardLayout({
       ? [{ href: "/business/dashboard/services", label: t("services") }]
       : []),
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
-    ...(isOwner ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
-    ...(isOwner ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
-    ...(isOwner ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav") }] : []),
-    ...(isOwner ? [{ href: "/business/dashboard/gift-cards", label: tDash("giftCards.nav") }] : []),
-    ...(isOwner ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/gift-cards", label: tDash("giftCards.nav") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav") }] : []),
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
       : []),

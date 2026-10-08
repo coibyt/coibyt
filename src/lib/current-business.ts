@@ -40,6 +40,14 @@ export interface BusinessAccess {
   /** Always true for the owner; for staff, false means booking views and
    * actions are confined to bookings assigned to this staff member. */
   canViewAllBookings: boolean;
+  /** Staff only: can see every dashboard page (Fanpage, Trang landing,
+   * Marketing, Thẻ quà tặng, Thẻ tích điểm, Hỗ trợ, plus all five
+   * `permissions` sections, forced true) but never Staff management or
+   * Settings, and never anything this doesn't already independently permit —
+   * every write endpoint still checks its own permission/ownership exactly
+   * as before, so this only ever adds visibility, never an edit ability.
+   * See requireOwnerOrReadOnlyViewer. */
+  viewOnlyEverywhere: boolean;
 }
 
 /** Resolves the signed-in user to the business they can act on — either as
@@ -64,6 +72,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       permissions: OWNER_PERMISSIONS,
       canViewCustomerContactInfo: true,
       canViewAllBookings: true,
+      viewOnlyEverywhere: false,
     };
   }
 
@@ -77,15 +86,18 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
     business: staff.business,
     isOwner: false,
     staffId: staff.id,
-    permissions: {
-      services: staff.canViewServices,
-      bookings: staff.canViewBookings,
-      customers: staff.canViewCustomers,
-      hours: staff.canViewHours,
-      reviews: staff.canViewReviews,
-    },
+    permissions: staff.canViewAllPagesReadOnly
+      ? OWNER_PERMISSIONS
+      : {
+          services: staff.canViewServices,
+          bookings: staff.canViewBookings,
+          customers: staff.canViewCustomers,
+          hours: staff.canViewHours,
+          reviews: staff.canViewReviews,
+        },
     canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
     canViewAllBookings: staff.canViewAllBookings,
+    viewOnlyEverywhere: staff.canViewAllPagesReadOnly,
   };
 }
 
@@ -115,6 +127,21 @@ export async function requireOwnerOnly(): Promise<{ businessId: string } | null>
   const access = await getBusinessAccess();
   if (!access?.isOwner) return null;
   return { businessId: access.business.id };
+}
+
+/** For a dashboard page that's otherwise owner-only (Fanpage, Trang
+ * landing, Marketing, Thẻ quà tặng, Thẻ tích điểm, Hỗ trợ) but should also
+ * let a "view all pages, read-only" staff member load it. Never use this to
+ * gate a write action — those routes keep calling `requireOwnerOnly`
+ * unchanged, which is what actually keeps this staff member read-only: they
+ * can reach the page, but every save/send/delete button on it still 403s
+ * for them exactly as before. Never for Staff management or Settings. */
+export async function requireOwnerOrReadOnlyViewer(): Promise<
+  { businessId: string; isOwner: boolean } | null
+> {
+  const access = await getBusinessAccess();
+  if (!access || !(access.isOwner || access.viewOnlyEverywhere)) return null;
+  return { businessId: access.business.id, isOwner: access.isOwner };
 }
 
 /** For a "view-only" dashboard section a staff member's permissions might

@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { AffiliatesManager } from "@/components/affiliates-manager";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function AffiliatesPage({
   params,
@@ -12,7 +13,7 @@ export default async function AffiliatesPage({
   const { locale } = await params;
   const access = await getBusinessAccess();
   const tDash = await getTranslations("dashboard");
-  if (!access?.isOwner) {
+  if (!access || !(access.isOwner || access.viewOnlyEverywhere)) {
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
@@ -41,6 +42,7 @@ export default async function AffiliatesPage({
 
   return (
     <div>
+      {!access.isOwner && <ReadOnlyBanner locale={locale} />}
       <div className="mb-4">
         <h1 className="text-xl font-bold text-ink-900">{tDash("affiliatesPage.title")}</h1>
         <p className="mt-1 text-sm text-ink-400">{tDash("affiliatesPage.hint")}</p>

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireApprovedOwnedBusinessId } from "@/lib/current-business";
+import { getBusinessAccess, requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail, marketingEmail } from "@/lib/mailer";
 import { unsubscribeToken } from "@/lib/marketing-email";
@@ -29,6 +29,15 @@ function escapeHtml(text: string) {
 }
 
 export async function POST(req: Request) {
+  // Vara points are the owner's — the dashboard page was already owner-only,
+  // but this is the actual enforcement: a "view all pages, read-only" staff
+  // member can now reach that page, and must never be able to spend the
+  // owner's points from it.
+  const access = await getBusinessAccess();
+  if (!access?.isOwner) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+
   const result = await requireApprovedOwnedBusinessId();
   if ("error" in result) {
     return NextResponse.json({ error: result.error }, { status: result.error === "FORBIDDEN" ? 403 : 409 });

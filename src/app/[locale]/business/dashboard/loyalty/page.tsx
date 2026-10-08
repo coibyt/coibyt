@@ -1,8 +1,9 @@
 import { auth } from "@/auth";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
-import { requireOwnerOnly, getOwnedBusiness } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer, getOwnedBusiness } from "@/lib/current-business";
 import { LoyaltyManager } from "@/components/loyalty-manager";
+import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function LoyaltyPage({
   params,
@@ -23,7 +24,7 @@ export default async function LoyaltyPage({
     return null;
   }
 
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -33,6 +34,7 @@ export default async function LoyaltyPage({
 
   return (
     <div className="space-y-6">
+      {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
       <div>
         <h1 className="text-xl font-bold text-ink-900">{t("loyalty.nav")}</h1>
         <p className="mt-1 text-sm text-ink-400">{t("loyalty.subtitle")}</p>

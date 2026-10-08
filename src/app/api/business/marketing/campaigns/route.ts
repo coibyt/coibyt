@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
-  const owned = await requireOwnerOnly();
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const campaigns = await prisma.emailCampaign.findMany({
