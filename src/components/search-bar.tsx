@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { Search, MapPin } from "lucide-react";
+import { categoryName } from "@/lib/category-names";
 
 interface CategorySuggestion {
   slug: string;
@@ -14,12 +15,14 @@ interface CategorySuggestion {
 
 function useSearchNavigate() {
   const router = useRouter();
-  return (q: string, city: string) => {
+  const navigate = (q: string, city: string) => {
     const params = new URLSearchParams();
     if (q) params.set("q", q);
     if (city) params.set("city", city);
     router.push(`/search?${params.toString()}`);
   };
+  const goToCategory = (slug: string) => router.push(`/search?category=${slug}`);
+  return { navigate, goToCategory };
 }
 
 /** Lazily loads the category list once, on first focus of any search box —
@@ -49,7 +52,7 @@ function SuggestionDropdown({
 }) {
   const q = query.trim().toLowerCase();
   const filtered = categories.filter((c) =>
-    q ? (locale === "vi" ? c.nameVi : c.nameEn).toLowerCase().includes(q) : true
+    q ? categoryName(locale, c).toLowerCase().includes(q) : true
   );
   if (filtered.length === 0) return null;
 
@@ -62,11 +65,11 @@ function SuggestionDropdown({
           // onMouseDown (not onClick) fires before the input's onBlur closes the dropdown
           onMouseDown={(e) => {
             e.preventDefault();
-            onPick(locale === "vi" ? c.nameVi : c.nameEn, c.slug);
+            onPick(categoryName(locale, c), c.slug);
           }}
           className="flex w-full items-center px-4 py-2.5 text-left text-sm text-ink-900 hover:bg-mist-50"
         >
-          {locale === "vi" ? c.nameVi : c.nameEn}
+          {categoryName(locale, c)}
         </button>
       ))}
     </div>
@@ -80,7 +83,7 @@ export function SearchBarHero() {
   const [q, setQ] = useState("");
   const [city, setCity] = useState("");
   const [open, setOpen] = useState(false);
-  const navigate = useSearchNavigate();
+  const { navigate, goToCategory } = useSearchNavigate();
   const { categories, ensureLoaded } = useCategorySuggestions();
 
   return (
@@ -111,7 +114,7 @@ export function SearchBarHero() {
             locale={locale}
             onPick={(_name, slug) => {
               setOpen(false);
-              window.location.href = `/${locale === "vi" ? "" : "en/"}search?category=${slug}`;
+              goToCategory(slug);
             }}
           />
         )}
@@ -139,7 +142,7 @@ export function SearchBarCompact() {
   const locale = useLocale();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
-  const navigate = useSearchNavigate();
+  const { navigate, goToCategory } = useSearchNavigate();
   const { categories, ensureLoaded } = useCategorySuggestions();
 
   return (
@@ -169,7 +172,7 @@ export function SearchBarCompact() {
           locale={locale}
           onPick={(_name, slug) => {
             setOpen(false);
-            window.location.href = `/${locale === "vi" ? "" : "en/"}search?category=${slug}`;
+            goToCategory(slug);
           }}
         />
       )}

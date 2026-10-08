@@ -4,6 +4,7 @@ import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { ServicesManager } from "@/components/services-manager";
 import { Sparkles } from "lucide-react";
+import { categoryName } from "@/lib/category-names";
 
 export default async function ServicesPage({
   params,
@@ -61,7 +62,7 @@ export default async function ServicesPage({
         }))}
         staffOptions={staff.map((s) => ({ id: s.id, name: s.name }))}
         groups={groups.map((g) => ({ id: g.id, name: g.name }))}
-        categories={categories.map((c) => ({ id: c.id, name: locale === "vi" ? c.nameVi : c.nameEn }))}
+        categories={categories.map((c) => ({ id: c.id, name: categoryName(locale, c) }))}
         locale={locale}
         defaultCurrency={business.defaultCurrency}
       />

@@ -1,11 +1,12 @@
 import { prisma } from "@/lib/prisma";
+import { categoryName } from "@/lib/category-names";
 
 /** Picks a Category's display name for the viewer's locale. Category only
- * stores vi/en (same as every other category-name call site in the app,
- * e.g. the homepage's "Duyệt theo danh mục") — every other locale falls
- * back to English. */
+ * stores vi/en in the database, so every other locale is translated via the
+ * shared lookup in category-names.ts (falling back to English for a locale
+ * not covered there). */
 export function categoryDisplayName(category: { nameVi: string; nameEn: string }, locale: string) {
-  return locale === "vi" ? category.nameVi : category.nameEn;
+  return categoryName(locale, category);
 }
 
 /** Service.categoryId → localized name, for the public-facing pages that

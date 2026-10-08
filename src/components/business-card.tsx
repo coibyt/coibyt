@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Star, MapPin } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { categoryName } from "@/lib/category-names";
 
 interface BusinessCardProps {
   business: {
@@ -41,7 +42,7 @@ export function BusinessCard({ business, locale }: BusinessCardProps) {
         <h3 className="truncate font-semibold text-ink-900">{business.name}</h3>
         <div className="flex items-center justify-between text-xs text-ink-400">
           {category && (
-            <span>{locale === "vi" ? category.nameVi : category.nameEn}</span>
+            <span>{categoryName(locale, category)}</span>
           )}
           {business.city && (
             <span className="flex items-center gap-1">

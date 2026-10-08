@@ -5,6 +5,7 @@ import { CategoryCard } from "@/components/category-card";
 import { FeaturedNearby } from "@/components/featured-nearby";
 import { Link } from "@/i18n/navigation";
 import { OfferCountdown } from "@/components/offer-countdown";
+import { categoryName } from "@/lib/category-names";
 
 export default async function HomePage({
   params,
@@ -40,7 +41,7 @@ export default async function HomePage({
             <CategoryCard
               key={c.id}
               slug={c.slug}
-              name={locale === "vi" ? c.nameVi : c.nameEn}
+              name={categoryName(locale, c)}
               icon={c.icon}
             />
           ))}

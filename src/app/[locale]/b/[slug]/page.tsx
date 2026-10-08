@@ -26,6 +26,7 @@ import { FollowButton } from "@/components/follow-button";
 import { BusinessChatButton } from "@/components/business-chat-button";
 import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
 import { categoryNameMap } from "@/lib/service-groups";
+import { categoryName } from "@/lib/category-names";
 
 const WEEKDAYS_VI = ["CN", "Th 2", "Th 3", "Th 4", "Th 5", "Th 6", "Th 7"];
 const WEEKDAYS_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -125,11 +126,7 @@ export default async function BusinessProfilePage({
                 </span>
               )}
               {business.categories[0] && (
-                <span>
-                  {locale === "vi"
-                    ? business.categories[0].category.nameVi
-                    : business.categories[0].category.nameEn}
-                </span>
+                <span>{categoryName(locale, business.categories[0].category)}</span>
               )}
               {business.addressLine && (
                 <span className="flex items-center gap-1">

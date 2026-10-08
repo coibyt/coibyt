@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { BusinessApplyForm } from "@/components/business-apply-form";
 import { PendingBanner } from "@/components/pending-banner";
 import { PlatformAffiliateCookieSetter } from "@/components/platform-affiliate-cookie-setter";
+import { categoryName } from "@/lib/category-names";
 
 export default async function BusinessApplyPage({
   params,
@@ -50,7 +51,7 @@ export default async function BusinessApplyPage({
       <BusinessApplyForm
         categories={categories.map((c) => ({
           id: c.id,
-          name: locale === "vi" ? c.nameVi : c.nameEn,
+          name: categoryName(locale, c),
         }))}
         isAuthenticated={!!session?.user}
       />
