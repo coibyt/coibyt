@@ -14,6 +14,8 @@ import "../globals.css";
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
 const META_PIXEL_ID = "7997185890363074";
 
+const RTL_LOCALES = new Set(["ar", "he"]);
+
 // Be Vietnam Pro is purpose-built for Vietnamese diacritics while still
 // reading as a clean, modern geometric sans in English — the closest
 // available match to timma.fi's "Sofia Pro" that also fully supports our
@@ -55,7 +57,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={sans.variable}>
+    <html lang={locale} dir={RTL_LOCALES.has(locale) ? "rtl" : "ltr"} className={sans.variable}>
       <head>
         {/* Google tag (gtag.js) for Google Ads. Left out of the /embed pages on purpose —
             those render inside salons' own websites. */}
