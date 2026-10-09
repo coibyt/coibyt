@@ -27,52 +27,55 @@ site's own code or content.
 - Camera permission (for the QR-code scanner used by loyalty cards and
   invoices).
 
+## Build status on this machine
+
+JDK 21 (Eclipse Temurin) and the Android SDK (platform 36, build-tools
+36.0.0) are now installed on this machine specifically for this project, so
+a debug build can be produced directly here any time:
+
+```bash
+cd mobile-app/android
+./gradlew.bat assembleDebug
+# → app/build/outputs/apk/debug/app-debug.apk
+```
+
+That debug `.apk` installs and runs on a real phone (enable "install from
+unknown sources" / sideload it) — it's not signed for Play Store, but it's
+the real app, good for trying everything before going further.
+
 ## What you still need to do
 
-This machine has Java 8 and no Android SDK, so the actual installable file
-(`.aab`) can't be built here — Android builds need a JDK 17+ and the
-Android SDK, which only come bundled with **Android Studio**. Everything
-below happens on your own computer.
+Two things only I can't do from here: creating the release signing key (a
+secret only you should hold) and the Google Play Developer account itself
+(needs your identity and payment).
 
-### 1. Install Android Studio
+### 1. Create a signing key (one time, and only once ever)
 
-Download and install Android Studio from
-[developer.android.com/studio](https://developer.android.com/studio). It
-bundles a compatible JDK and the Android SDK automatically — you don't need
-to install Java or the SDK separately.
+Google Play requires every release to be signed with the *same* key
+forever — if it's lost, there is no recovery and the app can never be
+updated again under the same listing. Say the word and I can generate it
+here with `keytool` (bundled with the JDK already installed) — I'd hand
+you the resulting `.jks` file and its password, and you'd need to back
+both up immediately somewhere safe (password manager, encrypted drive),
+not just leave them on this one machine. Or, if you'd rather hold the
+password from the very start, you can generate it yourself later in
+Android Studio: Build → Generate Signed Bundle / APK → Android App Bundle
+→ Create new...
 
-### 2. Open this project
+### 2. Build the release bundle
 
-Open Android Studio → "Open" → select this `mobile-app/android` folder
-(not `mobile-app` itself — `android` is the actual native project). Let it
-finish indexing and downloading dependencies on first open (a few minutes).
+Once a keystore exists, I can build the signed `.aab` here too — that's
+the file you actually upload to Google Play (not the `.apk` from above).
 
-### 3. Try it on your phone or an emulator
+### 3. (Optional) Install Android Studio
 
-- Plug in an Android phone with USB debugging enabled, or start an emulator
-  from Android Studio's Device Manager.
-- Click the green ▶ Run button. The app should open and load varaaai.com.
-- Test "Continue with Google" — it should now work (that's the fix in
-  `MainActivity.java`). Test the QR scanner if your salon uses loyalty
-  cards.
+Not required for building anymore — only useful if you want to visually
+run the app on an emulator yourself, or poke around the native project in
+an IDE. Get it from
+[developer.android.com/studio](https://developer.android.com/studio) if
+you want it; "Open" → this `mobile-app/android` folder.
 
-### 4. Create a signing key (one time)
-
-Google Play requires every release to be signed with the same key forever,
-so losing it is a real problem — **back this file up somewhere safe**
-(e.g. a password manager or encrypted drive), not just on this one laptop.
-
-In Android Studio: Build → Generate Signed Bundle / APK → Android App
-Bundle → Create new... → fill in the key details and a strong password →
-save the `.jks` keystore file outside this project folder.
-
-### 5. Build the release bundle
-
-Build → Generate Signed Bundle / APK → Android App Bundle → select your
-keystore → build "release". This produces an `.aab` file — that's what you
-upload to Google Play (not an `.apk`).
-
-### 6. Create your Google Play Developer account
+### 4. Create your Google Play Developer account
 
 1. Go to [play.google.com/console/signup](https://play.google.com/console/signup).
 2. Sign in with the Google account you want to publish under.
@@ -80,7 +83,7 @@ upload to Google Play (not an `.apk`).
 4. Verify your identity (Google may ask for an ID document — this can take
    a day or two).
 
-### 7. Create the app listing in Play Console
+### 5. Create the app listing in Play Console
 
 - "Create app" → name it "VaraaAi" → choose your default language.
 - **App content** section (required before you can publish):
@@ -99,10 +102,10 @@ upload to Google Play (not an `.apk`).
   (`icon-source/icon.png` in this folder, already at the right size), a
   feature graphic (1024×500 — not generated yet, ask me if you want one),
   and a few phone screenshots (take these from the Run step above).
-- Upload the `.aab` from step 5 under **Production** (or **Internal
+- Upload the `.aab` from step 2 under **Production** (or **Internal
   testing** first, to try it with a small group before going public).
 
-### 8. Submit for review
+### 6. Submit for review
 
 Google's review usually takes a few hours to a few days for a first
 submission. After that, since the app just loads the live website, you'll
@@ -115,13 +118,23 @@ changes.
 - Website changes: deploy as normal — nothing to do here, the app picks it
   up automatically.
 - Native shell changes (new icon, new permission, etc.): make the change in
-  this folder, run `npx cap sync android`, rebuild a signed `.aab` in
-  Android Studio, and upload a new version in Play Console.
+  this folder, run `npx cap sync android`, rebuild a signed `.aab` (I can do
+  this directly once the signing key exists), and upload a new version in
+  Play Console.
 
 ## Useful commands (run from this `mobile-app/` folder)
 
 ```bash
-npm install          # install Capacitor deps (already done once)
-npx cap sync android  # re-copy config/plugins into the native project
-                       # after editing capacitor.config.ts or adding a plugin
+npm install            # install Capacitor deps (already done once)
+npx cap sync android    # re-copy config/plugins into the native project
+                         # after editing capacitor.config.ts or adding a plugin
+
+cd android
+./gradlew.bat assembleDebug   # unsigned debug .apk, installable right away
+./gradlew.bat bundleRelease   # signed .aab for Play Store (needs a keystore
+                                # configured in android/app/build.gradle first)
 ```
+
+JDK 21 and the Android SDK are installed at:
+- `JAVA_HOME = C:\Program Files\Eclipse Adoptium\jdk-21.0.12.101-hotspot`
+- `ANDROID_HOME = C:\Android`
