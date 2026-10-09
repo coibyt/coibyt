@@ -1,5 +1,17 @@
 apply plugin: 'com.android.application'
 
+// Release signing reads from keystore.properties (gitignored — it holds
+// the keystore password) rather than hardcoding secrets in this file,
+// which is committed. If that file is missing (e.g. a fresh checkout that
+// hasn't created a signing key yet), release builds just fall back to
+// unsigned rather than failing the whole Gradle sync.
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+def keystoreProperties = new Properties()
+def hasKeystoreConfig = keystorePropertiesFile.exists()
+if (hasKeystoreConfig) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     namespace = "com.varaaai.app"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -16,10 +28,23 @@ android {
             ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
         }
     }
+    signingConfigs {
+        if (hasKeystoreConfig) {
+            release {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            if (hasKeystoreConfig) {
+                signingConfig signingConfigs.release
+            }
         }
     }
 }
