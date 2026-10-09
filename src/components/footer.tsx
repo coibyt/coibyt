@@ -1,8 +1,8 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 
 export async function Footer() {
-  const t = await getTranslations("footer");
+  const [t, locale] = await Promise.all([getTranslations("footer"), getLocale()]);
   const year = new Date().getFullYear();
 
   return (
@@ -30,6 +30,7 @@ export async function Footer() {
           links={[
             { href: "/", label: "VaraaAi.Com" },
             { href: "/terms", label: t("terms") },
+            { href: "/privacy", label: locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy" },
           ]}
         />
       </div>
