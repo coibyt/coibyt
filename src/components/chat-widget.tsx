@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Send, Paperclip, X, Loader2 } from "lucide-react";
+import { Send, Paperclip, X, Loader2, ThumbsUp } from "lucide-react";
+import { EmojiPicker } from "@/components/emoji-picker";
 
 interface ChatMessage {
   id: string;
@@ -10,6 +11,12 @@ interface ChatMessage {
   content: string | null;
   hasImage: boolean;
   createdAt: string;
+}
+
+interface ReactionSummary {
+  emoji: string;
+  count: number;
+  mine: boolean;
 }
 
 const POLL_MS = 4000;
@@ -29,6 +36,7 @@ export function ChatWidget({
   onClose?: () => void;
 }) {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [reactions, setReactions] = useState<Record<string, ReactionSummary[]>>({});
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState("");
   const [pendingImage, setPendingImage] = useState<File | null>(null);
@@ -54,8 +62,18 @@ export function ChatWidget({
       setMessages((prev) => (after ? [...prev, ...incoming] : incoming));
     }
 
-    fetchMessages().finally(() => !cancelled && setLoading(false));
-    const interval = setInterval(() => fetchMessages(lastIdRef.current ?? undefined), POLL_MS);
+    async function fetchReactions() {
+      const res = await fetch(`/api/chat/conversations/${conversationId}/reactions`);
+      if (!res.ok || cancelled) return;
+      const data = await res.json();
+      setReactions(data.reactions ?? {});
+    }
+
+    Promise.all([fetchMessages(), fetchReactions()]).finally(() => !cancelled && setLoading(false));
+    const interval = setInterval(() => {
+      fetchMessages(lastIdRef.current ?? undefined);
+      fetchReactions();
+    }, POLL_MS);
     return () => {
       cancelled = true;
       clearInterval(interval);
@@ -101,6 +119,17 @@ export function ChatWidget({
     if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
+  async function react(messageId: string, emoji: string) {
+    const res = await fetch(`/api/chat/messages/${messageId}/reactions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ emoji }),
+    });
+    if (!res.ok) return;
+    const data = await res.json();
+    setReactions((prev) => ({ ...prev, [messageId]: data.reactions ?? [] }));
+  }
+
   return (
     <div className="flex h-full max-h-[32rem] flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white">
       <div className="flex items-center justify-between border-b border-ink-100 px-4 py-3">
@@ -112,7 +141,7 @@ export function ChatWidget({
         )}
       </div>
 
-      <div ref={listRef} className="flex-1 space-y-2 overflow-y-auto p-4">
+      <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto p-4">
         {loading ? (
           <p className="flex items-center gap-2 text-sm text-ink-400">
             <Loader2 className="h-4 w-4 animate-spin" /> ...
@@ -124,8 +153,9 @@ export function ChatWidget({
         ) : (
           messages.map((m) => {
             const mine = m.senderType === viewerRole;
+            const myReaction = (reactions[m.id] ?? []).find((r) => r.mine);
             return (
-              <div key={m.id} className={`flex ${mine ? "justify-end" : "justify-start"}`}>
+              <div key={m.id} className={`flex flex-col ${mine ? "items-end" : "items-start"}`}>
                 <div
                   className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
                     mine ? "bg-primary-500 text-white" : "bg-mist-100 text-ink-900"
@@ -145,6 +175,36 @@ export function ChatWidget({
                       minute: "2-digit",
                     })}
                   </p>
+                </div>
+
+                <div className="mt-1 flex items-center gap-1">
+                  {(reactions[m.id] ?? []).map((r) => (
+                    <button
+                      key={r.emoji}
+                      type="button"
+                      onClick={() => react(m.id, r.emoji)}
+                      className={`flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[11px] ${
+                        r.mine ? "border-primary-500 bg-primary-50" : "border-ink-100 bg-white"
+                      }`}
+                    >
+                      <span>{r.emoji}</span>
+                      <span className="text-ink-400">{r.count}</span>
+                    </button>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={() => react(m.id, "👍")}
+                    className={`rounded-full p-1 text-ink-400 hover:bg-mist-100 ${
+                      myReaction?.emoji === "👍" ? "text-primary-500" : ""
+                    }`}
+                    aria-label={locale === "vi" ? "Thích" : "Like"}
+                  >
+                    <ThumbsUp className="h-3 w-3" />
+                  </button>
+                  <EmojiPicker
+                    onPick={(emoji) => react(m.id, emoji)}
+                    className="rounded-full p-1 text-ink-400 hover:bg-mist-100"
+                  />
                 </div>
               </div>
             );

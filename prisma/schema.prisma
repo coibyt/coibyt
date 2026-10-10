@@ -81,6 +81,8 @@ model User {
   supportThread       SupportThread?
   productReviews      ProductReview[]
   orders              Order[]
+  messageReactions    MessageReaction[]
+  postLikes           PostLike[]
 
   @@index([role])
 }
@@ -846,7 +848,26 @@ model Message {
   readAt         DateTime?
   createdAt      DateTime          @default(now())
 
+  reactions MessageReaction[]
+
   @@index([conversationId, createdAt])
+}
+
+// One reaction per (message, user) — picking a new emoji replaces the old
+// one, picking the same emoji again is how the client implements "un-react"
+// (handled by the toggle logic in the reactions API route, not here). The
+// quick "like" button in the UI is just this same table with emoji = "👍".
+model MessageReaction {
+  id        String   @id @default(cuid())
+  messageId String
+  message   Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  emoji     String
+  createdAt DateTime @default(now())
+
+  @@unique([messageId, userId])
+  @@index([messageId])
 }
 
 // A customer following a business, for their own reference (e.g. a future
@@ -881,6 +902,7 @@ model Post {
 
   images   PostImage[]
   comments PostComment[]
+  likes    PostLike[]
 
   @@index([businessId, createdAt])
 }
@@ -897,6 +919,19 @@ model PostImage {
   @@index([postId])
 }
 
+// A customer liking a post — one per (post, user), toggled on/off.
+model PostLike {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@unique([postId, userId])
+  @@index([postId])
+}
+
 model PostComment {
   id        String   @id @default(cuid())
   postId    String
@@ -906,7 +941,20 @@ model PostComment {
   content   String   @db.Text
   createdAt DateTime @default(now())
 
+  images PostCommentImage[]
+
   @@index([postId, createdAt])
+}
+
+model PostCommentImage {
+  id            String      @id @default(cuid())
+  commentId     String
+  comment       PostComment @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  // Bytes live on the row itself, same reasoning as PostImage/Message.
+  imageData     Bytes       @db.LongBlob
+  imageMimeType String
+
+  @@index([commentId])
 }
 
 // ────────────────────────────────────────────────────────────────────
@@ -1155,7 +1203,7 @@ model LoyaltyReward {
 // the business's Settings at the moment of issue, so a later edit there never
 // changes an invoice already handed to a customer.
 model Invoice {
-  id         String @id @default(cuid())
+  id         String  @id @default(cuid())
   businessId String
   bookingId  String?
   customerId String
@@ -1172,7 +1220,7 @@ model Invoice {
 
   paymentMethod InvoicePaymentMethod
   giftCardCode  String?
-  note          String? @db.Text
+  note          String?              @db.Text
 
   companyName    String?
   companyAddress String? @db.Text

@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Loader2, MessageCircle } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Loader2, MessageCircle, Heart, Share2, Paperclip, X, Send } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { EmojiPicker } from "@/components/emoji-picker";
 
 interface FeedPost {
   id: string;
@@ -10,6 +11,8 @@ interface FeedPost {
   videoUrl: string | null;
   imageIds: string[];
   commentCount: number;
+  likeCount: number;
+  liked: boolean;
   createdAt: string;
   businessName: string;
   businessSlug: string;
@@ -20,8 +23,11 @@ interface Comment {
   id: string;
   content: string;
   authorName: string;
+  imageId: string | null;
   createdAt: string;
 }
+
+const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 
 function youtubeEmbedUrl(url: string) {
   try {
@@ -39,7 +45,10 @@ export function FeedList({ locale }: { locale: string }) {
   const [openComments, setOpenComments] = useState<Set<string>>(new Set());
   const [comments, setComments] = useState<Record<string, Comment[]>>({});
   const [commentDrafts, setCommentDrafts] = useState<Record<string, string>>({});
+  const [commentImages, setCommentImages] = useState<Record<string, File | null>>({});
   const [submitting, setSubmitting] = useState<string | null>(null);
+  const [shared, setShared] = useState<string | null>(null);
+  const fileInputRefs = useRef<Record<string, HTMLInputElement | null>>({});
 
   useEffect(() => {
     fetch("/api/feed")
@@ -65,20 +74,64 @@ export function FeedList({ locale }: { locale: string }) {
     }
   }
 
+  async function toggleLike(postId: string) {
+    setPosts((prev) =>
+      prev.map((p) =>
+        p.id === postId
+          ? { ...p, liked: !p.liked, likeCount: p.likeCount + (p.liked ? -1 : 1) }
+          : p
+      )
+    );
+    const res = await fetch(`/api/feed/posts/${postId}/like`, { method: "POST" });
+    if (!res.ok) return;
+    const data = await res.json();
+    setPosts((prev) =>
+      prev.map((p) => (p.id === postId ? { ...p, liked: data.liked, likeCount: data.likeCount } : p))
+    );
+  }
+
+  async function sharePost(post: FeedPost) {
+    const url = `${window.location.origin}/b/${post.businessSlug}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: post.businessName, text: post.content ?? undefined, url });
+        return;
+      } catch {
+        return; // user cancelled the native share sheet
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setShared(post.id);
+      setTimeout(() => setShared(null), 2000);
+    } catch {
+      // clipboard unavailable — nothing more we can do here
+    }
+  }
+
+  function onPickCommentImage(postId: string, file: File | undefined) {
+    if (!file) return;
+    if (file.size > MAX_IMAGE_BYTES) return;
+    setCommentImages((prev) => ({ ...prev, [postId]: file }));
+  }
+
   async function submitComment(postId: string) {
     const text = (commentDrafts[postId] ?? "").trim();
-    if (!text) return;
+    const image = commentImages[postId];
+    if (!text && !image) return;
     setSubmitting(postId);
-    const res = await fetch(`/api/feed/posts/${postId}/comments`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: text }),
-    });
+    const form = new FormData();
+    if (text) form.set("content", text);
+    if (image) form.set("image", image);
+    const res = await fetch(`/api/feed/posts/${postId}/comments`, { method: "POST", body: form });
     setSubmitting(null);
     if (!res.ok) return;
     const data = await res.json();
     setComments((prev) => ({ ...prev, [postId]: [...(prev[postId] ?? []), data.comment] }));
     setCommentDrafts((prev) => ({ ...prev, [postId]: "" }));
+    setCommentImages((prev) => ({ ...prev, [postId]: null }));
+    const input = fileInputRefs.current[postId];
+    if (input) input.value = "";
     setPosts((prev) =>
       prev.map((p) => (p.id === postId ? { ...p, commentCount: p.commentCount + 1 } : p))
     );
@@ -107,6 +160,7 @@ export function FeedList({ locale }: { locale: string }) {
       {posts.map((p) => {
         const embed = p.videoUrl ? youtubeEmbedUrl(p.videoUrl) : null;
         const isOpen = openComments.has(p.id);
+        const draftImage = commentImages[p.id];
         return (
           <div key={p.id} className="card space-y-3 p-5">
             <Link href={`/b/${p.businessSlug}`} className="flex items-center gap-2.5">
@@ -147,23 +201,92 @@ export function FeedList({ locale }: { locale: string }) {
                 <iframe src={embed} className="h-full w-full" allowFullScreen />
               </div>
             )}
-            <button
-              onClick={() => toggleComments(p.id)}
-              className="flex items-center gap-1.5 text-xs font-medium text-ink-400 hover:text-ink-700"
-            >
-              <MessageCircle className="h-3.5 w-3.5" />
-              {p.commentCount} {locale === "vi" ? "bình luận" : p.commentCount === 1 ? "comment" : "comments"}
-            </button>
+
+            <div className="flex items-center gap-4 border-t border-ink-100 pt-2.5">
+              <button
+                onClick={() => toggleLike(p.id)}
+                className={`flex items-center gap-1.5 text-xs font-medium ${
+                  p.liked ? "text-berry-500" : "text-ink-400 hover:text-ink-700"
+                }`}
+              >
+                <Heart className={`h-3.5 w-3.5 ${p.liked ? "fill-berry-500" : ""}`} />
+                {p.likeCount}
+              </button>
+              <button
+                onClick={() => toggleComments(p.id)}
+                className="flex items-center gap-1.5 text-xs font-medium text-ink-400 hover:text-ink-700"
+              >
+                <MessageCircle className="h-3.5 w-3.5" />
+                {p.commentCount}{" "}
+                {locale === "vi" ? "bình luận" : p.commentCount === 1 ? "comment" : "comments"}
+              </button>
+              <button
+                onClick={() => sharePost(p)}
+                className="flex items-center gap-1.5 text-xs font-medium text-ink-400 hover:text-ink-700"
+              >
+                <Share2 className="h-3.5 w-3.5" />
+                {shared === p.id
+                  ? locale === "vi"
+                    ? "Đã sao chép liên kết"
+                    : "Link copied"
+                  : locale === "vi"
+                    ? "Chia sẻ"
+                    : "Share"}
+              </button>
+            </div>
 
             {isOpen && (
               <div className="space-y-2 border-t border-ink-100 pt-3">
                 {(comments[p.id] ?? []).map((c) => (
                   <div key={c.id} className="rounded-lg bg-mist-50 px-3 py-2 text-sm">
                     <p className="font-medium text-ink-900">{c.authorName}</p>
-                    <p className="text-ink-700">{c.content}</p>
+                    {c.content && <p className="text-ink-700">{c.content}</p>}
+                    {c.imageId && (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={`/api/feed/comments/images/${c.imageId}`}
+                        alt=""
+                        className="mt-1.5 max-h-48 rounded-lg object-cover"
+                      />
+                    )}
                   </div>
                 ))}
-                <div className="flex gap-2">
+
+                {draftImage && (
+                  <div className="flex items-center gap-2 text-xs text-ink-700">
+                    <span className="truncate">{draftImage.name}</span>
+                    <button
+                      onClick={() => setCommentImages((prev) => ({ ...prev, [p.id]: null }))}
+                      className="text-berry-500"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
+                )}
+
+                <div className="flex items-center gap-1.5">
+                  <input
+                    ref={(el) => {
+                      fileInputRefs.current[p.id] = el;
+                    }}
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => onPickCommentImage(p.id, e.target.files?.[0])}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => fileInputRefs.current[p.id]?.click()}
+                    className="btn-ghost !p-2 text-ink-700"
+                    aria-label={locale === "vi" ? "Đính kèm ảnh" : "Attach image"}
+                  >
+                    <Paperclip className="h-4 w-4" />
+                  </button>
+                  <EmojiPicker
+                    onPick={(emoji) =>
+                      setCommentDrafts((prev) => ({ ...prev, [p.id]: (prev[p.id] ?? "") + emoji }))
+                    }
+                  />
                   <input
                     className="input flex-1"
                     placeholder={locale === "vi" ? "Viết bình luận..." : "Write a comment..."}
@@ -178,15 +301,16 @@ export function FeedList({ locale }: { locale: string }) {
                   />
                   <button
                     onClick={() => submitComment(p.id)}
-                    disabled={submitting === p.id || !(commentDrafts[p.id] ?? "").trim()}
-                    className="btn-primary !px-3 !py-1.5 text-xs"
+                    disabled={
+                      submitting === p.id || (!(commentDrafts[p.id] ?? "").trim() && !draftImage)
+                    }
+                    className="btn-primary !p-2.5"
+                    aria-label={locale === "vi" ? "Gửi" : "Send"}
                   >
                     {submitting === p.id ? (
-                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    ) : locale === "vi" ? (
-                      "Gửi"
+                      <Loader2 className="h-4 w-4 animate-spin" />
                     ) : (
-                      "Send"
+                      <Send className="h-4 w-4" />
                     )}
                   </button>
                 </div>

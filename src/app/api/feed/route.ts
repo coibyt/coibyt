@@ -20,7 +20,8 @@ export async function GET() {
     include: {
       business: { select: { name: true, slug: true, logoUrl: true } },
       images: { select: { id: true } },
-      _count: { select: { comments: true } },
+      _count: { select: { comments: true, likes: true } },
+      likes: { where: { userId: session.user.id }, select: { id: true } },
     },
     orderBy: { createdAt: "desc" },
     take: 50,
@@ -33,6 +34,8 @@ export async function GET() {
       videoUrl: p.videoUrl,
       imageIds: p.images.map((i) => i.id),
       commentCount: p._count.comments,
+      likeCount: p._count.likes,
+      liked: p.likes.length > 0,
       createdAt: p.createdAt.toISOString(),
       businessName: p.business.name,
       businessSlug: p.business.slug,
