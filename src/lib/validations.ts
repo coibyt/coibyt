@@ -85,6 +85,7 @@ export const staffSchema = z.object({
   email: z.string().email().max(180).optional().or(z.literal("")),
   password: z.string().min(8).max(72).optional().or(z.literal("")),
   canViewServices: z.boolean().optional(),
+  canViewProducts: z.boolean().optional(),
   canViewBookings: z.boolean().optional(),
   canViewCustomers: z.boolean().optional(),
   canViewHours: z.boolean().optional(),
@@ -163,6 +164,36 @@ export const reviewSchema = z.object({
   bookingId: z.string().cuid(),
   rating: z.number().int().min(1).max(5),
   comment: z.string().max(2000).optional(),
+});
+
+export const productSchema = z.object({
+  name: z.string().min(2).max(120),
+  description: z.string().max(2000).optional(),
+  // The salon's own catalog section (ProductGroup); null/absent = ungrouped.
+  groupId: z.string().cuid().nullable().optional(),
+  priceCents: z.coerce.number().int().min(0),
+  currency: z.enum(["VND", "USD", "EUR"]).default("VND"),
+  videoUrl: z.string().url().max(300).optional().or(z.literal("")),
+});
+
+export const productReviewSchema = z.object({
+  rating: z.coerce.number().int().min(1).max(5),
+  comment: z.string().max(2000).optional(),
+});
+
+export const orderSchema = z.object({
+  businessId: z.string().cuid(),
+  items: z
+    .array(
+      z.object({
+        productId: z.string().cuid(),
+        qty: z.coerce.number().int().min(1).max(99),
+      })
+    )
+    .min(1)
+    .max(50),
+  paymentMethod: z.enum(["CASH", "BANK_TRANSFER", "CHAT"]),
+  customerNote: z.string().max(1000).optional(),
 });
 
 export const affiliateSchema = z.object({

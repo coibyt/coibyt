@@ -67,6 +67,7 @@
     "dashboardTitle": "Bảng điều khiển doanh nghiệp",
     "overview": "Tổng quan",
     "services": "Dịch vụ",
+    "products": "Sản phẩm",
     "staff": "Nhân viên",
     "bookings": "Lịch hẹn",
     "customers": "Khách hàng",
@@ -76,6 +77,31 @@
     "reviews": "Đánh giá",
     "settings": "Cài đặt",
     "addService": "Thêm dịch vụ",
+    "addProduct": "Thêm sản phẩm",
+    "productsPage": {
+      "empty": "Chưa có sản phẩm nào.",
+      "addToCart": "Thêm vào giỏ",
+      "viewDetails": "Xem chi tiết",
+      "cart": "Giỏ hàng",
+      "cartEmpty": "Giỏ hàng của bạn đang trống.",
+      "qty": "SL",
+      "total": "Tổng tiền",
+      "checkout": "Thanh toán",
+      "placeOrder": "Đặt hàng",
+      "paymentMethodLabel": "Phương thức thanh toán",
+      "orderSuccess": "Đặt hàng thành công!",
+      "orderSuccessHint": "Salon sẽ liên hệ để xác nhận với bạn.",
+      "writeReview": "Viết đánh giá",
+      "alreadyReviewed": "Bạn đã đánh giá sản phẩm này rồi.",
+      "signInToReview": "Đăng nhập để viết đánh giá.",
+      "signInToOrder": "Đăng nhập để đặt hàng.",
+      "noReviewsYet": "Chưa có đánh giá nào.",
+      "views": "{count} lượt xem",
+      "ratingCount": "{count} đánh giá",
+      "watchVideo": "Xem video",
+      "remove": "Xóa",
+      "continueShopping": "Tiếp tục xem sản phẩm"
+    },
     "addStaff": "Thêm nhân viên",
     "statBookingsToday": "Lịch hẹn hôm nay",
     "statRevenueMonth": "Doanh thu tháng này",
@@ -124,8 +150,10 @@
     "cash": "Thanh toán tại salon",
     "stripe": "Thẻ quốc tế (Visa/Mastercard)",
     "bankTransfer": "Chuyển khoản ngân hàng",
+    "chat": "Chat với salon",
     "cashNotice": "Bạn sẽ thanh toán trực tiếp bằng tiền mặt hoặc thẻ khi đến salon.",
     "bankTransferNotice": "Vui lòng chuyển khoản theo thông tin bên dưới. Salon sẽ xác nhận khi nhận được tiền.",
+    "chatNotice": "Đơn hàng của bạn đã được tạo — mở chat với salon để thỏa thuận thanh toán.",
     "sandboxNotice": "Đang ở chế độ thử nghiệm (sandbox) — chưa phát sinh giao dịch thật.",
     "processing": "Đang xử lý thanh toán...",
     "success": "Thanh toán thành công! Lịch hẹn của bạn đã được xác nhận.",
@@ -374,6 +402,26 @@
     "loyalty": {
       "nav": "Thẻ tích điểm",
       "subtitle": "Cấp thẻ tích điểm cho khách, quét QR mỗi lần đến và áp dụng ưu đãi"
+    },
+    "productsForm": {
+      "newProduct": "Sản phẩm mới",
+      "editProduct": "Sửa sản phẩm",
+      "productName": "Tên sản phẩm",
+      "images": "Hình ảnh",
+      "addPhoto": "Thêm ảnh",
+      "tooManyImages": "Bạn chỉ có thể tải lên tối đa {max} ảnh cho mỗi sản phẩm.",
+      "saveError": "Lưu không thành công, vui lòng thử lại."
+    },
+    "ordersPage": {
+      "nav": "Đơn hàng",
+      "empty": "Chưa có đơn hàng nào.",
+      "note": "Lời nhắn của khách",
+      "total": "Tổng tiền",
+      "paymentMethod": {
+        "CASH": "Thanh toán tại salon",
+        "BANK_TRANSFER": "Chuyển khoản ngân hàng",
+        "CHAT": "Thỏa thuận qua chat"
+      }
     }
   },
   "common": {

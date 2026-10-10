@@ -10,10 +10,11 @@ export async function listOwnedBusinesses(userId: string) {
   return prisma.business.findMany({ where: { ownerId: userId }, orderBy: { createdAt: "asc" } });
 }
 
-export type StaffSection = "services" | "bookings" | "customers" | "hours" | "reviews";
+export type StaffSection = "services" | "products" | "bookings" | "customers" | "hours" | "reviews";
 
 export interface StaffPermissions {
   services: boolean;
+  products: boolean;
   bookings: boolean;
   customers: boolean;
   hours: boolean;
@@ -22,6 +23,7 @@ export interface StaffPermissions {
 
 const OWNER_PERMISSIONS: StaffPermissions = {
   services: true,
+  products: true,
   bookings: true,
   customers: true,
   hours: true,
@@ -90,6 +92,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       ? OWNER_PERMISSIONS
       : {
           services: staff.canViewServices,
+          products: staff.canViewProducts,
           bookings: staff.canViewBookings,
           customers: staff.canViewCustomers,
           hours: staff.canViewHours,

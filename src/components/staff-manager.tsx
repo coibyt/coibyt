@@ -24,6 +24,7 @@ interface StaffRow {
   serviceIds: string[];
   email: string | null;
   canViewServices: boolean;
+  canViewProducts: boolean;
   canViewBookings: boolean;
   canViewCustomers: boolean;
   canViewHours: boolean;
@@ -44,6 +45,7 @@ const emptyForm = {
   email: "",
   password: "",
   canViewServices: false,
+  canViewProducts: false,
   canViewBookings: true,
   canViewCustomers: false,
   canViewHours: false,
@@ -58,6 +60,7 @@ const emptyForm = {
 
 const PERMISSION_FIELDS = [
   { key: "canViewServices" as const, vi: "Dịch vụ", en: "Services" },
+  { key: "canViewProducts" as const, vi: "Sản phẩm", en: "Products" },
   { key: "canViewBookings" as const, vi: "Lịch hẹn", en: "Bookings" },
   { key: "canViewCustomers" as const, vi: "Khách hàng", en: "Customers" },
   { key: "canViewHours" as const, vi: "Giờ mở cửa", en: "Opening hours" },
@@ -121,6 +124,7 @@ export function StaffManager({
       email: s.email ?? "",
       password: "",
       canViewServices: s.canViewServices,
+      canViewProducts: s.canViewProducts,
       canViewBookings: s.canViewBookings,
       canViewCustomers: s.canViewCustomers,
       canViewHours: s.canViewHours,

@@ -44,6 +44,7 @@ export default async function StaffPage({
           serviceIds: s.services.map((x) => x.serviceId),
           email: s.user?.email ?? null,
           canViewServices: s.canViewServices,
+          canViewProducts: s.canViewProducts,
           canViewBookings: s.canViewBookings,
           canViewCustomers: s.canViewCustomers,
           canViewHours: s.canViewHours,

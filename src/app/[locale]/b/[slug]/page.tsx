@@ -15,9 +15,11 @@ import {
   MessageCircle,
   Youtube,
   Map as MapIcon,
+  ShoppingBag,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
+import { Link } from "@/i18n/navigation";
 import { ReviewList } from "@/components/review-list";
 import { ServiceSelectionList } from "@/components/service-selection-list";
 import { BusinessIntroVideo } from "@/components/business-intro-video";
@@ -61,7 +63,7 @@ export default async function BusinessProfilePage({
 
   const catNames = await categoryNameMap(locale);
 
-  const [followerCount, isFollowing] = await Promise.all([
+  const [followerCount, isFollowing, productCount] = await Promise.all([
     prisma.businessFollow.count({ where: { businessId: business.id } }),
     session?.user
       ? prisma.businessFollow
@@ -70,6 +72,7 @@ export default async function BusinessProfilePage({
           })
           .then((f) => !!f)
       : false,
+    prisma.product.count({ where: { businessId: business.id, active: true } }),
   ]);
 
   const avgRating =
@@ -116,6 +119,12 @@ export default async function BusinessProfilePage({
                   locale={locale}
                 />
                 <BusinessChatButton businessSlug={slug} businessName={business.name} locale={locale} />
+                {productCount > 0 && (
+                  <Link href={`/b/${slug}/products`} className="btn-outline !px-4 !py-2 text-xs">
+                    <ShoppingBag className="h-3.5 w-3.5" />
+                    {t("products")}
+                  </Link>
+                )}
               </div>
             </div>
             <div className="mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-ink-400">

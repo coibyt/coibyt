@@ -79,6 +79,8 @@ model User {
   // owner — see Announcement below.
   announcementsSeenAt DateTime?
   supportThread       SupportThread?
+  productReviews      ProductReview[]
+  orders              Order[]
 
   @@index([role])
 }
@@ -243,6 +245,10 @@ model Business {
   giftCards               GiftCard[]
   loyaltyCards            LoyaltyCard[]
   loyaltyProgram          LoyaltyProgram?
+  products                Product[]
+  productGroups           ProductGroup[]
+  productReviews          ProductReview[]
+  orders                  Order[]
 
   @@index([ownerId])
   @@index([status])
@@ -318,6 +324,7 @@ model Staff {
   userId                     String? @unique
   user                       User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
   canViewServices            Boolean @default(false)
+  canViewProducts            Boolean @default(false)
   canViewBookings            Boolean @default(true)
   canViewCustomers           Boolean @default(false)
   canViewHours               Boolean @default(false)
@@ -1182,4 +1189,155 @@ enum InvoicePaymentMethod {
   CASH
   BANK_TRANSFER
   GIFT_CARD
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Products — physical/retail items a salon sells alongside its services
+// (nail files, gel polish, hand oil, gift cards...), with their own photo
+// gallery, customer reviews, and a simple cart/checkout.
+// ────────────────────────────────────────────────────────────────────
+
+// A salon's own section headings for its product catalog — same pattern as
+// ServiceGroup for services.
+model ProductGroup {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  name       String
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  products Product[]
+
+  @@index([businessId])
+}
+
+model Product {
+  id          String        @id @default(cuid())
+  businessId  String
+  business    Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  groupId     String?
+  group       ProductGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
+  name        String
+  description String?       @db.Text
+  priceCents  Int
+  currency    String        @default("VND")
+  videoUrl    String? // YouTube preview clip, same convention as Service.videoUrl
+  // Shown on the product page as its view count — incremented once per page
+  // load (see GET /api/products/[id]), not a precise unique-visitor count.
+  viewCount   Int           @default(0)
+  active      Boolean       @default(true)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  images     ProductImage[]
+  reviews    ProductReview[]
+  orderItems OrderItem[]
+
+  @@index([businessId])
+  @@index([groupId])
+}
+
+model ProductImage {
+  id            String  @id @default(cuid())
+  productId     String
+  product       Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  // Bytes live on the row itself, same reasoning as BusinessImage/PostImage —
+  // Hostinger's git-based deploy wipes anything written to public/uploads.
+  imageData     Bytes   @db.LongBlob
+  imageMimeType String
+  sortOrder     Int     @default(0)
+
+  @@index([productId])
+}
+
+// A customer's review of a product — independent of Review (which is tied to
+// a completed Booking), since a product purchase isn't calendar-shaped. One
+// review per customer per product, same one-review discipline as Review.
+model ProductReview {
+  id         String   @id @default(cuid())
+  productId  String
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id])
+  rating     Int // 1–5
+  comment    String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  images ProductReviewImage[]
+
+  @@unique([productId, customerId])
+  @@index([businessId])
+  @@index([productId])
+}
+
+model ProductReviewImage {
+  id            String        @id @default(cuid())
+  reviewId      String
+  review        ProductReview @relation(fields: [reviewId], references: [id], onDelete: Cascade)
+  imageData     Bytes         @db.LongBlob
+  imageMimeType String
+
+  @@index([reviewId])
+}
+
+enum OrderStatus {
+  PENDING_PAYMENT
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}
+
+// How the customer intends to pay — same trust model as a booking's
+// cash/bank-transfer choice: no payment gateway, the salon reconciles
+// manually. CHAT means the customer wants to discuss another arrangement
+// with the salon instead of picking one up front — the order still gets
+// created (so the salon sees what was requested) and the business's chat
+// opens for them to work it out.
+enum OrderPaymentMethod {
+  CASH
+  BANK_TRANSFER
+  CHAT
+}
+
+model Order {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id])
+
+  status        OrderStatus        @default(PENDING_PAYMENT)
+  paymentMethod OrderPaymentMethod
+  totalCents    Int
+  currency      String             @default("VND")
+  customerNote  String?            @db.Text
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  items OrderItem[]
+
+  @@index([businessId, createdAt])
+  @@index([customerId])
+}
+
+// Snapshots the product's name/price at order time, so a later edit to the
+// product (or even deleting it) never rewrites a past order's receipt.
+model OrderItem {
+  id             String   @id @default(cuid())
+  orderId        String
+  order          Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId      String?
+  product        Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  name           String
+  unitPriceCents Int
+  currency       String
+  qty            Int
+  totalCents     Int
+
+  @@index([orderId])
+  @@index([productId])
 }

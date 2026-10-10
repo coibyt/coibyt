@@ -63,6 +63,12 @@ export default async function BusinessDashboardLayout({
     ...(isOwner || permissions.services
       ? [{ href: "/business/dashboard/services", label: t("services") }]
       : []),
+    ...(isOwner || permissions.products
+      ? [{ href: "/business/dashboard/products", label: t("products") }]
+      : []),
+    ...(isOwner || permissions.products
+      ? [{ href: "/business/dashboard/orders", label: tDash("ordersPage.nav") }]
+      : []),
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),

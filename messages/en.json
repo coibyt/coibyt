@@ -67,6 +67,7 @@
     "dashboardTitle": "Business dashboard",
     "overview": "Overview",
     "services": "Services",
+    "products": "Products",
     "staff": "Staff",
     "bookings": "Bookings",
     "customers": "Customers",
@@ -76,6 +77,31 @@
     "reviews": "Reviews",
     "settings": "Settings",
     "addService": "Add service",
+    "addProduct": "Add product",
+    "productsPage": {
+      "empty": "No products yet.",
+      "addToCart": "Add to cart",
+      "viewDetails": "View details",
+      "cart": "Cart",
+      "cartEmpty": "Your cart is empty.",
+      "qty": "Qty",
+      "total": "Total",
+      "checkout": "Checkout",
+      "placeOrder": "Place order",
+      "paymentMethodLabel": "Payment method",
+      "orderSuccess": "Order placed!",
+      "orderSuccessHint": "The salon will contact you to confirm.",
+      "writeReview": "Write a review",
+      "alreadyReviewed": "You've already reviewed this product.",
+      "signInToReview": "Sign in to leave a review.",
+      "signInToOrder": "Sign in to place an order.",
+      "noReviewsYet": "No reviews yet.",
+      "views": "{count} views",
+      "ratingCount": "{count} reviews",
+      "watchVideo": "Watch video",
+      "remove": "Remove",
+      "continueShopping": "Continue browsing"
+    },
     "addStaff": "Add staff member",
     "statBookingsToday": "Bookings today",
     "statRevenueMonth": "Revenue this month",
@@ -124,8 +150,10 @@
     "cash": "Pay at the salon",
     "stripe": "International card (Visa/Mastercard)",
     "bankTransfer": "Bank transfer",
+    "chat": "Chat with the salon",
     "cashNotice": "You'll pay by cash or card in person when you arrive.",
     "bankTransferNotice": "Please transfer using the details below. The salon will confirm once payment is received.",
+    "chatNotice": "Your order has been created — open chat with the salon to arrange payment.",
     "sandboxNotice": "Sandbox mode — no real charge will be made.",
     "processing": "Processing payment...",
     "success": "Payment successful! Your booking is confirmed.",
@@ -374,6 +402,26 @@
     "loyalty": {
       "nav": "Loyalty cards",
       "subtitle": "Give customers a loyalty card, scan it each visit and apply rewards"
+    },
+    "productsForm": {
+      "newProduct": "New product",
+      "editProduct": "Edit product",
+      "productName": "Product name",
+      "images": "Photos",
+      "addPhoto": "Add photo",
+      "tooManyImages": "You can upload up to {max} photos per product.",
+      "saveError": "Couldn't save, please try again."
+    },
+    "ordersPage": {
+      "nav": "Orders",
+      "empty": "No orders yet.",
+      "note": "Note from customer",
+      "total": "Total",
+      "paymentMethod": {
+        "CASH": "Pay at the salon",
+        "BANK_TRANSFER": "Bank transfer",
+        "CHAT": "Arranged via chat"
+      }
     }
   },
   "common": {
