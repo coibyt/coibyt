@@ -61,6 +61,11 @@ export default async function BusinessProfilePage({
 
   if (!business || business.status !== "APPROVED") notFound();
 
+  // Raw, never-deduplicated page-view log (same "simple counter" spirit as
+  // Product.viewCount) — kept row-per-visit so the admin analytics page can
+  // filter by day/week/month/custom range instead of just a running total.
+  await prisma.businessPageView.create({ data: { businessId: business.id } });
+
   const catNames = await categoryNameMap(locale);
 
   const [followerCount, isFollowing, productCount] = await Promise.all([

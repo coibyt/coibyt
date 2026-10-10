@@ -191,6 +191,11 @@
     "categories": "Categories",
     "allBusinesses": "All businesses",
     "noPending": "No businesses awaiting review.",
+    "businessAnalytics": {
+      "views": "Views",
+      "bookings": "Bookings",
+      "revenue": "Revenue"
+    },
     "platformAffiliatesPage": {
       "title": "Affiliate marketing",
       "hint": "Add a referrer (a sale, a salon owner, or a customer) to promote the salon-owner signup program. Once a salon they referred is approved and has a complete profile (address, opening hours, services), the referrer earns a commission % on every one of that salon's bookings going forward. VaraaAi only tracks and tallies commissions — you pay them yourself, outside the system.",

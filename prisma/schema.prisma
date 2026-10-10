@@ -251,12 +251,26 @@ model Business {
   productGroups           ProductGroup[]
   productReviews          ProductReview[]
   orders                  Order[]
+  pageViews               BusinessPageView[]
 
   @@index([ownerId])
   @@index([status])
   @@index([city])
   @@index([referredByOwnerId])
   @@index([referredByAffiliateId])
+}
+
+// One row per public profile page load — never deduplicated, same "raw
+// counter" spirit as Product.viewCount, but kept as a row-per-visit table
+// (instead of a running total) so the admin "all businesses" page can
+// filter total views by day/week/month/custom range.
+model BusinessPageView {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@index([businessId, createdAt])
 }
 
 // A one-off marketing email an owner composes and sends to everyone who has

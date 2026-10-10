@@ -191,6 +191,11 @@
     "categories": "Danh mục",
     "allBusinesses": "Tất cả doanh nghiệp",
     "noPending": "Không có doanh nghiệp nào đang chờ duyệt.",
+    "businessAnalytics": {
+      "views": "Lượt xem",
+      "bookings": "Lịch hẹn",
+      "revenue": "Doanh thu"
+    },
     "platformAffiliatesPage": {
       "title": "Tiếp thị liên kết",
       "hint": "Thêm người giới thiệu (sale, chủ salon, hoặc khách hàng) quảng bá chương trình đăng ký làm chủ salon. Khi salon họ giới thiệu được duyệt và hoàn thiện đủ hồ sơ (địa chỉ, giờ mở cửa, dịch vụ), người giới thiệu sẽ nhận % hoa hồng trên mọi lịch hẹn của salon đó về sau. VaraaAi chỉ theo dõi và tính hoa hồng — bạn tự thanh toán bên ngoài hệ thống.",
