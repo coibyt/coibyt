@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Dalieties ar kaut ko ar saviem sekotājiem...",
-      "videoLinkPlaceholder": "YouTube video saite (nav obligāti)",
+      "videoLinkPlaceholder": "YouTube / VaraClip video saite (nav obligāti)",
       "addPhotos": "Pievienot fotoattēlus",
       "postButton": "Publicēt",
       "noPostsYet": "Vēl nav publikāciju."
@@ -235,7 +235,7 @@
       "optional": "nav obligāti",
       "description": "Apraksts",
       "descriptionHint": "Tiek rādīts zem pakalpojuma nosaukuma, kad klients to izvēlas.",
-      "videoLink": "YouTube video saite",
+      "videoLink": "YouTube / VaraClip video saite",
       "videoLinkHint": "Klienti var noklikšķināt, lai priekšskatītu šo pakalpojumu pirms rezervēšanas.",
       "staffCanDo": "Darbinieki, kas var to sniegt",
       "staffOverrideHint": "Atstājiet tukšu, lai darbinieks izmantotu iepriekš norādīto noklusējuma cenu/ilgumu.",

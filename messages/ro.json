@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Distribuiți ceva urmăritorilor dvs...",
-      "videoLinkPlaceholder": "Link video YouTube (opțional)",
+      "videoLinkPlaceholder": "Link video YouTube / VaraClip (opțional)",
       "addPhotos": "Adăugați fotografii",
       "postButton": "Publicați",
       "noPostsYet": "Încă nu există postări."
@@ -235,7 +235,7 @@
       "optional": "opțional",
       "description": "Descriere",
       "descriptionHint": "Se afișează sub numele serviciului când un client îl alege.",
-      "videoLink": "Link video YouTube",
+      "videoLink": "Link video YouTube / VaraClip",
       "videoLinkHint": "Clienții pot face clic pentru a previzualiza acest serviciu înainte de rezervare.",
       "staffCanDo": "Angajați care îl pot presta",
       "staffOverrideHint": "Lăsați gol pentru ca angajatul să folosească prețul/durata implicită de mai sus.",

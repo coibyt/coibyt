@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Bagikan sesuatu dengan pengikut Anda...",
-      "videoLinkPlaceholder": "Tautan video YouTube (opsional)",
+      "videoLinkPlaceholder": "Tautan video YouTube / VaraClip (opsional)",
       "addPhotos": "Tambah foto",
       "postButton": "Posting",
       "noPostsYet": "Belum ada postingan."
@@ -235,7 +235,7 @@
       "optional": "opsional",
       "description": "Deskripsi",
       "descriptionHint": "Ditampilkan di bawah nama layanan saat pelanggan memilihnya.",
-      "videoLink": "Tautan video YouTube",
+      "videoLink": "Tautan video YouTube / VaraClip",
       "videoLinkHint": "Pelanggan dapat mengklik untuk melihat pratinjau layanan ini sebelum memesan.",
       "staffCanDo": "Staf yang dapat melakukan ini",
       "staffOverrideHint": "Biarkan kosong agar staf menggunakan harga/durasi default di atas.",

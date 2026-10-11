@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Del noget med dine følgere...",
-      "videoLinkPlaceholder": "YouTube-videolink (valgfri)",
+      "videoLinkPlaceholder": "YouTube / VaraClip-videolink (valgfri)",
       "addPhotos": "Tilføj billeder",
       "postButton": "Opslag",
       "noPostsYet": "Ingen opslag endnu."
@@ -235,7 +235,7 @@
       "optional": "valgfri",
       "description": "Beskrivelse",
       "descriptionHint": "Vises under tjenestenavnet, når en kunde vælger det.",
-      "videoLink": "YouTube-videolink",
+      "videoLink": "YouTube / VaraClip-videolink",
       "videoLinkHint": "Kunder kan klikke for at forhåndsvise denne tjeneste før booking.",
       "staffCanDo": "Medarbejdere der kan udføre dette",
       "staffOverrideHint": "Lad stå tomt for at en medarbejder bruger standardprisen/varigheden ovenfor.",

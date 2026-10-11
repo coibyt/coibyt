@@ -261,7 +261,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Share something with your followers...",
-      "videoLinkPlaceholder": "YouTube video link (optional)",
+      "videoLinkPlaceholder": "YouTube / VaraClip video link (optional)",
       "addPhotos": "Add photos",
       "postButton": "Post",
       "noPostsYet": "No posts yet."
@@ -280,7 +280,7 @@
       "optional": "optional",
       "description": "Description",
       "descriptionHint": "Shown under the service name when a customer picks it.",
-      "videoLink": "YouTube video link",
+      "videoLink": "YouTube / VaraClip video link",
       "videoLinkHint": "Customers can click to preview this service before booking.",
       "staffCanDo": "Staff who can perform this",
       "staffOverrideHint": "Leave blank for a staff member to use the default price/duration above.",

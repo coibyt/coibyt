@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Magbahagi ng kahit ano sa iyong mga follower...",
-      "videoLinkPlaceholder": "Link ng YouTube video (opsyonal)",
+      "videoLinkPlaceholder": "Link ng YouTube / VaraClip video (opsyonal)",
       "addPhotos": "Magdagdag ng mga larawan",
       "postButton": "I-post",
       "noPostsYet": "Wala pang post."
@@ -235,7 +235,7 @@
       "optional": "opsyonal",
       "description": "Paglalarawan",
       "descriptionHint": "Ipinapakita sa ilalim ng pangalan ng serbisyo kapag pinili ito ng customer.",
-      "videoLink": "Link ng YouTube video",
+      "videoLink": "Link ng YouTube / VaraClip video",
       "videoLinkHint": "Maaaring i-click ng mga customer para i-preview ang serbisyong ito bago mag-book.",
       "staffCanDo": "Mga staff na makakagawa nito",
       "staffOverrideHint": "Iwanang blangko para gamitin ng staff ang default na presyo/tagal sa itaas.",

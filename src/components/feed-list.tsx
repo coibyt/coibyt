@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Loader2, MessageCircle, Heart, Share2, Paperclip, X, Send } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { EmojiPicker } from "@/components/emoji-picker";
+import { toYoutubeEmbedUrl } from "@/lib/youtube";
 
 interface FeedPost {
   id: string;
@@ -30,15 +31,7 @@ interface Comment {
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 
-function youtubeEmbedUrl(url: string) {
-  try {
-    const u = new URL(url);
-    const id = u.hostname.includes("youtu.be") ? u.pathname.slice(1) : u.searchParams.get("v");
-    return id ? `https://www.youtube.com/embed/${id}` : null;
-  } catch {
-    return null;
-  }
-}
+const youtubeEmbedUrl = toYoutubeEmbedUrl;
 
 export function FeedList({ locale }: { locale: string }) {
   const [posts, setPosts] = useState<FeedPost[]>([]);

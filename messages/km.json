@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "ចែករំលែកអ្វីដែលមាន្យល់ជាមួយអ្នកដែលដើរតាម...",
-      "videoLinkPlaceholder": "តំណ YouTube (ឧបាយម)",
+      "videoLinkPlaceholder": "តំណ YouTube / VaraClip (ឧបាយម)",
       "addPhotos": "បន្ថែមរូបថត",
       "postButton": "ផ្សាយ",
       "noPostsYet": "មិនមានលម្អិតផ្សាយនៅឡើយ។"
@@ -235,7 +235,7 @@
       "optional": "មិនចាំបាច់",
       "description": "ការពិពណ៌នា",
       "descriptionHint": "បង្ហាញនៅក្រោមឈ្មោះសេវាកម្ម នៅពេលអតិថិជនជ្រើសរើសសេវាកម្មនេះ។",
-      "videoLink": "តំណវីដេអូ YouTube",
+      "videoLink": "តំណវីដេអូ YouTube / VaraClip",
       "videoLinkHint": "អតិថិជនអាចចុចមើលសេវាកម្មនេះជាមុនមុនពេលកក់។",
       "staffCanDo": "បុគ្គលិកដែលអាចធ្វើសេវាកម្មនេះ",
       "staffOverrideHint": "ទុកនៅទទេប្រសិនបើបុគ្គលិកប្រើតម្លៃ/រយៈពេលលំនាំដើមខាងលើ។",

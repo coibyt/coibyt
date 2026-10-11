@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Del noe med følgerne dine...",
-      "videoLinkPlaceholder": "YouTube-videolenke (valgfritt)",
+      "videoLinkPlaceholder": "YouTube / VaraClip-videolenke (valgfritt)",
       "addPhotos": "Legg til bilder",
       "postButton": "Publiser",
       "noPostsYet": "Ingen innlegg ennå."
@@ -235,7 +235,7 @@
       "optional": "valgfritt",
       "description": "Beskrivelse",
       "descriptionHint": "Vises under tjenestenavnet når en kunde velger det.",
-      "videoLink": "YouTube-videolenke",
+      "videoLink": "YouTube / VaraClip-videolenke",
       "videoLinkHint": "Kunder kan klikke for å forhåndsvise denne tjenesten før bestilling.",
       "staffCanDo": "Ansatte som kan utføre dette",
       "staffOverrideHint": "La stå tomt for at en ansatt skal bruke standardprisen/varigheten ovenfor.",

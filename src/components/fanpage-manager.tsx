@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2, ImageIcon, Trash2, X } from "lucide-react";
+import { toYoutubeEmbedUrl } from "@/lib/youtube";
 
 interface PostRow {
   id: string;
@@ -13,15 +14,7 @@ interface PostRow {
   createdAt: string;
 }
 
-function youtubeEmbedUrl(url: string) {
-  try {
-    const u = new URL(url);
-    const id = u.hostname.includes("youtu.be") ? u.pathname.slice(1) : u.searchParams.get("v");
-    return id ? `https://www.youtube.com/embed/${id}` : null;
-  } catch {
-    return null;
-  }
-}
+const youtubeEmbedUrl = toYoutubeEmbedUrl;
 
 export function FanpageManager({ locale }: { locale: string }) {
   const tDash = useTranslations("dashboard");

@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Deel iets met je volgers...",
-      "videoLinkPlaceholder": "YouTube-videolink (optioneel)",
+      "videoLinkPlaceholder": "YouTube / VaraClip-videolink (optioneel)",
       "addPhotos": "Foto's toevoegen",
       "postButton": "Plaatsen",
       "noPostsYet": "Nog geen berichten."
@@ -235,7 +235,7 @@
       "optional": "optioneel",
       "description": "Beschrijving",
       "descriptionHint": "Wordt weergegeven onder de naam van de dienst wanneer een klant deze kiest.",
-      "videoLink": "YouTube-videolink",
+      "videoLink": "YouTube / VaraClip-videolink",
       "videoLinkHint": "Klanten kunnen klikken om deze dienst te bekijken voordat ze boeken.",
       "staffCanDo": "Medewerkers die dit kunnen uitvoeren",
       "staffOverrideHint": "Laat leeg zodat een medewerker de standaardprijs/duur hierboven gebruikt.",

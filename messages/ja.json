@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "フォロワーに何か共有しましょう...",
-      "videoLinkPlaceholder": "YouTube動画リンク（任意）",
+      "videoLinkPlaceholder": "YouTube / VaraClip動画リンク（任意）",
       "addPhotos": "写真を追加",
       "postButton": "投稿",
       "noPostsYet": "まだ投稿がありません。"
@@ -235,7 +235,7 @@
       "optional": "任意",
       "description": "説明",
       "descriptionHint": "お客様がこのサービスを選ぶ際、サービス名の下に表示されます。",
-      "videoLink": "YouTube動画リンク",
+      "videoLink": "YouTube / VaraClip動画リンク",
       "videoLinkHint": "予約前にお客様がクリックしてプレビューできます。",
       "staffCanDo": "対応可能なスタッフ",
       "staffOverrideHint": "上記のデフォルト価格・時間を使用する場合は空欄のままにしてください。",

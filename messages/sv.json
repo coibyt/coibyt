@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Dela något med dina följare...",
-      "videoLinkPlaceholder": "YouTube-videolänk (valfritt)",
+      "videoLinkPlaceholder": "YouTube / VaraClip-videolänk (valfritt)",
       "addPhotos": "Lägg till bilder",
       "postButton": "Publicera",
       "noPostsYet": "Inga inlägg ännu."
@@ -235,7 +235,7 @@
       "optional": "valfritt",
       "description": "Beskrivning",
       "descriptionHint": "Visas under tjänstens namn när en kund väljer den.",
-      "videoLink": "YouTube-videolänk",
+      "videoLink": "YouTube / VaraClip-videolänk",
       "videoLinkHint": "Kunder kan klicka för att förhandsgranska denna tjänst innan bokning.",
       "staffCanDo": "Personal som kan utföra detta",
       "staffOverrideHint": "Lämna tomt för att medarbetaren ska använda standardpris/-tid ovan.",

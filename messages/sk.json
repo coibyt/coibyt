@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Zdieľajte niečo so svojimi sledovateľmi...",
-      "videoLinkPlaceholder": "Odkaz na video YouTube (nepovinné)",
+      "videoLinkPlaceholder": "Odkaz na video YouTube / VaraClip (nepovinné)",
       "addPhotos": "Pridať fotky",
       "postButton": "Uverejniť",
       "noPostsYet": "Zatiaľ žiadne príspevky."
@@ -235,7 +235,7 @@
       "optional": "nepovinné",
       "description": "Popis",
       "descriptionHint": "Zobrazuje sa pod názvom služby, keď si ju zákazník vyberie.",
-      "videoLink": "Odkaz na video YouTube",
+      "videoLink": "Odkaz na video YouTube / VaraClip",
       "videoLinkHint": "Zákazníci si môžu pred rezerváciou kliknutím pozrieť náhľad tejto služby.",
       "staffCanDo": "Zamestnanci, ktorí ju môžu vykonávať",
       "staffOverrideHint": "Nechajte prázdne, ak má zamestnanec použiť predvolenú cenu/trvanie uvedené vyššie.",
