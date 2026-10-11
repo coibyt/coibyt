@@ -10,6 +10,9 @@ export const registerSchema = z
     phone: z.string().min(6).max(30),
     password: z.string().min(8).max(72),
     confirmPassword: z.string(),
+    locale: z.string().max(10).optional(),
+    emailMarketingOptIn: z.boolean().optional(),
+    smsMarketingOptIn: z.boolean().optional(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "PASSWORD_MISMATCH",

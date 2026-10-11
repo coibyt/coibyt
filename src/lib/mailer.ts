@@ -101,6 +101,29 @@ export function passwordResetEmail(params: { name: string; resetUrl: string; loc
   };
 }
 
+/** Sent right after a customer finishes the standalone sign-up form (not
+ * the guest-checkout-creates-an-account path on the booking widget, which
+ * already gets its own account mention folded into the booking
+ * confirmation email instead — see bookingConfirmationEmail). */
+export function registrationSuccessEmail(params: { name: string; locale: string }) {
+  const isVi = params.locale === "vi";
+  return {
+    subject: isVi ? "Chào mừng bạn đến với VaraaAi!" : "Welcome to VaraaAi!",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Tạo tài khoản thành công" : "Account created"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
+        <p>${
+          isVi
+            ? "Tài khoản VaraaAi của bạn đã sẵn sàng. Giờ đây bạn có thể đặt lịch hẹn, theo dõi các salon yêu thích, và xem lại lịch sử đặt lịch của mình bất cứ lúc nào."
+            : "Your VaraaAi account is ready. You can now book appointments, follow your favorite salons, and look back on your booking history any time."
+        }</p>
+        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 export function businessReadyEmail(params: {
   ownerName: string;
   businessName: string;

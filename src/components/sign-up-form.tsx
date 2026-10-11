@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { useRouter, Link } from "@/i18n/navigation";
 import { Loader2 } from "lucide-react";
 
 export function SignUpForm() {
   const t = useTranslations("auth");
+  const locale = useLocale();
   const router = useRouter();
 
   const [form, setForm] = useState({
@@ -17,6 +18,8 @@ export function SignUpForm() {
     password: "",
     confirmPassword: "",
   });
+  const [emailOptIn, setEmailOptIn] = useState(true);
+  const [smsOptIn, setSmsOptIn] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,7 +35,12 @@ export function SignUpForm() {
     const res = await fetch("/api/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({
+        ...form,
+        locale,
+        emailMarketingOptIn: emailOptIn,
+        smsMarketingOptIn: smsOptIn,
+      }),
     });
 
     if (!res.ok) {
@@ -112,11 +120,59 @@ export function SignUpForm() {
             className="input"
           />
         </div>
+        <div>
+          <p className="label">
+            {locale === "vi"
+              ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
+              : "How would you like to receive marketing messages?"}
+          </p>
+          <div className="flex flex-wrap gap-4 text-sm text-ink-700">
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={emailOptIn}
+                onChange={(e) => setEmailOptIn(e.target.checked)}
+              />
+              {locale === "vi" ? "Qua email" : "By email"}
+            </label>
+            <label className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={smsOptIn}
+                onChange={(e) => setSmsOptIn(e.target.checked)}
+              />
+              {locale === "vi" ? "Qua tin nhắn văn bản" : "By text message"}
+            </label>
+          </div>
+        </div>
+
         {error && <p className="text-sm text-berry-500">{error}</p>}
         <button type="submit" disabled={loading} className="btn-primary w-full">
           {loading && <Loader2 className="h-4 w-4 animate-spin" />}
           {t("signUpButton")}
         </button>
+
+        <p className="text-center text-xs text-ink-400">
+          {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
+          <Link
+            href="/terms"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary-600 underline hover:no-underline"
+          >
+            {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+          </Link>
+          {locale === "vi" ? " và " : " and "}
+          <Link
+            href="/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-primary-600 underline hover:no-underline"
+          >
+            {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
+          </Link>
+          {locale === "vi" ? " của VaraaAi.com." : " of VaraaAi.com."}
+        </p>
       </form>
 
       <p className="text-center text-sm text-ink-400">
