@@ -25,7 +25,8 @@ export async function POST(
   });
   if (!message) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
-  const access = await getConversationAccess(message.conversationId);
+  const guestId = typeof body.guestId === "string" ? body.guestId : null;
+  const access = await getConversationAccess(message.conversationId, guestId);
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const existing = await prisma.messageReaction.findUnique({

@@ -12,10 +12,10 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const access = await getConversationAccess(id);
+  const { searchParams } = new URL(req.url);
+  const access = await getConversationAccess(id, searchParams.get("guestId"));
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
-  const { searchParams } = new URL(req.url);
   const afterId = searchParams.get("after"); // for polling: only messages newer than this one
 
   const messages = await prisma.message.findMany({
@@ -61,10 +61,11 @@ export async function POST(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const access = await getConversationAccess(id);
+  const form = await req.formData();
+  const guestId = form.get("guestId");
+  const access = await getConversationAccess(id, typeof guestId === "string" ? guestId : null);
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
-  const form = await req.formData();
   const content = form.get("content");
   const image = form.get("image");
 

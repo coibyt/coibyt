@@ -2,6 +2,7 @@ import { getBusinessAccess } from "@/lib/current-business";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { BusinessMessagesManager } from "@/components/business-messages-manager";
+import { ChatEmbedCard } from "@/components/chat-embed-card";
 
 export default async function BusinessMessagesPage({
   params,
@@ -18,9 +19,14 @@ export default async function BusinessMessagesPage({
   }
 
   return (
-    <div>
-      <h1 className="mb-4 text-xl font-bold text-ink-900">{t("messages")}</h1>
-      <BusinessMessagesManager locale={locale} />
+    <div className="space-y-6">
+      <div>
+        <h1 className="mb-4 text-xl font-bold text-ink-900">{t("messages")}</h1>
+        <BusinessMessagesManager locale={locale} />
+      </div>
+      {access.isOwner && (
+        <ChatEmbedCard slug={access.business.slug} defaultLocale={access.business.defaultLocale} />
+      )}
     </div>
   );
 }

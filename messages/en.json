@@ -492,6 +492,8 @@
     "saveInvoiceInfo": "Save invoice details",
     "embedTitle": "Embed booking page",
     "embedSubtitle": "Let customers book right from your own website.",
+    "chatEmbedTitle": "Embed chat box",
+    "chatEmbedSubtitle": "Let customers chat with you right from your own website — no account needed on their end, and it shows up in this inbox.",
     "viewPage": "View page",
     "copyLink": "Copy link",
     "getEmbedCode": "Get embed code",

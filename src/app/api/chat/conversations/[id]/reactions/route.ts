@@ -8,11 +8,12 @@ import { getConversationAccess } from "@/lib/chat-access";
  * for a thread this size, so the client just replaces its local reaction
  * map wholesale each tick. */
 export async function GET(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const access = await getConversationAccess(id);
+  const { searchParams } = new URL(req.url);
+  const access = await getConversationAccess(id, searchParams.get("guestId"));
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const rows = await prisma.messageReaction.findMany({

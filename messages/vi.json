@@ -492,6 +492,8 @@
     "saveInvoiceInfo": "Lưu thông tin hóa đơn",
     "embedTitle": "Nhúng trang đặt lịch",
     "embedSubtitle": "Cho phép khách đặt lịch ngay trên website riêng của bạn.",
+    "chatEmbedTitle": "Nhúng khung chat",
+    "chatEmbedSubtitle": "Cho phép khách chat với bạn ngay trên website riêng — khách không cần tài khoản, và nội dung chat hiện ngay tại hộp thư này.",
     "viewPage": "Xem trang",
     "copyLink": "Sao chép liên kết",
     "getEmbedCode": "Lấy mã nhúng",

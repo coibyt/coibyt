@@ -46,6 +46,13 @@ model User {
   // records consent so it's ready once one is wired up.
   smsMarketingOptOut Boolean @default(false)
 
+  // A frictionless "chat without registering" identity — created the first
+  // time an anonymous visitor opens a salon's chat (see POST /api/chat/start)
+  // instead of forcing sign-up first. Has a name, no password, and a
+  // synthetic @guest.varaaai.com email that's never actually reachable —
+  // excluded from marketing sends and customer lists for that reason.
+  isGuest Boolean @default(false)
+
   // "Vara points" — a salon-owner account's shared balance across every
   // branch they run, spent 1-per-email on marketing sends (see
   // /api/business/marketing/send) and earned via daily check-in and the

@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getConversationAccess } from "@/lib/chat-access";
 
 export async function GET(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
@@ -16,7 +16,8 @@ export async function GET(
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 
-  const access = await getConversationAccess(message.conversationId);
+  const { searchParams } = new URL(req.url);
+  const access = await getConversationAccess(message.conversationId, searchParams.get("guestId"));
   if (!access) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   return new NextResponse(new Uint8Array(message.imageData), {

@@ -28,14 +28,19 @@ export function ChatWidget({
   viewerRole,
   title,
   locale,
+  guestId,
   onClose,
 }: {
   conversationId: string;
   viewerRole: "CUSTOMER" | "BUSINESS";
   title: string;
   locale: string;
+  /** Set only for an anonymous customer chatting without an account (see
+   * useGuestChat) — appended to every request in place of a session. */
+  guestId?: string | null;
   onClose?: () => void;
 }) {
+  const guestQuery = guestId ? `guestId=${encodeURIComponent(guestId)}` : "";
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [reactions, setReactions] = useState<Record<string, ReactionSummary[]>>({});
   const [loading, setLoading] = useState(true);
@@ -51,9 +56,11 @@ export function ChatWidget({
     let cancelled = false;
 
     async function fetchMessages(after?: string) {
-      const url = after
-        ? `/api/chat/conversations/${conversationId}/messages?after=${after}`
-        : `/api/chat/conversations/${conversationId}/messages`;
+      const params = new URLSearchParams();
+      if (after) params.set("after", after);
+      if (guestId) params.set("guestId", guestId);
+      const qs = params.toString();
+      const url = `/api/chat/conversations/${conversationId}/messages${qs ? `?${qs}` : ""}`;
       const res = await fetch(url);
       if (!res.ok || cancelled) return;
       const data = await res.json();
@@ -64,7 +71,9 @@ export function ChatWidget({
     }
 
     async function fetchReactions() {
-      const res = await fetch(`/api/chat/conversations/${conversationId}/reactions`);
+      const res = await fetch(
+        `/api/chat/conversations/${conversationId}/reactions${guestQuery ? `?${guestQuery}` : ""}`
+      );
       if (!res.ok || cancelled) return;
       const data = await res.json();
       setReactions(data.reactions ?? {});
@@ -79,7 +88,7 @@ export function ChatWidget({
       cancelled = true;
       clearInterval(interval);
     };
-  }, [conversationId]);
+  }, [conversationId, guestId, guestQuery]);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight });
@@ -102,6 +111,7 @@ export function ChatWidget({
     const form = new FormData();
     if (text.trim()) form.set("content", text.trim());
     if (pendingImage) form.set("image", pendingImage);
+    if (guestId) form.set("guestId", guestId);
 
     const res = await fetch(`/api/chat/conversations/${conversationId}/messages`, {
       method: "POST",
@@ -124,7 +134,7 @@ export function ChatWidget({
     const res = await fetch(`/api/chat/messages/${messageId}/reactions`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ emoji }),
+      body: JSON.stringify({ emoji, guestId: guestId || undefined }),
     });
     if (!res.ok) return;
     const data = await res.json();
@@ -172,7 +182,7 @@ export function ChatWidget({
                   >
                     {m.hasImage && (
                       <img
-                        src={`/api/chat/messages/${m.id}/image`}
+                        src={`/api/chat/messages/${m.id}/image${guestQuery ? `?${guestQuery}` : ""}`}
                         alt=""
                         className="mb-1 max-h-48 rounded-lg object-contain"
                       />
