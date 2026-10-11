@@ -127,6 +127,20 @@ export const createBookingSchema = z.object({
   paymentProvider: z.enum(["CASH", "BANK_TRANSFER", "STRIPE"]),
   addOnIds: z.array(z.string().cuid()).max(20).optional(),
   extraServiceIds: z.array(z.string().cuid()).max(10).optional(),
+  // A gift-card purchase code entered at checkout (see GiftCardPurchase) —
+  // re-validated server-side in createBookingAndPayment, never trusted here.
+  discountCode: z.string().max(40).optional(),
+  // Only required when the request has no signed-in session — see
+  // POST /api/bookings, which finds-or-creates the User by email before
+  // calling createBookingAndPayment. Presence/length is still enforced here;
+  // the "required when guest" branching happens in the route itself since
+  // zod can't see the session.
+  guestName: z.string().min(2).max(100).optional(),
+  guestEmail: z.string().email().optional(),
+  guestPhone: z.string().min(6).max(30).optional(),
+  guestPassword: z.string().min(8).max(72).optional(),
+  emailMarketingOptIn: z.boolean().optional(),
+  smsMarketingOptIn: z.boolean().optional(),
 });
 
 const buttonTargetSchema = z.enum(["BOOKING", "URL"]);

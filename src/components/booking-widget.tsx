@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { addDays, format, isSameDay } from "date-fns";
 import { toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
-import { GuestBookingAuth } from "@/components/guest-booking-auth";
+import { SignInForm } from "@/components/guest-booking-auth";
 import { EmbedTopBar } from "@/components/embed-topbar";
 import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { formatMoney } from "@/lib/money";
@@ -105,7 +105,8 @@ export function BookingWidget({
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
   const tCommon = useTranslations("common");
-  const { data: session, status } = useSession();
+  const tAuth = useTranslations("auth");
+  const { status } = useSession();
   const viewerTimezone = useViewerTimezone();
   const showLocalTime = !!viewerTimezone && viewerTimezone !== businessTimezone;
 
@@ -129,6 +130,26 @@ export function BookingWidget({
   const [error, setError] = useState<string | null>(null);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [showCancellationPolicy, setShowCancellationPolicy] = useState(false);
+
+  // Guest checkout — only used while status !== "authenticated". Filling
+  // these in and confirming creates the customer's account inline (see
+  // POST /api/bookings); "Already have an account?" swaps this block for
+  // SignInForm instead.
+  const [guestName, setGuestName] = useState("");
+  const [guestEmail, setGuestEmail] = useState("");
+  const [guestPhone, setGuestPhone] = useState("");
+  const [guestPassword, setGuestPassword] = useState("");
+  const [emailOptIn, setEmailOptIn] = useState(true);
+  const [smsOptIn, setSmsOptIn] = useState(true);
+  const [showSignIn, setShowSignIn] = useState(false);
+
+  // Discount code (redeems a GiftCardPurchase for this exact service) —
+  // validated live here purely for preview; createBookingAndPayment
+  // re-validates and redeems it server-side, never trusting this.
+  const [discountCode, setDiscountCode] = useState("");
+  const [discountChecking, setDiscountChecking] = useState(false);
+  const [discount, setDiscount] = useState<{ percent: number; name: string } | null>(null);
+  const [discountError, setDiscountError] = useState<string | null>(null);
 
   const days = useMemo(
     () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
@@ -190,6 +211,35 @@ export function BookingWidget({
       .finally(() => setLoadingSlots(false));
   }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey, extraServiceIdsKey]);
 
+  async function applyDiscount() {
+    if (!discountCode.trim()) return;
+    setDiscountChecking(true);
+    setDiscountError(null);
+    try {
+      const res = await fetch("/api/bookings/validate-discount", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: discountCode.trim(), serviceId: service.id }),
+      });
+      const data = await res.json();
+      if (!data.valid) {
+        setDiscount(null);
+        setDiscountError(locale === "vi" ? "Mã giảm giá không hợp lệ." : "Invalid discount code.");
+        return;
+      }
+      setDiscount({ percent: data.discountPercent, name: data.name });
+    } finally {
+      setDiscountChecking(false);
+    }
+  }
+
+  const isGuest = status !== "authenticated";
+  const guestFormValid =
+    guestName.trim().length >= 2 &&
+    /\S+@\S+\.\S+/.test(guestEmail) &&
+    guestPhone.trim().length >= 6 &&
+    guestPassword.length >= 8;
+
   async function handleSubmit() {
     if (!selectedSlot) return;
     setSubmitting(true);
@@ -206,12 +256,36 @@ export function BookingWidget({
           paymentProvider: provider,
           addOnIds: Array.from(selectedAddOnIds),
           extraServiceIds: extraServices.map((s) => s.id),
+          discountCode: discount ? discountCode.trim() : undefined,
+          ...(isGuest
+            ? {
+                guestName,
+                guestEmail,
+                guestPhone,
+                guestPassword,
+                emailMarketingOptIn: emailOptIn,
+                smsMarketingOptIn: smsOptIn,
+              }
+            : {}),
         }),
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error === "SLOT_UNAVAILABLE" ? t("noSlots") : tPay("failed"));
+        setError(
+          data.error === "SLOT_UNAVAILABLE"
+            ? t("noSlots")
+            : data.error === "EMAIL_IN_USE"
+              ? tAuth("emailInUse")
+              : data.error === "GUEST_INFO_REQUIRED"
+                ? locale === "vi"
+                  ? "Vui lòng điền đầy đủ thông tin của bạn."
+                  : "Please fill in all your details."
+                : tPay("failed")
+        );
         return;
+      }
+      if (isGuest) {
+        await signIn("credentials", { email: guestEmail, password: guestPassword, redirect: false });
       }
       window.location.href = data.redirectUrl;
     } catch {
@@ -221,7 +295,10 @@ export function BookingWidget({
     }
   }
 
-  const totalServiceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
+  const discountCents = discount
+    ? Math.round((effectiveServicePriceCents * discount.percent) / 100)
+    : 0;
+  const totalServiceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum - discountCents;
   const isOfflinePayment = provider === "CASH" || provider === "BANK_TRANSFER";
 
   // Paying online can be for just the deposit; cash and bank transfer always
@@ -244,15 +321,6 @@ export function BookingWidget({
       />
     </>
   );
-
-  if (status === "unauthenticated") {
-    return (
-      <div>
-        {progressBar}
-        <GuestBookingAuth locale={locale} />
-      </div>
-    );
-  }
 
   return (
     <div className="space-y-6">
@@ -443,6 +511,110 @@ export function BookingWidget({
         )}
       </div>
 
+      {selectedSlot && isGuest && (
+        <div className="card space-y-4 p-4">
+          <p className="font-semibold text-ink-900">
+            {locale === "vi" ? "Thông tin của bạn" : "Your info"}
+          </p>
+          {!showSignIn ? (
+            <>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div>
+                  <label className="label">{tAuth("name")}</label>
+                  <input
+                    required
+                    className="input"
+                    value={guestName}
+                    onChange={(e) => setGuestName(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label className="label">{tAuth("phone")}</label>
+                  <input
+                    required
+                    type="tel"
+                    className="input"
+                    value={guestPhone}
+                    onChange={(e) => setGuestPhone(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label className="label">{tAuth("email")}</label>
+                  <input
+                    required
+                    type="email"
+                    className="input"
+                    value={guestEmail}
+                    onChange={(e) => setGuestEmail(e.target.value)}
+                  />
+                </div>
+                <div>
+                  <label className="label">{tAuth("password")}</label>
+                  <input
+                    required
+                    type="password"
+                    minLength={8}
+                    className="input"
+                    value={guestPassword}
+                    onChange={(e) => setGuestPassword(e.target.value)}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <p className="label">
+                  {locale === "vi"
+                    ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
+                    : "How would you like to receive marketing messages?"}
+                </p>
+                <div className="flex flex-wrap gap-4 text-sm text-ink-700">
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={emailOptIn}
+                      onChange={(e) => setEmailOptIn(e.target.checked)}
+                    />
+                    {locale === "vi" ? "Qua email" : "By email"}
+                  </label>
+                  <label className="flex items-center gap-2">
+                    <input
+                      type="checkbox"
+                      checked={smsOptIn}
+                      onChange={(e) => setSmsOptIn(e.target.checked)}
+                    />
+                    {locale === "vi" ? "Qua tin nhắn văn bản" : "By text message"}
+                  </label>
+                </div>
+              </div>
+
+              <p className="text-sm text-ink-400">
+                {tAuth("haveAccount")}{" "}
+                <button
+                  type="button"
+                  onClick={() => setShowSignIn(true)}
+                  className="font-medium text-primary-500 hover:underline"
+                >
+                  {tAuth("signInInstead")}
+                </button>
+              </p>
+            </>
+          ) : (
+            <>
+              <SignInForm />
+              <p className="text-center text-sm text-ink-400">
+                <button
+                  type="button"
+                  onClick={() => setShowSignIn(false)}
+                  className="font-medium text-primary-500 hover:underline"
+                >
+                  {locale === "vi" ? "Quay lại đặt lịch với thông tin mới" : "Back to booking as a new customer"}
+                </button>
+              </p>
+            </>
+          )}
+        </div>
+      )}
+
       <div>
         <label className="label" htmlFor="note">
           {t("note")}
@@ -515,6 +687,44 @@ export function BookingWidget({
         )}
       </div>
 
+      <div>
+        <p className="label">{locale === "vi" ? "Mã giảm giá" : "Discount code"}</p>
+        <div className="flex gap-2">
+          <input
+            className="input flex-1"
+            value={discountCode}
+            onChange={(e) => {
+              setDiscountCode(e.target.value);
+              setDiscount(null);
+              setDiscountError(null);
+            }}
+            placeholder={locale === "vi" ? "Nhập mã" : "Enter code"}
+          />
+          <button
+            type="button"
+            onClick={applyDiscount}
+            disabled={discountChecking || !discountCode.trim()}
+            className="btn-outline !px-4"
+          >
+            {discountChecking ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : locale === "vi" ? (
+              "Áp dụng"
+            ) : (
+              "Apply"
+            )}
+          </button>
+        </div>
+        {discount && (
+          <p className="mt-1 text-xs text-sage-600">
+            {locale === "vi"
+              ? `Đã áp dụng "${discount.name}" (-${discount.percent}%)`
+              : `"${discount.name}" applied (-${discount.percent}%)`}
+          </p>
+        )}
+        {discountError && <p className="mt-1 text-xs text-berry-500">{discountError}</p>}
+      </div>
+
       <div className="card space-y-2 p-4">
         <div className="flex justify-between text-sm text-ink-700">
           <span>{service.name}</span>
@@ -532,6 +742,14 @@ export function BookingWidget({
             <span>{formatMoney(a.priceCents, service.currency, locale)}</span>
           </div>
         ))}
+        {discount && (
+          <div className="flex justify-between text-sm text-sage-600">
+            <span>
+              {discount.name} (-{discount.percent}%)
+            </span>
+            <span>-{formatMoney(discountCents, service.currency, locale)}</span>
+          </div>
+        )}
         {!isOfflinePayment && service.depositCents && (
           <div className="flex justify-between text-sm text-ink-400">
             <span>{t("deposit")}</span>
@@ -577,12 +795,34 @@ export function BookingWidget({
 
       <button
         onClick={handleSubmit}
-        disabled={!selectedSlot || submitting || !acceptedTerms}
+        disabled={!selectedSlot || submitting || !acceptedTerms || (isGuest && !guestFormValid)}
         className="btn-primary w-full py-3"
       >
         {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
         {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
       </button>
+
+      <p className="text-center text-xs text-ink-400">
+        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
+        <Link
+          href="/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-primary-600 underline hover:no-underline"
+        >
+          {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+        </Link>
+        {locale === "vi" ? " và " : " and "}
+        <Link
+          href="/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-primary-600 underline hover:no-underline"
+        >
+          {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
+        </Link>
+        {locale === "vi" ? " của VaraaAi.com." : " of VaraaAi.com."}
+      </p>
 
       {showCancellationPolicy && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">

@@ -142,6 +142,11 @@ interface BookingEmailStrings {
   reviewIntro: (business: string) => string;
   reviewCTA: string;
   subjectReview: (business: string) => string;
+  // Shown only when this booking's checkout also created the customer's
+  // account (the "fill the form, get an account" guest-checkout flow) —
+  // never includes the password itself, just a pointer to use it next time.
+  newAccountTitle: string;
+  newAccountBody: (email: string) => string;
 }
 
 const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
@@ -180,6 +185,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `Cảm ơn bạn đã sử dụng dịch vụ tại <strong>${business}</strong>. Chúng tôi rất mong nhận được đánh giá của bạn để cải thiện chất lượng phục vụ.`,
     reviewCTA: "Đánh giá dịch vụ",
     subjectReview: (business) => `Cảm ơn bạn đã ghé ${business} — chia sẻ trải nghiệm của bạn nhé!`,
+    newAccountTitle: "Tài khoản VaraaAi của bạn đã sẵn sàng",
+    newAccountBody: (email) =>
+      `Chúng tôi đã tạo tài khoản cho bạn tại VaraaAi.Com bằng email <strong>${email}</strong>. Lần sau, đăng nhập bằng email này và mật khẩu bạn vừa đặt để xem và quản lý lịch hẹn của mình.`,
   },
   en: {
     hi: "Hi",
@@ -216,6 +224,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `Thank you for using <strong>${business}</strong>'s services. We'd love to hear what you thought — your review helps them improve.`,
     reviewCTA: "Leave a review",
     subjectReview: (business) => `Thanks for visiting ${business} — share your experience!`,
+    newAccountTitle: "Your VaraaAi account is ready",
+    newAccountBody: (email) =>
+      `We created an account for you at VaraaAi.Com using <strong>${email}</strong>. Next time, sign in with this email and the password you just chose to view and manage your bookings.`,
   },
   fi: {
     hi: "Hei",
@@ -252,6 +263,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `Kiitos, että käytit <strong>${business}</strong> palveluita. Kertoisitko mielipiteesi? Arviosi auttaa heitä kehittymään.`,
     reviewCTA: "Jätä arvostelu",
     subjectReview: (business) => `Kiitos käynnistä ${business} — kerro kokemuksestasi!`,
+    newAccountTitle: "VaraaAi-tilisi on valmis",
+    newAccountBody: (email) =>
+      `Loimme sinulle tilin VaraaAi.Comiin osoitteella <strong>${email}</strong>. Ensi kerralla kirjaudu tällä sähköpostilla ja juuri valitsemallasi salasanalla nähdäksesi ja hallitaksesi varauksiasi.`,
   },
   pl: {
     hi: "Cześć",
@@ -288,6 +302,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `Dziękujemy za skorzystanie z usług <strong>${business}</strong>. Chętnie poznamy Twoją opinię — Twoja recenzja pomoże im się rozwijać.`,
     reviewCTA: "Zostaw recenzję",
     subjectReview: (business) => `Dziękujemy za wizytę w ${business} — podziel się opinią!`,
+    newAccountTitle: "Twoje konto VaraaAi jest gotowe",
+    newAccountBody: (email) =>
+      `Utworzyliśmy dla Ciebie konto w VaraaAi.Com na adres <strong>${email}</strong>. Następnym razem zaloguj się tym adresem e-mail i hasłem, które właśnie ustawiłaś/eś, aby zobaczyć i zarządzać swoimi rezerwacjami.`,
   },
   de: {
     hi: "Hallo",
@@ -324,6 +341,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `Danke, dass du die Leistungen von <strong>${business}</strong> genutzt hast. Wir würden uns über dein Feedback freuen — deine Bewertung hilft dem Salon, sich zu verbessern.`,
     reviewCTA: "Bewertung abgeben",
     subjectReview: (business) => `Danke für deinen Besuch bei ${business} — teile deine Erfahrung!`,
+    newAccountTitle: "Dein VaraaAi-Konto ist bereit",
+    newAccountBody: (email) =>
+      `Wir haben für dich ein Konto bei VaraaAi.Com mit <strong>${email}</strong> erstellt. Melde dich beim nächsten Mal mit dieser E-Mail-Adresse und dem gerade gewählten Passwort an, um deine Termine zu sehen und zu verwalten.`,
   },
   km: {
     hi: "សួស្តី",
@@ -360,6 +380,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `សូមអរគុណដែលបានប្រើសេវាកម្មរបស់ <strong>${business}</strong>។ យើងចង់ដឹងពីមតិយោបល់របស់អ្នក — ការវាយតម្លៃរបស់អ្នកជួយឱ្យពួកគេកែលម្អ។`,
     reviewCTA: "វាយតម្លៃសេវាកម្ម",
     subjectReview: (business) => `សូមអរគុណដែលបានមកលេង ${business} — សូមចែករំលែកបទពិសោធន៍របស់អ្នក!`,
+    newAccountTitle: "គណនី VaraaAi របស់អ្នកត្រៀមរួចរាល់ហើយ",
+    newAccountBody: (email) =>
+      `យើងបានបង្កើតគណនីសម្រាប់អ្នកនៅ VaraaAi.Com ដោយប្រើអ៊ីមែល <strong>${email}</strong>។ លើកក្រោយ សូមចូលគណនីដោយប្រើអ៊ីមែលនេះ និងពាក្យសម្ងាត់ដែលអ្នកទើបតែបានកំណត់ ដើម្បីមើល និងគ្រប់គ្រងការកក់របស់អ្នក។`,
   },
   th: {
     hi: "สวัสดี",
@@ -396,6 +419,9 @@ const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
       `ขอบคุณที่ใช้บริการของ <strong>${business}</strong> เราอยากทราบความคิดเห็นของคุณ — รีวิวของคุณช่วยให้ร้านพัฒนาบริการให้ดียิ่งขึ้น`,
     reviewCTA: "ให้คะแนนรีวิว",
     subjectReview: (business) => `ขอบคุณที่ไปใช้บริการที่ ${business} — มาแชร์ประสบการณ์กันเถอะ!`,
+    newAccountTitle: "บัญชี VaraaAi ของคุณพร้อมแล้ว",
+    newAccountBody: (email) =>
+      `เราได้สร้างบัญชีให้คุณที่ VaraaAi.Com โดยใช้อีเมล <strong>${email}</strong> ครั้งหน้าให้เข้าสู่ระบบด้วยอีเมลนี้และรหัสผ่านที่คุณเพิ่งตั้งไว้ เพื่อดูและจัดการการจองของคุณ`,
   },
 };
 
@@ -429,6 +455,9 @@ export function bookingConfirmationEmail(params: {
     bankAccountName: string | null;
     bankBic: string | null;
   };
+  /** Set only when this booking's guest checkout also created the
+   * customer's account — never the password itself, see newAccountBody. */
+  newAccountEmail?: string | null;
 }) {
   const s = bookingEmailStrings(params.locale);
   // Always render in the salon's own timezone — an email server can run in
@@ -455,6 +484,14 @@ export function bookingConfirmationEmail(params: {
   const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
   const cancellationText =
     params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
+  const newAccountBlock = params.newAccountEmail
+    ? `
+      <div style="background:#eef2ff;border:1px solid #c7d2fe;padding:12px 16px;border-radius:12px;margin-top:8px">
+        <p style="margin:0 0 4px;font-weight:600">${s.newAccountTitle}</p>
+        <p style="margin:0;color:#5b6b6c;font-size:13px">${s.newAccountBody(params.newAccountEmail)}</p>
+      </div>
+    `
+    : "";
 
   return {
     subject: s.subjectConfirmed(params.businessName),
@@ -483,6 +520,7 @@ export function bookingConfirmationEmail(params: {
           <p style="margin:0 0 4px;font-weight:600">${s.cancellationPolicyLabel}</p>
           <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
         </div>
+        ${newAccountBlock}
         <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
       </div>
     `,

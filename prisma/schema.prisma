@@ -40,7 +40,11 @@ model User {
 
   // Opted out of a salon's bulk marketing emails via the unsubscribe link.
   // Never gates transactional email (confirmations, reminders, receipts).
-  marketingOptOut Boolean @default(false)
+  marketingOptOut    Boolean @default(false)
+  // Same idea for text-message marketing — captured from the booking form's
+  // consent checkboxes. No SMS-sending integration exists yet; this only
+  // records consent so it's ready once one is wired up.
+  smsMarketingOptOut Boolean @default(false)
 
   // "Vara points" — a salon-owner account's shared balance across every
   // branch they run, spent 1-per-email on marketing sends (see

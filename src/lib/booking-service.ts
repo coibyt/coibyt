@@ -54,6 +54,16 @@ export async function createBookingAndPayment(params: {
    * (see AffiliateCookieSetter), if any — re-validated against this
    * business's own active affiliates here, never trusted as-is. */
   affiliateCode?: string;
+  /** A GiftCardPurchase.code entered at checkout — re-validated here (not
+   * trusted from the client), applied as a % discount on the base service
+   * price, and redeemed (GiftCardRedemption + usesLeft decrement) alongside
+   * the booking itself. Only valid for the exact service the gift card was
+   * sold for. */
+  discountCode?: string;
+  /** Set when this checkout's guest form also created the customer's
+   * account — passed through to the confirmation email so it can mention
+   * the new account (never the password itself). */
+  newAccountEmail?: string;
   /** Whether this booking gets any automated email at all (confirmation,
    * reschedule, cancellation, reminders) — always true for a customer's own
    * booking; only the salon's manual-add-booking form ever passes false. */
@@ -98,7 +108,29 @@ export async function createBookingAndPayment(params: {
       params.startsAt,
       effectiveServiceDurationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
     );
-  const totalPriceCents = effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum;
+
+  // Same "read outside the transaction, trust it inside" treatment as the
+  // affiliate lookup below — a gift-card code being redeemed twice in the
+  // same instant by the same customer isn't a realistic race to guard against.
+  const giftCardPurchase = params.discountCode
+    ? await prisma.giftCardPurchase.findUnique({
+        where: { code: params.discountCode.trim() },
+        include: { giftCard: true },
+      })
+    : null;
+  const discountValid =
+    !!giftCardPurchase &&
+    giftCardPurchase.status === "ACTIVE" &&
+    giftCardPurchase.usesLeft > 0 &&
+    (!giftCardPurchase.expiresAt || giftCardPurchase.expiresAt > new Date()) &&
+    giftCardPurchase.businessId === params.businessId &&
+    giftCardPurchase.giftCard.serviceId === params.serviceId;
+  const discountCents = discountValid
+    ? Math.round((effectiveServicePriceCents * giftCardPurchase!.giftCard.discountPercent) / 100)
+    : 0;
+
+  const totalPriceCents =
+    effectiveServicePriceCents + addOnPriceSum + extraServicePriceSum - discountCents;
 
   const affiliate = params.affiliateCode
     ? await prisma.affiliate.findFirst({
@@ -195,6 +227,16 @@ export async function createBookingAndPayment(params: {
       });
     }
 
+    if (discountValid) {
+      await tx.giftCardRedemption.create({
+        data: { purchaseId: giftCardPurchase!.id, bookingId: created.id },
+      });
+      await tx.giftCardPurchase.update({
+        where: { id: giftCardPurchase!.id },
+        data: { usesLeft: { decrement: 1 } },
+      });
+    }
+
     return created;
   });
 
@@ -227,6 +269,7 @@ export async function createBookingAndPayment(params: {
                 bankBic: service.business.bankBic,
               }
             : undefined,
+        newAccountEmail: params.newAccountEmail,
       });
       await sendMail({ to: params.customerEmail, ...email });
       await notifyOwnerOfNewBooking({

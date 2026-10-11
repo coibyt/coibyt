@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import bcrypt from "bcryptjs";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { createBookingSchema } from "@/lib/validations";
@@ -13,9 +14,6 @@ import { format } from "date-fns";
 
 export async function POST(req: Request) {
   const session = await auth();
-  if (!session?.user) {
-    return NextResponse.json({ error: "UNAUTHENTICATED" }, { status: 401 });
-  }
 
   const body = await req.json();
   const parsed = createBookingSchema.safeParse(body);
@@ -23,6 +21,54 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
   const data = parsed.data;
+
+  // Guest checkout: no session, so the booking form itself doubles as a
+  // sign-up — find-or-create the User by email here, same bcrypt cost (12)
+  // as /api/auth/register. An email that already has a password-protected
+  // account must match that password (never silently attach a booking to
+  // someone else's account just because they typed a known email) — the
+  // client then surfaces that 409 the same way the register form does.
+  let customerId: string;
+  let customerEmail: string;
+  let customerName: string;
+  let newAccountEmail: string | undefined;
+
+  if (session?.user) {
+    customerId = session.user.id;
+    customerEmail = session.user.email!;
+    customerName = session.user.name ?? "Khách hàng";
+  } else {
+    if (!data.guestName || !data.guestEmail || !data.guestPhone || !data.guestPassword) {
+      return NextResponse.json({ error: "GUEST_INFO_REQUIRED" }, { status: 400 });
+    }
+    const existing = await prisma.user.findUnique({ where: { email: data.guestEmail } });
+    if (existing) {
+      const passwordOk =
+        existing.password && (await bcrypt.compare(data.guestPassword, existing.password));
+      if (!passwordOk) {
+        return NextResponse.json({ error: "EMAIL_IN_USE" }, { status: 409 });
+      }
+      customerId = existing.id;
+      customerEmail = existing.email;
+      customerName = existing.name;
+    } else {
+      const hashed = await bcrypt.hash(data.guestPassword, 12);
+      const created = await prisma.user.create({
+        data: {
+          name: data.guestName,
+          email: data.guestEmail,
+          phone: data.guestPhone,
+          password: hashed,
+          marketingOptOut: data.emailMarketingOptIn === false,
+          smsMarketingOptOut: data.smsMarketingOptIn === false,
+        },
+      });
+      customerId = created.id;
+      customerEmail = created.email;
+      customerName = created.name;
+      newAccountEmail = created.email;
+    }
+  }
 
   const service = await prisma.service.findUnique({
     where: { id: data.serviceId },
@@ -75,9 +121,9 @@ export async function POST(req: Request) {
 
   try {
     const { booking, redirectUrl } = await createBookingAndPayment({
-      customerId: session.user.id,
-      customerEmail: session.user.email!,
-      customerName: session.user.name ?? "Khách hàng",
+      customerId,
+      customerEmail,
+      customerName,
       businessId: service.businessId,
       serviceId: data.serviceId,
       staffId,
@@ -88,9 +134,11 @@ export async function POST(req: Request) {
       addOnIds: data.addOnIds,
       extraServiceIds: data.extraServiceIds,
       affiliateCode,
+      discountCode: data.discountCode,
+      newAccountEmail,
     });
 
-    return NextResponse.json({ bookingId: booking.id, redirectUrl });
+    return NextResponse.json({ bookingId: booking.id, redirectUrl, isNewAccount: !!newAccountEmail });
   } catch (err) {
     if (err instanceof SlotUnavailableError) {
       return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
