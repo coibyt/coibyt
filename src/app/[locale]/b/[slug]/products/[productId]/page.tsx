@@ -4,7 +4,7 @@ import { PlayCircle } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
 import { formatMoney } from "@/lib/money";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 import { ProductGallery } from "@/components/product-gallery";
 import { ProductDetailActions } from "@/components/product-detail-actions";
 import { ProductReviewSection } from "@/components/product-review-section";
@@ -71,7 +71,7 @@ export default async function ProductDetailPage({
                 <PlayCircle className="h-4 w-4" />
                 {tProducts("watchVideo")}
               </summary>
-              <div className="mt-2 aspect-video w-full overflow-hidden rounded-xl">
+              <div className={embedFrameClass(embedUrl, "mt-2 rounded-xl")}>
                 <iframe
                   src={embedUrl}
                   title={product.name}

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Loader2, MessageCircle, Heart, Share2, Paperclip, X, Send } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { EmojiPicker } from "@/components/emoji-picker";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
 interface FeedPost {
   id: string;
@@ -191,7 +191,7 @@ export function FeedList({ locale }: { locale: string }) {
               </div>
             )}
             {embed && (
-              <div className="aspect-video w-full overflow-hidden rounded-lg">
+              <div className={embedFrameClass(embed, "rounded-lg")}>
                 <iframe src={embed} className="h-full w-full" allowFullScreen />
               </div>
             )}

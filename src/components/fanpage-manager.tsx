@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Loader2, ImageIcon, Trash2, X } from "lucide-react";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
 interface PostRow {
   id: string;
@@ -166,7 +166,7 @@ export function FanpageManager({ locale }: { locale: string }) {
                   </div>
                 )}
                 {embed && (
-                  <div className="aspect-video w-full overflow-hidden rounded-lg">
+                  <div className={embedFrameClass(embed, "rounded-lg")}>
                     <iframe src={embed} className="h-full w-full" allowFullScreen />
                   </div>
                 )}

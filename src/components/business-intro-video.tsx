@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PlayCircle } from "lucide-react";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
 export function BusinessIntroVideo({
   videoUrl,
@@ -28,7 +28,7 @@ export function BusinessIntroVideo({
         {locale === "vi" ? "Xem video giới thiệu" : "Watch intro video"}
       </button>
       {playing && (
-        <div className="mt-2 aspect-video w-full max-w-md overflow-hidden rounded-xl">
+        <div className={embedFrameClass(embedUrl, "mt-2 rounded-xl") + (embedUrl.includes("varaclip.com") ? "" : " max-w-md")}>
           <iframe
             src={embedUrl}
             title={businessName}

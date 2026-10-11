@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ExternalLink, PlayCircle } from "lucide-react";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
 /** One training item: YouTube links play inline, anything else opens in a new tab. */
 export function TrainingCard({
@@ -31,7 +31,7 @@ export function TrainingCard({
       </div>
       {embedUrl ? (
         playing ? (
-          <div className="aspect-video w-full overflow-hidden rounded-xl">
+          <div className={embedFrameClass(embedUrl, "rounded-xl")}>
             <iframe
               src={embedUrl}
               title={title}

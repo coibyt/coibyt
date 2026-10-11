@@ -32,3 +32,13 @@ export function toYoutubeEmbedUrl(url: string): string | null {
     return null;
   }
 }
+
+/**
+ * Frame classes for an embedded video. YouTube is landscape (16:9); VaraClip clips are
+ * portrait (9:16), so they get a narrow tall frame instead of a wide one with black bars.
+ * `rest` carries the caller's own spacing / rounding classes.
+ */
+export function embedFrameClass(embedUrl: string | null | undefined, rest = ""): string {
+  const vertical = !!embedUrl && embedUrl.startsWith("https://varaclip.com/embed/");
+  return `${vertical ? "mx-auto aspect-[9/16] w-full max-w-[300px]" : "aspect-video w-full"} overflow-hidden ${rest}`.trim();
+}

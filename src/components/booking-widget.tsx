@@ -12,7 +12,7 @@ import { EmbedTopBar } from "@/components/embed-topbar";
 import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 import { Landmark, Banknote, Loader2, PlayCircle, X } from "lucide-react";
 
 interface StaffOption {
@@ -877,7 +877,7 @@ function StaffVideos({
         ))}
       </div>
       {playingIndex !== null && (
-        <div className="mt-2 aspect-video w-full overflow-hidden rounded-xl">
+        <div className={embedFrameClass(embeds[playingIndex], "mt-2 rounded-xl")}>
           <iframe
             src={embeds[playingIndex]}
             title={staffName}

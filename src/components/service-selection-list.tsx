@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PlayCircle } from "lucide-react";
 import { formatMoney } from "@/lib/money";
-import { toYoutubeEmbedUrl } from "@/lib/youtube";
+import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
 export interface SelectableService {
   id: string;
@@ -238,7 +238,7 @@ export function ServiceSelectionList({
           </span>
         </label>
         {embedUrl && playingVideoId === s.id && (
-          <div className="mt-3 aspect-video w-full overflow-hidden rounded-xl">
+          <div className={embedFrameClass(embedUrl, "mt-3 rounded-xl")}>
             <iframe
               src={embedUrl}
               title={s.name}
