@@ -56,7 +56,8 @@ export async function POST(req: Request) {
     if (!parsed.success) {
       return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
     }
-    const { ownerName: newOwnerName, email, password, ...rest } = parsed.data;
+    const { ownerName: newOwnerName, email, password, emailMarketingOptIn, smsMarketingOptIn, ...rest } =
+      parsed.data;
     businessInput = rest;
 
     const existingUser = await prisma.user.findUnique({ where: { email } });
@@ -66,7 +67,14 @@ export async function POST(req: Request) {
 
     const hashed = await bcrypt.hash(password, 12);
     const newUser = await prisma.user.create({
-      data: { name: newOwnerName, email, phone: rest.phone, password: hashed },
+      data: {
+        name: newOwnerName,
+        email,
+        phone: rest.phone,
+        password: hashed,
+        marketingOptOut: emailMarketingOptIn === false,
+        smsMarketingOptOut: smsMarketingOptIn === false,
+      },
     });
     ownerId = newUser.id;
     ownerName = newUser.name;

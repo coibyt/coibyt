@@ -35,6 +35,8 @@ export function BusinessApplyForm({
     password: "",
     confirmPassword: "",
   });
+  const [emailOptIn, setEmailOptIn] = useState(true);
+  const [smsOptIn, setSmsOptIn] = useState(true);
   const [pin, setPin] = useState<{ lat: number; lng: number } | null>(null);
   const [country, setCountry] = useState<string>("");
   const [loading, setLoading] = useState(false);
@@ -70,7 +72,13 @@ export function BusinessApplyForm({
         country,
         ...(isAuthenticated
           ? {}
-          : { ownerName: account.ownerName, email: account.email, password: account.password }),
+          : {
+              ownerName: account.ownerName,
+              email: account.email,
+              password: account.password,
+              emailMarketingOptIn: emailOptIn,
+              smsMarketingOptIn: smsOptIn,
+            }),
       }),
     });
     if (!res.ok) {
@@ -144,6 +152,31 @@ export function BusinessApplyForm({
               value={account.confirmPassword}
               onChange={(e) => setAccount({ ...account, confirmPassword: e.target.value })}
             />
+          </div>
+          <div>
+            <p className="label">
+              {locale === "vi"
+                ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
+                : "How would you like to receive marketing messages?"}
+            </p>
+            <div className="flex flex-wrap gap-4 text-sm text-ink-700">
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={emailOptIn}
+                  onChange={(e) => setEmailOptIn(e.target.checked)}
+                />
+                {locale === "vi" ? "Qua email" : "By email"}
+              </label>
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={smsOptIn}
+                  onChange={(e) => setSmsOptIn(e.target.checked)}
+                />
+                {locale === "vi" ? "Qua tin nhắn văn bản" : "By text message"}
+              </label>
+            </div>
           </div>
           <hr className="border-ink-100" />
         </>
@@ -236,6 +269,27 @@ export function BusinessApplyForm({
         {loading && <Loader2 className="h-4 w-4 animate-spin" />}
         {t("submit")}
       </button>
+      <p className="text-center text-xs text-ink-400">
+        {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
+        <Link
+          href="/terms"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-primary-600 underline hover:no-underline"
+        >
+          {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
+        </Link>
+        {locale === "vi" ? " và " : " and "}
+        <Link
+          href="/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-primary-600 underline hover:no-underline"
+        >
+          {locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy"}
+        </Link>
+        {locale === "vi" ? " của VaraaAi.com." : " of VaraaAi.com."}
+      </p>
       {!isAuthenticated && (
         <p className="text-center text-xs text-ink-400">
           {tAuth("haveAccount")}{" "}
