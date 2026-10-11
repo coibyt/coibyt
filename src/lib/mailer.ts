@@ -67,6 +67,40 @@ export function verificationEmail(params: { name: string; verifyUrl: string; loc
   };
 }
 
+export function passwordResetEmail(params: { name: string; resetUrl: string; locale: string }) {
+  const isVi = params.locale === "vi";
+  return {
+    subject: isVi ? "Đặt lại mật khẩu VaraaAi" : "Reset your VaraaAi password",
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Đặt lại mật khẩu" : "Reset your password"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
+        <p>${
+          isVi
+            ? "Có người (hy vọng là bạn) vừa yêu cầu đặt lại mật khẩu cho tài khoản VaraaAi này. Nhấp vào nút bên dưới để chọn mật khẩu mới. Liên kết có hiệu lực trong 1 giờ."
+            : "Someone (hopefully you) just requested a password reset for this VaraaAi account. Click the button below to choose a new password. This link is valid for 1 hour."
+        }</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.resetUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${isVi ? "Đặt lại mật khẩu" : "Reset password"}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:13px">${
+          isVi
+            ? "Nếu nút không hoạt động, dán liên kết này vào trình duyệt:"
+            : "If the button doesn't work, paste this link into your browser:"
+        }<br/>${params.resetUrl}</p>
+        <p style="color:#5b6b6c;font-size:13px">${
+          isVi
+            ? "Nếu bạn không yêu cầu điều này, bạn có thể bỏ qua email này — mật khẩu của bạn sẽ không thay đổi."
+            : "If you didn't request this, you can safely ignore this email — your password won't change."
+        }</p>
+        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 export function businessReadyEmail(params: {
   ownerName: string;
   businessName: string;

@@ -14,6 +14,7 @@ import {
   Heart,
   Newspaper,
   Gift,
+  UserCircle,
 } from "lucide-react";
 
 export function NavUserMenu({
@@ -69,6 +70,7 @@ export function NavUserMenu({
           {role === "ADMIN" && (
             <MenuLink href="/admin" icon={ShieldCheck} label={t("admin")} />
           )}
+          <MenuLink href="/account/profile" icon={UserCircle} label={t("profile")} />
           <MenuLink href="/account/bookings" icon={CalendarDays} label={t("myBookings")} />
           <MenuLink href="/account/loyalty" icon={Gift} label={t("loyalty")} />
           <MenuLink href="/account/messages" icon={MessageCircle} label={t("inbox")} />

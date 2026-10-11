@@ -16,7 +16,7 @@ export async function GET(
 
   const comments = await prisma.postComment.findMany({
     where: { postId: id },
-    include: { author: { select: { name: true } }, images: { select: { id: true } } },
+    include: { author: { select: { name: true, image: true } }, images: { select: { id: true } } },
     orderBy: { createdAt: "asc" },
   });
 
@@ -25,6 +25,7 @@ export async function GET(
       id: c.id,
       content: c.content,
       authorName: c.author.name,
+      authorImage: c.author.image,
       imageId: c.images[0]?.id ?? null,
       createdAt: c.createdAt.toISOString(),
     })),
@@ -81,7 +82,7 @@ export async function POST(
           ? { create: [{ imageData: imageBuffer, imageMimeType }] }
           : undefined,
     },
-    include: { author: { select: { name: true } }, images: { select: { id: true } } },
+    include: { author: { select: { name: true, image: true } }, images: { select: { id: true } } },
   });
 
   return NextResponse.json({
@@ -89,6 +90,7 @@ export async function POST(
       id: comment.id,
       content: comment.content,
       authorName: comment.author.name,
+      authorImage: comment.author.image,
       imageId: comment.images[0]?.id ?? null,
       createdAt: comment.createdAt.toISOString(),
     },

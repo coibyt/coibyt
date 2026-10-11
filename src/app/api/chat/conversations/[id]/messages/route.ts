@@ -30,6 +30,7 @@ export async function GET(
       content: true,
       imageMimeType: true,
       createdAt: true,
+      sender: { select: { image: true } },
     },
     orderBy: { createdAt: "asc" },
     ...(afterId ? {} : { take: 100 }),
@@ -47,6 +48,7 @@ export async function GET(
       id: m.id,
       senderType: m.senderType,
       senderId: m.senderId,
+      senderImage: m.sender.image,
       content: m.content,
       hasImage: !!m.imageMimeType,
       createdAt: m.createdAt.toISOString(),
@@ -138,11 +140,17 @@ export async function POST(
     }
   }
 
+  const sender = await prisma.user.findUnique({
+    where: { id: access.userId },
+    select: { image: true },
+  });
+
   return NextResponse.json({
     message: {
       id: message.id,
       senderType: message.senderType,
       senderId: message.senderId,
+      senderImage: sender?.image ?? null,
       content: message.content,
       hasImage: !!imageBuffer,
       createdAt: message.createdAt.toISOString(),

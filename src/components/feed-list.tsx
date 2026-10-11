@@ -23,6 +23,7 @@ interface Comment {
   id: string;
   content: string;
   authorName: string;
+  authorImage: string | null;
   imageId: string | null;
   createdAt: string;
 }
@@ -238,17 +239,27 @@ export function FeedList({ locale }: { locale: string }) {
             {isOpen && (
               <div className="space-y-2 border-t border-ink-100 pt-3">
                 {(comments[p.id] ?? []).map((c) => (
-                  <div key={c.id} className="rounded-lg bg-mist-50 px-3 py-2 text-sm">
-                    <p className="font-medium text-ink-900">{c.authorName}</p>
-                    {c.content && <p className="text-ink-700">{c.content}</p>}
-                    {c.imageId && (
-                      // eslint-disable-next-line @next/next/no-img-element
-                      <img
-                        src={`/api/feed/comments/images/${c.imageId}`}
-                        alt=""
-                        className="mt-1.5 max-h-48 rounded-lg object-cover"
-                      />
-                    )}
+                  <div key={c.id} className="flex gap-2 rounded-lg bg-mist-50 px-3 py-2 text-sm">
+                    <div className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-full bg-mist-200 text-xs font-bold text-ink-700">
+                      {c.authorImage ? (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img src={c.authorImage} alt="" className="h-full w-full object-cover" />
+                      ) : (
+                        c.authorName.charAt(0)
+                      )}
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-medium text-ink-900">{c.authorName}</p>
+                      {c.content && <p className="text-ink-700">{c.content}</p>}
+                      {c.imageId && (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          src={`/api/feed/comments/images/${c.imageId}`}
+                          alt=""
+                          className="mt-1.5 max-h-48 rounded-lg object-cover"
+                        />
+                      )}
+                    </div>
                   </div>
                 ))}
 

@@ -8,6 +8,7 @@ interface ChatMessage {
   id: string;
   senderType: "CUSTOMER" | "BUSINESS";
   senderId: string;
+  senderImage: string | null;
   content: string | null;
   hasImage: boolean;
   createdAt: string;
@@ -155,56 +156,65 @@ export function ChatWidget({
             const mine = m.senderType === viewerRole;
             const myReaction = (reactions[m.id] ?? []).find((r) => r.mine);
             return (
-              <div key={m.id} className={`flex flex-col ${mine ? "items-end" : "items-start"}`}>
-                <div
-                  className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
-                    mine ? "bg-primary-500 text-white" : "bg-mist-100 text-ink-900"
-                  }`}
-                >
-                  {m.hasImage && (
-                    <img
-                      src={`/api/chat/messages/${m.id}/image`}
-                      alt=""
-                      className="mb-1 max-h-48 rounded-lg object-contain"
-                    />
-                  )}
-                  {m.content && <p className="whitespace-pre-line">{m.content}</p>}
-                  <p className={`mt-1 text-[10px] ${mine ? "text-white/70" : "text-ink-400"}`}>
-                    {new Date(m.createdAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                    })}
-                  </p>
-                </div>
-
-                <div className="mt-1 flex items-center gap-1">
-                  {(reactions[m.id] ?? []).map((r) => (
-                    <button
-                      key={r.emoji}
-                      type="button"
-                      onClick={() => react(m.id, r.emoji)}
-                      className={`flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[11px] ${
-                        r.mine ? "border-primary-500 bg-primary-50" : "border-ink-100 bg-white"
-                      }`}
-                    >
-                      <span>{r.emoji}</span>
-                      <span className="text-ink-400">{r.count}</span>
-                    </button>
-                  ))}
-                  <button
-                    type="button"
-                    onClick={() => react(m.id, "👍")}
-                    className={`rounded-full p-1 text-ink-400 hover:bg-mist-100 ${
-                      myReaction?.emoji === "👍" ? "text-primary-500" : ""
+              <div key={m.id} className={`flex items-end gap-2 ${mine ? "flex-row-reverse" : "flex-row"}`}>
+                {!mine && (
+                  <div className="h-6 w-6 shrink-0 overflow-hidden rounded-full bg-mist-100">
+                    {m.senderImage && (
+                      <img src={m.senderImage} alt="" className="h-full w-full object-cover" />
+                    )}
+                  </div>
+                )}
+                <div className={`flex flex-col ${mine ? "items-end" : "items-start"}`}>
+                  <div
+                    className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
+                      mine ? "bg-primary-500 text-white" : "bg-mist-100 text-ink-900"
                     }`}
-                    aria-label={locale === "vi" ? "Thích" : "Like"}
                   >
-                    <ThumbsUp className="h-3 w-3" />
-                  </button>
-                  <EmojiPicker
-                    onPick={(emoji) => react(m.id, emoji)}
-                    className="rounded-full p-1 text-ink-400 hover:bg-mist-100"
-                  />
+                    {m.hasImage && (
+                      <img
+                        src={`/api/chat/messages/${m.id}/image`}
+                        alt=""
+                        className="mb-1 max-h-48 rounded-lg object-contain"
+                      />
+                    )}
+                    {m.content && <p className="whitespace-pre-line">{m.content}</p>}
+                    <p className={`mt-1 text-[10px] ${mine ? "text-white/70" : "text-ink-400"}`}>
+                      {new Date(m.createdAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      })}
+                    </p>
+                  </div>
+
+                  <div className="mt-1 flex items-center gap-1">
+                    {(reactions[m.id] ?? []).map((r) => (
+                      <button
+                        key={r.emoji}
+                        type="button"
+                        onClick={() => react(m.id, r.emoji)}
+                        className={`flex items-center gap-0.5 rounded-full border px-1.5 py-0.5 text-[11px] ${
+                          r.mine ? "border-primary-500 bg-primary-50" : "border-ink-100 bg-white"
+                        }`}
+                      >
+                        <span>{r.emoji}</span>
+                        <span className="text-ink-400">{r.count}</span>
+                      </button>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={() => react(m.id, "👍")}
+                      className={`rounded-full p-1 text-ink-400 hover:bg-mist-100 ${
+                        myReaction?.emoji === "👍" ? "text-primary-500" : ""
+                      }`}
+                      aria-label={locale === "vi" ? "Thích" : "Like"}
+                    >
+                      <ThumbsUp className="h-3 w-3" />
+                    </button>
+                    <EmojiPicker
+                      onPick={(emoji) => react(m.id, emoji)}
+                      className="rounded-full p-1 text-ink-400 hover:bg-mist-100"
+                    />
+                  </div>
                 </div>
               </div>
             );

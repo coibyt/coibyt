@@ -80,11 +80,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         // Always read fresh — this flips from false to true mid-session the
         // moment the owner clicks their verification email link, and the
         // dashboard's own gate depends on that being current, not cached.
+        // `image` is read fresh too, so a just-uploaded avatar (see
+        // /api/account/avatar) shows up immediately instead of waiting for
+        // the next sign-in to refresh the JWT.
         const dbUser = await prisma.user.findUnique({
           where: { id: token.id as string },
-          select: { emailVerified: true },
+          select: { emailVerified: true, image: true },
         });
         session.user.hasVerifiedEmail = !!dbUser?.emailVerified;
+        session.user.image = dbUser?.image ?? null;
       }
       return session;
     },

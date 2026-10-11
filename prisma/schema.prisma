@@ -87,6 +87,8 @@ model User {
   orders              Order[]
   messageReactions    MessageReaction[]
   postLikes           PostLike[]
+  passwordResetTokens PasswordResetToken[]
+  avatar              UserAvatar?
 
   @@index([role])
 }
@@ -124,6 +126,34 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+// Kept separate from VerificationToken (which is also used for email
+// verification/change, keyed by email as `identifier`) so a reset link can
+// never be confused with — or consumed by — that other flow.
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  token     String   @unique
+  expires   DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+// A customer/owner's uploaded profile photo — stored in the DB like every
+// other image here (Hostinger's git-based deploy wipes public/uploads).
+// User.image is kept pointed at `/api/account-avatar/<userId>` once one of
+// these exists, so every existing `image` usage (NavUserMenu, chat, feed
+// comments, etc.) picks it up without further changes.
+model UserAvatar {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  imageData     Bytes    @db.LongBlob
+  imageMimeType String
+  updatedAt     DateTime @updatedAt
 }
 
 // ────────────────────────────────────────────────────────────────────
