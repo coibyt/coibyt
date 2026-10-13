@@ -34,6 +34,7 @@ const LABELS: Record<
     other: string;
     selected: (n: number) => string;
     continue: string;
+    bookNow: string;
   }
 > = {
   vi: {
@@ -43,6 +44,7 @@ const LABELS: Record<
     other: "Dịch vụ khác",
     selected: (n) => `Đã chọn ${n} dịch vụ`,
     continue: "Tiếp tục",
+    bookNow: "Đặt lịch",
   },
   en: {
     min: "min",
@@ -51,6 +53,7 @@ const LABELS: Record<
     other: "Other services",
     selected: (n) => `${n} service${n > 1 ? "s" : ""} selected`,
     continue: "Continue",
+    bookNow: "Book",
   },
   fi: {
     min: "min",
@@ -59,6 +62,7 @@ const LABELS: Record<
     other: "Muut palvelut",
     selected: (n) => `${n} palvelua valittu`,
     continue: "Jatka",
+    bookNow: "Varaa",
   },
   pl: {
     min: "min",
@@ -67,6 +71,7 @@ const LABELS: Record<
     other: "Inne usługi",
     selected: (n) => `Wybrano usług: ${n}`,
     continue: "Dalej",
+    bookNow: "Zarezerwuj",
   },
   de: {
     min: "Min.",
@@ -75,6 +80,7 @@ const LABELS: Record<
     other: "Weitere Dienstleistungen",
     selected: (n) => `${n} Dienstleistung${n > 1 ? "en" : ""} ausgewählt`,
     continue: "Weiter",
+    bookNow: "Buchen",
   },
   km: {
     min: "នាទី",
@@ -83,6 +89,7 @@ const LABELS: Record<
     other: "សេវាកម្មផ្សេងៗ",
     selected: (n) => `បានជ្រើសរើស ${n} សេវាកម្ម`,
     continue: "បន្ត",
+    bookNow: "កក់",
   },
   th: {
     min: "นาที",
@@ -91,6 +98,7 @@ const LABELS: Record<
     other: "บริการอื่นๆ",
     selected: (n) => `เลือกแล้ว ${n} บริการ`,
     continue: "ดำเนินการต่อ",
+    bookNow: "จอง",
   },
 };
 
@@ -195,8 +203,8 @@ export function ServiceSelectionList({
             : "border-ink-100 bg-white hover:border-ink-400"
         }`}
       >
-        <label className="flex cursor-pointer items-start justify-between gap-4">
-          <span className="flex items-start gap-3">
+        <div className="flex items-start justify-between gap-4">
+          <label className="flex flex-1 cursor-pointer items-start gap-3">
             <input
               type="checkbox"
               className="mt-1"
@@ -232,11 +240,20 @@ export function ServiceSelectionList({
                 )}
               </span>
             </span>
+          </label>
+          {/* Lets a customer booking just this one service go straight to the
+              booking step without checking the box first and hunting for the
+              sticky "continue" bar — especially useful on a long service
+              list where that bar can be many screens below. */}
+          <span className="flex shrink-0 flex-col items-end gap-1.5">
+            <span className="font-semibold text-ink-900">
+              {formatMoney(s.priceCents, s.currency, locale)}
+            </span>
+            <a href={buildHref(s.id, [])} className="btn-primary !px-3 !py-1.5 text-xs whitespace-nowrap">
+              {l.bookNow}
+            </a>
           </span>
-          <span className="shrink-0 font-semibold text-ink-900">
-            {formatMoney(s.priceCents, s.currency, locale)}
-          </span>
-        </label>
+        </div>
         {embedUrl && playingVideoId === s.id && (
           <div className={embedFrameClass(embedUrl, "mt-3 rounded-xl")}>
             <iframe
