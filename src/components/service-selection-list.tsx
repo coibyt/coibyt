@@ -194,6 +194,11 @@ export function ServiceSelectionList({
 
   function renderService(s: SelectableService) {
     const embedUrl = s.videoUrl ? toYoutubeEmbedUrl(s.videoUrl) : null;
+    // This service is always the primary one booked, but any OTHER service
+    // the customer already ticked comes along as an extra — so checking two
+    // services then hitting either one's own "Book" button still carries
+    // both into the next step, not just the one that was clicked.
+    const otherCheckedIds = checkedIds.filter((id) => id !== s.id);
     return (
       <div
         key={s.id}
@@ -249,7 +254,10 @@ export function ServiceSelectionList({
             <span className="font-semibold text-ink-900">
               {formatMoney(s.priceCents, s.currency, locale)}
             </span>
-            <a href={buildHref(s.id, [])} className="btn-primary !px-3 !py-1.5 text-xs whitespace-nowrap">
+            <a
+              href={buildHref(s.id, otherCheckedIds)}
+              className="btn-primary !px-3 !py-1.5 text-xs whitespace-nowrap"
+            >
               {l.bookNow}
             </a>
           </span>
