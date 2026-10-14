@@ -13,9 +13,16 @@ import {
   Instagram,
   Sparkles,
   Search,
+  Youtube,
+  Tag,
+  Users,
+  Gift,
+  Mail,
+  Megaphone,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { googleMapsSearchUrl } from "@/lib/salon-check";
+import { OfferCountdown } from "@/components/offer-countdown";
 
 type GoogleStatus = "yes" | "no" | "unsure";
 type SocialStatus = "ok" | "unreachable" | "unverified" | "missing";
@@ -131,6 +138,37 @@ const STRINGS = {
     seoSubtitle:
       "Gợi ý từ khóa dựa trên loại hình và khu vực của bạn — chưa phải thứ hạng thật, vì không có cách hợp lệ nào để tra cứu thứ hạng Google của một website bất kỳ (chỉ chủ website mới xem được qua Google Search Console).",
     seoEmpty: "Điền \"Loại hình salon\" ở trên để nhận gợi ý từ khóa.",
+    marketingTitle: "Gợi ý marketing cho salon của bạn",
+    marketingSubtitle:
+      "Vài cách giúp bạn có thêm khách, kết hợp với các tính năng miễn phí sẵn có trên VaraaAi.Com.",
+    fbFanpageTitle: "Lập Fanpage Facebook",
+    fbFanpageBody:
+      "Đặt tên Fanpage rõ ràng, đúng với dịch vụ bạn cung cấp. Dùng các chủ đề dưới đây để lên ý tưởng quảng cáo Facebook, mỗi chủ đề một chiến dịch riêng:",
+    youtubeTitle: "Lập kênh YouTube",
+    youtubeBody:
+      "Đăng video ngắn xoay quanh các từ khóa bạn muốn nhắm tới — mẹo làm đẹp, quy trình dịch vụ, before/after thực tế. Gợi ý hashtag cho mô tả video:",
+    hookServiceTitle: "Một dịch vụ giá hời để hút khách mới",
+    hookServiceBody:
+      "Chọn một dịch vụ nhỏ, giá thật hấp dẫn (vd: tỉa chân mày, dũa móng cơ bản) để làm quảng cáo thu hút khách lần đầu. Khi họ vào trang đặt lịch, họ sẽ thấy toàn bộ các dịch vụ khác của bạn và dễ đặt thêm ngay trong cùng một lượt ghé.",
+    varaaFeaturesTitle: "VaraaAi.Com đã làm sẵn những việc này cho bạn — miễn phí",
+    varaaFeatures: [
+      {
+        title: "Tiếp thị liên kết",
+        body: "Mời cộng tác viên quảng bá salon của bạn, họ nhận hoa hồng theo lịch hẹn họ giới thiệu được — bạn tự đặt mức hoa hồng, hoàn toàn miễn phí trên VaraaAi.",
+      },
+      {
+        title: "Thẻ tích điểm bằng mã QR",
+        body: "Khách đưa mã QR để nhân viên quét mỗi lần đến, đủ điểm sẽ được giảm giá — bạn cũng biết chính xác khách đã ghé bao nhiêu lần.",
+      },
+      {
+        title: "Email marketing tự động",
+        body: "Tự động xin đánh giá sau mỗi lịch hẹn, tự động nhắc khách quay lại nếu đã hơn 3 tuần chưa đặt hẹn — không cần bạn tự soạn hay tự gửi.",
+      },
+      {
+        title: "Hiện diện trên VaraaAi.Com",
+        body: "Đăng dịch vụ lên VaraaAi.Com để website tự động giới thiệu salon của bạn đến hàng ngàn khách hàng đang tìm dịch vụ gần họ.",
+      },
+    ],
     ctaTitle: "Chưa có trang đặt lịch online?",
     ctaSubtitle:
       "VaraaAi.Com cho bạn một trang salon + đặt lịch online chuyên nghiệp, hoàn toàn miễn phí — sẵn sàng trong 5 phút, không cần biết lập trình.",
@@ -260,6 +298,36 @@ const STRINGS = {
     seoSubtitle:
       "Keyword ideas based on your category and area — not a real ranking, since there's no legitimate way to look up any website's actual Google ranking (only the site's own owner can see that, via Google Search Console).",
     seoEmpty: "Fill in \"Salon category\" above to get keyword suggestions.",
+    marketingTitle: "Marketing ideas for your salon",
+    marketingSubtitle: "A few ways to bring in more customers, combined with free tools already built into VaraaAi.Com.",
+    fbFanpageTitle: "Start a Facebook Page",
+    fbFanpageBody:
+      "Give the Page a clear name that matches what you offer. Use the topics below as separate Facebook ad campaign ideas:",
+    youtubeTitle: "Start a YouTube channel",
+    youtubeBody:
+      "Post short videos built around the keywords you want to target — beauty tips, behind-the-scenes, real before/after results. Hashtag ideas for your video descriptions:",
+    hookServiceTitle: "A low-priced hook service",
+    hookServiceBody:
+      "Pick one small, very attractively priced service (e.g. eyebrow shaping, a basic manicure) to advertise and bring in first-time customers. Once they land on your booking page, they'll see your full menu and can easily add more in the same visit.",
+    varaaFeaturesTitle: "VaraaAi.Com already does this for you — for free",
+    varaaFeatures: [
+      {
+        title: "Affiliate marketing",
+        body: "Invite promoters to refer customers to your salon — they earn a commission you set yourself on every booking they bring in, completely free on VaraaAi.",
+      },
+      {
+        title: "QR-code loyalty cards",
+        body: "Customers show a QR code for staff to scan on every visit; enough points earns them a discount — and you always know exactly how often each customer comes back.",
+      },
+      {
+        title: "Automatic email marketing",
+        body: "Automatically asks for a review after every appointment, and automatically reminds a customer to come back once it's been over 3 weeks — no writing or sending required on your end.",
+      },
+      {
+        title: "Visibility on VaraaAi.Com",
+        body: "List your services on VaraaAi.Com so the site automatically introduces your salon to thousands of customers searching nearby.",
+      },
+    ],
     ctaTitle: "No online booking page yet?",
     ctaSubtitle:
       "VaraaAi.Com gives you a professional salon page with online booking, completely free — ready in 5 minutes, no coding needed.",
@@ -337,6 +405,13 @@ function channelBand(score: number, t: Strings) {
   if (score >= 80) return t.strongLabel;
   if (score >= 55) return t.okLabel;
   return t.weakLabel;
+}
+
+function toHashtag(keyword: string) {
+  return `#${keyword
+    .normalize("NFC")
+    .replace(/[^\p{L}\p{N}]+/gu, "")
+    .toLowerCase()}`;
 }
 
 export function SalonCheckTool({ locale }: { locale: string }) {
@@ -701,9 +776,80 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           )}
         </div>
 
+        <div>
+          <h2 className="mb-1 flex items-center gap-2 text-lg font-bold text-ink-900">
+            <Megaphone className="h-5 w-5 text-primary-500" /> {t.marketingTitle}
+          </h2>
+          <p className="mb-4 text-sm text-ink-400">{t.marketingSubtitle}</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="card p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <Facebook className="h-4 w-4 text-primary-500" />
+                <p className="font-semibold text-ink-900">{t.fbFanpageTitle}</p>
+              </div>
+              <p className="mb-3 text-sm text-ink-700">{t.fbFanpageBody}</p>
+              {result.seoKeywords.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {result.seoKeywords.map((kw) => (
+                    <span key={kw} className="rounded-full bg-mist-50 px-2.5 py-1 text-xs text-ink-700">
+                      {kw}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="card p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <Youtube className="h-4 w-4 text-berry-500" />
+                <p className="font-semibold text-ink-900">{t.youtubeTitle}</p>
+              </div>
+              <p className="mb-3 text-sm text-ink-700">{t.youtubeBody}</p>
+              {result.seoKeywords.length > 0 && (
+                <div className="flex flex-wrap gap-1.5">
+                  {result.seoKeywords.slice(0, 4).map((kw) => (
+                    <span key={kw} className="rounded-full bg-mist-50 px-2.5 py-1 text-xs text-ink-700">
+                      {toHashtag(kw)}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="card p-4 sm:col-span-2">
+              <div className="mb-2 flex items-center gap-2">
+                <Tag className="h-4 w-4 text-coral-500" />
+                <p className="font-semibold text-ink-900">{t.hookServiceTitle}</p>
+              </div>
+              <p className="text-sm text-ink-700">{t.hookServiceBody}</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="mb-4 text-lg font-bold text-ink-900">{t.varaaFeaturesTitle}</h2>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {[
+              { icon: Users, ...t.varaaFeatures[0] },
+              { icon: Gift, ...t.varaaFeatures[1] },
+              { icon: Mail, ...t.varaaFeatures[2] },
+              { icon: Sparkles, ...t.varaaFeatures[3] },
+            ].map((f) => (
+              <div key={f.title} className="card p-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <f.icon className="h-4 w-4 text-primary-500" />
+                  <p className="font-semibold text-ink-900">{f.title}</p>
+                </div>
+                <p className="text-sm text-ink-700">{f.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="card bg-ink-900 p-6 text-center text-white">
           <p className="text-lg font-bold">{t.ctaTitle}</p>
           <p className="mx-auto mt-1 max-w-md text-sm text-ink-100">{t.ctaSubtitle}</p>
+          <div className="mt-4 flex justify-center">
+            <OfferCountdown locale={locale} compact />
+          </div>
           <Link href="/business/apply" className="btn-accent mt-4 inline-flex !px-6 !py-3">
             {t.ctaButton}
           </Link>
