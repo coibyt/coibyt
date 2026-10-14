@@ -1,4 +1,4 @@
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import { auth } from "@/auth";
 import { Link } from "@/i18n/navigation";
 import { NavUserMenu } from "@/components/nav-user-menu";
@@ -6,7 +6,7 @@ import { LocaleSwitcher } from "@/components/locale-switcher";
 import { SearchBarCompact } from "@/components/search-bar";
 
 export async function Navbar() {
-  const [t, session] = await Promise.all([getTranslations("nav"), auth()]);
+  const [t, session, locale] = await Promise.all([getTranslations("nav"), auth(), getLocale()]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-white/90 backdrop-blur">
@@ -24,9 +24,14 @@ export async function Navbar() {
         <nav className="flex items-center gap-2">
           <LocaleSwitcher />
           {!session?.user && (
-            <Link href="/business" className="btn-ghost hidden sm:inline-flex">
-              {t("forBusiness")}
-            </Link>
+            <>
+              <Link href="/business" className="btn-ghost hidden sm:inline-flex">
+                {t("forBusiness")}
+              </Link>
+              <Link href="/salon-check" className="btn-ghost hidden text-primary-600 lg:inline-flex">
+                {locale === "vi" ? "Kiểm tra salon" : "Salon check"}
+              </Link>
+            </>
           )}
           {session?.user ? (
             <NavUserMenu

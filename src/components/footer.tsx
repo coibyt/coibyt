@@ -23,7 +23,10 @@ export async function Footer() {
         />
         <FooterColumn
           title={t("forBusiness")}
-          links={[{ href: "/business", label: t("forBusiness") }]}
+          links={[
+            { href: "/business", label: t("forBusiness") },
+            { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : "Free salon check" },
+          ]}
         />
         <FooterColumn
           title={t("company")}
