@@ -23,6 +23,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { googleMapsSearchUrl } from "@/lib/salon-check";
 import { OfferCountdown } from "@/components/offer-countdown";
+import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
 
 type GoogleStatus = "yes" | "no" | "unsure";
 type SocialStatus = "ok" | "unreachable" | "unverified" | "missing";
@@ -169,6 +170,8 @@ const STRINGS = {
         body: "Đăng dịch vụ lên VaraaAi.Com để website tự động giới thiệu salon của bạn đến hàng ngàn khách hàng đang tìm dịch vụ gần họ.",
       },
     ],
+    ctaIntro:
+      "Nếu bạn cần giải pháp marketing toàn diện và tăng doanh thu cho salon của bạn thì hãy chọn VaraaAi.Com — hệ thống tạo website đặt lịch trực tuyến miễn phí và giúp salon bạn chăm sóc khách hàng quay lại mua nhiều hơn.",
     ctaTitle: "Chưa có trang đặt lịch online?",
     ctaSubtitle:
       "VaraaAi.Com cho bạn một trang salon + đặt lịch online chuyên nghiệp, hoàn toàn miễn phí — sẵn sàng trong 5 phút, không cần biết lập trình.",
@@ -328,6 +331,8 @@ const STRINGS = {
         body: "List your services on VaraaAi.Com so the site automatically introduces your salon to thousands of customers searching nearby.",
       },
     ],
+    ctaIntro:
+      "If you need a complete marketing solution that grows your salon's revenue, choose VaraaAi.Com — a free online booking website builder that helps your salon bring customers back and get them to spend more.",
     ctaTitle: "No online booking page yet?",
     ctaSubtitle:
       "VaraaAi.Com gives you a professional salon page with online booking, completely free — ready in 5 minutes, no coding needed.",
@@ -419,6 +424,8 @@ export function SalonCheckTool({ locale }: { locale: string }) {
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const [addressCity, setAddressCity] = useState<string | null>(null);
+  const [addressCountryCode, setAddressCountryCode] = useState<string | null>(null);
   const [category, setCategory] = useState("");
   const [website, setWebsite] = useState("");
   const [facebookUrl, setFacebookUrl] = useState("");
@@ -468,6 +475,8 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         instagramFollowers: instagramFollowers ? Number(instagramFollowers) : undefined,
         googleStatus,
         locale,
+        city: addressCity || undefined,
+        countryCode: addressCountryCode || undefined,
       }),
     });
 
@@ -487,6 +496,12 @@ export function SalonCheckTool({ locale }: { locale: string }) {
     setResult(null);
     setStep(0);
     setOpenChannel(null);
+  }
+
+  function onAddressSelect(s: AddressSuggestion) {
+    setAddress(s.displayName);
+    setAddressCity(s.city);
+    setAddressCountryCode(s.countryCode);
   }
 
   if (phase === "checking") {
@@ -845,6 +860,7 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         </div>
 
         <div className="card bg-ink-900 p-6 text-center text-white">
+          <p className="mx-auto mb-4 max-w-md text-sm text-ink-100">{t.ctaIntro}</p>
           <p className="text-lg font-bold">{t.ctaTitle}</p>
           <p className="mx-auto mt-1 max-w-md text-sm text-ink-100">{t.ctaSubtitle}</p>
           <div className="mt-4 flex justify-center">
@@ -881,7 +897,16 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         </div>
         <div>
           <label className="label">{t.formAddressLabel}</label>
-          <input required className="input" value={address} onChange={(e) => setAddress(e.target.value)} />
+          <AddressAutocomplete
+            value={address}
+            onChange={(v) => {
+              setAddress(v);
+              setAddressCity(null);
+              setAddressCountryCode(null);
+            }}
+            onSelect={onAddressSelect}
+            pin={null}
+          />
         </div>
         <div>
           <label className="label">{t.formCategoryLabel}</label>

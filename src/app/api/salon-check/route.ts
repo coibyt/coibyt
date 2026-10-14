@@ -21,6 +21,8 @@ const schema = z.object({
   instagramFollowers: z.coerce.number().int().min(0).max(100_000_000).optional(),
   googleStatus: z.enum(["yes", "no", "unsure"]),
   locale: z.string().max(10).optional(),
+  city: z.string().max(100).optional(),
+  countryCode: z.string().max(5).optional(),
 });
 
 function socialReachabilityScore(status: SocialLinkStatus | "missing") {
@@ -76,6 +78,8 @@ export async function POST(req: Request) {
     instagramFollowers,
     googleStatus,
     locale,
+    city,
+    countryCode,
   } = parsed.data;
 
   const websiteResult: WebsiteCheckResult = website
@@ -137,7 +141,7 @@ export async function POST(req: Request) {
 
   const overallScore = Math.round((website_.score + google.score + facebook.score + instagram.score) / 4);
 
-  const seoKeywords = category ? suggestSeoKeywords(category, address, locale || "vi") : [];
+  const seoKeywords = category ? suggestSeoKeywords(category, address, locale || "vi", city, countryCode) : [];
 
   // Plain-English fact list for the AI prompt only — never shown to the
   // visitor directly, and never the source of truth for the itemized

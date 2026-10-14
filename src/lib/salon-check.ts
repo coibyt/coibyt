@@ -238,34 +238,61 @@ What's holding them back: ${input.badPoints.join("; ") || "(nothing notable)"}`;
 /** Keyword ideas generated purely from the salon's own category + city —
  * not real ranking data, since there's no legitimate way to look up a
  * third-party site's actual Google ranking (only Search Console can show
- * that, and only to the verified site owner). */
-export function suggestSeoKeywords(category: string, address: string, locale: string): string[] {
+ * that, and only to the verified site owner).
+ *
+ * Language picked by the salon's actual location when known (from the
+ * address-autocomplete selection), not the visitor's UI language — a
+ * Finnish salon's real customers search in Finnish even if its owner is
+ * browsing this tool in English. Falls back to the UI locale only when we
+ * don't have a resolved country (e.g. the visitor typed an address
+ * without picking a suggestion). */
+export function suggestSeoKeywords(
+  category: string,
+  address: string,
+  locale: string,
+  city?: string | null,
+  countryCode?: string | null
+): string[] {
   // Free-text addresses vary a lot ("Street, City, Country" vs. "Street,
   // District, City"), so this is a best-effort guess, not a real parse:
   // with 3+ parts, assume the common international "...City, Country"
   // shape and prefer the second-to-last part over the last (which is more
-  // often the country — not useful as a local SEO keyword).
+  // often the country — not useful as a local SEO keyword). Only used when
+  // there's no resolved `city` from an address-autocomplete selection.
   const parts = address.split(",").map((p) => p.trim()).filter(Boolean);
-  const city = (parts.length >= 2 ? parts[parts.length - 2] : parts[0]) || address.trim();
+  const resolvedCity = city || (parts.length >= 2 ? parts[parts.length - 2] : parts[0]) || address.trim();
   const cat = category.trim();
   if (!cat) return [];
 
-  if (locale === "vi") {
+  const cc = countryCode?.toUpperCase();
+  const keywordLocale = cc === "FI" ? "fi" : cc === "VN" ? "vi" : locale === "vi" ? "vi" : locale === "fi" || locale === "en" ? "fi" : "en";
+
+  if (keywordLocale === "vi") {
     return [
-      `${cat} ${city}`,
+      `${cat} ${resolvedCity}`,
       `${cat} gần đây`,
-      `${cat} uy tín ${city}`,
-      `${cat} giá rẻ ${city}`,
-      `đặt lịch ${cat} ${city}`,
-      `${cat} đánh giá tốt ${city}`,
+      `${cat} uy tín ${resolvedCity}`,
+      `${cat} giá rẻ ${resolvedCity}`,
+      `đặt lịch ${cat} ${resolvedCity}`,
+      `${cat} đánh giá tốt ${resolvedCity}`,
+    ];
+  }
+  if (keywordLocale === "fi") {
+    return [
+      `${cat} ${resolvedCity}`,
+      `${cat} lähellä`,
+      `luotettava ${cat} ${resolvedCity}`,
+      `edullinen ${cat} ${resolvedCity}`,
+      `varaa aika ${cat} ${resolvedCity}`,
+      `${cat} arvostelut ${resolvedCity}`,
     ];
   }
   return [
-    `${cat} in ${city}`,
+    `${cat} in ${resolvedCity}`,
     `${cat} near me`,
-    `best ${cat} ${city}`,
-    `affordable ${cat} ${city}`,
-    `book ${cat} ${city}`,
-    `top rated ${cat} ${city}`,
+    `best ${cat} ${resolvedCity}`,
+    `affordable ${cat} ${resolvedCity}`,
+    `book ${cat} ${resolvedCity}`,
+    `top rated ${cat} ${resolvedCity}`,
   ];
 }
