@@ -29,6 +29,22 @@ function rememberInstalled() {
   }
 }
 
+// Both the navbar button and the bottom banner mount this hook at once on
+// most pages, so a single real `appinstalled` event fires an `onInstalled`
+// in each of them — this module-level flag keeps the admin-facing install
+// count accurate by only ever sending one beacon per page load.
+let installBeaconSent = false;
+
+function sendInstallBeacon() {
+  if (installBeaconSent) return;
+  installBeaconSent = true;
+  fetch("/api/pwa-install", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ locale: document.documentElement.lang || undefined }),
+  }).catch(() => {});
+}
+
 /** Shared install-prompt state for every "install the app" entry point on
  * the site (navbar button, the prominent bottom banner, …) — each instance
  * tracks the same global `beforeinstallprompt`/`appinstalled` events
@@ -61,6 +77,7 @@ export function useInstallPrompt() {
     }
     function onInstalled() {
       rememberInstalled();
+      sendInstallBeacon();
       setInstalled(true);
       setDeferredPrompt(null);
     }

@@ -96,6 +96,9 @@ model User {
   postLikes           PostLike[]
   passwordResetTokens PasswordResetToken[]
   avatar              UserAvatar?
+  // Present only when this install happened while signed in — most installs
+  // are anonymous (see PwaInstall below).
+  pwaInstalls         PwaInstall[]
 
   @@index([role])
 }
@@ -312,6 +315,21 @@ model BusinessPageView {
   createdAt  DateTime @default(now())
 
   @@index([businessId, createdAt])
+}
+
+// One row per confirmed PWA install (the browser's `appinstalled` event) —
+// site-wide, not per-business, since installing is a one-time action on the
+// whole app, not any one salon's page. customerId is set only when the
+// visitor happened to be signed in at that moment; most installs are
+// anonymous, so the admin count is of install EVENTS, not unique people.
+model PwaInstall {
+  id         String   @id @default(cuid())
+  customerId String?
+  customer   User?    @relation(fields: [customerId], references: [id], onDelete: SetNull)
+  locale     String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
 }
 
 // A one-off marketing email an owner composes and sends to everyone who has
