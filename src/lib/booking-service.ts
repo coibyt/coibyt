@@ -8,6 +8,7 @@ import {
   ownerNewBookingEmail,
 } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
+import type { ComboAssignment } from "@/lib/availability";
 import type { PaymentProvider } from "@prisma/client";
 
 export class SlotUnavailableError extends Error {
@@ -50,6 +51,12 @@ export async function createBookingAndPayment(params: {
   /** Other full services booked in the same visit (e.g. manicure + pedicure)
    * — same "never trust the client" treatment as addOnIds. */
   extraServiceIds?: string[];
+  /** When the chosen slot splits services across different staff members
+   * (see getAvailableSlots' combo computation) — always re-derived
+   * server-side from that same availability engine right before this call,
+   * never trusted as raw client input. Absent for an ordinary single-staff
+   * booking. */
+  assignments?: ComboAssignment[];
   /** The affiliate code from the customer's `varaaai_aff_<businessId>` cookie
    * (see AffiliateCookieSetter), if any — re-validated against this
    * business's own active affiliates here, never trusted as-is. */
@@ -102,8 +109,12 @@ export async function createBookingAndPayment(params: {
   const extraServiceDurationSum = extraServices.reduce((sum, s) => sum + s.durationMin, 0);
   const extraServicePriceSum = extraServices.reduce((sum, s) => sum + s.priceCents, 0);
 
+  const assignmentByServiceId = new Map((params.assignments ?? []).map((a) => [a.serviceId, a]));
+  const primaryAssignment = params.assignments?.find((a) => a.key === "primary");
+
   const endsAt =
     params.endsAtOverride ??
+    primaryAssignment?.endsAt ??
     addMinutes(
       params.startsAt,
       effectiveServiceDurationMin + addOnDurationSum + extraServiceDurationSum + service.bufferMin
@@ -167,16 +178,38 @@ export async function createBookingAndPayment(params: {
   const isOffline = params.provider === "CASH" || params.provider === "BANK_TRANSFER";
 
   const booking = await prisma.$transaction(async (tx) => {
-    const conflict = await tx.booking.findFirst({
-      where: {
-        staffId: params.staffId,
-        status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
-        startsAt: { lt: endsAt },
-        endsAt: { gt: params.startsAt },
-      },
-      select: { id: true },
-    });
-    if (conflict && !params.allowOverlap) throw new SlotUnavailableError();
+    // A combo booking occupies several staff members at once, each for
+    // their own window — check every one of them, not just the primary's,
+    // and against both ordinary bookings and other bookings' own split-off
+    // extra services (a staff member can be busy via either table).
+    const conflictWindows =
+      params.assignments && params.assignments.length > 0
+        ? params.assignments.map((a) => ({ staffId: a.staffId, startsAt: a.startsAt, endsAt: a.endsAt }))
+        : [{ staffId: params.staffId, startsAt: params.startsAt, endsAt }];
+
+    for (const w of conflictWindows) {
+      const conflict = await tx.booking.findFirst({
+        where: {
+          staffId: w.staffId,
+          status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
+          startsAt: { lt: w.endsAt },
+          endsAt: { gt: w.startsAt },
+        },
+        select: { id: true },
+      });
+      if (conflict && !params.allowOverlap) throw new SlotUnavailableError();
+
+      const extraConflict = await tx.bookingExtraService.findFirst({
+        where: {
+          staffId: w.staffId,
+          startsAt: { lt: w.endsAt },
+          endsAt: { gt: w.startsAt },
+          booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
+        },
+        select: { id: true },
+      });
+      if (extraConflict && !params.allowOverlap) throw new SlotUnavailableError();
+    }
 
     const created = await tx.booking.create({
       data: {
@@ -217,13 +250,19 @@ export async function createBookingAndPayment(params: {
 
     if (extraServices.length > 0) {
       await tx.bookingExtraService.createMany({
-        data: extraServices.map((s) => ({
-          bookingId: created.id,
-          serviceId: s.id,
-          name: s.name,
-          priceCents: s.priceCents,
-          durationMin: s.durationMin,
-        })),
+        data: extraServices.map((s) => {
+          const a = assignmentByServiceId.get(s.id);
+          return {
+            bookingId: created.id,
+            serviceId: s.id,
+            name: s.name,
+            priceCents: s.priceCents,
+            durationMin: s.durationMin,
+            staffId: a?.staffId,
+            startsAt: a?.startsAt,
+            endsAt: a?.endsAt,
+          };
+        }),
       });
     }
 

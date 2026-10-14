@@ -35,20 +35,15 @@ export async function GET(
 
   // Never trust a client-supplied duration number — always re-derive extra
   // minutes from the add-on catalog itself, scoped to this business.
-  let extraDurationMin = 0;
+  // Extra services' own durations/buffers/eligible staff are re-read inside
+  // getAvailableSlots itself (also from their ids only).
+  let addOnDurationMin = 0;
   if (addOnIds.length > 0) {
     const addOns = await prisma.serviceAddOn.findMany({
       where: { id: { in: addOnIds }, businessId: business.id, active: true },
       select: { durationMin: true },
     });
-    extraDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
-  }
-  if (extraServiceIds.length > 0) {
-    const extraServices = await prisma.service.findMany({
-      where: { id: { in: extraServiceIds }, businessId: business.id, active: true },
-      select: { durationMin: true },
-    });
-    extraDurationMin += extraServices.reduce((sum, s) => sum + s.durationMin, 0);
+    addOnDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
   }
 
   const slots = await getAvailableSlots({
@@ -56,7 +51,8 @@ export async function GET(
     serviceId,
     staffId,
     dateStr: dateParam,
-    extraDurationMin,
+    addOnDurationMin,
+    extraServiceIds,
   });
 
   return NextResponse.json({
@@ -66,6 +62,15 @@ export async function GET(
       staffId: s.staffId,
       priceCents: s.priceCents,
       durationMin: s.durationMin,
+      assignments: s.assignments?.map((a) => ({
+        key: a.key,
+        serviceId: a.serviceId,
+        name: a.name,
+        staffId: a.staffId,
+        staffName: a.staffName,
+        startsAt: a.startsAt.toISOString(),
+        endsAt: a.endsAt.toISOString(),
+      })),
     })),
   });
 }

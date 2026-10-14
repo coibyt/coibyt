@@ -34,12 +34,26 @@ interface ServiceInfo {
   durationMin: number;
 }
 
+interface ComboAssignment {
+  key: string;
+  serviceId: string;
+  name: string;
+  staffId: string;
+  staffName: string;
+  startsAt: string;
+  endsAt: string;
+}
+
 interface Slot {
   startsAt: string;
   endsAt: string;
   staffId: string;
   priceCents: number;
   durationMin: number;
+  /** Present only when this slot splits the selected services across
+   * different staff members, back-to-back — no single staff could do
+   * everything, so each service goes to whoever is free, in order. */
+  assignments?: ComboAssignment[];
 }
 
 interface AddOnOption {
@@ -250,7 +264,11 @@ export function BookingWidget({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           serviceId: service.id,
-          staffId: staffId || selectedSlot.staffId,
+          // Leave "any staff" bookings unresolved here — the server re-runs
+          // the same availability check right before creating the booking
+          // (never trusting a client-picked staff for "any staff"), which is
+          // also what lets it attach a combo slot's per-service assignments.
+          staffId: staffId || undefined,
           startsAt: selectedSlot.startsAt,
           customerNote: note || undefined,
           paymentProvider: provider,
@@ -479,12 +497,26 @@ export function BookingWidget({
               <button
                 key={s.startsAt}
                 onClick={() => setSelectedSlot(s)}
-                className={`rounded-xl border py-2 text-sm transition-colors ${
+                title={
+                  s.assignments
+                    ? locale === "vi"
+                      ? "Khung giờ này chia cho nhiều nhân viên"
+                      : "This time splits the services across multiple staff"
+                    : undefined
+                }
+                className={`relative rounded-xl border py-2 text-sm transition-colors ${
                   selectedSlot?.startsAt === s.startsAt
                     ? "border-ink-900 bg-ink-900 text-white"
                     : "border-ink-100 text-ink-700 hover:border-ink-400"
                 }`}
               >
+                {s.assignments && (
+                  <span
+                    className={`absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full ${
+                      selectedSlot?.startsAt === s.startsAt ? "bg-white" : "bg-primary-500"
+                    }`}
+                  />
+                )}
                 <span className="block">
                   {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
                     hour: "2-digit",
@@ -507,6 +539,32 @@ export function BookingWidget({
                 )}
               </button>
             ))}
+          </div>
+        )}
+        {selectedSlot?.assignments && (
+          <div className="mt-3 rounded-xl border border-primary-200 bg-primary-50 p-3 text-sm">
+            <p className="mb-1.5 font-semibold text-ink-900">
+              {locale === "vi"
+                ? "Lịch hẹn này sẽ do nhiều nhân viên thực hiện, nối tiếp nhau:"
+                : "This appointment will be handled by multiple staff, one after another:"}
+            </p>
+            <ul className="space-y-1 text-ink-700">
+              {selectedSlot.assignments.map((a) => (
+                <li key={a.key} className="flex items-center justify-between gap-2">
+                  <span>
+                    {a.name}
+                    <span className="text-ink-400"> · {a.staffName}</span>
+                  </span>
+                  <span className="shrink-0 text-xs text-ink-400">
+                    {new Date(a.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      timeZone: businessTimezone,
+                    })}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

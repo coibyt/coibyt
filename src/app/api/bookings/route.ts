@@ -8,7 +8,7 @@ import {
   createBookingAndPayment,
   SlotUnavailableError,
 } from "@/lib/booking-service";
-import { getAvailableSlots } from "@/lib/availability";
+import { getAvailableSlots, type AvailableSlot } from "@/lib/availability";
 import { toZonedTime } from "date-fns-tz";
 import { format } from "date-fns";
 
@@ -80,32 +80,29 @@ export async function POST(req: Request) {
 
   const startsAt = new Date(data.startsAt);
 
-  let extraDurationMin = 0;
+  let addOnDurationMin = 0;
   if (data.addOnIds?.length) {
     const addOns = await prisma.serviceAddOn.findMany({
       where: { id: { in: data.addOnIds }, businessId: service.businessId, active: true },
       select: { durationMin: true },
     });
-    extraDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
-  }
-  if (data.extraServiceIds?.length) {
-    const extraServices = await prisma.service.findMany({
-      where: { id: { in: data.extraServiceIds }, businessId: service.businessId, active: true },
-      select: { durationMin: true },
-    });
-    extraDurationMin += extraServices.reduce((sum, s) => sum + s.durationMin, 0);
+    addOnDurationMin += addOns.reduce((sum, a) => sum + a.durationMin, 0);
   }
 
   // Resolve a concrete staff member — required even for "any staff" bookings
-  // so the DB overlap check has something to key off.
+  // so the DB overlap check has something to key off. Also re-derives, here
+  // rather than trusting the client, whether this exact start time only
+  // works as a "combo" slot split across multiple staff members.
   let staffId = data.staffId;
+  let assignments: AvailableSlot["assignments"];
   if (!staffId) {
     const dateStr = format(toZonedTime(startsAt, service.business.timezone), "yyyy-MM-dd");
     const slots = await getAvailableSlots({
       businessId: service.businessId,
       serviceId: data.serviceId,
       dateStr,
-      extraDurationMin,
+      addOnDurationMin,
+      extraServiceIds: data.extraServiceIds,
     });
     const match = slots.find(
       (s) => s.startsAt.getTime() === startsAt.getTime()
@@ -114,6 +111,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
     }
     staffId = match.staffId;
+    assignments = match.assignments;
   }
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
@@ -133,6 +131,7 @@ export async function POST(req: Request) {
       siteUrl,
       addOnIds: data.addOnIds,
       extraServiceIds: data.extraServiceIds,
+      assignments,
       affiliateCode,
       discountCode: data.discountCode,
       newAccountEmail,
