@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { NavUserMenu } from "@/components/nav-user-menu";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { SearchBarCompact } from "@/components/search-bar";
+import { InstallAppButton } from "@/components/install-app-button";
 
 export async function Navbar() {
   const [t, session, locale] = await Promise.all([getTranslations("nav"), auth(), getLocale()]);
@@ -23,6 +24,7 @@ export async function Navbar() {
 
         <nav className="flex items-center gap-2">
           <LocaleSwitcher />
+          <InstallAppButton locale={locale} className="btn-ghost hidden sm:inline-flex" />
           {!session?.user && (
             <>
               <Link href="/business" className="btn-ghost hidden sm:inline-flex">

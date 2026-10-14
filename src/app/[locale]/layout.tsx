@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -9,6 +9,8 @@ import { SessionProvider } from "@/components/session-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { LocaleAutoDetect } from "@/components/locale-auto-detect";
+import { PwaRegister } from "@/components/pwa-register";
+import { InstallAppBanner } from "@/components/install-app-banner";
 import "../globals.css";
 
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
@@ -31,6 +33,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
   return { title: t("title"), description: t("description") };
 }
+
+export const viewport: Viewport = {
+  themeColor: "#624f89",
+};
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -100,9 +106,11 @@ fbq('track', 'PageView');`,
         <NextIntlClientProvider messages={messages}>
           <SessionProvider>
             <LocaleAutoDetect />
+            <PwaRegister />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
+            <InstallAppBanner locale={locale} />
           </SessionProvider>
         </NextIntlClientProvider>
       </body>
