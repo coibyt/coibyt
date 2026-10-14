@@ -12,6 +12,7 @@ import {
   Facebook,
   Instagram,
   Sparkles,
+  Search,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { googleMapsSearchUrl } from "@/lib/salon-check";
@@ -32,14 +33,27 @@ interface WebsiteResult {
   score: number;
 }
 
+type GoogleResult =
+  | { real: true; found: boolean; rating: number | null; reviewCount: number | null; photoCount: number | null; score: number }
+  | { real: false; status: GoogleStatus; score: number };
+
+interface SocialResult {
+  url: string | null;
+  status: SocialStatus;
+  followers: number | null;
+  score: number;
+}
+
 interface SalonCheckResult {
   name: string;
   address: string;
   overallScore: number;
+  aiSummary: string | null;
   website: WebsiteResult;
-  google: { status: GoogleStatus; score: number };
-  facebook: { url: string | null; status: SocialStatus; score: number };
-  instagram: { url: string | null; status: SocialStatus; score: number };
+  google: GoogleResult;
+  facebook: SocialResult;
+  instagram: SocialResult;
+  seoKeywords: string[];
 }
 
 interface Opportunity {
@@ -57,9 +71,13 @@ const STRINGS = {
       "Cho chúng tôi biết tên salon và địa chỉ. Chúng tôi sẽ kiểm tra trang web và mạng xã hội của bạn — miễn phí, không cần đăng ký.",
     formNameLabel: "Tên salon",
     formAddressLabel: "Địa chỉ salon",
+    formCategoryLabel: "Loại hình salon · dùng để gợi ý từ khóa SEO",
+    formCategoryPlaceholder: "VD: salon nail, salon tóc, spa...",
     formWebsiteLabel: "Trang web · không bắt buộc",
     formFacebookLabel: "Link Facebook · không bắt buộc",
     formInstagramLabel: "Link Instagram · không bắt buộc",
+    formFacebookFollowersLabel: "Số người theo dõi Facebook · không bắt buộc",
+    formInstagramFollowersLabel: "Số người theo dõi Instagram · không bắt buộc",
     formGoogleQuestion: "Salon của bạn đã có hồ sơ Google doanh nghiệp chưa?",
     formGoogleYes: "Đã có",
     formGoogleNo: "Chưa có",
@@ -102,6 +120,17 @@ const STRINGS = {
     viewOnGoogleMaps: "Tìm trên Google Maps",
     disclaimerGoogle: "(Dựa trên thông tin bạn cung cấp — chúng tôi chưa tự động xác minh số sao/đánh giá thật.)",
     disclaimerSocial: "(Chúng tôi chỉ kiểm tra link có hoạt động không — không đọc số liệu tương tác thật.)",
+    disclaimerFollowers: "(Số liệu do bạn tự khai, chưa được xác minh.)",
+    ratingLabel: "Điểm Google",
+    reviewCountLabel: "Đánh giá",
+    photoCountLabel: "Ảnh",
+    followersLabel: "Người theo dõi",
+    googleFoundReal: "Salon của bạn có hồ sơ Google doanh nghiệp.",
+    googleNotFoundReal: "Chúng tôi không tìm thấy hồ sơ Google doanh nghiệp cho salon của bạn.",
+    seoTitle: "Từ khóa nên nhắm tới",
+    seoSubtitle:
+      "Gợi ý từ khóa dựa trên loại hình và khu vực của bạn — chưa phải thứ hạng thật, vì không có cách hợp lệ nào để tra cứu thứ hạng Google của một website bất kỳ (chỉ chủ website mới xem được qua Google Search Console).",
+    seoEmpty: "Điền \"Loại hình salon\" ở trên để nhận gợi ý từ khóa.",
     ctaTitle: "Chưa có trang đặt lịch online?",
     ctaSubtitle:
       "VaraaAi.Com cho bạn một trang salon + đặt lịch online chuyên nghiệp, hoàn toàn miễn phí — sẵn sàng trong 5 phút, không cần biết lập trình.",
@@ -171,9 +200,13 @@ const STRINGS = {
       "Tell us your salon's name and address. We'll check your website and social media — free, no sign-up needed.",
     formNameLabel: "Salon name",
     formAddressLabel: "Salon address",
+    formCategoryLabel: "Salon category · used for SEO keyword suggestions",
+    formCategoryPlaceholder: "e.g. nail salon, hair salon, spa...",
     formWebsiteLabel: "Website · optional",
     formFacebookLabel: "Facebook link · optional",
     formInstagramLabel: "Instagram link · optional",
+    formFacebookFollowersLabel: "Facebook follower count · optional",
+    formInstagramFollowersLabel: "Instagram follower count · optional",
     formGoogleQuestion: "Does your salon already have a Google Business Profile?",
     formGoogleYes: "Yes",
     formGoogleNo: "No",
@@ -216,6 +249,17 @@ const STRINGS = {
     viewOnGoogleMaps: "Find on Google Maps",
     disclaimerGoogle: "(Based on what you told us — we haven't automatically verified a real rating/review count.)",
     disclaimerSocial: "(We only check whether the link works — we don't read real engagement numbers.)",
+    disclaimerFollowers: "(Self-reported by you — not independently verified.)",
+    ratingLabel: "Google rating",
+    reviewCountLabel: "Reviews",
+    photoCountLabel: "Photos",
+    followersLabel: "Followers",
+    googleFoundReal: "Your salon has a Google Business Profile.",
+    googleNotFoundReal: "We couldn't find a Google Business Profile for your salon.",
+    seoTitle: "Keywords to target",
+    seoSubtitle:
+      "Keyword ideas based on your category and area — not a real ranking, since there's no legitimate way to look up any website's actual Google ranking (only the site's own owner can see that, via Google Search Console).",
+    seoEmpty: "Fill in \"Salon category\" above to get keyword suggestions.",
     ctaTitle: "No online booking page yet?",
     ctaSubtitle:
       "VaraaAi.Com gives you a professional salon page with online booking, completely free — ready in 5 minutes, no coding needed.",
@@ -300,9 +344,12 @@ export function SalonCheckTool({ locale }: { locale: string }) {
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const [category, setCategory] = useState("");
   const [website, setWebsite] = useState("");
   const [facebookUrl, setFacebookUrl] = useState("");
   const [instagramUrl, setInstagramUrl] = useState("");
+  const [facebookFollowers, setFacebookFollowers] = useState("");
+  const [instagramFollowers, setInstagramFollowers] = useState("");
   const [googleStatus, setGoogleStatus] = useState<GoogleStatus>("unsure");
 
   const [phase, setPhase] = useState<"form" | "checking" | "result">("form");
@@ -338,10 +385,14 @@ export function SalonCheckTool({ locale }: { locale: string }) {
       body: JSON.stringify({
         name,
         address,
+        category: category || undefined,
         website: website || undefined,
         facebookUrl: facebookUrl || undefined,
         instagramUrl: instagramUrl || undefined,
+        facebookFollowers: facebookFollowers ? Number(facebookFollowers) : undefined,
+        instagramFollowers: instagramFollowers ? Number(instagramFollowers) : undefined,
         googleStatus,
+        locale,
       }),
     });
 
@@ -410,7 +461,11 @@ export function SalonCheckTool({ locale }: { locale: string }) {
       if (!result.website.https) opportunities.push({ id: "https", severity: "low", text: c.https.fail, suggestion: c.https.suggestion });
       if (!result.website.hasOpenGraph) opportunities.push({ id: "og", severity: "low", text: c.og.fail, suggestion: c.og.suggestion });
     }
-    if (result.google.status === "no") {
+    if (result.google.real) {
+      if (!result.google.found) {
+        opportunities.push({ id: "google_not_found", severity: "high", text: t.googleNotFoundReal, suggestion: c.googleSuggestionNo });
+      }
+    } else if (result.google.status === "no") {
       opportunities.push({ id: "google_no", severity: "high", text: c.googleNo, suggestion: c.googleSuggestionNo });
     } else if (result.google.status === "unsure") {
       opportunities.push({ id: "google_unsure", severity: "medium", text: c.googleUnsure, suggestion: c.googleSuggestionUnsure });
@@ -450,16 +505,29 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         return { good, bad };
       }
       if (key === "google") {
-        if (result!.google.status === "yes") return { good: [c.googleYes], bad: [] };
-        if (result!.google.status === "no") return { good: [], bad: [c.googleNo] };
+        const g = result!.google;
+        if (g.real) {
+          if (!g.found) return { good: [], bad: [t.googleNotFoundReal] };
+          const good: string[] = [t.googleFoundReal];
+          if (g.rating !== null) good.push(`${t.ratingLabel}: ${g.rating}`);
+          if (g.reviewCount !== null) good.push(`${t.reviewCountLabel}: ${g.reviewCount}`);
+          if (g.photoCount !== null) good.push(`${t.photoCountLabel}: ${g.photoCount}`);
+          return { good, bad: [] };
+        }
+        if (g.status === "yes") return { good: [c.googleYes], bad: [] };
+        if (g.status === "no") return { good: [], bad: [c.googleNo] };
         return { good: [], bad: [c.googleUnsure] };
       }
       const platform = key === "facebook" ? "Facebook" : "Instagram";
-      const status = key === "facebook" ? result!.facebook.status : result!.instagram.status;
-      if (status === "ok") return { good: [c.socialOk(platform)], bad: [] };
-      if (status === "missing") return { good: [], bad: [c.socialMissing(platform)] };
-      if (status === "unreachable") return { good: [], bad: [c.socialUnreachable(platform)] };
-      return { good: [], bad: [c.socialUnverified(platform)] };
+      const social = key === "facebook" ? result!.facebook : result!.instagram;
+      const good: string[] = [];
+      const bad: string[] = [];
+      if (social.status === "ok") good.push(c.socialOk(platform));
+      else if (social.status === "missing") bad.push(c.socialMissing(platform));
+      else if (social.status === "unreachable") bad.push(c.socialUnreachable(platform));
+      else good.push(c.socialUnverified(platform));
+      if (social.followers !== null) good.push(`${t.followersLabel}: ${social.followers.toLocaleString(locale)}`);
+      return { good, bad };
     }
 
     return (
@@ -471,8 +539,13 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           <p className="text-sm text-ink-400">{t.scorePrefix} · {result.overallScore} / 100</p>
           <p className={`mt-1 text-xs font-bold tracking-wide ${band.color}`}>{band.label}</p>
           <p className="mx-auto mt-3 max-w-md text-sm text-ink-700">
-            {result.name} — {strongest.label} ({strongest.score}) {locale === "vi" ? "là điểm mạnh nhất" : "is your strongest channel"},{" "}
-            {weakest.label} ({weakest.score}) {locale === "vi" ? "cần cải thiện nhiều nhất." : "needs the most work."}
+            {result.aiSummary ?? (
+              <>
+                {result.name} — {strongest.label} ({strongest.score}){" "}
+                {locale === "vi" ? "là điểm mạnh nhất" : "is your strongest channel"}, {weakest.label} (
+                {weakest.score}) {locale === "vi" ? "cần cải thiện nhiều nhất." : "needs the most work."}
+              </>
+            )}
           </p>
         </div>
 
@@ -519,7 +592,7 @@ export function SalonCheckTool({ locale }: { locale: string }) {
                     )}
                     {ch.key === "google" && (
                       <>
-                        <p className="text-ink-400">{t.disclaimerGoogle}</p>
+                        {!result.google.real && <p className="text-ink-400">{t.disclaimerGoogle}</p>}
                         <a
                           href={googleMapsSearchUrl(result.name, result.address)}
                           target="_blank"
@@ -531,7 +604,11 @@ export function SalonCheckTool({ locale }: { locale: string }) {
                       </>
                     )}
                     {(ch.key === "facebook" || ch.key === "instagram") && (
-                      <p className="text-ink-400">{t.disclaimerSocial}</p>
+                      <p className="text-ink-400">
+                        {(ch.key === "facebook" ? result.facebook : result.instagram).followers !== null
+                          ? t.disclaimerFollowers
+                          : t.disclaimerSocial}
+                      </p>
                     )}
                   </div>
                 )}
@@ -603,6 +680,27 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           </div>
         )}
 
+        <div>
+          <h2 className="mb-1 flex items-center gap-2 text-lg font-bold text-ink-900">
+            <Search className="h-5 w-5 text-primary-500" /> {t.seoTitle}
+          </h2>
+          <p className="mb-4 text-sm text-ink-400">{t.seoSubtitle}</p>
+          {result.seoKeywords.length === 0 ? (
+            <p className="text-sm text-ink-400">{t.seoEmpty}</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {result.seoKeywords.map((kw) => (
+                <span
+                  key={kw}
+                  className="rounded-full border border-ink-100 bg-mist-50 px-3 py-1.5 text-sm text-ink-700"
+                >
+                  {kw}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+
         <div className="card bg-ink-900 p-6 text-center text-white">
           <p className="text-lg font-bold">{t.ctaTitle}</p>
           <p className="mx-auto mt-1 max-w-md text-sm text-ink-100">{t.ctaSubtitle}</p>
@@ -640,6 +738,15 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           <input required className="input" value={address} onChange={(e) => setAddress(e.target.value)} />
         </div>
         <div>
+          <label className="label">{t.formCategoryLabel}</label>
+          <input
+            className="input"
+            placeholder={t.formCategoryPlaceholder}
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          />
+        </div>
+        <div>
           <label className="label">{t.formWebsiteLabel}</label>
           <input
             className="input"
@@ -665,6 +772,26 @@ export function SalonCheckTool({ locale }: { locale: string }) {
               placeholder="instagram.com/..."
               value={instagramUrl}
               onChange={(e) => setInstagramUrl(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="label">{t.formFacebookFollowersLabel}</label>
+            <input
+              type="number"
+              min={0}
+              className="input"
+              value={facebookFollowers}
+              onChange={(e) => setFacebookFollowers(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="label">{t.formInstagramFollowersLabel}</label>
+            <input
+              type="number"
+              min={0}
+              className="input"
+              value={instagramFollowers}
+              onChange={(e) => setInstagramFollowers(e.target.value)}
             />
           </div>
         </div>
