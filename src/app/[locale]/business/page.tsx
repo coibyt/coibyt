@@ -45,6 +45,7 @@ interface LandingStrings {
   heroTitle: string;
   heroSubtitle: string;
   ctaPrimary: string;
+  salonCheckCta: string;
   trust: [string, string, string];
   statLabels: [string, string, string, string];
   statFreeValue: string;
@@ -73,6 +74,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com là nền tảng đặt lịch hẹn dành cho salon tóc, nail, spa — giúp khách hàng đặt lịch online, còn bạn quản lý lịch hẹn, nhân viên và khách hàng mọi lúc mọi nơi.",
     ctaPrimary: "Đăng ký làm chủ salon — miễn phí",
+    salonCheckCta: "Hoặc kiểm tra miễn phí salon của bạn trông thế nào trên mạng →",
     trust: ["Không cần thẻ tín dụng", "Sẵn sàng trong 5 phút", "Không giới hạn lượt đặt"],
     statLabels: ["Phí sử dụng", "Lượt đặt lịch", "Nhân viên", "Ngôn ngữ"],
     statFreeValue: "0đ",
@@ -116,6 +118,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com is the booking platform for hair salons, nail bars and spas — customers book online while you manage appointments, staff and customers from anywhere.",
     ctaPrimary: "Register as a salon owner — free",
+    salonCheckCta: "Or get a free check of how your salon looks online →",
     trust: ["No credit card needed", "Ready in 5 minutes", "Unlimited bookings"],
     statLabels: ["Platform fee", "Bookings", "Staff members", "Languages"],
     statFreeValue: "$0",
@@ -159,6 +162,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com on ajanvarausalusta kampaamoille, kynsistudioille ja kauneushoitoloille — asiakkaat varaavat ajan verkossa, kun sinä hoidat ajanvaraukset, henkilökunnan ja asiakkaat mistä tahansa.",
     ctaPrimary: "Rekisteröidy salongin omistajaksi — ilmaiseksi",
+    salonCheckCta: "Tai tarkista ilmaiseksi, miltä salonkisi näyttää verkossa →",
     trust: ["Ei luottokorttia tarvita", "Käyttövalmis 5 minuutissa", "Rajattomasti varauksia"],
     statLabels: ["Käyttömaksu", "Varaukset", "Henkilökunta", "Kielet"],
     statFreeValue: "0 €",
@@ -202,6 +206,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com to platforma rezerwacji dla salonów fryzjerskich, paznokciowych i spa — klienci rezerwują online, a Ty zarządzasz wizytami, pracownikami i klientami z dowolnego miejsca.",
     ctaPrimary: "Zarejestruj się jako właściciel salonu — za darmo",
+    salonCheckCta: "Albo sprawdź za darmo, jak Twój salon wygląda w sieci →",
     trust: ["Karta kredytowa niepotrzebna", "Gotowe w 5 minut", "Nielimitowane rezerwacje"],
     statLabels: ["Opłata za korzystanie", "Rezerwacje", "Pracownicy", "Języki"],
     statFreeValue: "0 zł",
@@ -245,6 +250,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com ist die Buchungsplattform für Friseursalons, Nagelstudios und Spas — Kunden buchen online, während du Termine, Mitarbeiter und Kunden von überall aus verwaltest.",
     ctaPrimary: "Als Salonbesitzer registrieren — kostenlos",
+    salonCheckCta: "Oder prüfe kostenlos, wie dein Salon online wirkt →",
     trust: ["Keine Kreditkarte nötig", "In 5 Minuten startklar", "Unbegrenzte Buchungen"],
     statLabels: ["Nutzungsgebühr", "Buchungen", "Mitarbeiter", "Sprachen"],
     statFreeValue: "0 €",
@@ -288,6 +294,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com គឺជាវេទិកាកក់ការណាត់ជួបសម្រាប់សាឡុងកាត់សក់ ហាងគ្រូ និងស្ប៉ា — អតិថិជនកក់តាមអនឡាញ ខណៈអ្នកគ្រប់គ្រងការណាត់ជួប បុគ្គលិក និងអតិថិជនរបស់អ្នកគ្រប់ទីកន្លែង។",
     ctaPrimary: "ចុះឈ្មោះជាម្ចាស់សាឡុង — ឥតគិតថ្លៃ",
+    salonCheckCta: "ឬពិនិត្យមើលឥតគិតថ្លៃថាសាឡុងរបស់អ្នកបង្ហាញបែបណានៅលើអ៊ីនធឺណិត →",
     trust: ["មិនចាំបាច់ប្រើប័ណ្ណឥណទាន", "ត្រៀមរួចក្នុងរយៈពេល ៥ នាទី", "កក់បានគ្មានដែនកំណត់"],
     statLabels: ["ថ្លៃប្រើប្រាស់", "ការកក់", "បុគ្គលិក", "ភាសា"],
     statFreeValue: "០ ៛",
@@ -331,6 +338,7 @@ const LANDING_STRINGS: Record<string, LandingStrings> = {
     heroSubtitle:
       "VaraaAi.Com คือแพลตฟอร์มจองคิวสำหรับร้านทำผม ร้านทำเล็บ และสปา — ลูกค้าจองออนไลน์ ในขณะที่คุณจัดการนัดหมาย พนักงาน และลูกค้าได้จากทุกที่",
     ctaPrimary: "ลงทะเบียนเป็นเจ้าของร้าน — ฟรี",
+    salonCheckCta: "หรือตรวจสอบฟรีว่าร้านของคุณดูเป็นอย่างไรบนโลกออนไลน์ →",
     trust: ["ไม่ต้องใช้บัตรเครดิต", "พร้อมใช้งานใน 5 นาที", "จองได้ไม่จำกัด"],
     statLabels: ["ค่าใช้บริการ", "การจอง", "พนักงาน", "ภาษา"],
     statFreeValue: "0 ฿",
@@ -407,6 +415,9 @@ export default async function BusinessLandingPage({
                 </span>
               ))}
             </p>
+            <Link href="/salon-check" className="text-sm font-medium text-primary-600 hover:underline">
+              {t.salonCheckCta}
+            </Link>
           </div>
         </div>
       </section>
