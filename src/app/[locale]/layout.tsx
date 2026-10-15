@@ -11,6 +11,7 @@ import { Footer } from "@/components/footer";
 import { LocaleAutoDetect } from "@/components/locale-auto-detect";
 import { PwaRegister } from "@/components/pwa-register";
 import { InstallAppBanner } from "@/components/install-app-banner";
+import { SiteVisitTracker } from "@/components/site-visit-tracker";
 import "../globals.css";
 
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
@@ -107,6 +108,7 @@ fbq('track', 'PageView');`,
           <SessionProvider>
             <LocaleAutoDetect />
             <PwaRegister />
+            <SiteVisitTracker />
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />

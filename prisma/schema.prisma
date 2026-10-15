@@ -332,6 +332,23 @@ model PwaInstall {
   @@index([createdAt])
 }
 
+// One row per "ping" from SiteVisitTracker — mounted site-wide (every
+// varaaai.com page under the main [locale] layout; never on /embed, which
+// renders inside a salon's OWN external website, or /site/[slug], a salon's
+// own branded page). visitorId is a random id a browser keeps in
+// localStorage, never tied to a real identity — purely so the admin
+// dashboard can count DISTINCT visitors (not raw page loads) for "today" and
+// "online right now" (anyone pinged within the last few minutes), without
+// needing accounts, cookies, or any PII.
+model SiteVisit {
+  id        String   @id @default(cuid())
+  visitorId String
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([visitorId, createdAt])
+}
+
 // A one-off marketing email an owner composes and sends to everyone who has
 // ever booked with them (past customers only — never a random mailing list).
 // Kept as a log for the dashboard's campaign history; the recipient list

@@ -1,8 +1,15 @@
 import { prisma } from "@/lib/prisma";
 import { getTranslations } from "next-intl/server";
-import { Download } from "lucide-react";
+import { Download, Users, Radio } from "lucide-react";
+import { fromZonedTime } from "date-fns-tz";
 import { AdminBusinessApprovalRow } from "@/components/admin-business-approval-row";
 import { StatCard } from "@/components/stat-card";
+
+// Traffic stats are platform-wide (every business, every timezone), so
+// "today" needs one fixed reference point rather than each visitor's own
+// clock — Vietnam time, since that's this schema's own default timezone.
+const PLATFORM_TZ = "Asia/Ho_Chi_Minh";
+const ONLINE_WINDOW_MS = 5 * 60 * 1000;
 
 export default async function AdminPendingPage({
   params,
@@ -13,7 +20,11 @@ export default async function AdminPendingPage({
   const t = await getTranslations("admin");
 
   const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-  const [businesses, pwaInstallsTotal, pwaInstalls7d] = await Promise.all([
+  const todayStr = new Date().toLocaleDateString("en-CA", { timeZone: PLATFORM_TZ });
+  const startOfTodayUtc = fromZonedTime(todayStr, PLATFORM_TZ);
+  const onlineSince = new Date(Date.now() - ONLINE_WINDOW_MS);
+
+  const [businesses, pwaInstallsTotal, pwaInstalls7d, visitorsTodayGroups, visitorsOnlineGroups] = await Promise.all([
     prisma.business.findMany({
       where: { status: "PENDING" },
       include: { owner: { select: { name: true, email: true } }, categories: { include: { category: true } } },
@@ -21,11 +32,23 @@ export default async function AdminPendingPage({
     }),
     prisma.pwaInstall.count(),
     prisma.pwaInstall.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
+    prisma.siteVisit.groupBy({ by: ["visitorId"], where: { createdAt: { gte: startOfTodayUtc } } }),
+    prisma.siteVisit.groupBy({ by: ["visitorId"], where: { createdAt: { gte: onlineSince } } }),
   ]);
 
   return (
     <div>
-      <div className="mb-6 grid grid-cols-2 gap-4 sm:w-fit sm:grid-cols-2">
+      <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <StatCard
+          icon={Radio}
+          label={locale === "vi" ? "Đang xem trang web" : "Viewing right now"}
+          value={String(visitorsOnlineGroups.length)}
+        />
+        <StatCard
+          icon={Users}
+          label={locale === "vi" ? "Khách truy cập hôm nay" : "Visitors today"}
+          value={String(visitorsTodayGroups.length)}
+        />
         <StatCard
           icon={Download}
           label={locale === "vi" ? "Tổng lượt cài đặt app" : "Total app installs"}
