@@ -14,6 +14,7 @@ export interface ContactLinks {
   youtubeUrl: string | null;
   introVideoUrl: string | null;
   googleMapsUrl: string | null;
+  googlePlaceId: string | null;
   whatsapp: string | null;
 }
 
@@ -30,6 +31,7 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
     youtubeUrl: contact.youtubeUrl ?? "",
     introVideoUrl: contact.introVideoUrl ?? "",
     googleMapsUrl: contact.googleMapsUrl ?? "",
+    googlePlaceId: contact.googlePlaceId ?? "",
     whatsapp: contact.whatsapp ?? "",
   });
   const [saving, setSaving] = useState(false);
@@ -90,6 +92,26 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
           "https://youtube.com/watch?v=..."
         )}
         {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
+        <div>
+          <label className="label">{tDash("contactLinks.googlePlaceId")}</label>
+          <input
+            className="input"
+            value={form.googlePlaceId}
+            onChange={(e) => setForm({ ...form, googlePlaceId: e.target.value })}
+            placeholder="ChIJN1t_tDeuEmsRUsoyG83frY4"
+          />
+          <p className="mt-1 text-xs text-ink-400">
+            {tDash("contactLinks.googlePlaceIdHint")}{" "}
+            <a
+              href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-500 hover:underline"
+            >
+              Place ID Finder ↗
+            </a>
+          </p>
+        </div>
       </div>
 
       {error && (

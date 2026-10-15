@@ -57,7 +57,7 @@ export default async function BusinessSitePage({
         },
       },
       reviews: {
-        where: { comment: { not: null } },
+        where: { comment: { not: null }, status: "APPROVED" },
         orderBy: { createdAt: "desc" },
         take: 6,
         include: { customer: { select: { name: true } } },

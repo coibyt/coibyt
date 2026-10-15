@@ -14,6 +14,11 @@ declare module "next-auth" {
       // Named distinctly from Auth.js's own `emailVerified: Date | null`
       // concept (on User/AdapterUser) to avoid colliding with it here.
       hasVerifiedEmail: boolean;
+      // Which provider THIS sign-in used ("google" | "credentials") — lets
+      // server code require a Google-verified session for a specific action
+      // (see POST /api/reviews) without that being the account's only way
+      // to sign in generally.
+      provider?: string;
     } & import("next-auth").DefaultSession["user"];
   }
   interface User {
@@ -29,8 +34,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   },
   providers: [
     // Auth.js v5 reads AUTH_GOOGLE_ID / AUTH_GOOGLE_SECRET from the
-    // environment automatically — no config object needed here.
-    Google,
+    // environment automatically. allowDangerousEmailAccountLinking is safe
+    // here specifically because Google itself verifies the email's
+    // ownership before handing back an id token — a customer who already
+    // has a password account from guest checkout (see POST /api/bookings)
+    // can still "Sign in with Google" with that same email (e.g. to leave a
+    // Google-verified review) without hitting Auth.js's OAuthAccountNotLinked
+    // error.
+    Google({ allowDangerousEmailAccountLinking: true }),
     Credentials({
       credentials: {
         email: { label: "Email", type: "email" },
@@ -58,7 +69,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
+      if (account) token.provider = account.provider;
       if (user) {
         token.id = user.id;
         token.role = user.role;
@@ -89,6 +101,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         });
         session.user.hasVerifiedEmail = !!dbUser?.emailVerified;
         session.user.image = dbUser?.image ?? null;
+        session.user.provider = token.provider as string | undefined;
       }
       return session;
     },

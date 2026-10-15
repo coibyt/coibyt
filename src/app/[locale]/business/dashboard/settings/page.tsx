@@ -79,6 +79,7 @@ export default async function BusinessSettingsPage({
           youtubeUrl: business.youtubeUrl,
           introVideoUrl: business.introVideoUrl,
           googleMapsUrl: business.googleMapsUrl,
+          googlePlaceId: business.googlePlaceId,
           whatsapp: business.whatsapp,
         }}
       />

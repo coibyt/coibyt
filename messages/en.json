@@ -193,7 +193,15 @@
     "ratingLabel": "Service quality",
     "commentPlaceholder": "Share your experience...",
     "submit": "Submit review",
-    "thanks": "Thanks for your review!"
+    "thanks": "Thanks for your review!",
+    "googleRequiredTitle": "Google sign-in required",
+    "googleRequiredBody": "To keep reviews genuine, you need to sign in with Google before submitting one.",
+    "signInWithGoogle": "Sign in with Google",
+    "shareToGoogleTitle": "Review submitted!",
+    "shareToGoogleBody": "Want to also share this review on Google to help the salon's reputation?",
+    "shareToGoogleButton": "Share on Google",
+    "later": "Maybe later",
+    "genericError": "Something went wrong, please try again."
   },
   "admin": {
     "title": "System admin",
@@ -303,6 +311,8 @@
       "phoneNumber": "Phone number",
       "youtubeChannel": "YouTube channel",
       "introVideo": "Salon intro video",
+      "googlePlaceId": "Google Place ID",
+      "googlePlaceIdHint": "Used to show customers a \"Share on Google\" button after they leave a review. Get this from Google's Place ID Finder tool.",
       "formatError": "Please check the link/email format."
     },
     "businessImages": {

@@ -25,7 +25,7 @@ export async function GET(req: Request) {
     take: 8,
     orderBy: { createdAt: "desc" },
     include: {
-      reviews: { select: { rating: true } },
+      reviews: { where: { status: "APPROVED" }, select: { rating: true } },
       categories: { include: { category: true } },
     },
   });

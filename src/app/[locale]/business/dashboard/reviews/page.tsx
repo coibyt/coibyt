@@ -22,7 +22,9 @@ export default async function BusinessReviewsPage({
   const reviews = await prisma.review.findMany({
     where: { businessId: business.id },
     include: { customer: { select: { name: true } } },
-    orderBy: { createdAt: "desc" },
+    // PENDING sorts first (enum declaration order: PENDING, APPROVED, HIDDEN)
+    // so reviews awaiting a decision surface above ones already handled.
+    orderBy: [{ status: "asc" }, { createdAt: "desc" }],
   });
 
   return (
@@ -35,6 +37,7 @@ export default async function BusinessReviewsPage({
           comment: r.comment,
           ownerReply: r.ownerReply,
           customerName: r.customer.name,
+          status: r.status,
         }))}
         locale={locale}
       />

@@ -48,6 +48,7 @@ export default async function BusinessProfilePage({
         serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
         staff: { where: { active: true } },
         reviews: {
+          where: { status: "APPROVED" },
           include: { customer: { select: { name: true, image: true } } },
           orderBy: { createdAt: "desc" },
           take: 20,

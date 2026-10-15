@@ -15,6 +15,7 @@ const contactLinksSchema = z.object({
   youtubeUrl: urlOrEmpty,
   introVideoUrl: urlOrEmpty,
   googleMapsUrl: urlOrEmpty,
+  googlePlaceId: z.string().max(200).optional().or(z.literal("")),
   whatsapp: z.string().max(30).optional().or(z.literal("")),
 });
 
@@ -41,6 +42,7 @@ export async function PUT(req: Request) {
       youtubeUrl: data.youtubeUrl || null,
       introVideoUrl: data.introVideoUrl || null,
       googleMapsUrl: data.googleMapsUrl || null,
+      googlePlaceId: data.googlePlaceId?.trim() || null,
       whatsapp: data.whatsapp || null,
     },
     select: {
@@ -53,6 +55,7 @@ export async function PUT(req: Request) {
       youtubeUrl: true,
       introVideoUrl: true,
       googleMapsUrl: true,
+      googlePlaceId: true,
       whatsapp: true,
     },
   });

@@ -32,7 +32,7 @@ export default async function SearchPage({
     take: 24,
     orderBy: { createdAt: "desc" },
     include: {
-      reviews: { select: { rating: true } },
+      reviews: { where: { status: "APPROVED" }, select: { rating: true } },
       categories: { include: { category: true } },
       services: { where: { active: true }, select: { priceCents: true, currency: true } },
     },
