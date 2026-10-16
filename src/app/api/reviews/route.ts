@@ -26,8 +26,12 @@ export async function POST(req: Request) {
     include: { review: true },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
-  if (booking.status !== "COMPLETED") {
-    return NextResponse.json({ error: "BOOKING_NOT_COMPLETED" }, { status: 409 });
+  // Reviewing never depends on the salon manually marking a booking
+  // "completed" — plenty never get that click. Only a cancelled booking is
+  // off-limits; any other status (even still-upcoming) counts as a real
+  // booking the customer is entitled to review.
+  if (booking.status === "CANCELLED") {
+    return NextResponse.json({ error: "BOOKING_CANCELLED" }, { status: 409 });
   }
   if (booking.review) {
     return NextResponse.json({ error: "ALREADY_REVIEWED" }, { status: 409 });

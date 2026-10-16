@@ -23,7 +23,7 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { ChevronLeft, ChevronRight, Loader2, Pencil, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2, Pencil, Star, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
@@ -64,6 +64,8 @@ interface CalendarBooking {
   customerName: string;
   customerPhone: string | null;
   customerEmail: string | null;
+  customerReviewRating: number | null;
+  customerReviewNote: string | null;
   addOnNames: string[];
   addOns: { name: string; priceCents: number }[];
   addOnIds: string[];
@@ -414,6 +416,7 @@ export function BookingCalendar({
   const [savingEdit, setSavingEdit] = useState(false);
   const [editError, setEditError] = useState<string | null>(null);
   const [updating, setUpdating] = useState(false);
+  const [ratingCustomer, setRatingCustomer] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [jumpingToBookingId, setJumpingToBookingId] = useState<string | null>(null);
   const [checkout, setCheckout] = useState<CheckoutDraft | null>(null);
@@ -767,6 +770,22 @@ export function BookingCalendar({
     setUpdating(false);
     setActiveBooking(null);
     setShowCancelPicker(false);
+  }
+
+  // Rating a customer never depends on the booking's status — only on its
+  // appointment time having actually passed (see gating in the panel below)
+  // — so this never touches `status`, unlike updateStatus above.
+  async function rateCustomer(id: string, rating: number) {
+    setRatingCustomer(true);
+    const res = await fetch(`/api/business/bookings/${id}/customer-review`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ rating }),
+    });
+    setRatingCustomer(false);
+    if (!res.ok) return;
+    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, customerReviewRating: rating } : b)));
+    setActiveBooking((prev) => (prev && prev.id === id ? { ...prev, customerReviewRating: rating } : prev));
   }
 
   function startEditBooking(booking: CalendarBooking) {
@@ -2047,6 +2066,46 @@ export function BookingCalendar({
                 </>
               )}
             </div>
+
+            {activeBooking.status !== "CANCELLED" && new Date(activeBooking.endsAt) <= new Date() && (
+              <div className="mt-4 border-t border-ink-100 pt-4">
+                <p className="mb-1.5 text-xs font-semibold text-ink-900">
+                  {locale === "vi" ? "Đánh giá khách hàng này" : "Rate this customer"}
+                </p>
+                {activeBooking.customerReviewRating ? (
+                  <div className="flex items-center gap-1">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-4 w-4 ${
+                          i < activeBooking.customerReviewRating! ? "fill-coral-500 text-coral-500" : "text-ink-100"
+                        }`}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          disabled={ratingCustomer}
+                          onClick={() => rateCustomer(activeBooking.id, i + 1)}
+                        >
+                          <Star className="h-5 w-5 text-ink-100 hover:fill-coral-400 hover:text-coral-400" />
+                        </button>
+                      ))}
+                    </div>
+                    <p className="mt-1 text-[11px] text-ink-400">
+                      {locale === "vi"
+                        ? "Chỉ dùng nội bộ — khách chỉ nhận được email báo số sao, không thấy ghi chú của bạn."
+                        : "Internal only — the customer is emailed the star count, never any note you add."}
+                    </p>
+                  </>
+                )}
+              </div>
+            )}
 
             {showCancelPicker && (
               <div className="mt-4 space-y-2 rounded-xl border border-ink-100 p-3">

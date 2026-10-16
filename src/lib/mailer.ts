@@ -951,10 +951,12 @@ export function ownerBookingCancelledEmail(params: {
   };
 }
 
-/** Sent by the reminders cron one day after a COMPLETED booking's appointment
- * ended, asking the customer to leave a review — see /api/cron/reminders.
- * `reviewUrl` deep-links straight into the review prompt on the customer's
- * own bookings page (see ?review= handling in customer-bookings-list.tsx). */
+/** Sent by the reminders cron one day after a (non-cancelled) booking's
+ * appointment ended, asking the customer to leave a review — see
+ * /api/cron/reminders. Never waits on the salon marking the booking
+ * "completed"; only a cancelled booking is skipped. `reviewUrl` deep-links
+ * straight into the review prompt on the customer's own bookings page (see
+ * ?review= handling in customer-bookings-list.tsx). */
 export function reviewRequestEmail(params: {
   customerName: string;
   businessName: string;
@@ -976,6 +978,42 @@ export function reviewRequestEmail(params: {
             ${s.reviewCTA}
           </a>
         </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
+/** Sent the moment a salon rates a customer (see POST
+ * /api/business/bookings/[id]/customer-review) — tells the customer only
+ * the star rating, never the salon's private note. */
+export function ownerReviewedYouEmail(params: {
+  customerName: string;
+  businessName: string;
+  rating: number;
+  locale: string;
+}) {
+  const isVi = params.locale === "vi";
+  const stars = "★".repeat(params.rating) + "☆".repeat(5 - params.rating);
+  return {
+    subject: isVi
+      ? `${params.businessName} đã đánh giá bạn ${params.rating} sao`
+      : `${params.businessName} rated you ${params.rating} stars`,
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Bạn vừa được đánh giá" : "You just received a rating"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.customerName},</p>
+        <p>${
+          isVi
+            ? `Sau lịch hẹn gần đây, <strong>${params.businessName}</strong> đã đánh giá bạn với tư cách khách hàng:`
+            : `After your recent appointment, <strong>${params.businessName}</strong> rated you as a customer:`
+        }</p>
+        <p style="text-align:center;font-size:28px;letter-spacing:4px;color:#f0855f;margin:20px 0">${stars}</p>
+        <p style="color:#5b6b6c;font-size:13px">${
+          isVi
+            ? "Đánh giá này chỉ dùng nội bộ để salon tham khảo, không hiển thị công khai."
+            : "This rating is for the salon's own internal reference only — it's never shown publicly."
+        }</p>
         <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
       </div>
     `,

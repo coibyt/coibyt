@@ -81,6 +81,7 @@ export async function GET(req: Request) {
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
+      customerReview: { select: { rating: true, note: true } },
       addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
       extraServices: {
         select: {
@@ -116,6 +117,8 @@ export async function GET(req: Request) {
       customerName: b.customer.name,
       customerPhone: canViewContact ? b.customer.phone : null,
       customerEmail: canViewContact ? b.customer.email : null,
+      customerReviewRating: b.customerReview?.rating ?? null,
+      customerReviewNote: b.customerReview?.note ?? null,
       source: b.source,
       slots: serviceSlots(b).map((sl) => ({
         ...sl,

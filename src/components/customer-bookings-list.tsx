@@ -120,7 +120,7 @@ export function CustomerBookingsList({
             >
               {locale === "vi" ? "Xem thông tin đặt chỗ" : "View booking details"}
             </button>
-            {b.status === "COMPLETED" && !b.hasReview && (
+            {b.status !== "CANCELLED" && !b.hasReview && (
               <button
                 onClick={() => setReviewingId(b.id)}
                 className="btn-outline !px-3 !py-1.5 text-xs"

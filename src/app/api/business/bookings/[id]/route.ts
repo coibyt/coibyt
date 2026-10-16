@@ -52,6 +52,7 @@ export async function GET(
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
+      customerReview: { select: { rating: true, note: true } },
       addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
       extraServices: {
         select: {
@@ -89,6 +90,8 @@ export async function GET(
     customerName: booking.customer.name,
     customerPhone: canViewContact ? booking.customer.phone : null,
     customerEmail: canViewContact ? booking.customer.email : null,
+    customerReviewRating: booking.customerReview?.rating ?? null,
+    customerReviewNote: booking.customerReview?.note ?? null,
     source: booking.source,
     slots: serviceSlots(booking).map((sl) => ({
       ...sl,

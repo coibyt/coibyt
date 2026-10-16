@@ -75,6 +75,7 @@ model User {
   staffProfile            Staff? // present when role = STAFF
   bookings                Booking[]
   reviews                 Review[]
+  customerReviewsReceived CustomerReview[]
   conversations           Conversation[]
   messages                Message[]
   businessFollows         BusinessFollow[]
@@ -283,6 +284,7 @@ model Business {
   staff                   Staff[]
   bookings                Booking[]
   reviews                 Review[]
+  customerReviewsGiven    CustomerReview[]
   hours                   BusinessHours[]
   closures                BusinessClosure[]
   addOns                  ServiceAddOn[]
@@ -696,10 +698,11 @@ model Booking {
   platformAffiliate                PlatformAffiliate? @relation(fields: [platformAffiliateId], references: [id])
   platformAffiliateCommissionCents Int?
 
-  payment       Payment?
-  review        Review?
-  addOns        BookingAddOn[]
-  extraServices BookingExtraService[]
+  payment        Payment?
+  review         Review?
+  customerReview CustomerReview?
+  addOns         BookingAddOn[]
+  extraServices  BookingExtraService[]
 
   @@index([businessId, startsAt])
   @@index([staffId, startsAt])
@@ -862,6 +865,27 @@ model Review {
 
   @@index([businessId])
   @@index([businessId, status])
+}
+
+// A salon rating its own customer after their booking's time has passed —
+// the reverse of Review. Private to the business (an internal reference,
+// e.g. for spotting a repeatedly difficult customer) — never shown on any
+// public page. The customer only learns the star rating via email
+// (ownerReviewedYouEmail), never the note.
+model CustomerReview {
+  id         String   @id @default(cuid())
+  bookingId  String   @unique
+  booking    Booking  @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id])
+  rating     Int // 1–5
+  note       String?  @db.Text
+  createdAt  DateTime @default(now())
+
+  @@index([businessId])
+  @@index([customerId])
 }
 
 // Add-ons selected for a specific booking. Name/price/duration are snapshot

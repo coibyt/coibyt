@@ -126,7 +126,10 @@ export async function GET(req: Request) {
 
   const dueReview = await prisma.booking.findMany({
     where: {
-      status: "COMPLETED",
+      // Never gated on the salon manually marking a booking "completed" —
+      // plenty of owners never click that. 24h past the scheduled end time
+      // is the real signal that the visit has happened.
+      status: { not: "CANCELLED" },
       notificationEmailsEnabled: true,
       endsAt: { lte: new Date(now.getTime() - 24 * HOUR_MS) },
       reviewRequestSentAt: null,
