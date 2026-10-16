@@ -26,11 +26,14 @@ export function useGuestChat(businessSlug: string) {
 
   const isGuestMode = status !== "authenticated" && status !== "loading";
 
-  async function start(guestName?: string) {
+  async function start(guestName?: string, guestEmail?: string) {
     const body: Record<string, string> = { businessSlug };
     if (isGuestMode) {
       if (storedGuestId) body.guestId = storedGuestId;
-      else if (guestName) body.guestName = guestName;
+      else {
+        if (guestName) body.guestName = guestName;
+        if (guestEmail) body.guestEmail = guestEmail;
+      }
     }
     const res = await fetch("/api/chat/start", {
       method: "POST",

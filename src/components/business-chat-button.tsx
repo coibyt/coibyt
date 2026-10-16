@@ -15,14 +15,52 @@ const CHAT_LABELS: Record<string, string> = {
   th: "แชทกับร้าน",
 };
 
-const NAME_PROMPT: Record<string, { title: string; placeholder: string; start: string }> = {
-  vi: { title: "Cho chúng tôi biết tên của bạn", placeholder: "Tên của bạn", start: "Bắt đầu chat" },
-  en: { title: "Let us know your name", placeholder: "Your name", start: "Start chat" },
-  fi: { title: "Kerro nimesi", placeholder: "Nimesi", start: "Aloita keskustelu" },
-  pl: { title: "Podaj swoje imię", placeholder: "Twoje imię", start: "Rozpocznij czat" },
-  de: { title: "Wie heißt du?", placeholder: "Dein Name", start: "Chat starten" },
-  km: { title: "សូមប្រាប់ឈ្មោះរបស់អ្នក", placeholder: "ឈ្មោះរបស់អ្នក", start: "ចាប់ផ្តើមជជែក" },
-  th: { title: "บอกชื่อของคุณให้เราทราบ", placeholder: "ชื่อของคุณ", start: "เริ่มแชท" },
+const NAME_PROMPT: Record<
+  string,
+  { title: string; placeholder: string; emailPlaceholder: string; start: string }
+> = {
+  vi: {
+    title: "Cho chúng tôi biết tên và email của bạn",
+    placeholder: "Tên của bạn",
+    emailPlaceholder: "Email của bạn",
+    start: "Bắt đầu chat",
+  },
+  en: {
+    title: "Let us know your name and email",
+    placeholder: "Your name",
+    emailPlaceholder: "Your email",
+    start: "Start chat",
+  },
+  fi: {
+    title: "Kerro nimesi ja sähköpostisi",
+    placeholder: "Nimesi",
+    emailPlaceholder: "Sähköpostisi",
+    start: "Aloita keskustelu",
+  },
+  pl: {
+    title: "Podaj swoje imię i e-mail",
+    placeholder: "Twoje imię",
+    emailPlaceholder: "Twój e-mail",
+    start: "Rozpocznij czat",
+  },
+  de: {
+    title: "Wie heißt du und wie lautet deine E-Mail?",
+    placeholder: "Dein Name",
+    emailPlaceholder: "Deine E-Mail",
+    start: "Chat starten",
+  },
+  km: {
+    title: "សូមប្រាប់ឈ្មោះ និងអ៊ីមែលរបស់អ្នក",
+    placeholder: "ឈ្មោះរបស់អ្នក",
+    emailPlaceholder: "អ៊ីមែលរបស់អ្នក",
+    start: "ចាប់ផ្តើមជជែក",
+  },
+  th: {
+    title: "บอกชื่อและอีเมลของคุณให้เราทราบ",
+    placeholder: "ชื่อของคุณ",
+    emailPlaceholder: "อีเมลของคุณ",
+    start: "เริ่มแชท",
+  },
 };
 
 /**
@@ -45,6 +83,7 @@ export function BusinessChatButton({
   const [opening, setOpening] = useState(false);
   const [showNamePrompt, setShowNamePrompt] = useState(false);
   const [guestNameInput, setGuestNameInput] = useState("");
+  const [guestEmailInput, setGuestEmailInput] = useState("");
   const label = CHAT_LABELS[locale] ?? CHAT_LABELS.en;
   const namePrompt = NAME_PROMPT[locale] ?? NAME_PROMPT.en;
 
@@ -64,9 +103,9 @@ export function BusinessChatButton({
 
   async function submitName(e: React.FormEvent) {
     e.preventDefault();
-    if (!guestNameInput.trim()) return;
+    if (!guestNameInput.trim() || !guestEmailInput.trim()) return;
     setOpening(true);
-    const result = await start(guestNameInput.trim());
+    const result = await start(guestNameInput.trim(), guestEmailInput.trim());
     setOpening(false);
     setShowNamePrompt(false);
     if (result) {
@@ -102,6 +141,14 @@ export function BusinessChatButton({
               placeholder={namePrompt.placeholder}
               value={guestNameInput}
               onChange={(e) => setGuestNameInput(e.target.value)}
+            />
+            <input
+              required
+              type="email"
+              className="input"
+              placeholder={namePrompt.emailPlaceholder}
+              value={guestEmailInput}
+              onChange={(e) => setGuestEmailInput(e.target.value)}
             />
             <button type="submit" disabled={opening} className="btn-primary w-full">
               {opening && <Loader2 className="h-4 w-4 animate-spin" />}

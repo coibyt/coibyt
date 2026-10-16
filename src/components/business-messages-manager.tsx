@@ -8,6 +8,7 @@ interface ConversationRow {
   id: string;
   customerId: string;
   customerName: string;
+  customerEmail: string | null;
   lastMessage: {
     content: string | null;
     hasImage: boolean;
@@ -80,6 +81,7 @@ export function BusinessMessagesManager({ locale }: { locale: string }) {
                 </span>
               )}
             </div>
+            {c.customerEmail && <p className="truncate text-xs text-ink-400">{c.customerEmail}</p>}
             {c.lastMessage && (
               <p className="mt-0.5 truncate text-xs text-ink-400">
                 {c.lastMessage.senderType === "BUSINESS" ? (locale === "vi" ? "Bạn: " : "You: ") : ""}

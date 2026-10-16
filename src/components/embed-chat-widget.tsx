@@ -5,17 +5,22 @@ import { Loader2, MessageCircle } from "lucide-react";
 import { ChatWidget } from "@/components/chat-widget";
 import { useGuestChat } from "@/hooks/use-guest-chat";
 
-const START_LABELS: Record<string, { title: string; subtitle: string; placeholder: string; start: string }> = {
+const START_LABELS: Record<
+  string,
+  { title: string; subtitle: string; placeholder: string; emailPlaceholder: string; start: string }
+> = {
   vi: {
     title: "Chat với chúng tôi",
-    subtitle: "Cho chúng tôi biết tên của bạn để bắt đầu — không cần đăng ký.",
+    subtitle: "Cho chúng tôi biết tên và email của bạn để bắt đầu — không cần đăng ký.",
     placeholder: "Tên của bạn",
+    emailPlaceholder: "Email của bạn",
     start: "Bắt đầu chat",
   },
   en: {
     title: "Chat with us",
-    subtitle: "Tell us your name to get started — no registration needed.",
+    subtitle: "Tell us your name and email to get started — no registration needed.",
     placeholder: "Your name",
+    emailPlaceholder: "Your email",
     start: "Start chat",
   },
 };
@@ -39,6 +44,7 @@ export function EmbedChatWidget({
   const [starting, setStarting] = useState(false);
   const [autoStarted, setAutoStarted] = useState(false);
   const [guestNameInput, setGuestNameInput] = useState("");
+  const [guestEmailInput, setGuestEmailInput] = useState("");
   const t = START_LABELS[locale] ?? START_LABELS.en;
 
   // A returning guest (or a signed-in customer) resumes straight away, no
@@ -60,9 +66,9 @@ export function EmbedChatWidget({
 
   async function submitName(e: React.FormEvent) {
     e.preventDefault();
-    if (!guestNameInput.trim()) return;
+    if (!guestNameInput.trim() || !guestEmailInput.trim()) return;
     setStarting(true);
-    const result = await start(guestNameInput.trim());
+    const result = await start(guestNameInput.trim(), guestEmailInput.trim());
     setStarting(false);
     if (result) {
       setConversationId(result.conversationId);
@@ -105,6 +111,14 @@ export function EmbedChatWidget({
           placeholder={t.placeholder}
           value={guestNameInput}
           onChange={(e) => setGuestNameInput(e.target.value)}
+        />
+        <input
+          required
+          type="email"
+          className="input"
+          placeholder={t.emailPlaceholder}
+          value={guestEmailInput}
+          onChange={(e) => setGuestEmailInput(e.target.value)}
         />
         <button type="submit" disabled={starting} className="btn-primary w-full">
           {starting && <Loader2 className="h-4 w-4 animate-spin" />}

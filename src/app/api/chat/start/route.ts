@@ -10,9 +10,10 @@ const schema = z.object({
   // new one every visit (see useGuestChat, which persists this in
   // localStorage once issued).
   guestId: z.string().optional(),
-  // First-time guest — the only thing asked of them before they can chat,
-  // so the salon owner has at least a name to go on in their inbox.
+  // First-time guest — the only things asked of them before they can chat,
+  // so the salon owner has at least a name and a way to reach back out.
   guestName: z.string().min(1).max(100).optional(),
+  guestEmail: z.string().email().max(180).optional(),
 });
 
 /** Finds or creates the (business, customer) conversation — one thread per
@@ -25,7 +26,7 @@ export async function POST(req: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { businessSlug, guestId, guestName } = parsed.data;
+  const { businessSlug, guestId, guestName, guestEmail } = parsed.data;
 
   const business = await prisma.business.findUnique({
     where: { slug: businessSlug },
@@ -46,15 +47,18 @@ export async function POST(req: Request) {
     if (existingGuest?.isGuest) {
       customerId = existingGuest.id;
     } else {
-      if (!guestName) {
-        return NextResponse.json({ error: "GUEST_NAME_REQUIRED" }, { status: 400 });
+      if (!guestName || !guestEmail) {
+        return NextResponse.json({ error: "GUEST_INFO_REQUIRED" }, { status: 400 });
       }
       const guest = await prisma.user.create({
         data: {
           name: guestName,
           // Synthetic and never actually reachable — never used to send
           // mail, only to satisfy User.email's unique/required constraint.
+          // The guest's own, real contact email goes in guestContactEmail
+          // instead (see its schema comment for why they're kept separate).
           email: `guest-${randomBytes(12).toString("hex")}@guest.varaaai.com`,
+          guestContactEmail: guestEmail,
           isGuest: true,
         },
         select: { id: true },

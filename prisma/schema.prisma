@@ -52,6 +52,12 @@ model User {
   // synthetic @guest.varaaai.com email that's never actually reachable —
   // excluded from marketing sends and customer lists for that reason.
   isGuest Boolean @default(false)
+  // A real email the guest typed in to start the chat, so the salon has a
+  // way to reach them back — kept separate from `email` above (which stays
+  // the synthetic placeholder) so the guest's name/password-free identity
+  // never collides with an existing real account just because they typed a
+  // known address. Only ever set for isGuest rows.
+  guestContactEmail String?
 
   // "Vara points" — a salon-owner account's shared balance across every
   // branch they run, spent 1-per-email on marketing sends (see

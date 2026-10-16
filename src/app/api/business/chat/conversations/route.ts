@@ -14,7 +14,7 @@ export async function GET() {
   const conversations = await prisma.conversation.findMany({
     where: { businessId: access.business.id },
     include: {
-      customer: { select: { id: true, name: true } },
+      customer: { select: { id: true, name: true, email: true, isGuest: true, guestContactEmail: true } },
       messages: {
         orderBy: { createdAt: "desc" },
         take: 1,
@@ -32,6 +32,10 @@ export async function GET() {
       id: c.id,
       customerId: c.customer.id,
       customerName: c.customer.name,
+      // The synthetic @guest.varaaai.com address is never useful to show —
+      // show the real email the guest typed in instead (see
+      // User.guestContactEmail), or the real account email otherwise.
+      customerEmail: c.customer.isGuest ? c.customer.guestContactEmail : c.customer.email,
       lastMessage: c.messages[0]
         ? {
             content: c.messages[0].content,
