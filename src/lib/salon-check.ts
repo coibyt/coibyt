@@ -19,6 +19,8 @@
  *   ranking (Search Console only shows that to the verified site owner).
  */
 
+import { generateGeminiText } from "@/lib/gemini";
+
 const FETCH_TIMEOUT_MS = 8000;
 const BROWSER_USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
@@ -208,29 +210,15 @@ Channel scores — Website: ${input.channelScores.website}, Google: ${input.chan
 What's working: ${input.goodPoints.join("; ") || "(nothing notable)"}
 What's holding them back: ${input.badPoints.join("; ") || "(nothing notable)"}`;
 
-  const { signal, clear } = withTimeout(12000);
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
-      {
-        method: "POST",
-        signal,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ role: "user", parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 300 },
-        }),
-      }
-    );
-    if (!res.ok) return null;
-    const data = await res.json();
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    return typeof text === "string" && text.trim() ? text.trim() : null;
-  } catch {
-    return null;
-  } finally {
-    clear();
-  }
+  return generateGeminiText({
+    apiKey,
+    logTag: "[salon-check]",
+    timeoutMs: 15_000,
+    body: {
+      contents: [{ role: "user", parts: [{ text: prompt }] }],
+      generationConfig: { maxOutputTokens: 300 },
+    },
+  });
 }
 
 /** Keyword ideas generated purely from the salon's own category + city —
