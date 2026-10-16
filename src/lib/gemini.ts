@@ -1,12 +1,13 @@
 const DEFAULT_TIMEOUT_MS = 15_000;
-const MAX_ATTEMPTS = 3;
-const RETRY_DELAYS_MS = [1000, 2000];
+const RETRY_DELAY_MS = 800;
 
-// A pinned version, not the "-latest" alias — every free-tier caller that
-// doesn't bother pinning defaults to "-latest", concentrating demand (and
-// 503 "overloaded" errors) there. A specific version draws from a less
-// contended capacity pool while still being a current, fully supported model.
-const MODEL = "gemini-2.5-flash";
+// Tried in order, one attempt each. Pinned versions rather than the
+// "-latest" alias every unpinned free-tier caller piles onto, and several of
+// them because each model has its own capacity and free-tier quota — when
+// one is overloaded (503), rate-limited (429) or retired (404), the next one
+// usually isn't.
+const MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"];
+const RETRYABLE_STATUSES = new Set([404, 429, 500, 503]);
 
 function withTimeout(ms: number) {
   const controller = new AbortController();
@@ -19,14 +20,12 @@ function sleep(ms: number) {
 }
 
 /** POSTs to the Gemini generateContent endpoint, shared by the AI chat reply
- * and the salon-check summary. Retries up to twice more, with a short
- * backoff, on a 503 ("model overloaded" — Google's own message for that
- * status calls it temporary) or on our own request timing out, since under
- * high demand a slow response and an outright 503 are the same underlying
- * problem. Returns the reply text, or null once every attempt is exhausted
- * (or on a non-retryable error) so callers fall back to their own default
- * behavior; each failure is logged with the caller's own tag so a silent
- * "no reply" in production is debuggable. */
+ * and the salon-check summary. Falls through MODELS on an overloaded /
+ * rate-limited / missing model or on our own request timing out. Returns the
+ * reply text, or null once every model has failed (or on a non-retryable
+ * error such as a bad API key) so callers fall back to their own default
+ * behavior; each failure is logged with the caller's tag so a silent "no
+ * reply" in production is debuggable. */
 export async function generateGeminiText(params: {
   apiKey: string;
   body: Record<string, unknown>;
@@ -35,39 +34,46 @@ export async function generateGeminiText(params: {
 }): Promise<string | null> {
   const timeoutMs = params.timeoutMs ?? DEFAULT_TIMEOUT_MS;
 
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+  for (let i = 0; i < MODELS.length; i++) {
+    const model = MODELS[i];
+    const hasNext = i < MODELS.length - 1;
+    // 2.5 models "think" by default, which is slow and counts against
+    // maxOutputTokens — a short reply budget can be used up entirely by
+    // thinking, leaving no text. These are short factual replies, so turn it
+    // off. (2.0 models reject the field, so only 2.5 gets it.)
+    const generationConfig = {
+      ...((params.body.generationConfig as Record<string, unknown> | undefined) ?? {}),
+      ...(model.startsWith("gemini-2.5") ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+    };
     const { signal, clear } = withTimeout(timeoutMs);
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${params.apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${params.apiKey}`,
         {
           method: "POST",
           signal,
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(params.body),
+          body: JSON.stringify({ ...params.body, generationConfig }),
         }
       );
       if (!res.ok) {
         const text = await res.text().catch(() => "");
-        if (res.status === 503 && attempt < MAX_ATTEMPTS) {
-          console.error(`${params.logTag} Gemini overloaded (503), attempt ${attempt}/${MAX_ATTEMPTS}, retrying`);
-          await sleep(RETRY_DELAYS_MS[attempt - 1]);
+        console.error(`${params.logTag} ${model} returned ${res.status}: ${text.slice(0, 300)}`);
+        if (RETRYABLE_STATUSES.has(res.status) && hasNext) {
+          await sleep(RETRY_DELAY_MS);
           continue;
         }
-        console.error(`${params.logTag} Gemini API returned ${res.status}: ${text.slice(0, 500)}`);
         return null;
       }
       const data = await res.json();
       const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      return typeof reply === "string" && reply.trim() ? reply.trim() : null;
+      if (typeof reply === "string" && reply.trim()) return reply.trim();
+      console.error(`${params.logTag} ${model} returned no text: ${JSON.stringify(data).slice(0, 300)}`);
+      return null;
     } catch (err) {
       const isTimeout = err instanceof Error && err.name === "AbortError";
-      if (isTimeout && attempt < MAX_ATTEMPTS) {
-        console.error(`${params.logTag} request timed out, attempt ${attempt}/${MAX_ATTEMPTS}, retrying`);
-        await sleep(RETRY_DELAYS_MS[attempt - 1]);
-        continue;
-      }
-      console.error(`${params.logTag} request failed`, err);
+      console.error(`${params.logTag} ${model} ${isTimeout ? "timed out" : "request failed"}`, isTimeout ? "" : err);
+      if (isTimeout && hasNext) continue;
       return null;
     } finally {
       clear();

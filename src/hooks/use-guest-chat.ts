@@ -25,6 +25,10 @@ export function useGuestChat(businessSlug: string) {
   }, []);
 
   const isGuestMode = status !== "authenticated" && status !== "loading";
+  // Not "ready" until the session check settles too — otherwise a returning
+  // guest's auto-resume fires while status is still "loading", sends neither
+  // a session nor the stored guestId, and gets a 400 it never recovers from.
+  const ready = loaded && status !== "loading";
 
   async function start(guestName?: string, guestEmail?: string) {
     const body: Record<string, string> = { businessSlug };
@@ -61,10 +65,10 @@ export function useGuestChat(businessSlug: string) {
 
   return {
     status,
-    loaded,
+    loaded: ready,
     isGuestMode,
     guestId: isGuestMode ? storedGuestId : null,
-    needsName: loaded && isGuestMode && !storedGuestId,
+    needsName: ready && isGuestMode && !storedGuestId,
     start,
   };
 }
