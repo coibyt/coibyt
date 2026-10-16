@@ -40,7 +40,10 @@ export async function generateChatReply(params: {
   locale: string;
 }): Promise<string | null> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) return null;
+  if (!apiKey) {
+    console.error("[chat-ai] ANTHROPIC_API_KEY is not configured — AI chat replies are disabled");
+    return null;
+  }
 
   const [services, products] = await Promise.all([
     prisma.service.findMany({
@@ -102,11 +105,16 @@ ${productLines}`;
         messages,
       }),
     });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error(`[chat-ai] Anthropic API returned ${res.status}: ${body.slice(0, 500)}`);
+      return null;
+    }
     const data = await res.json();
     const text = data?.content?.[0]?.text;
     return typeof text === "string" && text.trim() ? text.trim() : null;
-  } catch {
+  } catch (err) {
+    console.error("[chat-ai] request failed", err);
     return null;
   } finally {
     clear();
