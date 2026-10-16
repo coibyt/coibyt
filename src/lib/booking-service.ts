@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import { addMinutes } from "date-fns";
+import { addMinutes, format } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
 import {
   sendMail,
@@ -8,6 +8,8 @@ import {
   ownerNewBookingEmail,
 } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
+import { sendPushToUser } from "@/lib/push";
+import { toZonedTime } from "date-fns-tz";
 import type { ComboAssignment } from "@/lib/availability";
 import type { PaymentProvider } from "@prisma/client";
 
@@ -81,7 +83,7 @@ export async function createBookingAndPayment(params: {
 }) {
   const service = await prisma.service.findUniqueOrThrow({
     where: { id: params.serviceId },
-    include: { business: { include: { owner: { select: { name: true, email: true } } } } },
+    include: { business: { include: { owner: { select: { id: true, name: true, email: true } } } } },
   });
   if (service.business.status === "SUSPENDED") throw new Error("BUSINESS_SUSPENDED");
   const staff = await prisma.staff.findUnique({ where: { id: params.staffId } });
@@ -312,6 +314,7 @@ export async function createBookingAndPayment(params: {
       });
       await sendMail({ to: params.customerEmail, ...email });
       await notifyOwnerOfNewBooking({
+        ownerId: service.business.owner.id,
         ownerName: service.business.owner.name,
         ownerEmail: service.business.owner.email,
         customerName: params.customerName,
@@ -356,9 +359,16 @@ export async function createBookingAndPayment(params: {
   return { booking, redirectUrl: session.url! };
 }
 
-/** Emails the salon owner about a new customer booking — best-effort, so a
- * mail failure never blocks the booking itself from going through. */
+/** Emails the salon owner about a new customer booking, and — only when the
+ * appointment itself falls on the salon's own current calendar day — also
+ * pushes a bell notification, so the owner is alerted to check their phone
+ * right away. A booking for tomorrow or later never pushes: the owner will
+ * see it next time they open the dashboard, no urgency to interrupt them.
+ * Email and push are independent best-effort channels, each in its own
+ * try/catch, so one failing (e.g. SMTP misconfigured) never blocks the
+ * other. */
 async function notifyOwnerOfNewBooking(params: {
+  ownerId: string;
   ownerName: string;
   ownerEmail: string;
   customerName: string;
@@ -369,8 +379,10 @@ async function notifyOwnerOfNewBooking(params: {
   businessName: string;
   siteUrl: string;
 }) {
+  const locale = localeForCountry(params.businessCountry);
+  const bookingsUrl = `${params.siteUrl}/${locale}/business/dashboard/bookings`;
+
   try {
-    const locale = localeForCountry(params.businessCountry);
     const email = ownerNewBookingEmail({
       ownerName: params.ownerName,
       customerName: params.customerName,
@@ -379,11 +391,32 @@ async function notifyOwnerOfNewBooking(params: {
       locale,
       businessTimezone: params.businessTimezone,
       businessName: params.businessName,
-      bookingsUrl: `${params.siteUrl}/${locale}/business/dashboard/bookings`,
+      bookingsUrl,
     });
     await sendMail({ to: params.ownerEmail, ...email });
   } catch (err) {
-    console.error("[notifyOwnerOfNewBooking]", err);
+    console.error("[notifyOwnerOfNewBooking email]", err);
+  }
+
+  try {
+    const todayStr = format(toZonedTime(new Date(), params.businessTimezone), "yyyy-MM-dd");
+    const bookingDayStr = format(toZonedTime(params.startsAt, params.businessTimezone), "yyyy-MM-dd");
+    if (todayStr === bookingDayStr) {
+      const time = params.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+        timeStyle: "short",
+        timeZone: params.businessTimezone,
+      });
+      await sendPushToUser(params.ownerId, {
+        title: locale === "vi" ? "Có lịch hẹn mới hôm nay" : "New booking today",
+        body:
+          locale === "vi"
+            ? `${params.customerName} vừa đặt "${params.serviceName}" lúc ${time}`
+            : `${params.customerName} just booked "${params.serviceName}" at ${time}`,
+        url: bookingsUrl,
+      });
+    }
+  } catch (err) {
+    console.error("[notifyOwnerOfNewBooking push]", err);
   }
 }
 
@@ -395,7 +428,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
   const full = await prisma.booking.findUnique({
     where: { id: bookingId },
     include: {
-      business: { include: { owner: { select: { name: true, email: true } } } },
+      business: { include: { owner: { select: { id: true, name: true, email: true } } } },
       service: true,
       customer: true,
       staff: true,
@@ -425,6 +458,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
   });
   await sendMail({ to: full.customer.email, ...email });
   await notifyOwnerOfNewBooking({
+    ownerId: full.business.owner.id,
     ownerName: full.business.owner.name,
     ownerEmail: full.business.owner.email,
     customerName: full.customer.name,
