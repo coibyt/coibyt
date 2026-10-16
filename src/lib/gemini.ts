@@ -1,12 +1,13 @@
 const DEFAULT_TIMEOUT_MS = 15_000;
 const RETRY_DELAY_MS = 800;
 
-// Tried in order, one attempt each. Pinned versions rather than the
-// "-latest" alias every unpinned free-tier caller piles onto, and several of
-// them because each model has its own capacity and free-tier quota — when
-// one is overloaded (503), rate-limited (429) or retired (404), the next one
-// usually isn't.
-const MODELS = ["gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-2.0-flash"];
+// Tried in order, one attempt each — each model has its own capacity and
+// quota, so when one is overloaded (503), rate-limited (429) or retired
+// (404), the next one usually isn't. Flash-lite leads because it answers
+// these short replies in ~2s, while full flash (and the "-latest" alias,
+// deliberately not used) regularly hangs 30s+ under load. Google retires
+// models: a 404 in the logs naming a replacement means this list needs it.
+const MODELS = ["gemini-3.5-flash-lite", "gemini-3.8-flash"];
 const RETRYABLE_STATUSES = new Set([404, 429, 500, 503]);
 
 function withTimeout(ms: number) {
@@ -37,14 +38,6 @@ export async function generateGeminiText(params: {
   for (let i = 0; i < MODELS.length; i++) {
     const model = MODELS[i];
     const hasNext = i < MODELS.length - 1;
-    // 2.5 models "think" by default, which is slow and counts against
-    // maxOutputTokens — a short reply budget can be used up entirely by
-    // thinking, leaving no text. These are short factual replies, so turn it
-    // off. (2.0 models reject the field, so only 2.5 gets it.)
-    const generationConfig = {
-      ...((params.body.generationConfig as Record<string, unknown> | undefined) ?? {}),
-      ...(model.startsWith("gemini-2.5") ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
-    };
     const { signal, clear } = withTimeout(timeoutMs);
     try {
       const res = await fetch(
@@ -53,7 +46,7 @@ export async function generateGeminiText(params: {
           method: "POST",
           signal,
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...params.body, generationConfig }),
+          body: JSON.stringify(params.body),
         }
       );
       if (!res.ok) {
