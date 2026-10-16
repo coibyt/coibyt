@@ -29,9 +29,9 @@ export async function getAiAssistantUserId(): Promise<string> {
 
 /** Builds the AI's reply to a customer's chat message, grounded only in this
  * salon's own active services/products/prices — never invents anything else.
- * Returns null (caller just skips sending a reply) when ANTHROPIC_API_KEY
- * isn't configured or the call fails for any reason — same fallback contract
- * as generateAiSummary in salon-check.ts. */
+ * Returns null (caller just skips sending a reply) when GEMINI_API_KEY isn't
+ * configured or the call fails for any reason — same fallback contract as
+ * generateAiSummary in salon-check.ts. */
 export async function generateChatReply(params: {
   businessId: string;
   businessName: string;
@@ -39,9 +39,9 @@ export async function generateChatReply(params: {
   recentHistory: { role: "customer" | "assistant"; content: string }[];
   locale: string;
 }): Promise<string | null> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error("[chat-ai] ANTHROPIC_API_KEY is not configured — AI chat replies are disabled");
+    console.error("[chat-ai] GEMINI_API_KEY is not configured — AI chat replies are disabled");
     return null;
   }
 
@@ -80,38 +80,36 @@ ${serviceLines}
 Products:
 ${productLines}`;
 
-  const messages = [
+  const contents = [
     ...params.recentHistory.map((m) => ({
-      role: (m.role === "customer" ? "user" : "assistant") as "user" | "assistant",
-      content: m.content,
+      role: (m.role === "customer" ? "user" : "model") as "user" | "model",
+      parts: [{ text: m.content }],
     })),
-    { role: "user" as const, content: params.customerMessage },
+    { role: "user" as const, parts: [{ text: params.customerMessage }] },
   ];
 
   const { signal, clear } = withTimeout(TIMEOUT_MS);
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      signal,
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 300,
-        system: systemPrompt,
-        messages,
-      }),
-    });
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        signal,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: systemPrompt }] },
+          contents,
+          generationConfig: { maxOutputTokens: 300 },
+        }),
+      }
+    );
     if (!res.ok) {
       const body = await res.text().catch(() => "");
-      console.error(`[chat-ai] Anthropic API returned ${res.status}: ${body.slice(0, 500)}`);
+      console.error(`[chat-ai] Gemini API returned ${res.status}: ${body.slice(0, 500)}`);
       return null;
     }
     const data = await res.json();
-    const text = data?.content?.[0]?.text;
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
     return typeof text === "string" && text.trim() ? text.trim() : null;
   } catch (err) {
     console.error("[chat-ai] request failed", err);

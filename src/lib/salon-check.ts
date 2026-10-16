@@ -12,7 +12,7 @@
  *   public page without that page's own owner authorizing your app, and
  *   scraping for it would violate Meta's terms of service.
  * - The natural-language summary sentence is AI-generated via the
- *   Anthropic API when ANTHROPIC_API_KEY is configured; otherwise it falls
+ *   Gemini API when GEMINI_API_KEY is configured; otherwise it falls
  *   back to a template built from the computed scores.
  * - SEO is suggested keywords only (category + city combinations) — there
  *   is no free, legitimate way to know a third-party site's real Google
@@ -191,12 +191,12 @@ export interface AiSummaryInput {
   badPoints: string[];
 }
 
-/** A short natural-language summary paragraph via Claude — returns null
+/** A short natural-language summary paragraph via Gemini — returns null
  * (not a fallback string) when no API key is configured or the call
  * fails/times out, so the caller falls back to its own template instead
  * of silently showing a broken or empty summary. */
 export async function generateAiSummary(input: AiSummaryInput): Promise<string | null> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return null;
 
   const languageName = input.locale === "vi" ? "Vietnamese" : "English";
@@ -210,23 +210,21 @@ What's holding them back: ${input.badPoints.join("; ") || "(nothing notable)"}`;
 
   const { signal, clear } = withTimeout(12000);
   try {
-    const res = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      signal,
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-haiku-4-5",
-        max_tokens: 300,
-        messages: [{ role: "user", content: prompt }],
-      }),
-    });
+    const res = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`,
+      {
+        method: "POST",
+        signal,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          contents: [{ role: "user", parts: [{ text: prompt }] }],
+          generationConfig: { maxOutputTokens: 300 },
+        }),
+      }
+    );
     if (!res.ok) return null;
     const data = await res.json();
-    const text = data?.content?.[0]?.text;
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
     return typeof text === "string" && text.trim() ? text.trim() : null;
   } catch {
     return null;
