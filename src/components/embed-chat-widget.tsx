@@ -35,6 +35,7 @@ export function EmbedChatWidget({
 }) {
   const { loaded, needsName, guestId, start } = useGuestChat(businessSlug);
   const [conversationId, setConversationId] = useState<string | null>(null);
+  const [aiState, setAiState] = useState({ aiChatEnabled: false, aiPaused: false });
   const [starting, setStarting] = useState(false);
   const [autoStarted, setAutoStarted] = useState(false);
   const [guestNameInput, setGuestNameInput] = useState("");
@@ -49,7 +50,10 @@ export function EmbedChatWidget({
       setStarting(true);
       start().then((result) => {
         setStarting(false);
-        if (result) setConversationId(result.conversationId);
+        if (result) {
+          setConversationId(result.conversationId);
+          setAiState({ aiChatEnabled: result.aiChatEnabled, aiPaused: result.aiPaused });
+        }
       });
     }
   }, [loaded, needsName, conversationId, autoStarted, start]);
@@ -60,7 +64,10 @@ export function EmbedChatWidget({
     setStarting(true);
     const result = await start(guestNameInput.trim());
     setStarting(false);
-    if (result) setConversationId(result.conversationId);
+    if (result) {
+      setConversationId(result.conversationId);
+      setAiState({ aiChatEnabled: result.aiChatEnabled, aiPaused: result.aiPaused });
+    }
   }
 
   if (conversationId) {
@@ -71,6 +78,8 @@ export function EmbedChatWidget({
         title={businessName}
         locale={locale}
         guestId={guestId ?? undefined}
+        aiChatEnabled={aiState.aiChatEnabled}
+        aiPaused={aiState.aiPaused}
       />
     );
   }

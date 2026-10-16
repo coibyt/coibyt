@@ -14,3 +14,38 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   event.respondWith(fetch(event.request));
 });
+
+// Shows a real OS-level notification for a server-sent push — e.g. "a
+// customer wants to talk to you" (see src/lib/push.ts). The payload is
+// plain JSON: { title, body, url }.
+self.addEventListener("push", (event) => {
+  let data = { title: "VaraaAi.Com", body: "" };
+  try {
+    if (event.data) data = { ...data, ...event.data.json() };
+  } catch {
+    // Non-JSON payload — fall back to the default title/body above.
+  }
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body,
+      icon: "/icons/icon-192.png",
+      badge: "/icons/icon-192.png",
+      data: { url: data.url || "/" },
+    })
+  );
+});
+
+// Focuses an already-open tab on that URL if one exists, otherwise opens a
+// new one — standard "jump to the relevant page" notification-click pattern.
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  const url = event.notification.data?.url || "/";
+  event.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((clients) => {
+      for (const client of clients) {
+        if (client.url === url && "focus" in client) return client.focus();
+      }
+      if (self.clients.openWindow) return self.clients.openWindow(url);
+    })
+  );
+});

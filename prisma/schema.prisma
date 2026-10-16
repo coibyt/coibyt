@@ -94,6 +94,7 @@ model User {
   productReviews      ProductReview[]
   orders              Order[]
   messageReactions    MessageReaction[]
+  pushSubscriptions   PushSubscription[]
   postLikes           PostLike[]
   passwordResetTokens PasswordResetToken[]
   avatar              UserAvatar?
@@ -240,6 +241,13 @@ model Business {
   // their confirmation email — distinct from cancellationWindowHours, which
   // only drives the self-cancel cutoff, not what's actually printed.
   cancellationPolicy      String? @db.Text
+
+  // Owner-controlled — turned on for when they're away, so the chat widget
+  // auto-replies to customers using the salon's own active services/products
+  // (see src/lib/chat-ai.ts). Off by default: an unconfigured ANTHROPIC_API_KEY
+  // makes replies silently no-op anyway, but the toggle itself is explicit so
+  // a salon that doesn't want a bot talking to its customers never gets one.
+  aiChatEnabled Boolean @default(false)
 
   // Where customers send money for the "bank transfer" payment method —
   // no automatic reconciliation, same trust model as pay-at-salon cash.
@@ -954,6 +962,11 @@ model Conversation {
   customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  // Set the moment a customer taps "talk to the real owner" — the AI stops
+  // auto-replying in THIS thread from then on, even while the business's own
+  // aiChatEnabled stays on for its other conversations (see
+  // POST /api/chat/conversations/[id]/request-human).
+  aiPaused   Boolean  @default(false)
 
   messages Message[]
 
@@ -964,6 +977,11 @@ model Conversation {
 enum MessageSenderType {
   CUSTOMER
   BUSINESS
+  // An automated reply from the salon's AI assistant (see
+  // Business.aiChatEnabled) — sent by a shared synthetic User row
+  // (ai-assistant@system.varaaai.com), same "real row, fake identity" trick
+  // as a guest customer's User row.
+  AI
 }
 
 model Message {
@@ -1001,6 +1019,24 @@ model MessageReaction {
 
   @@unique([messageId, userId])
   @@index([messageId])
+}
+
+// One browser/device's Web Push subscription for a business owner (or staff
+// with chat access) — lets the server push a real OS-level notification
+// (e.g. "a customer wants to talk to you") without that person having the
+// dashboard open. A person can have several (phone + laptop); each endpoint
+// is its own row, dropped once that browser/device unsubscribes or the push
+// service reports it gone (see src/lib/push.ts).
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  endpoint  String   @unique @db.VarChar(500)
+  p256dh    String   @db.VarChar(255)
+  auth      String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
 }
 
 // A customer following a business, for their own reference (e.g. a future

@@ -783,6 +783,40 @@ export function newChatMessageEmail(params: {
   };
 }
 
+/** Sent the moment a customer taps "talk to the real owner" while chatting
+ * with the AI assistant (see POST /api/chat/conversations/[id]/request-human)
+ * — paired with a best-effort push notification (src/lib/push.ts). */
+export function customerWantsHumanEmail(params: {
+  ownerName: string;
+  customerName: string;
+  locale: string;
+  messagesUrl: string;
+}) {
+  const isVi = params.locale === "vi";
+  return {
+    subject: isVi
+      ? `${params.customerName} muốn nói chuyện trực tiếp với bạn`
+      : `${params.customerName} wants to talk to you directly`,
+    html: `
+      <div style="font-family:sans-serif;max-width:480px;margin:auto">
+        <h2 style="color:#624f89">${isVi ? "Khách muốn gặp bạn trực tiếp" : "A customer wants you directly"}</h2>
+        <p>${isVi ? "Xin chào" : "Hi"} ${params.ownerName},</p>
+        <p>${
+          isVi
+            ? `<strong>${params.customerName}</strong> đang chat với trợ lý AI và vừa yêu cầu nói chuyện trực tiếp với bạn. Trợ lý AI đã tạm dừng trong cuộc trò chuyện này — hãy vào xem và trả lời khách nhé.`
+            : `<strong>${params.customerName}</strong> was chatting with your AI assistant and just asked to speak with you directly. The AI has paused in this conversation — take a look and reply when you can.`
+        }</p>
+        <p style="text-align:center;margin:24px 0">
+          <a href="${params.messagesUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
+            ${isVi ? "Trả lời khách" : "Reply to customer"}
+          </a>
+        </p>
+        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
+      </div>
+    `,
+  };
+}
+
 const OWNER_BOOKING_STRINGS: Record<
   string,
   {

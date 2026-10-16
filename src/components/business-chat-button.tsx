@@ -41,6 +41,7 @@ export function BusinessChatButton({
 }) {
   const { loaded, needsName, guestId, start } = useGuestChat(businessSlug);
   const [conversationId, setConversationId] = useState<string | null>(null);
+  const [aiState, setAiState] = useState({ aiChatEnabled: false, aiPaused: false });
   const [opening, setOpening] = useState(false);
   const [showNamePrompt, setShowNamePrompt] = useState(false);
   const [guestNameInput, setGuestNameInput] = useState("");
@@ -55,7 +56,10 @@ export function BusinessChatButton({
     setOpening(true);
     const result = await start();
     setOpening(false);
-    if (result) setConversationId(result.conversationId);
+    if (result) {
+      setConversationId(result.conversationId);
+      setAiState({ aiChatEnabled: result.aiChatEnabled, aiPaused: result.aiPaused });
+    }
   }
 
   async function submitName(e: React.FormEvent) {
@@ -65,7 +69,10 @@ export function BusinessChatButton({
     const result = await start(guestNameInput.trim());
     setOpening(false);
     setShowNamePrompt(false);
-    if (result) setConversationId(result.conversationId);
+    if (result) {
+      setConversationId(result.conversationId);
+      setAiState({ aiChatEnabled: result.aiChatEnabled, aiPaused: result.aiPaused });
+    }
   }
 
   return (
@@ -113,6 +120,8 @@ export function BusinessChatButton({
               title={businessName}
               locale={locale}
               guestId={guestId ?? undefined}
+              aiChatEnabled={aiState.aiChatEnabled}
+              aiPaused={aiState.aiPaused}
               onClose={() => setConversationId(null)}
             />
           </div>

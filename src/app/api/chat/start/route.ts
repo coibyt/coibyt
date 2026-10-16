@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
   const business = await prisma.business.findUnique({
     where: { slug: businessSlug },
-    select: { id: true },
+    select: { id: true, aiChatEnabled: true },
   });
   if (!business) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
@@ -70,5 +70,10 @@ export async function POST(req: Request) {
     create: { businessId: business.id, customerId },
   });
 
-  return NextResponse.json({ conversationId: conversation.id, guestId: newGuestId });
+  return NextResponse.json({
+    conversationId: conversation.id,
+    guestId: newGuestId,
+    aiChatEnabled: business.aiChatEnabled,
+    aiPaused: conversation.aiPaused,
+  });
 }

@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Send, Paperclip, X, Loader2, ThumbsUp } from "lucide-react";
+import { Send, Paperclip, X, Loader2, ThumbsUp, Sparkles } from "lucide-react";
 import { EmojiPicker } from "@/components/emoji-picker";
 
 interface ChatMessage {
   id: string;
-  senderType: "CUSTOMER" | "BUSINESS";
+  senderType: "CUSTOMER" | "BUSINESS" | "AI";
   senderId: string;
   senderImage: string | null;
   content: string | null;
@@ -29,6 +29,8 @@ export function ChatWidget({
   title,
   locale,
   guestId,
+  aiChatEnabled = false,
+  aiPaused = false,
   onClose,
 }: {
   conversationId: string;
@@ -38,6 +40,11 @@ export function ChatWidget({
   /** Set only for an anonymous customer chatting without an account (see
    * useGuestChat) — appended to every request in place of a session. */
   guestId?: string | null;
+  /** Customer side only — whether this salon's AI assistant is turned on at
+   * all, and whether this specific thread already asked to skip it (see
+   * POST .../request-human). Controls the "talk to the real owner" button. */
+  aiChatEnabled?: boolean;
+  aiPaused?: boolean;
   onClose?: () => void;
 }) {
   const guestQuery = guestId ? `guestId=${encodeURIComponent(guestId)}` : "";
@@ -48,6 +55,8 @@ export function ChatWidget({
   const [pendingImage, setPendingImage] = useState<File | null>(null);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [paused, setPaused] = useState(aiPaused);
+  const [requestingHuman, setRequestingHuman] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const lastIdRef = useRef<string | null>(null);
@@ -130,6 +139,17 @@ export function ChatWidget({
     if (fileInputRef.current) fileInputRef.current.value = "";
   }
 
+  async function requestHuman() {
+    setRequestingHuman(true);
+    const res = await fetch(`/api/chat/conversations/${conversationId}/request-human`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ guestId: guestId || undefined }),
+    });
+    setRequestingHuman(false);
+    if (res.ok) setPaused(true);
+  }
+
   async function react(messageId: string, emoji: string) {
     const res = await fetch(`/api/chat/messages/${messageId}/reactions`, {
       method: "POST",
@@ -152,6 +172,31 @@ export function ChatWidget({
         )}
       </div>
 
+      {viewerRole === "CUSTOMER" && aiChatEnabled && (
+        <div className="flex items-center justify-between gap-2 border-b border-ink-100 bg-primary-50 px-4 py-2 text-xs">
+          <span className="flex items-center gap-1.5 text-primary-700">
+            <Sparkles className="h-3.5 w-3.5" />
+            {paused
+              ? locale === "vi"
+                ? "Đã báo chủ salon — họ sẽ trả lời sớm."
+                : "The owner has been notified — they'll reply soon."
+              : locale === "vi"
+                ? "Trợ lý AI đang hỗ trợ bạn."
+                : "An AI assistant is helping you."}
+          </span>
+          {!paused && (
+            <button
+              type="button"
+              onClick={requestHuman}
+              disabled={requestingHuman}
+              className="shrink-0 whitespace-nowrap font-semibold text-primary-700 underline disabled:opacity-50"
+            >
+              {locale === "vi" ? "Nói chuyện với chủ salon" : "Talk to the owner"}
+            </button>
+          )}
+        </div>
+      )}
+
       <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto p-4">
         {loading ? (
           <p className="flex items-center gap-2 text-sm text-ink-400">
@@ -163,18 +208,33 @@ export function ChatWidget({
           </p>
         ) : (
           messages.map((m) => {
-            const mine = m.senderType === viewerRole;
+            // An AI reply sits on the "business side" of the thread for a
+            // customer (it's answering on the salon's behalf), but reads as
+            // "not mine" for the owner's own view too — the two sides never
+            // show it as self-sent, just differently aligned.
+            const mine =
+              m.senderType === viewerRole || (m.senderType === "AI" && viewerRole === "BUSINESS");
             const myReaction = (reactions[m.id] ?? []).find((r) => r.mine);
             return (
               <div key={m.id} className={`flex items-end gap-2 ${mine ? "flex-row-reverse" : "flex-row"}`}>
                 {!mine && (
                   <div className="h-6 w-6 shrink-0 overflow-hidden rounded-full bg-mist-100">
-                    {m.senderImage && (
-                      <img src={m.senderImage} alt="" className="h-full w-full object-cover" />
+                    {m.senderType === "AI" ? (
+                      <div className="flex h-full w-full items-center justify-center text-primary-500">
+                        <Sparkles className="h-3.5 w-3.5" />
+                      </div>
+                    ) : (
+                      m.senderImage && <img src={m.senderImage} alt="" className="h-full w-full object-cover" />
                     )}
                   </div>
                 )}
                 <div className={`flex flex-col ${mine ? "items-end" : "items-start"}`}>
+                  {m.senderType === "AI" && (
+                    <span className="mb-0.5 flex items-center gap-1 text-[10px] font-semibold text-primary-500">
+                      <Sparkles className="h-2.5 w-2.5" />
+                      {locale === "vi" ? "Trợ lý AI" : "AI Assistant"}
+                    </span>
+                  )}
                   <div
                     className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
                       mine ? "bg-primary-500 text-white" : "bg-mist-100 text-ink-900"

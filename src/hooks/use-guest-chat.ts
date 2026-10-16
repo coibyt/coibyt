@@ -38,7 +38,12 @@ export function useGuestChat(businessSlug: string) {
       body: JSON.stringify(body),
     });
     if (!res.ok) return null;
-    const data = (await res.json()) as { conversationId: string; guestId?: string };
+    const data = (await res.json()) as {
+      conversationId: string;
+      guestId?: string;
+      aiChatEnabled: boolean;
+      aiPaused: boolean;
+    };
     if (data.guestId) {
       try {
         localStorage.setItem(GUEST_ID_KEY, data.guestId);
