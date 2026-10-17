@@ -169,6 +169,10 @@ export function BusinessChatButton({
               guestId={guestId ?? undefined}
               aiChatEnabled={aiState.aiChatEnabled}
               aiPaused={aiState.aiPaused}
+              bookingHref={(offer) =>
+                // "vi" is the unprefixed default locale (localePrefix "as-needed").
+                `${locale === "vi" ? "" : `/${locale}`}/b/${businessSlug}/book/${offer.serviceId}?date=${offer.date}&time=${offer.time}`
+              }
               onClose={() => setConversationId(null)}
             />
           </div>

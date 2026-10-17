@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Loader2 } from "lucide-react";
 import { ChatWidget } from "@/components/chat-widget";
+import { parseBookingTokens } from "@/lib/chat-booking-token";
 
 interface ConversationRow {
   id: string;
@@ -12,7 +13,7 @@ interface ConversationRow {
   lastMessage: {
     content: string | null;
     hasImage: boolean;
-    senderType: "CUSTOMER" | "BUSINESS";
+    senderType: "CUSTOMER" | "BUSINESS" | "AI";
     createdAt: string;
   } | null;
   unreadCount: number;
@@ -85,7 +86,11 @@ export function BusinessMessagesManager({ locale }: { locale: string }) {
             {c.lastMessage && (
               <p className="mt-0.5 truncate text-xs text-ink-400">
                 {c.lastMessage.senderType === "BUSINESS" ? (locale === "vi" ? "Bạn: " : "You: ") : ""}
-                {c.lastMessage.content ?? (locale === "vi" ? "[Hình ảnh]" : "[Image]")}
+                {c.lastMessage.content
+                  ? parseBookingTokens(c.lastMessage.content).text || (locale === "vi" ? "[Nút đặt lịch]" : "[Booking button]")
+                  : locale === "vi"
+                    ? "[Hình ảnh]"
+                    : "[Image]"}
               </p>
             )}
           </button>

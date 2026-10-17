@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { addDays, format, isSameDay } from "date-fns";
@@ -100,6 +100,8 @@ export function BookingWidget({
   locale,
   businessTimezone,
   embedProgress,
+  initialDate,
+  initialTime,
 }: {
   businessSlug: string;
   service: ServiceInfo;
@@ -115,6 +117,11 @@ export function BookingWidget({
    * Booking/Finish step bar there; the main site's /b/... booking page
    * already has its own navigation, so this stays unset there. */
   embedProgress?: { step1Href?: string; step2Href: string };
+  /** Preselection from a deep link (e.g. the AI chat's "book now" button):
+   * "yyyy-MM-dd" and "HH:mm", both in the salon's timezone. Ignored when out
+   * of the bookable range or no longer free — the customer just picks again. */
+  initialDate?: string;
+  initialTime?: string;
 }) {
   const t = useTranslations("service");
   const tPay = useTranslations("payment");
@@ -132,9 +139,18 @@ export function BookingWidget({
     [businessTimezone]
   );
 
+  const days = useMemo(
+    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
+    [todayInBusinessTz]
+  );
+  const initialDay = initialDate ? days.find((d) => format(d, "yyyy-MM-dd") === initialDate) : undefined;
+  // Applied once, on the first slot list for the preselected day — after
+  // that, the customer's own clicks are in charge.
+  const pendingInitialTime = useRef(initialDay && initialTime && /^\d{2}:\d{2}$/.test(initialTime) ? initialTime : null);
+
   const [staffId, setStaffId] = useState<string>("");
   const [selectedAddOnIds, setSelectedAddOnIds] = useState<Set<string>>(new Set());
-  const [selectedDate, setSelectedDate] = useState(todayInBusinessTz);
+  const [selectedDate, setSelectedDate] = useState(initialDay ?? todayInBusinessTz);
   const [slots, setSlots] = useState<Slot[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<Slot | null>(null);
@@ -164,11 +180,6 @@ export function BookingWidget({
   const [discountChecking, setDiscountChecking] = useState(false);
   const [discount, setDiscount] = useState<{ percent: number; name: string } | null>(null);
   const [discountError, setDiscountError] = useState<string | null>(null);
-
-  const days = useMemo(
-    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
-    [todayInBusinessTz]
-  );
 
   const selectedAddOns = addOnOptions.filter((a) => selectedAddOnIds.has(a.id));
   const addOnPriceSum = selectedAddOns.reduce((sum, a) => sum + a.priceCents, 0);
@@ -220,10 +231,21 @@ export function BookingWidget({
 
     fetch(`/api/businesses/${businessSlug}/availability?${params.toString()}`)
       .then((r) => r.json())
-      .then((data) => setSlots(data.slots ?? []))
+      .then((data) => {
+        const fetched: Slot[] = data.slots ?? [];
+        setSlots(fetched);
+        const wanted = pendingInitialTime.current;
+        if (wanted) {
+          pendingInitialTime.current = null;
+          const match = fetched.find(
+            (s) => format(toZonedTime(new Date(s.startsAt), businessTimezone), "HH:mm") === wanted
+          );
+          if (match) setSelectedSlot(match);
+        }
+      })
       .catch(() => setSlots([]))
       .finally(() => setLoadingSlots(false));
-  }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey, extraServiceIdsKey]);
+  }, [businessSlug, service.id, staffId, selectedDate, addOnIdsKey, extraServiceIdsKey, businessTimezone]);
 
   async function applyDiscount() {
     if (!discountCode.trim()) return;

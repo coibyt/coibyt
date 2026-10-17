@@ -1,8 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Send, Paperclip, X, Loader2, ThumbsUp, Sparkles } from "lucide-react";
+import { Send, Paperclip, X, Loader2, ThumbsUp, Sparkles, CalendarCheck } from "lucide-react";
 import { EmojiPicker } from "@/components/emoji-picker";
+import { parseBookingTokens, type BookingOffer } from "@/lib/chat-booking-token";
+
+function bookNowLabel(locale: string, offer: BookingOffer) {
+  const [, month, day] = offer.date.split("-");
+  if (locale === "vi") return `Đặt lịch ngay · ${day}/${month} lúc ${offer.time}`;
+  if (locale === "fi") return `Varaa nyt · ${Number(day)}.${Number(month)}. klo ${offer.time}`;
+  return `Book now · ${day}/${month} at ${offer.time}`;
+}
 
 interface ChatMessage {
   id: string;
@@ -31,6 +39,7 @@ export function ChatWidget({
   guestId,
   aiChatEnabled = false,
   aiPaused = false,
+  bookingHref,
   onClose,
 }: {
   conversationId: string;
@@ -45,6 +54,9 @@ export function ChatWidget({
    * POST .../request-human). Controls the "talk to the real owner" button. */
   aiChatEnabled?: boolean;
   aiPaused?: boolean;
+  /** Customer side only — where an AI "book now" offer should lead (the
+   * embed and the public profile each have their own booking route). */
+  bookingHref?: (offer: BookingOffer) => string;
   onClose?: () => void;
 }) {
   const guestQuery = guestId ? `guestId=${encodeURIComponent(guestId)}` : "";
@@ -99,9 +111,12 @@ export function ChatWidget({
     };
   }, [conversationId, guestId, guestQuery]);
 
+  // `loading` too: the first batch of messages arrives while the spinner is
+  // still showing, so scrolling then does nothing — scroll again once the
+  // list has actually rendered.
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight });
-  }, [messages]);
+  }, [messages, loading]);
 
   function onPickImage(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -215,6 +230,8 @@ export function ChatWidget({
             const mine =
               m.senderType === viewerRole || (m.senderType === "AI" && viewerRole === "BUSINESS");
             const myReaction = (reactions[m.id] ?? []).find((r) => r.mine);
+            const { text: bodyText, offers } =
+              m.senderType === "AI" && m.content ? parseBookingTokens(m.content) : { text: m.content, offers: [] };
             return (
               <div key={m.id} className={`flex items-end gap-2 ${mine ? "flex-row-reverse" : "flex-row"}`}>
                 {!mine && (
@@ -247,7 +264,29 @@ export function ChatWidget({
                         className="mb-1 max-h-48 rounded-lg object-contain"
                       />
                     )}
-                    {m.content && <p className="whitespace-pre-line">{m.content}</p>}
+                    {bodyText && <p className="whitespace-pre-line">{bodyText}</p>}
+                    {offers.map((offer) =>
+                      viewerRole === "CUSTOMER" && bookingHref ? (
+                        <a
+                          key={`${offer.serviceId}-${offer.date}-${offer.time}`}
+                          href={bookingHref(offer)}
+                          className="btn-primary mt-2 w-full !py-2 text-xs"
+                        >
+                          <CalendarCheck className="h-3.5 w-3.5" />
+                          {bookNowLabel(locale, offer)}
+                        </a>
+                      ) : (
+                        <p
+                          key={`${offer.serviceId}-${offer.date}-${offer.time}`}
+                          className="mt-2 flex items-center gap-1 text-xs text-primary-700"
+                        >
+                          <CalendarCheck className="h-3.5 w-3.5" />
+                          {locale === "vi"
+                            ? `Đã gửi khách nút đặt lịch ${offer.date} ${offer.time}`
+                            : `Sent the customer a booking button for ${offer.date} ${offer.time}`}
+                        </p>
+                      )
+                    )}
                     <p className={`mt-1 text-[10px] ${mine ? "text-white/70" : "text-ink-400"}`}>
                       {new Date(m.createdAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
                         hour: "2-digit",

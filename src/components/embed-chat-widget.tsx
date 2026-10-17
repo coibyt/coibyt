@@ -86,6 +86,9 @@ export function EmbedChatWidget({
         guestId={guestId ?? undefined}
         aiChatEnabled={aiState.aiChatEnabled}
         aiPaused={aiState.aiPaused}
+        bookingHref={(offer) =>
+          `/embed/${businessSlug}/book/${offer.serviceId}?locale=${locale}&date=${offer.date}&time=${offer.time}`
+        }
       />
     );
   }

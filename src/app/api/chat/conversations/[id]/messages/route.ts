@@ -176,7 +176,7 @@ export async function POST(
 async function triggerAiReply(params: { conversationId: string; businessId: string; customerMessage: string }) {
   const business = await prisma.business.findUnique({
     where: { id: params.businessId },
-    select: { name: true, aiChatEnabled: true, country: true },
+    select: { name: true, aiChatEnabled: true, timezone: true },
   });
   if (!business?.aiChatEnabled) return;
 
@@ -196,9 +196,9 @@ async function triggerAiReply(params: { conversationId: string; businessId: stri
   const reply = await generateChatReply({
     businessId: params.businessId,
     businessName: business.name,
+    businessTimezone: business.timezone,
     customerMessage: params.customerMessage,
     recentHistory,
-    locale: localeForCountry(business.country),
   });
   if (!reply) return;
 
