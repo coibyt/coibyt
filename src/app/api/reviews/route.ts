@@ -37,28 +37,15 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "ALREADY_REVIEWED" }, { status: 409 });
   }
 
-  const [review, business] = await Promise.all([
-    prisma.review.create({
-      data: {
-        bookingId,
-        businessId: booking.businessId,
-        customerId: session.user.id,
-        rating,
-        comment,
-      },
-    }),
-    prisma.business.findUnique({
-      where: { id: booking.businessId },
-      select: { googlePlaceId: true, googleMapsUrl: true },
-    }),
-  ]);
+  const review = await prisma.review.create({
+    data: {
+      bookingId,
+      businessId: booking.businessId,
+      customerId: session.user.id,
+      rating,
+      comment,
+    },
+  });
 
-  // Lets the client offer "share this on Google" right away — the business's
-  // Place ID builds a direct link to Google's own review composer; a plain
-  // Maps URL is a reasonable fallback when no Place ID is set yet.
-  const googleReviewUrl = business?.googlePlaceId
-    ? `https://search.google.com/local/writereview?placeid=${encodeURIComponent(business.googlePlaceId)}`
-    : (business?.googleMapsUrl ?? null);
-
-  return NextResponse.json({ review, googleReviewUrl }, { status: 201 });
+  return NextResponse.json({ review }, { status: 201 });
 }

@@ -875,6 +875,10 @@ model Review {
   comment    String?      @db.Text
   ownerReply String?      @db.Text
   status     ReviewStatus @default(PENDING)
+  // When the customer was asked (email + chat) to also post on Google — sent
+  // once, the first time the salon publishes or hides the review, whichever
+  // it picks, so the request never depends on what the review says.
+  googleRequestSentAt DateTime?
   createdAt  DateTime     @default(now())
 
   @@index([businessId])

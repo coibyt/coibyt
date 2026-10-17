@@ -197,10 +197,6 @@
     "googleRequiredTitle": "Google sign-in required",
     "googleRequiredBody": "To keep reviews genuine, you need to sign in with Google before submitting one.",
     "signInWithGoogle": "Sign in with Google",
-    "shareToGoogleTitle": "Review submitted!",
-    "shareToGoogleBody": "Want to also share this review on Google to help the salon's reputation?",
-    "shareToGoogleButton": "Share on Google",
-    "later": "Maybe later",
     "genericError": "Something went wrong, please try again."
   },
   "admin": {

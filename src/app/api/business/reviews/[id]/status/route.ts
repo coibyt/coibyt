@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
+import { sendGoogleReviewRequest } from "@/lib/google-review";
 
 const schema = z.object({ status: z.enum(["APPROVED", "HIDDEN"]) });
 
@@ -27,5 +28,16 @@ export async function PATCH(
     where: { id },
     data: { status: parsed.data.status },
   });
+
+  // Whichever way the salon decides — publish or hide — the customer gets
+  // the same one-time invitation to post on Google too. Tying it to
+  // "published" only would mean soliciting just the reviews the salon liked,
+  // which Google's review policy forbids.
+  try {
+    await sendGoogleReviewRequest(id);
+  } catch (err) {
+    console.error("[review status google request]", err);
+  }
+
   return NextResponse.json({ review: updated });
 }

@@ -197,10 +197,6 @@
     "googleRequiredTitle": "Cần đăng nhập bằng Google",
     "googleRequiredBody": "Để đảm bảo đánh giá là thật, bạn cần đăng nhập bằng tài khoản Google trước khi gửi đánh giá.",
     "signInWithGoogle": "Đăng nhập bằng Google",
-    "shareToGoogleTitle": "Đã gửi đánh giá!",
-    "shareToGoogleBody": "Bạn có muốn chia sẻ đánh giá này lên Google để giúp salon có thêm uy tín không?",
-    "shareToGoogleButton": "Chia sẻ lên Google",
-    "later": "Để sau",
     "genericError": "Có lỗi xảy ra, vui lòng thử lại."
   },
   "admin": {

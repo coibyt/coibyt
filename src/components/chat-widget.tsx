@@ -5,6 +5,25 @@ import { Send, Paperclip, X, Loader2, ThumbsUp, Sparkles, CalendarCheck } from "
 import { EmojiPicker } from "@/components/emoji-picker";
 import { parseBookingTokens, type BookingOffer } from "@/lib/chat-booking-token";
 
+const URL_RE = /(https?:\/\/[^\s]+)/g;
+
+/** Plain text with any http(s) URLs turned into clickable links. */
+function Linkified({ text }: { text: string }) {
+  return (
+    <>
+      {text.split(URL_RE).map((part, i) =>
+        i % 2 === 1 ? (
+          <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="break-all font-semibold underline">
+            {part}
+          </a>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function bookNowLabel(locale: string, offer: BookingOffer) {
   const [, month, day] = offer.date.split("-");
   if (locale === "vi") return `Đặt lịch ngay · ${day}/${month} lúc ${offer.time}`;
@@ -264,7 +283,11 @@ export function ChatWidget({
                         className="mb-1 max-h-48 rounded-lg object-contain"
                       />
                     )}
-                    {bodyText && <p className="whitespace-pre-line">{bodyText}</p>}
+                    {bodyText && (
+                      <p className="whitespace-pre-line">
+                        <Linkified text={bodyText} />
+                      </p>
+                    )}
                     {offers.map((offer) =>
                       viewerRole === "CUSTOMER" && bookingHref ? (
                         <a

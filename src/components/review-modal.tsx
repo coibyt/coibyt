@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { Star, Loader2, X, ExternalLink } from "lucide-react";
+import { Star, Loader2, X, HeartHandshake } from "lucide-react";
 
 export function ReviewModal({
   bookingId,
@@ -20,7 +20,6 @@ export function ReviewModal({
   const [comment, setComment] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [googleReviewUrl, setGoogleReviewUrl] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
   const isGoogleSignedIn = session?.user?.provider === "google";
@@ -34,12 +33,10 @@ export function ReviewModal({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ bookingId, rating, comment: comment || undefined }),
       });
-      const data = await res.json().catch(() => null);
       if (!res.ok) {
         setError(t("genericError"));
         return;
       }
-      setGoogleReviewUrl(data?.googleReviewUrl ?? null);
       setSubmitted(true);
     } catch {
       setError(t("genericError"));
@@ -56,29 +53,28 @@ export function ReviewModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
       <div className="card w-full max-w-sm animate-slide-up p-6">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-bold text-ink-900">
-            {submitted ? t("shareToGoogleTitle") : t("title")}
-          </h3>
+          <h3 className="font-bold text-ink-900">{submitted ? "" : t("title")}</h3>
           <button onClick={submitted ? finish : onClose} className="text-ink-400">
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {submitted ? (
-          <div>
-            <p className="mb-4 text-sm text-ink-700">{t("shareToGoogleBody")}</p>
-            {googleReviewUrl && (
-              <a
-                href={googleReviewUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary mb-2 flex w-full items-center justify-center gap-2"
-              >
-                {t("shareToGoogleButton")} <ExternalLink className="h-4 w-4" />
-              </a>
-            )}
-            <button onClick={finish} className="btn-ghost w-full">
-              {t("later")}
+          // Just a thank-you here — asking the customer to also post on Google
+          // happens later, by email/chat, once the salon has looked at the
+          // review (see PATCH /api/business/reviews/[id]/status).
+          <div className="flex flex-col items-center pb-2 text-center">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-peach-100 to-primary-100 text-primary-500">
+              <HeartHandshake className="h-8 w-8" />
+            </div>
+            <p className="text-lg font-bold text-ink-900">{t("thanks")}</p>
+            <div className="mt-2 flex gap-0.5">
+              {Array.from({ length: rating }).map((_, i) => (
+                <Star key={i} className="h-4 w-4 fill-coral-500 text-coral-500" />
+              ))}
+            </div>
+            <button onClick={finish} className="btn-primary mt-6 w-full">
+              OK
             </button>
           </div>
         ) : !isGoogleSignedIn ? (
