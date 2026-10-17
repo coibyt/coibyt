@@ -93,10 +93,13 @@ const config: Config = {
           from: { opacity: "0", transform: "translateY(8px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "press-fill": { from: { transform: "scaleX(0)" }, to: { transform: "scaleX(1)" } },
       },
       animation: {
         "fade-in": "fade-in 180ms ease-out",
         "slide-up": "slide-up 220ms cubic-bezier(0.16,1,0.3,1)",
+        // Length must match LONG_PRESS_MS in booking-calendar.tsx.
+        "press-fill": "press-fill 900ms linear forwards",
       },
     },
   },

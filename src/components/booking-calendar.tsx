@@ -152,7 +152,11 @@ interface CustomerDetail {
   loyalty: { pointsRequired: number; discountPercent: number } | null;
 }
 
-const HOUR_HEIGHT = 40; // px per hour in the day/week grid — short enough to need less scrolling
+const HOUR_HEIGHT = 48; // px per hour in the day/week grid — short enough to need little scrolling
+// How long a finger must rest on empty grid space to open the new-booking
+// modal on a touchscreen. Keep in sync with the press-fill animation length
+// in tailwind.config.ts.
+const LONG_PRESS_MS = 900;
 const DEFAULT_START_HOUR = 7;
 const DEFAULT_END_HOUR = 23;
 const DRAG_SNAP_MIN = 15;
@@ -164,12 +168,25 @@ const STAFF_DOT_COLORS = [
   "bg-sage-500",
 ];
 
+// Literal class names (Tailwind only generates classes it can see verbatim).
+const STAFF_RING: Record<string, string> = {
+  "bg-primary-500": "ring-primary-500",
+  "bg-teal-500": "ring-teal-500",
+  "bg-coral-500": "ring-coral-500",
+  "bg-berry-500": "ring-berry-500",
+  "bg-sage-500": "ring-sage-500",
+};
+
 const STATUS_BG: Record<string, string> = {
-  PENDING_PAYMENT: "bg-coral-100 border-coral-400 text-coral-600",
-  CONFIRMED: "bg-teal-50 border-teal-400 text-teal-600",
-  COMPLETED: "bg-sage-50 border-sage-400 text-sage-600",
+  PENDING_PAYMENT: "bg-coral-50 border-coral-400 text-coral-600",
+  CONFIRMED: "bg-primary-50 border-primary-500 text-primary-800",
+  COMPLETED: "bg-teal-50 border-teal-400 text-teal-700",
   NO_SHOW: "bg-berry-50 border-berry-400 text-berry-600",
 };
+
+// Shaded, hatched "outside working hours" area of a staff column.
+const OFF_HOURS_BG =
+  "bg-mist-50 bg-[repeating-linear-gradient(135deg,rgba(13,23,24,0.045)_0px,rgba(13,23,24,0.045)_5px,transparent_5px,transparent_11px)]";
 
 type ViewMode = "day" | "week" | "month";
 
@@ -450,6 +467,12 @@ export function BookingCalendar({
     newMinute: number;
   } | null>(null);
   const [resizePreview, setResizePreview] = useState<number | null>(null);
+  const longPress = useRef<{ timer: ReturnType<typeof setTimeout>; x: number; y: number } | null>(null);
+  const lastPointerWasTouch = useRef(false);
+  const [pressMarker, setPressMarker] = useState<{ key: string; top: number } | null>(null);
+  useEffect(() => () => {
+    if (longPress.current) clearTimeout(longPress.current.timer);
+  }, []);
   const resizePreviewRef = useRef<number | null>(null);
   const dayColumnRefs = useRef<Map<string, HTMLDivElement>>(new Map());
   // Header and body each have their own horizontal scroller (see the comment
@@ -1126,8 +1149,88 @@ export function BookingCalendar({
   // Clicking empty grid space (not an existing booking — see the
   // stopPropagation in renderBookingBlock) opens the "book for a customer"
   // modal pre-filled at that time/staff column, mirroring handleDrop's math.
+  // Mouse only: on a touchscreen a tap on the grid is far more often the
+  // start of a scroll, so touch has to long-press instead (gridPressHandlers).
   function handleGridClick(
     e: React.MouseEvent<HTMLDivElement>,
+    day: Date,
+    columnStaffId: string | undefined,
+    gridTopHour: number
+  ) {
+    if (lastPointerWasTouch.current) return;
+    openNewBookingAt(e.clientY, e.currentTarget.getBoundingClientRect(), day, columnStaffId, gridTopHour);
+  }
+
+  function cancelLongPress() {
+    if (longPress.current) clearTimeout(longPress.current.timer);
+    longPress.current = null;
+    setPressMarker(null);
+  }
+
+  // Touch/pen: hold still on empty grid space for LONG_PRESS_MS to open the
+  // new-booking modal; moving more than a few px (i.e. scrolling) or lifting
+  // early cancels. A filling bar under the finger shows the hold in progress.
+  function gridPressHandlers(
+    columnKey: string,
+    day: Date,
+    columnStaffId: string | undefined,
+    gridTopHour: number
+  ) {
+    return {
+      onPointerDown: (e: React.PointerEvent<HTMLDivElement>) => {
+        lastPointerWasTouch.current = e.pointerType !== "mouse";
+        if (e.pointerType === "mouse") return;
+        if ((e.target as HTMLElement).closest("button, [data-resize-handle]")) return;
+        cancelLongPress();
+        const rect = e.currentTarget.getBoundingClientRect();
+        const { clientX, clientY } = e;
+        const timer = setTimeout(() => {
+          longPress.current = null;
+          setPressMarker(null);
+          navigator.vibrate?.(15);
+          // The finger lifting after this would land a click on whatever the
+          // modal just put under it (e.g. its backdrop) — swallow that one.
+          const swallow = (ev: Event) => {
+            ev.stopPropagation();
+            ev.preventDefault();
+          };
+          window.addEventListener("click", swallow, { capture: true });
+          const release = () => setTimeout(() => window.removeEventListener("click", swallow, { capture: true }), 50);
+          window.addEventListener("pointerup", release, { once: true });
+          window.addEventListener("pointercancel", release, { once: true });
+          openNewBookingAt(clientY, rect, day, columnStaffId, gridTopHour);
+        }, LONG_PRESS_MS);
+        longPress.current = { timer, x: clientX, y: clientY };
+        setPressMarker({ key: columnKey, top: clientY - rect.top });
+      },
+      onPointerMove: (e: React.PointerEvent<HTMLDivElement>) => {
+        const lp = longPress.current;
+        if (lp && Math.hypot(e.clientX - lp.x, e.clientY - lp.y) > 10) cancelLongPress();
+      },
+      onPointerUp: cancelLongPress,
+      onPointerCancel: cancelLongPress,
+      onPointerLeave: cancelLongPress,
+      onContextMenu: (e: React.MouseEvent) => {
+        if (lastPointerWasTouch.current) e.preventDefault();
+      },
+    };
+  }
+
+  function renderPressMarker(columnKey: string) {
+    if (pressMarker?.key !== columnKey) return null;
+    return (
+      <div
+        className="pointer-events-none absolute left-1 right-1 z-30 flex h-9 items-center overflow-hidden rounded-xl bg-primary-500/15 ring-2 ring-primary-400"
+        style={{ top: pressMarker.top - 18 }}
+      >
+        <div className="h-full w-full origin-left animate-press-fill bg-primary-500/30" />
+      </div>
+    );
+  }
+
+  function openNewBookingAt(
+    clientY: number,
+    rect: DOMRect,
     day: Date,
     columnStaffId: string | undefined,
     gridTopHour: number
@@ -1136,8 +1239,7 @@ export function BookingCalendar({
     const resolvedStaffId = columnStaffId ?? staff[0]?.id;
     if (!resolvedStaffId) return;
 
-    const rect = e.currentTarget.getBoundingClientRect();
-    const offsetY = e.clientY - rect.top;
+    const offsetY = clientY - rect.top;
     let minutes = gridTopHour * 60 + (offsetY / HOUR_HEIGHT) * 60;
     minutes = Math.max(0, Math.round(minutes / DRAG_SNAP_MIN) * DRAG_SNAP_MIN);
 
@@ -1260,17 +1362,34 @@ export function BookingCalendar({
   const totalHours = endHour - startHour;
   const hourMarks = Array.from({ length: totalHours + 1 }, (_, i) => startHour + i);
 
+  const dayBlocks = bookingsOnDay(anchorDate);
+  // Day summary: one entry per booking (not per service block), cancelled
+  // ones left out, revenue in the salon's main currency.
+  const dayBookings = bookings.filter(
+    (b) => b.status !== "CANCELLED" && isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), anchorDate)
+  );
+  const dayRevenueCurrency = dayBookings[0]?.currency;
+  const dayRevenueCents = dayBookings
+    .filter((b) => b.currency === dayRevenueCurrency)
+    .reduce((sum, b) => sum + b.priceCents, 0);
+
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const nowTop = ((nowMinutes - startHour * 60) / 60) * HOUR_HEIGHT;
   const nowInRange = nowMinutes >= startHour * 60 && nowMinutes <= endHour * 60;
 
-  function NowLine() {
+  function NowLine({ label = false }: { label?: boolean }) {
     return (
       <div
-        className="pointer-events-none absolute left-0 right-0 z-10 border-t-2 border-berry-500"
+        className="pointer-events-none absolute left-0 right-0 z-30 border-t-2 border-coral-500"
         style={{ top: nowTop }}
       >
-        <span className="absolute -left-1 -top-1 h-2 w-2 rounded-full bg-berry-500" />
+        {label ? (
+          <span className="absolute -top-2.5 right-0.5 rounded-full bg-coral-500 px-1 py-px text-[9px] font-bold leading-none text-white shadow">
+            {format(now, "HH:mm")}
+          </span>
+        ) : (
+          <span className="absolute -left-1 -top-[5px] h-2 w-2 rounded-full bg-coral-500 ring-2 ring-white" />
+        )}
       </div>
     );
   }
@@ -1296,11 +1415,11 @@ export function BookingCalendar({
           setCustomerDetail(null);
           setShowCancelPicker(false);
         }}
-        className={`absolute z-20 overflow-hidden rounded-lg border-l-4 px-2 py-1 text-left text-xs shadow-sm transition-opacity hover:opacity-90 ${
-          lane ? "" : "left-0.5 right-0.5"
+        className={`absolute z-20 overflow-hidden rounded-xl border-l-[3px] px-2 py-1 text-left text-[11px] shadow-sm ring-1 ring-black/5 transition hover:z-30 hover:-translate-y-px hover:shadow-md ${
+          lane ? "" : "left-1 right-1"
         } ${
           b.source === "MANUAL"
-            ? "bg-violet-50 border-violet-500 text-violet-700"
+            ? "bg-violet-50 border-violet-500 text-violet-800"
             : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
         style={
@@ -1314,10 +1433,10 @@ export function BookingCalendar({
             : { top, height }
         }
       >
-        <p className="truncate leading-tight opacity-80">{timeLabel}</p>
-        <p className="truncate font-semibold leading-tight">{b.customerName}</p>
+        <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
+        <p className="truncate text-xs font-bold leading-tight">{b.customerName}</p>
         {!compact && (
-          <p className="truncate leading-tight">
+          <p className="truncate leading-tight opacity-80">
             {b.slotKey !== "primary" ? "+ " : ""}
             {b.serviceName}
           </p>
@@ -1385,12 +1504,39 @@ export function BookingCalendar({
         />
       )}
 
+      {view === "day" && (
+        <div className="grid grid-cols-3 gap-2">
+          {[
+            {
+              label: locale === "vi" ? "Lịch hẹn" : "Bookings",
+              value: String(dayBookings.length),
+              cls: "from-primary-500 to-primary-700",
+            },
+            {
+              label: locale === "vi" ? "Đã xong" : "Done",
+              value: String(dayBookings.filter((b) => b.status === "COMPLETED").length),
+              cls: "from-teal-400 to-teal-600",
+            },
+            {
+              label: locale === "vi" ? "Doanh thu dự kiến" : "Expected revenue",
+              value: dayRevenueCurrency ? formatMoney(dayRevenueCents, dayRevenueCurrency, locale) : "—",
+              cls: "from-coral-400 to-berry-500",
+            },
+          ].map((tile) => (
+            <div key={tile.label} className={`rounded-2xl bg-gradient-to-br ${tile.cls} px-3 py-2.5 text-white shadow-sm`}>
+              <p className="truncate text-lg font-bold leading-tight">{tile.value}</p>
+              <p className="truncate text-[11px] font-medium text-white/85">{tile.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
       {view === "day" && staff.length > 1 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           <button
             type="button"
             onClick={toggleAllStaffVisible}
-            className="flex shrink-0 items-center gap-1.5 rounded-full border border-ink-200 bg-white px-2.5 py-1 text-xs font-medium text-ink-700 transition-colors hover:bg-mist-50"
+            className="flex shrink-0 items-center gap-1.5 rounded-full border border-ink-100 bg-white px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-sm transition-colors hover:bg-mist-50"
           >
             {hiddenStaffIds.size > 0 ? t("showAllStaff") : t("hideAllStaff")}
           </button>
@@ -1401,24 +1547,28 @@ export function BookingCalendar({
                 key={s.id}
                 type="button"
                 onClick={() => toggleStaffVisible(s.id)}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-colors ${
+                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors ${
                   checked
-                    ? "border-ink-900 bg-ink-900 text-white"
+                    ? "border-primary-200 bg-primary-50 text-primary-800"
                     : "border-ink-100 bg-white text-ink-400"
                 }`}
               >
                 <span
-                  className={`flex h-4 w-4 items-center justify-center rounded-full border ${
-                    checked ? "border-white/70 bg-white/20" : "border-ink-200"
-                  }`}
-                >
-                  {checked && <span className="h-1.5 w-1.5 rounded-full bg-white" />}
-                </span>
+                  className={`h-2.5 w-2.5 rounded-full ${checked ? staffColor.get(s.id) ?? "bg-ink-400" : "bg-ink-100"}`}
+                />
                 {s.name}
               </button>
             );
           })}
         </div>
+      )}
+
+      {(view === "day" || view === "week") && services.length > 0 && (
+        <p className="hidden text-[11px] text-ink-400 [@media(pointer:coarse)]:block">
+          {locale === "vi"
+            ? "Nhấn giữ khoảng 1 giây vào ô trống để tạo lịch hẹn mới."
+            : "Press and hold an empty slot for about a second to create a booking."}
+        </p>
       )}
 
       {view === "day" && staff.length > 0 && visibleStaff.length === 0 && (
@@ -1428,7 +1578,7 @@ export function BookingCalendar({
       )}
 
       {view === "day" && (staff.length === 0 || visibleStaff.length > 0) && (
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-ink-100">
+        <div className="flex flex-col overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-sm">
           {/* Header row and body row each have their own [frozen cell, scrolling
               content] pair instead of relying on position:sticky. Sticky broke
               two different ways here: (1) sticky-left on a grid item's inline
@@ -1444,41 +1594,52 @@ export function BookingCalendar({
               region, so it never needs to stick — sidesteps both bugs. The
               two rows' horizontal scroll positions are kept in sync manually. */}
           <div className="flex">
-            <div className="h-20 w-7 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="h-24 w-10 shrink-0 border-b border-r border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50" />
             <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
               <div
                 className="grid"
                 style={{
-                  gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(64px, 1fr))`,
+                  gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(88px, 1fr))`,
                 }}
               >
                 {staff.length === 0 ? (
-                  <div className="flex h-20 items-center border-b border-ink-100 bg-mist-50 px-3 text-xs font-semibold text-ink-700">
+                  <div className="flex h-24 items-center border-b border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-3 text-xs font-semibold text-ink-700">
                     {t("unassigned")}
                   </div>
                 ) : (
-                  visibleStaff.map((s) => (
-                    <div
-                      key={s.id}
-                      title={s.name}
-                      className="flex h-20 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-mist-50 px-1 py-2 text-xs font-semibold text-ink-700"
-                    >
-                      {s.avatarUrl ? (
-                        <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
-                          <Image src={s.avatarUrl} alt="" fill className="object-cover" />
+                  visibleStaff.map((s) => {
+                    const count = dayBlocks.filter((b) => b.staffId === s.id).length;
+                    const ring = STAFF_RING[staffColor.get(s.id) ?? ""] ?? "ring-ink-400";
+                    return (
+                      <div
+                        key={s.id}
+                        title={s.name}
+                        className="flex h-24 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-1 py-2"
+                      >
+                        <div className="relative">
+                          {s.avatarUrl ? (
+                            <div className={`relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-primary-50 ${ring}`}>
+                              <Image src={s.avatarUrl} alt="" fill className="object-cover" />
+                            </div>
+                          ) : (
+                            <span
+                              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ring-2 ring-white ${
+                                staffColor.get(s.id) ?? "bg-ink-400"
+                              }`}
+                            >
+                              {s.name.trim().charAt(0).toUpperCase() || "?"}
+                            </span>
+                          )}
+                          {count > 0 && (
+                            <span className="absolute -right-1.5 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary-600 px-1 text-[10px] font-bold text-white ring-2 ring-white">
+                              {count}
+                            </span>
+                          )}
                         </div>
-                      ) : (
-                        <span
-                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ${
-                            staffColor.get(s.id) ?? "bg-ink-400"
-                          }`}
-                        >
-                          {s.name.trim().charAt(0).toUpperCase() || "?"}
-                        </span>
-                      )}
-                      <span className="w-full truncate text-center">{s.name}</span>
-                    </div>
-                  ))
+                        <span className="w-full truncate text-center text-xs font-semibold text-ink-900">{s.name}</span>
+                      </div>
+                    );
+                  })
                 )}
               </div>
             </div>
@@ -1494,18 +1655,18 @@ export function BookingCalendar({
                 as a blank white area past a certain scroll depth, worse the
                 later a staff member's working hours end and the more
                 non-working-hours overlay there is below the visible fold). */}
-            <div className="flex shrink-0 flex-col bg-white" style={{ width: 28 }}>
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 40 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute -translate-y-1/2 pr-1.5 text-right text-xs text-ink-400"
+                    className="absolute -translate-y-1/2 pr-1 text-right text-[10px] font-medium tabular-nums text-ink-400"
                     style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
                   >
-                    {h}
+                    {String(h).padStart(2, "0")}:00
                   </div>
                 ))}
-                {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
+                {nowInRange && isSameDay(anchorDate, now) && <NowLine label />}
               </div>
             </div>
 
@@ -1513,7 +1674,7 @@ export function BookingCalendar({
           <div
             className="grid"
             style={{
-              gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(64px, 1fr))`,
+              gridTemplateColumns: `repeat(${Math.max(visibleStaff.length, 1)}, minmax(88px, 1fr))`,
             }}
           >
             {(staff.length === 0 ? [{ id: "", name: "" }] : visibleStaff).map((s) => {
@@ -1549,23 +1710,25 @@ export function BookingCalendar({
                       else dayColumnRefs.current.delete(s.id);
                     }
                   }}
-                  className="relative cursor-pointer border-l border-ink-100"
+                  className="relative cursor-pointer select-none border-l border-ink-100 bg-white [-webkit-touch-callout:none]"
                   style={{ height: totalHours * HOUR_HEIGHT }}
                   onDragOver={(e) => e.preventDefault()}
                   onDrop={(e) => handleDrop(e, anchorDate, s.id || undefined, startHour)}
                   onClick={(e) => handleGridClick(e, anchorDate, s.id || undefined, startHour)}
+                  {...gridPressHandlers(`day-${s.id || "unassigned"}`, anchorDate, s.id || undefined, startHour)}
                 >
+                  {renderPressMarker(`day-${s.id || "unassigned"}`)}
                   {hourMarks.map((h) => (
                     <div
                       key={h}
-                      className="absolute w-full border-t border-ink-400/40"
+                      className="absolute w-full border-t border-ink-100"
                       style={{ top: (h - startHour) * HOUR_HEIGHT }}
                     />
                   ))}
                   {hourMarks.map((h) => (
                     <div
                       key={`${h}-half`}
-                      className="absolute w-full border-t border-dashed border-ink-100"
+                      className="absolute w-full border-t border-dashed border-ink-100/70"
                       style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                     />
                   ))}
@@ -1574,24 +1737,24 @@ export function BookingCalendar({
                       {openPx !== null && closePx !== null ? (
                         <>
                           <div
-                            className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-blue-100/60"
+                            className={`pointer-events-none absolute left-0 right-0 top-0 z-10 ${OFF_HOURS_BG}`}
                             style={{ height: Math.max(0, openPx) }}
                           />
                           <div
-                            className="pointer-events-none absolute left-0 right-0 z-10 bg-blue-100/60"
+                            className={`pointer-events-none absolute left-0 right-0 z-10 ${OFF_HOURS_BG}`}
                             style={{ top: Math.max(0, closePx), bottom: 0 }}
                           />
                           <div
-                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-ink-900"
+                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-primary-400"
                             style={{ top: Math.max(0, openPx) }}
                           />
                           <div
-                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-ink-900"
+                            className="pointer-events-none absolute left-0 right-0 z-20 border-t-2 border-primary-400"
                             style={{ top: Math.max(0, closePx) }}
                           />
                         </>
                       ) : (
-                        <div className="pointer-events-none absolute inset-0 z-10 bg-blue-100/60" />
+                        <div className={`pointer-events-none absolute inset-0 z-10 ${OFF_HOURS_BG}`} />
                       )}
                     </>
                   )}
@@ -1599,24 +1762,25 @@ export function BookingCalendar({
                     <>
                       {openPx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 top-0 z-10 bg-blue-100/60"
+                          className={`pointer-events-none absolute left-0 right-0 top-0 z-10 ${OFF_HOURS_BG}`}
                           style={{ height: Math.max(0, openPx) }}
                         />
                       )}
                       {closePx !== null && (
                         <div
-                          className="pointer-events-none absolute left-0 right-0 z-10 bg-blue-100/60"
+                          className={`pointer-events-none absolute left-0 right-0 z-10 ${OFF_HOURS_BG}`}
                           style={{ top: Math.max(0, closePx), bottom: 0 }}
                         />
                       )}
                       {openPx === null && closePx === null && (
-                        <div className="pointer-events-none absolute inset-0 z-10 bg-blue-100/60" />
+                        <div className={`pointer-events-none absolute inset-0 z-10 ${OFF_HOURS_BG}`} />
                       )}
                       {/* Each handle is a tall, invisible touch target around a thin
                           visible bar — a 6px line is far too small to grab with a
                           finger. touch-none stops the page scrolling mid-drag. */}
                       {openPx !== null && (
                         <div
+                          data-resize-handle
                           onPointerDown={(e) => startResize(s.id, "open", e)}
                           onClick={(e) => e.stopPropagation()}
                           className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
@@ -1624,7 +1788,7 @@ export function BookingCalendar({
                           title={hd.dragStart}
                         >
                           <span
-                            className={`pointer-events-none block h-1.5 w-full rounded-full bg-ink-900 ${
+                            className={`pointer-events-none mx-1 block h-1.5 w-full rounded-full bg-primary-500 shadow ${
                               activeEdit?.edge === "open" ? "opacity-100" : "opacity-70"
                             }`}
                           />
@@ -1632,6 +1796,7 @@ export function BookingCalendar({
                       )}
                       {closePx !== null && (
                         <div
+                          data-resize-handle
                           onPointerDown={(e) => startResize(s.id, "close", e)}
                           onClick={(e) => e.stopPropagation()}
                           className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
@@ -1639,7 +1804,7 @@ export function BookingCalendar({
                           title={hd.dragEnd}
                         >
                           <span
-                            className={`pointer-events-none block h-1.5 w-full rounded-full bg-ink-900 ${
+                            className={`pointer-events-none mx-1 block h-1.5 w-full rounded-full bg-primary-500 shadow ${
                               activeEdit?.edge === "close" ? "opacity-100" : "opacity-70"
                             }`}
                           />
@@ -1665,25 +1830,35 @@ export function BookingCalendar({
       )}
 
       {view === "week" && (
-        <div className="flex flex-col overflow-hidden rounded-2xl border border-ink-100">
+        <div className="flex flex-col overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-sm">
           {/* See the matching comment in the day view for why header/body are
               split into separate rows instead of using position:sticky. */}
           <div className="flex">
-            <div className="h-12 w-7 shrink-0 border-b border-r border-ink-100 bg-mist-50" />
+            <div className="h-14 w-10 shrink-0 border-b border-r border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50" />
             <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
               <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
-                {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
-                  <div
-                    key={day.toISOString()}
-                    className={`flex h-12 items-center justify-center border-b border-l border-ink-100 px-2 text-center text-xs font-semibold ${
-                      isSameDay(day, toZonedTime(new Date(), businessTimezone))
-                        ? "bg-peach-100 text-ink-900"
-                        : "bg-mist-50 text-ink-700"
-                    }`}
-                  >
-                    {format(day, "EEE d", { locale: dfLocale })}
-                  </div>
-                ))}
+                {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => {
+                  const isToday = isSameDay(day, toZonedTime(new Date(), businessTimezone));
+                  const count = bookingsOnDay(day).length;
+                  return (
+                    <div
+                      key={day.toISOString()}
+                      className="flex h-14 flex-col items-center justify-center gap-0.5 border-b border-l border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-2 text-center"
+                    >
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-ink-400">
+                        {format(day, "EEE", { locale: dfLocale })}
+                      </span>
+                      <span
+                        className={`flex h-7 min-w-7 items-center justify-center rounded-full px-1.5 text-sm font-bold ${
+                          isToday ? "bg-primary-600 text-white shadow" : "text-ink-900"
+                        }`}
+                      >
+                        {format(day, "d")}
+                        {count > 0 && !isToday && <span className="ml-1 h-1.5 w-1.5 rounded-full bg-primary-400" />}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -1692,19 +1867,19 @@ export function BookingCalendar({
             {/* See the matching comment in the day view for why items-start
                 is required here (without it, content below a certain scroll
                 depth silently disappears). */}
-            <div className="flex shrink-0 flex-col bg-white" style={{ width: 28 }}>
+            <div className="flex shrink-0 flex-col bg-white" style={{ width: 40 }}>
               <div className="relative border-r border-ink-100" style={{ height: totalHours * HOUR_HEIGHT }}>
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute -translate-y-1/2 pr-1.5 text-right text-xs text-ink-400"
+                    className="absolute -translate-y-1/2 pr-1 text-right text-[10px] font-medium tabular-nums text-ink-400"
                     style={{ top: (h - startHour) * HOUR_HEIGHT, right: 0 }}
                   >
-                    {h}
+                    {String(h).padStart(2, "0")}:00
                   </div>
                 ))}
                 {nowInRange && isWithinInterval(now, { start: rangeStart, end: rangeEnd }) && (
-                  <NowLine />
+                  <NowLine label />
                 )}
               </div>
             </div>
@@ -1714,27 +1889,38 @@ export function BookingCalendar({
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
                 key={day.toISOString()}
-                className="relative cursor-pointer border-l border-ink-100"
+                className={`relative cursor-pointer select-none border-l border-ink-100 [-webkit-touch-callout:none] ${
+                  isSameDay(day, now) ? "bg-peach-50/60" : "bg-white"
+                }`}
                 style={{ height: totalHours * HOUR_HEIGHT }}
                 onDragOver={(e) => e.preventDefault()}
                 onDrop={(e) => handleDrop(e, day, undefined, startHour)}
                 onClick={(e) => handleGridClick(e, day, undefined, startHour)}
+                {...gridPressHandlers(`week-${format(day, "yyyy-MM-dd")}`, day, undefined, startHour)}
               >
+                {renderPressMarker(`week-${format(day, "yyyy-MM-dd")}`)}
                 {hourMarks.map((h) => (
                   <div
                     key={h}
-                    className="absolute w-full border-t border-ink-400/40"
+                    className="absolute w-full border-t border-ink-100"
                     style={{ top: (h - startHour) * HOUR_HEIGHT }}
                   />
                 ))}
                 {hourMarks.map((h) => (
                   <div
                     key={`${h}-half`}
-                    className="absolute w-full border-t border-dashed border-ink-100"
+                    className="absolute w-full border-t border-dashed border-ink-100/70"
                     style={{ top: (h - startHour + 0.5) * HOUR_HEIGHT }}
                   />
                 ))}
-                {bookingsOnDay(day).map((b) => renderBookingBlock(b, true))}
+                {(() => {
+                  // Same side-by-side lanes as the day view, so bookings by
+                  // different staff at the same time don't stack on top of
+                  // each other.
+                  const dayBlocksForColumn = bookingsOnDay(day);
+                  const lanes = laneLayout(dayBlocksForColumn);
+                  return dayBlocksForColumn.map((b) => renderBookingBlock(b, true, lanes.get(blockKey(b))));
+                })()}
                 {nowInRange && isSameDay(day, now) && <NowLine />}
               </div>
             ))}
@@ -1745,10 +1931,10 @@ export function BookingCalendar({
       )}
 
       {view === "month" && (
-        <div className="overflow-hidden rounded-2xl border border-ink-100">
-          <div className="grid grid-cols-7 bg-mist-50 text-center text-xs font-semibold text-ink-700">
+        <div className="overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-sm">
+          <div className="grid grid-cols-7 bg-gradient-to-b from-primary-50 to-mist-50 text-center text-[10px] font-semibold uppercase tracking-wider text-ink-400">
             {Array.from({ length: 7 }, (_, i) => addDays(gridStart, i)).map((d) => (
-              <div key={d.toISOString()} className="border-b border-ink-100 py-2">
+              <div key={d.toISOString()} className="border-b border-ink-100 py-2.5">
                 {format(d, "EEE", { locale: dfLocale })}
               </div>
             ))}
@@ -1767,24 +1953,38 @@ export function BookingCalendar({
                     setAnchorDate(day);
                     setView("day");
                   }}
-                  className={`min-h-[92px] border-b border-r border-ink-100 p-2 text-left align-top last:border-r-0 ${
-                    inMonth ? "bg-white" : "bg-mist-50 text-ink-400"
-                  } hover:bg-mist-50`}
+                  className={`group flex min-h-[84px] flex-col items-start justify-start border-b border-r border-ink-100 p-1.5 text-left transition-colors last:border-r-0 sm:min-h-[100px] sm:p-2 ${
+                    inMonth ? "bg-white" : "bg-mist-50/70 text-ink-400"
+                  } hover:bg-primary-50/60`}
                 >
                   <span
-                    className={`text-xs font-semibold ${
+                    className={`inline-flex h-6 min-w-6 items-center justify-center rounded-full px-1 text-xs font-bold ${
                       isSameDay(day, toZonedTime(new Date(), businessTimezone))
-                        ? "rounded-full bg-ink-900 px-1.5 py-0.5 text-white"
-                        : "text-ink-700"
+                        ? "bg-primary-600 text-white shadow"
+                        : inMonth
+                          ? "text-ink-900"
+                          : "text-ink-400"
                     }`}
                   >
                     {format(day, "d")}
                   </span>
                   {dayBookings.length > 0 && (
-                    <p className="mt-1 truncate text-xs text-primary-600">
-                      {dayBookings.length}{" "}
-                      {locale === "vi" ? "lịch hẹn" : dayBookings.length === 1 ? "booking" : "bookings"}
-                    </p>
+                    <>
+                      <p className="mt-1.5 inline-flex max-w-full items-center rounded-full bg-primary-50 px-1.5 py-0.5 text-[10px] font-semibold text-primary-700 group-hover:bg-white">
+                        <span className="truncate">
+                          {dayBookings.length}{" "}
+                          {locale === "vi" ? "lịch" : dayBookings.length === 1 ? "booking" : "bookings"}
+                        </span>
+                      </p>
+                      <div className="mt-1 flex flex-wrap gap-0.5">
+                        {dayBookings.slice(0, 6).map((b) => (
+                          <span
+                            key={`${b.id}-${b.slotKey}`}
+                            className={`h-1.5 w-1.5 rounded-full ${staffColor.get(b.staffId ?? "") ?? "bg-ink-400"}`}
+                          />
+                        ))}
+                      </div>
+                    </>
                   )}
                 </button>
               );
@@ -1794,26 +1994,36 @@ export function BookingCalendar({
       )}
 
       <div className="sticky bottom-4 z-30 flex justify-center">
-        <div className="flex items-center gap-1 rounded-full border border-ink-100 bg-white p-1 shadow-popover">
-          <button onClick={() => navigate(-1)} className="btn-ghost !p-2" aria-label="Previous">
+        <div className="flex items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-xl shadow-primary-900/10 ring-1 ring-black/5 backdrop-blur-md">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50"
+            aria-label="Previous"
+          >
             <ChevronLeft className="h-4 w-4" />
           </button>
           <button
             onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
-            className="btn-outline !border-0 !px-3 !py-1.5 text-xs"
+            className="rounded-full px-3 py-2 text-xs font-semibold text-primary-700 transition-colors hover:bg-primary-50"
           >
             {t("today")}
           </button>
-          <button onClick={() => navigate(1)} className="btn-ghost !p-2" aria-label="Next">
+          <button
+            onClick={() => navigate(1)}
+            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50"
+            aria-label="Next"
+          >
             <ChevronRight className="h-4 w-4" />
           </button>
-          <span className="mx-1 h-5 w-px bg-ink-100" />
+          <span className="mx-1 h-6 w-px bg-ink-100" />
           {(["day", "week", "month"] as ViewMode[]).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
-                view === v ? "bg-ink-900 text-white" : "text-ink-700"
+              className={`rounded-full px-3.5 py-2 text-xs font-semibold transition-all ${
+                view === v
+                  ? "bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
+                  : "text-ink-700 hover:bg-primary-50"
               }`}
             >
               {tDash("viewModes." + v)}
