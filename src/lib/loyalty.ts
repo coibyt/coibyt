@@ -35,9 +35,12 @@ export async function completedVisits(card: { businessId: string; customerEmail:
   });
 }
 
+// cardId rides along whenever the card itself was found — even a refused
+// scan still lets the salon open that customer's summary.
 export type ScanOutcome =
-  | { ok: true; points: number; pointsRequired: number; rewardReady: boolean }
-  | { ok: false; reason: "NOT_FOUND" | "NO_PROGRAM" | "NO_NEW_VISIT" | "REWARD_PENDING" };
+  | { ok: true; cardId: string; points: number; pointsRequired: number; rewardReady: boolean }
+  | { ok: false; reason: "NOT_FOUND" }
+  | { ok: false; cardId: string; reason: "NO_PROGRAM" | "NO_NEW_VISIT" | "REWARD_PENDING" };
 
 /** A scan earns a point only when the customer has a completed visit that hasn't
  * been scanned yet, so scans can never outrun the services actually done. */
@@ -48,12 +51,12 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
   if (!card) return { ok: false, reason: "NOT_FOUND" };
 
   const program = await prisma.loyaltyProgram.findUnique({ where: { businessId } });
-  if (!program) return { ok: false, reason: "NO_PROGRAM" };
+  if (!program) return { ok: false, cardId: card.id, reason: "NO_PROGRAM" };
 
-  if (card.rewardReady) return { ok: false, reason: "REWARD_PENDING" };
+  if (card.rewardReady) return { ok: false, cardId: card.id, reason: "REWARD_PENDING" };
 
   const visits = await completedVisits(card);
-  if (card.totalScans >= visits) return { ok: false, reason: "NO_NEW_VISIT" };
+  if (card.totalScans >= visits) return { ok: false, cardId: card.id, reason: "NO_NEW_VISIT" };
 
   const points = card.points + 1;
   const rewardReady = points >= program.pointsRequired;
@@ -71,6 +74,7 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
 
   return {
     ok: true,
+    cardId: card.id,
     points: updated.points,
     pointsRequired: program.pointsRequired,
     rewardReady: updated.rewardReady,

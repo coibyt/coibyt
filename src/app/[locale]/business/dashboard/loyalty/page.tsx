@@ -42,6 +42,7 @@ export default async function LoyaltyPage({
       <LoyaltyManager
         locale={locale}
         defaultCurrency={business?.defaultCurrency ?? "VND"}
+        timeZone={business?.timezone ?? "Europe/Helsinki"}
         initialCode={code ?? ""}
       />
     </div>
