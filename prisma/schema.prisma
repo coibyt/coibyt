@@ -1293,6 +1293,9 @@ model GiftCardPurchase {
   buyerName   String
   buyerEmail  String
   buyerPhone  String?
+  // Optional personal note printed on the gift card image (cards the salon
+  // issues and emails from the dashboard).
+  message     String?        @db.Text
   code        String         @unique
   status      GiftCardStatus @default(PENDING_PAYMENT)
   activatedAt DateTime?

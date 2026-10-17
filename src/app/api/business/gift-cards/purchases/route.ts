@@ -24,6 +24,7 @@ export async function GET() {
     code: p.code,
     buyerName: p.buyerName,
     buyerEmail: p.buyerEmail,
+    buyerPhone: p.buyerPhone,
     cardName: p.giftCard.name,
     serviceName: p.giftCard.service.name,
     discountPercent: p.giftCard.discountPercent,
