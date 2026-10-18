@@ -27,6 +27,7 @@ import {
   Wallet,
   CreditCard,
   Scissors,
+  QrCode,
   type LucideIcon,
 } from "lucide-react";
 
@@ -88,6 +89,8 @@ const TEXT = {
     giftCards: "Thẻ quà tặng đã bán",
     loyalty: "Thẻ thành viên",
     loyaltySub: (n: number) => `${n} lượt tích điểm tháng này`,
+    qrScans: "Lượt quét QR in (30 ngày)",
+    qrScansSub: "Tạo bảng giá có QR →",
     status: {
       PENDING_PAYMENT: "Chờ thanh toán",
       CONFIRMED: "Đã xác nhận",
@@ -153,6 +156,8 @@ const TEXT = {
     giftCards: "Gift cards sold",
     loyalty: "Loyalty members",
     loyaltySub: (n: number) => `${n} stamps this month`,
+    qrScans: "Printed QR scans (30 days)",
+    qrScansSub: "Make a price list with QR →",
     status: {
       PENDING_PAYMENT: "Awaiting payment",
       CONFIRMED: "Confirmed",
@@ -218,6 +223,8 @@ const TEXT = {
     giftCards: "Myydyt lahjakortit",
     loyalty: "Kanta-asiakkaat",
     loyaltySub: (n: number) => `${n} leimaa tässä kuussa`,
+    qrScans: "Tulostettujen QR-koodien skannaukset (30 pv)",
+    qrScansSub: "Tee hinnasto QR-koodilla →",
     status: {
       PENDING_PAYMENT: "Odottaa maksua",
       CONFIRMED: "Vahvistettu",
@@ -854,7 +861,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
 
       {full && (
         <Card title={L.more} icon={Sparkles}>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {[
               { icon: ShoppingBag, tone: "bg-teal-50 text-teal-700", label: L.orders, value: String(d.extras.ordersMonth), sub: money(d.extras.ordersRevenue), href: "/business/dashboard/orders" },
               { icon: Gift, tone: "bg-berry-50 text-berry-500", label: L.giftCards, value: String(d.extras.giftCardsMonth), sub: money(d.extras.giftCardsRevenue), href: "/business/dashboard/gift-cards" },
@@ -867,6 +874,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
                 sub: d.kpi.viewsChange === null ? "" : `${d.kpi.viewsChange >= 0 ? "+" : ""}${d.kpi.viewsChange}% ${L.vsPrev30}`,
                 href: "/business/dashboard/landing",
               },
+              { icon: QrCode, tone: "bg-mist-100 text-ink-700", label: L.qrScans, value: String(d.extras.qrScans30), sub: L.qrScansSub, href: "/tools/price-list" },
             ].map((x) => (
               <Link
                 key={x.label}

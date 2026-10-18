@@ -107,6 +107,7 @@ model User {
   // Present only when this install happened while signed in — most installs
   // are anonymous (see PwaInstall below).
   pwaInstalls         PwaInstall[]
+  priceListDrafts     PriceListDraft[]
 
   @@index([role])
 }
@@ -317,6 +318,7 @@ model Business {
   productReviews          ProductReview[]
   orders                  Order[]
   pageViews               BusinessPageView[]
+  qrScans                 QrScan[]
 
   @@index([ownerId])
   @@index([status])
@@ -1570,4 +1572,47 @@ model OrderItem {
 
   @@index([orderId])
   @@index([productId])
+}
+
+// A price list made with the free /tools/price-list tool, saved to the
+// maker's account so they can come back and edit it. `data` is the editor's
+// own document (salon info, categories, services, design choices); the logo
+// lives in its own column, same reasoning as BusinessImage — Hostinger's
+// git-based deploy wipes anything written to disk.
+model PriceListDraft {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  data      Json
+  logoData  Bytes?   @db.MediumBlob
+  logoMime  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, updatedAt])
+}
+
+// One visit to a salon's booking page that came from a printed QR code
+// (?utm_source=price_list / qr_poster) — counted for the owner's dashboard.
+model QrScan {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  source     String
+  createdAt  DateTime @default(now())
+
+  @@index([businessId, createdAt])
+}
+
+// Anonymous usage counters for the free marketing tools (opened, downloaded
+// a PDF/PNG, clicked the sign-up call to action) — readable in the admin
+// page without needing Google Analytics set up.
+model ToolEvent {
+  id        String   @id @default(cuid())
+  tool      String
+  event     String
+  createdAt DateTime @default(now())
+
+  @@index([tool, event, createdAt])
 }

@@ -1,3 +1,4 @@
+import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import {
   CalendarDays,
   BellRing,
@@ -415,9 +416,14 @@ export default async function BusinessLandingPage({
                 </span>
               ))}
             </p>
-            <Link href="/salon-check" className="text-sm font-medium text-primary-600 hover:underline">
-              {t.salonCheckCta}
-            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
+              <Link href="/salon-check" className="text-sm font-medium text-primary-600 hover:underline">
+                {t.salonCheckCta}
+              </Link>
+              <Link href="/tools/price-list" className="text-sm font-medium text-primary-600 hover:underline">
+                {priceListNavLabel(locale)} →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

@@ -50,6 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     entry("", 1),
     entry("/salon-check", 0.5),
+    entry("/tools/price-list", 0.7),
     ...categories.map((c) => entry(qs(c.slug), 0.8)),
     ...[...cities].map((city) => entry(qs(undefined, city), 0.7)),
     ...[...pairs].map((p) => {

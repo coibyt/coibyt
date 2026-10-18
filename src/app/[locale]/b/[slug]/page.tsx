@@ -60,12 +60,18 @@ const L = {
   },
 };
 
+// Printed QR codes from the free tools link here with these UTM sources.
+const QR_SOURCES = new Set(["price_list", "qr_poster"]);
+
 export default async function BusinessProfilePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ utm_source?: string }>;
 }) {
   const { locale, slug } = await params;
+  const { utm_source: utmSource } = await searchParams;
   const [t, business, session] = await Promise.all([
     getTranslations("business"),
     prisma.business.findUnique({
@@ -93,6 +99,9 @@ export default async function BusinessProfilePage({
   // Product.viewCount) — kept row-per-visit so the admin analytics page can
   // filter by day/week/month/custom range instead of just a running total.
   await prisma.businessPageView.create({ data: { businessId: business.id } });
+  if (utmSource && QR_SOURCES.has(utmSource)) {
+    await prisma.qrScan.create({ data: { businessId: business.id, source: utmSource } });
+  }
 
   const catNames = await categoryNameMap(locale);
 

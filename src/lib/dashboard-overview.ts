@@ -67,6 +67,7 @@ export async function loadDashboardOverview({
     views30,
     viewsPrev30,
     anyService,
+    qrScans30,
   ] = await Promise.all([
     prisma.booking.findMany({
       where: { businessId, ...staffFilter, startsAt: { gte: sixMonthsStart, lt: nextMonthStart } },
@@ -157,6 +158,7 @@ export async function loadDashboardOverview({
     prisma.businessPageView.count({ where: { businessId, createdAt: { gte: thirtyDaysAgo } } }),
     prisma.businessPageView.count({ where: { businessId, createdAt: { gte: sixtyDaysAgo, lt: thirtyDaysAgo } } }),
     prisma.service.findFirst({ where: { businessId }, select: { currency: true } }),
+    prisma.qrScan.count({ where: { businessId, createdAt: { gte: thirtyDaysAgo } } }),
   ]);
 
   const currency = salonCurrency || anyService?.currency || "EUR";
@@ -279,6 +281,7 @@ export async function loadDashboardOverview({
       giftCardsRevenue: giftCardsMonth.reduce((s, g) => s + g.giftCard.salePriceCents, 0),
       loyaltyCards,
       loyaltyScansMonth,
+      qrScans30,
     },
   };
 }

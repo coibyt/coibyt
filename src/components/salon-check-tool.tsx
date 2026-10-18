@@ -21,6 +21,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import { googleMapsSearchUrl } from "@/lib/salon-check";
 import { OfferCountdown } from "@/components/offer-countdown";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
@@ -868,6 +869,9 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           </div>
           <Link href="/business/apply" className="btn-accent mt-4 inline-flex !px-6 !py-3">
             {t.ctaButton}
+          </Link>
+          <Link href="/tools/price-list" className="mt-3 block text-sm font-semibold text-peach-200 hover:underline">
+            {priceListNavLabel(locale)} →
           </Link>
         </div>
 

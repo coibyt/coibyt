@@ -24,7 +24,8 @@ export default async function AdminPendingPage({
   const startOfTodayUtc = fromZonedTime(todayStr, PLATFORM_TZ);
   const onlineSince = new Date(Date.now() - ONLINE_WINDOW_MS);
 
-  const [businesses, pwaInstallsTotal, pwaInstalls7d, visitorsTodayGroups, visitorsOnlineGroups] = await Promise.all([
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  const [businesses, pwaInstallsTotal, pwaInstalls7d, visitorsTodayGroups, visitorsOnlineGroups, toolEvents] = await Promise.all([
     prisma.business.findMany({
       where: { status: "PENDING" },
       include: { owner: { select: { name: true, email: true } }, categories: { include: { category: true } } },
@@ -34,7 +35,10 @@ export default async function AdminPendingPage({
     prisma.pwaInstall.count({ where: { createdAt: { gte: sevenDaysAgo } } }),
     prisma.siteVisit.groupBy({ by: ["visitorId"], where: { createdAt: { gte: startOfTodayUtc } } }),
     prisma.siteVisit.groupBy({ by: ["visitorId"], where: { createdAt: { gte: onlineSince } } }),
+    prisma.toolEvent.groupBy({ by: ["tool", "event"], where: { createdAt: { gte: thirtyDaysAgo } }, _count: true }),
   ]);
+  const toolCount = (tool: string, event: string) => toolEvents.find((e) => e.tool === tool && e.event === event)?._count ?? 0;
+  const vi = locale === "vi";
 
   return (
     <div>
@@ -59,6 +63,28 @@ export default async function AdminPendingPage({
           label={locale === "vi" ? "Cài đặt 7 ngày qua" : "Installs in last 7 days"}
           value={String(pwaInstalls7d)}
         />
+      </div>
+      <div className="mb-8 rounded-2xl border border-ink-100 bg-white p-4">
+        <h2 className="mb-3 text-sm font-bold text-ink-900">
+          {vi ? "Công cụ bảng giá miễn phí — 30 ngày qua" : "Free price-list tool — last 30 days"}
+        </h2>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
+          {(
+            [
+              ["open", vi ? "Lượt mở" : "Opened"],
+              ["download_pdf", vi ? "Tải PDF" : "PDF downloads"],
+              ["download_png", vi ? "Tải PNG" : "PNG downloads"],
+              ["cta_click", vi ? "Bấm đăng ký" : "Sign-up clicks"],
+              ["translate", vi ? "Dịch AI" : "AI translations"],
+              ["import", vi ? "Nhập từ salon" : "Salon imports"],
+            ] as const
+          ).map(([ev, label]) => (
+            <div key={ev} className="rounded-xl bg-mist-50 px-3 py-2">
+              <p className="text-lg font-bold text-ink-900">{toolCount("price_list", ev)}</p>
+              <p className="text-xs text-ink-400">{label}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <h1 className="mb-4 text-xl font-bold text-ink-900">{t("pendingBusinesses")}</h1>
       {businesses.length === 0 ? (

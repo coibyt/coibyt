@@ -1,0 +1,42 @@
+/** Short link text for the free price-list tool (footer, /business, salon
+ * check) — kept apart from the full tool strings so client components can
+ * import it cheaply. */
+export const PRICE_LIST_NAV_LABEL: Record<string, string> = {
+  ar: "قائمة أسعار مجانية",
+  be: "Бясплатны прайс-ліст",
+  bg: "Безплатен ценоразпис",
+  cs: "Ceník zdarma",
+  da: "Gratis prisliste-værktøj",
+  de: "Kostenlose Preisliste erstellen",
+  en: "Free price list maker",
+  es: "Lista de precios gratis",
+  et: "Tasuta hinnakiri",
+  fi: "Ilmainen hinnastotyökalu",
+  fil: "Libreng listahan ng presyo",
+  fr: "Grille tarifaire gratuite",
+  he: "מחירון בחינם",
+  hi: "मुफ़्त मूल्य सूची",
+  hu: "Ingyenes árlista-készítő",
+  id: "Daftar harga gratis",
+  it: "Listino prezzi gratuito",
+  ja: "無料料金表メーカー",
+  km: "បង្កើតតារាងតម្លៃឥតគិតថ្លៃ",
+  ko: "무료 가격표 만들기",
+  lv: "Bezmaksas cenrādis",
+  ms: "Senarai harga percuma",
+  nl: "Gratis prijslijst maken",
+  no: "Gratis prislisteverktøy",
+  pl: "Darmowy cennik",
+  pt: "Tabela de preços grátis",
+  ro: "Listă de prețuri gratuită",
+  ru: "Бесплатный прайс-лист",
+  sk: "Cenník zadarmo",
+  sv: "Gratis prislisteverktyg",
+  th: "สร้างรายการราคาฟรี",
+  tr: "Ücretsiz fiyat listesi",
+  uk: "Безкоштовний прайс-лист",
+  vi: "Tạo bảng giá miễn phí",
+  zh: "免费价目表制作",
+};
+
+export const priceListNavLabel = (locale: string) => PRICE_LIST_NAV_LABEL[locale] ?? PRICE_LIST_NAV_LABEL.en;

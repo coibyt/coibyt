@@ -1,0 +1,107 @@
+/** Editor UI strings for the price-list tool. `{n}` is replaced at runtime. */
+export interface PriceListUi {
+  sSalon: string;
+  sLanguages: string;
+  sServices: string;
+  sQr: string;
+  sDesign: string;
+  salonName: string;
+  salonNamePh: string;
+  logo: string;
+  logoHint: string;
+  uploadLogo: string;
+  removeLogo: string;
+  address: string;
+  phone: string;
+  currency: string;
+  displayLanguages: string;
+  languagesHint: string;
+  addLanguage: string;
+  mainLanguage: string;
+  autoTranslate: string;
+  autoTranslateHint: string;
+  translating: string;
+  translateDone: string;
+  translateError: string;
+  translateLimit: string;
+  presetCategories: string;
+  customCategory: string;
+  categoryName: string;
+  addService: string;
+  serviceName: string;
+  price: string;
+  priceFrom: string;
+  duration: string;
+  description: string;
+  addDescription: string;
+  remove: string;
+  moveUp: string;
+  moveDown: string;
+  dragHint: string;
+  emptyServices: string;
+  importFromSalon: string;
+  importing: string;
+  importDone: string;
+  importError: string;
+  qrVaraaai: string;
+  qrCustom: string;
+  qrNone: string;
+  qrUrlPh: string;
+  qrInvalid: string;
+  qrPromoTitle: string;
+  qrPromoBody: string;
+  qrPromoCta: string;
+  template: string;
+  tMinimal: string;
+  tLuxury: string;
+  tColorful: string;
+  color: string;
+  format: string;
+  fA4: string;
+  fA5: string;
+  fA3: string;
+  fSquare: string;
+  showFooter: string;
+  footerLocked: string;
+  preview: string;
+  pageOf: string;
+  downloadPdf: string;
+  downloadPng: string;
+  generating: string;
+  pdfError: string;
+  pngPage: string;
+  myLists: string;
+  saveToAccount: string;
+  saved: string;
+  saving: string;
+  newList: string;
+  loginToSave: string;
+  draftRestored: string;
+  deleteList: string;
+  untitled: string;
+  confirmDelete: string;
+  ctaTitle: string;
+  ctaBody: string;
+  ctaButton: string;
+  close: string;
+  editTab: string;
+  previewTab: string;
+  logoTooBig: string;
+  logoBadType: string;
+  tooManyServices: string;
+  servicesCount: string;
+}
+
+export interface PriceListSeo {
+  title: string;
+  description: string;
+  h1: string;
+  intro: string;
+  features: string[];
+  steps: string[];
+}
+
+export interface PriceListStrings {
+  ui: PriceListUi;
+  seo: PriceListSeo;
+}
