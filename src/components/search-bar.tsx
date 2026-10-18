@@ -92,9 +92,9 @@ export function SearchBarHero() {
         e.preventDefault();
         navigate(q, city);
       }}
-      className="card relative flex w-full max-w-2xl flex-col gap-2 p-2 sm:flex-row sm:items-center"
+      className="relative flex w-full max-w-2xl flex-col gap-1 rounded-3xl bg-white p-2 text-left shadow-2xl shadow-primary-900/30 sm:flex-row sm:items-center sm:rounded-full"
     >
-      <div className="relative flex flex-1 items-center gap-2 px-3 py-2">
+      <div className="relative flex flex-1 items-center gap-2 px-3 py-3">
         <Search className="h-5 w-5 shrink-0 text-ink-400" />
         <input
           value={q}
@@ -119,8 +119,8 @@ export function SearchBarHero() {
           />
         )}
       </div>
-      <div className="hidden h-6 w-px bg-ink-100 sm:block" />
-      <div className="flex items-center gap-2 px-3 py-2 sm:w-40">
+      <div className="mx-3 h-px bg-ink-100 sm:mx-0 sm:h-6 sm:w-px" />
+      <div className="flex items-center gap-2 px-3 py-3 sm:w-44">
         <MapPin className="h-5 w-5 shrink-0 text-ink-400" />
         <input
           value={city}
@@ -129,7 +129,7 @@ export function SearchBarHero() {
           className="w-full bg-transparent text-sm outline-none placeholder:text-ink-400"
         />
       </div>
-      <button type="submit" className="btn-accent w-full sm:w-auto">
+      <button type="submit" className="btn-accent w-full !py-3.5 sm:w-auto sm:!px-7">
         {t("searchButton")}
       </button>
     </form>

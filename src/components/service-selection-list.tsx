@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PlayCircle } from "lucide-react";
+import { Check, Clock, PlayCircle } from "lucide-react";
 import { formatMoney } from "@/lib/money";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
@@ -202,33 +202,44 @@ export function ServiceSelectionList({
     return (
       <div
         key={s.id}
-        className={`rounded-2xl border p-4 transition-colors ${
+        className={`rounded-2xl border p-4 transition-colors sm:p-5 ${
           checked.has(s.id)
-            ? "border-primary-500 bg-primary-50"
-            : "border-ink-100 bg-white hover:border-ink-400"
+            ? "border-primary-400 bg-primary-50/70 ring-1 ring-primary-400"
+            : "border-ink-100 bg-white hover:border-primary-200"
         }`}
       >
         <div className="flex items-start justify-between gap-4">
-          <label className="flex flex-1 cursor-pointer items-start gap-3">
+          <label className="flex min-w-0 flex-1 cursor-pointer items-start gap-3">
             <input
               type="checkbox"
-              className="mt-1"
+              className="peer sr-only"
               checked={checked.has(s.id)}
               onChange={() => toggle(s.id)}
             />
-            <span>
-              <span className="block font-semibold text-ink-900">{s.name}</span>
+            <span
+              aria-hidden
+              className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border-2 transition-colors peer-focus-visible:ring-2 peer-focus-visible:ring-primary-400 peer-focus-visible:ring-offset-2 ${
+                checked.has(s.id) ? "border-primary-500 bg-primary-500 text-white" : "border-ink-100 bg-white"
+              }`}
+            >
+              {checked.has(s.id) && <Check className="h-3 w-3" strokeWidth={3} />}
+            </span>
+            <span className="min-w-0">
+              <span className="block font-semibold leading-snug text-ink-900">{s.name}</span>
               {s.description && (
                 <span
-                  className={`mt-0.5 text-sm text-ink-400 ${
-                    checked.has(s.id) ? "block" : "line-clamp-1"
+                  className={`mt-1 text-sm leading-relaxed text-ink-400 ${
+                    checked.has(s.id) ? "block" : "line-clamp-2"
                   }`}
                 >
                   {s.description}
                 </span>
               )}
-              <span className="mt-1 flex items-center gap-2 text-xs text-ink-400">
-                {s.durationMin} {l.min}
+              <span className="mt-2 flex flex-wrap items-center gap-2 text-xs text-ink-700">
+                <span className="inline-flex items-center gap-1 rounded-full bg-mist-100 px-2 py-0.5 font-medium">
+                  <Clock className="h-3 w-3" />
+                  {s.durationMin} {l.min}
+                </span>
                 {embedUrl && (
                   <button
                     type="button"
@@ -237,7 +248,7 @@ export function ServiceSelectionList({
                       e.preventDefault();
                       setPlayingVideoId((prev) => (prev === s.id ? null : s.id));
                     }}
-                    className="flex items-center gap-1 font-medium text-primary-600 hover:underline"
+                    className="flex items-center gap-1 font-semibold text-primary-600 hover:underline"
                   >
                     <PlayCircle className="h-3.5 w-3.5" />
                     {l.watchVideo}
@@ -250,13 +261,13 @@ export function ServiceSelectionList({
               booking step without checking the box first and hunting for the
               sticky "continue" bar — especially useful on a long service
               list where that bar can be many screens below. */}
-          <span className="flex shrink-0 flex-col items-end gap-1.5">
-            <span className="font-semibold text-ink-900">
+          <span className="flex shrink-0 flex-col items-end gap-2">
+            <span className="text-base font-bold text-ink-900">
               {formatMoney(s.priceCents, s.currency, locale)}
             </span>
             <a
               href={buildHref(s.id, otherCheckedIds)}
-              className="btn-primary !px-3 !py-1.5 text-xs whitespace-nowrap"
+              className="btn-primary !px-4 !py-2 text-xs whitespace-nowrap"
             >
               {l.bookNow}
             </a>
@@ -283,8 +294,9 @@ export function ServiceSelectionList({
         {sections.map((section) => (
           <section key={section.key}>
             {section.title && (
-              <h3 className="mb-3 border-b border-ink-100 pb-2 text-base font-bold text-ink-900">
+              <h3 className="mb-3 flex items-baseline gap-2 text-lg font-bold text-ink-900">
                 {section.title}
+                <span className="text-sm font-medium text-ink-400">{section.items.length}</span>
               </h3>
             )}
             <div className="space-y-3">{section.items.map(renderService)}</div>
@@ -293,13 +305,12 @@ export function ServiceSelectionList({
       </div>
 
       {checked.size > 0 && (
-        <div className="sticky bottom-4 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-ink-900 px-5 py-3.5 text-white shadow-popover">
-          <span className="text-sm">
-            {l.selected(checked.size)}
-            {" · "}
-            {formatMoney(total, currency, locale)}
+        <div className="sticky bottom-4 z-10 flex items-center justify-between gap-3 rounded-full bg-primary-800 py-2 pl-5 pr-2 text-white shadow-2xl shadow-primary-900/30">
+          <span className="min-w-0 text-sm">
+            <span className="block truncate font-semibold">{l.selected(checked.size)}</span>
+            <span className="block text-xs text-primary-100">{formatMoney(total, currency, locale)}</span>
           </span>
-          <a href={buildHref(checkedIds[0], checkedIds.slice(1))} className="btn-accent !px-4 !py-2 text-xs">
+          <a href={buildHref(checkedIds[0], checkedIds.slice(1))} className="btn-accent shrink-0 !px-5 !py-2.5 text-sm">
             {l.continue}
           </a>
         </div>

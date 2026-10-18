@@ -17,12 +17,12 @@ export function CategoryCard({
   return (
     <Link
       href={`/search?category=${slug}`}
-      className="card flex flex-col items-center gap-2 px-3 py-5 text-center transition-transform hover:-translate-y-0.5 hover:shadow-popover"
+      className="group flex flex-col items-center gap-3 rounded-3xl border border-ink-100 bg-white px-3 py-6 text-center transition-colors hover:border-primary-200 hover:bg-primary-50"
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-full bg-primary-100 text-primary-500">
-        <Icon className="h-5 w-5" />
+      <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-peach-100 text-primary-600 transition-colors group-hover:bg-white">
+        <Icon className="h-6 w-6" />
       </span>
-      <span className="text-sm font-medium text-ink-900">{name}</span>
+      <span className="text-sm font-semibold text-ink-900">{name}</span>
     </Link>
   );
 }
