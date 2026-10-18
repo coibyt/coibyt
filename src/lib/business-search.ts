@@ -65,13 +65,15 @@ export interface SearchParams {
   q?: string;
   city?: string;
   category?: string;
+  /** ISO country code — only salons in this country (the visitor's own). */
+  country?: string | null;
 }
 
 /** Approved salons matching the query — every word of `q` has to match
  * somewhere (name, description, address, a service, or a category via its
  * synonyms), so "nail helsinki" narrows instead of returning nothing. Results
  * are ranked by how directly they match, then by rating. */
-export async function searchBusinesses({ q, city, category }: SearchParams) {
+export async function searchBusinesses({ q, city, category, country }: SearchParams) {
   const terms = (q ?? "")
     .split(/\s+/)
     .map((t) => t.trim())
@@ -80,6 +82,7 @@ export async function searchBusinesses({ q, city, category }: SearchParams) {
 
   const where: Prisma.BusinessWhereInput = {
     status: "APPROVED",
+    ...(country ? { country } : {}),
     AND: [
       ...(city ? [{ OR: [{ city: { contains: city } }, { addressLine: { contains: city } }] }] : []),
       ...(category ? [{ categories: { some: { category: { slug: category } } } }] : []),
@@ -129,13 +132,25 @@ export async function searchBusinesses({ q, city, category }: SearchParams) {
   }));
 }
 
+/** Countries that have at least one approved salon, most salons first. */
+export async function countriesWithSalons(): Promise<string[]> {
+  const rows = await prisma.business.groupBy({
+    by: ["country"],
+    where: { status: "APPROVED" },
+    _count: true,
+    orderBy: { _count: { country: "desc" } },
+  });
+  return rows.map((r) => r.country);
+}
+
 /** Cities that actually have approved salons — for "browse by city" links. */
-export async function citiesWithSalons(category?: string) {
+export async function citiesWithSalons(category?: string, country?: string | null) {
   const rows = await prisma.business.groupBy({
     by: ["city"],
     where: {
       status: "APPROVED",
       city: { not: null },
+      ...(country ? { country } : {}),
       ...(category ? { categories: { some: { category: { slug: category } } } } : {}),
     },
     _count: true,

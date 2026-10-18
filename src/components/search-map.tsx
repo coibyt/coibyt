@@ -21,13 +21,14 @@ export interface MapBusiness {
   avgRating: number | null;
 }
 
-function priceIcon(label: string) {
+function priceIcon(label: string, active = false) {
   return L.divIcon({
     className: "",
     html: `<div style="
-      background:#0d1718;color:#fff;font-weight:700;font-size:12px;
+      background:${active ? "#ec6a47" : "#0d1718"};color:#fff;font-weight:700;font-size:12px;
       padding:6px 10px;border-radius:999px;white-space:nowrap;
       box-shadow:0 2px 8px rgba(13,23,24,0.25);border:2px solid #fff;
+      transform:scale(${active ? 1.15 : 1});transition:transform .15s;
     ">${label}</div>`,
     iconSize: undefined,
     iconAnchor: [20, 15],
@@ -75,10 +76,17 @@ export function SearchMap({
   businesses,
   locale,
   userLocation = null,
+  activeId = null,
+  onMarkerClick,
+  className = "h-[600px] rounded-2xl border border-ink-100",
 }: {
   businesses: MapBusiness[];
   locale: string;
   userLocation?: [number, number] | null;
+  /** Salon to highlight — e.g. the list card under the mouse. */
+  activeId?: string | null;
+  onMarkerClick?: (id: string) => void;
+  className?: string;
 }) {
   const center: [number, number] =
     userLocation ??
@@ -87,7 +95,8 @@ export function SearchMap({
       : [16.0544, 108.2022]); // Vietnam, roughly central, as a fallback
 
   return (
-    <div className="h-[600px] w-full overflow-hidden rounded-2xl border border-ink-100">
+    // `isolate` keeps Leaflet's z-index 400–1000 panes under the site header.
+    <div className={`isolate w-full overflow-hidden ${className}`}>
       <MapContainer center={center} zoom={12} scrollWheelZoom className="h-full w-full">
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -102,8 +111,11 @@ export function SearchMap({
             icon={priceIcon(
               b.minPriceCents !== null
                 ? formatMoney(b.minPriceCents, b.currency, locale)
-                : "—"
+                : "—",
+              b.id === activeId
             )}
+            zIndexOffset={b.id === activeId ? 1000 : 0}
+            eventHandlers={onMarkerClick ? { click: () => onMarkerClick(b.id) } : undefined}
           >
             <Popup>
               <Link href={`/b/${b.slug}`} className="flex w-48 flex-col gap-1.5">
@@ -125,7 +137,7 @@ export function SearchMap({
                 )}
                 {b.minPriceCents !== null && (
                   <span className="text-xs text-ink-400">
-                    {locale === "vi" ? "Từ " : "From "}
+                    {locale === "vi" ? "Từ " : locale === "fi" ? "Alk. " : "From "}
                     {formatMoney(b.minPriceCents, b.currency, locale)}
                   </span>
                 )}

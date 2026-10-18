@@ -3,17 +3,29 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSession, signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { addDays, format, isSameDay } from "date-fns";
+import {
+  addDays,
+  addMonths,
+  differenceInCalendarDays,
+  endOfMonth,
+  format,
+  isSameDay,
+  isSameMonth,
+  startOfDay,
+  startOfMonth,
+  startOfWeek,
+} from "date-fns";
 import { toZonedTime } from "date-fns-tz";
-import { vi } from "date-fns/locale";
+import { fi, vi } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
 import { SignInForm } from "@/components/guest-booking-auth";
 import { EmbedTopBar } from "@/components/embed-topbar";
 import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { formatMoney } from "@/lib/money";
+import { BOOKING_DAYS_AHEAD } from "@/lib/booking-window";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
-import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users } from "lucide-react";
+import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -76,8 +88,6 @@ export interface BankInfo {
   bankAccountName: string | null;
   bankBic: string | null;
 }
-
-const DAYS_AHEAD = 14;
 
 const WIDGET_LABELS = {
   vi: {
@@ -172,11 +182,18 @@ export function BookingWidget({
     [businessTimezone]
   );
 
-  const days = useMemo(
-    () => Array.from({ length: DAYS_AHEAD }, (_, i) => addDays(todayInBusinessTz, i)),
-    [todayInBusinessTz]
-  );
-  const initialDay = initialDate ? days.find((d) => format(d, "yyyy-MM-dd") === initialDate) : undefined;
+  const firstBookableDay = useMemo(() => startOfDay(todayInBusinessTz), [todayInBusinessTz]);
+  const lastBookableDay = useMemo(() => addDays(firstBookableDay, BOOKING_DAYS_AHEAD - 1), [firstBookableDay]);
+  const initialDay = useMemo(() => {
+    if (!initialDate || !/^\d{4}-\d{2}-\d{2}$/.test(initialDate)) return undefined;
+    const [y, m, d] = initialDate.split("-").map(Number);
+    const day = new Date(y, m - 1, d);
+    // Rejects rollovers like "2026-02-31" as well as out-of-range dates.
+    if (format(day, "yyyy-MM-dd") !== initialDate) return undefined;
+    return day >= firstBookableDay && day <= lastBookableDay ? day : undefined;
+    // Only the first render's preselection matters.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   // Applied once, on the first slot list for the preselected day — after
   // that, the customer's own clicks are in charge.
   const pendingInitialTime = useRef(initialDay && initialTime && /^\d{2}:\d{2}$/.test(initialTime) ? initialTime : null);
@@ -529,30 +546,14 @@ export function BookingWidget({
       )}
 
       <Step n={nextStep()} title={t("selectDate")}>
-        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-          {days.map((d, i) => {
-            const on = isSameDay(d, selectedDate);
-            return (
-              <button
-                key={d.toISOString()}
-                onClick={() => setSelectedDate(d)}
-                className={`flex w-[4.25rem] shrink-0 flex-col items-center rounded-2xl border py-2.5 transition-colors ${
-                  on
-                    ? "border-transparent bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
-                    : "border-ink-100 bg-white text-ink-700 hover:border-primary-200"
-                }`}
-              >
-                <span className={`text-[11px] font-medium ${on ? "text-white/80" : "text-ink-400"}`}>
-                  {i === 0 ? L.today : format(d, "EEE", { locale: locale === "vi" ? vi : undefined })}
-                </span>
-                <span className="text-xl font-bold leading-tight">{format(d, "d")}</span>
-                <span className={`text-[10px] ${on ? "text-white/70" : "text-ink-400"}`}>
-                  {format(d, "MMM", { locale: locale === "vi" ? vi : undefined })}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        <DateCalendar
+          firstDay={firstBookableDay}
+          lastDay={lastBookableDay}
+          selected={selectedDate}
+          onSelect={setSelectedDate}
+          locale={locale}
+          todayLabel={L.today}
+        />
       </Step>
 
       <Step n={nextStep()} title={t("selectTime")}>
@@ -1082,5 +1083,120 @@ function StaffTile({
       <span className="line-clamp-2 w-full text-xs font-semibold leading-tight text-ink-900">{name}</span>
       {price && <span className="text-[11px] text-ink-400">{price}</span>}
     </button>
+  );
+}
+
+const WEEKDAYS: Record<string, string[]> = {
+  vi: ["T2", "T3", "T4", "T5", "T6", "T7", "CN"],
+  fi: ["ma", "ti", "ke", "to", "pe", "la", "su"],
+  en: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+};
+
+/** Month calendar for picking the visit date — arrows step through the
+ * months up to the booking horizon (a year out), so a customer in October can
+ * just as easily book November, December or next spring. Weeks start on
+ * Monday, as in both Vietnam and Finland. */
+function DateCalendar({
+  firstDay,
+  lastDay,
+  selected,
+  onSelect,
+  locale,
+  todayLabel,
+}: {
+  firstDay: Date;
+  lastDay: Date;
+  selected: Date;
+  onSelect: (d: Date) => void;
+  locale: string;
+  todayLabel: string;
+}) {
+  const [month, setMonth] = useState(() => startOfMonth(selected));
+  const firstMonth = startOfMonth(firstDay);
+  const lastMonth = startOfMonth(lastDay);
+  const canPrev = month > firstMonth;
+  const canNext = month < lastMonth;
+
+  const gridStart = startOfWeek(month, { weekStartsOn: 1 });
+  const weeks = Math.ceil((differenceInCalendarDays(endOfMonth(month), gridStart) + 1) / 7);
+  const cells = Array.from({ length: weeks * 7 }, (_, i) => addDays(gridStart, i));
+
+  const monthLabel =
+    locale === "vi"
+      ? `Tháng ${month.getMonth() + 1}, ${month.getFullYear()}`
+      : (() => {
+          const label = format(month, "LLLL yyyy", { locale: locale === "fi" ? fi : undefined });
+          return label.charAt(0).toUpperCase() + label.slice(1);
+        })();
+  const weekdays = WEEKDAYS[locale] ?? WEEKDAYS.en;
+  const navBtn =
+    "flex h-9 w-9 items-center justify-center rounded-full border border-ink-100 text-ink-700 transition-colors hover:border-primary-200 hover:text-primary-700 disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:border-ink-100 disabled:hover:text-ink-700";
+
+  return (
+    <div>
+      <div className="mb-3 flex items-center justify-between gap-2">
+        <button
+          type="button"
+          onClick={() => setMonth((m) => addMonths(m, -1))}
+          disabled={!canPrev}
+          aria-label={locale === "vi" ? "Tháng trước" : locale === "fi" ? "Edellinen kuukausi" : "Previous month"}
+          className={navBtn}
+        >
+          <ChevronLeft className="h-4 w-4" />
+        </button>
+        <p className="text-sm font-bold text-ink-900" aria-live="polite">
+          {monthLabel}
+        </p>
+        <button
+          type="button"
+          onClick={() => setMonth((m) => addMonths(m, 1))}
+          disabled={!canNext}
+          aria-label={locale === "vi" ? "Tháng sau" : locale === "fi" ? "Seuraava kuukausi" : "Next month"}
+          className={navBtn}
+        >
+          <ChevronRight className="h-4 w-4" />
+        </button>
+      </div>
+
+      <div className="grid grid-cols-7 gap-1 text-center">
+        {weekdays.map((w) => (
+          <span key={w} className="pb-1 text-[11px] font-semibold uppercase tracking-wide text-ink-400">
+            {w}
+          </span>
+        ))}
+        {cells.map((d) => {
+          if (!isSameMonth(d, month)) return <span key={d.toISOString()} />;
+          const disabled = d < firstDay || d > lastDay;
+          const on = isSameDay(d, selected);
+          const isToday = isSameDay(d, firstDay);
+          return (
+            <button
+              key={d.toISOString()}
+              type="button"
+              disabled={disabled}
+              onClick={() => onSelect(d)}
+              aria-pressed={on}
+              aria-label={`${format(d, "yyyy-MM-dd")}${isToday ? ` (${todayLabel})` : ""}`}
+              className={`relative mx-auto flex h-10 w-full max-w-[2.75rem] items-center justify-center rounded-xl text-sm font-semibold transition-colors ${
+                on
+                  ? "bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
+                  : disabled
+                    ? "cursor-not-allowed text-ink-400/40"
+                    : isToday
+                      ? "bg-primary-50 text-primary-700 hover:bg-primary-100"
+                      : "text-ink-900 hover:bg-mist-100"
+              }`}
+            >
+              {format(d, "d")}
+              {isToday && (
+                <span
+                  className={`absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full ${on ? "bg-white" : "bg-primary-500"}`}
+                />
+              )}
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }

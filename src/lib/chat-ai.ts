@@ -3,12 +3,14 @@ import { formatInTimeZone, toZonedTime } from "date-fns-tz";
 import { prisma } from "@/lib/prisma";
 import { runGeminiWithTools, type GeminiToolDeclaration } from "@/lib/gemini";
 import { getAvailableSlots } from "@/lib/availability";
+import { BOOKING_DAYS_AHEAD } from "@/lib/booking-window";
 import { formatBookingToken, parseBookingTokens, type BookingOffer } from "@/lib/chat-booking-token";
 
 const AI_ASSISTANT_EMAIL = "ai-assistant@system.varaaai.com";
-// Matches the booking page's own date strip (BookingWidget DAYS_AHEAD), so
-// every date the AI can offer is one the customer can actually land on.
-const BOOKABLE_DAYS = 14;
+// The next two weeks are spelled out in the prompt so the model can turn
+// "tomorrow" or "Friday" into a date; anything later (up to the booking
+// page's own horizon) it can still check when the customer names a date.
+const LISTED_DAYS = 14;
 
 const TOOLS: GeminiToolDeclaration[] = [
   {
@@ -19,7 +21,7 @@ const TOOLS: GeminiToolDeclaration[] = [
       type: "OBJECT",
       properties: {
         service: { type: "STRING", description: "The service ref from the list, e.g. S3" },
-        date: { type: "STRING", description: "Date as YYYY-MM-DD, within the bookable dates listed" },
+        date: { type: "STRING", description: "Date as YYYY-MM-DD, within the bookable range given in the instructions" },
       },
       required: ["service", "date"],
     },
@@ -110,10 +112,11 @@ export async function generateChatReply(params: {
   // booking page's date strip), so a DST change or a late-night server clock
   // can't skip or repeat a day.
   const todayInTz = toZonedTime(new Date(), tz);
-  const bookableDates = Array.from({ length: BOOKABLE_DAYS }, (_, i) =>
-    format(addDays(todayInTz, i), "yyyy-MM-dd EEE")
-  );
-  const bookableDateSet = new Set(bookableDates.map((d) => d.slice(0, 10)));
+  const listedDates = Array.from({ length: LISTED_DAYS }, (_, i) => format(addDays(todayInTz, i), "yyyy-MM-dd EEE"));
+  const firstDate = format(todayInTz, "yyyy-MM-dd");
+  const lastDate = format(addDays(todayInTz, BOOKING_DAYS_AHEAD - 1), "yyyy-MM-dd");
+  // "yyyy-MM-dd" strings compare correctly as plain strings.
+  const isBookableDate = (d: string) => /^\d{4}-\d{2}-\d{2}$/.test(d) && d >= firstDate && d <= lastDate;
 
   async function freeTimes(serviceId: string, date: string): Promise<string[]> {
     const slots = await getAvailableSlots({ businessId: params.businessId, serviceId, dateStr: date });
@@ -129,8 +132,8 @@ export async function generateChatReply(params: {
     const service = serviceByRef.get(String(args.service ?? "").trim().toUpperCase());
     if (!service) return { error: "Unknown service ref — use one of the S-refs from the services list." };
     const date = String(args.date ?? "").trim();
-    if (!bookableDateSet.has(date)) {
-      return { error: `Date must be one of the bookable dates (${bookableDates[0]} to ${bookableDates[BOOKABLE_DAYS - 1]}).` };
+    if (!isBookableDate(date)) {
+      return { error: `Date must be a yyyy-MM-dd date from ${firstDate} to ${lastDate}.` };
     }
     const times = await freeTimes(service.id, date);
 
@@ -169,7 +172,7 @@ BOOKING — when the customer wants an appointment:
 3. Call check_availability for that service and day. Never guess or promise a time without checking.
 4. If their time is free, call offer_booking_link with it. If not, suggest 2-3 of the closest free times (or another day) and wait for them to pick, then call offer_booking_link.
 5. After offer_booking_link succeeds, tell them to tap the booking button below this message to fill in their details and confirm (describe it in their language — don't quote an English label). Never say the appointment is booked or confirmed — it isn't until they do that.
-Today is ${bookableDates[0]} (${tz} time). Bookable dates (only these): ${bookableDates.join(", ")}. Convert "tomorrow", weekdays, etc. using this list.
+Today is ${listedDates[0]} (${tz} time). The next two weeks: ${listedDates.join(", ")}. Convert "tomorrow", weekdays, etc. using this list. Customers can book any date from ${firstDate} to ${lastDate} (e.g. next month or next year) — for later dates, work out the yyyy-MM-dd yourself.
 
 Services (refs are for tools only — never show "S1" etc. to the customer):
 ${serviceLines}

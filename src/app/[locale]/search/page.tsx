@@ -3,13 +3,14 @@ import { prisma } from "@/lib/prisma";
 import { Link } from "@/i18n/navigation";
 import { SearchBarHero } from "@/components/search-bar";
 import { SearchResults } from "@/components/search-results";
-import { searchBusinesses, citiesWithSalons } from "@/lib/business-search";
+import { searchBusinesses, citiesWithSalons, countriesWithSalons } from "@/lib/business-search";
+import { visitorCountry } from "@/lib/visitor-country";
 import { searchSeo } from "@/lib/search-seo";
 import { categoryName } from "@/lib/category-names";
 import { formatMoney } from "@/lib/money";
 
 type Params = Promise<{ locale: string }>;
-type SearchQuery = Promise<{ q?: string; city?: string; category?: string }>;
+type SearchQuery = Promise<{ q?: string; city?: string; category?: string; country?: string }>;
 
 const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
@@ -17,21 +18,34 @@ function localePrefix(locale: string) {
   return locale === "vi" ? "" : `/${locale}`;
 }
 
-function searchHref(params: { category?: string | null; city?: string | null }) {
+function searchHref(params: { category?: string | null; city?: string | null; country?: string | null }) {
   const qs = new URLSearchParams();
   if (params.category) qs.set("category", params.category);
   if (params.city) qs.set("city", params.city);
+  if (params.country) qs.set("country", params.country);
   const s = qs.toString();
   return `/search${s ? `?${s}` : ""}`;
+}
+
+/** Which country's salons to show: one the visitor picked (?country=), else
+ * the country they're in. Null — show every country — when that country has
+ * no salons at all (or can't be told), since an empty page helps nobody. */
+async function resolveCountry(sp: Awaited<SearchQuery>) {
+  const [available, detected] = await Promise.all([countriesWithSalons(), visitorCountry()]);
+  const picked = sp.country?.trim().toUpperCase() || null;
+  const chosen = picked && available.includes(picked) ? picked : null;
+  const country = chosen ?? (detected && available.includes(detected) ? detected : null);
+  return { country, chosen, available };
 }
 
 async function loadPage(locale: string, sp: Awaited<SearchQuery>) {
   const q = sp.q?.trim() || null;
   const city = sp.city?.trim() || null;
   const categorySlug = sp.category?.trim() || null;
+  const { country, chosen, available } = await resolveCountry(sp);
   const [category, results] = await Promise.all([
     categorySlug ? prisma.category.findUnique({ where: { slug: categorySlug } }) : null,
-    searchBusinesses({ q: q ?? undefined, city: city ?? undefined, category: categorySlug ?? undefined }),
+    searchBusinesses({ q: q ?? undefined, city: city ?? undefined, category: categorySlug ?? undefined, country }),
   ]);
   const priced = results.filter((r) => r.minPriceCents !== null);
   const cheapest = priced.sort((a, b) => a.minPriceCents! - b.minPriceCents!)[0];
@@ -44,7 +58,7 @@ async function loadPage(locale: string, sp: Awaited<SearchQuery>) {
     resultCount: results.length,
     fromPrice: cheapest ? formatMoney(cheapest.minPriceCents!, cheapest.currency, locale) : null,
   });
-  return { q, city, category, results, seo };
+  return { q, city, category, results, seo, country, chosen, available };
 }
 
 export async function generateMetadata({
@@ -78,11 +92,13 @@ export async function generateMetadata({
 export default async function SearchPage({ params, searchParams }: { params: Params; searchParams: SearchQuery }) {
   const { locale } = await params;
   const sp = await searchParams;
-  const { q, city, category, results, seo } = await loadPage(locale, sp);
+  const { q, city, category, results, seo, country, chosen, available } = await loadPage(locale, sp);
   const [allCategories, cities] = await Promise.all([
     prisma.category.findMany({ orderBy: { createdAt: "asc" } }),
-    citiesWithSalons(category?.slug),
+    citiesWithSalons(category?.slug, country),
   ]);
+  const regionNames = new Intl.DisplayNames([locale === "vi" ? "vi" : locale === "fi" ? "fi" : "en"], { type: "region" });
+  const countries = available.map((code) => ({ code, name: regionNames.of(code) ?? code }));
   const vi = locale === "vi";
   const prefix = localePrefix(locale);
 
@@ -150,7 +166,7 @@ export default async function SearchPage({ params, searchParams }: { params: Par
       <div className="container py-6">
         <div className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1">
           <Link
-            href={searchHref({ city })}
+            href={searchHref({ city, country: chosen })}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
               !category ? "bg-primary-600 text-white shadow" : "border border-ink-100 bg-white text-ink-700 hover:border-primary-200"
             }`}
@@ -160,7 +176,7 @@ export default async function SearchPage({ params, searchParams }: { params: Par
           {allCategories.map((c) => (
             <Link
               key={c.id}
-              href={searchHref({ category: c.slug, city })}
+              href={searchHref({ category: c.slug, city, country: chosen })}
               className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                 category?.slug === c.slug
                   ? "bg-primary-600 text-white shadow"
@@ -172,9 +188,20 @@ export default async function SearchPage({ params, searchParams }: { params: Par
           ))}
         </div>
 
-        <div className="mt-6">
-          <SearchResults businesses={results} locale={locale} />
-        </div>
+      </div>
+
+      {/* Wider than the text container, so the desktop list + map get room. */}
+      <div className="mx-auto mt-2 w-full max-w-[1600px] px-4 lg:px-6">
+        <SearchResults
+          businesses={results}
+          locale={locale}
+          country={country}
+          countryChosen={!!chosen}
+          countries={countries}
+        />
+      </div>
+
+      <div className="container pb-10">
 
         <section className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
           <div className="rounded-[28px] border border-ink-100 bg-white p-6 sm:p-8">
@@ -214,7 +241,7 @@ export default async function SearchPage({ params, searchParams }: { params: Par
                   {cities.map((c) => (
                     <Link
                       key={c}
-                      href={searchHref({ category: category?.slug, city: c })}
+                      href={searchHref({ category: category?.slug, city: c, country: chosen })}
                       className={`rounded-full px-3 py-1.5 text-sm transition-colors ${
                         c === city ? "bg-primary-50 font-semibold text-primary-700" : "bg-mist-100 text-ink-700 hover:bg-primary-50"
                       }`}
@@ -235,7 +262,7 @@ export default async function SearchPage({ params, searchParams }: { params: Par
                   .slice(0, 6)
                   .map((c) => (
                     <li key={c.id}>
-                      <Link href={searchHref({ category: c.slug, city })} className="text-primary-700 hover:underline">
+                      <Link href={searchHref({ category: c.slug, city, country: chosen })} className="text-primary-700 hover:underline">
                         {categoryName(locale, c)}
                         {city ? (vi ? ` tại ${city}` : locale === "fi" ? ` – ${city}` : ` in ${city}`) : ""}
                       </Link>

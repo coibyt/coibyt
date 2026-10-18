@@ -12,6 +12,18 @@ export function getCachedCountry(): string | null {
   }
 }
 
+/** Mirrors the country into a cookie (same name as the localStorage key) so
+ * server-rendered pages — search results — can filter by it too. Returns
+ * true when the cookie actually changed. */
+export function rememberCountryCookie(countryCode: string): boolean {
+  if (typeof document === "undefined") return false;
+  const code = countryCode.toUpperCase();
+  const current = document.cookie.match(new RegExp(`(?:^|; )${STORAGE_KEY}=([^;]*)`))?.[1];
+  if (current === code) return false;
+  document.cookie = `${STORAGE_KEY}=${code}; path=/; max-age=${60 * 60 * 24 * 180}; samesite=lax`;
+  return true;
+}
+
 /** Asks the browser for the visitor's location (the same permission prompt
  * used across the site for "find near me") and resolves it to an ISO
  * 3166-1 alpha-2 country code via /api/geolocate. Resolves to null on
@@ -33,6 +45,7 @@ export function detectCountry(): Promise<string | null> {
           if (countryCode) {
             try {
               localStorage.setItem(STORAGE_KEY, countryCode);
+              rememberCountryCookie(countryCode);
             } catch {
               // Private browsing/blocked storage — just skip caching.
             }

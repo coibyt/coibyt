@@ -39,8 +39,6 @@ const WEEKDAYS_FI = ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torsta
 const L = {
   vi: {
     book: "Đặt lịch",
-    openNow: "Đang mở cửa",
-    closedNow: "Đang đóng cửa",
     closed: "Đóng cửa",
     today: "Hôm nay",
     reviewsCount: (n: number) => `${n} đánh giá`,
@@ -48,8 +46,6 @@ const L = {
   },
   en: {
     book: "Book now",
-    openNow: "Open now",
-    closedNow: "Closed now",
     closed: "Closed",
     today: "Today",
     reviewsCount: (n: number) => `${n} review${n === 1 ? "" : "s"}`,
@@ -57,8 +53,6 @@ const L = {
   },
   fi: {
     book: "Varaa aika",
-    openNow: "Avoinna nyt",
-    closedNow: "Suljettu nyt",
     closed: "Suljettu",
     today: "Tänään",
     reviewsCount: (n: number) => `${n} arvostelua`,
@@ -126,12 +120,8 @@ export default async function BusinessProfilePage({
 
   const weekdayLabels = locale === "vi" ? WEEKDAYS_VI : locale === "fi" ? WEEKDAYS_FI : WEEKDAYS_EN;
   const hoursByDay = new Map(business.hours.map((h) => [h.weekday, h]));
-  // "Open now" in the salon's own timezone, not the server's or visitor's.
-  const salonNow = toZonedTime(new Date(), business.timezone);
-  const todayIdx = salonNow.getDay();
-  const nowMinute = salonNow.getHours() * 60 + salonNow.getMinutes();
-  const todayHours = hoursByDay.get(todayIdx);
-  const isOpenNow = !!todayHours && nowMinute >= todayHours.openMinute && nowMinute < todayHours.closeMinute;
+  // "Today" in the salon's own timezone, not the server's or visitor's.
+  const todayIdx = toZonedTime(new Date(), business.timezone).getDay();
   const hasHours = business.hours.length > 0;
 
   const socialLinks = [
@@ -198,17 +188,6 @@ export default async function BusinessProfilePage({
                   <span className="rounded-full bg-primary-50 px-3 py-1.5 font-medium text-primary-700">
                     {categoryName(locale, business.categories[0].category)}
                   </span>
-                )}
-                {hasHours && (
-                  <a
-                    href="#hours"
-                    className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-medium ${
-                      isOpenNow ? "bg-teal-50 text-teal-700" : "bg-mist-100 text-ink-700"
-                    }`}
-                  >
-                    <span className={`h-2 w-2 rounded-full ${isOpenNow ? "bg-teal-500" : "bg-ink-400"}`} />
-                    {isOpenNow ? l.openNow : l.closedNow}
-                  </a>
                 )}
               </div>
 
@@ -357,18 +336,9 @@ export default async function BusinessProfilePage({
           <aside className="lg:sticky lg:top-24 lg:self-start">
             {hasHours && (
               <div id="hours" className="scroll-mt-24 rounded-[28px] border border-ink-100 bg-white p-5 sm:p-6">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <h3 className="flex items-center gap-2 font-bold text-ink-900">
-                    <Clock className="h-4 w-4 text-primary-500" /> {t("hours")}
-                  </h3>
-                  <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-semibold ${
-                      isOpenNow ? "bg-teal-50 text-teal-700" : "bg-mist-100 text-ink-700"
-                    }`}
-                  >
-                    {isOpenNow ? l.openNow : l.closedNow}
-                  </span>
-                </div>
+                <h3 className="mb-4 flex items-center gap-2 font-bold text-ink-900">
+                  <Clock className="h-4 w-4 text-primary-500" /> {t("hours")}
+                </h3>
                 <ul className="space-y-1 text-sm">
                   {[1, 2, 3, 4, 5, 6, 0].map((idx) => {
                     const h = hoursByDay.get(idx);
