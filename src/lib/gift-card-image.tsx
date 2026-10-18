@@ -96,6 +96,26 @@ export async function loadGiftCardDesign(
   };
 }
 
+/** Same as loadGiftCardDesign, looked up by the card's own code — for the
+ * public image URL that the gift card email points at. */
+export async function loadGiftCardDesignByCode(code: string, locale: string) {
+  const purchase = await prisma.giftCardPurchase.findUnique({
+    where: { code },
+    select: { id: true, businessId: true, status: true },
+  });
+  if (!purchase || purchase.status === "CANCELLED") return null;
+  return loadGiftCardDesign(purchase.id, purchase.businessId, locale);
+}
+
+/** Public URL of the card image. Email clients (Gmail's app especially)
+ * don't reliably show inline "cid:" attachments, but they all load a normal
+ * https image — the code in the URL is no more secret than the code printed
+ * in the same email. */
+export function giftCardImageUrl(code: string, locale: string) {
+  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+  return `${site}/api/gift-card-image/${encodeURIComponent(code)}.png?l=${cardLocale(locale)}`;
+}
+
 export async function renderGiftCardPng(props: GiftCardDesignProps): Promise<Buffer> {
   const fonts = await loadFonts();
   const image = new ImageResponse(<GiftCardDesign {...props} />, {
@@ -113,6 +133,7 @@ const EMAIL_TEXT = {
     intro: (salon: string) => `${salon} gửi tặng bạn thẻ quà tặng dưới đây.`,
     howTo: "Khi đến salon, chỉ cần đưa mã QR hoặc mã thẻ này cho nhân viên.",
     attached: "Ảnh thẻ cũng được đính kèm trong email để bạn lưu lại.",
+    alt: (salon: string) => `Thẻ quà tặng ${salon}`,
   },
   en: {
     subject: (salon: string) => `You've received a gift card from ${salon}`,
@@ -120,6 +141,7 @@ const EMAIL_TEXT = {
     intro: (salon: string) => `${salon} has sent you the gift card below.`,
     howTo: "When you visit the salon, just show this QR code or card code to the staff.",
     attached: "The card image is also attached so you can keep it.",
+    alt: (salon: string) => `${salon} gift card`,
   },
   fi: {
     subject: (salon: string) => `Sait lahjakortin: ${salon}`,
@@ -127,11 +149,12 @@ const EMAIL_TEXT = {
     intro: (salon: string) => `${salon} lähetti sinulle alla olevan lahjakortin.`,
     howTo: "Näytä tämä QR-koodi tai korttikoodi salongissa käynnin yhteydessä.",
     attached: "Kortin kuva on myös liitteenä, jotta voit tallentaa sen.",
+    alt: (salon: string) => `${salon} lahjakortti`,
   },
 };
 
-/** Renders the card and emails it to the recipient — inline in the body and
- * as an attachment. Throws on render or SMTP failure so the caller can tell
+/** Renders the card and emails it to the recipient — shown in the body (via
+ * its public image URL) and attached as a file. Throws on render or SMTP failure so the caller can tell
  * the owner the card was created but not sent. */
 export async function emailGiftCard(purchaseId: string, businessId: string, locale: string) {
   const design = await loadGiftCardDesign(purchaseId, businessId, locale);
@@ -148,13 +171,14 @@ export async function emailGiftCard(purchaseId: string, businessId: string, loca
       <div style="font-family:sans-serif;max-width:640px;margin:auto;color:#25302f">
         <p>${t.hi} ${esc(design.recipientName)},</p>
         <p>${t.intro(esc(design.salonName))}</p>
-        <p style="margin:24px 0"><img src="cid:giftcard" alt="Gift card" width="600" style="width:100%;max-width:600px;border-radius:24px" /></p>
+        <p style="margin:24px 0"><img src="${giftCardImageUrl(design.code, locale)}" alt="${esc(t.alt(design.salonName))}" width="600" style="display:block;width:100%;max-width:600px;height:auto;border-radius:24px;border:0" /></p>
         <p>${t.howTo}</p>
         <p style="font-size:20px;font-weight:700;letter-spacing:3px;color:#40325c">${esc(design.code)}</p>
         <p style="color:#5b6b6c;font-size:13px">${t.attached}</p>
         <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
       </div>
     `,
-    attachments: [{ filename: `gift-card-${design.code}.png`, content: png, cid: "giftcard", contentType: "image/png" }],
+    // A plain attachment (no cid) so it shows up as a file to save.
+    attachments: [{ filename: `gift-card-${design.code}.png`, content: png, contentType: "image/png" }],
   });
 }
