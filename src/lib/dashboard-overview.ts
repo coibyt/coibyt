@@ -16,10 +16,15 @@ function pctChange(current: number, previous: number): number | null {
 export async function loadDashboardOverview({
   businessId,
   timezone,
+  currency: salonCurrency,
   staffId,
 }: {
   businessId: string;
   timezone: string;
+  /** The currency the salon chose in its settings — prices are entered in
+   * it, so every total is shown in it too (an old booking may still carry a
+   * different currency code from before the salon switched). */
+  currency: string;
   staffId?: string;
 }) {
   const tz = timezone;
@@ -154,7 +159,7 @@ export async function loadDashboardOverview({
     prisma.service.findFirst({ where: { businessId }, select: { currency: true } }),
   ]);
 
-  const currency = history[0]?.currency ?? upcoming[0]?.currency ?? anyService?.currency ?? "EUR";
+  const currency = salonCurrency || anyService?.currency || "EUR";
   const earning = (s: Status) => s === "CONFIRMED" || s === "COMPLETED";
   const inRange = (d: Date, from: Date, to: Date) => d >= from && d < to;
 

@@ -250,7 +250,7 @@ function Card({
   className?: string;
 }) {
   return (
-    <section className={`rounded-[24px] border border-ink-100 bg-white p-5 shadow-sm shadow-primary-900/[0.03] sm:p-6 ${className}`}>
+    <section className={`min-w-0 rounded-[24px] border border-ink-100 bg-white p-5 shadow-sm shadow-primary-900/[0.03] sm:p-6 ${className}`}>
       <div className="mb-4 flex items-center justify-between gap-3">
         <h2 className="flex items-center gap-2 text-base font-bold text-ink-900">
           {Icon && (
@@ -317,7 +317,7 @@ function Kpi({
     </>
   );
   const cls =
-    "block rounded-[24px] border border-ink-100 bg-white p-4 shadow-sm shadow-primary-900/[0.03] transition-all sm:p-5";
+    "block min-w-0 rounded-[24px] border border-ink-100 bg-white p-4 shadow-sm shadow-primary-900/[0.03] transition-all sm:p-5";
   return href ? (
     <Link href={href} className={`${cls} hover:-translate-y-0.5 hover:border-primary-200 hover:shadow-md`}>
       {body}
@@ -351,7 +351,12 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
 
   const [session, d] = await Promise.all([
     auth(),
-    loadDashboardOverview({ businessId: business.id, timezone: business.timezone, staffId: ownOnly }),
+    loadDashboardOverview({
+      businessId: business.id,
+      timezone: business.timezone,
+      currency: business.defaultCurrency,
+      staffId: ownOnly,
+    }),
   ]);
 
   const L = TEXT[locale as keyof typeof TEXT] ?? TEXT.en;
@@ -426,7 +431,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
             </Link>
             <Link
               href="/business/dashboard/messages"
-              className="relative inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2.5 text-sm font-semibold ring-1 ring-white/20 transition-colors hover:bg-white/20"
+              className="relative inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2.5 text-sm font-semibold ring-1 ring-white/20 transition-colors hover:bg-white/20"
             >
               <MessageCircle className="h-4 w-4" /> {L.messages}
               {d.attention.unreadMessages > 0 && (
@@ -517,12 +522,12 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
       )}
 
       {/* Today + attention */}
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
         <Card
           title={L.todaySchedule}
           icon={Clock}
           action={
-            <Link href="/business/dashboard/bookings" className="inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:underline">
+            <Link href="/business/dashboard/bookings" className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-primary-700 hover:underline">
               {L.viewAll} <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           }
@@ -588,7 +593,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
           )}
         </Card>
 
-        <div className="space-y-6">
+        <div className="min-w-0 space-y-6">
           <Card title={L.attention} icon={Inbox}>
             {attention.length === 0 ? (
               <p className="flex items-center gap-2 rounded-2xl bg-teal-50 px-4 py-3 text-sm font-medium text-teal-700">
@@ -638,7 +643,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
       {full && (
         <>
           {/* Revenue + outcomes */}
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
             <Card title={L.revenue6} icon={Wallet}>
               <div className="flex h-56 items-end gap-3 sm:gap-5">
                 {d.months.map((m, i) => {
@@ -696,12 +701,12 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
           </div>
 
           {/* Services + staff */}
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <Card
               title={L.topServices}
               icon={Scissors}
               action={
-                <Link href="/business/dashboard/services" className="inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:underline">
+                <Link href="/business/dashboard/services" className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-primary-700 hover:underline">
                   {L.viewAll} <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               }
@@ -717,7 +722,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
                           <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-mist-100 text-[11px] font-bold text-ink-700">
                             {i + 1}
                           </span>
-                          <span className="truncate font-medium text-ink-900">{s.name}</span>
+                          <span className="line-clamp-2 font-medium leading-snug text-ink-900">{s.name}</span>
                         </span>
                         <span className="shrink-0 text-right">
                           <span className="font-bold text-ink-900">{money(s.revenueCents)}</span>
@@ -738,7 +743,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
               icon={Users}
               action={
                 access.isOwner ? (
-                  <Link href="/business/dashboard/staff" className="inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:underline">
+                  <Link href="/business/dashboard/staff" className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-primary-700 hover:underline">
                     {L.viewAll} <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 ) : null
@@ -775,7 +780,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
       )}
 
       {/* Recent bookings + reviews */}
-      <div className={`grid gap-6 ${full ? "lg:grid-cols-2" : ""}`}>
+      <div className={`grid grid-cols-1 gap-6 ${full ? "lg:grid-cols-2" : ""}`}>
         <Card title={L.recent} icon={CalendarCheck}>
           {d.recentlyBooked.length === 0 ? (
             <p className="text-sm text-ink-400">{L.noData}</p>
@@ -814,7 +819,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
             title={L.reviews}
             icon={Star}
             action={
-              <Link href="/business/dashboard/reviews" className="inline-flex items-center gap-1 text-xs font-semibold text-primary-700 hover:underline">
+              <Link href="/business/dashboard/reviews" className="inline-flex shrink-0 items-center gap-1 whitespace-nowrap text-xs font-semibold text-primary-700 hover:underline">
                 {L.viewAll} <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             }
@@ -849,7 +854,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
 
       {full && (
         <Card title={L.more} icon={Sparkles}>
-          <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {[
               { icon: ShoppingBag, tone: "bg-teal-50 text-teal-700", label: L.orders, value: String(d.extras.ordersMonth), sub: money(d.extras.ordersRevenue), href: "/business/dashboard/orders" },
               { icon: Gift, tone: "bg-berry-50 text-berry-500", label: L.giftCards, value: String(d.extras.giftCardsMonth), sub: money(d.extras.giftCardsRevenue), href: "/business/dashboard/gift-cards" },
