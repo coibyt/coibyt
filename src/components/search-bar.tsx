@@ -17,8 +17,8 @@ function useSearchNavigate() {
   const router = useRouter();
   const navigate = (q: string, city: string) => {
     const params = new URLSearchParams();
-    if (q) params.set("q", q);
-    if (city) params.set("city", city);
+    if (q.trim()) params.set("q", q.trim());
+    if (city.trim()) params.set("city", city.trim());
     router.push(`/search?${params.toString()}`);
   };
   const goToCategory = (slug: string) => router.push(`/search?category=${slug}`);
@@ -77,11 +77,11 @@ function SuggestionDropdown({
 }
 
 /** Big hero search bar used on the homepage. */
-export function SearchBarHero() {
+export function SearchBarHero({ initialQ = "", initialCity = "" }: { initialQ?: string; initialCity?: string } = {}) {
   const t = useTranslations("home");
   const locale = useLocale();
-  const [q, setQ] = useState("");
-  const [city, setCity] = useState("");
+  const [q, setQ] = useState(initialQ);
+  const [city, setCity] = useState(initialCity);
   const [open, setOpen] = useState(false);
   const { navigate, goToCategory } = useSearchNavigate();
   const { categories, ensureLoaded } = useCategorySuggestions();
