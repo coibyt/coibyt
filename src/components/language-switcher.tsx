@@ -45,7 +45,7 @@ const LOCALE_LABELS: Record<string, string> = {
  * locale from `?locale=` rather than the URL path (the /embed booking flow
  * and the /site public website) — rewrites just that one query param and
  * keeps everything else (chain, extra, etc.) intact. */
-export function LanguageSwitcher({ locale }: { locale: string }) {
+export function LanguageSwitcher({ locale, className }: { locale: string; className?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -61,7 +61,7 @@ export function LanguageSwitcher({ locale }: { locale: string }) {
       value={locale}
       onChange={(e) => onChange(e.target.value)}
       aria-label="Language"
-      className="rounded-lg border border-ink-100 bg-white px-2 py-1.5 text-xs text-ink-700"
+      className={className ?? "rounded-lg border border-ink-100 bg-white px-2 py-1.5 text-xs text-ink-700"}
     >
       {routing.locales.map((l) => (
         <option key={l} value={l}>

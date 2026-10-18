@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Clock, PlayCircle } from "lucide-react";
+import { Check, Clock, PlayCircle, Search, X } from "lucide-react";
 import { formatMoney } from "@/lib/money";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
 
@@ -102,6 +102,12 @@ const LABELS: Record<
   },
 };
 
+const FINDER: Record<string, { search: string; noResults: string; clear: string }> = {
+  vi: { search: "Tìm dịch vụ…", noResults: "Không tìm thấy dịch vụ phù hợp.", clear: "Xoá" },
+  en: { search: "Search services…", noResults: "No matching services.", clear: "Clear" },
+  fi: { search: "Hae palvelua…", noResults: "Ei hakua vastaavia palveluita.", clear: "Tyhjennä" },
+};
+
 /** Lets a customer check off several services (e.g. a manicure and a
  * pedicure) to book together in one visit, matching Timma's "select
  * multiple, then continue" flow instead of one "book now" button per row.
@@ -113,6 +119,7 @@ export function ServiceSelectionList({
   locale,
   bookBasePath,
   extraQueryParams,
+  showFinder = false,
 }: {
   services: SelectableService[];
   /** The salon's groups in display order. Services whose group isn't listed
@@ -124,10 +131,14 @@ export function ServiceSelectionList({
    * a callback: functions can't cross the server/client component boundary. */
   bookBasePath: string;
   extraQueryParams?: Record<string, string>;
+  /** Search box + category shortcuts above long menus (the embed flow). */
+  showFinder?: boolean;
 }) {
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
   const l = LABELS[locale] ?? LABELS.en;
+  const f = FINDER[locale] ?? FINDER.en;
 
   function buildHref(serviceId: string, extraServiceIds: string[]) {
     const params = new URLSearchParams(extraQueryParams);
@@ -288,11 +299,68 @@ export function ServiceSelectionList({
     );
   }
 
+  const q = query.trim().toLowerCase();
+  const visibleSections = q
+    ? sections
+        .map((section) => ({
+          ...section,
+          items: section.items.filter(
+            (s) => s.name.toLowerCase().includes(q) || (s.description ?? "").toLowerCase().includes(q)
+          ),
+        }))
+        .filter((section) => section.items.length > 0)
+    : sections;
+  const finder = showFinder && services.length > 5;
+  const sectionId = (key: string) => `svc-${key.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
+
   return (
     <div className="relative">
+      {finder && (
+        <div className="sticky top-0 z-20 -mx-4 mb-5 bg-white/95 px-4 pb-3 pt-2 backdrop-blur">
+          <label className="relative block">
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={f.search}
+              className="h-12 w-full rounded-full border border-ink-100 bg-mist-50 pl-11 pr-11 text-sm text-ink-900 placeholder:text-ink-400 focus:border-primary-300 focus:bg-white focus:outline-none focus:ring-4 focus:ring-primary-100 [&::-webkit-search-cancel-button]:hidden"
+            />
+            {query && (
+              <button
+                type="button"
+                onClick={() => setQuery("")}
+                aria-label={f.clear}
+                className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full text-ink-400 hover:bg-mist-100 hover:text-ink-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
+          </label>
+          {!q && sections.filter((x) => x.title).length > 1 && (
+            <div className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 [scrollbar-width:none]">
+              {sections
+                .filter((x) => x.title)
+                .map((x) => (
+                  <a
+                    key={x.key}
+                    href={`#${sectionId(x.key)}`}
+                    className="shrink-0 rounded-full border border-ink-100 bg-white px-3.5 py-1.5 text-xs font-semibold text-ink-700 transition-colors hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
+                  >
+                    {x.title}
+                    <span className="ml-1.5 font-normal text-ink-400">{x.items.length}</span>
+                  </a>
+                ))}
+            </div>
+          )}
+        </div>
+      )}
       <div className="space-y-6 pb-20">
-        {sections.map((section) => (
-          <section key={section.key}>
+        {visibleSections.length === 0 && (
+          <p className="rounded-2xl border border-dashed border-ink-100 px-4 py-8 text-center text-sm text-ink-400">{f.noResults}</p>
+        )}
+        {visibleSections.map((section) => (
+          <section key={section.key} id={sectionId(section.key)} className="scroll-mt-32">
             {section.title && (
               <h3 className="mb-3 flex items-baseline gap-2 text-lg font-bold text-ink-900">
                 {section.title}

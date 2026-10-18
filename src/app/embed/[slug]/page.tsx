@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { isValidLocale } from "@/i18n/is-valid-locale";
 import { routing } from "@/i18n/routing";
 import { ServiceSelectionList } from "@/components/service-selection-list";
-import { EmbedTopBar } from "@/components/embed-topbar";
+import { EmbedTopBar, EmbedFooter } from "@/components/embed-topbar";
+import { EmbedSalonHeader } from "@/components/embed-salon-header";
 import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { getSiteBranches } from "@/lib/site-branches";
 import { categoryNameMap } from "@/lib/service-groups";
@@ -24,6 +24,7 @@ export default async function EmbedBusinessPage({
     include: {
       services: { where: { active: true }, orderBy: { createdAt: "asc" } },
       serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
+      reviews: { where: { status: "APPROVED" }, select: { rating: true } },
     },
   });
   if (!business || business.status !== "APPROVED") notFound();
@@ -40,7 +41,7 @@ export default async function EmbedBusinessPage({
   const catNames = await categoryNameMap(locale);
 
   return (
-    <div className="mx-auto max-w-xl p-4">
+    <div className="mx-auto max-w-xl px-4 pb-4 pt-4">
       <EmbedTopBar locale={locale} />
       <EmbedBookingProgress
         locale={locale}
@@ -57,22 +58,20 @@ export default async function EmbedBusinessPage({
           { state: "upcoming" },
         ]}
       />
-      <div className="mb-5 flex items-center gap-3">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-primary-100 text-lg font-bold text-primary-500">
-          {business.logoUrl ? (
-            <Image
-              src={business.logoUrl}
-              alt=""
-              width={48}
-              height={48}
-              className="h-full w-full object-contain"
-            />
-          ) : (
-            business.name.charAt(0)
-          )}
-        </div>
-        <h1 className="text-lg font-bold text-ink-900">{business.name}</h1>
-      </div>
+      <EmbedSalonHeader
+        name={business.name}
+        logoUrl={business.logoUrl}
+        coverUrl={business.coverUrl}
+        address={[business.addressLine, business.city].filter(Boolean).join(", ") || null}
+        rating={
+          business.reviews.length
+            ? {
+                avg: business.reviews.reduce((sum, r) => sum + r.rating, 0) / business.reviews.length,
+                count: business.reviews.length,
+              }
+            : null
+        }
+      />
 
       <ServiceSelectionList
         services={business.services.map((s) => ({
@@ -83,7 +82,10 @@ export default async function EmbedBusinessPage({
         locale={locale}
         bookBasePath={`/embed/${slug}/book`}
         extraQueryParams={{ locale }}
+        showFinder
       />
+
+      <EmbedFooter locale={locale} />
     </div>
   );
 }

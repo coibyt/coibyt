@@ -143,6 +143,7 @@ export function BookingWidget({
   locale,
   businessTimezone,
   embedProgress,
+  embedIntro,
   initialDate,
   initialTime,
 }: {
@@ -160,6 +161,8 @@ export function BookingWidget({
    * Booking/Finish step bar there; the main site's /b/... booking page
    * already has its own navigation, so this stays unset there. */
   embedProgress?: { step1Href?: string; step2Href: string };
+  /** Shown right under the embed progress bar (the salon + service banner). */
+  embedIntro?: React.ReactNode;
   /** Preselection from a deep link (e.g. the AI chat's "book now" button):
    * "yyyy-MM-dd" and "HH:mm", both in the salon's timezone. Ignored when out
    * of the bookable range or no longer free — the customer just picks again. */
@@ -409,6 +412,7 @@ export function BookingWidget({
           selectedSlot ? { state: "current" } : { state: "upcoming" },
         ]}
       />
+      {embedIntro}
     </>
   );
 
@@ -436,7 +440,7 @@ export function BookingWidget({
         <Step n={nextStep()} title={L.extras}>
           {extraServices.length > 0 && (
             <div className="mb-3 space-y-2">
-              <p className="text-xs font-semibold text-ink-400">{locale === "vi" ? "Dịch vụ đã chọn thêm" : "Also booking"}</p>
+              <p className="text-xs font-semibold text-ink-400">{locale === "vi" ? "Dịch vụ đã chọn thêm" : locale === "fi" ? "Varaat myös" : "Also booking"}</p>
               {extraServices.map((s) => (
                 <div
                   key={s.id}
@@ -456,7 +460,7 @@ export function BookingWidget({
           {addOnOptions.length > 0 && (
             <div className="space-y-2">
               <p className="text-xs font-semibold text-ink-400">
-                {locale === "vi" ? "Dịch vụ phụ (không bắt buộc)" : "Add-ons (optional)"}
+                {locale === "vi" ? "Dịch vụ phụ (không bắt buộc)" : locale === "fi" ? "Lisäpalvelut (valinnainen)" : "Add-ons (optional)"}
               </p>
               {addOnOptions.map((a) => {
                 const on = selectedAddOnIds.has(a.id);
@@ -561,7 +565,9 @@ export function BookingWidget({
           <p className="mb-3 rounded-xl bg-mist-50 px-3 py-2 text-xs text-ink-700">
             {locale === "vi"
               ? `Giờ hiển thị là giờ salon (${businessTimezone}) — giờ của bạn hiện theo dưới mỗi khung giờ.`
-              : `Times shown are the salon's local time (${businessTimezone}) — your own local time is shown under each slot.`}
+              : locale === "fi"
+                ? `Ajat näytetään salongin paikallisaikana (${businessTimezone}) — oma aikasi näkyy jokaisen ajan alla.`
+                : `Times shown are the salon's local time (${businessTimezone}) — your own local time is shown under each slot.`}
           </p>
         )}
         {loadingSlots ? (
