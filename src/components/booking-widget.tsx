@@ -13,7 +13,7 @@ import { EmbedBookingProgress } from "@/components/embed-booking-progress";
 import { formatMoney } from "@/lib/money";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { embedFrameClass, toYoutubeEmbedUrl } from "@/lib/youtube";
-import { Landmark, Banknote, Loader2, PlayCircle, X } from "lucide-react";
+import { Landmark, Banknote, Loader2, PlayCircle, X, Check, Users } from "lucide-react";
 
 interface StaffOption {
   id: string;
@@ -78,6 +78,39 @@ export interface BankInfo {
 }
 
 const DAYS_AHEAD = 14;
+
+const WIDGET_LABELS = {
+  vi: {
+    extras: "Dịch vụ của bạn",
+    today: "Hôm nay",
+    morning: "Buổi sáng",
+    afternoon: "Buổi chiều",
+    evening: "Buổi tối",
+    loadingTimes: "Đang tìm giờ trống…",
+    summary: "Lịch hẹn của bạn",
+    pickTime: "Chọn ngày và giờ",
+  },
+  en: {
+    extras: "Your services",
+    today: "Today",
+    morning: "Morning",
+    afternoon: "Afternoon",
+    evening: "Evening",
+    loadingTimes: "Finding free times…",
+    summary: "Your appointment",
+    pickTime: "Pick a date and time",
+  },
+  fi: {
+    extras: "Palvelusi",
+    today: "Tänään",
+    morning: "Aamupäivä",
+    afternoon: "Iltapäivä",
+    evening: "Ilta",
+    loadingTimes: "Haetaan vapaita aikoja…",
+    summary: "Varauksesi",
+    pickTime: "Valitse päivä ja aika",
+  },
+};
 // "CASH" (pay at the salon) listed first and selected by default — the site
 // doesn't require an online merchant account to start taking bookings.
 // BANK_TRANSFER is only offered once the salon has filled in their account
@@ -362,209 +395,228 @@ export function BookingWidget({
     </>
   );
 
-  return (
-    <div className="space-y-6">
-      {progressBar}
-      {addOnOptions.length > 0 && (
-        <div>
-          <p className="label">
-            {locale === "vi" ? "Dịch vụ phụ (không bắt buộc)" : "Add-ons (optional)"}
-          </p>
-          <div className="space-y-2">
-            {addOnOptions.map((a) => (
-              <label
-                key={a.id}
-                className={`flex cursor-pointer items-center justify-between gap-3 rounded-xl border px-3 py-2.5 text-sm transition-colors ${
-                  selectedAddOnIds.has(a.id)
-                    ? "border-primary-500 bg-primary-50"
-                    : "border-ink-100 hover:border-ink-400"
-                }`}
-              >
-                <span className="flex items-center gap-2.5">
-                  <input
-                    type="checkbox"
-                    checked={selectedAddOnIds.has(a.id)}
-                    onChange={() => toggleAddOn(a.id)}
-                  />
-                  <span>
-                    {a.name}
-                    {a.durationMin > 0 && (
-                      <span className="ml-1.5 text-xs text-ink-400">
-                        +{a.durationMin} {tCommon("min")}
-                      </span>
-                    )}
-                  </span>
-                </span>
-                <span className="font-medium text-ink-900">
-                  +{formatMoney(a.priceCents, service.currency, locale)}
-                </span>
-              </label>
-            ))}
-          </div>
-        </div>
-      )}
+  const L = WIDGET_LABELS[locale as keyof typeof WIDGET_LABELS] ?? WIDGET_LABELS.en;
+  const intlLocale = locale === "vi" ? "vi-VN" : locale === "fi" ? "fi-FI" : "en-GB";
+  const slotTime = (iso: string, timeZone?: string) =>
+    new Date(iso).toLocaleTimeString(intlLocale, { hour: "2-digit", minute: "2-digit", timeZone });
+  const slotGroups = (["morning", "afternoon", "evening"] as const)
+    .map((part) => ({
+      part,
+      items: slots.filter((s) => {
+        const h = toZonedTime(new Date(s.startsAt), businessTimezone).getHours();
+        return part === "morning" ? h < 12 : part === "afternoon" ? h >= 12 && h < 17 : h >= 17;
+      }),
+    }))
+    .filter((g) => g.items.length > 0);
+  let stepNo = 0;
+  const nextStep = () => ++stepNo;
 
-      {extraServices.length > 0 && (
-        <div>
-          <p className="label">
-            {locale === "vi" ? "Dịch vụ đã chọn thêm" : "Also booking"}
-          </p>
-          <div className="space-y-2">
-            {extraServices.map((s) => (
-              <div
-                key={s.id}
-                className="flex items-center justify-between gap-3 rounded-xl border border-ink-100 bg-mist-50 px-3 py-2.5 text-sm"
-              >
-                <span>
-                  {s.name}
-                  <span className="ml-1.5 text-xs text-ink-400">
-                    {s.durationMin} {tCommon("min")}
+  return (
+    <div className="space-y-5">
+      {progressBar}
+
+      {(addOnOptions.length > 0 || extraServices.length > 0) && (
+        <Step n={nextStep()} title={L.extras}>
+          {extraServices.length > 0 && (
+            <div className="mb-3 space-y-2">
+              <p className="text-xs font-semibold text-ink-400">{locale === "vi" ? "Dịch vụ đã chọn thêm" : "Also booking"}</p>
+              {extraServices.map((s) => (
+                <div
+                  key={s.id}
+                  className="flex items-center justify-between gap-3 rounded-2xl bg-mist-50 px-4 py-3 text-sm"
+                >
+                  <span className="font-medium text-ink-900">
+                    {s.name}
+                    <span className="ml-1.5 text-xs font-normal text-ink-400">
+                      {s.durationMin} {tCommon("min")}
+                    </span>
                   </span>
-                </span>
-                <span className="font-medium text-ink-900">
-                  {formatMoney(s.priceCents, service.currency, locale)}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+                  <span className="font-semibold text-ink-900">{formatMoney(s.priceCents, service.currency, locale)}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {addOnOptions.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-ink-400">
+                {locale === "vi" ? "Dịch vụ phụ (không bắt buộc)" : "Add-ons (optional)"}
+              </p>
+              {addOnOptions.map((a) => {
+                const on = selectedAddOnIds.has(a.id);
+                return (
+                  <label
+                    key={a.id}
+                    className={`flex cursor-pointer items-center justify-between gap-3 rounded-2xl border px-4 py-3 text-sm transition-colors ${
+                      on ? "border-primary-400 bg-primary-50 ring-1 ring-primary-400" : "border-ink-100 hover:border-primary-200"
+                    }`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <input type="checkbox" className="peer sr-only" checked={on} onChange={() => toggleAddOn(a.id)} />
+                      <span
+                        aria-hidden
+                        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 peer-focus-visible:ring-2 peer-focus-visible:ring-primary-400 ${
+                          on ? "border-primary-500 bg-primary-500 text-white" : "border-ink-100 bg-white"
+                        }`}
+                      >
+                        {on && <Check className="h-3 w-3" strokeWidth={3} />}
+                      </span>
+                      <span className="text-ink-900">
+                        {a.name}
+                        {a.durationMin > 0 && (
+                          <span className="ml-1.5 text-xs text-ink-400">
+                            +{a.durationMin} {tCommon("min")}
+                          </span>
+                        )}
+                      </span>
+                    </span>
+                    <span className="shrink-0 font-semibold text-ink-900">
+                      +{formatMoney(a.priceCents, service.currency, locale)}
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
+          )}
+        </Step>
       )}
 
       {staffOptions.length > 0 && (
-        <div>
-          <p className="label">{t("selectStaff")}</p>
-          <div className="flex flex-wrap gap-2">
-            <Pill active={staffId === ""} onClick={() => setStaffId("")}>
-              {t("anyStaff")}
-              {cheapestStaff && (
-                <span className="ml-1 opacity-70">
-                  ·{" "}
-                  {formatMoney(
-                    cheapestStaff.priceCentsOverride ?? service.priceCents,
-                    service.currency,
-                    locale
-                  )}
-                </span>
-              )}
-            </Pill>
+        <Step n={nextStep()} title={t("selectStaff")}>
+          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+            <StaffTile
+              active={staffId === ""}
+              onClick={() => setStaffId("")}
+              name={t("anyStaff")}
+              avatarUrl={null}
+              any
+              price={
+                cheapestStaff
+                  ? formatMoney(cheapestStaff.priceCentsOverride ?? service.priceCents, service.currency, locale)
+                  : null
+              }
+            />
             {staffOptions.map((s) => (
-              <Pill key={s.id} active={staffId === s.id} onClick={() => setStaffId(s.id)}>
-                {s.name}
-                {(s.priceCentsOverride !== null || s.durationMinOverride !== null) && (
-                  <span className="ml-1 opacity-70">
-                    · {formatMoney(s.priceCentsOverride ?? service.priceCents, service.currency, locale)}
-                  </span>
-                )}
-              </Pill>
+              <StaffTile
+                key={s.id}
+                active={staffId === s.id}
+                onClick={() => setStaffId(s.id)}
+                name={s.name}
+                avatarUrl={s.avatarUrl}
+                price={
+                  s.priceCentsOverride !== null || s.durationMinOverride !== null
+                    ? formatMoney(s.priceCentsOverride ?? service.priceCents, service.currency, locale)
+                    : null
+                }
+              />
             ))}
           </div>
           {selectedStaff && (
-            <p className="mt-2 text-xs text-ink-400">
+            <p className="mt-3 text-xs text-ink-400">
               {formatMoney(selectedStaff.priceCentsOverride ?? service.priceCents, service.currency, locale)}
               {" · "}
               {selectedStaff.durationMinOverride ?? service.durationMin} {tCommon("min")}
             </p>
           )}
           {selectedStaff?.staffMessage && (
-            <p className="mt-2 rounded-xl bg-mist-50 p-2.5 text-sm text-ink-700">
+            <p className="mt-2 rounded-2xl bg-peach-50 px-4 py-3 text-sm leading-relaxed text-ink-700">
               {selectedStaff.staffMessage}
             </p>
           )}
           {selectedStaff && selectedStaff.videoUrls.length > 0 && (
             <StaffVideos videoUrls={selectedStaff.videoUrls} staffName={selectedStaff.name} locale={locale} />
           )}
-        </div>
+        </Step>
       )}
 
-      <div>
-        <p className="label">{t("selectDate")}</p>
-        <div className="flex gap-2 overflow-x-auto pb-1">
-          {days.map((d) => (
-            <button
-              key={d.toISOString()}
-              onClick={() => setSelectedDate(d)}
-              className={`flex w-16 shrink-0 flex-col items-center rounded-2xl border py-2.5 text-sm transition-colors ${
-                isSameDay(d, selectedDate)
-                  ? "border-ink-900 bg-ink-900 text-white"
-                  : "border-ink-100 text-ink-700 hover:border-ink-400"
-              }`}
-            >
-              <span className="text-xs opacity-70">
-                {format(d, "EEE", { locale: locale === "vi" ? vi : undefined })}
-              </span>
-              <span className="text-base font-bold">{format(d, "d")}</span>
-            </button>
-          ))}
+      <Step n={nextStep()} title={t("selectDate")}>
+        <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
+          {days.map((d, i) => {
+            const on = isSameDay(d, selectedDate);
+            return (
+              <button
+                key={d.toISOString()}
+                onClick={() => setSelectedDate(d)}
+                className={`flex w-[4.25rem] shrink-0 flex-col items-center rounded-2xl border py-2.5 transition-colors ${
+                  on
+                    ? "border-transparent bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
+                    : "border-ink-100 bg-white text-ink-700 hover:border-primary-200"
+                }`}
+              >
+                <span className={`text-[11px] font-medium ${on ? "text-white/80" : "text-ink-400"}`}>
+                  {i === 0 ? L.today : format(d, "EEE", { locale: locale === "vi" ? vi : undefined })}
+                </span>
+                <span className="text-xl font-bold leading-tight">{format(d, "d")}</span>
+                <span className={`text-[10px] ${on ? "text-white/70" : "text-ink-400"}`}>
+                  {format(d, "MMM", { locale: locale === "vi" ? vi : undefined })}
+                </span>
+              </button>
+            );
+          })}
         </div>
-      </div>
+      </Step>
 
-      <div>
-        <p className="label">{t("selectTime")}</p>
+      <Step n={nextStep()} title={t("selectTime")}>
         {showLocalTime && (
-          <p className="mb-2 text-xs text-ink-400">
+          <p className="mb-3 rounded-xl bg-mist-50 px-3 py-2 text-xs text-ink-700">
             {locale === "vi"
               ? `Giờ hiển thị là giờ salon (${businessTimezone}) — giờ của bạn hiện theo dưới mỗi khung giờ.`
               : `Times shown are the salon's local time (${businessTimezone}) — your own local time is shown under each slot.`}
           </p>
         )}
         {loadingSlots ? (
-          <p className="flex items-center gap-2 text-sm text-ink-400">
-            <Loader2 className="h-4 w-4 animate-spin" /> ...
+          <p className="flex items-center gap-2 py-4 text-sm text-ink-400">
+            <Loader2 className="h-4 w-4 animate-spin" /> {L.loadingTimes}
           </p>
         ) : slots.length === 0 ? (
-          <p className="text-sm text-ink-400">{t("noSlots")}</p>
+          <p className="rounded-2xl border border-dashed border-ink-100 px-4 py-6 text-center text-sm text-ink-400">
+            {t("noSlots")}
+          </p>
         ) : (
-          <div className="grid grid-cols-4 gap-2 sm:grid-cols-6">
-            {slots.map((s) => (
-              <button
-                key={s.startsAt}
-                onClick={() => setSelectedSlot(s)}
-                title={
-                  s.assignments
-                    ? locale === "vi"
-                      ? "Khung giờ này chia cho nhiều nhân viên"
-                      : "This time splits the services across multiple staff"
-                    : undefined
-                }
-                className={`relative rounded-xl border py-2 text-sm transition-colors ${
-                  selectedSlot?.startsAt === s.startsAt
-                    ? "border-ink-900 bg-ink-900 text-white"
-                    : "border-ink-100 text-ink-700 hover:border-ink-400"
-                }`}
-              >
-                {s.assignments && (
-                  <span
-                    className={`absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full ${
-                      selectedSlot?.startsAt === s.startsAt ? "bg-white" : "bg-primary-500"
-                    }`}
-                  />
-                )}
-                <span className="block">
-                  {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                    timeZone: businessTimezone,
+          <div className="space-y-4">
+            {slotGroups.map((g) => (
+              <div key={g.part}>
+                <p className="mb-2 text-xs font-semibold text-ink-400">{L[g.part]}</p>
+                <div className="grid grid-cols-4 gap-2 sm:grid-cols-6">
+                  {g.items.map((s) => {
+                    const on = selectedSlot?.startsAt === s.startsAt;
+                    return (
+                      <button
+                        key={s.startsAt}
+                        onClick={() => setSelectedSlot(s)}
+                        title={
+                          s.assignments
+                            ? locale === "vi"
+                              ? "Khung giờ này chia cho nhiều nhân viên"
+                              : "This time splits the services across multiple staff"
+                            : undefined
+                        }
+                        className={`relative rounded-xl border py-2.5 text-sm font-semibold tabular-nums transition-colors ${
+                          on
+                            ? "border-transparent bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
+                            : "border-ink-100 bg-white text-ink-900 hover:border-primary-300 hover:bg-primary-50"
+                        }`}
+                      >
+                        {s.assignments && (
+                          <span
+                            className={`absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full ${on ? "bg-white" : "bg-primary-500"}`}
+                          />
+                        )}
+                        <span className="block">{slotTime(s.startsAt, businessTimezone)}</span>
+                        {showLocalTime && (
+                          <span className={`block text-[11px] font-normal ${on ? "text-white/70" : "text-ink-400"}`}>
+                            {slotTime(s.startsAt, viewerTimezone ?? undefined)}
+                          </span>
+                        )}
+                      </button>
+                    );
                   })}
-                </span>
-                {showLocalTime && (
-                  <span
-                    className={`block text-[11px] font-normal ${
-                      selectedSlot?.startsAt === s.startsAt ? "text-white/70" : "text-ink-400"
-                    }`}
-                  >
-                    {new Date(s.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      timeZone: viewerTimezone ?? undefined,
-                    })}
-                  </span>
-                )}
-              </button>
+                </div>
+              </div>
             ))}
           </div>
         )}
         {selectedSlot?.assignments && (
-          <div className="mt-3 rounded-xl border border-primary-200 bg-primary-50 p-3 text-sm">
+          <div className="mt-3 rounded-2xl border border-primary-200 bg-primary-50 p-4 text-sm">
             <p className="mb-1.5 font-semibold text-ink-900">
               {locale === "vi"
                 ? "Lịch hẹn này sẽ do nhiều nhân viên thực hiện, nối tiếp nhau:"
@@ -577,36 +629,22 @@ export function BookingWidget({
                     {a.name}
                     <span className="text-ink-400"> · {a.staffName}</span>
                   </span>
-                  <span className="shrink-0 text-xs text-ink-400">
-                    {new Date(a.startsAt).toLocaleTimeString(locale === "vi" ? "vi-VN" : "en-US", {
-                      hour: "2-digit",
-                      minute: "2-digit",
-                      timeZone: businessTimezone,
-                    })}
-                  </span>
+                  <span className="shrink-0 text-xs text-ink-400">{slotTime(a.startsAt, businessTimezone)}</span>
                 </li>
               ))}
             </ul>
           </div>
         )}
-      </div>
+      </Step>
 
       {selectedSlot && isGuest && (
-        <div className="card space-y-4 p-4">
-          <p className="font-semibold text-ink-900">
-            {locale === "vi" ? "Thông tin của bạn" : "Your info"}
-          </p>
+        <Step n={nextStep()} title={locale === "vi" ? "Thông tin của bạn" : "Your info"}>
           {!showSignIn ? (
-            <>
+            <div className="space-y-4">
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <label className="label">{tAuth("name")}</label>
-                  <input
-                    required
-                    className="input"
-                    value={guestName}
-                    onChange={(e) => setGuestName(e.target.value)}
-                  />
+                  <input required className="input" value={guestName} onChange={(e) => setGuestName(e.target.value)} />
                 </div>
                 <div>
                   <label className="label">{tAuth("phone")}</label>
@@ -641,8 +679,8 @@ export function BookingWidget({
                 </div>
               </div>
 
-              <div>
-                <p className="label">
+              <div className="rounded-2xl bg-mist-50 p-4">
+                <p className="mb-2 text-sm font-medium text-ink-900">
                   {locale === "vi"
                     ? "Bạn muốn nhận tin nhắn và thông báo tiếp thị bằng cách nào?"
                     : "How would you like to receive marketing messages?"}
@@ -651,6 +689,7 @@ export function BookingWidget({
                   <label className="flex items-center gap-2">
                     <input
                       type="checkbox"
+                      className="h-4 w-4 accent-primary-500"
                       checked={emailOptIn}
                       onChange={(e) => setEmailOptIn(e.target.checked)}
                     />
@@ -659,6 +698,7 @@ export function BookingWidget({
                   <label className="flex items-center gap-2">
                     <input
                       type="checkbox"
+                      className="h-4 w-4 accent-primary-500"
                       checked={smsOptIn}
                       onChange={(e) => setSmsOptIn(e.target.checked)}
                     />
@@ -672,61 +712,47 @@ export function BookingWidget({
                 <button
                   type="button"
                   onClick={() => setShowSignIn(true)}
-                  className="font-medium text-primary-500 hover:underline"
+                  className="font-semibold text-primary-600 hover:underline"
                 >
                   {tAuth("signInInstead")}
                 </button>
               </p>
-            </>
+            </div>
           ) : (
-            <>
+            <div className="space-y-3">
               <SignInForm />
               <p className="text-center text-sm text-ink-400">
                 <button
                   type="button"
                   onClick={() => setShowSignIn(false)}
-                  className="font-medium text-primary-500 hover:underline"
+                  className="font-semibold text-primary-600 hover:underline"
                 >
                   {locale === "vi" ? "Quay lại đặt lịch với thông tin mới" : "Back to booking as a new customer"}
                 </button>
               </p>
-            </>
+            </div>
           )}
-        </div>
+        </Step>
       )}
 
-      <div>
-        <label className="label" htmlFor="note">
-          {t("note")}
-        </label>
-        <textarea
-          id="note"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          rows={3}
-          className="input"
-        />
-      </div>
-
-      <div>
-        <p className="label">{tPay("choose")}</p>
+      <Step n={nextStep()} title={tPay("choose")}>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
           {paymentMethods.map(({ id, icon: Icon }) => (
             <button
               key={id}
               onClick={() => setProvider(id)}
-              className={`flex flex-col items-center gap-1.5 rounded-xl border py-3 text-xs font-medium transition-colors ${
+              className={`flex flex-col items-center gap-2 rounded-2xl border py-4 text-sm font-semibold transition-colors ${
                 provider === id
-                  ? "border-primary-500 bg-primary-50 text-primary-600"
-                  : "border-ink-100 text-ink-700 hover:border-ink-400"
+                  ? "border-primary-400 bg-primary-50 text-primary-700 ring-1 ring-primary-400"
+                  : "border-ink-100 text-ink-700 hover:border-primary-200"
               }`}
             >
-              <Icon className="h-5 w-5" />
+              <Icon className="h-6 w-6" />
               {tPay(id === "BANK_TRANSFER" ? "bankTransfer" : "cash")}
             </button>
           ))}
         </div>
-        <p className="mt-2 text-xs text-ink-400">
+        <p className="mt-3 text-xs leading-relaxed text-ink-400">
           {provider === "CASH"
             ? tPay("cashNotice")
             : provider === "BANK_TRANSFER"
@@ -734,7 +760,7 @@ export function BookingWidget({
               : tPay("sandboxNotice")}
         </p>
         {provider === "BANK_TRANSFER" && bankInfo && (
-          <div className="mt-2 space-y-1 rounded-xl border border-primary-100 bg-primary-50 p-3 text-xs text-ink-900">
+          <div className="mt-3 space-y-1 rounded-2xl border border-primary-100 bg-primary-50 p-4 text-sm text-ink-900">
             {bankInfo.bankName && (
               <p>
                 <span className="text-ink-400">{locale === "vi" ? "Ngân hàng: " : "Bank: "}</span>
@@ -743,17 +769,13 @@ export function BookingWidget({
             )}
             {bankInfo.bankAccountNumber && (
               <p>
-                <span className="text-ink-400">
-                  {locale === "vi" ? "Số tài khoản: " : "Account number: "}
-                </span>
+                <span className="text-ink-400">{locale === "vi" ? "Số tài khoản: " : "Account number: "}</span>
                 {bankInfo.bankAccountNumber}
               </p>
             )}
             {bankInfo.bankAccountName && (
               <p>
-                <span className="text-ink-400">
-                  {locale === "vi" ? "Chủ tài khoản: " : "Account holder: "}
-                </span>
+                <span className="text-ink-400">{locale === "vi" ? "Chủ tài khoản: " : "Account holder: "}</span>
                 {bankInfo.bankAccountName}
               </p>
             )}
@@ -765,98 +787,123 @@ export function BookingWidget({
             )}
           </div>
         )}
-      </div>
 
-      <div>
-        <p className="label">{locale === "vi" ? "Mã giảm giá" : "Discount code"}</p>
-        <div className="flex gap-2">
-          <input
-            className="input flex-1"
-            value={discountCode}
-            onChange={(e) => {
-              setDiscountCode(e.target.value);
-              setDiscount(null);
-              setDiscountError(null);
-            }}
-            placeholder={locale === "vi" ? "Nhập mã" : "Enter code"}
-          />
-          <button
-            type="button"
-            onClick={applyDiscount}
-            disabled={discountChecking || !discountCode.trim()}
-            className="btn-outline !px-4"
-          >
-            {discountChecking ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : locale === "vi" ? (
-              "Áp dụng"
-            ) : (
-              "Apply"
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          <div>
+            <label className="label" htmlFor="note">
+              {t("note")}
+            </label>
+            <textarea id="note" value={note} onChange={(e) => setNote(e.target.value)} rows={3} className="input !rounded-2xl" />
+          </div>
+          <div>
+            <p className="label">{locale === "vi" ? "Mã giảm giá" : "Discount code"}</p>
+            <div className="flex gap-2">
+              <input
+                className="input flex-1"
+                value={discountCode}
+                onChange={(e) => {
+                  setDiscountCode(e.target.value);
+                  setDiscount(null);
+                  setDiscountError(null);
+                }}
+                placeholder={locale === "vi" ? "Nhập mã" : "Enter code"}
+              />
+              <button
+                type="button"
+                onClick={applyDiscount}
+                disabled={discountChecking || !discountCode.trim()}
+                className="btn-outline !px-4"
+              >
+                {discountChecking ? <Loader2 className="h-4 w-4 animate-spin" /> : locale === "vi" ? "Áp dụng" : "Apply"}
+              </button>
+            </div>
+            {discount && (
+              <p className="mt-1.5 text-xs font-medium text-teal-600">
+                {locale === "vi"
+                  ? `Đã áp dụng "${discount.name}" (-${discount.percent}%)`
+                  : `"${discount.name}" applied (-${discount.percent}%)`}
+              </p>
             )}
-          </button>
+            {discountError && <p className="mt-1.5 text-xs text-berry-500">{discountError}</p>}
+          </div>
         </div>
-        {discount && (
-          <p className="mt-1 text-xs text-sage-600">
-            {locale === "vi"
-              ? `Đã áp dụng "${discount.name}" (-${discount.percent}%)`
-              : `"${discount.name}" applied (-${discount.percent}%)`}
+      </Step>
+
+      <section className="overflow-hidden rounded-[24px] border border-ink-100 bg-white">
+        <div className="bg-gradient-to-br from-primary-700 to-primary-900 px-5 py-4 text-white sm:px-6">
+          <p className="text-xs font-medium text-primary-100">{L.summary}</p>
+          <p className="mt-1 text-lg font-bold">
+            {selectedSlot
+              ? `${format(toZonedTime(new Date(selectedSlot.startsAt), businessTimezone), "EEEE d.M.", {
+                  locale: locale === "vi" ? vi : undefined,
+                })} · ${slotTime(selectedSlot.startsAt, businessTimezone)}`
+              : L.pickTime}
           </p>
-        )}
-        {discountError && <p className="mt-1 text-xs text-berry-500">{discountError}</p>}
-      </div>
-
-      <div className="card space-y-2 p-4">
-        <div className="flex justify-between text-sm text-ink-700">
-          <span>{service.name}</span>
-          <span>{formatMoney(effectiveServicePriceCents, service.currency, locale)}</span>
+          {selectedSlot && (
+            <p className="text-sm text-primary-100">
+              {staffOptions.find((s) => s.id === selectedSlot.staffId)?.name ?? (selectedStaff?.name || t("anyStaff"))}
+              {" · "}
+              {effectiveServiceDurationMin + selectedAddOns.reduce((sum, a) => sum + a.durationMin, 0) +
+                extraServices.reduce((sum, s) => sum + s.durationMin, 0)}{" "}
+              {tCommon("min")}
+            </p>
+          )}
         </div>
-        {extraServices.map((s) => (
-          <div key={s.id} className="flex justify-between text-sm text-ink-700">
-            <span>{s.name}</span>
-            <span>{formatMoney(s.priceCents, service.currency, locale)}</span>
+        <div className="space-y-2 p-5 sm:px-6">
+          <div className="flex justify-between gap-3 text-sm text-ink-700">
+            <span>{service.name}</span>
+            <span className="shrink-0">{formatMoney(effectiveServicePriceCents, service.currency, locale)}</span>
           </div>
-        ))}
-        {selectedAddOns.map((a) => (
-          <div key={a.id} className="flex justify-between text-sm text-ink-700">
-            <span>{a.name}</span>
-            <span>{formatMoney(a.priceCents, service.currency, locale)}</span>
-          </div>
-        ))}
-        {discount && (
-          <div className="flex justify-between text-sm text-sage-600">
-            <span>
-              {discount.name} (-{discount.percent}%)
+          {extraServices.map((s) => (
+            <div key={s.id} className="flex justify-between gap-3 text-sm text-ink-700">
+              <span>{s.name}</span>
+              <span className="shrink-0">{formatMoney(s.priceCents, service.currency, locale)}</span>
+            </div>
+          ))}
+          {selectedAddOns.map((a) => (
+            <div key={a.id} className="flex justify-between gap-3 text-sm text-ink-700">
+              <span>{a.name}</span>
+              <span className="shrink-0">{formatMoney(a.priceCents, service.currency, locale)}</span>
+            </div>
+          ))}
+          {discount && (
+            <div className="flex justify-between gap-3 text-sm text-teal-600">
+              <span>
+                {discount.name} (-{discount.percent}%)
+              </span>
+              <span className="shrink-0">-{formatMoney(discountCents, service.currency, locale)}</span>
+            </div>
+          )}
+          {!isOfflinePayment && service.depositCents && (
+            <div className="flex justify-between gap-3 text-sm text-ink-400">
+              <span>{t("deposit")}</span>
+              <span className="shrink-0">{formatMoney(service.depositCents, service.currency, locale)}</span>
+            </div>
+          )}
+          <div className="flex items-baseline justify-between gap-3 border-t border-dashed border-ink-100 pt-3">
+            <span className="font-semibold text-ink-900">{isOfflinePayment ? t("dueAtSalon") : t("total")}</span>
+            <span className="text-2xl font-extrabold tracking-tight text-ink-900">
+              {formatMoney(amountDue, service.currency, locale)}
             </span>
-            <span>-{formatMoney(discountCents, service.currency, locale)}</span>
           </div>
-        )}
-        {!isOfflinePayment && service.depositCents && (
-          <div className="flex justify-between text-sm text-ink-400">
-            <span>{t("deposit")}</span>
-            <span>{formatMoney(service.depositCents, service.currency, locale)}</span>
-          </div>
-        )}
-        <div className="flex justify-between border-t border-ink-100 pt-2 font-bold text-ink-900">
-          <span>{isOfflinePayment ? t("dueAtSalon") : t("total")}</span>
-          <span>{formatMoney(amountDue, service.currency, locale)}</span>
         </div>
-      </div>
+      </section>
 
-      {error && <p className="text-sm text-berry-500">{error}</p>}
+      {error && <p className="rounded-2xl bg-berry-50 px-4 py-3 text-sm font-medium text-berry-500">{error}</p>}
 
-      <label className="flex items-start gap-2.5 text-sm text-ink-700">
+      <label className="flex items-start gap-3 rounded-2xl bg-white px-4 py-3 text-sm text-ink-700 ring-1 ring-ink-100">
         <input
           type="checkbox"
           checked={acceptedTerms}
           onChange={(e) => setAcceptedTerms(e.target.checked)}
-          className="mt-0.5"
+          className="mt-0.5 h-4 w-4 shrink-0 accent-primary-500"
         />
         <span>
           {locale === "vi" ? "Tôi chấp nhận " : "I accept the "}
           <button
             type="button"
             onClick={() => setShowCancellationPolicy(true)}
-            className="font-medium text-primary-600 underline hover:no-underline"
+            className="font-semibold text-primary-600 underline hover:no-underline"
           >
             {locale === "vi" ? "Chính sách hủy bỏ" : "Cancellation Policy"}
           </button>
@@ -865,7 +912,7 @@ export function BookingWidget({
             href="/terms"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium text-primary-600 underline hover:no-underline"
+            className="font-semibold text-primary-600 underline hover:no-underline"
           >
             {locale === "vi" ? "Điều khoản sử dụng" : "Terms of Use"}
           </Link>
@@ -873,14 +920,24 @@ export function BookingWidget({
         </span>
       </label>
 
-      <button
-        onClick={handleSubmit}
-        disabled={!selectedSlot || submitting || !acceptedTerms || (isGuest && !guestFormValid)}
-        className="btn-primary w-full py-3"
-      >
-        {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
-        {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
-      </button>
+      <div className="sticky bottom-3 z-20 flex items-center gap-3 rounded-full bg-white/90 p-2 pl-5 shadow-2xl shadow-primary-900/20 ring-1 ring-black/5 backdrop-blur-md">
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-xs text-ink-400">
+            {selectedSlot
+              ? `${format(toZonedTime(new Date(selectedSlot.startsAt), businessTimezone), "d.M.")} · ${slotTime(selectedSlot.startsAt, businessTimezone)}`
+              : L.pickTime}
+          </p>
+          <p className="text-base font-extrabold text-ink-900">{formatMoney(amountDue, service.currency, locale)}</p>
+        </div>
+        <button
+          onClick={handleSubmit}
+          disabled={!selectedSlot || submitting || !acceptedTerms || (isGuest && !guestFormValid)}
+          className="btn-primary shrink-0 !px-6 !py-3"
+        >
+          {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
+          {isOfflinePayment ? t("confirmBooking") : t("confirmAndPay")}
+        </button>
+      </div>
 
       <p className="text-center text-xs text-ink-400">
         {locale === "vi" ? "Bằng việc tiếp tục, tôi đồng ý " : "By continuing, I agree to "}
@@ -971,25 +1028,59 @@ function StaffVideos({
   );
 }
 
-function Pill({
+function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+  return (
+    <section className="rounded-[24px] border border-ink-100 bg-white p-5 sm:p-6">
+      <h2 className="mb-4 flex items-center gap-3 text-base font-bold text-ink-900">
+        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary-100 text-sm font-bold text-primary-700">
+          {n}
+        </span>
+        {title}
+      </h2>
+      {children}
+    </section>
+  );
+}
+
+function StaffTile({
   active,
   onClick,
-  children,
+  name,
+  avatarUrl,
+  price,
+  any = false,
 }: {
   active: boolean;
   onClick: () => void;
-  children: React.ReactNode;
+  name: string;
+  avatarUrl: string | null;
+  price: string | null;
+  any?: boolean;
 }) {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-        active
-          ? "border-ink-900 bg-ink-900 text-white"
-          : "border-ink-100 text-ink-700 hover:border-ink-400"
+      className={`flex w-24 shrink-0 flex-col items-center gap-1.5 rounded-2xl border px-2 py-3 text-center transition-colors ${
+        active ? "border-primary-400 bg-primary-50 ring-1 ring-primary-400" : "border-ink-100 bg-white hover:border-primary-200"
       }`}
     >
-      {children}
+      <span
+        className={`relative flex h-12 w-12 items-center justify-center overflow-hidden rounded-full text-base font-bold ${
+          active ? "ring-2 ring-primary-500 ring-offset-2" : ""
+        } ${any ? "bg-peach-100 text-primary-600" : "bg-primary-100 text-primary-700"}`}
+      >
+        {any ? (
+          <Users className="h-5 w-5" />
+        ) : avatarUrl ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={avatarUrl} alt="" className="h-full w-full object-cover" />
+        ) : (
+          name.trim().charAt(0).toUpperCase() || "?"
+        )}
+      </span>
+      <span className="line-clamp-2 w-full text-xs font-semibold leading-tight text-ink-900">{name}</span>
+      {price && <span className="text-[11px] text-ink-400">{price}</span>}
     </button>
   );
 }
