@@ -1,11 +1,10 @@
 "use client";
 
-/** Browser side of the price-list renderer: font loading, text measuring
+/** Browser side of the print-tool renderer: font loading, text measuring
  * for the layout engine, and drawing laid-out pages onto a canvas (live
  * preview and PNG export). The browser shapes every script itself. */
-import { isRtl } from "./types";
+import { isRtl, type FontFamily, type Measure, type Op, type Page } from "./ops";
 import { qrMatrix } from "./qr";
-import type { FontFamily, Measure, Page } from "./layout";
 
 function stack(family: FontFamily, lang: string) {
   const cjk = lang === "ja" ? '"Noto Sans JP", "Noto Sans SC", "Noto Sans KR"' : lang === "ko" ? '"Noto Sans KR", "Noto Sans SC", "Noto Sans JP"' : '"Noto Sans SC", "Noto Sans JP", "Noto Sans KR"';
@@ -50,25 +49,42 @@ export function clearMeasureCache() {
   widthCache.clear();
 }
 
-export function drawPage(ctx: CanvasRenderingContext2D, page: Page, scale: number, logo: HTMLImageElement | null) {
-  ctx.save();
-  ctx.setTransform(scale, 0, 0, scale, 0, 0);
-  ctx.fillStyle = page.bg;
-  ctx.fillRect(0, 0, page.w, page.h);
-  for (const op of page.ops) {
+const pathCache = new Map<string, Path2D>();
+function path2d(d: string) {
+  let p = pathCache.get(d);
+  if (!p) {
+    p = new Path2D(d);
+    if (pathCache.size > 500) pathCache.clear();
+    pathCache.set(d, p);
+  }
+  return p;
+}
+
+function paint(ctx: CanvasRenderingContext2D, fill?: string, stroke?: string, lw?: number, dash?: [number, number]) {
+  if (fill) {
+    ctx.fillStyle = fill;
+    ctx.fill();
+  }
+  if (stroke) {
+    ctx.strokeStyle = stroke;
+    ctx.lineWidth = lw ?? 1;
+    ctx.setLineDash(dash ?? []);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+}
+
+function drawOps(ctx: CanvasRenderingContext2D, ops: Op[], logo: HTMLImageElement | null) {
+  for (const op of ops) {
     if (op.t === "rect") {
       ctx.beginPath();
       if (op.r) ctx.roundRect(op.x, op.y, op.w, op.h, op.r);
       else ctx.rect(op.x, op.y, op.w, op.h);
-      if (op.fill) {
-        ctx.fillStyle = op.fill;
-        ctx.fill();
-      }
-      if (op.stroke) {
-        ctx.strokeStyle = op.stroke;
-        ctx.lineWidth = op.lw ?? 1;
-        ctx.stroke();
-      }
+      paint(ctx, op.fill, op.stroke, op.lw, op.dash);
+    } else if (op.t === "circle") {
+      ctx.beginPath();
+      ctx.arc(op.cx, op.cy, op.r, 0, Math.PI * 2);
+      paint(ctx, op.fill, op.stroke, op.lw, op.dash);
     } else if (op.t === "line") {
       ctx.beginPath();
       ctx.moveTo(op.x1, op.y1);
@@ -79,10 +95,27 @@ export function drawPage(ctx: CanvasRenderingContext2D, page: Page, scale: numbe
       ctx.setLineDash(op.dash ?? []);
       ctx.stroke();
       ctx.setLineDash([]);
+    } else if (op.t === "path") {
+      ctx.save();
+      ctx.translate(op.x, op.y);
+      ctx.scale(op.scale, op.scale);
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+      const p = path2d(op.d);
+      if (op.fill) {
+        ctx.fillStyle = op.fill;
+        ctx.fill(p);
+      }
+      if (op.stroke) {
+        ctx.strokeStyle = op.stroke;
+        ctx.lineWidth = op.lw ?? 1;
+        ctx.stroke(p);
+      }
+      ctx.restore();
     } else if (op.t === "image") {
       if (logo) ctx.drawImage(logo, op.x, op.y, op.w, op.h);
     } else if (op.t === "qr") {
-      const { size, dark } = qrMatrix(op.data);
+      const { size, dark } = qrMatrix(op.data, op.ec);
       const cell = op.size / size;
       ctx.fillStyle = op.bg;
       ctx.fillRect(op.x, op.y, op.size, op.size);
@@ -96,8 +129,31 @@ export function drawPage(ctx: CanvasRenderingContext2D, page: Page, scale: numbe
       ctx.textAlign = op.align;
       ctx.textBaseline = "alphabetic";
       ctx.fillText(op.text, op.x, op.y);
+    } else if (op.t === "group") {
+      ctx.save();
+      ctx.translate(op.dx ?? 0, op.dy ?? 0);
+      if (op.rotate) {
+        ctx.translate(op.cx ?? 0, op.cy ?? 0);
+        ctx.rotate((op.rotate * Math.PI) / 180);
+        ctx.translate(-(op.cx ?? 0), -(op.cy ?? 0));
+      }
+      if (op.clip) {
+        ctx.beginPath();
+        ctx.arc(op.clip.cx, op.clip.cy, op.clip.r, 0, Math.PI * 2);
+        ctx.clip();
+      }
+      drawOps(ctx, op.ops, logo);
+      ctx.restore();
     }
   }
+}
+
+export function drawPage(ctx: CanvasRenderingContext2D, page: Page, scale: number, logo: HTMLImageElement | null) {
+  ctx.save();
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  ctx.fillStyle = page.bg;
+  ctx.fillRect(0, 0, page.w, page.h);
+  drawOps(ctx, page.ops, logo);
   ctx.restore();
 }
 

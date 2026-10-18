@@ -11,6 +11,7 @@ const nextConfig = {
   serverExternalPackages: ["harfbuzzjs"],
   outputFileTracingIncludes: {
     "/api/tools/price-list/pdf": ["./node_modules/harfbuzzjs/dist/**/*", "./public/fonts/price-list/**/*"],
+    "/api/tools/render-pdf": ["./node_modules/harfbuzzjs/dist/**/*", "./public/fonts/price-list/**/*"],
   },
   images: {
     // Business owners currently paste a direct image URL for their logo/cover

@@ -1,4 +1,4 @@
-/** Draws laid-out price-list pages (see layout.ts) into a print-quality PDF.
+/** Draws laid-out print-tool pages (see ops.ts) into a print-quality PDF.
  *
  * Text is shaped with HarfBuzz — the same engine browsers use — and every
  * glyph is written as a vector outline, so Vietnamese diacritics, Thai and
@@ -9,9 +9,8 @@ import { readFile } from "fs/promises";
 import path from "path";
 import PDFDocument from "pdfkit";
 import bidiFactory from "bidi-js";
-import { isRtl } from "./types";
+import { isRtl, type FontFamily, type Op, type Page } from "./ops";
 import { qrMatrix } from "./qr";
-import type { FontFamily, Op, Page } from "./layout";
 
 type HB = typeof import("harfbuzzjs");
 type HbFace = InstanceType<HB["Face"]>;
@@ -252,7 +251,7 @@ async function drawText(doc: PDFKit.PDFDocument, forms: GlyphForms, op: Extract<
 }
 
 function drawQr(doc: PDFKit.PDFDocument, op: Extract<Op, { t: "qr" }>) {
-  const { size, dark } = qrMatrix(op.data);
+  const { size, dark } = qrMatrix(op.data, op.ec);
   const cell = op.size / size;
   doc.rect(op.x, op.y, op.size, op.size).fill(op.bg);
   doc.fillColor(op.fg);
@@ -273,7 +272,59 @@ function drawQr(doc: PDFKit.PDFDocument, op: Extract<Op, { t: "qr" }>) {
   doc.fill(op.fg);
 }
 
-export async function renderPriceListPdf(pages: Page[], logo: Buffer | null, title: string): Promise<Buffer> {
+type Doc = PDFKit.PDFDocument;
+
+function paintShape(doc: Doc, fill?: string, stroke?: string, lw?: number, dash?: [number, number]) {
+  if (dash) doc.dash(dash[0], { space: dash[1] });
+  if (fill && stroke) doc.lineWidth(lw ?? 1).fillAndStroke(fill, stroke);
+  else if (fill) doc.fill(fill);
+  else if (stroke) doc.lineWidth(lw ?? 1).stroke(stroke);
+  if (dash) doc.undash();
+}
+
+async function drawOps(doc: Doc, forms: GlyphForms, ops: Op[], logo: Buffer | null) {
+  for (const op of ops) {
+    if (op.t === "rect") {
+      if (op.r) doc.roundedRect(op.x, op.y, op.w, op.h, op.r);
+      else doc.rect(op.x, op.y, op.w, op.h);
+      paintShape(doc, op.fill, op.stroke, op.lw, op.dash);
+    } else if (op.t === "circle") {
+      doc.circle(op.cx, op.cy, op.r);
+      paintShape(doc, op.fill, op.stroke, op.lw, op.dash);
+    } else if (op.t === "line") {
+      doc.save();
+      doc.moveTo(op.x1, op.y1).lineTo(op.x2, op.y2).lineWidth(op.lw).lineCap("round");
+      if (op.dash) doc.dash(op.dash[0], { space: op.dash[1] });
+      doc.stroke(op.color);
+      doc.undash();
+      doc.restore();
+    } else if (op.t === "path") {
+      doc.save();
+      doc.translate(op.x, op.y);
+      doc.scale(op.scale);
+      doc.lineCap("round").lineJoin("round");
+      doc.path(op.d);
+      paintShape(doc, op.fill, op.stroke, op.lw);
+      doc.restore();
+    } else if (op.t === "image") {
+      if (logo) doc.image(logo, op.x, op.y, { width: op.w, height: op.h });
+    } else if (op.t === "qr") {
+      drawQr(doc, op);
+    } else if (op.t === "text") {
+      await drawText(doc, forms, op);
+    } else if (op.t === "group") {
+      doc.save();
+      doc.translate(op.dx ?? 0, op.dy ?? 0);
+      if (op.rotate) doc.rotate(op.rotate, { origin: [op.cx ?? 0, op.cy ?? 0] });
+      if (op.clip) doc.circle(op.clip.cx, op.clip.cy, op.clip.r).clip();
+      await drawOps(doc, forms, op.ops, logo);
+      doc.restore();
+    }
+  }
+}
+
+/** Draws laid-out pages (see ops.ts) into a print-quality PDF. */
+export async function renderPdf(pages: Page[], logo: Buffer | null, title: string): Promise<Buffer> {
   const doc = new PDFDocument({ autoFirstPage: false, margin: 0, info: { Title: title, Creator: "VaraaAi.com", Producer: "VaraaAi.com" } });
   const chunks: Buffer[] = [];
   doc.on("data", (c: Buffer) => chunks.push(c));
@@ -286,27 +337,7 @@ export async function renderPriceListPdf(pages: Page[], logo: Buffer | null, tit
   for (const page of pages) {
     doc.addPage({ size: [page.w, page.h], margin: 0 });
     doc.rect(0, 0, page.w, page.h).fill(page.bg);
-    for (const op of page.ops) {
-      if (op.t === "rect") {
-        const shape = op.r ? doc.roundedRect(op.x, op.y, op.w, op.h, op.r) : doc.rect(op.x, op.y, op.w, op.h);
-        if (op.fill && op.stroke) shape.lineWidth(op.lw ?? 1).fillAndStroke(op.fill, op.stroke);
-        else if (op.fill) shape.fill(op.fill);
-        else if (op.stroke) shape.lineWidth(op.lw ?? 1).stroke(op.stroke);
-      } else if (op.t === "line") {
-        doc.save();
-        doc.moveTo(op.x1, op.y1).lineTo(op.x2, op.y2).lineWidth(op.lw).lineCap("round");
-        if (op.dash) doc.dash(op.dash[0], { space: op.dash[1] });
-        doc.stroke(op.color);
-        doc.undash();
-        doc.restore();
-      } else if (op.t === "image") {
-        if (logo) doc.image(logo, op.x, op.y, { width: op.w, height: op.h });
-      } else if (op.t === "qr") {
-        drawQr(doc, op);
-      } else if (op.t === "text") {
-        await drawText(doc, forms, op);
-      }
-    }
+    await drawOps(doc, forms, page.ops, logo);
   }
   doc.end();
   return done;

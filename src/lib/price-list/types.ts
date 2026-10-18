@@ -44,8 +44,7 @@ export interface PriceListDoc {
 export const MAX_LANGUAGES = 3;
 export const MAX_SERVICES = 200;
 
-export const RTL_LANGS = new Set(["ar", "he"]);
-export const isRtl = (lang: string) => RTL_LANGS.has(lang);
+export { RTL_LANGS, isRtl } from "@/lib/print/ops";
 
 /** Page sizes in PDF points (1/72 inch). The square format is 540pt and is
  * exported at 2× to give exactly 1080×1080 px. */

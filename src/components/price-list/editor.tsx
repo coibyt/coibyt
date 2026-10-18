@@ -24,8 +24,9 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
-import { layoutPriceList, type Page } from "@/lib/price-list/layout";
-import { canvasMeasure, clearMeasureCache, ensureFonts, pageToPng } from "@/lib/price-list/canvas";
+import { layoutPriceList } from "@/lib/price-list/layout";
+import type { Page } from "@/lib/print/ops";
+import { canvasMeasure, clearMeasureCache, ensureFonts, pageToPng } from "@/lib/print/canvas";
 import { SHEET_LABELS } from "@/lib/price-list/i18n/sheet";
 import type { PriceListUi } from "@/lib/price-list/i18n/types";
 import {
@@ -470,7 +471,7 @@ export function PriceListEditor({
     if (!pages.length) return;
     setBusy("pdf");
     try {
-      const res = await fetch("/api/tools/price-list/pdf", {
+      const res = await fetch("/api/tools/render-pdf", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ title: doc.salonName || "Price list", logo: doc.logo, pages }),

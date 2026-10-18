@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { drawPage } from "@/lib/price-list/canvas";
-import type { Page } from "@/lib/price-list/layout";
+import { drawPage } from "@/lib/print/canvas";
+import type { Page } from "@/lib/print/ops";
 
 function PageCanvas({ page, logo, width }: { page: Page; logo: HTMLImageElement | null; width: number }) {
   const ref = useRef<HTMLCanvasElement>(null);

@@ -6,25 +6,11 @@
  * drawn by the canvas renderer (live preview, PNG) and by the server's PDF
  * renderer, so the downloaded PDF paginates exactly like the preview. */
 import { FORMATS, isRtl, formatPrice, type PriceListDoc, type TemplateId } from "./types";
+import { luminance, mix, readable } from "@/lib/print/color";
+import { wrapText } from "@/lib/print/text";
+import type { Align, FontFamily, Measure, Op, Page } from "@/lib/print/ops";
 
-export type FontFamily = "sans" | "serif";
-export type Align = "left" | "right" | "center";
-
-export type Op =
-  | { t: "text"; x: number; y: number; text: string; size: number; weight: number; family: FontFamily; color: string; align: Align; lang: string }
-  | { t: "rect"; x: number; y: number; w: number; h: number; r?: number; fill?: string; stroke?: string; lw?: number }
-  | { t: "line"; x1: number; y1: number; x2: number; y2: number; color: string; lw: number; dash?: [number, number] }
-  | { t: "image"; x: number; y: number; w: number; h: number }
-  | { t: "qr"; x: number; y: number; size: number; data: string; fg: string; bg: string };
-
-export interface Page {
-  w: number;
-  h: number;
-  bg: string;
-  ops: Op[];
-}
-
-export type Measure = (text: string, size: number, weight: number, family: FontFamily, lang: string) => number;
+export type { Align, FontFamily, Measure, Op, Page };
 
 /** Words printed on the price list itself, per display language. */
 export interface SheetLabels {
@@ -34,42 +20,6 @@ export interface SheetLabels {
   from: string;
   cont: string;
   footer: string;
-}
-
-// ---------------------------------------------------------------- colors
-
-function hexToRgb(hex: string): [number, number, number] {
-  const n = parseInt(hex.slice(1), 16);
-  return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
-}
-function rgbToHex([r, g, b]: number[]) {
-  return "#" + [r, g, b].map((v) => Math.round(Math.max(0, Math.min(255, v))).toString(16).padStart(2, "0")).join("");
-}
-/** Blends `hex` toward `toward` by `amount` (0 = hex, 1 = toward). */
-export function mix(hex: string, toward: string, amount: number) {
-  const a = hexToRgb(hex);
-  const b = hexToRgb(toward);
-  return rgbToHex(a.map((v, i) => v + (b[i] - v) * amount));
-}
-function luminance(hex: string) {
-  const [r, g, b] = hexToRgb(hex).map((v) => {
-    const c = v / 255;
-    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
-  });
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-/** A version of the accent that stays readable on `bg`. */
-function readable(accent: string, bg: string) {
-  const light = luminance(bg) > 0.5;
-  let c = accent;
-  for (let i = 0; i < 6; i++) {
-    const l1 = luminance(c);
-    const l2 = luminance(bg);
-    const ratio = (Math.max(l1, l2) + 0.05) / (Math.min(l1, l2) + 0.05);
-    if (ratio >= 4.5) break;
-    c = mix(c, light ? "#000000" : "#ffffff", 0.25);
-  }
-  return c;
 }
 
 interface Theme {
@@ -133,71 +83,6 @@ function themeFor(template: TemplateId, color: string): Theme {
     chip: null,
     rowAlt: null,
   };
-}
-
-// ---------------------------------------------------------------- text
-
-const segmenters = new Map<string, Intl.Segmenter | null>();
-function segmentWords(text: string, lang: string): string[] {
-  let seg = segmenters.get(lang);
-  if (seg === undefined) {
-    try {
-      seg = typeof Intl !== "undefined" && "Segmenter" in Intl ? new Intl.Segmenter(lang, { granularity: "word" }) : null;
-    } catch {
-      seg = null;
-    }
-    segmenters.set(lang, seg);
-  }
-  if (!seg) return text.split(/(\s+)/).filter(Boolean);
-  return Array.from(seg.segment(text), (s) => s.segment);
-}
-
-/** Greedy line breaking on word boundaries (Thai, Khmer and CJK included,
- * via Intl.Segmenter), splitting an over-long word by characters. */
-export function wrapText(
-  measure: Measure,
-  text: string,
-  maxW: number,
-  size: number,
-  weight: number,
-  family: FontFamily,
-  lang: string,
-  maxLines = 4
-): string[] {
-  const clean = text.replace(/\s+/g, " ").trim();
-  if (!clean) return [];
-  const fits = (s: string) => measure(s, size, weight, family, lang) <= maxW;
-  if (fits(clean)) return [clean];
-  const lines: string[] = [];
-  let cur = "";
-  const push = () => {
-    if (cur.trim()) lines.push(cur.trim());
-    cur = "";
-  };
-  for (const token of segmentWords(clean, lang)) {
-    if (fits(cur + token)) {
-      cur += token;
-      continue;
-    }
-    if (cur.trim()) push();
-    if (fits(token.trimStart())) {
-      cur = token.trimStart();
-      continue;
-    }
-    for (const ch of Array.from(token)) {
-      if (!fits(cur + ch)) push();
-      cur += ch;
-    }
-  }
-  push();
-  if (lines.length > maxLines) {
-    const kept = lines.slice(0, maxLines);
-    let last = kept[maxLines - 1];
-    while (last && !fits(last + "…")) last = Array.from(last).slice(0, -1).join("");
-    kept[maxLines - 1] = last + "…";
-    return kept;
-  }
-  return lines;
 }
 
 // ---------------------------------------------------------------- layout
