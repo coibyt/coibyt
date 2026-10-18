@@ -90,7 +90,7 @@ const TEXT = {
     loyalty: "Thẻ thành viên",
     loyaltySub: (n: number) => `${n} lượt tích điểm tháng này`,
     qrScans: "Lượt quét QR in (30 ngày)",
-    qrScansSub: "Tạo bảng giá có QR →",
+    qrScansSub: (pl: number, po: number) => `Bảng giá ${pl} · Poster ${po}`,
     status: {
       PENDING_PAYMENT: "Chờ thanh toán",
       CONFIRMED: "Đã xác nhận",
@@ -157,7 +157,7 @@ const TEXT = {
     loyalty: "Loyalty members",
     loyaltySub: (n: number) => `${n} stamps this month`,
     qrScans: "Printed QR scans (30 days)",
-    qrScansSub: "Make a price list with QR →",
+    qrScansSub: (pl: number, po: number) => `Price list ${pl} · Poster ${po}`,
     status: {
       PENDING_PAYMENT: "Awaiting payment",
       CONFIRMED: "Confirmed",
@@ -224,7 +224,7 @@ const TEXT = {
     loyalty: "Kanta-asiakkaat",
     loyaltySub: (n: number) => `${n} leimaa tässä kuussa`,
     qrScans: "Tulostettujen QR-koodien skannaukset (30 pv)",
-    qrScansSub: "Tee hinnasto QR-koodilla →",
+    qrScansSub: (pl: number, po: number) => `Hinnasto ${pl} · Juliste ${po}`,
     status: {
       PENDING_PAYMENT: "Odottaa maksua",
       CONFIRMED: "Vahvistettu",
@@ -874,7 +874,7 @@ export default async function DashboardOverviewPage({ params }: { params: Promis
                 sub: d.kpi.viewsChange === null ? "" : `${d.kpi.viewsChange >= 0 ? "+" : ""}${d.kpi.viewsChange}% ${L.vsPrev30}`,
                 href: "/business/dashboard/landing",
               },
-              { icon: QrCode, tone: "bg-mist-100 text-ink-700", label: L.qrScans, value: String(d.extras.qrScans30), sub: L.qrScansSub, href: "/tools/price-list" },
+              { icon: QrCode, tone: "bg-mist-100 text-ink-700", label: L.qrScans, value: String(d.extras.qrScans30), sub: L.qrScansSub(d.extras.qrScansPriceList, d.extras.qrScansPoster), href: "/tools/qr-poster" },
             ].map((x) => (
               <Link
                 key={x.label}

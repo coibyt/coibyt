@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const ro: PosterStrings = {
+  ui: {
+    sLink: "Cod QR și link de programare",
+    sContent: "Textele afișului",
+    headline: "Titlu",
+    headlineHint: "Alege o sugestie sau scrie-l pe al tău pentru fiecare limbă.",
+    extraLines: "Rânduri suplimentare (opțional)",
+    offer: "Ofertă",
+    offerPh: "ex. 10% reducere la programarea online",
+    hours: "Program",
+    hoursPh: "ex. Lu–Vi 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Rețea / parolă",
+    reviewToggle: "Adaugă QR „Lasă-ne o recenzie pe Google”",
+    reviewPh: "Lipește linkul de recenzii Google al salonului",
+    reviewHint: "Profilul companiei pe Google → Cere recenzii → copiază linkul.",
+    qrLogo: "Logo în mijlocul codului QR",
+    qrLogoHint: "Codul QR folosește atunci corecția maximă a erorilor (H) și rămâne lizibil.",
+    varaaaiLinkHint: "Codul QR folosește linkul scurt varaaai.com/q/… — mai ușor de scanat, iar scanările sunt numărate în panou.",
+    needLink: "Introdu un link de programare pentru a crea codul QR.",
+    tPastel: "Pastel",
+    tSeasonal: "Sezonier",
+    season: "Ocazie",
+    sChristmas: "Crăciun",
+    sBlackFriday: "Black Friday",
+    sTet: "Anul Nou Lunar",
+    fA6: "A6 (de masă)",
+    fTent: "Suport de masă pliat",
+    fSticker: "Autocolant rotund 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Tipărește 4 autocolante pe o foaie A4",
+    tentHint: "Tipărește pe A4 și pliază pe linia punctată.",
+    ctaTitle: "Nu ai încă o pagină de programări? Creeaz-o gratuit în 5 minute",
+    ctaBody: "Înregistrează-ți salonul pe VaraaAi: cine scanează se programează direct în calendarul tău — cu mementouri automate și numărarea scanărilor.",
+  },
+  seo: {
+    title: "Afiș QR „Scanează și programează-te” gratuit pentru saloane | VaraaAi",
+    description: "Creează afișe, autocolante și suporturi de masă cu cod QR de programare: multilingv, logo în QR, teme de Crăciun, Black Friday și Anul Nou Lunar. PDF gata de tipar sau PNG. Gratuit.",
+    h1: "Afiș QR „Scanează și programează-te” gratuit",
+    intro: "Pune-l la recepție, în vitrină, la oglindă sau pe masa de manichiură, ca clienții să-și programeze următoarea vizită cu camera telefonului. Alege stilul, culorile, formatul și limbile — descarcă un PDF gata de tipar sau o imagine pentru rețele sociale.",
+    features: [
+      "Până la 3 limbi pe același afiș",
+      "Logo în centrul codului QR, lizibil chiar și tipărit mic",
+      "A4, A5, A6, suport de masă, autocolant rotund, pătrat și story",
+      "Stiluri minimalist, lux, pastel și sezoniere",
+    ],
+    steps: [
+      "Introdu linkul de programare — sau preia-l din salonul tău VaraaAi",
+      "Alege titlul, limbile, stilul și formatul",
+      "Descarcă PDF-ul pentru tipar sau PNG-ul pentru postare",
+    ],
+  },
+};
+
+export default ro;

@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const sk: PosterStrings = {
+  ui: {
+    sLink: "QR kód a odkaz na rezerváciu",
+    sContent: "Texty na plagáte",
+    headline: "Nadpis",
+    headlineHint: "Vyberte návrh alebo napíšte vlastný pre každý jazyk.",
+    extraLines: "Ďalšie riadky (nepovinné)",
+    offer: "Ponuka",
+    offerPh: "napr. zľava 10 % pri rezervácii online",
+    hours: "Otváracie hodiny",
+    hoursPh: "napr. po–pi 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Sieť / heslo",
+    reviewToggle: "Pridať QR „Ohodnoťte nás na Googli“",
+    reviewPh: "Vložte odkaz na recenzie salónu na Googli",
+    reviewHint: "Firemný profil na Googli → Požiadať o recenzie → skopírovať odkaz.",
+    qrLogo: "Logo do stredu QR kódu",
+    qrLogoHint: "QR kód potom používa najvyššiu opravu chýb (H), takže sa stále načíta.",
+    varaaaiLinkHint: "QR kód používa krátky odkaz varaaai.com/q/… — ľahšie sa načíta a skeny sa počítajú v administrácii.",
+    needLink: "Zadajte odkaz na rezerváciu a vytvorte QR kód.",
+    tPastel: "Pastelový",
+    tSeasonal: "Sezónny",
+    season: "Príležitosť",
+    sChristmas: "Vianoce",
+    sBlackFriday: "Black Friday",
+    sTet: "Lunárny Nový rok",
+    fA6: "A6 (na stôl)",
+    fTent: "Skladací stojan na stôl",
+    fSticker: "Okrúhla nálepka 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Vytlačiť 4 nálepky na jeden hárok A4",
+    tentHint: "Vytlačte na A4 a preložte pozdĺž prerušovanej čiary.",
+    ctaTitle: "Ešte nemáte rezervačnú stránku? Vytvorte si ju zadarmo za 5 minút",
+    ctaBody: "Zaregistrujte salón na VaraaAi: kto kód naskenuje, rezervuje rovno do vášho kalendára — s automatickými pripomienkami a počtom skenov.",
+  },
+  seo: {
+    title: "QR plagát „Naskenujte a rezervujte“ zadarmo pre salóny | VaraaAi",
+    description: "Vytvorte plagáty, nálepky a stojany na stôl s QR kódom na rezerváciu: viacjazyčne, logo v QR kóde, vianočné, Black Friday a novoročné motívy. PDF na tlač alebo PNG. Zadarmo.",
+    h1: "QR plagát „Naskenujte a rezervujte“ zadarmo",
+    intro: "Na pult, do výkladu, k zrkadlu alebo na manikúrny stôl — zákazníci si ďalšiu návštevu rezervujú fotoaparátom telefónu. Vyberte štýl, farby, formát a jazyky — stiahnite PDF na tlač alebo obrázok na sociálne siete.",
+    features: [
+      "Až 3 jazyky na jednom plagáte",
+      "Logo v strede QR kódu, čitateľné aj pri malej tlači",
+      "A4, A5, A6, stojan, okrúhla nálepka, štvorec a story",
+      "Minimalistický, luxusný, pastelový a sezónny štýl",
+    ],
+    steps: [
+      "Zadajte odkaz na rezerváciu — alebo ho prevezmite zo svojho salónu na VaraaAi",
+      "Vyberte nadpis, jazyky, štýl a formát",
+      "Stiahnite PDF na tlač alebo PNG na zdieľanie",
+    ],
+  },
+};
+
+export default sk;

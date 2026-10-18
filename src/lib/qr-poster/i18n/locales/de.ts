@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const de: PosterStrings = {
+  ui: {
+    sLink: "QR-Code & Buchungslink",
+    sContent: "Texte auf dem Poster",
+    headline: "Überschrift",
+    headlineHint: "Wähle einen Vorschlag oder schreibe deinen eigenen pro Sprache.",
+    extraLines: "Zusatzzeilen (optional)",
+    offer: "Angebot",
+    offerPh: "z. B. 10 % Rabatt bei Online-Buchung",
+    hours: "Öffnungszeiten",
+    hoursPh: "z. B. Mo–Fr 9–19 Uhr",
+    wifi: "WLAN",
+    wifiPh: "Netzwerk / Passwort",
+    reviewToggle: "QR „Bewerte uns auf Google“ hinzufügen",
+    reviewPh: "Google-Bewertungslink des Salons einfügen",
+    reviewHint: "Google Business Profile → Rezensionen anfordern → Link kopieren.",
+    qrLogo: "Logo in die Mitte des QR-Codes",
+    qrLogoHint: "Der QR-Code nutzt dann die höchste Fehlerkorrektur (H) und bleibt scannbar.",
+    varaaaiLinkHint: "Der QR-Code nutzt den Kurzlink varaaai.com/q/… — leichter zu scannen, und Scans werden im Dashboard gezählt.",
+    needLink: "Gib einen Buchungslink ein, um den QR-Code zu erstellen.",
+    tPastel: "Pastell",
+    tSeasonal: "Saisonal",
+    season: "Anlass",
+    sChristmas: "Weihnachten",
+    sBlackFriday: "Black Friday",
+    sTet: "Mondneujahr",
+    fA6: "A6 (Tisch)",
+    fTent: "Gefalteter Tischaufsteller",
+    fSticker: "Runder Aufkleber 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "4 Aufkleber auf ein A4-Blatt drucken",
+    tentHint: "Auf A4 drucken und entlang der gestrichelten Linie falten.",
+    ctaTitle: "Noch keine Buchungsseite? In 5 Minuten kostenlos erstellen",
+    ctaBody: "Registriere deinen Salon auf VaraaAi: Wer scannt, bucht direkt in deinen Kalender — mit automatischen Erinnerungen und Scan-Zählung.",
+  },
+  seo: {
+    title: "Kostenloses QR-Poster „Scannen & buchen“ für Salons | VaraaAi",
+    description: "Erstelle Poster, Aufkleber und Tischaufsteller mit QR-Code zur Buchung: mehrsprachig, Logo im QR-Code, Designs für Weihnachten, Black Friday und Mondneujahr. Druckfertiges PDF oder PNG. Kostenlos.",
+    h1: "Kostenloses QR-Poster „Scannen & buchen“",
+    intro: "Für Theke, Schaufenster, Spiegel oder Nageltisch: Kunden buchen den nächsten Termin einfach mit der Handykamera. Wähle Design, Farben, Format und Sprachen — lade ein druckfertiges PDF oder ein Bild für Social Media herunter.",
+    features: [
+      "Bis zu 3 Sprachen auf einem Poster",
+      "Logo in der QR-Mitte — auch klein gedruckt scannbar",
+      "A4, A5, A6, Tischaufsteller, runder Aufkleber, Quadrat und Story",
+      "Minimalistisch, Luxus, Pastell und saisonale Designs",
+    ],
+    steps: [
+      "Buchungslink eingeben — oder aus deinem VaraaAi-Salon übernehmen",
+      "Überschrift, Sprachen, Design und Format wählen",
+      "PDF zum Drucken oder PNG für Social Media herunterladen",
+    ],
+  },
+};
+
+export default de;

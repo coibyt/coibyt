@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const fr: PosterStrings = {
+  ui: {
+    sLink: "QR code et lien de réservation",
+    sContent: "Textes de l’affiche",
+    headline: "Titre",
+    headlineHint: "Choisissez une suggestion ou écrivez le vôtre pour chaque langue.",
+    extraLines: "Lignes en plus (facultatif)",
+    offer: "Offre",
+    offerPh: "ex. -10 % en réservant en ligne",
+    hours: "Horaires",
+    hoursPh: "ex. lun–ven 9h–19h",
+    wifi: "Wi-Fi",
+    wifiPh: "Réseau / mot de passe",
+    reviewToggle: "Ajouter un QR « Laissez-nous un avis sur Google »",
+    reviewPh: "Collez le lien d’avis Google du salon",
+    reviewHint: "Google Business Profile → Demander des avis → copier le lien.",
+    qrLogo: "Logo au centre du QR code",
+    qrLogoHint: "Le QR code utilise alors la correction d’erreur maximale (H) et reste lisible.",
+    varaaaiLinkHint: "Le QR code utilise le lien court varaaai.com/q/… — plus facile à scanner, et les scans sont comptés dans votre tableau de bord.",
+    needLink: "Saisissez un lien de réservation pour créer le QR code.",
+    tPastel: "Pastel",
+    tSeasonal: "Saisonnier",
+    season: "Occasion",
+    sChristmas: "Noël",
+    sBlackFriday: "Black Friday",
+    sTet: "Nouvel An lunaire",
+    fA6: "A6 (table)",
+    fTent: "Chevalet de table plié",
+    fSticker: "Sticker rond 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Imprimer 4 stickers sur une feuille A4",
+    tentHint: "Imprimez sur A4 puis pliez le long du pointillé.",
+    ctaTitle: "Pas encore de page de réservation ? Créez-la gratuitement en 5 minutes",
+    ctaBody: "Inscrivez votre salon sur VaraaAi : les clients qui scannent réservent directement dans votre agenda, avec rappels automatiques et comptage des scans.",
+  },
+  seo: {
+    title: "Affiche QR « Scannez pour réserver » gratuite pour salons | VaraaAi",
+    description: "Créez affiches, stickers et chevalets de table avec QR code de réservation : multilingue, logo dans le QR, thèmes Noël, Black Friday et Nouvel An lunaire. PDF prêt à imprimer ou PNG. Gratuit.",
+    h1: "Affiche QR « Scannez pour réserver » gratuite",
+    intro: "À poser sur le comptoir, la vitrine, le miroir ou la table de manucure : vos clients réservent leur prochaine visite avec l’appareil photo de leur téléphone. Choisissez le style, les couleurs, le format et les langues — téléchargez un PDF prêt à imprimer ou une image pour les réseaux sociaux.",
+    features: [
+      "Jusqu’à 3 langues sur une même affiche",
+      "Logo au centre du QR, lisible même imprimé petit",
+      "A4, A5, A6, chevalet, sticker rond, carré et story",
+      "Styles minimaliste, luxe, pastel et saisonniers",
+    ],
+    steps: [
+      "Saisissez votre lien de réservation — ou reprenez celui de votre salon VaraaAi",
+      "Choisissez le titre, les langues, le style et le format",
+      "Téléchargez le PDF à imprimer ou le PNG à publier",
+    ],
+  },
+};
+
+export default fr;

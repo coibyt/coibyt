@@ -7,6 +7,8 @@ import { Link } from "@/i18n/navigation";
 import { priceListStrings } from "@/lib/price-list/i18n";
 import { PRICE_LIST_FONTS_HREF } from "@/lib/price-list/fonts";
 import { PriceListEditor } from "@/components/price-list/editor";
+import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
+import { posterStrings } from "@/lib/qr-poster/i18n";
 
 type Params = Promise<{ locale: string }>;
 
@@ -93,6 +95,15 @@ export default async function PriceListToolPage({ params }: { params: Params }) 
               <p className="pt-1.5 text-sm leading-relaxed text-ink-700">{s}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-6 flex flex-col items-start gap-4 rounded-[28px] border border-ink-100 bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div>
+            <p className="text-lg font-extrabold text-ink-900">{posterNavLabel(locale)}</p>
+            <p className="mt-1 max-w-2xl text-sm text-ink-700">{posterStrings(locale).seo.intro}</p>
+          </div>
+          <Link href="/tools/qr-poster" className="btn-primary shrink-0 !px-6 !py-3">
+            + {posterNavLabel(locale)}
+          </Link>
         </div>
         {!ownsSalon && (
           <div className="mt-6 flex flex-col items-start gap-4 rounded-[28px] bg-peach-100 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">

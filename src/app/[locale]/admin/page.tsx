@@ -64,28 +64,37 @@ export default async function AdminPendingPage({
           value={String(pwaInstalls7d)}
         />
       </div>
-      <div className="mb-8 rounded-2xl border border-ink-100 bg-white p-4">
-        <h2 className="mb-3 text-sm font-bold text-ink-900">
-          {vi ? "Công cụ bảng giá miễn phí — 30 ngày qua" : "Free price-list tool — last 30 days"}
-        </h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
-          {(
-            [
-              ["open", vi ? "Lượt mở" : "Opened"],
-              ["download_pdf", vi ? "Tải PDF" : "PDF downloads"],
-              ["download_png", vi ? "Tải PNG" : "PNG downloads"],
-              ["cta_click", vi ? "Bấm đăng ký" : "Sign-up clicks"],
-              ["translate", vi ? "Dịch AI" : "AI translations"],
-              ["import", vi ? "Nhập từ salon" : "Salon imports"],
-            ] as const
-          ).map(([ev, label]) => (
-            <div key={ev} className="rounded-xl bg-mist-50 px-3 py-2">
-              <p className="text-lg font-bold text-ink-900">{toolCount("price_list", ev)}</p>
-              <p className="text-xs text-ink-400">{label}</p>
-            </div>
-          ))}
+      {(
+        [
+          ["price_list", vi ? "Công cụ bảng giá miễn phí — 30 ngày qua" : "Free price-list tool — last 30 days", true],
+          ["qr_poster", vi ? "Công cụ poster QR miễn phí — 30 ngày qua" : "Free QR poster tool — last 30 days", false],
+        ] as const
+      ).map(([tool, title, extra]) => (
+        <div key={tool} className="mb-4 rounded-2xl border border-ink-100 bg-white p-4 last-of-type:mb-8">
+          <h2 className="mb-3 text-sm font-bold text-ink-900">{title}</h2>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
+            {(
+              [
+                ["open", vi ? "Lượt mở" : "Opened"],
+                ["download_pdf", vi ? "Tải PDF" : "PDF downloads"],
+                ["download_png", vi ? "Tải PNG" : "PNG downloads"],
+                ["cta_click", vi ? "Bấm đăng ký" : "Sign-up clicks"],
+                ...(extra
+                  ? ([
+                      ["translate", vi ? "Dịch AI" : "AI translations"],
+                      ["import", vi ? "Nhập từ salon" : "Salon imports"],
+                    ] as const)
+                  : []),
+              ] as const
+            ).map(([ev, label]) => (
+              <div key={ev} className="rounded-xl bg-mist-50 px-3 py-2">
+                <p className="text-lg font-bold text-ink-900">{toolCount(tool, ev)}</p>
+                <p className="text-xs text-ink-400">{label}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
       <h1 className="mb-4 text-xl font-bold text-ink-900">{t("pendingBusinesses")}</h1>
       {businesses.length === 0 ? (
         <p className="text-sm text-ink-400">{t("noPending")}</p>

@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const es: PosterStrings = {
+  ui: {
+    sLink: "Código QR y enlace de reservas",
+    sContent: "Textos del póster",
+    headline: "Titular",
+    headlineHint: "Elige una sugerencia o escribe el tuyo para cada idioma.",
+    extraLines: "Líneas extra (opcional)",
+    offer: "Oferta",
+    offerPh: "p. ej. 10 % de descuento al reservar online",
+    hours: "Horario",
+    hoursPh: "p. ej. lun–vie 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Red / contraseña",
+    reviewToggle: "Añadir QR “Déjanos una reseña en Google”",
+    reviewPh: "Pega el enlace de reseñas de Google del salón",
+    reviewHint: "Google Business Profile → Pedir reseñas → copiar el enlace.",
+    qrLogo: "Logotipo en el centro del QR",
+    qrLogoHint: "El QR usa entonces la máxima corrección de errores (H) y se sigue leyendo.",
+    varaaaiLinkHint: "El QR usa el enlace corto varaaai.com/q/… — más fácil de escanear, y los escaneos se cuentan en tu panel.",
+    needLink: "Introduce un enlace de reservas para crear el código QR.",
+    tPastel: "Pastel",
+    tSeasonal: "De temporada",
+    season: "Ocasión",
+    sChristmas: "Navidad",
+    sBlackFriday: "Black Friday",
+    sTet: "Año Nuevo lunar",
+    fA6: "A6 (mesa)",
+    fTent: "Expositor de mesa plegado",
+    fSticker: "Pegatina redonda 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Imprimir 4 pegatinas en una hoja A4",
+    tentHint: "Imprime en A4 y dobla por la línea discontinua.",
+    ctaTitle: "¿Aún sin página de reservas? Créala gratis en 5 minutos",
+    ctaBody: "Registra tu salón en VaraaAi: quien escanea reserva directamente en tu agenda, con recordatorios automáticos y recuento de escaneos.",
+  },
+  seo: {
+    title: "Póster QR “Escanea y reserva” gratis para salones | VaraaAi",
+    description: "Crea pósters, pegatinas y expositores de mesa con código QR para reservar: multilingüe, logotipo en el QR, diseños de Navidad, Black Friday y Año Nuevo lunar. PDF listo para imprimir o PNG. Gratis.",
+    h1: "Póster QR “Escanea y reserva” gratis",
+    intro: "Ponlo en el mostrador, el escaparate, el espejo o la mesa de uñas para que tus clientes reserven su próxima cita con la cámara del móvil. Elige diseño, colores, tamaño e idiomas — descarga un PDF listo para imprimir o una imagen para redes sociales.",
+    features: [
+      "Hasta 3 idiomas en el mismo póster",
+      "Logotipo en el centro del QR que se escanea aunque se imprima pequeño",
+      "A4, A5, A6, expositor de mesa, pegatina redonda, cuadrado y story",
+      "Diseños minimalista, lujo, pastel y de temporada",
+    ],
+    steps: [
+      "Introduce tu enlace de reservas — o tómalo de tu salón en VaraaAi",
+      "Elige titular, idiomas, diseño y tamaño",
+      "Descarga el PDF para imprimir o el PNG para publicar",
+    ],
+  },
+};
+
+export default es;

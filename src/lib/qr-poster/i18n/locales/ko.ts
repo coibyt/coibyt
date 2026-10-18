@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const ko: PosterStrings = {
+  ui: {
+    sLink: "QR 코드 및 예약 링크",
+    sContent: "포스터 문구",
+    headline: "큰 제목",
+    headlineHint: "추천 문구를 고르거나 언어별로 직접 입력하세요.",
+    extraLines: "추가 정보(선택)",
+    offer: "혜택",
+    offerPh: "예: 온라인 예약 시 10% 할인",
+    hours: "영업시간",
+    hoursPh: "예: 월–금 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "네트워크 / 비밀번호",
+    reviewToggle: "“Google에 리뷰를 남겨 주세요” QR 추가",
+    reviewPh: "샵의 Google 리뷰 링크를 붙여 넣으세요",
+    reviewHint: "Google 비즈니스 프로필 → 리뷰 요청 → 링크 복사",
+    qrLogo: "QR 코드 가운데에 로고 넣기",
+    qrLogoHint: "QR이 가장 높은 오류 정정(H)을 사용하므로 계속 스캔돼요.",
+    varaaaiLinkHint: "QR은 짧은 링크 varaaai.com/q/…를 사용해요 — 스캔하기 쉽고, 스캔 수는 관리 화면에서 집계돼요.",
+    needLink: "QR 코드를 만들려면 예약 링크를 입력하세요.",
+    tPastel: "파스텔",
+    tSeasonal: "시즌",
+    season: "기념일",
+    sChristmas: "크리스마스",
+    sBlackFriday: "블랙 프라이데이",
+    sTet: "설날",
+    fA6: "A6 (테이블용)",
+    fTent: "접이식 테이블 POP",
+    fSticker: "원형 스티커 10cm",
+    fStory: "스토리 1080×1920",
+    stickerSheet: "A4 한 장에 스티커 4개 인쇄",
+    tentHint: "A4에 인쇄한 뒤 점선을 따라 반으로 접으세요.",
+    ctaTitle: "아직 예약 페이지가 없나요? 5분 만에 무료로 만드세요",
+    ctaBody: "VaraaAi에 샵을 등록하세요: 스캔한 고객이 바로 캘린더에 예약하고, 자동 알림과 스캔 수 집계도 제공돼요.",
+  },
+  seo: {
+    title: "무료 “스캔하고 예약하기” QR 포스터 만들기 | VaraaAi",
+    description: "예약 QR 코드가 들어간 포스터, 스티커, 테이블 POP를 만드세요: 다국어, QR 속 로고, 크리스마스·블랙 프라이데이·설날 디자인. 인쇄용 PDF 또는 PNG. 무료입니다.",
+    h1: "무료 “스캔하고 예약하기” QR 포스터",
+    intro: "카운터, 쇼윈도, 거울 옆, 네일 테이블에 두면 고객이 휴대폰 카메라로 다음 방문을 예약해요. 디자인, 색상, 크기, 언어를 고르고 인쇄용 PDF나 SNS용 이미지를 내려받으세요.",
+    features: [
+      "포스터 한 장에 최대 3개 언어",
+      "QR 가운데 로고 — 작게 인쇄해도 스캔 가능",
+      "A4·A5·A6·테이블 POP·원형 스티커·정사각형·스토리",
+      "미니멀, 럭셔리, 파스텔, 시즌 디자인",
+    ],
+    steps: [
+      "예약 링크 입력 — 또는 VaraaAi 샵에서 자동 입력",
+      "제목, 언어, 디자인, 크기 선택",
+      "인쇄용 PDF 또는 게시용 PNG 다운로드",
+    ],
+  },
+};
+
+export default ko;

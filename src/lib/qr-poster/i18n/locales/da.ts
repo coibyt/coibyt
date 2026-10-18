@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const da: PosterStrings = {
+  ui: {
+    sLink: "QR-kode og bookinglink",
+    sContent: "Plakatens tekst",
+    headline: "Overskrift",
+    headlineHint: "Vælg et forslag eller skriv din egen for hvert sprog.",
+    extraLines: "Ekstra linjer (valgfrit)",
+    offer: "Tilbud",
+    offerPh: "f.eks. 10 % rabat ved onlinebooking",
+    hours: "Åbningstider",
+    hoursPh: "f.eks. man–fre 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Netværk / adgangskode",
+    reviewToggle: "Tilføj QR “Anmeld os på Google”",
+    reviewPh: "Indsæt salonens Google-anmeldelseslink",
+    reviewHint: "Google Business Profile → Bed om anmeldelser → kopiér linket.",
+    qrLogo: "Logo midt i QR-koden",
+    qrLogoHint: "QR-koden bruger så højeste fejlkorrektion (H), så den stadig kan scannes.",
+    varaaaiLinkHint: "QR-koden bruger det korte link varaaai.com/q/… — lettere at scanne, og scanninger tælles i dit dashboard.",
+    needLink: "Indtast et bookinglink for at lave QR-koden.",
+    tPastel: "Pastel",
+    tSeasonal: "Sæson",
+    season: "Anledning",
+    sChristmas: "Jul",
+    sBlackFriday: "Black Friday",
+    sTet: "Kinesisk nytår",
+    fA6: "A6 (bord)",
+    fTent: "Foldet bordskilt",
+    fSticker: "Rund sticker 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Udskriv 4 stickers på ét A4-ark",
+    tentHint: "Udskriv på A4 og fold langs den stiplede linje.",
+    ctaTitle: "Ingen bookingside endnu? Opret en gratis på 5 minutter",
+    ctaBody: "Registrér din salon på VaraaAi: kunder, der scanner, booker direkte i din kalender, med automatiske påmindelser og antal scanninger.",
+  },
+  seo: {
+    title: "Gratis QR-plakat “Scan og book” til saloner | VaraaAi",
+    description: "Lav plakater, stickers og bordskilte med QR-kode til booking: flersproget, logo i QR-koden, jule-, Black Friday- og nytårsdesign. Trykklar PDF eller PNG. Gratis.",
+    h1: "Gratis QR-plakat “Scan og book”",
+    intro: "Sæt den ved disken, i vinduet, ved spejlet eller på neglebordet, så booker kunderne næste besøg med mobilkameraet. Vælg design, farver, størrelse og sprog — download en trykklar PDF eller et billede til sociale medier.",
+    features: [
+      "Op til 3 sprog på samme plakat",
+      "Logo midt i QR-koden, der stadig kan scannes i lille format",
+      "A4, A5, A6, bordskilt, rund sticker, kvadrat og story",
+      "Minimalistisk, luksus, pastel og sæsondesign",
+    ],
+    steps: [
+      "Indtast bookinglinket — eller hent det fra din VaraaAi-salon",
+      "Vælg overskrift, sprog, design og størrelse",
+      "Download PDF til tryk eller PNG til sociale medier",
+    ],
+  },
+};
+
+export default da;

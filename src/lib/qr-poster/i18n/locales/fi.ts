@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const fi: PosterStrings = {
+  ui: {
+    sLink: "QR-koodi ja varauslinkki",
+    sContent: "Julisteen tekstit",
+    headline: "Otsikko",
+    headlineHint: "Valitse ehdotus tai kirjoita oma jokaiselle kielelle.",
+    extraLines: "Lisärivit (valinnainen)",
+    offer: "Tarjous",
+    offerPh: "esim. -10 % verkosta varatessa",
+    hours: "Aukioloajat",
+    hoursPh: "esim. ma–pe 9.00–19.00",
+    wifi: "Wi-Fi",
+    wifiPh: "Verkko / salasana",
+    reviewToggle: "Lisää QR ”Arvostele meidät Googlessa”",
+    reviewPh: "Liitä salongin Google-arvostelulinkki",
+    reviewHint: "Google Business Profile → Pyydä arvosteluja → kopioi linkki.",
+    qrLogo: "Logo QR-koodin keskelle",
+    qrLogoHint: "QR käyttää silloin korkeinta virheenkorjausta (H), joten se skannautuu yhä.",
+    varaaaiLinkHint: "QR käyttää lyhyttä linkkiä varaaai.com/q/… — helpompi skannata, ja skannaukset näkyvät hallintapaneelissa.",
+    needLink: "Anna varauslinkki QR-koodia varten.",
+    tPastel: "Pastelli",
+    tSeasonal: "Sesonki",
+    season: "Teema",
+    sChristmas: "Joulu",
+    sBlackFriday: "Black Friday",
+    sTet: "Kiinalainen uusivuosi",
+    fA6: "A6 (pöytä)",
+    fTent: "Taitettava pöytäkyltti",
+    fSticker: "Pyöreä tarra 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Tulosta 4 tarraa samalle A4-arkille",
+    tentHint: "Tulosta A4-arkille ja taita katkoviivaa pitkin.",
+    ctaTitle: "Eikö ajanvaraussivua vielä ole? Luo se ilmaiseksi 5 minuutissa",
+    ctaBody: "Rekisteröi salonkisi VaraaAihin: skannaavat asiakkaat varaavat suoraan kalenteriisi, ja saat muistutukset ja skannausmäärät.",
+  },
+  seo: {
+    title: "Ilmainen ”Varaa aika tästä” -QR-juliste salongille | VaraaAi",
+    description: "Tee salongillesi julisteita, tarroja ja pöytäkylttejä ajanvarauksen QR-koodilla: monikielinen, logo QR:n keskellä, joulu-, Black Friday- ja uudenvuoden teemat. Tulostettava PDF tai PNG. Ilmainen.",
+    h1: "Ilmainen ”Varaa aika tästä” -QR-juliste",
+    intro: "Laita se tiskille, ikkunaan, peilin viereen tai kynsipöydälle, niin asiakkaat varaavat seuraavan käyntinsä puhelimen kameralla. Valitse tyyli, värit, koko ja kielet — lataa tulostettava PDF tai kuva someen.",
+    features: [
+      "Jopa 3 kieltä samassa julisteessa",
+      "Logo QR-koodin keskellä — skannautuu pienenäkin",
+      "A4, A5, A6, pöytäkyltti, pyöreä tarra, neliö ja story",
+      "Minimalistinen, ylellinen, pastelli ja sesonkiteemat",
+    ],
+    steps: [
+      "Anna varauslinkki — tai täytä se VaraaAi-salongistasi",
+      "Valitse otsikko, kielet, tyyli ja koko",
+      "Lataa PDF tulostettavaksi tai PNG someen",
+    ],
+  },
+};
+
+export default fi;

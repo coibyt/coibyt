@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const id: PosterStrings = {
+  ui: {
+    sLink: "Kode QR & link booking",
+    sContent: "Teks poster",
+    headline: "Judul",
+    headlineHint: "Pilih saran atau tulis sendiri untuk setiap bahasa.",
+    extraLines: "Baris tambahan (opsional)",
+    offer: "Promo",
+    offerPh: "mis. Diskon 10% untuk booking online",
+    hours: "Jam buka",
+    hoursPh: "mis. Sen–Jum 09.00–19.00",
+    wifi: "Wi-Fi",
+    wifiPh: "Jaringan / kata sandi",
+    reviewToggle: "Tambahkan QR “Beri ulasan kami di Google”",
+    reviewPh: "Tempel link ulasan Google salon",
+    reviewHint: "Profil Bisnis Google → Minta ulasan → salin link.",
+    qrLogo: "Logo di tengah kode QR",
+    qrLogoHint: "Kode QR lalu memakai koreksi kesalahan tertinggi (H) sehingga tetap bisa dipindai.",
+    varaaaiLinkHint: "Kode QR memakai link pendek varaaai.com/q/… — lebih mudah dipindai, dan jumlah pindaian dihitung di dasbor.",
+    needLink: "Masukkan link booking untuk membuat kode QR.",
+    tPastel: "Pastel",
+    tSeasonal: "Musiman",
+    season: "Momen",
+    sChristmas: "Natal",
+    sBlackFriday: "Black Friday",
+    sTet: "Imlek",
+    fA6: "A6 (meja)",
+    fTent: "Kartu meja lipat",
+    fSticker: "Stiker bulat 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Cetak 4 stiker di satu lembar A4",
+    tentHint: "Cetak di A4 lalu lipat di garis putus-putus.",
+    ctaTitle: "Belum punya halaman booking? Buat gratis dalam 5 menit",
+    ctaBody: "Daftarkan salon Anda di VaraaAi: pelanggan yang memindai langsung booking ke kalender Anda — dengan pengingat otomatis dan hitungan pindaian.",
+  },
+  seo: {
+    title: "Poster QR “Pindai untuk booking” gratis untuk salon | VaraaAi",
+    description: "Buat poster, stiker, dan kartu meja dengan kode QR booking: multibahasa, logo di dalam QR, desain Natal, Black Friday, dan Imlek. PDF siap cetak atau PNG. Gratis.",
+    h1: "Poster QR “Pindai untuk booking” gratis",
+    intro: "Pasang di meja kasir, kaca depan, cermin, atau meja nail agar pelanggan booking kunjungan berikutnya dengan kamera ponsel. Pilih desain, warna, ukuran, dan bahasa — unduh PDF siap cetak atau gambar untuk media sosial.",
+    features: [
+      "Hingga 3 bahasa dalam satu poster",
+      "Logo di tengah QR yang tetap bisa dipindai meski dicetak kecil",
+      "A4, A5, A6, kartu meja, stiker bulat, persegi, dan story",
+      "Desain minimalis, mewah, pastel, dan musiman",
+    ],
+    steps: [
+      "Masukkan link booking — atau ambil dari salon VaraaAi Anda",
+      "Pilih judul, bahasa, desain, dan ukuran",
+      "Unduh PDF untuk dicetak atau PNG untuk diposting",
+    ],
+  },
+};
+
+export default id;

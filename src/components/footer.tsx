@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
+import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
 
 export async function Footer() {
   const [t, locale] = await Promise.all([getTranslations("footer"), getLocale()]);
@@ -28,6 +29,7 @@ export async function Footer() {
             { href: "/business", label: t("forBusiness") },
             { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : "Free salon check" },
             { href: "/tools/price-list", label: priceListNavLabel(locale) },
+            { href: "/tools/qr-poster", label: posterNavLabel(locale) },
           ]}
         />
         <FooterColumn

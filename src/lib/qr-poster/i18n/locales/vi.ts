@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const vi: PosterStrings = {
+  ui: {
+    sLink: "Mã QR & link đặt lịch",
+    sContent: "Nội dung poster",
+    headline: "Tiêu đề lớn",
+    headlineHint: "Chọn câu gợi ý hoặc tự viết cho từng ngôn ngữ.",
+    extraLines: "Dòng phụ (không bắt buộc)",
+    offer: "Ưu đãi",
+    offerPh: "Ví dụ: Giảm 10% khi đặt online",
+    hours: "Giờ mở cửa",
+    hoursPh: "Ví dụ: T2–T6 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Tên mạng / mật khẩu",
+    reviewToggle: "Thêm QR “Đánh giá chúng tôi trên Google”",
+    reviewPh: "Dán link đánh giá Google của salon",
+    reviewHint: "Google Business Profile → Xin đánh giá → sao chép link.",
+    qrLogo: "Đặt logo giữa mã QR",
+    qrLogoHint: "Mã QR dùng mức sửa lỗi cao nhất (H) để vẫn quét được.",
+    varaaaiLinkHint: "Mã QR dùng link ngắn varaaai.com/q/… — dễ quét hơn và tự đếm lượt quét trong trang quản lý.",
+    needLink: "Nhập link đặt lịch để tạo mã QR.",
+    tPastel: "Pastel",
+    tSeasonal: "Theo mùa",
+    season: "Dịp",
+    sChristmas: "Giáng sinh",
+    sBlackFriday: "Black Friday",
+    sTet: "Tết",
+    fA6: "A6 (đặt bàn)",
+    fTent: "Thẻ đứng gập đôi",
+    fSticker: "Sticker tròn 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "In 4 sticker trên một tờ A4",
+    tentHint: "In trên giấy A4 rồi gấp đôi theo đường nét đứt.",
+    ctaTitle: "Chưa có trang đặt lịch? Tạo miễn phí trong 5 phút",
+    ctaBody: "Đăng ký salon trên VaraaAi: khách quét mã là đặt lịch thẳng vào lịch của bạn, có nhắc lịch tự động và đếm lượt quét.",
+  },
+  seo: {
+    title: "Tạo poster QR đặt lịch miễn phí cho salon | VaraaAi",
+    description: "Tạo poster, sticker và thẻ đặt bàn có mã QR “Quét để đặt lịch” cho salon: đa ngôn ngữ, logo giữa QR, mẫu Giáng sinh, Black Friday, Tết. Tải PDF in hoặc PNG. Miễn phí.",
+    h1: "Tạo poster QR “Quét để đặt lịch” miễn phí",
+    intro: "Dán ở quầy, cửa kính, gương hay bàn làm nail để khách tự đặt lịch hẹn tiếp theo chỉ bằng camera điện thoại. Chọn mẫu, màu, khổ giấy và ngôn ngữ — tải PDF in sắc nét hoặc ảnh cho mạng xã hội.",
+    features: [
+      "Tối đa 3 ngôn ngữ trên cùng một poster",
+      "Logo giữa mã QR, vẫn quét tốt khi in nhỏ",
+      "A4, A5, A6, thẻ gập đôi, sticker tròn, ảnh vuông và story",
+      "Mẫu Tối giản, Sang trọng, Pastel và theo mùa",
+    ],
+    steps: [
+      "Nhập link đặt lịch — hoặc tự điền từ salon VaraaAi",
+      "Chọn tiêu đề, ngôn ngữ, mẫu và khổ in",
+      "Tải PDF để in hoặc PNG để đăng mạng xã hội",
+    ],
+  },
+};
+
+export default vi;

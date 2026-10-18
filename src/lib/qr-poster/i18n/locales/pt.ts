@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const pt: PosterStrings = {
+  ui: {
+    sLink: "QR code e link de agendamento",
+    sContent: "Textos do pôster",
+    headline: "Título",
+    headlineHint: "Escolha uma sugestão ou escreva o seu para cada idioma.",
+    extraLines: "Linhas extras (opcional)",
+    offer: "Oferta",
+    offerPh: "ex.: 10% de desconto ao agendar online",
+    hours: "Horário",
+    hoursPh: "ex.: seg–sex 9h–19h",
+    wifi: "Wi-Fi",
+    wifiPh: "Rede / senha",
+    reviewToggle: "Adicionar QR “Avalie-nos no Google”",
+    reviewPh: "Cole o link de avaliação do Google do salão",
+    reviewHint: "Perfil da Empresa no Google → Pedir avaliações → copiar o link.",
+    qrLogo: "Logotipo no centro do QR code",
+    qrLogoHint: "O QR passa a usar a correção de erros máxima (H) e continua legível.",
+    varaaaiLinkHint: "O QR usa o link curto varaaai.com/q/… — mais fácil de escanear, e as leituras são contadas no seu painel.",
+    needLink: "Digite um link de agendamento para criar o QR code.",
+    tPastel: "Pastel",
+    tSeasonal: "Sazonal",
+    season: "Ocasião",
+    sChristmas: "Natal",
+    sBlackFriday: "Black Friday",
+    sTet: "Ano Novo Lunar",
+    fA6: "A6 (mesa)",
+    fTent: "Display de mesa dobrável",
+    fSticker: "Adesivo redondo 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Imprimir 4 adesivos em uma folha A4",
+    tentHint: "Imprima em A4 e dobre na linha tracejada.",
+    ctaTitle: "Ainda sem página de agendamento? Crie grátis em 5 minutos",
+    ctaBody: "Cadastre seu salão no VaraaAi: quem escaneia agenda direto na sua agenda, com lembretes automáticos e contagem de leituras.",
+  },
+  seo: {
+    title: "Pôster QR “Escaneie e agende” grátis para salões | VaraaAi",
+    description: "Crie pôsteres, adesivos e displays de mesa com QR code de agendamento: multilíngue, logotipo no QR, temas de Natal, Black Friday e Ano Novo Lunar. PDF pronto para impressão ou PNG. Grátis.",
+    h1: "Pôster QR “Escaneie e agende” grátis",
+    intro: "Coloque no balcão, na vitrine, no espelho ou na mesa de unhas para os clientes agendarem a próxima visita com a câmera do celular. Escolha estilo, cores, tamanho e idiomas — baixe um PDF pronto para impressão ou uma imagem para as redes sociais.",
+    features: [
+      "Até 3 idiomas no mesmo pôster",
+      "Logotipo no centro do QR, legível mesmo impresso pequeno",
+      "A4, A5, A6, display de mesa, adesivo redondo, quadrado e story",
+      "Estilos minimalista, luxo, pastel e sazonais",
+    ],
+    steps: [
+      "Digite o link de agendamento — ou pegue o do seu salão no VaraaAi",
+      "Escolha título, idiomas, estilo e tamanho",
+      "Baixe o PDF para imprimir ou o PNG para postar",
+    ],
+  },
+};
+
+export default pt;

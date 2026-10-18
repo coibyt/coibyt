@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const sv: PosterStrings = {
+  ui: {
+    sLink: "QR-kod och bokningslänk",
+    sContent: "Affischens text",
+    headline: "Rubrik",
+    headlineHint: "Välj ett förslag eller skriv din egen för varje språk.",
+    extraLines: "Extra rader (valfritt)",
+    offer: "Erbjudande",
+    offerPh: "t.ex. 10 % rabatt vid onlinebokning",
+    hours: "Öppettider",
+    hoursPh: "t.ex. mån–fre 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Nätverk / lösenord",
+    reviewToggle: "Lägg till QR ”Recensera oss på Google”",
+    reviewPh: "Klistra in salongens Google-recensionslänk",
+    reviewHint: "Google Business Profile → Be om recensioner → kopiera länken.",
+    qrLogo: "Logotyp mitt i QR-koden",
+    qrLogoHint: "QR-koden använder då högsta felkorrigering (H) och går ändå att skanna.",
+    varaaaiLinkHint: "QR-koden använder kortlänken varaaai.com/q/… — lättare att skanna, och skanningarna räknas i din panel.",
+    needLink: "Ange en bokningslänk för att skapa QR-koden.",
+    tPastel: "Pastell",
+    tSeasonal: "Säsong",
+    season: "Tillfälle",
+    sChristmas: "Jul",
+    sBlackFriday: "Black Friday",
+    sTet: "Månnyår",
+    fA6: "A6 (bord)",
+    fTent: "Vikbar bordsskylt",
+    fSticker: "Rund dekal 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Skriv ut 4 dekaler på ett A4-ark",
+    tentHint: "Skriv ut på A4 och vik längs den streckade linjen.",
+    ctaTitle: "Ingen bokningssida än? Skapa en gratis på 5 minuter",
+    ctaBody: "Registrera din salong på VaraaAi: kunder som skannar bokar direkt i din kalender, med automatiska påminnelser och antal skanningar.",
+  },
+  seo: {
+    title: "Gratis QR-affisch ”Skanna och boka” för salonger | VaraaAi",
+    description: "Gör affischer, dekaler och bordsskyltar med QR-kod för bokning: flerspråkigt, logotyp i QR-koden, jul-, Black Friday- och månnyårsdesign. Utskriftsklar PDF eller PNG. Gratis.",
+    h1: "Gratis QR-affisch ”Skanna och boka”",
+    intro: "Sätt den vid kassan, på fönstret, spegeln eller nagelbordet så bokar kunderna nästa besök med mobilkameran. Välj design, färger, storlek och språk — ladda ner en utskriftsklar PDF eller en bild för sociala medier.",
+    features: [
+      "Upp till 3 språk på samma affisch",
+      "Logotyp mitt i QR-koden som ändå går att skanna i litet format",
+      "A4, A5, A6, bordsskylt, rund dekal, kvadrat och story",
+      "Minimalistisk, lyx, pastell och säsongsdesign",
+    ],
+    steps: [
+      "Ange bokningslänken — eller hämta den från din VaraaAi-salong",
+      "Välj rubrik, språk, design och storlek",
+      "Ladda ner PDF för utskrift eller PNG för sociala medier",
+    ],
+  },
+};
+
+export default sv;

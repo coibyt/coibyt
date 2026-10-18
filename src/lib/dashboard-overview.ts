@@ -158,7 +158,7 @@ export async function loadDashboardOverview({
     prisma.businessPageView.count({ where: { businessId, createdAt: { gte: thirtyDaysAgo } } }),
     prisma.businessPageView.count({ where: { businessId, createdAt: { gte: sixtyDaysAgo, lt: thirtyDaysAgo } } }),
     prisma.service.findFirst({ where: { businessId }, select: { currency: true } }),
-    prisma.qrScan.count({ where: { businessId, createdAt: { gte: thirtyDaysAgo } } }),
+    prisma.qrScan.groupBy({ by: ["source"], where: { businessId, createdAt: { gte: thirtyDaysAgo } }, _count: true }),
   ]);
 
   const currency = salonCurrency || anyService?.currency || "EUR";
@@ -281,7 +281,9 @@ export async function loadDashboardOverview({
       giftCardsRevenue: giftCardsMonth.reduce((s, g) => s + g.giftCard.salePriceCents, 0),
       loyaltyCards,
       loyaltyScansMonth,
-      qrScans30,
+      qrScans30: qrScans30.reduce((s, r) => s + r._count, 0),
+      qrScansPriceList: qrScans30.find((r) => r.source === "price_list")?._count ?? 0,
+      qrScansPoster: qrScans30.find((r) => r.source === "qr_poster")?._count ?? 0,
     },
   };
 }

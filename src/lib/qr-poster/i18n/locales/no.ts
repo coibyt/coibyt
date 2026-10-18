@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const no: PosterStrings = {
+  ui: {
+    sLink: "QR-kode og bestillingslenke",
+    sContent: "Tekst på plakaten",
+    headline: "Overskrift",
+    headlineHint: "Velg et forslag eller skriv din egen for hvert språk.",
+    extraLines: "Ekstra linjer (valgfritt)",
+    offer: "Tilbud",
+    offerPh: "f.eks. 10 % rabatt ved nettbestilling",
+    hours: "Åpningstider",
+    hoursPh: "f.eks. man–fre 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Nettverk / passord",
+    reviewToggle: "Legg til QR «Gi oss en anmeldelse på Google»",
+    reviewPh: "Lim inn salongens Google-anmeldelseslenke",
+    reviewHint: "Google Business Profile → Be om anmeldelser → kopier lenken.",
+    qrLogo: "Logo midt i QR-koden",
+    qrLogoHint: "QR-koden bruker da høyeste feilretting (H), så den kan fortsatt skannes.",
+    varaaaiLinkHint: "QR-koden bruker kortlenken varaaai.com/q/… — lettere å skanne, og skanningene telles i dashbordet.",
+    needLink: "Skriv inn en bestillingslenke for å lage QR-koden.",
+    tPastel: "Pastell",
+    tSeasonal: "Sesong",
+    season: "Anledning",
+    sChristmas: "Jul",
+    sBlackFriday: "Black Friday",
+    sTet: "Månenyttår",
+    fA6: "A6 (bord)",
+    fTent: "Brettet bordkort",
+    fSticker: "Rundt klistremerke 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Skriv ut 4 klistremerker på ett A4-ark",
+    tentHint: "Skriv ut på A4 og brett langs den stiplede linjen.",
+    ctaTitle: "Ingen bestillingsside ennå? Lag en gratis på 5 minutter",
+    ctaBody: "Registrer salongen på VaraaAi: kunder som skanner bestiller rett i kalenderen din, med automatiske påminnelser og skanningstall.",
+  },
+  seo: {
+    title: "Gratis QR-plakat «Skann og bestill» for salonger | VaraaAi",
+    description: "Lag plakater, klistremerker og bordkort med QR-kode for bestilling: flerspråklig, logo i QR-koden, jule-, Black Friday- og månenyttårsdesign. Utskriftsklar PDF eller PNG. Gratis.",
+    h1: "Gratis QR-plakat «Skann og bestill»",
+    intro: "Sett den ved kassen, i vinduet, ved speilet eller på neglebordet, så bestiller kundene neste time med mobilkameraet. Velg design, farger, størrelse og språk — last ned en utskriftsklar PDF eller et bilde for sosiale medier.",
+    features: [
+      "Opptil 3 språk på samme plakat",
+      "Logo midt i QR-koden som fortsatt kan skannes i lite format",
+      "A4, A5, A6, bordkort, rundt klistremerke, kvadrat og story",
+      "Minimalistisk, luksus, pastell og sesongdesign",
+    ],
+    steps: [
+      "Skriv inn bestillingslenken — eller hent den fra VaraaAi-salongen",
+      "Velg overskrift, språk, design og størrelse",
+      "Last ned PDF for utskrift eller PNG for sosiale medier",
+    ],
+  },
+};
+
+export default no;

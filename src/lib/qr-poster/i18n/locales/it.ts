@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const it: PosterStrings = {
+  ui: {
+    sLink: "Codice QR e link di prenotazione",
+    sContent: "Testi del poster",
+    headline: "Titolo",
+    headlineHint: "Scegli un suggerimento o scrivi il tuo per ogni lingua.",
+    extraLines: "Righe aggiuntive (facoltative)",
+    offer: "Offerta",
+    offerPh: "es. -10% prenotando online",
+    hours: "Orari",
+    hoursPh: "es. lun–ven 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Rete / password",
+    reviewToggle: "Aggiungi un QR “Recensiscici su Google”",
+    reviewPh: "Incolla il link per le recensioni Google del salone",
+    reviewHint: "Google Business Profile → Chiedi recensioni → copia il link.",
+    qrLogo: "Logo al centro del codice QR",
+    qrLogoHint: "Il QR usa allora la massima correzione d’errore (H) e resta leggibile.",
+    varaaaiLinkHint: "Il QR usa il link breve varaaai.com/q/… — più facile da scansionare, e le scansioni sono contate nella tua dashboard.",
+    needLink: "Inserisci un link di prenotazione per creare il codice QR.",
+    tPastel: "Pastello",
+    tSeasonal: "Stagionale",
+    season: "Occasione",
+    sChristmas: "Natale",
+    sBlackFriday: "Black Friday",
+    sTet: "Capodanno lunare",
+    fA6: "A6 (tavolo)",
+    fTent: "Segnatavolo pieghevole",
+    fSticker: "Adesivo rotondo 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Stampa 4 adesivi su un foglio A4",
+    tentHint: "Stampa su A4 e piega lungo la linea tratteggiata.",
+    ctaTitle: "Non hai ancora una pagina di prenotazione? Creala gratis in 5 minuti",
+    ctaBody: "Registra il tuo salone su VaraaAi: chi scansiona prenota direttamente nella tua agenda, con promemoria automatici e conteggio delle scansioni.",
+  },
+  seo: {
+    title: "Poster QR “Scansiona e prenota” gratuito per saloni | VaraaAi",
+    description: "Crea poster, adesivi e segnatavolo con codice QR per prenotare: multilingue, logo nel QR, temi Natale, Black Friday e Capodanno lunare. PDF pronto per la stampa o PNG. Gratis.",
+    h1: "Poster QR “Scansiona e prenota” gratuito",
+    intro: "Da mettere sul bancone, in vetrina, allo specchio o sul tavolo delle unghie: i clienti prenotano la prossima visita con la fotocamera del telefono. Scegli stile, colori, formato e lingue — scarica un PDF pronto per la stampa o un’immagine per i social.",
+    features: [
+      "Fino a 3 lingue sullo stesso poster",
+      "Logo al centro del QR, leggibile anche stampato piccolo",
+      "A4, A5, A6, segnatavolo, adesivo rotondo, quadrato e story",
+      "Stili minimal, lusso, pastello e stagionali",
+    ],
+    steps: [
+      "Inserisci il link di prenotazione — o prendilo dal tuo salone VaraaAi",
+      "Scegli titolo, lingue, stile e formato",
+      "Scarica il PDF da stampare o il PNG da pubblicare",
+    ],
+  },
+};
+
+export default it;

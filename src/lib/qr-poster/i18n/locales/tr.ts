@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const tr: PosterStrings = {
+  ui: {
+    sLink: "QR kod ve randevu bağlantısı",
+    sContent: "Poster metinleri",
+    headline: "Başlık",
+    headlineHint: "Bir öneri seçin ya da her dil için kendinizinkini yazın.",
+    extraLines: "Ek satırlar (isteğe bağlı)",
+    offer: "Kampanya",
+    offerPh: "örn. Online randevuda %10 indirim",
+    hours: "Çalışma saatleri",
+    hoursPh: "örn. Pzt–Cum 09:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Ağ / şifre",
+    reviewToggle: "“Bizi Google'da değerlendirin” QR'ı ekle",
+    reviewPh: "Salonun Google yorum bağlantısını yapıştırın",
+    reviewHint: "Google İşletme Profili → Yorum iste → bağlantıyı kopyala.",
+    qrLogo: "Logoyu QR kodun ortasına koy",
+    qrLogoHint: "QR kod bu durumda en yüksek hata düzeltmeyi (H) kullanır ve okunmaya devam eder.",
+    varaaaiLinkHint: "QR kod kısa varaaai.com/q/… bağlantısını kullanır — taraması kolaydır ve taramalar panelinizde sayılır.",
+    needLink: "QR kodu oluşturmak için randevu bağlantısı girin.",
+    tPastel: "Pastel",
+    tSeasonal: "Sezonluk",
+    season: "Etkinlik",
+    sChristmas: "Noel",
+    sBlackFriday: "Black Friday",
+    sTet: "Ay Yeni Yılı",
+    fA6: "A6 (masa)",
+    fTent: "Katlanır masa kartı",
+    fSticker: "Yuvarlak çıkartma 10 cm",
+    fStory: "Hikâye 1080×1920",
+    stickerSheet: "Bir A4 sayfaya 4 çıkartma yazdır",
+    tentHint: "A4'e yazdırın ve kesikli çizgiden katlayın.",
+    ctaTitle: "Henüz randevu sayfanız yok mu? 5 dakikada ücretsiz oluşturun",
+    ctaBody: "Salonunuzu VaraaAi'ye kaydedin: kodu tarayan müşteriler doğrudan takviminize randevu alır — otomatik hatırlatmalar ve tarama sayısıyla.",
+  },
+  seo: {
+    title: "Salonlar için ücretsiz “Tara ve randevu al” QR posteri | VaraaAi",
+    description: "Randevu QR kodlu poster, çıkartma ve masa kartı hazırlayın: çok dilli, QR içinde logo, Noel, Black Friday ve Ay Yeni Yılı tasarımları. Baskıya hazır PDF veya PNG. Ücretsiz.",
+    h1: "Ücretsiz “Tara ve randevu al” QR posteri",
+    intro: "Tezgâha, vitrine, aynanın yanına ya da manikür masasına koyun; müşteriler bir sonraki randevularını telefon kamerasıyla alsın. Tasarım, renk, boyut ve dilleri seçin — baskıya hazır PDF'i veya sosyal medya görselini indirin.",
+    features: [
+      "Tek posterde 3 dile kadar",
+      "QR kodun ortasında logo, küçük basıldığında bile okunur",
+      "A4, A5, A6, masa kartı, yuvarlak çıkartma, kare ve hikâye",
+      "Minimal, lüks, pastel ve sezonluk tasarımlar",
+    ],
+    steps: [
+      "Randevu bağlantınızı girin — ya da VaraaAi salonunuzdan alın",
+      "Başlık, diller, tasarım ve boyutu seçin",
+      "Baskı için PDF'i veya paylaşım için PNG'yi indirin",
+    ],
+  },
+};
+
+export default tr;

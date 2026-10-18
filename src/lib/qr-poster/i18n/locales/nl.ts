@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const nl: PosterStrings = {
+  ui: {
+    sLink: "QR-code en boekingslink",
+    sContent: "Tekst op de poster",
+    headline: "Kop",
+    headlineHint: "Kies een suggestie of schrijf je eigen kop per taal.",
+    extraLines: "Extra regels (optioneel)",
+    offer: "Aanbieding",
+    offerPh: "bijv. 10% korting bij online boeken",
+    hours: "Openingstijden",
+    hoursPh: "bijv. ma–vr 9–19 uur",
+    wifi: "Wifi",
+    wifiPh: "Netwerk / wachtwoord",
+    reviewToggle: "QR “Beoordeel ons op Google” toevoegen",
+    reviewPh: "Plak de Google-reviewlink van je salon",
+    reviewHint: "Google Business Profile → Om reviews vragen → link kopiëren.",
+    qrLogo: "Logo in het midden van de QR-code",
+    qrLogoHint: "De QR-code gebruikt dan de hoogste foutcorrectie (H) en blijft scanbaar.",
+    varaaaiLinkHint: "De QR-code gebruikt de korte link varaaai.com/q/… — makkelijker te scannen, en scans worden geteld in je dashboard.",
+    needLink: "Vul een boekingslink in om de QR-code te maken.",
+    tPastel: "Pastel",
+    tSeasonal: "Seizoen",
+    season: "Gelegenheid",
+    sChristmas: "Kerst",
+    sBlackFriday: "Black Friday",
+    sTet: "Chinees Nieuwjaar",
+    fA6: "A6 (tafel)",
+    fTent: "Gevouwen tafelstandaard",
+    fSticker: "Ronde sticker 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "4 stickers op één A4-vel printen",
+    tentHint: "Print op A4 en vouw langs de stippellijn.",
+    ctaTitle: "Nog geen boekingspagina? Maak er gratis een in 5 minuten",
+    ctaBody: "Registreer je salon op VaraaAi: klanten die scannen boeken direct in je agenda, met automatische herinneringen en scantellingen.",
+  },
+  seo: {
+    title: "Gratis QR-poster “Scan en boek” voor salons | VaraaAi",
+    description: "Maak posters, stickers en tafelstandaards met een QR-code om te boeken: meertalig, logo in de QR-code, kerst-, Black Friday- en nieuwjaarsontwerpen. Drukklare PDF of PNG. Gratis.",
+    h1: "Gratis QR-poster “Scan en boek”",
+    intro: "Hang hem bij de balie, op het raam, bij de spiegel of op de nageltafel, zodat klanten hun volgende afspraak boeken met hun telefooncamera. Kies ontwerp, kleuren, formaat en talen — download een drukklare PDF of een afbeelding voor social media.",
+    features: [
+      "Tot 3 talen op één poster",
+      "Logo in het midden van de QR-code, ook klein geprint scanbaar",
+      "A4, A5, A6, tafelstandaard, ronde sticker, vierkant en story",
+      "Minimalistisch, luxe, pastel en seizoensontwerpen",
+    ],
+    steps: [
+      "Vul je boekingslink in — of haal hem uit je VaraaAi-salon",
+      "Kies kop, talen, ontwerp en formaat",
+      "Download de PDF om te printen of de PNG voor social media",
+    ],
+  },
+};
+
+export default nl;

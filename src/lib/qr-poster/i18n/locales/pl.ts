@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const pl: PosterStrings = {
+  ui: {
+    sLink: "Kod QR i link do rezerwacji",
+    sContent: "Teksty na plakacie",
+    headline: "Nagłówek",
+    headlineHint: "Wybierz propozycję lub wpisz własny dla każdego języka.",
+    extraLines: "Dodatkowe wiersze (opcjonalnie)",
+    offer: "Oferta",
+    offerPh: "np. -10% przy rezerwacji online",
+    hours: "Godziny otwarcia",
+    hoursPh: "np. pon–pt 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Sieć / hasło",
+    reviewToggle: "Dodaj QR „Oceń nas w Google”",
+    reviewPh: "Wklej link do opinii Google salonu",
+    reviewHint: "Profil Firmy w Google → Poproś o opinie → skopiuj link.",
+    qrLogo: "Logo na środku kodu QR",
+    qrLogoHint: "Kod QR używa wtedy najwyższej korekcji błędów (H), więc nadal się skanuje.",
+    varaaaiLinkHint: "Kod QR używa krótkiego linku varaaai.com/q/… — łatwiej go zeskanować, a skany są liczone w panelu.",
+    needLink: "Wpisz link do rezerwacji, aby utworzyć kod QR.",
+    tPastel: "Pastelowy",
+    tSeasonal: "Sezonowy",
+    season: "Okazja",
+    sChristmas: "Boże Narodzenie",
+    sBlackFriday: "Black Friday",
+    sTet: "Nowy Rok Księżycowy",
+    fA6: "A6 (na stół)",
+    fTent: "Składana podstawka na stół",
+    fSticker: "Okrągła naklejka 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Drukuj 4 naklejki na jednym arkuszu A4",
+    tentHint: "Wydrukuj na A4 i złóż wzdłuż przerywanej linii.",
+    ctaTitle: "Nie masz jeszcze strony rezerwacji? Utwórz ją za darmo w 5 minut",
+    ctaBody: "Zarejestruj salon w VaraaAi: klienci, którzy zeskanują kod, rezerwują prosto w Twoim kalendarzu — z automatycznymi przypomnieniami i licznikiem skanów.",
+  },
+  seo: {
+    title: "Darmowy plakat QR „Zeskanuj i zarezerwuj” dla salonów | VaraaAi",
+    description: "Twórz plakaty, naklejki i podstawki na stół z kodem QR do rezerwacji: wiele języków, logo w kodzie QR, motywy świąteczne, Black Friday i Nowego Roku Księżycowego. PDF do druku lub PNG. Za darmo.",
+    h1: "Darmowy plakat QR „Zeskanuj i zarezerwuj”",
+    intro: "Postaw go przy kasie, na witrynie, przy lustrze lub na stanowisku do manicure — klienci zarezerwują kolejną wizytę aparatem telefonu. Wybierz styl, kolory, format i języki — pobierz PDF do druku lub obraz do mediów społecznościowych.",
+    features: [
+      "Do 3 języków na jednym plakacie",
+      "Logo w środku kodu QR, skanuje się nawet w małym rozmiarze",
+      "A4, A5, A6, podstawka na stół, okrągła naklejka, kwadrat i story",
+      "Style minimalistyczny, luksusowy, pastelowy i sezonowe",
+    ],
+    steps: [
+      "Wpisz link do rezerwacji — lub pobierz go ze swojego salonu w VaraaAi",
+      "Wybierz nagłówek, języki, styl i format",
+      "Pobierz PDF do druku lub PNG do publikacji",
+    ],
+  },
+};
+
+export default pl;

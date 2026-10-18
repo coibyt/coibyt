@@ -1,0 +1,42 @@
+/** Short link text for the free QR poster tool (footer, /business, price
+ * list) — kept apart from the full tool strings so client components can
+ * import it cheaply. */
+export const POSTER_NAV_LABEL: Record<string, string> = {
+  vi: "Tạo poster QR đặt lịch",
+  en: "QR booking poster maker",
+  fi: "QR-ajanvarausjuliste",
+  sv: "QR-affisch för bokning",
+  no: "QR-plakat for bestilling",
+  da: "QR-plakat til booking",
+  de: "QR-Buchungsposter erstellen",
+  nl: "QR-boekingsposter maken",
+  fr: "Affiche QR de réservation",
+  it: "Poster QR per prenotare",
+  es: "Póster QR de reservas",
+  pt: "Pôster QR de agendamento",
+  pl: "Plakat QR do rezerwacji",
+  cs: "QR plakát pro rezervace",
+  sk: "QR plagát na rezervácie",
+  hu: "QR-foglalási plakát",
+  ro: "Afiș QR pentru programări",
+  bg: "QR плакат за записване",
+  ru: "QR-постер для записи",
+  uk: "QR-постер для запису",
+  be: "QR-плакат для запісу",
+  lv: "QR pieraksta plakāts",
+  et: "QR-broneerimisplakat",
+  tr: "QR randevu posteri",
+  ar: "ملصق QR للحجز",
+  he: "פוסטר QR לקביעת תור",
+  hi: "QR बुकिंग पोस्टर",
+  th: "โปสเตอร์คิวอาร์สำหรับจอง",
+  km: "ផ្ទាំង QR សម្រាប់កក់",
+  id: "Poster QR booking",
+  ms: "Poster QR tempahan",
+  fil: "QR poster para mag-book",
+  zh: "预约二维码海报",
+  ja: "予約QRポスター",
+  ko: "예약 QR 포스터",
+};
+
+export const posterNavLabel = (locale: string) => POSTER_NAV_LABEL[locale] ?? POSTER_NAV_LABEL.en;

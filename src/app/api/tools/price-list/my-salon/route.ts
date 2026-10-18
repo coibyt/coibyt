@@ -18,7 +18,7 @@ export async function GET() {
 
   const salons = await Promise.all(
     owned.map(async (b) => {
-      const [groups, services, logo] = await Promise.all([
+      const [groups, services, logo, hours] = await Promise.all([
         prisma.serviceGroup.findMany({ where: { businessId: b.id }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] }),
         prisma.service.findMany({
           where: { businessId: b.id, active: true },
@@ -26,6 +26,7 @@ export async function GET() {
           include: { category: true },
         }),
         prisma.businessImage.findUnique({ where: { businessId_kind: { businessId: b.id, kind: "LOGO" } } }),
+        prisma.businessHours.findMany({ where: { businessId: b.id }, select: { weekday: true, openMinute: true, closeMinute: true } }),
       ]);
       const lang = isValidLocale(b.defaultLocale) ? b.defaultLocale : "vi";
       const toItem = (s: (typeof services)[number]) => ({
@@ -63,6 +64,8 @@ export async function GET() {
         // Inline, so the editor can draw it without a cross-origin fetch.
         logo: logo && logo.data.length <= 2_500_000 ? `data:${logo.mimeType};base64,${Buffer.from(logo.data).toString("base64")}` : null,
         categories,
+        // Raw opening hours, for the QR poster's "opening hours" line.
+        hours,
       };
     })
   );

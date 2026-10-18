@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const hu: PosterStrings = {
+  ui: {
+    sLink: "QR-kód és foglalási link",
+    sContent: "A plakát szövegei",
+    headline: "Főcím",
+    headlineHint: "Válassz egy javaslatot, vagy írd meg a sajátodat minden nyelvre.",
+    extraLines: "További sorok (nem kötelező)",
+    offer: "Ajánlat",
+    offerPh: "pl. 10% kedvezmény online foglalásnál",
+    hours: "Nyitvatartás",
+    hoursPh: "pl. H–P 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Hálózat / jelszó",
+    reviewToggle: "„Értékelj minket a Google-on” QR hozzáadása",
+    reviewPh: "Illeszd be a szalon Google-értékelési linkjét",
+    reviewHint: "Google Cégprofil → Értékelések kérése → link másolása.",
+    qrLogo: "Logó a QR-kód közepére",
+    qrLogoHint: "A QR-kód ekkor a legmagasabb hibajavítást (H) használja, így beolvasható marad.",
+    varaaaiLinkHint: "A QR-kód a rövid varaaai.com/q/… linket használja — könnyebb beolvasni, és a beolvasásokat a vezérlőpult számolja.",
+    needLink: "Adj meg egy foglalási linket a QR-kódhoz.",
+    tPastel: "Pasztell",
+    tSeasonal: "Szezonális",
+    season: "Alkalom",
+    sChristmas: "Karácsony",
+    sBlackFriday: "Black Friday",
+    sTet: "Holdújév",
+    fA6: "A6 (asztali)",
+    fTent: "Összehajtható asztali tábla",
+    fSticker: "Kerek matrica 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "4 matrica nyomtatása egy A4-es lapra",
+    tentHint: "Nyomtasd A4-re, és hajtsd félbe a szaggatott vonal mentén.",
+    ctaTitle: "Még nincs foglalási oldalad? Hozd létre ingyen 5 perc alatt",
+    ctaBody: "Regisztráld a szalonod a VaraaAi-n: aki beolvassa a kódot, egyenesen a naptáradba foglal — automatikus emlékeztetőkkel és beolvasásszámlálással.",
+  },
+  seo: {
+    title: "Ingyenes „Szkenneld be és foglalj” QR-plakát szalonoknak | VaraaAi",
+    description: "Készíts plakátokat, matricákat és asztali táblákat foglalási QR-kóddal: többnyelvű, logó a QR-ben, karácsonyi, Black Friday és holdújévi minták. Nyomtatható PDF vagy PNG. Ingyenes.",
+    h1: "Ingyenes „Szkenneld be és foglalj” QR-plakát",
+    intro: "Tedd ki a pultra, az ablakba, a tükörhöz vagy a körmös asztalra, és a vendégek a telefonjuk kamerájával foglalnak időpontot. Válassz stílust, színeket, méretet és nyelveket — töltsd le a nyomtatható PDF-et vagy a képet a közösségi médiához.",
+    features: [
+      "Akár 3 nyelv egy plakáton",
+      "Logó a QR-kód közepén, kicsiben nyomtatva is beolvasható",
+      "A4, A5, A6, asztali tábla, kerek matrica, négyzet és story",
+      "Minimalista, luxus, pasztell és szezonális minták",
+    ],
+    steps: [
+      "Add meg a foglalási linket — vagy vedd át a VaraaAi-szalonodból",
+      "Válassz főcímet, nyelveket, stílust és méretet",
+      "Töltsd le a PDF-et nyomtatáshoz vagy a PNG-t posztoláshoz",
+    ],
+  },
+};
+
+export default hu;

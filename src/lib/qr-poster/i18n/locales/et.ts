@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const et: PosterStrings = {
+  ui: {
+    sLink: "QR-kood ja broneerimislink",
+    sContent: "Plakati tekstid",
+    headline: "Pealkiri",
+    headlineHint: "Vali soovitus või kirjuta igale keelele oma.",
+    extraLines: "Lisaread (valikuline)",
+    offer: "Pakkumine",
+    offerPh: "nt -10% veebis broneerides",
+    hours: "Lahtiolekuajad",
+    hoursPh: "nt E–R 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Võrk / parool",
+    reviewToggle: "Lisa QR „Hinda meid Google'is“",
+    reviewPh: "Kleebi salongi Google'i arvustuste link",
+    reviewHint: "Google'i ettevõtteprofiil → Küsi arvustusi → kopeeri link.",
+    qrLogo: "Logo QR-koodi keskele",
+    qrLogoHint: "QR-kood kasutab siis kõrgeimat veaparandust (H) ja on endiselt loetav.",
+    varaaaiLinkHint: "QR-kood kasutab lühilinki varaaai.com/q/… — lihtsam skannida ja skannimised loetakse halduspaneelis kokku.",
+    needLink: "QR-koodi loomiseks sisesta broneerimislink.",
+    tPastel: "Pastelne",
+    tSeasonal: "Hooajaline",
+    season: "Puhul",
+    sChristmas: "Jõulud",
+    sBlackFriday: "Black Friday",
+    sTet: "Kuu-uusaasta",
+    fA6: "A6 (lauale)",
+    fTent: "Volditav lauasilt",
+    fSticker: "Ümmargune kleebis 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Prindi 4 kleebist ühele A4-lehele",
+    tentHint: "Prindi A4-le ja murra katkendjoont mööda.",
+    ctaTitle: "Broneerimislehte veel pole? Loo see tasuta 5 minutiga",
+    ctaBody: "Registreeri salong VaraaAis: koodi skanninud kliendid broneerivad otse sinu kalendrisse — automaatsete meeldetuletuste ja skannimiste loendusega.",
+  },
+  seo: {
+    title: "Tasuta QR-plakat „Skanni ja broneeri“ salongidele | VaraaAi",
+    description: "Tee plakateid, kleebiseid ja lauasilte broneerimise QR-koodiga: mitmekeelne, logo QR-koodis, jõulude, Black Friday ja kuu-uusaasta kujundused. Trükivalmis PDF või PNG. Tasuta.",
+    h1: "Tasuta QR-plakat „Skanni ja broneeri“",
+    intro: "Pane see letile, aknale, peegli juurde või küünelauale — kliendid broneerivad järgmise külastuse telefoni kaameraga. Vali stiil, värvid, formaat ja keeled — laadi alla trükivalmis PDF või pilt sotsiaalmeedia jaoks.",
+    features: [
+      "Kuni 3 keelt ühel plakatil",
+      "Logo QR-koodi keskel, loetav ka väikeses trükis",
+      "A4, A5, A6, lauasilt, ümmargune kleebis, ruut ja story",
+      "Minimalistlik, luksuslik, pastelne ja hooajalised kujundused",
+    ],
+    steps: [
+      "Sisesta broneerimislink — või võta see oma VaraaAi salongist",
+      "Vali pealkiri, keeled, stiil ja formaat",
+      "Laadi alla PDF printimiseks või PNG postitamiseks",
+    ],
+  },
+};
+
+export default et;

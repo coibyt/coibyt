@@ -1,4 +1,5 @@
 import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
+import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
 import {
   CalendarDays,
   BellRing,
@@ -422,6 +423,9 @@ export default async function BusinessLandingPage({
               </Link>
               <Link href="/tools/price-list" className="text-sm font-medium text-primary-600 hover:underline">
                 {priceListNavLabel(locale)} →
+              </Link>
+              <Link href="/tools/qr-poster" className="text-sm font-medium text-primary-600 hover:underline">
+                {posterNavLabel(locale)} →
               </Link>
             </div>
           </div>

@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const ms: PosterStrings = {
+  ui: {
+    sLink: "Kod QR & pautan tempahan",
+    sContent: "Teks poster",
+    headline: "Tajuk",
+    headlineHint: "Pilih cadangan atau tulis sendiri untuk setiap bahasa.",
+    extraLines: "Baris tambahan (pilihan)",
+    offer: "Tawaran",
+    offerPh: "cth. Diskaun 10% untuk tempahan dalam talian",
+    hours: "Waktu operasi",
+    hoursPh: "cth. Isn–Jum 9.00–19.00",
+    wifi: "Wi-Fi",
+    wifiPh: "Rangkaian / kata laluan",
+    reviewToggle: "Tambah QR “Beri ulasan kami di Google”",
+    reviewPh: "Tampal pautan ulasan Google salon",
+    reviewHint: "Profil Perniagaan Google → Minta ulasan → salin pautan.",
+    qrLogo: "Logo di tengah kod QR",
+    qrLogoHint: "Kod QR akan menggunakan pembetulan ralat tertinggi (H) supaya masih boleh diimbas.",
+    varaaaiLinkHint: "Kod QR menggunakan pautan pendek varaaai.com/q/… — lebih mudah diimbas, dan imbasan dikira dalam papan pemuka.",
+    needLink: "Masukkan pautan tempahan untuk mencipta kod QR.",
+    tPastel: "Pastel",
+    tSeasonal: "Bermusim",
+    season: "Sempena",
+    sChristmas: "Krismas",
+    sBlackFriday: "Black Friday",
+    sTet: "Tahun Baru Cina",
+    fA6: "A6 (meja)",
+    fTent: "Kad meja lipat",
+    fSticker: "Pelekat bulat 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Cetak 4 pelekat pada satu helaian A4",
+    tentHint: "Cetak pada A4 dan lipat di garisan putus-putus.",
+    ctaTitle: "Belum ada halaman tempahan? Cipta percuma dalam 5 minit",
+    ctaBody: "Daftarkan salon anda di VaraaAi: pelanggan yang mengimbas terus menempah dalam kalendar anda — dengan peringatan automatik dan kiraan imbasan.",
+  },
+  seo: {
+    title: "Poster QR “Imbas untuk tempahan” percuma untuk salon | VaraaAi",
+    description: "Cipta poster, pelekat dan kad meja dengan kod QR tempahan: pelbagai bahasa, logo dalam QR, reka bentuk Krismas, Black Friday dan Tahun Baru Cina. PDF sedia cetak atau PNG. Percuma.",
+    h1: "Poster QR “Imbas untuk tempahan” percuma",
+    intro: "Letakkan di kaunter, cermin hadapan kedai, sebelah cermin atau meja kuku supaya pelanggan menempah lawatan seterusnya dengan kamera telefon. Pilih reka bentuk, warna, saiz dan bahasa — muat turun PDF sedia cetak atau imej untuk media sosial.",
+    features: [
+      "Sehingga 3 bahasa pada satu poster",
+      "Logo di tengah QR yang masih boleh diimbas walaupun dicetak kecil",
+      "A4, A5, A6, kad meja, pelekat bulat, segi empat dan story",
+      "Reka bentuk minimalis, mewah, pastel dan bermusim",
+    ],
+    steps: [
+      "Masukkan pautan tempahan — atau ambil daripada salon VaraaAi anda",
+      "Pilih tajuk, bahasa, reka bentuk dan saiz",
+      "Muat turun PDF untuk dicetak atau PNG untuk dikongsi",
+    ],
+  },
+};
+
+export default ms;

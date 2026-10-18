@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const lv: PosterStrings = {
+  ui: {
+    sLink: "QR kods un pieraksta saite",
+    sContent: "Plakāta teksti",
+    headline: "Virsraksts",
+    headlineHint: "Izvēlieties ieteikumu vai uzrakstiet savu katrai valodai.",
+    extraLines: "Papildu rindas (neobligāti)",
+    offer: "Piedāvājums",
+    offerPh: "piem., -10% piesakoties tiešsaistē",
+    hours: "Darba laiks",
+    hoursPh: "piem., P–Pk 9–19",
+    wifi: "Wi-Fi",
+    wifiPh: "Tīkls / parole",
+    reviewToggle: "Pievienot QR “Novērtē mūs Google”",
+    reviewPh: "Ielīmējiet salona Google atsauksmju saiti",
+    reviewHint: "Google uzņēmuma profils → Lūgt atsauksmes → kopēt saiti.",
+    qrLogo: "Logo QR koda vidū",
+    qrLogoHint: "Tad QR kods izmanto augstāko kļūdu labošanu (H) un joprojām nolasās.",
+    varaaaiLinkHint: "QR kods izmanto īso saiti varaaai.com/q/… — vieglāk noskenēt, un skenējumi tiek skaitīti vadības panelī.",
+    needLink: "Ievadiet pieraksta saiti, lai izveidotu QR kodu.",
+    tPastel: "Pasteļu",
+    tSeasonal: "Sezonas",
+    season: "Notikums",
+    sChristmas: "Ziemassvētki",
+    sBlackFriday: "Black Friday",
+    sTet: "Mēness Jaungads",
+    fA6: "A6 (galdam)",
+    fTent: "Salokāma galda zīme",
+    fSticker: "Apaļa uzlīme 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Drukāt 4 uzlīmes uz vienas A4 lapas",
+    tentHint: "Drukājiet uz A4 un salokiet pa raustīto līniju.",
+    ctaTitle: "Vēl nav pieraksta lapas? Izveidojiet to bez maksas 5 minūtēs",
+    ctaBody: "Reģistrējiet salonu VaraaAi: kas noskenē kodu, piesakās tieši jūsu kalendārā — ar automātiskiem atgādinājumiem un skenējumu skaitu.",
+  },
+  seo: {
+    title: "Bezmaksas QR plakāts “Skenē un piesakies” saloniem | VaraaAi",
+    description: "Veidojiet plakātus, uzlīmes un galda zīmes ar pieraksta QR kodu: daudzvalodu, logo QR kodā, Ziemassvētku, Black Friday un Mēness Jaungada dizains. Drukai gatavs PDF vai PNG. Bez maksas.",
+    h1: "Bezmaksas QR plakāts “Skenē un piesakies”",
+    intro: "Novietojiet to pie letes, skatlogā, pie spoguļa vai uz manikīra galda — klienti pieteiksies nākamajai vizītei ar telefona kameru. Izvēlieties stilu, krāsas, formātu un valodas — lejupielādējiet drukai gatavu PDF vai attēlu sociālajiem tīkliem.",
+    features: [
+      "Līdz 3 valodām vienā plakātā",
+      "Logo QR koda vidū, kas nolasās pat mazā drukā",
+      "A4, A5, A6, galda zīme, apaļa uzlīme, kvadrāts un story",
+      "Minimālistisks, luksusa, pasteļu un sezonas dizains",
+    ],
+    steps: [
+      "Ievadiet pieraksta saiti — vai paņemiet to no sava VaraaAi salona",
+      "Izvēlieties virsrakstu, valodas, stilu un formātu",
+      "Lejupielādējiet PDF drukai vai PNG publicēšanai",
+    ],
+  },
+};
+
+export default lv;

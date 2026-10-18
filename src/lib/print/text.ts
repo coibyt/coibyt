@@ -1,7 +1,12 @@
 import type { FontFamily, Measure } from "./ops";
 
 const segmenters = new Map<string, Intl.Segmenter | null>();
+// Scripts written without spaces between words — only these need a
+// dictionary-based word segmenter; everything else breaks at spaces, so
+// "16:00" or "2D–3D" never get split in the middle.
+const NO_SPACE_SCRIPTS = /[\u0E00-\u0EFF\u1000-\u109F\u1780-\u17FF\u3040-\u30FF\u3400-\u9FFF\uF900-\uFAFF]/;
 function segmentWords(text: string, lang: string): string[] {
+  if (!NO_SPACE_SCRIPTS.test(text)) return text.split(/(\s+)/).filter(Boolean);
   let seg = segmenters.get(lang);
   if (seg === undefined) {
     try {

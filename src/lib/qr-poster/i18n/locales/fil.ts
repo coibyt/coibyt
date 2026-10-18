@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const fil: PosterStrings = {
+  ui: {
+    sLink: "QR code at booking link",
+    sContent: "Mga teksto sa poster",
+    headline: "Pamagat",
+    headlineHint: "Pumili ng mungkahi o sumulat ng sarili para sa bawat wika.",
+    extraLines: "Mga dagdag na linya (opsyonal)",
+    offer: "Alok",
+    offerPh: "hal. 10% diskwento kapag nag-book online",
+    hours: "Oras ng bukas",
+    hoursPh: "hal. Lun–Biy 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Network / password",
+    reviewToggle: "Magdagdag ng QR na “I-review kami sa Google”",
+    reviewPh: "I-paste ang Google review link ng salon",
+    reviewHint: "Google Business Profile → Humingi ng review → kopyahin ang link.",
+    qrLogo: "Logo sa gitna ng QR code",
+    qrLogoHint: "Gagamit ang QR ng pinakamataas na error correction (H) kaya ma-scan pa rin ito.",
+    varaaaiLinkHint: "Gumagamit ang QR ng maikling link na varaaai.com/q/… — mas madaling i-scan, at binibilang ang mga scan sa dashboard mo.",
+    needLink: "Ilagay ang booking link para gawin ang QR code.",
+    tPastel: "Pastel",
+    tSeasonal: "Pana-panahon",
+    season: "Okasyon",
+    sChristmas: "Pasko",
+    sBlackFriday: "Black Friday",
+    sTet: "Lunar New Year",
+    fA6: "A6 (pangmesa)",
+    fTent: "Nakatiklop na table tent",
+    fSticker: "Bilog na sticker 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Mag-print ng 4 na sticker sa isang A4",
+    tentHint: "I-print sa A4 at itupi sa putol-putol na linya.",
+    ctaTitle: "Wala pang booking page? Gumawa nang libre sa loob ng 5 minuto",
+    ctaBody: "Irehistro ang salon mo sa VaraaAi: ang mga nag-scan ay diretsong magbu-book sa kalendaryo mo — may awtomatikong paalala at bilang ng scan.",
+  },
+  seo: {
+    title: "Libreng “I-scan para mag-book” QR poster para sa salon | VaraaAi",
+    description: "Gumawa ng poster, sticker at table tent na may QR code para mag-book: maraming wika, logo sa loob ng QR, disenyo para sa Pasko, Black Friday at Lunar New Year. PDF na handang i-print o PNG. Libre.",
+    h1: "Libreng “I-scan para mag-book” QR poster",
+    intro: "Ilagay sa counter, bintana, salamin o nail table para mag-book ang customer ng susunod na pagbisita gamit ang camera ng phone. Pumili ng disenyo, kulay, laki at wika — i-download ang PDF na handang i-print o larawan para sa social media.",
+    features: [
+      "Hanggang 3 wika sa isang poster",
+      "Logo sa gitna ng QR na nai-scan kahit maliit ang print",
+      "A4, A5, A6, table tent, bilog na sticker, square at story",
+      "Disenyong minimal, marangya, pastel at pana-panahon",
+    ],
+    steps: [
+      "Ilagay ang booking link — o kunin mula sa salon mo sa VaraaAi",
+      "Pumili ng pamagat, wika, disenyo at laki",
+      "I-download ang PDF para i-print o ang PNG para i-post",
+    ],
+  },
+};
+
+export default fil;

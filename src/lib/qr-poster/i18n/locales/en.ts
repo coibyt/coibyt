@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const en: PosterStrings = {
+  ui: {
+    sLink: "QR code & booking link",
+    sContent: "Poster text",
+    headline: "Headline",
+    headlineHint: "Pick a suggestion or write your own for each language.",
+    extraLines: "Extra lines (optional)",
+    offer: "Offer",
+    offerPh: "e.g. 10% off when you book online",
+    hours: "Opening hours",
+    hoursPh: "e.g. Mon–Fri 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "Network / password",
+    reviewToggle: "Add a “Review us on Google” QR",
+    reviewPh: "Paste your salon's Google review link",
+    reviewHint: "Google Business Profile → Ask for reviews → copy the link.",
+    qrLogo: "Put the logo in the middle of the QR",
+    qrLogoHint: "The QR then uses the highest error correction (H), so it still scans.",
+    varaaaiLinkHint: "The QR uses the short link varaaai.com/q/… — easier to scan, and scans are counted in your dashboard.",
+    needLink: "Enter a booking link to create the QR code.",
+    tPastel: "Pastel",
+    tSeasonal: "Seasonal",
+    season: "Occasion",
+    sChristmas: "Christmas",
+    sBlackFriday: "Black Friday",
+    sTet: "Lunar New Year",
+    fA6: "A6 (table)",
+    fTent: "Folded table tent",
+    fSticker: "Round sticker 10 cm",
+    fStory: "Story 1080×1920",
+    stickerSheet: "Print 4 stickers on one A4 sheet",
+    tentHint: "Print on A4 and fold along the dashed line.",
+    ctaTitle: "No booking page yet? Create one free in 5 minutes",
+    ctaBody: "Register your salon on VaraaAi: customers who scan book straight into your calendar, with automatic reminders and scan counts.",
+  },
+  seo: {
+    title: "Free “Scan to book” QR poster maker for salons | VaraaAi",
+    description: "Make posters, stickers and table tents with a “Scan to book” QR code for your salon: multilingual, logo in the QR, Christmas, Black Friday and Lunar New Year designs. Print-ready PDF or PNG. Free.",
+    h1: "Free “Scan to book” QR poster maker",
+    intro: "Put it on the counter, the window, the mirror or the nail desk so customers book their next visit with their phone camera. Choose a design, colours, size and languages — download a print-ready PDF or an image for social media.",
+    features: [
+      "Up to 3 languages on one poster",
+      "Logo in the middle of the QR that still scans when printed small",
+      "A4, A5, A6, folded table tent, round sticker, square post and story",
+      "Minimal, Luxury, Pastel and seasonal designs",
+    ],
+    steps: [
+      "Enter your booking link — or fill it in from your VaraaAi salon",
+      "Choose the headline, languages, design and size",
+      "Download the PDF to print or the PNG to post",
+    ],
+  },
+};
+
+export default en;

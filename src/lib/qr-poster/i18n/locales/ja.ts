@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const ja: PosterStrings = {
+  ui: {
+    sLink: "QRコードと予約リンク",
+    sContent: "ポスターの文言",
+    headline: "見出し",
+    headlineHint: "候補から選ぶか、言語ごとに自由に入力してください。",
+    extraLines: "追加情報（任意）",
+    offer: "特典",
+    offerPh: "例：オンライン予約で10％オフ",
+    hours: "営業時間",
+    hoursPh: "例：月〜金 9:00〜19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "ネットワーク名 / パスワード",
+    reviewToggle: "「Googleで口コミ」QRを追加",
+    reviewPh: "サロンのGoogle口コミリンクを貼り付け",
+    reviewHint: "Googleビジネスプロフィール → クチコミをリクエスト → リンクをコピー",
+    qrLogo: "QRコードの中央にロゴを入れる",
+    qrLogoHint: "QRは最も高い誤り訂正レベル（H）を使うので、読み取れます。",
+    varaaaiLinkHint: "QRは短縮リンク varaaai.com/q/… を使用 — 読み取りやすく、スキャン数は管理画面で確認できます。",
+    needLink: "QRコードを作るには予約リンクを入力してください。",
+    tPastel: "パステル",
+    tSeasonal: "季節",
+    season: "イベント",
+    sChristmas: "クリスマス",
+    sBlackFriday: "ブラックフライデー",
+    sTet: "旧正月",
+    fA6: "A6（卓上）",
+    fTent: "二つ折り卓上POP",
+    fSticker: "丸型ステッカー 10cm",
+    fStory: "ストーリー 1080×1920",
+    stickerSheet: "A4用紙1枚にステッカー4枚を印刷",
+    tentHint: "A4に印刷して点線で二つ折りにしてください。",
+    ctaTitle: "予約ページがまだない？5分で無料作成",
+    ctaBody: "VaraaAiにサロンを登録：スキャンしたお客様がそのままカレンダーに予約。自動リマインダーとスキャン数の集計付き。",
+  },
+  seo: {
+    title: "無料「スキャンして予約」QRポスターメーカー | VaraaAi",
+    description: "予約用QRコード付きのポスター、ステッカー、卓上POPを作成：多言語対応、QR中央にロゴ、クリスマス・ブラックフライデー・旧正月デザイン。印刷用PDFまたはPNG。無料です。",
+    h1: "無料「スキャンして予約」QRポスター",
+    intro: "受付、窓、鏡のそば、ネイルデスクに置けば、お客様がスマホのカメラで次回の予約ができます。デザイン、色、サイズ、言語を選んで、印刷用PDFやSNS用画像をダウンロード。",
+    features: [
+      "1枚に最大3言語",
+      "QR中央にロゴ、小さく印刷しても読み取り可能",
+      "A4・A5・A6・卓上POP・丸型ステッカー・正方形・ストーリー",
+      "ミニマル、ラグジュアリー、パステル、季節のデザイン",
+    ],
+    steps: [
+      "予約リンクを入力（VaraaAiのサロンから自動入力も可）",
+      "見出し・言語・デザイン・サイズを選ぶ",
+      "印刷用PDFまたは投稿用PNGをダウンロード",
+    ],
+  },
+};
+
+export default ja;

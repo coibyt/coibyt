@@ -44,66 +44,12 @@ import {
   type TemplateId,
 } from "@/lib/price-list/types";
 import { ServicesEditor } from "./services-editor";
+import { CtaModal, Section, Toast, fileBaseName, fmt, normalizeLogo, saveBlob, trackTool } from "@/components/print-tools/shared";
 import { PriceListPreview } from "./preview";
 
 const DRAFT_KEY = "varaaai-price-list-draft-v1";
 const TOOL = "price_list";
-
-function track(event: string) {
-  try {
-    const body = JSON.stringify({ tool: TOOL, event });
-    if (!navigator.sendBeacon?.("/api/tools/events", new Blob([body], { type: "application/json" })))
-      void fetch("/api/tools/events", { method: "POST", headers: { "Content-Type": "application/json" }, body, keepalive: true });
-    (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.("event", `${TOOL}_${event}`);
-  } catch {
-    // Analytics must never break the tool.
-  }
-}
-
-function fmt(s: string, n: number | string) {
-  return s.replace("{n}", String(n));
-}
-
-/** Normalizes any uploaded/imported logo (PNG, JPG, SVG, WebP…) into a PNG
- * data URL of at most 1200px — also strips anything active out of an SVG. */
-function normalizeLogo(src: string): Promise<{ dataUrl: string; img: HTMLImageElement } | null> {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => {
-      const w0 = img.naturalWidth || 1000;
-      const h0 = img.naturalHeight || 1000;
-      const k = Math.min(1, 1200 / Math.max(w0, h0));
-      const c = document.createElement("canvas");
-      c.width = Math.max(1, Math.round(w0 * k));
-      c.height = Math.max(1, Math.round(h0 * k));
-      c.getContext("2d")!.drawImage(img, 0, 0, c.width, c.height);
-      const dataUrl = c.toDataURL("image/png");
-      const out = new Image();
-      out.onload = () => resolve({ dataUrl, img: out });
-      out.onerror = () => resolve(null);
-      out.src = dataUrl;
-    };
-    img.onerror = () => resolve(null);
-    img.src = src;
-  });
-}
-
-function Section({ icon: Icon, title, children, aside }: { icon: typeof Store; title: string; children: React.ReactNode; aside?: React.ReactNode }) {
-  return (
-    <section className="rounded-[26px] border border-ink-100 bg-white p-4 shadow-sm shadow-primary-900/[0.03] sm:p-6">
-      <div className="mb-4 flex items-center justify-between gap-3">
-        <h2 className="flex items-center gap-2.5 text-base font-bold text-ink-900">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-            <Icon className="h-[18px] w-[18px]" />
-          </span>
-          {title}
-        </h2>
-        {aside}
-      </div>
-      {children}
-    </section>
-  );
-}
+const track = (event: string) => trackTool(TOOL, event);
 
 interface SalonImport {
   id: string;
@@ -453,16 +399,7 @@ export function PriceListEditor({
   };
 
   // ---- downloads
-  const fileBase = (doc.salonName || "price-list").normalize("NFKD").replace(/[^\w-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 50) || "price-list";
-  const saveBlob = (blob: Blob, name: string) => {
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = name;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    window.setTimeout(() => URL.revokeObjectURL(a.href), 10_000);
-  };
+  const fileBase = fileBaseName(doc.salonName, "price-list");
   const afterDownload = () => {
     if (!canHideFooter) window.setTimeout(() => setShowCta(true), 600);
   };
@@ -948,38 +885,10 @@ export function PriceListEditor({
 
       {/* After-download call to action */}
       {showCta && (
-        <div className="fixed inset-0 z-[90] flex items-end justify-center bg-ink-900/50 p-4 sm:items-center" onClick={() => setShowCta(false)}>
-          <div className="relative w-full max-w-md overflow-hidden rounded-[28px] bg-primary-800 p-6 text-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-coral-400/30 blur-3xl" />
-            <button type="button" onClick={() => setShowCta(false)} aria-label={ui.close} className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full hover:bg-white/10">
-              <X className="h-5 w-5" />
-            </button>
-            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/10">
-              <QrCode className="h-6 w-6" />
-            </span>
-            <p className="relative mt-4 text-xl font-extrabold leading-tight">{ui.ctaTitle}</p>
-            <p className="relative mt-2 text-sm leading-relaxed text-primary-100">{ui.ctaBody}</p>
-            <Link
-              href="/business/apply"
-              onClick={() => track("cta_click")}
-              className="relative mt-5 flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 font-bold text-primary-800 hover:bg-peach-100"
-            >
-              {ui.ctaButton} <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
+        <CtaModal title={ui.ctaTitle} body={ui.ctaBody} button={ui.ctaButton} close={ui.close} onClose={() => setShowCta(false)} onClick={() => track("cta_click")} />
       )}
 
-      {toast && (
-        <div
-          role="status"
-          className={`fixed bottom-20 left-1/2 z-[95] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-2xl px-4 py-3 text-sm font-medium shadow-xl lg:bottom-6 ${
-            toast.tone === "ok" ? "bg-ink-900 text-white" : "bg-berry-500 text-white"
-          }`}
-        >
-          {toast.text}
-        </div>
-      )}
+      {toast && <Toast text={toast.text} tone={toast.tone} />}
     </div>
   );
 }

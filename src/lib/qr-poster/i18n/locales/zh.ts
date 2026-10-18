@@ -1,0 +1,57 @@
+import type { PosterStrings } from "../types";
+
+const zh: PosterStrings = {
+  ui: {
+    sLink: "二维码与预约链接",
+    sContent: "海报文字",
+    headline: "大标题",
+    headlineHint: "选择推荐文案，或为每种语言自定义。",
+    extraLines: "附加信息（可选）",
+    offer: "优惠",
+    offerPh: "例如：在线预约立减 10%",
+    hours: "营业时间",
+    hoursPh: "例如：周一至周五 9:00–19:00",
+    wifi: "Wi-Fi",
+    wifiPh: "网络名称 / 密码",
+    reviewToggle: "添加“在 Google 上给我们评价”二维码",
+    reviewPh: "粘贴店铺的 Google 评价链接",
+    reviewHint: "Google 商家资料 → 邀请评价 → 复制链接。",
+    qrLogo: "在二维码中间放标志",
+    qrLogoHint: "二维码将使用最高纠错等级（H），依然可以扫描。",
+    varaaaiLinkHint: "二维码使用短链接 varaaai.com/q/… —— 更容易扫描，扫码次数会显示在管理后台。",
+    needLink: "输入预约链接以生成二维码。",
+    tPastel: "马卡龙",
+    tSeasonal: "节日",
+    season: "节日主题",
+    sChristmas: "圣诞节",
+    sBlackFriday: "黑色星期五",
+    sTet: "春节",
+    fA6: "A6（桌面）",
+    fTent: "折叠桌牌",
+    fSticker: "圆形贴纸 10 厘米",
+    fStory: "快拍 1080×1920",
+    stickerSheet: "一张 A4 纸打印 4 张贴纸",
+    tentHint: "用 A4 纸打印，沿虚线对折。",
+    ctaTitle: "还没有预约页面？5 分钟免费创建",
+    ctaBody: "在 VaraaAi 注册店铺：顾客扫码即可直接预约进你的日历，并有自动提醒和扫码统计。",
+  },
+  seo: {
+    title: "免费制作“扫码预约”二维码海报 | VaraaAi",
+    description: "为店铺制作带预约二维码的海报、贴纸和桌牌：多语言、二维码中间放标志、圣诞节、黑色星期五和春节主题。可下载打印 PDF 或 PNG。完全免费。",
+    h1: "免费制作“扫码预约”二维码海报",
+    intro: "贴在前台、橱窗、镜子旁或美甲桌上，顾客用手机相机扫一扫就能预约下次到店。选择风格、颜色、尺寸和语言，下载可打印的 PDF 或社交媒体图片。",
+    features: [
+      "一张海报最多 3 种语言",
+      "二维码中间放标志，小尺寸打印也能扫",
+      "A4、A5、A6、折叠桌牌、圆形贴纸、方图和快拍",
+      "简约、奢华、马卡龙和节日主题",
+    ],
+    steps: [
+      "输入预约链接——或从你的 VaraaAi 店铺自动填写",
+      "选择标题、语言、风格和尺寸",
+      "下载 PDF 打印，或下载 PNG 发布",
+    ],
+  },
+};
+
+export default zh;
