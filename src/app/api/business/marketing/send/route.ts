@@ -50,7 +50,7 @@ export async function POST(req: Request) {
 
   const business = await prisma.business.findUniqueOrThrow({
     where: { id: businessId },
-    select: { name: true, ownerId: true },
+    select: { name: true, ownerId: true, logoUrl: true, slug: true },
   });
 
   const { eligible, cooldown } = await getMarketingRecipients(businessId);
@@ -92,6 +92,8 @@ export async function POST(req: Request) {
         bodyHtml,
         locale: customer.locale,
         unsubscribeUrl,
+        businessLogoUrl: business.logoUrl,
+        salonUrl: `${siteUrl}/b/${business.slug}`,
       });
       return sendMail({ to: customer.email, subject, html: email.html });
     })

@@ -1,3 +1,4 @@
+import { formatMoney } from "@/lib/money";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getBusinessAccess } from "@/lib/current-business";
@@ -38,7 +39,7 @@ export async function POST(
       Promise.all([
         prisma.business.findUnique({
           where: { id: access.business.id },
-          select: { name: true, defaultLocale: true },
+          select: { name: true, defaultLocale: true, logoUrl: true },
         }),
         prisma.user.findUnique({
           where: { id: invoice.customerId },
@@ -66,6 +67,9 @@ export async function POST(
       invoiceNumber: invoice.number,
       viewUrl: invoicePublicUrl(invoice.token, locale),
       locale,
+      totalText: formatMoney(invoice.totalCents, invoice.currency, locale),
+      pdfAttached: pdf !== null,
+      businessLogoUrl: business.logoUrl,
     });
 
     try {

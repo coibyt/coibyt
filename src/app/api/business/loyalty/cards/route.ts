@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
+import { C, codeTicket, emailLayout, esc, greeting, panel, para, rows } from "@/lib/email/ui";
 import { formatMoney } from "@/lib/money";
 import { loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
 
@@ -144,7 +145,7 @@ export async function POST(req: Request) {
 
   const program = await prisma.loyaltyProgram.findUnique({
     where: { businessId: owned.businessId },
-    include: { business: { select: { name: true, defaultLocale: true } } },
+    include: { business: { select: { name: true, defaultLocale: true, logoUrl: true, city: true } } },
   });
   if (!program) return NextResponse.json({ error: "NO_PROGRAM" }, { status: 409 });
 
@@ -170,21 +171,38 @@ export async function POST(req: Request) {
   const price =
     program.priceCents > 0 ? formatMoney(program.priceCents, program.currency, locale) : null;
   const qr = await loyaltyQrPng(token);
+  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+  const visits = Math.min(program.pointsRequired, 10);
+  // One empty circle per visit, with a star on the last — the card the
+  // customer is about to fill.
+  const dots = Array.from({ length: visits }, (_, i) =>
+    `<td style="padding:3px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="26" height="26" align="center" valign="middle" style="width:26px;height:26px;border-radius:50%;border:2px solid ${i === visits - 1 ? C.gold : "#dad0ef"};color:${C.gold};font-size:13px;line-height:26px">${i === visits - 1 ? "★" : "&nbsp;"}</td></tr></table></td>`
+  ).join("");
   await sendMail({
     to: email,
     subject: t.subject(program.business.name),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${t.heading}</h2>
-        <p>${t.greeting} ${d.customerName},</p>
-        <p>${t.bodyIntro(program.business.name)}</p>
-        <p><b>${t.rewardLabel}:</b> ${t.rewardText(program.pointsRequired, program.discountPercent)}${
-          price ? ` · ${t.cardPriceLabel}: ${price}` : ""
-        }</p>
-        <p>${t.cardCodeLabel}: <b>${token}</b></p>
-        <img src="cid:loyaltyqr" alt="QR" width="240" height="240" />
-      </div>`,
-    attachments: [{ filename: `${token}.png`, content: qr, cid: "loyaltyqr", contentType: "image/png" }],
+    html: emailLayout({
+      locale,
+      preheader: t.bodyIntro(program.business.name),
+      brand: { name: program.business.name, logoUrl: program.business.logoUrl, subline: program.business.city },
+      hero: { eyebrow: t.rewardLabel, title: t.heading, intro: esc(t.rewardText(program.pointsRequired, program.discountPercent)), tone: "gold", badge: "♥" },
+      body: [
+        greeting(t.greeting, d.customerName),
+        para(esc(t.bodyIntro(program.business.name))),
+        panel(
+          `<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>${dots}</tr></table>` +
+            `<div style="height:14px;line-height:14px;font-size:1px">&nbsp;</div>` +
+            rows([
+              { label: t.rewardLabel, value: esc(t.rewardText(program.pointsRequired, program.discountPercent)), strong: true },
+              price ? { label: t.cardPriceLabel, value: esc(price) } : null,
+            ]),
+          { pad: "22px 22px 14px" }
+        ),
+        codeTicket(t.cardCodeLabel, token, { qrUrl: `${site}/api/email-qr/loyalty/${encodeURIComponent(token)}.png` }),
+      ].join(""),
+    }),
+    // A plain attachment (no cid) so the QR can be saved as a file too.
+    attachments: [{ filename: `${token}.png`, content: qr, contentType: "image/png" }],
   });
 
   return NextResponse.json({ id: card.id }, { status: 201 });

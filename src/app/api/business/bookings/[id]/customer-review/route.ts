@@ -71,6 +71,7 @@ export async function POST(
       businessName: booking.business.name,
       rating: parsed.data.rating,
       locale: localeForCountry(booking.business.country),
+      businessLogoUrl: booking.business.logoUrl,
     });
     await sendMail({ to: booking.customer.email, ...email });
   } catch (err) {

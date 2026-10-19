@@ -62,6 +62,10 @@ export async function GET(req: Request) {
       businessCity: b.business.city,
       googleMapsUrl: b.business.googleMapsUrl,
       businessPhone: b.business.phone,
+      endsAt: b.endsAt,
+      bookingId: b.id,
+      businessLogoUrl: b.business.logoUrl,
+      salonUrl: `${siteUrl}/b/${b.business.slug}`,
     });
     await sendMail({ to: b.customer.email, ...email });
     await prisma.booking.update({ where: { id: b.id }, data: { reminder24hSentAt: now } });
@@ -90,6 +94,10 @@ export async function GET(req: Request) {
       businessCity: b.business.city,
       googleMapsUrl: b.business.googleMapsUrl,
       businessPhone: b.business.phone,
+      endsAt: b.endsAt,
+      bookingId: b.id,
+      businessLogoUrl: b.business.logoUrl,
+      salonUrl: `${siteUrl}/b/${b.business.slug}`,
     });
     await sendMail({ to: b.customer.email, ...email });
     await prisma.booking.update({ where: { id: b.id }, data: { reminder2hSentAt: now } });
@@ -118,6 +126,10 @@ export async function GET(req: Request) {
       businessCity: b.business.city,
       googleMapsUrl: b.business.googleMapsUrl,
       businessPhone: b.business.phone,
+      endsAt: b.endsAt,
+      bookingId: b.id,
+      businessLogoUrl: b.business.logoUrl,
+      salonUrl: `${siteUrl}/b/${b.business.slug}`,
     });
     await sendMail({ to: b.customer.email, ...email });
     await prisma.booking.update({ where: { id: b.id }, data: { reminder15minSentAt: now } });
@@ -144,6 +156,8 @@ export async function GET(req: Request) {
       serviceName: b.service.name,
       locale: localeForCountry(b.business.country),
       reviewUrl: `${siteUrl}/account/bookings?review=${b.id}`,
+      businessLogoUrl: b.business.logoUrl,
+      businessCity: b.business.city,
     });
     await sendMail({ to: b.customer.email, ...email });
     await prisma.booking.update({ where: { id: b.id }, data: { reviewRequestSentAt: now } });

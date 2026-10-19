@@ -283,12 +283,21 @@ export async function createBookingAndPayment(params: {
 
   if (isOffline) {
     if (booking.notificationEmailsEnabled) {
+      const customer = await prisma.user.findUnique({
+        where: { id: params.customerId },
+        select: { phone: true, isGuest: true },
+      });
       const email = bookingConfirmationEmail({
         customerName: params.customerName,
         businessName: service.business.name,
-        serviceName: service.name,
-        serviceDescription: service.description,
+        serviceName: visitServiceName(service.name, extraServices, addOns),
+        serviceDescription: extraServices.length || addOns.length ? null : service.description,
         startsAt: booking.startsAt,
+        endsAt: booking.endsAt,
+        bookingId: booking.id,
+        businessLogoUrl: service.business.logoUrl,
+        salonUrl: `${params.siteUrl}/b/${service.business.slug}`,
+        manageBookingUrl: customer?.isGuest ? null : `${params.siteUrl}/account/bookings`,
         locale: localeForCountry(service.business.country),
         businessTimezone: service.business.timezone,
         priceCents: booking.priceCents,
@@ -318,8 +327,16 @@ export async function createBookingAndPayment(params: {
         ownerName: service.business.owner.name,
         ownerEmail: service.business.owner.email,
         customerName: params.customerName,
-        serviceName: service.name,
+        customerEmail: params.customerEmail,
+        customerPhone: customer?.phone,
+        customerNote: params.customerNote,
+        serviceName: visitServiceName(service.name, extraServices, addOns),
+        staffName: staff?.name,
+        priceCents: booking.priceCents,
+        currency: booking.currency,
+        bookingId: booking.id,
         startsAt: booking.startsAt,
+        endsAt: booking.endsAt,
         businessCountry: service.business.country,
         businessTimezone: service.business.timezone,
         businessName: service.business.name,
@@ -367,13 +384,27 @@ export async function createBookingAndPayment(params: {
  * Email and push are independent best-effort channels, each in its own
  * try/catch, so one failing (e.g. SMTP misconfigured) never blocks the
  * other. */
+/** "Manicure + Pedicure (+ Gel polish)" — everything in one visit. */
+function visitServiceName(main: string, extras: { name: string }[], addOns: { name: string }[]) {
+  const base = [main, ...extras.map((e) => e.name)].join(" + ");
+  return addOns.length ? `${base} (+ ${addOns.map((a) => a.name).join(", ")})` : base;
+}
+
 async function notifyOwnerOfNewBooking(params: {
   ownerId: string;
   ownerName: string;
   ownerEmail: string;
   customerName: string;
+  customerEmail?: string | null;
+  customerPhone?: string | null;
+  customerNote?: string | null;
   serviceName: string;
+  staffName?: string | null;
+  priceCents?: number | null;
+  currency?: string | null;
+  bookingId?: string | null;
   startsAt: Date;
+  endsAt?: Date | null;
   businessCountry: string;
   businessTimezone: string;
   businessName: string;
@@ -386,8 +417,16 @@ async function notifyOwnerOfNewBooking(params: {
     const email = ownerNewBookingEmail({
       ownerName: params.ownerName,
       customerName: params.customerName,
+      customerEmail: params.customerEmail,
+      customerPhone: params.customerPhone,
+      customerNote: params.customerNote,
       serviceName: params.serviceName,
+      staffName: params.staffName,
+      priceCents: params.priceCents,
+      currency: params.currency,
+      bookingId: params.bookingId,
       startsAt: params.startsAt,
+      endsAt: params.endsAt,
       locale,
       businessTimezone: params.businessTimezone,
       businessName: params.businessName,
@@ -432,17 +471,26 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
       service: true,
       customer: true,
       staff: true,
+      addOns: { select: { name: true } },
+      extraServices: { select: { name: true } },
     },
   });
   if (!full) return;
   if (!full.notificationEmailsEnabled) return;
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+  const serviceName = visitServiceName(full.service.name, full.extraServices, full.addOns);
   const email = bookingConfirmationEmail({
     customerName: full.customer.name,
     businessName: full.business.name,
-    serviceName: full.service.name,
-    serviceDescription: full.service.description,
+    serviceName,
+    serviceDescription: full.extraServices.length || full.addOns.length ? null : full.service.description,
     startsAt: full.startsAt,
+    endsAt: full.endsAt,
+    bookingId: full.id,
+    businessLogoUrl: full.business.logoUrl,
+    salonUrl: `${siteUrl}/b/${full.business.slug}`,
+    manageBookingUrl: full.customer.isGuest ? null : `${siteUrl}/account/bookings`,
     locale: localeForCountry(full.business.country),
     businessTimezone: full.business.timezone,
     priceCents: full.priceCents,
@@ -462,12 +510,20 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     ownerName: full.business.owner.name,
     ownerEmail: full.business.owner.email,
     customerName: full.customer.name,
-    serviceName: full.service.name,
+    customerEmail: full.customer.email,
+    customerPhone: full.customer.phone,
+    customerNote: full.customerNote,
+    serviceName,
+    staffName: full.staff?.name,
+    priceCents: full.priceCents,
+    currency: full.currency,
+    bookingId: full.id,
     startsAt: full.startsAt,
+    endsAt: full.endsAt,
     businessCountry: full.business.country,
     businessTimezone: full.business.timezone,
     businessName: full.business.name,
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com",
+    siteUrl,
   });
 }
 
@@ -477,7 +533,14 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
 export async function sendBookingRescheduledEmail(bookingId: string) {
   const full = await prisma.booking.findUnique({
     where: { id: bookingId },
-    include: { business: true, service: true, customer: true, staff: true },
+    include: {
+      business: true,
+      service: true,
+      customer: true,
+      staff: true,
+      addOns: { select: { name: true } },
+      extraServices: { select: { name: true } },
+    },
   });
   if (!full) return;
   if (!full.notificationEmailsEnabled) return;
@@ -487,9 +550,13 @@ export async function sendBookingRescheduledEmail(bookingId: string) {
   const email = bookingRescheduledEmail({
     customerName: full.customer.name,
     businessName: full.business.name,
-    serviceName: full.service.name,
-    serviceDescription: full.service.description,
+    serviceName: visitServiceName(full.service.name, full.extraServices, full.addOns),
+    serviceDescription: full.extraServices.length || full.addOns.length ? null : full.service.description,
     startsAt: full.startsAt,
+    endsAt: full.endsAt,
+    bookingId: full.id,
+    businessLogoUrl: full.business.logoUrl,
+    salonUrl: `${siteUrl}/b/${full.business.slug}`,
     locale: localeForCountry(full.business.country),
     businessTimezone: full.business.timezone,
     priceCents: full.priceCents,

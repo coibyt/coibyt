@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
+import { button, emailLayout, esc, greeting, para } from "@/lib/email/ui";
 import { localeForCountry } from "@/lib/countries";
 
 /** Direct link to Google's own "write a review" composer for this salon, built
@@ -48,7 +49,6 @@ const COPY = {
   },
 };
 
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
 
 /** Asks a reviewer to also post on Google, by email and by a message in their
  * VaraaAi chat with the salon. Sent at most once per review: the
@@ -69,6 +69,7 @@ export async function sendGoogleReviewRequest(reviewId: string) {
           country: true,
           googlePlaceId: true,
           googleMapsUrl: true,
+          logoUrl: true,
           ownerId: true,
         },
       },
@@ -94,19 +95,17 @@ export async function sendGoogleReviewRequest(reviewId: string) {
       await sendMail({
         to: review.customer.email,
         subject: t.subject(businessName),
-        html: `
-          <div style="font-family:sans-serif;max-width:480px;margin:auto">
-            <h2 style="color:#624f89">${t.heading}</h2>
-            <p>${t.hi} ${esc(review.customer.name)},</p>
-            <p>${esc(t.body(businessName))}</p>
-            <p style="text-align:center;margin:28px 0">
-              <a href="${esc(url)}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-                ${t.cta}
-              </a>
-            </p>
-            <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-          </div>
-        `,
+        html: emailLayout({
+          locale,
+          preheader: t.body(businessName),
+          brand: { name: businessName, logoUrl: review.business.logoUrl },
+          hero: { eyebrow: "Google", title: t.heading, tone: "gold", badge: "★" },
+          body: [
+            greeting(t.hi, review.customer.name),
+            para(esc(t.body(businessName))),
+            button(url, t.cta, { variant: "gold" }),
+          ].join(""),
+        }),
       });
       delivered = true;
     } catch (err) {

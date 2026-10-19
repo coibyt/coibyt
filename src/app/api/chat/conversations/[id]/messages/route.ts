@@ -137,6 +137,7 @@ export async function POST(
             customerName: customer?.name ?? "—",
             locale,
             messagesUrl: `${siteUrl}/${locale}/business/dashboard/messages`,
+            preview: text,
           }),
         });
       }

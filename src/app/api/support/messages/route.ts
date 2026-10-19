@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { requireSupportOwner } from "@/lib/support";
 import { sendMail } from "@/lib/mailer";
+import { button, emailLayout, esc, para, quote } from "@/lib/email/ui";
 
 const postSchema = z.object({ content: z.string().trim().min(1).max(4000) });
 
@@ -66,17 +67,22 @@ export async function POST(req: Request) {
         prisma.user.findMany({ where: { role: "ADMIN" }, select: { email: true } }),
       ]);
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
-      const preview = parsed.data.content.slice(0, 300).replace(/</g, "&lt;");
+      const preview = esc(parsed.data.content.slice(0, 300));
       for (const admin of admins) {
         await sendMail({
           to: admin.email,
           subject: `Tin nhắn hỗ trợ mới từ ${owner?.name ?? "chủ salon"}`,
-          html: `<div style="font-family:sans-serif;max-width:480px;margin:auto">
-            <h2 style="color:#624f89">Tin nhắn hỗ trợ mới</h2>
-            <p><strong>${owner?.name ?? ""}</strong> (${owner?.email ?? ""}) vừa nhắn cho đội hỗ trợ:</p>
-            <blockquote style="border-left:3px solid #ddd;margin:12px 0;padding:4px 12px;color:#444">${preview}</blockquote>
-            <p><a href="${siteUrl}/admin/support" style="background:#624f89;color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none">Mở hộp thư hỗ trợ</a></p>
-          </div>`,
+          html: emailLayout({
+            locale: "vi",
+            preheader: `${owner?.name ?? ""}: ${parsed.data.content.slice(0, 90)}`,
+            brand: null,
+            hero: { eyebrow: "Hỗ trợ chủ salon", title: "Tin nhắn hỗ trợ mới", tone: "brand", badge: "💬" },
+            body: [
+              para(`<strong>${esc(owner?.name ?? "")}</strong> (${esc(owner?.email ?? "")}) vừa nhắn cho đội hỗ trợ:`),
+              quote(preview),
+              button(`${siteUrl}/admin/support`, "Mở hộp thư hỗ trợ"),
+            ].join(""),
+          }),
         });
       }
     } catch (err) {

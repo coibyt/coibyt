@@ -5,6 +5,7 @@ import { ImageResponse } from "next/og";
 import { prisma } from "@/lib/prisma";
 import { formatMoney } from "@/lib/money";
 import { sendMail } from "@/lib/mailer";
+import { codeTicket, emailLayout, esc, greeting, notice, para } from "@/lib/email/ui";
 import {
   GIFT_CARD_HEIGHT,
   GIFT_CARD_WIDTH,
@@ -132,6 +133,9 @@ const EMAIL_TEXT = {
     hi: "Xin chào",
     intro: (salon: string) => `${salon} gửi tặng bạn thẻ quà tặng dưới đây.`,
     howTo: "Khi đến salon, chỉ cần đưa mã QR hoặc mã thẻ này cho nhân viên.",
+    eyebrow: "Quà tặng dành cho bạn",
+    codeLabel: "Mã thẻ",
+    howTitle: "Cách sử dụng",
     attached: "Ảnh thẻ cũng được đính kèm trong email để bạn lưu lại.",
     alt: (salon: string) => `Thẻ quà tặng ${salon}`,
   },
@@ -140,6 +144,9 @@ const EMAIL_TEXT = {
     hi: "Hi",
     intro: (salon: string) => `${salon} has sent you the gift card below.`,
     howTo: "When you visit the salon, just show this QR code or card code to the staff.",
+    eyebrow: "A gift for you",
+    codeLabel: "Card code",
+    howTitle: "How to use it",
     attached: "The card image is also attached so you can keep it.",
     alt: (salon: string) => `${salon} gift card`,
   },
@@ -148,6 +155,9 @@ const EMAIL_TEXT = {
     hi: "Hei",
     intro: (salon: string) => `${salon} lähetti sinulle alla olevan lahjakortin.`,
     howTo: "Näytä tämä QR-koodi tai korttikoodi salongissa käynnin yhteydessä.",
+    eyebrow: "Lahja sinulle",
+    codeLabel: "Kortin koodi",
+    howTitle: "Näin käytät korttia",
     attached: "Kortin kuva on myös liitteenä, jotta voit tallentaa sen.",
     alt: (salon: string) => `${salon} lahjakortti`,
   },
@@ -162,22 +172,23 @@ export async function emailGiftCard(purchaseId: string, businessId: string, loca
   const png = await renderGiftCardPng(design);
   const loc = cardLocale(locale) as keyof typeof EMAIL_TEXT;
   const t = EMAIL_TEXT[loc];
-  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
-
   await sendMail({
     to: design.recipientEmail,
     subject: t.subject(design.salonName),
-    html: `
-      <div style="font-family:sans-serif;max-width:640px;margin:auto;color:#25302f">
-        <p>${t.hi} ${esc(design.recipientName)},</p>
-        <p>${t.intro(esc(design.salonName))}</p>
-        <p style="margin:24px 0"><img src="${giftCardImageUrl(design.code, locale)}" alt="${esc(t.alt(design.salonName))}" width="600" style="display:block;width:100%;max-width:600px;height:auto;border-radius:24px;border:0" /></p>
-        <p>${t.howTo}</p>
-        <p style="font-size:20px;font-weight:700;letter-spacing:3px;color:#40325c">${esc(design.code)}</p>
-        <p style="color:#5b6b6c;font-size:13px">${t.attached}</p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: loc,
+      preheader: t.intro(design.salonName),
+      brand: { name: design.salonName },
+      hero: { eyebrow: t.eyebrow, title: esc(t.subject(design.salonName)), tone: "gold", badge: "🎁" },
+      body: [
+        greeting(t.hi, design.recipientName),
+        para(esc(t.intro(design.salonName))),
+        `<img src="${giftCardImageUrl(design.code, locale)}" alt="${esc(t.alt(design.salonName))}" width="512" style="display:block;width:100%;max-width:512px;height:auto;margin:8px auto 0;border-radius:20px;border:0;box-shadow:0 12px 32px rgba(31,24,45,.18)" />`,
+        codeTicket(t.codeLabel, design.code),
+        notice(t.howTitle, esc(t.howTo), "gold", 20),
+        para(esc(t.attached), { small: true, muted: true, center: true, mt: 14 }),
+      ].join(""),
+    }),
     // A plain attachment (no cid) so it shows up as a file to save.
     attachments: [{ filename: `gift-card-${design.code}.png`, content: png, contentType: "image/png" }],
   });

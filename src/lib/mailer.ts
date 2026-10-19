@@ -1,5 +1,31 @@
 import nodemailer, { type Transporter } from "nodemailer";
-import { formatMoney, INTL_LOCALES } from "@/lib/money";
+import { formatMoney } from "@/lib/money";
+import { bookingEmailStrings, INVOICE_EMAIL_STRINGS } from "@/lib/email/booking-strings";
+import { NEW_MESSAGE_STRINGS, OWNER_BOOKING_STRINGS } from "@/lib/email/owner-strings";
+import { customerExtra, ownerExtra } from "@/lib/email/extra-strings";
+import { chromeStrings } from "@/lib/email/strings";
+import { bookingRef, dateParts, durationMinutes, googleCalendarUrl, icsAttachment } from "@/lib/email/calendar";
+import {
+  C,
+  SITE_URL,
+  appointmentHeader,
+  button,
+  buttonRow,
+  codeTicket,
+  emailLayout,
+  esc,
+  greeting,
+  hairline,
+  notice,
+  panel,
+  para,
+  quote,
+  rows,
+  sectionTitle,
+  stars,
+  steps,
+  type EmailBrand,
+} from "@/lib/email/ui";
 
 let _transporter: Transporter | null = null;
 
@@ -17,11 +43,18 @@ function getTransporter() {
   return _transporter;
 }
 
+export interface MailAttachment {
+  filename: string;
+  content: Buffer;
+  cid?: string;
+  contentType?: string;
+}
+
 export async function sendMail(opts: {
   to: string;
   subject: string;
   html: string;
-  attachments?: { filename: string; content: Buffer; cid?: string; contentType?: string }[];
+  attachments?: MailAttachment[];
 }) {
   // In local dev without SMTP configured, log instead of throwing so the
   // booking flow can still be exercised end-to-end.
@@ -36,93 +69,296 @@ export async function sendMail(opts: {
   });
 }
 
+/* ---------- helpers ---------- */
+
+/** Picks the copy for a locale from a vi/en/fi dictionary (English fallback). */
+function pick<T>(locale: string, dict: { vi: T; en: T; fi: T }): T {
+  return (dict as Record<string, T>)[locale] ?? dict.en;
+}
+
+/** Site link in the visitor's language (vi is the unprefixed default). */
+function sitePath(locale: string, path: string) {
+  return `${SITE_URL}${locale === "vi" ? "" : `/${locale}`}${path}`;
+}
+
+const plain = (html: string) => html.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+
+function salonBrand(name: string, logoUrl?: string | null, city?: string | null): EmailBrand {
+  return { name, logoUrl, subline: city || null };
+}
+
+function mapsLink(name: string, address: string, mapsUrl?: string | null) {
+  if (mapsUrl) return mapsUrl;
+  if (!address) return "";
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${name}, ${address}`)}`;
+}
+
+function telLink(phone?: string | null) {
+  return phone ? `tel:${phone.replace(/[^\d+]/g, "")}` : "";
+}
+
+/** "Where" block: salon name, address, phone, directions/call buttons. */
+function locationBlock(locale: string, p: { businessName: string; address: string; phone?: string | null; mapsUrl?: string | null }) {
+  if (!p.address && !p.phone && !p.mapsUrl) return "";
+  const c = chromeStrings(locale);
+  const maps = mapsLink(p.businessName, p.address, p.mapsUrl);
+  const inner = `
+    <div style="font-size:16px;font-weight:700;color:${C.ink}">${esc(p.businessName)}</div>
+    ${p.address ? `<div style="font-size:14px;color:${C.muted};margin-top:4px">${esc(p.address)}</div>` : ""}
+    ${p.phone ? `<div style="font-size:14px;margin-top:4px"><a href="${esc(telLink(p.phone))}" style="color:${C.primary};text-decoration:none;font-weight:600">${esc(p.phone)}</a></div>` : ""}
+    <div style="height:16px;line-height:16px;font-size:1px">&nbsp;</div>
+    ${buttonRow([
+      { href: maps, label: c.directions },
+      { href: telLink(p.phone), label: c.call },
+    ])}`;
+  return sectionTitle(c.where) + panel(inner);
+}
+
+function salonFooter(businessName: string, address: string, phone?: string | null) {
+  return [`<strong>${esc(businessName)}</strong>`, esc(address), esc(phone ?? "")].filter(Boolean).join(" · ");
+}
+
+function serviceValue(name: string, description?: string | null) {
+  const desc = description?.trim();
+  return `${esc(name)}${
+    desc
+      ? `<div style="font-weight:400;font-size:12.5px;line-height:1.5;color:${C.muted};margin-top:3px">${esc(desc.length > 160 ? `${desc.slice(0, 157)}…` : desc)}</div>`
+      : ""
+  }`;
+}
+
+/* ---------- account emails (VaraaAi → user) ---------- */
+
+const VERIFY = {
+  vi: {
+    subject: "Xác minh email để kích hoạt salon của bạn",
+    eyebrow: "Chỉ còn một bước",
+    title: "Xác minh địa chỉ email",
+    intro: "Xác nhận đây là email của bạn để kích hoạt salon trên VaraaAi.",
+    hi: "Xin chào",
+    body: "Cảm ơn bạn đã chọn VaraaAi! Nhấp vào nút bên dưới để xác minh email. Ngay sau đó salon của bạn sẽ được kích hoạt — không cần chờ duyệt.",
+    cta: "Xác minh email",
+    ignoreTitle: "Không phải bạn?",
+    ignore: "Nếu bạn không tạo tài khoản VaraaAi, hãy bỏ qua email này — sẽ không có gì thay đổi.",
+  },
+  en: {
+    subject: "Verify your email to activate your salon",
+    eyebrow: "One last step",
+    title: "Verify your email address",
+    intro: "Confirm this is your email to activate your salon on VaraaAi.",
+    hi: "Hi",
+    body: "Thanks for choosing VaraaAi! Click the button below to verify your email. Your salon is activated straight away — no waiting for a review.",
+    cta: "Verify email",
+    ignoreTitle: "Wasn't you?",
+    ignore: "If you didn't create a VaraaAi account, just ignore this email — nothing will change.",
+  },
+  fi: {
+    subject: "Vahvista sähköpostisi ja aktivoi salonkisi",
+    eyebrow: "Enää yksi vaihe",
+    title: "Vahvista sähköpostiosoitteesi",
+    intro: "Vahvista, että tämä on sähköpostisi, niin salonkisi aktivoituu VaraaAissa.",
+    hi: "Hei",
+    body: "Kiitos, että valitsit VaraaAin! Vahvista sähköpostisi alla olevasta painikkeesta. Salonkisi aktivoituu heti — tarkistusta ei tarvitse odottaa.",
+    cta: "Vahvista sähköposti",
+    ignoreTitle: "Etkö se ollut sinä?",
+    ignore: "Jos et luonut VaraaAi-tiliä, voit jättää tämän viestin huomiotta — mitään ei muuteta.",
+  },
+};
+
 export function verificationEmail(params: { name: string; verifyUrl: string; locale: string }) {
-  const isVi = params.locale === "vi";
+  const t = pick(params.locale, VERIFY);
+  const c = chromeStrings(params.locale);
   return {
-    subject: isVi
-      ? "Xác minh email để kích hoạt salon của bạn"
-      : "Verify your email to activate your salon",
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Xác minh địa chỉ email" : "Verify your email"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
-        <p>${
-          isVi
-            ? "Nhấp vào nút bên dưới để xác minh email của bạn. Sau khi xác minh, salon của bạn sẽ được kích hoạt ngay — không cần chờ VaraaAi duyệt."
-            : "Click the button below to verify your email. Once verified, your salon is activated immediately — no need to wait for VaraaAi's review."
-        }</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.verifyUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${isVi ? "Xác minh email" : "Verify email"}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:13px">${
-          isVi
-            ? "Nếu nút không hoạt động, dán liên kết này vào trình duyệt:"
-            : "If the button doesn't work, paste this link into your browser:"
-        }<br/>${params.verifyUrl}</p>
-        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: t.subject,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: t.intro,
+      brand: null,
+      hero: { eyebrow: t.eyebrow, title: t.title, intro: t.intro, badge: "✉" },
+      body: [
+        greeting(t.hi, params.name),
+        para(t.body),
+        button(params.verifyUrl, t.cta, { fallback: c.orCopyLink }),
+        notice(t.ignoreTitle, t.ignore, "info", 28),
+      ].join(""),
+    }),
   };
 }
 
+const RESET = {
+  vi: {
+    subject: "Đặt lại mật khẩu VaraaAi",
+    eyebrow: "Bảo mật tài khoản",
+    title: "Đặt lại mật khẩu",
+    intro: "Chọn mật khẩu mới cho tài khoản VaraaAi của bạn.",
+    hi: "Xin chào",
+    body: "Chúng tôi vừa nhận được yêu cầu đặt lại mật khẩu cho tài khoản này. Nhấp vào nút bên dưới để chọn mật khẩu mới.",
+    cta: "Đặt mật khẩu mới",
+    validTitle: "Liên kết có hiệu lực trong 1 giờ",
+    valid: "Nếu bạn không yêu cầu điều này, hãy bỏ qua email — mật khẩu của bạn vẫn giữ nguyên và tài khoản vẫn an toàn.",
+  },
+  en: {
+    subject: "Reset your VaraaAi password",
+    eyebrow: "Account security",
+    title: "Reset your password",
+    intro: "Choose a new password for your VaraaAi account.",
+    hi: "Hi",
+    body: "We just received a request to reset the password for this account. Click the button below to choose a new one.",
+    cta: "Choose a new password",
+    validTitle: "This link is valid for 1 hour",
+    valid: "If you didn't ask for this, just ignore this email — your password stays the same and your account is safe.",
+  },
+  fi: {
+    subject: "Vaihda VaraaAi-salasanasi",
+    eyebrow: "Tilin turvallisuus",
+    title: "Salasanan vaihto",
+    intro: "Valitse uusi salasana VaraaAi-tilillesi.",
+    hi: "Hei",
+    body: "Saimme pyynnön vaihtaa tämän tilin salasana. Valitse uusi salasana alla olevasta painikkeesta.",
+    cta: "Valitse uusi salasana",
+    validTitle: "Linkki on voimassa 1 tunnin",
+    valid: "Jos et pyytänyt tätä, voit jättää viestin huomiotta — salasanasi pysyy ennallaan ja tilisi on turvassa.",
+  },
+};
+
 export function passwordResetEmail(params: { name: string; resetUrl: string; locale: string }) {
-  const isVi = params.locale === "vi";
+  const t = pick(params.locale, RESET);
+  const c = chromeStrings(params.locale);
   return {
-    subject: isVi ? "Đặt lại mật khẩu VaraaAi" : "Reset your VaraaAi password",
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Đặt lại mật khẩu" : "Reset your password"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
-        <p>${
-          isVi
-            ? "Có người (hy vọng là bạn) vừa yêu cầu đặt lại mật khẩu cho tài khoản VaraaAi này. Nhấp vào nút bên dưới để chọn mật khẩu mới. Liên kết có hiệu lực trong 1 giờ."
-            : "Someone (hopefully you) just requested a password reset for this VaraaAi account. Click the button below to choose a new password. This link is valid for 1 hour."
-        }</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.resetUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${isVi ? "Đặt lại mật khẩu" : "Reset password"}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:13px">${
-          isVi
-            ? "Nếu nút không hoạt động, dán liên kết này vào trình duyệt:"
-            : "If the button doesn't work, paste this link into your browser:"
-        }<br/>${params.resetUrl}</p>
-        <p style="color:#5b6b6c;font-size:13px">${
-          isVi
-            ? "Nếu bạn không yêu cầu điều này, bạn có thể bỏ qua email này — mật khẩu của bạn sẽ không thay đổi."
-            : "If you didn't request this, you can safely ignore this email — your password won't change."
-        }</p>
-        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: t.subject,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: t.intro,
+      brand: null,
+      hero: { eyebrow: t.eyebrow, title: t.title, intro: t.intro, badge: "🔑" },
+      body: [
+        greeting(t.hi, params.name),
+        para(t.body),
+        button(params.resetUrl, t.cta, { fallback: c.orCopyLink }),
+        notice(t.validTitle, t.valid, "warm", 28),
+      ].join(""),
+    }),
   };
 }
+
+const WELCOME = {
+  vi: {
+    subject: "Chào mừng bạn đến với VaraaAi!",
+    eyebrow: "Chào mừng",
+    title: "Tài khoản của bạn đã sẵn sàng",
+    intro: "Đặt lịch làm đẹp chưa bao giờ dễ dàng đến thế.",
+    hi: "Xin chào",
+    body: "Rất vui được chào đón bạn! Từ giờ, mọi lịch hẹn làm đẹp của bạn đều nằm gọn trong một nơi.",
+    steps: [
+      { title: "Tìm salon ưng ý", body: "Xem dịch vụ, bảng giá, hình ảnh và đánh giá thật từ khách hàng." },
+      { title: "Đặt lịch 24/7", body: "Chọn giờ còn trống và nhận xác nhận ngay — không cần gọi điện." },
+      { title: "Quản lý dễ dàng", body: "Xem lại, dời hoặc hủy lịch hẹn ngay trong tài khoản của bạn." },
+    ],
+    cta: "Khám phá salon",
+  },
+  en: {
+    subject: "Welcome to VaraaAi!",
+    eyebrow: "Welcome",
+    title: "Your account is ready",
+    intro: "Booking beauty appointments has never been easier.",
+    hi: "Hi",
+    body: "We're so glad to have you! From now on, all your beauty appointments live in one place.",
+    steps: [
+      { title: "Find a salon you love", body: "Browse services, prices, photos and genuine customer reviews." },
+      { title: "Book 24/7", body: "Pick a free time and get an instant confirmation — no phone calls." },
+      { title: "Stay in control", body: "Review, reschedule or cancel your bookings from your account." },
+    ],
+    cta: "Explore salons",
+  },
+  fi: {
+    subject: "Tervetuloa VaraaAihin!",
+    eyebrow: "Tervetuloa",
+    title: "Tilisi on valmis",
+    intro: "Kauneusaikojen varaaminen ei ole koskaan ollut helpompaa.",
+    hi: "Hei",
+    body: "Ihanaa, että liityit! Tästä lähtien kaikki kauneusaikasi ovat yhdessä paikassa.",
+    steps: [
+      { title: "Löydä mieluisa salonki", body: "Selaa palveluita, hintoja, kuvia ja aitoja asiakasarvioita." },
+      { title: "Varaa 24/7", body: "Valitse vapaa aika ja saat vahvistuksen heti — ei puheluita." },
+      { title: "Kaikki hallinnassa", body: "Katso, siirrä tai peru varauksiasi omalta tililtäsi." },
+    ],
+    cta: "Tutustu salonkeihin",
+  },
+};
 
 /** Sent right after a customer finishes the standalone sign-up form (not
  * the guest-checkout-creates-an-account path on the booking widget, which
  * already gets its own account mention folded into the booking
  * confirmation email instead — see bookingConfirmationEmail). */
 export function registrationSuccessEmail(params: { name: string; locale: string }) {
-  const isVi = params.locale === "vi";
+  const t = pick(params.locale, WELCOME);
   return {
-    subject: isVi ? "Chào mừng bạn đến với VaraaAi!" : "Welcome to VaraaAi!",
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Tạo tài khoản thành công" : "Account created"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.name},</p>
-        <p>${
-          isVi
-            ? "Tài khoản VaraaAi của bạn đã sẵn sàng. Giờ đây bạn có thể đặt lịch hẹn, theo dõi các salon yêu thích, và xem lại lịch sử đặt lịch của mình bất cứ lúc nào."
-            : "Your VaraaAi account is ready. You can now book appointments, follow your favorite salons, and look back on your booking history any time."
-        }</p>
-        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: t.subject,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: t.intro,
+      brand: null,
+      hero: { eyebrow: t.eyebrow, title: t.title, intro: t.intro, badge: "✦" },
+      body: [
+        greeting(t.hi, params.name),
+        para(t.body),
+        steps(t.steps),
+        button(sitePath(params.locale, "/search"), t.cta),
+      ].join(""),
+    }),
   };
 }
+
+const READY = {
+  vi: {
+    subject: "Salon của bạn đã sẵn sàng đón khách!",
+    eyebrow: "Chúc mừng",
+    title: (b: string) => `${b} đã lên sóng!`,
+    intro: "Khách hàng đã có thể tìm thấy và đặt lịch với bạn ngay bây giờ.",
+    hi: "Xin chào",
+    body: "Chào mừng bạn đến với VaraaAi! Để salon thu hút nhiều lượt đặt lịch nhất ngay từ tuần đầu, hãy hoàn thiện vài bước sau:",
+    steps: [
+      { title: "Thêm dịch vụ và bảng giá", body: "Mô tả rõ ràng, thời lượng chính xác giúp khách tự tin đặt lịch." },
+      { title: "Thêm nhân viên và giờ làm", body: "Khách có thể chọn đúng người họ tin tưởng." },
+      { title: "Tải logo và ảnh đẹp", body: "Salon có hình ảnh nhận được nhiều lượt đặt hơn hẳn." },
+      { title: "Chia sẻ liên kết đặt lịch", body: "Đặt vào Facebook, Instagram, Google — hoặc in mã QR miễn phí." },
+    ],
+    cta: "Vào trang quản trị",
+    guide: "Xem hướng dẫn từng bước",
+  },
+  en: {
+    subject: "Your salon is ready for bookings!",
+    eyebrow: "Congratulations",
+    title: (b: string) => `${b} is live!`,
+    intro: "Customers can now find you and book right away.",
+    hi: "Hi",
+    body: "Welcome to VaraaAi! To get the most bookings from your very first week, finish these few steps:",
+    steps: [
+      { title: "Add services and prices", body: "Clear descriptions and accurate durations help customers book with confidence." },
+      { title: "Add staff and working hours", body: "Customers can choose exactly who they trust." },
+      { title: "Upload a logo and great photos", body: "Salons with photos get noticeably more bookings." },
+      { title: "Share your booking link", body: "Add it to Facebook, Instagram and Google — or print a free QR poster." },
+    ],
+    cta: "Go to dashboard",
+    guide: "Read the step-by-step guide",
+  },
+  fi: {
+    subject: "Salonkisi on valmis ottamaan varauksia!",
+    eyebrow: "Onnittelut",
+    title: (b: string) => `${b} on nyt avoinna!`,
+    intro: "Asiakkaat voivat nyt löytää sinut ja varata ajan heti.",
+    hi: "Hei",
+    body: "Tervetuloa VaraaAihin! Saat eniten varauksia jo ensimmäisellä viikolla, kun viimeistelet nämä vaiheet:",
+    steps: [
+      { title: "Lisää palvelut ja hinnat", body: "Selkeät kuvaukset ja tarkat kestot tekevät varaamisesta helppoa." },
+      { title: "Lisää työntekijät ja työajat", body: "Asiakas voi valita juuri sen tekijän, johon luottaa." },
+      { title: "Lataa logo ja kauniita kuvia", body: "Kuvalliset salongit saavat selvästi enemmän varauksia." },
+      { title: "Jaa varauslinkkisi", body: "Lisää se Facebookiin, Instagramiin ja Googleen — tai tulosta ilmainen QR-juliste." },
+    ],
+    cta: "Siirry hallintapaneeliin",
+    guide: "Lue vaiheittainen opas",
+  },
+};
 
 export function businessReadyEmail(params: {
   ownerName: string;
@@ -131,377 +367,152 @@ export function businessReadyEmail(params: {
   guideUrl: string;
   locale: string;
 }) {
-  const isVi = params.locale === "vi";
+  const t = pick(params.locale, READY);
   return {
-    subject: isVi ? "Salon của bạn đã sẵn sàng!" : "Your salon is ready!",
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Chúc mừng!" : "Congratulations!"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.ownerName},</p>
-        <p>${
-          isVi
-            ? `<strong>${params.businessName}</strong> đã sẵn sàng hoạt động trên VaraaAi.Com! Khách hàng có thể tìm thấy và đặt lịch với bạn ngay bây giờ.`
-            : `<strong>${params.businessName}</strong> is ready to go on VaraaAi.Com! Customers can now find and book with you.`
-        }</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.dashboardUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${isVi ? "Vào trang quản trị" : "Go to dashboard"}
-          </a>
-        </p>
-        <p>${
-          isVi
-            ? "Chưa biết bắt đầu từ đâu? Xem hướng dẫn từng bước của chúng tôi để đăng dịch vụ, thêm nhân viên và hơn thế nữa:"
-            : "Not sure where to start? Check out our step-by-step guide for adding services, staff, and more:"
-        }</p>
-        <p><a href="${params.guideUrl}" style="color:#624f89">${params.guideUrl}</a></p>
-        <p style="color:#5b6b6c;font-size:14px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: t.subject,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: t.intro,
+      brand: null,
+      hero: { eyebrow: t.eyebrow, title: esc(t.title(params.businessName)), intro: t.intro, badge: "★" },
+      body: [
+        greeting(t.hi, params.ownerName),
+        para(t.body),
+        steps(t.steps),
+        button(params.dashboardUrl, t.cta),
+        `<p style="margin:14px 0 0;text-align:center;font-size:14px"><a href="${esc(params.guideUrl)}" style="color:${C.primary};font-weight:600;text-decoration:none">${t.guide} →</a></p>`,
+      ].join(""),
+    }),
   };
 }
 
-// Every string a booking confirmation/reschedule email needs, in each of
-// VaraaAi's 7 supported languages (see src/i18n/routing.ts). Which of these
-// a customer actually receives is driven by the SALON's own country (see
-// localeForCountry in src/lib/countries.ts), not the customer's own account
-// language — a Finland-based salon's customers get Finnish emails.
-interface BookingEmailStrings {
-  hi: string;
-  confirmedHeading: string;
-  confirmedIntro: (service: string, business: string) => string;
-  rescheduledHeading: string;
-  rescheduledIntro: (business: string, service: string) => string;
-  newTimeLabel: string;
-  serviceLabel: string;
-  staffLabel: string;
-  amountLabel: string;
-  addressLabel: string;
-  phoneLabel: string;
-  viewOnMaps: string;
-  cancellationPolicyLabel: string;
-  defaultCancellationPolicy: (hours: number) => string;
-  bankDetailsTitle: string;
-  bankNameLabel: string;
-  accountNumberLabel: string;
-  accountHolderLabel: string;
-  wantToCancelTitle: string;
-  wantToCancelBody: string;
-  viewMyBookings: string;
-  subjectConfirmed: (business: string) => string;
-  subjectRescheduled: (business: string) => string;
-  // No specific "in X hours" claim here on purpose — a reminder can fire
-  // later than its nominal threshold (e.g. the cron catching up after a
-  // gap), so stating a fixed duration risks telling the customer something
-  // false. The actual scheduled time is always shown accurately below it.
-  reminderIntro: (business: string, service: string) => string;
-  subjectReminder: (business: string) => string;
-  reviewHeading: string;
-  reviewIntro: (business: string) => string;
-  reviewCTA: string;
-  subjectReview: (business: string) => string;
-  // Shown only when this booking's checkout also created the customer's
-  // account (the "fill the form, get an account" guest-checkout flow) —
-  // never includes the password itself, just a pointer to use it next time.
-  newAccountTitle: string;
-  newAccountBody: (email: string) => string;
-}
-
-const BOOKING_EMAIL_STRINGS: Record<string, BookingEmailStrings> = {
+const REJECTED = {
   vi: {
+    subject: "Hồ sơ doanh nghiệp của bạn chưa được duyệt",
+    eyebrow: "Cập nhật hồ sơ",
+    title: "Hồ sơ chưa được duyệt",
+    intro: (b: string) => `Rất tiếc, ${b} chưa thể được kích hoạt lúc này.`,
     hi: "Xin chào",
-    confirmedHeading: "Lịch hẹn đã được xác nhận",
-    confirmedIntro: (service, business) =>
-      `Lịch hẹn <strong>${service}</strong> tại <strong>${business}</strong> của bạn đã được xác nhận.`,
-    rescheduledHeading: "Lịch hẹn đã được dời",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> đã dời lịch hẹn <strong>${service}</strong> của bạn sang thời gian mới. Đây là email xác nhận tự động.`,
-    newTimeLabel: "✨ Thời gian mới ✨",
-    serviceLabel: "Dịch vụ",
-    staffLabel: "Nhân viên",
-    amountLabel: "Số tiền",
-    addressLabel: "Địa chỉ",
-    phoneLabel: "Điện thoại",
-    viewOnMaps: "Xem trên Google Maps",
-    cancellationPolicyLabel: "Chính sách hủy đặt chỗ",
-    defaultCancellationPolicy: (h) =>
-      `Bạn có thể tự hủy lịch hẹn trong hồ sơ của mình cho đến ${h} giờ trước giờ hẹn.`,
-    bankDetailsTitle: "Thông tin chuyển khoản",
-    bankNameLabel: "Ngân hàng",
-    accountNumberLabel: "Số tài khoản",
-    accountHolderLabel: "Chủ tài khoản",
-    wantToCancelTitle: "Muốn hủy hoặc dời lịch hẹn?",
-    wantToCancelBody: "Bạn có thể hủy trong hồ sơ của mình, hoặc liên hệ trực tiếp với salon.",
-    viewMyBookings: "Xem lịch hẹn của tôi",
-    subjectConfirmed: (b) => `Xác nhận lịch hẹn tại ${b}`,
-    subjectRescheduled: (b) => `Lịch hẹn của bạn tại ${b} đã được dời`,
-    reminderIntro: (business, service) =>
-      `Lịch hẹn <strong>${service}</strong> của bạn tại <strong>${business}</strong> sắp diễn ra.`,
-    subjectReminder: (business) => `Nhắc lịch hẹn tại ${business}`,
-    reviewHeading: "Cảm ơn bạn đã tin tưởng!",
-    reviewIntro: (business) =>
-      `Cảm ơn bạn đã sử dụng dịch vụ tại <strong>${business}</strong>. Chúng tôi rất mong nhận được đánh giá của bạn để cải thiện chất lượng phục vụ.`,
-    reviewCTA: "Đánh giá dịch vụ",
-    subjectReview: (business) => `Cảm ơn bạn đã ghé ${business} — chia sẻ trải nghiệm của bạn nhé!`,
-    newAccountTitle: "Tài khoản VaraaAi của bạn đã sẵn sàng",
-    newAccountBody: (email) =>
-      `Chúng tôi đã tạo tài khoản cho bạn tại VaraaAi.Com bằng email <strong>${email}</strong>. Lần sau, đăng nhập bằng email này và mật khẩu bạn vừa đặt để xem và quản lý lịch hẹn của mình.`,
+    body: (b: string) => `Cảm ơn bạn đã đăng ký <strong>${b}</strong> trên VaraaAi. Sau khi xem xét, chúng tôi chưa thể duyệt hồ sơ này.`,
+    reason: "Lý do",
+    next: "Bạn có thể cập nhật thông tin và gửi lại bất cứ lúc nào. Nếu cần hỗ trợ, hãy nhắn cho đội ngũ VaraaAi trong trang quản trị.",
+    cta: "Cập nhật hồ sơ",
   },
   en: {
+    subject: "Your business application was not approved",
+    eyebrow: "Application update",
+    title: "Application not approved",
+    intro: (b: string) => `Unfortunately ${b} can't be activated just yet.`,
     hi: "Hi",
-    confirmedHeading: "Appointment confirmed",
-    confirmedIntro: (service, business) =>
-      `Your <strong>${service}</strong> appointment at <strong>${business}</strong> is confirmed.`,
-    rescheduledHeading: "Your appointment was moved",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> has moved your <strong>${service}</strong> appointment to a new time. This is an automated confirmation.`,
-    newTimeLabel: "✨ New time ✨",
-    serviceLabel: "Service",
-    staffLabel: "Staff",
-    amountLabel: "Amount",
-    addressLabel: "Address",
-    phoneLabel: "Phone",
-    viewOnMaps: "View on Google Maps",
-    cancellationPolicyLabel: "Cancellation policy",
-    defaultCancellationPolicy: (h) =>
-      `You can cancel this appointment yourself, up until ${h} hours before the appointment.`,
-    bankDetailsTitle: "Bank transfer details",
-    bankNameLabel: "Bank",
-    accountNumberLabel: "Account number",
-    accountHolderLabel: "Account holder",
-    wantToCancelTitle: "Want to cancel or reschedule?",
-    wantToCancelBody: "You can cancel it from your own account, or contact the salon directly.",
-    viewMyBookings: "View my bookings",
-    subjectConfirmed: (b) => `Your appointment at ${b} is confirmed`,
-    subjectRescheduled: (b) => `Your appointment at ${b} was rescheduled`,
-    reminderIntro: (business, service) =>
-      `Your <strong>${service}</strong> appointment at <strong>${business}</strong> is coming up.`,
-    subjectReminder: (business) => `Reminder: your appointment at ${business}`,
-    reviewHeading: "Thanks for visiting!",
-    reviewIntro: (business) =>
-      `Thank you for using <strong>${business}</strong>'s services. We'd love to hear what you thought — your review helps them improve.`,
-    reviewCTA: "Leave a review",
-    subjectReview: (business) => `Thanks for visiting ${business} — share your experience!`,
-    newAccountTitle: "Your VaraaAi account is ready",
-    newAccountBody: (email) =>
-      `We created an account for you at VaraaAi.Com using <strong>${email}</strong>. Next time, sign in with this email and the password you just chose to view and manage your bookings.`,
+    body: (b: string) => `Thank you for registering <strong>${b}</strong> on VaraaAi. After reviewing it, we're unable to approve the application at this time.`,
+    reason: "Reason",
+    next: "You can update your details and resubmit at any time. If you need help, message the VaraaAi team from your dashboard.",
+    cta: "Update application",
   },
   fi: {
+    subject: "Yrityshakemustasi ei hyväksytty",
+    eyebrow: "Hakemuksen tila",
+    title: "Hakemusta ei hyväksytty",
+    intro: (b: string) => `Valitettavasti ${b} ei voi vielä aktivoitua.`,
     hi: "Hei",
-    confirmedHeading: "Varaus vahvistettu",
-    confirmedIntro: (service, business) =>
-      `Varauksesi <strong>${service}</strong> paikassa <strong>${business}</strong> on vahvistettu.`,
-    rescheduledHeading: "Varauksesi siirrettiin",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> siirsi varauksesi <strong>${service}</strong> uuteen ajankohtaan. Tämä on automaattinen vahvistusviesti.`,
-    newTimeLabel: "✨ Uusi ajankohta ✨",
-    serviceLabel: "Palvelu",
-    staffLabel: "Palveluntarjoaja",
-    amountLabel: "Summa",
-    addressLabel: "Osoite",
-    phoneLabel: "Puhelin",
-    viewOnMaps: "Näytä Google Mapsissa",
-    cancellationPolicyLabel: "Peruutusehdot",
-    defaultCancellationPolicy: (h) =>
-      `Voit perua varauksen itse profiilistasi aina ${h} tuntiin asti ennen varattua aikaa.`,
-    bankDetailsTitle: "Tilisiirron tiedot",
-    bankNameLabel: "Pankki",
-    accountNumberLabel: "Tilinumero",
-    accountHolderLabel: "Tilinomistaja",
-    wantToCancelTitle: "Haluatko peruuttaa tai siirtää aikaasi?",
-    wantToCancelBody: "Voit perua ajan profiilistasi tai ottaa suoraan yhteyttä liikkeeseen.",
-    viewMyBookings: "Näytä varaukseni",
-    subjectConfirmed: (b) => `Varauksesi paikassa ${b} on vahvistettu`,
-    subjectRescheduled: (b) => `Varauksesi paikassa ${b} siirrettiin`,
-    reminderIntro: (business, service) =>
-      `Varauksesi <strong>${service}</strong> paikassa <strong>${business}</strong> on tulossa pian.`,
-    subjectReminder: (business) => `Muistutus: varauksesi paikassa ${business}`,
-    reviewHeading: "Kiitos käynnistä!",
-    reviewIntro: (business) =>
-      `Kiitos, että käytit <strong>${business}</strong> palveluita. Kertoisitko mielipiteesi? Arviosi auttaa heitä kehittymään.`,
-    reviewCTA: "Jätä arvostelu",
-    subjectReview: (business) => `Kiitos käynnistä ${business} — kerro kokemuksestasi!`,
-    newAccountTitle: "VaraaAi-tilisi on valmis",
-    newAccountBody: (email) =>
-      `Loimme sinulle tilin VaraaAi.Comiin osoitteella <strong>${email}</strong>. Ensi kerralla kirjaudu tällä sähköpostilla ja juuri valitsemallasi salasanalla nähdäksesi ja hallitaksesi varauksiasi.`,
-  },
-  pl: {
-    hi: "Cześć",
-    confirmedHeading: "Rezerwacja potwierdzona",
-    confirmedIntro: (service, business) =>
-      `Twoja rezerwacja <strong>${service}</strong> w <strong>${business}</strong> została potwierdzona.`,
-    rescheduledHeading: "Twoja rezerwacja została przełożona",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> przełożył Twoją rezerwację <strong>${service}</strong> na nowy termin. To jest automatyczna wiadomość potwierdzająca.`,
-    newTimeLabel: "✨ Nowy termin ✨",
-    serviceLabel: "Usługa",
-    staffLabel: "Pracownik",
-    amountLabel: "Kwota",
-    addressLabel: "Adres",
-    phoneLabel: "Telefon",
-    viewOnMaps: "Zobacz w Google Maps",
-    cancellationPolicyLabel: "Zasady anulowania",
-    defaultCancellationPolicy: (h) =>
-      `Możesz samodzielnie anulować tę wizytę na swoim koncie, do ${h} godzin przed wizytą.`,
-    bankDetailsTitle: "Dane do przelewu",
-    bankNameLabel: "Bank",
-    accountNumberLabel: "Numer konta",
-    accountHolderLabel: "Właściciel konta",
-    wantToCancelTitle: "Chcesz anulować lub zmienić termin?",
-    wantToCancelBody: "Możesz anulować wizytę na swoim koncie lub skontaktować się bezpośrednio z salonem.",
-    viewMyBookings: "Zobacz moje rezerwacje",
-    subjectConfirmed: (b) => `Twoja wizyta w ${b} została potwierdzona`,
-    subjectRescheduled: (b) => `Twoja wizyta w ${b} została przełożona`,
-    reminderIntro: (business, service) =>
-      `Twoja wizyta <strong>${service}</strong> w <strong>${business}</strong> zbliża się.`,
-    subjectReminder: (business) => `Przypomnienie: Twoja wizyta w ${business}`,
-    reviewHeading: "Dziękujemy za wizytę!",
-    reviewIntro: (business) =>
-      `Dziękujemy za skorzystanie z usług <strong>${business}</strong>. Chętnie poznamy Twoją opinię — Twoja recenzja pomoże im się rozwijać.`,
-    reviewCTA: "Zostaw recenzję",
-    subjectReview: (business) => `Dziękujemy za wizytę w ${business} — podziel się opinią!`,
-    newAccountTitle: "Twoje konto VaraaAi jest gotowe",
-    newAccountBody: (email) =>
-      `Utworzyliśmy dla Ciebie konto w VaraaAi.Com na adres <strong>${email}</strong>. Następnym razem zaloguj się tym adresem e-mail i hasłem, które właśnie ustawiłaś/eś, aby zobaczyć i zarządzać swoimi rezerwacjami.`,
-  },
-  de: {
-    hi: "Hallo",
-    confirmedHeading: "Termin bestätigt",
-    confirmedIntro: (service, business) =>
-      `Dein Termin für <strong>${service}</strong> bei <strong>${business}</strong> ist bestätigt.`,
-    rescheduledHeading: "Dein Termin wurde verschoben",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> hat deinen Termin für <strong>${service}</strong> auf eine neue Zeit verschoben. Dies ist eine automatische Bestätigung.`,
-    newTimeLabel: "✨ Neue Zeit ✨",
-    serviceLabel: "Leistung",
-    staffLabel: "Mitarbeiter",
-    amountLabel: "Betrag",
-    addressLabel: "Adresse",
-    phoneLabel: "Telefon",
-    viewOnMaps: "Auf Google Maps ansehen",
-    cancellationPolicyLabel: "Stornierungsbedingungen",
-    defaultCancellationPolicy: (h) =>
-      `Du kannst diesen Termin bis zu ${h} Stunden vorher selbst in deinem Konto stornieren.`,
-    bankDetailsTitle: "Bankverbindung",
-    bankNameLabel: "Bank",
-    accountNumberLabel: "Kontonummer",
-    accountHolderLabel: "Kontoinhaber",
-    wantToCancelTitle: "Möchtest du stornieren oder verschieben?",
-    wantToCancelBody: "Du kannst den Termin in deinem Konto stornieren oder dich direkt an den Salon wenden.",
-    viewMyBookings: "Meine Termine ansehen",
-    subjectConfirmed: (b) => `Dein Termin bei ${b} ist bestätigt`,
-    subjectRescheduled: (b) => `Dein Termin bei ${b} wurde verschoben`,
-    reminderIntro: (business, service) =>
-      `Dein Termin für <strong>${service}</strong> bei <strong>${business}</strong> steht bald an.`,
-    subjectReminder: (business) => `Erinnerung: dein Termin bei ${business}`,
-    reviewHeading: "Danke für deinen Besuch!",
-    reviewIntro: (business) =>
-      `Danke, dass du die Leistungen von <strong>${business}</strong> genutzt hast. Wir würden uns über dein Feedback freuen — deine Bewertung hilft dem Salon, sich zu verbessern.`,
-    reviewCTA: "Bewertung abgeben",
-    subjectReview: (business) => `Danke für deinen Besuch bei ${business} — teile deine Erfahrung!`,
-    newAccountTitle: "Dein VaraaAi-Konto ist bereit",
-    newAccountBody: (email) =>
-      `Wir haben für dich ein Konto bei VaraaAi.Com mit <strong>${email}</strong> erstellt. Melde dich beim nächsten Mal mit dieser E-Mail-Adresse und dem gerade gewählten Passwort an, um deine Termine zu sehen und zu verwalten.`,
-  },
-  km: {
-    hi: "សួស្តី",
-    confirmedHeading: "ការណាត់ជួបត្រូវបានបញ្ជាក់",
-    confirmedIntro: (service, business) =>
-      `ការណាត់ជួប <strong>${service}</strong> របស់អ្នកនៅ <strong>${business}</strong> ត្រូវបានបញ្ជាក់។`,
-    rescheduledHeading: "ការណាត់ជួបរបស់អ្នកត្រូវបានផ្លាស់ប្តូរពេលវេលា",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> បានផ្លាស់ប្តូរពេលវេលាណាត់ជួប <strong>${service}</strong> របស់អ្នកទៅពេលវេលាថ្មី។ នេះជាអ៊ីមែលបញ្ជាក់ដោយស្វ័យប្រវត្តិ។`,
-    newTimeLabel: "✨ ពេលវេលាថ្មី ✨",
-    serviceLabel: "សេវាកម្ម",
-    staffLabel: "បុគ្គលិក",
-    amountLabel: "ចំនួនទឹកប្រាក់",
-    addressLabel: "អាសយដ្ឋាន",
-    phoneLabel: "លេខទូរស័ព្ទ",
-    viewOnMaps: "មើលនៅលើ Google Maps",
-    cancellationPolicyLabel: "គោលការណ៍ការលុបចោល",
-    defaultCancellationPolicy: (h) =>
-      `អ្នកអាចលុបចោលការណាត់ជួបនេះដោយខ្លួនឯងក្នុងគណនីរបស់អ្នក រហូតដល់ ${h} ម៉ោង មុនម៉ោងណាត់ជួប។`,
-    bankDetailsTitle: "ព័ត៌មានផ្ទេរប្រាក់",
-    bankNameLabel: "ធនាគារ",
-    accountNumberLabel: "លេខគណនី",
-    accountHolderLabel: "ម្ចាស់គណនី",
-    wantToCancelTitle: "ចង់លុបចោល ឬផ្លាស់ប្តូរពេលវេលា?",
-    wantToCancelBody: "អ្នកអាចលុបចោលវានៅក្នុងគណនីរបស់អ្នក ឬទាក់ទងសាឡុងដោយផ្ទាល់។",
-    viewMyBookings: "មើលការកក់របស់ខ្ញុំ",
-    subjectConfirmed: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានបញ្ជាក់`,
-    subjectRescheduled: (b) => `ការណាត់ជួបរបស់អ្នកនៅ ${b} ត្រូវបានផ្លាស់ប្តូរពេលវេលា`,
-    reminderIntro: (business, service) =>
-      `ការណាត់ជួប <strong>${service}</strong> របស់អ្នកនៅ <strong>${business}</strong> នឹងមកដល់ឆាប់ៗនេះ។`,
-    subjectReminder: (business) => `ការរំលឹក៖ ការណាត់ជួបរបស់អ្នកនៅ ${business}`,
-    reviewHeading: "សូមអរគុណសម្រាប់ការមកលេង!",
-    reviewIntro: (business) =>
-      `សូមអរគុណដែលបានប្រើសេវាកម្មរបស់ <strong>${business}</strong>។ យើងចង់ដឹងពីមតិយោបល់របស់អ្នក — ការវាយតម្លៃរបស់អ្នកជួយឱ្យពួកគេកែលម្អ។`,
-    reviewCTA: "វាយតម្លៃសេវាកម្ម",
-    subjectReview: (business) => `សូមអរគុណដែលបានមកលេង ${business} — សូមចែករំលែកបទពិសោធន៍របស់អ្នក!`,
-    newAccountTitle: "គណនី VaraaAi របស់អ្នកត្រៀមរួចរាល់ហើយ",
-    newAccountBody: (email) =>
-      `យើងបានបង្កើតគណនីសម្រាប់អ្នកនៅ VaraaAi.Com ដោយប្រើអ៊ីមែល <strong>${email}</strong>។ លើកក្រោយ សូមចូលគណនីដោយប្រើអ៊ីមែលនេះ និងពាក្យសម្ងាត់ដែលអ្នកទើបតែបានកំណត់ ដើម្បីមើល និងគ្រប់គ្រងការកក់របស់អ្នក។`,
-  },
-  th: {
-    hi: "สวัสดี",
-    confirmedHeading: "ยืนยันการนัดหมายแล้ว",
-    confirmedIntro: (service, business) =>
-      `การนัดหมาย <strong>${service}</strong> ของคุณที่ <strong>${business}</strong> ได้รับการยืนยันแล้ว`,
-    rescheduledHeading: "การนัดหมายของคุณถูกเลื่อน",
-    rescheduledIntro: (business, service) =>
-      `<strong>${business}</strong> ได้เลื่อนการนัดหมาย <strong>${service}</strong> ของคุณไปเป็นเวลาใหม่ นี่คืออีเมลยืนยันอัตโนมัติ`,
-    newTimeLabel: "✨ เวลานัดหมายใหม่ ✨",
-    serviceLabel: "บริการ",
-    staffLabel: "พนักงาน",
-    amountLabel: "จำนวนเงิน",
-    addressLabel: "ที่อยู่",
-    phoneLabel: "โทรศัพท์",
-    viewOnMaps: "ดูใน Google Maps",
-    cancellationPolicyLabel: "นโยบายการยกเลิก",
-    defaultCancellationPolicy: (h) =>
-      `คุณสามารถยกเลิกการนัดหมายนี้ได้ด้วยตนเองในบัญชีของคุณ จนถึง ${h} ชั่วโมงก่อนถึงเวลานัดหมาย`,
-    bankDetailsTitle: "ข้อมูลการโอนเงิน",
-    bankNameLabel: "ธนาคาร",
-    accountNumberLabel: "เลขที่บัญชี",
-    accountHolderLabel: "ชื่อบัญชี",
-    wantToCancelTitle: "ต้องการยกเลิกหรือเปลี่ยนเวลานัดหมาย?",
-    wantToCancelBody: "คุณสามารถยกเลิกได้จากบัญชีของคุณเอง หรือติดต่อร้านโดยตรง",
-    viewMyBookings: "ดูการจองของฉัน",
-    subjectConfirmed: (b) => `การนัดหมายของคุณที่ ${b} ได้รับการยืนยันแล้ว`,
-    subjectRescheduled: (b) => `การนัดหมายของคุณที่ ${b} ถูกเลื่อนเวลา`,
-    reminderIntro: (business, service) =>
-      `การนัดหมาย <strong>${service}</strong> ของคุณที่ <strong>${business}</strong> ใกล้ถึงแล้ว`,
-    subjectReminder: (business) => `แจ้งเตือน: การนัดหมายของคุณที่ ${business}`,
-    reviewHeading: "ขอบคุณที่ใช้บริการ!",
-    reviewIntro: (business) =>
-      `ขอบคุณที่ใช้บริการของ <strong>${business}</strong> เราอยากทราบความคิดเห็นของคุณ — รีวิวของคุณช่วยให้ร้านพัฒนาบริการให้ดียิ่งขึ้น`,
-    reviewCTA: "ให้คะแนนรีวิว",
-    subjectReview: (business) => `ขอบคุณที่ไปใช้บริการที่ ${business} — มาแชร์ประสบการณ์กันเถอะ!`,
-    newAccountTitle: "บัญชี VaraaAi ของคุณพร้อมแล้ว",
-    newAccountBody: (email) =>
-      `เราได้สร้างบัญชีให้คุณที่ VaraaAi.Com โดยใช้อีเมล <strong>${email}</strong> ครั้งหน้าให้เข้าสู่ระบบด้วยอีเมลนี้และรหัสผ่านที่คุณเพิ่งตั้งไว้ เพื่อดูและจัดการการจองของคุณ`,
+    body: (b: string) => `Kiitos, että rekisteröit yrityksen <strong>${b}</strong> VaraaAihin. Tarkistuksen jälkeen emme valitettavasti voi hyväksyä hakemusta tällä hetkellä.`,
+    reason: "Syy",
+    next: "Voit päivittää tiedot ja lähettää hakemuksen uudelleen milloin tahansa. Jos tarvitset apua, lähetä viesti VaraaAi-tiimille hallintapaneelista.",
+    cta: "Päivitä hakemus",
   },
 };
 
-function bookingEmailStrings(locale: string): BookingEmailStrings {
-  return BOOKING_EMAIL_STRINGS[locale] ?? BOOKING_EMAIL_STRINGS.en;
+/** Sent when an admin rejects a salon application (admin businesses PATCH). */
+export function businessRejectedEmail(params: { ownerName: string; businessName: string; reason?: string | null; locale: string }) {
+  const t = pick(params.locale, REJECTED);
+  const b = esc(params.businessName);
+  return {
+    subject: t.subject,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(t.intro(params.businessName)),
+      brand: null,
+      hero: { eyebrow: t.eyebrow, title: t.title, intro: t.intro(b), tone: "alert", badge: "!" },
+      body: [
+        greeting(t.hi, params.ownerName),
+        para(t.body(b)),
+        params.reason?.trim() ? notice(t.reason, esc(params.reason.trim()), "alert", 4) : "",
+        para(t.next, { mt: 20 }),
+        button(sitePath(params.locale, "/business"), t.cta, { variant: "dark" }),
+      ].join(""),
+    }),
+  };
 }
 
-export function bookingConfirmationEmail(params: {
+/* ---------- booking emails (salon → customer) ---------- */
+
+interface BookingCore {
   customerName: string;
   businessName: string;
   serviceName: string;
-  serviceDescription?: string | null;
   startsAt: Date;
+  /** Enables the end time, duration and the calendar buttons. */
+  endsAt?: Date | null;
   locale: string;
   businessTimezone: string;
-  priceCents: number;
-  currency: string;
   staffName?: string | null;
-  staffMessage?: string | null;
   businessAddress?: string | null;
   businessCity?: string | null;
   googleMapsUrl?: string | null;
   businessPhone?: string | null;
+  /** Site-relative or absolute; shown at the top of the email. */
+  businessLogoUrl?: string | null;
+  /** The salon's public page, for "book again" links. */
+  salonUrl?: string | null;
+  bookingId?: string | null;
+}
+
+function calendarBits(p: BookingCore) {
+  if (!p.endsAt) return null;
+  const address = [p.businessAddress, p.businessCity].filter(Boolean).join(", ");
+  const event = {
+    uid: p.bookingId ?? `${p.startsAt.getTime()}-${p.businessName}`,
+    title: `${p.serviceName} – ${p.businessName}`,
+    start: p.startsAt,
+    end: p.endsAt,
+    location: address ? `${p.businessName}, ${address}` : p.businessName,
+    description: [p.staffName ? `${p.staffName}` : null, p.businessPhone].filter(Boolean).join(" · ") || null,
+  };
+  return { event, url: googleCalendarUrl(event) };
+}
+
+/** The appointment card shared by confirmation / reschedule / reminder. */
+function appointmentCard(
+  p: BookingCore & { serviceDescription?: string | null; priceText?: string | null },
+  eyebrow: string,
+  opts: { accent?: string; calendar?: boolean } = {}
+) {
+  const s = bookingEmailStrings(p.locale);
+  const c = chromeStrings(p.locale);
+  const d = dateParts(p.startsAt, p.endsAt, p.locale, p.businessTimezone);
+  const minutes = durationMinutes(p.startsAt, p.endsAt);
+  const cal = opts.calendar !== false ? calendarBits(p) : null;
+  const ref = bookingRef(p.bookingId);
+  return panel(
+    appointmentHeader(d, eyebrow, opts.accent) +
+      hairline(18) +
+      rows([
+        { label: s.serviceLabel, value: serviceValue(p.serviceName, p.serviceDescription) },
+        p.staffName ? { label: s.staffLabel, value: esc(p.staffName) } : null,
+        minutes ? { label: c.duration, value: esc(c.minutes(minutes)) } : null,
+        p.priceText ? { label: s.amountLabel, value: esc(p.priceText), strong: true } : null,
+        ref ? { label: c.bookingRef, value: ref } : null,
+      ]) +
+      (cal ? hairline(14) + buttonRow([{ href: cal.url, label: `📅&nbsp; ${c.addToCalendar}` }]) : ""),
+    { pad: "22px 22px 20px" }
+  );
+}
+
+export function bookingConfirmationEmail(params: BookingCore & {
+  serviceDescription?: string | null;
+  priceCents: number;
+  currency: string;
+  staffMessage?: string | null;
   cancellationWindowHours: number;
   cancellationPolicy?: string | null;
   /** Included only for the bank-transfer payment method, so the customer
@@ -515,72 +526,68 @@ export function bookingConfirmationEmail(params: {
   /** Set only when this booking's guest checkout also created the
    * customer's account — never the password itself, see newAccountBody. */
   newAccountEmail?: string | null;
+  manageBookingUrl?: string | null;
 }) {
   const s = bookingEmailStrings(params.locale);
-  // Always render in the salon's own timezone — an email server can run in
-  // any timezone, and the appointment time only means something relative to
-  // where the salon actually is.
-  const dateStr = params.startsAt.toLocaleString(
-    INTL_LOCALES[params.locale] ?? "en-US",
-    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
-  );
-  const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
+  const x = customerExtra(params.locale);
+  const c = chromeStrings(params.locale);
+  const priceText = formatMoney(params.priceCents, params.currency, params.locale);
+  const address = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+  const cancellationText = params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
+  const intro = s.confirmedIntro(esc(params.serviceName), esc(params.businessName));
+  const cal = calendarBits(params);
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
 
-  const bankBlock = params.bankInfo
-    ? `
-      <div style="background:#fff7ed;border:1px solid #fed7aa;padding:12px 16px;border-radius:12px;margin-top:8px">
-        <p style="margin:0 0 6px;font-weight:600">${s.bankDetailsTitle}</p>
-        ${params.bankInfo.bankName ? `<p style="margin:2px 0">${s.bankNameLabel}: ${params.bankInfo.bankName}</p>` : ""}
-        ${params.bankInfo.bankAccountNumber ? `<p style="margin:2px 0">${s.accountNumberLabel}: ${params.bankInfo.bankAccountNumber}</p>` : ""}
-        ${params.bankInfo.bankAccountName ? `<p style="margin:2px 0">${s.accountHolderLabel}: ${params.bankInfo.bankAccountName}</p>` : ""}
-        ${params.bankInfo.bankBic ? `<p style="margin:2px 0">BIC/SWIFT: ${params.bankInfo.bankBic}</p>` : ""}
-      </div>
-    `
-    : "";
+  const bank = params.bankInfo;
+  const bankBlock =
+    bank && (bank.bankAccountNumber || bank.bankName)
+      ? sectionTitle(s.bankDetailsTitle) +
+        panel(
+          rows([
+            bank.bankName ? { label: s.bankNameLabel, value: esc(bank.bankName) } : null,
+            bank.bankAccountNumber
+              ? { label: s.accountNumberLabel, value: `<span style="font-family:Menlo,Consolas,monospace;letter-spacing:1px">${esc(bank.bankAccountNumber)}</span>`, strong: true }
+              : null,
+            bank.bankAccountName ? { label: s.accountHolderLabel, value: esc(bank.bankAccountName) } : null,
+            bank.bankBic ? { label: "BIC/SWIFT", value: esc(bank.bankBic) } : null,
+            { label: s.amountLabel, value: esc(priceText), strong: true },
+          ]),
+          { bg: "#fbf6ec", border: "#efe2c6" }
+        )
+      : "";
 
-  const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
-  const cancellationText =
-    params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
-  const newAccountBlock = params.newAccountEmail
-    ? `
-      <div style="background:#eef2ff;border:1px solid #c7d2fe;padding:12px 16px;border-radius:12px;margin-top:8px">
-        <p style="margin:0 0 4px;font-weight:600">${s.newAccountTitle}</p>
-        <p style="margin:0;color:#5b6b6c;font-size:13px">${s.newAccountBody(params.newAccountEmail)}</p>
-      </div>
-    `
-    : "";
+  const body = [
+    greeting(s.hi, params.customerName),
+    para(intro),
+    appointmentCard({ ...params, priceText }, c.when),
+    cal ? para(esc(c.calendarFile), { small: true, muted: true, mt: 10 }) : "",
+    params.staffMessage?.trim()
+      ? sectionTitle(params.staffName ? esc(x.staffSays(params.staffName)) : c.note) + quote(esc(params.staffMessage.trim()))
+      : "",
+    bankBlock,
+    locationBlock(params.locale, {
+      businessName: params.businessName,
+      address,
+      phone: params.businessPhone,
+      mapsUrl: params.googleMapsUrl,
+    }),
+    notice(s.cancellationPolicyLabel, `<span style="white-space:pre-line">${esc(cancellationText)}</span>`, "info", 24),
+    params.newAccountEmail ? notice(s.newAccountTitle, s.newAccountBody(esc(params.newAccountEmail)), "success", 12) : "",
+    params.manageBookingUrl ? button(params.manageBookingUrl, s.viewMyBookings, { variant: "dark" }) : "",
+    `<p style="margin:28px 0 0;text-align:center;font-family:Georgia,serif;font-size:17px;font-style:italic;color:${C.primaryDeep}">${esc(x.seeYou(params.businessName))}</p>`,
+  ].join("");
 
   return {
     subject: s.subjectConfirmed(params.businessName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.confirmedHeading}</h2>
-        <p>${s.hi} ${params.customerName},</p>
-        <p>${s.confirmedIntro(params.serviceName, params.businessName)}</p>
-        <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
-          <p style="margin:2px 0;font-weight:600">${dateStr}</p>
-          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>
-          ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
-          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.staffLabel}:</span> ${params.staffName}</p>` : ""}
-          <p style="margin:2px 0"><span style="color:#5b6b6c">${s.amountLabel}:</span> ${priceStr}</p>
-          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.addressLabel}:</span> ${addressLine}</p>` : ""}
-          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.phoneLabel}:</span> ${params.businessPhone}</p>` : ""}
-          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${s.viewOnMaps}</a></p>` : ""}
-        </div>
-        ${
-          params.staffMessage
-            ? `<div style="background:#eef2ff;border:1px solid #c7d2fe;padding:12px 16px;border-radius:12px;margin-top:8px"><p style="margin:0">${params.staffMessage}</p></div>`
-            : ""
-        }
-        ${bankBlock}
-        <div style="margin-top:16px">
-          <p style="margin:0 0 4px;font-weight:600">${s.cancellationPolicyLabel}</p>
-          <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
-        </div>
-        ${newAccountBlock}
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${d.full}, ${d.time} · ${params.serviceName}`,
+      brand: salonBrand(params.businessName, params.businessLogoUrl, params.businessCity),
+      hero: { eyebrow: x.eyebrowConfirmed, title: s.confirmedHeading, tone: "success", badge: "✓" },
+      body,
+      footerExtra: salonFooter(params.businessName, address, params.businessPhone),
+    }),
+    attachments: cal ? [icsAttachment(cal.event)] : undefined,
   };
 }
 
@@ -589,67 +596,51 @@ export function bookingConfirmationEmail(params: {
  * confirmation email (see bookingConfirmationEmail), just framed around the
  * change rather than the initial booking. Matches the "your booking was
  * moved" email pattern from timma.fi. */
-export function bookingRescheduledEmail(params: {
-  customerName: string;
-  businessName: string;
-  serviceName: string;
+export function bookingRescheduledEmail(params: BookingCore & {
   serviceDescription?: string | null;
-  startsAt: Date;
-  locale: string;
-  businessTimezone: string;
   priceCents: number;
   currency: string;
-  staffName?: string | null;
-  businessAddress?: string | null;
-  businessCity?: string | null;
-  googleMapsUrl?: string | null;
-  businessPhone?: string | null;
   cancellationWindowHours: number;
   cancellationPolicy?: string | null;
   manageBookingUrl: string;
 }) {
   const s = bookingEmailStrings(params.locale);
-  const dateStr = params.startsAt.toLocaleString(
-    INTL_LOCALES[params.locale] ?? "en-US",
-    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
-  );
-  const priceStr = formatMoney(params.priceCents, params.currency, params.locale);
-  const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
-  const cancellationText =
-    params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
+  const x = customerExtra(params.locale);
+  const priceText = formatMoney(params.priceCents, params.currency, params.locale);
+  const address = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+  const cancellationText = params.cancellationPolicy || s.defaultCancellationPolicy(params.cancellationWindowHours);
+  const intro = s.rescheduledIntro(esc(params.businessName), esc(params.serviceName));
+  const cal = calendarBits(params);
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
+  const newTime = s.newTimeLabel.replace(/✨/g, "").trim();
+
+  const body = [
+    greeting(s.hi, params.customerName),
+    para(intro),
+    appointmentCard({ ...params, priceText }, esc(newTime), { accent: C.coral }),
+    locationBlock(params.locale, {
+      businessName: params.businessName,
+      address,
+      phone: params.businessPhone,
+      mapsUrl: params.googleMapsUrl,
+    }),
+    notice(s.cancellationPolicyLabel, `<span style="white-space:pre-line">${esc(cancellationText)}</span>`, "info", 24),
+    notice(s.wantToCancelTitle, s.wantToCancelBody, "warm", 12),
+    button(params.manageBookingUrl, s.viewMyBookings, { variant: "dark" }),
+  ].join("");
 
   return {
     subject: s.subjectRescheduled(params.businessName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.rescheduledHeading}</h2>
-        <p>${s.hi} ${params.customerName},</p>
-        <p>${s.rescheduledIntro(params.businessName, params.serviceName)}</p>
-        <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
-          <p style="margin:0 0 8px;font-weight:700;color:#624f89">${s.newTimeLabel}</p>
-          <p style="margin:2px 0;font-weight:600">${dateStr}</p>
-          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>
-          ${params.serviceDescription ? `<p style="margin:2px 0;color:#5b6b6c;font-size:13px">${params.serviceDescription}</p>` : ""}
-          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.staffLabel}:</span> ${params.staffName}</p>` : ""}
-          <p style="margin:2px 0"><span style="color:#5b6b6c">${s.amountLabel}:</span> ${priceStr}</p>
-          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.addressLabel}:</span> ${addressLine}</p>` : ""}
-          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.phoneLabel}:</span> ${params.businessPhone}</p>` : ""}
-          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${s.viewOnMaps}</a></p>` : ""}
-        </div>
-        <div style="margin-top:16px">
-          <p style="margin:0 0 4px;font-weight:600">${s.cancellationPolicyLabel}</p>
-          <p style="margin:0;color:#5b6b6c;font-size:13px;white-space:pre-line">${cancellationText}</p>
-        </div>
-        <div style="background:#fbeaee;padding:12px 16px;border-radius:12px;margin-top:16px">
-          <p style="margin:0 0 8px;font-weight:600">${s.wantToCancelTitle}</p>
-          <p style="margin:0 0 10px;color:#5b6b6c;font-size:13px">${s.wantToCancelBody}</p>
-          <a href="${params.manageBookingUrl}" style="background:#0d1718;color:#fff;padding:10px 20px;border-radius:999px;text-decoration:none;font-weight:600;font-size:13px">
-            ${s.viewMyBookings}
-          </a>
-        </div>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${newTime}: ${d.full}, ${d.time}`,
+      brand: salonBrand(params.businessName, params.businessLogoUrl, params.businessCity),
+      hero: { eyebrow: x.eyebrowRescheduled, title: s.rescheduledHeading, tone: "brand", badge: "↻" },
+      body,
+      footerExtra: salonFooter(params.businessName, address, params.businessPhone),
+    }),
+    // A growing SEQUENCE makes calendar apps replace the earlier event.
+    attachments: cal ? [icsAttachment(cal.event, Math.floor(Date.now() / 1000))] : undefined,
   };
 }
 
@@ -660,328 +651,68 @@ export function bookingRescheduledEmail(params: {
  * fire later than its nominal threshold (e.g. the cron catching up after a
  * gap), so a hardcoded duration would sometimes be wrong; the accurate
  * scheduled date/time is shown instead. */
-export function appointmentReminderEmail(params: {
-  customerName: string;
-  businessName: string;
-  serviceName: string;
-  startsAt: Date;
-  locale: string;
-  businessTimezone: string;
-  staffName?: string | null;
-  businessAddress?: string | null;
-  businessCity?: string | null;
-  googleMapsUrl?: string | null;
-  businessPhone?: string | null;
-}) {
+export function appointmentReminderEmail(params: BookingCore) {
   const s = bookingEmailStrings(params.locale);
-  const dateStr = params.startsAt.toLocaleString(
-    INTL_LOCALES[params.locale] ?? "en-US",
-    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
-  );
-  const addressLine = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+  const x = customerExtra(params.locale);
+  const c = chromeStrings(params.locale);
+  const address = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+  const intro = s.reminderIntro(esc(params.businessName), esc(params.serviceName));
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
+
+  const body = [
+    greeting(s.hi, params.customerName),
+    para(intro),
+    appointmentCard(params, c.when, { accent: C.teal }),
+    locationBlock(params.locale, {
+      businessName: params.businessName,
+      address,
+      phone: params.businessPhone,
+      mapsUrl: params.googleMapsUrl,
+    }),
+    notice(x.tipsTitle, x.tips, "success", 24),
+    `<p style="margin:28px 0 0;text-align:center;font-family:Georgia,serif;font-size:17px;font-style:italic;color:${C.primaryDeep}">${esc(x.seeYou(params.businessName))}</p>`,
+  ].join("");
 
   return {
     subject: s.subjectReminder(params.businessName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.subjectReminder(params.businessName)}</h2>
-        <p>${s.hi} ${params.customerName},</p>
-        <p>${s.reminderIntro(params.businessName, params.serviceName)}</p>
-        <div style="background:#f2f5f5;padding:12px 16px;border-radius:12px">
-          <p style="margin:2px 0;font-weight:600">${dateStr}</p>
-          <p style="margin:8px 0 2px"><span style="color:#5b6b6c">${s.serviceLabel}:</span> ${params.serviceName}</p>
-          ${params.staffName ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.staffLabel}:</span> ${params.staffName}</p>` : ""}
-          ${addressLine ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.addressLabel}:</span> ${addressLine}</p>` : ""}
-          ${params.businessPhone ? `<p style="margin:2px 0"><span style="color:#5b6b6c">${s.phoneLabel}:</span> ${params.businessPhone}</p>` : ""}
-          ${params.googleMapsUrl ? `<p style="margin:6px 0 0"><a href="${params.googleMapsUrl}" style="color:#624f89">${s.viewOnMaps}</a></p>` : ""}
-        </div>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${d.full}, ${d.time} · ${params.serviceName}`,
+      brand: salonBrand(params.businessName, params.businessLogoUrl, params.businessCity),
+      hero: { eyebrow: x.eyebrowReminder, title: `${d.weekday.charAt(0).toLocaleUpperCase() + d.weekday.slice(1)}, ${d.time}`, tone: "calm", badge: "⏰" },
+      body,
+      footerExtra: salonFooter(params.businessName, address, params.businessPhone),
+    }),
   };
 }
 
-const NEW_MESSAGE_STRINGS: Record<
-  string,
-  { subject: (customer: string) => string; heading: string; body: (customer: string) => string; cta: string; hi: string }
-> = {
-  vi: {
-    subject: (c) => `Bạn có tin nhắn mới từ khách hàng ${c}`,
-    heading: "Bạn có tin nhắn mới",
-    body: (c) => `Khách hàng <strong>${c}</strong> vừa nhắn tin cho salon của bạn. Hãy vào website VaraaAi để xem và trả lời.`,
-    cta: "Xem tin nhắn",
-    hi: "Xin chào",
-  },
-  en: {
-    subject: (c) => `New message from ${c}`,
-    heading: "You have a new message",
-    body: (c) => `<strong>${c}</strong> just sent a message to your salon. Log in to VaraaAi to read and reply.`,
-    cta: "View messages",
-    hi: "Hello",
-  },
-  fi: {
-    subject: (c) => `Uusi viesti asiakkaalta ${c}`,
-    heading: "Sait uuden viestin",
-    body: (c) => `<strong>${c}</strong> lähetti viestin salongillesi. Kirjaudu VaraaAihin lukeaksesi ja vastataksesi.`,
-    cta: "Näytä viestit",
-    hi: "Hei",
-  },
-  pl: {
-    subject: (c) => `Nowa wiadomość od klienta ${c}`,
-    heading: "Masz nową wiadomość",
-    body: (c) => `<strong>${c}</strong> wysłał(a) wiadomość do Twojego salonu. Zaloguj się do VaraaAi, aby ją przeczytać i odpowiedzieć.`,
-    cta: "Zobacz wiadomości",
-    hi: "Cześć",
-  },
-  de: {
-    subject: (c) => `Neue Nachricht von ${c}`,
-    heading: "Du hast eine neue Nachricht",
-    body: (c) => `<strong>${c}</strong> hat deinem Salon eine Nachricht geschickt. Melde dich bei VaraaAi an, um sie zu lesen und zu antworten.`,
-    cta: "Nachrichten ansehen",
-    hi: "Hallo",
-  },
-  km: {
-    subject: (c) => `សារថ្មីពីអតិថិជន ${c}`,
-    heading: "អ្នកមានសារថ្មី",
-    body: (c) => `<strong>${c}</strong> ទើបតែផ្ញើសារមកសាឡុងរបស់អ្នក។ សូមចូលទៅ VaraaAi ដើម្បីអាន និងឆ្លើយតប។`,
-    cta: "មើលសារ",
-    hi: "សួស្តី",
-  },
-  th: {
-    subject: (c) => `ข้อความใหม่จากลูกค้า ${c}`,
-    heading: "คุณมีข้อความใหม่",
-    body: (c) => `<strong>${c}</strong> เพิ่งส่งข้อความถึงร้านของคุณ เข้าสู่ระบบ VaraaAi เพื่ออ่านและตอบกลับ`,
-    cta: "ดูข้อความ",
-    hi: "สวัสดี",
-  },
-};
+/** Sent to the customer when they cancel their own booking (see
+ * /api/bookings/[id]/cancel), so they have proof it went through. */
+export function bookingCancelledEmail(params: BookingCore) {
+  const s = bookingEmailStrings(params.locale);
+  const x = customerExtra(params.locale);
+  const address = [params.businessAddress, params.businessCity].filter(Boolean).join(", ");
+  const intro = x.cancelledIntro(esc(params.serviceName), esc(params.businessName));
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
 
-/** Sent to a salon owner when a customer messages for the first time, or
- * after a week of silence — see the messages POST route. */
-export function newChatMessageEmail(params: {
-  ownerName: string;
-  customerName: string;
-  locale: string;
-  messagesUrl: string;
-}) {
-  const s = NEW_MESSAGE_STRINGS[params.locale] ?? NEW_MESSAGE_STRINGS.en;
+  const body = [
+    greeting(s.hi, params.customerName),
+    para(intro),
+    `<div style="opacity:.75">${appointmentCard(params, esc(x.eyebrowCancelled), { accent: "#9b93a8", calendar: false })}</div>`,
+    para(x.cancelledNote, { mt: 22 }),
+    params.salonUrl ? button(params.salonUrl, x.bookAgain) : "",
+  ].join("");
+
   return {
-    subject: s.subject(params.customerName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.heading}</h2>
-        <p>${s.hi} ${params.ownerName},</p>
-        <p>${s.body(params.customerName)}</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.messagesUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${s.cta}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
-  };
-}
-
-/** Sent the moment a customer taps "talk to the real owner" while chatting
- * with the AI assistant (see POST /api/chat/conversations/[id]/request-human)
- * — paired with a best-effort push notification (src/lib/push.ts). */
-export function customerWantsHumanEmail(params: {
-  ownerName: string;
-  customerName: string;
-  locale: string;
-  messagesUrl: string;
-}) {
-  const isVi = params.locale === "vi";
-  return {
-    subject: isVi
-      ? `${params.customerName} muốn nói chuyện trực tiếp với bạn`
-      : `${params.customerName} wants to talk to you directly`,
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Khách muốn gặp bạn trực tiếp" : "A customer wants you directly"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.ownerName},</p>
-        <p>${
-          isVi
-            ? `<strong>${params.customerName}</strong> đang chat với trợ lý AI và vừa yêu cầu nói chuyện trực tiếp với bạn. Trợ lý AI đã tạm dừng trong cuộc trò chuyện này — hãy vào xem và trả lời khách nhé.`
-            : `<strong>${params.customerName}</strong> was chatting with your AI assistant and just asked to speak with you directly. The AI has paused in this conversation — take a look and reply when you can.`
-        }</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.messagesUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${isVi ? "Trả lời khách" : "Reply to customer"}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
-  };
-}
-
-const OWNER_BOOKING_STRINGS: Record<
-  string,
-  {
-    newSubject: (customer: string) => string;
-    newHeading: string;
-    newBody: (customer: string, service: string, when: string) => string;
-    cancelledSubject: (customer: string) => string;
-    cancelledHeading: string;
-    cancelledBody: (customer: string, service: string, when: string) => string;
-    cta: string;
-    hi: string;
-    branchLabel: string;
-  }
-> = {
-  vi: {
-    newSubject: (c) => `Có lịch hẹn mới từ ${c}`,
-    newHeading: "Bạn có lịch hẹn mới",
-    newBody: (c, s, w) => `Khách hàng <strong>${c}</strong> vừa đặt lịch hẹn <strong>${s}</strong> vào lúc <strong>${w}</strong>.`,
-    cancelledSubject: (c) => `${c} đã hủy lịch hẹn`,
-    cancelledHeading: "Một lịch hẹn vừa bị hủy",
-    cancelledBody: (c, s, w) => `Khách hàng <strong>${c}</strong> vừa hủy lịch hẹn <strong>${s}</strong> đã đặt vào lúc <strong>${w}</strong>.`,
-    cta: "Xem lịch hẹn",
-    hi: "Xin chào",
-    branchLabel: "Chi nhánh",
-  },
-  en: {
-    newSubject: (c) => `New booking from ${c}`,
-    newHeading: "You have a new booking",
-    newBody: (c, s, w) => `<strong>${c}</strong> just booked <strong>${s}</strong> for <strong>${w}</strong>.`,
-    cancelledSubject: (c) => `${c} cancelled their booking`,
-    cancelledHeading: "A booking was just cancelled",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> just cancelled their <strong>${s}</strong> booking for <strong>${w}</strong>.`,
-    cta: "View bookings",
-    hi: "Hello",
-    branchLabel: "Branch",
-  },
-  fi: {
-    newSubject: (c) => `Uusi varaus asiakkaalta ${c}`,
-    newHeading: "Sait uuden varauksen",
-    newBody: (c, s, w) => `<strong>${c}</strong> varasi juuri palvelun <strong>${s}</strong> ajankohtaan <strong>${w}</strong>.`,
-    cancelledSubject: (c) => `${c} perui varauksensa`,
-    cancelledHeading: "Varaus peruttiin juuri",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> perui juuri varauksensa <strong>${s}</strong> ajankohtaan <strong>${w}</strong>.`,
-    cta: "Näytä varaukset",
-    hi: "Hei",
-    branchLabel: "Toimipiste",
-  },
-  pl: {
-    newSubject: (c) => `Nowa rezerwacja od ${c}`,
-    newHeading: "Masz nową rezerwację",
-    newBody: (c, s, w) => `<strong>${c}</strong> właśnie zarezerwował(a) <strong>${s}</strong> na <strong>${w}</strong>.`,
-    cancelledSubject: (c) => `${c} anulował(a) rezerwację`,
-    cancelledHeading: "Rezerwacja została właśnie anulowana",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> właśnie anulował(a) rezerwację <strong>${s}</strong> na <strong>${w}</strong>.`,
-    cta: "Zobacz rezerwacje",
-    hi: "Cześć",
-    branchLabel: "Oddział",
-  },
-  de: {
-    newSubject: (c) => `Neue Buchung von ${c}`,
-    newHeading: "Du hast eine neue Buchung",
-    newBody: (c, s, w) => `<strong>${c}</strong> hat gerade <strong>${s}</strong> für <strong>${w}</strong> gebucht.`,
-    cancelledSubject: (c) => `${c} hat die Buchung storniert`,
-    cancelledHeading: "Eine Buchung wurde gerade storniert",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> hat gerade die Buchung <strong>${s}</strong> für <strong>${w}</strong> storniert.`,
-    cta: "Buchungen ansehen",
-    hi: "Hallo",
-    branchLabel: "Filiale",
-  },
-  km: {
-    newSubject: (c) => `ការកក់ថ្មីពី ${c}`,
-    newHeading: "អ្នកមានការកក់ថ្មី",
-    newBody: (c, s, w) => `<strong>${c}</strong> ទើបតែកក់ <strong>${s}</strong> នៅម៉ោង <strong>${w}</strong>។`,
-    cancelledSubject: (c) => `${c} បានលុបចោលការកក់`,
-    cancelledHeading: "ការកក់មួយទើបតែត្រូវបានលុបចោល",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> ទើបតែលុបចោលការកក់ <strong>${s}</strong> នៅម៉ោង <strong>${w}</strong>។`,
-    cta: "មើលការកក់",
-    hi: "សួស្តី",
-    branchLabel: "សាខា",
-  },
-  th: {
-    newSubject: (c) => `การจองใหม่จาก ${c}`,
-    newHeading: "คุณมีการจองใหม่",
-    newBody: (c, s, w) => `<strong>${c}</strong> เพิ่งจอง <strong>${s}</strong> เวลา <strong>${w}</strong>`,
-    cancelledSubject: (c) => `${c} ยกเลิกการจอง`,
-    cancelledHeading: "การจองเพิ่งถูกยกเลิก",
-    cancelledBody: (c, s, w) => `<strong>${c}</strong> เพิ่งยกเลิกการจอง <strong>${s}</strong> เวลา <strong>${w}</strong>`,
-    cta: "ดูการจอง",
-    hi: "สวัสดี",
-    branchLabel: "สาขา",
-  },
-};
-
-/** Sent to the salon owner whenever a customer books a new appointment —
- * see createBookingAndPayment (offline providers) and
- * sendBookingConfirmationEmail (online providers, called from the payment
- * webhooks once a Stripe/MoMo/VNPay payment actually succeeds). */
-export function ownerNewBookingEmail(params: {
-  ownerName: string;
-  customerName: string;
-  serviceName: string;
-  startsAt: Date;
-  locale: string;
-  businessTimezone: string;
-  bookingsUrl: string;
-  businessName: string;
-}) {
-  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
-  const dateStr = params.startsAt.toLocaleString(
-    INTL_LOCALES[params.locale] ?? "en-US",
-    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
-  );
-  return {
-    subject: s.newSubject(params.customerName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.newHeading}</h2>
-        <p>${s.hi} ${params.ownerName},</p>
-        <p>${s.newBody(params.customerName, params.serviceName, dateStr)}</p>
-        <p style="color:#5b6b6c;font-size:13px">${s.branchLabel}: <strong style="color:#25302f">${params.businessName}</strong></p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${s.cta}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
-  };
-}
-
-/** Sent to the salon owner whenever a customer cancels their own booking —
- * see /api/bookings/[id]/cancel. Not sent when the salon itself cancels a
- * booking from the dashboard, since the owner already knows about that. */
-export function ownerBookingCancelledEmail(params: {
-  ownerName: string;
-  customerName: string;
-  serviceName: string;
-  startsAt: Date;
-  locale: string;
-  businessTimezone: string;
-  bookingsUrl: string;
-  businessName: string;
-}) {
-  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
-  const dateStr = params.startsAt.toLocaleString(
-    INTL_LOCALES[params.locale] ?? "en-US",
-    { dateStyle: "full", timeStyle: "short", timeZone: params.businessTimezone }
-  );
-  return {
-    subject: s.cancelledSubject(params.customerName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.cancelledHeading}</h2>
-        <p>${s.hi} ${params.ownerName},</p>
-        <p>${s.cancelledBody(params.customerName, params.serviceName, dateStr)}</p>
-        <p style="color:#5b6b6c;font-size:13px">${s.branchLabel}: <strong style="color:#25302f">${params.businessName}</strong></p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.bookingsUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${s.cta}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: x.subjectCancelled(params.businessName),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${d.full}, ${d.time} · ${params.serviceName}`,
+      brand: salonBrand(params.businessName, params.businessLogoUrl, params.businessCity),
+      hero: { eyebrow: x.eyebrowCancelled, title: x.cancelledHeading, tone: "alert", badge: "✕" },
+      body,
+      footerExtra: salonFooter(params.businessName, address, params.businessPhone),
+    }),
   };
 }
 
@@ -997,26 +728,73 @@ export function reviewRequestEmail(params: {
   serviceName: string;
   locale: string;
   reviewUrl: string;
+  businessLogoUrl?: string | null;
+  businessCity?: string | null;
 }) {
   const s = bookingEmailStrings(params.locale);
+  const x = customerExtra(params.locale);
+  const intro = s.reviewIntro(esc(params.businessName));
+  const starLinks = [1, 2, 3, 4, 5]
+    .map(
+      () =>
+        `<td style="padding:0 4px"><a href="${esc(params.reviewUrl)}" style="text-decoration:none;font-size:38px;line-height:1;color:#f5b041">★</a></td>`
+    )
+    .join("");
+
+  const body = [
+    greeting(s.hi, params.customerName),
+    para(intro),
+    panel(
+      `<div style="text-align:center;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:${C.muted}">${esc(params.serviceName)}</div>
+       <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:12px auto 6px"><tr>${starLinks}</tr></table>
+       <div style="text-align:center;font-size:13px;color:${C.muted}">${x.tapStar}</div>`,
+      { pad: "22px 18px", mt: 6 }
+    ),
+    button(params.reviewUrl, s.reviewCTA, { variant: "gold" }),
+    para(x.reviewQuick, { small: true, muted: true, center: true, mt: 12 }),
+  ].join("");
+
   return {
     subject: s.subjectReview(params.businessName),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.reviewHeading}</h2>
-        <p>${s.hi} ${params.customerName},</p>
-        <p>${s.reviewIntro(params.businessName)}</p>
-        <p style="color:#5b6b6c;font-size:13px">${params.serviceName}</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.reviewUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${s.reviewCTA}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(intro),
+      brand: salonBrand(params.businessName, params.businessLogoUrl, params.businessCity),
+      hero: { eyebrow: x.eyebrowReview, title: s.reviewHeading, tone: "gold", badge: "★" },
+      body,
+    }),
   };
 }
+
+const RATED = {
+  vi: {
+    subject: (b: string, r: number) => `${b} đã đánh giá bạn ${r} sao`,
+    eyebrow: "Đánh giá khách hàng",
+    title: "Bạn vừa nhận được một đánh giá",
+    hi: "Xin chào",
+    body: (b: string) => `Sau lịch hẹn gần đây, <strong>${b}</strong> đã đánh giá bạn với tư cách khách hàng:`,
+    thanks: "Cảm ơn bạn đã là một vị khách tuyệt vời!",
+    privacy: "Đánh giá này chỉ dùng nội bộ để salon tham khảo, không bao giờ hiển thị công khai.",
+  },
+  en: {
+    subject: (b: string, r: number) => `${b} rated you ${r} stars`,
+    eyebrow: "Customer rating",
+    title: "You just received a rating",
+    hi: "Hi",
+    body: (b: string) => `After your recent appointment, <strong>${b}</strong> rated you as a customer:`,
+    thanks: "Thank you for being a wonderful guest!",
+    privacy: "This rating is for the salon's own internal reference only — it's never shown publicly.",
+  },
+  fi: {
+    subject: (b: string, r: number) => `${b} antoi sinulle ${r} tähteä`,
+    eyebrow: "Asiakasarvio",
+    title: "Sait juuri arvion",
+    hi: "Hei",
+    body: (b: string) => `Viimeisimmän käyntisi jälkeen <strong>${b}</strong> arvioi sinut asiakkaana:`,
+    thanks: "Kiitos, että olet ihana asiakas!",
+    privacy: "Arvio on vain salongin sisäiseen käyttöön — sitä ei koskaan näytetä julkisesti.",
+  },
+};
 
 /** Sent the moment a salon rates a customer (see POST
  * /api/business/bookings/[id]/customer-review) — tells the customer only
@@ -1026,87 +804,330 @@ export function ownerReviewedYouEmail(params: {
   businessName: string;
   rating: number;
   locale: string;
+  businessLogoUrl?: string | null;
 }) {
-  const isVi = params.locale === "vi";
-  const stars = "★".repeat(params.rating) + "☆".repeat(5 - params.rating);
+  const t = pick(params.locale, RATED);
   return {
-    subject: isVi
-      ? `${params.businessName} đã đánh giá bạn ${params.rating} sao`
-      : `${params.businessName} rated you ${params.rating} stars`,
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${isVi ? "Bạn vừa được đánh giá" : "You just received a rating"}</h2>
-        <p>${isVi ? "Xin chào" : "Hi"} ${params.customerName},</p>
-        <p>${
-          isVi
-            ? `Sau lịch hẹn gần đây, <strong>${params.businessName}</strong> đã đánh giá bạn với tư cách khách hàng:`
-            : `After your recent appointment, <strong>${params.businessName}</strong> rated you as a customer:`
-        }</p>
-        <p style="text-align:center;font-size:28px;letter-spacing:4px;color:#f0855f;margin:20px 0">${stars}</p>
-        <p style="color:#5b6b6c;font-size:13px">${
-          isVi
-            ? "Đánh giá này chỉ dùng nội bộ để salon tham khảo, không hiển thị công khai."
-            : "This rating is for the salon's own internal reference only — it's never shown publicly."
-        }</p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    subject: t.subject(params.businessName, params.rating),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(t.body(params.businessName)),
+      brand: salonBrand(params.businessName, params.businessLogoUrl),
+      hero: { eyebrow: t.eyebrow, title: t.title, tone: "brand", badge: "♥" },
+      body: [
+        greeting(t.hi, params.customerName),
+        para(t.body(esc(params.businessName))),
+        panel(
+          `${stars(params.rating, 34)}<div style="text-align:center;font-size:14px;font-weight:700;color:${C.ink};margin-top:10px">${params.rating}/5</div>`,
+          { pad: "24px 18px" }
+        ),
+        params.rating >= 4 ? para(t.thanks, { center: true, mt: 18 }) : "",
+        notice(null, t.privacy, "info", 18),
+      ].join(""),
+    }),
   };
 }
 
-const INVOICE_EMAIL_STRINGS: Record<
-  string,
-  { subject: (number: string) => string; heading: string; body: (business: string) => string; viewCTA: string; hi: string }
-> = {
+const GIFT_BUY = {
   vi: {
-    subject: (n) => `Hóa đơn ${n}`,
-    heading: "Hóa đơn của bạn",
-    body: (b) => `Đính kèm đây là hóa đơn cho dịch vụ bạn vừa sử dụng tại <strong>${b}</strong>.`,
-    viewCTA: "Xem hóa đơn trực tuyến",
+    subject: (b: string, code: string) => `Thẻ quà tặng ${b} — mã ${code}`,
+    eyebrow: "Thẻ quà tặng",
+    title: "Cảm ơn bạn đã mua thẻ quà tặng",
+    intro: (b: string) => `Món quà làm đẹp từ ${b} đã sẵn sàng.`,
     hi: "Xin chào",
+    card: "Thẻ",
+    service: "Dịch vụ",
+    discount: "Ưu đãi",
+    off: (p: number) => `Giảm ${p}%`,
+    price: "Giá",
+    validity: "Hiệu lực",
+    validDays: (n: number) => `${n} ngày kể từ khi kích hoạt`,
+    uses: "Số lần dùng",
+    code: "Mã thẻ",
+    howTitle: "Cách sử dụng",
+    how: "Đưa mã hoặc mã QR này cho salon khi đến làm dịch vụ. Thẻ được kích hoạt sau khi salon xác nhận thanh toán.",
+    attached: "Mã QR cũng được đính kèm trong email để bạn lưu lại.",
   },
   en: {
-    subject: (n) => `Invoice ${n}`,
-    heading: "Your invoice",
-    body: (b) => `Attached is the invoice for the service you just had at <strong>${b}</strong>.`,
-    viewCTA: "View invoice online",
+    subject: (b: string, code: string) => `Gift card from ${b} — code ${code}`,
+    eyebrow: "Gift card",
+    title: "Thanks for buying a gift card",
+    intro: (b: string) => `Your beauty gift from ${b} is ready.`,
     hi: "Hi",
+    card: "Card",
+    service: "Service",
+    discount: "Benefit",
+    off: (p: number) => `${p}% off`,
+    price: "Price",
+    validity: "Valid",
+    validDays: (n: number) => `${n} days after activation`,
+    uses: "Uses",
+    code: "Card code",
+    howTitle: "How to use it",
+    how: "Show this code or QR at the salon. The card activates once the salon confirms payment.",
+    attached: "The QR code is also attached so you can keep it.",
   },
   fi: {
-    subject: (n) => `Lasku ${n}`,
-    heading: "Laskusi",
-    body: (b) => `Liitteenä lasku palvelusta, jonka sait juuri paikassa <strong>${b}</strong>.`,
-    viewCTA: "Näytä lasku verkossa",
+    subject: (b: string, code: string) => `Lahjakortti: ${b} — koodi ${code}`,
+    eyebrow: "Lahjakortti",
+    title: "Kiitos lahjakortin ostosta",
+    intro: (b: string) => `Kauneuslahjasi paikasta ${b} on valmis.`,
     hi: "Hei",
+    card: "Kortti",
+    service: "Palvelu",
+    discount: "Etu",
+    off: (p: number) => `${p} % alennus`,
+    price: "Hinta",
+    validity: "Voimassa",
+    validDays: (n: number) => `${n} päivää aktivoinnista`,
+    uses: "Käyttökerrat",
+    code: "Kortin koodi",
+    howTitle: "Näin käytät korttia",
+    how: "Näytä tämä koodi tai QR-koodi salongissa. Kortti aktivoituu, kun salonki on vahvistanut maksun.",
+    attached: "QR-koodi on myös liitteenä, jotta voit tallentaa sen.",
   },
-  pl: {
-    subject: (n) => `Faktura ${n}`,
-    heading: "Twoja faktura",
-    body: (b) => `W załączniku znajduje się faktura za usługę, z której właśnie skorzystałeś(aś) w <strong>${b}</strong>.`,
-    viewCTA: "Zobacz fakturę online",
-    hi: "Cześć",
+};
+
+/** Sent to someone who buys a gift card on a salon page (POST
+ * /api/gift-cards/purchase). */
+export function giftCardPurchaseEmail(params: {
+  buyerName: string;
+  businessName: string;
+  cardName: string;
+  serviceName: string;
+  discountPercent: number;
+  priceText: string;
+  validDays: number;
+  maxUses: number;
+  code: string;
+  qrUrl: string;
+  locale: string;
+  businessLogoUrl?: string | null;
+}) {
+  const t = pick(params.locale, GIFT_BUY);
+  return {
+    subject: t.subject(params.businessName, params.code),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: t.intro(params.businessName),
+      brand: salonBrand(params.businessName, params.businessLogoUrl),
+      hero: { eyebrow: t.eyebrow, title: t.title, intro: esc(t.intro(params.businessName)), tone: "gold", badge: "🎁" },
+      body: [
+        greeting(t.hi, params.buyerName),
+        panel(
+          rows([
+            { label: t.card, value: esc(params.cardName), strong: true },
+            { label: t.service, value: esc(params.serviceName) },
+            { label: t.discount, value: esc(t.off(params.discountPercent)) },
+            { label: t.price, value: esc(params.priceText), strong: true },
+            { label: t.validity, value: esc(t.validDays(params.validDays)) },
+            { label: t.uses, value: String(params.maxUses) },
+          ])
+        ),
+        codeTicket(t.code, params.code, { qrUrl: params.qrUrl }),
+        notice(t.howTitle, t.how, "gold", 22),
+        para(t.attached, { small: true, muted: true, center: true, mt: 14 }),
+      ].join(""),
+    }),
+  };
+}
+
+/* ---------- salon owner notifications (VaraaAi → owner) ---------- */
+
+/** Sent to a salon owner when a customer messages for the first time, or
+ * after a week of silence — see the messages POST route. */
+export function newChatMessageEmail(params: {
+  ownerName: string;
+  customerName: string;
+  locale: string;
+  messagesUrl: string;
+  /** First words of the message, shown as a quote. */
+  preview?: string | null;
+}) {
+  const s = NEW_MESSAGE_STRINGS[params.locale] ?? NEW_MESSAGE_STRINGS.en;
+  const o = ownerExtra(params.locale);
+  const body = s.body(esc(params.customerName));
+  const preview = params.preview?.trim();
+  return {
+    subject: s.subject(params.customerName),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: preview ? `${params.customerName}: ${preview.slice(0, 90)}` : plain(body),
+      brand: null,
+      hero: { eyebrow: o.messageEyebrow, title: s.heading, tone: "brand", badge: "💬" },
+      body: [
+        greeting(s.hi, params.ownerName),
+        para(body),
+        preview ? quote(esc(preview.length > 280 ? `${preview.slice(0, 277)}…` : preview)) : "",
+        button(params.messagesUrl, s.cta),
+        notice(null, o.replyFast, "success", 26),
+      ].join(""),
+    }),
+  };
+}
+
+const HUMAN = {
+  vi: {
+    subject: (c: string) => `${c} muốn nói chuyện trực tiếp với bạn`,
+    title: "Khách muốn gặp bạn trực tiếp",
+    hi: "Xin chào",
+    body: (c: string) => `<strong>${c}</strong> đang trò chuyện với trợ lý AI và vừa yêu cầu được nói chuyện trực tiếp với bạn. Hãy vào xem và trả lời khách sớm nhé.`,
+    cta: "Trả lời khách ngay",
   },
-  de: {
-    subject: (n) => `Rechnung ${n}`,
-    heading: "Deine Rechnung",
-    body: (b) => `Im Anhang findest du die Rechnung für die Leistung, die du gerade bei <strong>${b}</strong> erhalten hast.`,
-    viewCTA: "Rechnung online ansehen",
-    hi: "Hallo",
+  en: {
+    subject: (c: string) => `${c} wants to talk to you directly`,
+    title: "A customer wants you directly",
+    hi: "Hi",
+    body: (c: string) => `<strong>${c}</strong> was chatting with your AI assistant and just asked to speak with you directly. Take a look and reply when you can.`,
+    cta: "Reply now",
   },
-  km: {
-    subject: (n) => `វិក្កយបត្រ ${n}`,
-    heading: "វិក្កយបត្ររបស់អ្នក",
-    body: (b) => `ភ្ជាប់មកជាមួយនេះគឺវិក្កយបត្រសម្រាប់សេវាកម្មដែលអ្នកទើបតែទទួលបាននៅ <strong>${b}</strong>។`,
-    viewCTA: "មើលវិក្កយបត្រតាមអ៊ីនធឺណិត",
-    hi: "សួស្តី",
+  fi: {
+    subject: (c: string) => `${c} haluaa jutella kanssasi suoraan`,
+    title: "Asiakas haluaa puhua sinulle",
+    hi: "Hei",
+    body: (c: string) => `<strong>${c}</strong> keskusteli AI-avustajasi kanssa ja pyysi juuri saada puhua suoraan sinun kanssasi. Käy katsomassa ja vastaa, kun ehdit.`,
+    cta: "Vastaa nyt",
   },
-  th: {
-    subject: (n) => `ใบแจ้งหนี้ ${n}`,
-    heading: "ใบแจ้งหนี้ของคุณ",
-    body: (b) => `แนบมาพร้อมนี้คือใบแจ้งหนี้สำหรับบริการที่คุณเพิ่งใช้ที่ <strong>${b}</strong>`,
-    viewCTA: "ดูใบแจ้งหนี้ออนไลน์",
-    hi: "สวัสดี",
-  },
+};
+
+/** Sent the moment a customer taps "talk to the real owner" while chatting
+ * with the AI assistant (see POST /api/chat/conversations/[id]/request-human)
+ * — paired with a best-effort push notification (src/lib/push.ts). */
+export function customerWantsHumanEmail(params: {
+  ownerName: string;
+  customerName: string;
+  locale: string;
+  messagesUrl: string;
+}) {
+  const t = pick(params.locale, HUMAN);
+  const o = ownerExtra(params.locale);
+  return {
+    subject: t.subject(params.customerName),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(t.body(params.customerName)),
+      brand: null,
+      hero: { eyebrow: o.humanEyebrow, title: t.title, tone: "alert", badge: "🙋" },
+      body: [
+        greeting(t.hi, params.ownerName),
+        para(t.body(esc(params.customerName))),
+        notice(null, o.aiPaused, "warm", 4),
+        button(params.messagesUrl, t.cta, { variant: "alert" }),
+      ].join(""),
+    }),
+  };
+}
+
+interface OwnerBookingParams {
+  ownerName: string;
+  customerName: string;
+  serviceName: string;
+  startsAt: Date;
+  endsAt?: Date | null;
+  locale: string;
+  businessTimezone: string;
+  bookingsUrl: string;
+  businessName: string;
+  customerEmail?: string | null;
+  customerPhone?: string | null;
+  staffName?: string | null;
+  priceCents?: number | null;
+  currency?: string | null;
+  customerNote?: string | null;
+  bookingId?: string | null;
+}
+
+function ownerBookingCard(p: OwnerBookingParams, eyebrow: string, accent: string) {
+  const s = OWNER_BOOKING_STRINGS[p.locale] ?? OWNER_BOOKING_STRINGS.en;
+  const b = bookingEmailStrings(p.locale);
+  const c = chromeStrings(p.locale);
+  const d = dateParts(p.startsAt, p.endsAt, p.locale, p.businessTimezone);
+  const minutes = durationMinutes(p.startsAt, p.endsAt);
+  const ref = bookingRef(p.bookingId);
+  const price = p.priceCents != null && p.currency ? formatMoney(p.priceCents, p.currency, p.locale) : null;
+  return panel(
+    appointmentHeader(d, eyebrow, accent) +
+      hairline(18) +
+      rows([
+        { label: c.customer, value: esc(p.customerName), strong: true },
+        p.customerPhone ? { label: c.phone, value: `<a href="${esc(telLink(p.customerPhone))}" style="color:${C.primary};text-decoration:none">${esc(p.customerPhone)}</a>` } : null,
+        p.customerEmail ? { label: c.email, value: `<a href="mailto:${esc(p.customerEmail)}" style="color:${C.primary};text-decoration:none;word-break:break-all">${esc(p.customerEmail)}</a>` } : null,
+        { label: b.serviceLabel, value: esc(p.serviceName) },
+        p.staffName ? { label: b.staffLabel, value: esc(p.staffName) } : null,
+        minutes ? { label: c.duration, value: esc(c.minutes(minutes)) } : null,
+        price ? { label: b.amountLabel, value: esc(price), strong: true } : null,
+        { label: s.branchLabel, value: esc(p.businessName) },
+        ref ? { label: c.bookingRef, value: ref } : null,
+      ]),
+    { pad: "22px 22px 18px" }
+  );
+}
+
+/** Sent to the salon owner whenever a customer books a new appointment —
+ * see createBookingAndPayment (offline providers) and
+ * sendBookingConfirmationEmail (online providers, called from the payment
+ * webhooks once a Stripe/MoMo/VNPay payment actually succeeds). */
+export function ownerNewBookingEmail(params: OwnerBookingParams) {
+  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
+  const o = ownerExtra(params.locale);
+  const c = chromeStrings(params.locale);
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
+  const when = `${d.full}, ${d.time}`;
+  const intro = s.newBody(esc(params.customerName), esc(params.serviceName), esc(when));
+  return {
+    subject: s.newSubject(params.customerName),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${params.serviceName} · ${when}`,
+      brand: null,
+      hero: { eyebrow: o.newEyebrow, title: s.newHeading, intro, tone: "success", badge: "✓" },
+      body: [
+        greeting(s.hi, params.ownerName),
+        ownerBookingCard(params, c.when, C.primary),
+        params.customerNote?.trim() ? sectionTitle(c.note) + quote(esc(params.customerNote.trim())) : "",
+        button(params.bookingsUrl, s.cta),
+      ].join(""),
+    }),
+  };
+}
+
+/** Sent to the salon owner whenever a customer cancels their own booking —
+ * see /api/bookings/[id]/cancel. Not sent when the salon itself cancels a
+ * booking from the dashboard, since the owner already knows about that. */
+export function ownerBookingCancelledEmail(params: OwnerBookingParams) {
+  const s = OWNER_BOOKING_STRINGS[params.locale] ?? OWNER_BOOKING_STRINGS.en;
+  const o = ownerExtra(params.locale);
+  const c = chromeStrings(params.locale);
+  const d = dateParts(params.startsAt, params.endsAt, params.locale, params.businessTimezone);
+  const when = `${d.full}, ${d.time}`;
+  const intro = s.cancelledBody(esc(params.customerName), esc(params.serviceName), esc(when));
+  return {
+    subject: s.cancelledSubject(params.customerName),
+    html: emailLayout({
+      locale: params.locale,
+      preheader: `${params.serviceName} · ${when}`,
+      brand: null,
+      hero: { eyebrow: o.cancelledEyebrow, title: s.cancelledHeading, intro, tone: "alert", badge: "✕" },
+      body: [
+        greeting(s.hi, params.ownerName),
+        ownerBookingCard(params, c.when, C.berry),
+        notice(null, o.slotFreed, "success", 20),
+        button(params.bookingsUrl, s.cta, { variant: "dark" }),
+      ].join(""),
+    }),
+  };
+}
+
+/* ---------- invoices & marketing ---------- */
+
+const INVOICE_EXTRA: Record<string, { eyebrow: string; number: string; total: string; pdf: string }> = {
+  vi: { eyebrow: "Hóa đơn", number: "Số hóa đơn", total: "Tổng cộng", pdf: "Bản PDF của hóa đơn được đính kèm trong email này." },
+  en: { eyebrow: "Invoice", number: "Invoice number", total: "Total", pdf: "A PDF copy of the invoice is attached to this email." },
+  fi: { eyebrow: "Lasku", number: "Laskun numero", total: "Yhteensä", pdf: "Lasku on liitteenä PDF-tiedostona." },
+  pl: { eyebrow: "Faktura", number: "Numer faktury", total: "Razem", pdf: "Faktura w formacie PDF jest dołączona do tej wiadomości." },
+  de: { eyebrow: "Rechnung", number: "Rechnungsnummer", total: "Gesamt", pdf: "Die Rechnung ist als PDF angehängt." },
+  km: { eyebrow: "វិក្កយបត្រ", number: "លេខវិក្កយបត្រ", total: "សរុប", pdf: "ឯកសារ PDF នៃវិក្កយបត្រត្រូវបានភ្ជាប់ជាមួយអ៊ីមែលនេះ។" },
+  th: { eyebrow: "ใบแจ้งหนี้", number: "เลขที่ใบแจ้งหนี้", total: "ยอดรวม", pdf: "แนบไฟล์ PDF ของใบแจ้งหนี้มากับอีเมลนี้แล้ว" },
 };
 
 /** Sent from the dashboard's "pay at the counter" checkout, on request —
@@ -1119,52 +1140,69 @@ export function invoiceEmail(params: {
   invoiceNumber: string;
   viewUrl: string;
   locale: string;
+  totalText?: string | null;
+  pdfAttached?: boolean;
+  businessLogoUrl?: string | null;
 }) {
   const s = INVOICE_EMAIL_STRINGS[params.locale] ?? INVOICE_EMAIL_STRINGS.en;
+  const e = INVOICE_EXTRA[params.locale] ?? INVOICE_EXTRA.en;
+  const body = s.body(esc(params.businessName));
   return {
     subject: s.subject(params.invoiceNumber),
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <h2 style="color:#624f89">${s.heading}</h2>
-        <p>${s.hi} ${params.customerName},</p>
-        <p>${s.body(params.businessName)}</p>
-        <p style="text-align:center;margin:24px 0">
-          <a href="${params.viewUrl}" style="background:#624f89;color:#fff;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:600">
-            ${s.viewCTA}
-          </a>
-        </p>
-        <p style="color:#5b6b6c;font-size:14px;margin-top:16px">VaraaAi.Com</p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(body),
+      brand: salonBrand(params.businessName, params.businessLogoUrl),
+      hero: { eyebrow: e.eyebrow, title: s.heading, tone: "brand", badge: "🧾" },
+      body: [
+        params.customerName ? greeting(s.hi, params.customerName) : "",
+        para(body),
+        panel(
+          rows([
+            { label: e.number, value: `<span style="font-family:Menlo,Consolas,monospace">${esc(params.invoiceNumber)}</span>` },
+            params.totalText ? { label: e.total, value: `<span style="font-size:18px">${esc(params.totalText)}</span>`, strong: true } : null,
+          ])
+        ),
+        button(params.viewUrl, s.viewCTA),
+        params.pdfAttached !== false ? para(e.pdf, { small: true, muted: true, center: true, mt: 14 }) : "",
+      ].join(""),
+    }),
   };
 }
+
+const MARKETING = {
+  vi: { sent: (b: string) => `Bạn nhận được email này vì đã từng sử dụng dịch vụ tại ${b}.`, unsub: "Hủy nhận email quảng cáo", book: "Đặt lịch ngay" },
+  en: { sent: (b: string) => `You're receiving this because you've visited ${b}.`, unsub: "Unsubscribe from marketing emails", book: "Book now" },
+  fi: { sent: (b: string) => `Saat tämän viestin, koska olet asioinut paikassa ${b}.`, unsub: "Peru markkinointiviestien tilaus", book: "Varaa aika" },
+};
 
 /** A one-off marketing email an owner composes from the dashboard and sends
  * to their own past customers (see /api/business/marketing/send). `bodyHtml`
  * is expected to already be escaped/line-break-converted by the caller —
- * this function only adds the business-name header and the unsubscribe
- * footer, never touches the owner's raw message. */
+ * this function only adds the salon header and the unsubscribe footer,
+ * never touches the owner's raw message. */
 export function marketingEmail(params: {
   businessName: string;
   bodyHtml: string;
   locale: string;
   unsubscribeUrl: string;
+  businessLogoUrl?: string | null;
+  /** Adds a "Book now" button under the message. */
+  salonUrl?: string | null;
 }) {
-  const isVi = params.locale === "vi";
+  const t = pick(params.locale, MARKETING);
   return {
-    html: `
-      <div style="font-family:sans-serif;max-width:480px;margin:auto">
-        <p style="color:#5b6b6c;font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">${params.businessName}</p>
-        <div style="color:#25302f;font-size:15px;line-height:1.6">${params.bodyHtml}</div>
-        <hr style="border:none;border-top:1px solid #e4e9e9;margin:24px 0" />
-        <p style="color:#5b6b6c;font-size:12px">
-          ${isVi ? "Email này được gửi bởi" : "This email was sent by"} ${params.businessName} ${isVi ? "qua" : "via"} VaraaAi.Com.
-          <br/>
-          <a href="${params.unsubscribeUrl}" style="color:#5b6b6c;text-decoration:underline">${
-            isVi ? "Hủy nhận email quảng cáo" : "Unsubscribe from marketing emails"
-          }</a>
-        </p>
-      </div>
-    `,
+    html: emailLayout({
+      locale: params.locale,
+      preheader: plain(params.bodyHtml).slice(0, 120),
+      brand: salonBrand(params.businessName, params.businessLogoUrl),
+      hero: null,
+      title: params.businessName,
+      body: [
+        `<div style="color:${C.text};font-size:15.5px;line-height:1.75">${params.bodyHtml}</div>`,
+        params.salonUrl ? button(params.salonUrl, t.book) : "",
+      ].join(""),
+      footerNote: `${esc(t.sent(params.businessName))}<br /><a href="${esc(params.unsubscribeUrl)}" style="color:${C.muted};text-decoration:underline">${t.unsub}</a>`,
+    }),
   };
 }

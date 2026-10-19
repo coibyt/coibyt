@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
-import { sendMail, ownerBookingCancelledEmail } from "@/lib/mailer";
+import { sendMail, ownerBookingCancelledEmail, bookingCancelledEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
 
 export async function POST(
@@ -21,7 +21,8 @@ export async function POST(
         include: { owner: { select: { name: true, email: true } } },
       },
       service: { select: { name: true } },
-      customer: { select: { name: true } },
+      staff: { select: { name: true } },
+      customer: { select: { name: true, email: true, phone: true } },
     },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
@@ -48,8 +49,15 @@ export async function POST(
         ...ownerBookingCancelledEmail({
           ownerName: booking.business.owner.name,
           customerName: booking.customer.name,
+          customerEmail: booking.customer.email,
+          customerPhone: booking.customer.phone,
           serviceName: booking.service.name,
+          staffName: booking.staff?.name,
+          priceCents: booking.priceCents,
+          currency: booking.currency,
+          bookingId: booking.id,
           startsAt: booking.startsAt,
+          endsAt: booking.endsAt,
           locale,
           businessTimezone: booking.business.timezone,
           businessName: booking.business.name,
@@ -58,6 +66,31 @@ export async function POST(
       });
     } catch (err) {
       console.error("[customer cancel: owner notification]", err);
+    }
+    try {
+      const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+      await sendMail({
+        to: booking.customer.email,
+        ...bookingCancelledEmail({
+          customerName: booking.customer.name,
+          businessName: booking.business.name,
+          serviceName: booking.service.name,
+          startsAt: booking.startsAt,
+          endsAt: booking.endsAt,
+          bookingId: booking.id,
+          locale: localeForCountry(booking.business.country),
+          businessTimezone: booking.business.timezone,
+          staffName: booking.staff?.name,
+          businessAddress: booking.business.addressLine,
+          businessCity: booking.business.city,
+          googleMapsUrl: booking.business.googleMapsUrl,
+          businessPhone: booking.business.phone,
+          businessLogoUrl: booking.business.logoUrl,
+          salonUrl: `${siteUrl}/b/${booking.business.slug}`,
+        }),
+      });
+    } catch (err) {
+      console.error("[customer cancel: customer confirmation]", err);
     }
   }
 
