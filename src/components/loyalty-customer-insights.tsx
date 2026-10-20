@@ -37,6 +37,7 @@ export interface LoyaltyInsights {
   program: { pointsRequired: number; discountPercent: number } | null;
   stats: {
     visits: number;
+    scansAvailable: number;
     servicesDone: number;
     revenue: { currency: string; cents: number }[];
     avgSpend: { currency: string; cents: number } | null;
@@ -303,7 +304,19 @@ export function LoyaltyInsightsPanel({
                 label={vi ? "Điểm hiện tại" : "Current points"}
                 value={data.program ? `${data.card.points}/${data.program.pointsRequired}` : String(data.card.points)}
               />
-              <StatTile icon={ScanLine} tone="sage" label={vi ? "Lượt quét" : "Scans"} value={String(data.card.totalScans)} />
+              <StatTile
+                icon={ScanLine}
+                tone="sage"
+                label={vi ? "Lượt quét" : "Scans"}
+                value={String(data.card.totalScans)}
+                sub={
+                  data.stats.scansAvailable > 0
+                    ? vi
+                      ? `Còn ${data.stats.scansAvailable} lượt hẹn chưa quét`
+                      : `${data.stats.scansAvailable} visit(s) not scanned yet`
+                    : undefined
+                }
+              />
               <StatTile
                 icon={Gift}
                 tone="berry"

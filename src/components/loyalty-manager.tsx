@@ -190,8 +190,8 @@ export function LoyaltyManager({
       NOT_FOUND: vi ? "Không tìm thấy thẻ này." : "Card not found.",
       NO_PROGRAM: vi ? "Chưa có chương trình tích điểm." : "No loyalty program yet.",
       NO_NEW_VISIT: vi
-        ? "Chưa cộng điểm: khách chưa có lần làm dịch vụ hoàn tất mới nào kể từ lần quét trước."
-        : "No point added: no new completed visit since the last scan.",
+        ? "Chưa cộng điểm: mọi lượt hẹn đã qua của khách đều đã được quét. Chỉ tính lượt hẹn còn trên lịch, không bị hủy hay đánh dấu không đến (tính thêm tối đa 3 lượt trước ngày làm thẻ)."
+        : "No point added: every past visit has already been scanned. Only visits still on the calendar and not cancelled or no-show count (plus up to 3 from before the card was made).",
       REWARD_PENDING: vi
         ? "Chưa cộng điểm: khách đã đủ điểm — hãy áp dụng ưu đãi trước."
         : "No point added: the customer already has a reward — apply it first.",

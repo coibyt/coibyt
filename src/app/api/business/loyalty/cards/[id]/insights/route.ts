@@ -1,12 +1,14 @@
 import { NextResponse } from "next/server";
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { eligibleVisits } from "@/lib/loyalty";
 
 /** Everything the salon knows about one loyalty cardholder: their card, how
  * much they've actually used the salon (matched on the card's email), and
  * their full visit history — powers the post-scan summary and the "details"
  * view on the loyalty page. A visit counts as done once it's COMPLETED, or
- * CONFIRMED and already over (owners rarely mark visits completed by hand). */
+ * CONFIRMED and its appointment time has arrived (owners rarely mark visits
+ * completed by hand) — the same rule scans use (see eligibleVisits). */
 export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const access = await getBusinessAccess();
   if (!access || (!access.isOwner && !access.permissions.bookings)) {
@@ -24,7 +26,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   });
   if (!card) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
-  const [program, bookings] = await Promise.all([
+  const [program, bookings, scannable] = await Promise.all([
     prisma.loyaltyProgram.findUnique({ where: { businessId }, select: { pointsRequired: true, discountPercent: true } }),
     prisma.booking.findMany({
       where: { businessId, customer: { email: card.customerEmail } },
@@ -42,11 +44,12 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
         extraServices: { select: { name: true } },
       },
     }),
+    eligibleVisits(card),
   ]);
 
   const now = new Date();
   const isDone = (b: (typeof bookings)[number]) =>
-    b.status === "COMPLETED" || (b.status === "CONFIRMED" && b.endsAt <= now);
+    b.status === "COMPLETED" || (b.status === "CONFIRMED" && b.startsAt <= now);
   const done = bookings.filter(isDone);
 
   const revenueByCurrency = new Map<string, number>();
@@ -87,7 +90,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
             cents: Math.round(mainRevenue.cents / Math.max(1, done.filter((b) => b.currency === mainRevenue.currency).length)),
           }
         : null,
-      upcoming: bookings.filter((b) => (b.status === "CONFIRMED" || b.status === "PENDING_PAYMENT") && b.endsAt > now).length,
+      upcoming: bookings.filter((b) => (b.status === "CONFIRMED" || b.status === "PENDING_PAYMENT") && b.startsAt > now).length,
+      // Visits that can still be scanned for a point right now.
+      scansAvailable: Math.max(0, scannable - card.totalScans),
       cancelled: bookings.filter((b) => b.status === "CANCELLED").length,
       noShow: bookings.filter((b) => b.status === "NO_SHOW").length,
       firstVisitAt: done.length ? done[done.length - 1].startsAt.toISOString() : null,

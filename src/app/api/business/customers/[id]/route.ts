@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { LOYALTY_BACKDATE_VISITS } from "@/lib/loyalty";
 import { formatInTimeZone } from "date-fns-tz";
 import { invoicePublicUrl } from "@/lib/invoices";
 
@@ -65,9 +66,10 @@ export async function GET(
   const customer = bookings[0].customer;
   const completed = bookings.filter((b) => b.status === "COMPLETED");
 
-  // A scan only counts while there are more completed visits than scans, so
-  // the Nth scan belongs to the Nth completed visit (in order) at this branch
-  // since the card was activated. A reward is applied after every Nth scan.
+  // A scan only counts while there are more eligible visits than scans (see
+  // eligibleVisits in src/lib/loyalty.ts), so the Nth scan belongs to the Nth
+  // eligible visit in order: the last few visits from before the card was
+  // made, then every visit since. A reward is applied after every Nth scan.
   const timezone = business?.timezone ?? "UTC";
   const card = await prisma.loyaltyCard.findUnique({
     where: { businessId_customerEmail: { businessId: currentId, customerEmail: customer.email.toLowerCase() } },
@@ -78,11 +80,17 @@ export async function GET(
     },
   });
   const pointsRequired = business?.loyaltyProgram?.pointsRequired ?? 0;
+  const now = new Date();
+  const eligible = bookings
+    .filter(
+      (b) => b.businessId === currentId && (b.status === "CONFIRMED" || b.status === "COMPLETED") && b.startsAt <= now
+    )
+    .sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime());
   const visitsInOrder = card
-    ? completed
-        .filter((b) => b.businessId === currentId && b.startsAt >= card.activatedAt)
-        .sort((a, b) => a.startsAt.getTime() - b.startsAt.getTime())
-        .map((b) => b.id)
+    ? [
+        ...eligible.filter((b) => b.startsAt < card.activatedAt).slice(-LOYALTY_BACKDATE_VISITS),
+        ...eligible.filter((b) => b.startsAt >= card.activatedAt),
+      ].map((b) => b.id)
     : [];
   const matched = new Map<string, { time: string; rewardApplied: boolean }>();
   if (card) {

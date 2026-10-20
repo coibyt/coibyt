@@ -22,17 +22,32 @@ export function loyaltyQrPng(token: string) {
   return QRCode.toBuffer(loyaltyScanUrl(token), { type: "png", width: 240, margin: 1 });
 }
 
-/** Completed visits by this customer (matched on email) since the card was
- * activated — the ceiling on how many scans can count. */
-export async function completedVisits(card: { businessId: string; customerEmail: string; activatedAt: Date }) {
-  return prisma.booking.count({
-    where: {
-      businessId: card.businessId,
-      status: "COMPLETED",
-      startsAt: { gte: card.activatedAt },
-      customer: { email: card.customerEmail },
-    },
-  });
+/** Visits from before the card existed that the salon may still scan once,
+ * so a regular who only just got a card isn't starting from zero. */
+export const LOYALTY_BACKDATE_VISITS = 3;
+
+/** Bookings that count as a visit: still on the calendar (not deleted), not
+ * cancelled or marked no-show, and whose appointment time has arrived. Owners
+ * rarely mark visits "completed" by hand, so CONFIRMED counts too. */
+function visitWhere(card: { businessId: string; customerEmail: string }, now: Date) {
+  return {
+    businessId: card.businessId,
+    status: { in: ["CONFIRMED" as const, "COMPLETED" as const] },
+    startsAt: { lte: now },
+    customer: { email: card.customerEmail },
+  };
+}
+
+/** How many scans this card may have had in total: every visit since the card
+ * was activated, plus up to LOYALTY_BACKDATE_VISITS visits from before. */
+export async function eligibleVisits(card: { businessId: string; customerEmail: string; activatedAt: Date }) {
+  const now = new Date();
+  const base = visitWhere(card, now);
+  const [since, before] = await Promise.all([
+    prisma.booking.count({ where: { ...base, startsAt: { lte: now, gte: card.activatedAt } } }),
+    prisma.booking.count({ where: { ...base, startsAt: { lt: card.activatedAt } } }),
+  ]);
+  return since + Math.min(LOYALTY_BACKDATE_VISITS, before);
 }
 
 // cardId rides along whenever the card itself was found — even a refused
@@ -42,8 +57,8 @@ export type ScanOutcome =
   | { ok: false; reason: "NOT_FOUND" }
   | { ok: false; cardId: string; reason: "NO_PROGRAM" | "NO_NEW_VISIT" | "REWARD_PENDING" };
 
-/** A scan earns a point only when the customer has a completed visit that hasn't
- * been scanned yet, so scans can never outrun the services actually done. */
+/** A scan earns a point only when the customer has a visit that hasn't been
+ * scanned yet (see eligibleVisits), so scans can never outrun real visits. */
 export async function scanLoyaltyCard(businessId: string, token: string): Promise<ScanOutcome> {
   const card = await prisma.loyaltyCard.findFirst({
     where: { token: token.trim().toUpperCase(), businessId },
@@ -55,7 +70,7 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
 
   if (card.rewardReady) return { ok: false, cardId: card.id, reason: "REWARD_PENDING" };
 
-  const visits = await completedVisits(card);
+  const visits = await eligibleVisits(card);
   if (card.totalScans >= visits) return { ok: false, cardId: card.id, reason: "NO_NEW_VISIT" };
 
   const points = card.points + 1;
