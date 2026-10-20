@@ -1,599 +1,607 @@
-import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
-import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
+import type { Metadata } from "next";
+import { Suspense } from "react";
 import {
-  CalendarDays,
+  ArrowRight,
+  BarChart3,
   BellRing,
-  Share2,
-  Star,
+  Bot,
+  Building2,
+  CalendarDays,
+  Check,
+  ChevronDown,
+  Facebook,
+  FileText,
   Gift,
-  Megaphone,
   Globe,
-  Users,
+  Handshake,
+  Heart,
+  Instagram,
   LayoutTemplate,
   Mail,
-  MessageCircle,
-  Building2,
-  Infinity as InfinityIcon,
-  Check,
-  Facebook,
-  Instagram,
   MapPin,
+  MessageCircle,
+  Newspaper,
+  QrCode,
+  Receipt,
+  ScanSearch,
+  ShoppingBag,
+  Sparkles,
+  Star,
+  UserCog,
 } from "lucide-react";
-import { Suspense } from "react";
 import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { PlatformAffiliateCookieSetter } from "@/components/platform-affiliate-cookie-setter";
 import { OfferCountdown } from "@/components/offer-countdown";
+import { OpenSupportButton, SupportLauncher } from "@/components/support-launcher";
+import { businessLandingStrings, type BusinessLandingStrings } from "@/lib/business-landing/strings";
+import { supportCenterStrings } from "@/lib/support-ai/strings";
 
-// Icon + accent color for each benefit card, in the same order as each
-// locale's `benefits` array below — kept separate from the copy so the 7
-// translations only ever repeat text, never JSX.
-const BENEFIT_META = [
-  { icon: CalendarDays, color: "bg-primary-500" },
-  { icon: BellRing, color: "bg-teal-500" },
-  { icon: Share2, color: "bg-coral-500" },
-  { icon: Star, color: "bg-berry-500" },
-  { icon: Gift, color: "bg-sage-500" },
-  { icon: Megaphone, color: "bg-primary-500" },
-  { icon: Globe, color: "bg-teal-500" },
-  { icon: Users, color: "bg-coral-500" },
-  { icon: LayoutTemplate, color: "bg-berry-500" },
-  { icon: Mail, color: "bg-sage-500" },
-  { icon: MessageCircle, color: "bg-primary-500" },
-  { icon: Building2, color: "bg-teal-500" },
-];
+type Params = Promise<{ locale: string }>;
 
-interface LandingStrings {
-  badge: string;
-  heroTitle: string;
-  heroSubtitle: string;
-  ctaPrimary: string;
-  salonCheckCta: string;
-  trust: [string, string, string];
-  statLabels: [string, string, string, string];
-  statFreeValue: string;
-  sectionTitle: string;
-  sectionSubtitle: string;
-  benefits: { title: string; body: string }[];
-  todayLabel: string;
-  reminderTitle: string;
-  reminderBody: string;
-  reviewQuote: string;
-  reviewNote: string;
-  giftCardTitle: string;
-  giftCardBody: string;
-  bookAnywhereLabel: string;
-  stepsTitle: string;
-  steps: { title: string; body: string }[];
-  finalTitle: string;
-  finalBody: string;
-  finalCta: string;
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
+const pageUrl = (locale: string) => `${SITE}${locale === routing.defaultLocale ? "" : `/${locale}`}/business`;
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = businessLandingStrings(locale);
+  const title = `${t.hero.title} ${t.hero.titleAccent} — VaraaAi`;
+  return {
+    title,
+    description: t.hero.subtitle,
+    alternates: { canonical: pageUrl(locale) },
+    openGraph: { title, description: t.hero.subtitle, url: pageUrl(locale), siteName: "VaraaAi", type: "website" },
+  };
 }
 
-const LANDING_STRINGS: Record<string, LandingStrings> = {
-  vi: {
-    badge: "Miễn phí trọn đời — không phí ẩn",
-    heroTitle: "Quản lý salon của bạn,\nhoàn toàn miễn phí",
-    heroSubtitle:
-      "VaraaAi.Com là nền tảng đặt lịch hẹn dành cho salon tóc, nail, spa — giúp khách hàng đặt lịch online, còn bạn quản lý lịch hẹn, nhân viên và khách hàng mọi lúc mọi nơi.",
-    ctaPrimary: "Đăng ký làm chủ salon — miễn phí",
-    salonCheckCta: "Hoặc kiểm tra miễn phí salon của bạn trông thế nào trên mạng →",
-    trust: ["Không cần thẻ tín dụng", "Sẵn sàng trong 5 phút", "Không giới hạn lượt đặt"],
-    statLabels: ["Phí sử dụng", "Lượt đặt lịch", "Nhân viên", "Ngôn ngữ"],
-    statFreeValue: "0đ",
-    sectionTitle: "Mọi thứ salon của bạn cần",
-    sectionSubtitle: "Tất cả tính năng dưới đây đều hoàn toàn miễn phí, không giới hạn.",
-    benefits: [
-      { title: "Quản lý lịch hẹn miễn phí", body: "Tạo trang salon, nhận đặt lịch online và quản lý toàn bộ cuộc hẹn — hoàn toàn miễn phí, không mất bất kỳ khoản phí nào." },
-      { title: "Tự động nhắc lịch hẹn", body: "Khách hàng và nhân viên đều được nhắc lịch hẹn tự động, không còn lo sót lịch hay khách quên đến." },
-      { title: "Nhúng lịch hẹn ở bất cứ đâu", body: "Gắn lịch đặt hẹn ngay trên website của bạn, hoặc cho khách đặt lịch trực tiếp trên Facebook, Instagram và Google Maps." },
-      { title: "Tự động xin đánh giá", body: "Sau mỗi lịch hẹn, hệ thống tự động gửi lời mời đánh giá đến khách hàng, giúp bạn xây dựng uy tín nhanh hơn." },
-      { title: "Thẻ quà tặng giữ chân khách", body: "Tạo thẻ quà tặng để khuyến khích khách hàng quay lại salon của bạn nhiều hơn." },
-      { title: "Quảng bá đến nhiều khách hơn", body: "Salon của bạn xuất hiện trên trang tìm kiếm VaraaAi.Com, tiếp cận thêm khách hàng mới trong khu vực." },
-      { title: "Đa ngôn ngữ", body: "Giao diện hỗ trợ 7 ngôn ngữ: Tiếng Việt, Anh, Phần Lan, Ba Lan, Đức, Khmer và Thái." },
-      { title: "Không giới hạn nhân viên & lượt đặt", body: "Thêm bao nhiêu nhân viên tùy thích, nhận không giới hạn số lượt đặt lịch mỗi tháng." },
-      { title: "Website salon cao cấp", body: "Sở hữu ngay một website đặt lịch hẹn đẹp, chuyên nghiệp cho salon — hoàn toàn miễn phí, không cần biết thiết kế web." },
-      { title: "Công cụ email marketing miễn phí", body: "Soạn và gửi email mời khách hàng cũ quay lại salon — công cụ giữ chân khách hàng, không tốn phí." },
-      { title: "Chat trực tiếp với khách hàng", body: "Trò chuyện trực tiếp với khách hàng ngay trên nền tảng, trả lời thắc mắc trước và sau khi đặt lịch — hoàn toàn miễn phí." },
-      { title: "Quản lý nhiều chi nhánh", body: "Sở hữu nhiều salon? Quản lý tất cả chi nhánh trong cùng một tài khoản, hoàn toàn miễn phí." },
-    ],
-    todayLabel: "Hôm nay",
-    reminderTitle: "Nhắc lịch hẹn",
-    reminderBody: "Lịch hẹn lúc 14:00 với chị Lan",
-    reviewQuote: "“Đặt lịch cực kỳ dễ, salon nhắn tin nhắc trước cả ngày!”",
-    reviewNote: "Được gửi tự động sau lịch hẹn",
-    giftCardTitle: "Thẻ quà tặng",
-    giftCardBody: "Tặng bạn 200.000₫ tại salon",
-    bookAnywhereLabel: "Nhận đặt lịch từ mọi nơi",
-    stepsTitle: "Bắt đầu chỉ với 3 bước",
-    steps: [
-      { title: "Đăng ký miễn phí", body: "Điền thông tin salon, xác minh email — xong ngay trong vài phút." },
-      { title: "Thêm dịch vụ & nhân viên", body: "Thêm danh sách dịch vụ, giá, thời lượng và đội ngũ nhân viên của bạn." },
-      { title: "Nhận đặt lịch ngay", body: "Chia sẻ trang salon của bạn và bắt đầu nhận đặt lịch từ khách hàng." },
-    ],
-    finalTitle: "Sẵn sàng đưa salon của bạn lên VaraaAi.Com?",
-    finalBody: "Hoàn toàn miễn phí, đa ngôn ngữ, không giới hạn lượt đặt hay số lượng nhân viên.",
-    finalCta: "Đăng ký ngay hôm nay",
-  },
-  en: {
-    badge: "Free forever — no hidden fees",
-    heroTitle: "Run your salon,\ncompletely free",
-    heroSubtitle:
-      "VaraaAi.Com is the booking platform for hair salons, nail bars and spas — customers book online while you manage appointments, staff and customers from anywhere.",
-    ctaPrimary: "Register as a salon owner — free",
-    salonCheckCta: "Or get a free check of how your salon looks online →",
-    trust: ["No credit card needed", "Ready in 5 minutes", "Unlimited bookings"],
-    statLabels: ["Platform fee", "Bookings", "Staff members", "Languages"],
-    statFreeValue: "$0",
-    sectionTitle: "Everything your salon needs",
-    sectionSubtitle: "Every feature below is completely free, with no limits.",
-    benefits: [
-      { title: "Free appointment management", body: "Create your salon page, take bookings online and manage every appointment — completely free, no fees ever." },
-      { title: "Automatic appointment reminders", body: "Customers and staff both get automatic reminders, so no one ever misses an appointment again." },
-      { title: "Book from anywhere", body: "Embed your booking calendar on your own website, or let customers book directly from Facebook, Instagram and Google Maps." },
-      { title: "Automatic review requests", body: "After every appointment, the system automatically asks the customer for a review — building your reputation on autopilot." },
-      { title: "Gift cards that bring customers back", body: "Create gift cards to keep customers coming back to your salon again and again." },
-      { title: "Reach more customers", body: "Your salon shows up in VaraaAi.Com search, reaching new customers in your area." },
-      { title: "Multi-language", body: "The interface supports 7 languages: Vietnamese, English, Finnish, Polish, German, Khmer and Thai." },
-      { title: "Unlimited staff & bookings", body: "Add as many staff members as you like and take unlimited bookings every month." },
-      { title: "A premium salon website", body: "Get a beautiful, professional booking website for your salon — completely free, no web design skills needed." },
-      { title: "Free email marketing", body: "Write and send emails inviting past customers back to your salon — a free tool to keep them coming back." },
-      { title: "Live chat with customers", body: "Chat directly with customers right on the platform, answering questions before and after booking — completely free." },
-      { title: "Manage multiple branches", body: "Own more than one salon? Manage every branch under one account, completely free." },
-    ],
-    todayLabel: "Today",
-    reminderTitle: "Reminder",
-    reminderBody: "Appointment at 2:00 PM with Lisa",
-    reviewQuote: "“Booking was so easy, and they reminded me the day before!”",
-    reviewNote: "Sent automatically after the visit",
-    giftCardTitle: "Gift card",
-    giftCardBody: "€20 to spend at the salon",
-    bookAnywhereLabel: "Take bookings from everywhere",
-    stepsTitle: "Get started in 3 steps",
-    steps: [
-      { title: "Sign up for free", body: "Fill in your salon's details and verify your email — done in minutes." },
-      { title: "Add your services & staff", body: "List your services, prices, durations and your team." },
-      { title: "Start taking bookings", body: "Share your salon page and start receiving bookings from customers." },
-    ],
-    finalTitle: "Ready to bring your salon to VaraaAi.Com?",
-    finalBody: "Completely free, multi-language, with no limits on bookings or staff.",
-    finalCta: "Register today",
-  },
-  fi: {
-    badge: "Ilmainen ikuisesti — ei piilokuluja",
-    heroTitle: "Pyöritä salonkiasi\ntäysin ilmaiseksi",
-    heroSubtitle:
-      "VaraaAi.Com on ajanvarausalusta kampaamoille, kynsistudioille ja kauneushoitoloille — asiakkaat varaavat ajan verkossa, kun sinä hoidat ajanvaraukset, henkilökunnan ja asiakkaat mistä tahansa.",
-    ctaPrimary: "Rekisteröidy salongin omistajaksi — ilmaiseksi",
-    salonCheckCta: "Tai tarkista ilmaiseksi, miltä salonkisi näyttää verkossa →",
-    trust: ["Ei luottokorttia tarvita", "Käyttövalmis 5 minuutissa", "Rajattomasti varauksia"],
-    statLabels: ["Käyttömaksu", "Varaukset", "Henkilökunta", "Kielet"],
-    statFreeValue: "0 €",
-    sectionTitle: "Kaikki mitä salonkisi tarvitsee",
-    sectionSubtitle: "Jokainen alla oleva ominaisuus on täysin ilmainen, ilman rajoituksia.",
-    benefits: [
-      { title: "Ilmainen ajanvarauksen hallinta", body: "Luo salonkisi sivu, ota vastaan varauksia verkossa ja hallitse jokaista ajanvarausta — täysin ilmaiseksi, aina." },
-      { title: "Automaattiset ajanvarausmuistutukset", body: "Sekä asiakkaat että henkilökunta saavat automaattiset muistutukset, joten kukaan ei enää unohda aikaansa." },
-      { title: "Varaa mistä tahansa", body: "Upota ajanvarauskalenteri omille verkkosivuillesi, tai anna asiakkaiden varata suoraan Facebookista, Instagramista ja Google Mapsista." },
-      { title: "Automaattiset arvostelupyynnöt", body: "Jokaisen käynnin jälkeen järjestelmä pyytää automaattisesti arvostelun asiakkaalta — mainettasi rakennetaan automaattiohjauksella." },
-      { title: "Lahjakortit, jotka tuovat asiakkaat takaisin", body: "Luo lahjakortteja, jotka saavat asiakkaat palaamaan salonkiisi yhä uudelleen." },
-      { title: "Tavoita enemmän asiakkaita", body: "Salonkisi näkyy VaraaAi.Com-haussa, ja tavoitat uusia asiakkaita alueellasi." },
-      { title: "Monikielinen", body: "Käyttöliittymä tukee 7 kieltä: vietnam, englanti, suomi, puola, saksa, khmer ja thai." },
-      { title: "Rajattomasti henkilökuntaa ja varauksia", body: "Lisää niin monta työntekijää kuin haluat ja ota vastaan rajattomasti varauksia joka kuukausi." },
-      { title: "Ammattimaiset salongin kotisivut", body: "Saat kauniit, ammattimaiset ajanvarauskotisivut salongillesi — täysin ilmaiseksi, ei verkkosivujen suunnittelutaitoja tarvita." },
-      { title: "Ilmainen sähköpostimarkkinointi", body: "Kirjoita ja lähetä sähköposteja, jotka kutsuvat aiempia asiakkaita takaisin salonkiisi — ilmainen työkalu asiakassuhteiden ylläpitoon." },
-      { title: "Suora chat asiakkaiden kanssa", body: "Keskustele suoraan asiakkaiden kanssa alustalla, vastaa kysymyksiin ennen ja jälkeen varauksen — ilmaiseksi." },
-      { title: "Hallitse useita toimipisteitä", body: "Omistatko useamman salongin? Hallitse kaikkia toimipisteitä samalla tilillä, täysin ilmaiseksi." },
-    ],
-    todayLabel: "Tänään",
-    reminderTitle: "Muistutus",
-    reminderBody: "Aika klo 14.00, Lisa",
-    reviewQuote: "”Varaaminen oli niin helppoa, ja he muistuttivat minua jo edellisenä päivänä!”",
-    reviewNote: "Lähetetään automaattisesti käynnin jälkeen",
-    giftCardTitle: "Lahjakortti",
-    giftCardBody: "20 € käytettäväksi salongissa",
-    bookAnywhereLabel: "Ota vastaan varauksia mistä tahansa",
-    stepsTitle: "Aloita vain 3 vaiheella",
-    steps: [
-      { title: "Rekisteröidy ilmaiseksi", body: "Täytä salonkisi tiedot ja vahvista sähköpostiosoitteesi — valmista minuuteissa." },
-      { title: "Lisää palvelut ja henkilökunta", body: "Listaa palvelusi, hinnat, kestot ja tiimisi." },
-      { title: "Ala ottaa vastaan varauksia", body: "Jaa salonkisi sivu ja ala vastaanottaa varauksia asiakkailta." },
-    ],
-    finalTitle: "Valmiina tuomaan salonkisi VaraaAi.Comiin?",
-    finalBody: "Täysin ilmainen, monikielinen, ilman rajoja varauksille tai henkilökunnalle.",
-    finalCta: "Rekisteröidy tänään",
-  },
-  pl: {
-    badge: "Bezterminowo za darmo — bez ukrytych opłat",
-    heroTitle: "Prowadź swój salon\ncałkowicie za darmo",
-    heroSubtitle:
-      "VaraaAi.Com to platforma rezerwacji dla salonów fryzjerskich, paznokciowych i spa — klienci rezerwują online, a Ty zarządzasz wizytami, pracownikami i klientami z dowolnego miejsca.",
-    ctaPrimary: "Zarejestruj się jako właściciel salonu — za darmo",
-    salonCheckCta: "Albo sprawdź za darmo, jak Twój salon wygląda w sieci →",
-    trust: ["Karta kredytowa niepotrzebna", "Gotowe w 5 minut", "Nielimitowane rezerwacje"],
-    statLabels: ["Opłata za korzystanie", "Rezerwacje", "Pracownicy", "Języki"],
-    statFreeValue: "0 zł",
-    sectionTitle: "Wszystko, czego potrzebuje Twój salon",
-    sectionSubtitle: "Każda z poniższych funkcji jest całkowicie darmowa, bez żadnych limitów.",
-    benefits: [
-      { title: "Darmowe zarządzanie wizytami", body: "Stwórz stronę swojego salonu, przyjmuj rezerwacje online i zarządzaj każdą wizytą — całkowicie za darmo, bez żadnych opłat." },
-      { title: "Automatyczne przypomnienia o wizytach", body: "Zarówno klienci, jak i pracownicy otrzymują automatyczne przypomnienia, dzięki czemu nikt już nie zapomni o wizycie." },
-      { title: "Rezerwacje z dowolnego miejsca", body: "Umieść kalendarz rezerwacji na swojej stronie internetowej lub pozwól klientom rezerwować bezpośrednio z Facebooka, Instagrama i Google Maps." },
-      { title: "Automatyczne prośby o opinię", body: "Po każdej wizycie system automatycznie prosi klienta o opinię — budując Twoją reputację bez dodatkowego wysiłku." },
-      { title: "Karty podarunkowe, które przyciągają klientów", body: "Twórz karty podarunkowe, aby klienci chętniej wracali do Twojego salonu." },
-      { title: "Docieraj do większej liczby klientów", body: "Twój salon pojawia się w wyszukiwarce VaraaAi.Com, docierając do nowych klientów w Twojej okolicy." },
-      { title: "Wielojęzyczność", body: "Interfejs obsługuje 7 języków: wietnamski, angielski, fiński, polski, niemiecki, khmerski i tajski." },
-      { title: "Bez limitu pracowników i rezerwacji", body: "Dodaj tylu pracowników, ilu chcesz, i przyjmuj nieograniczoną liczbę rezerwacji każdego miesiąca." },
-      { title: "Profesjonalna strona salonu", body: "Zyskaj piękną, profesjonalną stronę z rezerwacją dla swojego salonu — całkowicie za darmo, bez umiejętności projektowania stron." },
-      { title: "Darmowy e-mail marketing", body: "Twórz i wysyłaj e-maile zapraszające dawnych klientów z powrotem do salonu — darmowe narzędzie, które ich zatrzyma." },
-      { title: "Czat na żywo z klientami", body: "Rozmawiaj bezpośrednio z klientami na platformie, odpowiadając na pytania przed i po rezerwacji — za darmo." },
-      { title: "Zarządzaj wieloma oddziałami", body: "Masz więcej niż jeden salon? Zarządzaj wszystkimi oddziałami z jednego konta, całkowicie za darmo." },
-    ],
-    todayLabel: "Dzisiaj",
-    reminderTitle: "Przypomnienie",
-    reminderBody: "Wizyta o 14:00 z Lisą",
-    reviewQuote: "„Rezerwacja była tak prosta, a przypomnieli mi dzień wcześniej!”",
-    reviewNote: "Wysyłane automatycznie po wizycie",
-    giftCardTitle: "Karta podarunkowa",
-    giftCardBody: "20 € do wykorzystania w salonie",
-    bookAnywhereLabel: "Przyjmuj rezerwacje z dowolnego miejsca",
-    stepsTitle: "Zacznij w 3 krokach",
-    steps: [
-      { title: "Zarejestruj się za darmo", body: "Wypełnij dane swojego salonu i potwierdź adres e-mail — gotowe w kilka minut." },
-      { title: "Dodaj usługi i pracowników", body: "Wypisz swoje usługi, ceny, czas trwania i swój zespół." },
-      { title: "Zacznij przyjmować rezerwacje", body: "Udostępnij stronę swojego salonu i zacznij otrzymywać rezerwacje od klientów." },
-    ],
-    finalTitle: "Gotowy, by przenieść swój salon do VaraaAi.Com?",
-    finalBody: "Całkowicie za darmo, wielojęzyczne, bez limitu rezerwacji ani pracowników.",
-    finalCta: "Zarejestruj się dziś",
-  },
-  de: {
-    badge: "Für immer kostenlos — keine versteckten Gebühren",
-    heroTitle: "Führe deinen Salon\nkomplett kostenlos",
-    heroSubtitle:
-      "VaraaAi.Com ist die Buchungsplattform für Friseursalons, Nagelstudios und Spas — Kunden buchen online, während du Termine, Mitarbeiter und Kunden von überall aus verwaltest.",
-    ctaPrimary: "Als Salonbesitzer registrieren — kostenlos",
-    salonCheckCta: "Oder prüfe kostenlos, wie dein Salon online wirkt →",
-    trust: ["Keine Kreditkarte nötig", "In 5 Minuten startklar", "Unbegrenzte Buchungen"],
-    statLabels: ["Nutzungsgebühr", "Buchungen", "Mitarbeiter", "Sprachen"],
-    statFreeValue: "0 €",
-    sectionTitle: "Alles, was dein Salon braucht",
-    sectionSubtitle: "Jede Funktion unten ist komplett kostenlos, ohne Einschränkungen.",
-    benefits: [
-      { title: "Kostenlose Terminverwaltung", body: "Erstelle deine Salonseite, nimm Buchungen online entgegen und verwalte jeden Termin — komplett kostenlos, für immer." },
-      { title: "Automatische Terminerinnerungen", body: "Kunden und Mitarbeiter erhalten beide automatische Erinnerungen, sodass niemand mehr einen Termin verpasst." },
-      { title: "Buchungen von überall", body: "Binde deinen Buchungskalender auf deiner eigenen Website ein oder lass Kunden direkt über Facebook, Instagram und Google Maps buchen." },
-      { title: "Automatische Bewertungsanfragen", body: "Nach jedem Termin bittet das System den Kunden automatisch um eine Bewertung — dein Ruf wächst wie von selbst." },
-      { title: "Gutscheine, die Kunden zurückbringen", body: "Erstelle Gutscheine, damit Kunden immer wieder in deinen Salon zurückkommen." },
-      { title: "Erreiche mehr Kunden", body: "Dein Salon erscheint in der VaraaAi.Com-Suche und erreicht neue Kunden in deiner Umgebung." },
-      { title: "Mehrsprachig", body: "Die Oberfläche unterstützt 7 Sprachen: Vietnamesisch, Englisch, Finnisch, Polnisch, Deutsch, Khmer und Thai." },
-      { title: "Unbegrenzt Mitarbeiter & Buchungen", body: "Füge so viele Mitarbeiter hinzu, wie du möchtest, und nimm jeden Monat unbegrenzt viele Buchungen entgegen." },
-      { title: "Eine erstklassige Salon-Website", body: "Erhalte eine schöne, professionelle Buchungswebsite für deinen Salon — komplett kostenlos, ohne Webdesign-Kenntnisse." },
-      { title: "Kostenloses E-Mail-Marketing", body: "Verfasse und versende E-Mails, die frühere Kunden zurück in deinen Salon einladen — ein kostenloses Tool, das sie bindet." },
-      { title: "Live-Chat mit Kunden", body: "Chatte direkt mit Kunden auf der Plattform und beantworte Fragen vor und nach der Buchung — kostenlos." },
-      { title: "Mehrere Filialen verwalten", body: "Besitzt du mehr als einen Salon? Verwalte alle Filialen mit einem einzigen Konto, komplett kostenlos." },
-    ],
-    todayLabel: "Heute",
-    reminderTitle: "Erinnerung",
-    reminderBody: "Termin um 14:00 Uhr mit Lisa",
-    reviewQuote: "„Die Buchung war so einfach, und sie haben mich schon am Tag davor erinnert!“",
-    reviewNote: "Wird automatisch nach dem Besuch gesendet",
-    giftCardTitle: "Gutschein",
-    giftCardBody: "20 € zum Einlösen im Salon",
-    bookAnywhereLabel: "Buchungen von überall entgegennehmen",
-    stepsTitle: "In 3 Schritten starten",
-    steps: [
-      { title: "Kostenlos registrieren", body: "Trage die Daten deines Salons ein und bestätige deine E-Mail — in wenigen Minuten erledigt." },
-      { title: "Leistungen & Mitarbeiter hinzufügen", body: "Liste deine Leistungen, Preise, Dauer und dein Team auf." },
-      { title: "Buchungen entgegennehmen", body: "Teile deine Salonseite und empfange ab sofort Buchungen von Kunden." },
-    ],
-    finalTitle: "Bereit, deinen Salon zu VaraaAi.Com zu bringen?",
-    finalBody: "Komplett kostenlos, mehrsprachig, ohne Limit bei Buchungen oder Mitarbeitern.",
-    finalCta: "Heute registrieren",
-  },
-  km: {
-    badge: "ឥតគិតថ្លៃជារៀងរហូត — គ្មានថ្លៃសេវាលាក់",
-    heroTitle: "គ្រប់គ្រងសាឡុងរបស់អ្នក\nដោយឥតគិតថ្លៃទាំងស្រុង",
-    heroSubtitle:
-      "VaraaAi.Com គឺជាវេទិកាកក់ការណាត់ជួបសម្រាប់សាឡុងកាត់សក់ ហាងគ្រូ និងស្ប៉ា — អតិថិជនកក់តាមអនឡាញ ខណៈអ្នកគ្រប់គ្រងការណាត់ជួប បុគ្គលិក និងអតិថិជនរបស់អ្នកគ្រប់ទីកន្លែង។",
-    ctaPrimary: "ចុះឈ្មោះជាម្ចាស់សាឡុង — ឥតគិតថ្លៃ",
-    salonCheckCta: "ឬពិនិត្យមើលឥតគិតថ្លៃថាសាឡុងរបស់អ្នកបង្ហាញបែបណានៅលើអ៊ីនធឺណិត →",
-    trust: ["មិនចាំបាច់ប្រើប័ណ្ណឥណទាន", "ត្រៀមរួចក្នុងរយៈពេល ៥ នាទី", "កក់បានគ្មានដែនកំណត់"],
-    statLabels: ["ថ្លៃប្រើប្រាស់", "ការកក់", "បុគ្គលិក", "ភាសា"],
-    statFreeValue: "០ ៛",
-    sectionTitle: "អ្វីៗគ្រប់យ៉ាងដែលសាឡុងរបស់អ្នកត្រូវការ",
-    sectionSubtitle: "មុខងារខាងក្រោមទាំងអស់ឥតគិតថ្លៃទាំងស្រុង និងគ្មានដែនកំណត់។",
-    benefits: [
-      { title: "ការគ្រប់គ្រងការណាត់ជួបឥតគិតថ្លៃ", body: "បង្កើតទំព័រសាឡុងរបស់អ្នក ទទួលការកក់តាមអនឡាញ និងគ្រប់គ្រងរាល់ការណាត់ជួប — ឥតគិតថ្លៃទាំងស្រុង គ្មានកាលកំណត់។" },
-      { title: "ការរំលឹកការណាត់ជួបដោយស្វ័យប្រវត្តិ", body: "ទាំងអតិថិជននិងបុគ្គលិកទទួលបានការរំលឹកដោយស្វ័យប្រវត្តិ ដូច្នេះគ្មាននរណាម្នាក់ភ្លេចការណាត់ជួបទៀតឡើយ។" },
-      { title: "កក់បានពីគ្រប់ទីកន្លែង", body: "បញ្ចូលប្រតិទិនកក់លើគេហទំព័ររបស់អ្នកផ្ទាល់ ឬអនុញ្ញាតឱ្យអតិថិជនកក់ដោយផ្ទាល់តាម Facebook, Instagram និង Google Maps។" },
-      { title: "សំណើសុំការវាយតម្លៃដោយស្វ័យប្រវត្តិ", body: "បន្ទាប់ពីរាល់ការណាត់ជួប ប្រព័ន្ធនឹងស្នើសុំការវាយតម្លៃពីអតិថិជនដោយស្វ័យប្រវត្តិ — ជួយកសាងកេរ្តិ៍ឈ្មោះរបស់អ្នកដោយស្វ័យប្រវត្តិ។" },
-      { title: "កាតអំណោយដែលនាំអតិថិជនត្រឡប់មកវិញ", body: "បង្កើតកាតអំណោយ ដើម្បីលើកទឹកចិត្តអតិថិជនឱ្យត្រឡប់មកសាឡុងរបស់អ្នកជាថ្មីម្តងទៀត។" },
-      { title: "ទាក់ទាញអតិថិជនកាន់តែច្រើន", body: "សាឡុងរបស់អ្នកនឹងបង្ហាញនៅលើការស្វែងរករបស់ VaraaAi.Com ជួយទាក់ទាញអតិថិជនថ្មីនៅក្នុងតំបន់របស់អ្នក។" },
-      { title: "ពហុភាសា", body: "ចំណុចប្រទាក់គាំទ្រ ៧ ភាសា៖ វៀតណាម អង់គ្លេស ហ្វាំង ប៉ូឡូញ អាល្លឺម៉ង់ ខ្មែរ និងថៃ។" },
-      { title: "គ្មានដែនកំណត់សម្រាប់បុគ្គលិក និងការកក់", body: "បន្ថែមបុគ្គលិកប៉ុន្មានតាមតែអ្នកចង់បាន ហើយទទួលការកក់គ្មានដែនកំណត់រៀងរាល់ខែ។" },
-      { title: "គេហទំព័រសាឡុងកម្រិតខ្ពស់", body: "ទទួលបានគេហទំព័រកក់ការណាត់ជួបដ៏ស្រស់ស្អាត និងវិជ្ជាជីវៈសម្រាប់សាឡុងរបស់អ្នក — ឥតគិតថ្លៃទាំងស្រុង មិនចាំបាច់ចេះរចនាគេហទំព័រឡើយ។" },
-      { title: "ឧបករណ៍ទីផ្សារអ៊ីមែលឥតគិតថ្លៃ", body: "សរសេរ និងផ្ញើអ៊ីមែលអញ្ជើញអតិថិជនចាស់ឱ្យត្រឡប់មកសាឡុងរបស់អ្នកវិញ — ឧបករណ៍ឥតគិតថ្លៃដើម្បីរក្សាអតិថិជន។" },
-      { title: "ជជែកផ្ទាល់ជាមួយអតិថិជន", body: "ជជែកដោយផ្ទាល់ជាមួយអតិថិជននៅលើវេទិកា ឆ្លើយសំណួរមុន និងក្រោយការកក់ — ឥតគិតថ្លៃ។" },
-      { title: "គ្រប់គ្រងច្រើនសាខា", body: "មានសាឡុងច្រើនជាងមួយមែនទេ? គ្រប់គ្រងគ្រប់សាខាទាំងអស់ក្នុងគណនីតែមួយ ឥតគិតថ្លៃទាំងស្រុង។" },
-    ],
-    todayLabel: "ថ្ងៃនេះ",
-    reminderTitle: "ការរំលឹក",
-    reminderBody: "ការណាត់ជួបម៉ោង ២ រសៀល ជាមួយលីសា",
-    reviewQuote: "«ការកក់ងាយស្រួលណាស់ ហើយពួកគេបានរំលឹកខ្ញុំតាំងពីមួយថ្ងៃមុន!»",
-    reviewNote: "បញ្ជូនដោយស្វ័យប្រវត្តិបន្ទាប់ពីការមកលេង",
-    giftCardTitle: "កាតអំណោយ",
-    giftCardBody: "៨០.០០០ ៛ សម្រាប់ចំណាយនៅសាឡុង",
-    bookAnywhereLabel: "ទទួលការកក់ពីគ្រប់ទីកន្លែង",
-    stepsTitle: "ចាប់ផ្តើមគ្រាន់តែ ៣ ជំហាន",
-    steps: [
-      { title: "ចុះឈ្មោះឥតគិតថ្លៃ", body: "បំពេញព័ត៌មានសាឡុងរបស់អ្នក និងបញ្ជាក់អ៊ីមែល — រួចរាល់ក្នុងរយៈពេលប៉ុន្មាននាទី។" },
-      { title: "បន្ថែមសេវាកម្ម និងបុគ្គលិក", body: "រាយបញ្ជីសេវាកម្ម តម្លៃ រយៈពេល និងក្រុមការងាររបស់អ្នក។" },
-      { title: "ចាប់ផ្តើមទទួលការកក់", body: "ចែករំលែកទំព័រសាឡុងរបស់អ្នក ហើយចាប់ផ្តើមទទួលការកក់ពីអតិថិជន។" },
-    ],
-    finalTitle: "ត្រៀមខ្លួននាំសាឡុងរបស់អ្នកមកកាន់ VaraaAi.Com ហើយឬនៅ?",
-    finalBody: "ឥតគិតថ្លៃទាំងស្រុង ពហុភាសា គ្មានដែនកំណត់ចំពោះការកក់ ឬចំនួនបុគ្គលិក។",
-    finalCta: "ចុះឈ្មោះថ្ងៃនេះ",
-  },
-  th: {
-    badge: "ฟรีตลอดไป — ไม่มีค่าธรรมเนียมแอบแฝง",
-    heroTitle: "บริหารร้านของคุณ\nฟรีทั้งหมด",
-    heroSubtitle:
-      "VaraaAi.Com คือแพลตฟอร์มจองคิวสำหรับร้านทำผม ร้านทำเล็บ และสปา — ลูกค้าจองออนไลน์ ในขณะที่คุณจัดการนัดหมาย พนักงาน และลูกค้าได้จากทุกที่",
-    ctaPrimary: "ลงทะเบียนเป็นเจ้าของร้าน — ฟรี",
-    salonCheckCta: "หรือตรวจสอบฟรีว่าร้านของคุณดูเป็นอย่างไรบนโลกออนไลน์ →",
-    trust: ["ไม่ต้องใช้บัตรเครดิต", "พร้อมใช้งานใน 5 นาที", "จองได้ไม่จำกัด"],
-    statLabels: ["ค่าใช้บริการ", "การจอง", "พนักงาน", "ภาษา"],
-    statFreeValue: "0 ฿",
-    sectionTitle: "ทุกสิ่งที่ร้านของคุณต้องการ",
-    sectionSubtitle: "ทุกฟีเจอร์ด้านล่างนี้ฟรีทั้งหมด ไม่มีข้อจำกัด",
-    benefits: [
-      { title: "จัดการนัดหมายฟรี", body: "สร้างหน้าร้านของคุณ รับการจองออนไลน์ และจัดการทุกนัดหมาย — ฟรีทั้งหมด ไม่มีค่าใช้จ่ายตลอดไป" },
-      { title: "แจ้งเตือนนัดหมายอัตโนมัติ", body: "ทั้งลูกค้าและพนักงานจะได้รับการแจ้งเตือนอัตโนมัติ จึงไม่มีใครพลาดนัดอีกต่อไป" },
-      { title: "รับจองจากทุกที่", body: "ฝังปฏิทินการจองไว้บนเว็บไซต์ของคุณเอง หรือให้ลูกค้าจองโดยตรงผ่าน Facebook, Instagram และ Google Maps" },
-      { title: "ขอรีวิวอัตโนมัติ", body: "หลังจากทุกนัดหมาย ระบบจะขอรีวิวจากลูกค้าโดยอัตโนมัติ — สร้างชื่อเสียงให้คุณแบบอัตโนมัติ" },
-      { title: "บัตรของขวัญที่ดึงลูกค้ากลับมา", body: "สร้างบัตรของขวัญเพื่อดึงดูดให้ลูกค้ากลับมาที่ร้านของคุณอีกครั้ง" },
-      { title: "เข้าถึงลูกค้าได้มากขึ้น", body: "ร้านของคุณจะปรากฏในการค้นหาของ VaraaAi.Com เข้าถึงลูกค้าใหม่ในพื้นที่ของคุณ" },
-      { title: "รองรับหลายภาษา", body: "อินเทอร์เฟซรองรับ 7 ภาษา ได้แก่ เวียดนาม อังกฤษ ฟินแลนด์ โปแลนด์ เยอรมัน เขมร และไทย" },
-      { title: "ไม่จำกัดพนักงานและการจอง", body: "เพิ่มพนักงานได้มากเท่าที่ต้องการ และรับการจองได้ไม่จำกัดทุกเดือน" },
-      { title: "เว็บไซต์ร้านระดับพรีเมียม", body: "รับเว็บไซต์จองคิวที่สวยงามและดูเป็นมืออาชีพสำหรับร้านของคุณ — ฟรีทั้งหมด ไม่ต้องมีทักษะออกแบบเว็บ" },
-      { title: "เครื่องมือการตลาดผ่านอีเมลฟรี", body: "เขียนและส่งอีเมลเชิญลูกค้าเก่าให้กลับมาที่ร้านของคุณอีกครั้ง — เครื่องมือฟรีที่ช่วยรักษาลูกค้า" },
-      { title: "แชทสดกับลูกค้า", body: "พูดคุยกับลูกค้าโดยตรงบนแพลตฟอร์ม ตอบคำถามทั้งก่อนและหลังการจอง — ฟรี" },
-      { title: "จัดการหลายสาขา", body: "มีร้านมากกว่าหนึ่งแห่งใช่ไหม? จัดการทุกสาขาในบัญชีเดียว ฟรีทั้งหมด" },
-    ],
-    todayLabel: "วันนี้",
-    reminderTitle: "การแจ้งเตือน",
-    reminderBody: "นัดหมายเวลา 14:00 น. กับลิซ่า",
-    reviewQuote: "“จองง่ายมาก แถมร้านยังส่งข้อความเตือนล่วงหน้าหนึ่งวัน!”",
-    reviewNote: "ส่งอัตโนมัติหลังจากใช้บริการ",
-    giftCardTitle: "บัตรของขวัญ",
-    giftCardBody: "700 ฿ ใช้จ่ายที่ร้าน",
-    bookAnywhereLabel: "รับการจองจากทุกช่องทาง",
-    stepsTitle: "เริ่มต้นง่ายๆ เพียง 3 ขั้นตอน",
-    steps: [
-      { title: "ลงทะเบียนฟรี", body: "กรอกข้อมูลร้านของคุณและยืนยันอีเมล — เสร็จภายในไม่กี่นาที" },
-      { title: "เพิ่มบริการและพนักงาน", body: "ระบุบริการ ราคา ระยะเวลา และทีมงานของคุณ" },
-      { title: "เริ่มรับการจอง", body: "แชร์หน้าร้านของคุณและเริ่มรับการจองจากลูกค้า" },
-    ],
-    finalTitle: "พร้อมนำร้านของคุณเข้าสู่ VaraaAi.Com หรือยัง?",
-    finalBody: "ฟรีทั้งหมด รองรับหลายภาษา ไม่จำกัดการจองหรือจำนวนพนักงาน",
-    finalCta: "ลงทะเบียนวันนี้",
-  },
-};
+// Icons for each feature group's 6 features, in the order of the copy.
+const GROUP_ICONS = [
+  [CalendarDays, LayoutTemplate, Globe, MapPin, Bot, Newspaper],
+  [CalendarDays, BellRing, UserCog, Receipt, Building2, BarChart3],
+  [QrCode, Gift, Mail, Star, ShoppingBag, Handshake],
+];
+const GROUP_ACCENTS = [
+  { chip: "bg-primary-100 text-primary-700", icon: "bg-primary-50 text-primary-600", glow: "from-primary-200/60" },
+  { chip: "bg-teal-50 text-teal-600", icon: "bg-teal-50 text-teal-500", glow: "from-teal-100/80" },
+  { chip: "bg-coral-50 text-coral-600", icon: "bg-coral-50 text-coral-500", glow: "from-peach-200/70" },
+];
+const TOOL_META = [
+  { icon: FileText, href: "/tools/price-list", cls: "from-primary-500 to-primary-700" },
+  { icon: QrCode, href: "/tools/qr-poster", cls: "from-coral-400 to-berry-500" },
+  { icon: ScanSearch, href: "/salon-check", cls: "from-teal-400 to-teal-600" },
+];
 
-export default async function BusinessLandingPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
+/** The pitch to salon owners: what VaraaAi does for them, free tools to try
+ * right away, answers to the usual questions, and a support chat (AI first,
+ * a person on request) for anything else before they sign up. */
+export default async function BusinessLandingPage({ params }: { params: Params }) {
   const { locale } = await params;
-  const t = LANDING_STRINGS[locale] ?? LANDING_STRINGS.en;
-  const benefits = BENEFIT_META.map((meta, i) => ({ ...meta, ...t.benefits[i] }));
+  const t = businessLandingStrings(locale);
+  const center = supportCenterStrings(locale);
 
   return (
-    <div>
+    <div className="overflow-x-clip">
       <Suspense fallback={null}>
         <PlatformAffiliateCookieSetter />
       </Suspense>
+
       {/* Hero */}
-      <section className="bg-peach-100">
-        <div className="container flex flex-col items-center gap-6 py-16 text-center sm:py-24">
-          <span className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-primary-600 shadow-card">
-            {t.badge}
-          </span>
-          <h1 className="max-w-2xl whitespace-pre-line text-4xl font-extrabold leading-[1.1] tracking-tight text-ink-900 sm:text-6xl">
-            {t.heroTitle}
-          </h1>
-          <p className="max-w-xl text-base text-ink-700 sm:text-lg">{t.heroSubtitle}</p>
-          <div className="flex flex-col items-center gap-3">
-            <OfferCountdown locale={locale} />
-            <Link href="/business/apply" className="btn-accent !px-8 !py-3.5 text-base">
-              {t.ctaPrimary}
-            </Link>
-            <p className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-ink-400">
-              {t.trust.map((item) => (
-                <span key={item} className="flex items-center gap-1">
-                  <Check className="h-3.5 w-3.5 text-sage-500" />
+      <section className="relative isolate overflow-hidden bg-[#1a1326] text-white">
+        <div className="pointer-events-none absolute -left-40 -top-40 -z-10 h-[32rem] w-[32rem] rounded-full bg-primary-500/40 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-48 right-0 -z-10 h-[30rem] w-[30rem] rounded-full bg-coral-500/25 blur-3xl" />
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_70%_20%,rgba(255,217,201,0.12),transparent_45%)]" />
+        <div className="container grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:py-24">
+          <div className="text-center lg:text-left">
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-peach-200 ring-1 ring-white/15 backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5" />
+              {t.hero.badge}
+            </span>
+            <h1 className="mt-6 font-serif text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+              {t.hero.title}
+              <br />
+              <span className="bg-gradient-to-r from-peach-200 via-coral-400 to-primary-300 bg-clip-text text-transparent">
+                {t.hero.titleAccent}
+              </span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg lg:mx-0">{t.hero.subtitle}</p>
+            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <Link
+                href="/business/apply"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-coral-400 to-coral-500 px-8 py-4 text-base font-bold text-white shadow-[0_12px_32px_-8px_rgba(236,106,71,0.8)] transition-transform hover:scale-[1.02] sm:w-auto"
+              >
+                {t.hero.cta}
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+              <OpenSupportButton className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white/10 px-6 py-4 text-base font-semibold text-white ring-1 ring-white/25 backdrop-blur transition-colors hover:bg-white/15 sm:w-auto">
+                <MessageCircle className="h-5 w-5" />
+                {t.hero.chatCta}
+              </OpenSupportButton>
+            </div>
+            <ul className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-white/70 lg:justify-start">
+              {t.hero.trust.map((item) => (
+                <li key={item} className="flex items-center gap-1.5">
+                  <Check className="h-4 w-4 text-emerald-400" />
                   {item}
-                </span>
+                </li>
               ))}
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
-              <Link href="/salon-check" className="text-sm font-medium text-primary-600 hover:underline">
-                {t.salonCheckCta}
-              </Link>
-              <Link href="/tools/price-list" className="text-sm font-medium text-primary-600 hover:underline">
-                {priceListNavLabel(locale)} →
-              </Link>
-              <Link href="/tools/qr-poster" className="text-sm font-medium text-primary-600 hover:underline">
-                {posterNavLabel(locale)} →
-              </Link>
+            </ul>
+            <div className="mt-6 flex justify-center lg:justify-start">
+              <OfferCountdown locale={locale} compact />
             </div>
           </div>
+
+          <HeroVisual t={t} />
         </div>
       </section>
 
-      {/* Stats strip */}
+      {/* Audience + stats */}
       <section className="border-b border-ink-100 bg-white">
-        <div className="container grid grid-cols-2 gap-6 py-10 text-center sm:grid-cols-4">
-          {[
-            { value: t.statFreeValue, label: t.statLabels[0] },
-            { value: "∞", label: t.statLabels[1] },
-            { value: "∞", label: t.statLabels[2] },
-            { value: "7", label: t.statLabels[3] },
-          ].map((s) => (
-            <div key={s.label}>
-              <p className="text-3xl font-extrabold text-ink-900 sm:text-4xl">{s.value}</p>
-              <p className="mt-1 text-xs text-ink-400 sm:text-sm">{s.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Benefits grid */}
-      <section className="container py-16">
-        <div className="mx-auto mb-10 max-w-xl text-center">
-          <h2 className="text-2xl font-bold text-ink-900 sm:text-3xl">{t.sectionTitle}</h2>
-          <p className="mt-2 text-sm text-ink-400">{t.sectionSubtitle}</p>
-        </div>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b) => (
-            <div key={b.title} className="card p-5">
-              <div className={`mb-3 flex h-10 w-10 items-center justify-center rounded-xl ${b.color}`}>
-                <b.icon className="h-5 w-5 text-white" />
-              </div>
-              <h3 className="mb-1.5 font-semibold text-ink-900">{b.title}</h3>
-              <p className="text-sm text-ink-400">{b.body}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Illustrative showcase */}
-      <section className="bg-mist-50 py-16">
-        <div className="container grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
-          {/* Mock calendar + reminder toast */}
-          <div className="relative mx-auto w-full max-w-md">
-            <div className="card p-4">
-              <div className="mb-3 flex items-center gap-2">
-                {[
-                  { label: "L", color: "bg-primary-500" },
-                  { label: "H", color: "bg-teal-500" },
-                  { label: "R", color: "bg-coral-500" },
-                ].map((s) => (
-                  <span
-                    key={s.label}
-                    className={`flex h-7 w-7 items-center justify-center rounded-full text-xs font-bold text-white ${s.color}`}
-                  >
-                    {s.label}
-                  </span>
-                ))}
-                <span className="ml-auto text-xs text-ink-400">{t.todayLabel}</span>
-              </div>
-              <div className="grid grid-cols-3 gap-2">
-                <div className="space-y-2">
-                  <div className="h-10 rounded-lg border-l-4 border-primary-500 bg-primary-50" />
-                  <div className="h-14 rounded-lg border-l-4 border-primary-500 bg-primary-50" />
-                </div>
-                <div className="space-y-2 pt-6">
-                  <div className="h-14 rounded-lg border-l-4 border-teal-400 bg-teal-50" />
-                  <div className="h-8 rounded-lg border-l-4 border-teal-400 bg-teal-50" />
-                </div>
-                <div className="space-y-2 pt-3">
-                  <div className="h-8 rounded-lg border-l-4 border-coral-400 bg-coral-100" />
-                  <div className="h-16 rounded-lg border-l-4 border-coral-400 bg-coral-100" />
-                </div>
-              </div>
-            </div>
-            <div className="animate-slide-up absolute -right-4 -top-6 flex max-w-[13rem] items-start gap-2 rounded-2xl bg-white p-3 text-left shadow-popover sm:-right-8">
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-berry-50 text-berry-500">
-                <BellRing className="h-4 w-4" />
+        <div className="container py-10">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-ink-400">{t.audienceLabel}</p>
+          <div className="mt-4 flex flex-wrap justify-center gap-2">
+            {t.audience.map((a) => (
+              <span key={a} className="rounded-full bg-mist-50 px-4 py-1.5 text-sm font-medium text-ink-700 ring-1 ring-ink-100">
+                {a}
               </span>
-              <p className="text-xs text-ink-700">
-                <span className="font-semibold text-ink-900">{t.reminderTitle}</span>
-                <br />
-                {t.reminderBody}
-              </p>
-            </div>
+            ))}
+          </div>
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {t.stats.map((s) => (
+              <div key={s.label} className="rounded-2xl bg-gradient-to-br from-primary-50 to-peach-50 p-5 text-center">
+                <p className="font-serif text-3xl font-bold text-primary-700 sm:text-4xl">{s.value}</p>
+                <p className="mt-1 text-xs font-medium text-ink-700 sm:text-sm">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Feature groups */}
+      <section className="bg-mist-50/60 py-16 sm:py-24">
+        <div className="container">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-serif text-3xl font-bold text-ink-900 sm:text-4xl">{t.featuresTitle}</h2>
+            <p className="mt-3 text-ink-400">{t.featuresSubtitle}</p>
           </div>
 
-          {/* Mock review + gift card */}
-          <div className="space-y-4">
-            <div className="card flex items-start gap-3 p-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-coral-50 text-lg font-bold text-coral-500">
-                M
-              </span>
-              <div>
-                <div className="flex gap-0.5">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-coral-500 text-coral-500" />
-                  ))}
+          <div className="mt-14 space-y-20 sm:space-y-28">
+            {t.groups.map((g, gi) => {
+              const accent = GROUP_ACCENTS[gi];
+              return (
+                <div key={g.title} className="grid min-w-0 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+                  <div className={`min-w-0 ${gi % 2 ? "lg:order-2" : ""}`}>
+                    <span className={`inline-block rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider ${accent.chip}`}>
+                      {g.eyebrow}
+                    </span>
+                    <h3 className="mt-4 font-serif text-2xl font-bold leading-tight text-ink-900 sm:text-3xl">{g.title}</h3>
+                    <p className="mt-3 text-ink-700">{g.body}</p>
+                    <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      {g.features.map((f, fi) => {
+                        const Icon = GROUP_ICONS[gi][fi];
+                        return (
+                          <div key={f.title} className="flex gap-3 rounded-2xl bg-white p-4 shadow-card ring-1 ring-ink-100/60">
+                            <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${accent.icon}`}>
+                              <Icon className="h-5 w-5" />
+                            </span>
+                            <div className="min-w-0">
+                              <p className="text-sm font-bold text-ink-900">{f.title}</p>
+                              <p className="mt-0.5 text-xs leading-relaxed text-ink-400">{f.body}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                  <div className={`relative min-w-0 ${gi % 2 ? "lg:order-1" : ""}`}>
+                    <div className={`pointer-events-none absolute inset-6 -z-0 rounded-[3rem] bg-gradient-to-br ${accent.glow} to-transparent blur-2xl`} />
+                    <div className="relative">
+                      {gi === 0 && <WebsiteVisual t={t} />}
+                      {gi === 1 && <CalendarVisual t={t} />}
+                      {gi === 2 && <LoyaltyVisual t={t} />}
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-1 text-sm text-ink-700">{t.reviewQuote}</p>
-                <p className="mt-1 text-xs text-ink-400">{t.reviewNote}</p>
-              </div>
-            </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
-            <div className="flex items-center gap-4 rounded-2xl bg-gradient-to-br from-berry-500 to-primary-600 p-4 text-white shadow-card">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/20">
-                <Gift className="h-5 w-5" />
-              </span>
-              <div>
-                <p className="font-semibold">{t.giftCardTitle}</p>
-                <p className="text-sm text-white/80">{t.giftCardBody}</p>
-              </div>
-            </div>
-
-            <div className="card p-4">
-              <p className="mb-3 text-xs font-medium text-ink-400">{t.bookAnywhereLabel}</p>
-              <div className="flex items-center justify-between">
-                {[Facebook, Instagram, MapPin, Globe].map((Icon, i) => (
-                  <span
-                    key={i}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-mist-100 text-ink-700"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </span>
-                ))}
-                <span className="text-ink-100">···</span>
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-900 text-white">
-                  <CalendarDays className="h-4 w-4" />
+      {/* Free tools */}
+      <section className="container py-16 sm:py-24">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-serif text-3xl font-bold text-ink-900 sm:text-4xl">{t.toolsTitle}</h2>
+          <p className="mt-3 text-ink-400">{t.toolsSubtitle}</p>
+        </div>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {t.tools.map((tool, i) => {
+            const meta = TOOL_META[i];
+            return (
+              <Link
+                key={tool.title}
+                href={meta.href}
+                className="group flex flex-col rounded-3xl bg-white p-6 shadow-card ring-1 ring-ink-100 transition-shadow hover:shadow-popover"
+              >
+                <span className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-white ${meta.cls}`}>
+                  <meta.icon className="h-6 w-6" />
                 </span>
+                <p className="mt-5 text-lg font-bold text-ink-900">{tool.title}</p>
+                <p className="mt-2 flex-1 text-sm text-ink-400">{tool.body}</p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-primary-600">
+                  {tool.cta}
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Steps */}
+      <section className="bg-gradient-to-b from-white to-primary-50/50 py-16 sm:py-24">
+        <div className="container">
+          <h2 className="text-center font-serif text-3xl font-bold text-ink-900 sm:text-4xl">{t.stepsTitle}</h2>
+          <div className="relative mt-12 grid gap-8 md:grid-cols-3">
+            <div className="absolute left-[16%] right-[16%] top-7 hidden h-0.5 bg-gradient-to-r from-primary-200 via-coral-200 to-primary-200 md:block" />
+            {t.steps.map((s, i) => (
+              <div key={s.title} className="relative text-center">
+                <span className="relative mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-600 to-primary-800 font-serif text-2xl font-bold text-white shadow-[0_10px_24px_-8px_rgba(64,50,92,0.7)]">
+                  {i + 1}
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-ink-900">{s.title}</h3>
+                <p className="mx-auto mt-2 max-w-xs text-sm text-ink-400">{s.body}</p>
               </div>
-            </div>
+            ))}
+          </div>
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/business/apply"
+              className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-8 py-4 text-base font-bold text-white transition-transform hover:scale-[1.02]"
+            >
+              {t.hero.cta}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="container py-16">
-        <h2 className="mb-10 text-center text-2xl font-bold text-ink-900 sm:text-3xl">
-          {t.stepsTitle}
-        </h2>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-          {t.steps.map((s, i) => (
-            <div key={s.title} className="text-center">
-              <span className="mx-auto mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-ink-900 text-lg font-bold text-white">
-                {i + 1}
+      {/* Support chat */}
+      <section className="container py-16 sm:py-24">
+        <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary-800 via-primary-700 to-primary-500 p-6 text-white sm:p-10 lg:p-14">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-peach-200/20 blur-3xl" />
+          <div className="relative grid items-center gap-10 lg:grid-cols-2">
+            <div>
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="h-3.5 w-3.5" />
+                {t.chat.eyebrow}
               </span>
-              <h3 className="mb-1.5 font-semibold text-ink-900">{s.title}</h3>
-              <p className="text-sm text-ink-400">{s.body}</p>
+              <h2 className="mt-4 font-serif text-3xl font-bold leading-tight sm:text-4xl">{t.chat.title}</h2>
+              <p className="mt-3 text-white/80">{t.chat.body}</p>
+              <ul className="mt-6 space-y-2">
+                {t.chat.points.map((p) => (
+                  <li key={p} className="flex items-center gap-2 text-sm font-medium">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/90">
+                      <Check className="h-3.5 w-3.5 text-primary-900" />
+                    </span>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <OpenSupportButton className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-primary-700 shadow-lg transition-transform hover:scale-[1.02]">
+                <MessageCircle className="h-5 w-5" />
+                {t.chat.open}
+              </OpenSupportButton>
             </div>
+            <ChatPreview t={t} aiName={center.aiName} />
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="container pb-16 sm:pb-24">
+        <h2 className="text-center font-serif text-3xl font-bold text-ink-900 sm:text-4xl">{t.faqTitle}</h2>
+        <div className="mx-auto mt-10 max-w-3xl space-y-3">
+          {t.faq.map((f) => (
+            <details key={f.q} className="group rounded-2xl bg-white p-5 shadow-card ring-1 ring-ink-100 open:ring-primary-200">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <ChevronDown className="h-5 w-5 shrink-0 text-ink-400 transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-ink-700">{f.a}</p>
+            </details>
           ))}
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className="bg-ink-900">
-        <div className="container flex flex-col items-center gap-4 py-16 text-center">
-          <InfinityIcon className="h-8 w-8 text-primary-300" />
-          <h2 className="text-2xl font-bold text-white sm:text-3xl">{t.finalTitle}</h2>
-          <p className="max-w-md text-sm text-ink-100">{t.finalBody}</p>
+      <section className="relative isolate overflow-hidden bg-[#1a1326] text-white">
+        <div className="pointer-events-none absolute left-1/2 top-0 -z-10 h-80 w-[40rem] -translate-x-1/2 rounded-full bg-primary-500/30 blur-3xl" />
+        <div className="container flex flex-col items-center gap-5 py-16 text-center sm:py-24">
+          <Heart className="h-9 w-9 text-coral-400" />
+          <h2 className="max-w-2xl font-serif text-3xl font-bold leading-tight sm:text-5xl">{t.final.title}</h2>
+          <p className="max-w-lg text-white/75">{t.final.body}</p>
           <OfferCountdown locale={locale} compact />
-          <Link href="/business/apply" className="btn-accent mt-2 !px-8 !py-3.5 text-base">
-            {t.finalCta}
-          </Link>
+          <div className="mt-2 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
+            <Link
+              href="/business/apply"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-coral-400 to-coral-500 px-8 py-4 text-base font-bold text-white shadow-[0_12px_32px_-8px_rgba(236,106,71,0.8)] transition-transform hover:scale-[1.02] sm:w-auto"
+            >
+              {t.final.cta}
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+            <OpenSupportButton className="inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white ring-1 ring-white/25 hover:bg-white/10 sm:w-auto">
+              <MessageCircle className="h-5 w-5" />
+              {t.final.chat}
+            </OpenSupportButton>
+          </div>
         </div>
       </section>
+
+      <SupportLauncher
+        locale={locale}
+        center={center}
+        suggestions={t.chat.suggestions}
+        labels={{
+          launcher: t.chat.launcher,
+          teaser: t.chat.teaser,
+          headerTitle: t.chat.headerTitle,
+          aiOnline: t.chat.aiOnline,
+          teamReplies: t.chat.teamReplies,
+        }}
+      />
+    </div>
+  );
+}
+
+/* ---------- illustrations (decorative, built from the page's own copy) ---------- */
+
+function HeroVisual({ t }: { t: BusinessLandingStrings }) {
+  const prices = ["45 €", "79 €", "65 €"];
+  return (
+    <div className="relative mx-auto w-full max-w-[22rem] lg:max-w-[24rem]" aria-hidden>
+      <div className="relative rounded-[2.75rem] bg-gradient-to-b from-white/25 to-white/5 p-2.5 shadow-[0_40px_80px_-24px_rgba(0,0,0,0.6)] ring-1 ring-white/20">
+        <div className="overflow-hidden rounded-[2.25rem] bg-white text-ink-900">
+          <div className="relative h-32 bg-gradient-to-br from-primary-400 via-coral-400 to-peach-200">
+            <div className="absolute inset-x-0 top-3 mx-auto h-1.5 w-16 rounded-full bg-black/20" />
+          </div>
+          <div className="relative z-10 -mt-9 px-5 pb-5">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white font-serif text-2xl font-bold text-primary-600 shadow-card ring-4 ring-white">
+              L
+            </div>
+            <p className="mt-3 font-serif text-lg font-bold">{t.mock.salon}</p>
+            <p className="flex items-center gap-1 text-xs text-ink-400">
+              <MapPin className="h-3 w-3" /> {t.mock.city}
+              <span className="ml-2 flex items-center gap-0.5 text-amber-500">
+                <Star className="h-3 w-3 fill-current" /> 4.9
+              </span>
+            </p>
+            <div className="mt-4 space-y-2">
+              {t.mock.services.map((s, i) => (
+                <div key={s} className="flex items-center justify-between rounded-xl bg-mist-50 px-3 py-2.5">
+                  <div>
+                    <p className="text-xs font-semibold">{s}</p>
+                    <p className="text-[10px] text-ink-400">{[45, 90, 60][i]} min</p>
+                  </div>
+                  <span className="rounded-full bg-primary-500 px-2.5 py-1 text-[10px] font-bold text-white">{prices[i]}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 rounded-full bg-ink-900 py-2.5 text-center text-xs font-bold text-white">{t.mock.book}</div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute -left-6 top-14 hidden w-60 animate-slide-up items-start gap-2.5 rounded-2xl bg-white p-3 text-ink-900 shadow-popover sm:flex lg:-left-16">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+          <CalendarDays className="h-[18px] w-[18px]" />
+        </span>
+        <div className="min-w-0">
+          <p className="text-xs font-bold">{t.mock.newBooking}</p>
+          <p className="truncate text-[11px] text-ink-400">{t.mock.newBookingBody}</p>
+        </div>
+      </div>
+
+      <div className="absolute -right-4 top-1/2 hidden w-56 rounded-2xl bg-white p-3 text-ink-900 shadow-popover sm:block lg:-right-12">
+        <div className="flex gap-0.5 text-amber-500">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="h-3.5 w-3.5 fill-current" />
+          ))}
+        </div>
+        <p className="mt-1 text-xs leading-snug">“{t.mock.review}”</p>
+      </div>
+
+      <div className="absolute -bottom-5 left-4 flex items-center gap-2.5 rounded-2xl bg-gradient-to-r from-primary-600 to-primary-800 px-3.5 py-2.5 text-white shadow-popover sm:-left-8">
+        <QrCode className="h-5 w-5 text-peach-200" />
+        <div>
+          <p className="text-xs font-bold">{t.mock.points}</p>
+          <div className="mt-1 flex gap-1">
+            {[1, 1, 1, 0, 0].map((on, i) => (
+              <span key={i} className={`h-2 w-2 rounded-full ${on ? "bg-peach-200" : "bg-white/25"}`} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WebsiteVisual({ t }: { t: BusinessLandingStrings }) {
+  return (
+    <div className="mx-auto max-w-lg" aria-hidden>
+      <div className="overflow-hidden rounded-3xl bg-white shadow-popover ring-1 ring-ink-100">
+        <div className="flex items-center gap-2 border-b border-ink-100 bg-mist-50 px-4 py-2.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-coral-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+          <span className="ml-3 min-w-0 flex-1 truncate rounded-full bg-white px-3 py-1 text-[11px] text-ink-400 ring-1 ring-ink-100">
+            varaaai.com/site/lumi-nails
+          </span>
+        </div>
+        <div className="relative h-40 bg-gradient-to-br from-primary-700 via-primary-500 to-coral-400 p-6 text-white">
+          <p className="font-serif text-2xl font-bold">{t.mock.salon}</p>
+          <p className="text-xs text-white/80">{t.mock.city}</p>
+          <span className="mt-4 inline-block rounded-full bg-white px-4 py-1.5 text-xs font-bold text-primary-700">{t.mock.book}</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2 p-4">
+          {t.mock.services.map((s, i) => (
+            <div key={s} className="rounded-xl bg-mist-50 p-2.5">
+              <div className={`h-12 rounded-lg bg-gradient-to-br ${["from-peach-200 to-coral-400", "from-primary-200 to-primary-500", "from-teal-100 to-teal-400"][i]}`} />
+              <p className="mt-2 truncate text-[11px] font-semibold text-ink-900">{s}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-2">
+        {[
+          { Icon: Facebook, label: "Facebook" },
+          { Icon: Instagram, label: "Instagram" },
+          { Icon: MapPin, label: "Google" },
+          { Icon: Globe, label: "Website" },
+        ].map(({ Icon, label }) => (
+          <span key={label} className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-card ring-1 ring-ink-100">
+            <Icon className="h-3.5 w-3.5 text-primary-500" />
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CalendarVisual({ t }: { t: BusinessLandingStrings }) {
+  const cols = [
+    { name: "Linh", color: "border-primary-500 bg-primary-50", blocks: [{ top: 6, h: 22, s: 0 }, { top: 40, h: 30, s: 1 }] },
+    { name: "Mai", color: "border-teal-400 bg-teal-50", blocks: [{ top: 16, h: 28, s: 2 }, { top: 60, h: 18, s: 0 }] },
+    { name: "Anna", color: "border-coral-400 bg-coral-50", blocks: [{ top: 2, h: 18, s: 0 }, { top: 30, h: 26, s: 1 }] },
+  ];
+  return (
+    <div className="relative mx-auto max-w-lg" aria-hidden>
+      <div className="rounded-3xl bg-white p-5 shadow-popover ring-1 ring-ink-100">
+        <div className="flex items-center justify-between">
+          <p className="font-bold text-ink-900">{t.mock.today}</p>
+          <div className="flex gap-1">
+            {["D", "W", "M"].map((v, i) => (
+              <span key={v} className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${i === 0 ? "bg-ink-900 text-white" : "bg-mist-100 text-ink-400"}`}>
+                {v}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="mt-4 grid grid-cols-[2.25rem_1fr_1fr_1fr] gap-2">
+          <div />
+          {cols.map((c) => (
+            <p key={c.name} className="text-center text-[11px] font-bold text-ink-700">
+              {c.name}
+            </p>
+          ))}
+          <div className="relative h-56 text-[10px] text-ink-400">
+            {["09", "11", "13", "15", "17"].map((h, i) => (
+              <span key={h} className="absolute" style={{ top: `${i * 22}%` }}>
+                {h}:00
+              </span>
+            ))}
+          </div>
+          {cols.map((c) => (
+            <div key={c.name} className="relative h-56 rounded-xl bg-mist-50/70">
+              {c.blocks.map((b, i) => (
+                <div
+                  key={i}
+                  className={`absolute inset-x-1 rounded-lg border-l-4 p-1.5 ${c.color}`}
+                  style={{ top: `${b.top}%`, height: `${b.h}%` }}
+                >
+                  <p className="truncate text-[10px] font-semibold text-ink-900">{t.mock.services[b.s]}</p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute -bottom-6 -right-2 flex max-w-[15rem] items-center gap-2.5 rounded-2xl bg-white p-3 shadow-popover ring-1 ring-ink-100 sm:-right-6">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-teal-500">
+          <BellRing className="h-[18px] w-[18px]" />
+        </span>
+        <p className="text-xs font-semibold text-ink-900">{t.mock.reminder}</p>
+      </div>
+      <div className="absolute -top-8 right-4 flex items-center gap-2 rounded-2xl bg-white px-3 py-2.5 shadow-popover ring-1 ring-ink-100 sm:-right-4">
+        <BarChart3 className="h-[18px] w-[18px] text-primary-500" />
+        <div>
+          <p className="text-[10px] text-ink-400">{t.mock.revenue}</p>
+          <p className="text-sm font-bold text-ink-900">4 280 €</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function LoyaltyVisual({ t }: { t: BusinessLandingStrings }) {
+  return (
+    <div className="relative mx-auto max-w-md pb-10" aria-hidden>
+      <div className="relative z-10 rotate-[-4deg] rounded-3xl bg-gradient-to-br from-primary-800 via-primary-600 to-primary-400 p-6 text-white shadow-popover">
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-peach-200">{t.mock.loyaltyCard}</p>
+          <QrCode className="h-6 w-6 text-white/80" />
+        </div>
+        <p className="mt-6 font-serif text-2xl font-bold">{t.mock.salon}</p>
+        <div className="mt-5 flex gap-2">
+          {[1, 1, 1, 1, 0].map((on, i) => (
+            <span
+              key={i}
+              className={`flex h-9 w-9 items-center justify-center rounded-full ${on ? "bg-peach-200 text-primary-800" : "border-2 border-dashed border-white/40"}`}
+            >
+              {on ? <Check className="h-4 w-4" /> : <Gift className="h-4 w-4 text-white/60" />}
+            </span>
+          ))}
+        </div>
+      </div>
+      <div className="relative -mt-10 ml-auto w-[85%] rotate-[3deg] rounded-3xl bg-gradient-to-br from-[#2a2036] to-[#1a1326] p-6 text-white shadow-popover ring-1 ring-[#c9a96e]/40">
+        <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#e8d3a6]">{t.mock.giftCard}</p>
+        <p className="mt-6 font-serif text-4xl font-bold text-[#e8d3a6]">50 €</p>
+        <p className="mt-1 text-xs text-white/60">{t.mock.salon}</p>
+      </div>
+      <div className="absolute -left-2 bottom-0 z-20 flex max-w-[15rem] items-start gap-2.5 rounded-2xl bg-white p-3 shadow-popover ring-1 ring-ink-100 sm:-left-8">
+        <div className="flex gap-0.5 text-amber-500">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star key={i} className="h-3 w-3 fill-current" />
+          ))}
+        </div>
+        <p className="text-[11px] leading-snug text-ink-700">“{t.mock.review}”</p>
+      </div>
+    </div>
+  );
+}
+
+function ChatPreview({ t, aiName }: { t: BusinessLandingStrings; aiName: string }) {
+  return (
+    <div className="rounded-3xl bg-white p-4 text-ink-900 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.45)] sm:p-5" aria-hidden>
+      <div className="flex items-center gap-2.5 border-b border-ink-100 pb-3">
+        <span className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary-600 to-primary-400 text-white">
+          <Sparkles className="h-4 w-4" />
+          <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-2 ring-white" />
+        </span>
+        <div>
+          <p className="text-sm font-bold">{t.chat.headerTitle}</p>
+          <p className="text-[11px] text-emerald-600">{t.chat.aiOnline}</p>
+        </div>
+      </div>
+      <div className="space-y-3 pt-4">
+        <div className="flex justify-end">
+          <p className="max-w-[80%] rounded-2xl rounded-br-md bg-primary-500 px-3.5 py-2 text-sm text-white">{t.chat.suggestions[0]}</p>
+        </div>
+        <div className="max-w-[88%] rounded-2xl rounded-bl-md bg-gradient-to-br from-primary-50 to-peach-50 px-3.5 py-2.5 text-sm ring-1 ring-primary-100">
+          <p className="mb-1 flex items-center gap-1 text-[11px] font-semibold text-primary-600">
+            <Sparkles className="h-3 w-3" />
+            {aiName}
+          </p>
+          {t.faq[0].a}
+        </div>
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {t.chat.suggestions.slice(1, 3).map((s) => (
+            <span key={s} className="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-[11px] font-medium text-primary-700">
+              {s}
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -13,10 +13,18 @@ export function SupportCenter({
   locale,
   signedIn,
   t,
+  suggestions,
+  heightClass = "h-[min(36rem,75vh)]",
+  compact = false,
 }: {
   locale: string;
   signedIn: boolean;
   t: SupportCenterStrings;
+  /** Overrides the default quick questions. */
+  suggestions?: string[];
+  heightClass?: string;
+  /** Borderless guest form, for use inside a chat panel. */
+  compact?: boolean;
 }) {
   const [started, setStarted] = useState<boolean | null>(signedIn ? true : null);
   const [name, setName] = useState("");
@@ -55,7 +63,7 @@ export function SupportCenter({
 
   if (started === null) {
     return (
-      <div className="flex h-[32rem] items-center justify-center rounded-2xl border border-ink-100 bg-white">
+      <div className={`flex ${heightClass} items-center justify-center rounded-2xl border border-ink-100 bg-white`}>
         <Loader2 className="h-6 w-6 animate-spin text-primary-400" />
       </div>
     );
@@ -63,7 +71,7 @@ export function SupportCenter({
 
   if (!started) {
     return (
-      <form onSubmit={start} className="card mx-auto max-w-md space-y-4 p-6 sm:p-8">
+      <form onSubmit={start} className={compact ? "space-y-4 p-5" : "card mx-auto max-w-md space-y-4 p-6 sm:p-8"}>
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 text-primary-600">
           <MessageCircle className="h-6 w-6" />
         </div>
@@ -107,8 +115,8 @@ export function SupportCenter({
       mine="VISITOR"
       locale={locale}
       linkLocale={locale}
-      heightClass="h-[min(36rem,75vh)]"
-      suggestions={t.suggestions}
+      heightClass={heightClass}
+      suggestions={suggestions ?? t.suggestions}
       labels={{
         placeholder: t.placeholder,
         send: t.send,

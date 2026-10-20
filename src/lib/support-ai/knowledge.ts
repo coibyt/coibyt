@@ -19,6 +19,7 @@ Hai nhóm người dùng: CHỦ SALON (quản lý tiệm) và KHÁCH HÀNG (tìm
 - Hướng dẫn từng bước cho người mới: /help/getting-started
 - Thêm chi nhánh (salon thứ hai trở lên, cùng một tài khoản): /business/apply?branch=1 — sau đó đổi qua lại giữa các chi nhánh bằng ô "Chi nhánh" trên đầu trang quản trị.
 - Thứ tự nên làm: 1) Cài đặt thông tin + logo/ảnh bìa 2) Dịch vụ 3) Nhân viên 4) Giờ mở cửa 5) Chia sẻ link đặt lịch.
+- Người đang cân nhắc đăng ký: mọi chức năng đều miễn phí, không cần thẻ tín dụng, không giới hạn nhân viên hay lượt đặt; chỉ cần tên salon, địa chỉ, điện thoại và email. Khách của salon đặt lịch không cần tài khoản. Hãy nhiệt tình giải thích lợi ích phù hợp với câu hỏi và mời họ đăng ký tại /business/apply.
 
 ## TRANG QUẢN TRỊ SALON (cần đăng nhập bằng tài khoản chủ salon)
 ### Tổng quan — /business/dashboard
