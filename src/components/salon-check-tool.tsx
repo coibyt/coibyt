@@ -1,33 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  Loader2,
+  ArrowRight,
+  BellRing,
+  Bot,
   Check,
-  X,
-  HelpCircle,
   ChevronDown,
-  Globe,
-  MapPin,
   Facebook,
-  Instagram,
-  Sparkles,
-  Search,
-  Youtube,
-  Tag,
-  Users,
+  FileDown,
   Gift,
-  Mail,
+  Globe,
+  Instagram,
+  Lightbulb,
+  Loader2,
+  MapPin,
   Megaphone,
+  RotateCcw,
+  ScanSearch,
+  Search,
+  Smartphone,
+  Sparkles,
+  Tag,
+  Target,
+  X,
+  Youtube,
+  CalendarDays,
+  Mail,
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import { googleMapsSearchUrl } from "@/lib/salon-check";
-import { OfferCountdown } from "@/components/offer-countdown";
+import { salonCheckStrings, type SalonCheckStrings } from "@/lib/salon-check-strings";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
+import { OfferCountdown } from "@/components/offer-countdown";
 
 type GoogleStatus = "yes" | "no" | "unsure";
-type SocialStatus = "ok" | "unreachable" | "unverified" | "missing";
+type SocialStatus = "ok" | "unreachable" | "unverified" | "missing" | "unknown";
 
 interface WebsiteResult {
   provided: boolean;
@@ -50,7 +58,7 @@ interface SocialResult {
   url: string | null;
   status: SocialStatus;
   followers: number | null;
-  score: number;
+  score: number | null;
 }
 
 interface SalonCheckResult {
@@ -72,342 +80,14 @@ interface Opportunity {
   suggestion: string;
 }
 
-const STRINGS = {
-  vi: {
-    badge: "MIỄN PHÍ & NGAY LẬP TỨC",
-    title: "Salon của bạn trông thế nào trên mạng?",
-    subtitle:
-      "Cho chúng tôi biết tên salon và địa chỉ. Chúng tôi sẽ kiểm tra trang web và mạng xã hội của bạn — miễn phí, không cần đăng ký.",
-    formNameLabel: "Tên salon",
-    formAddressLabel: "Địa chỉ salon",
-    formCategoryLabel: "Loại hình salon · dùng để gợi ý từ khóa SEO",
-    formCategoryPlaceholder: "VD: salon nail, salon tóc, spa...",
-    formWebsiteLabel: "Trang web · không bắt buộc",
-    formFacebookLabel: "Link Facebook · không bắt buộc",
-    formInstagramLabel: "Link Instagram · không bắt buộc",
-    formFacebookFollowersLabel: "Số người theo dõi Facebook · không bắt buộc",
-    formInstagramFollowersLabel: "Số người theo dõi Instagram · không bắt buộc",
-    formGoogleQuestion: "Salon của bạn đã có hồ sơ Google doanh nghiệp chưa?",
-    formGoogleYes: "Đã có",
-    formGoogleNo: "Chưa có",
-    formGoogleUnsure: "Không chắc",
-    submitButton: "Kiểm tra miễn phí ngay",
-    noSignupNote: "Không cần email, không cần đăng ký. Kết quả hiện ngay tại đây.",
-    checkingTitle: "Đang kiểm tra salon của bạn",
-    checkingSubtitle: "Chỉ mất vài giây thôi.",
-    stepWebsite: "Trang web",
-    stepGoogle: "Hồ sơ doanh nghiệp Google",
-    stepFacebook: "Trang Facebook",
-    stepInstagram: "Trang Instagram",
-    stepSummarizing: "Đang tổng hợp kết quả",
-    scorePrefix: "Điểm hiện diện trực tuyến của bạn",
-    bandExcellent: "XUẤT SẮC",
-    bandGood: "TỐT — VẪN CÒN DƯ ĐỊA",
-    bandNeedsWork: "CẦN CẢI THIỆN",
-    bandUrgent: "CẦN HÀNH ĐỘNG NGAY",
-    channelWebsite: "Trang web",
-    channelGoogle: "Hồ sơ Google",
-    channelFacebook: "Facebook",
-    channelInstagram: "Instagram",
-    strongLabel: "MẠNH",
-    okLabel: "KHÁ",
-    weakLabel: "YẾU",
-    viewDetails: "Xem chi tiết",
-    hideDetails: "Thu gọn",
-    goodThings: "Điều đang tốt",
-    needsWork: "Cần cải thiện",
-    opportunitiesTitle: "Cơ hội lớn nhất của bạn",
-    opportunitiesSubtitle: "Những điểm ảnh hưởng nhiều nhất đến việc khách có chọn salon của bạn hay không.",
-    impactHigh: "TÁC ĐỘNG CAO",
-    impactMedium: "TÁC ĐỘNG TRUNG BÌNH",
-    impactLow: "TÁC ĐỘNG THẤP",
-    whatToDo: "NÊN LÀM GÌ",
-    actionPlanTitle: "Kế hoạch hành động",
-    actionPlanSubtitle: "Tất cả các việc nên làm, theo thứ tự ưu tiên.",
-    allGoodTitle: "Mọi thứ đều ổn!",
-    allGoodBody: "Chúng tôi không thấy vấn đề lớn nào — salon của bạn đang hiện diện khá tốt trên mạng.",
-    viewOnGoogleMaps: "Tìm trên Google Maps",
-    disclaimerGoogle: "(Dựa trên thông tin bạn cung cấp — chúng tôi chưa tự động xác minh số sao/đánh giá thật.)",
-    disclaimerSocial: "(Chúng tôi chỉ kiểm tra link có hoạt động không — không đọc số liệu tương tác thật.)",
-    disclaimerFollowers: "(Số liệu do bạn tự khai, chưa được xác minh.)",
-    ratingLabel: "Điểm Google",
-    reviewCountLabel: "Đánh giá",
-    photoCountLabel: "Ảnh",
-    followersLabel: "Người theo dõi",
-    googleFoundReal: "Salon của bạn có hồ sơ Google doanh nghiệp.",
-    googleNotFoundReal: "Chúng tôi không tìm thấy hồ sơ Google doanh nghiệp cho salon của bạn.",
-    seoTitle: "Từ khóa nên nhắm tới",
-    seoSubtitle:
-      "Gợi ý từ khóa dựa trên loại hình và khu vực của bạn — chưa phải thứ hạng thật, vì không có cách hợp lệ nào để tra cứu thứ hạng Google của một website bất kỳ (chỉ chủ website mới xem được qua Google Search Console).",
-    seoEmpty: "Điền \"Loại hình salon\" ở trên để nhận gợi ý từ khóa.",
-    marketingTitle: "Gợi ý marketing cho salon của bạn",
-    marketingSubtitle:
-      "Vài cách giúp bạn có thêm khách, kết hợp với các tính năng miễn phí sẵn có trên VaraaAi.Com.",
-    fbFanpageTitle: "Lập Fanpage Facebook",
-    fbFanpageBody:
-      "Đặt tên Fanpage rõ ràng, đúng với dịch vụ bạn cung cấp. Dùng các chủ đề dưới đây để lên ý tưởng quảng cáo Facebook, mỗi chủ đề một chiến dịch riêng:",
-    youtubeTitle: "Lập kênh YouTube",
-    youtubeBody:
-      "Đăng video ngắn xoay quanh các từ khóa bạn muốn nhắm tới — mẹo làm đẹp, quy trình dịch vụ, before/after thực tế. Gợi ý hashtag cho mô tả video:",
-    hookServiceTitle: "Một dịch vụ giá hời để hút khách mới",
-    hookServiceBody:
-      "Chọn một dịch vụ nhỏ, giá thật hấp dẫn (vd: tỉa chân mày, dũa móng cơ bản) để làm quảng cáo thu hút khách lần đầu. Khi họ vào trang đặt lịch, họ sẽ thấy toàn bộ các dịch vụ khác của bạn và dễ đặt thêm ngay trong cùng một lượt ghé.",
-    varaaFeaturesTitle: "VaraaAi.Com đã làm sẵn những việc này cho bạn — miễn phí",
-    varaaFeatures: [
-      {
-        title: "Tiếp thị liên kết",
-        body: "Mời cộng tác viên quảng bá salon của bạn, họ nhận hoa hồng theo lịch hẹn họ giới thiệu được — bạn tự đặt mức hoa hồng, hoàn toàn miễn phí trên VaraaAi.",
-      },
-      {
-        title: "Thẻ tích điểm bằng mã QR",
-        body: "Khách đưa mã QR để nhân viên quét mỗi lần đến, đủ điểm sẽ được giảm giá — bạn cũng biết chính xác khách đã ghé bao nhiêu lần.",
-      },
-      {
-        title: "Email marketing tự động",
-        body: "Tự động xin đánh giá sau mỗi lịch hẹn, tự động nhắc khách quay lại nếu đã hơn 3 tuần chưa đặt hẹn — không cần bạn tự soạn hay tự gửi.",
-      },
-      {
-        title: "Hiện diện trên VaraaAi.Com",
-        body: "Đăng dịch vụ lên VaraaAi.Com để website tự động giới thiệu salon của bạn đến hàng ngàn khách hàng đang tìm dịch vụ gần họ.",
-      },
-    ],
-    ctaIntro:
-      "Nếu bạn cần giải pháp marketing toàn diện và tăng doanh thu cho salon của bạn thì hãy chọn VaraaAi.Com — hệ thống tạo website đặt lịch trực tuyến miễn phí và giúp salon bạn chăm sóc khách hàng quay lại mua nhiều hơn.",
-    ctaTitle: "Chưa có trang đặt lịch online?",
-    ctaSubtitle:
-      "VaraaAi.Com cho bạn một trang salon + đặt lịch online chuyên nghiệp, hoàn toàn miễn phí — sẵn sàng trong 5 phút, không cần biết lập trình.",
-    ctaButton: "Tạo trang salon miễn phí",
-    checkAnotherButton: "Kiểm tra salon khác",
-    checks: {
-      websiteMissing: {
-        status: "Salon của bạn chưa có website.",
-        suggestion: "Tạo trang hồ sơ + đặt lịch miễn phí trên VaraaAi — không cần biết lập trình.",
-      },
-      websiteUnreachable: {
-        status: "Chúng tôi không truy cập được website bạn cung cấp — có thể đang lỗi hoặc đã ngừng hoạt động.",
-        suggestion: "Kiểm tra lại website của bạn còn hoạt động không, hoặc tạo trang mới miễn phí trên VaraaAi.",
-      },
-      https: {
-        pass: "Trang web dùng HTTPS, an toàn cho khách truy cập.",
-        fail: "Trang web chưa dùng HTTPS.",
-        suggestion: "Bật chứng chỉ SSL/HTTPS cho website — hầu hết nhà cung cấp hosting đều hỗ trợ miễn phí.",
-      },
-      mobile: {
-        pass: "Trang web đã tối ưu cho điện thoại.",
-        fail: "Trang web có thể chưa hiển thị tốt trên điện thoại.",
-        suggestion: "Đảm bảo trang web có bố cục responsive cho điện thoại — phần lớn khách xem trên di động.",
-      },
-      og: {
-        pass: "Khi chia sẻ link, bài chia sẻ sẽ hiện ảnh và mô tả đầy đủ.",
-        fail: "Khi ai đó chia sẻ link website của bạn, bài chia sẻ có thể hiện trống trơn.",
-        suggestion: "Thêm thẻ Open Graph (og:title, og:image, og:description) vào trang web.",
-      },
-      booking: {
-        pass: "Trang web có đề cập đến việc đặt lịch.",
-        fail: "Chúng tôi không thấy nút hoặc link đặt lịch rõ ràng trên trang web.",
-        suggestion: "Thêm nút “Đặt lịch ngay” nổi bật trên trang chủ — hoặc dùng trang đặt lịch miễn phí của VaraaAi.",
-      },
-      pricing: {
-        pass: "Trang web có hiển thị giá dịch vụ.",
-        fail: "Chúng tôi không thấy bảng giá trên trang web.",
-        suggestion: "Hiển thị giá (hoặc giá khởi điểm) cho các dịch vụ chính — khách thường bỏ qua salon không ghi giá.",
-      },
-      hours: {
-        pass: "Trang web có ghi giờ mở cửa.",
-        fail: "Chúng tôi không thấy giờ mở cửa trên trang web.",
-        suggestion: "Thêm giờ mở cửa từng ngày lên trang chủ — nhiều khách bỏ đi vì không biết bạn còn mở hay không.",
-      },
-      contact: {
-        pass: "Thông tin liên hệ dễ tìm trên trang web.",
-        fail: "Chúng tôi không tìm thấy số điện thoại hoặc email trên trang web.",
-        suggestion: "Thêm số điện thoại và địa chỉ rõ ràng, lý tưởng là ở đầu hoặc cuối mọi trang.",
-      },
-      googleYes: "Bạn đã có hồ sơ Google doanh nghiệp.",
-      googleNo: "Salon của bạn chưa có hồ sơ Google doanh nghiệp.",
-      googleUnsure: "Bạn chưa chắc salon đã có hồ sơ Google doanh nghiệp chưa.",
-      googleSuggestionNo: "Tạo hồ sơ Google doanh nghiệp miễn phí — đây là nơi khách mới thường tìm đến đầu tiên.",
-      googleSuggestionUnsure: "Tìm salon của bạn trên Google Maps để kiểm tra — nếu chưa có, hãy tạo một hồ sơ miễn phí.",
-      socialMissing: (p: string) => `Chúng tôi không tìm thấy trang ${p} nào.`,
-      socialMissingSuggestion: (p: string) => `Tạo trang ${p} cho salon và gắn link trên website.`,
-      socialUnreachable: (p: string) => `Link ${p} bạn cung cấp có vẻ không còn hoạt động.`,
-      socialUnreachableSuggestion: (p: string) => `Kiểm tra lại link trang ${p} của bạn.`,
-      socialUnverified: (p: string) => `Chúng tôi tìm thấy link ${p} nhưng chưa thể tự động xác minh đầy đủ.`,
-      socialOk: (p: string) => `Salon của bạn có trang ${p} đang hoạt động.`,
-    },
-  },
-  en: {
-    badge: "FREE & INSTANT",
-    title: "How does your salon look online?",
-    subtitle:
-      "Tell us your salon's name and address. We'll check your website and social media — free, no sign-up needed.",
-    formNameLabel: "Salon name",
-    formAddressLabel: "Salon address",
-    formCategoryLabel: "Salon category · used for SEO keyword suggestions",
-    formCategoryPlaceholder: "e.g. nail salon, hair salon, spa...",
-    formWebsiteLabel: "Website · optional",
-    formFacebookLabel: "Facebook link · optional",
-    formInstagramLabel: "Instagram link · optional",
-    formFacebookFollowersLabel: "Facebook follower count · optional",
-    formInstagramFollowersLabel: "Instagram follower count · optional",
-    formGoogleQuestion: "Does your salon already have a Google Business Profile?",
-    formGoogleYes: "Yes",
-    formGoogleNo: "No",
-    formGoogleUnsure: "Not sure",
-    submitButton: "Check for free now",
-    noSignupNote: "No email, no sign-up needed. Your results show up right here.",
-    checkingTitle: "Checking your salon",
-    checkingSubtitle: "This only takes a few seconds.",
-    stepWebsite: "Website",
-    stepGoogle: "Google Business Profile",
-    stepFacebook: "Facebook page",
-    stepInstagram: "Instagram page",
-    stepSummarizing: "Putting together your results",
-    scorePrefix: "Your online presence score",
-    bandExcellent: "EXCELLENT",
-    bandGood: "GOOD — STILL ROOM TO GROW",
-    bandNeedsWork: "NEEDS WORK",
-    bandUrgent: "NEEDS ATTENTION NOW",
-    channelWebsite: "Website",
-    channelGoogle: "Google profile",
-    channelFacebook: "Facebook",
-    channelInstagram: "Instagram",
-    strongLabel: "STRONG",
-    okLabel: "OK",
-    weakLabel: "WEAK",
-    viewDetails: "View details",
-    hideDetails: "Hide",
-    goodThings: "What's working",
-    needsWork: "Needs work",
-    opportunitiesTitle: "Your biggest opportunities",
-    opportunitiesSubtitle: "The things that most affect whether a customer picks your salon.",
-    impactHigh: "HIGH IMPACT",
-    impactMedium: "MEDIUM IMPACT",
-    impactLow: "LOW IMPACT",
-    whatToDo: "WHAT TO DO",
-    actionPlanTitle: "Action plan",
-    actionPlanSubtitle: "Everything worth doing, in priority order.",
-    allGoodTitle: "Everything looks good!",
-    allGoodBody: "We didn't find any major issues — your salon has a solid online presence.",
-    viewOnGoogleMaps: "Find on Google Maps",
-    disclaimerGoogle: "(Based on what you told us — we haven't automatically verified a real rating/review count.)",
-    disclaimerSocial: "(We only check whether the link works — we don't read real engagement numbers.)",
-    disclaimerFollowers: "(Self-reported by you — not independently verified.)",
-    ratingLabel: "Google rating",
-    reviewCountLabel: "Reviews",
-    photoCountLabel: "Photos",
-    followersLabel: "Followers",
-    googleFoundReal: "Your salon has a Google Business Profile.",
-    googleNotFoundReal: "We couldn't find a Google Business Profile for your salon.",
-    seoTitle: "Keywords to target",
-    seoSubtitle:
-      "Keyword ideas based on your category and area — not a real ranking, since there's no legitimate way to look up any website's actual Google ranking (only the site's own owner can see that, via Google Search Console).",
-    seoEmpty: "Fill in \"Salon category\" above to get keyword suggestions.",
-    marketingTitle: "Marketing ideas for your salon",
-    marketingSubtitle: "A few ways to bring in more customers, combined with free tools already built into VaraaAi.Com.",
-    fbFanpageTitle: "Start a Facebook Page",
-    fbFanpageBody:
-      "Give the Page a clear name that matches what you offer. Use the topics below as separate Facebook ad campaign ideas:",
-    youtubeTitle: "Start a YouTube channel",
-    youtubeBody:
-      "Post short videos built around the keywords you want to target — beauty tips, behind-the-scenes, real before/after results. Hashtag ideas for your video descriptions:",
-    hookServiceTitle: "A low-priced hook service",
-    hookServiceBody:
-      "Pick one small, very attractively priced service (e.g. eyebrow shaping, a basic manicure) to advertise and bring in first-time customers. Once they land on your booking page, they'll see your full menu and can easily add more in the same visit.",
-    varaaFeaturesTitle: "VaraaAi.Com already does this for you — for free",
-    varaaFeatures: [
-      {
-        title: "Affiliate marketing",
-        body: "Invite promoters to refer customers to your salon — they earn a commission you set yourself on every booking they bring in, completely free on VaraaAi.",
-      },
-      {
-        title: "QR-code loyalty cards",
-        body: "Customers show a QR code for staff to scan on every visit; enough points earns them a discount — and you always know exactly how often each customer comes back.",
-      },
-      {
-        title: "Automatic email marketing",
-        body: "Automatically asks for a review after every appointment, and automatically reminds a customer to come back once it's been over 3 weeks — no writing or sending required on your end.",
-      },
-      {
-        title: "Visibility on VaraaAi.Com",
-        body: "List your services on VaraaAi.Com so the site automatically introduces your salon to thousands of customers searching nearby.",
-      },
-    ],
-    ctaIntro:
-      "If you need a complete marketing solution that grows your salon's revenue, choose VaraaAi.Com — a free online booking website builder that helps your salon bring customers back and get them to spend more.",
-    ctaTitle: "No online booking page yet?",
-    ctaSubtitle:
-      "VaraaAi.Com gives you a professional salon page with online booking, completely free — ready in 5 minutes, no coding needed.",
-    ctaButton: "Create your free salon page",
-    checkAnotherButton: "Check another salon",
-    checks: {
-      websiteMissing: {
-        status: "Your salon doesn't have a website.",
-        suggestion: "Create a free profile + booking page on VaraaAi — no coding needed.",
-      },
-      websiteUnreachable: {
-        status: "We couldn't reach the website you provided — it may be down or no longer active.",
-        suggestion: "Check whether your website is still live, or create a new one for free on VaraaAi.",
-      },
-      https: {
-        pass: "Your website uses HTTPS, which is safe for visitors.",
-        fail: "Your website isn't using HTTPS yet.",
-        suggestion: "Enable an SSL/HTTPS certificate — most hosting providers offer this for free.",
-      },
-      mobile: {
-        pass: "Your website is optimized for mobile.",
-        fail: "Your website may not display well on mobile.",
-        suggestion: "Make sure your website has a responsive layout for mobile — most customers browse on their phone.",
-      },
-      og: {
-        pass: "When your link is shared, it shows a full preview with an image and description.",
-        fail: "When someone shares your website's link, the preview can show up blank.",
-        suggestion: "Add Open Graph tags (og:title, og:image, og:description) to your website.",
-      },
-      booking: {
-        pass: "Your website mentions booking.",
-        fail: "We didn't see a clear booking button or link on your website.",
-        suggestion: "Add a prominent \"Book now\" button on your homepage — or use VaraaAi's free booking page.",
-      },
-      pricing: {
-        pass: "Your website shows service prices.",
-        fail: "We didn't see a price list on your website.",
-        suggestion: "Show prices (or starting prices) for your main services — customers often skip salons with no visible pricing.",
-      },
-      hours: {
-        pass: "Your website lists opening hours.",
-        fail: "We didn't see opening hours on your website.",
-        suggestion: "Add your daily opening hours to the homepage — many customers leave if they don't know you're open.",
-      },
-      contact: {
-        pass: "Contact info is easy to find on your website.",
-        fail: "We couldn't find a phone number or email on your website.",
-        suggestion: "Add a clear phone number and address, ideally in the header or footer of every page.",
-      },
-      googleYes: "You already have a Google Business Profile.",
-      googleNo: "Your salon doesn't have a Google Business Profile yet.",
-      googleUnsure: "You're not sure whether your salon has a Google Business Profile.",
-      googleSuggestionNo: "Create a free Google Business Profile — it's usually the first place new customers look.",
-      googleSuggestionUnsure: "Search for your salon on Google Maps to check — if it's missing, create a free profile.",
-      socialMissing: (p: string) => `We couldn't find a ${p} page.`,
-      socialMissingSuggestion: (p: string) => `Create a ${p} page for your salon and link it from your website.`,
-      socialUnreachable: (p: string) => `The ${p} link you gave us doesn't seem to work anymore.`,
-      socialUnreachableSuggestion: (p: string) => `Double-check your ${p} page link.`,
-      socialUnverified: (p: string) => `We found a ${p} link but couldn't fully verify it automatically.`,
-      socialOk: (p: string) => `Your salon has an active ${p} page.`,
-    },
-  },
-};
-
-type Strings = (typeof STRINGS)["vi"];
-
-function scoreBand(score: number, t: Strings) {
-  if (score >= 85) return { label: t.bandExcellent, color: "text-sage-600" };
-  if (score >= 70) return { label: t.bandGood, color: "text-primary-600" };
-  if (score >= 50) return { label: t.bandNeedsWork, color: "text-coral-600" };
-  return { label: t.bandUrgent, color: "text-berry-600" };
+function band(score: number, t: SalonCheckStrings) {
+  if (score >= 85) return { label: t.bandExcellent, text: "text-emerald-600", chip: "bg-emerald-50 text-emerald-700", bar: "bg-emerald-500" };
+  if (score >= 70) return { label: t.bandGood, text: "text-primary-600", chip: "bg-primary-50 text-primary-700", bar: "bg-primary-500" };
+  if (score >= 50) return { label: t.bandNeedsWork, text: "text-coral-600", chip: "bg-coral-50 text-coral-600", bar: "bg-coral-400" };
+  return { label: t.bandUrgent, text: "text-berry-600", chip: "bg-berry-50 text-berry-600", bar: "bg-berry-500" };
 }
 
-function channelBand(score: number, t: Strings) {
+function channelLabel(score: number, t: SalonCheckStrings) {
   if (score >= 80) return t.strongLabel;
   if (score >= 55) return t.okLabel;
   return t.weakLabel;
@@ -420,8 +100,70 @@ function toHashtag(keyword: string) {
     .toLowerCase()}`;
 }
 
+/** Counts up from 0 to `target` once, for the score dial. */
+function useCountUp(target: number, ms = 1200) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / ms);
+      setValue(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms]);
+  return value;
+}
+
+function ScoreDial({ score }: { score: number }) {
+  const shown = useCountUp(score);
+  const r = 70;
+  const c = 2 * Math.PI * r;
+  return (
+    <div className="relative h-44 w-44 shrink-0">
+      <svg viewBox="0 0 160 160" className="h-full w-full -rotate-90">
+        <defs>
+          <linearGradient id="dialGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ffbfa3" />
+            <stop offset="55%" stopColor="#ec6a47" />
+            <stop offset="100%" stopColor="#8b76b9" />
+          </linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r={r} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="12" />
+        <circle
+          cx="80"
+          cy="80"
+          r={r}
+          fill="none"
+          stroke="url(#dialGrad)"
+          strokeWidth="12"
+          strokeLinecap="round"
+          strokeDasharray={c}
+          strokeDashoffset={c * (1 - shown / 100)}
+        />
+      </svg>
+      <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="text-5xl font-extrabold tabular-nums text-white">{shown}</span>
+        <span className="text-xs font-semibold text-white/60">/ 100</span>
+      </div>
+    </div>
+  );
+}
+
+const SEVERITY: Record<Opportunity["severity"], { chip: string; ring: string; num: string }> = {
+  high: { chip: "bg-berry-50 text-berry-600", ring: "ring-berry-100", num: "bg-berry-500" },
+  medium: { chip: "bg-coral-50 text-coral-600", ring: "ring-coral-100", num: "bg-coral-500" },
+  low: { chip: "bg-mist-100 text-ink-700", ring: "ring-ink-100", num: "bg-ink-700" },
+};
+
+/** The free salon check: a short form (name, address, type, optional
+ * website, Google profile), an animated check, and a full report — score,
+ * per-channel details, top opportunities, action plan, keywords, marketing
+ * ideas and how VaraaAi solves them. */
 export function SalonCheckTool({ locale }: { locale: string }) {
-  const t: Strings = STRINGS[locale as keyof typeof STRINGS] ?? STRINGS.en;
+  const t = salonCheckStrings(locale);
 
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
@@ -429,10 +171,6 @@ export function SalonCheckTool({ locale }: { locale: string }) {
   const [addressCountryCode, setAddressCountryCode] = useState<string | null>(null);
   const [category, setCategory] = useState("");
   const [website, setWebsite] = useState("");
-  const [facebookUrl, setFacebookUrl] = useState("");
-  const [instagramUrl, setInstagramUrl] = useState("");
-  const [facebookFollowers, setFacebookFollowers] = useState("");
-  const [instagramFollowers, setInstagramFollowers] = useState("");
   const [googleStatus, setGoogleStatus] = useState<GoogleStatus>("unsure");
 
   const [phase, setPhase] = useState<"form" | "checking" | "result">("form");
@@ -441,13 +179,14 @@ export function SalonCheckTool({ locale }: { locale: string }) {
   const [error, setError] = useState<string | null>(null);
   const [openChannel, setOpenChannel] = useState<string | null>(null);
 
-  const STEPS = [t.stepWebsite, t.stepGoogle, t.stepFacebook, t.stepInstagram, t.stepSummarizing];
+  const STEPS = [t.stepWebsite, t.stepGoogle, t.stepSocial, t.stepSeo, t.stepSummarizing];
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     setPhase("checking");
     setStep(0);
     setError(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
 
     const minAnimation = new Promise<void>((resolve) => {
       let i = 0;
@@ -455,11 +194,11 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         i += 1;
         setStep(i);
         if (i >= STEPS.length - 1) clearInterval(interval);
-      }, 750);
+      }, 800);
       setTimeout(() => {
         clearInterval(interval);
         resolve();
-      }, STEPS.length * 750);
+      }, STEPS.length * 800);
     });
 
     const fetchPromise = fetch("/api/salon-check", {
@@ -470,26 +209,22 @@ export function SalonCheckTool({ locale }: { locale: string }) {
         address,
         category: category || undefined,
         website: website || undefined,
-        facebookUrl: facebookUrl || undefined,
-        instagramUrl: instagramUrl || undefined,
-        facebookFollowers: facebookFollowers ? Number(facebookFollowers) : undefined,
-        instagramFollowers: instagramFollowers ? Number(instagramFollowers) : undefined,
         googleStatus,
         locale,
         city: addressCity || undefined,
         countryCode: addressCountryCode || undefined,
       }),
-    });
+    }).catch(() => null);
 
     const [, res] = await Promise.all([minAnimation, fetchPromise]);
-    if (!res.ok) {
-      setError(locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : "Something went wrong, please try again.");
+    if (!res?.ok) {
+      setError(t.error);
       setPhase("form");
       return;
     }
-    const data = (await res.json()) as SalonCheckResult;
-    setResult(data);
+    setResult((await res.json()) as SalonCheckResult);
     setPhase("result");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function reset() {
@@ -497,6 +232,7 @@ export function SalonCheckTool({ locale }: { locale: string }) {
     setResult(null);
     setStep(0);
     setOpenChannel(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   function onAddressSelect(s: AddressSuggestion) {
@@ -505,178 +241,378 @@ export function SalonCheckTool({ locale }: { locale: string }) {
     setAddressCountryCode(s.countryCode);
   }
 
-  if (phase === "checking") {
-    return (
-      <div className="card mx-auto max-w-md p-6">
-        <p className="mb-1 font-bold text-ink-900">{t.checkingTitle}</p>
-        <p className="mb-4 text-sm text-ink-400">{t.checkingSubtitle}</p>
-        <div className="space-y-2.5">
-          {STEPS.map((label, i) => (
-            <div key={label} className="flex items-center gap-2.5 text-sm">
-              {i < step ? (
-                <Check className="h-4 w-4 shrink-0 text-sage-500" />
-              ) : i === step ? (
-                <Loader2 className="h-4 w-4 shrink-0 animate-spin text-primary-500" />
-              ) : (
-                <span className="h-4 w-4 shrink-0 rounded-full border border-ink-100" />
-              )}
-              <span className={i <= step ? "text-ink-900" : "text-ink-400"}>{label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+  /* ---------- result ---------- */
+  if (phase === "result" && result) {
+    return <Report result={result} t={t} locale={locale} openChannel={openChannel} setOpenChannel={setOpenChannel} reset={reset} />;
   }
 
-  if (phase === "result" && result) {
-    const band = scoreBand(result.overallScore, t);
-    const channels = [
-      { key: "website", icon: Globe, label: t.channelWebsite, score: result.website.score },
-      { key: "google", icon: MapPin, label: t.channelGoogle, score: result.google.score },
-      { key: "facebook", icon: Facebook, label: t.channelFacebook, score: result.facebook.score },
-      { key: "instagram", icon: Instagram, label: t.channelInstagram, score: result.instagram.score },
-    ];
-
-    const opportunities: Opportunity[] = [];
-    const c = t.checks;
-    if (!result.website.provided) {
-      opportunities.push({ id: "website_missing", severity: "high", text: c.websiteMissing.status, suggestion: c.websiteMissing.suggestion });
-    } else if (!result.website.reachable) {
-      opportunities.push({ id: "website_unreachable", severity: "high", text: c.websiteUnreachable.status, suggestion: c.websiteUnreachable.suggestion });
-    } else {
-      if (!result.website.hasBookingLink) opportunities.push({ id: "booking", severity: "high", text: c.booking.fail, suggestion: c.booking.suggestion });
-      if (!result.website.hasHours) opportunities.push({ id: "hours", severity: "medium", text: c.hours.fail, suggestion: c.hours.suggestion });
-      if (!result.website.hasContact) opportunities.push({ id: "contact", severity: "medium", text: c.contact.fail, suggestion: c.contact.suggestion });
-      if (!result.website.hasPricing) opportunities.push({ id: "pricing", severity: "medium", text: c.pricing.fail, suggestion: c.pricing.suggestion });
-      if (!result.website.mobileFriendly) opportunities.push({ id: "mobile", severity: "medium", text: c.mobile.fail, suggestion: c.mobile.suggestion });
-      if (!result.website.https) opportunities.push({ id: "https", severity: "low", text: c.https.fail, suggestion: c.https.suggestion });
-      if (!result.website.hasOpenGraph) opportunities.push({ id: "og", severity: "low", text: c.og.fail, suggestion: c.og.suggestion });
-    }
-    if (result.google.real) {
-      if (!result.google.found) {
-        opportunities.push({ id: "google_not_found", severity: "high", text: t.googleNotFoundReal, suggestion: c.googleSuggestionNo });
-      }
-    } else if (result.google.status === "no") {
-      opportunities.push({ id: "google_no", severity: "high", text: c.googleNo, suggestion: c.googleSuggestionNo });
-    } else if (result.google.status === "unsure") {
-      opportunities.push({ id: "google_unsure", severity: "medium", text: c.googleUnsure, suggestion: c.googleSuggestionUnsure });
-    }
-    if (result.facebook.status === "missing") {
-      opportunities.push({ id: "fb_missing", severity: "high", text: c.socialMissing("Facebook"), suggestion: c.socialMissingSuggestion("Facebook") });
-    } else if (result.facebook.status === "unreachable") {
-      opportunities.push({ id: "fb_unreachable", severity: "medium", text: c.socialUnreachable("Facebook"), suggestion: c.socialUnreachableSuggestion("Facebook") });
-    }
-    if (result.instagram.status === "missing") {
-      opportunities.push({ id: "ig_missing", severity: "high", text: c.socialMissing("Instagram"), suggestion: c.socialMissingSuggestion("Instagram") });
-    } else if (result.instagram.status === "unreachable") {
-      opportunities.push({ id: "ig_unreachable", severity: "medium", text: c.socialUnreachable("Instagram"), suggestion: c.socialUnreachableSuggestion("Instagram") });
-    }
-
-    const severityRank = { high: 0, medium: 1, low: 2 };
-    opportunities.sort((a, b) => severityRank[a.severity] - severityRank[b.severity]);
-    const topOpportunities = opportunities.slice(0, 3);
-
-    const strongest = channels.reduce((a, b) => (b.score > a.score ? b : a));
-    const weakest = channels.reduce((a, b) => (b.score < a.score ? b : a));
-
-    function channelDetails(key: string): { good: string[]; bad: string[] } {
-      if (key === "website") {
-        const w = result!.website;
-        if (!w.provided) return { good: [], bad: [c.websiteMissing.status] };
-        if (!w.reachable) return { good: [], bad: [c.websiteUnreachable.status] };
-        const good: string[] = [];
-        const bad: string[] = [];
-        (w.https ? good : bad).push(w.https ? c.https.pass : c.https.fail);
-        (w.mobileFriendly ? good : bad).push(w.mobileFriendly ? c.mobile.pass : c.mobile.fail);
-        (w.hasOpenGraph ? good : bad).push(w.hasOpenGraph ? c.og.pass : c.og.fail);
-        (w.hasBookingLink ? good : bad).push(w.hasBookingLink ? c.booking.pass : c.booking.fail);
-        (w.hasPricing ? good : bad).push(w.hasPricing ? c.pricing.pass : c.pricing.fail);
-        (w.hasHours ? good : bad).push(w.hasHours ? c.hours.pass : c.hours.fail);
-        (w.hasContact ? good : bad).push(w.hasContact ? c.contact.pass : c.contact.fail);
-        return { good, bad };
-      }
-      if (key === "google") {
-        const g = result!.google;
-        if (g.real) {
-          if (!g.found) return { good: [], bad: [t.googleNotFoundReal] };
-          const good: string[] = [t.googleFoundReal];
-          if (g.rating !== null) good.push(`${t.ratingLabel}: ${g.rating}`);
-          if (g.reviewCount !== null) good.push(`${t.reviewCountLabel}: ${g.reviewCount}`);
-          if (g.photoCount !== null) good.push(`${t.photoCountLabel}: ${g.photoCount}`);
-          return { good, bad: [] };
-        }
-        if (g.status === "yes") return { good: [c.googleYes], bad: [] };
-        if (g.status === "no") return { good: [], bad: [c.googleNo] };
-        return { good: [], bad: [c.googleUnsure] };
-      }
-      const platform = key === "facebook" ? "Facebook" : "Instagram";
-      const social = key === "facebook" ? result!.facebook : result!.instagram;
-      const good: string[] = [];
-      const bad: string[] = [];
-      if (social.status === "ok") good.push(c.socialOk(platform));
-      else if (social.status === "missing") bad.push(c.socialMissing(platform));
-      else if (social.status === "unreachable") bad.push(c.socialUnreachable(platform));
-      else good.push(c.socialUnverified(platform));
-      if (social.followers !== null) good.push(`${t.followersLabel}: ${social.followers.toLocaleString(locale)}`);
-      return { good, bad };
-    }
-
-    return (
-      <div className="mx-auto max-w-2xl space-y-8">
-        <div className="card p-6 text-center">
-          <div className="mx-auto mb-3 flex h-24 w-24 items-center justify-center rounded-full border-4 border-primary-100">
-            <span className="text-4xl font-extrabold text-ink-900">{result.overallScore}</span>
+  /* ---------- form + checking ---------- */
+  const panel = phase === "checking" ? (
+          <div className="rounded-[2rem] bg-white p-7 text-ink-900 shadow-[0_40px_80px_-24px_rgba(0,0,0,0.6)]">
+            <div className="relative mx-auto flex h-28 w-28 items-center justify-center">
+              <span className="absolute inset-0 animate-ping rounded-full bg-primary-200/60 [animation-duration:1.8s]" />
+              <span className="absolute inset-3 rounded-full bg-gradient-to-br from-primary-100 to-peach-100" />
+              <ScanSearch className="relative h-10 w-10 text-primary-600" />
+            </div>
+            <p className="mt-5 text-center text-xl font-extrabold">{t.checkingTitle}</p>
+            <p className="mt-1 text-center text-sm text-ink-400">{t.checkingSubtitle}</p>
+            <div className="mt-6 space-y-3">
+              {STEPS.map((label, i) => (
+                <div
+                  key={label}
+                  className={`flex items-center gap-3 rounded-2xl px-4 py-3 text-sm transition-colors ${
+                    i < step ? "bg-emerald-50" : i === step ? "bg-primary-50" : "bg-mist-50"
+                  }`}
+                >
+                  {i < step ? (
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500">
+                      <Check className="h-3.5 w-3.5 text-white" />
+                    </span>
+                  ) : i === step ? (
+                    <Loader2 className="h-6 w-6 animate-spin text-primary-500" />
+                  ) : (
+                    <span className="h-6 w-6 rounded-full border-2 border-ink-100" />
+                  )}
+                  <span className={`font-semibold ${i <= step ? "text-ink-900" : "text-ink-400"}`}>{label}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="text-sm text-ink-400">{t.scorePrefix} · {result.overallScore} / 100</p>
-          <p className={`mt-1 text-xs font-bold tracking-wide ${band.color}`}>{band.label}</p>
-          <p className="mx-auto mt-3 max-w-md text-sm text-ink-700">
-            {result.aiSummary ?? (
-              <>
-                {result.name} — {strongest.label} ({strongest.score}){" "}
-                {locale === "vi" ? "là điểm mạnh nhất" : "is your strongest channel"}, {weakest.label} (
-                {weakest.score}) {locale === "vi" ? "cần cải thiện nhiều nhất." : "needs the most work."}
-              </>
-            )}
-          </p>
+        ) : (
+          <form onSubmit={onSubmit} className="space-y-5 rounded-[2rem] bg-white p-6 text-ink-900 shadow-[0_40px_80px_-24px_rgba(0,0,0,0.6)] sm:p-8">
+            <div className="flex items-center gap-3">
+              <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+                <Sparkles className="h-5 w-5" />
+              </span>
+              <p className="text-xl font-extrabold">{t.formTitle}</p>
+            </div>
+
+            <div>
+              <label className="label">{t.formNameLabel}</label>
+              <input required className="input" placeholder={t.formNamePlaceholder} value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+
+            <div>
+              <label className="label">{t.formAddressLabel}</label>
+              <AddressAutocomplete
+                value={address}
+                onChange={(v) => {
+                  setAddress(v);
+                  setAddressCity(null);
+                  setAddressCountryCode(null);
+                }}
+                onSelect={onAddressSelect}
+                pin={null}
+              />
+            </div>
+
+            <div>
+              <label className="label">{t.formCategoryLabel}</label>
+              <div className="mb-2 flex flex-wrap gap-1.5">
+                {t.categories.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => setCategory(c)}
+                    className={`rounded-full px-3 py-1.5 text-xs font-semibold transition-colors ${
+                      category === c ? "bg-primary-500 text-white" : "bg-mist-50 text-ink-700 ring-1 ring-ink-100 hover:ring-primary-300"
+                    }`}
+                  >
+                    {c}
+                  </button>
+                ))}
+              </div>
+              <input className="input" placeholder={t.formCategoryPlaceholder} value={category} onChange={(e) => setCategory(e.target.value)} />
+              <p className="mt-1 text-xs text-ink-400">{t.formCategoryHint}</p>
+            </div>
+
+            <div>
+              <label className="label">
+                {t.formWebsiteLabel} <span className="font-normal text-ink-400">· {t.optional}</span>
+              </label>
+              <div className="relative">
+                <Globe className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" />
+                <input className="input !pl-10" placeholder="salon.com" value={website} onChange={(e) => setWebsite(e.target.value)} />
+              </div>
+              <p className="mt-1 text-xs text-ink-400">{t.formWebsiteHint}</p>
+            </div>
+
+            <div>
+              <p className="label">{t.formGoogleQuestion}</p>
+              <div className="grid grid-cols-3 gap-1 rounded-2xl bg-mist-50 p-1 ring-1 ring-ink-100">
+                {(["yes", "unsure", "no"] as GoogleStatus[]).map((v) => (
+                  <button
+                    key={v}
+                    type="button"
+                    onClick={() => setGoogleStatus(v)}
+                    className={`rounded-xl px-2 py-2.5 text-sm font-semibold transition-all ${
+                      googleStatus === v ? "bg-white text-primary-700 shadow-card ring-1 ring-primary-200" : "text-ink-700 hover:text-ink-900"
+                    }`}
+                  >
+                    {v === "yes" ? t.formGoogleYes : v === "no" ? t.formGoogleNo : t.formGoogleUnsure}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {error && <p className="text-sm text-berry-500">{error}</p>}
+
+            <button
+              type="submit"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-coral-400 to-coral-500 py-4 text-base font-bold text-white shadow-[0_12px_32px_-8px_rgba(236,106,71,0.8)] transition-transform hover:scale-[1.01]"
+            >
+              <ScanSearch className="h-5 w-5" />
+              {t.submitButton}
+            </button>
+            <p className="text-center text-xs text-ink-400">{t.noSignupNote}</p>
+          </form>
+        );
+
+  return (
+    <section className="relative isolate overflow-hidden bg-[#1a1326] text-white">
+      <div className="pointer-events-none absolute -left-40 -top-40 -z-10 h-[30rem] w-[30rem] rounded-full bg-primary-500/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-48 right-0 -z-10 h-[28rem] w-[28rem] rounded-full bg-coral-500/25 blur-3xl" />
+      <div className="container grid items-start gap-8 py-14 sm:py-20 lg:grid-cols-[1fr_440px] lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-0">
+        <div className="text-center lg:col-start-1 lg:row-start-1 lg:pt-6 lg:text-left">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold text-peach-200 ring-1 ring-white/15">
+            <ScanSearch className="h-3.5 w-3.5" />
+            {t.badge}
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+            {t.title}{" "}
+            <span className="bg-gradient-to-r from-peach-200 via-coral-400 to-primary-300 bg-clip-text text-transparent">{t.titleAccent}</span>
+          </h1>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg lg:mx-0">{t.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {/* On phones the form comes right after the heading; on desktop it sits on the right. */}
+        <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">{panel}</div>
+
+        <div className="lg:col-start-1 lg:row-start-2">
+          <div className="mx-auto mt-2 max-w-xl rounded-3xl lg:mt-8 bg-white/[0.06] p-5 text-left ring-1 ring-white/10 lg:mx-0">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/60">{t.weCheck}</p>
+            <ul className="mt-3 space-y-2.5">
+              {[Globe, MapPin, Instagram, Target].map((Icon, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-white/85">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                    <Icon className="h-4 w-4 text-peach-200" />
+                  </span>
+                  <span className="pt-1">{t.checkItems[i]}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="mx-auto mt-6 grid max-w-xl grid-cols-3 gap-3 lg:mx-0">
+            {t.stats.map((s) => (
+              <div key={s.label} className="rounded-2xl bg-white/[0.06] px-3 py-3 text-center ring-1 ring-white/10">
+                <p className="text-2xl font-extrabold">{s.value}</p>
+                <p className="mt-0.5 text-[11px] text-white/60">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+function Report({
+  result,
+  t,
+  locale,
+  openChannel,
+  setOpenChannel,
+  reset,
+}: {
+  result: SalonCheckResult;
+  t: SalonCheckStrings;
+  locale: string;
+  openChannel: string | null;
+  setOpenChannel: (k: string | null) => void;
+  reset: () => void;
+}) {
+  const c = t.checks;
+  const b = band(result.overallScore, t);
+  const channels = [
+    { key: "website", icon: Globe, label: t.channelWebsite, score: result.website.score as number | null },
+    { key: "google", icon: MapPin, label: t.channelGoogle, score: result.google.score as number | null },
+    { key: "facebook", icon: Facebook, label: t.channelFacebook, score: result.facebook.score },
+    { key: "instagram", icon: Instagram, label: t.channelInstagram, score: result.instagram.score },
+  ];
+
+  const opportunities: Opportunity[] = [];
+  if (!result.website.provided) {
+    opportunities.push({ id: "website_missing", severity: "high", text: c.websiteMissing.status, suggestion: c.websiteMissing.suggestion });
+  } else if (!result.website.reachable) {
+    opportunities.push({ id: "website_unreachable", severity: "high", text: c.websiteUnreachable.status, suggestion: c.websiteUnreachable.suggestion });
+  } else {
+    const w = result.website;
+    if (!w.hasBookingLink) opportunities.push({ id: "booking", severity: "high", text: c.booking.fail, suggestion: c.booking.suggestion });
+    if (!w.hasHours) opportunities.push({ id: "hours", severity: "medium", text: c.hours.fail, suggestion: c.hours.suggestion });
+    if (!w.hasContact) opportunities.push({ id: "contact", severity: "medium", text: c.contact.fail, suggestion: c.contact.suggestion });
+    if (!w.hasPricing) opportunities.push({ id: "pricing", severity: "medium", text: c.pricing.fail, suggestion: c.pricing.suggestion });
+    if (!w.mobileFriendly) opportunities.push({ id: "mobile", severity: "medium", text: c.mobile.fail, suggestion: c.mobile.suggestion });
+    if (!w.https) opportunities.push({ id: "https", severity: "low", text: c.https.fail, suggestion: c.https.suggestion });
+    if (!w.hasOpenGraph) opportunities.push({ id: "og", severity: "low", text: c.og.fail, suggestion: c.og.suggestion });
+  }
+  if (result.google.real) {
+    if (!result.google.found) opportunities.push({ id: "google_not_found", severity: "high", text: t.googleNotFoundReal, suggestion: c.googleSuggestionNo });
+  } else if (result.google.status === "no") {
+    opportunities.push({ id: "google_no", severity: "high", text: c.googleNo, suggestion: c.googleSuggestionNo });
+  } else if (result.google.status === "unsure") {
+    opportunities.push({ id: "google_unsure", severity: "medium", text: c.googleUnsure, suggestion: c.googleSuggestionUnsure });
+  }
+  for (const [key, platform] of [["facebook", "Facebook"], ["instagram", "Instagram"]] as const) {
+    const social = result[key];
+    if (social.status === "missing") {
+      opportunities.push({ id: `${key}_missing`, severity: "medium", text: c.socialMissing(platform), suggestion: c.socialMissingSuggestion(platform) });
+    } else if (social.status === "unreachable") {
+      opportunities.push({ id: `${key}_unreachable`, severity: "medium", text: c.socialUnreachable(platform), suggestion: c.socialUnreachableSuggestion(platform) });
+    }
+  }
+  const rank = { high: 0, medium: 1, low: 2 };
+  opportunities.sort((a, b2) => rank[a.severity] - rank[b2.severity]);
+  const top = opportunities.slice(0, 3);
+
+  function details(key: string): { good: string[]; bad: string[] } {
+    if (key === "website") {
+      const w = result.website;
+      if (!w.provided) return { good: [], bad: [c.websiteMissing.status] };
+      if (!w.reachable) return { good: [], bad: [c.websiteUnreachable.status] };
+      const good: string[] = [];
+      const bad: string[] = [];
+      (w.https ? good : bad).push(w.https ? c.https.pass : c.https.fail);
+      (w.mobileFriendly ? good : bad).push(w.mobileFriendly ? c.mobile.pass : c.mobile.fail);
+      (w.hasOpenGraph ? good : bad).push(w.hasOpenGraph ? c.og.pass : c.og.fail);
+      (w.hasBookingLink ? good : bad).push(w.hasBookingLink ? c.booking.pass : c.booking.fail);
+      (w.hasPricing ? good : bad).push(w.hasPricing ? c.pricing.pass : c.pricing.fail);
+      (w.hasHours ? good : bad).push(w.hasHours ? c.hours.pass : c.hours.fail);
+      (w.hasContact ? good : bad).push(w.hasContact ? c.contact.pass : c.contact.fail);
+      return { good, bad };
+    }
+    if (key === "google") {
+      const g = result.google;
+      if (g.real) {
+        if (!g.found) return { good: [], bad: [t.googleNotFoundReal] };
+        const good = [t.googleFoundReal];
+        if (g.rating !== null) good.push(`${t.ratingLabel}: ${g.rating}`);
+        if (g.reviewCount !== null) good.push(`${t.reviewCountLabel}: ${g.reviewCount}`);
+        if (g.photoCount !== null) good.push(`${t.photoCountLabel}: ${g.photoCount}`);
+        return { good, bad: [] };
+      }
+      if (g.status === "yes") return { good: [c.googleYes], bad: [] };
+      if (g.status === "no") return { good: [], bad: [c.googleNo] };
+      return { good: [], bad: [c.googleUnsure] };
+    }
+    const platform = key === "facebook" ? "Facebook" : "Instagram";
+    const social = key === "facebook" ? result.facebook : result.instagram;
+    if (social.status === "unknown") return { good: [], bad: [t.notCheckedBody(platform)] };
+    if (social.status === "ok") return { good: [c.socialOk(platform)], bad: [] };
+    if (social.status === "missing") return { good: [], bad: [c.socialMissing(platform)] };
+    if (social.status === "unreachable") return { good: [], bad: [c.socialUnreachable(platform)] };
+    return { good: [c.socialUnverified(platform)], bad: [] };
+  }
+
+  const featureIcons = [CalendarDays, BellRing, Bot, Mail, Gift, Smartphone];
+
+  return (
+    <div className="bg-mist-50/60">
+      {/* Score */}
+      <section className="relative isolate overflow-hidden bg-[#1a1326] text-white">
+        <div className="pointer-events-none absolute -left-32 -top-32 -z-10 h-96 w-96 rounded-full bg-primary-500/40 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-40 right-0 -z-10 h-96 w-96 rounded-full bg-coral-500/25 blur-3xl" />
+        <div className="container flex flex-col items-center gap-8 py-12 text-center sm:py-16 md:flex-row md:text-left">
+          <ScoreDial score={result.overallScore} />
+          <div className="min-w-0 flex-1">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-peach-200">{t.reportFor}</p>
+            <h1 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">{result.name}</h1>
+            <p className="mt-1 flex items-center justify-center gap-1.5 text-sm text-white/60 md:justify-start">
+              <MapPin className="h-3.5 w-3.5 shrink-0" />
+              <span className="truncate">{result.address}</span>
+            </p>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 md:justify-start">
+              <span className="text-sm text-white/70">{t.scorePrefix}:</span>
+              <span className={`rounded-full px-3 py-1 text-xs font-bold ${b.chip}`}>{b.label}</span>
+            </div>
+            {result.aiSummary && <p className="mt-4 max-w-2xl text-sm leading-relaxed text-white/80 sm:text-base">{result.aiSummary}</p>}
+            <div className="mt-6 flex flex-wrap justify-center gap-2 md:justify-start print:hidden">
+              <button
+                type="button"
+                onClick={() => window.print()}
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/20 hover:bg-white/15"
+              >
+                <FileDown className="h-4 w-4" />
+                {t.printButton}
+              </button>
+              <button
+                type="button"
+                onClick={reset}
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/20 hover:bg-white/15"
+              >
+                <RotateCcw className="h-4 w-4" />
+                {t.checkAnotherButton}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="container space-y-14 py-12">
+        {/* Channels */}
+        <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map((ch) => {
-            const details = channelDetails(ch.key);
-            const isOpen = openChannel === ch.key;
+            const d = details(ch.key);
+            const open = openChannel === ch.key;
+            const known = ch.score !== null;
+            const cb = known ? band(ch.score!, t) : null;
             return (
-              <div key={ch.key} className="card p-4">
-                <div className="mb-1 flex items-center gap-2">
-                  <ch.icon className="h-4 w-4 text-primary-500" />
-                  <span className="text-xs font-medium text-ink-400">{ch.label}</span>
+              <div key={ch.key} className="flex flex-col rounded-3xl bg-white p-5 shadow-card ring-1 ring-ink-100">
+                <div className="flex items-center justify-between">
+                  <span className="flex items-center gap-2.5">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
+                      <ch.icon className="h-5 w-5" />
+                    </span>
+                    <span className="text-sm font-bold text-ink-900">{ch.label}</span>
+                  </span>
+                  <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${cb ? cb.chip : "bg-mist-100 text-ink-400"}`}>
+                    {known ? channelLabel(ch.score!, t) : t.notChecked}
+                  </span>
                 </div>
-                <p className="text-2xl font-extrabold text-ink-900">{ch.score}</p>
-                <p className="text-[10px] font-bold tracking-wide text-ink-400">{channelBand(ch.score, t)}</p>
+                <p className="mt-4 text-4xl font-extrabold tabular-nums text-ink-900">
+                  {known ? ch.score : "—"}
+                  {known && <span className="text-base font-semibold text-ink-400"> /100</span>}
+                </p>
+                <div className="mt-3 h-2 overflow-hidden rounded-full bg-mist-100">
+                  <div className={`h-full rounded-full ${cb ? cb.bar : "bg-ink-100"}`} style={{ width: `${known ? ch.score : 0}%` }} />
+                </div>
                 <button
-                  onClick={() => setOpenChannel(isOpen ? null : ch.key)}
-                  className="mt-2 flex items-center gap-1 text-xs font-medium text-primary-600 hover:underline"
+                  type="button"
+                  onClick={() => setOpenChannel(open ? null : ch.key)}
+                  className="mt-4 flex items-center gap-1 self-start text-xs font-bold text-primary-600 print:hidden"
                 >
-                  {isOpen ? t.hideDetails : t.viewDetails}
-                  <ChevronDown className={`h-3 w-3 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                  {open ? t.hideDetails : t.viewDetails}
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
                 </button>
-                {isOpen && (
-                  <div className="mt-3 space-y-2 border-t border-ink-100 pt-3 text-xs">
-                    {details.good.length > 0 && (
-                      <div>
-                        <p className="mb-1 font-semibold text-sage-600">{t.goodThings}</p>
-                        {details.good.map((line, i) => (
+                {open && (
+                  <div className="mt-3 space-y-2.5 border-t border-ink-100 pt-3 text-xs">
+                    {d.good.length > 0 && (
+                      <div className="space-y-1">
+                        <p className="font-bold text-emerald-600">{t.goodThings}</p>
+                        {d.good.map((line, i) => (
                           <p key={i} className="flex items-start gap-1.5 text-ink-700">
-                            <Check className="mt-0.5 h-3 w-3 shrink-0 text-sage-500" /> {line}
+                            <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-500" /> {line}
                           </p>
                         ))}
                       </div>
                     )}
-                    {details.bad.length > 0 && (
-                      <div>
-                        <p className="mb-1 font-semibold text-berry-600">{t.needsWork}</p>
-                        {details.bad.map((line, i) => (
+                    {d.bad.length > 0 && (
+                      <div className="space-y-1">
+                        <p className="font-bold text-berry-600">{t.needsWork}</p>
+                        {d.bad.map((line, i) => (
                           <p key={i} className="flex items-start gap-1.5 text-ink-700">
-                            <X className="mt-0.5 h-3 w-3 shrink-0 text-berry-500" /> {line}
+                            <X className="mt-0.5 h-3.5 w-3.5 shrink-0 text-berry-500" /> {line}
                           </p>
                         ))}
                       </div>
@@ -688,19 +624,13 @@ export function SalonCheckTool({ locale }: { locale: string }) {
                           href={googleMapsSearchUrl(result.name, result.address)}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="font-medium text-primary-600 hover:underline"
+                          className="inline-flex items-center gap-1 font-bold text-primary-600 hover:underline"
                         >
-                          {t.viewOnGoogleMaps}
+                          {t.viewOnGoogleMaps} <ArrowRight className="h-3 w-3" />
                         </a>
                       </>
                     )}
-                    {(ch.key === "facebook" || ch.key === "instagram") && (
-                      <p className="text-ink-400">
-                        {(ch.key === "facebook" ? result.facebook : result.instagram).followers !== null
-                          ? t.disclaimerFollowers
-                          : t.disclaimerSocial}
-                      </p>
-                    )}
+                    {(ch.key === "facebook" || ch.key === "instagram") && known && <p className="text-ink-400">{t.disclaimerSocial}</p>}
                   </div>
                 )}
               </div>
@@ -708,295 +638,186 @@ export function SalonCheckTool({ locale }: { locale: string }) {
           })}
         </div>
 
-        {topOpportunities.length > 0 && (
+        {/* Opportunities */}
+        {top.length > 0 ? (
           <div>
-            <h2 className="mb-1 flex items-center gap-2 text-lg font-bold text-ink-900">
-              <HelpCircle className="h-5 w-5 text-primary-500" /> {t.opportunitiesTitle}
-            </h2>
-            <p className="mb-4 text-sm text-ink-400">{t.opportunitiesSubtitle}</p>
-            <div className="space-y-3">
-              {topOpportunities.map((op, i) => (
-                <div key={op.id} className="card p-4">
-                  <div className="flex items-start gap-3">
-                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-ink-900 text-xs font-bold text-white">
-                      {i + 1}
-                    </span>
-                    <div className="flex-1">
-                      <p className="text-sm text-ink-900">{op.text}</p>
-                      <span
-                        className={`mt-1 inline-block text-[10px] font-bold tracking-wide ${
-                          op.severity === "high"
-                            ? "text-berry-600"
-                            : op.severity === "medium"
-                              ? "text-coral-600"
-                              : "text-ink-400"
-                        }`}
-                      >
+            <SectionTitle icon={Lightbulb} title={t.opportunitiesTitle} subtitle={t.opportunitiesSubtitle} />
+            <div className="grid gap-4 lg:grid-cols-3">
+              {top.map((op, i) => {
+                const sv = SEVERITY[op.severity];
+                return (
+                  <div key={op.id} className={`flex flex-col rounded-3xl bg-white p-6 shadow-card ring-1 ${sv.ring}`}>
+                    <div className="flex items-center justify-between">
+                      <span className={`flex h-9 w-9 items-center justify-center rounded-xl text-sm font-extrabold text-white ${sv.num}`}>{i + 1}</span>
+                      <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ${sv.chip}`}>
                         {op.severity === "high" ? t.impactHigh : op.severity === "medium" ? t.impactMedium : t.impactLow}
                       </span>
-                      <p className="mt-2 text-xs font-bold tracking-wide text-ink-400">{t.whatToDo}</p>
-                      <p className="text-sm text-ink-700">{op.suggestion}</p>
+                    </div>
+                    <p className="mt-4 font-bold leading-snug text-ink-900">{op.text}</p>
+                    <div className="mt-4 rounded-2xl bg-mist-50 p-3.5">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-ink-400">{t.whatToDo}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-700">{op.suggestion}</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
-        )}
-
-        {opportunities.length === 0 && (
-          <div className="card flex items-center gap-3 p-5">
-            <Sparkles className="h-6 w-6 shrink-0 text-sage-500" />
+        ) : (
+          <div className="flex items-center gap-4 rounded-3xl bg-emerald-50 p-6 ring-1 ring-emerald-100">
+            <Sparkles className="h-7 w-7 shrink-0 text-emerald-600" />
             <div>
-              <p className="font-semibold text-ink-900">{t.allGoodTitle}</p>
-              <p className="text-sm text-ink-400">{t.allGoodBody}</p>
+              <p className="font-bold text-ink-900">{t.allGoodTitle}</p>
+              <p className="text-sm text-ink-700">{t.allGoodBody}</p>
             </div>
           </div>
         )}
 
-        {opportunities.length > topOpportunities.length && (
+        {/* Action plan */}
+        {opportunities.length > top.length && (
           <div>
-            <h2 className="mb-1 text-lg font-bold text-ink-900">{t.actionPlanTitle}</h2>
-            <p className="mb-4 text-sm text-ink-400">{t.actionPlanSubtitle}</p>
-            <ol className="space-y-2">
+            <SectionTitle icon={Check} title={t.actionPlanTitle} subtitle={t.actionPlanSubtitle} />
+            <ol className="divide-y divide-ink-100 overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-ink-100">
               {opportunities.map((op, i) => (
-                <li key={op.id} className="flex items-start gap-2.5 text-sm text-ink-700">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mist-100 text-[11px] font-bold text-ink-900">
+                <li key={op.id} className="flex items-start gap-3 px-5 py-4 text-sm text-ink-700">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-50 text-[11px] font-bold text-primary-700">
                     {i + 1}
                   </span>
-                  {op.suggestion}
+                  <span className="flex-1">{op.suggestion}</span>
+                  <span className={`hidden shrink-0 rounded-full px-2 py-0.5 text-[10px] font-bold sm:inline ${SEVERITY[op.severity].chip}`}>
+                    {op.severity === "high" ? t.impactHigh : op.severity === "medium" ? t.impactMedium : t.impactLow}
+                  </span>
                 </li>
               ))}
             </ol>
           </div>
         )}
 
-        <div>
-          <h2 className="mb-1 flex items-center gap-2 text-lg font-bold text-ink-900">
-            <Search className="h-5 w-5 text-primary-500" /> {t.seoTitle}
-          </h2>
-          <p className="mb-4 text-sm text-ink-400">{t.seoSubtitle}</p>
-          {result.seoKeywords.length === 0 ? (
-            <p className="text-sm text-ink-400">{t.seoEmpty}</p>
-          ) : (
-            <div className="flex flex-wrap gap-2">
-              {result.seoKeywords.map((kw) => (
-                <span
-                  key={kw}
-                  className="rounded-full border border-ink-100 bg-mist-50 px-3 py-1.5 text-sm text-ink-700"
+        {/* Keywords + marketing */}
+        <div className="grid gap-6 lg:grid-cols-[1fr_1.4fr]">
+          <div className="rounded-3xl bg-white p-6 shadow-card ring-1 ring-ink-100">
+            <SectionTitle icon={Search} title={t.seoTitle} subtitle={t.seoSubtitle} small />
+            {result.seoKeywords.length === 0 ? (
+              <p className="text-sm text-ink-400">{t.seoEmpty}</p>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {result.seoKeywords.map((kw) => (
+                  <span key={kw} className="rounded-full bg-primary-50 px-3 py-1.5 text-sm font-semibold text-primary-700 ring-1 ring-primary-100">
+                    {kw}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="rounded-3xl bg-white p-6 shadow-card ring-1 ring-ink-100">
+            <SectionTitle icon={Megaphone} title={t.marketingTitle} subtitle={t.marketingSubtitle} small />
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Idea icon={Facebook} title={t.fbFanpageTitle} body={t.fbFanpageBody} tags={result.seoKeywords} />
+              <Idea icon={Youtube} title={t.youtubeTitle} body={t.youtubeBody} tags={result.seoKeywords.slice(0, 4).map(toHashtag)} />
+              <div className="sm:col-span-2">
+                <Idea icon={Tag} title={t.hookServiceTitle} body={t.hookServiceBody} tags={[]} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* VaraaAi */}
+        <div className="relative overflow-hidden rounded-[2rem] bg-[#1a1326] p-6 text-white sm:p-10">
+          <div className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-primary-500/40 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 rounded-full bg-coral-500/25 blur-3xl" />
+          <div className="relative">
+            <p className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-peach-200 ring-1 ring-white/15">
+              <Sparkles className="h-3.5 w-3.5" /> VaraaAi
+            </p>
+            <h2 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight sm:text-4xl">{t.varaaTitle}</h2>
+            <p className="mt-2 max-w-2xl text-white/75">{t.varaaSubtitle}</p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {t.varaaFeatures.map((f, i) => {
+                const Icon = featureIcons[i];
+                return (
+                  <div key={f.title} className="rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
+                      <Icon className="h-5 w-5 text-peach-200" />
+                    </span>
+                    <p className="mt-3 font-bold">{f.title}</p>
+                    <p className="mt-1 text-sm text-white/70">{f.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-10 flex flex-col items-center gap-4 rounded-3xl bg-white/[0.06] p-6 text-center ring-1 ring-white/10 sm:p-8">
+              <p className="text-2xl font-extrabold sm:text-3xl">{t.ctaTitle}</p>
+              <p className="max-w-xl text-white/75">{t.ctaSubtitle}</p>
+              <OfferCountdown locale={locale} compact />
+              <div className="flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row print:hidden">
+                <Link
+                  href="/business/apply"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-coral-400 to-coral-500 px-8 py-4 text-base font-bold text-white shadow-[0_12px_32px_-8px_rgba(236,106,71,0.8)] transition-transform hover:scale-[1.02]"
                 >
-                  {kw}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div>
-          <h2 className="mb-1 flex items-center gap-2 text-lg font-bold text-ink-900">
-            <Megaphone className="h-5 w-5 text-primary-500" /> {t.marketingTitle}
-          </h2>
-          <p className="mb-4 text-sm text-ink-400">{t.marketingSubtitle}</p>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="card p-4">
-              <div className="mb-2 flex items-center gap-2">
-                <Facebook className="h-4 w-4 text-primary-500" />
-                <p className="font-semibold text-ink-900">{t.fbFanpageTitle}</p>
+                  {t.ctaButton}
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/business"
+                  className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-semibold text-white ring-1 ring-white/25 hover:bg-white/10"
+                >
+                  {t.ctaLearn}
+                </Link>
               </div>
-              <p className="mb-3 text-sm text-ink-700">{t.fbFanpageBody}</p>
-              {result.seoKeywords.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {result.seoKeywords.map((kw) => (
-                    <span key={kw} className="rounded-full bg-mist-50 px-2.5 py-1 text-xs text-ink-700">
-                      {kw}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="card p-4">
-              <div className="mb-2 flex items-center gap-2">
-                <Youtube className="h-4 w-4 text-berry-500" />
-                <p className="font-semibold text-ink-900">{t.youtubeTitle}</p>
-              </div>
-              <p className="mb-3 text-sm text-ink-700">{t.youtubeBody}</p>
-              {result.seoKeywords.length > 0 && (
-                <div className="flex flex-wrap gap-1.5">
-                  {result.seoKeywords.slice(0, 4).map((kw) => (
-                    <span key={kw} className="rounded-full bg-mist-50 px-2.5 py-1 text-xs text-ink-700">
-                      {toHashtag(kw)}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="card p-4 sm:col-span-2">
-              <div className="mb-2 flex items-center gap-2">
-                <Tag className="h-4 w-4 text-coral-500" />
-                <p className="font-semibold text-ink-900">{t.hookServiceTitle}</p>
-              </div>
-              <p className="text-sm text-ink-700">{t.hookServiceBody}</p>
             </div>
           </div>
         </div>
 
-        <div>
-          <h2 className="mb-4 text-lg font-bold text-ink-900">{t.varaaFeaturesTitle}</h2>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {[
-              { icon: Users, ...t.varaaFeatures[0] },
-              { icon: Gift, ...t.varaaFeatures[1] },
-              { icon: Mail, ...t.varaaFeatures[2] },
-              { icon: Sparkles, ...t.varaaFeatures[3] },
-            ].map((f) => (
-              <div key={f.title} className="card p-4">
-                <div className="mb-2 flex items-center gap-2">
-                  <f.icon className="h-4 w-4 text-primary-500" />
-                  <p className="font-semibold text-ink-900">{f.title}</p>
-                </div>
-                <p className="text-sm text-ink-700">{f.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="card bg-ink-900 p-6 text-center text-white">
-          <p className="mx-auto mb-4 max-w-md text-sm text-ink-100">{t.ctaIntro}</p>
-          <p className="text-lg font-bold">{t.ctaTitle}</p>
-          <p className="mx-auto mt-1 max-w-md text-sm text-ink-100">{t.ctaSubtitle}</p>
-          <div className="mt-4 flex justify-center">
-            <OfferCountdown locale={locale} compact />
-          </div>
-          <Link href="/business/apply" className="btn-accent mt-4 inline-flex !px-6 !py-3">
-            {t.ctaButton}
-          </Link>
-          <Link href="/tools/price-list" className="mt-3 block text-sm font-semibold text-peach-200 hover:underline">
-            {priceListNavLabel(locale)} →
-          </Link>
-        </div>
-
-        <div className="text-center">
-          <button onClick={reset} className="text-sm font-medium text-ink-400 hover:text-ink-700 hover:underline">
+        <div className="flex justify-center print:hidden">
+          <button type="button" onClick={reset} className="inline-flex items-center gap-2 text-sm font-semibold text-ink-400 hover:text-ink-900">
+            <RotateCcw className="h-4 w-4" />
             {t.checkAnotherButton}
           </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
+function SectionTitle({
+  icon: Icon,
+  title,
+  subtitle,
+  small = false,
+}: {
+  icon: typeof Search;
+  title: string;
+  subtitle: string;
+  small?: boolean;
+}) {
   return (
-    <div className="mx-auto max-w-md">
-      <div className="mb-6 text-center">
-        <span className="rounded-full bg-primary-50 px-3 py-1 text-xs font-bold tracking-wide text-primary-600">
-          {t.badge}
-        </span>
-        <h1 className="mt-3 text-2xl font-extrabold text-ink-900 sm:text-3xl">{t.title}</h1>
-        <p className="mt-2 text-sm text-ink-400">{t.subtitle}</p>
-      </div>
+    <div className="mb-5">
+      <h2 className={`flex items-center gap-2 font-extrabold tracking-tight text-ink-900 ${small ? "text-lg" : "text-2xl sm:text-3xl"}`}>
+        <Icon className={`${small ? "h-5 w-5" : "h-6 w-6"} text-primary-500`} />
+        {title}
+      </h2>
+      <p className="mt-1 text-sm text-ink-400">{subtitle}</p>
+    </div>
+  );
+}
 
-      <form onSubmit={onSubmit} className="card space-y-4 p-6">
-        <div>
-          <label className="label">{t.formNameLabel}</label>
-          <input required className="input" value={name} onChange={(e) => setName(e.target.value)} />
+function Idea({ icon: Icon, title, body, tags }: { icon: typeof Search; title: string; body: string; tags: string[] }) {
+  return (
+    <div className="h-full rounded-2xl bg-mist-50 p-4">
+      <p className="flex items-center gap-2 font-bold text-ink-900">
+        <Icon className="h-4 w-4 text-primary-500" />
+        {title}
+      </p>
+      <p className="mt-1.5 text-sm leading-relaxed text-ink-700">{body}</p>
+      {tags.length > 0 && (
+        <div className="mt-2.5 flex flex-wrap gap-1.5">
+          {tags.map((x) => (
+            <span key={x} className="rounded-full bg-white px-2.5 py-1 text-xs text-ink-700 ring-1 ring-ink-100">
+              {x}
+            </span>
+          ))}
         </div>
-        <div>
-          <label className="label">{t.formAddressLabel}</label>
-          <AddressAutocomplete
-            value={address}
-            onChange={(v) => {
-              setAddress(v);
-              setAddressCity(null);
-              setAddressCountryCode(null);
-            }}
-            onSelect={onAddressSelect}
-            pin={null}
-          />
-        </div>
-        <div>
-          <label className="label">{t.formCategoryLabel}</label>
-          <input
-            className="input"
-            placeholder={t.formCategoryPlaceholder}
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-        </div>
-        <div>
-          <label className="label">{t.formWebsiteLabel}</label>
-          <input
-            className="input"
-            placeholder="salon.com"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-          />
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="label">{t.formFacebookLabel}</label>
-            <input
-              className="input"
-              placeholder="facebook.com/..."
-              value={facebookUrl}
-              onChange={(e) => setFacebookUrl(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="label">{t.formInstagramLabel}</label>
-            <input
-              className="input"
-              placeholder="instagram.com/..."
-              value={instagramUrl}
-              onChange={(e) => setInstagramUrl(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="label">{t.formFacebookFollowersLabel}</label>
-            <input
-              type="number"
-              min={0}
-              className="input"
-              value={facebookFollowers}
-              onChange={(e) => setFacebookFollowers(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="label">{t.formInstagramFollowersLabel}</label>
-            <input
-              type="number"
-              min={0}
-              className="input"
-              value={instagramFollowers}
-              onChange={(e) => setInstagramFollowers(e.target.value)}
-            />
-          </div>
-        </div>
-        <div>
-          <p className="label">{t.formGoogleQuestion}</p>
-          <div className="flex gap-2">
-            {(["yes", "unsure", "no"] as GoogleStatus[]).map((v) => (
-              <button
-                key={v}
-                type="button"
-                onClick={() => setGoogleStatus(v)}
-                className={`flex-1 rounded-xl border px-3 py-2 text-xs font-medium transition-colors ${
-                  googleStatus === v
-                    ? "border-primary-500 bg-primary-50 text-primary-600"
-                    : "border-ink-100 text-ink-700 hover:border-ink-400"
-                }`}
-              >
-                {v === "yes" ? t.formGoogleYes : v === "no" ? t.formGoogleNo : t.formGoogleUnsure}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {error && <p className="text-sm text-berry-500">{error}</p>}
-
-        <button type="submit" className="btn-primary w-full py-3">
-          {t.submitButton}
-        </button>
-        <p className="text-center text-xs text-ink-400">{t.noSignupNote}</p>
-      </form>
+      )}
     </div>
   );
 }

@@ -14,7 +14,7 @@ const DISMISS_DAYS = 7;
 // widget, the support chat launcher) or that are internal work consoles
 // rather than customer-facing — a nagging install bar doesn't belong on
 // either.
-const HIDE_ON = [/\/business\/dashboard(\/|$)/, /\/admin(\/|$)/, /\/b\//, /\/business\/?$/, /\/support\/?$/, /\/help\//, /^\/([a-z]{2})?\/?$/];
+const HIDE_ON = [/\/business\/dashboard(\/|$)/, /\/admin(\/|$)/, /\/b\//, /\/business\/?$/, /\/support\/?$/, /\/help\//, /\/salon-check\/?$/, /^\/([a-z]{2})?\/?$/];
 
 /** The prominent, site-wide "install the app" bar — shows for every visitor
  * who hasn't installed VaraaAi yet, and disappears for good (per device)

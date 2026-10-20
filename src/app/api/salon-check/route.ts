@@ -131,7 +131,12 @@ export async function POST(req: Request) {
         }
       : { real: false as const, status: googleStatus, score: selfReportedGoogleScore(googleStatus) };
 
+  // Social pages are found on the salon's own website (the form no longer
+  // asks for them). With no website and no link given, we simply can't
+  // tell — "unknown" stays out of the overall score instead of counting as 0.
+  const canFindSocial = Boolean(website || facebookUrl || instagramUrl);
   function socialChannel(status: SocialLinkStatus | null, url: string | null, followers?: number) {
+    if (!url && !canFindSocial) return { url: null, status: "unknown" as const, followers: null, score: null };
     const resolvedStatus = (status ?? "missing") as SocialLinkStatus | "missing";
     const score = followers !== undefined ? followerCountScore(followers) : socialReachabilityScore(resolvedStatus);
     return { url, status: resolvedStatus, followers: followers ?? null, score };
@@ -139,7 +144,8 @@ export async function POST(req: Request) {
   const facebook = socialChannel(facebookStatus, resolvedFacebookUrl, facebookFollowers);
   const instagram = socialChannel(instagramStatus, resolvedInstagramUrl, instagramFollowers);
 
-  const overallScore = Math.round((website_.score + google.score + facebook.score + instagram.score) / 4);
+  const scored = [website_.score, google.score, facebook.score, instagram.score].filter((x): x is number => x !== null);
+  const overallScore = Math.round(scored.reduce((a, b) => a + b, 0) / scored.length);
 
   const seoKeywords = category ? suggestSeoKeywords(category, address, locale || "vi", city, countryCode) : [];
 
@@ -167,7 +173,12 @@ export async function POST(req: Request) {
     name,
     locale: locale || "vi",
     overallScore,
-    channelScores: { website: website_.score, google: google.score, facebook: facebook.score, instagram: instagram.score },
+    channelScores: {
+      website: website_.score,
+      google: google.score,
+      ...(facebook.score !== null ? { facebook: facebook.score } : {}),
+      ...(instagram.score !== null ? { instagram: instagram.score } : {}),
+    },
     goodPoints,
     badPoints,
   });

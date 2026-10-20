@@ -188,7 +188,8 @@ export interface AiSummaryInput {
   name: string;
   locale: string;
   overallScore: number;
-  channelScores: { website: number; google: number; facebook: number; instagram: number };
+  /** Facebook/Instagram are left out when they couldn't be checked. */
+  channelScores: { website: number; google: number; facebook?: number; instagram?: number };
   goodPoints: string[];
   badPoints: string[];
 }
@@ -206,7 +207,7 @@ export async function generateAiSummary(input: AiSummaryInput): Promise<string |
 
 Salon: ${input.name}
 Overall score: ${input.overallScore}/100
-Channel scores — Website: ${input.channelScores.website}, Google: ${input.channelScores.google}, Facebook: ${input.channelScores.facebook}, Instagram: ${input.channelScores.instagram}
+Channel scores — Website: ${input.channelScores.website}, Google: ${input.channelScores.google}, Facebook: ${input.channelScores.facebook ?? "not checked"}, Instagram: ${input.channelScores.instagram ?? "not checked"}
 What's working: ${input.goodPoints.join("; ") || "(nothing notable)"}
 What's holding them back: ${input.badPoints.join("; ") || "(nothing notable)"}`;
 
