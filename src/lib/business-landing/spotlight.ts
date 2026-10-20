@@ -8,7 +8,20 @@ export interface SpotlightStrings {
   alarm: { title: string; body: string; points: string[]; mockTitle: string; mockLine: string; mockStop: string; mockView: string };
   app: { title: string; body: string; points: string[]; install: string; web: string; phone: string };
   faq: { q: string; a: string };
-  footer: { title: string; body: string; button: string; installed: string; platforms: string };
+  footer: {
+    title: string;
+    body: string;
+    button: string;
+    installed: string;
+    platforms: string;
+    eyebrow: string;
+    installOn: string;
+    desktop: string;
+    scan: string;
+    perks: [string, string, string];
+    iosHint: string;
+    otherHint: string;
+  };
 }
 
 const STRINGS: Record<string, SpotlightStrings> = {
@@ -43,6 +56,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "Tải về máy",
       installed: "Đã cài trên thiết bị này",
       platforms: "Android · iPhone · Máy tính",
+      eyebrow: "Ứng dụng VaraaAi",
+      installOn: "Cài trên",
+      desktop: "Máy tính",
+      scan: "Quét mã để cài trên điện thoại",
+      perks: ["Cài một chạm", "Tự cập nhật", "Chuông báo lịch hẹn"],
+      iosHint: "Trên iPhone: mở trang bằng Safari, nhấn nút Chia sẻ (hình vuông có mũi tên) rồi chọn \"Thêm vào Màn hình chính\".",
+      otherHint: "Mở menu trình duyệt (⋮ hoặc ≡) và chọn \"Cài đặt ứng dụng\" hoặc \"Thêm vào màn hình chính\".",
     },
   },
   en: {
@@ -76,6 +96,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "Install",
       installed: "Installed on this device",
       platforms: "Android · iPhone · Desktop",
+      eyebrow: "VaraaAi app",
+      installOn: "Install on",
+      desktop: "Desktop",
+      scan: "Scan to install on your phone",
+      perks: ["One-tap install", "Updates itself", "Booking alarm"],
+      iosHint: "On iPhone: open the page in Safari, tap Share (the square with an arrow), then \"Add to Home Screen\".",
+      otherHint: "Open your browser menu (⋮ or ≡) and choose \"Install app\" or \"Add to Home Screen\".",
     },
   },
   fi: {
@@ -109,6 +136,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "Asenna",
       installed: "Asennettu tähän laitteeseen",
       platforms: "Android · iPhone · Tietokone",
+      eyebrow: "VaraaAi-sovellus",
+      installOn: "Asenna",
+      desktop: "Tietokone",
+      scan: "Skannaa ja asenna puhelimeen",
+      perks: ["Asennus yhdellä napautuksella", "Päivittyy itsestään", "Varaushälytys"],
+      iosHint: "iPhonessa: avaa sivu Safarissa, napauta Jaa (neliö ja nuoli) ja valitse \"Lisää Koti-valikkoon\".",
+      otherHint: "Avaa selaimen valikko (⋮ tai ≡) ja valitse \"Asenna sovellus\" tai \"Lisää aloitusnäytölle\".",
     },
   },
   pl: {
@@ -142,6 +176,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "Zainstaluj",
       installed: "Zainstalowano na tym urządzeniu",
       platforms: "Android · iPhone · Komputer",
+      eyebrow: "Aplikacja VaraaAi",
+      installOn: "Zainstaluj na",
+      desktop: "Komputer",
+      scan: "Zeskanuj, aby zainstalować na telefonie",
+      perks: ["Instalacja jednym dotknięciem", "Aktualizuje się sama", "Alarm rezerwacji"],
+      iosHint: "Na iPhonie: otwórz stronę w Safari, stuknij Udostępnij, a potem \"Do ekranu początkowego\".",
+      otherHint: "Otwórz menu przeglądarki (⋮ lub ≡) i wybierz \"Zainstaluj aplikację\".",
     },
   },
   de: {
@@ -175,6 +216,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "Installieren",
       installed: "Auf diesem Gerät installiert",
       platforms: "Android · iPhone · Desktop",
+      eyebrow: "VaraaAi-App",
+      installOn: "Installieren auf",
+      desktop: "Computer",
+      scan: "Scannen und aufs Handy installieren",
+      perks: ["Mit einem Tippen installiert", "Aktualisiert sich selbst", "Buchungsalarm"],
+      iosHint: "Auf dem iPhone: Seite in Safari öffnen, auf Teilen tippen, dann \"Zum Home-Bildschirm\".",
+      otherHint: "Öffne das Browsermenü (⋮ oder ≡) und wähle \"App installieren\".",
     },
   },
   km: {
@@ -208,6 +256,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "ដំឡើង",
       installed: "បានដំឡើងលើឧបករណ៍នេះ",
       platforms: "Android · iPhone · កុំព្យូទ័រ",
+      eyebrow: "កម្មវិធី VaraaAi",
+      installOn: "ដំឡើងលើ",
+      desktop: "កុំព្យូទ័រ",
+      scan: "ស្កេនដើម្បីដំឡើងលើទូរស័ព្ទ",
+      perks: ["ដំឡើងចុចតែម្តង", "ធ្វើបច្ចុប្បន្នភាពដោយខ្លួនឯង", "សំឡេងរោទ៍ការកក់"],
+      iosHint: "លើ iPhone: បើកក្នុង Safari ចុច Share ហើយជ្រើស \"Add to Home Screen\"។",
+      otherHint: "បើកម៉ឺនុយកម្មវិធីរុករក (⋮) ហើយជ្រើស \"Install app\"។",
     },
   },
   th: {
@@ -241,6 +296,13 @@ const STRINGS: Record<string, SpotlightStrings> = {
       button: "ติดตั้ง",
       installed: "ติดตั้งบนอุปกรณ์นี้แล้ว",
       platforms: "Android · iPhone · คอมพิวเตอร์",
+      eyebrow: "แอป VaraaAi",
+      installOn: "ติดตั้งบน",
+      desktop: "คอมพิวเตอร์",
+      scan: "สแกนเพื่อติดตั้งบนมือถือ",
+      perks: ["ติดตั้งแตะเดียว", "อัปเดตอัตโนมัติ", "เสียงเตือนการจอง"],
+      iosHint: "บน iPhone: เปิดหน้าใน Safari แตะปุ่มแชร์ แล้วเลือก \"เพิ่มไปยังหน้าจอโฮม\"",
+      otherHint: "เปิดเมนูเบราว์เซอร์ (⋮) แล้วเลือก \"ติดตั้งแอป\"",
     },
   },
 };
