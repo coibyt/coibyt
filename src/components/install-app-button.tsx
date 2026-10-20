@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Download } from "lucide-react";
+import { CheckCircle2, Download } from "lucide-react";
 import { useInstallPrompt, isIos } from "@/hooks/use-install-prompt";
 import { InstallHintModal } from "@/components/install-hint-modal";
 
@@ -12,12 +12,32 @@ import { InstallHintModal } from "@/components/install-hint-modal";
  * too. Chrome/Edge/Android support a real native install prompt via
  * `beforeinstallprompt`; iOS Safari doesn't expose that API at all, so there
  * we fall back to showing the manual "Share → Add to Home Screen" steps. */
-export function InstallAppButton({ locale, className }: { locale: string; className?: string }) {
+export function InstallAppButton({
+  locale,
+  className,
+  label: labelOverride,
+  installedLabel,
+  installedClassName,
+}: {
+  locale: string;
+  className?: string;
+  label?: string;
+  /** Shown instead of nothing once the app is installed on this device. */
+  installedLabel?: string;
+  installedClassName?: string;
+}) {
   const { installed, promptInstall } = useInstallPrompt();
   const [showIosHint, setShowIosHint] = useState(false);
   const [showGenericHint, setShowGenericHint] = useState(false);
 
-  if (installed) return null;
+  if (installed) {
+    return installedLabel ? (
+      <span className={installedClassName ?? "inline-flex items-center gap-1.5 text-sm font-semibold"}>
+        <CheckCircle2 className="h-4 w-4" />
+        {installedLabel}
+      </span>
+    ) : null;
+  }
 
   async function handleClick() {
     const outcome = await promptInstall();
@@ -27,7 +47,7 @@ export function InstallAppButton({ locale, className }: { locale: string; classN
     }
   }
 
-  const label = locale === "vi" ? "Cài đặt ứng dụng" : "Install app";
+  const label = labelOverride ?? (locale === "vi" ? "Cài đặt ứng dụng" : "Install app");
 
   return (
     <>

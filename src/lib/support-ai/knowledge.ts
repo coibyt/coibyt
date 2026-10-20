@@ -102,6 +102,12 @@ Website giới thiệu riêng (địa chỉ dạng varaaai.com/site/ten-salon) g
 - Trang đặt lịch chuỗi: một trang chung cho tất cả chi nhánh.
 - Tài khoản: đổi email đăng nhập, đổi mật khẩu; ảnh đại diện.
 
+### Chuông báo lịch hẹn trong ngày
+Trong trang quản trị, bấm "Bật chuông" ở hộp "Bật chuông báo lịch hẹn mới" (lần đầu), và cho phép thông báo. Khi khách đặt lịch online cho NGÀY HÔM NAY (mọi chi nhánh), điện thoại đổ chuông to lặp lại, rung và hiện cửa sổ "Lịch hẹn mới hôm nay!" — khi trang/app VaraaAi đang mở; khi app đã đóng thì có thông báo đẩy rung mạnh. Nút chuông ở góc trái dưới trang quản trị để "Thử chuông" hoặc "Tắt chuông". Lịch salon tự thêm không đổ chuông.
+
+### Ứng dụng điện thoại
+VaraaAi có app cài thẳng từ website, không cần CH Play hay App Store: bấm "Tải về máy" ở chân trang (hoặc "Cài đặt ứng dụng" trên menu). Trên iPhone: mở bằng Safari → nút Chia sẻ → "Thêm vào Màn hình chính". App tự cập nhật và đồng bộ với website.
+
 ### Hỗ trợ — /business/dashboard/support
 Bài đào tạo, thông báo từ VaraaAi, và chat với đội ngũ hỗ trợ. Trung tâm hỗ trợ công khai: /support
 

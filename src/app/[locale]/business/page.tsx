@@ -25,6 +25,8 @@ import {
   Receipt,
   ScanSearch,
   ShoppingBag,
+  Smartphone,
+  Monitor,
   Sparkles,
   Star,
   UserCog,
@@ -36,6 +38,8 @@ import { OfferCountdown } from "@/components/offer-countdown";
 import { OpenSupportButton, SupportLauncher } from "@/components/support-launcher";
 import { businessLandingStrings, type BusinessLandingStrings } from "@/lib/business-landing/strings";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
+import { spotlightStrings, type SpotlightStrings } from "@/lib/business-landing/spotlight";
+import { InstallAppButton } from "@/components/install-app-button";
 
 type Params = Promise<{ locale: string }>;
 
@@ -78,6 +82,8 @@ export default async function BusinessLandingPage({ params }: { params: Params }
   const { locale } = await params;
   const t = businessLandingStrings(locale);
   const center = supportCenterStrings(locale);
+  const spot = spotlightStrings(locale);
+  const faq = [t.faq[0], t.faq[1], spot.faq, ...t.faq.slice(2)];
 
   return (
     <div className="overflow-x-clip">
@@ -155,6 +161,8 @@ export default async function BusinessLandingPage({ params }: { params: Params }
           </div>
         </div>
       </section>
+
+      <Spotlight s={spot} locale={locale} />
 
       {/* Feature groups */}
       <section className="bg-mist-50/60 py-16 sm:py-24">
@@ -301,7 +309,7 @@ export default async function BusinessLandingPage({ params }: { params: Params }
       <section className="container pb-16 sm:pb-24">
         <h2 className="text-center font-serif text-3xl font-bold text-ink-900 sm:text-4xl">{t.faqTitle}</h2>
         <div className="mx-auto mt-10 max-w-3xl space-y-3">
-          {t.faq.map((f) => (
+          {faq.map((f) => (
             <details key={f.q} className="group rounded-2xl bg-white p-5 shadow-card ring-1 ring-ink-100 open:ring-primary-200">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
                 {f.q}
@@ -350,6 +358,135 @@ export default async function BusinessLandingPage({ params }: { params: Params }
         }}
       />
     </div>
+  );
+}
+
+/** "Never miss a customer": the same-day booking alarm and running the salon
+ * on both the website and the phone app. */
+function Spotlight({ s, locale }: { s: SpotlightStrings; locale: string }) {
+  return (
+    <section className="container py-16 sm:py-20">
+      <div className="mx-auto max-w-2xl text-center">
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-coral-50 px-3 py-1 text-xs font-bold uppercase tracking-wider text-coral-600">
+          <BellRing className="h-3.5 w-3.5" />
+          {s.eyebrow}
+        </span>
+        <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-ink-900 sm:text-4xl">{s.title}</h2>
+        <p className="mt-3 text-ink-400">{s.subtitle}</p>
+      </div>
+
+      <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        {/* Booking alarm */}
+        <div className="relative flex flex-col overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#2a1424] via-[#4a1d33] to-[#7a2440] p-7 text-white sm:p-9">
+          <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-coral-500/30 blur-3xl" />
+          <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 ring-1 ring-white/20">
+            <BellRing className="h-6 w-6 text-peach-200" />
+          </span>
+          <h3 className="relative mt-5 text-2xl font-extrabold">{s.alarm.title}</h3>
+          <p className="relative mt-2 text-white/80">{s.alarm.body}</p>
+          <ul className="relative mt-5 space-y-2">
+            {s.alarm.points.map((p) => (
+              <li key={p} className="flex items-center gap-2 text-sm font-semibold">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-400/90">
+                  <Check className="h-3.5 w-3.5 text-[#2a1424]" />
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+          <div className="relative mt-8 flex flex-1 items-end justify-center" aria-hidden>
+            <div className="w-full max-w-[17rem] overflow-hidden rounded-3xl bg-white text-ink-900 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.6)]">
+              <div className="bg-gradient-to-br from-coral-400 via-coral-500 to-berry-500 px-5 pb-5 pt-6 text-center text-white">
+                <span className="relative mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white/20">
+                  <span className="absolute inset-0 animate-ping rounded-full bg-white/30 [animation-duration:2s]" />
+                  <BellRing className="h-6 w-6" />
+                </span>
+                <p className="mt-3 text-lg font-extrabold">{s.alarm.mockTitle}</p>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3">
+                <span className="flex h-11 w-12 shrink-0 flex-col items-center justify-center rounded-xl bg-primary-50 text-primary-700">
+                  <CalendarDays className="h-3 w-3" />
+                  <span className="text-xs font-extrabold">14:00</span>
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-bold">Anna</p>
+                  <p className="truncate text-xs text-ink-700">{s.alarm.mockLine}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2 px-4 pb-4">
+                <span className="rounded-full bg-mist-100 py-2 text-center text-[11px] font-bold">{s.alarm.mockStop}</span>
+                <span className="rounded-full bg-primary-500 py-2 text-center text-[11px] font-bold text-white">{s.alarm.mockView}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Website + phone app */}
+        <div className="relative flex flex-col overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary-50 via-white to-peach-50 p-7 ring-1 ring-primary-100 sm:p-9">
+          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500 text-white">
+            <Smartphone className="h-6 w-6" />
+          </span>
+          <h3 className="mt-5 text-2xl font-extrabold text-ink-900">{s.app.title}</h3>
+          <p className="mt-2 text-ink-700">{s.app.body}</p>
+          <ul className="mt-5 space-y-2">
+            {s.app.points.map((p) => (
+              <li key={p} className="flex items-center gap-2 text-sm font-semibold text-ink-900">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary-500">
+                  <Check className="h-3.5 w-3.5 text-white" />
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+          <div className="relative mt-8 flex-1 pb-4" aria-hidden>
+            <div className="mx-auto w-[88%] rounded-2xl bg-ink-900 p-2 shadow-popover">
+              <div className="rounded-xl bg-white p-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-extrabold text-primary-500">
+                    Varaa<span className="text-ink-900">Ai</span>
+                  </span>
+                  <span className="flex items-center gap-1 rounded-full bg-mist-100 px-2 py-0.5 text-[10px] font-bold text-ink-700">
+                    <Monitor className="h-3 w-3" />
+                    {s.app.web}
+                  </span>
+                </div>
+                <div className="mt-2 grid grid-cols-3 gap-1.5">
+                  {["bg-primary-100", "bg-teal-50", "bg-coral-50"].map((c, i) => (
+                    <div key={i} className="h-20 rounded-lg bg-mist-50 p-1">
+                      <div className={`h-6 rounded ${c}`} />
+                      <div className={`mt-2 h-9 rounded ${c}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="mx-auto h-2 w-[94%] rounded-b-xl bg-ink-700" />
+            <div className="absolute -bottom-2 right-2 w-28 rounded-[1.25rem] bg-ink-900 p-1.5 shadow-popover sm:right-6">
+              <div className="rounded-[0.9rem] bg-white p-2">
+                <p className="flex items-center gap-1 text-[9px] font-bold text-ink-700">
+                  <Smartphone className="h-2.5 w-2.5" />
+                  {s.app.phone}
+                </p>
+                <div className="mt-1.5 space-y-1">
+                  <div className="h-5 rounded bg-primary-100" />
+                  <div className="h-7 rounded bg-teal-50" />
+                  <div className="h-5 rounded bg-coral-50" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8">
+            <InstallAppButton
+              locale={locale}
+              label={s.app.install}
+              installedLabel={s.footer.installed}
+              className="inline-flex items-center gap-2 rounded-full bg-ink-900 px-6 py-3 text-sm font-bold text-white transition-transform hover:scale-[1.02]"
+              installedClassName="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-5 py-3 text-sm font-semibold text-emerald-700"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
