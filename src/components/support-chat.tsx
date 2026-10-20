@@ -82,6 +82,8 @@ export function SupportChat({
   suggestions = [],
   humanEndpoint,
   heightClass = "h-[28rem]",
+  autoSend,
+  onAutoSent,
 }: {
   endpoint: string;
   mine: "OWNER" | "VISITOR" | "ADMIN";
@@ -95,6 +97,9 @@ export function SupportChat({
   /** Enables the "talk to a person" button. */
   humanEndpoint?: string;
   heightClass?: string;
+  /** A question to send as soon as the chat has loaded (e.g. a tapped topic). */
+  autoSend?: string | null;
+  onAutoSent?: () => void;
 }) {
   const [messages, setMessages] = useState<SupportMessageDto[]>([]);
   const [loading, setLoading] = useState(true);
@@ -106,6 +111,7 @@ export function SupportChat({
   const listRef = useRef<HTMLDivElement>(null);
   const lastIdRef = useRef<string | null>(null);
   const isAdmin = mine === "ADMIN";
+  const autoSentRef = useRef<string | null>(null);
   const links = linkLocale ?? locale.split("-")[0];
 
   useEffect(() => {
@@ -185,6 +191,15 @@ export function SupportChat({
     setAiActive(false);
     if (data.message) addMessages([data.message]);
   }
+
+  useEffect(() => {
+    if (loading || !autoSend || autoSentRef.current === autoSend) return;
+    autoSentRef.current = autoSend;
+    send(autoSend);
+    onAutoSent?.();
+    // send() is recreated each render; only a new question should trigger this.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, autoSend]);
 
   const showHumanButton = !!humanEndpoint && aiActive && messages.length > 0 && !!labels.talkToHuman;
 

@@ -8,6 +8,7 @@ import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
 import { PendingBanner } from "@/components/pending-banner";
 import { DashboardBody } from "@/components/dashboard-body";
+import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -106,6 +107,7 @@ export default async function BusinessDashboardLayout({
     <div className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[180px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
       <DashboardBody switcher={switcher}>{children}</DashboardBody>
+      {isOwner && <DashboardSupportWidget locale={locale} />}
     </div>
   );
 }
