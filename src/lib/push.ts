@@ -24,7 +24,7 @@ function ensureConfigured(): boolean {
  * need to handle failure for. */
 export async function sendPushToUser(
   userId: string,
-  payload: { title: string; body: string; url?: string }
+  payload: { title: string; body: string; url?: string; tag?: string; urgent?: boolean }
 ): Promise<void> {
   if (!ensureConfigured()) return;
 
@@ -36,7 +36,9 @@ export async function sendPushToUser(
       try {
         await webPush.sendNotification(
           { endpoint: sub.endpoint, keys: { p256dh: sub.p256dh, auth: sub.auth } },
-          JSON.stringify(payload)
+          JSON.stringify(payload),
+          // "high" wakes a sleeping phone right away instead of batching.
+          payload.urgent ? { urgency: "high", TTL: 60 * 60 } : undefined
         );
       } catch (err) {
         const statusCode = (err as { statusCode?: number } | null)?.statusCode;

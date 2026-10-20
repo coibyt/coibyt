@@ -17,7 +17,7 @@ self.addEventListener("fetch", (event) => {
 
 // Shows a real OS-level notification for a server-sent push — e.g. "a
 // customer wants to talk to you" (see src/lib/push.ts). The payload is
-// plain JSON: { title, body, url }.
+// plain JSON: { title, body, url, tag?, urgent? }.
 self.addEventListener("push", (event) => {
   let data = { title: "VaraaAi.Com", body: "" };
   try {
@@ -31,6 +31,14 @@ self.addEventListener("push", (event) => {
       icon: "/icons/icon-192.png",
       badge: "/icons/icon-192.png",
       data: { url: data.url || "/" },
+      // A new booking for today should be impossible to miss: it stays on
+      // screen until tapped, vibrates hard and re-alerts even if an older
+      // one is still showing.
+      tag: data.tag || undefined,
+      renotify: !!data.tag,
+      requireInteraction: !!data.urgent,
+      vibrate: data.urgent ? [600, 200, 600, 200, 600, 200, 1200] : [200, 100, 200],
+      silent: false,
     })
   );
 });

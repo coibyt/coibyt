@@ -21,5 +21,11 @@ public class MainActivity extends BridgeActivity {
     if (ua != null) {
       settings.setUserAgentString(ua.replace("; wv", ""));
     }
+
+    // The dashboard's new-booking alarm plays a loud chime from the page
+    // (src/components/booking-alarm.tsx). A WebView normally blocks sound
+    // until the person taps the screen; the owner's phone may be lying on
+    // the counter, so let it ring without that first tap.
+    settings.setMediaPlaybackRequiresUserGesture(false);
   }
 }

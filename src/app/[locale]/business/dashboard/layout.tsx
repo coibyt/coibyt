@@ -9,6 +9,7 @@ import { DashboardSidebar } from "@/components/dashboard-sidebar";
 import { PendingBanner } from "@/components/pending-banner";
 import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
+import { BookingAlarm } from "@/components/booking-alarm";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -108,6 +109,7 @@ export default async function BusinessDashboardLayout({
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
       <DashboardBody switcher={switcher}>{children}</DashboardBody>
       {isOwner && <DashboardSupportWidget locale={locale} />}
+      {isOwner && <BookingAlarm locale={locale} />}
     </div>
   );
 }

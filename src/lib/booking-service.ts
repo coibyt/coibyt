@@ -446,7 +446,9 @@ async function notifyOwnerOfNewBooking(params: {
         timeZone: params.businessTimezone,
       });
       await sendPushToUser(params.ownerId, {
-        title: locale === "vi" ? "Có lịch hẹn mới hôm nay" : "New booking today",
+        title: locale === "vi" ? "🔔 Có lịch hẹn mới hôm nay" : "🔔 New booking today",
+        tag: `booking-${params.bookingId ?? params.startsAt.getTime()}`,
+        urgent: true,
         body:
           locale === "vi"
             ? `${params.customerName} vừa đặt "${params.serviceName}" lúc ${time}`
