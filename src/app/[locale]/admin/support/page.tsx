@@ -22,7 +22,7 @@ export default async function AdminSupportPage({
 
   return (
     <div className="space-y-5">
-      <h1 className="text-xl font-bold text-ink-900">Hỗ trợ chủ salon</h1>
+      <h1 className="text-xl font-bold text-ink-900">Hỗ trợ</h1>
 
       <div className="flex flex-wrap gap-2">
         {TABS.map((x) => (

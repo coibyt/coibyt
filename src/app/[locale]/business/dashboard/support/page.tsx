@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { TrainingCard } from "@/components/training-card";
 import { SupportChat } from "@/components/support-chat";
+import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { MarkAnnouncementsSeen } from "@/components/mark-announcements-seen";
 
 type Tab = "training" | "chat" | "announcements";
@@ -26,6 +27,7 @@ export default async function SupportPage({
   const session = await auth();
   const userId = session!.user!.id;
   const t = await getTranslations("support");
+  const sc = supportCenterStrings(locale);
 
   const tab: Tab = rawTab === "chat" || rawTab === "announcements" ? rawTab : "training";
 
@@ -78,14 +80,19 @@ export default async function SupportPage({
           <p className="text-sm text-ink-400">{t("chatIntro")}</p>
           <SupportChat
             endpoint="/api/support/messages"
+            humanEndpoint="/api/support/human"
             mine="OWNER"
             locale={locale}
+            suggestions={sc.suggestions}
             labels={{
               placeholder: t("chatPlaceholder"),
               send: t("send"),
               empty: t("chatEmpty"),
               error: t("chatError"),
               otherName: t("adminName"),
+              aiName: sc.aiName,
+              aiTyping: sc.aiTyping,
+              talkToHuman: sc.talkToHuman,
             }}
           />
         </div>

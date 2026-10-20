@@ -2,12 +2,14 @@ import { NextResponse } from "next/server";
 import { requireAdmin } from "@/lib/require-admin";
 import { prisma } from "@/lib/prisma";
 
-/** Every salon owner who has written to support, most recently active first. */
+/** Everyone who has written to support — salon owners, customers and guests
+ * without an account — most recently active first. */
 export async function GET() {
   if (!(await requireAdmin())) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const threads = await prisma.supportThread.findMany({
     orderBy: { updatedAt: "desc" },
+    take: 300,
     include: {
       owner: { select: { name: true, email: true, businesses: { select: { name: true } } } },
       messages: { orderBy: { createdAt: "desc" }, take: 1 },
@@ -16,14 +18,20 @@ export async function GET() {
   });
 
   return NextResponse.json({
-    threads: threads.map((t) => ({
-      id: t.id,
-      ownerName: t.owner.name,
-      ownerEmail: t.owner.email,
-      businessNames: t.owner.businesses.map((b) => b.name),
-      lastMessage: t.messages[0]?.content ?? "",
-      lastMessageAt: t.messages[0]?.createdAt.toISOString() ?? t.updatedAt.toISOString(),
-      unread: t._count.messages,
-    })),
+    threads: threads
+      .filter((t) => t.messages.length > 0)
+      .map((t) => ({
+        id: t.id,
+        kind: t.owner ? (t.owner.businesses.length ? "owner" : "customer") : "guest",
+        name: t.owner?.name ?? t.guestName ?? "Khách",
+        email: t.owner?.email ?? t.guestEmail ?? "",
+        businessNames: t.owner?.businesses.map((b) => b.name) ?? [],
+        locale: t.locale,
+        aiPaused: t.aiPaused,
+        lastMessage: t.messages[0]?.content ?? "",
+        lastFromAi: t.messages[0]?.fromAi ?? false,
+        lastMessageAt: t.messages[0]?.createdAt.toISOString() ?? t.updatedAt.toISOString(),
+        unread: t._count.messages,
+      })),
   });
 }

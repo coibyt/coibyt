@@ -2,6 +2,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
+import { supportCenterStrings } from "@/lib/support-ai/strings";
 
 export async function Footer() {
   const [t, locale] = await Promise.all([getTranslations("footer"), getLocale()]);
@@ -36,6 +37,7 @@ export async function Footer() {
           title={t("company")}
           links={[
             { href: "/", label: "VaraaAi.Com" },
+            { href: "/support", label: supportCenterStrings(locale).eyebrow },
             { href: "/terms", label: t("terms") },
             { href: "/privacy", label: locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy" },
           ]}

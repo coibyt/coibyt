@@ -1166,8 +1166,19 @@ model Announcement {
 // One support conversation per salon-owner account (not per branch).
 model SupportThread {
   id        String   @id @default(cuid())
-  ownerId   String   @unique
-  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  // The signed-in user writing in — a salon owner or a customer. Null for a
+  // visitor without an account (guestName/guestEmail/guestToken instead).
+  ownerId   String?  @unique
+  owner     User?    @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  guestName  String?
+  guestEmail String?
+  // Kept in the visitor's cookie; identifies their thread without an account.
+  guestToken String?  @unique
+  // Language the visitor uses the site in — for AI replies and emails.
+  locale    String   @default("vi")
+  // Set when the visitor asks for a person or an admin replies by hand; the
+  // AI assistant stays quiet in this thread until an admin turns it back on.
+  aiPaused  Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -1179,6 +1190,8 @@ model SupportMessage {
   threadId  String
   thread    SupportThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
   fromAdmin Boolean
+  // An admin-side message written by the AI support assistant.
+  fromAi    Boolean       @default(false)
   content   String        @db.Text
   // Set once the other side has opened the thread and seen this message.
   readAt    DateTime?
@@ -1615,4 +1628,12 @@ model ToolEvent {
   createdAt DateTime @default(now())
 
   @@index([tool, event, createdAt])
+}
+
+// Platform-wide switches the admin changes from the admin pages, as
+// key/value pairs (e.g. "supportAi" = "on").
+model PlatformSetting {
+  key       String   @id
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
 }

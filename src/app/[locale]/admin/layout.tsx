@@ -24,15 +24,15 @@ export default async function AdminLayout({
     { href: "/admin/platform-affiliates", label: t("platformAffiliatesPage.title") },
     {
       href: "/admin/support",
-      label: "Hỗ trợ chủ salon",
+      label: "Hỗ trợ",
       badge: await adminSupportUnreadCount(),
     },
   ];
 
   return (
-    <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-[220px_1fr]">
+    <div className="container grid grid-cols-1 gap-8 py-10 md:grid-cols-[220px_minmax(0,1fr)]">
       <DashboardSidebar links={links} title={t("title")} />
-      <div>{children}</div>
+      <div className="min-w-0">{children}</div>
     </div>
   );
 }
