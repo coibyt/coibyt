@@ -25,8 +25,15 @@ self.addEventListener("push", (event) => {
   } catch {
     // Non-JSON payload — fall back to the default title/body above.
   }
+  // If the app/dashboard is still open in the background, tell it too, so
+  // its own loud booking alarm rings (see src/components/booking-alarm.tsx).
+  const tellPages = data.urgent
+    ? self.clients
+        .matchAll({ type: "window", includeUncontrolled: true })
+        .then((clients) => clients.forEach((c) => c.postMessage({ type: "varaaai-booking-alarm" })))
+    : Promise.resolve();
   event.waitUntil(
-    self.registration.showNotification(data.title, {
+    Promise.all([tellPages, self.registration.showNotification(data.title, {
       body: data.body,
       icon: "/icons/icon-192.png",
       badge: "/icons/icon-192.png",
@@ -39,7 +46,7 @@ self.addEventListener("push", (event) => {
       requireInteraction: !!data.urgent,
       vibrate: data.urgent ? [600, 200, 600, 200, 600, 200, 1200] : [200, 100, 200],
       silent: false,
-    })
+    })])
   );
 });
 

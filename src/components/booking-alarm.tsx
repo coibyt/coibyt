@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BellRing, BellOff, CalendarDays, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 
 interface Alert {
@@ -109,8 +110,12 @@ function readSeen(): string[] {
  * customer books for TODAY while the dashboard is open — in the browser, the
  * installed web app, or the Android app. Also offers to turn on push
  * notifications for when the dashboard is closed. */
-export function BookingAlarm({ locale }: { locale: string }) {
+export function BookingAlarm({ locale, global = false }: { locale: string; global?: boolean }) {
   const t = (L as Record<string, (typeof L)["en"]>)[locale] ?? L.en;
+  const pathname = usePathname();
+  // The site-wide copy only rings (once the owner has switched the alarm on
+  // in the dashboard) and stays out of the dashboard, which has its own.
+  const inactive = global && /\/business\/dashboard(\/|$)/.test(pathname ?? "");
   const [pref, setPref] = useState<"on" | "off" | null | "loading">("loading");
   const [snoozed, setSnoozed] = useState(false);
   const [alerts, setAlerts] = useState<Alert[]>([]);
@@ -213,7 +218,7 @@ export function BookingAlarm({ locale }: { locale: string }) {
 
   // Poll for new bookings for today while the alarm is on.
   useEffect(() => {
-    if (pref !== "on") return;
+    if (pref !== "on" || inactive) return;
     let cancelled = false;
     async function check() {
       const q = sinceRef.current ? `?since=${encodeURIComponent(sinceRef.current)}` : "";
@@ -234,12 +239,17 @@ export function BookingAlarm({ locale }: { locale: string }) {
     const id = setInterval(check, POLL_MS);
     const onVisible = () => document.visibilityState === "visible" && check();
     document.addEventListener("visibilitychange", onVisible);
+    // A push for a new booking arrived (public/sw.js) — check right away
+    // instead of waiting for the next poll.
+    const onPush = (e: MessageEvent) => e.data?.type === "varaaai-booking-alarm" && check();
+    navigator.serviceWorker?.addEventListener("message", onPush);
     return () => {
       cancelled = true;
       clearInterval(id);
       document.removeEventListener("visibilitychange", onVisible);
+      navigator.serviceWorker?.removeEventListener("message", onPush);
     };
-  }, [pref, startRinging]);
+  }, [pref, inactive, startRinging]);
 
   function setPreference(p: "on" | "off") {
     setPref(p);
@@ -267,7 +277,7 @@ export function BookingAlarm({ locale }: { locale: string }) {
     setAlerts([]);
   }
 
-  if (pref === "loading") return null;
+  if (pref === "loading" || inactive || (global && pref !== "on")) return null;
 
   return (
     <>
@@ -316,7 +326,7 @@ export function BookingAlarm({ locale }: { locale: string }) {
         </div>
       )}
 
-      {pref === null && !snoozed && (
+      {!global && pref === null && !snoozed && (
         <div className="fixed bottom-24 left-4 right-4 z-[65] animate-slide-up rounded-3xl bg-white p-4 shadow-[0_20px_50px_-12px_rgba(31,24,45,0.45)] ring-1 ring-ink-100 sm:bottom-6 sm:left-6 sm:right-auto sm:w-96">
           <div className="flex gap-3">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-coral-400 to-berry-500 text-white">
@@ -338,7 +348,7 @@ export function BookingAlarm({ locale }: { locale: string }) {
         </div>
       )}
 
-      {pref !== null && (
+      {!global && pref !== null && (
         <div className="fixed bottom-5 left-5 z-[65]">
           {menu && (
             <div className="mb-2 w-64 animate-slide-up rounded-2xl bg-white p-2 shadow-popover ring-1 ring-ink-100">

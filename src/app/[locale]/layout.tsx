@@ -11,6 +11,7 @@ import { Footer } from "@/components/footer";
 import { LocaleAutoDetect } from "@/components/locale-auto-detect";
 import { PwaRegister } from "@/components/pwa-register";
 import { InstallAppBanner } from "@/components/install-app-banner";
+import { BookingAlarm } from "@/components/booking-alarm";
 import { SiteVisitTracker } from "@/components/site-visit-tracker";
 import "../globals.css";
 
@@ -113,6 +114,7 @@ fbq('track', 'PageView');`,
             <main className="flex-1">{children}</main>
             <Footer />
             <InstallAppBanner locale={locale} />
+            <BookingAlarm locale={locale} global />
           </SessionProvider>
         </NextIntlClientProvider>
       </body>
