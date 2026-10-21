@@ -22,7 +22,7 @@ export default async function EmbedBusinessPage({
   const business = await prisma.business.findUnique({
     where: { slug },
     include: {
-      services: { where: { active: true }, orderBy: { createdAt: "asc" } },
+      services: { where: { active: true }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
       serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
       reviews: { where: { status: "APPROVED" }, select: { rating: true } },
     },

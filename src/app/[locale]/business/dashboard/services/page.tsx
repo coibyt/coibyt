@@ -30,7 +30,7 @@ export default async function ServicesPage({
           select: { staffId: true, priceCentsOverride: true, durationMinOverride: true },
         },
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
     }),
     prisma.staff.findMany({ where: { businessId: business.id, active: true } }),
     prisma.serviceGroup.findMany({
@@ -65,6 +65,7 @@ export default async function ServicesPage({
         categories={categories.map((c) => ({ id: c.id, name: categoryName(locale, c) }))}
         locale={locale}
         defaultCurrency={business.defaultCurrency}
+        canReorder={access.isOwner}
       />
     </div>
   );

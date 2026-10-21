@@ -86,7 +86,7 @@ export async function generateChatReply(params: {
     prisma.service.findMany({
       where: { businessId: params.businessId, active: true },
       select: { id: true, name: true, description: true, priceCents: true, currency: true, durationMin: true },
-      orderBy: { name: "asc" },
+      orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
       take: 60,
     }),
     prisma.product.findMany({

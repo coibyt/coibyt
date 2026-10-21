@@ -40,7 +40,7 @@ export default async function BusinessServicesPage({
       cancellationPolicy: true,
       landingPage: { select: { published: true } },
       serviceGroups: { orderBy: [{ sortOrder: "asc" }, { id: "asc" }] },
-      services: { where: { active: true }, orderBy: { createdAt: "asc" } },
+      services: { where: { active: true }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
     },
   });
 

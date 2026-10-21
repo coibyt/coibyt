@@ -1,9 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  DndContext,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  closestCenter,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from "@dnd-kit/core";
+import { SortableContext, arrayMove, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { useTranslations } from "next-intl";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
-import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown } from "lucide-react";
+import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown, GripVertical, Move } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 
@@ -52,6 +64,75 @@ const emptyForm = {
   staffOverrides: {} as StaffOverrideForm,
 };
 
+const REORDER_HINT: Record<string, string> = {
+  vi: "Kéo biểu tượng ⋮⋮ bên trái để sắp xếp thứ tự dịch vụ — khách sẽ thấy đúng thứ tự này khi đặt lịch.",
+  en: "Drag the ⋮⋮ handle on the left to reorder services — customers see them in this order when booking.",
+  fi: "Vedä vasemmalla olevasta ⋮⋮-kahvasta järjestääksesi palvelut — asiakkaat näkevät ne tässä järjestyksessä.",
+};
+
+/** One draggable service row; `children` gets the drag-handle props. */
+function SortableService({
+  id,
+  disabled,
+  children,
+}: {
+  id: string;
+  disabled: boolean;
+  children: (handle: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean }) => ReactNode;
+}) {
+  const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition, isDragging } = useSortable({ id, disabled });
+  return (
+    <div
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition, zIndex: isDragging ? 20 : undefined, position: "relative" }}
+      className={isDragging ? "opacity-90 drop-shadow-xl" : undefined}
+    >
+      {children({ ref: setActivatorNodeRef, props: { ...attributes, ...listeners }, dragging: isDragging })}
+    </div>
+  );
+}
+
+/** A section of the services list whose rows can be dragged into order. */
+function SortableSection({
+  items,
+  disabled,
+  onReorder,
+  renderRow,
+}: {
+  items: { id: string }[];
+  disabled: boolean;
+  onReorder: (ids: string[]) => void;
+  renderRow: (id: string, handle: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean } | null) => ReactNode;
+}) {
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 6 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+  );
+  const ids = items.map((i) => i.id);
+  function onDragEnd(e: DragEndEvent) {
+    if (!e.over || e.active.id === e.over.id) return;
+    const from = ids.indexOf(String(e.active.id));
+    const to = ids.indexOf(String(e.over.id));
+    if (from < 0 || to < 0) return;
+    onReorder(arrayMove(ids, from, to));
+  }
+  if (disabled) return <>{ids.map((id) => renderRow(id, null))}</>;
+  return (
+    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
+      <SortableContext items={ids} strategy={verticalListSortingStrategy}>
+        <div className="space-y-2">
+          {ids.map((id) => (
+            <SortableService key={id} id={id} disabled={disabled}>
+              {(handle) => renderRow(id, handle)}
+            </SortableService>
+          ))}
+        </div>
+      </SortableContext>
+    </DndContext>
+  );
+}
+
 export function ServicesManager({
   initialServices,
   staffOptions,
@@ -59,6 +140,7 @@ export function ServicesManager({
   categories,
   locale,
   defaultCurrency,
+  canReorder = false,
 }: {
   initialServices: ServiceRow[];
   staffOptions: { id: string; name: string }[];
@@ -70,6 +152,8 @@ export function ServicesManager({
   categories: { id: string; name: string }[];
   locale: string;
   defaultCurrency: string;
+  /** Owners can drag services into order. */
+  canReorder?: boolean;
 }) {
   const t = useTranslations("business");
   const tCommon = useTranslations("common");
@@ -94,6 +178,25 @@ export function ServicesManager({
   const [newGroupName, setNewGroupName] = useState("");
   const [groupBusy, setGroupBusy] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
+  // The list in its current order, so a drag shows instantly while it saves.
+  const [services, setServices] = useState(initialServices);
+  useEffect(() => setServices(initialServices), [initialServices]);
+
+  async function reorder(ids: string[]) {
+    const byId = new Map(services.map((x) => [x.id, x]));
+    const slots = services.map((x, i) => (ids.includes(x.id) ? i : -1)).filter((i) => i >= 0);
+    const next = [...services];
+    slots.forEach((slot, k) => {
+      next[slot] = byId.get(ids[k])!;
+    });
+    setServices(next);
+    const res = await fetch("/api/business/services/reorder", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ids }),
+    }).catch(() => null);
+    if (!res?.ok) router.refresh();
+  }
 
   // Bring the form into view whenever it opens — right below the edited row,
   // or at the bottom for a new service.
@@ -258,11 +361,25 @@ export function ServicesManager({
     router.refresh();
   }
 
-  function renderServiceRow(s: ServiceRow) {
+  function renderServiceRow(
+    s: ServiceRow,
+    handle?: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean } | null
+  ) {
     return (
       <div key={s.id} className="space-y-3">
-      <div className="card flex items-center justify-between gap-4 p-4">
-        <div>
+      <div className={`card flex items-center justify-between gap-3 p-4 ${handle?.dragging ? "ring-2 ring-primary-300" : ""}`}>
+        {handle && (
+          <button
+            type="button"
+            ref={handle.ref}
+            {...handle.props}
+            className="-ml-1 flex h-10 w-7 shrink-0 cursor-grab touch-none items-center justify-center rounded-lg text-ink-400 hover:bg-mist-100 hover:text-ink-700 active:cursor-grabbing"
+            aria-label="Drag"
+          >
+            <GripVertical className="h-5 w-5" />
+          </button>
+        )}
+        <div className="min-w-0 flex-1">
           <p className="font-semibold text-ink-900">{s.name}</p>
           <p className="text-xs text-ink-400">
             {s.durationMin} {tCommon("min")} · {formatMoney(s.priceCents, s.currency, locale)}
@@ -297,7 +414,19 @@ export function ServicesManager({
     );
   }
 
-  const activeServices = initialServices.filter((s) => s.active);
+  const activeServices = services.filter((s) => s.active);
+  const sortable = canReorder && !showForm;
+  const sectionRows = (items: ServiceRow[]) => (
+    <SortableSection
+      items={items}
+      disabled={!sortable}
+      onReorder={reorder}
+      renderRow={(id, handle) => {
+        const row = items.find((x) => x.id === id)!;
+        return renderServiceRow(row, handle);
+      }}
+    />
+  );
   const groupIdSet = new Set(groups.map((g) => g.id));
   const afterCustomGroups = activeServices.filter((s) => !s.groupId || !groupIdSet.has(s.groupId));
 
@@ -328,6 +457,13 @@ export function ServicesManager({
           <Plus className="h-3.5 w-3.5" /> {tDash("servicesForm.addGroup")}
         </button>
       </form>
+
+      {canReorder && activeServices.length > 1 && (
+        <p className="flex items-start gap-2 rounded-2xl bg-primary-50 px-4 py-3 text-xs font-medium text-primary-700 ring-1 ring-primary-100">
+          <Move className="mt-0.5 h-4 w-4 shrink-0" />
+          {REORDER_HINT[locale] ?? REORDER_HINT.en}
+        </p>
+      )}
 
       {groups.map((g, index) => {
         const items = activeServices.filter((s) => s.groupId === g.id);
@@ -373,7 +509,7 @@ export function ServicesManager({
             {items.length === 0 ? (
               <p className="text-xs text-ink-400">{tDash("servicesForm.groupEmpty")}</p>
             ) : (
-              items.map(renderServiceRow)
+              sectionRows(items)
             )}
           </section>
         );
@@ -384,7 +520,7 @@ export function ServicesManager({
           <h2 className="border-b border-ink-100 pb-1.5 font-bold text-ink-900">
             {sec.name} <span className="text-xs font-normal text-ink-400">({sec.items.length})</span>
           </h2>
-          {sec.items.map(renderServiceRow)}
+          {sectionRows(sec.items)}
         </section>
       ))}
 
@@ -396,7 +532,7 @@ export function ServicesManager({
               <span className="text-xs font-normal text-ink-400">({ungroupedServices.length})</span>
             </h2>
           )}
-          {ungroupedServices.map(renderServiceRow)}
+          {sectionRows(ungroupedServices)}
         </section>
       )}
 

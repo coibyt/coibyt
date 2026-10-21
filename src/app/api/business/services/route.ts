@@ -11,7 +11,7 @@ export async function GET() {
   const services = await prisma.service.findMany({
     where: { businessId },
     include: { staff: { select: { staffId: true } } },
-    orderBy: { createdAt: "desc" },
+    orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
   });
   return NextResponse.json({ services });
 }
@@ -35,9 +35,12 @@ export async function POST(req: Request) {
     if (!group) return NextResponse.json({ error: "INVALID_GROUP" }, { status: 400 });
   }
 
+  // New services go to the end of the list; the owner can drag them later.
+  const last = await prisma.service.aggregate({ where: { businessId }, _max: { sortOrder: true } });
   const service = await prisma.service.create({
     data: {
       ...data,
+      sortOrder: (last._max.sortOrder ?? 0) + 1,
       videoUrl: videoUrl || null,
       businessId,
       staff: staffAssignments

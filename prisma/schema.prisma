@@ -546,6 +546,9 @@ model Service {
   id           String        @id @default(cuid())
   businessId   String
   business     Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  // Position within its group/section, set by dragging in the dashboard;
+  // customers see services in this order.
+  sortOrder    Int           @default(0)
   groupId      String?
   group        ServiceGroup? @relation(fields: [groupId], references: [id], onDelete: SetNull)
   categoryId   String?

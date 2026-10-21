@@ -77,7 +77,7 @@ export default async function BusinessProfilePage({
     prisma.business.findUnique({
       where: { slug },
       include: {
-        services: { where: { active: true }, orderBy: { createdAt: "asc" } },
+        services: { where: { active: true }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
         serviceGroups: { orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] },
         staff: { where: { active: true } },
         reviews: {

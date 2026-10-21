@@ -22,7 +22,7 @@ export async function GET() {
         prisma.serviceGroup.findMany({ where: { businessId: b.id }, orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }] }),
         prisma.service.findMany({
           where: { businessId: b.id, active: true },
-          orderBy: { createdAt: "asc" },
+          orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
           include: { category: true },
         }),
         prisma.businessImage.findUnique({ where: { businessId_kind: { businessId: b.id, kind: "LOGO" } } }),
