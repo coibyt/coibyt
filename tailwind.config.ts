@@ -77,6 +77,21 @@ const config: Config = {
           50: "#f2f5f5",
           100: "#e6ebeb",
         },
+        // A salon's public website, painted by the palette the owner picked
+        // (CSS variables set by siteThemeStyle in src/lib/site-theme.ts).
+        lp: {
+          bg: "rgb(var(--lp-bg) / <alpha-value>)",
+          surface: "rgb(var(--lp-surface) / <alpha-value>)",
+          card: "rgb(var(--lp-card) / <alpha-value>)",
+          ink: "rgb(var(--lp-ink) / <alpha-value>)",
+          muted: "rgb(var(--lp-muted) / <alpha-value>)",
+          line: "rgb(var(--lp-line) / <alpha-value>)",
+          accent: "rgb(var(--lp-accent) / <alpha-value>)",
+          "accent-ink": "rgb(var(--lp-accent-ink) / <alpha-value>)",
+          gold: "rgb(var(--lp-gold) / <alpha-value>)",
+          deep: "rgb(var(--lp-deep) / <alpha-value>)",
+          "deep-ink": "rgb(var(--lp-deep-ink) / <alpha-value>)",
+        },
       },
       borderRadius: {
         xl: "1rem",

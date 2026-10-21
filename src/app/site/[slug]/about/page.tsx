@@ -1,12 +1,9 @@
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
-import { isValidLocale } from "@/i18n/is-valid-locale";
-import { routing } from "@/i18n/routing";
 import { siteStrings } from "@/lib/site-content";
 import { getSiteBranches } from "@/lib/site-branches";
-import { SiteHeader } from "@/components/site-header";
-import { SiteFooter } from "@/components/site-footer";
+import { resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-page";
+import { Eyebrow, PageHero, SectionHeading, SiteCta, SiteShell } from "@/components/site-shell";
 
 export default async function BusinessAboutPage({
   params,
@@ -21,22 +18,7 @@ export default async function BusinessAboutPage({
   const business = await prisma.business.findUnique({
     where: { slug },
     select: {
-      id: true,
-      ownerId: true,
-      name: true,
-      description: true,
-      logoUrl: true,
-      status: true,
-      defaultLocale: true,
-      email: true,
-      website: true,
-      facebookUrl: true,
-      instagramUrl: true,
-      tiktokUrl: true,
-      youtubeUrl: true,
-      whatsapp: true,
-      hours: true,
-      landingPage: { select: { published: true } },
+      ...SITE_BUSINESS_SELECT,
       staff: {
         where: { active: true },
         orderBy: { createdAt: "asc" },
@@ -44,70 +26,78 @@ export default async function BusinessAboutPage({
       },
     },
   });
+  const { preview } = await siteAccess(business);
+  const b = business!;
 
-  if (!business || business.status !== "APPROVED" || !business.landingPage?.published) {
-    notFound();
-  }
-
-  const locale = isValidLocale(rawLocale)
-    ? rawLocale
-    : isValidLocale(business.defaultLocale)
-      ? business.defaultLocale
-      : routing.defaultLocale;
+  const locale = resolveSiteLocale(rawLocale, b.defaultLocale);
   const s = siteStrings(locale);
-  const branches = await getSiteBranches(business.ownerId);
+  const [branches, landing] = await Promise.all([
+    getSiteBranches(b.ownerId),
+    prisma.landingPage.findUnique({
+      where: { businessId: b.id },
+      select: {
+        id: true,
+        introTitle: true,
+        introText: true,
+        images: { where: { slot: "intro" }, select: { updatedAt: true } },
+      },
+    }),
+  ]);
+  const introImage = landing?.images[0] ? `/api/landing-image/${landing.id}/intro?v=${landing.images[0].updatedAt.getTime()}` : null;
 
   return (
-    <div>
-      <SiteHeader
-        locale={locale}
-        slug={slug}
-        businessName={business.name}
-        logoUrl={business.logoUrl}
-        active="about"
-      />
+    <SiteShell locale={locale} business={b} branches={branches} active="about" preview={preview}>
+      <PageHero eyebrow={b.name} title={s.aboutPageTitle} subtitle={b.description || s.aboutPageSubtitleFallback} />
 
-      <section className="bg-peach-50">
-        <div className="container py-16 text-center sm:py-20">
-          <h1 className="font-serif text-4xl font-semibold text-ink-900 sm:text-5xl">
-            {s.aboutPageTitle}
-          </h1>
-          <p className="mx-auto mt-4 max-w-2xl whitespace-pre-line text-lg text-ink-700">
-            {business.description || s.aboutPageSubtitleFallback}
-          </p>
-        </div>
-      </section>
+      {landing && (landing.introTitle || landing.introText) && (
+        <section className="bg-lp-bg py-20 sm:py-28">
+          <div className={`container grid items-center gap-14 ${introImage ? "lg:grid-cols-2 lg:gap-24" : "max-w-3xl text-center"}`}>
+            {introImage && (
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-t-[999px] rounded-b-[2.5rem] bg-lp-surface lg:max-w-none">
+                <Image src={introImage} alt="" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+              </div>
+            )}
+            <div>
+              <Eyebrow center={!introImage}>{s.aboutEyebrow}</Eyebrow>
+              {landing.introTitle && (
+                <h2 className="mt-5 font-serif text-4xl font-medium leading-tight text-lp-ink sm:text-5xl">{landing.introTitle}</h2>
+              )}
+              {landing.introText && (
+                <p className="mt-6 whitespace-pre-line text-lg leading-relaxed text-lp-muted">{landing.introText}</p>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
-      {business.staff.length > 0 && (
-        <section className="border-t border-ink-100">
-          <div className="container py-16 sm:py-20">
-            <h2 className="mb-10 text-center font-serif text-3xl font-semibold text-ink-900">
-              {s.teamTitle}
-            </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {business.staff.map((member) => (
-                <div
-                  key={member.id}
-                  className="overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-card"
-                >
-                  <div className="relative aspect-square w-full overflow-hidden bg-mist-100">
+      {b.staff.length > 0 && (
+        <section className="bg-lp-surface py-20 sm:py-28">
+          <div className="container">
+            <SectionHeading eyebrow={s.teamEyebrow} title={s.teamTitle} />
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {b.staff.map((member) => (
+                <div key={member.id} className="group overflow-hidden rounded-[2rem] border border-lp-line bg-lp-card">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-lp-surface">
                     {member.avatar ? (
                       <Image
                         src={`/api/staff-avatar/${member.id}?v=${member.avatar.updatedAt.getTime()}`}
                         alt=""
                         fill
-                        className="object-cover"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="flex h-full w-full items-center justify-center text-4xl font-bold text-primary-300">
+                      <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-lp-accent/15 to-lp-gold/15 font-serif text-7xl text-lp-accent">
                         {member.name.charAt(0)}
                       </div>
                     )}
                   </div>
-                  <div className="space-y-1.5 p-5">
-                    <p className="font-serif text-lg font-semibold text-ink-900">{member.name}</p>
-                    {member.title && <p className="text-sm text-primary-600">{member.title}</p>}
-                    {member.bio && <p className="text-sm text-ink-700">{member.bio}</p>}
+                  <div className="space-y-2 p-7">
+                    <p className="font-serif text-2xl text-lp-ink">{member.name}</p>
+                    {member.title && (
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-lp-gold">{member.title}</p>
+                    )}
+                    {member.bio && <p className="pt-1 text-sm leading-relaxed text-lp-muted">{member.bio}</p>}
                   </div>
                 </div>
               ))}
@@ -116,27 +106,7 @@ export default async function BusinessAboutPage({
         </section>
       )}
 
-      <section className="border-t border-ink-100 bg-ink-900 py-14 text-center">
-        <a href={`/site/${slug}/booking?locale=${locale}`} className="btn-accent !px-8 !py-3.5 text-base">
-          {s.bookNow}
-        </a>
-      </section>
-
-      <SiteFooter
-        locale={locale}
-        businessName={business.name}
-        contact={{
-          email: business.email,
-          website: business.website,
-          facebookUrl: business.facebookUrl,
-          instagramUrl: business.instagramUrl,
-          tiktokUrl: business.tiktokUrl,
-          youtubeUrl: business.youtubeUrl,
-          whatsapp: business.whatsapp,
-        }}
-        hours={business.hours}
-        branches={branches}
-      />
-    </div>
+      <SiteCta locale={locale} slug={slug} phone={b.phone} />
+    </SiteShell>
   );
 }

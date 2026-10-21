@@ -5,40 +5,59 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Loader2, Upload, X } from "lucide-react";
 
-const SLOT_COUNT = 5;
-
-/** Up to 5 photos for the homepage hero's rotating slider — each slot is
- * independent (upload replaces, X removes), unlike the single-image slots
- * elsewhere on the landing editor. Empty slots on the public page fall back
- * to a generated placeholder slide (see HeroSlider) rather than being
- * skipped, so the owner doesn't have to fill all 5 to publish. */
-export function HeroSlidesManager({
+/** A row of independent photo slots on the landing editor — each one
+ * uploads or removes its own picture (slot names `${slotPrefix}0`, `…1`, …).
+ * Used for the hero's rotating slider (5) and the photo gallery (8). Empty
+ * hero slots fall back to a generated placeholder on the public page, so the
+ * owner never has to fill them all. */
+export function ImageSlotsManager({
   initialUrls,
+  slotPrefix,
+  count,
+  label,
+  hint,
 }: {
   initialUrls: (string | null)[];
+  slotPrefix: string;
+  count: number;
+  label: string;
+  hint?: string;
 }) {
-  const tDash = useTranslations("dashboard");
   const [urls, setUrls] = useState<(string | null)[]>(() => {
     const padded = [...initialUrls];
-    while (padded.length < SLOT_COUNT) padded.push(null);
-    return padded.slice(0, SLOT_COUNT);
+    while (padded.length < count) padded.push(null);
+    return padded.slice(0, count);
   });
 
   return (
     <div>
-      <p className="label">{tDash("landing.heroSlides")}</p>
-      <p className="mb-2 text-xs text-ink-400">{tDash("landing.heroSlidesHint")}</p>
-      <div className="flex flex-wrap gap-3">
+      <p className="label">{label}</p>
+      {hint && <p className="mb-2 text-xs text-ink-400">{hint}</p>}
+      <div className={`grid gap-3 ${count % 4 === 0 ? "grid-cols-4" : "grid-cols-3 sm:grid-cols-5"}`}>
         {urls.map((url, i) => (
           <SlideSlot
             key={i}
-            slot={`hero-slide-${i}`}
+            slot={`${slotPrefix}${i}`}
             url={url}
             onChange={(newUrl) => setUrls((prev) => prev.map((u, j) => (j === i ? newUrl : u)))}
           />
         ))}
       </div>
     </div>
+  );
+}
+
+/** Up to 5 photos for the homepage hero's rotating slider. */
+export function HeroSlidesManager({ initialUrls }: { initialUrls: (string | null)[] }) {
+  const tDash = useTranslations("dashboard");
+  return (
+    <ImageSlotsManager
+      initialUrls={initialUrls}
+      slotPrefix="hero-slide-"
+      count={5}
+      label={tDash("landing.heroSlides")}
+      hint={tDash("landing.heroSlidesHint")}
+    />
   );
 }
 
@@ -88,7 +107,7 @@ function SlideSlot({
   }
 
   return (
-    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-ink-100 bg-mist-100">
+    <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-dashed border-ink-100 bg-mist-50 transition-colors hover:border-primary-300">
       {url && <Image src={url} alt="" fill className="object-cover" />}
       <input
         ref={inputRef}
@@ -106,17 +125,17 @@ function SlideSlot({
           type="button"
           onClick={remove}
           aria-label={tDash("landing.removeImage")}
-          className="absolute right-1 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-ink-900/70 text-white"
+          className="absolute right-1.5 top-1.5 flex h-7 w-7 items-center justify-center rounded-full bg-ink-900/70 text-white backdrop-blur hover:bg-berry-500"
         >
-          <X className="h-3 w-3" />
+          <X className="h-3.5 w-3.5" />
         </button>
       ) : (
         <button
           type="button"
           onClick={() => inputRef.current?.click()}
-          className="flex h-full w-full items-center justify-center text-ink-400 hover:text-ink-700"
+          className="flex h-full w-full flex-col items-center justify-center gap-1 text-ink-400 hover:text-primary-600"
         >
-          <Upload className="h-4 w-4" />
+          <Upload className="h-5 w-5" />
         </button>
       )}
       {error && (

@@ -152,7 +152,9 @@ const buttonTargetSchema = z.enum(["BOOKING", "URL"]);
 const layoutSchema = z.enum(["IMAGE_RIGHT", "IMAGE_LEFT", "TEXT_ONLY"]);
 
 export const landingPageSchema = z.object({
-  heroLayout: layoutSchema.optional(),
+  theme: z.enum(["ROSE", "CHAMPAGNE", "NOIR", "EMERALD", "LAVENDER"]).optional(),
+  heroLayout: z.enum(["FULL", "IMAGE_RIGHT", "IMAGE_LEFT", "TEXT_ONLY"]).optional(),
+  heroEyebrow: z.string().max(120).optional(),
   heroTitle: z.string().max(150).optional(),
   heroText: z.string().max(2000).optional(),
   heroButtonLabel: z.string().max(60).optional(),
@@ -169,6 +171,13 @@ export const landingPageSchema = z.object({
 
   highlightsEnabled: z.boolean().optional(),
   highlightsTitle: z.string().max(150).optional(),
+
+  servicesEnabled: z.boolean().optional(),
+  servicesTitle: z.string().max(150).optional(),
+  teamEnabled: z.boolean().optional(),
+  reviewsEnabled: z.boolean().optional(),
+  galleryEnabled: z.boolean().optional(),
+  galleryTitle: z.string().max(150).optional(),
 });
 
 export const landingHighlightSchema = z.object({

@@ -1216,8 +1216,15 @@ model LandingPage {
   // Hidden from the public until the owner explicitly publishes it.
   published  Boolean  @default(false)
 
-  // Hero — the top section. Layout: "IMAGE_RIGHT" | "IMAGE_LEFT" | "TEXT_ONLY".
+  // Colour palette of the whole public site — a key of SITE_THEMES in
+  // src/lib/site-theme.ts ("ROSE" | "CHAMPAGNE" | "NOIR" | "EMERALD" | "LAVENDER").
+  theme      String   @default("ROSE")
+
+  // Hero — the top section. Layout: "FULL" (photos behind the text) |
+  // "IMAGE_RIGHT" | "IMAGE_LEFT" | "TEXT_ONLY".
   heroLayout       String  @default("IMAGE_RIGHT")
+  // Small line above the hero title, e.g. "Nail & Lash Studio · Helsinki".
+  heroEyebrow      String?
   heroTitle        String?
   heroText         String? @db.Text
   heroButtonLabel  String?
@@ -1237,6 +1244,15 @@ model LandingPage {
   // Highlights — a row of feature cards (see LandingHighlight).
   highlightsEnabled Boolean @default(true)
   highlightsTitle   String?
+
+  // Home-page sections filled automatically from the salon's own data.
+  servicesEnabled Boolean @default(true) // first services in the owner's drag order
+  servicesTitle   String?
+  teamEnabled     Boolean @default(true)
+  reviewsEnabled  Boolean @default(true)
+  // Photo gallery — images in slots "gallery-0" … "gallery-7".
+  galleryEnabled  Boolean @default(true)
+  galleryTitle    String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

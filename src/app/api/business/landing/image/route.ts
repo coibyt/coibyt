@@ -34,8 +34,8 @@ export async function POST(req: Request) {
     update: {},
     create: { businessId: owned.businessId },
   });
-  const isHeroSlide = /^hero-slide-[0-4]$/.test(slot);
-  if (slot !== "hero" && slot !== "intro" && !isHeroSlide) {
+  const isFixedSlot = /^hero-slide-[0-4]$/.test(slot) || /^gallery-[0-7]$/.test(slot);
+  if (slot !== "hero" && slot !== "intro" && !isFixedSlot) {
     const highlight = await prisma.landingHighlight.findFirst({
       where: { id: slot, landingPageId: landing.id },
       select: { id: true },
@@ -54,8 +54,8 @@ export async function POST(req: Request) {
   return NextResponse.json({ url });
 }
 
-/** Removes one slot's image — currently only used to clear a hero slide, so
- * the owner can drop back below 5 without replacing it with another photo. */
+/** Removes one slot's image — a hero slide or a gallery photo, so the owner
+ * can drop a picture without replacing it with another. */
 export async function DELETE(req: Request) {
   const owned = await requireOwnerOnly();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });

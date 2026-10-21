@@ -1,9 +1,10 @@
 import { redirect } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
 import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { isSiteTheme } from "@/lib/site-theme";
 import { LandingPublishCard } from "@/components/landing-publish-card";
 import { LandingEditor } from "@/components/landing-editor";
+import type { LandingLayout } from "@/components/landing-section-card";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
 
 export default async function LandingDashboardPage({
@@ -17,44 +18,48 @@ export default async function LandingDashboardPage({
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
-  const t = await getTranslations("dashboard");
   const business = await prisma.business.findUniqueOrThrow({
     where: { id: owned.businessId },
     select: { slug: true },
   });
 
-  const landing = await prisma.landingPage.upsert({
-    where: { businessId: owned.businessId },
-    update: {},
-    create: { businessId: owned.businessId },
-    include: {
-      highlights: { orderBy: [{ sortOrder: "asc" }, { id: "asc" }] },
-      images: true,
-    },
-  });
+  const [landing, services, staff, reviews] = await Promise.all([
+    prisma.landingPage.upsert({
+      where: { businessId: owned.businessId },
+      update: {},
+      create: { businessId: owned.businessId },
+      include: {
+        highlights: { orderBy: [{ sortOrder: "asc" }, { id: "asc" }] },
+        images: { select: { slot: true, updatedAt: true } },
+      },
+    }),
+    prisma.service.count({ where: { businessId: owned.businessId, active: true } }),
+    prisma.staff.count({ where: { businessId: owned.businessId, active: true } }),
+    prisma.review.count({ where: { businessId: owned.businessId, status: "APPROVED", comment: { not: null } } }),
+  ]);
 
   const imageUrl = (slot: string) => {
-    const has = landing.images.some((i) => i.slot === slot);
-    return has ? `/api/landing-image/${landing.id}/${slot}` : null;
+    const img = landing.images.find((i) => i.slot === slot);
+    return img ? `/api/landing-image/${landing.id}/${slot}?v=${img.updatedAt.getTime()}` : null;
   };
-  const heroSlideUrls = [0, 1, 2, 3, 4].map((i) => imageUrl(`hero-slide-${i}`));
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
-      <h1 className="text-xl font-bold text-ink-900">{t("landing.nav")}</h1>
-      <LandingPublishCard slug={business.slug} initialPublished={landing.published} />
+      <LandingPublishCard slug={business.slug} initialPublished={landing.published} readOnly={!owned.isOwner} />
       <LandingEditor
         landing={{
           id: landing.id,
-          heroLayout: landing.heroLayout as "IMAGE_RIGHT" | "IMAGE_LEFT" | "TEXT_ONLY",
+          theme: isSiteTheme(landing.theme) ? landing.theme : "ROSE",
+          heroLayout: landing.heroLayout as LandingLayout,
+          heroEyebrow: landing.heroEyebrow,
           heroTitle: landing.heroTitle,
           heroText: landing.heroText,
           heroButtonLabel: landing.heroButtonLabel,
           heroButtonTarget: landing.heroButtonTarget as "BOOKING" | "URL",
           heroButtonUrl: landing.heroButtonUrl,
           introEnabled: landing.introEnabled,
-          introLayout: landing.introLayout as "IMAGE_RIGHT" | "IMAGE_LEFT" | "TEXT_ONLY",
+          introLayout: landing.introLayout as LandingLayout,
           introTitle: landing.introTitle,
           introText: landing.introText,
           introButtonLabel: landing.introButtonLabel,
@@ -62,9 +67,16 @@ export default async function LandingDashboardPage({
           introButtonUrl: landing.introButtonUrl,
           highlightsEnabled: landing.highlightsEnabled,
           highlightsTitle: landing.highlightsTitle,
+          servicesEnabled: landing.servicesEnabled,
+          servicesTitle: landing.servicesTitle,
+          teamEnabled: landing.teamEnabled,
+          reviewsEnabled: landing.reviewsEnabled,
+          galleryEnabled: landing.galleryEnabled,
+          galleryTitle: landing.galleryTitle,
           heroImageUrl: imageUrl("hero"),
-          heroSlideUrls,
+          heroSlideUrls: [0, 1, 2, 3, 4].map((i) => imageUrl(`hero-slide-${i}`)),
           introImageUrl: imageUrl("intro"),
+          galleryUrls: Array.from({ length: 8 }, (_, i) => imageUrl(`gallery-${i}`)),
           highlights: landing.highlights.map((h) => ({
             id: h.id,
             title: h.title,
@@ -74,6 +86,7 @@ export default async function LandingDashboardPage({
             buttonUrl: h.buttonUrl,
             imageUrl: imageUrl(h.id),
           })),
+          counts: { services, staff, reviews },
         }}
       />
     </div>

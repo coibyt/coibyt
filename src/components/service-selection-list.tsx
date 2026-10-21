@@ -120,6 +120,7 @@ export function ServiceSelectionList({
   bookBasePath,
   extraQueryParams,
   showFinder = false,
+  finderTopClass = "top-0",
 }: {
   services: SelectableService[];
   /** The salon's groups in display order. Services whose group isn't listed
@@ -133,6 +134,8 @@ export function ServiceSelectionList({
   extraQueryParams?: Record<string, string>;
   /** Search box + category shortcuts above long menus (the embed flow). */
   showFinder?: boolean;
+  /** Where the finder sticks — below a sticky page header, if there is one. */
+  finderTopClass?: string;
 }) {
   const [checked, setChecked] = useState<Set<string>>(new Set());
   const [playingVideoId, setPlayingVideoId] = useState<string | null>(null);
@@ -316,7 +319,7 @@ export function ServiceSelectionList({
   return (
     <div className="relative">
       {finder && (
-        <div className="sticky top-0 z-20 -mx-4 mb-5 bg-white/95 px-4 pb-3 pt-2 backdrop-blur">
+        <div className={`sticky ${finderTopClass} z-20 -mx-4 mb-5 bg-white/95 px-4 pb-3 pt-2 backdrop-blur`}>
           <label className="relative block">
             <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-400" />
             <input

@@ -31,11 +31,15 @@ export function LandingHighlightsManager({
   sectionTitle,
   sectionEnabled,
   highlights,
+  embedded = false,
 }: {
   landingPageId: string;
   sectionTitle: string;
   sectionEnabled: boolean;
   highlights: HighlightRow[];
+  /** Inside the editor's own panel, which already has the title and the
+   * show/hide switch. */
+  embedded?: boolean;
 }) {
   const tDash = useTranslations("dashboard");
   const tCommon = useTranslations("common");
@@ -55,7 +59,7 @@ export function LandingHighlightsManager({
     await fetch("/api/business/landing", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ highlightsEnabled: enabled, highlightsTitle: title }),
+      body: JSON.stringify(embedded ? { highlightsTitle: title } : { highlightsEnabled: enabled, highlightsTitle: title }),
     });
     setSavingSection(false);
     router.refresh();
@@ -112,14 +116,16 @@ export function LandingHighlightsManager({
   }
 
   return (
-    <div className="card space-y-4 p-5">
-      <div className="flex items-center justify-between gap-3">
-        <h2 className="font-semibold text-ink-900">{tDash("landing.highlightsTitle")}</h2>
-        <label className="flex items-center gap-2 text-xs text-ink-700">
-          {tDash("landing.showSection")}
-          <input type="checkbox" checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />
-        </label>
-      </div>
+    <div className={embedded ? "space-y-4" : "card space-y-4 p-5"}>
+      {!embedded && (
+        <div className="flex items-center justify-between gap-3">
+          <h2 className="font-semibold text-ink-900">{tDash("landing.highlightsTitle")}</h2>
+          <label className="flex items-center gap-2 text-xs text-ink-700">
+            {tDash("landing.showSection")}
+            <input type="checkbox" checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />
+          </label>
+        </div>
+      )}
 
       <div>
         <label className="label">{tDash("landing.highlightsSectionTitle")}</label>

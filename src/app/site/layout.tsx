@@ -12,8 +12,8 @@ const sans = Be_Vietnam_Pro({
 // a dedicated, premium brand page rather than "another page on VaraaAi" —
 // deliberately not used anywhere else on the platform.
 const serif = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700"],
+  subsets: ["latin", "latin-ext", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-serif",
   display: "swap",
 });
