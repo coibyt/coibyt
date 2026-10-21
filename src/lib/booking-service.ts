@@ -1,5 +1,6 @@
 import { getRingtoneSetting } from "@/lib/ringtone-settings";
 import { ringtoneById } from "@/lib/ringtones";
+import { rememberBookingCreator } from "@/lib/booking-creators";
 import { prisma } from "@/lib/prisma";
 import { addMinutes, format } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
@@ -612,4 +613,46 @@ export async function markBookingPaid(
       data: { status: "CONFIRMED" },
     });
   });
+}
+
+/**
+ * A booking the salon typed in by hand for a staff member who has their own login: if it is for TODAY,
+ * that staff member gets the same loud alarm (push notification now, in-page alarm through the alerts API)
+ * so they can get ready for the customer. The person who entered it is not alarmed about their own entry.
+ */
+export async function notifyStaffOfManualBooking(bookingId: string, creatorUserId: string, siteUrl: string) {
+  try {
+    rememberBookingCreator(bookingId, creatorUserId);
+    const b = await prisma.booking.findUnique({
+      where: { id: bookingId },
+      select: {
+        startsAt: true,
+        service: { select: { name: true } },
+        customer: { select: { name: true } },
+        staff: { select: { userId: true } },
+        business: { select: { country: true, timezone: true } },
+      },
+    });
+    const staffUserId = b?.staff?.userId;
+    if (!b || !staffUserId || staffUserId === creatorUserId) return;
+    const tz = b.business.timezone;
+    if (format(toZonedTime(new Date(), tz), "yyyy-MM-dd") !== format(toZonedTime(b.startsAt, tz), "yyyy-MM-dd")) return;
+
+    const locale = localeForCountry(b.business.country);
+    const time = b.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", { timeStyle: "short", timeZone: tz });
+    const tone = await getRingtoneSetting("staff");
+    await sendPushToUser(staffUserId, {
+      title: locale === "vi" ? "🔔 Bạn có lịch hẹn mới hôm nay" : "🔔 You have a new booking today",
+      body:
+        locale === "vi"
+          ? `${b.customer.name} · "${b.service.name}" lúc ${time}. Hãy chuẩn bị nhé!`
+          : `${b.customer.name} · "${b.service.name}" at ${time}. Get ready!`,
+      tag: `booking-${bookingId}`,
+      urgent: true,
+      url: `${siteUrl}/${locale}/business/dashboard/bookings`,
+      vibrate: ringtoneById(tone).vibrate,
+    });
+  } catch (err) {
+    console.error("[notifyStaffOfManualBooking]", err);
+  }
 }

@@ -4,6 +4,7 @@ import { toZonedTime, formatInTimeZone } from "date-fns-tz";
 import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { bookingCreator } from "@/lib/booking-creators";
 
 const MAX_LOOKBACK_MS = 15 * 60 * 1000;
 
@@ -32,7 +33,8 @@ export async function GET(req: Request) {
       ...(access.isOwner
         ? { business: { ownerId: session.user.id } }
         : { businessId: access.business.id, ...(staffScope ? { staffId: staffScope } : {}) }),
-      source: "WEBSITE",
+      // Customers' own online bookings, plus (for a staff member) bookings the salon typed in for them.
+      OR: [{ source: "WEBSITE" }, ...(access.staffId ? [{ source: "MANUAL" as const, staffId: access.staffId }] : [])],
       status: "CONFIRMED",
       // Online payments are confirmed a little after the booking is
       // created, so watch the confirmation time, not just creation.
@@ -52,6 +54,8 @@ export async function GET(req: Request) {
   });
 
   const today = bookings.filter((b) => {
+    // Nobody is alarmed about a booking they entered themselves.
+    if (bookingCreator(b.id) === session.user.id) return false;
     const tz = b.business.timezone;
     return format(toZonedTime(b.startsAt, tz), "yyyy-MM-dd") === format(toZonedTime(now, tz), "yyyy-MM-dd");
   });

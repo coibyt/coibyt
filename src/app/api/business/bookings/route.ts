@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { createBookingAndPayment, SlotUnavailableError } from "@/lib/booking-service";
+import { createBookingAndPayment, notifyStaffOfManualBooking, SlotUnavailableError } from "@/lib/booking-service";
+import { auth } from "@/auth";
 
 const businessBookingSchema = z.object({
   serviceId: z.string().cuid(),
@@ -100,6 +101,9 @@ export async function POST(req: Request) {
       source: "MANUAL",
       allowOverlap: true,
     });
+    // Same-day booking for a staff member with a login: ring them so they can prepare.
+    const session = await auth();
+    if (session?.user?.id) await notifyStaffOfManualBooking(booking.id, session.user.id, siteUrl);
     return NextResponse.json({ booking }, { status: 201 });
   } catch (err) {
     if (err instanceof SlotUnavailableError) {
