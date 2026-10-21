@@ -6,7 +6,7 @@ import { SupportChat } from "@/components/support-chat";
 
 interface ThreadRow {
   id: string;
-  kind: "owner" | "customer" | "guest";
+  kind: "owner" | "staff" | "customer" | "guest";
   name: string;
   email: string;
   businessNames: string[];
@@ -20,6 +20,7 @@ interface ThreadRow {
 
 const KIND: Record<ThreadRow["kind"], { label: string; cls: string }> = {
   owner: { label: "Chủ salon", cls: "bg-primary-100 text-primary-700" },
+  staff: { label: "Nhân viên", cls: "bg-berry-50 text-berry-600" },
   customer: { label: "Khách hàng", cls: "bg-teal-50 text-teal-600" },
   guest: { label: "Chưa có tài khoản", cls: "bg-peach-100 text-coral-600" },
 };

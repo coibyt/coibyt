@@ -3,7 +3,7 @@ import { SUPPORT_KNOWLEDGE } from "@/lib/support-ai/knowledge";
 
 export interface SupportAiContext {
   /** Who is asking — changes which part of the guide matters most. */
-  role: "owner" | "customer" | "guest";
+  role: "owner" | "staff" | "customer" | "guest";
   name: string;
   /** The salons this owner runs, if any. */
   businessNames: string[];
@@ -42,7 +42,9 @@ export async function generateSupportReply(params: {
   const who =
     c.role === "owner"
       ? `a salon owner (${c.businessNames.join(", ") || "salon"}) named ${c.name}`
-      : c.role === "customer"
+      : c.role === "staff"
+        ? `a staff member (stylist) at the salon ${c.businessNames.join(", ")} named ${c.name}; they use the dashboard with the permissions the owner gave them (often only their own bookings), while settings, staff and payments belong to the owner`
+        : c.role === "customer"
         ? `a customer with a VaraaAi account named ${c.name}`
         : `a visitor without an account named ${c.name || "(unknown)"} — could be a salon owner or a customer`;
 

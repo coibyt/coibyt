@@ -10,7 +10,14 @@ async function threadPeople(threadId: string) {
       guestName: true,
       guestEmail: true,
       guestToken: true,
-      owner: { select: { name: true, email: true, businesses: { select: { name: true } } } },
+      owner: {
+        select: {
+          name: true,
+          email: true,
+          businesses: { select: { name: true } },
+          staffProfile: { select: { business: { select: { name: true } } } },
+        },
+      },
     },
   });
 }
@@ -30,8 +37,16 @@ export async function notifyAdminsOfSupportMessage(
   if (!thread) return;
   const name = thread.owner?.name ?? thread.guestName ?? "Khách";
   const email = thread.owner?.email ?? thread.guestEmail ?? "";
-  const kind = thread.owner ? (thread.owner.businesses.length ? "Chủ salon" : "Khách hàng") : "Khách chưa có tài khoản";
-  const salons = thread.owner?.businesses.map((b) => b.name).join(", ");
+  const kind = thread.owner
+    ? thread.owner.businesses.length
+      ? "Chủ salon"
+      : thread.owner.staffProfile
+        ? "Nhân viên"
+        : "Khách hàng"
+    : "Khách chưa có tài khoản";
+  const salons = thread.owner
+    ? thread.owner.businesses.map((b) => b.name).join(", ") || thread.owner.staffProfile?.business.name
+    : undefined;
   const preview = esc(content.slice(0, 300));
 
   for (const admin of admins) {

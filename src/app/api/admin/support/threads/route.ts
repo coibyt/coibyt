@@ -11,7 +11,14 @@ export async function GET() {
     orderBy: { updatedAt: "desc" },
     take: 300,
     include: {
-      owner: { select: { name: true, email: true, businesses: { select: { name: true } } } },
+      owner: {
+        select: {
+          name: true,
+          email: true,
+          businesses: { select: { name: true } },
+          staffProfile: { select: { business: { select: { name: true } } } },
+        },
+      },
       messages: { orderBy: { createdAt: "desc" }, take: 1 },
       _count: { select: { messages: { where: { fromAdmin: false, readAt: null } } } },
     },
@@ -22,10 +29,22 @@ export async function GET() {
       .filter((t) => t.messages.length > 0)
       .map((t) => ({
         id: t.id,
-        kind: t.owner ? (t.owner.businesses.length ? "owner" : "customer") : "guest",
+        kind: t.owner
+          ? t.owner.businesses.length
+            ? "owner"
+            : t.owner.staffProfile
+              ? "staff"
+              : "customer"
+          : "guest",
         name: t.owner?.name ?? t.guestName ?? "Khách",
         email: t.owner?.email ?? t.guestEmail ?? "",
-        businessNames: t.owner?.businesses.map((b) => b.name) ?? [],
+        businessNames: t.owner
+          ? t.owner.businesses.length
+            ? t.owner.businesses.map((b) => b.name)
+            : t.owner.staffProfile
+              ? [t.owner.staffProfile.business.name]
+              : []
+          : [],
         locale: t.locale,
         aiPaused: t.aiPaused,
         lastMessage: t.messages[0]?.content ?? "",

@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { requireSupportOwner, supportAiEnabled } from "@/lib/support";
+import { requireSupportMember, supportAiEnabled } from "@/lib/support";
 
 /** Everything the dashboard's floating help widget shows a salon owner: their
  * name, unread replies and announcements, the training guides and the latest
  * announcements. Polled for the unread dot, so kept to a few small queries. */
 export async function GET() {
-  const ownerId = await requireSupportOwner();
+  const ownerId = await requireSupportMember();
   if (!ownerId) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
 
   const user = await prisma.user.findUnique({

@@ -332,6 +332,7 @@ export async function createBookingAndPayment(params: {
         customerNote: params.customerNote,
         serviceName: visitServiceName(service.name, extraServices, addOns),
         staffName: staff?.name,
+        staffUserId: staff?.userId,
         priceCents: booking.priceCents,
         currency: booking.currency,
         bookingId: booking.id,
@@ -400,6 +401,8 @@ async function notifyOwnerOfNewBooking(params: {
   customerNote?: string | null;
   serviceName: string;
   staffName?: string | null;
+  /** The booked stylist's own login, if any — they get the same-day push too. */
+  staffUserId?: string | null;
   priceCents?: number | null;
   currency?: string | null;
   bookingId?: string | null;
@@ -445,7 +448,7 @@ async function notifyOwnerOfNewBooking(params: {
         timeStyle: "short",
         timeZone: params.businessTimezone,
       });
-      await sendPushToUser(params.ownerId, {
+      const payload = {
         title: locale === "vi" ? "🔔 Có lịch hẹn mới hôm nay" : "🔔 New booking today",
         tag: `booking-${params.bookingId ?? params.startsAt.getTime()}`,
         urgent: true,
@@ -454,7 +457,11 @@ async function notifyOwnerOfNewBooking(params: {
             ? `${params.customerName} vừa đặt "${params.serviceName}" lúc ${time}`
             : `${params.customerName} just booked "${params.serviceName}" at ${time}`,
         url: bookingsUrl,
-      });
+      };
+      // The owner, plus the stylist the customer booked (when they have
+      // their own login), so the person doing the work is alerted too.
+      const recipients = new Set([params.ownerId, ...(params.staffUserId ? [params.staffUserId] : [])]);
+      await Promise.all([...recipients].map((id) => sendPushToUser(id, payload)));
     }
   } catch (err) {
     console.error("[notifyOwnerOfNewBooking push]", err);
@@ -517,6 +524,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     customerNote: full.customerNote,
     serviceName,
     staffName: full.staff?.name,
+    staffUserId: full.staff?.userId,
     priceCents: full.priceCents,
     currency: full.currency,
     bookingId: full.id,

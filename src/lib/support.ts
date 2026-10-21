@@ -13,6 +13,18 @@ export async function requireSupportOwner(): Promise<string | null> {
   return owned > 0 ? session.user.id : null;
 }
 
+/** The signed-in user's id if they run a salon or work at one (staff with a
+ * login) -- who gets the dashboard's help widget. */
+export async function requireSupportMember(): Promise<string | null> {
+  const session = await auth();
+  if (!session?.user) return null;
+  const [owned, staff] = await Promise.all([
+    prisma.business.count({ where: { ownerId: session.user.id } }),
+    prisma.staff.count({ where: { userId: session.user.id } }),
+  ]);
+  return owned > 0 || staff > 0 ? session.user.id : null;
+}
+
 /** What the sidebar badge on "Support" shows for an owner: announcements they
  * haven't opened yet plus admin replies they haven't read. */
 export async function ownerSupportUnreadCount(userId: string): Promise<number> {
@@ -96,12 +108,21 @@ async function aiContext(threadId: string): Promise<SupportAiContext | null> {
     select: {
       locale: true,
       guestName: true,
-      owner: { select: { name: true, businesses: { select: { name: true } } } },
+      owner: {
+        select: {
+          name: true,
+          businesses: { select: { name: true } },
+          staffProfile: { select: { business: { select: { name: true } } } },
+        },
+      },
     },
   });
   if (!thread) return null;
   if (!thread.owner) return { role: "guest", name: thread.guestName ?? "", businessNames: [], locale: thread.locale };
   const businessNames = thread.owner.businesses.map((b) => b.name);
+  if (!businessNames.length && thread.owner.staffProfile) {
+    return { role: "staff", name: thread.owner.name, businessNames: [thread.owner.staffProfile.business.name], locale: thread.locale };
+  }
   return {
     role: businessNames.length ? "owner" : "customer",
     name: thread.owner.name,

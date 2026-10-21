@@ -1,21 +1,23 @@
 import { NextResponse } from "next/server";
 import { format } from "date-fns";
 import { toZonedTime, formatInTimeZone } from "date-fns-tz";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 
 const MAX_LOOKBACK_MS = 15 * 60 * 1000;
 
-/** New customer bookings for TODAY (in each salon's own time zone) across
- * every branch the owner runs, confirmed since `since` — polled by the
+/** New customer bookings for TODAY (in each salon's own time zone) -- across
+ * every branch for an owner; for a staff member, their own salon and only
+ * their own bookings unless they may see the whole calendar -- confirmed
+ * since `since` — polled by the
  * dashboard's booking alarm so an open dashboard (website, installed app or
  * the Android app) rings out loud. Bookings the salon added itself are left
  * out: nobody needs an alarm for something they just typed in. */
 export async function GET(req: Request) {
-  const owned = await requireOwnerOnly();
-  const session = await auth();
-  if (!owned || !session?.user) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const [access, session] = await Promise.all([getBusinessAccess(), auth()]);
+  if (!access || !session?.user) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const staffScope = bookingStaffScope(access);
 
   const now = new Date();
   const raw = new URL(req.url).searchParams.get("since");
@@ -27,7 +29,9 @@ export async function GET(req: Request) {
 
   const bookings = await prisma.booking.findMany({
     where: {
-      business: { ownerId: session.user.id },
+      ...(access.isOwner
+        ? { business: { ownerId: session.user.id } }
+        : { businessId: access.business.id, ...(staffScope ? { staffId: staffScope } : {}) }),
       source: "WEBSITE",
       status: "CONFIRMED",
       // Online payments are confirmed a little after the booking is

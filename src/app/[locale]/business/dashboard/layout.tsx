@@ -108,8 +108,9 @@ export default async function BusinessDashboardLayout({
     <div className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[180px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
       <DashboardBody switcher={switcher}>{children}</DashboardBody>
-      {isOwner && <DashboardSupportWidget locale={locale} />}
-      {isOwner && <BookingAlarm locale={locale} />}
+      {/* Owners and staff alike: support chat and the same-day booking alarm. */}
+      <DashboardSupportWidget locale={locale} />
+      <BookingAlarm locale={locale} />
     </div>
   );
 }
