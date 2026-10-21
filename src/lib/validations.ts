@@ -200,8 +200,14 @@ export const productSchema = z.object({
   // The salon's own catalog section (ProductGroup); null/absent = ungrouped.
   groupId: z.string().cuid().nullable().optional(),
   priceCents: z.coerce.number().int().min(0),
+  // Regular price while on sale; null/absent = not on sale.
+  compareAtCents: z.coerce.number().int().min(0).nullable().optional(),
+  brand: z.string().max(80).optional(),
   currency: z.enum(["VND", "USD", "EUR"]).default("VND"),
   videoUrl: z.string().url().max(300).optional().or(z.literal("")),
+  featured: z.boolean().optional(),
+  soldOut: z.boolean().optional(),
+  hidden: z.boolean().optional(),
 });
 
 export const productReviewSchema = z.object({

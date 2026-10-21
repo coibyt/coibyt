@@ -14,7 +14,7 @@ export async function GET() {
       images: { select: { id: true }, orderBy: { sortOrder: "asc" } },
       _count: { select: { reviews: true } },
     },
-    orderBy: { createdAt: "desc" },
+    orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
   });
   return NextResponse.json({
     products: products.map((p) => ({
@@ -35,17 +35,22 @@ export async function POST(req: Request) {
   const form = await req.formData();
   const fields = {
     name: form.get("name"),
+    brand: form.get("brand") || undefined,
     description: form.get("description") || undefined,
     groupId: form.get("groupId") || null,
     priceCents: form.get("priceCents"),
+    compareAtCents: form.get("compareAtCents") || null,
     currency: form.get("currency") || "VND",
     videoUrl: form.get("videoUrl") || undefined,
+    featured: form.get("featured") === "true",
+    soldOut: form.get("soldOut") === "true",
+    hidden: form.get("hidden") === "true",
   };
   const parsed = productSchema.safeParse(fields);
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
-  const { groupId, videoUrl, ...data } = parsed.data;
+  const { groupId, videoUrl, brand, compareAtCents, ...data } = parsed.data;
 
   if (groupId) {
     const group = await prisma.productGroup.findFirst({ where: { id: groupId, businessId } });
@@ -72,9 +77,16 @@ export async function POST(req: Request) {
     }))
   );
 
+  // New products go to the top of the shop.
+  const first = await prisma.product.aggregate({ where: { businessId }, _min: { sortOrder: true } });
+
   const product = await prisma.product.create({
     data: {
       ...data,
+      brand: brand?.trim() || null,
+      // A "regular price" at or below the selling price isn't a sale.
+      compareAtCents: compareAtCents && compareAtCents > data.priceCents ? compareAtCents : null,
+      sortOrder: (first._min.sortOrder ?? 1) - 1,
       groupId: groupId || null,
       videoUrl: videoUrl || null,
       businessId,

@@ -1,11 +1,13 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
-import { Eye, Star } from "lucide-react";
+import { ChevronLeft, MessageCircleHeart, ShieldCheck, Store, Wallet } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { Link } from "@/i18n/navigation";
-import { formatMoney } from "@/lib/money";
-import { ProductAddToCartButton } from "@/components/product-add-to-cart-button";
+import { siteThemeStyle } from "@/lib/site-theme";
+import { siteSerif } from "@/lib/site-fonts";
+import { fill, shopStrings } from "@/lib/shop-strings";
+import { getShopBusiness, getShopProducts } from "@/lib/shop-data";
+import { ProductShop } from "@/components/product-shop";
 import { ProductCartWidget } from "@/components/product-cart-widget";
 
 export default async function BusinessProductsPage({
@@ -14,109 +16,79 @@ export default async function BusinessProductsPage({
   params: Promise<{ locale: string; slug: string }>;
 }) {
   const { locale, slug } = await params;
-  const t = await getTranslations("business");
-  const tProducts = await getTranslations("business.productsPage");
+  const S = shopStrings(locale);
 
-  const business = await prisma.business.findUnique({
-    where: { slug },
-    select: { id: true, name: true, status: true },
-  });
-  if (!business || business.status !== "APPROVED") notFound();
+  const business = await getShopBusiness(slug);
+  if (!business) notFound();
 
   const [products, groups] = await Promise.all([
-    prisma.product.findMany({
-      where: { businessId: business.id, active: true },
-      include: {
-        images: { select: { id: true }, orderBy: { sortOrder: "asc" }, take: 1 },
-        _count: { select: { reviews: true } },
-      },
-      orderBy: { createdAt: "desc" },
-    }),
+    getShopProducts(business.id),
     prisma.productGroup.findMany({
       where: { businessId: business.id },
       orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
+      select: { id: true, name: true },
     }),
   ]);
 
-  const groupIdSet = new Set(groups.map((g) => g.id));
-  const ungrouped = products.filter((p) => !p.groupId || !groupIdSet.has(p.groupId));
-
-  function renderCard(p: (typeof products)[number]) {
-    const imageId = p.images[0]?.id ?? null;
-    return (
-      <div key={p.id} className="card flex flex-col overflow-hidden p-0">
-        <Link href={`/b/${slug}/products/${p.id}`} className="block">
-          <div className="aspect-square w-full bg-mist-100">
-            {imageId && (
-              <Image
-                src={`/api/product-image/${imageId}`}
-                alt={p.name}
-                width={300}
-                height={300}
-                className="h-full w-full object-cover"
-              />
-            )}
-          </div>
-        </Link>
-        <div className="flex flex-1 flex-col gap-1 p-3">
-          <Link href={`/b/${slug}/products/${p.id}`} className="font-medium text-ink-900 hover:underline">
-            {p.name}
-          </Link>
-          <p className="font-semibold text-primary-600">{formatMoney(p.priceCents, p.currency, locale)}</p>
-          <p className="flex items-center gap-3 text-xs text-ink-400">
-            <span className="flex items-center gap-0.5">
-              <Eye className="h-3 w-3" /> {p.viewCount}
-            </span>
-            <span className="flex items-center gap-0.5">
-              <Star className="h-3 w-3" /> {p._count.reviews}
-            </span>
-          </p>
-          <ProductAddToCartButton
-            businessSlug={slug}
-            product={{ id: p.id, name: p.name, priceCents: p.priceCents, currency: p.currency, imageId }}
-            className="btn-outline mt-1 w-full !py-1.5 text-xs"
-          />
-        </div>
-      </div>
-    );
-  }
+  const perks = [
+    { icon: ShieldCheck, label: S.perkGenuine },
+    { icon: Store, label: S.perkPickup },
+    { icon: Wallet, label: S.perkPay },
+    { icon: MessageCircleHeart, label: S.perkAdvice },
+  ];
 
   return (
-    <div className="container py-10">
-      <h1 className="mb-6 text-xl font-bold text-ink-900">{t("products")}</h1>
+    <div style={siteThemeStyle(business.landingPage?.theme)} className={`${siteSerif.variable} bg-lp-bg text-lp-ink antialiased`}>
+      <section className="relative overflow-hidden bg-lp-surface">
+        <div className="pointer-events-none absolute -left-32 -top-24 h-96 w-96 rounded-full bg-lp-accent/15 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-lp-gold/20 blur-3xl" />
+        <div className="container relative pb-14 pt-8 sm:pb-20 sm:pt-10">
+          <Link
+            href={`/b/${slug}`}
+            className="inline-flex items-center gap-2 rounded-full bg-lp-card/70 py-1.5 pl-1.5 pr-4 text-sm font-medium text-lp-muted ring-1 ring-lp-line backdrop-blur transition-colors hover:text-lp-ink"
+          >
+            {business.logoUrl ? (
+              <span className="relative h-7 w-7 overflow-hidden rounded-full ring-1 ring-lp-gold/40">
+                <Image src={business.logoUrl} alt="" fill className="object-cover" />
+              </span>
+            ) : (
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-lp-accent font-serif text-sm font-semibold text-lp-accent-ink">
+                {business.name.charAt(0)}
+              </span>
+            )}
+            <ChevronLeft className="h-4 w-4" />
+            {business.name}
+          </Link>
 
-      {products.length === 0 ? (
-        <p className="text-sm text-ink-400">{tProducts("empty")}</p>
-      ) : (
-        <div className="space-y-8">
-          {groups.map((g) => {
-            const items = products.filter((p) => p.groupId === g.id);
-            if (items.length === 0) return null;
-            return (
-              <section key={g.id}>
-                <h2 className="mb-3 font-bold text-ink-900">{g.name}</h2>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                  {items.map(renderCard)}
-                </div>
-              </section>
-            );
-          })}
-          {ungrouped.length > 0 && (
-            <section>
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                {ungrouped.map(renderCard)}
-              </div>
-            </section>
-          )}
+          <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
+            <p className="flex items-center justify-center gap-3 text-[11px] font-semibold uppercase tracking-[0.3em] text-lp-gold">
+              <span className="h-px w-8 bg-current opacity-60" />
+              {S.eyebrow} · {business.name}
+              <span className="h-px w-8 bg-current opacity-60" />
+            </p>
+            <h1 className="mt-5 font-serif text-[2.6rem] font-medium leading-[1.08] text-lp-ink sm:text-6xl">{S.heroTitle}</h1>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-lp-muted sm:text-lg">
+              {fill(S.heroText, { name: business.name })}
+            </p>
+          </div>
+
+          <ul className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {perks.map(({ icon: Icon, label }) => (
+              <li
+                key={label}
+                className="flex items-center justify-center gap-2 rounded-2xl bg-lp-card/70 px-3 py-3 text-center text-xs font-medium text-lp-ink ring-1 ring-lp-line backdrop-blur sm:text-[13px]"
+              >
+                <Icon className="h-4 w-4 shrink-0 text-lp-gold" />
+                {label}
+              </li>
+            ))}
+          </ul>
         </div>
-      )}
+      </section>
 
-      <ProductCartWidget
-        businessId={business.id}
-        businessSlug={slug}
-        businessName={business.name}
-        locale={locale}
-      />
+      <ProductShop products={products} groups={groups} slug={slug} locale={locale} />
+
+      <ProductCartWidget businessId={business.id} businessSlug={slug} businessName={business.name} locale={locale} />
     </div>
   );
 }

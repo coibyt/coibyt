@@ -1,20 +1,11 @@
-import { Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
+import { Be_Vietnam_Pro } from "next/font/google";
+import { siteSerif as serif } from "@/lib/site-fonts";
 import "../globals.css";
 
 const sans = Be_Vietnam_Pro({
   subsets: ["latin", "latin-ext", "vietnamese"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
-  display: "swap",
-});
-
-// A distinct display serif for headings only, so a salon's own site reads as
-// a dedicated, premium brand page rather than "another page on VaraaAi" —
-// deliberately not used anywhere else on the platform.
-const serif = Playfair_Display({
-  subsets: ["latin", "latin-ext", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-serif",
   display: "swap",
 });
 

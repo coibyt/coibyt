@@ -56,6 +56,7 @@ export function SiteFooter({
   hours,
   todayWeekday,
   branches,
+  hasShop = false,
 }: {
   locale: string;
   slug: string;
@@ -69,6 +70,7 @@ export function SiteFooter({
   hours: { weekday: number; openMinute: number; closeMinute: number }[];
   todayWeekday: number | null;
   branches: SiteBranch[];
+  hasShop?: boolean;
 }) {
   const s = siteStrings(locale);
   const prefix = sitePrefix(locale);
@@ -108,7 +110,7 @@ export function SiteFooter({
           <div>
             <p className={heading}>{s.quickLinks}</p>
             <ul className="space-y-3 text-sm">
-              {siteNavLinks(locale, slug).map((l) => (
+              {siteNavLinks(locale, slug, hasShop).map((l) => (
                 <li key={l.key}>
                   <a href={l.href} className="transition-colors hover:text-lp-deep-ink">
                     {l.label}

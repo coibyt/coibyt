@@ -1,23 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
-import {
-  DndContext,
-  KeyboardSensor,
-  PointerSensor,
-  TouchSensor,
-  closestCenter,
-  useSensor,
-  useSensors,
-  type DragEndEvent,
-} from "@dnd-kit/core";
-import { SortableContext, arrayMove, sortableKeyboardCoordinates, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown, GripVertical, Move } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
+import { SortableSection, type DragHandle } from "@/components/sortable-list";
 
 interface StaffAssignment {
   staffId: string;
@@ -69,69 +58,6 @@ const REORDER_HINT: Record<string, string> = {
   en: "Drag the ⋮⋮ handle on the left to reorder services — customers see them in this order when booking.",
   fi: "Vedä vasemmalla olevasta ⋮⋮-kahvasta järjestääksesi palvelut — asiakkaat näkevät ne tässä järjestyksessä.",
 };
-
-/** One draggable service row; `children` gets the drag-handle props. */
-function SortableService({
-  id,
-  disabled,
-  children,
-}: {
-  id: string;
-  disabled: boolean;
-  children: (handle: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean }) => ReactNode;
-}) {
-  const { attributes, listeners, setNodeRef, setActivatorNodeRef, transform, transition, isDragging } = useSortable({ id, disabled });
-  return (
-    <div
-      ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition, zIndex: isDragging ? 20 : undefined, position: "relative" }}
-      className={isDragging ? "opacity-90 drop-shadow-xl" : undefined}
-    >
-      {children({ ref: setActivatorNodeRef, props: { ...attributes, ...listeners }, dragging: isDragging })}
-    </div>
-  );
-}
-
-/** A section of the services list whose rows can be dragged into order. */
-function SortableSection({
-  items,
-  disabled,
-  onReorder,
-  renderRow,
-}: {
-  items: { id: string }[];
-  disabled: boolean;
-  onReorder: (ids: string[]) => void;
-  renderRow: (id: string, handle: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean } | null) => ReactNode;
-}) {
-  const sensors = useSensors(
-    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 6 } }),
-    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
-  );
-  const ids = items.map((i) => i.id);
-  function onDragEnd(e: DragEndEvent) {
-    if (!e.over || e.active.id === e.over.id) return;
-    const from = ids.indexOf(String(e.active.id));
-    const to = ids.indexOf(String(e.over.id));
-    if (from < 0 || to < 0) return;
-    onReorder(arrayMove(ids, from, to));
-  }
-  if (disabled) return <>{ids.map((id) => renderRow(id, null))}</>;
-  return (
-    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={onDragEnd}>
-      <SortableContext items={ids} strategy={verticalListSortingStrategy}>
-        <div className="space-y-2">
-          {ids.map((id) => (
-            <SortableService key={id} id={id} disabled={disabled}>
-              {(handle) => renderRow(id, handle)}
-            </SortableService>
-          ))}
-        </div>
-      </SortableContext>
-    </DndContext>
-  );
-}
 
 export function ServicesManager({
   initialServices,
@@ -363,7 +289,7 @@ export function ServicesManager({
 
   function renderServiceRow(
     s: ServiceRow,
-    handle?: { ref: (el: HTMLElement | null) => void; props: Record<string, unknown>; dragging: boolean } | null
+    handle?: DragHandle | null
   ) {
     return (
       <div key={s.id} className="space-y-3">

@@ -66,6 +66,7 @@ export function SiteShell({
         address={address}
         statusLabel={label}
         statusOpen={!!status?.open}
+        hasShop={business._count.products > 0}
       />
 
       <main>{children}</main>
@@ -83,6 +84,7 @@ export function SiteShell({
         hours={business.hours}
         todayWeekday={status?.weekday ?? null}
         branches={branches}
+        hasShop={business._count.products > 0}
       />
 
       {/* Thumb-reach actions on phones. */}

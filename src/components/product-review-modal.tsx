@@ -42,27 +42,27 @@ export function ProductReviewModal({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
-      <div className="card w-full max-w-sm animate-slide-up p-6">
+    <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/45 p-0 backdrop-blur-[2px] sm:items-center sm:p-4">
+      <div className="w-full max-w-md animate-slide-up rounded-t-[2rem] bg-lp-bg p-6 text-lp-ink shadow-2xl ring-1 ring-lp-line sm:rounded-[2rem] sm:p-8">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="font-bold text-ink-900">{tProducts("writeReview")}</h3>
-          <button onClick={onClose} className="text-ink-400">
+          <h3 className="font-serif text-2xl font-medium">{tProducts("writeReview")}</h3>
+          <button onClick={onClose} className="flex h-10 w-10 items-center justify-center rounded-full border border-lp-line text-lp-muted hover:text-lp-ink">
             <X className="h-5 w-5" />
           </button>
         </div>
-        <p className="label">{t("ratingLabel")}</p>
-        <div className="mb-4 flex gap-1">
+        <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-lp-gold">{t("ratingLabel")}</p>
+        <div className="mb-5 flex gap-1.5">
           {Array.from({ length: 5 }).map((_, i) => (
-            <button key={i} onClick={() => setRating(i + 1)}>
+            <button key={i} onClick={() => setRating(i + 1)} className="transition-transform hover:scale-110">
               <Star
-                className={`h-7 w-7 ${i < rating ? "fill-coral-500 text-coral-500" : "text-ink-100"}`}
+                className={`h-9 w-9 ${i < rating ? "fill-lp-gold text-lp-gold" : "text-lp-line"}`}
               />
             </button>
           ))}
         </div>
         <textarea
-          className="input"
-          rows={3}
+          className="w-full rounded-2xl border-0 bg-lp-card p-4 text-sm text-lp-ink ring-1 ring-lp-line placeholder:text-lp-muted/70 focus:outline-none focus:ring-2 focus:ring-lp-accent/60"
+          rows={4}
           placeholder={t("commentPlaceholder")}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
@@ -75,13 +75,13 @@ export function ProductReviewModal({
               key={i}
               src={URL.createObjectURL(file)}
               alt=""
-              className="h-14 w-14 rounded-lg object-cover"
+              className="h-16 w-16 rounded-2xl object-cover ring-1 ring-lp-line"
             />
           ))}
           <button
             type="button"
             onClick={() => fileInput.current?.click()}
-            className="flex h-14 w-14 items-center justify-center rounded-lg border border-dashed border-ink-100 text-ink-400 hover:border-ink-400"
+            className="flex h-16 w-16 items-center justify-center rounded-2xl border border-dashed border-lp-line text-lp-muted hover:border-lp-gold hover:text-lp-ink"
           >
             <ImagePlus className="h-5 w-5" />
           </button>
@@ -98,9 +98,13 @@ export function ProductReviewModal({
           />
         </div>
 
-        {error && <p className="mt-3 text-sm text-berry-500">{error}</p>}
+        {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
 
-        <button onClick={submit} disabled={saving} className="btn-primary mt-4 w-full">
+        <button
+          onClick={submit}
+          disabled={saving}
+          className="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-lp-accent py-4 text-sm font-semibold text-lp-accent-ink shadow-[0_12px_30px_-12px_rgb(var(--lp-accent)/0.9)] disabled:opacity-70"
+        >
           {saving && <Loader2 className="h-4 w-4 animate-spin" />}
           {t("submit")}
         </button>

@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 export interface SiteStrings {
   navHome: string;
   navServices: string;
+  navShop: string;
   navBooking: string;
   navAbout: string;
   navContact: string;
@@ -62,6 +63,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   vi: {
     navHome: "Trang chủ",
     navServices: "Dịch vụ",
+    navShop: "Cửa hàng",
     navBooking: "Đặt lịch",
     navAbout: "Giới thiệu",
     navContact: "Liên hệ",
@@ -119,6 +121,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   en: {
     navHome: "Home",
     navServices: "Services",
+    navShop: "Shop",
     navBooking: "Booking",
     navAbout: "About",
     navContact: "Contact",
@@ -176,6 +179,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   fi: {
     navHome: "Etusivu",
     navServices: "Palvelut",
+    navShop: "Kauppa",
     navBooking: "Ajanvaraus",
     navAbout: "Meistä",
     navContact: "Yhteystiedot",
@@ -233,6 +237,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   pl: {
     navHome: "Strona główna",
     navServices: "Usługi",
+    navShop: "Sklep",
     navBooking: "Rezerwacja",
     navAbout: "O nas",
     navContact: "Kontakt",
@@ -290,6 +295,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   de: {
     navHome: "Startseite",
     navServices: "Dienstleistungen",
+    navShop: "Shop",
     navBooking: "Buchung",
     navAbout: "Über uns",
     navContact: "Kontakt",
@@ -347,6 +353,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   km: {
     navHome: "ទំព័រដើម",
     navServices: "សេវាកម្ម",
+    navShop: "ហាង",
     navBooking: "កក់ការណាត់ជួប",
     navAbout: "អំពីយើង",
     navContact: "ទំនាក់ទំនង",
@@ -404,6 +411,7 @@ export const SITE_STRINGS: Record<string, SiteStrings> = {
   th: {
     navHome: "หน้าแรก",
     navServices: "บริการ",
+    navShop: "ร้านค้า",
     navBooking: "จองคิว",
     navAbout: "เกี่ยวกับเรา",
     navContact: "ติดต่อเรา",

@@ -28,6 +28,7 @@ export const SITE_BUSINESS_SELECT = Prisma.validator<Prisma.BusinessSelect>()({
   whatsapp: true,
   hours: { select: { weekday: true, openMinute: true, closeMinute: true } },
   landingPage: { select: { id: true, published: true, theme: true } },
+  _count: { select: { products: { where: { active: true, hidden: false } } } },
 });
 
 export type SiteBusiness = Prisma.BusinessGetPayload<{ select: typeof SITE_BUSINESS_SELECT }>;

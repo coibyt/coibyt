@@ -42,6 +42,17 @@ function writeCart(businessSlug: string, items: CartItem[]) {
   }
 }
 
+/** Tells the cart widget a product was just added, so it can confirm it
+ * with a toast. */
+export function announceAddedToCart(businessSlug: string, item: { name: string; imageId: string | null }) {
+  window.dispatchEvent(new CustomEvent("varaaai-cart-added", { detail: { businessSlug, ...item } }));
+}
+
+/** Opens the cart panel ("Buy now"). */
+export function openCart(businessSlug: string) {
+  window.dispatchEvent(new CustomEvent("varaaai-cart-open", { detail: { businessSlug } }));
+}
+
 export function useProductCart(businessSlug: string) {
   const [items, setItems] = useState<CartItem[]>([]);
 

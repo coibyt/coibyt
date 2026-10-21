@@ -16,6 +16,7 @@ export function SiteHeader({
   address,
   statusLabel,
   statusOpen,
+  hasShop = false,
 }: {
   locale: string;
   slug: string;
@@ -27,11 +28,12 @@ export function SiteHeader({
   /** e.g. "Open now · 09:00 – 20:30"; null when the salon has no hours. */
   statusLabel: string | null;
   statusOpen: boolean;
+  hasShop?: boolean;
 }) {
   const s = siteStrings(locale);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const links = siteNavLinks(locale, slug);
+  const links = siteNavLinks(locale, slug, hasShop);
   const bookingHref = links.find((l) => l.key === "booking")!.href;
 
   useEffect(() => {
