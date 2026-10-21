@@ -44,7 +44,8 @@ self.addEventListener("push", (event) => {
       tag: data.tag || undefined,
       renotify: !!data.tag,
       requireInteraction: !!data.urgent,
-      vibrate: data.urgent ? [600, 200, 600, 200, 600, 200, 1200] : [200, 100, 200],
+      // The server may send the vibration pattern of the ringtone the admin chose.
+      vibrate: Array.isArray(data.vibrate) ? data.vibrate : data.urgent ? [600, 200, 600, 200, 600, 200, 1200] : [200, 100, 200],
       silent: false,
     })])
   );

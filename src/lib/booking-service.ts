@@ -1,3 +1,5 @@
+import { getRingtoneSetting } from "@/lib/ringtone-settings";
+import { ringtoneById } from "@/lib/ringtones";
 import { prisma } from "@/lib/prisma";
 import { addMinutes, format } from "date-fns";
 import { createStripeCheckoutSession } from "@/lib/payments/stripe";
@@ -461,7 +463,10 @@ async function notifyOwnerOfNewBooking(params: {
       // The owner, plus the stylist the customer booked (when they have
       // their own login), so the person doing the work is alerted too.
       const recipients = new Set([params.ownerId, ...(params.staffUserId ? [params.staffUserId] : [])]);
-      await Promise.all([...recipients].map((id) => sendPushToUser(id, payload)));
+      const [ownerTone, staffTone] = await Promise.all([getRingtoneSetting("owner"), getRingtoneSetting("staff")]);
+      await Promise.all(
+        [...recipients].map((id) => sendPushToUser(id, { ...payload, vibrate: ringtoneById(id === params.ownerId ? ownerTone : staffTone).vibrate })),
+      );
     }
   } catch (err) {
     console.error("[notifyOwnerOfNewBooking push]", err);

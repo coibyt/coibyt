@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { BellRing, BellOff, CalendarDays, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { playRingtoneOnce, ringtoneById } from "@/lib/ringtones";
 
 interface Alert {
   id: string;
@@ -159,37 +160,30 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
     };
   }, [pref, audio]);
 
-  /** One loud "ding-dong": two bright tones with overtones through a compressor. */
+  // The ringtone the admin chose for owners / staff (the original double bell until it has been loaded).
+  const toneRef = useRef("classic");
+  const loadTone = useCallback(async () => {
+    try {
+      const res = await fetch("/api/business/ringtone");
+      if (res.ok) {
+        const d: { id?: string } = await res.json();
+        if (d.id) toneRef.current = d.id;
+      }
+    } catch {
+      // keep the default
+    }
+  }, []);
+  useEffect(() => {
+    if (pref === "on") void loadTone();
+  }, [pref, loadTone]);
+
+  /** One ring of the chosen ringtone, loud, plus the phone vibrating to its pattern. */
   const chime = useCallback(() => {
     const ctx = audio();
     if (!ctx) return;
     setBlocked(ctx.state !== "running");
-    const out = ctx.createDynamicsCompressor();
-    out.threshold.value = -10;
-    out.ratio.value = 4;
-    out.connect(ctx.destination);
-    const start = ctx.currentTime;
-    [
-      { f: 1046.5, at: 0 },
-      { f: 783.99, at: 0.32 },
-      { f: 1046.5, at: 0.64 },
-      { f: 1318.5, at: 0.96 },
-    ].forEach(({ f, at }) => {
-      [1, 2.01, 3.02].forEach((mult, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = i === 0 ? "triangle" : "sine";
-        osc.frequency.value = f * mult;
-        const peak = [0.9, 0.35, 0.15][i];
-        gain.gain.setValueAtTime(0.0001, start + at);
-        gain.gain.exponentialRampToValueAtTime(peak, start + at + 0.015);
-        gain.gain.exponentialRampToValueAtTime(0.0001, start + at + 0.6);
-        osc.connect(gain).connect(out);
-        osc.start(start + at);
-        osc.stop(start + at + 0.65);
-      });
-    });
-    navigator.vibrate?.([500, 150, 500, 150, 900]);
+    playRingtoneOnce(ctx, toneRef.current);
+    navigator.vibrate?.(ringtoneById(toneRef.current).vibrate);
   }, [audio]);
 
   const stopRinging = useCallback(() => {
@@ -204,7 +198,7 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
   const startRinging = useCallback(() => {
     stopRinging();
     chime();
-    ringTimer.current = setInterval(chime, 2200);
+    ringTimer.current = setInterval(chime, Math.round(ringtoneById(toneRef.current).length * 1000) + 500);
     stopTimer.current = setTimeout(stopRinging, RING_MS);
     const base = document.title;
     let flip = false;
@@ -261,6 +255,7 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
   async function enable() {
     audio();
     setPreference("on");
+    await loadTone();
     chime();
     await subscribePush();
   }

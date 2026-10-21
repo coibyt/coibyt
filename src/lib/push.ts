@@ -24,7 +24,7 @@ function ensureConfigured(): boolean {
  * need to handle failure for. */
 export async function sendPushToUser(
   userId: string,
-  payload: { title: string; body: string; url?: string; tag?: string; urgent?: boolean }
+  payload: { title: string; body: string; url?: string; tag?: string; urgent?: boolean; vibrate?: number[] }
 ): Promise<void> {
   if (!ensureConfigured()) return;
 
