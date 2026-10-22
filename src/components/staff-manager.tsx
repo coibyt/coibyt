@@ -425,7 +425,7 @@ export function StaffManager({
 
           <div className="border-t border-ink-100 pt-4">
             <label className="label">
-              {locale === "vi" ? "Video giới thiệu (YouTube)" : "Portfolio videos (YouTube)"}
+              {locale === "vi" ? "Video giới thiệu (VaraClip)" : "Portfolio videos (VaraClip)"}
             </label>
             <p className="mb-1 text-xs text-ink-400">
               {locale === "vi"
@@ -437,7 +437,7 @@ export function StaffManager({
                 <input
                   key={i}
                   type="url"
-                  placeholder="https://www.youtube.com/watch?v=..."
+                  placeholder="https://varaclip.com/v/..."
                   className="input"
                   value={url}
                   onChange={(e) => setVideoUrl(i, e.target.value)}

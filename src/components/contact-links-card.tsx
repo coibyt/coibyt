@@ -89,7 +89,7 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
         {field(
           "introVideoUrl",
           tDash("contactLinks.introVideo"),
-          "https://youtube.com/watch?v=..."
+          "https://varaclip.com/v/..."
         )}
         {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
         <div>

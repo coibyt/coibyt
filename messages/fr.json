@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Partagez quelque chose avec vos abonnés...",
-      "videoLinkPlaceholder": "Lien vidéo YouTube / VaraClip (facultatif)",
+      "videoLinkPlaceholder": "Lien vidéo VaraClip (facultatif)",
       "addPhotos": "Ajouter des photos",
       "postButton": "Publier",
       "noPostsYet": "Aucune publication pour le moment."
@@ -235,7 +235,7 @@
       "optional": "facultatif",
       "description": "Description",
       "descriptionHint": "Affichée sous le nom du service lorsqu'un client le sélectionne.",
-      "videoLink": "Lien vidéo YouTube / VaraClip",
+      "videoLink": "Lien vidéo VaraClip",
       "videoLinkHint": "Les clients peuvent cliquer pour prévisualiser ce service avant de réserver.",
       "staffCanDo": "Membres pouvant réaliser ce service",
       "staffOverrideHint": "Laissez vide pour qu'un membre utilise le prix/la durée par défaut ci-dessus.",

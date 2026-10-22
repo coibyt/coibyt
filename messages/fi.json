@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Jaa jotain seuraajillesi...",
-      "videoLinkPlaceholder": "YouTube / VaraClip-videon linkki (valinnainen)",
+      "videoLinkPlaceholder": "VaraClip-videon linkki (valinnainen)",
       "addPhotos": "Lisää kuvia",
       "postButton": "Julkaise",
       "noPostsYet": "Ei vielä julkaisuja."
@@ -235,7 +235,7 @@
       "optional": "valinnainen",
       "description": "Kuvaus",
       "descriptionHint": "Näytetään palvelun nimen alla, kun asiakas valitsee tämän palvelun.",
-      "videoLink": "YouTube / VaraClip-videon linkki",
+      "videoLink": "VaraClip-videon linkki",
       "videoLinkHint": "Asiakkaat voivat esikatsella tätä palvelua ennen varaamista.",
       "staffCanDo": "Työntekijät, jotka voivat tehdä tämän",
       "staffOverrideHint": "Jätä tyhjäksi, jos työntekijä käyttää yllä olevaa oletushintaa/-kestoa.",

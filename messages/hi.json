@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "अपने फॉलोअर्स के साथ कुछ साझा करें...",
-      "videoLinkPlaceholder": "YouTube / VaraClip वीडियो लिंक (वैकल्पिक)",
+      "videoLinkPlaceholder": "VaraClip वीडियो लिंक (वैकल्पिक)",
       "addPhotos": "फोटो जोड़ें",
       "postButton": "पोस्ट करें",
       "noPostsYet": "अभी तक कोई पोस्ट नहीं है।"
@@ -235,7 +235,7 @@
       "optional": "वैकल्पिक",
       "description": "विवरण",
       "descriptionHint": "जब कोई ग्राहक इसे चुनता है तो सेवा के नाम के नीचे दिखाया जाता है।",
-      "videoLink": "YouTube / VaraClip वीडियो लिंक",
+      "videoLink": "VaraClip वीडियो लिंक",
       "videoLinkHint": "ग्राहक बुकिंग से पहले इस सेवा को देखने के लिए क्लिक कर सकते हैं।",
       "staffCanDo": "स्टाफ जो यह कर सकते हैं",
       "staffOverrideHint": "स्टाफ सदस्य को ऊपर दिए गए डिफ़ॉल्ट मूल्य/अवधि का उपयोग करने के लिए खाली छोड़ें।",

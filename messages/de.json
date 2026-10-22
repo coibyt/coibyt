@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Teilen Sie etwas mit Ihren Followern...",
-      "videoLinkPlaceholder": "YouTube / VaraClip-Videolink (optional)",
+      "videoLinkPlaceholder": "VaraClip-Videolink (optional)",
       "addPhotos": "Fotos hinzufügen",
       "postButton": "Posten",
       "noPostsYet": "Noch keine Beiträge."
@@ -235,7 +235,7 @@
       "optional": "optional",
       "description": "Beschreibung",
       "descriptionHint": "Wird unter dem Namen der Dienstleistung angezeigt, wenn ein Kunde sie auswählt.",
-      "videoLink": "YouTube / VaraClip-Videolink",
+      "videoLink": "VaraClip-Videolink",
       "videoLinkHint": "Kunden können diese Dienstleistung vor der Buchung in der Vorschau ansehen.",
       "staffCanDo": "Mitarbeiter, die dies anbieten können",
       "staffOverrideHint": "Leer lassen, damit ein Mitarbeiter den oben angegebenen Standardpreis/-dauer verwendet.",

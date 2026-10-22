@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Kongsi sesuatu dengan pengikut anda...",
-      "videoLinkPlaceholder": "Pautan video YouTube / VaraClip (pilihan)",
+      "videoLinkPlaceholder": "Pautan video VaraClip (pilihan)",
       "addPhotos": "Tambah foto",
       "postButton": "Siarkan",
       "noPostsYet": "Belum ada siaran."
@@ -235,7 +235,7 @@
       "optional": "pilihan",
       "description": "Penerangan",
       "descriptionHint": "Dipaparkan di bawah nama perkhidmatan apabila pelanggan memilihnya.",
-      "videoLink": "Pautan video YouTube / VaraClip",
+      "videoLink": "Pautan video VaraClip",
       "videoLinkHint": "Pelanggan boleh klik untuk pratonton perkhidmatan ini sebelum menempah.",
       "staffCanDo": "Staf yang boleh melakukan ini",
       "staffOverrideHint": "Biarkan kosong untuk staf menggunakan harga/tempoh lalai di atas.",

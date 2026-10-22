@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Osszon meg valamit követőivel...",
-      "videoLinkPlaceholder": "YouTube / VaraClip videólink (nem kötelező)",
+      "videoLinkPlaceholder": "VaraClip videólink (nem kötelező)",
       "addPhotos": "Fotók hozzáadása",
       "postButton": "Közzététel",
       "noPostsYet": "Még nincsenek bejegyzések."
@@ -235,7 +235,7 @@
       "optional": "nem kötelező",
       "description": "Leírás",
       "descriptionHint": "A szolgáltatás neve alatt jelenik meg, amikor az ügyfél kiválasztja.",
-      "videoLink": "YouTube / VaraClip videólink",
+      "videoLink": "VaraClip videólink",
       "videoLinkHint": "Az ügyfelek foglalás előtt rákattintva megtekinthetik ennek a szolgáltatásnak az előnézetét.",
       "staffCanDo": "Munkatársak, akik elvégezhetik",
       "staffOverrideHint": "Hagyja üresen, ha a munkatárs a fenti alapértelmezett árat/időtartamot használja.",

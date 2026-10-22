@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Споделете нещо с последователите си...",
-      "videoLinkPlaceholder": "Връзка към видео в YouTube / VaraClip (по избор)",
+      "videoLinkPlaceholder": "Връзка към видео в VaraClip (по избор)",
       "addPhotos": "Добави снимки",
       "postButton": "Публикувай",
       "noPostsYet": "Все още няма публикации."
@@ -235,7 +235,7 @@
       "optional": "по избор",
       "description": "Описание",
       "descriptionHint": "Показва се под името на услугата, когато клиент я избере.",
-      "videoLink": "Връзка към видео в YouTube / VaraClip",
+      "videoLink": "Връзка към видео в VaraClip",
       "videoLinkHint": "Клиентите могат да кликнат, за да видят преглед на тази услуга преди резервация.",
       "staffCanDo": "Служители, които могат да я извършват",
       "staffOverrideHint": "Оставете празно, за да може служителят да използва цената/продължителността по подразбиране по-горе.",

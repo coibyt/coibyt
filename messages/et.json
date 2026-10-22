@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Jaga midagi oma jälgijatega...",
-      "videoLinkPlaceholder": "YouTube / VaraClip'i video link (valikuline)",
+      "videoLinkPlaceholder": "VaraClip video bağlantısı (valikuline)",
       "addPhotos": "Lisa fotosid",
       "postButton": "Postita",
       "noPostsYet": "Postitusi pole veel."
@@ -235,7 +235,7 @@
       "optional": "valikuline",
       "description": "Kirjeldus",
       "descriptionHint": "Kuvatakse teenuse nime all, kui klient selle valib.",
-      "videoLink": "YouTube / VaraClip'i video link",
+      "videoLink": "VaraClip video bağlantısı",
       "videoLinkHint": "Kliendid saavad enne broneerimist klõpsata, et seda teenust eelvaadata.",
       "staffCanDo": "Töötajad, kes seda teenust pakuvad",
       "staffOverrideHint": "Jäta tühjaks, et töötaja kasutaks ülaltoodud vaikehinda/-kestust.",

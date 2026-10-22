@@ -616,7 +616,7 @@ export function ServicesManager({
             </p>
             <input
               type="url"
-              placeholder="https://www.youtube.com/watch?v=..."
+              placeholder="https://varaclip.com/v/..."
               className="input"
               value={form.videoUrl}
               onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}

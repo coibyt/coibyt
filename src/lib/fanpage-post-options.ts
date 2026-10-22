@@ -1,4 +1,5 @@
 import { isPostCta, isPostTag } from "@/lib/fanpage-strings";
+import { toYoutubeEmbedUrl } from "@/lib/youtube";
 
 /** The optional fields a post can be created or edited with; `error` when
  * one of them is invalid. */
@@ -25,13 +26,9 @@ export function readPostOptions(form: FormData) {
   }
   if (form.has("videoUrl")) {
     const v = String(form.get("videoUrl") ?? "").trim();
-    if (v) {
-      try {
-        new URL(v);
-      } catch {
-        return { error: "INVALID_VIDEO_URL" as const };
-      }
-    }
+    // Only a link that actually plays: a VaraClip video (or a YouTube one,
+    // which older posts used).
+    if (v && !toYoutubeEmbedUrl(v)) return { error: "INVALID_VIDEO_URL" as const };
     out.videoUrl = v || null;
   }
   return { options: out };

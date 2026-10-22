@@ -288,7 +288,7 @@ export const GUIDES: Guide[] = [
     href: "/business/dashboard/fanpage",
     steps: [
       t("Vào Fanpage.", "Go to Fan page."),
-      t("Viết nội dung, bấm \"Thêm ảnh\" và dán link video YouTube nếu có.", "Write your post, press \"Add photos\" and paste a YouTube link if you have one."),
+      t("Viết nội dung, bấm \"Ảnh\" để thêm ảnh, hoặc bấm \"Video\" và dán link video VaraClip nếu có.", "Write your post, press \"Photos\" to add pictures, or \"Video\" and paste a VaraClip video link if you have one."),
       t("Bấm \"Đăng bài\" — khách theo dõi thấy bài trong Bảng tin của họ.", "Press \"Post\" — followers see it in their feed."),
     ],
     screen: {

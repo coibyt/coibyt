@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "شارك شيئًا مع متابعيك...",
-      "videoLinkPlaceholder": "رابط فيديو يوتيوب (اختياري)",
+      "videoLinkPlaceholder": "رابط فيديو VaraClip (اختياري)",
       "addPhotos": "إضافة صور",
       "postButton": "نشر",
       "noPostsYet": "لا توجد منشورات بعد."
@@ -235,7 +235,7 @@
       "optional": "اختياري",
       "description": "الوصف",
       "descriptionHint": "يظهر تحت اسم الخدمة عندما يختارها العميل.",
-      "videoLink": "رابط فيديو يوتيوب",
+      "videoLink": "رابط فيديو VaraClip",
       "videoLinkHint": "يمكن للعملاء النقر لمعاينة هذه الخدمة قبل الحجز.",
       "staffCanDo": "الموظفون الذين يمكنهم تقديم هذا",
       "staffOverrideHint": "اتركه فارغًا ليستخدم الموظف السعر/المدة الافتراضية أعلاه.",

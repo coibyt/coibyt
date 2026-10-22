@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "팔로워와 공유할 내용을 입력하세요...",
-      "videoLinkPlaceholder": "YouTube / VaraClip 동영상 링크 (선택사항)",
+      "videoLinkPlaceholder": "VaraClip 동영상 링크 (선택사항)",
       "addPhotos": "사진 추가",
       "postButton": "게시",
       "noPostsYet": "아직 게시물이 없습니다."
@@ -235,7 +235,7 @@
       "optional": "선택사항",
       "description": "설명",
       "descriptionHint": "고객이 이 서비스를 선택할 때 서비스명 아래에 표시됩니다.",
-      "videoLink": "YouTube / VaraClip 동영상 링크",
+      "videoLink": "VaraClip 동영상 링크",
       "videoLinkHint": "고객이 예약 전에 이 서비스를 미리 볼 수 있습니다.",
       "staffCanDo": "이 서비스를 제공할 수 있는 직원",
       "staffOverrideHint": "위의 기본 가격/시간을 사용하려면 비워 두세요.",

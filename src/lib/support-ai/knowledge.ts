@@ -26,7 +26,7 @@ Hai nhóm người dùng: CHỦ SALON (quản lý tiệm) và KHÁCH HÀNG (tìm
 Doanh thu (theo tiền tệ của salon), lịch hẹn hôm nay, việc cần chú ý, biểu đồ theo tuần/tháng, dịch vụ bán chạy, hiệu suất nhân viên, đánh giá mới, lượt quét mã QR từ poster/bảng giá.
 
 ### Dịch vụ — /business/dashboard/services
-- Nút "Thêm dịch vụ": tên, nhóm dịch vụ, thời lượng (phút), thời gian dọn dẹp sau (phút), giá, tiền tệ, tiền cọc (không bắt buộc), mô tả, link video YouTube, nhân viên thực hiện (mỗi nhân viên có thể có giá riêng / số phút riêng).
+- Nút "Thêm dịch vụ": tên, nhóm dịch vụ, thời lượng (phút), thời gian dọn dẹp sau (phút), giá, tiền tệ, tiền cọc (không bắt buộc), mô tả, link video VaraClip, nhân viên thực hiện (mỗi nhân viên có thể có giá riêng / số phút riêng).
 - Nhóm dịch vụ (ví dụ "Làm móng tay") giúp khách dễ tìm; xóa nhóm không xóa dịch vụ.
 - Dịch vụ phụ (add-on, ví dụ "Sơn gel thêm"): quản lý tại /business/dashboard/services/addons, rồi vào từng dịch vụ chính để chọn dịch vụ phụ áp dụng.
 - Đổi tiền tệ không tự quy đổi giá — phải nhập lại giá.
@@ -35,7 +35,7 @@ Doanh thu (theo tiền tệ của salon), lịch hẹn hôm nay, việc cần ch
 Bán sản phẩm (dưỡng, sơn, quà...) trên trang salon; khách đặt hàng, salon xử lý đơn ở trang Đơn hàng.
 
 ### Nhân viên — /business/dashboard/staff
-- Thêm nhân viên: tên, chức danh, giới thiệu, ảnh đại diện (lưu nhân viên trước rồi bấm sửa để thêm ảnh), dịch vụ có thể làm, video giới thiệu YouTube.
+- Thêm nhân viên: tên, chức danh, giới thiệu, ảnh đại diện (lưu nhân viên trước rồi bấm sửa để thêm ảnh), dịch vụ có thể làm, video giới thiệu (link VaraClip).
 - Giờ làm việc riêng: bỏ trống thì nhân viên làm theo giờ mở cửa salon; chỉnh bằng biểu tượng đồng hồ. Trên trang Lịch hẹn cũng kéo được giờ bắt đầu/kết thúc ca làm.
 - "Thời gian đặt trước tối thiểu": khách phải đặt trước nhân viên này ít nhất bao lâu.
 - "Lời nhắn của nhân viên": hiện khi khách đặt lịch với nhân viên này và gửi kèm email xác nhận.
@@ -86,7 +86,7 @@ Khách xem thẻ của mình tại /account/loyalty.
 - Tiếp thị liên kết (cộng tác viên giới thiệu khách cho salon, tính % hoa hồng): /business/dashboard/marketing/affiliates — VaraaAi chỉ theo dõi và tính hoa hồng, salon tự trả tiền bên ngoài hệ thống.
 
 ### Fanpage — /business/dashboard/fanpage
-Đăng bài (ảnh, link video YouTube) cho khách đang theo dõi salon; khách xem ở /account/feed.
+Đăng bài (ảnh, link video VaraClip, nhãn, nút Đặt lịch/Xem sản phẩm/Gọi, ghim, hẹn giờ) cho khách đang theo dõi salon; khách xem ở /account/feed, và ai cũng xem được trên trang fanpage công khai /b/<slug>/fanpage.
 
 ### Trang landing (website riêng của salon) — /business/dashboard/landing
 Website giới thiệu riêng (địa chỉ dạng varaaai.com/site/ten-salon) gồm trang chủ, dịch vụ, đặt lịch, giới thiệu, liên hệ. Chỉnh phần đầu trang (tối đa 5 ảnh trình chiếu), phần giới thiệu, điểm nổi bật, nút bấm; bấm xuất bản để mọi người xem được; "Sao chép liên kết" để chia sẻ.
@@ -94,7 +94,7 @@ Website giới thiệu riêng (địa chỉ dạng varaaai.com/site/ten-salon) g
 ### Cài đặt — /business/dashboard/settings
 - Thông tin salon (tên, giới thiệu, địa chỉ, thành phố, quốc gia/múi giờ, danh mục).
 - Ảnh bìa và logo (tối đa 5MB).
-- Liên hệ & mạng xã hội (điện thoại, WhatsApp, Facebook, Instagram, TikTok, kênh YouTube, video giới thiệu salon, Google Place ID).
+- Liên hệ & mạng xã hội (điện thoại, WhatsApp, Facebook, Instagram, TikTok, kênh YouTube, video giới thiệu salon (link VaraClip), Google Place ID).
 - Tùy chọn salon: ngôn ngữ mặc định cho khách (email và trang nhúng), tiền tệ mặc định, khách được hủy trước bao nhiêu giờ, chính sách hủy (hiện trong email xác nhận).
 - Nhận thanh toán qua chuyển khoản: tên ngân hàng, số tài khoản, chủ tài khoản, BIC/SWIFT — khách thấy khi chọn chuyển khoản. Khách cũng có thể chọn trả tiền mặt tại salon.
 - Thông tin xuất hóa đơn: tên công ty, địa chỉ, mã số thuế, VAT %.

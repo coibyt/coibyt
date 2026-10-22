@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "שתפו משהו עם העוקבים שלכם...",
-      "videoLinkPlaceholder": "קישור לסרטון YouTube / VaraClip (אופציונלי)",
+      "videoLinkPlaceholder": "קישור לסרטון VaraClip (אופציונלי)",
       "addPhotos": "הוספת תמונות",
       "postButton": "פרסום",
       "noPostsYet": "אין עדיין פוסטים."
@@ -235,7 +235,7 @@
       "optional": "אופציונלי",
       "description": "תיאור",
       "descriptionHint": "מוצג מתחת לשם השירות כשלקוח בוחר אותו.",
-      "videoLink": "קישור לסרטון YouTube / VaraClip",
+      "videoLink": "קישור לסרטון VaraClip",
       "videoLinkHint": "לקוחות יכולים ללחוץ כדי לצפות מראש בשירות זה לפני ההזמנה.",
       "staffCanDo": "צוות שיכול לבצע זאת",
       "staffOverrideHint": "השאירו ריק כדי שאיש צוות ישתמש במחיר/משך ברירת המחדל שלמעלה.",

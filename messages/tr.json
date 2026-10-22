@@ -216,7 +216,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Takipçilerinizle bir şey paylaşın...",
-      "videoLinkPlaceholder": "YouTube / VaraClip video bağlantısı (isteğe bağlı)",
+      "videoLinkPlaceholder": "VaraClip video bağlantısı (isteğe bağlı)",
       "addPhotos": "Fotoğraf ekle",
       "postButton": "Paylaş",
       "noPostsYet": "Henüz gönderi yok."
@@ -235,7 +235,7 @@
       "optional": "isteğe bağlı",
       "description": "Açıklama",
       "descriptionHint": "Bir müşteri seçtiğinde hizmet adının altında gösterilir.",
-      "videoLink": "YouTube / VaraClip video bağlantısı",
+      "videoLink": "VaraClip video bağlantısı",
       "videoLinkHint": "Müşteriler rezervasyon yapmadan önce bu hizmeti önizlemek için tıklayabilir.",
       "staffCanDo": "Bunu yapabilecek personel",
       "staffOverrideHint": "Bir personelin yukarıdaki varsayılan fiyat/süreyi kullanması için boş bırakın.",

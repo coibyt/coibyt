@@ -265,7 +265,7 @@
     },
     "fanpageForm": {
       "sharePlaceholder": "Chia sẻ điều gì đó với khách hàng đang theo dõi bạn...",
-      "videoLinkPlaceholder": "Liên kết video YouTube / VaraClip (không bắt buộc)",
+      "videoLinkPlaceholder": "Liên kết video VaraClip (không bắt buộc)",
       "addPhotos": "Thêm ảnh",
       "postButton": "Đăng bài",
       "noPostsYet": "Chưa có bài đăng nào."
@@ -284,7 +284,7 @@
       "optional": "không bắt buộc",
       "description": "Mô tả",
       "descriptionHint": "Hiển thị bên dưới tên dịch vụ khi khách chọn dịch vụ này.",
-      "videoLink": "Link video YouTube / VaraClip",
+      "videoLink": "Link video VaraClip",
       "videoLinkHint": "Khách có thể nhấp xem trước video dịch vụ này khi đặt lịch.",
       "staffCanDo": "Nhân viên thực hiện",
       "staffOverrideHint": "Để trống nếu nhân viên dùng giá/thời lượng mặc định ở trên.",

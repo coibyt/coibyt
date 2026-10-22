@@ -248,12 +248,11 @@ export function FanpageManager({
     const form = new FormData();
     Object.entries(fields).forEach(([k, v]) => form.set(k, v));
     const res = await fetch(`/api/business/posts/${p.id}`, { method: "PATCH", body: form }).catch(() => null);
-    if (res?.ok) {
-      const data = await res.json();
-      setPosts((prev) => prev.map((x) => (x.id === p.id ? data.post : x)));
-      router.refresh();
-    }
-    return !!res?.ok;
+    const data = await res?.json().catch(() => null);
+    if (!res?.ok) return (data?.error as string | undefined) ?? "ERROR";
+    setPosts((prev) => prev.map((x) => (x.id === p.id ? data.post : x)));
+    router.refresh();
+    return true as const;
   }
 
   async function remove(p: FanPost) {
@@ -581,9 +580,9 @@ export function FanpageManager({
           scheduled={isScheduled(editing)}
           onClose={() => setEditing(null)}
           onSave={async (fields) => {
-            const ok = await patch(editing, fields);
-            if (ok) setEditing(null);
-            return ok;
+            const res = await patch(editing, fields);
+            if (res === true) setEditing(null);
+            return res;
           }}
         />
       )}
@@ -602,7 +601,8 @@ function EditPostDialog({
   post: FanPost;
   scheduled: boolean;
   onClose: () => void;
-  onSave: (fields: Record<string, string>) => Promise<boolean>;
+  /** true, or the API's error code. */
+  onSave: (fields: Record<string, string>) => Promise<true | string>;
 }) {
   const [content, setContent] = useState(post.content ?? "");
   const [videoUrl, setVideoUrl] = useState(post.videoUrl ?? "");
@@ -631,9 +631,9 @@ function EditPostDialog({
     setError(null);
     const fields: Record<string, string> = { content, videoUrl, tag, ctaType: cta };
     if (schedule) fields.publishAt = new Date(schedule).toISOString();
-    const ok = await onSave(fields);
+    const res = await onSave(fields);
     setSaving(false);
-    if (!ok) setError(S.errPost);
+    if (res !== true) setError(res === "INVALID_VIDEO_URL" ? S.errVideo : S.errPost);
   }
 
   return createPortal(

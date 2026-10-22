@@ -80,12 +80,12 @@ export function AdminTrainingManager({ trainings }: { trainings: TrainingRow[] }
           />
         </div>
         <div>
-          <label className="label">Liên kết (YouTube hoặc trang hướng dẫn)</label>
+          <label className="label">Liên kết (video VaraClip hoặc trang hướng dẫn)</label>
           <input
             required
             type="url"
             className="input"
-            placeholder="https://www.youtube.com/watch?v=..."
+            placeholder="https://varaclip.com/v/..."
             value={form.url}
             onChange={(e) => setForm({ ...form, url: e.target.value })}
           />
