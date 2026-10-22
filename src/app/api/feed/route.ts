@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { livePosts, postInclude, toFanPost } from "@/lib/fanpage-data";
 
-/** The signed-in customer's feed — posts from every business they follow,
- * newest first. */
+/** The signed-in customer's feed — live posts from every business they
+ * follow, newest first. */
 export async function GET() {
   const session = await auth();
   if (!session?.user) return NextResponse.json({ error: "UNAUTHENTICATED" }, { status: 401 });
@@ -16,30 +17,11 @@ export async function GET() {
   if (businessIds.length === 0) return NextResponse.json({ posts: [] });
 
   const posts = await prisma.post.findMany({
-    where: { businessId: { in: businessIds } },
-    include: {
-      business: { select: { name: true, slug: true, logoUrl: true } },
-      images: { select: { id: true } },
-      _count: { select: { comments: true, likes: true } },
-      likes: { where: { userId: session.user.id }, select: { id: true } },
-    },
-    orderBy: { createdAt: "desc" },
+    where: { businessId: { in: businessIds }, ...livePosts() },
+    include: postInclude(session.user.id),
+    orderBy: { publishAt: "desc" },
     take: 50,
   });
 
-  return NextResponse.json({
-    posts: posts.map((p) => ({
-      id: p.id,
-      content: p.content,
-      videoUrl: p.videoUrl,
-      imageIds: p.images.map((i) => i.id),
-      commentCount: p._count.comments,
-      likeCount: p._count.likes,
-      liked: p.likes.length > 0,
-      createdAt: p.createdAt.toISOString(),
-      businessName: p.business.name,
-      businessSlug: p.business.slug,
-      businessLogoUrl: p.business.logoUrl,
-    })),
-  });
+  return NextResponse.json({ posts: posts.map(toFanPost) });
 }

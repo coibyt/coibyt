@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
+import { livePosts } from "@/lib/fanpage-data";
 
 /** Toggles the signed-in customer's like on a post. */
 export async function POST(
@@ -11,7 +12,7 @@ export async function POST(
   const session = await auth();
   if (!session?.user) return NextResponse.json({ error: "UNAUTHENTICATED" }, { status: 401 });
 
-  const post = await prisma.post.findUnique({ where: { id: postId }, select: { id: true } });
+  const post = await prisma.post.findFirst({ where: { id: postId, ...livePosts() }, select: { id: true } });
   if (!post) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   const existing = await prisma.postLike.findUnique({

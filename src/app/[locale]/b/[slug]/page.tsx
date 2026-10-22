@@ -18,6 +18,7 @@ import {
   Map as MapIcon,
   ShoppingBag,
   CalendarCheck,
+  Newspaper,
 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
@@ -31,6 +32,7 @@ import { BusinessChatButton } from "@/components/business-chat-button";
 import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
 import { categoryNameMap } from "@/lib/service-groups";
 import { categoryName } from "@/lib/category-names";
+import { fanpageStrings } from "@/lib/fanpage-strings";
 
 const WEEKDAYS_VI = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const WEEKDAYS_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -105,7 +107,7 @@ export default async function BusinessProfilePage({
 
   const catNames = await categoryNameMap(locale);
 
-  const [followerCount, isFollowing, productCount] = await Promise.all([
+  const [followerCount, isFollowing, productCount, postCount] = await Promise.all([
     prisma.businessFollow.count({ where: { businessId: business.id } }),
     session?.user
       ? prisma.businessFollow
@@ -114,7 +116,8 @@ export default async function BusinessProfilePage({
           })
           .then((f) => !!f)
       : false,
-    prisma.product.count({ where: { businessId: business.id, active: true } }),
+    prisma.product.count({ where: { businessId: business.id, active: true, hidden: false } }),
+    prisma.post.count({ where: { businessId: business.id, publishAt: { lte: new Date() } } }),
   ]);
 
   const l = L[locale as keyof typeof L] ?? L.en;
@@ -238,6 +241,12 @@ export default async function BusinessProfilePage({
                   <Link href={`/b/${slug}/products`} className="btn-outline !px-4 !py-2 text-xs">
                     <ShoppingBag className="h-3.5 w-3.5" />
                     {t("products")}
+                  </Link>
+                )}
+                {postCount > 0 && (
+                  <Link href={`/b/${slug}/fanpage`} className="btn-outline !px-4 !py-2 text-xs">
+                    <Newspaper className="h-3.5 w-3.5" />
+                    {fanpageStrings(locale).eyebrow}
                   </Link>
                 )}
               </div>

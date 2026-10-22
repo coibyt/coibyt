@@ -1081,6 +1081,16 @@ model Post {
   // A single YouTube link, same pattern as Business.introVideoUrl and the
   // staff portfolio videos — no self-hosted video, ever.
   videoUrl   String?
+  // Kept at the top of the salon's fanpage.
+  pinned     Boolean  @default(false)
+  // One of PROMO, NEW_WORK, NEWS, TIP (see src/lib/fanpage-strings.ts) —
+  // a label customers can filter the fanpage by. Null = no label.
+  tag        String?  @db.VarChar(20)
+  // A button under the post: BOOK, SHOP or CALL. Null = none.
+  ctaType    String?  @db.VarChar(16)
+  // When customers start seeing the post — later than createdAt for a
+  // scheduled post. Feeds sort by it.
+  publishAt  DateTime @default(now())
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -1089,6 +1099,7 @@ model Post {
   likes    PostLike[]
 
   @@index([businessId, createdAt])
+  @@index([businessId, publishAt])
 }
 
 model PostImage {
@@ -1117,13 +1128,16 @@ model PostLike {
 }
 
 model PostComment {
-  id        String   @id @default(cuid())
-  postId    String
-  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
-  authorId  String
-  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
-  content   String   @db.Text
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  postId     String
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  authorId   String
+  author     User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  content    String   @db.Text
+  // Written by the salon's owner on their own post — shown as the salon
+  // (its name and logo) rather than the owner's personal account.
+  asBusiness Boolean  @default(false)
+  createdAt  DateTime @default(now())
 
   images PostCommentImage[]
 
