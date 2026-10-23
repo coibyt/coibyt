@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useSession, signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
 import { Star, Loader2, X, HeartHandshake } from "lucide-react";
 
@@ -15,14 +14,11 @@ export function ReviewModal({
   onSubmitted: () => void;
 }) {
   const t = useTranslations("review");
-  const { data: session } = useSession();
   const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
-
-  const isGoogleSignedIn = session?.user?.provider === "google";
 
   async function submit() {
     setSaving(true);
@@ -75,16 +71,6 @@ export function ReviewModal({
             </div>
             <button onClick={finish} className="btn-primary mt-6 w-full">
               OK
-            </button>
-          </div>
-        ) : !isGoogleSignedIn ? (
-          <div>
-            <p className="mb-4 text-sm text-ink-700">{t("googleRequiredBody")}</p>
-            <button
-              onClick={() => signIn("google", { callbackUrl: window.location.href })}
-              className="btn-primary w-full"
-            >
-              {t("signInWithGoogle")}
             </button>
           </div>
         ) : (

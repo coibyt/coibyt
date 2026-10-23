@@ -8,12 +8,9 @@ export async function POST(req: Request) {
   if (!session?.user) {
     return NextResponse.json({ error: "UNAUTHENTICATED" }, { status: 401 });
   }
-  // Reviews need a Google-verified identity — see the Google provider's
-  // allowDangerousEmailAccountLinking note in src/auth.ts for why signing in
-  // with Google here doesn't conflict with an existing password account.
-  if (session.user.provider !== "google") {
-    return NextResponse.json({ error: "GOOGLE_REQUIRED" }, { status: 403 });
-  }
+  // Any signed-in VaraaAi account may review — no Google sign-in needed.
+  // What keeps reviews genuine is below: only the customer who made the
+  // booking can review it, once, and never a cancelled one.
 
   const parsed = reviewSchema.safeParse(await req.json());
   if (!parsed.success) {

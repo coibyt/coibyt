@@ -62,7 +62,7 @@ Danh sách khách đã đặt lịch: số lần đến, lần gần nhất, t�
 - "Nhúng khung chat": đặt khung chat lên website riêng của salon (khách không cần tài khoản).
 
 ### Đánh giá — /business/dashboard/reviews
-Đánh giá mới ở trạng thái chờ duyệt; chủ salon chọn "Công khai lên trang salon" hoặc "Ẩn đánh giá này". Khách phải đăng nhập Google để viết đánh giá (để đảm bảo đánh giá thật).
+Đánh giá mới ở trạng thái chờ duyệt; chủ salon chọn "Công khai lên trang salon" hoặc "Ẩn đánh giá này". Khách chỉ cần đăng nhập tài khoản VaraaAi (không cần Google) để viết đánh giá; chỉ khách đã đặt lịch đó mới đánh giá được, mỗi lịch một lần, lịch đã hủy thì không.
 Mời khách đánh giá trên Google: nhập Google Place ID trong Cài đặt → "Liên hệ & mạng xã hội"; sau khi khách đánh giá, hệ thống mời họ chia sẻ lên Google.
 
 ### Thẻ tích điểm — /business/dashboard/loyalty
