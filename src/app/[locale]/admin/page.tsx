@@ -4,6 +4,8 @@ import { Download, Users, Radio } from "lucide-react";
 import { fromZonedTime } from "date-fns-tz";
 import { AdminBusinessApprovalRow } from "@/components/admin-business-approval-row";
 import { StatCard } from "@/components/stat-card";
+import { AdminAppLinkCard } from "@/components/admin-app-link-card";
+import { routing } from "@/i18n/routing";
 
 // Traffic stats are platform-wide (every business, every timezone), so
 // "today" needs one fixed reference point rather than each visitor's own
@@ -40,8 +42,22 @@ export default async function AdminPendingPage({
   const toolCount = (tool: string, event: string) => toolEvents.find((e) => e.tool === tool && e.event === event)?._count ?? 0;
   const vi = locale === "vi";
 
+  // Each language's own name, in the admin's language ("Tiếng Anh", …).
+  const names = new Intl.DisplayNames([locale], { type: "language" });
+  const languages = routing.locales.map((code): [string, string] => {
+    const name = names.of(code) ?? code;
+    return [code, `${name.charAt(0).toLocaleUpperCase(locale)}${name.slice(1)}`];
+  });
+
   return (
     <div>
+      <AdminAppLinkCard
+        locale={locale}
+        defaultLocale={routing.defaultLocale}
+        languages={languages}
+        installsTotal={pwaInstallsTotal}
+        installs7d={pwaInstalls7d}
+      />
       <div className="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard
           icon={Radio}

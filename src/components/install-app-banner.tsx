@@ -11,10 +11,11 @@ const DISMISS_KEY = "varaaai_install_banner_dismissed_until";
 const DISMISS_DAYS = 7;
 
 // Pages with their own fixed bottom-right action button (the storefront cart
-// widget, the support chat launcher) or that are internal work consoles
+// widget, the support chat launcher, the /app install page's own big
+// button) or that are internal work consoles
 // rather than customer-facing — a nagging install bar doesn't belong on
 // either.
-const HIDE_ON = [/\/business\/dashboard(\/|$)/, /\/admin(\/|$)/, /\/b\//, /\/business\/?$/, /\/support\/?$/, /\/help\//, /\/salon-check\/?$/, /^\/([a-z]{2})?\/?$/];
+const HIDE_ON = [/\/business\/dashboard(\/|$)/, /\/admin(\/|$)/, /\/b\//, /\/business\/?$/, /\/support\/?$/, /\/help\//, /\/salon-check\/?$/, /\/app\/?$/, /^\/([a-z]{2})?\/?$/];
 
 /** The prominent, site-wide "install the app" bar — shows for every visitor
  * who hasn't installed VaraaAi yet, and disappears for good (per device)
