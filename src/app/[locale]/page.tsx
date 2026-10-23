@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { alternatesFor } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
 import { SearchBarHero } from "@/components/search-bar";
 import { CategoryCard } from "@/components/category-card";
@@ -29,6 +31,11 @@ const PERKS: Record<"vi" | "en" | "fi", { icon: typeof CalendarCheck; title: str
     { icon: ShieldCheck, title: "Arvostelut oikeilta asiakkailta", body: "Vain varauksen tehneet voivat jättää arvostelun." },
   ],
 };
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return { alternates: alternatesFor("", locale) };
+}
 
 export default async function HomePage({
   params,

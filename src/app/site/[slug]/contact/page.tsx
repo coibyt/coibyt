@@ -5,6 +5,8 @@ import { getSiteBranches } from "@/lib/site-branches";
 import { directionsUrl, mapEmbedUrl, resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-page";
 import { PageHero, SiteCta, SiteShell, siteAddress, siteStatusLabel } from "@/components/site-shell";
 import { WeekdayHoursList, socialLinks } from "@/components/site-footer";
+import type { Metadata } from "next";
+import { siteMetadata } from "@/lib/site-seo";
 
 /** "mojabeauty.fi" for "https://www.mojabeauty.fi/?v=…" — the link itself keeps the full URL. */
 function siteHost(url: string) {
@@ -13,6 +15,17 @@ function siteHost(url: string) {
   } catch {
     return url;
   }
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ locale?: string }>;
+}): Promise<Metadata> {
+  const [{ slug }, { locale }] = await Promise.all([params, searchParams]);
+  return siteMetadata(slug, locale, "contact");
 }
 
 export default async function BusinessContactPage({

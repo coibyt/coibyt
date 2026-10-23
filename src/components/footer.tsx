@@ -135,6 +135,7 @@ export async function Footer() {
             { href: "/support", label: supportCenterStrings(locale).eyebrow },
             { href: "/terms", label: t("terms") },
             { href: "/privacy", label: locale === "vi" ? "Chính sách bảo mật" : "Privacy Policy" },
+            { href: "/directory", label: locale === "vi" ? "Sơ đồ trang" : locale === "fi" ? "Sivukartta" : "Sitemap" },
           ]}
         />
       </div>

@@ -7,6 +7,19 @@ import { resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-
 import { PageHero, SiteShell } from "@/components/site-shell";
 import { ServiceSelectionList } from "@/components/service-selection-list";
 import { categoryNameMap } from "@/lib/service-groups";
+import type { Metadata } from "next";
+import { siteMetadata } from "@/lib/site-seo";
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ locale?: string }>;
+}): Promise<Metadata> {
+  const [{ slug }, { locale }] = await Promise.all([params, searchParams]);
+  return siteMetadata(slug, locale, "booking");
+}
 
 export default async function BusinessBookingPage({
   params,

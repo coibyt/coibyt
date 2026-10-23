@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ChevronRight, MessageCircleHeart, PlayCircle, ShieldCheck, Store, Wallet } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
@@ -14,6 +15,37 @@ import { ProductDetailActions } from "@/components/product-detail-actions";
 import { ProductReviewSection } from "@/components/product-review-section";
 import { ProductCartWidget } from "@/components/product-cart-widget";
 import { ShopProductCard, ShopStars } from "@/components/shop-product-card";
+import { absoluteUrl, alternatesFor, jsonLd, localizedUrl, metaDescription } from "@/lib/seo";
+import { fromSmallestUnit } from "@/lib/money";
+
+const META_WORDS: Record<string, (product: string, salon: string, price: string) => string> = {
+  vi: (product, salon, price) => `Mua ${product} tại ${salon} — ${price}. Sản phẩm chính hãng do salon tuyển chọn, đặt online và nhận tại salon.`,
+  en: (product, salon, price) => `Buy ${product} from ${salon} — ${price}. Genuine products hand-picked by the salon; order online, collect at the salon.`,
+  fi: (product, salon, price) => `Osta ${product} salongista ${salon} — ${price}. Aidot, salongin valitsemat tuotteet; tilaa verkosta, nouda salongilta.`,
+};
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string; productId: string }> }): Promise<Metadata> {
+  const { locale, slug, productId } = await params;
+  const business = await getShopBusiness(slug);
+  if (!business) return {};
+  const product = await prisma.product.findFirst({
+    where: { id: productId, businessId: business.id, active: true, hidden: false },
+    select: { name: true, brand: true, description: true, priceCents: true, currency: true, images: { select: { id: true }, orderBy: { sortOrder: "asc" }, take: 4 } },
+  });
+  if (!product) return {};
+  const path = `/b/${slug}/products/${productId}`;
+  const title = `${product.brand ? `${product.brand} ` : ""}${product.name} | ${business.name}`;
+  const fallback = (META_WORDS[locale] ?? META_WORDS.en)(product.name, business.name, formatMoney(product.priceCents, product.currency, locale));
+  const description = metaDescription(product.description || fallback);
+  const images = product.images.map((i) => absoluteUrl(`/api/product-image/${i.id}`)!);
+  return {
+    title,
+    description,
+    alternates: alternatesFor(path, locale),
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, path), siteName: "VaraaAi", ...(images.length ? { images } : {}) },
+    twitter: { card: images.length ? "summary_large_image" : "summary", title, description, ...(images.length ? { images } : {}) },
+  };
+}
 
 export default async function ProductDetailPage({
   params,
@@ -73,8 +105,43 @@ export default async function ProductDetailPage({
     { icon: MessageCircleHeart, text: S.trustAdvice },
   ];
 
+  // schema.org Product, so search results can show the price, stock and stars.
+  const productUrl = localizedUrl(locale, `/b/${slug}/products/${product.id}`);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    sku: product.id,
+    url: productUrl,
+    ...(product.description ? { description: metaDescription(product.description, 1000) } : {}),
+    ...(product.images.length ? { image: product.images.map((i) => absoluteUrl(`/api/product-image/${i.id}`)) } : {}),
+    ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
+    offers: {
+      "@type": "Offer",
+      url: productUrl,
+      price: String(fromSmallestUnit(product.priceCents, product.currency)),
+      priceCurrency: product.currency,
+      availability: product.soldOut ? "https://schema.org/OutOfStock" : "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: { "@type": "BeautySalon", name: business.name, url: localizedUrl(locale, `/b/${slug}`) },
+    },
+    ...(product.reviews.length
+      ? {
+          aggregateRating: { "@type": "AggregateRating", ratingValue: Number(avg.toFixed(1)), reviewCount: product.reviews.length, bestRating: 5, worstRating: 1 },
+          review: product.reviews.slice(0, 5).map((r) => ({
+            "@type": "Review",
+            author: { "@type": "Person", name: r.customer.name },
+            datePublished: r.createdAt.toISOString().slice(0, 10),
+            reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+            ...(r.comment ? { reviewBody: r.comment } : {}),
+          })),
+        }
+      : {}),
+  };
+
   return (
     <div style={siteThemeStyle(business.landingPage?.theme)} className={`${siteSerif.variable} bg-lp-bg text-lp-ink antialiased`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structuredData)} />
       <div className="container pb-24 pt-6 sm:pt-8">
         <nav className="flex flex-wrap items-center gap-1.5 text-sm text-lp-muted" aria-label="Breadcrumb">
           <Link href={`/b/${slug}`} className="hover:text-lp-ink">

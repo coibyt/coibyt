@@ -4,6 +4,19 @@ import { siteStrings } from "@/lib/site-content";
 import { getSiteBranches } from "@/lib/site-branches";
 import { resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-page";
 import { Eyebrow, PageHero, SectionHeading, SiteCta, SiteShell } from "@/components/site-shell";
+import type { Metadata } from "next";
+import { siteMetadata } from "@/lib/site-seo";
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ locale?: string }>;
+}): Promise<Metadata> {
+  const [{ slug }, { locale }] = await Promise.all([params, searchParams]);
+  return siteMetadata(slug, locale, "about");
+}
 
 export default async function BusinessAboutPage({
   params,

@@ -33,7 +33,13 @@ const sans = Be_Vietnam_Pro({
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("meta");
-  return { title: t("title"), description: t("description") };
+  return {
+    // Lets pages give share images as plain paths.
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com"),
+    title: t("title"),
+    description: t("description"),
+    openGraph: { siteName: "VaraaAi", type: "website", images: ["/icons/icon-512.png"] },
+  };
 }
 
 export const viewport: Viewport = {

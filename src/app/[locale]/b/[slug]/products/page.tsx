@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { ChevronLeft, MessageCircleHeart, ShieldCheck, Store, Wallet } from "lucide-react";
 import { prisma } from "@/lib/prisma";
@@ -9,6 +10,28 @@ import { fill, shopStrings } from "@/lib/shop-strings";
 import { getShopBusiness, getShopProducts } from "@/lib/shop-data";
 import { ProductShop } from "@/components/product-shop";
 import { ProductCartWidget } from "@/components/product-cart-widget";
+import { absoluteUrl, alternatesFor, localizedUrl, metaDescription } from "@/lib/seo";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const business = await getShopBusiness(slug);
+  if (!business) return {};
+  const S = shopStrings(locale);
+  const cover = await prisma.productImage.findFirst({
+    where: { product: { businessId: business.id, active: true, hidden: false } },
+    orderBy: [{ product: { sortOrder: "asc" } }, { sortOrder: "asc" }],
+    select: { id: true },
+  });
+  const title = `${S.eyebrow} ${business.name} – ${S.heroTitle}`;
+  const description = metaDescription(fill(S.heroText, { name: business.name }));
+  const image = cover ? absoluteUrl(`/api/product-image/${cover.id}`) : absoluteUrl(business.logoUrl);
+  return {
+    title,
+    description,
+    alternates: alternatesFor(`/b/${slug}/products`, locale),
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/products`), siteName: "VaraaAi", ...(image ? { images: [image] } : {}) },
+  };
+}
 
 export default async function BusinessProductsPage({
   params,

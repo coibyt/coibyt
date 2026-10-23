@@ -8,10 +8,25 @@ import { resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-
 import { HeroSlider } from "@/components/hero-slider";
 import { GiftCardSale } from "@/components/gift-card-sale";
 import { Eyebrow, SectionHeading, SiteCta, SiteShell, Stars, siteStatusLabel } from "@/components/site-shell";
+import type { Metadata } from "next";
+import { siteMetadata } from "@/lib/site-seo";
+import { salonJsonLd } from "@/lib/seo-salon";
+import { SITE, jsonLd } from "@/lib/seo";
 
 const HERO_SLIDE_SLOTS = ["hero-slide-0", "hero-slide-1", "hero-slide-2", "hero-slide-3", "hero-slide-4"];
 const STAT_COLS: Record<number, string> = { 1: "sm:grid-cols-1", 2: "sm:grid-cols-2", 3: "sm:grid-cols-3", 4: "sm:grid-cols-4" };
 const GALLERY_SLOTS = Array.from({ length: 8 }, (_, i) => `gallery-${i}`);
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ locale?: string }>;
+}): Promise<Metadata> {
+  const [{ slug }, { locale }] = await Promise.all([params, searchParams]);
+  return siteMetadata(slug, locale, "home");
+}
 
 export default async function BusinessSitePage({
   params,
@@ -107,8 +122,11 @@ export default async function BusinessSitePage({
     { value: "24/7", label: s.navBooking, Icon: CalendarCheck },
   ].filter((x): x is { value: string; label: string; Icon: typeof Sparkles | null } => !!x);
 
+  const structuredData = preview ? null : await salonJsonLd(slug, locale, `${SITE}/site/${slug}`);
+
   return (
     <SiteShell locale={locale} business={b} branches={branches} active="home" preview={preview}>
+      {structuredData && <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structuredData)} />}
       {/* ---------- Hero ---------- */}
       {heroLayout === "FULL" ? (
         <section className="relative flex min-h-[min(calc(100svh-5rem),640px)] items-end overflow-hidden sm:min-h-[680px] sm:items-center">

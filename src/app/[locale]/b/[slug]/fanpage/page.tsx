@@ -13,6 +13,7 @@ import { getFanpagePosts, livePosts } from "@/lib/fanpage-data";
 import { FanpageFeed } from "@/components/fanpage-feed";
 import { FanpageFollowButton, FollowerCount } from "@/components/fanpage-follow-button";
 import { FanpagePhotoGrid } from "@/components/fanpage-photo-grid";
+import { absoluteUrl, alternatesFor, localizedUrl, metaDescription } from "@/lib/seo";
 
 async function getBusiness(slug: string) {
   const business = await prisma.business.findUnique({
@@ -41,7 +42,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const { locale, slug } = await params;
   const business = await getBusiness(slug);
   if (!business) return {};
-  return { title: `${business.name} · ${fanpageStrings(locale).eyebrow}`, description: business.description ?? undefined };
+  const title = `${business.name} · ${fanpageStrings(locale).eyebrow}`;
+  const description = metaDescription(business.description) || undefined;
+  const image = absoluteUrl(business.coverUrl) ?? absoluteUrl(business.logoUrl);
+  return {
+    title,
+    description,
+    alternates: alternatesFor(`/b/${slug}/fanpage`, locale),
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/fanpage`), siteName: "VaraaAi", ...(image ? { images: [image] } : {}) },
+  };
 }
 
 const hhmm = (m: number) => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;

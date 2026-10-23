@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -33,6 +34,8 @@ import { AffiliateCookieSetter } from "@/components/affiliate-cookie-setter";
 import { categoryNameMap } from "@/lib/service-groups";
 import { categoryName } from "@/lib/category-names";
 import { fanpageStrings } from "@/lib/fanpage-strings";
+import { salonJsonLd, salonMetadata } from "@/lib/seo-salon";
+import { jsonLd } from "@/lib/seo";
 
 const WEEKDAYS_VI = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const WEEKDAYS_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -64,6 +67,11 @@ const L = {
 
 // Printed QR codes from the free tools link here with these UTM sources.
 const QR_SOURCES = new Set(["price_list", "qr_poster"]);
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
+  const { locale, slug } = await params;
+  return salonMetadata(slug, locale);
+}
 
 export default async function BusinessProfilePage({
   params,
@@ -152,8 +160,11 @@ export default async function BusinessProfilePage({
     business.googleMapsUrl && { href: business.googleMapsUrl, label: "Google Maps", icon: MapIcon, external: true },
   ].filter(Boolean) as { href: string; label: string; icon: typeof Mail; external: boolean }[];
 
+  const structuredData = await salonJsonLd(slug, locale);
+
   return (
     <div className="bg-mist-50">
+      {structuredData && <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structuredData)} />}
       <Suspense fallback={null}>
         <AffiliateCookieSetter businessId={business.id} />
       </Suspense>
