@@ -30,6 +30,7 @@ import {
   Wallet,
   Wrench,
 } from "lucide-react";
+import { WithVaraClipLinks } from "@/components/varaclip-link";
 import { Link } from "@/i18n/navigation";
 import { OpenSupportButton } from "@/components/support-launcher";
 import { ScreenMock, type MockBlock } from "@/components/help/screen-mock";
@@ -234,7 +235,9 @@ export function HelpCenter({
                                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-coral-500 text-xs font-bold text-white">
                                   {i + 1}
                                 </span>
-                                <p className="pt-0.5 text-sm leading-relaxed text-ink-900">{s}</p>
+                                <p className="pt-0.5 text-sm leading-relaxed text-ink-900">
+                                  <WithVaraClipLinks text={s} />
+                                </p>
                               </li>
                             ))}
                           </ol>

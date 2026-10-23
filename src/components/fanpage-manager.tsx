@@ -33,6 +33,7 @@ import { fanpageStrings, MAX_POST_IMAGES, POST_CTAS, POST_TAGS, type FanpageStri
 import type { FanPost } from "@/lib/fanpage-data";
 import { FanpagePostCard } from "@/components/fanpage-post-card";
 import { EmojiPicker } from "@/components/emoji-picker";
+import { VaraClipHint, WithVaraClipLinks } from "@/components/varaclip-link";
 
 const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
@@ -446,9 +447,12 @@ export function FanpageManager({
             )}
 
             {showVideo && (
-              <div className="mt-4 flex items-center gap-2">
-                <Video className="h-4 w-4 shrink-0 text-red-500" />
-                <input type="url" value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder={S.videoPh} className="input" />
+              <div className="mt-4">
+                <div className="flex items-center gap-2">
+                  <Video className="h-4 w-4 shrink-0 text-red-500" />
+                  <input type="url" value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder={S.videoPh} className="input" />
+                </div>
+                <VaraClipHint locale={locale} className="pl-6" />
               </div>
             )}
 
@@ -515,7 +519,11 @@ export function FanpageManager({
                 {schedule ? S.scheduleBtn : S.post}
               </button>
             </div>
-            {error && <p className="mt-3 text-sm font-medium text-red-600">{error}</p>}
+            {error && (
+              <p className="mt-3 text-sm font-medium text-red-600">
+                <WithVaraClipLinks text={error} />
+              </p>
+            )}
           </div>
         )}
 
@@ -576,6 +584,7 @@ export function FanpageManager({
       {editing && (
         <EditPostDialog
           S={S}
+          locale={locale}
           post={editing}
           scheduled={isScheduled(editing)}
           onClose={() => setEditing(null)}
@@ -592,12 +601,14 @@ export function FanpageManager({
 
 function EditPostDialog({
   S,
+  locale,
   post,
   scheduled,
   onClose,
   onSave,
 }: {
   S: FanpageStrings;
+  locale: string;
   post: FanPost;
   scheduled: boolean;
   onClose: () => void;
@@ -650,14 +661,19 @@ function EditPostDialog({
         </div>
         <div className="flex-1 space-y-5 overflow-y-auto px-6 py-5">
           <textarea rows={6} value={content} maxLength={5000} onChange={(e) => setContent(e.target.value)} className="input" placeholder={S.composerPh} />
-          <div className="flex items-center gap-2">
-            <Video className="h-4 w-4 shrink-0 text-red-500" />
-            <input type="url" value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder={S.videoPh} className="input" />
+          <div>
+            <div className="flex items-center gap-2">
+              <Video className="h-4 w-4 shrink-0 text-red-500" />
+              <input type="url" value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} placeholder={S.videoPh} className="input" />
+            </div>
+            <VaraClipHint locale={locale} className="pl-6" />
           </div>
           <PostOptions S={S} tag={tag} setTag={setTag} cta={cta} setCta={setCta} schedule={schedule} setSchedule={setSchedule} />
         </div>
         <div className="flex items-center justify-between gap-3 border-t border-ink-100 px-6 py-4">
-          <p className="min-w-0 truncate text-sm font-medium text-red-600">{error}</p>
+          <p className="min-w-0 text-sm font-medium text-red-600">
+            <WithVaraClipLinks text={error} />
+          </p>
           <div className="flex shrink-0 gap-2">
             <button type="button" onClick={onClose} className="btn-ghost">
               {S.cancel}

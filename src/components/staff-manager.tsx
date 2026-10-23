@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Plus, Trash2, Loader2, Clock, Pencil, KeyRound } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
 import { StaffHoursModal } from "@/components/staff-hours-modal";
+import { VaraClipLink } from "@/components/varaclip-link";
 import { StaffAvatarUpload } from "@/components/staff-avatar-upload";
 import {
   StaffHoursFields,
@@ -425,7 +426,7 @@ export function StaffManager({
 
           <div className="border-t border-ink-100 pt-4">
             <label className="label">
-              {locale === "vi" ? "Video giới thiệu (VaraClip)" : "Portfolio videos (VaraClip)"}
+              {locale === "vi" ? "Video giới thiệu" : "Portfolio videos"} (<VaraClipLink />)
             </label>
             <p className="mb-1 text-xs text-ink-400">
               {locale === "vi"

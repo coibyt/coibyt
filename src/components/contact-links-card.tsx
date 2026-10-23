@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
+import { VaraClipHint } from "@/components/varaclip-link";
 
 export interface ContactLinks {
   phone: string | null;
@@ -21,6 +22,7 @@ export interface ContactLinks {
 export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
   const tDash = useTranslations("dashboard");
   const tCommon = useTranslations("common");
+  const locale = useLocale();
   const [form, setForm] = useState({
     phone: contact.phone ?? "",
     email: contact.email ?? "",
@@ -86,11 +88,10 @@ export function ContactLinksCard({ contact }: { contact: ContactLinks }) {
         {field("instagramUrl", "Instagram", "https://instagram.com/...")}
         {field("tiktokUrl", "TikTok", "https://tiktok.com/@...")}
         {field("youtubeUrl", tDash("contactLinks.youtubeChannel"), "https://youtube.com/@...")}
-        {field(
-          "introVideoUrl",
-          tDash("contactLinks.introVideo"),
-          "https://varaclip.com/v/..."
-        )}
+        <div>
+          {field("introVideoUrl", tDash("contactLinks.introVideo"), "https://varaclip.com/v/...")}
+          <VaraClipHint locale={locale} />
+        </div>
         {field("googleMapsUrl", "Google Maps", "https://maps.google.com/...")}
         <div>
           <label className="label">{tDash("contactLinks.googlePlaceId")}</label>

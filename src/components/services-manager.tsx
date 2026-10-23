@@ -7,6 +7,7 @@ import { Plus, Trash2, Loader2, Sparkles, Pencil, ChevronUp, ChevronDown, GripVe
 import { useRouter } from "@/i18n/navigation";
 import { ServiceAddOnsModal } from "@/components/service-addons-modal";
 import { SortableSection, type DragHandle } from "@/components/sortable-list";
+import { WithVaraClipLinks } from "@/components/varaclip-link";
 
 interface StaffAssignment {
   staffId: string;
@@ -609,7 +610,7 @@ export function ServicesManager({
           </div>
           <div>
             <label className="label">
-              {tDash("servicesForm.videoLink")} ({tDash("servicesForm.optional")})
+              <WithVaraClipLinks text={tDash("servicesForm.videoLink")} /> ({tDash("servicesForm.optional")})
             </label>
             <p className="mb-1 text-xs text-ink-400">
               {tDash("servicesForm.videoLinkHint")}

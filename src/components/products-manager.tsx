@@ -38,6 +38,7 @@ import { discountPct, fill, shopStrings } from "@/lib/shop-strings";
 import { MAX_PRODUCT_IMAGES, MAX_PRODUCT_IMAGE_BYTES, ALLOWED_PRODUCT_IMAGE_TYPES } from "@/lib/product-images";
 import { SortableSection, type DragHandle } from "@/components/sortable-list";
 import { ShopProductCard } from "@/components/shop-product-card";
+import { VaraClipHint } from "@/components/varaclip-link";
 
 interface ProductRow {
   id: string;
@@ -1089,6 +1090,7 @@ export function ProductsManager({
                         value={form.videoUrl}
                         onChange={(e) => setForm({ ...form, videoUrl: e.target.value })}
                       />
+                      <VaraClipHint locale={locale} />
                     </Section>
                   </div>
 

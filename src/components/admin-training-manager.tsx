@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Loader2, Pencil, Plus, Trash2 } from "lucide-react";
 import { useRouter } from "@/i18n/navigation";
+import { VaraClipLink } from "@/components/varaclip-link";
 
 interface TrainingRow {
   id: string;
@@ -80,7 +81,7 @@ export function AdminTrainingManager({ trainings }: { trainings: TrainingRow[] }
           />
         </div>
         <div>
-          <label className="label">Liên kết (video VaraClip hoặc trang hướng dẫn)</label>
+          <label className="label">Liên kết (video <VaraClipLink /> hoặc trang hướng dẫn)</label>
           <input
             required
             type="url"

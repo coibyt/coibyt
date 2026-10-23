@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, useState, type ReactNode } from "react";
 import { Send, Loader2, Sparkles, UserRound } from "lucide-react";
+import { WithVaraClipLinks } from "@/components/varaclip-link";
 
 interface SupportMessageDto {
   id: string;
@@ -40,7 +41,7 @@ function richText(text: string, linkLocale: string): ReactNode[] {
   let m: RegExpExecArray | null;
   let key = 0;
   while ((m = re.exec(text))) {
-    if (m.index > last) out.push(text.slice(last, m.index));
+    if (m.index > last) out.push(<WithVaraClipLinks key={key++} text={text.slice(last, m.index)} />);
     if (m[1]) {
       const raw = m[2];
       const internal = raw.startsWith("/");
@@ -66,7 +67,7 @@ function richText(text: string, linkLocale: string): ReactNode[] {
     }
     last = re.lastIndex;
   }
-  if (last < text.length) out.push(text.slice(last));
+  if (last < text.length) out.push(<WithVaraClipLinks key={key++} text={text.slice(last)} />);
   return out;
 }
 
