@@ -23,11 +23,21 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { ChevronLeft, ChevronRight, Loader2, Pencil, Star, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
+import {
+  PERSONAL_OPTION_PREFIX,
+  PERSONAL_TIME_KINDS,
+  PERSONAL_TIME_MINUTES,
+  isPersonalTimeKind,
+  personalKindFromOption,
+  personalTimeLabel,
+  personalTimeLabels,
+  type PersonalTimeKind,
+} from "@/lib/personal-time";
 
 interface StaffOption {
   id: string;
@@ -313,6 +323,27 @@ interface NewBookingDraft {
   sendNotificationEmails: boolean;
 }
 
+/** A staff member's blocked personal time (lunch, leave…), from
+ * /api/business/time-off. */
+interface TimeOffBlock {
+  id: string;
+  staffId: string;
+  staffName: string;
+  kind: string | null;
+  note: string | null;
+  startsAt: string;
+  endsAt: string;
+}
+
+interface TimeOffDraft {
+  id: string;
+  staffId: string;
+  kind: PersonalTimeKind;
+  startsAt: Date;
+  endsAt: Date;
+  note: string;
+}
+
 interface PendingReschedule {
   booking: CalendarBlock;
   newStartsAt: Date;
@@ -454,6 +485,11 @@ export function BookingCalendar({
   const [creatingBooking, setCreatingBooking] = useState(false);
   const [newBookingError, setNewBookingError] = useState<string | null>(null);
   const [customerMatches, setCustomerMatches] = useState<CustomerMatch[]>([]);
+  const [timeOff, setTimeOff] = useState<TimeOffBlock[]>([]);
+  const [editTimeOff, setEditTimeOff] = useState<TimeOffDraft | null>(null);
+  const [savingTimeOff, setSavingTimeOff] = useState(false);
+  const [timeOffError, setTimeOffError] = useState<string | null>(null);
+  const PT = personalTimeLabels(locale);
   const [pendingReschedule, setPendingReschedule] = useState<PendingReschedule | null>(null);
   const [reschedulingBusy, setReschedulingBusy] = useState(false);
   const [customerDetail, setCustomerDetail] = useState<CustomerDetail | null>(null);
@@ -585,6 +621,10 @@ export function BookingCalendar({
 
   function reloadBookings() {
     setLoading(true);
+    fetch(`/api/business/time-off?from=${fromStr}&to=${toStr}`)
+      .then((r) => (r.ok ? r.json() : { timeOff: [] }))
+      .then((data) => setTimeOff(data.timeOff ?? []))
+      .catch(() => setTimeOff([]));
     return fetch(`/api/business/bookings/calendar?from=${fromStr}&to=${toStr}`)
       .then((r) => r.json())
       .then((data) => setBookings(data.bookings ?? []))
@@ -623,6 +663,16 @@ export function BookingCalendar({
 
   function bookingsOnDay(day: Date) {
     return calendarBlocks.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
+  }
+
+  // Personal time touching this day, clipped to it — a sick leave can run
+  // over several days.
+  function timeOffOnDay(day: Date) {
+    const start = fromZonedTime(format(day, "yyyy-MM-dd"), businessTimezone).getTime();
+    const end = start + 86_400_000;
+    return timeOff
+      .filter((t) => new Date(t.startsAt).getTime() < end && new Date(t.endsAt).getTime() > start)
+      .map((t) => ({ ...t, from: Math.max(new Date(t.startsAt).getTime(), start), to: Math.min(new Date(t.endsAt).getTime(), end) }));
   }
 
   // The staff member's working window for the currently displayed day — from
@@ -1235,7 +1285,6 @@ export function BookingCalendar({
     columnStaffId: string | undefined,
     gridTopHour: number
   ) {
-    if (services.length === 0) return;
     const resolvedStaffId = columnStaffId ?? staff[0]?.id;
     if (!resolvedStaffId) return;
 
@@ -1249,15 +1298,16 @@ export function BookingCalendar({
     const startsAt = fromZonedTime(`${dateStr}T${hh}:${mm}:00`, businessTimezone);
 
     const eligibleServices = servicesForStaff(services, resolvedStaffId);
+    // With no services set up yet, the picker still offers personal time.
     const defaultService = eligibleServices[0] ?? services[0];
 
     setNewBookingError(null);
     setCustomerMatches([]);
     setNewBooking({
       startsAt,
-      endsAt: addMinutes(startsAt, defaultService.durationMin),
+      endsAt: addMinutes(startsAt, defaultService ? defaultService.durationMin : PERSONAL_TIME_MINUTES.LUNCH),
       staffId: resolvedStaffId,
-      serviceId: defaultService.id,
+      serviceId: defaultService ? defaultService.id : `${PERSONAL_OPTION_PREFIX}LUNCH`,
       addOnIds: [],
       customerName: "",
       customerPhone: "",
@@ -1297,6 +1347,28 @@ export function BookingCalendar({
     if (!newBooking) return;
     setCreatingBooking(true);
     setNewBookingError(null);
+    const personalKind = personalKindFromOption(newBooking.serviceId);
+    if (personalKind) {
+      const res = await fetch("/api/business/time-off", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          staffId: newBooking.staffId,
+          kind: personalKind,
+          startsAt: newBooking.startsAt.toISOString(),
+          endsAt: newBooking.endsAt.toISOString(),
+          note: newBooking.customerNote || undefined,
+        }),
+      }).catch(() => null);
+      setCreatingBooking(false);
+      if (!res?.ok) {
+        setNewBookingError(locale === "vi" ? "Có lỗi xảy ra, vui lòng thử lại." : "Something went wrong, please try again.");
+        return;
+      }
+      setNewBooking(null);
+      reloadBookings();
+      return;
+    }
     const res = await fetch("/api/business/bookings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -1392,6 +1464,98 @@ export function BookingCalendar({
         )}
       </div>
     );
+  }
+
+  function renderTimeOffBlock(t: TimeOffBlock & { from: number; to: number }, compact = false) {
+    const startMin = minutesFromMidnight(new Date(t.from).toISOString());
+    const endRaw = minutesFromMidnight(new Date(t.to).toISOString());
+    const endMin = endRaw <= startMin ? 24 * 60 : endRaw;
+    const gridPx = totalHours * HOUR_HEIGHT;
+    const top = Math.max(0, ((startMin - startHour * 60) / 60) * HOUR_HEIGHT);
+    const bottom = Math.min(gridPx, ((endMin - startHour * 60) / 60) * HOUR_HEIGHT);
+    if (bottom <= 0 || top >= gridPx) return null;
+    const timeLabel = `${format(toZonedTime(new Date(t.startsAt), businessTimezone), "HH:mm")}–${format(
+      toZonedTime(new Date(t.endsAt), businessTimezone),
+      "HH:mm"
+    )}`;
+    return (
+      <button
+        key={`off-${t.id}`}
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          setTimeOffError(null);
+          setEditTimeOff({
+            id: t.id,
+            staffId: t.staffId,
+            kind: isPersonalTimeKind(t.kind) ? t.kind : "PERSONAL",
+            startsAt: new Date(t.startsAt),
+            endsAt: new Date(t.endsAt),
+            note: t.note ?? "",
+          });
+        }}
+        title={`${personalTimeLabel(t.kind, locale)} · ${t.staffName}`}
+        className="absolute left-1 right-1 z-10 overflow-hidden rounded-xl border-l-[3px] border-slate-500 bg-slate-100 px-2 py-0.5 text-left text-[11px] text-slate-700 ring-1 ring-slate-300/70 transition hover:z-30 hover:shadow-md"
+        style={{
+          top,
+          height: Math.max(bottom - top, 20),
+          backgroundImage: "repeating-linear-gradient(135deg, rgba(100,116,139,0.13) 0 6px, transparent 6px 12px)",
+        }}
+      >
+        {bottom - top < 40 ? (
+          // Too short for two lines (a 30-minute lunch): name first, then time.
+          <p className="flex items-center gap-1 truncate leading-tight">
+            <Lock className="h-3 w-3 shrink-0" />
+            <span className="truncate text-xs font-bold">{personalTimeLabel(t.kind, locale)}</span>
+            <span className="truncate opacity-70">{timeLabel}</span>
+          </p>
+        ) : (
+          <>
+            <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
+            <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
+              <Lock className="h-3 w-3 shrink-0" />
+              {personalTimeLabel(t.kind, locale)}
+            </p>
+            {compact && <p className="truncate leading-tight opacity-80">{t.staffName}</p>}
+            {!compact && t.note && <p className="truncate leading-tight opacity-80">{t.note}</p>}
+          </>
+        )}
+      </button>
+    );
+  }
+
+  async function saveTimeOff() {
+    if (!editTimeOff) return;
+    setSavingTimeOff(true);
+    setTimeOffError(null);
+    const res = await fetch(`/api/business/time-off/${editTimeOff.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        staffId: editTimeOff.staffId,
+        kind: editTimeOff.kind,
+        startsAt: editTimeOff.startsAt.toISOString(),
+        endsAt: editTimeOff.endsAt.toISOString(),
+        note: editTimeOff.note || undefined,
+      }),
+    }).catch(() => null);
+    setSavingTimeOff(false);
+    if (!res?.ok) {
+      setTimeOffError(locale === "vi" ? "Không lưu được, vui lòng thử lại." : "Couldn't save, please try again.");
+      return;
+    }
+    setEditTimeOff(null);
+    reloadBookings();
+  }
+
+  async function deleteTimeOff() {
+    if (!editTimeOff) return;
+    if (!window.confirm(locale === "vi" ? "Xoá khoảng thời gian cá nhân này? Khách sẽ đặt lịch được vào giờ này." : "Remove this personal time? Customers will be able to book it again.")) return;
+    setSavingTimeOff(true);
+    await fetch(`/api/business/time-off/${editTimeOff.id}`, { method: "DELETE" }).catch(() => null);
+    setSavingTimeOff(false);
+    setEditTimeOff(null);
+    reloadBookings();
   }
 
   function renderBookingBlock(b: CalendarBlock, compact = false, lane?: { lane: number; lanes: number }) {
@@ -1819,6 +1983,9 @@ export function BookingCalendar({
                     const lanes = laneLayout(columnBlocks);
                     return columnBlocks.map((b) => renderBookingBlock(b, false, lanes.get(blockKey(b))));
                   })()}
+                  {timeOffOnDay(anchorDate)
+                    .filter((t) => staff.length === 0 || t.staffId === s.id)
+                    .map((t) => renderTimeOffBlock(t))}
                   {nowInRange && isSameDay(anchorDate, now) && <NowLine />}
                 </div>
               );
@@ -1921,6 +2088,7 @@ export function BookingCalendar({
                   const lanes = laneLayout(dayBlocksForColumn);
                   return dayBlocksForColumn.map((b) => renderBookingBlock(b, true, lanes.get(blockKey(b))));
                 })()}
+                {timeOffOnDay(day).map((t) => renderTimeOffBlock(t, true))}
                 {nowInRange && isSameDay(day, now) && <NowLine />}
               </div>
             ))}
@@ -2801,12 +2969,131 @@ export function BookingCalendar({
         </div>
       )}
 
+      {editTimeOff && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4" onClick={() => setEditTimeOff(null)}>
+          <div className="card w-full max-w-sm animate-slide-up p-6" onClick={(e) => e.stopPropagation()}>
+            <div className="mb-4 flex items-start justify-between">
+              <p className="flex items-center gap-2 font-bold text-ink-900">
+                <Lock className="h-4 w-4 text-slate-500" />
+                {PT.group}
+              </p>
+              <button onClick={() => setEditTimeOff(null)} className="text-ink-400" aria-label="Close">
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+            <div className="space-y-3">
+              <div>
+                <label className="label">{locale === "vi" ? "Loại" : "Type"}</label>
+                <select
+                  className="input"
+                  value={editTimeOff.kind}
+                  onChange={(e) => setEditTimeOff({ ...editTimeOff, kind: e.target.value as PersonalTimeKind })}
+                >
+                  {PERSONAL_TIME_KINDS.map((k) => (
+                    <option key={k} value={k}>
+                      {PT.kinds[k]}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              {staff.length > 1 && (
+                <div>
+                  <label className="label">{locale === "vi" ? "Nhân viên" : "Staff"}</label>
+                  <select
+                    className="input"
+                    value={editTimeOff.staffId}
+                    onChange={(e) => setEditTimeOff({ ...editTimeOff, staffId: e.target.value })}
+                  >
+                    {staff.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+              <div>
+                <label className="label">{locale === "vi" ? "Bắt đầu" : "Starts"}</label>
+                <input
+                  type="datetime-local"
+                  step={900}
+                  className="input"
+                  value={format(toZonedTime(editTimeOff.startsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    const startsAt = fromZonedTime(e.target.value, businessTimezone);
+                    const length = editTimeOff.endsAt.getTime() - editTimeOff.startsAt.getTime();
+                    setEditTimeOff({ ...editTimeOff, startsAt, endsAt: new Date(startsAt.getTime() + length) });
+                  }}
+                />
+              </div>
+              <div>
+                <label className="label">{locale === "vi" ? "Kết thúc" : "Ends"}</label>
+                <input
+                  type="datetime-local"
+                  step={900}
+                  className="input"
+                  value={format(toZonedTime(editTimeOff.endsAt, businessTimezone), "yyyy-MM-dd'T'HH:mm")}
+                  onChange={(e) => {
+                    if (!e.target.value) return;
+                    setEditTimeOff({ ...editTimeOff, endsAt: fromZonedTime(e.target.value, businessTimezone) });
+                  }}
+                />
+              </div>
+              <div>
+                <label className="label">
+                  {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
+                </label>
+                <textarea
+                  rows={2}
+                  maxLength={500}
+                  className="input"
+                  value={editTimeOff.note}
+                  onChange={(e) => setEditTimeOff({ ...editTimeOff, note: e.target.value })}
+                />
+              </div>
+            </div>
+            {editTimeOff.endsAt <= editTimeOff.startsAt && (
+              <p className="mt-2 text-sm text-berry-500">
+                {locale === "vi" ? "Giờ kết thúc phải sau giờ bắt đầu." : "End time must be after the start time."}
+              </p>
+            )}
+            {timeOffError && <p className="mt-2 text-sm text-berry-500">{timeOffError}</p>}
+            <div className="mt-5 flex items-center gap-2">
+              <button
+                onClick={saveTimeOff}
+                disabled={savingTimeOff || editTimeOff.endsAt <= editTimeOff.startsAt}
+                className="btn-primary"
+              >
+                {savingTimeOff && <Loader2 className="h-4 w-4 animate-spin" />}
+                {locale === "vi" ? "Lưu" : "Save"}
+              </button>
+              <button onClick={() => setEditTimeOff(null)} className="btn-ghost">
+                {locale === "vi" ? "Huỷ" : "Cancel"}
+              </button>
+              <button
+                onClick={deleteTimeOff}
+                disabled={savingTimeOff}
+                className="ml-auto flex items-center gap-1.5 rounded-xl px-3 py-2 text-sm font-semibold text-berry-500 hover:bg-berry-50"
+              >
+                <Trash2 className="h-4 w-4" />
+                {locale === "vi" ? "Xoá" : "Delete"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {newBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
           <div className="card flex w-full max-w-sm animate-slide-up flex-col p-6" style={{ maxHeight: "90vh" }}>
             <div className="mb-4 flex items-start justify-between">
               <p className="font-bold text-ink-900">
-                {locale === "vi" ? "Đặt lịch cho khách" : "Book for a customer"}
+                {personalKindFromOption(newBooking.serviceId)
+                  ? PT.group
+                  : locale === "vi"
+                    ? "Đặt lịch cho khách"
+                    : "Book for a customer"}
               </p>
               <button
                 onClick={() => {
@@ -2865,7 +3152,9 @@ export function BookingCalendar({
                     onChange={(e) => {
                       const newStaffId = e.target.value;
                       const eligible = servicesForStaff(services, newStaffId);
-                      const stillValid = eligible.some((s) => s.id === newBooking.serviceId);
+                      const stillValid =
+                        personalKindFromOption(newBooking.serviceId) !== null ||
+                        eligible.some((s) => s.id === newBooking.serviceId);
                       const fallback = !stillValid ? eligible[0] : undefined;
                       setNewBooking({
                         ...newBooking,
@@ -2890,33 +3179,58 @@ export function BookingCalendar({
               )}
               <div>
                 <label className="label">{locale === "vi" ? "Dịch vụ" : "Service"}</label>
-                {servicesForStaff(services, newBooking.staffId).length === 0 ? (
-                  <p className="text-sm text-berry-500">
+                <select
+                  className="input"
+                  value={newBooking.serviceId}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    const kind = personalKindFromOption(value);
+                    const sv = services.find((s) => s.id === value);
+                    setNewBooking({
+                      ...newBooking,
+                      serviceId: value,
+                      addOnIds: [],
+                      ...(kind
+                        ? { endsAt: addMinutes(newBooking.startsAt, PERSONAL_TIME_MINUTES[kind]) }
+                        : sv
+                          ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) }
+                          : {}),
+                    });
+                  }}
+                >
+                  {servicesForStaff(services, newBooking.staffId).length > 0 && (
+                    <optgroup label={locale === "vi" ? "Dịch vụ" : "Services"}>
+                      {servicesForStaff(services, newBooking.staffId).map((sv) => (
+                        <option key={sv.id} value={sv.id}>
+                          {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                        </option>
+                      ))}
+                    </optgroup>
+                  )}
+                  {/* Blocks the time so customers can't book it — never
+                      shown on the public booking pages. */}
+                  <optgroup label={PT.group}>
+                    {PERSONAL_TIME_KINDS.map((k) => (
+                      <option key={k} value={`${PERSONAL_OPTION_PREFIX}${k}`}>
+                        {PT.kinds[k]}
+                      </option>
+                    ))}
+                  </optgroup>
+                </select>
+                {personalKindFromOption(newBooking.serviceId) ? (
+                  <p className="mt-1 flex items-center gap-1.5 text-xs text-ink-400">
+                    <Lock className="h-3.5 w-3.5 shrink-0" />
+                    {locale === "vi"
+                      ? "Khoá khoảng giờ này của nhân viên — khách không đặt lịch được, và khách không nhìn thấy mục này."
+                      : "Blocks this stretch of the staff member's time — customers can't book it and never see it."}
+                  </p>
+                ) : servicesForStaff(services, newBooking.staffId).length === 0 ? (
+                  <p className="mt-1 text-sm text-berry-500">
                     {locale === "vi"
                       ? "Nhân viên này chưa được gán dịch vụ nào. Vào mục Nhân viên để thêm."
                       : "This staff member has no services assigned yet — add some from the Staff page."}
                   </p>
-                ) : (
-                  <select
-                    className="input"
-                    value={newBooking.serviceId}
-                    onChange={(e) => {
-                      const sv = services.find((s) => s.id === e.target.value);
-                      setNewBooking({
-                        ...newBooking,
-                        serviceId: e.target.value,
-                        addOnIds: [],
-                        ...(sv ? { endsAt: addMinutes(newBooking.startsAt, sv.durationMin) } : {}),
-                      });
-                    }}
-                  >
-                    {servicesForStaff(services, newBooking.staffId).map((sv) => (
-                      <option key={sv.id} value={sv.id}>
-                        {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
-                      </option>
-                    ))}
-                  </select>
-                )}
+                ) : null}
               </div>
               {addOnsForService(addOns, newBooking.serviceId).length > 0 && (
                 <div>
@@ -2960,6 +3274,8 @@ export function BookingCalendar({
                   })()}
                 </div>
               )}
+              {!personalKindFromOption(newBooking.serviceId) && (
+              <>
               <div className="relative">
                 <label className="label">{locale === "vi" ? "Tên khách hàng" : "Customer name"}</label>
                 <input
@@ -3007,6 +3323,8 @@ export function BookingCalendar({
                   onChange={(e) => setNewBooking({ ...newBooking, customerEmail: e.target.value })}
                 />
               </div>
+              </>
+              )}
               <div>
                 <label className="label">
                   {locale === "vi" ? "Ghi chú" : "Note"} ({locale === "vi" ? "không bắt buộc" : "optional"})
@@ -3018,6 +3336,7 @@ export function BookingCalendar({
                   onChange={(e) => setNewBooking({ ...newBooking, customerNote: e.target.value })}
                 />
               </div>
+              {!personalKindFromOption(newBooking.serviceId) && (
               <label className="flex items-start gap-2 text-sm text-ink-700">
                 <input
                   type="checkbox"
@@ -3038,6 +3357,7 @@ export function BookingCalendar({
                   </span>
                 </span>
               </label>
+              )}
             </div>
             {newBooking.endsAt <= newBooking.startsAt && (
               <p className="mt-2 text-sm text-berry-500">
@@ -3051,16 +3371,27 @@ export function BookingCalendar({
               <button
                 disabled={
                   creatingBooking ||
-                  !newBooking.customerName.trim() ||
-                  !newBooking.customerPhone.trim() ||
                   newBooking.endsAt <= newBooking.startsAt ||
-                  servicesForStaff(services, newBooking.staffId).length === 0
+                  (!personalKindFromOption(newBooking.serviceId) &&
+                    (!newBooking.customerName.trim() ||
+                      !newBooking.customerPhone.trim() ||
+                      servicesForStaff(services, newBooking.staffId).length === 0))
                 }
                 onClick={submitNewBooking}
                 className="btn-primary"
               >
-                {creatingBooking && <Loader2 className="h-4 w-4 animate-spin" />}
-                {locale === "vi" ? "Đặt lịch" : "Book"}
+                {creatingBooking ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : personalKindFromOption(newBooking.serviceId) ? (
+                  <Lock className="h-4 w-4" />
+                ) : null}
+                {personalKindFromOption(newBooking.serviceId)
+                  ? locale === "vi"
+                    ? "Khoá giờ"
+                    : "Block time"
+                  : locale === "vi"
+                    ? "Đặt lịch"
+                    : "Book"}
               </button>
               <button
                 onClick={() => {

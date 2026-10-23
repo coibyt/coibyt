@@ -214,6 +214,14 @@ export async function createBookingAndPayment(params: {
         select: { id: true },
       });
       if (extraConflict && !params.allowOverlap) throw new SlotUnavailableError();
+
+      // The staff member's own blocked time (lunch, leave…) — slot lists
+      // already leave it out; this also stops a request racing past them.
+      const timeOffConflict = await tx.staffTimeOff.findFirst({
+        where: { staffId: w.staffId, startsAt: { lt: w.endsAt }, endsAt: { gt: w.startsAt } },
+        select: { id: true },
+      });
+      if (timeOffConflict && !params.allowOverlap) throw new SlotUnavailableError();
     }
 
     const created = await tx.booking.create({

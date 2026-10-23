@@ -514,15 +514,25 @@ model StaffHours {
 }
 
 // Staff-specific time off (vacation, sick day) blocking bookings
+// A block of a staff member's own time (lunch, sick leave, an errand…) —
+// customers can't book into it. Created from the bookings calendar by
+// picking a "personal time" entry instead of a service; never shown to
+// customers.
 model StaffTimeOff {
-  id       String   @id @default(cuid())
-  staffId  String
-  staff    Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
-  startsAt DateTime
-  endsAt   DateTime
-  reason   String?
+  id        String   @id @default(cuid())
+  staffId   String
+  staff     Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  startsAt  DateTime
+  endsAt    DateTime
+  // One of the kinds in src/lib/personal-time.ts (LUNCH, SICK, …); null for
+  // older rows.
+  kind      String?  @db.VarChar(24)
+  // A free-text note for the salon.
+  reason    String?
+  createdAt DateTime @default(now())
 
   @@index([staffId])
+  @@index([staffId, startsAt])
 }
 
 // A salon's own section headings for its service menu ("Nails", "Lash
