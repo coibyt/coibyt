@@ -3,7 +3,7 @@ import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
-import { C, codeTicket, emailLayout, esc, greeting, panel, para, rows } from "@/lib/email/ui";
+import { loyaltyCardEmail } from "@/lib/email/loyalty-card-email";
 import { formatMoney } from "@/lib/money";
 import { loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
 
@@ -35,100 +35,6 @@ const createSchema = z.object({
   customerEmail: z.string().trim().email().max(180),
   customerPhone: z.string().trim().max(30).optional(),
 });
-
-type ActivationLocale = "vi" | "en" | "fi" | "pl" | "de" | "km" | "th";
-
-const ACTIVATION_EMAIL: Record<
-  ActivationLocale,
-  {
-    subject: (business: string) => string;
-    heading: string;
-    greeting: string;
-    bodyIntro: (business: string) => string;
-    rewardLabel: string;
-    rewardText: (visits: number, percent: number) => string;
-    cardPriceLabel: string;
-    cardCodeLabel: string;
-  }
-> = {
-  vi: {
-    subject: (b) => `Thẻ thành viên ${b} đã được kích hoạt`,
-    heading: "Thẻ thành viên đã sẵn sàng",
-    greeting: "Xin chào",
-    bodyIntro: (b) =>
-      `Bạn có thể bắt đầu tích vé tại ${b}. Cứ mỗi lần làm dịch vụ, nhân viên sẽ quét mã QR bên dưới để tặng bạn 1 vé. Mời bạn bè đến salon, bạn được thêm 2 vé — mở thẻ bằng mã QR để lấy link mời.`,
-    rewardLabel: "Ưu đãi",
-    rewardText: (n, p) => `đủ ${n} vé, được giảm ${p}%`,
-    cardPriceLabel: "giá thẻ",
-    cardCodeLabel: "Mã thẻ",
-  },
-  en: {
-    subject: (b) => `Your loyalty card at ${b} is active`,
-    heading: "Your loyalty card is ready",
-    greeting: "Hi",
-    bodyIntro: (b) =>
-      `You can start collecting tickets at ${b}. After each visit, staff scan the QR below to give you 1 ticket. Invite a friend and get 2 more — scan the QR to open your card and invite link.`,
-    rewardLabel: "Reward",
-    rewardText: (n, p) => `after ${n} visits, ${p}% off`,
-    cardPriceLabel: "card price",
-    cardCodeLabel: "Card code",
-  },
-  fi: {
-    subject: (b) => `Kanta-asiakaskorttisi kohteessa ${b} on aktivoitu`,
-    heading: "Kanta-asiakaskorttisi on valmis",
-    greeting: "Hei",
-    bodyIntro: (b) =>
-      `Voit alkaa kerätä lippuja kohteessa ${b}. Jokaisen käynnin jälkeen henkilökunta skannaa alla olevan QR-koodin ja antaa sinulle 1 lipun. Kutsu ystävä ja saat 2 lippua lisää — avaa korttisi QR-koodilla.`,
-    rewardLabel: "Etu",
-    rewardText: (n, p) => `${n} käynnin jälkeen ${p} % alennus`,
-    cardPriceLabel: "kortin hinta",
-    cardCodeLabel: "Kortin koodi",
-  },
-  pl: {
-    subject: (b) => `Twoja karta lojalnościowa w ${b} jest aktywna`,
-    heading: "Twoja karta lojalnościowa jest gotowa",
-    greeting: "Cześć",
-    bodyIntro: (b) =>
-      `Możesz zacząć zbierać punkty w ${b}. Po każdej wizycie personel zeskanuje poniższy kod QR i doda 1 punkt.`,
-    rewardLabel: "Nagroda",
-    rewardText: (n, p) => `po ${n} wizytach zniżka ${p}%`,
-    cardPriceLabel: "cena karty",
-    cardCodeLabel: "Kod karty",
-  },
-  de: {
-    subject: (b) => `Deine Treuekarte bei ${b} ist aktiv`,
-    heading: "Deine Treuekarte ist bereit",
-    greeting: "Hallo",
-    bodyIntro: (b) =>
-      `Du kannst bei ${b} Punkte sammeln. Nach jedem Besuch scannt das Personal den QR-Code unten und fügt 1 Punkt hinzu.`,
-    rewardLabel: "Prämie",
-    rewardText: (n, p) => `nach ${n} Besuchen ${p}% Rabatt`,
-    cardPriceLabel: "Kartenpreis",
-    cardCodeLabel: "Kartencode",
-  },
-  km: {
-    subject: (b) => `កាតពិន្ទុរបស់អ្នកនៅ ${b} ត្រូវបានដំណើរការ`,
-    heading: "កាតពិន្ទុរបស់អ្នករួចរាល់ហើយ",
-    greeting: "សួស្តី",
-    bodyIntro: (b) =>
-      `អ្នកអាចចាប់ផ្តើមប្រមូលពិន្ទុនៅ ${b}។ បន្ទាប់ពីប្រើសេវានីមួយៗ បុគ្គលិកនឹងស្កេនកូដ QR ខាងក្រោមដើម្បីបន្ថែម១ពិន្ទុ។`,
-    rewardLabel: "រង្វាន់",
-    rewardText: (n, p) => `បន្ទាប់ពី ${n} ដង បញ្ចុះតម្លៃ ${p}%`,
-    cardPriceLabel: "តម្លៃកាត",
-    cardCodeLabel: "កូដកាត",
-  },
-  th: {
-    subject: (b) => `บัตรสะสมแต้มของคุณที่ ${b} เปิดใช้งานแล้ว`,
-    heading: "บัตรสะสมแต้มของคุณพร้อมใช้งานแล้ว",
-    greeting: "สวัสดี",
-    bodyIntro: (b) =>
-      `คุณสามารถเริ่มสะสมแต้มได้ที่ ${b} หลังการใช้บริการแต่ละครั้ง พนักงานจะสแกน QR ด้านล่างเพื่อเพิ่ม 1 แต้ม`,
-    rewardLabel: "สิทธิประโยชน์",
-    rewardText: (n, p) => `ครบ ${n} ครั้ง รับส่วนลด ${p}%`,
-    cardPriceLabel: "ราคาบัตร",
-    cardCodeLabel: "รหัสบัตร",
-  },
-};
 
 /** Salon activates a customer's card: creates the QR and emails it with the
  * benefits, in the language the salon chose for its own customers (Settings
@@ -166,41 +72,23 @@ export async function POST(req: Request) {
     },
   });
 
-  const locale = program.business.defaultLocale as ActivationLocale;
-  const t = ACTIVATION_EMAIL[locale] ?? ACTIVATION_EMAIL.vi;
+  const locale = program.business.defaultLocale;
   const price =
     program.priceCents > 0 ? formatMoney(program.priceCents, program.currency, locale) : null;
   const qr = await loyaltyQrPng(token);
-  const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
-  const visits = Math.min(program.pointsRequired, 10);
-  // One empty circle per visit, with a star on the last — the card the
-  // customer is about to fill.
-  const dots = Array.from({ length: visits }, (_, i) =>
-    `<td style="padding:3px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="26" height="26" align="center" valign="middle" style="width:26px;height:26px;border-radius:50%;border:2px solid ${i === visits - 1 ? C.gold : "#dad0ef"};color:${C.gold};font-size:13px;line-height:26px">${i === visits - 1 ? "★" : "&nbsp;"}</td></tr></table></td>`
-  ).join("");
+  const mail = loyaltyCardEmail({
+    locale,
+    salon: { name: program.business.name, logoUrl: program.business.logoUrl, city: program.business.city },
+    customerName: d.customerName,
+    token,
+    pointsRequired: program.pointsRequired,
+    discountPercent: program.discountPercent,
+    price,
+  });
   await sendMail({
     to: email,
-    subject: t.subject(program.business.name),
-    html: emailLayout({
-      locale,
-      preheader: t.bodyIntro(program.business.name),
-      brand: { name: program.business.name, logoUrl: program.business.logoUrl, subline: program.business.city },
-      hero: { eyebrow: t.rewardLabel, title: t.heading, intro: esc(t.rewardText(program.pointsRequired, program.discountPercent)), tone: "gold", badge: "♥" },
-      body: [
-        greeting(t.greeting, d.customerName),
-        para(esc(t.bodyIntro(program.business.name))),
-        panel(
-          `<table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center"><tr>${dots}</tr></table>` +
-            `<div style="height:14px;line-height:14px;font-size:1px">&nbsp;</div>` +
-            rows([
-              { label: t.rewardLabel, value: esc(t.rewardText(program.pointsRequired, program.discountPercent)), strong: true },
-              price ? { label: t.cardPriceLabel, value: esc(price) } : null,
-            ]),
-          { pad: "22px 22px 14px" }
-        ),
-        codeTicket(t.cardCodeLabel, token, { qrUrl: `${site}/api/email-qr/loyalty/${encodeURIComponent(token)}.png` }),
-      ].join(""),
-    }),
+    subject: mail.subject,
+    html: mail.html,
     // A plain attachment (no cid) so the QR can be saved as a file too.
     attachments: [{ filename: `${token}.png`, content: qr, contentType: "image/png" }],
   });
