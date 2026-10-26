@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { Search, MapPin } from "lucide-react";
+import { Search, MapPin, LocateFixed, Loader2 } from "lucide-react";
 import { categoryName } from "@/lib/category-names";
+import { homeHeroStrings } from "@/lib/home-hero-strings";
 
 interface CategorySuggestion {
   slug: string;
@@ -76,63 +77,118 @@ function SuggestionDropdown({
   );
 }
 
-/** Big hero search bar used on the homepage. */
+/** Big hero search bar used on the homepage and the search page: a
+ * labelled service field with category suggestions, an area field with a
+ * "Near me" button that fills in the visitor's city, and the search button. */
 export function SearchBarHero({ initialQ = "", initialCity = "" }: { initialQ?: string; initialCity?: string } = {}) {
   const t = useTranslations("home");
   const locale = useLocale();
+  const H = homeHeroStrings(locale);
   const [q, setQ] = useState(initialQ);
   const [city, setCity] = useState(initialCity);
   const [open, setOpen] = useState(false);
+  const [locating, setLocating] = useState(false);
+  const [locateError, setLocateError] = useState(false);
   const { navigate, goToCategory } = useSearchNavigate();
   const { categories, ensureLoaded } = useCategorySuggestions();
 
+  function nearMe() {
+    if (!navigator.geolocation) {
+      setLocateError(true);
+      return;
+    }
+    setLocating(true);
+    setLocateError(false);
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const res = await fetch(`/api/geolocate?lat=${pos.coords.latitude}&lng=${pos.coords.longitude}`).catch(() => null);
+        const data = res?.ok ? await res.json().catch(() => null) : null;
+        setLocating(false);
+        if (data?.city) setCity(data.city);
+        else setLocateError(true);
+      },
+      () => {
+        setLocating(false);
+        setLocateError(true);
+      },
+      { timeout: 10_000, maximumAge: 10 * 60_000 }
+    );
+  }
+
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        navigate(q, city);
-      }}
-      className="relative flex w-full max-w-2xl flex-col gap-1 rounded-3xl bg-white p-2 text-left shadow-2xl shadow-primary-900/30 sm:flex-row sm:items-center sm:rounded-full"
-    >
-      <div className="relative flex flex-1 items-center gap-2 px-3 py-3">
-        <Search className="h-5 w-5 shrink-0 text-ink-400" />
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          onFocus={() => {
-            ensureLoaded();
-            setOpen(true);
-          }}
-          onBlur={() => setOpen(false)}
-          placeholder={t("searchPlaceholder")}
-          className="w-full bg-transparent text-sm outline-none placeholder:text-ink-400"
-        />
-        {open && (
-          <SuggestionDropdown
-            categories={categories}
-            query={q}
-            locale={locale}
-            onPick={(_name, slug) => {
-              setOpen(false);
-              goToCategory(slug);
-            }}
-          />
-        )}
-      </div>
-      <div className="mx-3 h-px bg-ink-100 sm:mx-0 sm:h-6 sm:w-px" />
-      <div className="flex items-center gap-2 px-3 py-3 sm:w-44">
-        <MapPin className="h-5 w-5 shrink-0 text-ink-400" />
-        <input
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          placeholder={t("searchCity")}
-          className="w-full bg-transparent text-sm outline-none placeholder:text-ink-400"
-        />
-      </div>
-      <button type="submit" className="btn-accent w-full !py-3.5 sm:w-auto sm:!px-7">
-        {t("searchButton")}
-      </button>
-    </form>
+    <div className="w-full max-w-2xl">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate(q, city);
+        }}
+        className="relative flex w-full flex-col gap-1 rounded-[1.75rem] bg-white p-2 text-left shadow-[0_30px_60px_-20px_rgba(15,8,30,0.55)] ring-1 ring-white/60 sm:flex-row sm:items-center sm:rounded-full"
+      >
+        <label className="relative flex min-w-0 flex-1 cursor-text items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors focus-within:bg-mist-50 sm:rounded-full">
+          <Search className="h-5 w-5 shrink-0 text-primary-500" />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-ink-400">{H.serviceLabel}</span>
+            <input
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              onFocus={() => {
+                ensureLoaded();
+                setOpen(true);
+              }}
+              onBlur={() => setOpen(false)}
+              placeholder={t("searchPlaceholder")}
+              className="w-full bg-transparent text-[15px] font-medium text-ink-900 outline-none placeholder:font-normal placeholder:text-ink-400"
+            />
+          </span>
+          {open && (
+            <SuggestionDropdown
+              categories={categories}
+              query={q}
+              locale={locale}
+              onPick={(_name, slug) => {
+                setOpen(false);
+                goToCategory(slug);
+              }}
+            />
+          )}
+        </label>
+        <div className="mx-4 h-px bg-ink-100 sm:mx-0 sm:h-9 sm:w-px" />
+        <label className="flex cursor-text items-center gap-3 rounded-2xl px-4 py-2.5 transition-colors focus-within:bg-mist-50 sm:w-52 sm:rounded-full xl:w-60">
+          <MapPin className="h-5 w-5 shrink-0 text-coral-500" />
+          <span className="min-w-0 flex-1">
+            <span className="block text-[11px] font-bold uppercase tracking-wider text-ink-400">{H.areaLabel}</span>
+            <input
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+                setLocateError(false);
+              }}
+              placeholder={t("searchCity")}
+              className="w-full bg-transparent text-[15px] font-medium text-ink-900 outline-none placeholder:font-normal placeholder:text-ink-400"
+            />
+          </span>
+          <button
+            type="button"
+            onClick={nearMe}
+            disabled={locating}
+            title={H.nearMe}
+            aria-label={H.nearMe}
+            className="flex h-9 shrink-0 items-center gap-1.5 rounded-full bg-primary-50 px-3 text-xs font-bold text-primary-600 ring-1 ring-primary-100 transition hover:bg-primary-100 disabled:opacity-70"
+          >
+            {locating ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <LocateFixed className="h-3.5 w-3.5" />}
+            <span className="sm:hidden xl:inline">{locating ? H.locating : H.nearMe}</span>
+          </button>
+        </label>
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-coral-500 via-coral-500 to-[#e0517a] px-7 py-4 text-base font-bold text-white shadow-[0_14px_30px_-12px_rgba(236,106,71,0.9)] transition hover:brightness-110 sm:w-auto sm:rounded-full"
+        >
+          <Search className="h-5 w-5" />
+          {t("searchButton")}
+        </button>
+      </form>
+      {locateError && <p className="mt-2 px-4 text-left text-xs font-medium text-peach-200">{H.locateFailed}</p>}
+    </div>
   );
 }
 

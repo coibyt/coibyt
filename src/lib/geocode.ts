@@ -90,7 +90,13 @@ export async function searchAddress(query: string): Promise<AddressSuggestion[]>
  * server-side (via /api/geolocate) because browsers refuse to set a custom
  * User-Agent on fetch(), which Nominatim's usage policy asks for. */
 export async function reverseGeocodeCountry(lat: number, lng: number): Promise<string | null> {
-  const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`;
+  return (await reverseGeocodePlace(lat, lng)).countryCode;
+}
+
+/** The country code and the city/town name for a geolocation fix — the
+ * homepage's "Near me" search fills its city field with `city`. */
+export async function reverseGeocodePlace(lat: number, lng: number): Promise<{ countryCode: string | null; city: string | null }> {
+  const url = `https://nominatim.openstreetmap.org/reverse?format=json&zoom=10&lat=${lat}&lon=${lng}`;
 
   try {
     const res = await fetch(url, {
@@ -98,10 +104,16 @@ export async function reverseGeocodeCountry(lat: number, lng: number): Promise<s
         "User-Agent": "VaraaAi.Com booking platform (contact: admin@varaaai.com)",
       },
     });
-    if (!res.ok) return null;
-    const data = (await res.json()) as { address?: { country_code?: string } };
-    return data.address?.country_code?.toLowerCase() ?? null;
+    if (!res.ok) return { countryCode: null, city: null };
+    const data = (await res.json()) as {
+      address?: { country_code?: string; city?: string; town?: string; village?: string; municipality?: string };
+    };
+    const a = data.address ?? {};
+    return {
+      countryCode: a.country_code?.toLowerCase() ?? null,
+      city: a.city ?? a.town ?? a.municipality ?? a.village ?? null,
+    };
   } catch {
-    return null;
+    return { countryCode: null, city: null };
   }
 }

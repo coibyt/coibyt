@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
-import { reverseGeocodeCountry } from "@/lib/geocode";
+import { reverseGeocodePlace } from "@/lib/geocode";
 
 /** Public — turns {lat, lng} from the browser's Geolocation API into a
- * country code, so the client can pick a matching site language. */
+ * country code (so the client can pick a matching site language) and a city
+ * name (for the homepage's "Near me" search). */
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const lat = Number(url.searchParams.get("lat"));
@@ -11,6 +12,6 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "INVALID_COORDS" }, { status: 400 });
   }
 
-  const countryCode = await reverseGeocodeCountry(lat, lng);
-  return NextResponse.json({ countryCode });
+  const { countryCode, city } = await reverseGeocodePlace(lat, lng);
+  return NextResponse.json({ countryCode, city });
 }

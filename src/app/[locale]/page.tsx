@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { alternatesFor } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
-import { SearchBarHero } from "@/components/search-bar";
+import { HomeHero } from "@/components/home-hero";
 import { CategoryCard } from "@/components/category-card";
 import { FeaturedNearby } from "@/components/featured-nearby";
 import { Link } from "@/i18n/navigation";
@@ -53,45 +53,13 @@ export default async function HomePage({
 
   return (
     <div>
-      <section className="relative overflow-hidden bg-primary-800">
-        <div className="pointer-events-none absolute -right-24 -top-32 h-[28rem] w-[28rem] rounded-full bg-coral-400/30 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-40 -left-24 h-[26rem] w-[26rem] rounded-full bg-primary-400/30 blur-3xl" />
-        <div className="container relative flex flex-col items-center gap-7 pb-16 pt-14 text-center sm:pb-24 sm:pt-24">
-          <h1 className="max-w-3xl whitespace-pre-line text-[2.6rem] font-extrabold leading-[1.05] tracking-tight text-white sm:text-7xl">
-            {t("heroTitle")}
-          </h1>
-          <p className="max-w-xl text-base leading-relaxed text-primary-100 sm:text-lg">
-            {t("heroSubtitle")}
-          </p>
-          <div className="w-full max-w-2xl">
-            <SearchBarHero />
-          </div>
-          {categories.length > 0 && (
-            <div className="flex max-w-2xl flex-wrap justify-center gap-2">
-              {categories.slice(0, 5).map((c) => (
-                <Link
-                  key={c.id}
-                  href={`/search?category=${c.slug}`}
-                  className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20"
-                >
-                  {categoryName(locale, c)}
-                </Link>
-              ))}
-            </div>
-          )}
-          <Link
-            href="/business"
-            className="group mt-2 inline-flex max-w-full items-center gap-3 rounded-full bg-white/95 py-2 pl-2 pr-5 text-left shadow-[0_12px_32px_-10px_rgba(0,0,0,0.5)] ring-1 ring-white/40 transition-transform hover:scale-[1.02]"
-          >
-            <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-coral-400 to-coral-500 text-white">
-              <Store className="h-[18px] w-[18px]" />
-              <span className="absolute -right-0.5 -top-0.5 h-3 w-3 animate-ping rounded-full bg-coral-400" />
-            </span>
-            <span className="min-w-0 text-sm font-bold text-primary-800 sm:text-base">{promo.pill}</span>
-            <ArrowRight className="h-4 w-4 shrink-0 text-coral-500 transition-transform group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </section>
+      <HomeHero
+        locale={locale}
+        title={t("heroTitle")}
+        subtitle={t("heroSubtitle")}
+        categories={categories}
+        promoPill={promo.pill}
+      />
 
       <section className="container py-14 sm:py-20">
         <h2 className="mb-8 text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl">
