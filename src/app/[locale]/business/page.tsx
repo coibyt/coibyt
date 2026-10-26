@@ -40,6 +40,8 @@ import { businessLandingStrings, type BusinessLandingStrings } from "@/lib/busin
 import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { spotlightStrings, type SpotlightStrings } from "@/lib/business-landing/spotlight";
 import { InstallAppButton } from "@/components/install-app-button";
+import { BusinessMapShowcase } from "@/components/business-map-showcase";
+import { businessMapStrings } from "@/lib/business-landing/map-strings";
 
 type Params = Promise<{ locale: string }>;
 
@@ -83,7 +85,8 @@ export default async function BusinessLandingPage({ params }: { params: Params }
   const t = businessLandingStrings(locale);
   const center = supportCenterStrings(locale);
   const spot = spotlightStrings(locale);
-  const faq = [t.faq[0], t.faq[1], spot.faq, ...t.faq.slice(2)];
+  const map = businessMapStrings(locale);
+  const faq = [t.faq[0], { q: map.faqQ, a: map.faqA }, t.faq[1], spot.faq, ...t.faq.slice(2)];
 
   return (
     <div className="overflow-x-clip">
@@ -110,6 +113,17 @@ export default async function BusinessLandingPage({ params }: { params: Params }
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg lg:mx-0">{t.hero.subtitle}</p>
+            <a
+              href="#search-map"
+              className="group mt-5 inline-flex max-w-full items-center gap-2.5 rounded-2xl bg-white/[0.08] py-2 pl-2 pr-4 text-left text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur transition hover:bg-white/15"
+            >
+              <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-coral-400 to-coral-500">
+                <MapPin className="h-4 w-4" />
+                <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 animate-ping rounded-full bg-coral-300" />
+              </span>
+              <span className="min-w-0">{map.heroChip}</span>
+              <ArrowRight className="h-4 w-4 shrink-0 text-peach-200 transition-transform group-hover:translate-x-0.5" />
+            </a>
             <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 href="/business/apply"
@@ -161,6 +175,8 @@ export default async function BusinessLandingPage({ params }: { params: Params }
           </div>
         </div>
       </section>
+
+      <BusinessMapShowcase locale={locale} />
 
       <Spotlight s={spot} locale={locale} />
 

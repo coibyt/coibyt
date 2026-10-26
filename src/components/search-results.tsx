@@ -118,7 +118,8 @@ export function SearchResults({
   // List first: it's server-rendered (so search engines and slow phones get
   // real results immediately), and location is only asked for when the
   // visitor actually wants "near me" or opens the map.
-  const [view, setView] = useState<"list" | "map">("list");
+  // ?view=map (e.g. from the salon-owner page's "See the map") opens the map.
+  const [view, setView] = useState<"list" | "map">(() => (searchParams.get("view") === "map" ? "map" : "list"));
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [locating, setLocating] = useState(false);
   const [locationError, setLocationError] = useState<string | null>(null);
@@ -160,6 +161,11 @@ export function SearchResults({
       { enableHighAccuracy: true, timeout: 10000 }
     );
   }
+
+  useEffect(() => {
+    if (searchParams.get("view") === "map") findNearMe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function openMap() {
     setView("map");
