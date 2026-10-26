@@ -11,6 +11,7 @@ import {
 import { getAvailableSlots, type AvailableSlot } from "@/lib/availability";
 import { toZonedTime } from "date-fns-tz";
 import { format } from "date-fns";
+import { recordReferral, referralCookieName } from "@/lib/loyalty-referral";
 
 export async function POST(req: Request) {
   const session = await auth();
@@ -135,6 +136,16 @@ export async function POST(req: Request) {
       affiliateCode,
       discountCode: data.discountCode,
       newAccountEmail,
+    });
+
+    // Came through a loyalty member's "invite a friend" link?
+    await recordReferral({
+      businessId: service.businessId,
+      code: (await cookies()).get(referralCookieName(service.businessId))?.value,
+      friendUserId: customerId,
+      friendEmail: customerEmail,
+      friendName: customerName,
+      bookingId: booking.id,
     });
 
     return NextResponse.json({ bookingId: booking.id, redirectUrl, isNewAccount: !!newAccountEmail });

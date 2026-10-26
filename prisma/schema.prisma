@@ -1409,11 +1409,37 @@ model LoyaltyCard {
   rewardsEarned Int      @default(0)
   activatedAt   DateTime @default(now())
   createdAt     DateTime @default(now())
+  // The code in this customer's "invite a friend" link (/invite/<code>) —
+  // separate from `token`, which is the card's own QR. Made on first use.
+  referralCode  String?  @unique @db.VarChar(16)
 
-  scans   LoyaltyScan[]
-  rewards LoyaltyReward[]
+  scans     LoyaltyScan[]
+  rewards   LoyaltyReward[]
+  referrals LoyaltyReferral[]
 
   @@unique([businessId, customerEmail])
+}
+
+// A friend who booked this salon through a customer's invite link. When the
+// friend's first visit has happened, the inviter's card gets bonus tickets
+// (src/lib/loyalty-referral.ts). One per friend per salon.
+model LoyaltyReferral {
+  id             String      @id @default(cuid())
+  cardId         String
+  card           LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  businessId     String
+  friendUserId   String
+  friendName     String
+  // The friend's first booking at the salon, which decides the bonus.
+  bookingId      String?     @unique
+  // PENDING until that visit has happened, then REWARDED.
+  status         String      @default("PENDING") @db.VarChar(16)
+  ticketsAwarded Int         @default(0)
+  createdAt      DateTime    @default(now())
+  rewardedAt     DateTime?
+
+  @@unique([businessId, friendUserId])
+  @@index([cardId])
 }
 
 model LoyaltyScan {

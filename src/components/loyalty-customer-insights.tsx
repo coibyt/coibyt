@@ -253,7 +253,7 @@ export function LoyaltyInsightsPanel({
                 <div className="flex items-center gap-4">
                   <PointsRing points={data.card.points} required={data.program.pointsRequired} />
                   <div className="space-y-2">
-                    <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Điểm tích lũy" : "Points"}</p>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-white/60">{vi ? "Số vé" : "Tickets"}</p>
                     <div className="flex flex-wrap gap-1.5">
                       {Array.from({ length: data.program.pointsRequired }, (_, i) => (
                         <span
@@ -269,11 +269,11 @@ export function LoyaltyInsightsPanel({
                     <p className="text-xs text-white/70">
                       {data.card.rewardReady
                         ? vi
-                          ? `Đủ điểm — được giảm ${data.program.discountPercent}%`
+                          ? `Đủ vé — được giảm ${data.program.discountPercent}%`
                           : `Reward ready — ${data.program.discountPercent}% off`
                         : vi
-                          ? `Còn ${Math.max(0, data.program.pointsRequired - data.card.points)} lần nữa để được giảm ${data.program.discountPercent}%`
-                          : `${Math.max(0, data.program.pointsRequired - data.card.points)} more for ${data.program.discountPercent}% off`}
+                          ? `Còn ${Math.max(0, data.program.pointsRequired - data.card.points)} vé nữa để được giảm ${data.program.discountPercent}%`
+                          : `${Math.max(0, data.program.pointsRequired - data.card.points)} more tickets for ${data.program.discountPercent}% off`}
                     </p>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export function LoyaltyInsightsPanel({
               <StatTile
                 icon={Star}
                 tone="coral"
-                label={vi ? "Điểm hiện tại" : "Current points"}
+                label={vi ? "Vé hiện có" : "Current tickets"}
                 value={data.program ? `${data.card.points}/${data.program.pointsRequired}` : String(data.card.points)}
               />
               <StatTile
@@ -586,7 +586,7 @@ export function LoyaltyDetailsModal({
                 <section className="rounded-2xl bg-white p-4 ring-1 ring-ink-100">
                   <h4 className="mb-3 flex items-center gap-2 text-sm font-semibold text-ink-900">
                     <ScanLine className="h-4 w-4 text-sage-500" />
-                    {vi ? "Lịch sử tích điểm" : "Points history"}
+                    {vi ? "Lịch sử vé" : "Ticket history"}
                   </h4>
                   <ul className="space-y-2 text-xs">
                     {timeline.slice(0, 30).map((t, i) => (
@@ -602,7 +602,7 @@ export function LoyaltyDetailsModal({
                         )}
                         <span className="text-ink-700">
                           {t.kind === "scan"
-                            ? vi ? "Cộng 1 điểm" : "+1 point"
+                            ? vi ? "Cộng 1 vé" : "+1 ticket"
                             : vi
                               ? `Nhận ưu đãi giảm ${data.program?.discountPercent ?? ""}%`
                               : `Reward used (${data.program?.discountPercent ?? ""}% off)`}

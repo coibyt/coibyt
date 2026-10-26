@@ -52,13 +52,13 @@ const ACTIVATION_EMAIL: Record<
   }
 > = {
   vi: {
-    subject: (b) => `Thẻ tích điểm ${b} đã được kích hoạt`,
-    heading: "Thẻ tích điểm đã sẵn sàng",
+    subject: (b) => `Thẻ thành viên ${b} đã được kích hoạt`,
+    heading: "Thẻ thành viên đã sẵn sàng",
     greeting: "Xin chào",
     bodyIntro: (b) =>
-      `Bạn có thể bắt đầu tích điểm tại ${b}. Cứ mỗi lần làm dịch vụ, nhân viên sẽ quét mã QR bên dưới để cộng 1 điểm.`,
+      `Bạn có thể bắt đầu tích vé tại ${b}. Cứ mỗi lần làm dịch vụ, nhân viên sẽ quét mã QR bên dưới để tặng bạn 1 vé. Mời bạn bè đến salon, bạn được thêm 2 vé — mở thẻ bằng mã QR để lấy link mời.`,
     rewardLabel: "Ưu đãi",
-    rewardText: (n, p) => `sau ${n} lần, được giảm ${p}%`,
+    rewardText: (n, p) => `đủ ${n} vé, được giảm ${p}%`,
     cardPriceLabel: "giá thẻ",
     cardCodeLabel: "Mã thẻ",
   },
@@ -67,7 +67,7 @@ const ACTIVATION_EMAIL: Record<
     heading: "Your loyalty card is ready",
     greeting: "Hi",
     bodyIntro: (b) =>
-      `You can start collecting points at ${b}. After each visit, staff scan the QR below to add 1 point.`,
+      `You can start collecting tickets at ${b}. After each visit, staff scan the QR below to give you 1 ticket. Invite a friend and get 2 more — scan the QR to open your card and invite link.`,
     rewardLabel: "Reward",
     rewardText: (n, p) => `after ${n} visits, ${p}% off`,
     cardPriceLabel: "card price",
@@ -78,7 +78,7 @@ const ACTIVATION_EMAIL: Record<
     heading: "Kanta-asiakaskorttisi on valmis",
     greeting: "Hei",
     bodyIntro: (b) =>
-      `Voit alkaa kerätä pisteitä kohteessa ${b}. Jokaisen käynnin jälkeen henkilökunta skannaa alla olevan QR-koodin ja lisää 1 pisteen.`,
+      `Voit alkaa kerätä lippuja kohteessa ${b}. Jokaisen käynnin jälkeen henkilökunta skannaa alla olevan QR-koodin ja antaa sinulle 1 lipun. Kutsu ystävä ja saat 2 lippua lisää — avaa korttisi QR-koodilla.`,
     rewardLabel: "Etu",
     rewardText: (n, p) => `${n} käynnin jälkeen ${p} % alennus`,
     cardPriceLabel: "kortin hinta",

@@ -190,11 +190,11 @@ export function LoyaltyManager({
       NOT_FOUND: vi ? "Không tìm thấy thẻ này." : "Card not found.",
       NO_PROGRAM: vi ? "Chưa có chương trình tích điểm." : "No loyalty program yet.",
       NO_NEW_VISIT: vi
-        ? "Chưa cộng điểm: mọi lượt hẹn đã qua của khách đều đã được quét. Chỉ tính lượt hẹn còn trên lịch, không bị hủy hay đánh dấu không đến (tính thêm tối đa 3 lượt trước ngày làm thẻ)."
-        : "No point added: every past visit has already been scanned. Only visits still on the calendar and not cancelled or no-show count (plus up to 3 from before the card was made).",
+        ? "Chưa cộng vé: mọi lượt hẹn đã qua của khách đều đã được quét. Chỉ tính lượt hẹn còn trên lịch, không bị hủy hay đánh dấu không đến (tính thêm tối đa 3 lượt trước ngày làm thẻ)."
+        : "No ticket added: every past visit has already been scanned. Only visits still on the calendar and not cancelled or no-show count (plus up to 3 from before the card was made).",
       REWARD_PENDING: vi
-        ? "Chưa cộng điểm: khách đã đủ điểm — hãy áp dụng ưu đãi trước."
-        : "No point added: the customer already has a reward — apply it first.",
+        ? "Chưa cộng vé: khách đã đủ vé — hãy áp dụng ưu đãi trước."
+        : "No ticket added: the customer already has a reward — apply it first.",
     };
     setScanMsg({ ok: false, text: msg[d.reason] ?? (vi ? "Không quét được." : "Scan failed.") });
     // A refused scan on a real card still opens that customer's summary.
@@ -283,7 +283,7 @@ export function LoyaltyManager({
               className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-peach-200 to-coral-400 px-6 font-semibold text-primary-900 shadow-lg transition hover:brightness-105 disabled:opacity-50"
             >
               {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Star className="h-4 w-4 fill-current" />}
-              {vi ? "Cộng 1 điểm" : "Add 1 point"}
+              {vi ? "Cộng 1 vé" : "Add 1 ticket"}
             </button>
           </div>
           {scanMsg && !activeCardId && (
@@ -347,7 +347,7 @@ export function LoyaltyManager({
                   >
                     {c.rewardReady && (
                       <span className="absolute right-0 top-0 rounded-bl-2xl bg-gradient-to-r from-coral-400 to-berry-500 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-                        {vi ? "Đủ điểm" : "Reward ready"}
+                        {vi ? "Đủ vé" : "Reward ready"}
                       </span>
                     )}
                     <div className="flex items-center gap-3">
@@ -362,7 +362,7 @@ export function LoyaltyManager({
 
                     <div className="mt-4">
                       <div className="mb-1.5 flex items-center justify-between text-xs">
-                        <span className="font-medium text-ink-700">{vi ? "Điểm" : "Points"}</span>
+                        <span className="font-medium text-ink-700">{vi ? "Vé" : "Tickets"}</span>
                         <span className="font-bold text-primary-600">
                           {c.points}/{program.pointsRequired}
                         </span>

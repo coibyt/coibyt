@@ -1,6 +1,7 @@
 import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
 import { randomGiftCode } from "@/lib/gift-cards";
+import { settleReferrals } from "@/lib/loyalty-referral";
 
 export async function newLoyaltyToken() {
   for (let i = 0; i < 5; i++) {
@@ -11,11 +12,14 @@ export async function newLoyaltyToken() {
   throw new Error("COULD_NOT_GENERATE_TOKEN");
 }
 
-/** The QR opens the salon's scan page with the card code already filled in, so
- * a plain phone camera is enough — no app needed. */
+/** The QR opens the card's own page (/loyalty/<token>): anyone who scans it
+ * sees the member card — name, tickets, invite link — and the salon's staff,
+ * signed in, also get an "Add 1 ticket" button there. A plain phone camera
+ * is enough — no app needed. Older QRs pointed at the dashboard with
+ * ?code=; the middleware forwards those here. */
 export function loyaltyScanUrl(token: string) {
   const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
-  return `${site}/business/dashboard/loyalty?code=${encodeURIComponent(token)}`;
+  return `${site}/loyalty/${encodeURIComponent(token)}`;
 }
 
 export function loyaltyQrPng(token: string) {
@@ -60,10 +64,14 @@ export type ScanOutcome =
 /** A scan earns a point only when the customer has a visit that hasn't been
  * scanned yet (see eligibleVisits), so scans can never outrun real visits. */
 export async function scanLoyaltyCard(businessId: string, token: string): Promise<ScanOutcome> {
-  const card = await prisma.loyaltyCard.findFirst({
+  const found = await prisma.loyaltyCard.findFirst({
     where: { token: token.trim().toUpperCase(), businessId },
+    select: { id: true },
   });
-  if (!card) return { ok: false, reason: "NOT_FOUND" };
+  if (!found) return { ok: false, reason: "NOT_FOUND" };
+  // Friends' visits may have earned bonus tickets since the last look.
+  await settleReferrals({ cardId: found.id });
+  const card = (await prisma.loyaltyCard.findUnique({ where: { id: found.id } }))!;
 
   const program = await prisma.loyaltyProgram.findUnique({ where: { businessId } });
   if (!program) return { ok: false, cardId: card.id, reason: "NO_PROGRAM" };

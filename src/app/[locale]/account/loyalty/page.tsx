@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { redirect } from "@/i18n/navigation";
+import { Link, redirect } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import { loyaltyQrPng } from "@/lib/loyalty";
 
@@ -27,11 +27,11 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
 
   return (
     <div className="container max-w-2xl space-y-6 py-10">
-      <h1 className="text-xl font-bold text-ink-900">{vi ? "Thẻ tích điểm của tôi" : "My loyalty cards"}</h1>
+      <h1 className="text-xl font-bold text-ink-900">{vi ? "Thẻ thành viên của tôi" : "My member cards"}</h1>
       {rendered.length === 0 ? (
         <p className="text-sm text-ink-400">
           {vi
-            ? "Bạn chưa có thẻ tích điểm nào. Salon sẽ kích hoạt thẻ cho bạn và gửi mã QR qua email."
+            ? "Bạn chưa có thẻ thành viên nào. Salon sẽ kích hoạt thẻ cho bạn và gửi mã QR qua email."
             : "You don't have a loyalty card yet. The salon will activate one and email you the QR."}
         </p>
       ) : (
@@ -46,15 +46,15 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
                   {p && (
                     <p className="text-xs text-ink-400">
                       {vi
-                        ? `Cứ ${p.pointsRequired} lần, được giảm ${p.discountPercent}%`
-                        : `Every ${p.pointsRequired} visits, ${p.discountPercent}% off`}
+                        ? `Đủ ${p.pointsRequired} vé, được giảm ${p.discountPercent}%`
+                        : `Collect ${p.pointsRequired} tickets, get ${p.discountPercent}% off`}
                     </p>
                   )}
                 </div>
                 <img src={c.qr} alt="QR" width={140} height={140} className="rounded-lg" />
               </div>
               <p className="text-sm text-ink-700">
-                {vi ? "Điểm hiện có" : "Points"}: <b>{c.points}</b>
+                {vi ? "Số vé" : "Tickets"}: <b>{c.points}</b>
                 {p && (
                   <>
                     {" / "}
@@ -65,17 +65,20 @@ export default async function MyLoyaltyPage({ params }: { params: Promise<{ loca
               {c.rewardReady ? (
                 <p className="rounded-lg bg-sage-50 p-3 text-sm font-semibold text-sage-700">
                   {vi
-                    ? `Bạn đã đủ điểm — được giảm ${p?.discountPercent ?? 0}% cho lần làm tiếp theo!`
+                    ? `Bạn đã đủ vé — được giảm ${p?.discountPercent ?? 0}% cho lần làm tiếp theo!`
                     : `You've reached the goal — ${p?.discountPercent ?? 0}% off your next visit!`}
                 </p>
               ) : (
                 <p className="text-sm text-ink-700">
-                  {vi ? `Còn ${left} lần nữa là được giảm giá` : `${left} more visit(s) to unlock your discount`}
+                  {vi ? `Còn ${left} vé nữa là được giảm giá` : `${left} more ticket(s) to unlock your discount`}
                 </p>
               )}
               <p className="text-xs text-ink-400">
                 {vi ? "Mã thẻ" : "Card code"}: <span className="font-mono">{c.token}</span>
               </p>
+              <Link href={`/loyalty/${c.token}`} className="btn-primary inline-flex">
+                {vi ? "Mở thẻ & mời bạn bè (+2 vé)" : "Open card & invite friends (+2 tickets)"}
+              </Link>
             </section>
           );
         })

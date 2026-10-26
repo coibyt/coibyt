@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { requireOwnerOrReadOnlyViewer, getOwnedBusiness } from "@/lib/current-business";
 import { LoyaltyManager } from "@/components/loyalty-manager";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
+import { settleReferrals } from "@/lib/loyalty-referral";
 
 export default async function LoyaltyPage({
   params,
@@ -31,6 +32,8 @@ export default async function LoyaltyPage({
   }
   const t = await getTranslations("dashboard");
   const business = await getOwnedBusiness();
+  // Friends' visits since the last look earn their inviters bonus tickets.
+  if (business) await settleReferrals({ businessId: business.id });
 
   return (
     <div className="space-y-6">
