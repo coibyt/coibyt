@@ -310,9 +310,11 @@ export function HoursEditor({
               const isToday = now?.weekday === wd;
               return (
                 <li key={wd} className={`py-4 ${isToday ? "-mx-3 rounded-2xl bg-primary-100/30 px-3" : ""}`}>
-                  <div className="flex flex-wrap items-start gap-3">
+                  {/* Phones: day + actions on top, shifts full width below.
+                      Wider screens: day | shifts | actions in one row. */}
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 sm:grid-cols-[9rem_minmax(0,1fr)_auto]">
                     {/* Day + toggle */}
-                    <label className={`flex w-36 shrink-0 items-center gap-3 pt-2 ${canEdit ? "cursor-pointer" : ""}`}>
+                    <label className={`col-start-1 row-start-1 flex items-center gap-3 pt-2 ${canEdit ? "cursor-pointer" : ""}`}>
                       <span className={`relative h-6 w-11 shrink-0 rounded-full transition ${d.open ? "bg-[#1f182d]" : "bg-ink-100"}`}>
                         <input
                           type="checkbox"
@@ -330,16 +332,16 @@ export function HoursEditor({
                     </label>
 
                     {/* Shifts */}
-                    <div className="min-w-0 flex-1 space-y-2">
+                    <div className="col-span-2 row-start-2 min-w-0 space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-1">
                       {d.open ? (
                         d.shifts.map((s, i) => (
-                          <div key={i} className="flex flex-wrap items-center gap-2">
+                          <div key={i} className="flex items-center gap-2">
                             <input
                               type="time"
                               value={s.open}
                               disabled={!canEdit}
                               onChange={(e) => update(wd, (x) => ({ ...x, shifts: x.shifts.map((y, j) => (j === i ? { ...y, open: e.target.value } : y)) }))}
-                              className={`${FIELD} w-[8.75rem] tabular-nums ${errs.length ? "border-berry-300" : ""}`}
+                              className={`${FIELD} min-w-0 flex-1 tabular-nums sm:w-[8.75rem] sm:flex-none ${errs.length ? "border-berry-300" : ""}`}
                             />
                             <span className="text-ink-300">–</span>
                             <input
@@ -347,7 +349,7 @@ export function HoursEditor({
                               value={s.close}
                               disabled={!canEdit}
                               onChange={(e) => update(wd, (x) => ({ ...x, shifts: x.shifts.map((y, j) => (j === i ? { ...y, close: e.target.value } : y)) }))}
-                              className={`${FIELD} w-[8.75rem] tabular-nums ${errs.length ? "border-berry-300" : ""}`}
+                              className={`${FIELD} min-w-0 flex-1 tabular-nums sm:w-[8.75rem] sm:flex-none ${errs.length ? "border-berry-300" : ""}`}
                             />
                             {canEdit && d.shifts.length > 1 && (
                               <button
@@ -363,7 +365,7 @@ export function HoursEditor({
                           </div>
                         ))
                       ) : (
-                        <p className="pt-2.5 text-sm text-ink-300">—</p>
+                        <p className="hidden pt-2.5 text-sm text-ink-300 sm:block">—</p>
                       )}
                       {errs.length > 0 && (
                         <p className="flex items-center gap-1 text-xs font-semibold text-berry-500">
@@ -375,7 +377,7 @@ export function HoursEditor({
 
                     {/* Actions */}
                     {canEdit && d.open && (
-                      <div className="flex shrink-0 gap-1 pt-1">
+                      <div className="col-start-2 row-start-1 flex shrink-0 gap-1 pt-1 sm:col-start-3">
                         <button
                           type="button"
                           onClick={() => {
@@ -448,15 +450,15 @@ export function HoursEditor({
 
           {canEdit && (
             <div className={`sticky bottom-4 z-10 mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl p-3 transition ${dirty ? "bg-[#1f182d] text-white shadow-2xl" : "bg-mist-50/60"}`}>
-              <span className={`text-sm font-semibold ${dirty ? "text-[#e8d3a6]" : "text-ink-400"}`}>{dirty ? S.unsaved : ""}</span>
-              <div className="flex gap-2">
+              {dirty ? <span className="text-sm font-semibold text-[#e8d3a6]">{S.unsaved}</span> : <span className="hidden sm:block" />}
+              <div className="flex w-full gap-2 sm:w-auto">
                 {dirty && (
-                  <button type="button" onClick={() => setDays(fromHours(saved))} className="flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-semibold text-white/80 ring-1 ring-white/20 hover:text-white">
+                  <button type="button" onClick={() => setDays(fromHours(saved))} className="flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold text-white/80 ring-1 ring-white/20 hover:text-white">
                     <Undo2 className="h-4 w-4" />
                     {S.discard}
                   </button>
                 )}
-                <button type="button" onClick={save} disabled={saving || !dirty || hasErrors} className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold disabled:opacity-50 ${GOLD_BTN}`}>
+                <button type="button" onClick={save} disabled={saving || !dirty || hasErrors} className={`flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-bold disabled:opacity-50 sm:flex-none ${GOLD_BTN}`}>
                   {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
                   {S.save}
                 </button>
