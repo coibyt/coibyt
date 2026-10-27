@@ -1,39 +1,16 @@
 import { NextResponse } from "next/server";
 import { randomBytes } from "crypto";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { requireOwnerOnly, requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { affiliateSchema } from "@/lib/validations";
+import { affiliateDashboard, AFFILIATE_PERIODS, type AffiliatePeriod } from "@/lib/affiliate-stats";
 
-export async function GET() {
-  const owned = await requireOwnerOnly();
+export async function GET(req: Request) {
+  const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-
-  const affiliates = await prisma.affiliate.findMany({
-    where: { businessId: owned.businessId, active: true },
-    orderBy: { createdAt: "desc" },
-  });
-
-  const stats = await prisma.booking.groupBy({
-    by: ["affiliateId"],
-    where: {
-      businessId: owned.businessId,
-      affiliateId: { in: affiliates.map((a) => a.id) },
-      status: { in: ["CONFIRMED", "COMPLETED"] },
-    },
-    _count: true,
-    _sum: { affiliateCommissionCents: true },
-  });
-  const statsByAffiliate = new Map(
-    stats.map((s) => [s.affiliateId, { bookingCount: s._count, commissionCents: s._sum.affiliateCommissionCents ?? 0 }])
-  );
-
-  return NextResponse.json({
-    affiliates: affiliates.map((a) => ({
-      ...a,
-      bookingCount: statsByAffiliate.get(a.id)?.bookingCount ?? 0,
-      commissionCents: statsByAffiliate.get(a.id)?.commissionCents ?? 0,
-    })),
-  });
+  const p = new URL(req.url).searchParams.get("period");
+  const period = (AFFILIATE_PERIODS as readonly string[]).includes(p ?? "") ? (p as AffiliatePeriod) : "all";
+  return NextResponse.json(await affiliateDashboard(owned.businessId, period));
 }
 
 async function generateUniqueCode() {
@@ -53,10 +30,15 @@ export async function POST(req: Request) {
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
+  const { code: wanted, email, phone, note, ...rest } = parsed.data;
+  // Codes are unique across every salon, since the link carries only the code.
+  if (wanted && (await prisma.affiliate.findUnique({ where: { code: wanted } }))) {
+    return NextResponse.json({ error: "CODE_TAKEN" }, { status: 409 });
+  }
 
-  const code = await generateUniqueCode();
+  const code = wanted || (await generateUniqueCode());
   const affiliate = await prisma.affiliate.create({
-    data: { ...parsed.data, code, businessId: owned.businessId },
+    data: { ...rest, email: email || null, phone: phone || null, note: note || null, code, businessId: owned.businessId },
   });
-  return NextResponse.json({ affiliate: { ...affiliate, bookingCount: 0, commissionCents: 0 } }, { status: 201 });
+  return NextResponse.json({ affiliate }, { status: 201 });
 }

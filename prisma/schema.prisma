@@ -834,10 +834,30 @@ model Affiliate {
   commissionPercent Float
   active            Boolean  @default(true)
   createdAt         DateTime @default(now())
+  // How to reach the partner, for the owner's own reference.
+  email             String?  @db.VarChar(191)
+  phone             String?  @db.VarChar(40)
+  note              String?  @db.VarChar(500)
+  // Visits to the salon page through this partner's link (one per browser per day).
+  clickCount        Int      @default(0)
 
   bookings Booking[]
+  payouts  AffiliatePayout[]
 
   @@index([businessId])
+}
+
+// Commission the salon has paid a partner outside VaraaAi, recorded so the
+// dashboard can show what's still owed. VaraaAi never moves the money.
+model AffiliatePayout {
+  id          String    @id @default(cuid())
+  affiliateId String
+  affiliate   Affiliate @relation(fields: [affiliateId], references: [id], onDelete: Cascade)
+  amountCents Int
+  note        String?   @db.VarChar(200)
+  createdAt   DateTime  @default(now())
+
+  @@index([affiliateId])
 }
 
 // A platform-level referral partner (a sale/agent, an existing salon owner,

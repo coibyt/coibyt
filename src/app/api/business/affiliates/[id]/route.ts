@@ -18,8 +18,21 @@ export async function PATCH(
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
+  const { code, email, phone, note, ...rest } = parsed.data;
+  if (code && code !== affiliate.code && (await prisma.affiliate.findUnique({ where: { code } }))) {
+    return NextResponse.json({ error: "CODE_TAKEN" }, { status: 409 });
+  }
 
-  const updated = await prisma.affiliate.update({ where: { id }, data: parsed.data });
+  const updated = await prisma.affiliate.update({
+    where: { id },
+    data: {
+      ...rest,
+      ...(code ? { code } : {}),
+      ...(email !== undefined ? { email: email || null } : {}),
+      ...(phone !== undefined ? { phone: phone || null } : {}),
+      ...(note !== undefined ? { note: note || null } : {}),
+    },
+  });
   return NextResponse.json({ affiliate: updated });
 }
 

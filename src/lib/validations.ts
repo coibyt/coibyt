@@ -231,8 +231,15 @@ export const orderSchema = z.object({
 });
 
 export const affiliateSchema = z.object({
-  name: z.string().min(1).max(120),
+  name: z.string().trim().min(1).max(120),
   commissionPercent: z.coerce.number().min(0).max(100),
+  email: z.union([z.literal(""), z.string().trim().email().max(191)]).optional(),
+  phone: z.string().trim().max(40).optional(),
+  note: z.string().trim().max(500).optional(),
+  // A memorable code for the link (?aff=LAN10); a random one when empty.
+  code: z
+    .union([z.literal(""), z.string().trim().toUpperCase().regex(/^[A-Z0-9_-]{3,20}$/)])
+    .optional(),
 });
 
 export const platformAffiliateSchema = z.object({

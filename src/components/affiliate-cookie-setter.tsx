@@ -18,6 +18,22 @@ export function AffiliateCookieSetter({ businessId }: { businessId: string }) {
     if (!code) return;
     const maxAge = COOKIE_DAYS * 24 * 60 * 60;
     document.cookie = `varaaai_aff_${businessId}=${encodeURIComponent(code)}; path=/; max-age=${maxAge}; SameSite=Lax`;
+
+    // Count the visit for the partner's stats — once per browser per day.
+    const key = `varaaai_aff_click_${businessId}_${code}`;
+    try {
+      const last = Number(localStorage.getItem(key) ?? 0);
+      if (Date.now() - last < 24 * 60 * 60 * 1000) return;
+      localStorage.setItem(key, String(Date.now()));
+    } catch {
+      // Storage blocked: still count it.
+    }
+    fetch("/api/affiliate-click", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessId, code }),
+      keepalive: true,
+    }).catch(() => {});
   }, [code, businessId]);
 
   return null;

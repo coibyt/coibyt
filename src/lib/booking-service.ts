@@ -150,7 +150,8 @@ export async function createBookingAndPayment(params: {
 
   const affiliate = params.affiliateCode
     ? await prisma.affiliate.findFirst({
-        where: { code: params.affiliateCode, businessId: params.businessId, active: true },
+        // Codes are stored upper-case; a link typed by hand may not be.
+        where: { code: params.affiliateCode.trim().toUpperCase(), businessId: params.businessId, active: true },
       })
     : null;
   const affiliateCommissionCents = affiliate
