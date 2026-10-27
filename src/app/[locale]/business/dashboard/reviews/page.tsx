@@ -1,8 +1,9 @@
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
-import { OwnerReviewList } from "@/components/owner-review-list";
+import { ReviewsManager } from "@/components/reviews-manager";
+import { googleReviewUrlFor } from "@/lib/google-review";
+import { siteSerif } from "@/lib/site-fonts";
 
 export default async function BusinessReviewsPage({
   params,
@@ -11,7 +12,6 @@ export default async function BusinessReviewsPage({
 }) {
   const { locale } = await params;
   const access = await getBusinessAccess();
-  const t = await getTranslations("business");
   if (!access) return null;
   if (!access.isOwner && !access.permissions.reviews) {
     redirect({ href: "/business/dashboard", locale });
@@ -21,16 +21,16 @@ export default async function BusinessReviewsPage({
 
   const reviews = await prisma.review.findMany({
     where: { businessId: business.id },
-    include: { customer: { select: { name: true } } },
-    // PENDING sorts first (enum declaration order: PENDING, APPROVED, HIDDEN)
-    // so reviews awaiting a decision surface above ones already handled.
-    orderBy: [{ status: "asc" }, { createdAt: "desc" }],
+    include: {
+      customer: { select: { name: true } },
+      booking: { select: { startsAt: true, service: { select: { name: true } }, staff: { select: { id: true, name: true } } } },
+    },
+    orderBy: { createdAt: "desc" },
   });
 
   return (
-    <div>
-      <h1 className="mb-4 text-xl font-bold text-ink-900">{t("reviews")}</h1>
-      <OwnerReviewList
+    <div className={siteSerif.variable}>
+      <ReviewsManager
         reviews={reviews.map((r) => ({
           id: r.id,
           rating: r.rating,
@@ -38,8 +38,13 @@ export default async function BusinessReviewsPage({
           ownerReply: r.ownerReply,
           customerName: r.customer.name,
           status: r.status,
+          createdAt: r.createdAt.toISOString(),
+          serviceName: r.booking.service.name,
+          staffId: r.booking.staff?.id ?? null,
+          staffName: r.booking.staff?.name ?? null,
         }))}
         locale={locale}
+        googleUrl={googleReviewUrlFor(business)}
       />
     </div>
   );
