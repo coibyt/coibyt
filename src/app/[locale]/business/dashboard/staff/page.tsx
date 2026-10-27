@@ -1,8 +1,9 @@
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
 import { StaffManager } from "@/components/staff-manager";
+import { staffInsights } from "@/lib/staff-dashboard";
+import { siteSerif } from "@/lib/site-fonts";
 
 export default async function StaffPage({
   params,
@@ -11,7 +12,6 @@ export default async function StaffPage({
 }) {
   const { locale } = await params;
   const owned = await requireOwnerOnly();
-  const t = await getTranslations("business");
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
     return null;
@@ -29,10 +29,18 @@ export default async function StaffPage({
     }),
     prisma.service.findMany({ where: { businessId: owned.businessId, active: true } }),
   ]);
+  const business = await prisma.business.findUniqueOrThrow({
+    where: { id: owned.businessId },
+    select: { timezone: true, defaultCurrency: true },
+  });
+  const insights = await staffInsights(
+    owned.businessId,
+    staff.map((s) => s.id),
+    business.timezone
+  );
 
   return (
-    <div>
-      <h1 className="mb-4 text-xl font-bold text-ink-900">{t("staff")}</h1>
+    <div className={siteSerif.variable}>
       <StaffManager
         initialStaff={staff.map((s) => ({
           id: s.id,
@@ -57,6 +65,8 @@ export default async function StaffPage({
           videoUrls: Array.isArray(s.videoUrls) ? (s.videoUrls as string[]) : [],
         }))}
         serviceOptions={services.map((s) => ({ id: s.id, name: s.name }))}
+        insights={insights}
+        currency={business.defaultCurrency}
       />
     </div>
   );
