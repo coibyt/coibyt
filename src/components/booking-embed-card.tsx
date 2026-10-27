@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
 
@@ -21,7 +21,9 @@ export function BookingEmbedCard({
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState<"url" | "code" | null>(null);
 
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  // Read after hydration, so the server and first client render agree.
+  const [origin, setOrigin] = useState("");
+  useEffect(() => setOrigin(window.location.origin), []);
   const isChain = variant === "chain";
   const embedUrl = `${origin}/embed/${isChain ? "chain/" : ""}${slug}?locale=${defaultLocale}`;
   const iframeId = `varaaai-embed-${isChain ? "chain-" : ""}${slug}`;

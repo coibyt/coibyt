@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Loader2, Check } from "lucide-react";
 import { AddressAutocomplete, type AddressSuggestion } from "@/components/address-autocomplete";
@@ -51,18 +51,21 @@ export function BusinessProfileCard({
   const [error, setError] = useState<string | null>(null);
 
   // Country names come from the browser's own locale data, so every language
-  // gets proper names without a hand-maintained translation table.
+  // gets proper names without a hand-maintained translation table. The
+  // server's data differs slightly from the browser's, so the first render
+  // uses the plain list and the localised one follows after hydration.
+  const [hydrated, setHydrated] = useState(false);
+  useEffect(() => setHydrated(true), []);
   const countryOptions = useMemo(() => {
     let display: Intl.DisplayNames | null = null;
     try {
-      display = new Intl.DisplayNames([locale], { type: "region" });
+      display = hydrated ? new Intl.DisplayNames([locale], { type: "region" }) : null;
     } catch {
       display = null;
     }
-    return COUNTRIES.map((c) => ({ code: c.code, label: display?.of(c.code) ?? c.name })).sort(
-      (a, b) => a.label.localeCompare(b.label, locale)
-    );
-  }, [locale]);
+    const list = COUNTRIES.map((c) => ({ code: c.code, label: display?.of(c.code) ?? c.name }));
+    return hydrated ? list.sort((a, b) => a.label.localeCompare(b.label, locale)) : list;
+  }, [locale, hydrated]);
 
   function onAddressSelect(s: AddressSuggestion) {
     setAddressLine(s.addressLine ?? addressLine);
