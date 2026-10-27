@@ -51,7 +51,8 @@ export const businessApplicationWithAccountSchema = businessApplicationSchema.ex
 export const serviceSchema = z.object({
   name: z.string().min(2).max(120),
   description: z.string().max(2000).optional(),
-  categoryId: z.string().cuid().optional(),
+  // null clears it (the service moved to a custom group, or to none).
+  categoryId: z.string().cuid().nullable().optional(),
   // The salon's own menu section (ServiceGroup); null/absent = ungrouped.
   groupId: z.string().cuid().nullable().optional(),
   durationMin: z.coerce.number().int().min(5).max(600),

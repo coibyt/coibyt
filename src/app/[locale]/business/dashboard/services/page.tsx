@@ -1,10 +1,9 @@
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { redirect, Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
-import { ServicesManager } from "@/components/services-manager";
-import { Sparkles } from "lucide-react";
+import { redirect } from "@/i18n/navigation";
+import { ServicesManager, type ServiceStats } from "@/components/services-manager";
 import { categoryName } from "@/lib/category-names";
+import { siteSerif } from "@/lib/site-fonts";
 
 export default async function ServicesPage({
   params,
@@ -13,16 +12,15 @@ export default async function ServicesPage({
 }) {
   const { locale } = await params;
   const access = await getBusinessAccess();
-  const t = await getTranslations("business");
-  const tDash = await getTranslations("dashboard");
   if (!access) return null;
   if (!access.isOwner && !access.permissions.services) {
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
   const { business } = access;
+  const since = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
 
-  const [services, staff, groups, categories] = await Promise.all([
+  const [services, staff, groups, categories, booked, addOnLinks] = await Promise.all([
     prisma.service.findMany({
       where: { businessId: business.id },
       include: {
@@ -38,19 +36,27 @@ export default async function ServicesPage({
       orderBy: [{ sortOrder: "asc" }, { createdAt: "asc" }],
     }),
     prisma.category.findMany({ select: { id: true, nameVi: true, nameEn: true }, orderBy: { nameVi: "asc" } }),
+    // How each service has sold over the last 30 days.
+    prisma.booking.groupBy({
+      by: ["serviceId"],
+      where: { businessId: business.id, status: { in: ["CONFIRMED", "COMPLETED"] }, startsAt: { gte: since } },
+      _count: true,
+      _sum: { priceCents: true },
+    }),
+    prisma.serviceAddOnLink.groupBy({
+      by: ["serviceId"],
+      where: { service: { businessId: business.id } },
+      _count: true,
+    }),
   ]);
 
+  const stats: Record<string, ServiceStats> = {};
+  for (const s of services) stats[s.id] = { bookings: 0, revenueCents: 0, addOns: 0 };
+  for (const b of booked) if (stats[b.serviceId]) Object.assign(stats[b.serviceId], { bookings: b._count, revenueCents: b._sum.priceCents ?? 0 });
+  for (const a of addOnLinks) if (stats[a.serviceId]) stats[a.serviceId].addOns = a._count;
+
   return (
-    <div>
-      <div className="mb-4 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-ink-900">{t("services")}</h1>
-        <Link
-          href="/business/dashboard/services/addons"
-          className="btn-outline !px-3 !py-1.5 text-xs"
-        >
-          <Sparkles className="h-3.5 w-3.5" /> {tDash("addOnsPage.title")}
-        </Link>
-      </div>
+    <div className={siteSerif.variable}>
       <ServicesManager
         initialServices={services.map((s) => ({
           ...s,
@@ -60,12 +66,14 @@ export default async function ServicesPage({
             durationMinOverride: x.durationMinOverride,
           })),
         }))}
-        staffOptions={staff.map((s) => ({ id: s.id, name: s.name }))}
+        staffOptions={staff.map((s) => ({ id: s.id, name: s.name, avatarUrl: s.avatarUrl }))}
         groups={groups.map((g) => ({ id: g.id, name: g.name }))}
         categories={categories.map((c) => ({ id: c.id, name: categoryName(locale, c) }))}
+        stats={stats}
         locale={locale}
         defaultCurrency={business.defaultCurrency}
         canReorder={access.isOwner}
+        canEdit={access.isOwner}
       />
     </div>
   );
