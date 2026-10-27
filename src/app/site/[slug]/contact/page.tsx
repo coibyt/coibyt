@@ -5,6 +5,7 @@ import { getSiteBranches } from "@/lib/site-branches";
 import { directionsUrl, mapEmbedUrl, resolveSiteLocale, siteAccess, SITE_BUSINESS_SELECT } from "@/lib/site-page";
 import { PageHero, SiteCta, SiteShell, siteAddress, siteStatusLabel } from "@/components/site-shell";
 import { WeekdayHoursList, socialLinks } from "@/components/site-footer";
+import { groupHoursByDay } from "@/lib/hours-format";
 import type { Metadata } from "next";
 import { siteMetadata } from "@/lib/site-seo";
 
@@ -45,7 +46,7 @@ export default async function BusinessContactPage({
   const locale = resolveSiteLocale(rawLocale, b.defaultLocale);
   const s = siteStrings(locale);
   const branches = await getSiteBranches(b.ownerId);
-  const hoursByDay = new Map(b.hours.map((h) => [h.weekday, h]));
+  const hoursByDay = groupHoursByDay(b.hours);
   const address = siteAddress(b);
   const map = mapEmbedUrl(b);
   const { status, label } = siteStatusLabel(locale, b);

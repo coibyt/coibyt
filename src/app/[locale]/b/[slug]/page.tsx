@@ -36,6 +36,7 @@ import { categoryName } from "@/lib/category-names";
 import { fanpageStrings } from "@/lib/fanpage-strings";
 import { salonJsonLd, salonMetadata } from "@/lib/seo-salon";
 import { jsonLd } from "@/lib/seo";
+import { groupHoursByDay, windowsLabel } from "@/lib/hours-format";
 
 const WEEKDAYS_VI = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const WEEKDAYS_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -45,6 +46,7 @@ const L = {
   vi: {
     book: "Đặt lịch",
     closed: "Đóng cửa",
+    closedOn: "Nghỉ",
     today: "Hôm nay",
     reviewsCount: (n: number) => `${n} đánh giá`,
     noReviewsYet: "Chưa có đánh giá",
@@ -52,6 +54,7 @@ const L = {
   en: {
     book: "Book now",
     closed: "Closed",
+    closedOn: "Closed",
     today: "Today",
     reviewsCount: (n: number) => `${n} review${n === 1 ? "" : "s"}`,
     noReviewsYet: "No reviews yet",
@@ -59,6 +62,7 @@ const L = {
   fi: {
     book: "Varaa aika",
     closed: "Suljettu",
+    closedOn: "Suljettu",
     today: "Tänään",
     reviewsCount: (n: number) => `${n} arvostelua`,
     noReviewsYet: "Ei vielä arvosteluja",
@@ -97,6 +101,8 @@ export default async function BusinessProfilePage({
           take: 20,
         },
         hours: true,
+        // Upcoming closed days (holidays), shown under the opening hours.
+        closures: { where: { date: { gte: new Date(new Date().toISOString().slice(0, 10)) } }, orderBy: { date: "asc" }, take: 3 },
         categories: { include: { category: true } },
       },
     }),
@@ -139,7 +145,7 @@ export default async function BusinessProfilePage({
   }));
 
   const weekdayLabels = locale === "vi" ? WEEKDAYS_VI : locale === "fi" ? WEEKDAYS_FI : WEEKDAYS_EN;
-  const hoursByDay = new Map(business.hours.map((h) => [h.weekday, h]));
+  const hoursByDay = groupHoursByDay(business.hours);
   // "Today" in the salon's own timezone, not the server's or visitor's.
   const todayIdx = toZonedTime(new Date(), business.timezone).getDay();
   const hasHours = business.hours.length > 0;
@@ -384,12 +390,25 @@ export default async function BusinessProfilePage({
                           {isToday && <span className="ml-1.5 text-xs font-medium text-primary-500">· {l.today}</span>}
                         </span>
                         <span className={h ? "tabular-nums" : "text-ink-400"}>
-                          {h ? `${minToTime(h.openMinute)} – ${minToTime(h.closeMinute)}` : l.closed}
+                          {h ? windowsLabel(h) : l.closed}
                         </span>
                       </li>
                     );
                   })}
                 </ul>
+                {business.closures.length > 0 && (
+                  <ul className="mt-3 space-y-1 border-t border-ink-100 pt-3 text-xs">
+                    {business.closures.map((c) => (
+                      <li key={c.id} className="flex justify-between gap-3 rounded-xl bg-berry-50/60 px-3 py-1.5 text-berry-500">
+                        <span className="font-semibold">
+                          {new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", timeZone: "UTC" }).format(c.date)}
+                          {c.reason ? ` · ${c.reason}` : ""}
+                        </span>
+                        <span>{l.closedOn}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
             )}
           </aside>
@@ -397,12 +416,4 @@ export default async function BusinessProfilePage({
       </div>
     </div>
   );
-}
-
-function minToTime(min: number) {
-  const h = Math.floor(min / 60)
-    .toString()
-    .padStart(2, "0");
-  const m = (min % 60).toString().padStart(2, "0");
-  return `${h}:${m}`;
 }

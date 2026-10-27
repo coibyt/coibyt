@@ -1,6 +1,7 @@
 import { Facebook, Globe, Instagram, Mail, MapPin, MessageCircle, Music2, Navigation, Phone, Youtube } from "lucide-react";
 import { siteStrings, sitePrefix } from "@/lib/site-content";
 import { siteNavLinks, SiteLogo } from "@/components/site-brand";
+import { groupHoursByDay, windowsLabel } from "@/lib/hours-format";
 
 export interface SiteBranch {
   slug: string;
@@ -74,7 +75,7 @@ export function SiteFooter({
 }) {
   const s = siteStrings(locale);
   const prefix = sitePrefix(locale);
-  const hoursByDay = new Map(hours.map((h) => [h.weekday, h]));
+  const hoursByDay = groupHoursByDay(hours);
   const socials = socialLinks(contact);
   const heading = "mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-lp-gold";
 
@@ -239,7 +240,7 @@ export function WeekdayHoursList({
   tone = "light",
 }: {
   locale: string;
-  hoursByDay: Map<number, { openMinute: number; closeMinute: number }>;
+  hoursByDay: Map<number, { openMinute: number; closeMinute: number }[]>;
   closedLabel: string;
   todayWeekday?: number | null;
   /** "dark" for the footer, "light" for cards on the page. */
@@ -263,7 +264,7 @@ export function WeekdayHoursList({
               {names[i]}
             </span>
             <span className={h ? "tabular-nums" : "opacity-50"}>
-              {h ? `${minutesToTime(h.openMinute)} – ${minutesToTime(h.closeMinute)}` : closedLabel}
+              {h ? windowsLabel(h) : closedLabel}
             </span>
           </li>
         );

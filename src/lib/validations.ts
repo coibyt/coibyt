@@ -117,13 +117,26 @@ export const staffSchema = z.object({
     .optional(),
 });
 
-export const businessHoursSchema = z.array(
-  z.object({
-    weekday: z.number().int().min(0).max(6),
-    openMinute: z.number().int().min(0).max(1439),
-    closeMinute: z.number().int().min(0).max(1440),
-  })
-);
+export const businessHoursSchema = z
+  .array(
+    z
+      .object({
+        weekday: z.number().int().min(0).max(6),
+        openMinute: z.number().int().min(0).max(1439),
+        closeMinute: z.number().int().min(0).max(1440),
+      })
+      .refine((h) => h.closeMinute > h.openMinute, "CLOSE_BEFORE_OPEN")
+  )
+  .max(28)
+  // Several windows on one day are fine (a lunch break), overlapping ones aren't.
+  .refine(
+    (list) =>
+      [0, 1, 2, 3, 4, 5, 6].every((d) => {
+        const day = list.filter((h) => h.weekday === d).sort((a, b) => a.openMinute - b.openMinute);
+        return day.every((h, i) => i === 0 || h.openMinute >= day[i - 1].closeMinute);
+      }),
+    "OVERLAP"
+  );
 
 export const createBookingSchema = z.object({
   serviceId: z.string().cuid(),
