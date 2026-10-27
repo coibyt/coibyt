@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Code2, ExternalLink, Copy, Check, X } from "lucide-react";
 
@@ -9,7 +9,9 @@ export function ChatEmbedCard({ slug, defaultLocale }: { slug: string; defaultLo
   const [showModal, setShowModal] = useState(false);
   const [copied, setCopied] = useState<"url" | "code" | null>(null);
 
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  // Read after hydration, so the server and first client render agree.
+  const [origin, setOrigin] = useState("");
+  useEffect(() => setOrigin(window.location.origin), []);
   const embedUrl = `${origin}/embed/${slug}/chat?locale=${defaultLocale}`;
   // A chat box keeps a fixed size (it scrolls its own messages), unlike the
   // booking page's auto-resizing iframe — no iframe-resizer script needed.

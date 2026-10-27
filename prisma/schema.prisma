@@ -312,6 +312,7 @@ model Business {
   marketingImages         MarketingImage[]
   marketingContacts       MarketingContact[]
   customerNotes           CustomerNote[]
+  chatQuickReplies        ChatQuickReply[]
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
   giftCards               GiftCard[]
@@ -454,6 +455,18 @@ model MarketingContact {
   updatedAt     DateTime  @updatedAt
 
   @@unique([businessId, email])
+}
+
+// A saved reply the salon can drop into a chat with one tap.
+model ChatQuickReply {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  title      String   @db.VarChar(60)
+  text       String   @db.Text
+  createdAt  DateTime @default(now())
+
+  @@index([businessId])
 }
 
 // The salon's private note about one of its customers (allergies,

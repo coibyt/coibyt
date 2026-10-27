@@ -60,6 +60,8 @@ export function ChatWidget({
   aiPaused = false,
   bookingHref,
   onClose,
+  prefill,
+  embedded = false,
 }: {
   conversationId: string;
   viewerRole: "CUSTOMER" | "BUSINESS";
@@ -77,6 +79,11 @@ export function ChatWidget({
    * embed and the public profile each have their own booking route). */
   bookingHref?: (offer: BookingOffer) => string;
   onClose?: () => void;
+  /** Business inbox: text to put in the message box (a saved reply); a new
+   * nonce inserts it again even when the text is the same. */
+  prefill?: { text: string; nonce: number } | null;
+  /** Business inbox: fill the pane, without the widget's own header/frame. */
+  embedded?: boolean;
 }) {
   const guestQuery = guestId ? `guestId=${encodeURIComponent(guestId)}` : "";
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -88,6 +95,10 @@ export function ChatWidget({
   const [error, setError] = useState<string | null>(null);
   const [paused, setPaused] = useState(aiPaused);
   const [requestingHuman, setRequestingHuman] = useState(false);
+
+  useEffect(() => {
+    if (prefill?.text) setText((t) => (t.trim() ? `${t.trimEnd()} ${prefill.text}` : prefill.text));
+  }, [prefill?.nonce, prefill?.text]);
   const listRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const lastIdRef = useRef<string | null>(null);
@@ -196,15 +207,23 @@ export function ChatWidget({
   }
 
   return (
-    <div className="flex h-full max-h-[32rem] flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white">
-      <div className="flex items-center justify-between border-b border-ink-100 px-4 py-3">
-        <p className="font-semibold text-ink-900">{title}</p>
-        {onClose && (
-          <button onClick={onClose} className="text-ink-400">
-            <X className="h-5 w-5" />
-          </button>
-        )}
-      </div>
+    <div
+      className={
+        embedded
+          ? "flex h-full min-h-0 flex-col overflow-hidden bg-white"
+          : "flex h-full max-h-[32rem] flex-col overflow-hidden rounded-2xl border border-ink-100 bg-white"
+      }
+    >
+      {!embedded && (
+        <div className="flex items-center justify-between border-b border-ink-100 px-4 py-3">
+          <p className="font-semibold text-ink-900">{title}</p>
+          {onClose && (
+            <button onClick={onClose} className="text-ink-400">
+              <X className="h-5 w-5" />
+            </button>
+          )}
+        </div>
+      )}
 
       {viewerRole === "CUSTOMER" && aiChatEnabled && (
         <div className="flex items-center justify-between gap-2 border-b border-ink-100 bg-primary-50 px-4 py-2 text-xs">
@@ -231,7 +250,7 @@ export function ChatWidget({
         </div>
       )}
 
-      <div ref={listRef} className="flex-1 space-y-3 overflow-y-auto p-4">
+      <div ref={listRef} className={`flex-1 space-y-3 overflow-y-auto p-4 ${embedded ? "bg-[#faf8fd]" : ""}`}>
         {loading ? (
           <p className="flex items-center gap-2 text-sm text-ink-400">
             <Loader2 className="h-4 w-4 animate-spin" /> ...
@@ -273,7 +292,13 @@ export function ChatWidget({
                   )}
                   <div
                     className={`max-w-[75%] rounded-2xl px-3 py-2 text-sm ${
-                      mine ? "bg-primary-500 text-white" : "bg-mist-100 text-ink-900"
+                      mine
+                        ? embedded
+                          ? "bg-gradient-to-br from-[#40325c] to-[#624f89] text-white shadow-sm"
+                          : "bg-primary-500 text-white"
+                        : embedded
+                          ? "bg-white text-ink-900 shadow-sm ring-1 ring-ink-100"
+                          : "bg-mist-100 text-ink-900"
                     }`}
                   >
                     {m.hasImage && (
