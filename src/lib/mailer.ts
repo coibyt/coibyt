@@ -1170,39 +1170,3 @@ export function invoiceEmail(params: {
   };
 }
 
-const MARKETING = {
-  vi: { sent: (b: string) => `Bạn nhận được email này vì đã từng sử dụng dịch vụ tại ${b}.`, unsub: "Hủy nhận email quảng cáo", book: "Đặt lịch ngay" },
-  en: { sent: (b: string) => `You're receiving this because you've visited ${b}.`, unsub: "Unsubscribe from marketing emails", book: "Book now" },
-  fi: { sent: (b: string) => `Saat tämän viestin, koska olet asioinut paikassa ${b}.`, unsub: "Peru markkinointiviestien tilaus", book: "Varaa aika" },
-};
-
-/** A one-off marketing email an owner composes from the dashboard and sends
- * to their own past customers (see /api/business/marketing/send). `bodyHtml`
- * is expected to already be escaped/line-break-converted by the caller —
- * this function only adds the salon header and the unsubscribe footer,
- * never touches the owner's raw message. */
-export function marketingEmail(params: {
-  businessName: string;
-  bodyHtml: string;
-  locale: string;
-  unsubscribeUrl: string;
-  businessLogoUrl?: string | null;
-  /** Adds a "Book now" button under the message. */
-  salonUrl?: string | null;
-}) {
-  const t = pick(params.locale, MARKETING);
-  return {
-    html: emailLayout({
-      locale: params.locale,
-      preheader: plain(params.bodyHtml).slice(0, 120),
-      brand: salonBrand(params.businessName, params.businessLogoUrl),
-      hero: null,
-      title: params.businessName,
-      body: [
-        `<div style="color:${C.text};font-size:15.5px;line-height:1.75">${params.bodyHtml}</div>`,
-        params.salonUrl ? button(params.salonUrl, t.book) : "",
-      ].join(""),
-      footerNote: `${esc(t.sent(params.businessName))}<br /><a href="${esc(params.unsubscribeUrl)}" style="color:${C.muted};text-decoration:underline">${t.unsub}</a>`,
-    }),
-  };
-}

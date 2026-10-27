@@ -1,8 +1,11 @@
 import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
-import { getMarketingRecipients } from "@/lib/marketing-recipients";
-import { MarketingComposer } from "@/components/marketing-composer";
+import { prisma } from "@/lib/prisma";
+import { segmentCounts } from "@/lib/marketing-recipients";
+import { sendDueCampaigns } from "@/lib/marketing-send";
+import { siteSerif } from "@/lib/site-fonts";
+import { MarketingStudio } from "@/components/marketing-studio";
 import { VaraPointsPanel } from "@/components/vara-points-panel";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
 import { Users } from "lucide-react";
@@ -20,27 +23,25 @@ export default async function MarketingDashboardPage({
   }
   const t = await getTranslations("dashboard");
 
-  const { eligible, cooldown } = await getMarketingRecipients(owned.businessId);
-  const recipientCount = eligible.length;
-  const cooldownCount = cooldown.length;
+  // Scheduled campaigns whose time has come, in case the cron isn't set up.
+  await sendDueCampaigns(owned.businessId).catch(() => 0);
+  const [counts, business] = await Promise.all([
+    segmentCounts(owned.businessId),
+    prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true } }),
+  ]);
 
   return (
-    <div className="space-y-5">
+    <div className={`${siteSerif.variable} space-y-6`}>
       {!owned.isOwner && <ReadOnlyBanner locale={locale} />}
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h1 className="text-xl font-bold text-ink-900">{t("marketing.nav")}</h1>
-          <p className="mt-1 text-sm text-ink-400">{t("marketing.subtitle")}</p>
-        </div>
-        <Link
-          href="/business/dashboard/marketing/affiliates"
-          className="btn-outline !px-3 !py-1.5 text-xs"
-        >
+      <div className="flex justify-end">
+        <Link href="/business/dashboard/marketing/affiliates" className="btn-outline !px-3 !py-1.5 text-xs">
           <Users className="h-3.5 w-3.5" /> {t("affiliatesPage.title")}
         </Link>
       </div>
-      <VaraPointsPanel locale={locale} />
-      <MarketingComposer initialRecipientCount={recipientCount} initialCooldownCount={cooldownCount} />
+      <MarketingStudio locale={locale} isOwner={owned.isOwner} initialCounts={counts} salon={business} />
+      <div id="vara-points" className="scroll-mt-24">
+        <VaraPointsPanel locale={locale} />
+      </div>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { sendMail, appointmentReminderEmail, reviewRequestEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
+import { sendDueCampaigns } from "@/lib/marketing-send";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -164,5 +165,11 @@ export async function GET(req: Request) {
     reviewRequests++;
   }
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests });
+  // Marketing campaigns salons scheduled for later.
+  const campaigns = await sendDueCampaigns().catch((err) => {
+    console.error("[cron] campaigns", err);
+    return 0;
+  });
+
+  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns });
 }

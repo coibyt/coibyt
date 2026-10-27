@@ -308,6 +308,7 @@ model Business {
   followers               BusinessFollow[]
   posts                   Post[]
   emailCampaigns          EmailCampaign[]
+  marketingImages         MarketingImage[]
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
   giftCards               GiftCard[]
@@ -386,7 +387,62 @@ model EmailCampaign {
   recipientCount Int
   createdAt      DateTime @default(now())
 
+  // The campaign as the owner wrote it, so it can be previewed, reused and
+  // (when scheduled) rendered per recipient at send time. Older campaigns
+  // only have subject + bodyHtml.
+  preheader       String?   @db.VarChar(200)
+  headline        String?   @db.VarChar(160)
+  message         String?   @db.Text
+  imageId         String?
+  // NONE | BOOK (the salon's booking page) | URL (ctaUrl)
+  ctaKind         String    @default("BOOK") @db.VarChar(8)
+  ctaLabel        String?   @db.VarChar(60)
+  ctaUrl          String?   @db.VarChar(500)
+  offerTitle      String?   @db.VarChar(80)
+  offerCode       String?   @db.VarChar(40)
+  offerExpires    DateTime?
+  // Who it goes to — see src/lib/marketing-recipients.ts
+  segment         String    @default("ALL") @db.VarChar(16)
+  includeCooldown Boolean   @default(false)
+  // SCHEDULED → SENDING → SENT, or CANCELLED. Campaigns sent before this
+  // existed are SENT.
+  status          String    @default("SENT") @db.VarChar(12)
+  scheduledAt     DateTime?
+  sentAt          DateTime?
+  // Unique recipients who opened / clicked (EmailCampaignEvent).
+  openCount       Int       @default(0)
+  clickCount      Int       @default(0)
+
+  events EmailCampaignEvent[]
+
   @@index([businessId, createdAt])
+  @@index([status, scheduledAt])
+}
+
+// One open or click per recipient per campaign, for the campaign's stats.
+model EmailCampaignEvent {
+  id         String        @id @default(cuid())
+  campaignId String
+  campaign   EmailCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  customerId String
+  // OPEN | CLICK
+  kind       String        @db.VarChar(8)
+  createdAt  DateTime      @default(now())
+
+  @@unique([campaignId, customerId, kind])
+}
+
+// A picture added to a marketing email. Bytes live on the row, same reasoning
+// as BusinessImage (Hostinger wipes public/uploads on deploy).
+model MarketingImage {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  data       Bytes    @db.MediumBlob
+  mimeType   String   @db.VarChar(40)
+  createdAt  DateTime @default(now())
+
+  @@index([businessId])
 }
 
 model BusinessCategory {
