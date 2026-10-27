@@ -245,7 +245,7 @@ export function ReviewsManager({ reviews, locale, googleUrl }: { reviews: Review
         </div>
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-4">
           {/* Filters */}
           <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">

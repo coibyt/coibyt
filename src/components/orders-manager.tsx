@@ -280,7 +280,7 @@ ${o.customerNote ? `<div class="box"><b>${escapeHtml(S.note)}:</b> ${escapeHtml(
           </Link>
         </div>
       ) : (
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
           <div className="min-w-0 space-y-4">
             <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
               {TABS.map((t) => (

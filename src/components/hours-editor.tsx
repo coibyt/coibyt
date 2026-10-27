@@ -271,7 +271,7 @@ export function HoursEditor({
         </div>
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_340px]">
         {/* Weekly schedule */}
         <section className="min-w-0 rounded-3xl border border-ink-100 bg-white p-5 shadow-[0_18px_40px_-34px_rgba(31,24,45,0.6)] sm:p-6">
           <div className="flex flex-wrap items-start justify-between gap-3">

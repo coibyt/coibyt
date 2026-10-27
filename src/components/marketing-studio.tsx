@@ -594,7 +594,7 @@ export function MarketingStudio({
       )}
 
       {tab === "compose" ? (
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_400px] xl:grid-cols-[minmax(0,1fr)_440px]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_400px] xl:grid-cols-[minmax(0,1fr)_440px]">
           <div className="min-w-0 space-y-5">
             {!isOwner && (
               <p className="rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-800 ring-1 ring-amber-200">{S.readOnly}</p>

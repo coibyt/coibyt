@@ -202,7 +202,7 @@ export default async function SupportPage({
       )}
 
       {tab === "chat" && (
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
           <div className="min-w-0 space-y-2">
             <p className="text-sm text-ink-400">{t("chatIntro")}</p>
             <div className="overflow-hidden rounded-3xl border border-ink-100 bg-white p-2 shadow-[0_18px_40px_-34px_rgba(31,24,45,0.6)]">

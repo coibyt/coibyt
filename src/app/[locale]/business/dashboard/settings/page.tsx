@@ -78,7 +78,7 @@ export default async function BusinessSettingsPage({
         checklist={checks.map(([id, done]) => ({ id, done }))}
       />
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_220px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_220px]">
         <div className="min-w-0 space-y-10 xl:order-1">
           <SettingsNav locale={locale} sections={sections} variant="bar" />
 

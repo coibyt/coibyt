@@ -290,7 +290,7 @@ export function AffiliateStudio({
         ))}
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
         {/* Partners */}
         <div className="min-w-0 space-y-4">
           <h2 className="text-lg font-bold text-ink-900">{S.partnersTitle}</h2>

@@ -108,7 +108,7 @@ export function SettingsHero({
   }
 
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
+    <div className="grid grid-cols-[minmax(0,1fr)] gap-4 lg:grid-cols-[minmax(0,1fr)_340px]">
       {/* Salon card */}
       <section className="relative min-h-[240px] overflow-hidden rounded-[2rem] bg-[#1f182d] text-white shadow-[0_30px_60px_-35px_rgba(31,24,45,0.9)]">
         {salon.coverUrl ? (

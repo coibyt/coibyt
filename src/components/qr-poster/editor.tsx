@@ -366,7 +366,7 @@ export function QrPosterEditor({
         ))}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)]">
         <div className={`min-w-0 space-y-5 ${mobileTab === "edit" ? "" : "hidden lg:block"}`}>
           {/* Salon */}
           <Section

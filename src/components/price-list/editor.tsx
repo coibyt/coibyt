@@ -550,7 +550,7 @@ export function PriceListEditor({
         ))}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)]">
         {/* ---------------- editor column */}
         <div className={`min-w-0 space-y-5 ${mobileTab === "edit" ? "" : "hidden lg:block"}`}>
           <Section

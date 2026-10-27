@@ -432,7 +432,7 @@ export function ServicesManager({
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="flex flex-wrap items-center gap-2 font-bold text-ink-900">
-                <span className="break-words">{s.name}</span>
+                <span className="min-w-0 [overflow-wrap:anywhere]">{s.name}</span>
                 {bestIds.has(s.id) && (
                   <span className="flex items-center gap-1 rounded-full bg-gradient-to-r from-[#fbf3e1] to-[#f3e2b8] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#8a6a2b]">
                     <Crown className="h-3 w-3" />
@@ -636,7 +636,9 @@ export function ServicesManager({
         </div>
       </section>
 
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
+      {/* minmax(0, …) on phones too: a long single-line name in the side
+          panel would otherwise widen the whole column past the screen. */}
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-5">
           {/* Toolbar */}
           {activeServices.length > 0 && (
@@ -751,7 +753,7 @@ export function ServicesManager({
         </div>
 
         {/* Side: best sellers + groups */}
-        <aside className="space-y-4">
+        <aside className="min-w-0 space-y-4">
           <section className="rounded-3xl border border-ink-100 bg-white p-5">
             <p className="flex items-center gap-2 font-bold text-ink-900">
               <Crown className="h-4 w-4 text-[#c99a3f]" />
