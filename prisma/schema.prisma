@@ -309,6 +309,7 @@ model Business {
   posts                   Post[]
   emailCampaigns          EmailCampaign[]
   marketingImages         MarketingImage[]
+  marketingContacts       MarketingContact[]
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
   giftCards               GiftCard[]
@@ -430,6 +431,27 @@ model EmailCampaignEvent {
   createdAt  DateTime      @default(now())
 
   @@unique([campaignId, customerId, kind])
+}
+
+// A customer the salon added to its email list by hand or from an Excel/CSV
+// file, on top of the customers who booked on VaraaAi. One per email per
+// salon; the salon confirms each import has the customers' consent.
+model MarketingContact {
+  id            String    @id @default(cuid())
+  businessId    String
+  business      Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  email         String    @db.VarChar(191)
+  name          String?   @db.VarChar(120)
+  phone         String?   @db.VarChar(40)
+  note          String?   @db.VarChar(500)
+  // Clicked "unsubscribe" in one of this salon's emails.
+  optedOut      Boolean   @default(false)
+  // The 72h anti-spam cooldown, like EmailRecipientCooldown for users.
+  lastEmailedAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@unique([businessId, email])
 }
 
 // A picture added to a marketing email. Bytes live on the row, same reasoning

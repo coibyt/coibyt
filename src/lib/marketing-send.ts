@@ -28,6 +28,13 @@ export function salonPage(slug: string) {
   return `${SITE()}/b/${slug}`;
 }
 
+/** Users unsubscribe from all marketing; a contact from this salon's list. */
+function unsubscribeUrl(r: { id: string; kind?: "user" | "contact" }) {
+  return r.kind === "contact"
+    ? `${SITE()}/api/marketing/unsubscribe?c=${r.id}&t=${unsubscribeToken(`contact:${r.id}`)}`
+    : `${SITE()}/api/marketing/unsubscribe?u=${r.id}&t=${unsubscribeToken(r.id)}`;
+}
+
 type Content = Pick<
   EmailCampaign,
   "subject" | "preheader" | "headline" | "message" | "imageId" | "ctaKind" | "ctaLabel" | "ctaUrl" | "offerTitle" | "offerCode" | "offerExpires"
@@ -39,7 +46,7 @@ type Content = Pick<
 export function renderCampaign(
   campaign: Content & { id?: string },
   salon: CampaignSalon & { slug: string },
-  recipient: { id: string; name: string; locale: string } | null,
+  recipient: { id: string; name: string; locale: string; kind?: "user" | "contact" } | null,
   locale: string,
   sampleName: string | null = null
 ) {
@@ -63,7 +70,7 @@ export function renderCampaign(
     recipientName: recipient?.name ?? sampleName,
     ctaHref: track && direct ? `${SITE()}/api/marketing/c/${track}?to=cta` : direct,
     salonHref: track ? `${SITE()}/api/marketing/c/${track}?to=salon` : salonPage(salon.slug),
-    unsubscribeUrl: recipient ? `${SITE()}/api/marketing/unsubscribe?u=${recipient.id}&t=${unsubscribeToken(recipient.id)}` : null,
+    unsubscribeUrl: recipient ? unsubscribeUrl(recipient) : null,
     pixelUrl: track ? `${SITE()}/api/marketing/o/${track}.gif` : null,
   });
 }
@@ -138,8 +145,12 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   }
   if (sent.length > 0) {
     const now = new Date();
+    const contactIds = sent.filter(({ customer }) => customer.kind === "contact").map(({ customer }) => customer.id);
+    if (contactIds.length) {
+      await prisma.marketingContact.updateMany({ where: { id: { in: contactIds } }, data: { lastEmailedAt: now } });
+    }
     await Promise.all(
-      sent.map(({ customer }) =>
+      sent.filter(({ customer }) => customer.kind === "user").map(({ customer }) =>
         prisma.emailRecipientCooldown.upsert({
           where: { businessId_customerId: { businessId: campaign.businessId, customerId: customer.id } },
           update: { lastSentAt: now },

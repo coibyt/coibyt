@@ -1,5 +1,6 @@
 import { C, SITE_URL, button, emailLayout, esc, headingFont, notice, para, sectionTitle, steps } from "@/lib/email/ui";
 import { loyaltyScanUrl } from "@/lib/loyalty";
+import { givenName } from "@/lib/given-name";
 import { REFERRAL_TICKETS } from "@/lib/loyalty-referral-constants";
 
 /** The welcome email a customer gets when a salon activates their loyalty
@@ -342,7 +343,7 @@ export function loyaltyCardEmail(p: {
 }) {
   const t = loyaltyCardEmailStrings(p.locale);
   const font = headingFont(p.locale);
-  const first = p.customerName.trim().split(/\s+/)[0] || p.customerName;
+  const first = givenName(p.customerName) || p.customerName;
   const cardUrl = loyaltyScanUrl(p.token);
   const qrUrl = `${SITE_URL}/api/email-qr/loyalty/${encodeURIComponent(p.token)}.png`;
   const reward = t.rewardText(p.pointsRequired, p.discountPercent);

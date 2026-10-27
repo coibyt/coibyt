@@ -26,9 +26,11 @@ import {
   UserPlus,
   Users,
   UserRoundCheck,
+  BookUser,
   X,
   type LucideIcon,
 } from "lucide-react";
+import { MarketingContacts } from "@/components/marketing-contacts";
 import { fill } from "@/lib/shop-strings";
 import { marketingStudioStrings, type CampaignTemplate } from "@/lib/marketing-studio-strings";
 import { EMAIL_COOLDOWN_BYPASS_POINTS, EMAIL_SENT_POINTS, SEGMENTS, type Segment } from "@/lib/marketing-segments";
@@ -91,6 +93,7 @@ const SEGMENT_ICONS: Record<Segment, LucideIcon> = {
   LOYAL: Star,
   NEW: UserPlus,
   MEMBERS: UserRoundCheck,
+  IMPORTED: BookUser,
 };
 
 const GOLD_BTN =
@@ -273,7 +276,7 @@ export function MarketingStudio({
   salon: { name: string; logoUrl: string | null };
 }) {
   const S = marketingStudioStrings(locale);
-  const [tab, setTab] = useState<"compose" | "campaigns">("compose");
+  const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
   const [counts, setCounts] = useState<Counts>(initialCounts);
   const [points, setPoints] = useState<number | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[] | null>(null);
@@ -550,17 +553,23 @@ export function MarketingStudio({
 
       {/* Tabs */}
       <div className="flex gap-1 rounded-full bg-white p-1 shadow-sm ring-1 ring-ink-100 sm:inline-flex">
-        {(["compose", "campaigns"] as const).map((k) => (
+        {(["compose", "campaigns", "contacts"] as const).map((k) => (
           <button
             key={k}
             type="button"
             onClick={() => setTab(k)}
-            className={`flex flex-1 items-center justify-center gap-2 whitespace-nowrap rounded-full px-3 py-2.5 text-sm font-semibold transition sm:flex-none sm:px-5 ${
+            className={`flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-2.5 text-[13px] font-semibold transition sm:flex-none sm:gap-2 sm:px-5 sm:text-sm ${
               tab === k ? "bg-[#1f182d] text-white shadow" : "text-ink-400 hover:text-ink-900"
             }`}
           >
-            {k === "compose" ? <Sparkles className="h-4 w-4" /> : <Inbox className="h-4 w-4" />}
-            {k === "compose" ? S.tabCompose : S.tabCampaigns}
+            {k === "compose" ? (
+              <Sparkles className="hidden h-4 w-4 sm:block" />
+            ) : k === "campaigns" ? (
+              <Inbox className="hidden h-4 w-4 sm:block" />
+            ) : (
+              <BookUser className="hidden h-4 w-4 sm:block" />
+            )}
+            {k === "compose" ? S.tabCompose : k === "campaigns" ? S.tabCampaigns : S.tabContacts}
             {k === "campaigns" && campaigns && campaigns.length > 0 && (
               <span className={`rounded-full px-2 py-0.5 text-[10px] ${tab === k ? "bg-white/15" : "bg-mist-50"}`}>{campaigns.length}</span>
             )}
@@ -913,7 +922,7 @@ export function MarketingStudio({
             <div className="sticky top-20 rounded-3xl border border-ink-100 bg-gradient-to-b from-white to-mist-50/60 p-4">{previewPanel}</div>
           </aside>
         </div>
-      ) : (
+      ) : tab === "campaigns" ? (
         <div className="space-y-3">
           {campaigns === null ? (
             <div className="flex justify-center py-16">
@@ -1001,6 +1010,17 @@ export function MarketingStudio({
             </>
           )}
         </div>
+      ) : (
+        <MarketingContacts
+          locale={locale}
+          isOwner={isOwner}
+          onChanged={loadCounts}
+          onCompose={() => {
+            setC((prev) => ({ ...prev, segment: "IMPORTED", includeCooldown: false }));
+            setTab("compose");
+            top.current?.scrollIntoView({ behavior: "smooth" });
+          }}
+        />
       )}
 
       {/* Phone-sized preview sheet, and a sent campaign's preview */}

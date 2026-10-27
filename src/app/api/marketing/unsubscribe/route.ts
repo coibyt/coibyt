@@ -17,7 +17,17 @@ function page(body: string) {
 export async function GET(req: Request) {
   const url = new URL(req.url);
   const userId = url.searchParams.get("u");
+  const contactId = url.searchParams.get("c");
   const token = url.searchParams.get("t");
+
+  // Someone on a salon's own contact list (imported or added by hand).
+  if (contactId && token && isValidUnsubscribeToken(`contact:${contactId}`, token)) {
+    await prisma.marketingContact.updateMany({ where: { id: contactId }, data: { optedOut: true } });
+    return page(
+      "Bạn đã hủy nhận email quảng cáo của salon này thành công.<br/><br/>" +
+        "You've been unsubscribed from this salon's marketing emails."
+    );
+  }
 
   if (!userId || !token || !isValidUnsubscribeToken(userId, token)) {
     return page("Liên kết không hợp lệ hoặc đã hết hạn. / Invalid or expired link.");

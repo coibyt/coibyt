@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { SEGMENTS } from "@/lib/marketing-segments";
+import { givenName } from "@/lib/given-name";
 
 /** What the owner writes in the marketing studio — validated the same way
  * for preview, test sends, sending now and scheduling. */
@@ -36,7 +37,7 @@ export type CampaignContent = z.infer<typeof campaignContentSchema>;
 /** `{ten}` / `{name}` / `{nimi}` in the subject or text become the
  * recipient's first name (or a friendly fallback when there's none). */
 export function personalize(text: string, name: string | null, fallback: string) {
-  const first = name?.trim().split(/\s+/)[0] || fallback;
+  const first = givenName(name) || fallback;
   return text.replace(/\{\s*(ten|tên|name|nimi)\s*\}/gi, first);
 }
 

@@ -1,3 +1,5 @@
+import { givenName } from "@/lib/given-name";
+
 /** Text of the public member-card page (/loyalty/[token]) and the friend
  * invite page (/invite/[code]) — Vietnamese, English and Finnish, with
  * English for every other language. `{name}`-style placeholders are filled
@@ -150,7 +152,8 @@ export function loyaltyCardStrings(locale: string): LoyaltyCardStrings {
   return (STRINGS as Record<string, LoyaltyCardStrings>)[locale] ?? STRINGS.en;
 }
 
-/** First name only, for places other people see (invite page, friend lists). */
+/** The name someone goes by ("Nguyễn Thị Lan" → "Lan"), for places other
+ * people see (invite page, friend lists). */
 export function firstName(name: string) {
-  return name.trim().split(/\s+/)[0] ?? name;
+  return givenName(name) || name;
 }
