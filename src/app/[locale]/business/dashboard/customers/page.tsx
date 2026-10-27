@@ -1,8 +1,8 @@
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
-import { CustomersManager } from "@/components/customers-manager";
+import { CustomersManager, type CustomerRow } from "@/components/customers-manager";
+import { siteSerif } from "@/lib/site-fonts";
 
 export default async function BusinessCustomersPage({
   params,
@@ -11,74 +11,83 @@ export default async function BusinessCustomersPage({
 }) {
   const { locale } = await params;
   const access = await getBusinessAccess();
-  const t = await getTranslations("customers");
   if (!access) return null;
   if (!access.isOwner && !access.permissions.customers) {
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
   const scopeIds = await customerScopeBusinessIds(access);
-  const bookings = await prisma.booking.findMany({
-    where: { businessId: { in: scopeIds } },
-    select: {
-      businessId: true,
-      business: { select: { name: true } },
-      startsAt: true,
-      priceCents: true,
-      currency: true,
-      status: true,
-      customer: { select: { id: true, name: true, email: true, phone: true } },
-    },
-    orderBy: { startsAt: "desc" },
-  });
+  const [bookings, notes] = await Promise.all([
+    prisma.booking.findMany({
+      where: { businessId: { in: scopeIds } },
+      select: {
+        startsAt: true,
+        priceCents: true,
+        currency: true,
+        status: true,
+        customer: { select: { id: true, name: true, email: true, phone: true } },
+      },
+      orderBy: { startsAt: "desc" },
+    }),
+    prisma.customerNote.findMany({ where: { businessId: access.business.id }, select: { customerId: true } }),
+  ]);
+  const withNote = new Set(notes.map((n) => n.customerId));
+  // Staff only see phone numbers and emails when they're allowed to.
+  const showContact = access.canViewCustomerContactInfo;
 
-  const byCustomer = new Map<
-    string,
-    {
-      id: string;
-      name: string;
-      email: string;
-      phone: string | null;
-      visits: number;
-      spentCents: number;
-      currency: string;
-      lastVisit: string;
-    }
-  >();
-
+  const now = Date.now();
+  const byCustomer = new Map<string, CustomerRow>();
   for (const b of bookings) {
-    const existing = byCustomer.get(b.customer.id);
-    const spent = b.status === "COMPLETED" ? b.priceCents : 0;
-    if (existing) {
-      existing.visits += 1;
-      existing.spentCents += spent;
-    } else {
-      byCustomer.set(b.customer.id, {
+    let c = byCustomer.get(b.customer.id);
+    if (!c) {
+      c = {
         id: b.customer.id,
         name: b.customer.name,
-        email: b.customer.email,
-        phone: b.customer.phone,
-        visits: 1,
-        spentCents: spent,
+        email: showContact ? b.customer.email : null,
+        phone: showContact ? b.customer.phone : null,
+        walkIn: b.customer.email.endsWith("@walkin.varaaai.com"),
+        visits: 0,
+        bookings: 0,
+        noShows: 0,
+        spentCents: 0,
         currency: b.currency,
-        lastVisit: b.startsAt.toISOString(),
-      });
+        firstVisit: null,
+        lastVisit: null,
+        nextVisit: null,
+        hasNote: withNote.has(b.customer.id),
+      };
+      byCustomer.set(b.customer.id, c);
+    }
+    c.bookings++;
+    const t = b.startsAt.getTime();
+    const iso = b.startsAt.toISOString();
+    if (b.status === "NO_SHOW") c.noShows++;
+    if (b.status === "COMPLETED") {
+      c.visits++;
+      c.spentCents += b.priceCents;
+    }
+    const happened = (b.status === "COMPLETED" || b.status === "CONFIRMED") && t <= now;
+    if (happened) {
+      if (!c.lastVisit || iso > c.lastVisit) c.lastVisit = iso;
+      if (!c.firstVisit || iso < c.firstVisit) c.firstVisit = iso;
+    }
+    if ((b.status === "CONFIRMED" || b.status === "PENDING_PAYMENT") && t > now && (!c.nextVisit || iso < c.nextVisit)) {
+      c.nextVisit = iso;
     }
   }
 
-  const customers = Array.from(byCustomer.values()).sort(
-    (a, b) => new Date(b.lastVisit).getTime() - new Date(a.lastVisit).getTime()
+  const customers = Array.from(byCustomer.values()).sort((a, b) =>
+    (b.lastVisit ?? b.nextVisit ?? "").localeCompare(a.lastVisit ?? a.nextVisit ?? "")
   );
 
   return (
-    <div>
-      <h1 className="mb-1 text-xl font-bold text-ink-900">{t("title")}</h1>
-      <p className="mb-4 text-sm text-ink-400">{t("subtitle")}</p>
+    <div className={siteSerif.variable}>
       <CustomersManager
         customers={customers}
         locale={locale}
         currentBusinessId={access.business.id}
         canManageBookings={access.isOwner || access.permissions.bookings}
+        canEmail={access.isOwner}
       />
     </div>
   );

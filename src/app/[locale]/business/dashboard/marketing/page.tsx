@@ -2,7 +2,7 @@ import { redirect, Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { segmentCounts } from "@/lib/marketing-recipients";
+import { isSegment, segmentCounts } from "@/lib/marketing-recipients";
 import { sendDueCampaigns } from "@/lib/marketing-send";
 import { siteSerif } from "@/lib/site-fonts";
 import { MarketingStudio } from "@/components/marketing-studio";
@@ -12,10 +12,14 @@ import { Users } from "lucide-react";
 
 export default async function MarketingDashboardPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  // ?segment=LAPSED opens the composer on that audience (from the customers page).
+  searchParams: Promise<{ segment?: string }>;
 }) {
   const { locale } = await params;
+  const { segment } = await searchParams;
   const owned = await requireOwnerOrReadOnlyViewer();
   if (!owned) {
     redirect({ href: "/business/dashboard", locale });
@@ -38,7 +42,13 @@ export default async function MarketingDashboardPage({
           <Users className="h-3.5 w-3.5" /> {t("affiliatesPage.title")}
         </Link>
       </div>
-      <MarketingStudio locale={locale} isOwner={owned.isOwner} initialCounts={counts} salon={business} />
+      <MarketingStudio
+        locale={locale}
+        isOwner={owned.isOwner}
+        initialCounts={counts}
+        salon={business}
+        initialSegment={isSegment(segment) ? segment : "ALL"}
+      />
       <div id="vara-points" className="scroll-mt-24">
         <VaraPointsPanel locale={locale} />
       </div>

@@ -108,6 +108,7 @@ model User {
   // are anonymous (see PwaInstall below).
   pwaInstalls         PwaInstall[]
   priceListDrafts     PriceListDraft[]
+  customerNotes       CustomerNote[]
 
   @@index([role])
 }
@@ -310,6 +311,7 @@ model Business {
   emailCampaigns          EmailCampaign[]
   marketingImages         MarketingImage[]
   marketingContacts       MarketingContact[]
+  customerNotes           CustomerNote[]
   affiliates              Affiliate[]
   emailRecipientCooldowns EmailRecipientCooldown[]
   giftCards               GiftCard[]
@@ -452,6 +454,22 @@ model MarketingContact {
   updatedAt     DateTime  @updatedAt
 
   @@unique([businessId, email])
+}
+
+// The salon's private note about one of its customers (allergies,
+// preferences, favourite colours…). Never shown to the customer.
+model CustomerNote {
+  id         String   @id @default(cuid())
+  businessId String
+  business   Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  customerId String
+  customer   User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  note       String   @db.Text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([businessId, customerId])
+  @@index([customerId])
 }
 
 // A picture added to a marketing email. Bytes live on the row, same reasoning

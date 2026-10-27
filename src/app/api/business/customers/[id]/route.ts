@@ -14,7 +14,7 @@ export async function GET(
 ) {
   const { id } = await params;
   const access = await getBusinessAccess();
-  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+  if (!access || (!access.isOwner && !access.permissions.bookings && !access.permissions.customers)) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const currentId = access.business.id;
@@ -74,6 +74,8 @@ export async function GET(
   const card = await prisma.loyaltyCard.findUnique({
     where: { businessId_customerEmail: { businessId: currentId, customerEmail: customer.email.toLowerCase() } },
     select: {
+      token: true,
+      points: true,
       activatedAt: true,
       rewardsEarned: true,
       scans: { select: { createdAt: true }, orderBy: { createdAt: "asc" } },
@@ -103,7 +105,10 @@ export async function GET(
   }
 
   return NextResponse.json({
-    customer: { name: customer.name, phone: customer.phone, email: customer.email },
+    // Staff only see contact details when they're allowed to.
+    customer: access.canViewCustomerContactInfo
+      ? { name: customer.name, phone: customer.phone, email: customer.email }
+      : { name: customer.name, phone: null, email: "" },
     visitCount: completed.length,
     totalSpentCents: completed.reduce((sum, b) => sum + b.priceCents, 0),
     currency: bookings[0].currency,
@@ -126,6 +131,14 @@ export async function GET(
         ? invoicePublicUrl(invoiceByBooking.get(b.id)!.token, locale)
         : null,
     })),
+    // The salon's private note and the customer's member card, if any.
+    note: (
+      await prisma.customerNote.findUnique({
+        where: { businessId_customerId: { businessId: currentId, customerId: id } },
+        select: { note: true },
+      })
+    )?.note ?? "",
+    card: card ? { token: card.token, points: card.points } : null,
     loyalty: business?.loyaltyProgram
       ? {
           pointsRequired: business.loyaltyProgram.pointsRequired,

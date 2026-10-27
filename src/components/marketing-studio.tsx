@@ -269,18 +269,20 @@ export function MarketingStudio({
   isOwner,
   initialCounts,
   salon,
+  initialSegment = "ALL",
 }: {
   locale: string;
   isOwner: boolean;
   initialCounts: Counts;
   salon: { name: string; logoUrl: string | null };
+  initialSegment?: Segment;
 }) {
   const S = marketingStudioStrings(locale);
   const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
   const [counts, setCounts] = useState<Counts>(initialCounts);
   const [points, setPoints] = useState<number | null>(null);
   const [campaigns, setCampaigns] = useState<Campaign[] | null>(null);
-  const [c, setC] = useState<Content>(EMPTY);
+  const [c, setC] = useState<Content>({ ...EMPTY, segment: initialSegment });
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [imageError, setImageError] = useState(false);
