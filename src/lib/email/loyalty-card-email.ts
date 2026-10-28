@@ -10,7 +10,7 @@ import { REFERRAL_TICKETS } from "@/lib/loyalty-referral-constants";
 
 type L = "vi" | "en" | "fi" | "pl" | "de" | "km" | "th";
 
-interface Strings {
+export interface LoyaltyCardStrings {
   subject: (salon: string) => string;
   preheader: (salon: string, n: number, pct: number) => string;
   eyebrow: string;
@@ -36,7 +36,7 @@ interface Strings {
   signoff: string;
 }
 
-const S: Record<L, Strings> = {
+const S: Record<L, LoyaltyCardStrings> = {
   vi: {
     subject: (b) => `Chào mừng bạn đến với ${b} — thẻ thành viên VIP của bạn đã sẵn sàng`,
     preheader: (b, n, p) => `Thẻ thành viên riêng của bạn tại ${b}: đủ ${n} vé, được giảm ${p}%.`,
@@ -276,15 +276,16 @@ const S: Record<L, Strings> = {
   },
 };
 
-export function loyaltyCardEmailStrings(locale: string): Strings {
+export function loyaltyCardEmailStrings(locale: string): LoyaltyCardStrings {
   return S[locale as L] ?? S.vi;
 }
 
 const MONO = "'SFMono-Regular',Menlo,Consolas,'Courier New',monospace";
 const GOLD_LIGHT = "#e8d3a6";
 
-/** The membership card itself — plum, gold-edged, with the QR on white. */
-function memberCard(p: { salon: string; name: string; token: string; qrUrl: string; reward: string; t: Strings; font: string }) {
+/** The membership card itself — plum, gold-edged, with the QR on white.
+ * Also shown inside marketing campaigns that hand out loyalty cards. */
+export function memberCard(p: { salon: string; name: string; token: string; qrUrl: string; reward: string; t: LoyaltyCardStrings; font: string }) {
   const label = (text: string) =>
     `<div style="font-size:10px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:rgba(255,255,255,.55)">${text}</div>`;
   return `

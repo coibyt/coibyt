@@ -29,9 +29,10 @@ export default async function MarketingDashboardPage({
 
   // Scheduled campaigns whose time has come, in case the cron isn't set up.
   await sendDueCampaigns(owned.businessId).catch(() => 0);
-  const [counts, business] = await Promise.all([
+  const [counts, business, loyaltyProgram] = await Promise.all([
     segmentCounts(owned.businessId),
     prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true } }),
+    prisma.loyaltyProgram.findUnique({ where: { businessId: owned.businessId }, select: { pointsRequired: true, discountPercent: true } }),
   ]);
 
   return (
@@ -48,6 +49,7 @@ export default async function MarketingDashboardPage({
         initialCounts={counts}
         salon={business}
         initialSegment={isSegment(segment) ? segment : "ALL"}
+        loyaltyProgram={loyaltyProgram}
       />
       <div id="vara-points" className="scroll-mt-24">
         <VaraPointsPanel locale={locale} />

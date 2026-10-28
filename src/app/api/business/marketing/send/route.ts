@@ -34,6 +34,10 @@ export async function POST(req: Request) {
     if (!img) return NextResponse.json({ error: "INVALID" }, { status: 400 });
   }
 
+  if (content.loyaltyCard && !(await prisma.loyaltyProgram.findUnique({ where: { businessId }, select: { id: true } }))) {
+    return NextResponse.json({ error: "NO_LOYALTY_PROGRAM" }, { status: 409 });
+  }
+
   const when = scheduleAt ? new Date(scheduleAt) : null;
   if (when && (when.getTime() < Date.now() + 5 * 60 * 1000 || when.getTime() > Date.now() + 90 * 24 * 60 * 60 * 1000)) {
     return NextResponse.json({ error: "INVALID_SCHEDULE" }, { status: 400 });

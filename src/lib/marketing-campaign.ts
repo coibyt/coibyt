@@ -30,6 +30,8 @@ export const campaignContentSchema = z.object({
     .default(null),
   segment: z.enum(SEGMENTS).default("ALL"),
   includeCooldown: z.boolean().optional().default(false),
+  // Attach each recipient's loyalty card (made for them if they have none).
+  loyaltyCard: z.boolean().optional().default(false),
 });
 
 export type CampaignContent = z.infer<typeof campaignContentSchema>;
@@ -57,5 +59,6 @@ export function campaignColumns(c: CampaignContent) {
     offerExpires: c.offerExpires ? new Date(`${c.offerExpires}T23:59:59Z`) : null,
     segment: c.segment,
     includeCooldown: c.includeCooldown,
+    loyaltyCard: c.loyaltyCard,
   };
 }

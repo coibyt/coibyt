@@ -408,6 +408,10 @@ model EmailCampaign {
   // Who it goes to — see src/lib/marketing-recipients.ts
   segment         String    @default("ALL") @db.VarChar(16)
   includeCooldown Boolean   @default(false)
+  // Gives every recipient a loyalty card: a new one when they have none,
+  // otherwise their existing code — shown in the email with the QR and how
+  // to use it (src/lib/marketing-send.ts).
+  loyaltyCard     Boolean   @default(false)
   // SCHEDULED → SENDING → SENT, or CANCELLED. Campaigns sent before this
   // existed are SENT.
   status          String    @default("SENT") @db.VarChar(12)

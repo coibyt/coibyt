@@ -1,5 +1,7 @@
-import { C, SITE_URL, absoluteUrl, button, emailLayout, esc, headingFont } from "@/lib/email/ui";
+import { C, SITE_URL, absoluteUrl, button, emailLayout, esc, headingFont, notice, sectionTitle, steps } from "@/lib/email/ui";
 import { personalize } from "@/lib/marketing-campaign";
+import { loyaltyCardEmailStrings, memberCard } from "@/lib/email/loyalty-card-email";
+import { loyaltyScanUrl } from "@/lib/loyalty";
 
 /** The email a salon's marketing campaign sends: an optional picture, a big
  * headline, the owner's message, an optional gold coupon and a button —
@@ -16,6 +18,18 @@ const T = {
     why: (b: string) => `Bạn nhận được email này vì đã từng sử dụng dịch vụ tại ${b}.`,
     unsub: "Hủy nhận email quảng cáo",
     visit: "Xem trang của salon",
+    cardNewTitle: "Quà tặng: thẻ tích điểm của bạn",
+    cardNewText: (b: string) =>
+      `${b} tặng bạn thẻ tích điểm thành viên. Mỗi lần làm dịch vụ bạn nhận 1 vé — đủ vé là được giảm giá. Thẻ nằm ngay trong email này, không cần thẻ giấy hay cài ứng dụng.`,
+    cardOldTitle: "Thẻ tích điểm của bạn",
+    cardOldText: (b: string, pts: number, n: number) =>
+      `Bạn đã có thẻ tích điểm tại ${b} — mã thẻ của bạn vẫn giữ nguyên, số vé đã tích vẫn còn đó. Hiện bạn có ${pts}/${n} vé.`,
+    viewCard: "Xem thẻ của tôi",
+    howTitle: "Cách dùng thẻ",
+    bookTitle: "Đặt lịch online trên VaraaAi",
+    bookText: (b: string) =>
+      `Từ nay bạn có thể đặt lịch với ${b} trên VaraaAi bất cứ lúc nào: chọn dịch vụ, nhân viên và giờ phù hợp chỉ trong vài giây, và nhận email nhắc lịch trước mỗi lần hẹn.`,
+    sample: "Thẻ mẫu — mỗi khách sẽ nhận mã thẻ riêng của mình.",
   },
   en: {
     friend: "there",
@@ -27,6 +41,18 @@ const T = {
     why: (b: string) => `You're receiving this because you've visited ${b}.`,
     unsub: "Unsubscribe from marketing emails",
     visit: "Visit the salon's page",
+    cardNewTitle: "A gift for you: your loyalty card",
+    cardNewText: (b: string) =>
+      `${b} is giving you a loyalty card. Every visit earns you 1 ticket — collect enough and you get a discount. The card is right here in this email: no paper card, no app to install.`,
+    cardOldTitle: "Your loyalty card",
+    cardOldText: (b: string, pts: number, n: number) =>
+      `You already have a loyalty card at ${b} — your card code stays the same and your tickets are still there. You have ${pts}/${n} tickets.`,
+    viewCard: "View my card",
+    howTitle: "How to use your card",
+    bookTitle: "Book online on VaraaAi",
+    bookText: (b: string) =>
+      `You can now book ${b} on VaraaAi any time: pick the service, the staff member and a time that suits you in seconds, and get a reminder email before every appointment.`,
+    sample: "Sample card — every customer gets their own card code.",
   },
   fi: {
     friend: "ystävä",
@@ -38,6 +64,18 @@ const T = {
     why: (b: string) => `Saat tämän viestin, koska olet asioinut paikassa ${b}.`,
     unsub: "Peru markkinointiviestien tilaus",
     visit: "Salongin sivu",
+    cardNewTitle: "Lahja sinulle: kanta-asiakaskorttisi",
+    cardNewText: (b: string) =>
+      `${b} antaa sinulle kanta-asiakaskortin. Jokaisesta käynnistä saat 1 lipun — kun lippuja on tarpeeksi, saat alennuksen. Kortti on tässä sähköpostissa: ei muovikorttia eikä sovellusta.`,
+    cardOldTitle: "Kanta-asiakaskorttisi",
+    cardOldText: (b: string, pts: number, n: number) =>
+      `Sinulla on jo kanta-asiakaskortti paikassa ${b} — korttikoodisi pysyy samana ja keräämäsi liput ovat tallessa. Sinulla on ${pts}/${n} lippua.`,
+    viewCard: "Näytä korttini",
+    howTitle: "Näin käytät korttia",
+    bookTitle: "Varaa verkossa VaraaAi:ssa",
+    bookText: (b: string) =>
+      `Voit nyt varata ajan paikkaan ${b} VaraaAi:ssa milloin tahansa: valitse palvelu, työntekijä ja sopiva aika sekunneissa, ja saat muistutuksen sähköpostiin ennen jokaista käyntiä.`,
+    sample: "Esimerkkikortti — jokainen asiakas saa oman korttikoodinsa.",
   },
 };
 
@@ -58,6 +96,20 @@ export interface CampaignEmailInput {
   offerExpires: Date | null;
 }
 
+/** A loyalty card handed out with the campaign — the recipient's own (new
+ * or existing), or a sample in the preview. */
+export interface CampaignLoyaltyCard {
+  token: string;
+  holder: string;
+  isNew: boolean;
+  points: number;
+  pointsRequired: number;
+  discountPercent: number;
+  /** The QR image: the public QR route when sending, a data URL in previews. */
+  qrUrl: string;
+  sample?: boolean;
+}
+
 export interface CampaignSalon {
   name: string;
   logoUrl: string | null;
@@ -72,6 +124,25 @@ function messageHtml(text: string) {
     .split(/\n{2,}/)
     .map((p) => `<p style="margin:0 0 16px;font-size:15.5px;line-height:1.75;color:${C.text}">${esc(p).replace(/\n/g, "<br />")}</p>`)
     .join("");
+}
+
+function loyaltyBlock(card: CampaignLoyaltyCard, salonName: string, locale: string, t: (typeof T)["en"], font: string) {
+  const lt = loyaltyCardEmailStrings(locale);
+  const n = card.pointsRequired;
+  const pct = card.discountPercent;
+  return [
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 0"><tr><td>
+      <div style="font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:#7a5f2c">♛ ${esc(card.isNew ? t.cardNewTitle : t.cardOldTitle)}</div>
+      <p style="margin:8px 0 0;font-size:15px;line-height:1.7;color:${C.text}">${esc(card.isNew ? t.cardNewText(salonName) : t.cardOldText(salonName, card.points, n))}</p>
+    </td></tr></table>`,
+    memberCard({ salon: salonName, name: card.holder, token: card.token, qrUrl: card.qrUrl, reward: lt.rewardText(n, pct), t: lt, font }),
+    card.sample ? `<p style="margin:6px 0 0;text-align:center;font-size:12px;font-style:italic;color:${C.muted}">${esc(t.sample)}</p>` : "",
+    button(loyaltyScanUrl(card.token), esc(t.viewCard), { variant: "gold" }),
+    sectionTitle(esc(t.howTitle), 30),
+    steps(lt.steps(n, pct).map((s) => ({ title: esc(s.title), body: esc(s.body) }))),
+    notice(esc(t.bookTitle), esc(t.bookText(salonName)), "gold", 22),
+    `<div style="height:8px;line-height:8px;font-size:1px">&nbsp;</div>`,
+  ].join("");
 }
 
 function coupon(title: string | null, code: string | null, until: string | null, t: (typeof T)["en"], font: string) {
@@ -104,6 +175,7 @@ export function campaignEmail(p: {
   unsubscribeUrl: string | null;
   /** 1×1 open-tracking image, when sending for real. */
   pixelUrl: string | null;
+  loyalty?: CampaignLoyaltyCard | null;
 }) {
   const t = strings(p.locale);
   const font = headingFont(p.locale);
@@ -124,6 +196,7 @@ export function campaignEmail(p: {
       ? `<div class="h1" style="font-family:${font};font-size:30px;line-height:1.22;font-weight:700;color:${C.night};margin:0 0 18px">${esc(fill(c.headline))}</div>`
       : "",
     messageHtml(fill(c.message)),
+    p.loyalty ? loyaltyBlock(p.loyalty, p.salon.name, p.locale, t, font) : "",
     coupon(c.offerTitle, c.offerCode, until, t, font),
     c.ctaKind !== "NONE" && p.ctaHref ? button(p.ctaHref, esc(ctaLabel), { variant: "dark" }) : "",
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:30px;border-top:1px solid ${C.hair}"><tr>

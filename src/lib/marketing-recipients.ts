@@ -190,11 +190,14 @@ export async function segmentCounts(businessId: string) {
   const [stats, members] = await Promise.all([customerStats(businessId), loyaltyEmails(businessId)]);
   const all = await splitByCooldown(businessId, stats);
   const cooling = new Set(all.cooldown.map((c) => c.id));
-  const out = {} as Record<Segment, { eligible: number; cooldown: number }>;
+  // withCard: how many already hold this salon's loyalty card (for campaigns
+  // that hand cards out — the rest would get a new one).
+  const out = {} as Record<Segment, { eligible: number; cooldown: number; withCard: number }>;
   for (const seg of SEGMENTS) {
-    const ids = stats.filter((s) => inSegment(s, seg, members)).map((s) => s.customer.id);
-    const cooldown = ids.filter((id) => cooling.has(id)).length;
-    out[seg] = { eligible: ids.length - cooldown, cooldown };
+    const list = stats.filter((s) => inSegment(s, seg, members));
+    const cooldown = list.filter((s) => cooling.has(s.customer.id)).length;
+    const withCard = list.filter((s) => members.has(s.customer.email.toLowerCase())).length;
+    out[seg] = { eligible: list.length - cooldown, cooldown, withCard };
   }
   return out;
 }

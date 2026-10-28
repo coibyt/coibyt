@@ -14,6 +14,9 @@ export interface CampaignTemplate {
   headline: string;
   message: string;
   offerTitle?: string;
+  ctaLabel?: string;
+  /** Hands every recipient their loyalty card. */
+  loyaltyCard?: boolean;
 }
 
 const STRINGS = {
@@ -92,6 +95,15 @@ const STRINGS = {
     scheduled: "Đã lên lịch! Bạn có thể xem hoặc hủy trong tab Chiến dịch.",
     errInsufficient: "Không đủ điểm Vara: cần {required}, bạn có {available}.",
     errNoRecipients: "Chưa có khách nào trong nhóm này.",
+    errNoLoyalty: "Salon chưa thiết lập chương trình thẻ tích điểm.",
+    loyaltyToggle: "Tặng thẻ tích điểm",
+    loyaltyToggleHint: "Mỗi khách nhận thẻ tích điểm cùng mã QR và hướng dẫn sử dụng ngay trong email.",
+    loyaltyHave: "{n} khách đã có thẻ — nhận lại mã thẻ cũ và hướng dẫn cách dùng",
+    loyaltyNew: "{n} khách chưa có thẻ — được tạo thẻ mới với mã riêng",
+    loyaltyRule: "Ưu đãi hiện tại: đủ {n} vé được giảm {pct}%.",
+    loyaltyNoProgram: "Bạn cần thiết lập chương trình thẻ tích điểm (số vé và mức giảm giá) trước khi tặng thẻ.",
+    loyaltySetup: "Thiết lập thẻ tích điểm",
+    loyaltyBadge: "Kèm thẻ tích điểm",
     errSchedule: "Hãy chọn thời gian từ 5 phút tới 90 ngày kể từ bây giờ.",
     errGeneric: "Gửi không thành công, vui lòng thử lại.",
     missing: "Cần có tiêu đề và lời nhắn để gửi.",
@@ -180,6 +192,18 @@ const STRINGS = {
       IMPORTED: ["Danh bạ của salon", "Khách nhập từ Excel hoặc thêm tay"],
     } as Record<Segment, [string, string]>,
     templates: [
+      {
+        id: "loyalty",
+        emoji: "💳",
+        name: "Tặng thẻ tích điểm",
+        subject: "{ten} ơi, salon tặng bạn thẻ tích điểm thành viên",
+        preheader: "Thẻ tích điểm riêng của bạn — đặt lịch online trên VaraaAi để bắt đầu tích vé.",
+        headline: "Món quà dành riêng cho bạn",
+        message:
+          "Chào {ten},\n\nCảm ơn bạn đã luôn đồng hành cùng salon. Từ nay salon nhận đặt lịch online trên VaraaAi — nhanh hơn, tiện hơn và có email nhắc lịch tự động trước mỗi lần hẹn.\n\nĐể cảm ơn bạn, chúng tôi tặng bạn thẻ tích điểm thành viên ngay bên dưới. Mỗi lần làm dịch vụ bạn nhận 1 vé, đủ vé là được giảm giá.\n\nHãy đặt lịch hẹn tới của bạn trên VaraaAi bằng nút bên dưới nhé!",
+        ctaLabel: "Đặt lịch trên VaraaAi",
+        loyaltyCard: true,
+      },
       {
         id: "promo",
         emoji: "💅",
@@ -320,6 +344,15 @@ const STRINGS = {
     scheduled: "Scheduled! You can view or cancel it under Campaigns.",
     errInsufficient: "Not enough Vara points: {required} needed, you have {available}.",
     errNoRecipients: "There are no customers in this group yet.",
+    errNoLoyalty: "The salon hasn't set up its loyalty card programme yet.",
+    loyaltyToggle: "Give a loyalty card",
+    loyaltyToggleHint: "Every customer gets their loyalty card with its QR code and how to use it, right in the email.",
+    loyaltyHave: "{n} customers already have a card — they get their existing code and how to use it",
+    loyaltyNew: "{n} customers have no card yet — a new card with its own code is made for them",
+    loyaltyRule: "Current reward: {n} tickets = {pct}% off.",
+    loyaltyNoProgram: "Set up your loyalty card programme (tickets and discount) before giving cards away.",
+    loyaltySetup: "Set up loyalty cards",
+    loyaltyBadge: "With loyalty card",
     errSchedule: "Pick a time between 5 minutes and 90 days from now.",
     errGeneric: "Sending failed, please try again.",
     missing: "A subject and a message are needed to send.",
@@ -408,6 +441,18 @@ const STRINGS = {
       IMPORTED: ["Your contact list", "Imported from Excel or added by hand"],
     } as Record<Segment, [string, string]>,
     templates: [
+      {
+        id: "loyalty",
+        emoji: "💳",
+        name: "Loyalty card gift",
+        subject: "{ten}, a loyalty card from us — just for you",
+        preheader: "Your own loyalty card — book online on VaraaAi to start collecting tickets.",
+        headline: "A gift just for you",
+        message:
+          "Hi {ten},\n\nThank you for always choosing us. We now take bookings online on VaraaAi — quicker, easier, and with an automatic reminder email before every appointment.\n\nTo say thank you, here is your own loyalty card. Every visit earns you 1 ticket, and once you have enough you get a discount.\n\nBook your next appointment on VaraaAi with the button below!",
+        ctaLabel: "Book on VaraaAi",
+        loyaltyCard: true,
+      },
       {
         id: "promo",
         emoji: "💅",
@@ -548,6 +593,15 @@ const STRINGS = {
     scheduled: "Ajastettu! Voit katsoa tai perua sen Kampanjat-välilehdellä.",
     errInsufficient: "Vara-pisteet eivät riitä: tarvitaan {required}, sinulla on {available}.",
     errNoRecipients: "Tässä ryhmässä ei ole vielä asiakkaita.",
+    errNoLoyalty: "Salonki ei ole vielä ottanut kanta-asiakaskorttia käyttöön.",
+    loyaltyToggle: "Anna kanta-asiakaskortti",
+    loyaltyToggleHint: "Jokainen asiakas saa kanta-asiakaskorttinsa QR-koodeineen ja käyttöohjeineen suoraan viestissä.",
+    loyaltyHave: "{n} asiakkaalla on jo kortti — he saavat nykyisen koodinsa ja käyttöohjeet",
+    loyaltyNew: "{n} asiakkaalla ei ole korttia — heille tehdään uusi kortti omalla koodilla",
+    loyaltyRule: "Nykyinen etu: {n} lippua = {pct} % alennus.",
+    loyaltyNoProgram: "Ota kanta-asiakaskortti käyttöön (liput ja alennus) ennen korttien antamista.",
+    loyaltySetup: "Ota kanta-asiakaskortti käyttöön",
+    loyaltyBadge: "Kanta-asiakaskortti mukana",
     errSchedule: "Valitse aika 5 minuutin ja 90 päivän väliltä.",
     errGeneric: "Lähetys epäonnistui, yritä uudelleen.",
     missing: "Otsikko ja viesti tarvitaan lähettämiseen.",
@@ -636,6 +690,18 @@ const STRINGS = {
       IMPORTED: ["Omat yhteystiedot", "Tuotu Excelistä tai lisätty käsin"],
     } as Record<Segment, [string, string]>,
     templates: [
+      {
+        id: "loyalty",
+        emoji: "💳",
+        name: "Kanta-asiakaskortti lahjaksi",
+        subject: "{ten}, kanta-asiakaskortti lahjaksi sinulle",
+        preheader: "Oma kanta-asiakaskorttisi — varaa aika VaraaAi:ssa ja ala kerätä lippuja.",
+        headline: "Lahja juuri sinulle",
+        message:
+          "Hei {ten},\n\nKiitos, että olet valinnut meidät. Otamme nyt varauksia verkossa VaraaAi:ssa — nopeammin ja helpommin, ja saat muistutuksen sähköpostiin ennen jokaista käyntiä.\n\nKiitokseksi saat oman kanta-asiakaskortin alta. Jokaisesta käynnistä saat 1 lipun, ja kun lippuja on tarpeeksi, saat alennuksen.\n\nVaraa seuraava aikasi VaraaAi:ssa alla olevasta painikkeesta!",
+        ctaLabel: "Varaa VaraaAi:ssa",
+        loyaltyCard: true,
+      },
       {
         id: "promo",
         emoji: "💅",

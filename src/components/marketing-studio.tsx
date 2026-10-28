@@ -27,15 +27,17 @@ import {
   Users,
   UserRoundCheck,
   BookUser,
+  CreditCard,
   X,
   type LucideIcon,
 } from "lucide-react";
 import { MarketingContacts } from "@/components/marketing-contacts";
+import { Link } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
 import { marketingStudioStrings, type CampaignTemplate } from "@/lib/marketing-studio-strings";
 import { EMAIL_COOLDOWN_BYPASS_POINTS, EMAIL_SENT_POINTS, SEGMENTS, type Segment } from "@/lib/marketing-segments";
 
-type Counts = Record<Segment, { eligible: number; cooldown: number }>;
+type Counts = Record<Segment, { eligible: number; cooldown: number; withCard?: number }>;
 
 interface Content {
   subject: string;
@@ -51,6 +53,7 @@ interface Content {
   offerExpires: string | null;
   segment: Segment;
   includeCooldown: boolean;
+  loyaltyCard: boolean;
 }
 
 interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" | "ctaUrl" | "offerTitle" | "offerCode"> {
@@ -84,6 +87,7 @@ const EMPTY: Content = {
   offerExpires: null,
   segment: "ALL",
   includeCooldown: false,
+  loyaltyCard: false,
 };
 
 const SEGMENT_ICONS: Record<Segment, LucideIcon> = {
@@ -270,12 +274,15 @@ export function MarketingStudio({
   initialCounts,
   salon,
   initialSegment = "ALL",
+  loyaltyProgram,
 }: {
   locale: string;
   isOwner: boolean;
   initialCounts: Counts;
   salon: { name: string; logoUrl: string | null };
   initialSegment?: Segment;
+  /** The salon's loyalty card rules, or null before it has set them up. */
+  loyaltyProgram: { pointsRequired: number; discountPercent: number } | null;
 }) {
   const S = marketingStudioStrings(locale);
   const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
@@ -386,7 +393,8 @@ export function MarketingStudio({
       message: t.message,
       offerTitle: t.offerTitle ?? "",
       ctaKind: "BOOK",
-      ctaLabel: "",
+      ctaLabel: t.ctaLabel ?? "",
+      loyaltyCard: !!t.loyaltyCard && !!loyaltyProgram,
     }));
     setOfferOn(!!t.offerTitle);
   }
@@ -438,6 +446,8 @@ export function MarketingStudio({
             ? fill(S.errInsufficient, { required: d.required, available: d.available })
             : d?.error === "NO_RECIPIENTS"
               ? S.errNoRecipients
+              : d?.error === "NO_LOYALTY_PROGRAM"
+                ? S.errNoLoyalty
               : d?.error === "INVALID_SCHEDULE"
                 ? S.errSchedule
                 : S.errGeneric,
@@ -481,6 +491,7 @@ export function MarketingStudio({
       offerExpires: x.offerExpires,
       segment: x.segment,
       includeCooldown: false,
+      loyaltyCard: !!x.loyaltyCard && !!loyaltyProgram,
     };
   }
 
@@ -750,6 +761,60 @@ export function MarketingStudio({
 
             {/* 3. Offer + button */}
             <StepCard n={3} title={S.offerTitle} S={S}>
+              <div className="mb-3 overflow-hidden rounded-2xl ring-1 ring-[#3b2f55]/20">
+                <label className={`flex items-center justify-between gap-3 bg-gradient-to-r from-[#1f182d] to-[#40325c] p-4 text-white ${loyaltyProgram ? "cursor-pointer" : "opacity-90"}`}>
+                  <span className="flex min-w-0 items-center gap-3">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#e8d3a6] ring-1 ring-white/15">
+                      <CreditCard className="h-5 w-5" />
+                    </span>
+                    <span className="min-w-0">
+                      <span className="block text-sm font-bold">{S.loyaltyToggle}</span>
+                      <span className="block text-[11px] text-white/65">{S.loyaltyToggleHint}</span>
+                    </span>
+                  </span>
+                  <span className={`relative h-6 w-11 shrink-0 rounded-full transition ${c.loyaltyCard ? "bg-[#c99a3f]" : "bg-white/20"}`}>
+                    <input
+                      type="checkbox"
+                      checked={c.loyaltyCard}
+                      disabled={!loyaltyProgram}
+                      onChange={(e) => set("loyaltyCard", e.target.checked)}
+                      className="sr-only"
+                    />
+                    <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all ${c.loyaltyCard ? "left-[22px]" : "left-0.5"}`} />
+                  </span>
+                </label>
+                {!loyaltyProgram ? (
+                  <div className="flex flex-wrap items-center justify-between gap-2 bg-[#fffaf0] px-4 py-3 text-xs text-[#6b5221]">
+                    <span className="min-w-0 flex-1">{S.loyaltyNoProgram}</span>
+                    <Link href="/business/dashboard/loyalty" className="shrink-0 rounded-full bg-[#1f182d] px-3 py-1.5 text-[11px] font-bold text-white">
+                      {S.loyaltySetup} →
+                    </Link>
+                  </div>
+                ) : (
+                  c.loyaltyCard && (
+                    <div className="space-y-1.5 bg-[#fbf8ff] px-4 py-3 text-xs text-ink-700">
+                      {(() => {
+                        const sc = counts[c.segment];
+                        const total = sc.eligible + (c.includeCooldown ? sc.cooldown : 0);
+                        const have = Math.min(sc.withCard ?? 0, total);
+                        return (
+                          <>
+                            <p className="flex items-start gap-2">
+                              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#c99a3f]" />
+                              {fill(S.loyaltyHave, { n: have })}
+                            </p>
+                            <p className="flex items-start gap-2">
+                              <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
+                              {fill(S.loyaltyNew, { n: Math.max(0, total - have) })}
+                            </p>
+                          </>
+                        );
+                      })()}
+                      <p className="pt-0.5 text-[11px] text-ink-400">{fill(S.loyaltyRule, { n: loyaltyProgram.pointsRequired, pct: loyaltyProgram.discountPercent })}</p>
+                    </div>
+                  )
+                )}
+              </div>
               <label className="flex cursor-pointer items-center justify-between gap-3 rounded-2xl bg-gradient-to-r from-[#fffaf0] to-[#f8eedb] p-4 ring-1 ring-[#ecd9ad]">
                 <span className="flex items-center gap-3">
                   <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-[#b08a3e] shadow-sm">
@@ -957,6 +1022,12 @@ export function MarketingStudio({
                             {S[`status${x.status}` as "statusSENT"] ?? x.status}
                           </span>
                           <span className="rounded-full bg-mist-50 px-2.5 py-0.5 text-[11px] font-semibold text-ink-400">{S.segments[x.segment]?.[0] ?? x.segment}</span>
+                          {x.loyaltyCard && (
+                            <span className="flex items-center gap-1 rounded-full bg-[#1f182d] px-2.5 py-0.5 text-[11px] font-bold text-[#e8d3a6]">
+                              <CreditCard className="h-3 w-3" />
+                              {S.loyaltyBadge}
+                            </span>
+                          )}
                           <span className="text-[11px] text-ink-400" suppressHydrationWarning>
                             {fill(x.status === "SCHEDULED" ? S.scheduledFor : S.sentOn, { time: dateFmt.format(new Date(time)) })}
                           </span>

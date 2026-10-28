@@ -1,9 +1,12 @@
-import type { EmailCampaign } from "@prisma/client";
+import type { EmailCampaign, LoyaltyProgram } from "@prisma/client";
+import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { awardPoints } from "@/lib/vara-points";
 import { trackingToken, unsubscribeToken } from "@/lib/marketing-email";
-import { campaignEmail, marketingImageUrl, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
+import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
+import { loyaltyQrPng, loyaltyScanUrl, newLoyaltyToken } from "@/lib/loyalty";
+import { SITE_URL } from "@/lib/email/ui";
 import {
   EMAIL_COOLDOWN_BYPASS_POINTS,
   EMAIL_SENT_POINTS,
@@ -48,7 +51,8 @@ export function renderCampaign(
   salon: CampaignSalon & { slug: string },
   recipient: { id: string; name: string; locale: string; kind?: "user" | "contact" } | null,
   locale: string,
-  sampleName: string | null = null
+  sampleName: string | null = null,
+  loyalty: CampaignLoyaltyCard | null = null
 ) {
   const track = campaign.id && recipient ? trackingToken(campaign.id, recipient.id) : null;
   const direct = campaign.ctaKind === "URL" ? campaign.ctaUrl : campaign.ctaKind === "BOOK" ? salonPage(salon.slug) : null;
@@ -72,7 +76,47 @@ export function renderCampaign(
     salonHref: track ? `${SITE()}/api/marketing/c/${track}?to=salon` : salonPage(salon.slug),
     unsubscribeUrl: recipient ? unsubscribeUrl(recipient) : null,
     pixelUrl: track ? `${SITE()}/api/marketing/o/${track}.gif` : null,
+    loyalty,
   });
+}
+
+/** The recipient's loyalty card at this salon — made now if they have none,
+ * so the email can welcome them to a new card or remind them of their code. */
+async function cardFor(businessId: string, r: { email: string; name: string }, program: LoyaltyProgram) {
+  const email = r.email.toLowerCase();
+  const toBlock = (c: { token: string; customerName: string; points: number }, isNew: boolean): CampaignLoyaltyCard => ({
+    token: c.token,
+    holder: c.customerName,
+    isNew,
+    points: c.points,
+    pointsRequired: program.pointsRequired,
+    discountPercent: program.discountPercent,
+    qrUrl: `${SITE_URL}/api/email-qr/loyalty/${encodeURIComponent(c.token)}.png`,
+  });
+  const existing = await prisma.loyaltyCard.findUnique({ where: { businessId_customerEmail: { businessId, customerEmail: email } } });
+  if (existing) return { block: toBlock(existing, false), createdId: null };
+  const created = await prisma.loyaltyCard.create({
+    data: { businessId, customerName: r.name.trim() || email.split("@")[0], customerEmail: email, token: await newLoyaltyToken() },
+  });
+  return { block: toBlock(created, true), createdId: created.id };
+}
+
+/** A sample card for the studio's preview and test emails, with the QR
+ * inlined (there's no real card behind it). Null without a loyalty program. */
+export async function sampleLoyaltyCard(businessId: string, name: string): Promise<CampaignLoyaltyCard | null> {
+  const program = await prisma.loyaltyProgram.findUnique({ where: { businessId } });
+  if (!program) return null;
+  const token = "VARA2026DEMO";
+  return {
+    token,
+    holder: name || "Anna",
+    isNew: true,
+    points: 0,
+    pointsRequired: program.pointsRequired,
+    discountPercent: program.discountPercent,
+    qrUrl: await QRCode.toDataURL(loyaltyScanUrl(token), { width: 240, margin: 1 }),
+    sample: true,
+  };
 }
 
 /** What sending a campaign to its audience costs right now, in Vara points. */
@@ -88,7 +132,7 @@ export async function campaignCost(businessId: string, segment: string, includeC
 
 export type SendOutcome =
   | { ok: true; sent: number; total: number }
-  | { ok: false; error: "NOT_FOUND" | "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS"; required?: number; available?: number };
+  | { ok: false; error: "NOT_FOUND" | "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS" | "NO_LOYALTY_PROGRAM"; required?: number; available?: number };
 
 /** Sends a campaign that has been claimed for sending (status SENDING):
  * all-or-nothing on Vara points, only charging for emails that actually
@@ -106,7 +150,7 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
     ...eligible.map((customer) => ({ customer, cooldownBypass: false })),
     ...(campaign.includeCooldown ? cooldown.map((customer) => ({ customer, cooldownBypass: true })) : []),
   ];
-  const fail = async (error: "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS", extra = {}) => {
+  const fail = async (error: "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS" | "NO_LOYALTY_PROGRAM", extra = {}) => {
     await prisma.emailCampaign.update({ where: { id: campaignId }, data: { status: "FAILED", recipientCount: 0 } });
     return { ok: false as const, error, ...extra };
   };
@@ -117,14 +161,31 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   const owner = await prisma.user.findUniqueOrThrow({ where: { id: business.ownerId }, select: { varaPoints: true } });
   if (cost > owner.varaPoints) return fail("INSUFFICIENT_VARA_POINTS", { required: cost, available: owner.varaPoints });
 
+  const program = campaign.loyaltyCard ? await prisma.loyaltyProgram.findUnique({ where: { businessId: campaign.businessId } }) : null;
+  if (campaign.loyaltyCard && !program) return fail("NO_LOYALTY_PROGRAM");
+
   const results: PromiseSettledResult<unknown>[] = [];
   for (let i = 0; i < tagged.length; i += SEND_BATCH) {
     const batch = tagged.slice(i, i + SEND_BATCH);
     results.push(
       ...(await Promise.allSettled(
-        batch.map(({ customer }) => {
-          const mail = renderCampaign(campaign, business, customer, customer.locale);
-          return sendMail({ to: customer.email, subject: mail.subject, html: mail.html });
+        batch.map(async ({ customer }) => {
+          const card = program ? await cardFor(campaign.businessId, customer, program) : null;
+          const mail = renderCampaign(campaign, business, customer, customer.locale, null, card?.block ?? null);
+          try {
+            await sendMail({
+              to: customer.email,
+              subject: mail.subject,
+              html: mail.html,
+              // The QR as a file too, so it can be saved to the phone.
+              attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,
+            });
+          } catch (err) {
+            // A card made for an email that never arrived would greet them
+            // as an existing member next time — undo it.
+            if (card?.createdId) await prisma.loyaltyCard.delete({ where: { id: card.createdId } }).catch(() => {});
+            throw err;
+          }
         })
       ))
     );

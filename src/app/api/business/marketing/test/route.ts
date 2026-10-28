@@ -4,7 +4,7 @@ import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { campaignColumns, campaignContentSchema } from "@/lib/marketing-campaign";
-import { renderCampaign, salonSelect } from "@/lib/marketing-send";
+import { renderCampaign, salonSelect, sampleLoyaltyCard } from "@/lib/marketing-send";
 
 const lastTest = new Map<string, number>();
 
@@ -26,7 +26,8 @@ export async function POST(req: Request) {
     where: { id: access.business.id },
     select: { ...salonSelect, defaultLocale: true },
   });
-  const mail = renderCampaign(campaignColumns(parsed.data), business, null, business.defaultLocale, session.user.name ?? "");
+  const loyalty = parsed.data.loyaltyCard ? await sampleLoyaltyCard(access.business.id, session.user.name ?? "") : null;
+  const mail = renderCampaign(campaignColumns(parsed.data), business, null, business.defaultLocale, session.user.name ?? "", loyalty);
   lastTest.set(session.user.id, Date.now());
   await sendMail({ to: session.user.email, subject: `[TEST] ${mail.subject}`, html: mail.html });
   return NextResponse.json({ ok: true, to: session.user.email });

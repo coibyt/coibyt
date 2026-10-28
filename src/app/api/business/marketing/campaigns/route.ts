@@ -31,6 +31,7 @@ export async function GET() {
       offerExpires: true,
       segment: true,
       includeCooldown: true,
+      loyaltyCard: true,
       status: true,
       scheduledAt: true,
       sentAt: true,
