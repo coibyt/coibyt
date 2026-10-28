@@ -2,6 +2,7 @@ import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
 import { randomGiftCode } from "@/lib/gift-cards";
 import { settleReferrals } from "@/lib/loyalty-referral";
+import { notifyTicketsAdded } from "@/lib/loyalty-notify";
 
 export async function newLoyaltyToken() {
   for (let i = 0; i < 5; i++) {
@@ -94,6 +95,9 @@ export async function scanLoyaltyCard(businessId: string, token: string): Promis
       },
     });
   });
+
+  // Not awaited: the staff see the result straight away, the email follows.
+  void notifyTicketsAdded({ cardId: card.id, kind: "scan", ticketsAdded: 1 });
 
   return {
     ok: true,

@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { randomGiftCode } from "@/lib/gift-cards";
 import { REFERRAL_TICKETS } from "@/lib/loyalty-referral-constants";
+import { notifyTicketsAdded } from "@/lib/loyalty-notify";
 
 export { REFERRAL_TICKETS, referralCookieName, REFERRAL_COOKIE_DAYS } from "@/lib/loyalty-referral-constants";
 
@@ -86,10 +87,10 @@ export async function recordReferral(input: {
  * now happened (booking confirmed or completed, and its time has come).
  * Waits while the card's reward is ready but not yet given, so the bonus
  * isn't lost to the cap — it lands on the next cycle instead. */
-export async function settleReferrals(where: { cardId: string } | { businessId: string }) {
+export async function settleReferrals(where: { cardId: string } | { businessId: string } | "all") {
   const pending = await prisma.loyaltyReferral.findMany({
-    where: { ...where, status: "PENDING", bookingId: { not: null } },
-    select: { id: true, cardId: true, businessId: true, bookingId: true },
+    where: { ...(where === "all" ? {} : where), status: "PENDING", bookingId: { not: null } },
+    select: { id: true, cardId: true, businessId: true, bookingId: true, friendName: true },
   });
   if (pending.length === 0) return 0;
 
@@ -116,7 +117,10 @@ export async function settleReferrals(where: { cardId: string } | { businessId: 
       });
       return true;
     });
-    if (done) settled++;
+    if (done) {
+      settled++;
+      await notifyTicketsAdded({ cardId: r.cardId, kind: "referral", ticketsAdded: REFERRAL_TICKETS, friendName: r.friendName });
+    }
   }
   return settled;
 }

@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { sendMail, appointmentReminderEmail, reviewRequestEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
 import { sendDueCampaigns } from "@/lib/marketing-send";
+import { settleReferrals } from "@/lib/loyalty-referral";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -171,5 +172,12 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns });
+  // Invite bonuses whose friend's visit has now happened — the inviter gets
+  // their tickets (and the email about it) without anyone opening a page.
+  const referrals = await settleReferrals("all").catch((err) => {
+    console.error("[cron] settleReferrals", err);
+    return 0;
+  });
+
+  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals });
 }
