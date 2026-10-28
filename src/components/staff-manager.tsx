@@ -159,11 +159,13 @@ export function StaffManager({
   serviceOptions,
   insights,
   currency,
+  timezone,
 }: {
   initialStaff: StaffRow[];
   serviceOptions: { id: string; name: string }[];
   insights: Record<string, StaffInsight>;
   currency: string;
+  timezone: string;
 }) {
   const tCommon = useTranslations("common");
   const tDash = useTranslations("dashboard");
@@ -548,7 +550,17 @@ export function StaffManager({
         </aside>
       </div>
 
-      {hoursFor && <StaffHoursModal staffId={hoursFor.id} staffName={hoursFor.name} locale={locale} onClose={() => (setHoursFor(null), router.refresh())} />}
+      {hoursFor && (
+        <StaffHoursModal
+          staffId={hoursFor.id}
+          staffName={hoursFor.name}
+          staffTitle={hoursFor.title}
+          avatarUrl={hoursFor.avatarUrl}
+          locale={locale}
+          timezone={timezone}
+          onClose={() => (setHoursFor(null), router.refresh())}
+        />
+      )}
 
       {mounted && drawer && createPortal(renderDrawer(), document.body)}
 

@@ -67,6 +67,7 @@ export default async function StaffPage({
         serviceOptions={services.map((s) => ({ id: s.id, name: s.name }))}
         insights={insights}
         currency={business.defaultCurrency}
+        timezone={business.timezone}
       />
     </div>
   );

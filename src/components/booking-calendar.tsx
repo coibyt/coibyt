@@ -718,7 +718,11 @@ export function BookingCalendar({
       format(anchorDate, "yyyy-MM-dd")
     );
     const baseWindows = period ? period.windows : businessHours;
-    const newWindows = [...baseWindows.filter((r) => r.weekday !== todayWeekday), updated];
+    // Only the dragged window changes; a second shift that day is kept.
+    const newWindows = [
+      ...baseWindows.filter((r) => !(r.weekday === todayWeekday && r.openMinute === current.openMinute && r.closeMinute === current.closeMinute)),
+      updated,
+    ];
     const from = period?.validFrom ?? null;
     const until = period?.validUntil ?? null;
 

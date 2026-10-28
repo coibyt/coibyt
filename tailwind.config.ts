@@ -65,6 +65,9 @@ const config: Config = {
         },
         berry: {
           50: "#fbeaee",
+          100: "#f6d3dc",
+          200: "#efb3c2",
+          300: "#e47e97",
           400: "#d54a6c",
           500: "#c6274d",
           600: "#a31f3f",
