@@ -193,6 +193,18 @@ const STRINGS = {
     } as Record<Segment, [string, string]>,
     templates: [
       {
+        id: "switch",
+        emoji: "📲",
+        name: "Chuyển sang VaraaAi",
+        subject: "{ten} ơi, salon chuyển sang đặt lịch trên VaraaAi — kèm quà tặng cho bạn",
+        preheader: "Đặt lịch nhanh hơn trên VaraaAi.com, và thẻ tích điểm thành viên dành riêng cho bạn.",
+        headline: "Đặt lịch với chúng tôi giờ đã ở VaraaAi",
+        message:
+          "Chào {ten},\n\nCảm ơn bạn đã luôn tin tưởng và đồng hành cùng salon. Chúng tôi xin thông báo: từ nay salon chuyển toàn bộ việc đặt lịch hẹn sang VaraaAi.com.\n\nĐặt lịch trên VaraaAi rất đơn giản: chọn dịch vụ, nhân viên và giờ phù hợp chỉ trong vài giây. Bạn sẽ nhận email xác nhận ngay, và email nhắc lịch trước mỗi lần hẹn.\n\nĐể cảm ơn bạn, salon tặng bạn thẻ tích điểm thành viên ngay bên dưới. Mỗi lần đến salon, bạn chỉ cần đưa mã QR trên thẻ cho nhân viên quét để được tích 1 vé — đủ vé là được giảm giá.\n\nHãy đặt lịch hẹn tới của bạn trên VaraaAi bằng nút bên dưới. Hẹn sớm gặp lại bạn!",
+        ctaLabel: "Đặt lịch trên VaraaAi",
+        loyaltyCard: true,
+      },
+      {
         id: "loyalty",
         emoji: "💳",
         name: "Tặng thẻ tích điểm",
@@ -442,6 +454,18 @@ const STRINGS = {
     } as Record<Segment, [string, string]>,
     templates: [
       {
+        id: "switch",
+        emoji: "📲",
+        name: "Moving to VaraaAi",
+        subject: "{ten}, we've moved our bookings to VaraaAi — with a gift for you",
+        preheader: "Faster booking on VaraaAi.com, and a loyalty card just for you.",
+        headline: "Book with us on VaraaAi now",
+        message:
+          "Hi {ten},\n\nThank you for always trusting us. We'd like to let you know that from now on, all our bookings are made on VaraaAi.com.\n\nBooking on VaraaAi is easy: choose the service, the staff member and a time that suits you in seconds. You get a confirmation email straight away and a reminder before every appointment.\n\nTo say thank you, here is your own loyalty card below. Every time you visit, just show the QR code on the card so we can scan it and add 1 ticket — collect enough tickets and you get a discount.\n\nBook your next appointment on VaraaAi with the button below. See you soon!",
+        ctaLabel: "Book on VaraaAi",
+        loyaltyCard: true,
+      },
+      {
         id: "loyalty",
         emoji: "💳",
         name: "Loyalty card gift",
@@ -690,6 +714,18 @@ const STRINGS = {
       IMPORTED: ["Omat yhteystiedot", "Tuotu Excelistä tai lisätty käsin"],
     } as Record<Segment, [string, string]>,
     templates: [
+      {
+        id: "switch",
+        emoji: "📲",
+        name: "Siirrymme VaraaAi:hin",
+        subject: "{ten}, ajanvarauksemme on nyt VaraaAi:ssa — ja lahja sinulle",
+        preheader: "Nopeampi ajanvaraus VaraaAi.comissa ja oma kanta-asiakaskortti sinulle.",
+        headline: "Varaa aikasi nyt VaraaAi:ssa",
+        message:
+          "Hei {ten},\n\nKiitos, että olet luottanut meihin. Haluamme kertoa, että tästä lähtien kaikki ajanvaraukset tehdään VaraaAi.comissa.\n\nVaraaminen VaraaAi:ssa on helppoa: valitse palvelu, työntekijä ja sinulle sopiva aika sekunneissa. Saat vahvistuksen sähköpostiisi heti ja muistutuksen ennen jokaista käyntiä.\n\nKiitokseksi saat alta oman kanta-asiakaskortin. Näytä kortin QR-koodi jokaisella käynnillä, niin skannaamme sen ja saat 1 lipun — kun lippuja on tarpeeksi, saat alennuksen.\n\nVaraa seuraava aikasi VaraaAi:ssa alla olevasta painikkeesta. Nähdään pian!",
+        ctaLabel: "Varaa VaraaAi:ssa",
+        loyaltyCard: true,
+      },
       {
         id: "loyalty",
         emoji: "💳",
