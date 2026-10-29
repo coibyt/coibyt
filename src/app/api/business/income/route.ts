@@ -46,7 +46,7 @@ export async function GET(req: Request) {
     where: {
       businessId: access.business.id,
       ...(access.isOwner ? (staffId ? { staffId } : {}) : { staffId: access.staffId }),
-      ...(status === "PENDING" || status === "APPROVED" ? { status } : {}),
+      ...(status === "PENDING" || status === "APPROVED" || status === "REJECTED" ? { status } : {}),
       ...(from && to && DATE_RE.test(from) && DATE_RE.test(to)
         ? { serviceAt: { gte: new Date(`${from}T00:00:00Z`), lt: new Date(new Date(`${to}T00:00:00Z`).getTime() + 86400000) } }
         : {}),
@@ -59,7 +59,8 @@ export async function GET(req: Request) {
 }
 
 /** Saves the report for a booking — new, or an edit while it's still waiting
- * for approval. Approved reports are locked until the owner un-approves. */
+ * for approval or after the owner sent it back (which makes it wait again).
+ * Approved reports are locked until the owner un-approves. */
 export async function POST(req: Request) {
   const access = await incomeAccess();
   const session = await auth();
@@ -104,7 +105,7 @@ export async function POST(req: Request) {
   };
 
   const saved = existing
-    ? await prisma.staffIncomeReport.update({ where: { id: existing.id }, data: { ...amounts, ...snapshot } })
+    ? await prisma.staffIncomeReport.update({ where: { id: existing.id }, data: { ...amounts, ...snapshot, status: "PENDING" } })
     : await prisma.staffIncomeReport.create({
         data: { businessId: access.business.id, bookingId: booking.id, reportedById: session.user.id, ...amounts, ...snapshot },
       });

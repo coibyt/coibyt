@@ -1880,11 +1880,15 @@ model StaffIncomeReport {
   giftCard2Code  String?   @db.VarChar(40)
   totalCents     Int
   note           String?   @db.VarChar(500)
-  // PENDING until the owner approves it, then APPROVED (locked for staff).
+  // PENDING until the owner approves it, then APPROVED (locked for staff),
+  // or REJECTED with the owner's reason — the staff member fixes it and
+  // sends it again, which puts it back to PENDING.
   status         String    @default("PENDING") @db.VarChar(12)
   reportedById   String
   approvedAt     DateTime?
   approvedById   String?
+  ownerNote      String?   @db.VarChar(500)
+  rejectedAt     DateTime?
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 

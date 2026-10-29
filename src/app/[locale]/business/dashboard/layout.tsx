@@ -91,7 +91,14 @@ export default async function BusinessDashboardLayout({
           },
         ]
       : access.staffId
-        ? [{ href: "/business/dashboard/income", label: incomeStrings(locale).staffEyebrow }]
+        ? [
+            {
+              href: "/business/dashboard/income",
+              label: incomeStrings(locale).staffEyebrow,
+              // Reports the owner sent back for fixing.
+              badge: await prisma.staffIncomeReport.count({ where: { staffId: access.staffId, status: "REJECTED" } }),
+            },
+          ]
         : []),
     ...(isOwner || permissions.customers
       ? [{ href: "/business/dashboard/customers", label: t("customers") }]

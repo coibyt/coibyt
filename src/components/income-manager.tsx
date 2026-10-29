@@ -18,6 +18,7 @@ import {
   Undo2,
   Users,
   Wallet,
+  XCircle,
 } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
@@ -27,7 +28,7 @@ import type { IncomeReportJson } from "@/lib/income";
 import { IncomeReportModal } from "@/components/income-report";
 
 type Period = "today" | "week" | "month" | "last";
-type StatusFilter = "" | "PENDING" | "APPROVED";
+type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
 
 const GOLD_BTN =
   "bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)] hover:brightness-105";
@@ -76,6 +77,8 @@ export function IncomeManager({
   const [staffId, setStaffId] = useState("");
   const [reports, setReports] = useState<IncomeReportJson[] | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
+  // The report the owner is writing a "not approved" reason for.
+  const [rejecting, setRejecting] = useState<{ id: string; note: string; error: boolean } | null>(null);
   const [bulkBusy, setBulkBusy] = useState(false);
   const [editing, setEditing] = useState<IncomeReportJson | null>(null);
   const [zoom, setZoom] = useState<string | null>(null);
@@ -111,7 +114,8 @@ export function IncomeManager({
     const sum = (xs: IncomeReportJson[]) => xs.reduce((n, r) => n + r.totalCents, 0);
     const approved = list.filter((r) => r.status === "APPROVED");
     const pending = list.filter((r) => r.status === "PENDING");
-    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, count: list.length };
+    const rejected = list.filter((r) => r.status === "REJECTED");
+    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, rejectedCount: rejected.length, count: list.length };
   }, [list]);
 
   const byStaff = useMemo(() => {
@@ -127,18 +131,19 @@ export function IncomeManager({
     return [...m.entries()].sort((a, b) => b[1].total - a[1].total);
   }, [list, S.noStaff]);
 
-  async function setApproval(r: IncomeReportJson, action: "approve" | "unapprove") {
+  async function setApproval(r: IncomeReportJson, action: "approve" | "unapprove" | "reject", note?: string) {
     setBusyId(r.id);
     const res = await fetch(`/api/business/income/${r.id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ action }),
+      body: JSON.stringify({ action, note }),
     }).catch(() => null);
     setBusyId(null);
     if (!res?.ok) return;
     const { report } = await res.json();
     setReports((prev) => prev?.map((x) => (x.id === r.id ? report : x)) ?? prev);
-    setToast(action === "approve" ? S.approvedToast : S.unapprovedToast);
+    setRejecting(null);
+    setToast(action === "approve" ? S.approvedToast : action === "reject" ? S.rejectedToast : S.unapprovedToast);
     // The menu's "waiting" badge is server-rendered.
     router.refresh();
   }
@@ -219,6 +224,7 @@ export function IncomeManager({
               ["", S.allStatus],
               ["PENDING", S.statPending],
               ["APPROVED", S.statApproved],
+              ["REJECTED", S.rejected],
             ] as [StatusFilter, string][]
           ).map(([k, label]) => (
             <button
@@ -280,6 +286,7 @@ export function IncomeManager({
           ) : (
             list.map((r) => {
               const approved = r.status === "APPROVED";
+              const rejected = r.status === "REJECTED";
               const diff = r.totalCents - r.expectedCents;
               const parts = [
                 { icon: Banknote, label: S.cash, v: r.cashCents },
@@ -290,7 +297,7 @@ export function IncomeManager({
               return (
                 <article
                   key={r.id}
-                  className={`rounded-3xl border bg-white p-4 shadow-[0_14px_34px_-30px_rgba(31,24,45,0.6)] sm:p-5 ${approved ? "border-emerald-100" : "border-ink-100"}`}
+                  className={`rounded-3xl border bg-white p-4 shadow-[0_14px_34px_-30px_rgba(31,24,45,0.6)] sm:p-5 ${approved ? "border-emerald-100" : rejected ? "border-berry-200" : "border-ink-100"}`}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0">
@@ -299,6 +306,11 @@ export function IncomeManager({
                           <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 ring-1 ring-emerald-100">
                             <CheckCircle2 className="h-3.5 w-3.5" />
                             {S.approved}
+                          </span>
+                        ) : rejected ? (
+                          <span className="flex items-center gap-1 rounded-full bg-berry-50 px-2.5 py-0.5 text-[11px] font-bold text-berry-600 ring-1 ring-berry-100">
+                            <XCircle className="h-3.5 w-3.5" />
+                            {S.rejected}
                           </span>
                         ) : (
                           <span className="flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700 ring-1 ring-amber-100">
@@ -338,6 +350,21 @@ export function IncomeManager({
                     ))}
                   </div>
                   {r.note && <p className="mt-2 rounded-2xl bg-mist-50/70 px-3 py-2 text-xs text-ink-700">{r.note}</p>}
+                  {rejected && r.ownerNote && (
+                    <div className="mt-3 rounded-2xl bg-berry-50 px-3.5 py-3 ring-1 ring-berry-100">
+                      <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-berry-600">
+                        <XCircle className="h-3.5 w-3.5" />
+                        {S.ownerSays}
+                      </p>
+                      <p className="mt-1 whitespace-pre-line text-sm text-ink-900">{r.ownerNote}</p>
+                      {r.rejectedAt && (
+                        <p className="mt-1 text-[11px] text-berry-500" suppressHydrationWarning>
+                          {fill(S.rejectedOn, { time: dateFmt.format(new Date(r.rejectedAt)) })}
+                        </p>
+                      )}
+                      {!isOwner && <p className="mt-1.5 text-[11px] text-ink-700">{S.resubmitHint}</p>}
+                    </div>
+                  )}
                   {r.photos.length > 0 && (
                     <div className="mt-3 flex gap-2 overflow-x-auto">
                       {r.photos.map((url) => (
@@ -356,9 +383,24 @@ export function IncomeManager({
                       </span>
                     )}
                     {!approved && (
-                      <button type="button" onClick={() => setEditing(r)} className="mr-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-ink-700 hover:bg-mist-50">
+                      <button
+                        type="button"
+                        onClick={() => setEditing(r)}
+                        className={`mr-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${rejected && !isOwner ? "bg-[#1f182d] text-white" : "text-ink-700 hover:bg-mist-50"}`}
+                      >
                         <Pencil className="h-3.5 w-3.5" />
-                        {S.update}
+                        {rejected && !isOwner ? S.resubmit : S.update}
+                      </button>
+                    )}
+                    {isOwner && !approved && !rejected && (
+                      <button
+                        type="button"
+                        onClick={() => setRejecting(rejecting?.id === r.id ? null : { id: r.id, note: "", error: false })}
+                        disabled={busyId === r.id}
+                        className={`flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-bold ring-1 transition ${rejecting?.id === r.id ? "bg-berry-500 text-white ring-berry-500" : "text-berry-600 ring-berry-200 hover:bg-berry-50"}`}
+                      >
+                        <XCircle className="h-3.5 w-3.5" />
+                        {S.reject}
                       </button>
                     )}
                     {isOwner &&
@@ -384,6 +426,40 @@ export function IncomeManager({
                         </button>
                       ))}
                   </div>
+
+                  {rejecting?.id === r.id && (
+                    <div className="mt-3 rounded-2xl bg-berry-50/60 p-3 ring-1 ring-berry-100">
+                      <label className="block">
+                        <span className="mb-1.5 block text-xs font-bold text-berry-600">{S.rejectTitle}</span>
+                        <textarea
+                          autoFocus
+                          rows={3}
+                          maxLength={500}
+                          value={rejecting.note}
+                          onChange={(e) => setRejecting({ ...rejecting, note: e.target.value, error: false })}
+                          placeholder={S.rejectPh}
+                          className="w-full resize-none rounded-2xl border border-berry-100 bg-white px-3 py-2.5 text-sm text-ink-900 outline-none focus:border-berry-300 focus:ring-4 focus:ring-berry-100"
+                        />
+                      </label>
+                      {rejecting.error && <p className="mt-1 text-xs font-semibold text-berry-500">{S.errReason}</p>}
+                      <div className="mt-2 flex justify-end gap-2">
+                        <button type="button" onClick={() => setRejecting(null)} className="rounded-full px-3.5 py-2 text-xs font-semibold text-ink-700 hover:bg-white">
+                          {S.rejectCancel}
+                        </button>
+                        <button
+                          type="button"
+                          disabled={busyId === r.id}
+                          onClick={() =>
+                            rejecting.note.trim() ? setApproval(r, "reject", rejecting.note.trim()) : setRejecting({ ...rejecting, error: true })
+                          }
+                          className="flex items-center gap-1.5 rounded-full bg-berry-500 px-4 py-2 text-xs font-bold text-white hover:bg-berry-600 disabled:opacity-60"
+                        >
+                          {busyId === r.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <XCircle className="h-3.5 w-3.5" />}
+                          {S.rejectSend}
+                        </button>
+                      </div>
+                    </div>
+                  )}
                 </article>
               );
             })

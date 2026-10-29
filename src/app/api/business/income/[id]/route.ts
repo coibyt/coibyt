@@ -4,10 +4,15 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canSee, incomeAccess, reportJson, reportWithPhotos } from "@/lib/income";
 
-const patchSchema = z.object({ action: z.enum(["approve", "unapprove"]) });
+const patchSchema = z.discriminatedUnion("action", [
+  z.object({ action: z.literal("approve") }),
+  z.object({ action: z.literal("unapprove") }),
+  // "Chưa duyệt": sent back to the staff member with the reason.
+  z.object({ action: z.literal("reject"), note: z.string().trim().min(1).max(500) }),
+]);
 
-/** The owner approves a report (the staff member sees a green tick), or
- * takes the approval back so it can be corrected. */
+/** The owner approves a report (the staff member sees a green tick), sends
+ * it back with a reason, or takes an approval back so it can be corrected. */
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const access = await incomeAccess();
@@ -20,12 +25,15 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   const report = await prisma.staffIncomeReport.findFirst({ where: { id, businessId: access.business.id }, select: { id: true } });
   if (!report) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
+  const a = parsed.data;
   await prisma.staffIncomeReport.update({
     where: { id },
     data:
-      parsed.data.action === "approve"
-        ? { status: "APPROVED", approvedAt: new Date(), approvedById: session.user.id }
-        : { status: "PENDING", approvedAt: null, approvedById: null },
+      a.action === "approve"
+        ? { status: "APPROVED", approvedAt: new Date(), approvedById: session.user.id, rejectedAt: null }
+        : a.action === "reject"
+          ? { status: "REJECTED", ownerNote: a.note, rejectedAt: new Date(), approvedAt: null, approvedById: null }
+          : { status: "PENDING", approvedAt: null, approvedById: null },
   });
   const full = await reportWithPhotos(id);
   return NextResponse.json({ report: reportJson(full!) });
