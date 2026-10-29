@@ -13,6 +13,7 @@ import {
   addWeeks,
   eachDayOfInterval,
   endOfMonth,
+  endOfDay,
   endOfWeek,
   format,
   isSameDay,
@@ -1503,6 +1504,30 @@ export function BookingCalendar({
     .filter((b) => b.currency === dayRevenueCurrency)
     .reduce((sum, b) => sum + b.priceCents, 0);
 
+  // The label in the bottom bar: the day, week or month on screen.
+  const shortDate = new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric" });
+  const periodLabel =
+    view === "day"
+      ? new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "numeric" }).format(anchorDate)
+      : view === "week"
+        ? `${shortDate.format(rangeStart)} – ${shortDate.format(rangeEnd)}`
+        : (() => {
+            const m = new Intl.DateTimeFormat(locale, { month: "long" }).format(anchorDate);
+            return m.charAt(0).toUpperCase() + m.slice(1);
+          })();
+  const periodIsNow =
+    view === "day"
+      ? isSameDay(anchorDate, now)
+      : view === "week"
+        ? now >= rangeStart && now <= endOfDay(rangeEnd)
+        : anchorDate.getMonth() === now.getMonth() && anchorDate.getFullYear() === now.getFullYear();
+  const periodNowLabel =
+    view === "day"
+      ? t("today")
+      : view === "week"
+        ? locale === "vi" ? "Tuần này" : locale === "fi" ? "Tämä viikko" : "This week"
+        : locale === "vi" ? "Tháng này" : locale === "fi" ? "Tämä kuukausi" : "This month";
+
   const nowMinutes = now.getHours() * 60 + now.getMinutes();
   const nowTop = ((nowMinutes - startHour * 60) / 60) * HOUR_HEIGHT;
   const nowInRange = nowMinutes >= startHour * 60 && nowMinutes <= endHour * 60;
@@ -2276,7 +2301,9 @@ export function BookingCalendar({
         </div>
       )}
 
-      <div className="sticky bottom-4 z-30 flex justify-center">
+      {/* On phones the bar sits above the floating chat and alarm buttons
+          (bottom corners), which would otherwise cover its ends. */}
+      <div className="sticky bottom-[5.25rem] z-30 flex justify-center sm:bottom-4">
         <div className="flex items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-xl shadow-primary-900/10 ring-1 ring-black/5 backdrop-blur-md">
           <button
             onClick={() => navigate(-1)}
@@ -2285,11 +2312,18 @@ export function BookingCalendar({
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
+          {/* The day / week / month being looked at; tapping it goes back to today. */}
           <button
             onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
-            className="rounded-full px-3 py-2 text-xs font-semibold text-primary-700 transition-colors hover:bg-primary-50"
+            title={t("today")}
+            className={`flex min-w-[4.5rem] flex-col items-center rounded-full px-2.5 py-1 leading-tight transition-colors hover:bg-primary-50 ${
+              periodIsNow ? "text-primary-700" : "text-ink-900"
+            }`}
           >
-            {t("today")}
+            <span className="whitespace-nowrap text-xs font-bold tabular-nums" suppressHydrationWarning>
+              {periodLabel}
+            </span>
+            {periodIsNow && <span className="text-[10px] font-semibold text-primary-500">{periodNowLabel}</span>}
           </button>
           <button
             onClick={() => navigate(1)}
