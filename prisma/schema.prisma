@@ -1853,3 +1853,58 @@ model PlatformSetting {
   value     String   @db.Text
   updatedAt DateTime @updatedAt
 }
+
+// What a staff member collected for one booking — cash, bank and up to two
+// gift cards — reported from the booking on the calendar, then checked and
+// approved by the owner (Doanh thu page). businessId/bookingId/staffId are
+// plain ids like Invoice; the customer, service, date and amount due are a
+// snapshot so the owner can compare even if the booking changes later.
+model StaffIncomeReport {
+  id             String    @id @default(cuid())
+  businessId     String
+  bookingId      String    @unique
+  // The booking's staff member (null when the booking had none).
+  staffId        String?
+  staffName      String?   @db.VarChar(120)
+  customerName   String    @db.VarChar(160)
+  serviceName    String    @db.VarChar(200)
+  serviceAt      DateTime
+  // The booking's total to collect, for comparing with what was reported.
+  expectedCents  Int
+  currency       String    @db.VarChar(3)
+  cashCents      Int       @default(0)
+  bankCents      Int       @default(0)
+  giftCard1Cents Int       @default(0)
+  giftCard1Code  String?   @db.VarChar(40)
+  giftCard2Cents Int       @default(0)
+  giftCard2Code  String?   @db.VarChar(40)
+  totalCents     Int
+  note           String?   @db.VarChar(500)
+  // PENDING until the owner approves it, then APPROVED (locked for staff).
+  status         String    @default("PENDING") @db.VarChar(12)
+  reportedById   String
+  approvedAt     DateTime?
+  approvedById   String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  photos StaffIncomePhoto[]
+
+  @@index([businessId, status])
+  @@index([businessId, serviceAt])
+  @@index([staffId, serviceAt])
+}
+
+// A photo attached to an income report (receipt, card terminal slip…),
+// stored in the database like BusinessImage since the host wipes disk files
+// on every deploy.
+model StaffIncomePhoto {
+  id        String            @id @default(cuid())
+  reportId  String
+  report    StaffIncomeReport @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  data      Bytes
+  mimeType  String            @db.VarChar(40)
+  createdAt DateTime          @default(now())
+
+  @@index([reportId])
+}

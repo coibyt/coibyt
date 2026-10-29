@@ -1,0 +1,477 @@
+"use client";
+
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { formatInTimeZone } from "date-fns-tz";
+import {
+  Banknote,
+  CalendarDays,
+  Check,
+  CheckCircle2,
+  CheckCheck,
+  Clock3,
+  CreditCard,
+  Gift,
+  Loader2,
+  Pencil,
+  Receipt,
+  TrendingUp,
+  Undo2,
+  Users,
+  Wallet,
+} from "lucide-react";
+import { Link, useRouter } from "@/i18n/navigation";
+import { fill } from "@/lib/shop-strings";
+import { incomeStrings } from "@/lib/income-strings";
+import { formatMoney } from "@/lib/money";
+import type { IncomeReportJson } from "@/lib/income";
+import { IncomeReportModal } from "@/components/income-report";
+
+type Period = "today" | "week" | "month" | "last";
+type StatusFilter = "" | "PENDING" | "APPROVED";
+
+const GOLD_BTN =
+  "bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)] hover:brightness-105";
+
+function shiftDate(date: string, n: number) {
+  const [y, m, d] = date.split("-").map(Number);
+  return new Date(Date.UTC(y, m - 1, d + n)).toISOString().slice(0, 10);
+}
+
+/** [from, to] as salon-local YYYY-MM-DD for a period. */
+function range(period: Period, today: string): [string, string] {
+  const [y, m] = today.split("-").map(Number);
+  const monthStart = `${y}-${String(m).padStart(2, "0")}-01`;
+  switch (period) {
+    case "today":
+      return [today, today];
+    case "week":
+      return [shiftDate(today, -6), today];
+    case "month":
+      return [monthStart, today];
+    case "last": {
+      const end = shiftDate(monthStart, -1);
+      return [`${end.slice(0, 7)}-01`, end];
+    }
+  }
+}
+
+export function IncomeManager({
+  locale,
+  isOwner,
+  timezone,
+  currency,
+  staff,
+}: {
+  locale: string;
+  isOwner: boolean;
+  timezone: string;
+  currency: string;
+  /** Owner only: the salon's staff, for the filter. */
+  staff: { id: string; name: string }[];
+}) {
+  const S = incomeStrings(locale);
+  const router = useRouter();
+  const [period, setPeriod] = useState<Period>("month");
+  const [status, setStatus] = useState<StatusFilter>("");
+  const [staffId, setStaffId] = useState("");
+  const [reports, setReports] = useState<IncomeReportJson[] | null>(null);
+  const [busyId, setBusyId] = useState<string | null>(null);
+  const [bulkBusy, setBulkBusy] = useState(false);
+  const [editing, setEditing] = useState<IncomeReportJson | null>(null);
+  const [zoom, setZoom] = useState<string | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const [today, setToday] = useState<string | null>(null);
+
+  // The salon's "today" — read in the browser only, so nothing differs
+  // between the server render and hydration.
+  useEffect(() => setToday(formatInTimeZone(new Date(), timezone, "yyyy-MM-dd")), [timezone]);
+
+  const load = useCallback(async () => {
+    if (!today) return;
+    const [from, to] = range(period, today);
+    const q = new URLSearchParams({ from, to, ...(status ? { status } : {}), ...(staffId ? { staffId } : {}) });
+    const res = await fetch(`/api/business/income?${q}`).catch(() => null);
+    if (res?.ok) setReports((await res.json()).reports);
+  }, [today, period, status, staffId]);
+
+  useEffect(() => {
+    setReports(null);
+    load();
+  }, [load]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const t = setTimeout(() => setToast(null), 2400);
+    return () => clearTimeout(t);
+  }, [toast]);
+
+  const money = (c: number, cur = currency) => formatMoney(c, cur, locale);
+  const list = useMemo(() => reports ?? [], [reports]);
+  const stats = useMemo(() => {
+    const sum = (xs: IncomeReportJson[]) => xs.reduce((n, r) => n + r.totalCents, 0);
+    const approved = list.filter((r) => r.status === "APPROVED");
+    const pending = list.filter((r) => r.status === "PENDING");
+    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, count: list.length };
+  }, [list]);
+
+  const byStaff = useMemo(() => {
+    const m = new Map<string, { name: string; total: number; count: number; pending: number }>();
+    for (const r of list) {
+      const key = r.staffId ?? "";
+      const row = m.get(key) ?? { name: r.staffName ?? S.noStaff, total: 0, count: 0, pending: 0 };
+      row.total += r.totalCents;
+      row.count += 1;
+      if (r.status === "PENDING") row.pending += 1;
+      m.set(key, row);
+    }
+    return [...m.entries()].sort((a, b) => b[1].total - a[1].total);
+  }, [list, S.noStaff]);
+
+  async function setApproval(r: IncomeReportJson, action: "approve" | "unapprove") {
+    setBusyId(r.id);
+    const res = await fetch(`/api/business/income/${r.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action }),
+    }).catch(() => null);
+    setBusyId(null);
+    if (!res?.ok) return;
+    const { report } = await res.json();
+    setReports((prev) => prev?.map((x) => (x.id === r.id ? report : x)) ?? prev);
+    setToast(action === "approve" ? S.approvedToast : S.unapprovedToast);
+    // The menu's "waiting" badge is server-rendered.
+    router.refresh();
+  }
+
+  async function approveAll() {
+    const waiting = list.filter((r) => r.status === "PENDING");
+    if (!waiting.length || !window.confirm(fill(S.approveAllConfirm, { n: waiting.length }))) return;
+    setBulkBusy(true);
+    for (const r of waiting) {
+      await fetch(`/api/business/income/${r.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "approve" }),
+      }).catch(() => null);
+    }
+    setBulkBusy(false);
+    setToast(S.approvedToast);
+    load();
+    router.refresh();
+  }
+
+  const dateFmt = new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", timeZone: timezone });
+
+  return (
+    <div className="space-y-6">
+      {/* Hero */}
+      <section className="relative overflow-hidden rounded-[2rem] bg-[#1f182d] px-6 py-7 text-white sm:px-8">
+        <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#624f89]/50 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 left-1/3 h-64 w-64 rounded-full bg-[#c99a3f]/20 blur-3xl" />
+        <div className="relative">
+          <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.24em] text-[#e8d3a6]">
+            <TrendingUp className="h-4 w-4" />
+            {isOwner ? S.ownerEyebrow : S.staffEyebrow}
+          </p>
+          <h1 className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{isOwner ? S.ownerTitle : S.staffTitle}</h1>
+          <p className="mt-2 max-w-2xl text-sm text-white/70">{isOwner ? S.ownerSub : S.staffSub}</p>
+          <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
+            {[
+              { icon: Wallet, label: S.statTotal, value: money(stats.total) },
+              { icon: CheckCircle2, label: S.statApproved, value: money(stats.approved) },
+              { icon: Clock3, label: `${S.statPending} (${stats.pendingCount})`, value: money(stats.pending) },
+              { icon: Receipt, label: S.statReports, value: String(stats.count) },
+            ].map((x) => (
+              <div key={x.label} className="min-w-0 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10">
+                <x.icon className="h-4 w-4 text-[#e8d3a6]" />
+                <p className="mt-3 truncate text-xl font-bold tabular-nums sm:text-2xl">{reports ? x.value : "–"}</p>
+                <p className="truncate text-[11px] font-semibold text-white/55">{x.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Filters */}
+      <div className="flex flex-col gap-3 rounded-3xl border border-ink-100 bg-white p-3 lg:flex-row lg:items-center">
+        <div className="flex gap-1 overflow-x-auto rounded-full bg-mist-50 p-1">
+          {(
+            [
+              ["today", S.periodToday],
+              ["week", S.periodWeek],
+              ["month", S.periodMonth],
+              ["last", S.periodLast],
+            ] as [Period, string][]
+          ).map(([k, label]) => (
+            <button
+              key={k}
+              type="button"
+              onClick={() => setPeriod(k)}
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-bold transition ${period === k ? "bg-[#1f182d] text-white shadow" : "text-ink-700 hover:bg-white"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        <div className="flex gap-1 overflow-x-auto rounded-full bg-mist-50 p-1">
+          {(
+            [
+              ["", S.allStatus],
+              ["PENDING", S.statPending],
+              ["APPROVED", S.statApproved],
+            ] as [StatusFilter, string][]
+          ).map(([k, label]) => (
+            <button
+              key={k || "all"}
+              type="button"
+              onClick={() => setStatus(k)}
+              className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-bold transition ${status === k ? "bg-white text-[#1f182d] shadow ring-1 ring-ink-100" : "text-ink-700 hover:bg-white"}`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+        {isOwner && (
+          <select
+            value={staffId}
+            onChange={(e) => setStaffId(e.target.value)}
+            className="rounded-full border border-ink-100 bg-white px-4 py-2 text-sm text-ink-900 outline-none focus:border-primary-400 lg:ml-auto lg:w-56"
+          >
+            <option value="">{S.allStaff}</option>
+            {staff.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.name}
+              </option>
+            ))}
+          </select>
+        )}
+      </div>
+
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
+        <div className="min-w-0 space-y-3">
+          {isOwner && stats.pendingCount > 0 && (
+            <button
+              type="button"
+              onClick={approveAll}
+              disabled={bulkBusy}
+              className={`flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-bold disabled:opacity-60 ${GOLD_BTN}`}
+            >
+              {bulkBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <CheckCheck className="h-4 w-4" />}
+              {fill(S.approveAll, { n: stats.pendingCount })}
+            </button>
+          )}
+
+          {!reports ? (
+            <div className="flex justify-center rounded-3xl border border-ink-100 bg-white py-16">
+              <Loader2 className="h-6 w-6 animate-spin text-primary-500" />
+            </div>
+          ) : list.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-ink-100 bg-white px-6 py-12 text-center">
+              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#624f89] text-[#e8d3a6]">
+                <Receipt className="h-6 w-6" />
+              </span>
+              <p className="mt-4 text-base font-bold text-ink-900">{S.empty}</p>
+              <p className="mx-auto mt-1 max-w-sm text-sm text-ink-400">{S.howText}</p>
+              <Link href="/business/dashboard/bookings" className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1f182d] px-5 py-2.5 text-sm font-bold text-white">
+                <CalendarDays className="h-4 w-4" />
+                {S.openCalendar}
+              </Link>
+            </div>
+          ) : (
+            list.map((r) => {
+              const approved = r.status === "APPROVED";
+              const diff = r.totalCents - r.expectedCents;
+              const parts = [
+                { icon: Banknote, label: S.cash, v: r.cashCents },
+                { icon: CreditCard, label: S.bank, v: r.bankCents },
+                { icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents },
+                { icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents },
+              ].filter((p) => p.v > 0);
+              return (
+                <article
+                  key={r.id}
+                  className={`rounded-3xl border bg-white p-4 shadow-[0_14px_34px_-30px_rgba(31,24,45,0.6)] sm:p-5 ${approved ? "border-emerald-100" : "border-ink-100"}`}
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        {approved ? (
+                          <span className="flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 ring-1 ring-emerald-100">
+                            <CheckCircle2 className="h-3.5 w-3.5" />
+                            {S.approved}
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1 rounded-full bg-amber-50 px-2.5 py-0.5 text-[11px] font-bold text-amber-700 ring-1 ring-amber-100">
+                            <Clock3 className="h-3.5 w-3.5" />
+                            {S.pending}
+                          </span>
+                        )}
+                        <span className="text-[11px] text-ink-400" suppressHydrationWarning>
+                          {dateFmt.format(new Date(r.serviceAt))}
+                        </span>
+                        {isOwner && r.staffName && (
+                          <span className="flex items-center gap-1 rounded-full bg-primary-100/60 px-2 py-0.5 text-[11px] font-semibold text-primary-700">
+                            <Users className="h-3 w-3" />
+                            {r.staffName}
+                          </span>
+                        )}
+                      </div>
+                      <p className="mt-1.5 truncate text-base font-bold text-ink-900">{r.customerName || "—"}</p>
+                      <p className="truncate text-xs text-ink-400">{r.serviceName}</p>
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <p className="text-lg font-bold tabular-nums text-ink-900">{money(r.totalCents, r.currency)}</p>
+                      <p className={`text-[11px] font-semibold ${diff === 0 ? "text-ink-400" : "text-amber-700"}`}>
+                        {S.expected} {money(r.expectedCents, r.currency)}
+                        {diff !== 0 && <span className="block">{fill(S.mismatch, { amount: `${diff > 0 ? "+" : "−"}${money(Math.abs(diff), r.currency)}` })}</span>}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {parts.map((p) => (
+                      <span key={p.label} className="flex items-center gap-1.5 rounded-full bg-mist-50 px-2.5 py-1 text-[11px] font-semibold text-ink-700 ring-1 ring-ink-100">
+                        <p.icon className="h-3 w-3 text-[#b08a3e]" />
+                        {p.label}
+                        <span className="tabular-nums text-ink-900">{money(p.v, r.currency)}</span>
+                      </span>
+                    ))}
+                  </div>
+                  {r.note && <p className="mt-2 rounded-2xl bg-mist-50/70 px-3 py-2 text-xs text-ink-700">{r.note}</p>}
+                  {r.photos.length > 0 && (
+                    <div className="mt-3 flex gap-2 overflow-x-auto">
+                      {r.photos.map((url) => (
+                        <button key={url} type="button" onClick={() => setZoom(url)} className="h-16 w-16 shrink-0 overflow-hidden rounded-xl ring-1 ring-ink-100">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={url} alt="" className="h-full w-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-ink-100 pt-3">
+                    {approved && r.approvedAt && (
+                      <span className="mr-auto text-[11px] text-emerald-700" suppressHydrationWarning>
+                        {fill(S.approvedOn, { time: dateFmt.format(new Date(r.approvedAt)) })}
+                      </span>
+                    )}
+                    {!approved && (
+                      <button type="button" onClick={() => setEditing(r)} className="mr-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-ink-700 hover:bg-mist-50">
+                        <Pencil className="h-3.5 w-3.5" />
+                        {S.update}
+                      </button>
+                    )}
+                    {isOwner &&
+                      (approved ? (
+                        <button
+                          type="button"
+                          onClick={() => setApproval(r, "unapprove")}
+                          disabled={busyId === r.id}
+                          className="flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-ink-400 ring-1 ring-ink-100 hover:text-ink-700"
+                        >
+                          <Undo2 className="h-3.5 w-3.5" />
+                          {S.unapprove}
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setApproval(r, "approve")}
+                          disabled={busyId === r.id}
+                          className="flex items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white shadow-sm hover:bg-emerald-700 disabled:opacity-60"
+                        >
+                          {busyId === r.id ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Check className="h-3.5 w-3.5" />}
+                          {S.approve}
+                        </button>
+                      ))}
+                  </div>
+                </article>
+              );
+            })
+          )}
+        </div>
+
+        {/* Side: per staff member (owner) or how it works (staff) */}
+        <aside className="min-w-0 space-y-4">
+          {isOwner ? (
+            <section className="rounded-3xl border border-ink-100 bg-white p-5">
+              <p className="flex items-center gap-2 font-bold text-ink-900">
+                <Users className="h-4 w-4 text-[#c99a3f]" />
+                {S.byStaff}
+              </p>
+              {byStaff.length === 0 ? (
+                <p className="mt-2 text-sm text-ink-400">—</p>
+              ) : (
+                <ul className="mt-3 space-y-2">
+                  {byStaff.map(([id, row]) => (
+                    <li key={id || "none"}>
+                      <button
+                        type="button"
+                        onClick={() => id && setStaffId(staffId === id ? "" : id)}
+                        className={`flex w-full items-center gap-3 rounded-2xl p-2.5 text-left transition ${staffId === id && id ? "bg-[#1f182d] text-white" : "hover:bg-mist-50"}`}
+                      >
+                        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-sm font-bold ${staffId === id && id ? "bg-white/10 text-[#e8d3a6]" : "bg-gradient-to-br from-[#624f89] to-[#3b2f55] text-[#e8d3a6]"}`}>
+                          {row.name.trim()[0]?.toUpperCase()}
+                        </span>
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-sm font-semibold">{row.name}</span>
+                          <span className={`block text-[11px] ${staffId === id && id ? "text-white/60" : "text-ink-400"}`}>
+                            {fill(S.reportsN, { n: row.count })}
+                            {row.pending > 0 ? ` · ${row.pending} ${S.statPending.toLowerCase()}` : ""}
+                          </span>
+                        </span>
+                        <span className="shrink-0 text-sm font-bold tabular-nums">{money(row.total)}</span>
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ) : null}
+          <section className="rounded-3xl bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5 ring-1 ring-[#ecd9ad]">
+            <p className="flex items-center gap-2 text-sm font-bold text-[#6b5221]">
+              <Receipt className="h-4 w-4" />
+              {S.howTitle}
+            </p>
+            <p className="mt-1 text-xs leading-relaxed text-[#6b5221]/90">{S.howText}</p>
+            <Link href="/business/dashboard/bookings" className="mt-3 inline-flex items-center gap-1.5 text-xs font-bold text-[#1f182d]">
+              <CalendarDays className="h-3.5 w-3.5" />
+              {S.openCalendar} →
+            </Link>
+          </section>
+        </aside>
+      </div>
+
+      {editing && (
+        <IncomeReportModal
+          locale={locale}
+          booking={{
+            id: editing.bookingId,
+            customerName: editing.customerName,
+            serviceName: editing.serviceName,
+            staffName: editing.staffName,
+            startsAt: editing.serviceAt,
+            expectedCents: editing.expectedCents,
+            currency: editing.currency,
+          }}
+          report={editing}
+          onClose={() => setEditing(null)}
+          onSaved={() => load()}
+        />
+      )}
+
+      {zoom && (
+        <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/80 p-4" onClick={() => setZoom(null)}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={zoom} alt="" className="max-h-full max-w-full rounded-2xl" />
+        </div>
+      )}
+
+      {toast && (
+        <div className="fixed inset-x-4 bottom-6 z-[90] mx-auto flex max-w-sm items-center justify-center gap-2 rounded-full bg-[#1f182d] px-5 py-3.5 text-sm font-semibold text-white shadow-2xl animate-slide-up">
+          <Check className="h-4 w-4 text-[#e8d3a6]" />
+          {toast}
+        </div>
+      )}
+    </div>
+  );
+}

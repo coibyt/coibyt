@@ -28,6 +28,7 @@ import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
+import { IncomeReportButton } from "@/components/income-report";
 import {
   PERSONAL_OPTION_PREFIX,
   PERSONAL_TIME_KINDS,
@@ -2448,6 +2449,13 @@ export function BookingCalendar({
                 </>
               )}
             </div>
+
+            {/* What was collected for this booking — the owner, or the staff
+                member who did it, reports it for the owner to approve. */}
+            {(activeBooking.status === "CONFIRMED" || activeBooking.status === "COMPLETED") &&
+              (isOwner || (!!viewerStaffId && activeBooking.staffId === viewerStaffId)) && (
+                <IncomeReportButton key={activeBooking.id} bookingId={activeBooking.id} locale={locale} />
+              )}
 
             {activeBooking.status !== "CANCELLED" && new Date(activeBooking.endsAt) <= new Date() && (
               <div className="mt-4 border-t border-ink-100 pt-4">

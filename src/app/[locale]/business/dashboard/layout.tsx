@@ -10,6 +10,7 @@ import { PendingBanner } from "@/components/pending-banner";
 import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
 import { BookingAlarm } from "@/components/booking-alarm";
+import { incomeStrings } from "@/lib/income-strings";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -80,6 +81,18 @@ export default async function BusinessDashboardLayout({
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
       : []),
+    // Income reports: the owner approves everyone's, staff see their own.
+    ...(isOwner
+      ? [
+          {
+            href: "/business/dashboard/income",
+            label: incomeStrings(locale).ownerEyebrow,
+            badge: await prisma.staffIncomeReport.count({ where: { businessId: business.id, status: "PENDING" } }),
+          },
+        ]
+      : access.staffId
+        ? [{ href: "/business/dashboard/income", label: incomeStrings(locale).staffEyebrow }]
+        : []),
     ...(isOwner || permissions.customers
       ? [{ href: "/business/dashboard/customers", label: t("customers") }]
       : []),
