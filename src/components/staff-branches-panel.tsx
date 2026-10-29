@@ -1,13 +1,18 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Building2, Check, Info, Loader2 } from "lucide-react";
+import { Building2, Car, Check, Info, Loader2 } from "lucide-react";
+import { BRANCH_TRAVEL_CHOICES } from "@/lib/branch-travel";
 
 const L = {
   vi: {
     title: "Làm việc ở chi nhánh khác",
     hint: "Bật chi nhánh mà nhân viên này cũng nhận khách. Hồ sơ, ảnh và các dịch vụ trùng tên được sao chép sang đó; nhân viên dùng cùng tài khoản để xem lịch ở mọi chi nhánh.",
     lock: "Khi khách đặt lịch với người này ở một chi nhánh, giờ đó ở các chi nhánh khác tự khoá lại và ghi “Có khách ở …”.",
+    travel: "Thời gian di chuyển giữa các chi nhánh",
+    travelHint: "Các chi nhánh khác được khoá thêm khoảng này trước và sau mỗi cuộc hẹn, để nhân viên kịp đi lại.",
+    travelExample: "Ví dụ: khách 15:00–16:30 ở chi nhánh này, di chuyển {m} phút → chi nhánh khác bị khoá {from}–{to}.",
+    none: "Không cần",
     saved: "Đã lưu",
     error: "Không lưu được",
   },
@@ -15,6 +20,10 @@ const L = {
     title: "Also works at other branches",
     hint: "Turn on the branches where this person also takes customers. Their profile, photo and services with the same names are copied there; they use the same login to see their bookings at every branch.",
     lock: "When a customer books this person at one branch, that time is locked at the others and marked “Customer at …”.",
+    travel: "Travel time between branches",
+    travelHint: "The other branches are also locked for this long before and after each booking, so they have time to get there.",
+    travelExample: "E.g. a customer 15:00–16:30 here with {m} min travel → the other branches are locked {from}–{to}.",
+    none: "None",
     saved: "Saved",
     error: "Couldn't save",
   },
@@ -22,6 +31,10 @@ const L = {
     title: "Työskentelee myös muissa toimipisteissä",
     hint: "Valitse toimipisteet, joissa tämä henkilö myös palvelee asiakkaita. Profiili, kuva ja samannimiset palvelut kopioidaan sinne; sama tunnus näyttää varaukset kaikissa toimipisteissä.",
     lock: "Kun asiakas varaa tämän henkilön yhdessä toimipisteessä, sama aika lukitaan muissa ja merkitään ”Asiakas toimipisteessä …”.",
+    travel: "Matka-aika toimipisteiden välillä",
+    travelHint: "Muut toimipisteet lukitaan myös näin kauan ennen jokaista varausta ja sen jälkeen, jotta henkilö ehtii perille.",
+    travelExample: "Esim. asiakas klo 15:00–16:30 täällä, matka {m} min → muut toimipisteet lukitaan {from}–{to}.",
+    none: "Ei tarvita",
     saved: "Tallennettu",
     error: "Tallennus epäonnistui",
   },
@@ -40,6 +53,7 @@ interface Branch {
 export function StaffBranchesPanel({ staffId, locale, className }: { staffId: string; locale: string; className: string }) {
   const t = (L as Record<string, (typeof L)["en"]>)[locale] ?? L.en;
   const [branches, setBranches] = useState<Branch[] | null>(null);
+  const [travel, setTravel] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
   const [status, setStatus] = useState<"saved" | "error" | null>(null);
 
@@ -47,28 +61,38 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
     let cancelled = false;
     fetch(`/api/business/staff/${staffId}/branches`)
       .then((r) => (r.ok ? r.json() : { branches: [] }))
-      .then((d) => !cancelled && setBranches(d.branches ?? []));
+      .then((d) => {
+        if (cancelled) return;
+        setBranches(d.branches ?? []);
+        setTravel(d.travelMinutes ?? 0);
+      });
     return () => {
       cancelled = true;
     };
   }, [staffId]);
 
-  async function toggle(id: string) {
-    if (!branches) return;
-    const next = branches.map((b) => (b.id === id ? { ...b, on: !b.on } : b));
-    setBusy(id);
+  async function save(next: Branch[], minutes: number, busyKey: string) {
+    setBusy(busyKey);
     setStatus(null);
     const res = await fetch(`/api/business/staff/${staffId}/branches`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ businessIds: next.filter((b) => b.on).map((b) => b.id) }),
+      body: JSON.stringify({ businessIds: next.filter((b) => b.on).map((b) => b.id), travelMinutes: minutes }),
     }).catch(() => null);
     setBusy(null);
     if (res?.ok) {
       setBranches(next);
+      setTravel(minutes);
       setStatus("saved");
     } else setStatus("error");
   }
+
+  function toggle(id: string) {
+    if (!branches) return;
+    save(branches.map((b) => (b.id === id ? { ...b, on: !b.on } : b)), travel, id);
+  }
+
+  const clock = (min: number) => `${String(Math.floor(min / 60)).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}`;
 
   if (!branches || branches.length === 0) return null;
 
@@ -115,6 +139,37 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
         <Info className="mt-px h-3.5 w-3.5 shrink-0" />
         {t.lock}
       </p>
+
+      {branches.some((b) => b.on) && (
+        <div className="mt-4 border-t border-ink-100 pt-4">
+          <p className="flex items-center gap-2 text-xs font-bold text-ink-900">
+            <Car className="h-4 w-4 text-[#b08a3e]" />
+            {t.travel}
+          </p>
+          <p className="mt-0.5 text-[11px] leading-snug text-ink-400">{t.travelHint}</p>
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {BRANCH_TRAVEL_CHOICES.map((m) => (
+              <button
+                key={m}
+                type="button"
+                disabled={busy !== null}
+                onClick={() => save(branches, m, `travel-${m}`)}
+                className={`flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 transition ${
+                  travel === m ? "bg-[#1f182d] text-white ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
+                }`}
+              >
+                {busy === `travel-${m}` && <Loader2 className="h-3 w-3 animate-spin" />}
+                {m === 0 ? t.none : m < 60 ? `${m} ${locale === "vi" ? "phút" : "min"}` : `${(m / 60).toLocaleString(locale)} ${locale === "vi" ? "tiếng" : "h"}`}
+              </button>
+            ))}
+          </div>
+          {travel > 0 && (
+            <p className="mt-2 text-[11px] text-[#6b5221]">
+              {t.travelExample.replace("{m}", String(travel)).replace("{from}", clock(15 * 60 - travel)).replace("{to}", clock(16 * 60 + 30 + travel))}
+            </p>
+          )}
+        </div>
+      )}
     </section>
   );
 }

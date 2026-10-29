@@ -58,6 +58,8 @@ export async function GET(req: Request) {
         kind: x.kind,
         // The other branch's name.
         note: x.branchName,
+        // Already included in startsAt/endsAt, either side.
+        travelMinutes: x.travelMinutes,
         startsAt: x.startsAt.toISOString(),
         endsAt: x.endsAt.toISOString(),
       })),

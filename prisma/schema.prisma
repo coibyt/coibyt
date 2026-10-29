@@ -585,6 +585,10 @@ model Staff {
   // one of them carries the login (userId). Their bookings at any branch
   // block the same time at the others — see src/lib/staff-branches.ts.
   branchGroup                String?   @db.VarChar(32)
+  // Minutes this person needs to get from one branch to another: a booking
+  // at another branch blocks this much extra time before and after it here.
+  // Kept the same on every row of the group.
+  branchTravelMinutes        Int       @default(0)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

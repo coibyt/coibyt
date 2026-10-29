@@ -1,5 +1,5 @@
 import { getRingtoneSetting } from "@/lib/ringtone-settings";
-import { personStaffIds, staffLoginUserId } from "@/lib/staff-branches";
+import { busyAtOtherBranch, staffLoginUserId } from "@/lib/staff-branches";
 import { ringtoneById } from "@/lib/ringtones";
 import { rememberBookingCreator } from "@/lib/booking-creators";
 import { prisma } from "@/lib/prisma";
@@ -195,11 +195,9 @@ export async function createBookingAndPayment(params: {
         : [{ staffId: params.staffId, startsAt: params.startsAt, endsAt }];
 
     for (const w of conflictWindows) {
-      // The same person at the owner's other branches counts too.
-      const person = { in: await personStaffIds(w.staffId) };
       const conflict = await tx.booking.findFirst({
         where: {
-          staffId: person,
+          staffId: w.staffId,
           status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
@@ -210,7 +208,7 @@ export async function createBookingAndPayment(params: {
 
       const extraConflict = await tx.bookingExtraService.findFirst({
         where: {
-          staffId: person,
+          staffId: w.staffId,
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
           booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
@@ -222,10 +220,13 @@ export async function createBookingAndPayment(params: {
       // The staff member's own blocked time (lunch, leave…) — slot lists
       // already leave it out; this also stops a request racing past them.
       const timeOffConflict = await tx.staffTimeOff.findFirst({
-        where: { staffId: person, startsAt: { lt: w.endsAt }, endsAt: { gt: w.startsAt } },
+        where: { staffId: w.staffId, startsAt: { lt: w.endsAt }, endsAt: { gt: w.startsAt } },
         select: { id: true },
       });
       if (timeOffConflict && !params.allowOverlap) throw new SlotUnavailableError();
+
+      // The same person at the owner's other branches, plus travel between.
+      if (!params.allowOverlap && (await busyAtOtherBranch(w.staffId, w.startsAt, w.endsAt))) throw new SlotUnavailableError();
     }
 
     const created = await tx.booking.create({

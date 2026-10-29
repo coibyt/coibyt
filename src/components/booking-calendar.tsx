@@ -334,6 +334,8 @@ interface TimeOffBlock {
   note: string | null;
   startsAt: string;
   endsAt: string;
+  /** Time at another branch: the travel either side, already in the times. */
+  travelMinutes?: number;
 }
 
 interface TimeOffDraft {
@@ -1523,6 +1525,15 @@ export function BookingCalendar({
                 <Lock className="h-3 w-3 shrink-0" />
                 <span className="truncate">{label}</span>
               </p>
+              {!!t.travelMinutes && (
+                <p className="truncate leading-tight opacity-75">
+                  {locale === "vi"
+                    ? `gồm ${t.travelMinutes} phút di chuyển trước/sau`
+                    : locale === "fi"
+                      ? `sis. ${t.travelMinutes} min matka-aikaa`
+                      : `incl. ${t.travelMinutes} min travel each way`}
+                </p>
+              )}
               {compact && <p className="truncate leading-tight opacity-80">{t.staffName}</p>}
             </>
           )}

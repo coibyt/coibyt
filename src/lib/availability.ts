@@ -106,29 +106,39 @@ async function loadStaffDaySchedule(params: {
   // there takes the same time here.
   const siblings = await siblingRows(staffIds);
   const allIds = [...staffIds, ...siblings.keys()];
+  const maxTravel = Math.max(0, ...[...siblings.values()].map((v) => v.travelMs));
   const local = (id: string) => siblings.get(id)?.localId ?? id;
+  // Time at another branch also needs the travel there and back.
+  const widen = (id: string, start: Date, end: Date): BusyInterval => {
+    const travel = siblings.get(id)?.travelMs ?? 0;
+    return { start: new Date(start.getTime() - travel), end: new Date(end.getTime() + travel) };
+  };
 
   const [bookings, extraSlots, timeOff] = await Promise.all([
     prisma.booking.findMany({
       where: {
         staffId: { in: allIds },
         status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
-        startsAt: { lt: dayEndUtc },
-        endsAt: { gt: dayStartUtc },
+        startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
+        endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
       },
       select: { staffId: true, startsAt: true, endsAt: true },
     }),
     prisma.bookingExtraService.findMany({
       where: {
         staffId: { in: allIds },
-        startsAt: { lt: dayEndUtc },
-        endsAt: { gt: dayStartUtc },
+        startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
+        endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
         booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
       },
       select: { staffId: true, startsAt: true, endsAt: true },
     }),
     prisma.staffTimeOff.findMany({
-      where: { staffId: { in: allIds }, startsAt: { lt: dayEndUtc }, endsAt: { gt: dayStartUtc } },
+      where: {
+        staffId: { in: allIds },
+        startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
+        endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
+      },
       select: { staffId: true, startsAt: true, endsAt: true },
     }),
   ]);
@@ -137,14 +147,14 @@ async function loadStaffDaySchedule(params: {
   for (const staff of staffList) busyByStaff.set(staff.id, []);
   for (const b of bookings) {
     if (!b.staffId) continue;
-    busyByStaff.get(local(b.staffId))?.push({ start: b.startsAt, end: b.endsAt });
+    busyByStaff.get(local(b.staffId))?.push(widen(b.staffId, b.startsAt, b.endsAt));
   }
   for (const x of extraSlots) {
     if (!x.staffId || !x.startsAt || !x.endsAt) continue;
-    busyByStaff.get(local(x.staffId))?.push({ start: x.startsAt, end: x.endsAt });
+    busyByStaff.get(local(x.staffId))?.push(widen(x.staffId, x.startsAt, x.endsAt));
   }
   for (const t of timeOff) {
-    busyByStaff.get(local(t.staffId))?.push({ start: t.startsAt, end: t.endsAt });
+    busyByStaff.get(local(t.staffId))?.push(widen(t.staffId, t.startsAt, t.endsAt));
   }
 
   const now = new Date();

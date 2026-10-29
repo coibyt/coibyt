@@ -3,7 +3,7 @@ import { z } from "zod";
 import { auth } from "@/auth";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { newBranchGroup } from "@/lib/staff-branches";
+import { BRANCH_TRAVEL_CHOICES, newBranchGroup } from "@/lib/staff-branches";
 
 /** Which of the owner's other branches this staff member also works at. */
 async function load(id: string) {
@@ -28,6 +28,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   const found = await load(id);
   if (!found) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   return NextResponse.json({
+    travelMinutes: found.staff.branchTravelMinutes,
     branches: found.branches.map((b) => ({
       id: b.id,
       name: b.name,
@@ -37,7 +38,15 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   });
 }
 
-const schema = z.object({ businessIds: z.array(z.string().cuid()).max(50) });
+const schema = z.object({
+  businessIds: z.array(z.string().cuid()).max(50),
+  // Travel time between branches; kept the same on all of the person's rows.
+  travelMinutes: z
+    .number()
+    .int()
+    .refine((n) => BRANCH_TRAVEL_CHOICES.includes(n))
+    .optional(),
+});
 
 /** Sets the other branches this person works at. A branch they're new to gets
  * a Staff row copied from this one (profile, photo, and the services there
@@ -54,7 +63,11 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   const wanted = new Set(parsed.data.businessIds.filter((b) => allowed.has(b)));
 
   const group = staff.branchGroup ?? newBranchGroup();
+  const travel = parsed.data.travelMinutes ?? staff.branchTravelMinutes;
   if (!staff.branchGroup) await prisma.staff.update({ where: { id: staff.id }, data: { branchGroup: group } });
+  if (travel !== staff.branchTravelMinutes) {
+    await prisma.staff.updateMany({ where: { branchGroup: group }, data: { branchTravelMinutes: travel } });
+  }
 
   const [avatar, myServices] = await Promise.all([
     prisma.staffAvatar.findUnique({ where: { staffId: staff.id } }),
@@ -71,6 +84,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       data: {
         businessId,
         branchGroup: group,
+        branchTravelMinutes: travel,
         name: staff.name,
         title: staff.title,
         bio: staff.bio,
@@ -105,5 +119,5 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       await prisma.staff.update({ where: { id: l.id }, data: { active: false } });
     }
   }
-  return NextResponse.json({ ok: true, businessIds: [...wanted] });
+  return NextResponse.json({ ok: true, businessIds: [...wanted], travelMinutes: travel });
 }
