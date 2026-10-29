@@ -33,6 +33,14 @@ export default async function StaffPage({
     where: { id: owned.businessId },
     select: { timezone: true, defaultCurrency: true },
   });
+  // Other branches each person also works at (Staff.branchGroup).
+  const groups = staff.map((s) => s.branchGroup).filter((g): g is string => !!g);
+  const elsewhere = groups.length
+    ? await prisma.staff.findMany({
+        where: { branchGroup: { in: groups }, active: true, businessId: { not: owned.businessId } },
+        select: { branchGroup: true, business: { select: { name: true } } },
+      })
+    : [];
   const insights = await staffInsights(
     owned.businessId,
     staff.map((s) => s.id),
@@ -63,6 +71,7 @@ export default async function StaffPage({
           leadTimeMinutes: s.leadTimeMinutes,
           staffMessage: s.staffMessage,
           videoUrls: Array.isArray(s.videoUrls) ? (s.videoUrls as string[]) : [],
+          otherBranches: s.branchGroup ? elsewhere.filter((e) => e.branchGroup === s.branchGroup).map((e) => e.business.name) : [],
         }))}
         serviceOptions={services.map((s) => ({ id: s.id, name: s.name }))}
         insights={insights}

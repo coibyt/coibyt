@@ -580,6 +580,11 @@ model Staff {
   // Last time this person was reminded (email + push) about bookings they
   // haven't reported income for — at most once a day.
   incomeReminderSentAt       DateTime?
+  // The same person working at several of the owner's branches: one Staff
+  // row per branch (own services and hours there), all sharing this id. Only
+  // one of them carries the login (userId). Their bookings at any branch
+  // block the same time at the others — see src/lib/staff-branches.ts.
+  branchGroup                String?   @db.VarChar(32)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top
@@ -600,6 +605,7 @@ model Staff {
   bookingExtraServices BookingExtraService[]
 
   @@index([businessId])
+  @@index([branchGroup])
 }
 
 // Kept off the Staff row itself, same reasoning as BusinessImage/LandingImage

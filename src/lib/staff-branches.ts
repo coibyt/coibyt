@@ -1,0 +1,107 @@
+import { randomBytes } from "node:crypto";
+import { prisma } from "@/lib/prisma";
+
+/** One person working at several of the owner's branches is one Staff row per
+ * branch (their own services and hours there), linked by Staff.branchGroup.
+ * The login (userId) sits on one of them. A booking or blocked time on any of
+ * the rows makes that person busy at every branch. */
+
+export function newBranchGroup() {
+  return randomBytes(12).toString("hex");
+}
+
+/** Every Staff row of the same person (just this one if not linked). */
+export async function personStaffIds(staffId: string): Promise<string[]> {
+  const s = await prisma.staff.findUnique({ where: { id: staffId }, select: { branchGroup: true } });
+  if (!s?.branchGroup) return [staffId];
+  const rows = await prisma.staff.findMany({ where: { branchGroup: s.branchGroup }, select: { id: true } });
+  return rows.map((r) => r.id);
+}
+
+/** For these staff rows, their rows at OTHER branches: other row id → this
+ * branch's row id, with the other branch's name. */
+export async function siblingRows(staffIds: string[]) {
+  const out = new Map<string, { localId: string; branchName: string }>();
+  if (staffIds.length === 0) return out;
+  const linked = await prisma.staff.findMany({
+    where: { id: { in: staffIds }, branchGroup: { not: null } },
+    select: { id: true, branchGroup: true },
+  });
+  if (linked.length === 0) return out;
+  const localByGroup = new Map(linked.map((r) => [r.branchGroup!, r.id]));
+  const others = await prisma.staff.findMany({
+    where: { branchGroup: { in: [...localByGroup.keys()] }, id: { notIn: staffIds } },
+    select: { id: true, branchGroup: true, business: { select: { name: true } } },
+  });
+  for (const o of others) out.set(o.id, { localId: localByGroup.get(o.branchGroup!)!, branchName: o.business.name });
+  return out;
+}
+
+export interface ExternalBusy {
+  id: string;
+  staffId: string;
+  kind: "OTHER_BRANCH_BOOKING" | "OTHER_BRANCH_BUSY";
+  branchName: string;
+  startsAt: Date;
+  endsAt: Date;
+}
+
+/** Time these staff members are taken at their other branches in [from, to):
+ * bookings (and split-off extra services) there, and time blocked there. */
+export async function externalBusy(staffIds: string[], from: Date, to: Date): Promise<ExternalBusy[]> {
+  const siblings = await siblingRows(staffIds);
+  if (siblings.size === 0) return [];
+  const ids = [...siblings.keys()];
+  const live = { in: ["PENDING_PAYMENT" as const, "CONFIRMED" as const, "COMPLETED" as const] };
+  const [bookings, extras, timeOff] = await Promise.all([
+    prisma.booking.findMany({
+      where: { staffId: { in: ids }, status: live, startsAt: { lt: to }, endsAt: { gt: from } },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
+    }),
+    prisma.bookingExtraService.findMany({
+      where: { staffId: { in: ids }, startsAt: { lt: to }, endsAt: { gt: from }, booking: { status: live } },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
+    }),
+    prisma.staffTimeOff.findMany({
+      where: { staffId: { in: ids }, startsAt: { lt: to }, endsAt: { gt: from } },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
+    }),
+  ]);
+  const out: ExternalBusy[] = [];
+  const add = (id: string, staffId: string | null, s: Date | null, e: Date | null, kind: ExternalBusy["kind"]) => {
+    const sib = staffId ? siblings.get(staffId) : null;
+    if (!sib || !s || !e) return;
+    out.push({ id, staffId: sib.localId, kind, branchName: sib.branchName, startsAt: s, endsAt: e });
+  };
+  for (const b of bookings) add(`ext-b-${b.id}`, b.staffId, b.startsAt, b.endsAt, "OTHER_BRANCH_BOOKING");
+  for (const x of extras) add(`ext-x-${x.id}`, x.staffId, x.startsAt, x.endsAt, "OTHER_BRANCH_BOOKING");
+  for (const t of timeOff) add(`ext-t-${t.id}`, t.staffId, t.startsAt, t.endsAt, "OTHER_BRANCH_BUSY");
+  return out;
+}
+
+/** The login behind a staff row — its own, or the linked row's that has it —
+ * so a booking at any of their branches reaches them. */
+export async function staffLoginUserId(staffId: string | null | undefined): Promise<string | null> {
+  if (!staffId) return null;
+  const s = await prisma.staff.findUnique({ where: { id: staffId }, select: { userId: true, branchGroup: true } });
+  if (!s) return null;
+  if (s.userId || !s.branchGroup) return s.userId;
+  const withLogin = await prisma.staff.findFirst({ where: { branchGroup: s.branchGroup, userId: { not: null } }, select: { userId: true } });
+  return withLogin?.userId ?? null;
+}
+
+/** The branches a staff login can switch between: where they have an active
+ * Staff row, all under the same owner. */
+export async function staffBranches(userId: string) {
+  const home = await prisma.staff.findFirst({ where: { userId, active: true }, select: { branchGroup: true, business: { select: { id: true, name: true, ownerId: true } } } });
+  if (!home) return [];
+  if (!home.branchGroup) return [{ id: home.business.id, name: home.business.name }];
+  const rows = await prisma.staff.findMany({
+    where: { branchGroup: home.branchGroup, active: true, business: { ownerId: home.business.ownerId } },
+    select: { business: { select: { id: true, name: true, createdAt: true } } },
+  });
+  return rows
+    .map((r) => r.business)
+    .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
+    .map((b) => ({ id: b.id, name: b.name }));
+}

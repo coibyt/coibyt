@@ -1483,6 +1483,52 @@ export function BookingCalendar({
       toZonedTime(new Date(t.endsAt), businessTimezone),
       "HH:mm"
     )}`;
+    // The same staff member is taken at another of the owner's branches —
+    // locked here, read-only, with that branch's name.
+    if (t.kind === "OTHER_BRANCH_BOOKING" || t.kind === "OTHER_BRANCH_BUSY") {
+      const label =
+        t.kind === "OTHER_BRANCH_BOOKING"
+          ? locale === "vi"
+            ? `Có khách ở ${t.note}`
+            : locale === "fi"
+              ? `Asiakas toimipisteessä ${t.note}`
+              : `Customer at ${t.note}`
+          : locale === "vi"
+            ? `Bận ở ${t.note}`
+            : locale === "fi"
+              ? `Varattu: ${t.note}`
+              : `Busy at ${t.note}`;
+      return (
+        <div
+          key={`off-${t.id}`}
+          onClick={(e) => e.stopPropagation()}
+          title={`${label} · ${t.staffName} · ${timeLabel}`}
+          className="absolute left-1 right-1 z-10 cursor-not-allowed overflow-hidden rounded-xl border-l-[3px] border-[#624f89] bg-[#f1ecf8] px-2 py-0.5 text-left text-[11px] text-[#40325c] ring-1 ring-[#cdbfe0]"
+          style={{
+            top,
+            height: Math.max(bottom - top, 20),
+            backgroundImage: "repeating-linear-gradient(135deg, rgba(98,79,137,0.14) 0 6px, transparent 6px 12px)",
+          }}
+        >
+          {bottom - top < 40 ? (
+            <p className="flex items-center gap-1 truncate leading-tight">
+              <Lock className="h-3 w-3 shrink-0" />
+              <span className="truncate text-xs font-bold">{label}</span>
+              <span className="truncate opacity-70">{timeLabel}</span>
+            </p>
+          ) : (
+            <>
+              <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
+              <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
+                <Lock className="h-3 w-3 shrink-0" />
+                <span className="truncate">{label}</span>
+              </p>
+              {compact && <p className="truncate leading-tight opacity-80">{t.staffName}</p>}
+            </>
+          )}
+        </div>
+      );
+    }
     return (
       <button
         key={`off-${t.id}`}

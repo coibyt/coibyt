@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { personStaffIds } from "@/lib/staff-branches";
 import {
   bookingStaffScope,
   customerScopeBusinessIds,
@@ -244,12 +245,14 @@ export async function PATCH(
       startsAt.getTime() !== booking.startsAt.getTime() ||
       endsAt.getTime() !== booking.endsAt.getTime();
 
+    // The same person at the owner's other branches counts as busy too.
+    const person = staffId ? await personStaffIds(staffId) : [];
     const updated = await prisma.$transaction(async (tx) => {
       if (scheduleChanged && staffId) {
         const conflict = await tx.booking.findFirst({
           where: {
             id: { not: id },
-            staffId,
+            staffId: { in: person },
             status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
             startsAt: { lt: endsAt },
             endsAt: { gt: startsAt },

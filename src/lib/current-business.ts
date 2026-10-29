@@ -84,10 +84,22 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
   });
   if (!staff) return null;
 
+  // Someone who also works at the owner's other branches (Staff.branchGroup)
+  // acts as their Staff row at the branch they switched to; permissions stay
+  // the ones set on their login's own row.
+  let here = staff;
+  if (staff.branchGroup && preferredId && preferredId !== staff.businessId) {
+    const other = await prisma.staff.findFirst({
+      where: { branchGroup: staff.branchGroup, businessId: preferredId, active: true, business: { ownerId: staff.business.ownerId } },
+      include: { business: true },
+    });
+    if (other) here = other;
+  }
+
   return {
-    business: staff.business,
+    business: here.business,
     isOwner: false,
-    staffId: staff.id,
+    staffId: here.id,
     permissions: staff.canViewAllPagesReadOnly
       ? OWNER_PERMISSIONS
       : {

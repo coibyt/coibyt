@@ -2,6 +2,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { getBusinessAccess, listOwnedBusinesses } from "@/lib/current-business";
 import { BranchSwitcher } from "@/components/branch-switcher";
+import { staffBranches } from "@/lib/staff-branches";
 import { ownerSupportUnreadCount } from "@/lib/support";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
@@ -38,12 +39,15 @@ export default async function BusinessDashboardLayout({
   const canViewReadOnlyPages = isOwner || viewOnlyEverywhere;
 
   const session = await auth();
-  const branches =
-    isOwner && session?.user
+  // Owners switch between their branches; staff between the branches they
+  // work at (Staff.branchGroup).
+  const branches = !session?.user
+    ? []
+    : isOwner
       ? (await listOwnedBusinesses(session.user.id)).map((b) => ({ id: b.id, name: b.name }))
-      : [];
+      : await staffBranches(session.user.id);
   const switcher =
-    isOwner && branches.length > 1 ? (
+    branches.length > 1 ? (
       <BranchSwitcher branches={branches} activeId={business.id} locale={locale} />
     ) : null;
 

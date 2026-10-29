@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { useTranslations, useLocale } from "next-intl";
 import {
   ArchiveRestore,
+  Building2,
   CalendarCheck,
   CalendarClock,
   Check,
@@ -34,6 +35,7 @@ import { personalTimeLabel } from "@/lib/personal-time";
 import { staffStrings, type PermissionKey, type RolePreset } from "@/lib/staff-strings";
 import type { StaffInsight } from "@/lib/staff-dashboard";
 import { StaffHoursModal } from "@/components/staff-hours-modal";
+import { StaffBranchesPanel } from "@/components/staff-branches-panel";
 import { VaraClipLink } from "@/components/varaclip-link";
 import { StaffAvatarUpload } from "@/components/staff-avatar-upload";
 import { StaffHoursFields, DEFAULT_STAFF_HOURS, staffHoursPayload, type StaffHoursValue } from "@/components/staff-hours-fields";
@@ -59,6 +61,8 @@ interface StaffRow {
   leadTimeMinutes: number;
   staffMessage: string | null;
   videoUrls: string[];
+  /** The owner's other branches this person also works at. */
+  otherBranches?: string[];
 }
 
 const emptyForm = {
@@ -393,6 +397,15 @@ export function StaffManager({
                       <div className="min-w-0 flex-1">
                         <p className="truncate text-base font-bold text-ink-900">{s.name}</p>
                         {s.title && <p className="truncate text-xs text-ink-400">{s.title}</p>}
+                        {s.otherBranches && s.otherBranches.length > 0 && (
+                          <p className="mt-0.5 flex items-center gap-1 truncate text-[11px] font-semibold text-primary-600">
+                            <Building2 className="h-3 w-3 shrink-0" />
+                            <span className="truncate">
+                              {locale === "vi" ? "Cũng làm ở: " : locale === "fi" ? "Myös: " : "Also at: "}
+                              {s.otherBranches.join(", ")}
+                            </span>
+                          </p>
+                        )}
                         <span className={`mt-1.5 inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-bold ring-1 ${STATUS_STYLE[st]}`}>
                           <span className={`h-1.5 w-1.5 rounded-full ${DOT[st]}`} />
                           {S.status[st]}
@@ -661,6 +674,8 @@ export function StaffManager({
                 </div>
               </section>
             )}
+
+            {editingId && <StaffBranchesPanel staffId={editingId} locale={locale} className={box} />}
 
             {!editingId && (
               <section className={box}>

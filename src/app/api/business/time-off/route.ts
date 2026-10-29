@@ -3,6 +3,7 @@ import { addDays } from "date-fns";
 import { fromZonedTime } from "date-fns-tz";
 import { prisma } from "@/lib/prisma";
 import { timeOffAccess, timeOffSchema } from "@/lib/time-off-api";
+import { externalBusy } from "@/lib/staff-branches";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 /** Personal time blocks for a business-local date range [from, to]
@@ -29,16 +30,38 @@ export async function GET(req: Request) {
     select: { id: true, staffId: true, kind: true, reason: true, startsAt: true, endsAt: true, staff: { select: { name: true } } },
     orderBy: { startsAt: "asc" },
   });
+
+  // Staff who also work at the owner's other branches: their bookings and
+  // blocked time there show here as locked, read-only time ("at branch X").
+  const staffHere = await prisma.staff.findMany({
+    where: { businessId: access.businessId, ...(access.scopeStaffId ? { id: access.scopeStaffId } : {}) },
+    select: { id: true, name: true },
+  });
+  const names = new Map(staffHere.map((s) => [s.id, s.name]));
+  const elsewhere = await externalBusy([...names.keys()], start, end);
+
   return NextResponse.json({
-    timeOff: rows.map((r) => ({
-      id: r.id,
-      staffId: r.staffId,
-      staffName: r.staff.name,
-      kind: r.kind,
-      note: r.reason,
-      startsAt: r.startsAt.toISOString(),
-      endsAt: r.endsAt.toISOString(),
-    })),
+    timeOff: [
+      ...rows.map((r) => ({
+        id: r.id,
+        staffId: r.staffId,
+        staffName: r.staff.name,
+        kind: r.kind,
+        note: r.reason,
+        startsAt: r.startsAt.toISOString(),
+        endsAt: r.endsAt.toISOString(),
+      })),
+      ...elsewhere.map((x) => ({
+        id: x.id,
+        staffId: x.staffId,
+        staffName: names.get(x.staffId) ?? "",
+        kind: x.kind,
+        // The other branch's name.
+        note: x.branchName,
+        startsAt: x.startsAt.toISOString(),
+        endsAt: x.endsAt.toISOString(),
+      })),
+    ],
   });
 }
 

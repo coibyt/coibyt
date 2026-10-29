@@ -187,7 +187,9 @@ export function StaffHoursModal({
     const r = await fetch(`/api/business/time-off?from=${today}&to=${to}`);
     if (!r.ok) return;
     const d = await r.json();
-    setLeave(((d.timeOff ?? []) as (TimeOff & { staffId: string })[]).filter((x) => x.staffId === staffId));
+    // Only this branch's own blocks — time taken at their other branches is
+    // listed there, not here.
+    setLeave(((d.timeOff ?? []) as (TimeOff & { staffId: string })[]).filter((x) => x.staffId === staffId && !x.kind?.startsWith("OTHER_BRANCH")));
   }
 
   useEffect(() => {

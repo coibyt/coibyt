@@ -1,4 +1,5 @@
 import { getRingtoneSetting } from "@/lib/ringtone-settings";
+import { personStaffIds, staffLoginUserId } from "@/lib/staff-branches";
 import { ringtoneById } from "@/lib/ringtones";
 import { rememberBookingCreator } from "@/lib/booking-creators";
 import { prisma } from "@/lib/prisma";
@@ -194,9 +195,11 @@ export async function createBookingAndPayment(params: {
         : [{ staffId: params.staffId, startsAt: params.startsAt, endsAt }];
 
     for (const w of conflictWindows) {
+      // The same person at the owner's other branches counts too.
+      const person = { in: await personStaffIds(w.staffId) };
       const conflict = await tx.booking.findFirst({
         where: {
-          staffId: w.staffId,
+          staffId: person,
           status: { in: ["PENDING_PAYMENT", "CONFIRMED"] },
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
@@ -207,7 +210,7 @@ export async function createBookingAndPayment(params: {
 
       const extraConflict = await tx.bookingExtraService.findFirst({
         where: {
-          staffId: w.staffId,
+          staffId: person,
           startsAt: { lt: w.endsAt },
           endsAt: { gt: w.startsAt },
           booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
@@ -219,7 +222,7 @@ export async function createBookingAndPayment(params: {
       // The staff member's own blocked time (lunch, leave…) — slot lists
       // already leave it out; this also stops a request racing past them.
       const timeOffConflict = await tx.staffTimeOff.findFirst({
-        where: { staffId: w.staffId, startsAt: { lt: w.endsAt }, endsAt: { gt: w.startsAt } },
+        where: { staffId: person, startsAt: { lt: w.endsAt }, endsAt: { gt: w.startsAt } },
         select: { id: true },
       });
       if (timeOffConflict && !params.allowOverlap) throw new SlotUnavailableError();
@@ -344,7 +347,7 @@ export async function createBookingAndPayment(params: {
         customerNote: params.customerNote,
         serviceName: visitServiceName(service.name, extraServices, addOns),
         staffName: staff?.name,
-        staffUserId: staff?.userId,
+        staffUserId: await staffLoginUserId(staff?.id),
         priceCents: booking.priceCents,
         currency: booking.currency,
         bookingId: booking.id,
@@ -539,7 +542,7 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
     customerNote: full.customerNote,
     serviceName,
     staffName: full.staff?.name,
-    staffUserId: full.staff?.userId,
+    staffUserId: await staffLoginUserId(full.staffId),
     priceCents: full.priceCents,
     currency: full.currency,
     bookingId: full.id,
@@ -638,11 +641,11 @@ export async function notifyStaffOfManualBooking(bookingId: string, creatorUserI
         startsAt: true,
         service: { select: { name: true } },
         customer: { select: { name: true } },
-        staff: { select: { userId: true } },
+        staffId: true,
         business: { select: { country: true, timezone: true } },
       },
     });
-    const staffUserId = b?.staff?.userId;
+    const staffUserId = await staffLoginUserId(b?.staffId);
     if (!b || !staffUserId || staffUserId === creatorUserId) return;
     const tz = b.business.timezone;
     if (format(toZonedTime(new Date(), tz), "yyyy-MM-dd") !== format(toZonedTime(b.startsAt, tz), "yyyy-MM-dd")) return;
