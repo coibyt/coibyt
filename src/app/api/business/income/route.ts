@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { canReport, incomeAccess, incomeReportSchema, reportJson, reportWithPhotos, REPORTABLE_STATUSES } from "@/lib/income";
+import { giftNet } from "@/lib/income-math";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -90,7 +91,12 @@ export async function POST(req: Request) {
     giftCard1Code: d.giftCard1Cents > 0 && d.giftCard1Code ? d.giftCard1Code.toUpperCase() : null,
     giftCard2Cents: d.giftCard2Cents,
     giftCard2Code: d.giftCard2Cents > 0 && d.giftCard2Code ? d.giftCard2Code.toUpperCase() : null,
-    totalCents: d.cashCents + d.bankCents + d.giftCard1Cents + d.giftCard2Cents,
+    giftCard1Percent: d.giftCard1Cents > 0 ? d.giftCard1Percent : 0,
+    giftCard2Percent: d.giftCard2Cents > 0 ? d.giftCard2Percent : 0,
+    tipCents: d.tipCents,
+    // Salon income: gift cards count after their discount; the tip is the
+    // staff member's own and stays out.
+    totalCents: d.cashCents + d.bankCents + giftNet(d.giftCard1Cents, d.giftCard1Percent) + giftNet(d.giftCard2Cents, d.giftCard2Percent),
     note: d.note || null,
   };
   // The booking as it is now, for the owner to compare against.

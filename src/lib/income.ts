@@ -15,6 +15,9 @@ export const REPORTABLE_STATUSES = ["CONFIRMED", "COMPLETED"];
 
 const cents = z.number().int().min(0).max(100_000_000);
 const code = z.string().trim().max(40).optional().default("");
+const percent = z.number().int().min(0).max(100).default(0);
+
+export { GIFT_DISCOUNTS, giftNet } from "@/lib/income-math";
 
 export const incomeReportSchema = z
   .object({
@@ -23,11 +26,14 @@ export const incomeReportSchema = z
     bankCents: cents.default(0),
     giftCard1Cents: cents.default(0),
     giftCard1Code: code,
+    giftCard1Percent: percent,
     giftCard2Cents: cents.default(0),
     giftCard2Code: code,
+    giftCard2Percent: percent,
+    tipCents: cents.default(0),
     note: z.string().trim().max(500).optional().default(""),
   })
-  .refine((d) => d.cashCents + d.bankCents + d.giftCard1Cents + d.giftCard2Cents > 0, { message: "EMPTY" });
+  .refine((d) => d.cashCents + d.bankCents + d.giftCard1Cents + d.giftCard2Cents + d.tipCents > 0, { message: "EMPTY" });
 
 /** The owner, or a staff member with their own login. */
 export async function incomeAccess(): Promise<BusinessAccess | null> {
@@ -72,6 +78,9 @@ export function reportJson(r: StaffIncomeReport & { photos: { id: string }[] }) 
     giftCard1Code: r.giftCard1Code,
     giftCard2Cents: r.giftCard2Cents,
     giftCard2Code: r.giftCard2Code,
+    giftCard1Percent: r.giftCard1Percent,
+    giftCard2Percent: r.giftCard2Percent,
+    tipCents: r.tipCents,
     totalCents: r.totalCents,
     note: r.note,
     status: r.status as "PENDING" | "APPROVED" | "REJECTED",

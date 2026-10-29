@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE `StaffIncomeReport` ADD COLUMN `giftCard1Percent` INTEGER NOT NULL DEFAULT 0,
+    ADD COLUMN `giftCard2Percent` INTEGER NOT NULL DEFAULT 0,
+    ADD COLUMN `tipCents` INTEGER NOT NULL DEFAULT 0;

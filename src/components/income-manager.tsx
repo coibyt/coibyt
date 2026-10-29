@@ -11,6 +11,7 @@ import {
   Clock3,
   CreditCard,
   Gift,
+  HandCoins,
   Loader2,
   Pencil,
   Receipt,
@@ -26,6 +27,7 @@ import { incomeStrings } from "@/lib/income-strings";
 import { formatMoney } from "@/lib/money";
 import type { IncomeReportJson } from "@/lib/income";
 import { IncomeReportModal } from "@/components/income-report";
+import { giftNet } from "@/lib/income-math";
 
 type Period = "today" | "week" | "month" | "last";
 type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
@@ -115,15 +117,17 @@ export function IncomeManager({
     const approved = list.filter((r) => r.status === "APPROVED");
     const pending = list.filter((r) => r.status === "PENDING");
     const rejected = list.filter((r) => r.status === "REJECTED");
-    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, rejectedCount: rejected.length, count: list.length };
+    const tips = list.reduce((n, r) => n + r.tipCents, 0);
+    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, rejectedCount: rejected.length, count: list.length, tips };
   }, [list]);
 
   const byStaff = useMemo(() => {
-    const m = new Map<string, { name: string; total: number; count: number; pending: number }>();
+    const m = new Map<string, { name: string; total: number; count: number; pending: number; tips: number }>();
     for (const r of list) {
       const key = r.staffId ?? "";
-      const row = m.get(key) ?? { name: r.staffName ?? S.noStaff, total: 0, count: 0, pending: 0 };
+      const row = m.get(key) ?? { name: r.staffName ?? S.noStaff, total: 0, count: 0, pending: 0, tips: 0 };
       row.total += r.totalCents;
+      row.tips += r.tipCents;
       row.count += 1;
       if (r.status === "PENDING") row.pending += 1;
       m.set(key, row);
@@ -182,10 +186,10 @@ export function IncomeManager({
           <p className="mt-2 max-w-2xl text-sm text-white/70">{isOwner ? S.ownerSub : S.staffSub}</p>
           <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
             {[
-              { icon: Wallet, label: S.statTotal, value: money(stats.total) },
+              { icon: Wallet, label: `${S.statTotal} · ${fill(S.reportsN, { n: stats.count })}`, value: money(stats.total) },
               { icon: CheckCircle2, label: S.statApproved, value: money(stats.approved) },
               { icon: Clock3, label: `${S.statPending} (${stats.pendingCount})`, value: money(stats.pending) },
-              { icon: Receipt, label: S.statReports, value: String(stats.count) },
+              { icon: HandCoins, label: S.statTip, value: money(stats.tips) },
             ].map((x) => (
               <div key={x.label} className="min-w-0 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10">
                 <x.icon className="h-4 w-4 text-[#e8d3a6]" />
@@ -291,8 +295,8 @@ export function IncomeManager({
               const parts = [
                 { icon: Banknote, label: S.cash, v: r.cashCents },
                 { icon: CreditCard, label: S.bank, v: r.bankCents },
-                { icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents },
-                { icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents },
+                { icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents, pct: r.giftCard1Percent },
+                { icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents, pct: r.giftCard2Percent },
               ].filter((p) => p.v > 0);
               return (
                 <article
@@ -345,9 +349,24 @@ export function IncomeManager({
                       <span key={p.label} className="flex items-center gap-1.5 rounded-full bg-mist-50 px-2.5 py-1 text-[11px] font-semibold text-ink-700 ring-1 ring-ink-100">
                         <p.icon className="h-3 w-3 text-[#b08a3e]" />
                         {p.label}
-                        <span className="tabular-nums text-ink-900">{money(p.v, r.currency)}</span>
+                        {"pct" in p && p.pct ? (
+                          <>
+                            <span className="tabular-nums text-ink-400 line-through">{money(p.v, r.currency)}</span>
+                            <span className="rounded-full bg-[#1f182d] px-1.5 text-[10px] font-bold text-[#e8d3a6]">−{p.pct}%</span>
+                            <span className="tabular-nums text-ink-900">{money(giftNet(p.v, p.pct), r.currency)}</span>
+                          </>
+                        ) : (
+                          <span className="tabular-nums text-ink-900">{money(p.v, r.currency)}</span>
+                        )}
                       </span>
                     ))}
+                    {r.tipCents > 0 && (
+                      <span className="flex items-center gap-1.5 rounded-full bg-[#fffaf0] px-2.5 py-1 text-[11px] font-semibold text-[#6b5221] ring-1 ring-[#ecd9ad]">
+                        <HandCoins className="h-3 w-3" />
+                        {S.tip}
+                        <span className="tabular-nums">{money(r.tipCents, r.currency)}</span>
+                      </span>
+                    )}
                   </div>
                   {r.note && <p className="mt-2 rounded-2xl bg-mist-50/70 px-3 py-2 text-xs text-ink-700">{r.note}</p>}
                   {rejected && r.ownerNote && (
@@ -493,6 +512,7 @@ export function IncomeManager({
                           <span className={`block text-[11px] ${staffId === id && id ? "text-white/60" : "text-ink-400"}`}>
                             {fill(S.reportsN, { n: row.count })}
                             {row.pending > 0 ? ` · ${row.pending} ${S.statPending.toLowerCase()}` : ""}
+                            {row.tips > 0 ? ` · ${fill(S.tipOf, { amount: money(row.tips) })}` : ""}
                           </span>
                         </span>
                         <span className="shrink-0 text-sm font-bold tabular-nums">{money(row.total)}</span>

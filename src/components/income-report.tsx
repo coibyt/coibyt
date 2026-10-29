@@ -2,11 +2,12 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { AlertCircle, Banknote, CheckCircle2, Clock3, CreditCard, Gift, ImagePlus, Loader2, Receipt, Trash2, Wallet, X, XCircle } from "lucide-react";
+import { AlertCircle, Banknote, CheckCircle2, Clock3, CreditCard, Gift, HandCoins, ImagePlus, Loader2, Receipt, Trash2, Wallet, X, XCircle } from "lucide-react";
 import { fill } from "@/lib/shop-strings";
 import { incomeStrings } from "@/lib/income-strings";
 import { formatMoney, fromSmallestUnit, toSmallestUnit } from "@/lib/money";
 import type { IncomeReportJson } from "@/lib/income";
+import { GIFT_DISCOUNTS, giftNet } from "@/lib/income-math";
 
 const MAX_PHOTOS = 6;
 const GOLD_BTN =
@@ -138,7 +139,15 @@ export function IncomeReportModal({
     gift1Code: report?.giftCard1Code ?? "",
     gift2: amountText(report?.giftCard2Cents ?? 0, cur),
     gift2Code: report?.giftCard2Code ?? "",
+    tip: amountText(report?.tipCents ?? 0, cur),
     note: report?.note ?? "",
+  }));
+  // Each gift card's discount, and whether "Other…" (a typed %) is chosen.
+  const [pct, setPct] = useState(() => ({
+    gift1: report?.giftCard1Percent ?? 0,
+    gift2: report?.giftCard2Percent ?? 0,
+    gift1Other: !GIFT_DISCOUNTS.includes(report?.giftCard1Percent ?? 0),
+    gift2Other: !GIFT_DISCOUNTS.includes(report?.giftCard2Percent ?? 0),
   }));
   const [photos, setPhotos] = useState<{ id: string; url: string }[]>(
     () => report?.photoIds.map((id, i) => ({ id, url: report.photos[i] })) ?? []
@@ -160,8 +169,10 @@ export function IncomeReportModal({
 
   const totals = useMemo(() => {
     const parts = [f.cash, f.bank, f.gift1, f.gift2].map((x) => parseAmount(x, cur));
-    return { parts, total: parts.reduce((a, b) => a + b, 0) };
-  }, [f, cur]);
+    // Gift cards count after their discount; the tip stays out of the total.
+    const total = parts[0] + parts[1] + giftNet(parts[2], pct.gift1) + giftNet(parts[3], pct.gift2);
+    return { parts, total, tip: parseAmount(f.tip, cur) };
+  }, [f, pct, cur]);
   const diff = totals.total - booking.expectedCents;
   const set = (k: keyof typeof f, v: string) => setF((p) => ({ ...p, [k]: v }));
   const due = formatMoney(booking.expectedCents, cur, locale);
@@ -184,7 +195,7 @@ export function IncomeReportModal({
   }
 
   async function submit() {
-    if (totals.total <= 0) return setError(S.errEmpty);
+    if (totals.total <= 0 && totals.tip <= 0) return setError(S.errEmpty);
     setBusy(true);
     setError(null);
     const res = await fetch("/api/business/income", {
@@ -198,6 +209,9 @@ export function IncomeReportModal({
         giftCard1Code: f.gift1Code,
         giftCard2Cents: totals.parts[3],
         giftCard2Code: f.gift2Code,
+        giftCard1Percent: pct.gift1,
+        giftCard2Percent: pct.gift2,
+        tipCents: totals.tip,
         note: f.note,
       }),
     }).catch(() => null);
@@ -239,7 +253,7 @@ export function IncomeReportModal({
     }
   }
 
-  const money = (key: "cash" | "bank" | "gift1" | "gift2", label: string, Icon: typeof Wallet, quick: boolean) => (
+  const money = (key: "cash" | "bank" | "gift1" | "gift2" | "tip", label: string, Icon: typeof Wallet, quick: boolean) => (
     <div>
       <div className="mb-1.5 flex items-center justify-between gap-2">
         <span className="flex items-center gap-1.5 text-xs font-semibold text-ink-700">
@@ -336,7 +350,8 @@ export function IncomeReportModal({
 
           <section className="space-y-3 rounded-3xl border border-ink-100 bg-white p-4">
             {(["gift1", "gift2"] as const).map((k) => (
-              <div key={k} className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-2">
+              <div key={k} className="space-y-2 [&:not(:first-child)]:border-t [&:not(:first-child)]:border-ink-100 [&:not(:first-child)]:pt-3">
+              <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-2">
                 {money(k, k === "gift1" ? S.gift1 : S.gift2, Gift, false)}
                 <label className="min-w-0">
                   <span className="mb-1.5 block truncate text-[11px] font-semibold text-ink-400">{S.giftCode}</span>
@@ -349,6 +364,60 @@ export function IncomeReportModal({
                     className={`${FIELD} font-mono tracking-wider`}
                   />
                 </label>
+              </div>
+              {/* The card's discount: taken off before it counts as income. */}
+              <div className="flex flex-wrap items-center gap-1.5">
+                <span className="mr-0.5 text-[11px] font-semibold text-ink-400">{S.discount}</span>
+                {GIFT_DISCOUNTS.map((v) => {
+                  const on = !pct[`${k}Other`] && pct[k] === v;
+                  return (
+                    <button
+                      key={v}
+                      type="button"
+                      disabled={locked}
+                      onClick={() => setPct((p) => ({ ...p, [k]: v, [`${k}Other`]: false }))}
+                      className={`rounded-full px-2.5 py-1 text-[11px] font-bold tabular-nums transition disabled:opacity-60 ${
+                        on ? "bg-[#1f182d] text-white" : "bg-mist-50 text-ink-700 ring-1 ring-ink-100 hover:bg-white"
+                      }`}
+                    >
+                      {v}%
+                    </button>
+                  );
+                })}
+                <button
+                  type="button"
+                  disabled={locked}
+                  onClick={() => setPct((p) => ({ ...p, [`${k}Other`]: true }))}
+                  className={`rounded-full px-2.5 py-1 text-[11px] font-bold transition disabled:opacity-60 ${
+                    pct[`${k}Other`] ? "bg-[#1f182d] text-white" : "bg-mist-50 text-ink-700 ring-1 ring-ink-100 hover:bg-white"
+                  }`}
+                >
+                  {S.other}
+                </button>
+                {pct[`${k}Other`] && (
+                  <span className="relative">
+                    <input
+                      inputMode="numeric"
+                      autoFocus={!locked}
+                      disabled={locked}
+                      value={pct[k] || ""}
+                      onChange={(e) => {
+                        const n = Math.min(100, Math.max(0, parseInt(e.target.value.replace(/\D/g, "") || "0", 10)));
+                        setPct((p) => ({ ...p, [k]: n }));
+                      }}
+                      placeholder="15"
+                      className="w-16 rounded-full border border-ink-100 bg-white py-1 pl-2.5 pr-6 text-right text-xs font-bold tabular-nums outline-none focus:border-primary-400"
+                    />
+                    <span className="pointer-events-none absolute right-2.5 top-1/2 -translate-y-1/2 text-[11px] font-bold text-ink-400">%</span>
+                  </span>
+                )}
+              </div>
+              {pct[k] > 0 && totals.parts[k === "gift1" ? 2 : 3] > 0 && (
+                <p className="text-right text-[11px] font-semibold text-[#8a6a2b]">
+                  {formatMoney(totals.parts[k === "gift1" ? 2 : 3], cur, locale)} − {pct[k]}% →{" "}
+                  {fill(S.countsAs, { amount: formatMoney(giftNet(totals.parts[k === "gift1" ? 2 : 3], pct[k]), cur, locale) })}
+                </p>
+              )}
               </div>
             ))}
           </section>
@@ -368,6 +437,11 @@ export function IncomeReportModal({
                   : fill(diff > 0 ? S.diffMore : S.diffLess, { amount: formatMoney(Math.abs(diff), cur, locale) })}
               </p>
             )}
+          </section>
+
+          <section className="rounded-3xl border border-ink-100 bg-white p-4">
+            {money("tip", S.tip, HandCoins, false)}
+            <p className="mt-1.5 text-[11px] leading-snug text-ink-400">{S.tipHint}</p>
           </section>
 
           <label className="block">

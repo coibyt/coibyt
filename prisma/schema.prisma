@@ -1878,6 +1878,12 @@ model StaffIncomeReport {
   giftCard1Code  String?   @db.VarChar(40)
   giftCard2Cents Int       @default(0)
   giftCard2Code  String?   @db.VarChar(40)
+  // Discount on each gift card (0–100 %). The card's amount above is what
+  // was entered; only the discounted part counts towards totalCents.
+  giftCard1Percent Int     @default(0)
+  giftCard2Percent Int     @default(0)
+  // The staff member's own tip — not salon income, so not in totalCents.
+  tipCents       Int       @default(0)
   totalCents     Int
   note           String?   @db.VarChar(500)
   // PENDING until the owner approves it, then APPROVED (locked for staff),
