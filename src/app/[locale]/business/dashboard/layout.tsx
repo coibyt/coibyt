@@ -11,6 +11,7 @@ import { DashboardBody } from "@/components/dashboard-body";
 import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
 import { BookingAlarm } from "@/components/booking-alarm";
 import { incomeStrings } from "@/lib/income-strings";
+import { IncomeReminderAlarm } from "@/components/income-reminder-alarm";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -131,6 +132,9 @@ export default async function BusinessDashboardLayout({
       {/* Owners and staff alike: support chat and the same-day booking alarm. */}
       <DashboardSupportWidget locale={locale} />
       <BookingAlarm locale={locale} />
+      {/* Staff with bookings not reported 24 hours after they ended, when the
+          owner has income report reminders on. */}
+      {!isOwner && access.staffId && business.incomeRemindersSince && <IncomeReminderAlarm locale={locale} />}
     </div>
   );
 }

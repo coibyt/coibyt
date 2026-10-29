@@ -97,6 +97,9 @@ có một nguồn bên ngoài gọi định kỳ vào `GET /api/cron/reminders`:
 
 - Nhắc lịch hẹn lúc còn ~24 giờ, ~2 giờ, và ~15 phút trước giờ hẹn.
 - Xin đánh giá 1 ngày sau khi lịch hẹn đã hoàn thành (COMPLETED).
+- Nhắc nhân viên báo cáo doanh thu (email + thông báo đẩy, tối đa 1 lần/ngày,
+  9:00–21:00 giờ salon) cho lịch hẹn đã kết thúc quá 24 giờ — chỉ ở salon mà
+  chủ đã bật "Nhắc nhân viên báo cáo" trên trang Quản trị doanh thu.
 
 Endpoint này dùng lại biến `APP_SECRET` đã có sẵn trong `.env` (không cần
 thêm biến môi trường mới) — mỗi lần gọi phải kèm secret đó, qua MỘT trong hai

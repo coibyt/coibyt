@@ -201,6 +201,10 @@ model Category {
 
 model Business {
   id           String         @id @default(cuid())
+  // Income report reminders for staff (Doanh thu page): null = off. Set to a
+  // week before the owner turned them on; bookings that ended before it
+  // aren't chased.
+  incomeRemindersSince DateTime?
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.
   ownerId      String
@@ -573,6 +577,9 @@ model Staff {
   // own write endpoints stay owner-only, so granting this never hands out
   // any new ability to create/edit/delete anything — only to see the page.
   canViewAllPagesReadOnly    Boolean @default(false)
+  // Last time this person was reminded (email + push) about bookings they
+  // haven't reported income for — at most once a day.
+  incomeReminderSentAt       DateTime?
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

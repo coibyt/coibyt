@@ -4,6 +4,7 @@ import { sendMail, appointmentReminderEmail, reviewRequestEmail } from "@/lib/ma
 import { localeForCountry } from "@/lib/countries";
 import { sendDueCampaigns } from "@/lib/marketing-send";
 import { settleReferrals } from "@/lib/loyalty-referral";
+import { sendIncomeReminders } from "@/lib/income-reminders";
 
 const HOUR_MS = 60 * 60 * 1000;
 const MIN_MS = 60 * 1000;
@@ -179,5 +180,12 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals });
+  // Staff who haven't reported a booking's income 24 hours after it ended —
+  // a daily email + push, where the owner has turned reminders on.
+  const incomeReminders = await sendIncomeReminders().catch((err) => {
+    console.error("[cron] sendIncomeReminders", err);
+    return 0;
+  });
+
+  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders });
 }

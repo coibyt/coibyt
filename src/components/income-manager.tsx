@@ -3,7 +3,9 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { formatInTimeZone } from "date-fns-tz";
 import {
+  AlarmClock,
   Banknote,
+  BellRing,
   CalendarDays,
   Check,
   CheckCircle2,
@@ -26,6 +28,7 @@ import { fill } from "@/lib/shop-strings";
 import { incomeStrings } from "@/lib/income-strings";
 import { formatMoney } from "@/lib/money";
 import type { IncomeReportJson } from "@/lib/income";
+import type { OverdueBooking } from "@/lib/income-reminders";
 import { IncomeReportModal } from "@/components/income-report";
 import { giftNet } from "@/lib/income-math";
 
@@ -103,6 +106,42 @@ export function IncomeManager({
     setReports(null);
     load();
   }, [load]);
+
+  // Bookings over 24 hours past with no report, and whether reminders are on.
+  const [overdue, setOverdue] = useState<{ enabled: boolean; bookings: OverdueBooking[] } | null>(null);
+  const [reportingOverdue, setReportingOverdue] = useState<OverdueBooking | null>(null);
+  const [savingReminders, setSavingReminders] = useState(false);
+  const loadOverdue = useCallback(async () => {
+    const res = await fetch("/api/business/income/overdue").catch(() => null);
+    if (res?.ok) setOverdue(await res.json());
+  }, []);
+  useEffect(() => {
+    loadOverdue();
+  }, [loadOverdue]);
+
+  async function toggleReminders(on: boolean) {
+    setSavingReminders(true);
+    const res = await fetch("/api/business/income/settings", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reminders: on }),
+    }).catch(() => null);
+    setSavingReminders(false);
+    if (!res?.ok) return;
+    setOverdue((o) => (o ? { ...o, enabled: on } : o));
+    setToast(on ? S.remindOnToast : S.remindOffToast);
+  }
+
+  const overdueByStaff = useMemo(() => {
+    const m = new Map<string, { name: string; items: OverdueBooking[] }>();
+    for (const b of overdue?.bookings ?? []) {
+      const key = b.staffId ?? "";
+      const row = m.get(key) ?? { name: b.staffName ?? S.noStaff, items: [] };
+      row.items.push(b);
+      m.set(key, row);
+    }
+    return [...m.values()].sort((a, b) => b.items.length - a.items.length);
+  }, [overdue, S.noStaff]);
 
   useEffect(() => {
     if (!toast) return;
@@ -259,6 +298,39 @@ export function IncomeManager({
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
         <div className="min-w-0 space-y-3">
+          {/* Staff: their bookings still waiting for a report, reportable here. */}
+          {!isOwner && overdue && overdue.bookings.length > 0 && (
+            <section className="overflow-hidden rounded-3xl border border-[#ecd9ad] bg-gradient-to-br from-[#fffaf0] to-[#f8eedb]">
+              <div className="flex items-start gap-3 px-4 pb-2 pt-4 sm:px-5">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-[#1f182d] text-[#e8d3a6]">
+                  <AlarmClock className="h-5 w-5" />
+                </span>
+                <span className="min-w-0">
+                  <span className="block font-bold text-ink-900">
+                    {S.overdueTitle} <span className="text-[#b9852d]">({overdue.bookings.length})</span>
+                  </span>
+                  <span className="block text-xs text-[#6b5221]">{S.overdueSub}</span>
+                </span>
+              </div>
+              <ul className="divide-y divide-[#ecd9ad]/70 px-2 pb-2">
+                {overdue.bookings.map((b) => (
+                  <li key={b.id} className="flex items-center gap-3 rounded-2xl px-2.5 py-2.5">
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-bold text-ink-900">{b.customerName || "—"}</span>
+                      <span className="block truncate text-xs text-ink-400" suppressHydrationWarning>
+                        {dateFmt.format(new Date(b.startsAt))} · {b.serviceName}
+                      </span>
+                    </span>
+                    <span className="shrink-0 text-sm font-bold tabular-nums text-ink-900">{money(b.expectedCents, b.currency)}</span>
+                    <button type="button" onClick={() => setReportingOverdue(b)} className={`shrink-0 rounded-full px-3.5 py-1.5 text-xs font-bold ${GOLD_BTN}`}>
+                      {S.reportNow}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
           {isOwner && stats.pendingCount > 0 && (
             <button
               type="button"
@@ -523,6 +595,81 @@ export function IncomeManager({
               )}
             </section>
           ) : null}
+
+          {isOwner && overdue && (
+            <section className="overflow-hidden rounded-3xl border border-ink-100 bg-white">
+              {/* Owner switch: alarm + daily email for staff who haven't reported. */}
+              <label className={`flex items-start gap-3 bg-gradient-to-br from-[#1f182d] to-[#40325c] p-4 text-white ${savingReminders ? "opacity-70" : "cursor-pointer"}`}>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10 text-[#e8d3a6] ring-1 ring-white/15">
+                  <BellRing className="h-4 w-4" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="flex items-center justify-between gap-2">
+                    <span className="text-sm font-bold">{S.remindTitle}</span>
+                    <span className={`relative h-6 w-11 shrink-0 rounded-full transition ${overdue.enabled ? "bg-[#c99a3f]" : "bg-white/20"}`}>
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={overdue.enabled}
+                        disabled={savingReminders}
+                        onChange={(e) => toggleReminders(e.target.checked)}
+                      />
+                      <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all ${overdue.enabled ? "left-[22px]" : "left-0.5"}`} />
+                    </span>
+                  </span>
+                  <span className="mt-1 block text-[11px] leading-snug text-white/65">{S.remindText}</span>
+                  <span className={`mt-1.5 inline-block rounded-full px-2 py-0.5 text-[10px] font-bold ${overdue.enabled ? "bg-emerald-400/20 text-emerald-200" : "bg-white/10 text-white/60"}`}>
+                    {overdue.enabled ? S.remindOn : S.remindOff}
+                  </span>
+                </span>
+              </label>
+              <div className="p-4">
+                <p className="flex items-center gap-2 text-sm font-bold text-ink-900">
+                  <AlarmClock className="h-4 w-4 text-[#c99a3f]" />
+                  {S.overdueTitle}
+                  {overdue.bookings.length > 0 && (
+                    <span className="rounded-full bg-berry-50 px-2 py-0.5 text-[11px] font-bold text-berry-600">{overdue.bookings.length}</span>
+                  )}
+                </p>
+                <p className="mt-0.5 text-[11px] text-ink-400">{S.overdueSub}</p>
+                {overdueByStaff.length === 0 ? (
+                  <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
+                    <CheckCircle2 className="h-3.5 w-3.5" />
+                    {S.overdueNone}
+                  </p>
+                ) : (
+                  <ul className="mt-3 space-y-3">
+                    {overdueByStaff.map((row) => (
+                      <li key={row.name}>
+                        <p className="flex items-center justify-between gap-2 text-xs font-bold text-ink-900">
+                          <span className="truncate">{row.name}</span>
+                          <span className="shrink-0 text-berry-600">{fill(S.overdueByStaff, { n: row.items.length })}</span>
+                        </p>
+                        <ul className="mt-1 space-y-1">
+                          {row.items.slice(0, 5).map((b) => (
+                            <li key={b.id}>
+                              <button
+                                type="button"
+                                onClick={() => setReportingOverdue(b)}
+                                className="flex w-full items-center justify-between gap-2 rounded-xl bg-mist-50/70 px-2.5 py-1.5 text-left text-[11px] hover:bg-mist-50"
+                              >
+                                <span className="min-w-0 truncate text-ink-700" suppressHydrationWarning>
+                                  {dateFmt.format(new Date(b.startsAt))} · {b.customerName || "—"}
+                                </span>
+                                <span className="shrink-0 font-semibold tabular-nums text-ink-900">{money(b.expectedCents, b.currency)}</span>
+                              </button>
+                            </li>
+                          ))}
+                          {row.items.length > 5 && <li className="px-2.5 text-[11px] text-ink-400">+{row.items.length - 5}</li>}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </section>
+          )}
+
           <section className="rounded-3xl bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5 ring-1 ring-[#ecd9ad]">
             <p className="flex items-center gap-2 text-sm font-bold text-[#6b5221]">
               <Receipt className="h-4 w-4" />
@@ -536,6 +683,27 @@ export function IncomeManager({
           </section>
         </aside>
       </div>
+
+      {reportingOverdue && (
+        <IncomeReportModal
+          locale={locale}
+          booking={{
+            id: reportingOverdue.id,
+            customerName: reportingOverdue.customerName,
+            serviceName: reportingOverdue.serviceName,
+            staffName: reportingOverdue.staffName,
+            startsAt: reportingOverdue.startsAt,
+            expectedCents: reportingOverdue.expectedCents,
+            currency: reportingOverdue.currency,
+          }}
+          report={null}
+          onClose={() => setReportingOverdue(null)}
+          onSaved={() => {
+            loadOverdue();
+            load();
+          }}
+        />
+      )}
 
       {editing && (
         <IncomeReportModal
