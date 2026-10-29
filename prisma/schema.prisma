@@ -1879,7 +1879,10 @@ model PlatformSetting {
 model StaffIncomeReport {
   id             String    @id @default(cuid())
   businessId     String
-  bookingId      String    @unique
+  // A booking — or, for personal time that can earn money (Tuyển người mẫu,
+  // see INCOME_KINDS in src/lib/personal-time.ts), that StaffTimeOff row.
+  bookingId      String?   @unique
+  timeOffId      String?   @unique
   // The booking's staff member (null when the booking had none).
   staffId        String?
   staffName      String?   @db.VarChar(120)

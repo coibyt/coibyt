@@ -16,7 +16,9 @@ const FIELD =
   "w-full rounded-2xl border border-ink-100 bg-white px-3 py-2.5 text-sm text-ink-900 outline-none transition focus:border-primary-400 focus:ring-4 focus:ring-primary-100 disabled:bg-mist-50";
 
 interface BookingInfo {
+  /** The booking's id — or the personal time block's, when `timeOff`. */
   id: string;
+  timeOff?: boolean;
   customerName: string;
   serviceName: string;
   staffName: string | null;
@@ -50,7 +52,7 @@ function amountText(cents: number, currency: string) {
 
 /** The button on a booking: "Report income", or the report's status once
  * there is one. Opens the report form. */
-export function IncomeReportButton({ bookingId, locale }: { bookingId: string; locale: string }) {
+export function IncomeReportButton({ bookingId, timeOffId, locale }: { bookingId?: string; timeOffId?: string; locale: string }) {
   const S = incomeStrings(locale);
   const [state, setState] = useState<{ booking: BookingInfo; report: IncomeReportJson | null } | null>(null);
   const [open, setOpen] = useState(false);
@@ -58,13 +60,14 @@ export function IncomeReportButton({ bookingId, locale }: { bookingId: string; l
   useEffect(() => {
     let cancelled = false;
     setState(null);
-    fetch(`/api/business/income?bookingId=${encodeURIComponent(bookingId)}`)
+    const q = timeOffId ? `timeOffId=${encodeURIComponent(timeOffId)}` : `bookingId=${encodeURIComponent(bookingId ?? "")}`;
+    fetch(`/api/business/income?${q}`)
       .then((r) => (r.ok ? r.json() : null))
-      .then((d) => !cancelled && d && setState({ booking: d.booking, report: d.report }));
+      .then((d) => !cancelled && d && setState({ booking: { ...d.booking, timeOff: !!timeOffId }, report: d.report }));
     return () => {
       cancelled = true;
     };
-  }, [bookingId]);
+  }, [bookingId, timeOffId]);
 
   if (!state) return null;
   const r = state.report;
@@ -202,7 +205,7 @@ export function IncomeReportModal({
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        bookingId: booking.id,
+        ...(booking.timeOff ? { timeOffId: booking.id } : { bookingId: booking.id }),
         cashCents: totals.parts[0],
         bankCents: totals.parts[1],
         giftCard1Cents: totals.parts[2],
@@ -310,10 +313,13 @@ export function IncomeReportModal({
               <X className="h-5 w-5" />
             </button>
           </div>
-          <div className="relative mt-4 flex items-center justify-between rounded-2xl bg-white/[0.07] px-4 py-3 ring-1 ring-white/10">
-            <span className="text-xs font-semibold text-white/65">{S.due}</span>
-            <span className="text-lg font-bold tabular-nums">{due}</span>
-          </div>
+          {/* Personal time (Tuyển người mẫu) has nothing due. */}
+          {booking.expectedCents > 0 && (
+            <div className="relative mt-4 flex items-center justify-between rounded-2xl bg-white/[0.07] px-4 py-3 ring-1 ring-white/10">
+              <span className="text-xs font-semibold text-white/65">{S.due}</span>
+              <span className="text-lg font-bold tabular-nums">{due}</span>
+            </div>
+          )}
           {report && (
             <p
               className={`relative mt-3 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-bold ${

@@ -40,6 +40,8 @@ import {
   personalKindFromOption,
   personalTimeLabel,
   personalTimeLabels,
+  personalTimeColor,
+  INCOME_KINDS,
   type PersonalTimeKind,
 } from "@/lib/personal-time";
 
@@ -1635,11 +1637,11 @@ export function BookingCalendar({
           });
         }}
         title={`${personalTimeLabel(t.kind, locale)} · ${t.staffName}`}
-        className="absolute left-1 right-1 z-10 overflow-hidden rounded-xl border-l-[3px] border-slate-500 bg-slate-100 px-2 py-0.5 text-left text-[11px] text-slate-700 ring-1 ring-slate-300/70 transition hover:z-30 hover:shadow-md"
+        className={`absolute left-1 right-1 z-10 overflow-hidden rounded-xl border-l-[3px] px-2 py-0.5 text-left text-[11px] ring-1 transition hover:z-30 hover:shadow-md ${personalTimeColor(t.kind).cls}`}
         style={{
           top,
           height: Math.max(bottom - top, 20),
-          backgroundImage: "repeating-linear-gradient(135deg, rgba(100,116,139,0.13) 0 6px, transparent 6px 12px)",
+          backgroundImage: `repeating-linear-gradient(135deg, ${personalTimeColor(t.kind).hatch} 0 6px, transparent 6px 12px)`,
         }}
       >
         {bottom - top < 40 ? (
@@ -3251,6 +3253,14 @@ export function BookingCalendar({
               </p>
             )}
             {timeOffError && <p className="mt-2 text-sm text-berry-500">{timeOffError}</p>}
+            {/* Time that can earn money (Tuyển người mẫu) gets its own income
+                report, once saved as that kind — for the owner or that person. */}
+            {(() => {
+              const saved = timeOff.find((x) => x.id === editTimeOff.id);
+              return saved && isPersonalTimeKind(saved.kind) && INCOME_KINDS.includes(saved.kind) && (isOwner || viewerStaffId === saved.staffId) ? (
+                <IncomeReportButton key={saved.id} timeOffId={saved.id} locale={locale} />
+              ) : null;
+            })()}
             <div className="mt-5 flex items-center gap-2">
               <button
                 onClick={saveTimeOff}

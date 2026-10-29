@@ -409,10 +409,12 @@ export function IncomeManager({
                     </div>
                     <div className="shrink-0 text-right">
                       <p className="text-lg font-bold tabular-nums text-ink-900">{money(r.totalCents, r.currency)}</p>
-                      <p className={`text-[11px] font-semibold ${diff === 0 ? "text-ink-400" : "text-amber-700"}`}>
-                        {S.expected} {money(r.expectedCents, r.currency)}
-                        {diff !== 0 && <span className="block">{fill(S.mismatch, { amount: `${diff > 0 ? "+" : "−"}${money(Math.abs(diff), r.currency)}` })}</span>}
-                      </p>
+                      {r.expectedCents > 0 && (
+                        <p className={`text-[11px] font-semibold ${diff === 0 ? "text-ink-400" : "text-amber-700"}`}>
+                          {S.expected} {money(r.expectedCents, r.currency)}
+                          {diff !== 0 && <span className="block">{fill(S.mismatch, { amount: `${diff > 0 ? "+" : "−"}${money(Math.abs(diff), r.currency)}` })}</span>}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -709,7 +711,8 @@ export function IncomeManager({
         <IncomeReportModal
           locale={locale}
           booking={{
-            id: editing.bookingId,
+            id: (editing.bookingId ?? editing.timeOffId)!,
+            timeOff: !editing.bookingId,
             customerName: editing.customerName,
             serviceName: editing.serviceName,
             staffName: editing.staffName,

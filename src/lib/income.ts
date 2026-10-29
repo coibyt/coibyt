@@ -21,7 +21,9 @@ export { GIFT_DISCOUNTS, giftNet } from "@/lib/income-math";
 
 export const incomeReportSchema = z
   .object({
-    bookingId: z.string().min(1).max(40),
+    // One of the two: a booking, or a personal time block that can earn money.
+    bookingId: z.string().min(1).max(40).optional(),
+    timeOffId: z.string().min(1).max(40).optional(),
     cashCents: cents.default(0),
     bankCents: cents.default(0),
     giftCard1Cents: cents.default(0),
@@ -33,6 +35,7 @@ export const incomeReportSchema = z
     tipCents: cents.default(0),
     note: z.string().trim().max(500).optional().default(""),
   })
+  .refine((d) => !!d.bookingId !== !!d.timeOffId, { message: "TARGET" })
   .refine((d) => d.cashCents + d.bankCents + d.giftCard1Cents + d.giftCard2Cents + d.tipCents > 0, { message: "EMPTY" });
 
 /** The owner, or a staff member with their own login. */
@@ -65,6 +68,7 @@ export function reportJson(r: StaffIncomeReport & { photos: { id: string }[] }) 
   return {
     id: r.id,
     bookingId: r.bookingId,
+    timeOffId: r.timeOffId,
     staffId: r.staffId,
     staffName: r.staffName,
     customerName: r.customerName,
