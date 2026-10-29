@@ -24,13 +24,14 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { ChevronLeft, ChevronRight, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
 import { IncomeReportButton } from "@/components/income-report";
 import { minutesLabel } from "@/lib/hours-format";
+import { CalendarDatePicker } from "@/components/calendar-date-picker";
 import {
   PERSONAL_OPTION_PREFIX,
   PERSONAL_TIME_KINDS,
@@ -550,6 +551,7 @@ export function BookingCalendar({
     }
   };
   const [hiddenStaffIds, setHiddenStaffIds] = useState<Set<string>>(new Set());
+  const [pickingDate, setPickingDate] = useState(false);
 
   function toggleStaffVisible(staffId: string) {
     setHiddenStaffIds((prev) => {
@@ -1508,7 +1510,7 @@ export function BookingCalendar({
   const shortDate = new Intl.DateTimeFormat(locale, { day: "numeric", month: "numeric" });
   const periodLabel =
     view === "day"
-      ? new Intl.DateTimeFormat(locale, { weekday: "short", day: "numeric", month: "numeric" }).format(anchorDate)
+      ? new Intl.DateTimeFormat(locale, { weekday: locale === "vi" ? "narrow" : "short", day: "numeric", month: "numeric" }).format(anchorDate)
       : view === "week"
         ? `${shortDate.format(rangeStart)} – ${shortDate.format(rangeEnd)}`
         : (() => {
@@ -2304,40 +2306,56 @@ export function BookingCalendar({
       {/* On phones the bar sits above the floating chat and alarm buttons
           (bottom corners), which would otherwise cover its ends. */}
       <div className="sticky bottom-[5.25rem] z-30 flex justify-center sm:bottom-4">
-        <div className="flex items-center gap-1 rounded-full bg-white/90 p-1.5 shadow-xl shadow-primary-900/10 ring-1 ring-black/5 backdrop-blur-md">
+        <div className="flex max-w-full items-center gap-0.5 rounded-full bg-white/90 p-1 shadow-xl shadow-primary-900/10 ring-1 ring-black/5 backdrop-blur-md sm:gap-1 sm:p-1.5">
           <button
             onClick={() => navigate(-1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50 sm:h-9 sm:w-9"
             aria-label="Previous"
           >
             <ChevronLeft className="h-4 w-4" />
           </button>
-          {/* The day / week / month being looked at; tapping it goes back to today. */}
+          {/* The day / week / month being looked at; tapping it opens the date picker. */}
           <button
-            onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
-            title={t("today")}
-            className={`flex min-w-[4.5rem] flex-col items-center rounded-full px-2.5 py-1 leading-tight transition-colors hover:bg-primary-50 ${
+            onClick={() => setPickingDate(true)}
+            title={locale === "vi" ? "Chọn ngày" : locale === "fi" ? "Valitse päivämäärä" : "Pick a date"}
+            className={`flex items-center gap-1 rounded-full px-1.5 py-1 leading-tight transition-colors hover:bg-primary-50 sm:gap-1.5 sm:px-2 ${
               periodIsNow ? "text-primary-700" : "text-ink-900"
             }`}
           >
-            <span className="whitespace-nowrap text-xs font-bold tabular-nums" suppressHydrationWarning>
-              {periodLabel}
+            <CalendarDays className="h-4 w-4 shrink-0 text-primary-500" />
+            <span className="flex flex-col items-start">
+              <span className="whitespace-nowrap text-xs font-bold tabular-nums" suppressHydrationWarning>
+                {periodLabel}
+              </span>
+              {periodIsNow && <span className="text-[10px] font-semibold text-primary-500">{periodNowLabel}</span>}
             </span>
-            {periodIsNow && <span className="text-[10px] font-semibold text-primary-500">{periodNowLabel}</span>}
           </button>
           <button
             onClick={() => navigate(1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50 sm:h-9 sm:w-9"
             aria-label="Next"
           >
             <ChevronRight className="h-4 w-4" />
           </button>
-          <span className="mx-1 h-6 w-px bg-ink-100" />
+          {/* Back to today — lit up while looking at another day. */}
+          <button
+            onClick={() => setAnchorDate(toZonedTime(new Date(), businessTimezone))}
+            title={t("today")}
+            aria-label={t("today")}
+            className={`flex h-8 w-8 items-center justify-center rounded-full transition-colors sm:h-9 sm:w-9 ${
+              periodIsNow ? "text-ink-300 hover:bg-primary-50" : "bg-[#f4ec7a] text-ink-900 shadow-sm hover:brightness-95"
+            }`}
+          >
+            <span className="flex h-4 w-4 items-center justify-center rounded-full ring-2 ring-current">
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+            </span>
+          </button>
+          <span className="mx-0.5 h-6 w-px bg-ink-100" />
           {(["day", "week", "month"] as ViewMode[]).map((v) => (
             <button
               key={v}
               onClick={() => setView(v)}
-              className={`rounded-full px-3.5 py-2 text-xs font-semibold transition-all ${
+              className={`rounded-full px-2 py-2 text-xs font-semibold transition-all sm:px-3.5 ${
                 view === v
                   ? "bg-gradient-to-br from-primary-500 to-primary-700 text-white shadow-md"
                   : "text-ink-700 hover:bg-primary-50"
@@ -2348,6 +2366,24 @@ export function BookingCalendar({
           ))}
         </div>
       </div>
+
+      {pickingDate && (
+        <CalendarDatePicker
+          locale={locale}
+          selected={anchorDate}
+          today={now}
+          onPickDay={(d) => {
+            setAnchorDate(d);
+            setPickingDate(false);
+          }}
+          onPickWeek={(monday) => {
+            setAnchorDate(monday);
+            setView("week");
+            setPickingDate(false);
+          }}
+          onClose={() => setPickingDate(false)}
+        />
+      )}
 
       {activeBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
