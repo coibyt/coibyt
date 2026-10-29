@@ -29,6 +29,7 @@ import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
 import { IncomeReportButton } from "@/components/income-report";
+import { minutesLabel } from "@/lib/hours-format";
 import {
   PERSONAL_OPTION_PREFIX,
   PERSONAL_TIME_KINDS,
@@ -171,6 +172,29 @@ const LONG_PRESS_MS = 900;
 const DEFAULT_START_HOUR = 7;
 const DEFAULT_END_HOUR = 23;
 const DRAG_SNAP_MIN = 15;
+
+/** The time on a staff working-hours handle: small on the bar normally, a
+ * big dark badge beside it while it's being dragged (above the bar for the
+ * start, below for the end, so the finger doesn't cover it). */
+function HandleTime({ minute, dragging, edge }: { minute: number; dragging: boolean; edge: "open" | "close" }) {
+  const label = minutesLabel(minute);
+  if (dragging) {
+    return (
+      <span
+        className={`pointer-events-none absolute left-1/2 z-30 -translate-x-1/2 rounded-xl bg-[#1f182d] px-3 py-1.5 text-base font-extrabold tabular-nums text-white shadow-xl ring-2 ring-white ${
+          edge === "open" ? "bottom-full mb-1" : "top-full mt-1"
+        }`}
+      >
+        {label}
+      </span>
+    );
+  }
+  return (
+    <span className="pointer-events-none absolute left-2 top-1/2 z-30 -translate-y-1/2 rounded-full bg-primary-500 px-1.5 py-px text-[10px] font-bold tabular-nums leading-tight text-white shadow-sm">
+      {label}
+    </span>
+  );
+}
 const STAFF_DOT_COLORS = [
   "bg-primary-500",
   "bg-teal-500",
@@ -2045,6 +2069,7 @@ export function BookingCalendar({
                               activeEdit?.edge === "open" ? "opacity-100" : "opacity-70"
                             }`}
                           />
+                          {openMinute !== undefined && <HandleTime minute={openMinute} edge="open" dragging={resizing?.staffId === s.id && resizing.edge === "open"} />}
                         </div>
                       )}
                       {closePx !== null && (
@@ -2061,6 +2086,7 @@ export function BookingCalendar({
                               activeEdit?.edge === "close" ? "opacity-100" : "opacity-70"
                             }`}
                           />
+                          {closeMinute !== undefined && <HandleTime minute={closeMinute} edge="close" dragging={resizing?.staffId === s.id && resizing.edge === "close"} />}
                         </div>
                       )}
                     </>
