@@ -544,6 +544,33 @@ export function BookingCalendar({
     [staff, hiddenStaffIds]
   );
 
+  // The staff picker applies to every view: with some staff hidden, the week
+  // and month show only the chosen people's bookings and blocked time
+  // (unassigned bookings too are left out then).
+  const staffFiltered = staff.length > 1 && hiddenStaffIds.size > 0;
+  const shownStaff = (staffId: string | null | undefined) => !staffFiltered || (!!staffId && !hiddenStaffIds.has(staffId));
+
+  // Remembered per branch on this device, so the same people show next time.
+  const hiddenKey = `varaaai_calendar_hidden_${businessId}`;
+  const hiddenLoaded = useRef(false);
+  useEffect(() => {
+    try {
+      const saved: string[] = JSON.parse(localStorage.getItem(hiddenKey) ?? "[]");
+      const known = new Set(staff.map((s) => s.id));
+      const keep = saved.filter((id) => known.has(id));
+      // Never restore a state that hides everyone.
+      if (keep.length > 0 && keep.length < staff.length) setHiddenStaffIds(new Set(keep));
+    } catch {}
+    hiddenLoaded.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hiddenKey]);
+  useEffect(() => {
+    if (!hiddenLoaded.current) return;
+    try {
+      localStorage.setItem(hiddenKey, JSON.stringify([...hiddenStaffIds]));
+    } catch {}
+  }, [hiddenKey, hiddenStaffIds]);
+
   useEffect(() => {
     const interval = setInterval(() => setNow(toZonedTime(new Date(), businessTimezone)), 60_000);
     return () => clearInterval(interval);
@@ -665,7 +692,7 @@ export function BookingCalendar({
   );
 
   function bookingsOnDay(day: Date) {
-    return calendarBlocks.filter((b) => isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
+    return calendarBlocks.filter((b) => shownStaff(b.staffId) && isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), day));
   }
 
   // Personal time touching this day, clipped to it — a sick leave can run
@@ -674,7 +701,7 @@ export function BookingCalendar({
     const start = fromZonedTime(format(day, "yyyy-MM-dd"), businessTimezone).getTime();
     const end = start + 86_400_000;
     return timeOff
-      .filter((t) => new Date(t.startsAt).getTime() < end && new Date(t.endsAt).getTime() > start)
+      .filter((t) => shownStaff(t.staffId) && new Date(t.startsAt).getTime() < end && new Date(t.endsAt).getTime() > start)
       .map((t) => ({ ...t, from: Math.max(new Date(t.startsAt).getTime(), start), to: Math.min(new Date(t.endsAt).getTime(), end) }));
   }
 
@@ -1445,7 +1472,7 @@ export function BookingCalendar({
   // Day summary: one entry per booking (not per service block), cancelled
   // ones left out, revenue in the salon's main currency.
   const dayBookings = bookings.filter(
-    (b) => b.status !== "CANCELLED" && isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), anchorDate)
+    (b) => b.status !== "CANCELLED" && shownStaff(b.staffId) && isSameDay(toZonedTime(new Date(b.startsAt), businessTimezone), anchorDate)
   );
   const dayRevenueCurrency = dayBookings[0]?.currency;
   const dayRevenueCents = dayBookings
@@ -1757,7 +1784,7 @@ export function BookingCalendar({
         </div>
       )}
 
-      {view === "day" && staff.length > 1 && (
+      {staff.length > 1 && (
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           <button
             type="button"
