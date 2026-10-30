@@ -73,6 +73,9 @@ const STRINGS = {
     removeLeave: "Xóa",
     dayNames: ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"],
     dayShort: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
+    syncTitle: "Đồng bộ giờ làm với chi nhánh khác",
+    syncOn: "Đang bật — lưu ở đây thì {branches} cũng đổi theo y hệt.",
+    syncOff: "Đang tắt — giờ làm ở {branches} chỉnh riêng. Bật lên sẽ chép giờ làm đã lưu ở chi nhánh này sang đó.",
   },
   en: {
     eyebrow: "Working hours",
@@ -145,6 +148,9 @@ const STRINGS = {
     removeLeave: "Remove",
     dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     dayShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    syncTitle: "Same hours at their other branches",
+    syncOn: "On — saving here changes {branches} the same way.",
+    syncOff: "Off — {branches} is set separately. Turning it on copies the hours saved at this branch there.",
   },
   fi: {
     eyebrow: "Työajat",
@@ -217,6 +223,9 @@ const STRINGS = {
     removeLeave: "Poista",
     dayNames: ["Sunnuntai", "Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai"],
     dayShort: ["Su", "Ma", "Ti", "Ke", "To", "Pe", "La"],
+    syncTitle: "Samat työajat muissa toimipisteissä",
+    syncOn: "Päällä — tallennus täällä muuttaa myös {branches} samoin.",
+    syncOff: "Pois — {branches} asetetaan erikseen. Päälle kytkeminen kopioi tämän toimipisteen tallennetut työajat sinne.",
   },
 };
 

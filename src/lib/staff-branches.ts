@@ -141,3 +141,43 @@ export async function staffBranches(userId: string) {
     .sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime())
     .map((b) => ({ id: b.id, name: b.name }));
 }
+
+/** For someone whose hours are kept the same at every branch
+ * (Staff.syncBranchHours): copies this row's whole schedule onto their other
+ * active rows. A row with no schedule of its own follows its salon's opening
+ * hours, so those are copied as the schedule — otherwise the other branches
+ * would fall back to their own, different, opening hours. No-op when off. */
+export async function mirrorBranchHours(staffId: string): Promise<number> {
+  const s = await prisma.staff.findUnique({
+    where: { id: staffId },
+    select: { branchGroup: true, syncBranchHours: true, businessId: true, business: { select: { ownerId: true } } },
+  });
+  if (!s?.branchGroup || !s.syncBranchHours) return 0;
+  const others = await prisma.staff.findMany({
+    where: { branchGroup: s.branchGroup, id: { not: staffId }, active: true, business: { ownerId: s.business.ownerId } },
+    select: { id: true },
+  });
+  if (others.length === 0) return 0;
+
+  let rows: { weekday: number; openMinute: number; closeMinute: number; validFrom: string | null; validUntil: string | null }[] =
+    await prisma.staffHours.findMany({
+      where: { staffId },
+      select: { weekday: true, openMinute: true, closeMinute: true, validFrom: true, validUntil: true },
+    });
+  if (!rows.some((r) => r.validFrom === null && r.validUntil === null)) {
+    const salon = await prisma.businessHours.findMany({
+      where: { businessId: s.businessId },
+      select: { weekday: true, openMinute: true, closeMinute: true },
+    });
+    rows = [...rows, ...salon.map((h) => ({ ...h, validFrom: null, validUntil: null }))];
+  }
+
+  const ids = others.map((o) => o.id);
+  await prisma.$transaction([
+    prisma.staffHours.deleteMany({ where: { staffId: { in: ids } } }),
+    ...(rows.length
+      ? [prisma.staffHours.createMany({ data: ids.flatMap((id) => rows.map((r) => ({ ...r, staffId: id }))) })]
+      : []),
+  ]);
+  return ids.length;
+}

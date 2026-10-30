@@ -17,6 +17,7 @@ import {
   Loader2,
   Plane,
   Plus,
+  RefreshCw,
   Sparkles,
   Store,
   Trash2,
@@ -155,6 +156,14 @@ export function StaffHoursModal({
   const [days, setDays] = useState<DayRow[]>(() => daysFrom([]));
   const [copyFrom, setCopyFrom] = useState<number | null>(null);
   const [saving, setSaving] = useState(false);
+  // The other branches this person works at (owner only), and whether their
+  // hours there follow this branch's (Staff.syncBranchHours).
+  const [branchSync, setBranchSync] = useState<{
+    on: boolean;
+    travelMinutes: number;
+    branches: { id: string; name: string; on: boolean }[];
+  } | null>(null);
+  const [syncBusy, setSyncBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -201,9 +210,13 @@ export function StaffHoursModal({
       fetch(`/api/business/staff/${staffId}/hours`).then((r) => r.json()),
       fetch(`/api/business/hours`).then((r) => r.json()),
       loadLeave(),
+      fetch(`/api/business/staff/${staffId}/branches`)
+        .then((r) => (r.ok ? r.json() : null))
+        .catch(() => null),
     ])
-      .then(([mine, biz]) => {
+      .then(([mine, biz, , br]) => {
         if (cancelled) return;
+        if (br) setBranchSync({ on: !!br.syncHours, travelMinutes: br.travelMinutes ?? 0, branches: br.branches ?? [] });
         const rows: StaffHourRow[] = mine.hours ?? [];
         const list = groupStaffHours(rows).sort((a, b) => (a.validFrom ?? "").localeCompare(b.validFrom ?? ""));
         const salonRows: HourWindow[] = (biz.hours ?? []).map((h: HourWindow) => ({ weekday: h.weekday, openMinute: h.openMinute, closeMinute: h.closeMinute }));
@@ -303,6 +316,26 @@ export function StaffHoursModal({
     if (!res.ok) return setError(S.errSave);
     onClose();
   }
+
+  async function toggleBranchSync() {
+    if (!branchSync) return;
+    setSyncBusy(true);
+    const next = !branchSync.on;
+    const res = await fetch(`/api/business/staff/${staffId}/branches`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        businessIds: branchSync.branches.filter((b) => b.on).map((b) => b.id),
+        travelMinutes: branchSync.travelMinutes,
+        syncHours: next,
+      }),
+    }).catch(() => null);
+    setSyncBusy(false);
+    if (res?.ok) setBranchSync({ ...branchSync, on: next });
+    else setError(S.errSave);
+  }
+
+  const linkedBranchNames = (branchSync?.branches ?? []).filter((b) => b.on).map((b) => b.name);
 
   async function deleteSelected() {
     const old = periods.find((p) => periodKey(p) === selected);
@@ -468,6 +501,39 @@ export function StaffHoursModal({
             </div>
           ) : tab === "week" ? (
             <div className="space-y-4">
+              {linkedBranchNames.length > 0 && branchSync && (
+                <button
+                  type="button"
+                  role="switch"
+                  aria-checked={branchSync.on}
+                  disabled={syncBusy}
+                  onClick={toggleBranchSync}
+                  className={`flex w-full items-start gap-3 rounded-3xl border p-4 text-left transition ${
+                    branchSync.on ? "border-[#c99a3f] bg-[#fbf6ea]" : "border-ink-100 bg-white"
+                  }`}
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#1f182d] text-[#e8d3a6]">
+                    <RefreshCw className={`h-4 w-4 ${syncBusy ? "animate-spin" : ""}`} />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-bold text-ink-900">{S.syncTitle}</span>
+                    <span className="mt-0.5 block text-xs leading-snug text-ink-500">
+                      {(branchSync.on ? S.syncOn : S.syncOff).replace("{branches}", linkedBranchNames.join(", "))}
+                    </span>
+                  </span>
+                  <span
+                    className={`relative mt-1 inline-flex h-6 w-11 shrink-0 rounded-full transition ${
+                      branchSync.on ? "bg-[#1f182d]" : "bg-ink-100"
+                    }`}
+                  >
+                    <span
+                      className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-all ${
+                        branchSync.on ? "left-[1.375rem]" : "left-0.5"
+                      }`}
+                    />
+                  </span>
+                </button>
+              )}
               {/* Periods */}
               <section className="rounded-3xl border border-ink-100 bg-white p-4">
                 <p className="flex items-center gap-2 text-sm font-bold text-ink-900">

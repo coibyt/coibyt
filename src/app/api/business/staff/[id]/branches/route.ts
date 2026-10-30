@@ -3,7 +3,7 @@ import { z } from "zod";
 import { auth } from "@/auth";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { BRANCH_TRAVEL_CHOICES, newBranchGroup } from "@/lib/staff-branches";
+import { BRANCH_TRAVEL_CHOICES, mirrorBranchHours, newBranchGroup } from "@/lib/staff-branches";
 
 /** Which of the owner's other branches this staff member also works at. */
 async function load(id: string) {
@@ -29,6 +29,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   if (!found) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   return NextResponse.json({
     travelMinutes: found.staff.branchTravelMinutes,
+    syncHours: found.staff.syncBranchHours,
     branches: found.branches.map((b) => ({
       id: b.id,
       name: b.name,
@@ -46,6 +47,9 @@ const schema = z.object({
     .int()
     .refine((n) => BRANCH_TRAVEL_CHOICES.includes(n))
     .optional(),
+  // Keep this person's working hours the same at every branch; turning it on
+  // copies this branch's hours to the others.
+  syncHours: z.boolean().optional(),
 });
 
 /** Sets the other branches this person works at. A branch they're new to gets
@@ -68,6 +72,10 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   if (travel !== staff.branchTravelMinutes) {
     await prisma.staff.updateMany({ where: { branchGroup: group }, data: { branchTravelMinutes: travel } });
   }
+  const sync = parsed.data.syncHours ?? staff.syncBranchHours;
+  if (sync !== staff.syncBranchHours) {
+    await prisma.staff.updateMany({ where: { branchGroup: group }, data: { syncBranchHours: sync } });
+  }
 
   const [avatar, myServices] = await Promise.all([
     prisma.staffAvatar.findUnique({ where: { staffId: staff.id } }),
@@ -85,6 +93,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
         businessId,
         branchGroup: group,
         branchTravelMinutes: travel,
+        syncBranchHours: sync,
         name: staff.name,
         title: staff.title,
         bio: staff.bio,
@@ -119,5 +128,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       await prisma.staff.update({ where: { id: l.id }, data: { active: false } });
     }
   }
-  return NextResponse.json({ ok: true, businessIds: [...wanted], travelMinutes: travel });
+  // This branch's hours go to the others — new ones included — whenever the
+  // hours are kept in sync.
+  if (sync) await mirrorBranchHours(staff.id);
+  return NextResponse.json({ ok: true, businessIds: [...wanted], travelMinutes: travel, syncHours: sync });
 }

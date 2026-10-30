@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { staffHoursSchema } from "@/lib/validations";
+import { mirrorBranchHours } from "@/lib/staff-branches";
 
 const dateString = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable();
 
@@ -41,7 +42,8 @@ export async function GET(
  * its date range; saving replaces the period being edited and any other period
  * with the same range. An empty `hours` array means "no custom schedule" for
  * that period (they follow the salon's own opening hours). Accepts the old bare
- * array too, which saves the open-ended period. */
+ * array too, which saves the open-ended period. With Staff.syncBranchHours on,
+ * the person's other branches get the same schedule. */
 export async function PUT(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -93,6 +95,8 @@ export async function PUT(
         ]
       : []),
   ]);
+  // Same hours at their other branches, when the owner keeps them in sync.
+  const synced = await mirrorBranchHours(id);
 
-  return NextResponse.json({ ok: true });
+  return NextResponse.json({ ok: true, synced });
 }

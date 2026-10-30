@@ -589,6 +589,9 @@ model Staff {
   // at another branch blocks this much extra time before and after it here.
   // Kept the same on every row of the group.
   branchTravelMinutes        Int       @default(0)
+  // When on, saving this person's working hours at one branch saves the same
+  // hours at their other branches too. Kept the same on every row of the group.
+  syncBranchHours            Boolean   @default(false)
 
   // Minutes of advance notice a customer must give to book this staff member
   // (0, 15, 30, 60, 120, 180, 360, 720) — gives them time to prepare, on top

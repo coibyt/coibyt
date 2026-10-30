@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Building2, Car, Check, Info, Loader2 } from "lucide-react";
+import { Building2, Car, Check, Info, Loader2, RefreshCw } from "lucide-react";
 import { BRANCH_TRAVEL_CHOICES } from "@/lib/branch-travel";
 
 const L = {
@@ -13,6 +13,10 @@ const L = {
     travelHint: "Các chi nhánh khác được khoá thêm khoảng này trước và sau mỗi cuộc hẹn, để nhân viên kịp đi lại.",
     travelExample: "Ví dụ: khách 15:00–16:30 ở chi nhánh này, di chuyển {m} phút → chi nhánh khác bị khoá {from}–{to}.",
     none: "Không cần",
+    sync: "Đồng bộ lịch làm việc giữa các chi nhánh",
+    syncHint: "Bật: lưu giờ làm ở một chi nhánh thì các chi nhánh kia cũng đổi theo y hệt (bật lên sẽ chép giờ làm ở chi nhánh này sang các chi nhánh kia). Tắt: bạn tự chỉnh giờ làm riêng cho từng chi nhánh.",
+    syncOn: "Đang đồng bộ — giờ làm giống nhau ở mọi chi nhánh.",
+    syncOff: "Đang chỉnh riêng từng chi nhánh.",
     saved: "Đã lưu",
     error: "Không lưu được",
   },
@@ -24,6 +28,10 @@ const L = {
     travelHint: "The other branches are also locked for this long before and after each booking, so they have time to get there.",
     travelExample: "E.g. a customer 15:00–16:30 here with {m} min travel → the other branches are locked {from}–{to}.",
     none: "None",
+    sync: "Keep working hours the same at every branch",
+    syncHint: "On: saving their hours at one branch changes the other branches the same way (turning it on copies this branch's hours to the others). Off: you set their hours at each branch yourself.",
+    syncOn: "In sync — the same hours at every branch.",
+    syncOff: "Set separately at each branch.",
     saved: "Saved",
     error: "Couldn't save",
   },
@@ -35,6 +43,10 @@ const L = {
     travelHint: "Muut toimipisteet lukitaan myös näin kauan ennen jokaista varausta ja sen jälkeen, jotta henkilö ehtii perille.",
     travelExample: "Esim. asiakas klo 15:00–16:30 täällä, matka {m} min → muut toimipisteet lukitaan {from}–{to}.",
     none: "Ei tarvita",
+    sync: "Samat työajat kaikissa toimipisteissä",
+    syncHint: "Päällä: työaikojen tallennus yhdessä toimipisteessä muuttaa muut samoin (päälle kytkeminen kopioi tämän toimipisteen työajat muihin). Pois: asetat työajat jokaiseen toimipisteeseen itse.",
+    syncOn: "Synkronoitu — samat työajat kaikissa toimipisteissä.",
+    syncOff: "Asetetaan erikseen jokaisessa toimipisteessä.",
     saved: "Tallennettu",
     error: "Tallennus epäonnistui",
   },
@@ -54,6 +66,7 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
   const t = (L as Record<string, (typeof L)["en"]>)[locale] ?? L.en;
   const [branches, setBranches] = useState<Branch[] | null>(null);
   const [travel, setTravel] = useState(0);
+  const [syncHours, setSyncHours] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [status, setStatus] = useState<"saved" | "error" | null>(null);
 
@@ -65,24 +78,26 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
         if (cancelled) return;
         setBranches(d.branches ?? []);
         setTravel(d.travelMinutes ?? 0);
+        setSyncHours(!!d.syncHours);
       });
     return () => {
       cancelled = true;
     };
   }, [staffId]);
 
-  async function save(next: Branch[], minutes: number, busyKey: string) {
+  async function save(next: Branch[], minutes: number, busyKey: string, sync = syncHours) {
     setBusy(busyKey);
     setStatus(null);
     const res = await fetch(`/api/business/staff/${staffId}/branches`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ businessIds: next.filter((b) => b.on).map((b) => b.id), travelMinutes: minutes }),
+      body: JSON.stringify({ businessIds: next.filter((b) => b.on).map((b) => b.id), travelMinutes: minutes, syncHours: sync }),
     }).catch(() => null);
     setBusy(null);
     if (res?.ok) {
       setBranches(next);
       setTravel(minutes);
+      setSyncHours(sync);
       setStatus("saved");
     } else setStatus("error");
   }
@@ -139,6 +154,42 @@ export function StaffBranchesPanel({ staffId, locale, className }: { staffId: st
         <Info className="mt-px h-3.5 w-3.5 shrink-0" />
         {t.lock}
       </p>
+
+      {branches.some((b) => b.on) && (
+        <div className="mt-4 border-t border-ink-100 pt-4">
+          <button
+            type="button"
+            role="switch"
+            aria-checked={syncHours}
+            disabled={busy !== null}
+            onClick={() => save(branches, travel, "sync", !syncHours)}
+            className="flex w-full items-start gap-3 text-left"
+          >
+            <span className="min-w-0 flex-1">
+              <span className="flex items-center gap-2 text-xs font-bold text-ink-900">
+                <RefreshCw className="h-4 w-4 shrink-0 text-[#b08a3e]" />
+                {t.sync}
+              </span>
+              <span className="mt-0.5 block text-[11px] leading-snug text-ink-400">{t.syncHint}</span>
+              <span className={`mt-1 block text-[11px] font-semibold ${syncHours ? "text-emerald-600" : "text-ink-500"}`}>
+                {syncHours ? `✓ ${t.syncOn}` : t.syncOff}
+              </span>
+            </span>
+            <span
+              className={`relative mt-0.5 inline-flex h-6 w-11 shrink-0 items-center rounded-full transition ${
+                syncHours ? "bg-[#1f182d]" : "bg-ink-100"
+              }`}
+            >
+              {busy === "sync" ? (
+                <Loader2 className={`absolute h-3.5 w-3.5 animate-spin ${syncHours ? "left-1.5 text-white" : "right-1.5 text-ink-500"}`} />
+              ) : null}
+              <span
+                className={`absolute h-5 w-5 rounded-full bg-white shadow transition-all ${syncHours ? "left-[1.375rem]" : "left-0.5"}`}
+              />
+            </span>
+          </button>
+        </div>
+      )}
 
       {branches.some((b) => b.on) && (
         <div className="mt-4 border-t border-ink-100 pt-4">
