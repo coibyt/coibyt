@@ -13,6 +13,8 @@ import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
 import { BookingAlarm } from "@/components/booking-alarm";
 import { incomeStrings } from "@/lib/income-strings";
 import { IncomeReminderAlarm } from "@/components/income-reminder-alarm";
+import { teamCounts } from "@/lib/team";
+import { teamStrings } from "@/lib/team-strings";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -66,8 +68,14 @@ export default async function BusinessDashboardLayout({
     );
   }
 
+  // Team hub: chat, notices and training — for everyone with a login.
+  const team = session?.user ? await teamCounts(session.user.id, business.id, isOwner) : null;
+
   const links = [
     { href: "/business/dashboard", label: t("overview") },
+    ...(team
+      ? [{ href: "/business/dashboard/utilities", label: teamStrings(locale).nav, badge: team.chat + team.announcements + team.training }]
+      : []),
     ...(isOwner || permissions.services
       ? [{ href: "/business/dashboard/services", label: t("services") }]
       : []),

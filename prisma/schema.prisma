@@ -100,6 +100,8 @@ model User {
   productReviews      ProductReview[]
   orders              Order[]
   messageReactions    MessageReaction[]
+  teamChatMembers     TeamChatMember[]
+  teamMessages        TeamMessage[]
   pushSubscriptions   PushSubscription[]
   postLikes           PostLike[]
   passwordResetTokens PasswordResetToken[]
@@ -331,6 +333,10 @@ model Business {
   orders                  Order[]
   pageViews               BusinessPageView[]
   qrScans                 QrScan[]
+  teamChats               TeamChat[]
+  teamMedia               TeamMedia[]
+  staffAnnouncements      StaffAnnouncement[]
+  staffTrainings          StaffTraining[]
 
   @@index([ownerId])
   @@index([status])
@@ -1950,4 +1956,178 @@ model StaffIncomePhoto {
   createdAt DateTime          @default(now())
 
   @@index([reportId])
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Team hub (dashboard "Tiện ích"): the salon's own team chat, notices from
+// the owner to staff, and training material. Scoped to one branch.
+// ────────────────────────────────────────────────────────────────────
+
+// A photo, video or document shared in the team hub. The bytes live in
+// TeamMediaChunk rows (Hostinger wipes files written at runtime), split so a
+// video can be streamed and seeked a piece at a time.
+model TeamMedia {
+  id         String           @id @default(cuid())
+  businessId String
+  business   Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  uploaderId String
+  kind       String           @db.VarChar(10) // IMAGE | VIDEO | FILE
+  mimeType   String           @db.VarChar(120)
+  name       String           @db.VarChar(255)
+  size       Int
+  chunkSize  Int
+  width      Int?
+  height     Int?
+  // A JPEG still of a video's first frame, made in the browser.
+  posterData Bytes?           @db.MediumBlob
+  complete   Boolean          @default(false)
+  createdAt  DateTime         @default(now())
+  chunks     TeamMediaChunk[]
+
+  @@index([businessId])
+  @@index([uploaderId, complete])
+}
+
+model TeamMediaChunk {
+  mediaId String
+  media   TeamMedia @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+  idx     Int
+  data    Bytes     @db.MediumBlob
+
+  @@id([mediaId, idx])
+}
+
+model TeamChat {
+  id            String           @id @default(cuid())
+  businessId    String
+  business      Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  kind          String           @db.VarChar(10) // ALL | GROUP | DIRECT
+  name          String?          @db.VarChar(80)
+  color         String?          @db.VarChar(20)
+  // "ALL" for the whole-salon chat, "<userId>:<userId>" (sorted) for a
+  // direct chat — so each exists once per branch. Null for groups.
+  directKey     String?          @db.VarChar(120)
+  createdById   String?
+  lastMessageAt DateTime         @default(now())
+  createdAt     DateTime         @default(now())
+  members       TeamChatMember[]
+  messages      TeamMessage[]
+
+  @@unique([businessId, directKey])
+  @@index([businessId, lastMessageAt])
+}
+
+model TeamChatMember {
+  id         String   @id @default(cuid())
+  chatId     String
+  chat       TeamChat @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  admin      Boolean  @default(false)
+  muted      Boolean  @default(false)
+  lastReadAt DateTime @default(now())
+  joinedAt   DateTime @default(now())
+
+  @@unique([chatId, userId])
+  @@index([userId])
+}
+
+model TeamMessage {
+  id        String                @id @default(cuid())
+  chatId    String
+  chat      TeamChat              @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  senderId  String
+  sender    User                  @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  body      String?               @db.Text
+  mediaId   String?
+  replyToId String?
+  // "X created the group", "X added Y" — `body` holds a JSON event.
+  system    Boolean               @default(false)
+  editedAt  DateTime?
+  deletedAt DateTime?
+  createdAt DateTime              @default(now())
+  reactions TeamMessageReaction[]
+
+  @@index([chatId, createdAt])
+}
+
+model TeamMessageReaction {
+  id        String      @id @default(cuid())
+  messageId String
+  message   TeamMessage @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  userId    String
+  emoji     String      @db.VarChar(16)
+  createdAt DateTime    @default(now())
+
+  @@unique([messageId, userId, emoji])
+}
+
+// A notice from the owner to the salon's staff.
+model StaffAnnouncement {
+  id          String                  @id @default(cuid())
+  businessId  String
+  business    Business                @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  authorId    String
+  title       String                  @db.VarChar(160)
+  body        String                  @db.Text
+  priority    String                  @default("NORMAL") @db.VarChar(10) // NORMAL | IMPORTANT | URGENT
+  pinned      Boolean                 @default(false)
+  // Staff confirm they have read and understood it; the owner sees who has.
+  requireAck  Boolean                 @default(false)
+  // [{ mediaId, kind, name, size, mimeType }]
+  attachments Json?
+  createdAt   DateTime                @default(now())
+  updatedAt   DateTime                @updatedAt
+  reads       StaffAnnouncementRead[]
+
+  @@index([businessId, createdAt])
+}
+
+model StaffAnnouncementRead {
+  id             String            @id @default(cuid())
+  announcementId String
+  announcement   StaffAnnouncement @relation(fields: [announcementId], references: [id], onDelete: Cascade)
+  userId         String
+  readAt         DateTime          @default(now())
+  ackAt          DateTime?
+
+  @@unique([announcementId, userId])
+  @@index([userId])
+}
+
+// A lesson in the salon's own training library.
+model StaffTraining {
+  id           String                  @id @default(cuid())
+  businessId   String
+  business     Business                @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  authorId     String
+  title        String                  @db.VarChar(160)
+  summary      String?                 @db.VarChar(400)
+  body         String?                 @db.Text
+  category     String                  @db.VarChar(20) // see TRAINING_CATEGORIES
+  videoUrl     String?                 @db.VarChar(500) // YouTube
+  coverMediaId String?
+  // [{ mediaId, kind, name, size, mimeType }]
+  attachments  Json?
+  required     Boolean                 @default(false)
+  minutes      Int?
+  published    Boolean                 @default(true)
+  sortOrder    Int                     @default(0)
+  createdAt    DateTime                @default(now())
+  updatedAt    DateTime                @updatedAt
+  progress     StaffTrainingProgress[]
+
+  @@index([businessId, sortOrder])
+}
+
+model StaffTrainingProgress {
+  id          String        @id @default(cuid())
+  trainingId  String
+  training    StaffTraining @relation(fields: [trainingId], references: [id], onDelete: Cascade)
+  userId      String
+  viewedAt    DateTime      @default(now())
+  completedAt DateTime?
+
+  @@unique([trainingId, userId])
+  @@index([userId])
 }

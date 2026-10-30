@@ -18,7 +18,8 @@ export function DashboardSidebar({
       </h2>
       <nav className="flex flex-row gap-1 overflow-x-auto md:flex-col">
         {links.map((l) => {
-          const active = pathname === l.href;
+          // Sections with sub-pages (Tiện ích) stay lit on them too.
+          const active = pathname === l.href || (l.href !== "/business/dashboard" && pathname.startsWith(`${l.href}/`));
           return (
             <Link
               key={l.href}
