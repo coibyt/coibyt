@@ -588,10 +588,18 @@ export function BookingCalendar({
   const staffFiltered = staff.length > 1 && hiddenStaffIds.size > 0;
   const shownStaff = (staffId: string | null | undefined) => !staffFiltered || (!!staffId && !hiddenStaffIds.has(staffId));
 
+  // A staff member who may see the whole calendar still opens it on their own
+  // column only; "Show all" brings the others in for this visit.
+  const ownColumnFirst = !isOwner && !!viewerStaffId && staff.length > 1 && staff.some((s) => s.id === viewerStaffId);
+
   // Remembered per branch on this device, so the same people show next time.
   const hiddenKey = `varaaai_calendar_hidden_${businessId}`;
   const hiddenLoaded = useRef(false);
   useEffect(() => {
+    if (ownColumnFirst) {
+      setHiddenStaffIds(new Set(staff.filter((s) => s.id !== viewerStaffId).map((s) => s.id)));
+      return;
+    }
     try {
       const saved: string[] = JSON.parse(localStorage.getItem(hiddenKey) ?? "[]");
       const known = new Set(staff.map((s) => s.id));
@@ -601,7 +609,7 @@ export function BookingCalendar({
     } catch {}
     hiddenLoaded.current = true;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [hiddenKey]);
+  }, [hiddenKey, ownColumnFirst]);
   useEffect(() => {
     if (!hiddenLoaded.current) return;
     try {
