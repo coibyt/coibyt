@@ -24,7 +24,7 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
+import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Loader2, Lock, Mail, Pencil, Star, Trash2, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { CUSTOMER_REVIEW_EVENT, type CustomerReviewEventDetail } from "@/components/pending-customer-reviews";
@@ -81,6 +81,8 @@ interface CalendarBooking {
   customerName: string;
   customerPhone: string | null;
   customerEmail: string | null;
+  /** A real inbox to tell about a new time (not a walk-in's stand-in). */
+  customerHasEmail: boolean;
   customerReviewRating: number | null;
   customerReviewNote: string | null;
   customerReviewId: string | null;
@@ -90,6 +92,9 @@ interface CalendarBooking {
   addOns: { name: string; priceCents: number }[];
   addOnIds: string[];
 }
+
+/** A customer email that reaches someone — not a walk-in's stand-in. */
+const isRealEmail = (email: string | null | undefined) => !!email && !email.endsWith("@walkin.varaaai.com");
 
 /** One service of a booking as its own calendar block — the booking's own
  * fields plus that service's time, staff, name and price. */
@@ -526,6 +531,32 @@ export function BookingCalendar({
   const [timeOffError, setTimeOffError] = useState<string | null>(null);
   const PT = personalTimeLabels(locale);
   const [pendingReschedule, setPendingReschedule] = useState<PendingReschedule | null>(null);
+  // After a move: ask whether to email the customer their new time.
+  const [notifyPrompt, setNotifyPrompt] = useState<{ bookingId: string; customerName: string; startsAt: Date } | null>(null);
+  const [notifyBusy, setNotifyBusy] = useState(false);
+  const [notice, setNotice] = useState<string | null>(null);
+  useEffect(() => {
+    if (!notice) return;
+    const id = setTimeout(() => setNotice(null), 3500);
+    return () => clearTimeout(id);
+  }, [notice]);
+
+  async function sendRescheduleEmail() {
+    if (!notifyPrompt) return;
+    setNotifyBusy(true);
+    const res = await fetch(`/api/business/bookings/${notifyPrompt.bookingId}/notify-reschedule`, { method: "POST" }).catch(() => null);
+    setNotifyBusy(false);
+    setNotifyPrompt(null);
+    setNotice(
+      res?.ok
+        ? locale === "vi"
+          ? "Đã gửi email báo giờ mới cho khách"
+          : "The customer has been emailed the new time"
+        : locale === "vi"
+          ? "Không gửi được email, thử lại sau"
+          : "Couldn't send the email, please try again"
+    );
+  }
   const [reschedulingBusy, setReschedulingBusy] = useState(false);
   const [customerDetail, setCustomerDetail] = useState<CustomerDetail | null>(null);
   const [loadingCustomerDetail, setLoadingCustomerDetail] = useState(false);
@@ -1225,6 +1256,7 @@ export function BookingCalendar({
         customerName: editBooking.customerName,
         customerPhone: editBooking.customerPhone.trim() || undefined,
         customerEmail: editBooking.customerEmail || undefined,
+        notify: false,
       }),
     });
     setSavingEdit(false);
@@ -1245,6 +1277,11 @@ export function BookingCalendar({
       );
       return;
     }
+    const { scheduleChanged } = await res.json().catch(() => ({ scheduleChanged: false }));
+    const edited = bookings.find((b) => b.id === editBooking.bookingId);
+    if (scheduleChanged && (edited?.customerHasEmail || isRealEmail(editBooking.customerEmail))) {
+      setNotifyPrompt({ bookingId: editBooking.bookingId, customerName: editBooking.customerName, startsAt: editBooking.startsAt });
+    }
     setEditBooking(null);
     setActiveBooking(null);
     reloadBookings();
@@ -1255,7 +1292,8 @@ export function BookingCalendar({
     const res = await fetch(`/api/business/bookings/${block.id}/services/${block.slotKey}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId }),
+      // The owner is asked first whether to email the customer.
+      body: JSON.stringify({ startsAt: newStartsAt.toISOString(), staffId: newStaffId, notify: false }),
     });
     setReschedulingBusy(false);
     if (!res.ok) {
@@ -1266,6 +1304,10 @@ export function BookingCalendar({
       );
       setTimeout(() => setError(null), 4000);
       return;
+    }
+    const { timeChanged } = await res.json().catch(() => ({ timeChanged: false }));
+    if (timeChanged && block.customerHasEmail) {
+      setNotifyPrompt({ bookingId: block.id, customerName: block.customerName, startsAt: newStartsAt });
     }
     await reloadBookings();
   }
@@ -3755,6 +3797,45 @@ export function BookingCalendar({
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {notifyPrompt && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-ink-900/40 p-4">
+          <div className="card w-full max-w-sm animate-slide-up p-6">
+            <span className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-primary-50 text-primary-700">
+              <Mail className="h-5 w-5" />
+            </span>
+            <p className="mb-2 text-lg font-bold text-ink-900">
+              {locale === "vi" ? "Gửi email báo khách?" : "Email the customer?"}
+            </p>
+            <p className="mb-5 text-sm text-ink-700">
+              {locale === "vi" ? `Báo cho ${notifyPrompt.customerName} biết thời gian mới: ` : `Let ${notifyPrompt.customerName} know the new time: `}
+              <span className="font-semibold text-ink-900">
+                {notifyPrompt.startsAt.toLocaleString(locale === "vi" ? "vi-VN" : "en-US", {
+                  dateStyle: "full",
+                  timeStyle: "short",
+                  timeZone: businessTimezone,
+                })}
+              </span>
+            </p>
+            <div className="flex gap-2">
+              <button disabled={notifyBusy} onClick={sendRescheduleEmail} className="btn-primary">
+                {notifyBusy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
+                {locale === "vi" ? "Gửi email" : "Send email"}
+              </button>
+              <button disabled={notifyBusy} onClick={() => setNotifyPrompt(null)} className="btn-ghost">
+                {locale === "vi" ? "Không gửi" : "Don't send"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {notice && (
+        <div className="fixed inset-x-4 bottom-6 z-[60] mx-auto flex max-w-sm items-center justify-center gap-2 rounded-full bg-ink-900 px-5 py-3.5 text-sm font-semibold text-white shadow-2xl animate-slide-up">
+          <Mail className="h-4 w-4 shrink-0" />
+          {notice}
         </div>
       )}
 

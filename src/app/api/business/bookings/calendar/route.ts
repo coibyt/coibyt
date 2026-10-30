@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
 import { serviceSlots } from "@/lib/booking-slots";
+import { isRealCustomerEmail } from "@/lib/booking-service";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -122,6 +123,8 @@ export async function GET(req: Request) {
       customerName: b.customer.name,
       customerPhone: canViewContact && mine(b) ? b.customer.phone : null,
       customerEmail: canViewContact && mine(b) ? b.customer.email : null,
+      // Whether there is an inbox to tell about a new time — without the address.
+      customerHasEmail: isRealCustomerEmail(b.customer.email),
       customerReviewRating: b.customerReview?.rating ?? null,
       customerReviewNote: b.customerReview?.note ?? null,
       customerReviewId: b.customerReview?.id ?? null,

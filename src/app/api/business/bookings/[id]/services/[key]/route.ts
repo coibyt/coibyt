@@ -9,6 +9,9 @@ import { sendBookingRescheduledEmail } from "@/lib/booking-service";
 const schema = z.object({
   startsAt: z.string().datetime(),
   staffId: z.string().cuid(),
+  // false: the calendar asks the owner first whether to email the customer
+  // (POST …/notify-reschedule).
+  notify: z.boolean().optional(),
 });
 
 /** Moves one service inside a booking — the main service ("primary") or one
@@ -188,12 +191,14 @@ export async function PATCH(
     return NextResponse.json({ error: "INTERNAL_ERROR" }, { status: 500 });
   }
 
-  if (key === "primary" && newStart.getTime() !== booking.startsAt.getTime()) {
+  const timeChanged = key === "primary" && newStart.getTime() !== booking.startsAt.getTime();
+  if (timeChanged && parsed.data.notify !== false) {
     await sendBookingRescheduledEmail(id);
   }
 
   return NextResponse.json({
     ok: true,
+    timeChanged,
     startsAt: newStart.toISOString(),
     endsAt: addMinutes(newStart, durationMs / 60_000).toISOString(),
   });

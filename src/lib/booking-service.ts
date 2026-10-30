@@ -559,7 +559,15 @@ export async function sendBookingConfirmationEmail(bookingId: string) {
 /** Notifies the customer by email whenever the salon (not the customer
  * themself) moves a booking to a new time/staff from the dashboard calendar
  * — see /api/business/bookings/[id]/reschedule. */
-export async function sendBookingRescheduledEmail(bookingId: string) {
+/** Whether a customer's email is a real inbox — not the stand-in given to a
+ * walk-in booked by phone number only. */
+export function isRealCustomerEmail(email: string | null | undefined) {
+  return !!email && !email.endsWith("@walkin.varaaai.com");
+}
+
+/** Tells the customer their booking's new time. `force` sends even when the
+ * booking's automatic emails are off — the owner chose to, just now. */
+export async function sendBookingRescheduledEmail(bookingId: string, opts?: { force?: boolean }): Promise<boolean> {
   const full = await prisma.booking.findUnique({
     where: { id: bookingId },
     include: {
@@ -571,8 +579,9 @@ export async function sendBookingRescheduledEmail(bookingId: string) {
       extraServices: { select: { name: true } },
     },
   });
-  if (!full) return;
-  if (!full.notificationEmailsEnabled) return;
+  if (!full) return false;
+  if (!full.notificationEmailsEnabled && !opts?.force) return false;
+  if (!isRealCustomerEmail(full.customer.email)) return false;
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
@@ -600,6 +609,7 @@ export async function sendBookingRescheduledEmail(bookingId: string) {
     manageBookingUrl: `${siteUrl}/account/bookings`,
   });
   await sendMail({ to: full.customer.email, ...email });
+  return true;
 }
 
 /** Marks a booking as paid/confirmed and returns it, idempotently. */

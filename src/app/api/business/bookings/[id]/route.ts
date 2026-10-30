@@ -121,6 +121,9 @@ const patchSchema = z.object({
   serviceId: z.string().cuid().optional(),
   staffId: z.string().cuid().optional(),
   startsAt: z.string().datetime().optional(),
+  // false: the calendar asks the owner first whether to email the customer
+  // about the new time (POST …/notify-reschedule).
+  notify: z.boolean().optional(),
   // Lets the salon shorten/extend this one booking beyond the service's own
   // duration — when omitted, endsAt is still derived from the service as before.
   endsAt: z.string().datetime().optional(),
@@ -300,11 +303,11 @@ export async function PATCH(
       });
     });
 
-    if (scheduleChanged) {
+    if (scheduleChanged && data.notify !== false) {
       await sendBookingRescheduledEmail(id);
     }
 
-    return NextResponse.json({ booking: updated });
+    return NextResponse.json({ booking: updated, scheduleChanged });
   } catch (err) {
     if (err instanceof Error && err.message === "SLOT_UNAVAILABLE") {
       return NextResponse.json({ error: "SLOT_UNAVAILABLE" }, { status: 409 });
