@@ -73,7 +73,7 @@ export async function POST(req: Request) {
   const parsed = timeOffSchema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "INVALID" }, { status: 400 });
   const d = parsed.data;
-  if (access.scopeStaffId && d.staffId !== access.scopeStaffId) {
+  if (access.actionStaffId && d.staffId !== access.actionStaffId) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const staff = await prisma.staff.findFirst({ where: { id: d.staffId, businessId: access.businessId }, select: { id: true } });

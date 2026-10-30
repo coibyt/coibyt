@@ -14,6 +14,7 @@ interface BookingRow {
   priceCents: number;
   currency: string;
   serviceName: string;
+  staffId: string | null;
   staffName: string | null;
   customerName: string;
   customerPhone: string | null;
@@ -120,6 +121,8 @@ export function BookingsView({
           initialBookings={initialBookings}
           locale={locale}
           businessTimezone={businessTimezone}
+          isOwner={isOwner}
+          viewerStaffId={viewerStaffId}
         />
       )}
     </div>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import {
-  bookingStaffScope,
+  bookingActionScope,
   customerScopeBusinessIds,
   getBusinessAccess,
 } from "@/lib/current-business";
@@ -27,7 +27,7 @@ export async function POST(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const scopeIds = await customerScopeBusinessIds(access);
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
 
   const booking = await prisma.booking.findFirst({
     where: {

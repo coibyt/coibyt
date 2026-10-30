@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
+import { bookingActionScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
@@ -23,7 +23,7 @@ export async function PATCH(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const businessId = access.business.id;
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
 
   const booking = await prisma.booking.findFirst({
     where: { id, businessId, ...(scopeStaffId ? { staffId: scopeStaffId } : {}) },

@@ -34,6 +34,13 @@ export async function POST(
       prisma.invoice.findFirst({ where: { id, businessId: access.business.id } })
     );
     if (!invoice) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+    // Staff only for their own bookings' invoices.
+    if (!access.isOwner) {
+      const own = invoice.bookingId
+        ? await prisma.booking.findFirst({ where: { id: invoice.bookingId, staffId: access.staffId }, select: { id: true } })
+        : null;
+      if (!own) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+    }
 
     const [business, customer] = await withDbRetry(() =>
       Promise.all([

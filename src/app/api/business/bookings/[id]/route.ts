@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { busyAtOtherBranch } from "@/lib/staff-branches";
 import {
+  bookingActionScope,
   bookingStaffScope,
   customerScopeBusinessIds,
   getBusinessAccess,
@@ -138,7 +139,7 @@ export async function PATCH(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const businessId = access.business.id;
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
 
   const booking = await prisma.booking.findFirst({
     where: { id, businessId, ...(scopeStaffId ? { staffId: scopeStaffId } : {}) },

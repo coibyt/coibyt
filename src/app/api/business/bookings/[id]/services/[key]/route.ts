@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { addMinutes } from "date-fns";
-import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
+import { bookingActionScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceSlots } from "@/lib/booking-slots";
 import { sendBookingRescheduledEmail } from "@/lib/booking-service";
@@ -25,7 +25,7 @@ export async function PATCH(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const businessId = access.business.id;
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
 
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) {

@@ -13,6 +13,7 @@ interface BookingRow {
   priceCents: number;
   currency: string;
   serviceName: string;
+  staffId: string | null;
   staffName: string | null;
   customerName: string;
   customerPhone: string | null;
@@ -31,10 +32,14 @@ export function BookingsManager({
   initialBookings,
   locale,
   businessTimezone,
+  isOwner,
+  viewerStaffId,
 }: {
   initialBookings: BookingRow[];
   locale: string;
   businessTimezone: string;
+  isOwner: boolean;
+  viewerStaffId: string | null;
 }) {
   const router = useRouter();
   const [updating, setUpdating] = useState<string | null>(null);
@@ -90,7 +95,8 @@ export function BookingsManager({
               </td>
               <td className="px-4 py-3">
                 <div className="flex gap-1">
-                  {(NEXT_ACTIONS[b.status] ?? []).map((a) => (
+                  {/* Staff only change their own bookings, even when they can see everyone's. */}
+                  {(isOwner || (!!viewerStaffId && b.staffId === viewerStaffId) ? NEXT_ACTIONS[b.status] ?? [] : []).map((a) => (
                     <button
                       key={a.status}
                       disabled={updating === b.id}

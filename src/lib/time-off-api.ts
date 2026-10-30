@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
+import { bookingActionScope, bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
 import { PERSONAL_TIME_KINDS } from "@/lib/personal-time";
 
 // Up to a month in one block (a long vacation or sick leave).
@@ -21,5 +21,12 @@ export const timeOffSchema = z
 export async function timeOffAccess() {
   const access = await getBusinessAccess();
   if (!access || (!access.isOwner && !access.permissions.bookings)) return null;
-  return { businessId: access.business.id, scopeStaffId: bookingStaffScope(access), timezone: access.business.timezone };
+  return {
+    businessId: access.business.id,
+    // Whose blocks may be seen…
+    scopeStaffId: bookingStaffScope(access),
+    // …and whose may be added, moved or removed (staff: only their own).
+    actionStaffId: bookingActionScope(access),
+    timezone: access.business.timezone,
+  };
 }

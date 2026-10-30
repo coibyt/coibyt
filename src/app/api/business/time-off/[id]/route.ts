@@ -10,7 +10,7 @@ async function ownedBlock(id: string) {
     where: { id, staff: { businessId: access.businessId } },
     select: { id: true, staffId: true },
   });
-  if (!row || (access.scopeStaffId && row.staffId !== access.scopeStaffId)) {
+  if (!row || (access.actionStaffId && row.staffId !== access.actionStaffId)) {
     return { error: NextResponse.json({ error: "NOT_FOUND" }, { status: 404 }) };
   }
   return { row, access };
@@ -23,7 +23,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   const parsed = timeOffSchema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "INVALID" }, { status: 400 });
   const d = parsed.data;
-  if (found.access.scopeStaffId && d.staffId !== found.access.scopeStaffId) {
+  if (found.access.actionStaffId && d.staffId !== found.access.actionStaffId) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const staff = await prisma.staff.findFirst({ where: { id: d.staffId, businessId: found.access.businessId }, select: { id: true } });

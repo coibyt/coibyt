@@ -123,6 +123,14 @@ export function bookingStaffScope(access: BusinessAccess): string | null {
   return access.staffId ?? null;
 }
 
+/** The staff id a booking CHANGE must be confined to — null only for the
+ * owner. Staff who may see everyone's calendar still only act on their own
+ * bookings and personal time, and only add new ones in their own column. */
+export function bookingActionScope(access: BusinessAccess): string | null {
+  if (access.isOwner) return null;
+  return access.staffId ?? null;
+}
+
 /** Returns the signed-in user's own Business row (as owner or permitted
  * staff), or null. Used to gate every business-dashboard page and API route
  * behind real access — see `getBusinessAccess` for what "access" means. */

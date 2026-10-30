@@ -573,6 +573,11 @@ export function BookingCalendar({
     [staff, hiddenStaffIds]
   );
 
+  // Staff may see colleagues' bookings, but only act on — and add to — their
+  // own column. The server enforces the same (bookingActionScope).
+  const canActOn = (staffId: string | null | undefined) => isOwner || (!!viewerStaffId && staffId === viewerStaffId);
+  const pickableStaff = isOwner ? staff : staff.filter((s) => s.id === viewerStaffId);
+
   // The staff picker applies to every view: with some staff hidden, the week
   // and month show only the chosen people's bookings and blocked time
   // (unassigned bookings too are left out then).
@@ -1231,6 +1236,7 @@ export function BookingCalendar({
     draggingId.current = null;
     const booking = calendarBlocks.find((b) => `${b.id}|${b.slotKey}` === dragKey);
     if (!booking) return;
+    if (!canActOn(booking.staffId) || (columnStaffId && !canActOn(columnStaffId))) return;
 
     const rect = e.currentTarget.getBoundingClientRect();
     const offsetY = e.clientY - rect.top;
@@ -1354,8 +1360,8 @@ export function BookingCalendar({
     columnStaffId: string | undefined,
     gridTopHour: number
   ) {
-    const resolvedStaffId = columnStaffId ?? staff[0]?.id;
-    if (!resolvedStaffId) return;
+    const resolvedStaffId = columnStaffId ?? (isOwner ? staff[0]?.id : viewerStaffId ?? undefined);
+    if (!resolvedStaffId || !canActOn(resolvedStaffId)) return;
 
     const offsetY = clientY - rect.top;
     let minutes = gridTopHour * 60 + (offsetY / HOUR_HEIGHT) * 60;
@@ -1632,6 +1638,7 @@ export function BookingCalendar({
         type="button"
         onClick={(e) => {
           e.stopPropagation();
+          if (!canActOn(t.staffId)) return;
           setTimeOffError(null);
           setEditTimeOff({
             id: t.id,
@@ -1719,7 +1726,7 @@ export function BookingCalendar({
     return (
       <button
         key={b.id}
-        draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status)}
+        draggable={["PENDING_PAYMENT", "CONFIRMED"].includes(b.status) && canActOn(b.staffId)}
         onDragStart={() => (draggingId.current = `${b.id}|${b.slotKey}`)}
         onClick={(e) => {
           e.stopPropagation();
@@ -2407,7 +2414,7 @@ export function BookingCalendar({
                 )}
               </div>
               <div className="flex items-center gap-3">
-                {activeBooking.status !== "CANCELLED" && (
+                {activeBooking.status !== "CANCELLED" && canActOn(activeBooking.staffId) && (
                   <button
                     onClick={() => startEditBooking(activeBooking)}
                     className="text-ink-400 hover:text-primary-600"
@@ -2477,7 +2484,17 @@ export function BookingCalendar({
                 </p>
               )}
               <BookingStatusBadge status={activeBooking.status} />
-              <button
+              {!canActOn(activeBooking.staffId) && (
+                <p className="flex items-start gap-1.5 rounded-lg bg-mist-50 px-3 py-2 text-xs text-ink-700">
+                  <Lock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-400" />
+                  {locale === "vi"
+                    ? `Lịch hẹn của ${activeBooking.staffName ?? "nhân viên khác"} — bạn chỉ xem được, không thao tác được.`
+                    : locale === "fi"
+                      ? `Varaus kuuluu henkilölle ${activeBooking.staffName ?? "toinen työntekijä"} — voit vain katsoa sitä.`
+                      : `${activeBooking.staffName ?? "Another staff member"}'s booking — you can only view it.`}
+                </p>
+              )}
+              {canActOn(activeBooking.staffId) && <button
                 type="button"
                 onClick={() => {
                   setLoadingCustomerDetail(true);
@@ -2490,7 +2507,7 @@ export function BookingCalendar({
                 className="font-medium text-primary-600 hover:underline"
               >
                 {locale === "vi" ? "Chi tiết khách hàng" : "Customer details"}
-              </button>
+              </button>}
               {loadingCustomerDetail && (
                 <p className="flex items-center gap-2 text-ink-400">
                   <Loader2 className="h-3.5 w-3.5 animate-spin" /> ...
@@ -2604,7 +2621,7 @@ export function BookingCalendar({
               )}
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
-              {activeBooking.status === "CONFIRMED" && (
+              {activeBooking.status === "CONFIRMED" && canActOn(activeBooking.staffId) && (
                 <>
                   <button
                     disabled={updating}
@@ -2645,7 +2662,7 @@ export function BookingCalendar({
                 <IncomeReportButton key={activeBooking.id} bookingId={activeBooking.id} locale={locale} />
               )}
 
-            {activeBooking.status !== "CANCELLED" && new Date(activeBooking.endsAt) <= new Date() && (
+            {activeBooking.status !== "CANCELLED" && canActOn(activeBooking.staffId) && new Date(activeBooking.endsAt) <= new Date() && (
               <div className="mt-4 border-t border-ink-100 pt-4">
                 <p className="mb-1.5 text-xs font-semibold text-ink-900">
                   {locale === "vi" ? "Đánh giá khách hàng này" : "Rate this customer"}
@@ -3204,7 +3221,7 @@ export function BookingCalendar({
                     value={editTimeOff.staffId}
                     onChange={(e) => setEditTimeOff({ ...editTimeOff, staffId: e.target.value })}
                   >
-                    {staff.map((s) => (
+                    {pickableStaff.map((s) => (
                       <option key={s.id} value={s.id}>
                         {s.name}
                       </option>
@@ -3377,7 +3394,7 @@ export function BookingCalendar({
                       });
                     }}
                   >
-                    {staff.map((s) => (
+                    {pickableStaff.map((s) => (
                       <option key={s.id} value={s.id}>
                         {s.name}
                       </option>

@@ -18,6 +18,12 @@ export async function GET(
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const currentId = access.business.id;
+  // Staff without the Customers section only open customers they have served
+  // (or are booked to serve) themselves — not their colleagues'.
+  if (!access.isOwner && !access.permissions.customers) {
+    const mine = await prisma.booking.findFirst({ where: { businessId: currentId, customerId: id, staffId: access.staffId }, select: { id: true } });
+    if (!mine) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
   const scopeIds = await customerScopeBusinessIds(access);
 
   const business = await prisma.business.findUnique({

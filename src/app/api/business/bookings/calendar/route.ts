@@ -100,6 +100,11 @@ export async function GET(req: Request) {
     orderBy: { startsAt: "asc" },
   });
 
+  // Staff who can see everyone's calendar still only see the contact details
+  // of their own customers.
+  const mine = (b: (typeof bookings)[number]) =>
+    access.isOwner || b.staffId === access.staffId || b.extraServices.some((x) => x.staffId === access.staffId);
+
   return NextResponse.json({
     bookings: bookings.map((b) => ({
       id: b.id,
@@ -115,8 +120,8 @@ export async function GET(req: Request) {
       customerNote: b.customerNote,
       serviceName: b.service.name,
       customerName: b.customer.name,
-      customerPhone: canViewContact ? b.customer.phone : null,
-      customerEmail: canViewContact ? b.customer.email : null,
+      customerPhone: canViewContact && mine(b) ? b.customer.phone : null,
+      customerEmail: canViewContact && mine(b) ? b.customer.email : null,
       customerReviewRating: b.customerReview?.rating ?? null,
       customerReviewNote: b.customerReview?.note ?? null,
       source: b.source,

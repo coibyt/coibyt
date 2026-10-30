@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { bookingStaffScope, getBusinessAccess } from "@/lib/current-business";
+import { bookingActionScope, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { newInvoiceNumber, randomInvoiceToken, invoicePublicUrl, invoiceQrPng, withDbRetry } from "@/lib/invoices";
 import { redeemGiftCard } from "@/lib/gift-cards";
@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const businessId = access.business.id;
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
 
   const parsed = createSchema.safeParse(await req.json());
   if (!parsed.success) {

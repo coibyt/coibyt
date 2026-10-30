@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
+import { bookingActionScope, bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { createBookingAndPayment, notifyStaffOfManualBooking, SlotUnavailableError } from "@/lib/booking-service";
 import { auth } from "@/auth";
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
   const data = parsed.data;
-  const scopeStaffId = bookingStaffScope(access);
+  const scopeStaffId = bookingActionScope(access);
   if (scopeStaffId && data.staffId !== scopeStaffId) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
