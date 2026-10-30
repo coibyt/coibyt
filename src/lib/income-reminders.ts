@@ -1,4 +1,4 @@
-import { formatInTimeZone } from "date-fns-tz";
+import { formatInTimeZone, fromZonedTime } from "date-fns-tz";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { sendPushToUser } from "@/lib/push";
@@ -28,16 +28,30 @@ export interface OverdueBooking {
   currency: string;
 }
 
-/** Bookings that ended over 24 hours ago (but after `since`) with a staff
- * member and no income report yet — one staff member's, or the salon's. */
-export async function overdueBookings(businessId: string, since: Date, staffId?: string): Promise<OverdueBooking[]> {
+type ReportingBusiness = { id: string; timezone: string; incomeRemindersSince: Date | null; incomeReportsFrom: Date | null };
+
+/** The owner's "report from" day as yyyy-MM-dd (stored as a bare DATE). */
+export function reportsFromDay(business: { incomeReportsFrom: Date | null }) {
+  return business.incomeReportsFrom ? business.incomeReportsFrom.toISOString().slice(0, 10) : null;
+}
+
+/** Bookings that ended over 24 hours ago with a staff member and no income
+ * report yet — one staff member's, or the salon's. When the owner picked a
+ * day staff must report from, every booking since that day counts and none
+ * before it; otherwise only the last two weeks (and not before reminders
+ * were turned on). */
+export async function overdueBookings(business: ReportingBusiness, staffId?: string): Promise<OverdueBooking[]> {
   const now = Date.now();
-  const from = new Date(Math.max(since.getTime(), now - LOOKBACK_DAYS * 24 * HOUR));
+  const day = reportsFromDay(business);
+  const startsAt = day ? { gte: fromZonedTime(`${day}T00:00:00`, business.timezone) } : undefined;
+  const since = business.incomeRemindersSince?.getTime() ?? 0;
+  const from = day ? undefined : new Date(Math.max(since, now - LOOKBACK_DAYS * 24 * HOUR));
   const bookings = await prisma.booking.findMany({
     where: {
-      businessId,
+      businessId: business.id,
       staffId: staffId ?? { not: null },
       status: { in: REPORTABLE_STATUSES as ("CONFIRMED" | "COMPLETED")[] },
+      startsAt,
       endsAt: { gte: from, lte: new Date(now - OVERDUE_HOURS * HOUR) },
     },
     include: { service: { select: { name: true } }, customer: { select: { name: true } }, staff: { select: { name: true } } },
@@ -76,7 +90,7 @@ function isDaytime(timezone: string) {
 export async function sendIncomeReminders() {
   const businesses = await prisma.business.findMany({
     where: { incomeRemindersSince: { not: null } },
-    select: { id: true, name: true, logoUrl: true, city: true, timezone: true, incomeRemindersSince: true },
+    select: { id: true, name: true, logoUrl: true, city: true, timezone: true, incomeRemindersSince: true, incomeReportsFrom: true },
   });
   let sent = 0;
   for (const b of businesses) {
@@ -92,7 +106,7 @@ export async function sendIncomeReminders() {
     });
     for (const s of staff) {
       if (!s.user) continue;
-      const list = await overdueBookings(b.id, b.incomeRemindersSince!, s.id);
+      const list = await overdueBookings(b, s.id);
       if (list.length === 0) continue;
       // Claimed first, so two cron runs at once never both send.
       const claimed = await prisma.staff.updateMany({

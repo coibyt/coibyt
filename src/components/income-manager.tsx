@@ -21,6 +21,7 @@ import {
   Undo2,
   Users,
   Wallet,
+  X,
   XCircle,
 } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
@@ -107,8 +108,9 @@ export function IncomeManager({
     load();
   }, [load]);
 
-  // Bookings over 24 hours past with no report, and whether reminders are on.
-  const [overdue, setOverdue] = useState<{ enabled: boolean; bookings: OverdueBooking[] } | null>(null);
+  // Bookings over 24 hours past with no report, whether reminders are on, and
+  // the day staff must report from (yyyy-MM-dd).
+  const [overdue, setOverdue] = useState<{ enabled: boolean; reportsFrom: string | null; bookings: OverdueBooking[] } | null>(null);
   const [reportingOverdue, setReportingOverdue] = useState<OverdueBooking | null>(null);
   const [savingReminders, setSavingReminders] = useState(false);
   const loadOverdue = useCallback(async () => {
@@ -131,6 +133,23 @@ export function IncomeManager({
     setOverdue((o) => (o ? { ...o, enabled: on } : o));
     setToast(on ? S.remindOnToast : S.remindOffToast);
   }
+
+  const [savingFrom, setSavingFrom] = useState(false);
+  async function saveReportsFrom(day: string | null) {
+    setSavingFrom(true);
+    const res = await fetch("/api/business/income/settings", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ reportsFrom: day }),
+    }).catch(() => null);
+    if (res?.ok) {
+      await loadOverdue();
+      setToast(day ? S.fromSavedToast : S.fromClearedToast);
+    }
+    setSavingFrom(false);
+  }
+  const dayLabel = (day: string) =>
+    new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(`${day}T00:00:00Z`));
 
   const overdueByStaff = useMemo(() => {
     const m = new Map<string, { name: string; items: OverdueBooking[] }>();
@@ -625,6 +644,38 @@ export function IncomeManager({
                   </span>
                 </span>
               </label>
+              {/* The day from which every booking must be reported. */}
+              <div className="border-b border-ink-100 p-4">
+                <p className="flex items-center gap-2 text-sm font-bold text-ink-900">
+                  <CalendarDays className="h-4 w-4 text-[#c99a3f]" />
+                  {S.fromTitle}
+                </p>
+                <p className="mt-0.5 text-[11px] leading-snug text-ink-400">{S.fromHint}</p>
+                <div className="mt-2.5 flex flex-wrap items-center gap-2">
+                  <input
+                    type="date"
+                    value={overdue.reportsFrom ?? ""}
+                    disabled={savingFrom}
+                    onChange={(e) => e.target.value && saveReportsFrom(e.target.value)}
+                    className="h-10 rounded-xl border border-ink-100 bg-white px-3 text-sm font-semibold text-ink-900 focus:border-[#c99a3f] focus:outline-none disabled:opacity-60"
+                  />
+                  {overdue.reportsFrom && (
+                    <button
+                      type="button"
+                      disabled={savingFrom}
+                      onClick={() => saveReportsFrom(null)}
+                      className="inline-flex h-10 items-center gap-1 rounded-xl px-3 text-xs font-semibold text-ink-500 ring-1 ring-ink-100 hover:bg-mist-50 disabled:opacity-60"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                      {S.fromClear}
+                    </button>
+                  )}
+                  {savingFrom && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
+                </div>
+                <p className={`mt-1.5 text-[11px] font-semibold ${overdue.reportsFrom ? "text-emerald-700" : "text-ink-500"}`}>
+                  {overdue.reportsFrom ? `✓ ${fill(S.fromSet, { date: dayLabel(overdue.reportsFrom) })}` : S.fromNone}
+                </p>
+              </div>
               <div className="p-4">
                 <p className="flex items-center gap-2 text-sm font-bold text-ink-900">
                   <AlarmClock className="h-4 w-4 text-[#c99a3f]" />
@@ -637,7 +688,9 @@ export function IncomeManager({
                 {overdueByStaff.length === 0 ? (
                   <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-emerald-700">
                     <CheckCircle2 className="h-3.5 w-3.5" />
-                    {S.overdueNone}
+                    {overdue.reportsFrom && today && overdue.reportsFrom > today
+                      ? fill(S.overdueNotYet, { date: dayLabel(overdue.reportsFrom) })
+                      : S.overdueNone}
                   </p>
                 ) : (
                   <ul className="mt-3 space-y-3">

@@ -205,6 +205,9 @@ model Business {
   // week before the owner turned them on; bookings that ended before it
   // aren't chased.
   incomeRemindersSince DateTime?
+  // The salon-local day from which staff must report every booking's income;
+  // earlier bookings never show as unreported. Null = the last 14 days.
+  incomeReportsFrom DateTime? @db.Date
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.
   ownerId      String
