@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
+import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { loyaltyCardEmail } from "@/lib/email/loyalty-card-email";
@@ -39,10 +39,14 @@ const createSchema = z.object({
 /** Salon activates a customer's card: creates the QR and emails it with the
  * benefits, in the language the salon chose for its own customers (Settings
  * → "Ngôn ngữ mặc định" / Business.defaultLocale) — not whatever language the
- * owner's own dashboard happens to be browsing in at that moment. */
+ * owner's own dashboard happens to be browsing in at that moment. Staff who
+ * work with bookings can issue cards too, like they scan them. */
 export async function POST(req: Request) {
-  const owned = await requireOwnerOnly();
-  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const owned = { businessId: access.business.id };
 
   const parsed = createSchema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });

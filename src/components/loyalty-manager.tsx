@@ -45,11 +45,14 @@ export function LoyaltyManager({
   defaultCurrency,
   timeZone,
   initialCode = "",
+  canEditProgram = true,
 }: {
   locale: string;
   defaultCurrency: string;
   timeZone: string;
   initialCode?: string;
+  /** Staff scan cards and issue new ones; only the owner sets the program. */
+  canEditProgram?: boolean;
 }) {
   const vi = locale === "vi";
   const [program, setProgram] = useState<Program>({
@@ -467,7 +470,7 @@ export function LoyaltyManager({
               {hasProgram && !editingProgram && <p className="text-xs text-ink-400">{programSummary}</p>}
             </div>
           </div>
-          {hasProgram && !editingProgram && (
+          {canEditProgram && hasProgram && !editingProgram && (
             <button type="button" onClick={() => setEditingProgram(true)} className="btn-outline !px-4 !py-2 text-xs">
               <Pencil className="h-3.5 w-3.5" />
               {vi ? "Chỉnh sửa" : "Edit"}
@@ -480,7 +483,14 @@ export function LoyaltyManager({
             </span>
           )}
         </div>
-        {(!hasProgram || editingProgram) && (
+        {!canEditProgram && !hasProgram && (
+          <p className="mt-4 rounded-2xl bg-mist-50 px-4 py-3 text-sm text-ink-500">
+            {vi
+              ? "Chủ salon chưa thiết lập chương trình thẻ tích điểm — sau khi thiết lập, bạn mới cấp được thẻ cho khách."
+              : "The owner hasn't set up the loyalty program yet — once they do, you can issue cards to customers."}
+          </p>
+        )}
+        {canEditProgram && (!hasProgram || editingProgram) && (
           <form onSubmit={saveProgram} className="mt-5 grid gap-3 sm:grid-cols-2">
             <label className="text-xs font-medium text-ink-700">
               {vi ? "Số lần để được giảm giá" : "Visits needed for a discount"}

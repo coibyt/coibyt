@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { requireOwnerOnly } from "@/lib/current-business";
+import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { toSmallestUnit } from "@/lib/money";
 
@@ -11,10 +11,13 @@ const schema = z.object({
   currency: z.string().length(3),
 });
 
+/** Readable by staff who scan and issue cards; only the owner changes it. */
 export async function GET() {
-  const owned = await requireOwnerOnly();
-  if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
-  const program = await prisma.loyaltyProgram.findUnique({ where: { businessId: owned.businessId } });
+  const access = await getBusinessAccess();
+  if (!access || (!access.isOwner && !access.permissions.bookings)) {
+    return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  }
+  const program = await prisma.loyaltyProgram.findUnique({ where: { businessId: access.business.id } });
   return NextResponse.json({
     program: program
       ? {

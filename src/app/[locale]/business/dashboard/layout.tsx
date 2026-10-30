@@ -82,7 +82,10 @@ export default async function BusinessDashboardLayout({
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/gift-cards", label: tDash("giftCards.nav") }] : []),
-    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav") }] : []),
+    // Staff who work with bookings scan loyalty cards and issue new ones.
+    ...(canViewReadOnlyPages || permissions.bookings
+      ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav") }]
+      : []),
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]
       : []),
