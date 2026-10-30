@@ -6,6 +6,7 @@ import { CalendarDays, List } from "lucide-react";
 import { BookingCalendar } from "@/components/booking-calendar";
 import { BookingsManager } from "@/components/bookings-manager";
 import { useSwitcherSlot } from "@/components/dashboard-body";
+import { PendingCustomerReviews } from "@/components/pending-customer-reviews";
 
 interface BookingRow {
   id: string;
@@ -103,6 +104,8 @@ export function BookingsView({
           />
         )}
       </div>
+
+      {isOwner && <PendingCustomerReviews locale={locale} timezone={businessTimezone} />}
 
       {view === "calendar" ? (
         <BookingCalendar

@@ -24,9 +24,10 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { CalendarDays, ChevronLeft, ChevronRight, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
+import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Loader2, Lock, Pencil, Star, Trash2, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
+import { CUSTOMER_REVIEW_EVENT, type CustomerReviewEventDetail } from "@/components/pending-customer-reviews";
 import { useViewerTimezone } from "@/hooks/use-viewer-timezone";
 import { activeStaffPeriod, groupStaffHours, type StaffHourRow } from "@/lib/staff-hours";
 import { IncomeReportButton } from "@/components/income-report";
@@ -82,6 +83,9 @@ interface CalendarBooking {
   customerEmail: string | null;
   customerReviewRating: number | null;
   customerReviewNote: string | null;
+  customerReviewId: string | null;
+  /** PENDING while a staff member's rating waits for the owner. */
+  customerReviewStatus: string | null;
   addOnNames: string[];
   addOns: { name: string; priceCents: number }[];
   addOnIds: string[];
@@ -931,9 +935,42 @@ export function BookingCalendar({
     });
     setRatingCustomer(false);
     if (!res.ok) return;
-    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, customerReviewRating: rating } : b)));
-    setActiveBooking((prev) => (prev && prev.id === id ? { ...prev, customerReviewRating: rating } : prev));
+    const { review } = (await res.json()) as { review: { id: string; status: string } };
+    const patch = { customerReviewRating: rating, customerReviewId: review.id, customerReviewStatus: review.status };
+    setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, ...patch } : b)));
+    setActiveBooking((prev) => (prev && prev.id === id ? { ...prev, ...patch } : prev));
   }
+
+  // The owner approves a staff member's rating (the customer is emailed
+  // then) or turns it down (it's dropped and the booking can be rated again).
+  async function decideCustomerReview(bookingId: string, reviewId: string, approve: boolean) {
+    setRatingCustomer(true);
+    const res = await fetch(`/api/business/customer-reviews/${reviewId}`, { method: approve ? "PATCH" : "DELETE" });
+    setRatingCustomer(false);
+    if (!res.ok) return;
+    applyReviewDecision(bookingId, approve);
+    window.dispatchEvent(
+      new CustomEvent<CustomerReviewEventDetail>(CUSTOMER_REVIEW_EVENT, { detail: { bookingId, approved: approve } })
+    );
+  }
+
+  function applyReviewDecision(bookingId: string, approve: boolean) {
+    const patch = approve
+      ? { customerReviewStatus: "APPROVED" }
+      : { customerReviewRating: null, customerReviewNote: null, customerReviewId: null, customerReviewStatus: null };
+    setBookings((prev) => prev.map((b) => (b.id === bookingId ? { ...b, ...patch } : b)));
+    setActiveBooking((prev) => (prev && prev.id === bookingId ? { ...prev, ...patch } : prev));
+  }
+
+  // Decisions made in the owner's pending-ratings list above the calendar.
+  useEffect(() => {
+    const onDecision = (e: Event) => {
+      const d = (e as CustomEvent<CustomerReviewEventDetail>).detail;
+      if (d) applyReviewDecision(d.bookingId, d.approved);
+    };
+    window.addEventListener(CUSTOMER_REVIEW_EVENT, onDecision);
+    return () => window.removeEventListener(CUSTOMER_REVIEW_EVENT, onDecision);
+  }, []);
 
   function startEditBooking(booking: CalendarBooking) {
     setEditError(null);
@@ -2668,16 +2705,53 @@ export function BookingCalendar({
                   {locale === "vi" ? "Đánh giá khách hàng này" : "Rate this customer"}
                 </p>
                 {activeBooking.customerReviewRating ? (
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-4 w-4 ${
-                          i < activeBooking.customerReviewRating! ? "fill-coral-500 text-coral-500" : "text-ink-100"
-                        }`}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    <div className="flex flex-wrap items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className={`h-4 w-4 ${
+                            i < activeBooking.customerReviewRating! ? "fill-coral-500 text-coral-500" : "text-ink-100"
+                          }`}
+                        />
+                      ))}
+                      {activeBooking.customerReviewStatus === "PENDING" && (
+                        <span className="ml-1.5 inline-flex items-center gap-1 rounded-full bg-amber-50 px-2 py-0.5 text-[11px] font-semibold text-amber-700">
+                          <Clock className="h-3 w-3" />
+                          {locale === "vi" ? "Chờ chủ salon duyệt" : "Waiting for the owner's approval"}
+                        </span>
+                      )}
+                    </div>
+                    {activeBooking.customerReviewStatus === "PENDING" &&
+                      (isOwner && activeBooking.customerReviewId ? (
+                        <div className="mt-2 flex gap-2">
+                          <button
+                            type="button"
+                            disabled={ratingCustomer}
+                            onClick={() => decideCustomerReview(activeBooking.id, activeBooking.customerReviewId!, true)}
+                            className="inline-flex items-center gap-1 rounded-full bg-emerald-600 px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700 disabled:opacity-50"
+                          >
+                            <Check className="h-3.5 w-3.5" />
+                            {locale === "vi" ? "Duyệt" : "Approve"}
+                          </button>
+                          <button
+                            type="button"
+                            disabled={ratingCustomer}
+                            onClick={() => decideCustomerReview(activeBooking.id, activeBooking.customerReviewId!, false)}
+                            className="inline-flex items-center gap-1 rounded-full border border-ink-100 px-3.5 py-1.5 text-xs font-semibold text-ink-700 hover:bg-ink-50 disabled:opacity-50"
+                          >
+                            <X className="h-3.5 w-3.5" />
+                            {locale === "vi" ? "Không duyệt" : "Decline"}
+                          </button>
+                        </div>
+                      ) : (
+                        <p className="mt-1 text-[11px] text-ink-400">
+                          {locale === "vi"
+                            ? "Khách chỉ nhận được email báo số sao sau khi chủ salon duyệt."
+                            : "The customer is emailed the star count once the owner approves it."}
+                        </p>
+                      ))}
+                  </>
                 ) : (
                   <>
                     <div className="flex gap-1">
@@ -2693,9 +2767,13 @@ export function BookingCalendar({
                       ))}
                     </div>
                     <p className="mt-1 text-[11px] text-ink-400">
-                      {locale === "vi"
-                        ? "Chỉ dùng nội bộ — khách chỉ nhận được email báo số sao, không thấy ghi chú của bạn."
-                        : "Internal only — the customer is emailed the star count, never any note you add."}
+                      {isOwner
+                        ? locale === "vi"
+                          ? "Chỉ dùng nội bộ — khách chỉ nhận được email báo số sao, không thấy ghi chú của bạn."
+                          : "Internal only — the customer is emailed the star count, never any note you add."
+                        : locale === "vi"
+                          ? "Chỉ dùng nội bộ — chủ salon duyệt xong, khách mới nhận được email báo số sao."
+                          : "Internal only — once the owner approves, the customer is emailed the star count."}
                     </p>
                   </>
                 )}

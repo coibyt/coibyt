@@ -81,7 +81,7 @@ export async function GET(req: Request) {
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
-      customerReview: { select: { rating: true, note: true } },
+      customerReview: { select: { id: true, rating: true, note: true, status: true } },
       addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
       extraServices: {
         select: {
@@ -124,6 +124,8 @@ export async function GET(req: Request) {
       customerEmail: canViewContact && mine(b) ? b.customer.email : null,
       customerReviewRating: b.customerReview?.rating ?? null,
       customerReviewNote: b.customerReview?.note ?? null,
+      customerReviewId: b.customerReview?.id ?? null,
+      customerReviewStatus: b.customerReview?.status ?? null,
       source: b.source,
       slots: serviceSlots(b).map((sl) => ({
         ...sl,

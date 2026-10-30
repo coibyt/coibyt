@@ -1065,10 +1065,17 @@ model CustomerReview {
   customer   User     @relation(fields: [customerId], references: [id])
   rating     Int // 1–5
   note       String?  @db.Text
-  createdAt  DateTime @default(now())
+  // PENDING when a staff member rated: the owner approves it before the
+  // customer is emailed. The owner's own ratings are APPROVED at once.
+  status     String    @default("APPROVED") @db.VarChar(10)
+  // The staff member who rated, when it wasn't the owner.
+  staffId    String?
+  approvedAt DateTime?
+  createdAt  DateTime  @default(now())
 
   @@index([businessId])
   @@index([customerId])
+  @@index([businessId, status])
 }
 
 // Add-ons selected for a specific booking. Name/price/duration are snapshot

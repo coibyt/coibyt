@@ -54,7 +54,7 @@ export async function GET(
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
-      customerReview: { select: { rating: true, note: true } },
+      customerReview: { select: { id: true, rating: true, note: true, status: true } },
       addOns: { select: { name: true, addOnId: true, priceCents: true, durationMin: true } },
       extraServices: {
         select: {
@@ -73,7 +73,11 @@ export async function GET(
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
-  const canViewContact = access.canViewCustomerContactInfo;
+  // Staff who can see everyone's calendar only see their own customers'
+  // contact details.
+  const canViewContact =
+    access.canViewCustomerContactInfo &&
+    (access.isOwner || booking.staffId === access.staffId || booking.extraServices.some((x) => x.staffId === access.staffId));
   return NextResponse.json({
     id: booking.id,
     businessId: booking.businessId,
@@ -94,6 +98,8 @@ export async function GET(
     customerEmail: canViewContact ? booking.customer.email : null,
     customerReviewRating: booking.customerReview?.rating ?? null,
     customerReviewNote: booking.customerReview?.note ?? null,
+    customerReviewId: booking.customerReview?.id ?? null,
+    customerReviewStatus: booking.customerReview?.status ?? null,
     source: booking.source,
     slots: serviceSlots(booking).map((sl) => ({
       ...sl,

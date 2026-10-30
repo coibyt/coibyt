@@ -6,8 +6,7 @@ import {
   getBusinessAccess,
 } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { sendMail, ownerReviewedYouEmail } from "@/lib/mailer";
-import { localeForCountry } from "@/lib/countries";
+import { emailCustomerReview } from "@/lib/customer-review";
 
 const schema = z.object({
   rating: z.number().int().min(1).max(5),
@@ -16,7 +15,9 @@ const schema = z.object({
 
 /** A salon rating its own customer — only makes sense once the appointment
  * time has actually passed, and never for a cancelled booking (there was no
- * visit to rate). One per booking, same as the customer's own Review. */
+ * visit to rate). One per booking, same as the customer's own Review. A
+ * staff member's rating stays PENDING until the owner approves it, and only
+ * then is the customer emailed. */
 export async function POST(
   req: Request,
   { params }: { params: Promise<{ id: string }> }
@@ -35,7 +36,7 @@ export async function POST(
       businessId: { in: scopeIds },
       ...(scopeStaffId ? { staffId: scopeStaffId } : {}),
     },
-    include: { business: true, customer: true, customerReview: true },
+    include: { customerReview: true },
   });
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   if (booking.status === "CANCELLED") {
@@ -53,6 +54,7 @@ export async function POST(
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
+  // A staff member's rating waits for the owner; the owner's goes out at once.
   const review = await prisma.customerReview.create({
     data: {
       bookingId: id,
@@ -60,23 +62,12 @@ export async function POST(
       customerId: booking.customerId,
       rating: parsed.data.rating,
       note: parsed.data.note,
+      status: access.isOwner ? "APPROVED" : "PENDING",
+      staffId: access.isOwner ? null : access.staffId,
+      approvedAt: access.isOwner ? new Date() : null,
     },
   });
-
-  // Best-effort — a mail failure (e.g. SMTP misconfigured) must never make
-  // the rating itself look like it failed to save when it already has.
-  try {
-    const email = ownerReviewedYouEmail({
-      customerName: booking.customer.name,
-      businessName: booking.business.name,
-      rating: parsed.data.rating,
-      locale: localeForCountry(booking.business.country),
-      businessLogoUrl: booking.business.logoUrl,
-    });
-    await sendMail({ to: booking.customer.email, ...email });
-  } catch (err) {
-    console.error("[POST /api/business/bookings/[id]/customer-review] mail failed", err);
-  }
+  if (access.isOwner) await emailCustomerReview(review.id);
 
   return NextResponse.json({ review });
 }
