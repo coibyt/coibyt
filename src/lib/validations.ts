@@ -138,6 +138,29 @@ export const businessHoursSchema = z
     "OVERLAP"
   );
 
+/** A staff member's own hours: like the salon's, except a window may be
+ * empty (start = end) — the owner drags both edges together on the calendar
+ * to take that day off, and can drag them apart again later. */
+export const staffHoursSchema = z
+  .array(
+    z
+      .object({
+        weekday: z.number().int().min(0).max(6),
+        openMinute: z.number().int().min(0).max(1440),
+        closeMinute: z.number().int().min(0).max(1440),
+      })
+      .refine((h) => h.closeMinute >= h.openMinute, "CLOSE_BEFORE_OPEN")
+  )
+  .max(28)
+  .refine(
+    (list) =>
+      [0, 1, 2, 3, 4, 5, 6].every((d) => {
+        const day = list.filter((h) => h.weekday === d).sort((a, b) => a.openMinute - b.openMinute);
+        return day.every((h, i) => i === 0 || h.openMinute >= day[i - 1].closeMinute);
+      }),
+    "OVERLAP"
+  );
+
 export const createBookingSchema = z.object({
   serviceId: z.string().cuid(),
   staffId: z.string().cuid().optional(),

@@ -69,7 +69,10 @@ export async function staffInsights(businessId: string, staffIds: string[], time
   for (const id of staffIds) {
     const periods = groupStaffHours(hours.filter((h) => h.staffId === id));
     const period = activeStaffPeriod(periods, dateStr);
-    const windows = (period ? period.windows.filter((w) => w.weekday === weekday) : salonHours).map((w) => ({ open: w.openMinute, close: w.closeMinute }));
+    // An empty window (both edges dragged together on the calendar) is a day off.
+    const windows = (period ? period.windows.filter((w) => w.weekday === weekday) : salonHours)
+      .filter((w) => w.closeMinute > w.openMinute)
+      .map((w) => ({ open: w.openMinute, close: w.closeMinute }));
     const off = timeOff
       .filter((t) => t.staffId === id)
       .map((t) => ({ start: toLocalMin(t.startsAt), end: toLocalMin(t.endsAt), kind: t.kind }));

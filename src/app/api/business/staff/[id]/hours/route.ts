@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { businessHoursSchema } from "@/lib/validations";
+import { staffHoursSchema } from "@/lib/validations";
 
 const dateString = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable();
 
@@ -13,7 +13,7 @@ const putSchema = z.object({
   /** Period being replaced — omitted means the open-ended (no range) one. */
   oldFrom: dateString.optional(),
   oldUntil: dateString.optional(),
-  hours: businessHoursSchema,
+  hours: staffHoursSchema,
 });
 
 async function assertOwnership(businessId: string, staffId: string) {
@@ -55,7 +55,7 @@ export async function PUT(
 
   const raw = await req.json();
   const parsed = Array.isArray(raw)
-    ? businessHoursSchema.safeParse(raw).success
+    ? staffHoursSchema.safeParse(raw).success
       ? { success: true as const, data: { hours: raw, from: null, until: null, oldFrom: null, oldUntil: null } }
       : { success: false as const, error: { flatten: () => ({}) } }
     : putSchema.safeParse(raw);

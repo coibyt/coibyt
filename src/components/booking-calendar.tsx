@@ -767,7 +767,8 @@ export function BookingCalendar({
       openMinute: edge === "open" ? newMinute : current.openMinute,
       closeMinute: edge === "close" ? newMinute : current.closeMinute,
     };
-    if (updated.openMinute >= updated.closeMinute) return;
+    // Equal edges are allowed: an empty window, so nobody can book that day.
+    if (updated.openMinute > updated.closeMinute) return;
 
     // Resizing edits the schedule period that applies to this date. With no
     // period in force, the week is seeded from the salon's own hours as an
@@ -835,6 +836,11 @@ export function BookingCalendar({
         startHour * 60,
         Math.min(endHour * 60, Math.round(minute / DRAG_SNAP_MIN) * DRAG_SNAP_MIN)
       );
+      // Each edge stops at the other one — they can meet, never cross.
+      const win = getStaffWindow(resizing!.staffId, anchorDate);
+      if (win) {
+        minute = resizing!.edge === "open" ? Math.min(minute, win.closeMinute) : Math.max(minute, win.openMinute);
+      }
       resizePreviewRef.current = minute;
       setResizePreview(minute);
     }
@@ -857,7 +863,7 @@ export function BookingCalendar({
         };
         const openMinute = edge === "open" ? minute : current.openMinute;
         const closeMinute = edge === "close" ? minute : current.closeMinute;
-        if (openMinute < closeMinute) {
+        if (openMinute <= closeMinute) {
           setPendingHoursChange({ staffId, edge, newMinute: minute });
           setResizing(null);
           return;
@@ -2090,7 +2096,7 @@ export function BookingCalendar({
                           onPointerDown={(e) => startResize(s.id, "open", e)}
                           onClick={(e) => e.stopPropagation()}
                           className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
-                          style={{ top: openPx - 16 }}
+                          style={{ top: openPx - 16 - (closePx !== null && closePx - openPx < 18 ? 10 : 0) }}
                           title={hd.dragStart}
                         >
                           <span
@@ -2107,7 +2113,7 @@ export function BookingCalendar({
                           onPointerDown={(e) => startResize(s.id, "close", e)}
                           onClick={(e) => e.stopPropagation()}
                           className="absolute left-0 right-0 z-20 flex h-8 cursor-row-resize touch-none items-center"
-                          style={{ top: closePx - 16 }}
+                          style={{ top: closePx - 16 + (openPx !== null && closePx - openPx < 18 ? 10 : 0) }}
                           title={hd.dragEnd}
                         >
                           <span

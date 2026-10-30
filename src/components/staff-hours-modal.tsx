@@ -74,7 +74,8 @@ function periodKey(p: { validFrom: string | null; validUntil: string | null }) {
 
 function daysFrom(windows: HourWindow[]): DayRow[] {
   return Array.from({ length: 7 }, (_, weekday) => {
-    const list = windows.filter((w) => w.weekday === weekday).sort((a, b) => a.openMinute - b.openMinute);
+    // An empty window (edges dragged together on the calendar) means not working.
+    const list = windows.filter((w) => w.weekday === weekday && w.closeMinute > w.openMinute).sort((a, b) => a.openMinute - b.openMinute);
     return list.length
       ? { open: true, shifts: list.map((w) => ({ open: minutesLabel(w.openMinute), close: minutesLabel(w.closeMinute) })) }
       : { open: false, shifts: [{ open: "09:00", close: "18:00" }] };
