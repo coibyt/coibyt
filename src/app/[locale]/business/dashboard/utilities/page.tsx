@@ -1,4 +1,4 @@
-import { ArrowUpRight, GraduationCap, Megaphone, MessagesSquare, Sparkles } from "lucide-react";
+import { ArrowUpRight, GraduationCap, LifeBuoy, Megaphone, MessagesSquare, Sparkles } from "lucide-react";
 import { Link, redirect } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import { fill } from "@/lib/shop-strings";
@@ -66,6 +66,15 @@ export default async function UtilitiesPage({ params }: { params: Promise<{ loca
       hot: counts.training > 0,
       progress: lessons.length > 0 && total > 0 ? pct : null,
     },
+    {
+      href: `${BASE}/support`,
+      icon: LifeBuoy,
+      title: S.tabSupport,
+      sub: S.supportCardSub,
+      tone: "from-[#1aa3ab] to-[#013a3e]",
+      metric: counts.support ? fill(S.unreadN, { n: counts.support }) : S.supportReady,
+      hot: counts.support > 0,
+    },
   ];
 
   return (
@@ -98,7 +107,7 @@ export default async function UtilitiesPage({ params }: { params: Promise<{ loca
       </section>
 
       {/* The three rooms */}
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         {cards.map((c) => (
           <Link
             key={c.href}

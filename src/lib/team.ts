@@ -109,10 +109,11 @@ export async function checkedAttachments(businessId: string, ids: string[]): Pro
   });
 }
 
-/** Unread chat messages, unread notices and required lessons not yet done —
- * the badge on the "Tiện ích" link. */
+/** Unread chat messages, unread notices, required lessons not yet done and
+ * (for staff — the owner has their own Hỗ trợ page) unread replies from the
+ * VaraaAi support team — the badge on the "Tiện ích" link. */
 export async function teamCounts(userId: string, businessId: string, isOwner: boolean) {
-  const [chatRows, announcements, required] = await Promise.all([
+  const [chatRows, announcements, required, support] = await Promise.all([
     prisma.$queryRaw<{ n: bigint }[]>`
       SELECT COUNT(*) AS n FROM TeamMessage m
       JOIN TeamChatMember cm ON cm.chatId = m.chatId AND cm.userId = ${userId}
@@ -127,8 +128,11 @@ export async function teamCounts(userId: string, businessId: string, isOwner: bo
       : prisma.staffTraining.count({
           where: { businessId, published: true, required: true, progress: { none: { userId, completedAt: { not: null } } } },
         }),
+    isOwner
+      ? Promise.resolve(0)
+      : prisma.supportMessage.count({ where: { fromAdmin: true, readAt: null, thread: { ownerId: userId } } }),
   ]);
-  return { chat: Number(chatRows[0]?.n ?? 0), announcements, training: required };
+  return { chat: Number(chatRows[0]?.n ?? 0), announcements, training: required, support };
 }
 
 /** Best-effort pushes to several people. */

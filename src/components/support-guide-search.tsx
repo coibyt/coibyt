@@ -24,11 +24,16 @@ export function SupportGuideSearch({
   placeholder,
   noResults,
   askChat,
+  guideHref = "/help/getting-started#",
+  chatHref = "/business/dashboard/support?tab=chat",
 }: {
   guides: SearchableGuide[];
   placeholder: string;
   noResults: string;
   askChat: string;
+  /** Prefix a guide's id is appended to; "#…" for guides on this page. */
+  guideHref?: string;
+  chatHref?: string;
 }) {
   const [q, setQ] = useState("");
   const index = useMemo(() => guides.map((g) => ({ g, title: plain(g.title), all: plain(`${g.title} ${g.why} ${g.body}`) })), [guides]);
@@ -55,7 +60,7 @@ export function SupportGuideSearch({
           {results.length === 0 ? (
             <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 text-sm text-ink-400">
               {noResults}
-              <Link href="/business/dashboard/support?tab=chat" className="flex items-center gap-1.5 rounded-full bg-[#1f182d] px-4 py-2 text-xs font-bold text-white">
+              <Link href={chatHref} className="flex items-center gap-1.5 rounded-full bg-[#1f182d] px-4 py-2 text-xs font-bold text-white">
                 <MessageCircle className="h-3.5 w-3.5" />
                 {askChat}
               </Link>
@@ -64,13 +69,15 @@ export function SupportGuideSearch({
             <ul className="divide-y divide-ink-100">
               {results.map(({ g }) => (
                 <li key={g.id}>
-                  <Link href={`/help/getting-started#${g.id}`} className="flex items-start gap-3 px-5 py-3 hover:bg-mist-50">
-                    <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-[#b08a3e]" />
-                    <span className="min-w-0">
-                      <span className="block text-sm font-bold text-ink-900">{g.title}</span>
-                      <span className="line-clamp-1 text-xs text-ink-400">{g.why}</span>
-                    </span>
-                  </Link>
+                  {guideHref.startsWith("#") ? (
+                    <a href={`${guideHref}${g.id}`} onClick={() => setQ("")} className="flex items-start gap-3 px-5 py-3 hover:bg-mist-50">
+                      <ResultText title={g.title} why={g.why} />
+                    </a>
+                  ) : (
+                    <Link href={`${guideHref}${g.id}`} onClick={() => setQ("")} className="flex items-start gap-3 px-5 py-3 hover:bg-mist-50">
+                      <ResultText title={g.title} why={g.why} />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -78,5 +85,17 @@ export function SupportGuideSearch({
         </div>
       )}
     </div>
+  );
+}
+
+function ResultText({ title, why }: { title: string; why: string }) {
+  return (
+    <>
+      <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-[#b08a3e]" />
+      <span className="min-w-0">
+        <span className="block text-sm font-bold text-ink-900">{title}</span>
+        <span className="line-clamp-1 text-xs text-ink-400">{why}</span>
+      </span>
+    </>
   );
 }

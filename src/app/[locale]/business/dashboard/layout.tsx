@@ -74,7 +74,7 @@ export default async function BusinessDashboardLayout({
   const links = [
     { href: "/business/dashboard", label: t("overview") },
     ...(team
-      ? [{ href: "/business/dashboard/utilities", label: teamStrings(locale).nav, badge: team.chat + team.announcements + team.training }]
+      ? [{ href: "/business/dashboard/utilities", label: teamStrings(locale).nav, badge: team.chat + team.announcements + team.training + team.support }]
       : []),
     ...(isOwner || permissions.services
       ? [{ href: "/business/dashboard/services", label: t("services") }]
