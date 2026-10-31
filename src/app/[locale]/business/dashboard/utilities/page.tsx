@@ -1,4 +1,4 @@
-import { ArrowUpRight, GraduationCap, LifeBuoy, Megaphone, MessagesSquare, Sparkles } from "lucide-react";
+import { ArrowUpRight, Gamepad2, GraduationCap, LifeBuoy, Megaphone, MessagesSquare, Sparkles } from "lucide-react";
 import { Link, redirect } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import { fill } from "@/lib/shop-strings";
@@ -138,6 +138,32 @@ export default async function UtilitiesPage({ params }: { params: Promise<{ loca
           </Link>
         ))}
       </div>
+
+      {/* Babelisa — the language-learning game, played right here. */}
+      <Link
+        href={`${BASE}/babelisa`}
+        className="group relative block overflow-hidden rounded-[1.75rem] bg-[#0b1d2a] text-white shadow-[0_18px_50px_-34px_rgba(11,29,42,0.8)] transition hover:-translate-y-1"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="https://babelisa.com/assets/bg/bg_beach.webp" alt="" className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b1d2a]/95 via-[#0b1d2a]/65 to-transparent" />
+        <div className="relative flex items-center gap-4 p-5 sm:p-6">
+          <div className="min-w-0 flex-1">
+            <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.22em] text-[#ffd98a]">
+              <Gamepad2 className="h-4 w-4" />
+              {S.tabGame}
+            </p>
+            <h2 className="mt-2 font-serif text-2xl leading-tight">{S.gameTitle}</h2>
+            <p className="mt-1.5 max-w-md text-xs leading-relaxed text-white/75">{S.gameCardSub}</p>
+            <span className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#ffd98a] to-[#f2a93b] px-4 py-2 text-xs font-extrabold text-[#2a1a05]">
+              {S.gameCardCta}
+              <ArrowUpRight className="h-3.5 w-3.5" />
+            </span>
+          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="https://babelisa.com/assets/char/lisa_wave.webp" alt="" className="pointer-events-none h-36 shrink-0 drop-shadow-2xl sm:h-44" />
+        </div>
+      </Link>
 
       {/* The team */}
       <section className="rounded-[1.75rem] bg-white p-5 ring-1 ring-ink-100">

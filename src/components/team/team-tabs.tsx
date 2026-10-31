@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GraduationCap, LayoutGrid, LifeBuoy, Megaphone, MessagesSquare } from "lucide-react";
+import { Gamepad2, GraduationCap, LayoutGrid, LifeBuoy, Megaphone, MessagesSquare } from "lucide-react";
 import { Link, usePathname } from "@/i18n/navigation";
 import { teamStrings } from "@/lib/team-strings";
 
@@ -22,6 +22,7 @@ export function TeamTabs({ locale, counts }: { locale: string; counts: { chat: n
     { href: `${BASE}/announcements`, label: S.tabNotices, icon: Megaphone, badge: counts.announcements },
     { href: `${BASE}/training`, label: S.tabTraining, icon: GraduationCap, badge: counts.training },
     { href: `${BASE}/support`, label: S.tabSupport, icon: LifeBuoy, badge: counts.support },
+    { href: `${BASE}/babelisa`, label: S.tabGame, icon: Gamepad2, badge: 0 },
   ];
   return (
     <nav ref={nav} className="flex gap-1 overflow-x-auto rounded-full bg-white p-1 shadow-sm ring-1 ring-ink-100">
