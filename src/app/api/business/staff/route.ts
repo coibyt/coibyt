@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { staffSchema } from "@/lib/validations";
+import { sendStaffWelcomeEmail } from "@/lib/staff-welcome";
 
 export async function GET() {
   const owned = await requireOwnerOnly();
@@ -75,5 +76,7 @@ export async function POST(req: Request) {
           : undefined,
     },
   });
-  return NextResponse.json({ staff }, { status: 201 });
+  // A new login: welcome them with how to sign in and what they can do.
+  const welcomed = userId ? await sendStaffWelcomeEmail(staff.id) : false;
+  return NextResponse.json({ staff, welcomed }, { status: 201 });
 }

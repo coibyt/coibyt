@@ -15,11 +15,13 @@ import {
   Film,
   KeyRound,
   Loader2,
+  Mail,
   Lock,
   Pencil,
   Plus,
   Scissors,
   Search,
+  Send,
   ShieldCheck,
   Star,
   TrendingUp,
@@ -253,11 +255,20 @@ export function StaffManager({
       );
       return;
     }
+    const { welcomed } = await res.json().catch(() => ({ welcomed: false }));
     setForm(emptyForm);
     setEditingId(null);
     setDrawer(false);
-    flash(S.saved);
+    flash(welcomed ? S.savedWelcome : S.saved);
     router.refresh();
+  }
+
+  const [resending, setResending] = useState(false);
+  async function resendWelcome(staffId: string) {
+    setResending(true);
+    const res = await fetch(`/api/business/staff/${staffId}/welcome`, { method: "POST" }).catch(() => null);
+    setResending(false);
+    flash(res?.ok ? S.welcomeSent : S.welcomeFailed);
   }
 
   async function removeStaff(s: StaffRow) {
@@ -687,7 +698,11 @@ export function StaffManager({
 
             <section className={box}>
               {title(<ShieldCheck className="h-3.5 w-3.5" />, S.secAccess)}
-              <p className="mb-3 text-xs text-ink-400">{S.loginHint}</p>
+              <p className="mb-2 text-xs text-ink-400">{S.loginHint}</p>
+              <p className="mb-3 flex gap-1.5 rounded-xl bg-[#fbf6ec] px-3 py-2 text-[11px] leading-snug text-[#7a5f2c]">
+                <Mail className="mt-px h-3.5 w-3.5 shrink-0" />
+                {S.welcomeHint}
+              </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <input type="email" placeholder="email@example.com" className={FIELD} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                 <input
@@ -700,6 +715,17 @@ export function StaffManager({
                   onChange={(e) => setForm({ ...form, password: e.target.value })}
                 />
               </div>
+              {editingId && initialStaff.find((s) => s.id === editingId)?.email && (
+                <button
+                  type="button"
+                  disabled={resending}
+                  onClick={() => resendWelcome(editingId)}
+                  className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-xs font-bold text-[#7a5f2c] ring-1 ring-[#e8d3a6] transition hover:bg-[#fbf6ec] disabled:opacity-60"
+                >
+                  {resending ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Send className="h-3.5 w-3.5" />}
+                  {S.resendWelcome}
+                </button>
+              )}
 
               <p className="mb-2 mt-5 text-xs font-semibold text-ink-700">{S.presets}</p>
               <div className="grid gap-2 sm:grid-cols-3">

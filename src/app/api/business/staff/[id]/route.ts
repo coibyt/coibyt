@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { staffSchema } from "@/lib/validations";
+import { sendStaffWelcomeEmail } from "@/lib/staff-welcome";
 
 async function assertOwnership(businessId: string, staffId: string) {
   return prisma.staff.findFirst({ where: { id: staffId, businessId } });
@@ -31,6 +32,7 @@ export async function PATCH(
   void _hours;
 
   let userId: string | undefined | null = undefined;
+  let newLogin = false;
   if (email !== undefined) {
     if (!email) {
       // Clearing the login entirely — the staff row keeps existing, they
@@ -60,6 +62,7 @@ export async function PATCH(
         },
       });
       userId = user.id;
+      newLogin = true;
     }
   }
   if (password && existingStaff.userId) {
@@ -87,7 +90,9 @@ export async function PATCH(
     });
   });
 
-  return NextResponse.json({ staff });
+  // A login given just now: welcome them with how to sign in and what they can do.
+  const welcomed = newLogin ? await sendStaffWelcomeEmail(id) : false;
+  return NextResponse.json({ staff, welcomed });
 }
 
 export async function DELETE(
