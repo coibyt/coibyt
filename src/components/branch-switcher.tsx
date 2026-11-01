@@ -54,7 +54,7 @@ export function BranchSwitcher({
         )}
         <span className="sr-only">{l.branch}</span>
         <select
-          className="input !w-auto max-w-[120px] truncate !py-1.5 text-sm sm:max-w-[220px]"
+          className="input !w-auto max-w-full !py-1.5 text-sm font-semibold"
           value={activeId}
           disabled={switching}
           onChange={(e) => switchTo(e.target.value)}

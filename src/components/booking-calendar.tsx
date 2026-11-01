@@ -1882,13 +1882,8 @@ export function BookingCalendar({
           })}
         </span>
       )}
-      <span className="flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink-900 md:shrink-0">
-        {view === "day" && format(anchorDate, "EEEE, d MMMM yyyy", { locale: dfLocale })}
-        {view === "week" &&
-          `${format(rangeStart, "d MMM", { locale: dfLocale })} – ${format(rangeEnd, "d MMM yyyy", { locale: dfLocale })}`}
-        {view === "month" && format(anchorDate, "MMMM yyyy", { locale: dfLocale })}
-        {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400" />}
-      </span>
+      {/* The day/week/month on screen is in the bottom bar (periodLabel). */}
+      {loading && <Loader2 className="h-4 w-4 animate-spin text-ink-400 md:shrink-0" />}
     </>
   );
 
