@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireSectionBusinessId, requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { serviceSchema } from "@/lib/validations";
+import { mirrorStaffServices } from "@/lib/staff-branches";
 
 async function assertOwnership(businessId: string, serviceId: string) {
   const service = await prisma.service.findFirst({
@@ -36,6 +37,9 @@ export async function PATCH(
     if (!group) return NextResponse.json({ error: "INVALID_GROUP" }, { status: 400 });
   }
 
+  const before = staffAssignments
+    ? (await prisma.staffService.findMany({ where: { serviceId: id }, select: { staffId: true } })).map((x) => x.staffId)
+    : [];
   const service = await prisma.$transaction(async (tx) => {
     if (staffAssignments) {
       await tx.staffService.deleteMany({ where: { serviceId: id } });
@@ -53,6 +57,9 @@ export async function PATCH(
       data: { ...data, ...(videoUrl !== undefined ? { videoUrl: videoUrl || null } : {}) },
     });
   });
+  if (staffAssignments) {
+    for (const staffId of new Set([...before, ...staffAssignments.map((a) => a.staffId)])) await mirrorStaffServices(staffId);
+  }
 
   return NextResponse.json({ service });
 }

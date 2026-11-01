@@ -181,3 +181,91 @@ export async function mirrorBranchHours(staffId: string): Promise<number> {
   ]);
   return ids.length;
 }
+
+const sameName = (s: string) => s.trim().toLowerCase();
+
+/** This person's other active rows, when their branches are kept in sync
+ * (Staff.syncBranchHours, which since 2026-11 covers hours, services, own
+ * prices and profile). Null when off or alone. */
+async function syncedSiblings(staffId: string) {
+  const s = await prisma.staff.findUnique({
+    where: { id: staffId },
+    select: { branchGroup: true, syncBranchHours: true, businessId: true, business: { select: { ownerId: true } } },
+  });
+  if (!s?.branchGroup || !s.syncBranchHours) return null;
+  const others = await prisma.staff.findMany({
+    where: { branchGroup: s.branchGroup, id: { not: staffId }, active: true, business: { ownerId: s.business.ownerId } },
+    select: { id: true, businessId: true },
+  });
+  return others.length ? { businessId: s.businessId, others } : null;
+}
+
+/** Copies which services this person does — and their own price and time
+ * for each — to their other branches, matching services by name. Services
+ * one branch has and the other doesn't are left alone. No-op when off. */
+export async function mirrorStaffServices(staffId: string): Promise<number> {
+  const found = await syncedSiblings(staffId);
+  if (!found) return 0;
+  const [mine, here] = await Promise.all([
+    prisma.staffService.findMany({
+      where: { staffId },
+      select: { priceCentsOverride: true, durationMinOverride: true, service: { select: { name: true, active: true } } },
+    }),
+    prisma.service.findMany({ where: { businessId: found.businessId, active: true }, select: { name: true } }),
+  ]);
+  const offered = new Map(mine.filter((m) => m.service.active).map((m) => [sameName(m.service.name), m]));
+  const known = new Set(here.map((s) => sameName(s.name)));
+  for (const o of found.others) {
+    const there = await prisma.service.findMany({ where: { businessId: o.businessId, active: true }, select: { id: true, name: true } });
+    const shared = there.filter((s) => known.has(sameName(s.name)));
+    if (shared.length === 0) continue;
+    const rows = shared.flatMap((s) => {
+      const m = offered.get(sameName(s.name));
+      return m ? [{ staffId: o.id, serviceId: s.id, priceCentsOverride: m.priceCentsOverride, durationMinOverride: m.durationMinOverride }] : [];
+    });
+    await prisma.$transaction([
+      prisma.staffService.deleteMany({ where: { staffId: o.id, serviceId: { in: shared.map((s) => s.id) } } }),
+      ...(rows.length ? [prisma.staffService.createMany({ data: rows })] : []),
+    ]);
+  }
+  return found.others.length;
+}
+
+/** Copies this person's profile — name, title, bio, photo, videos, note to
+ * customers and booking lead time — to their other branches. No-op when off. */
+export async function mirrorStaffProfile(staffId: string): Promise<number> {
+  const found = await syncedSiblings(staffId);
+  if (!found) return 0;
+  const [s, avatar] = await Promise.all([
+    prisma.staff.findUniqueOrThrow({
+      where: { id: staffId },
+      select: { name: true, title: true, bio: true, avatarUrl: true, staffMessage: true, videoUrls: true, leadTimeMinutes: true },
+    }),
+    prisma.staffAvatar.findUnique({ where: { staffId } }),
+  ]);
+  for (const o of found.others) {
+    // A photo stored here is served per row, so point at the copy's own.
+    const avatarUrl = s.avatarUrl?.includes(`/api/staff-avatar/${staffId}`) ? `/api/staff-avatar/${o.id}?v=${Date.now()}` : s.avatarUrl;
+    await prisma.staff.update({
+      where: { id: o.id },
+      data: { name: s.name, title: s.title, bio: s.bio, avatarUrl, staffMessage: s.staffMessage, videoUrls: s.videoUrls ?? undefined, leadTimeMinutes: s.leadTimeMinutes },
+    });
+    if (avatar) {
+      await prisma.staffAvatar.upsert({
+        where: { staffId: o.id },
+        update: { data: avatar.data, mimeType: avatar.mimeType },
+        create: { staffId: o.id, data: avatar.data, mimeType: avatar.mimeType },
+      });
+    } else {
+      await prisma.staffAvatar.deleteMany({ where: { staffId: o.id } });
+    }
+  }
+  return found.others.length;
+}
+
+/** Everything at once — used when syncing is switched on. */
+export async function mirrorStaffEverywhere(staffId: string) {
+  await mirrorBranchHours(staffId);
+  await mirrorStaffServices(staffId);
+  await mirrorStaffProfile(staffId);
+}

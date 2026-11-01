@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { mirrorStaffProfile } from "@/lib/staff-branches";
 
 const MAX_SIZE_BYTES = 5 * 1024 * 1024;
 const ALLOWED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
@@ -35,6 +36,7 @@ export async function POST(
     create: { staffId: id, data: buffer, mimeType: file.type },
   });
 
+  await mirrorStaffProfile(id);
   const url = `/api/staff-avatar/${id}?v=${Date.now()}`;
   return NextResponse.json({ url });
 }
@@ -51,5 +53,6 @@ export async function DELETE(
   if (!staff) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   await prisma.staffAvatar.deleteMany({ where: { staffId: id } });
+  await mirrorStaffProfile(id);
   return NextResponse.json({ ok: true });
 }

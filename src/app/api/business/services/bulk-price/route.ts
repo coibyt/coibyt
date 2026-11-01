@@ -3,6 +3,7 @@ import { z } from "zod";
 import { requireApprovedOwnedBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { adjustPrice } from "@/lib/service-price";
+import { mirrorStaffServices } from "@/lib/staff-branches";
 
 const schema = z.object({
   ids: z.array(z.string().cuid()).min(1).max(500),
@@ -39,5 +40,8 @@ export async function POST(req: Request) {
         ),
     ])
   );
+  // Staff with their own price here have it raised at their other branches too.
+  const staffIds = new Set(services.flatMap((s) => s.staff.filter((x) => x.priceCentsOverride !== null).map((x) => x.staffId)));
+  for (const staffId of staffIds) await mirrorStaffServices(staffId);
   return NextResponse.json({ updated: services.length });
 }

@@ -3,6 +3,7 @@ import { requireSectionBusinessId, requireApprovedOwnedBusinessId } from "@/lib/
 import { prisma } from "@/lib/prisma";
 import { serviceSchema } from "@/lib/validations";
 import { checkAndAwardReferralBonus } from "@/lib/vara-points";
+import { mirrorStaffServices } from "@/lib/staff-branches";
 
 export async function GET() {
   const businessId = await requireSectionBusinessId("services");
@@ -54,6 +55,7 @@ export async function POST(req: Request) {
         : undefined,
     },
   });
+  for (const a of staffAssignments ?? []) await mirrorStaffServices(a.staffId);
   await checkAndAwardReferralBonus(businessId);
   return NextResponse.json({ service }, { status: 201 });
 }

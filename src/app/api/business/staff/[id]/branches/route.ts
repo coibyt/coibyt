@@ -3,7 +3,7 @@ import { z } from "zod";
 import { auth } from "@/auth";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { BRANCH_TRAVEL_CHOICES, mirrorBranchHours, newBranchGroup } from "@/lib/staff-branches";
+import { BRANCH_TRAVEL_CHOICES, mirrorStaffEverywhere, newBranchGroup } from "@/lib/staff-branches";
 
 /** Which of the owner's other branches this staff member also works at. */
 async function load(id: string) {
@@ -47,8 +47,8 @@ const schema = z.object({
     .int()
     .refine((n) => BRANCH_TRAVEL_CHOICES.includes(n))
     .optional(),
-  // Keep this person's working hours the same at every branch; turning it on
-  // copies this branch's hours to the others.
+  // Keep this person the same at every branch — hours, services, own prices
+  // and profile; turning it on copies this branch's to the others.
   syncHours: z.boolean().optional(),
 });
 
@@ -72,7 +72,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   if (travel !== staff.branchTravelMinutes) {
     await prisma.staff.updateMany({ where: { branchGroup: group }, data: { branchTravelMinutes: travel } });
   }
-  const sync = parsed.data.syncHours ?? staff.syncBranchHours;
+  // Someone newly working at several branches starts in sync.
+  const sync = parsed.data.syncHours ?? (staff.branchGroup ? staff.syncBranchHours : true);
   if (sync !== staff.syncBranchHours) {
     await prisma.staff.updateMany({ where: { branchGroup: group }, data: { syncBranchHours: sync } });
   }
@@ -128,8 +129,8 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
       await prisma.staff.update({ where: { id: l.id }, data: { active: false } });
     }
   }
-  // This branch's hours go to the others — new ones included — whenever the
-  // hours are kept in sync.
-  if (sync) await mirrorBranchHours(staff.id);
+  // This branch's hours, services, prices and profile go to the others — new
+  // ones included — whenever they're kept in sync.
+  if (sync) await mirrorStaffEverywhere(staff.id);
   return NextResponse.json({ ok: true, businessIds: [...wanted], travelMinutes: travel, syncHours: sync });
 }

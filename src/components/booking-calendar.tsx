@@ -45,6 +45,7 @@ import {
   INCOME_KINDS,
   type PersonalTimeKind,
 } from "@/lib/personal-time";
+import { MoveBranchButton } from "@/components/move-branch-button";
 
 interface StaffOption {
   id: string;
@@ -2739,6 +2740,24 @@ export function BookingCalendar({
                     {locale === "vi" ? "Huỷ" : "Cancel"}
                   </button>
                 </>
+              )}
+              {/* The owner can send it to another branch where the same person works. */}
+              {isOwner && ["CONFIRMED", "PENDING_PAYMENT"].includes(activeBooking.status) && (
+                <MoveBranchButton
+                  key={activeBooking.id}
+                  bookingId={activeBooking.id}
+                  locale={locale}
+                  customerHasEmail={activeBooking.customerHasEmail}
+                  onMoved={(name, emailed) => {
+                    setActiveBooking(null);
+                    reloadBookings();
+                    setNotice(
+                      locale === "vi"
+                        ? `Đã chuyển lịch hẹn sang ${name}${emailed ? " và gửi email cho khách" : ""}`
+                        : `Moved to ${name}${emailed ? " and emailed the customer" : ""}`
+                    );
+                  }}
+                />
               )}
             </div>
 

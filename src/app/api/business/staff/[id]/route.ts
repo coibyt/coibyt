@@ -4,6 +4,7 @@ import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { staffSchema } from "@/lib/validations";
 import { sendStaffWelcomeEmail } from "@/lib/staff-welcome";
+import { mirrorStaffProfile, mirrorStaffServices } from "@/lib/staff-branches";
 
 async function assertOwnership(businessId: string, staffId: string) {
   return prisma.staff.findFirst({ where: { id: staffId, businessId } });
@@ -89,6 +90,10 @@ export async function PATCH(
       },
     });
   });
+
+  // Kept in sync across branches: the same profile and services there too.
+  await mirrorStaffProfile(id);
+  if (serviceIds) await mirrorStaffServices(id);
 
   // A login given just now: welcome them with how to sign in and what they can do.
   const welcomed = newLogin ? await sendStaffWelcomeEmail(id) : false;
