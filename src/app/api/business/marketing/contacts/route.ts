@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireOwnerOnly, requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 const PAGE = 50;
 
@@ -68,6 +69,8 @@ const importSchema = z.object({
 export async function POST(req: Request) {
   const owned = await requireOwnerOnly();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const locked = await profileLockedError(owned.businessId);
+  if (locked) return NextResponse.json(locked, { status: 403 });
   const parsed = importSchema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
 

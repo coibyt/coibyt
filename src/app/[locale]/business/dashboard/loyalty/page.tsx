@@ -5,6 +5,8 @@ import { getBusinessAccess } from "@/lib/current-business";
 import { LoyaltyManager } from "@/components/loyalty-manager";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
 import { settleReferrals } from "@/lib/loyalty-referral";
+import { profileChecklist } from "@/lib/profile-completeness";
+import { ProfileLock } from "@/components/profile-lock";
 
 export default async function LoyaltyPage({
   params,
@@ -35,6 +37,10 @@ export default async function LoyaltyPage({
   const canUse = access.isOwner || access.permissions.bookings;
   const t = await getTranslations("dashboard");
   const business = access.business;
+  const profile = await profileChecklist(business.id);
+  if (!profile.unlocked) {
+    return <ProfileLock locale={locale} feature="loyalty" isOwner={access.isOwner} pct={profile.pct} checklist={profile.checklist} />;
+  }
   // Friends' visits since the last look earn their inviters bonus tickets.
   if (business) await settleReferrals({ businessId: business.id });
 

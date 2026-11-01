@@ -19,6 +19,24 @@ export type ChecklistId =
   | "services"
   | "staff";
 
+/** Where each checklist item is fixed: a section of the settings page, or
+ * another dashboard page. */
+export const CHECK_TARGET: Record<ChecklistId, string> = {
+  logo: "#profile",
+  cover: "#profile",
+  description: "#profile",
+  location: "#profile",
+  categories: "#profile",
+  phone: "#contact",
+  social: "#contact",
+  policy: "#booking",
+  bank: "#payments",
+  invoice: "#payments",
+  hours: "/business/dashboard/hours",
+  services: "/business/dashboard/services",
+  staff: "/business/dashboard/staff",
+};
+
 const STRINGS = {
   vi: {
     eyebrow: "Cài đặt salon",
@@ -35,6 +53,8 @@ const STRINGS = {
     completeTitle: "Mức độ hoàn thiện hồ sơ",
     completeText: "Hồ sơ đầy đủ giúp salon nổi bật trên bản đồ tìm kiếm và khách tin tưởng đặt lịch hơn.",
     completeDone: "Tuyệt vời! Hồ sơ của salon đã hoàn thiện.",
+    unlockNote: "Đạt {n}% để mở Thẻ tích điểm & Marketing",
+    unlockedNote: "Đã mở Thẻ tích điểm & Marketing",
     todo: "Còn {n} mục cần hoàn thiện",
     fix: "Bổ sung",
     menu: "Mục cài đặt",
@@ -87,6 +107,8 @@ const STRINGS = {
     completeTitle: "Profile completeness",
     completeText: "A complete profile stands out on the search map and makes customers more confident to book.",
     completeDone: "Great! Your salon profile is complete.",
+    unlockNote: "Reach {n}% to unlock Loyalty cards & Marketing",
+    unlockedNote: "Loyalty cards & Marketing unlocked",
     todo: "{n} items left to complete",
     fix: "Add",
     menu: "Settings",
@@ -139,6 +161,8 @@ const STRINGS = {
     completeTitle: "Profiilin valmiusaste",
     completeText: "Täydellinen profiili erottuu hakukartalla ja saa asiakkaat varaamaan luottavaisemmin.",
     completeDone: "Hienoa! Salongin profiili on valmis.",
+    unlockNote: "{n} % avaa kanta-asiakaskortit ja markkinoinnin",
+    unlockedNote: "Kanta-asiakaskortit ja markkinointi avattu",
     todo: "{n} kohtaa täydentämättä",
     fix: "Lisää",
     menu: "Asetukset",

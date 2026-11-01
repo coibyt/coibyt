@@ -4,6 +4,8 @@ import { affiliateDashboard } from "@/lib/affiliate-stats";
 import { siteSerif } from "@/lib/site-fonts";
 import { AffiliateStudio } from "@/components/affiliate-studio";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
+import { profileChecklist } from "@/lib/profile-completeness";
+import { ProfileLock } from "@/components/profile-lock";
 
 export default async function AffiliatesPage({
   params,
@@ -17,6 +19,10 @@ export default async function AffiliatesPage({
     return null;
   }
   const { business } = access;
+  const profile = await profileChecklist(business.id);
+  if (!profile.unlocked) {
+    return <ProfileLock locale={locale} feature="marketing" isOwner={access.isOwner} pct={profile.pct} checklist={profile.checklist} />;
+  }
   const data = await affiliateDashboard(business.id, "all");
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 

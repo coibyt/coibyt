@@ -6,6 +6,7 @@ import { sendMail } from "@/lib/mailer";
 import { loyaltyCardEmail } from "@/lib/email/loyalty-card-email";
 import { formatMoney } from "@/lib/money";
 import { loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 export async function GET() {
   const access = await getBusinessAccess();
@@ -46,6 +47,8 @@ export async function POST(req: Request) {
   if (!access || (!access.isOwner && !access.permissions.bookings)) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
+  const locked = await profileLockedError(access.business.id);
+  if (locked) return NextResponse.json(locked, { status: 403 });
   const owned = { businessId: access.business.id };
 
   const parsed = createSchema.safeParse(await req.json());

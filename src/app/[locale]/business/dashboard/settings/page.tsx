@@ -14,7 +14,8 @@ import { BusinessProfileCard } from "@/components/business-profile-card";
 import { AccountSettingsCard } from "@/components/account-settings-card";
 import { SettingsHero, SettingsNav, SettingsSection } from "@/components/settings-shell";
 import { siteSerif } from "@/lib/site-fonts";
-import { settingsStrings, type ChecklistId, type SettingsSectionId } from "@/lib/settings-strings";
+import { settingsStrings, type SettingsSectionId } from "@/lib/settings-strings";
+import { PROFILE_UNLOCK_PCT, profileChecklist } from "@/lib/profile-completeness";
 
 export default async function BusinessSettingsPage({
   params,
@@ -34,7 +35,7 @@ export default async function BusinessSettingsPage({
   const allBranches = session?.user ? await listOwnedBusinesses(session.user.id) : [];
   // The shared "all branches" booking page only exists for owners with 2+ branches.
   const ownedBranches = allBranches.filter((b) => b.status === "APPROVED");
-  const [allCategories, ownCategoryLinks, currentUser, hours, services, staff] = await Promise.all([
+  const [allCategories, ownCategoryLinks, currentUser, profile] = await Promise.all([
     prisma.category.findMany({ select: { id: true, nameVi: true, nameEn: true } }),
     prisma.businessCategory.findMany({
       where: { businessId: business.id },
@@ -46,26 +47,9 @@ export default async function BusinessSettingsPage({
           select: { email: true, pendingEmail: true, password: true },
         })
       : null,
-    prisma.businessHours.count({ where: { businessId: business.id } }),
-    prisma.service.count({ where: { businessId: business.id, active: true } }),
-    prisma.staff.count({ where: { businessId: business.id, active: true } }),
+    profileChecklist(business.id),
   ]);
 
-  const checks: [ChecklistId, boolean][] = [
-    ["logo", !!business.logoUrl],
-    ["cover", !!business.coverUrl],
-    ["description", (business.description?.trim().length ?? 0) >= 80],
-    ["location", !!business.addressLine && business.lat !== null && business.lng !== null],
-    ["categories", ownCategoryLinks.length > 0],
-    ["phone", !!business.phone],
-    ["social", !!(business.website || business.facebookUrl || business.instagramUrl || business.tiktokUrl)],
-    ["policy", !!business.cancellationPolicy?.trim()],
-    ["bank", !!(business.bankAccountNumber && business.bankAccountName)],
-    ["invoice", !!(business.invoiceCompanyName && business.invoiceTaxId)],
-    ["hours", hours > 0],
-    ["services", services > 0],
-    ["staff", staff > 0],
-  ];
   const sections: SettingsSectionId[] = ["profile", "contact", "booking", "payments", "website", "branches", ...(currentUser ? (["account"] as const) : [])];
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
@@ -75,7 +59,8 @@ export default async function BusinessSettingsPage({
         locale={locale}
         salon={{ name: business.name, city: business.city, logoUrl: business.logoUrl, coverUrl: business.coverUrl, status: business.status }}
         publicUrl={`${siteUrl}/b/${business.slug}`}
-        checklist={checks.map(([id, done]) => ({ id, done }))}
+        checklist={profile.checklist}
+        unlockPct={PROFILE_UNLOCK_PCT}
       />
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_220px]">

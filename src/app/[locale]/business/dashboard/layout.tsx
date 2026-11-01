@@ -15,6 +15,7 @@ import { incomeStrings } from "@/lib/income-strings";
 import { IncomeReminderAlarm } from "@/components/income-reminder-alarm";
 import { teamCounts } from "@/lib/team";
 import { teamStrings } from "@/lib/team-strings";
+import { profileChecklist } from "@/lib/profile-completeness";
 
 export default async function BusinessDashboardLayout({
   children,
@@ -70,6 +71,8 @@ export default async function BusinessDashboardLayout({
 
   // Team hub: chat, notices and training — for everyone with a login.
   const team = session?.user ? await teamCounts(session.user.id, business.id, isOwner) : null;
+  // Loyalty and marketing open once the salon profile is complete enough.
+  const locked = !(await profileChecklist(business.id)).unlocked;
 
   const links = [
     { href: "/business/dashboard", label: t("overview") },
@@ -88,11 +91,11 @@ export default async function BusinessDashboardLayout({
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/landing", label: tDash("landing.nav") }] : []),
-    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav") }] : []),
+    ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/marketing", label: tDash("marketing.nav"), locked }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/gift-cards", label: tDash("giftCards.nav") }] : []),
     // Staff who work with bookings scan loyalty cards and issue new ones.
     ...(canViewReadOnlyPages || permissions.bookings
-      ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav") }]
+      ? [{ href: "/business/dashboard/loyalty", label: tDash("loyalty.nav"), locked }]
       : []),
     ...(isOwner || permissions.bookings
       ? [{ href: "/business/dashboard/bookings", label: t("bookings") }]

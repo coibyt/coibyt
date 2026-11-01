@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { campaignColumns, campaignContentSchema } from "@/lib/marketing-campaign";
 import { campaignCost, sendCampaign } from "@/lib/marketing-send";
 import { esc } from "@/lib/email/ui";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 const schema = z.object({
   content: campaignContentSchema,
@@ -24,6 +25,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: result.error }, { status: result.error === "FORBIDDEN" ? 403 : 409 });
   }
   const { businessId } = result;
+  const locked = await profileLockedError(businessId);
+  if (locked) return NextResponse.json(locked, { status: 403 });
 
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });

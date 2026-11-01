@@ -1,12 +1,14 @@
 "use client";
 
+import { Lock } from "lucide-react";
 import { usePathname, Link } from "@/i18n/navigation";
 
 export function DashboardSidebar({
   links,
   title,
 }: {
-  links: { href: string; label: string; badge?: number }[];
+  // locked: shown with a padlock (loyalty and marketing before the profile is complete).
+  links: { href: string; label: string; badge?: number; locked?: boolean }[];
   title: string;
 }) {
   const pathname = usePathname();
@@ -31,6 +33,7 @@ export function DashboardSidebar({
               }`}
             >
               {l.label}
+              {l.locked && <Lock className={`ml-1.5 inline h-3 w-3 align-[-1px] ${active ? "text-[#e8d3a6]" : "text-[#b08a3e]"}`} />}
               {l.badge ? (
                 <span className="ml-2 rounded-full bg-berry-500 px-1.5 text-[10px] font-bold leading-4 text-white">
                   {l.badge}

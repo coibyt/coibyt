@@ -3,6 +3,7 @@ import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { toSmallestUnit } from "@/lib/money";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 const schema = z.object({
   pointsRequired: z.number().int().min(1).max(100),
@@ -33,6 +34,8 @@ export async function GET() {
 export async function PUT(req: Request) {
   const owned = await requireOwnerOnly();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const locked = await profileLockedError(owned.businessId);
+  if (locked) return NextResponse.json(locked, { status: 403 });
   const parsed = schema.safeParse(await req.json());
   if (!parsed.success) return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   const d = parsed.data;

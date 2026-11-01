@@ -4,6 +4,7 @@ import { requireOwnerOnly, requireOwnerOrReadOnlyViewer } from "@/lib/current-bu
 import { prisma } from "@/lib/prisma";
 import { affiliateSchema } from "@/lib/validations";
 import { affiliateDashboard, AFFILIATE_PERIODS, type AffiliatePeriod } from "@/lib/affiliate-stats";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 export async function GET(req: Request) {
   const owned = await requireOwnerOrReadOnlyViewer();
@@ -25,6 +26,8 @@ async function generateUniqueCode() {
 export async function POST(req: Request) {
   const owned = await requireOwnerOnly();
   if (!owned) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const locked = await profileLockedError(owned.businessId);
+  if (locked) return NextResponse.json(locked, { status: 403 });
 
   const parsed = affiliateSchema.safeParse(await req.json());
   if (!parsed.success) {

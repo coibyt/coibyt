@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getBusinessAccess } from "@/lib/current-business";
 import { applyLoyaltyReward } from "@/lib/loyalty";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 export async function POST(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -8,6 +9,8 @@ export async function POST(_req: Request, { params }: { params: Promise<{ id: st
   if (!access || (!access.isOwner && !access.permissions.bookings)) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
+  const locked = await profileLockedError(access.business.id);
+  if (locked) return NextResponse.json(locked, { status: 403 });
   const applied = await applyLoyaltyReward(access.business.id, id);
   if (!applied) return NextResponse.json({ error: "NOT_READY" }, { status: 409 });
   return NextResponse.json({ ok: true });

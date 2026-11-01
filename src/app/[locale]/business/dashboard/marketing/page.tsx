@@ -9,6 +9,8 @@ import { MarketingStudio } from "@/components/marketing-studio";
 import { VaraPointsPanel } from "@/components/vara-points-panel";
 import { ReadOnlyBanner } from "@/components/read-only-banner";
 import { Users } from "lucide-react";
+import { profileChecklist } from "@/lib/profile-completeness";
+import { ProfileLock } from "@/components/profile-lock";
 
 export default async function MarketingDashboardPage({
   params,
@@ -26,6 +28,10 @@ export default async function MarketingDashboardPage({
     return null;
   }
   const t = await getTranslations("dashboard");
+  const profile = await profileChecklist(owned.businessId);
+  if (!profile.unlocked) {
+    return <ProfileLock locale={locale} feature="marketing" isOwner={owned.isOwner} pct={profile.pct} checklist={profile.checklist} />;
+  }
 
   // Scheduled campaigns whose time has come, in case the cron isn't set up.
   await sendDueCampaigns(owned.businessId).catch(() => 0);

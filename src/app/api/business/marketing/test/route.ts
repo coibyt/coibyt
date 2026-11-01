@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { campaignColumns, campaignContentSchema } from "@/lib/marketing-campaign";
 import { renderCampaign, salonSelect, sampleLoyaltyCard } from "@/lib/marketing-send";
+import { profileLockedError } from "@/lib/profile-completeness";
 
 const lastTest = new Map<string, number>();
 
@@ -14,6 +15,8 @@ export async function POST(req: Request) {
   const access = await getBusinessAccess();
   const session = await auth();
   if (!access?.isOwner || !session?.user?.email) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const locked = await profileLockedError(access.business.id);
+  if (locked) return NextResponse.json(locked, { status: 403 });
 
   if (Date.now() - (lastTest.get(session.user.id) ?? 0) < 20_000) {
     return NextResponse.json({ error: "TOO_SOON" }, { status: 429 });

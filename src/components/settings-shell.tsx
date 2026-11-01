@@ -16,6 +16,7 @@ import {
   ExternalLink,
   Globe,
   LayoutTemplate,
+  Lock,
   MapPin,
   Phone,
   QrCode,
@@ -30,6 +31,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
 import {
+  CHECK_TARGET,
   settingsStrings,
   type ChecklistId,
   type SettingsSectionId,
@@ -45,24 +47,6 @@ export const SECTION_ICONS: Record<SettingsSectionId, LucideIcon> = {
   account: ShieldCheck,
 };
 
-/** Where each checklist item is fixed: a section on this page, or another
- * dashboard page. */
-const CHECK_TARGET: Record<ChecklistId, string> = {
-  logo: "#profile",
-  cover: "#profile",
-  description: "#profile",
-  location: "#profile",
-  categories: "#profile",
-  phone: "#contact",
-  social: "#contact",
-  policy: "#booking",
-  bank: "#payments",
-  invoice: "#payments",
-  hours: "/business/dashboard/hours",
-  services: "/business/dashboard/services",
-  staff: "/business/dashboard/staff",
-};
-
 /** Salon header: cover, logo, status, public link + QR, and how complete
  * the profile is with a checklist of what's missing. */
 export function SettingsHero({
@@ -70,6 +54,7 @@ export function SettingsHero({
   salon,
   publicUrl,
   checklist,
+  unlockPct,
 }: {
   locale: string;
   salon: {
@@ -81,6 +66,8 @@ export function SettingsHero({
   };
   publicUrl: string;
   checklist: { id: ChecklistId; done: boolean }[];
+  /** Loyalty and marketing open at this % (src/lib/profile-completeness.ts). */
+  unlockPct: number;
 }) {
   const S = settingsStrings(locale);
   const [toast, setToast] = useState(false);
@@ -254,6 +241,14 @@ export function SettingsHero({
             <p className="font-bold text-ink-900">{S.completeTitle}</p>
             <p className="mt-0.5 text-xs leading-relaxed text-ink-400">
               {missing.length ? S.completeText : S.completeDone}
+            </p>
+            <p
+              className={`mt-2 inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-[11px] font-bold ${
+                pct >= unlockPct ? "bg-emerald-50 text-emerald-700" : "bg-[#f6efe1] text-[#8a6a2c]"
+              }`}
+            >
+              {pct >= unlockPct ? <Check className="h-3 w-3" /> : <Lock className="h-3 w-3" />}
+              {pct >= unlockPct ? S.unlockedNote : fill(S.unlockNote, { n: unlockPct })}
             </p>
           </div>
         </div>

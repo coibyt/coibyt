@@ -7,6 +7,7 @@ import { trackingToken, unsubscribeToken } from "@/lib/marketing-email";
 import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
 import { loyaltyQrPng, loyaltyScanUrl, newLoyaltyToken } from "@/lib/loyalty";
 import { SITE_URL } from "@/lib/email/ui";
+import { profileChecklist } from "@/lib/profile-completeness";
 import {
   EMAIL_COOLDOWN_BYPASS_POINTS,
   EMAIL_SENT_POINTS,
@@ -230,11 +231,13 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
 export async function sendDueCampaigns(businessId?: string) {
   const due = await prisma.emailCampaign.findMany({
     where: { status: "SCHEDULED", scheduledAt: { lte: new Date() }, ...(businessId ? { businessId } : {}) },
-    select: { id: true },
+    select: { id: true, businessId: true },
     take: 20,
   });
   let sent = 0;
   for (const c of due) {
+    // Waits, still scheduled, while the salon profile is under the unlock %.
+    if (!(await profileChecklist(c.businessId)).unlocked) continue;
     const claimed = await prisma.emailCampaign.updateMany({ where: { id: c.id, status: "SCHEDULED" }, data: { status: "SENDING" } });
     if (claimed.count === 0) continue;
     const r = await sendCampaign(c.id).catch((err) => {
