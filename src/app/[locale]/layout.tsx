@@ -14,6 +14,7 @@ import { InstallAppBanner } from "@/components/install-app-banner";
 import { BookingAlarm } from "@/components/booking-alarm";
 import { SiteVisitTracker } from "@/components/site-visit-tracker";
 import "../globals.css";
+import { ogImage } from "@/lib/og-image";
 
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
 const META_PIXEL_ID = "7997185890363074";
@@ -31,14 +32,16 @@ const sans = Be_Vietnam_Pro({
   display: "swap",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations("meta");
   return {
     // Lets pages give share images as plain paths.
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com"),
     title: t("title"),
     description: t("description"),
-    openGraph: { siteName: "VaraaAi", type: "website", images: ["/icons/icon-512.png"] },
+    openGraph: { siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
+    twitter: { card: "summary_large_image", images: [ogImage(locale).url] },
   };
 }
 

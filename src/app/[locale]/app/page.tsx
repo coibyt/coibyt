@@ -7,6 +7,7 @@ import { appPageStrings, appPageUrl } from "@/lib/app-page-strings";
 import { spotlightStrings } from "@/lib/business-landing/spotlight";
 import { AppInstallHero } from "@/components/app-install-hero";
 import { FooterAppDownload } from "@/components/footer-app-download";
+import { ogImage } from "@/lib/og-image";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: S.metaTitle,
     description: S.metaDescription,
-    openGraph: { title: S.metaTitle, description: S.metaDescription, images: ["/icons/icon-512.png"] },
+    openGraph: { title: S.metaTitle, description: S.metaDescription, images: [ogImage(locale)] },
   };
 }
 

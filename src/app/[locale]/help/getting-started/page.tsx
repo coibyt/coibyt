@@ -9,6 +9,7 @@ import { OpenSupportButton, SupportLauncher } from "@/components/support-launche
 import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { supportWidgetStrings } from "@/lib/support-ai/widget-strings";
 import { businessLandingStrings } from "@/lib/business-landing/strings";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string }>;
 
@@ -73,7 +74,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title: c.metaTitle,
     description: c.metaDescription,
     alternates: { canonical: pageUrl(locale) },
-    openGraph: { title: c.metaTitle, description: c.metaDescription, url: pageUrl(locale), siteName: "VaraaAi", type: "website" },
+    openGraph: { title: c.metaTitle, description: c.metaDescription, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
 

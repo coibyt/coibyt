@@ -8,6 +8,7 @@ import { fill } from "@/lib/shop-strings";
 import { loyaltyCardStrings, firstName } from "@/lib/loyalty-card-strings";
 import { siteSerif } from "@/lib/site-fonts";
 import { ReferralCookie } from "@/components/referral-cookie";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string; code: string }>;
 
@@ -48,7 +49,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title,
     robots: { index: false, follow: false },
-    openGraph: { title, images: card.business.coverUrl ? [card.business.coverUrl] : undefined },
+    openGraph: { title, images: card.business.coverUrl ? [card.business.coverUrl] : [ogImage(locale)] },
   };
 }
 

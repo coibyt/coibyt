@@ -17,6 +17,7 @@ import { ProductCartWidget } from "@/components/product-cart-widget";
 import { ShopProductCard, ShopStars } from "@/components/shop-product-card";
 import { absoluteUrl, alternatesFor, jsonLd, localizedUrl, metaDescription } from "@/lib/seo";
 import { fromSmallestUnit } from "@/lib/money";
+import { ogImage } from "@/lib/og-image";
 
 const META_WORDS: Record<string, (product: string, salon: string, price: string) => string> = {
   vi: (product, salon, price) => `Mua ${product} tại ${salon} — ${price}. Sản phẩm chính hãng do salon tuyển chọn, đặt online và nhận tại salon.`,
@@ -42,8 +43,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     alternates: alternatesFor(path, locale),
-    openGraph: { type: "website", title, description, url: localizedUrl(locale, path), siteName: "VaraaAi", ...(images.length ? { images } : {}) },
-    twitter: { card: images.length ? "summary_large_image" : "summary", title, description, ...(images.length ? { images } : {}) },
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, path), siteName: "VaraaAi", images: images.length ? images : [ogImage(locale)] },
+    twitter: { card: "summary_large_image", title, description, images: images.length ? images : [ogImage(locale).url] },
   };
 }
 

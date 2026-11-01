@@ -4,6 +4,7 @@ import { SalonCheckTool } from "@/components/salon-check-tool";
 import { SupportLauncher } from "@/components/support-launcher";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { businessLandingStrings } from "@/lib/business-landing/strings";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string }>;
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title,
     description,
     alternates: { canonical: pageUrl(locale) },
-    openGraph: { title, description, url: pageUrl(locale), siteName: "VaraaAi", type: "website" },
+    openGraph: { title, description, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
 

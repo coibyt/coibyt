@@ -8,6 +8,7 @@ import { visitorCountry } from "@/lib/visitor-country";
 import { searchSeo } from "@/lib/search-seo";
 import { categoryName } from "@/lib/category-names";
 import { formatMoney } from "@/lib/money";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string }>;
 type SearchQuery = Promise<{ q?: string; city?: string; category?: string; country?: string }>;
@@ -85,7 +86,7 @@ export async function generateMetadata({
       },
     },
     robots: seo.indexable ? { index: true, follow: true } : { index: false, follow: true },
-    openGraph: { title: seo.title, description: seo.description, url, siteName: "VaraaAi", type: "website" },
+    openGraph: { title: seo.title, description: seo.description, url, siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
 

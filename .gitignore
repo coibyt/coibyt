@@ -42,3 +42,6 @@ next-env.d.ts
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# headless Chrome profile used by scripts/og/build-og.mjs
+scripts/og/.chrome/

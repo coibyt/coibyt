@@ -9,6 +9,7 @@ import { priceListStrings } from "@/lib/price-list/i18n";
 import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import { PRINT_FONTS_HREF } from "@/lib/print/fonts";
 import { QrPosterEditor } from "@/components/qr-poster/editor";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string }>;
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       canonical: url(locale),
       languages: { ...Object.fromEntries(routing.locales.map((l) => [l, url(l)])), "x-default": url(routing.defaultLocale) },
     },
-    openGraph: { title: seo.title, description: seo.description, url: url(locale), siteName: "VaraaAi", type: "website" },
+    openGraph: { title: seo.title, description: seo.description, url: url(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
     twitter: { card: "summary_large_image", title: seo.title, description: seo.description },
   };
 }

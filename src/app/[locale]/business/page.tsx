@@ -42,6 +42,7 @@ import { spotlightStrings, type SpotlightStrings } from "@/lib/business-landing/
 import { InstallAppButton } from "@/components/install-app-button";
 import { BusinessMapShowcase } from "@/components/business-map-showcase";
 import { businessMapStrings } from "@/lib/business-landing/map-strings";
+import { ogImage } from "@/lib/og-image";
 
 type Params = Promise<{ locale: string }>;
 
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     title,
     description: t.hero.subtitle,
     alternates: { canonical: pageUrl(locale) },
-    openGraph: { title, description: t.hero.subtitle, url: pageUrl(locale), siteName: "VaraaAi", type: "website" },
+    openGraph: { title, description: t.hero.subtitle, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
 

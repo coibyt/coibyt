@@ -11,6 +11,7 @@ import { getShopBusiness, getShopProducts } from "@/lib/shop-data";
 import { ProductShop } from "@/components/product-shop";
 import { ProductCartWidget } from "@/components/product-cart-widget";
 import { absoluteUrl, alternatesFor, localizedUrl, metaDescription } from "@/lib/seo";
+import { ogImage } from "@/lib/og-image";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale, slug } = await params;
@@ -29,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     alternates: alternatesFor(`/b/${slug}/products`, locale),
-    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/products`), siteName: "VaraaAi", ...(image ? { images: [image] } : {}) },
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/products`), siteName: "VaraaAi", images: image ? [image] : [ogImage(locale)] },
   };
 }
 

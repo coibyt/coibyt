@@ -14,6 +14,7 @@ import { FanpageFeed } from "@/components/fanpage-feed";
 import { FanpageFollowButton, FollowerCount } from "@/components/fanpage-follow-button";
 import { FanpagePhotoGrid } from "@/components/fanpage-photo-grid";
 import { absoluteUrl, alternatesFor, localizedUrl, metaDescription } from "@/lib/seo";
+import { ogImage } from "@/lib/og-image";
 
 async function getBusiness(slug: string) {
   const business = await prisma.business.findUnique({
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     title,
     description,
     alternates: alternatesFor(`/b/${slug}/fanpage`, locale),
-    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/fanpage`), siteName: "VaraaAi", ...(image ? { images: [image] } : {}) },
+    openGraph: { type: "website", title, description, url: localizedUrl(locale, `/b/${slug}/fanpage`), siteName: "VaraaAi", images: image ? [image] : [ogImage(locale)] },
   };
 }
 
