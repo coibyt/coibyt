@@ -2072,7 +2072,10 @@ export function BookingCalendar({
               </div>
             </div>
 
-            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto">
+            {/* Sideways only: overflow-x:auto alone would let this also scroll a few
+                pixels vertically on its own (absolutely placed labels poking out
+                below), sliding the grid away from the frozen hour column. */}
+            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden">
           <div
             className="grid"
             style={{
@@ -2291,7 +2294,10 @@ export function BookingCalendar({
               </div>
             </div>
 
-            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto">
+            {/* Sideways only: overflow-x:auto alone would let this also scroll a few
+                pixels vertically on its own (absolutely placed labels poking out
+                below), sliding the grid away from the frozen hour column. */}
+            <div ref={bodyScrollRef} onScroll={syncHeaderScroll} className="min-w-0 flex-1 overflow-x-auto overflow-y-hidden">
           <div className="grid" style={{ gridTemplateColumns: `repeat(7, minmax(120px, 1fr))` }}>
             {Array.from({ length: 7 }, (_, i) => addDays(rangeStart, i)).map((day) => (
               <div
