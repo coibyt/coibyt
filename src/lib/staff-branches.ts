@@ -14,6 +14,35 @@ export function newBranchGroup() {
   return randomBytes(12).toString("hex");
 }
 
+/** Longest the owner can block around a booking at another branch, either
+ * side (BranchBusyAdjust). */
+export const MAX_BUSY_ADJUST_MINUTES = 240;
+const ADJUST_REACH = MAX_BUSY_ADJUST_MINUTES * MIN;
+
+/** The owner's own before/after minutes for locked blocks on these rows'
+ * calendars, by `${localStaffId}|${sourceKey}`. */
+export async function busyAdjustments(localStaffIds: string[]) {
+  const rows = localStaffIds.length
+    ? await prisma.branchBusyAdjust.findMany({
+        where: { staffId: { in: localStaffIds } },
+        select: { staffId: true, sourceKey: true, beforeMinutes: true, afterMinutes: true },
+      })
+    : [];
+  return new Map(rows.map((r) => [`${r.staffId}|${r.sourceKey}`, { beforeMs: r.beforeMinutes * MIN, afterMs: r.afterMinutes * MIN }]));
+}
+export type BusyAdjustments = Awaited<ReturnType<typeof busyAdjustments>>;
+
+/** The time something at another branch takes on this branch's calendar:
+ * widened by the travel time, or by the owner's own minutes for it. */
+export function widenBusy(adjusts: BusyAdjustments, localStaffId: string, sourceKey: string, travelMs: number, start: Date, end: Date) {
+  const a = adjusts.get(`${localStaffId}|${sourceKey}`);
+  return {
+    start: new Date(start.getTime() - (a?.beforeMs ?? travelMs)),
+    end: new Date(end.getTime() + (a?.afterMs ?? travelMs)),
+    adjusted: !!a,
+  };
+}
+
 /** Whether this staff member is taken at one of their OTHER branches during
  * [start, end), counting their travel time between branches — for refusing a
  * booking or move into that time. */
@@ -24,15 +53,26 @@ export async function busyAtOtherBranch(staffId: string, start: Date, end: Date)
   if (others.length === 0) return false;
   const ids = { in: others.map((o) => o.id) };
   const travel = s.branchTravelMinutes * MIN;
-  // Their time there, widened by the travel either side, overlaps this.
-  const window = { startsAt: { lt: new Date(end.getTime() + travel) }, endsAt: { gt: new Date(start.getTime() - travel) } };
+  // Anything near enough to reach in, then each checked with its own margins.
+  const reach = Math.max(travel, ADJUST_REACH);
+  const window = { startsAt: { lt: new Date(end.getTime() + reach) }, endsAt: { gt: new Date(start.getTime() - reach) } };
   const live = { in: ["PENDING_PAYMENT" as const, "CONFIRMED" as const] };
-  const [b, x, t] = await Promise.all([
-    prisma.booking.findFirst({ where: { staffId: ids, status: live, ...window }, select: { id: true } }),
-    prisma.bookingExtraService.findFirst({ where: { staffId: ids, ...window, booking: { status: live } }, select: { id: true } }),
-    prisma.staffTimeOff.findFirst({ where: { staffId: ids, ...window }, select: { id: true } }),
+  const [b, x, t, adjusts] = await Promise.all([
+    prisma.booking.findMany({ where: { staffId: ids, status: live, ...window }, select: { id: true, startsAt: true, endsAt: true } }),
+    prisma.bookingExtraService.findMany({ where: { staffId: ids, ...window, booking: { status: live } }, select: { id: true, startsAt: true, endsAt: true } }),
+    prisma.staffTimeOff.findMany({ where: { staffId: ids, ...window }, select: { id: true, startsAt: true, endsAt: true } }),
+    busyAdjustments([staffId]),
   ]);
-  return !!(b || x || t);
+  const items = [
+    ...b.map((r) => ({ key: `b-${r.id}`, s: r.startsAt, e: r.endsAt })),
+    ...x.map((r) => ({ key: `x-${r.id}`, s: r.startsAt, e: r.endsAt })),
+    ...t.map((r) => ({ key: `t-${r.id}`, s: r.startsAt, e: r.endsAt })),
+  ];
+  return items.some((i) => {
+    if (!i.s || !i.e) return false;
+    const w = widenBusy(adjusts, staffId, i.key, travel, i.s, i.e);
+    return w.start < end && w.end > start;
+  });
 }
 
 /** For these staff rows, their rows at OTHER branches: other row id → this
@@ -63,25 +103,33 @@ export interface ExternalBusy {
   staffId: string;
   kind: "OTHER_BRANCH_BOOKING" | "OTHER_BRANCH_BUSY";
   branchName: string;
-  /** Widened by the travel time either side. */
+  /** "b-…", "x-…" or "t-…": what it is at the other branch (BranchBusyAdjust). */
+  sourceKey: string;
+  /** Widened by the travel time either side, or the owner's own minutes. */
   startsAt: Date;
   endsAt: Date;
+  /** The booking or blocked time itself, at the other branch. */
+  coreStartsAt: Date;
+  coreEndsAt: Date;
   travelMinutes: number;
+  /** The owner set this block's length on this branch's calendar. */
+  adjusted: boolean;
 }
 
 /** Time these staff members are taken at their other branches in [from, to):
  * bookings (and split-off extra services) there, and time blocked there —
- * each widened by their travel time between branches. */
+ * each widened by their travel time between branches, or by what the owner
+ * set for that block here. */
 export async function externalBusy(staffIds: string[], from: Date, to: Date): Promise<ExternalBusy[]> {
   const siblings = await siblingRows(staffIds);
   if (siblings.size === 0) return [];
   const ids = [...siblings.keys()];
-  // Look a little wider so something just outside still reaches in by travel.
-  const maxTravel = Math.max(...[...siblings.values()].map((v) => v.travelMs));
-  from = new Date(from.getTime() - maxTravel);
-  to = new Date(to.getTime() + maxTravel);
+  // Look a little wider so something just outside still reaches in.
+  const reach = Math.max(ADJUST_REACH, ...[...siblings.values()].map((v) => v.travelMs));
+  from = new Date(from.getTime() - reach);
+  to = new Date(to.getTime() + reach);
   const live = { in: ["PENDING_PAYMENT" as const, "CONFIRMED" as const, "COMPLETED" as const] };
-  const [bookings, extras, timeOff] = await Promise.all([
+  const [bookings, extras, timeOff, adjusts] = await Promise.all([
     prisma.booking.findMany({
       where: { staffId: { in: ids }, status: live, startsAt: { lt: to }, endsAt: { gt: from } },
       select: { id: true, staffId: true, startsAt: true, endsAt: true },
@@ -94,25 +142,53 @@ export async function externalBusy(staffIds: string[], from: Date, to: Date): Pr
       where: { staffId: { in: ids }, startsAt: { lt: to }, endsAt: { gt: from } },
       select: { id: true, staffId: true, startsAt: true, endsAt: true },
     }),
+    busyAdjustments(staffIds),
   ]);
   const out: ExternalBusy[] = [];
-  const add = (id: string, staffId: string | null, s: Date | null, e: Date | null, kind: ExternalBusy["kind"]) => {
+  const add = (sourceKey: string, staffId: string | null, s: Date | null, e: Date | null, kind: ExternalBusy["kind"]) => {
     const sib = staffId ? siblings.get(staffId) : null;
     if (!sib || !s || !e) return;
+    const w = widenBusy(adjusts, sib.localId, sourceKey, sib.travelMs, s, e);
     out.push({
-      id,
+      id: `ext-${sourceKey}`,
       staffId: sib.localId,
       kind,
       branchName: sib.branchName,
-      startsAt: new Date(s.getTime() - sib.travelMs),
-      endsAt: new Date(e.getTime() + sib.travelMs),
+      sourceKey,
+      startsAt: w.start,
+      endsAt: w.end,
+      coreStartsAt: s,
+      coreEndsAt: e,
       travelMinutes: sib.travelMs / MIN,
+      adjusted: w.adjusted,
     });
   };
-  for (const b of bookings) add(`ext-b-${b.id}`, b.staffId, b.startsAt, b.endsAt, "OTHER_BRANCH_BOOKING");
-  for (const x of extras) add(`ext-x-${x.id}`, x.staffId, x.startsAt, x.endsAt, "OTHER_BRANCH_BOOKING");
-  for (const t of timeOff) add(`ext-t-${t.id}`, t.staffId, t.startsAt, t.endsAt, "OTHER_BRANCH_BUSY");
+  for (const b of bookings) add(`b-${b.id}`, b.staffId, b.startsAt, b.endsAt, "OTHER_BRANCH_BOOKING");
+  for (const x of extras) add(`x-${x.id}`, x.staffId, x.startsAt, x.endsAt, "OTHER_BRANCH_BOOKING");
+  for (const t of timeOff) add(`t-${t.id}`, t.staffId, t.startsAt, t.endsAt, "OTHER_BRANCH_BUSY");
   return out;
+}
+
+/** The thing behind a locked block — a booking, extra service or blocked
+ * time of the same person at another branch — with its own times, or null
+ * when it isn't one for this branch's row of the person. */
+export async function externalSource(localStaffId: string, sourceKey: string) {
+  const local = await prisma.staff.findUnique({ where: { id: localStaffId }, select: { branchGroup: true } });
+  if (!local?.branchGroup) return null;
+  const id = sourceKey.slice(2);
+  const kind = sourceKey.slice(0, 2);
+  const row =
+    kind === "b-"
+      ? await prisma.booking.findUnique({ where: { id }, select: { staffId: true, startsAt: true, endsAt: true } })
+      : kind === "x-"
+        ? await prisma.bookingExtraService.findUnique({ where: { id }, select: { staffId: true, startsAt: true, endsAt: true } })
+        : kind === "t-"
+          ? await prisma.staffTimeOff.findUnique({ where: { id }, select: { staffId: true, startsAt: true, endsAt: true } })
+          : null;
+  if (!row?.staffId || !row.startsAt || !row.endsAt || row.staffId === localStaffId) return null;
+  const owner = await prisma.staff.findUnique({ where: { id: row.staffId }, select: { branchGroup: true } });
+  if (owner?.branchGroup !== local.branchGroup) return null;
+  return { startsAt: row.startsAt, endsAt: row.endsAt };
 }
 
 /** The login behind a staff row — its own, or the linked row's that has it —

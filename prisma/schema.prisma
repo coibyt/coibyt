@@ -616,6 +616,7 @@ model Staff {
   services             StaffService[]
   bookings             Booking[]
   timeOff              StaffTimeOff[]
+  branchBusyAdjusts    BranchBusyAdjust[]
   hours                StaffHours[]
   avatar               StaffAvatar?
   bookingExtraServices BookingExtraService[]
@@ -660,6 +661,24 @@ model StaffHours {
 // customers can't book into it. Created from the bookings calendar by
 // picking a "personal time" entry instead of a service; never shown to
 // customers.
+/// The owner's own length for one locked "at another branch" block on this
+/// branch's calendar (src/lib/staff-branches.ts): the minutes blocked before
+/// and after that booking or blocked time there, in place of the person's
+/// travel time. Only this branch's row — the other branches keep theirs.
+model BranchBusyAdjust {
+  id            String   @id @default(cuid())
+  /// This branch's row of the person.
+  staffId       String
+  staff         Staff    @relation(fields: [staffId], references: [id], onDelete: Cascade)
+  /// "b-<bookingId>", "x-<bookingExtraServiceId>" or "t-<staffTimeOffId>" at the other branch.
+  sourceKey     String   @db.VarChar(40)
+  beforeMinutes Int
+  afterMinutes  Int
+  updatedAt     DateTime @updatedAt
+
+  @@unique([staffId, sourceKey])
+}
+
 model StaffTimeOff {
   id        String   @id @default(cuid())
   staffId   String

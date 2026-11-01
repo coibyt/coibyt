@@ -46,6 +46,7 @@ import {
   type PersonalTimeKind,
 } from "@/lib/personal-time";
 import { MoveBranchButton } from "@/components/move-branch-button";
+import { ExternalBusyEditor, type ExternalBusyBlock } from "@/components/external-busy-editor";
 
 interface StaffOption {
   id: string;
@@ -374,6 +375,12 @@ interface TimeOffBlock {
   endsAt: string;
   /** Time at another branch: the travel either side, already in the times. */
   travelMinutes?: number;
+  /** Time at another branch: what it is there, its own times, and whether
+   * the owner set this block's length here (ExternalBusyEditor). */
+  sourceKey?: string;
+  coreStartsAt?: string;
+  coreEndsAt?: string;
+  adjusted?: boolean;
 }
 
 interface TimeOffDraft {
@@ -527,6 +534,8 @@ export function BookingCalendar({
   const [newBookingError, setNewBookingError] = useState<string | null>(null);
   const [customerMatches, setCustomerMatches] = useState<CustomerMatch[]>([]);
   const [timeOff, setTimeOff] = useState<TimeOffBlock[]>([]);
+  // The owner changing how long a locked "at another branch" block lasts here.
+  const [editExternal, setEditExternal] = useState<ExternalBusyBlock | null>(null);
   const [editTimeOff, setEditTimeOff] = useState<TimeOffDraft | null>(null);
   const [savingTimeOff, setSavingTimeOff] = useState(false);
   const [timeOffError, setTimeOffError] = useState<string | null>(null);
@@ -1680,12 +1689,34 @@ export function BookingCalendar({
             : locale === "fi"
               ? `Varattu: ${t.note}`
               : `Busy at ${t.note}`;
+      // The owner can change how long it blocks this branch's calendar.
+      const editable = isOwner && !!t.sourceKey && !!t.coreStartsAt && !!t.coreEndsAt;
       return (
         <div
           key={`off-${t.id}`}
-          onClick={(e) => e.stopPropagation()}
+          role={editable ? "button" : undefined}
+          onClick={(e) => {
+            e.stopPropagation();
+            if (editable) {
+              setEditExternal({
+                staffId: t.staffId,
+                staffName: t.staffName,
+                note: t.note,
+                kind: t.kind,
+                sourceKey: t.sourceKey!,
+                startsAt: t.startsAt,
+                endsAt: t.endsAt,
+                coreStartsAt: t.coreStartsAt!,
+                coreEndsAt: t.coreEndsAt!,
+                travelMinutes: t.travelMinutes,
+                adjusted: t.adjusted,
+              });
+            }
+          }}
           title={`${label} · ${t.staffName} · ${timeLabel}`}
-          className="absolute left-1 right-1 z-10 cursor-not-allowed overflow-hidden rounded-xl border-l-[3px] border-[#624f89] bg-[#f1ecf8] px-2 py-0.5 text-left text-[11px] text-[#40325c] ring-1 ring-[#cdbfe0]"
+          className={`absolute left-1 right-1 z-10 overflow-hidden rounded-xl border-l-[3px] border-[#624f89] bg-[#f1ecf8] px-2 py-0.5 text-left text-[11px] text-[#40325c] ring-1 ring-[#cdbfe0] ${
+            editable ? "cursor-pointer transition hover:z-30 hover:shadow-md" : "cursor-not-allowed"
+          }`}
           style={{
             top,
             height: Math.max(bottom - top, 20),
@@ -1705,7 +1736,11 @@ export function BookingCalendar({
                 <Lock className="h-3 w-3 shrink-0" />
                 <span className="truncate">{label}</span>
               </p>
-              {!!t.travelMinutes && (
+              {t.adjusted ? (
+                <p className="truncate leading-tight opacity-75">
+                  {locale === "vi" ? "giờ khoá đã chỉnh cho chi nhánh này" : locale === "fi" ? "aika muokattu tälle toimipisteelle" : "time set for this branch"}
+                </p>
+              ) : !!t.travelMinutes && (
                 <p className="truncate leading-tight opacity-75">
                   {locale === "vi"
                     ? `gồm ${t.travelMinutes} phút di chuyển trước/sau`
@@ -3332,6 +3367,19 @@ export function BookingCalendar({
             </button>
           </div>
         </div>
+      )}
+
+      {editExternal && (
+        <ExternalBusyEditor
+          block={editExternal}
+          locale={locale}
+          timeZone={businessTimezone}
+          onClose={() => setEditExternal(null)}
+          onSaved={() => {
+            setEditExternal(null);
+            reloadBookings();
+          }}
+        />
       )}
 
       {editTimeOff && (

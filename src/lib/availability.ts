@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { addMinutes, isBefore } from "date-fns";
 import { fromZonedTime, toZonedTime } from "date-fns-tz";
 import { activeStaffPeriod, groupStaffHours, type HoursPeriod } from "@/lib/staff-hours";
-import { siblingRows } from "@/lib/staff-branches";
+import { busyAdjustments, MAX_BUSY_ADJUST_MINUTES, siblingRows, widenBusy, type BusyAdjustments } from "@/lib/staff-branches";
 
 const SLOT_GRANULARITY_MIN = 15;
 const MIN_LEAD_TIME_MIN = 30; // can't book fewer than 30 minutes from now
@@ -106,12 +106,17 @@ async function loadStaffDaySchedule(params: {
   // there takes the same time here.
   const siblings = await siblingRows(staffIds);
   const allIds = [...staffIds, ...siblings.keys()];
-  const maxTravel = Math.max(0, ...[...siblings.values()].map((v) => v.travelMs));
+  // Reaches far enough for the travel time or the owner's own margins.
+  const maxTravel = siblings.size ? Math.max(MAX_BUSY_ADJUST_MINUTES * 60_000, ...[...siblings.values()].map((v) => v.travelMs)) : 0;
+  const adjusts: BusyAdjustments = siblings.size ? await busyAdjustments(staffIds) : new Map();
   const local = (id: string) => siblings.get(id)?.localId ?? id;
-  // Time at another branch also needs the travel there and back.
-  const widen = (id: string, start: Date, end: Date): BusyInterval => {
-    const travel = siblings.get(id)?.travelMs ?? 0;
-    return { start: new Date(start.getTime() - travel), end: new Date(end.getTime() + travel) };
+  // Time at another branch also needs the travel there and back (or what
+  // the owner set for that block here).
+  const widen = (id: string, key: string, start: Date, end: Date): BusyInterval => {
+    const sib = siblings.get(id);
+    if (!sib) return { start, end };
+    const w = widenBusy(adjusts, sib.localId, key, sib.travelMs, start, end);
+    return { start: w.start, end: w.end };
   };
 
   const [bookings, extraSlots, timeOff] = await Promise.all([
@@ -122,7 +127,7 @@ async function loadStaffDaySchedule(params: {
         startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
         endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
       },
-      select: { staffId: true, startsAt: true, endsAt: true },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
     }),
     prisma.bookingExtraService.findMany({
       where: {
@@ -131,7 +136,7 @@ async function loadStaffDaySchedule(params: {
         endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
         booking: { status: { in: ["PENDING_PAYMENT", "CONFIRMED"] } },
       },
-      select: { staffId: true, startsAt: true, endsAt: true },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
     }),
     prisma.staffTimeOff.findMany({
       where: {
@@ -139,7 +144,7 @@ async function loadStaffDaySchedule(params: {
         startsAt: { lt: new Date(dayEndUtc.getTime() + maxTravel) },
         endsAt: { gt: new Date(dayStartUtc.getTime() - maxTravel) },
       },
-      select: { staffId: true, startsAt: true, endsAt: true },
+      select: { id: true, staffId: true, startsAt: true, endsAt: true },
     }),
   ]);
 
@@ -147,14 +152,14 @@ async function loadStaffDaySchedule(params: {
   for (const staff of staffList) busyByStaff.set(staff.id, []);
   for (const b of bookings) {
     if (!b.staffId) continue;
-    busyByStaff.get(local(b.staffId))?.push(widen(b.staffId, b.startsAt, b.endsAt));
+    busyByStaff.get(local(b.staffId))?.push(widen(b.staffId, `b-${b.id}`, b.startsAt, b.endsAt));
   }
   for (const x of extraSlots) {
     if (!x.staffId || !x.startsAt || !x.endsAt) continue;
-    busyByStaff.get(local(x.staffId))?.push(widen(x.staffId, x.startsAt, x.endsAt));
+    busyByStaff.get(local(x.staffId))?.push(widen(x.staffId, `x-${x.id}`, x.startsAt, x.endsAt));
   }
   for (const t of timeOff) {
-    busyByStaff.get(local(t.staffId))?.push(widen(t.staffId, t.startsAt, t.endsAt));
+    busyByStaff.get(local(t.staffId))?.push(widen(t.staffId, `t-${t.id}`, t.startsAt, t.endsAt));
   }
 
   const now = new Date();

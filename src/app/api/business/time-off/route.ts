@@ -60,6 +60,11 @@ export async function GET(req: Request) {
         note: x.branchName,
         // Already included in startsAt/endsAt, either side.
         travelMinutes: x.travelMinutes,
+        // For the owner to change the block's length here (time-off/external).
+        sourceKey: x.sourceKey,
+        coreStartsAt: x.coreStartsAt.toISOString(),
+        coreEndsAt: x.coreEndsAt.toISOString(),
+        adjusted: x.adjusted,
         startsAt: x.startsAt.toISOString(),
         endsAt: x.endsAt.toISOString(),
       })),
