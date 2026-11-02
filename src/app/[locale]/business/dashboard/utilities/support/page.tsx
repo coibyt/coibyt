@@ -33,6 +33,7 @@ import { STAFF_FAQ, STAFF_GROUPS, STAFF_GUIDES, staffSupportStrings, trs, type S
 import { SupportChat } from "@/components/support-chat";
 import { SupportGuideSearch } from "@/components/support-guide-search";
 import { OpenHashDetails } from "@/components/team/open-hash-details";
+import { GuideArtView } from "@/components/team/guide-art";
 
 const BASE = "/business/dashboard/utilities/support";
 
@@ -93,7 +94,7 @@ export default async function StaffSupportPage({
     id: g.id,
     title: trs(g.title, locale),
     why: trs(g.why, locale),
-    body: [...g.steps, ...(g.tip ? [g.tip] : [])].map((x) => trs(x, locale)).join(" "),
+    body: [...g.steps.map((x) => x.text), ...(g.tip ? [g.tip] : [])].map((x) => trs(x, locale)).join(" "),
   }));
 
   const shortcuts: { key: string; icon: LucideIcon; title: string; text: string; href: string; badge?: number }[] = [
@@ -176,60 +177,105 @@ export default async function StaffSupportPage({
       </div>
 
       {tab === "guides" && (
-        <div className="space-y-8">
+        <div className="space-y-10">
           <OpenHashDetails />
-          {STAFF_GROUPS.map((group) => {
+          {/* The path: four chapters, in order. */}
+          <section className="rounded-[2rem] border border-[#ecd9ad] bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5 sm:p-6">
+            <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#8a6a2c]">{S.pathTitle}</p>
+            <p className="mt-1 text-sm text-[#6b5221]">{S.pathSub}</p>
+            <ol className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              {STAFF_GROUPS.filter((group) => guides.some((g) => g.group === group.id)).map((group, i) => (
+                <li key={group.id}>
+                  <a
+                    href={`#group-${group.id}`}
+                    className="group flex h-full items-center gap-3 rounded-2xl bg-white/80 p-3 ring-1 ring-[#ecd9ad] transition hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_14px_30px_-24px_rgba(31,24,45,0.7)]"
+                  >
+                    <span className="font-serif text-3xl italic leading-none text-[#c99a3f]">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="min-w-0">
+                      <span className="block truncate text-sm font-bold text-ink-900">{trs(group.title, locale)}</span>
+                      <span className="block text-[11px] text-ink-400">{fill(S.guidesN, { n: guides.filter((g) => g.group === group.id).length })}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          {STAFF_GROUPS.filter((group) => guides.some((g) => g.group === group.id)).map((group, gi) => {
             const list = guides.filter((g) => g.group === group.id);
-            if (!list.length) return null;
             return (
-              <section key={group.id}>
-                <div className="mb-3">
-                  <h2 className="text-lg font-bold text-ink-900">{trs(group.title, locale)}</h2>
-                  <p className="text-xs text-ink-400">{trs(group.body, locale)}</p>
+              <section key={group.id} id={`group-${group.id}`} className="scroll-mt-24">
+                <div className="mb-4 flex items-end gap-4">
+                  <span className="font-serif text-5xl italic leading-none text-[#e8d3a6]">{String(gi + 1).padStart(2, "0")}</span>
+                  <div className="min-w-0 border-b border-ink-100 pb-1.5 flex-1">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#b08a3e]">
+                      {S.chapter} {gi + 1}
+                    </p>
+                    <h2 className="font-serif text-2xl text-ink-900">{trs(group.title, locale)}</h2>
+                    <p className="text-xs text-ink-400">{trs(group.body, locale)}</p>
+                  </div>
                 </div>
-                <div className="grid items-start gap-3 lg:grid-cols-2">
+                <div className="space-y-3">
                   {list.map((g) => {
                     const Icon = ICONS[g.icon];
                     return (
                       <details
                         key={g.id}
                         id={`guide-${g.id}`}
-                        className="group scroll-mt-24 rounded-3xl border border-ink-100 bg-white p-5 transition open:border-[#ecd9ad] open:bg-gradient-to-br open:from-white open:to-[#fffaf0] hover:border-primary-200"
+                        className="group scroll-mt-24 overflow-hidden rounded-[1.75rem] border border-ink-100 bg-white transition open:border-[#ecd9ad] open:shadow-[0_30px_60px_-45px_rgba(31,24,45,0.8)] hover:border-primary-200"
                       >
-                        <summary className="flex cursor-pointer list-none items-start gap-3">
-                          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-primary-100/60 text-primary-600 group-open:bg-gradient-to-br group-open:from-[#1f182d] group-open:to-[#624f89] group-open:text-[#e8d3a6]">
-                            <Icon className="h-5 w-5" />
+                        <summary className="flex cursor-pointer list-none items-center gap-4 p-4 sm:p-5">
+                          <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-100/60 text-primary-600 transition group-open:bg-gradient-to-br group-open:from-[#1f182d] group-open:to-[#624f89] group-open:text-[#e8d3a6]">
+                            <Icon className="h-6 w-6" />
                           </span>
                           <span className="min-w-0 flex-1">
-                            <span className="block text-sm font-bold text-ink-900">{trs(g.title, locale)}</span>
+                            <span className="block text-base font-bold text-ink-900">{trs(g.title, locale)}</span>
                             <span className="mt-0.5 block text-xs leading-relaxed text-ink-400">{trs(g.why, locale)}</span>
-                          </span>
-                          <span className="flex shrink-0 flex-col items-end gap-1">
-                            <ChevronDown className="h-4 w-4 text-ink-300 transition group-open:rotate-180" />
-                            <span className="text-[10px] font-semibold text-ink-300">{fill(S.steps, { n: g.steps.length })}</span>
-                          </span>
-                        </summary>
-                        <ol className="mt-4 space-y-3 border-t border-ink-100 pt-4">
-                          {g.steps.map((step, i) => (
-                            <li key={i} className="flex gap-3">
-                              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d9b25c] to-[#b9852d] text-[11px] font-bold text-white">{i + 1}</span>
-                              <span className="pt-0.5 text-sm leading-relaxed text-ink-700">{trs(step, locale)}</span>
-                            </li>
-                          ))}
-                        </ol>
-                        {g.tip && (
-                          <p className="mt-4 flex gap-2 rounded-2xl bg-[#f4f1fa] px-3.5 py-3 text-xs leading-relaxed text-[#40325c]">
-                            <Lightbulb className="mt-px h-4 w-4 shrink-0 text-[#b08a3e]" />
-                            <span>
-                              <span className="font-bold">{S.tip}: </span>
-                              {trs(g.tip, locale)}
+                            <span className="mt-2 flex flex-wrap gap-1.5 text-[10px] font-bold">
+                              <span className="rounded-full bg-mist-50 px-2 py-0.5 text-ink-500">{fill(S.steps, { n: g.steps.length })}</span>
+                              <span className="rounded-full bg-[#f6efe1] px-2 py-0.5 text-[#8a6a2c]">{fill(S.minutes, { n: g.minutes })}</span>
                             </span>
-                          </p>
-                        )}
-                        <Link href={g.href} className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#1f182d] px-4 py-2 text-xs font-bold text-white transition hover:bg-[#2f2544]">
-                          <ExternalLink className="h-3.5 w-3.5 text-[#e8d3a6]" />
-                          {S.openPage}
-                        </Link>
+                          </span>
+                          <span className="hidden shrink-0 items-center gap-1 rounded-full bg-[#1f182d] px-3 py-1.5 text-[11px] font-bold text-white group-open:hidden sm:flex">
+                            {S.openGuide}
+                          </span>
+                          <ChevronDown className="h-5 w-5 shrink-0 text-ink-300 transition group-open:rotate-180" />
+                        </summary>
+
+                        <div className="border-t border-ink-100 bg-gradient-to-b from-[#fbf9fd] to-white px-4 pb-5 pt-5 sm:px-6">
+                          <ol className="relative space-y-6 before:absolute before:bottom-6 before:left-[15px] before:top-4 before:w-px before:bg-gradient-to-b before:from-[#d9b25c] before:to-[#e2d9ee]">
+                            {g.steps.map((step, i) => (
+                              <li key={i} className="relative grid grid-cols-[32px_minmax(0,1fr)] gap-x-3">
+                                <span className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-[#d9b25c] to-[#b9852d] text-xs font-extrabold text-white shadow-md shadow-[#b9852d]/30 ring-4 ring-white">
+                                  {i + 1}
+                                </span>
+                                <div className="grid items-center gap-4 md:grid-cols-[minmax(0,1fr)_280px]">
+                                  <div className="pt-1">
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#b08a3e]">{fill(S.stepLabel, { n: i + 1 })}</p>
+                                    <p className="mt-1 text-sm leading-relaxed text-ink-700">{trs(step.text, locale)}</p>
+                                  </div>
+                                  <GuideArtView art={step.art} locale={locale} />
+                                </div>
+                              </li>
+                            ))}
+                          </ol>
+                          {g.tip && (
+                            <p className="mt-6 flex gap-2.5 rounded-2xl bg-[#1f182d] px-4 py-3.5 text-xs leading-relaxed text-white/85">
+                              <Lightbulb className="mt-px h-4 w-4 shrink-0 text-[#e8d3a6]" />
+                              <span>
+                                <span className="font-bold text-[#e8d3a6]">{S.tip}: </span>
+                                {trs(g.tip, locale)}
+                              </span>
+                            </p>
+                          )}
+                          <Link
+                            href={g.href}
+                            className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#d9b25c] to-[#b9852d] px-4 py-2 text-xs font-bold text-white shadow-md shadow-[#b9852d]/25 transition hover:brightness-105"
+                          >
+                            <ExternalLink className="h-3.5 w-3.5" />
+                            {S.openPage}
+                          </Link>
+                        </div>
                       </details>
                     );
                   })}
