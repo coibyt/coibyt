@@ -8,14 +8,26 @@ interface State {
   addUrl: string | null;
   command: string | null;
   on: boolean;
-  groups: { id: string; title: string }[];
+  groups: Group[];
   staff: { id: string; name: string; telegramUsername: string | null }[];
+  /** Everyone at the owner's branches, for limiting a group to some staff. */
+  allStaff: { id: string; name: string; branch: string; here: boolean }[];
+  branches: number;
+}
+
+interface Group {
+  id: string;
+  title: string;
+  notifyIncome: boolean;
+  notifyBookings: boolean;
+  allBranches: boolean;
+  staffIds: string[] | null;
 }
 
 const T = {
   vi: {
-    title: "Nhắc qua Telegram",
-    text: "Bot nhắn vào nhóm Telegram của salon, gắn tên nhân viên có lịch hẹn quá 24 giờ chưa báo cáo thu nhập — mỗi ngày một lần, trong khoảng 10:00–20:00.",
+    title: "Bot Telegram",
+    text: "Bot nhắn vào nhóm Telegram của salon: nhắc nhân viên báo cáo thu nhập (mỗi ngày một lần, 10:00–20:00) và báo ngay khi có lịch hẹn mới trong ngày. Mỗi nhóm chọn nội dung, nhân viên và chi nhánh riêng.",
     on: "Đang bật",
     off: "Đang tắt",
     notReady: "Bot Telegram đang được VaraaAi chuẩn bị. Tính năng sẽ sớm mở cho salon của bạn.",
@@ -24,7 +36,16 @@ const T = {
     step2: "Bấm “Thêm bot vào nhóm” bên dưới. Telegram mở ra — chọn nhóm của salon và bấm Thêm. Bot sẽ chào và báo “Đã kết nối” trong nhóm.",
     step2b: "Không thấy bot báo kết nối? Gửi lệnh này vào nhóm:",
     step3: "Điền tên người dùng Telegram (@username) của từng nhân viên để bot gắn tên đúng người. Nhân viên xem @username trong Telegram › Cài đặt.",
-    step4: "Bật công tắc ở trên. Bấm “Gửi nhắc ngay” để thử.",
+    step4: "Chọn nội dung cho từng nhóm ở mục “Nhóm đã kết nối”, bật công tắc ở trên, rồi bấm “Gửi thử”.",
+    kinds: "Nhóm này nhận",
+    kindIncome: "Nhắc báo cáo thu nhập",
+    kindBookings: "Lịch hẹn mới trong ngày",
+    scope: "Chi nhánh",
+    thisBranch: "Chi nhánh này",
+    allBranches: "Tất cả chi nhánh",
+    whose: "Của nhân viên",
+    everyone: "Tất cả nhân viên",
+    nothing: "Nhóm này chưa nhận tin nào — chọn ít nhất một loại.",
     add: "Thêm bot vào nhóm",
     copied: "Đã chép",
     groups: "Nhóm đã kết nối",
@@ -34,13 +55,13 @@ const T = {
     save: "Lưu",
     saved: "Đã lưu",
     badUsername: "@username không hợp lệ (4–32 ký tự: chữ, số, dấu _).",
-    sendNow: "Gửi nhắc ngay",
+    sendNow: "Gửi thử",
     sent: "Đã gửi vào {n} nhóm.",
     sendFail: "Không gửi được — kiểm tra bot còn trong nhóm.",
   },
   en: {
-    title: "Telegram reminders",
-    text: "The bot posts in your salon's Telegram group, tagging staff whose bookings ended over 24 hours ago without an income report — once a day, between 10:00 and 20:00.",
+    title: "Telegram bot",
+    text: "The bot posts in your salon's Telegram groups: income report reminders (once a day, 10:00–20:00) and a message as soon as a booking is made for today. Each group picks its own content, staff and branches.",
     on: "On",
     off: "Off",
     notReady: "VaraaAi is setting up the Telegram bot. This will open for your salon soon.",
@@ -49,7 +70,16 @@ const T = {
     step2: "Tap “Add the bot to a group” below. Telegram opens — pick your salon's group and tap Add. The bot says hello and confirms it's linked.",
     step2b: "No confirmation from the bot? Send this in the group:",
     step3: "Enter each staff member's Telegram @username so the bot tags the right person. They find it in Telegram › Settings.",
-    step4: "Turn the switch on above. Tap “Send a reminder now” to try it.",
+    step4: "Choose what each group gets under “Linked groups”, turn the switch on above, then tap “Send a test”.",
+    kinds: "This group gets",
+    kindIncome: "Income report reminders",
+    kindBookings: "New bookings today",
+    scope: "Branch",
+    thisBranch: "This branch",
+    allBranches: "All branches",
+    whose: "For staff",
+    everyone: "All staff",
+    nothing: "This group gets nothing yet — choose at least one.",
     add: "Add the bot to a group",
     copied: "Copied",
     groups: "Linked groups",
@@ -59,13 +89,13 @@ const T = {
     save: "Save",
     saved: "Saved",
     badUsername: "That @username isn't valid (4–32 letters, numbers or _).",
-    sendNow: "Send a reminder now",
+    sendNow: "Send a test",
     sent: "Sent to {n} groups.",
     sendFail: "Couldn't send — check the bot is still in the group.",
   },
   fi: {
-    title: "Telegram-muistutukset",
-    text: "Botti kirjoittaa salongin Telegram-ryhmään ja merkitsee työntekijät, joiden varaus päättyi yli 24 tuntia sitten ilman tuloraporttia — kerran päivässä klo 10–20.",
+    title: "Telegram-botti",
+    text: "Botti kirjoittaa salongin Telegram-ryhmiin: muistutukset tuloraporteista (kerran päivässä klo 10–20) ja viestin heti, kun tälle päivälle tehdään varaus. Jokainen ryhmä valitsee oman sisältönsä, työntekijät ja toimipisteet.",
     on: "Päällä",
     off: "Pois",
     notReady: "VaraaAi valmistelee Telegram-bottia. Ominaisuus avautuu salongillesi pian.",
@@ -74,7 +104,16 @@ const T = {
     step2: "Napauta ”Lisää botti ryhmään” alla. Telegram avautuu — valitse salongin ryhmä ja napauta Lisää. Botti tervehtii ja vahvistaa yhteyden.",
     step2b: "Eikö vahvistusta tullut? Lähetä tämä ryhmään:",
     step3: "Kirjoita jokaisen työntekijän Telegram-käyttäjänimi (@username), jotta botti merkitsee oikean henkilön. Sen löytää Telegram › Asetukset.",
-    step4: "Laita kytkin päälle yllä. Kokeile napauttamalla ”Lähetä muistutus nyt”.",
+    step4: "Valitse ryhmien sisältö kohdassa ”Yhdistetyt ryhmät”, laita kytkin päälle ja napauta ”Lähetä testi”.",
+    kinds: "Ryhmä saa",
+    kindIncome: "Muistutukset tuloraporteista",
+    kindBookings: "Päivän uudet varaukset",
+    scope: "Toimipiste",
+    thisBranch: "Tämä toimipiste",
+    allBranches: "Kaikki toimipisteet",
+    whose: "Työntekijät",
+    everyone: "Kaikki työntekijät",
+    nothing: "Ryhmä ei vielä saa mitään — valitse vähintään yksi.",
     add: "Lisää botti ryhmään",
     copied: "Kopioitu",
     groups: "Yhdistetyt ryhmät",
@@ -84,7 +123,7 @@ const T = {
     save: "Tallenna",
     saved: "Tallennettu",
     badUsername: "Käyttäjänimi ei kelpaa (4–32 kirjainta, numeroa tai _).",
-    sendNow: "Lähetä muistutus nyt",
+    sendNow: "Lähetä testi",
     sent: "Lähetetty {n} ryhmään.",
     sendFail: "Lähetys epäonnistui — tarkista, että botti on yhä ryhmässä.",
   },
@@ -133,6 +172,20 @@ export function TelegramRemindersCard({ locale }: { locale: string }) {
     const d = await res?.json().catch(() => null);
     setBusy(null);
     setNote(res?.ok && d?.sent > 0 ? { ok: true, text: t.sent.replace("{n}", String(d.sent)) } : { ok: false, text: t.sendFail });
+  }
+
+  async function saveGroup(g: Group, patch: Partial<Group>) {
+    const next = { ...g, ...patch };
+    setS((cur) => (cur ? { ...cur, groups: cur.groups.map((x) => (x.id === g.id ? next : x)) } : cur));
+    const res = await fetch(`/api/business/telegram/groups/${g.id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(patch),
+    }).catch(() => null);
+    if (!res?.ok) {
+      setS((cur) => (cur ? { ...cur, groups: cur.groups.map((x) => (x.id === g.id ? g : x)) } : cur));
+      setNote({ ok: false, text: t.sendFail });
+    }
   }
 
   async function removeGroup(id: string) {
@@ -227,19 +280,71 @@ export function TelegramRemindersCard({ locale }: { locale: string }) {
             {s.groups.length === 0 ? (
               <p className="mt-2 text-[11px] text-ink-400">{t.noGroups}</p>
             ) : (
-              <ul className="mt-2 space-y-1.5">
-                {s.groups.map((g) => (
-                  <li key={g.id} className="flex items-center justify-between gap-2 rounded-xl bg-mist-50/70 px-3 py-2 text-xs">
-                    <span className="flex min-w-0 items-center gap-2 font-semibold text-ink-900">
-                      <Send className="h-3.5 w-3.5 shrink-0 text-[#229ED9]" />
-                      <span className="truncate">{g.title}</span>
-                    </span>
-                    <button type="button" disabled={!!busy} onClick={() => removeGroup(g.id)} className="flex shrink-0 items-center gap-1 text-[11px] font-semibold text-ink-400 hover:text-berry-600">
-                      {busy === `g-${g.id}` ? <Loader2 className="h-3 w-3 animate-spin" /> : <Trash2 className="h-3 w-3" />}
-                      {t.remove}
-                    </button>
-                  </li>
-                ))}
+              <ul className="mt-2 space-y-2">
+                {s.groups.map((g) => {
+                  const chip = (on: boolean) =>
+                    `rounded-full px-2.5 py-1 text-[11px] font-semibold ring-1 transition ${on ? "bg-[#1f182d] text-white ring-[#1f182d]" : "bg-white text-ink-600 ring-ink-100 hover:bg-mist-50"}`;
+                  const people = s.allStaff.filter((x) => g.allBranches || x.here);
+                  const picked = g.staffIds ?? [];
+                  const toggle = (id: string) => {
+                    const next = picked.includes(id) ? picked.filter((x) => x !== id) : [...picked, id];
+                    saveGroup(g, { staffIds: next.length ? next : null });
+                  };
+                  return (
+                    <li key={g.id} className="rounded-2xl bg-mist-50/70 p-3 ring-1 ring-ink-100">
+                      <div className="flex items-center justify-between gap-2 text-xs">
+                        <span className="flex min-w-0 items-center gap-2 font-bold text-ink-900">
+                          <Send className="h-3.5 w-3.5 shrink-0 text-[#229ED9]" />
+                          <span className="truncate">{g.title}</span>
+                        </span>
+                        <button type="button" disabled={!!busy} onClick={() => removeGroup(g.id)} className="flex shrink-0 items-center gap-1 text-[11px] font-semibold text-ink-400 hover:text-berry-600">
+                          {busy === `g-${g.id}` ? <Loader2 className="h-3 w-3 animate-spin" /> : <Trash2 className="h-3 w-3" />}
+                          {t.remove}
+                        </button>
+                      </div>
+
+                      <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-400">{t.kinds}</p>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        <button type="button" onClick={() => saveGroup(g, { notifyIncome: !g.notifyIncome })} className={chip(g.notifyIncome)}>
+                          {g.notifyIncome && <Check className="mr-1 inline h-3 w-3" />}
+                          {t.kindIncome}
+                        </button>
+                        <button type="button" onClick={() => saveGroup(g, { notifyBookings: !g.notifyBookings })} className={chip(g.notifyBookings)}>
+                          {g.notifyBookings && <Check className="mr-1 inline h-3 w-3" />}
+                          {t.kindBookings}
+                        </button>
+                      </div>
+                      {!g.notifyIncome && !g.notifyBookings && <p className="mt-1.5 text-[11px] font-semibold text-berry-600">{t.nothing}</p>}
+
+                      {s.branches > 1 && (
+                        <>
+                          <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-400">{t.scope}</p>
+                          <div className="mt-1.5 flex flex-wrap gap-1.5">
+                            <button type="button" onClick={() => saveGroup(g, { allBranches: false })} className={chip(!g.allBranches)}>
+                              {t.thisBranch}
+                            </button>
+                            <button type="button" onClick={() => saveGroup(g, { allBranches: true })} className={chip(g.allBranches)}>
+                              {t.allBranches}
+                            </button>
+                          </div>
+                        </>
+                      )}
+
+                      <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-400">{t.whose}</p>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        <button type="button" onClick={() => saveGroup(g, { staffIds: null })} className={chip(!g.staffIds)}>
+                          {t.everyone}
+                        </button>
+                        {people.map((x) => (
+                          <button key={x.id} type="button" onClick={() => toggle(x.id)} className={chip(picked.includes(x.id))}>
+                            {x.name}
+                            {g.allBranches && s.branches > 1 && <span className="ml-1 opacity-60">· {x.branch}</span>}
+                          </button>
+                        ))}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             )}
           </div>

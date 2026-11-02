@@ -696,6 +696,13 @@ model TelegramGroup {
   title          String    @db.VarChar(255)
   /// The last salon-local day a reminder went to this group.
   lastRemindedOn String?   @db.VarChar(10)
+  /// What the bot posts here: late income reports, and/or new bookings for today.
+  notifyIncome   Boolean   @default(true)
+  notifyBookings Boolean   @default(false)
+  /// Every one of the owner's branches, not only this one.
+  allBranches    Boolean   @default(false)
+  /// Only these staff rows (any of the owner's branches); null = everyone.
+  staffIds       Json?
   createdAt      DateTime  @default(now())
 
   @@unique([businessId, chatId])

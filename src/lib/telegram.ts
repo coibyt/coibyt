@@ -96,97 +96,136 @@ const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replac
 
 const T = {
   vi: {
-    linked: "✅ Đã kết nối nhóm <b>{group}</b> với salon <b>{salon}</b> trên VaraaAi.\n\nTừ giờ, khi nhân viên có lịch hẹn kết thúc quá 24 giờ mà chưa báo cáo thu nhập, bot sẽ nhắc trong nhóm này mỗi ngày một lần.",
-    badCode: "Mã kết nối không đúng. Chủ salon hãy mở VaraaAi › Doanh thu › Nhắc qua Telegram và bấm “Thêm bot vào nhóm” lại.",
-    private: "Xin chào! Mình là bot nhắc báo cáo thu nhập của VaraaAi.\n\nChủ salon hãy mở VaraaAi › Doanh thu › Nhắc qua Telegram, rồi bấm “Thêm bot vào nhóm” để thêm mình vào nhóm nhân viên.",
+    linked: "✅ Đã kết nối nhóm <b>{group}</b> với salon <b>{salon}</b> trên VaraaAi.\n\nMặc định, bot nhắc nhân viên có lịch hẹn kết thúc quá 24 giờ chưa báo cáo thu nhập (mỗi ngày một lần). Chủ salon chọn nội dung cho nhóm này — nhắc báo cáo, lịch hẹn mới trong ngày, nhân viên nào, chi nhánh nào — ở VaraaAi › Doanh thu › Bot Telegram.",
+    badCode: "Mã kết nối không đúng. Chủ salon hãy mở VaraaAi › Doanh thu › Bot Telegram và bấm “Thêm bot vào nhóm” lại.",
+    private: "Xin chào! Mình là bot của VaraaAi: nhắc nhân viên báo cáo thu nhập và báo lịch hẹn mới trong ngày.\n\nChủ salon hãy mở VaraaAi › Doanh thu › Bot Telegram, rồi bấm “Thêm bot vào nhóm” để thêm mình vào nhóm nhân viên.",
     title: "⏰ <b>Nhắc báo cáo thu nhập</b> · {salon}",
     line: "{who} — {n} lịch hẹn: {days}",
     body: "Các lịch hẹn này đã kết thúc hơn 24 giờ nhưng chưa có báo cáo thu nhập. Vào VaraaAi › Lịch hẹn, mở ngày đó và bấm vào từng lịch hẹn để báo cáo:",
     allDone: "✅ <b>{salon}</b>: mọi lịch hẹn đã được báo cáo thu nhập. Cảm ơn cả nhóm!",
+    allBranches: "Tất cả chi nhánh",
+    booking: "📅 <b>Lịch hẹn mới hôm nay</b> · {salon}\n\n🕐 <b>{time}</b> · {service}\n💇 Nhân viên: {who}\n🙋 Khách: {customer}",
+    bookingLink: "Xem lịch hẹn:",
+    noStaff: "chưa chọn",
+    testBookings: "✅ Bot đang hoạt động. Nhóm này sẽ nhận thông báo khi có lịch hẹn mới trong ngày ({salon}).",
   },
   en: {
-    linked: "✅ Group <b>{group}</b> is now linked to <b>{salon}</b> on VaraaAi.\n\nWhen a booking ended over 24 hours ago without an income report, the bot reminds the staff member here, once a day.",
-    badCode: "That link code isn't valid. The salon owner can open VaraaAi › Income › Telegram reminders and tap “Add the bot to a group” again.",
-    private: "Hi! I'm VaraaAi's income report reminder bot.\n\nSalon owners: open VaraaAi › Income › Telegram reminders and tap “Add the bot to a group” to add me to your staff group.",
+    linked: "✅ Group <b>{group}</b> is now linked to <b>{salon}</b> on VaraaAi.\n\nBy default the bot reminds staff whose bookings ended over 24 hours ago without an income report (once a day). The owner chooses what this group gets — reminders, new bookings today, which staff, which branches — under VaraaAi › Income › Telegram bot.",
+    badCode: "That link code isn't valid. The salon owner can open VaraaAi › Income › Telegram bot and tap “Add the bot to a group” again.",
+    private: "Hi! I'm VaraaAi's bot: I remind staff to report income and post today's new bookings.\n\nSalon owners: open VaraaAi › Income › Telegram bot and tap “Add the bot to a group” to add me to your staff group.",
     title: "⏰ <b>Income report reminder</b> · {salon}",
     line: "{who} — {n} bookings: {days}",
     body: "These bookings ended over 24 hours ago without an income report. Open VaraaAi › Bookings, go to that day and tap each booking to report it:",
     allDone: "✅ <b>{salon}</b>: every booking has its income report. Thanks, team!",
+    allBranches: "All branches",
+    booking: "📅 <b>New booking today</b> · {salon}\n\n🕐 <b>{time}</b> · {service}\n💇 Staff: {who}\n🙋 Customer: {customer}",
+    bookingLink: "See the bookings:",
+    noStaff: "not chosen",
+    testBookings: "✅ The bot is working. This group gets a message for every new booking made for today ({salon}).",
   },
   fi: {
-    linked: "✅ Ryhmä <b>{group}</b> on nyt yhdistetty salonkiin <b>{salon}</b> VaraaAi:ssa.\n\nKun varaus päättyi yli 24 tuntia sitten ilman tuloraporttia, botti muistuttaa työntekijää täällä kerran päivässä.",
-    badCode: "Yhdistämiskoodi ei kelpaa. Salongin omistaja voi avata VaraaAi › Tulot › Telegram-muistutukset ja napauttaa ”Lisää botti ryhmään” uudelleen.",
-    private: "Hei! Olen VaraaAi:n tuloraporttien muistutusbotti.\n\nSalongin omistaja: avaa VaraaAi › Tulot › Telegram-muistutukset ja lisää minut henkilökunnan ryhmään napauttamalla ”Lisää botti ryhmään”.",
+    linked: "✅ Ryhmä <b>{group}</b> on nyt yhdistetty salonkiin <b>{salon}</b> VaraaAi:ssa.\n\nOletuksena botti muistuttaa työntekijöitä, joiden varaus päättyi yli 24 tuntia sitten ilman tuloraporttia (kerran päivässä). Omistaja valitsee ryhmän sisällön — muistutukset, päivän uudet varaukset, työntekijät, toimipisteet — kohdassa VaraaAi › Tulot › Telegram-botti.",
+    badCode: "Yhdistämiskoodi ei kelpaa. Salongin omistaja voi avata VaraaAi › Tulot › Telegram-botti ja napauttaa ”Lisää botti ryhmään” uudelleen.",
+    private: "Hei! Olen VaraaAi:n botti: muistutan tuloraporteista ja kerron päivän uudet varaukset.\n\nSalongin omistaja: avaa VaraaAi › Tulot › Telegram-botti ja lisää minut henkilökunnan ryhmään napauttamalla ”Lisää botti ryhmään”.",
     title: "⏰ <b>Muistutus tuloraportista</b> · {salon}",
     line: "{who} — {n} varausta: {days}",
     body: "Nämä varaukset päättyivät yli 24 tuntia sitten ilman tuloraporttia. Avaa VaraaAi › Varaukset, siirry päivään ja raportoi jokainen varaus napauttamalla sitä:",
     allDone: "✅ <b>{salon}</b>: kaikista varauksista on tuloraportti. Kiitos, tiimi!",
+    allBranches: "Kaikki toimipisteet",
+    booking: "📅 <b>Uusi varaus tänään</b> · {salon}\n\n🕐 <b>{time}</b> · {service}\n💇 Työntekijä: {who}\n🙋 Asiakas: {customer}",
+    bookingLink: "Katso varaukset:",
+    noStaff: "ei valittu",
+    testBookings: "✅ Botti toimii. Tämä ryhmä saa viestin jokaisesta tälle päivälle tehdystä uudesta varauksesta ({salon}).",
   },
 };
 const strings = (locale: string) => (T as Record<string, (typeof T)["vi"]>)[locale] ?? T.en;
 const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
 
-type Salon = { id: string; name: string; timezone: string; defaultLocale: string; incomeRemindersSince: Date | null; incomeReportsFrom: Date | null };
+const salonSelect = { id: true, name: true, ownerId: true, timezone: true, defaultLocale: true, incomeRemindersSince: true, incomeReportsFrom: true } as const;
+type Salon = { id: string; name: string; ownerId: string; timezone: string; defaultLocale: string; incomeRemindersSince: Date | null; incomeReportsFrom: Date | null };
+type GroupRow = { id: string; chatId: string; businessId: string; notifyIncome: boolean; notifyBookings: boolean; allBranches: boolean; staffIds: unknown; lastRemindedOn: string | null };
+const groupSelect = { id: true, chatId: true, businessId: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, lastRemindedOn: true } as const;
 
-/** The reminder text for one salon, or null when nothing is overdue. */
-async function reminderText(b: Salon, overdue: OverdueBooking[]) {
-  if (overdue.length === 0) return null;
-  const S = strings(b.defaultLocale);
-  const byStaff = new Map<string, OverdueBooking[]>();
-  for (const o of overdue) if (o.staffId) byStaff.set(o.staffId, [...(byStaff.get(o.staffId) ?? []), o]);
-  const staff = await prisma.staff.findMany({ where: { id: { in: [...byStaff.keys()] } }, select: { id: true, name: true, telegramUsername: true } });
-  const dayFmt = new Intl.DateTimeFormat(b.defaultLocale, { weekday: "short", day: "numeric", month: "numeric", timeZone: b.timezone });
-  const lines = staff.map((s) => {
-    const items = byStaff.get(s.id) ?? [];
-    const days = [...new Set(items.map((i) => dayFmt.format(new Date(i.startsAt))))].join(", ");
-    // @username tags them (Telegram notifies); otherwise their name.
-    const who = s.telegramUsername ? `@${esc(s.telegramUsername)} (${esc(s.name)})` : `<b>${esc(s.name)}</b>`;
-    return "• " + fill(S.line, { who, n: items.length, days: esc(days) });
-  });
-  return [fill(S.title, { salon: esc(b.name) }), "", ...lines, "", S.body, `${SITE_URL}/business/dashboard/bookings`].join("\n");
+/** The staff rows a group is limited to, or null for everyone. */
+export function groupStaff(g: { staffIds: unknown }): string[] | null {
+  return Array.isArray(g.staffIds) && g.staffIds.length ? g.staffIds.filter((x): x is string => typeof x === "string") : null;
 }
 
-const salonSelect = { id: true, name: true, timezone: true, defaultLocale: true, incomeRemindersSince: true, incomeReportsFrom: true } as const;
+/** "@lisa (Lisa)" tags them (Telegram notifies); otherwise the name in bold. */
+const tag = (s: { name: string; telegramUsername: string | null }) => (s.telegramUsername ? `@${esc(s.telegramUsername)} (${esc(s.name)})` : `<b>${esc(s.name)}</b>`);
 
-/** Called by the reminders cron: once a salon-local day, in the daytime, each
- * linked group of a salon with Telegram reminders on gets the list of staff
- * with bookings not reported 24 hours after they ended. */
+/** The branches a group covers: its own, or all the owner's live ones. */
+async function groupSalons(g: GroupRow, home: Salon): Promise<Salon[]> {
+  if (!g.allBranches) return [home];
+  return prisma.business.findMany({ where: { ownerId: home.ownerId, status: "APPROVED" }, select: salonSelect, orderBy: { createdAt: "asc" } });
+}
+
+/** The reminder for a group — its branches and staff — or null when nobody is late. */
+async function reminderText(g: GroupRow, home: Salon) {
+  const S = strings(home.defaultLocale);
+  const salons = await groupSalons(g, home);
+  const only = groupStaff(g);
+  const overdue: (OverdueBooking & { branch: string; tz: string })[] = [];
+  for (const b of salons) {
+    for (const o of await overdueBookings(b)) {
+      if (o.staffId && (!only || only.includes(o.staffId))) overdue.push({ ...o, branch: b.name, tz: b.timezone });
+    }
+  }
+  if (overdue.length === 0) return null;
+  const byStaff = new Map<string, typeof overdue>();
+  for (const o of overdue) byStaff.set(o.staffId!, [...(byStaff.get(o.staffId!) ?? []), o]);
+  const staff = await prisma.staff.findMany({ where: { id: { in: [...byStaff.keys()] } }, select: { id: true, name: true, telegramUsername: true } });
+  const lines = staff.map((s) => {
+    const items = byStaff.get(s.id) ?? [];
+    const dayFmt = new Intl.DateTimeFormat(home.defaultLocale, { weekday: "short", day: "numeric", month: "numeric", timeZone: items[0].tz });
+    const days = [...new Set(items.map((i) => dayFmt.format(new Date(i.startsAt))))].join(", ");
+    const where = salons.length > 1 ? ` · ${esc(items[0].branch)}` : "";
+    return "• " + fill(S.line, { who: tag(s) + where, n: items.length, days: esc(days) });
+  });
+  const label = salons.length > 1 ? S.allBranches : home.name;
+  return [fill(S.title, { salon: esc(label) }), "", ...lines, "", S.body, `${SITE_URL}/business/dashboard/bookings`].join("\n");
+}
+
+/** Called by the reminders cron: once a salon-local day, in the daytime,
+ * each group that wants income reminders gets the staff (its staff, its
+ * branches) with bookings not reported 24 hours after they ended. */
 export async function sendTelegramIncomeReminders() {
   if (!(await botConfig())) return 0;
-  const salons = await prisma.business.findMany({
-    where: { telegramRemindersOn: true, status: "APPROVED", telegramGroups: { some: {} } },
-    select: { ...salonSelect, telegramGroups: { select: { id: true, chatId: true, lastRemindedOn: true } } },
+  const groups = await prisma.telegramGroup.findMany({
+    where: { notifyIncome: true, business: { telegramRemindersOn: true, status: "APPROVED" } },
+    select: { ...groupSelect, business: { select: salonSelect } },
   });
   let sent = 0;
-  for (const b of salons) {
-    const today = formatInTimeZone(new Date(), b.timezone, "yyyy-MM-dd");
-    const hour = Number(formatInTimeZone(new Date(), b.timezone, "H"));
-    if (hour < 10 || hour >= 20) continue;
-    const due = b.telegramGroups.filter((g) => g.lastRemindedOn !== today);
-    if (due.length === 0) continue;
-    const text = await reminderText(b, await overdueBookings(b));
-    for (const g of due) {
-      try {
-        if (text) {
-          await sendTelegram(g.chatId, text);
-          sent++;
-        }
-        await prisma.telegramGroup.update({ where: { id: g.id }, data: { lastRemindedOn: today } });
-      } catch (err) {
-        console.error("[telegram] remind", b.id, g.chatId, err);
+  for (const g of groups) {
+    const tz = g.business.timezone;
+    const today = formatInTimeZone(new Date(), tz, "yyyy-MM-dd");
+    const hour = Number(formatInTimeZone(new Date(), tz, "H"));
+    if (hour < 10 || hour >= 20 || g.lastRemindedOn === today) continue;
+    try {
+      const text = await reminderText(g, g.business);
+      if (text) {
+        await sendTelegram(g.chatId, text);
+        sent++;
       }
+      await prisma.telegramGroup.update({ where: { id: g.id }, data: { lastRemindedOn: today } });
+    } catch (err) {
+      console.error("[telegram] remind", g.businessId, g.chatId, err);
     }
   }
   return sent;
 }
 
-/** The owner's "send now": the reminder (or an all-clear) to every linked group. */
+/** The owner's "send now": each group that wants income reminders gets its
+ * reminder (or an all-clear); a bookings-only group gets a short hello. */
 export async function sendTelegramNow(businessId: string) {
-  const b = await prisma.business.findUniqueOrThrow({ where: { id: businessId }, select: { ...salonSelect, telegramGroups: { select: { chatId: true } } } });
-  const text = (await reminderText(b, await overdueBookings(b))) ?? fill(strings(b.defaultLocale).allDone, { salon: esc(b.name) });
+  const b = await prisma.business.findUniqueOrThrow({ where: { id: businessId }, select: { ...salonSelect, telegramGroups: { select: groupSelect } } });
+  const S = strings(b.defaultLocale);
   let sent = 0;
   for (const g of b.telegramGroups) {
     try {
+      const text = g.notifyIncome
+        ? ((await reminderText(g, b)) ?? fill(S.allDone, { salon: esc(g.allBranches ? S.allBranches : b.name) }))
+        : fill(S.testBookings, { salon: esc(g.allBranches ? S.allBranches : b.name) });
       await sendTelegram(g.chatId, text);
       sent++;
     } catch (err) {
@@ -194,6 +233,55 @@ export async function sendTelegramNow(businessId: string) {
     }
   }
   return sent;
+}
+
+/** A booking was just made for today: the groups that want new bookings —
+ * of this branch (or all branches) and this staff member (or everyone). */
+export async function telegramNewBooking(bookingId: string) {
+  if (!(await botConfig())) return;
+  const bk = await prisma.booking.findUnique({
+    where: { id: bookingId },
+    select: {
+      startsAt: true,
+      endsAt: true,
+      staffId: true,
+      service: { select: { name: true } },
+      customer: { select: { name: true } },
+      staff: { select: { name: true, telegramUsername: true } },
+      business: { select: { id: true, name: true, ownerId: true, timezone: true, defaultLocale: true } },
+    },
+  });
+  if (!bk) return;
+  const tz = bk.business.timezone;
+  if (formatInTimeZone(new Date(), tz, "yyyy-MM-dd") !== formatInTimeZone(bk.startsAt, tz, "yyyy-MM-dd")) return;
+  const groups = await prisma.telegramGroup.findMany({
+    where: {
+      notifyBookings: true,
+      business: { telegramRemindersOn: true, status: "APPROVED" },
+      OR: [{ businessId: bk.business.id }, { allBranches: true, business: { ownerId: bk.business.ownerId } }],
+    },
+    select: { chatId: true, staffIds: true, business: { select: { defaultLocale: true } } },
+  });
+  const done = new Set<string>();
+  for (const g of groups) {
+    const only = groupStaff(g);
+    if (done.has(g.chatId) || (only && (!bk.staffId || !only.includes(bk.staffId)))) continue;
+    done.add(g.chatId);
+    const S = strings(g.business.defaultLocale);
+    const time = `${formatInTimeZone(bk.startsAt, tz, "HH:mm")}–${formatInTimeZone(bk.endsAt, tz, "HH:mm")}`;
+    const text = [
+      fill(S.booking, {
+        salon: esc(bk.business.name),
+        time,
+        service: esc(bk.service.name),
+        who: bk.staff ? tag(bk.staff) : S.noStaff,
+        customer: esc(bk.customer.name ?? "—"),
+      }),
+      "",
+      `${S.bookingLink} ${SITE_URL}/business/dashboard/bookings`,
+    ].join("\n");
+    await sendTelegram(g.chatId, text).catch((err) => console.error("[telegram] booking", g.chatId, err));
+  }
 }
 
 interface Update {

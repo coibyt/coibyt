@@ -431,6 +431,8 @@ async function notifyOwnerOfNewBooking(params: {
 }) {
   const locale = localeForCountry(params.businessCountry);
   const bookingsUrl = `${params.siteUrl}/${locale}/business/dashboard/bookings`;
+  // Telegram groups that follow today's new bookings (src/lib/telegram.ts).
+  if (params.bookingId) void telegramNewBookingLater(params.bookingId);
 
   try {
     const email = ownerNewBookingEmail({
@@ -485,6 +487,11 @@ async function notifyOwnerOfNewBooking(params: {
   } catch (err) {
     console.error("[notifyOwnerOfNewBooking push]", err);
   }
+}
+
+/** Loaded on demand: the Telegram code isn't needed to take a booking. */
+function telegramNewBookingLater(bookingId: string) {
+  return import("@/lib/telegram").then((m) => m.telegramNewBooking(bookingId)).catch((err) => console.error("[telegram] new booking", bookingId, err));
 }
 
 /** Builds and sends the confirmation email for an already-confirmed booking
@@ -645,6 +652,7 @@ export async function markBookingPaid(
  */
 export async function notifyStaffOfManualBooking(bookingId: string, creatorUserId: string, siteUrl: string) {
   try {
+    void telegramNewBookingLater(bookingId);
     rememberBookingCreator(bookingId, creatorUserId);
     const b = await prisma.booking.findUnique({
       where: { id: bookingId },

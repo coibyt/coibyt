@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { botConfig, linkCode, sendTelegramNow } from "@/lib/telegram";
+import { botConfig, groupStaff, linkCode, sendTelegramNow } from "@/lib/telegram";
 
 /** The owner's Telegram reminders: on/off, linked groups and staff
  * @usernames (src/lib/telegram.ts). */
@@ -11,18 +11,33 @@ async function state(businessId: string) {
     botConfig(),
     prisma.business.findUniqueOrThrow({
       where: { id: businessId },
-      select: { telegramRemindersOn: true, telegramGroups: { select: { id: true, title: true, createdAt: true }, orderBy: { createdAt: "asc" } } },
+      select: {
+        ownerId: true,
+        telegramRemindersOn: true,
+        telegramGroups: {
+          select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true },
+          orderBy: { createdAt: "asc" },
+        },
+      },
     }),
     prisma.staff.findMany({ where: { businessId, active: true }, select: { id: true, name: true, telegramUsername: true }, orderBy: { name: "asc" } }),
   ]);
   const code = cfg ? await linkCode(businessId) : null;
+  // Staff a group can be limited to: everyone at the owner's branches.
+  const allStaff = await prisma.staff.findMany({
+    where: { active: true, business: { ownerId: b.ownerId, status: "APPROVED" } },
+    select: { id: true, name: true, businessId: true, business: { select: { name: true } } },
+    orderBy: [{ business: { createdAt: "asc" } }, { name: "asc" }],
+  });
   return {
     bot: cfg ? cfg.username : null,
     addUrl: cfg && code ? `https://t.me/${cfg.username}?startgroup=${code}` : null,
     command: code ? `/start ${code}` : null,
     on: b.telegramRemindersOn,
-    groups: b.telegramGroups.map((g) => ({ id: g.id, title: g.title })),
+    groups: b.telegramGroups.map((g) => ({ ...g, staffIds: groupStaff(g) })),
     staff,
+    allStaff: allStaff.map((s) => ({ id: s.id, name: s.name, branch: s.business.name, here: s.businessId === businessId })),
+    branches: new Set(allStaff.map((s) => s.businessId)).size,
   };
 }
 
