@@ -10,8 +10,10 @@ export async function POST(req: Request) {
   }
   const update = await req.json().catch(() => null);
   if (update) {
-    // Always 200: a failure here must not make Telegram retry it forever.
-    await handleUpdate(update).catch((err) => console.error("[telegram] update", err));
+    // Answered right away (an AI reply can take a few seconds, and a slow
+    // answer makes Telegram send the update again); always 200, so a
+    // failure never makes Telegram retry it forever.
+    void handleUpdate(update).catch((err) => console.error("[telegram] update", err));
   }
   return NextResponse.json({ ok: true });
 }

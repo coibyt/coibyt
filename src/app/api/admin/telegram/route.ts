@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireAdmin } from "@/lib/require-admin";
-import { botStatus, connectBot, disconnectBot } from "@/lib/telegram";
+import { botStatus, connectBot, disconnectBot, setupBotProfile } from "@/lib/telegram";
 
 /** Admin: the Telegram bot that reminds salon staff to report income. */
 export async function GET() {
@@ -21,6 +21,17 @@ export async function PUT(req: Request) {
     return NextResponse.json({ error: "TELEGRAM", detail: (err as Error).message }, { status: 400 });
   }
   return NextResponse.json({ bot: await botStatus() });
+}
+
+/** Writes the bot's description, short description and command menu again. */
+export async function PATCH() {
+  if (!(await requireAdmin())) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  try {
+    await setupBotProfile();
+  } catch (err) {
+    return NextResponse.json({ error: "TELEGRAM", detail: (err as Error).message }, { status: 400 });
+  }
+  return NextResponse.json({ ok: true });
 }
 
 export async function DELETE() {

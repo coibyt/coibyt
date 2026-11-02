@@ -3,6 +3,7 @@ import { formatInTimeZone } from "date-fns-tz";
 import { prisma } from "@/lib/prisma";
 import { SITE_URL } from "@/lib/email/ui";
 import { overdueBookings, type OverdueBooking } from "@/lib/income-reminders";
+import { generateSupportReply } from "@/lib/support-ai/reply";
 
 /** The VaraaAi Telegram bot: the admin connects it once (admin › Telegram),
  * salon owners add it to their staff groups, and it reminds staff there to
@@ -46,7 +47,54 @@ export async function connectBot(token: string) {
   });
   const save = (key: string, value: string) => prisma.platformSetting.upsert({ where: { key }, update: { value }, create: { key, value } });
   await Promise.all([save(KEYS.token, token), save(KEYS.username, me.username), save(KEYS.secret, secret)]);
+  await setupBotProfile(token).catch((err) => console.error("[telegram] profile", err));
   return { username: me.username, canJoinGroups: me.can_join_groups };
+}
+
+/** What people see before they start a chat with the bot, and its command
+ * menu — in Vietnamese, English and Finnish (English for everyone else).
+ * The profile picture can only be set through @BotFather (/setuserpic). */
+const PROFILE: Record<string, { description: string; short: string; start: string; help: string }> = {
+  vi: {
+    description:
+      "Xin chào! Mình là trợ lý của VaraaAi — nền tảng đặt lịch miễn phí cho salon nail, tóc, mi, spa.\n\n• Hỏi mình bất cứ điều gì về VaraaAi\n• Đăng ký salon miễn phí\n• Dùng thử thẻ tích điểm miễn phí cho khách\n• Chủ salon: thêm mình vào nhóm nhân viên để nhắc báo cáo thu nhập và báo lịch hẹn mới",
+    short: "Trợ lý VaraaAi: đặt lịch miễn phí cho salon, thẻ tích điểm, nhắc việc cho nhân viên.",
+    start: "Bắt đầu và giới thiệu",
+    help: "Mình giúp được gì?",
+  },
+  en: {
+    description:
+      "Hi! I'm the VaraaAi assistant — the free booking platform for nail, hair, lash and beauty salons.\n\n• Ask me anything about VaraaAi\n• Register your salon for free\n• Try free loyalty cards for your customers\n• Salon owners: add me to your staff group for income report reminders and new-booking alerts",
+    short: "VaraaAi assistant: free salon booking, loyalty cards and reminders for your team.",
+    start: "Start and introduction",
+    help: "What can you do?",
+  },
+  fi: {
+    description:
+      "Hei! Olen VaraaAi-avustaja — ilmainen ajanvarausalusta kynsi-, hius-, ripsi- ja kauneussalongeille.\n\n• Kysy minulta mitä tahansa VaraaAi:sta\n• Rekisteröi salonkisi ilmaiseksi\n• Kokeile ilmaisia kanta-asiakaskortteja\n• Salongin omistaja: lisää minut henkilökunnan ryhmään muistuttamaan tuloraporteista ja kertomaan uusista varauksista",
+    short: "VaraaAi-avustaja: ilmainen ajanvaraus salongeille, kanta-asiakaskortit ja muistutukset tiimille.",
+    start: "Aloita ja esittely",
+    help: "Mitä osaat?",
+  },
+};
+
+export async function setupBotProfile(token?: string) {
+  const tk = token ?? (await botConfig())?.token;
+  if (!tk) throw new Error("NO_BOT");
+  for (const lang of ["", "vi", "en", "fi"]) {
+    const p = PROFILE[lang || "en"];
+    const language_code = lang || undefined;
+    await call(tk, "setMyDescription", { description: p.description, language_code });
+    await call(tk, "setMyShortDescription", { short_description: p.short, language_code });
+    await call(tk, "setMyCommands", {
+      commands: [
+        { command: "start", description: p.start },
+        { command: "help", description: p.help },
+      ],
+      language_code,
+      scope: { type: "all_private_chats" },
+    });
+  }
 }
 
 export async function disconnectBot() {
@@ -77,10 +125,10 @@ export async function botStatus() {
   };
 }
 
-export async function sendTelegram(chatId: string, html: string) {
+export async function sendTelegram(chatId: string, html: string, replyMarkup?: object) {
   const cfg = await botConfig();
   if (!cfg) throw new Error("NO_BOT");
-  await call(cfg.token, "sendMessage", { chat_id: chatId, text: html, parse_mode: "HTML", link_preview_options: { is_disabled: true } });
+  await call(cfg.token, "sendMessage", { chat_id: chatId, text: html, parse_mode: "HTML", link_preview_options: { is_disabled: true }, reply_markup: replyMarkup });
 }
 
 /** The salon's code for linking a group, made on first use. */
@@ -287,6 +335,7 @@ export async function telegramNewBooking(bookingId: string) {
 interface Update {
   message?: {
     chat: { id: number; type: string; title?: string };
+    from?: { first_name?: string; language_code?: string; is_bot?: boolean };
     text?: string;
     migrate_to_chat_id?: number;
   };
@@ -309,13 +358,15 @@ export async function handleUpdate(u: Update) {
     await prisma.telegramGroup.updateMany({ where: { chatId }, data: { chatId: String(m.migrate_to_chat_id) } });
     return;
   }
-  const cmd = m.text?.trim().match(/^\/(start|connect)(?:@\w+)?(?:\s+(\S+))?/i);
+  const cmd = m.text?.trim().match(/^\/(start|connect|help)(?:@\w+)?(?:\s+(\S+))?/i);
+  if (m.chat.type === "private") {
+    if (!m.text || m.from?.is_bot) return;
+    const lang = chatLocale(m.from?.language_code);
+    if (cmd) return void (await sendTelegram(chatId, welcome(lang, m.from?.first_name), linksKeyboard(lang)));
+    return void (await chatReply(chatId, m.text, lang, m.from?.first_name ?? ""));
+  }
   if (!cmd) return;
   const code = cmd[2];
-  if (m.chat.type === "private") {
-    await sendTelegram(chatId, strings("vi").private + "\n\n—\n\n" + strings("en").private);
-    return;
-  }
   if (!["group", "supergroup"].includes(m.chat.type) || !code) return;
   const b = await prisma.business.findUnique({ where: { telegramLinkCode: code }, select: { id: true, name: true, defaultLocale: true } });
   if (!b) {
@@ -329,4 +380,99 @@ export async function handleUpdate(u: Update) {
     update: { title },
   });
   await sendTelegram(chatId, fill(strings(b.defaultLocale).linked, { group: esc(title), salon: esc(b.name) }));
+}
+
+/* ---------- Private chats: the VaraaAi assistant ---------- */
+
+const CHAT = {
+  vi: {
+    hello: "Xin chào{name}! 👋 Mình là trợ lý của <b>VaraaAi</b> — nền tảng đặt lịch miễn phí cho salon nail, tóc, mi, spa.\n\nBạn có thể hỏi mình bất cứ điều gì, ví dụ:\n• VaraaAi giúp salon của tôi thế nào?\n• Đăng ký salon như thế nào?\n• Thẻ tích điểm miễn phí dùng ra sao?",
+    apply: "✨ Đăng ký salon miễn phí",
+    lite: "💳 Thẻ tích điểm miễn phí",
+    site: "🌐 VaraaAi.com",
+    busy: "Mình đang hơi bận, bạn thử lại sau ít phút nhé. Hoặc để lại câu hỏi tại varaaai.com/support.",
+    slow: "Bạn nhắn hơi nhanh 😊 Đợi mình một chút rồi hỏi tiếp nhé.",
+  },
+  en: {
+    hello: "Hi{name}! 👋 I'm the <b>VaraaAi</b> assistant — the free booking platform for nail, hair, lash and beauty salons.\n\nAsk me anything, for example:\n• How does VaraaAi help my salon?\n• How do I register my salon?\n• How do the free loyalty cards work?",
+    apply: "✨ Register your salon free",
+    lite: "💳 Free loyalty cards",
+    site: "🌐 VaraaAi.com",
+    busy: "I'm a little busy right now — please try again in a few minutes, or leave your question at varaaai.com/support.",
+    slow: "You're typing fast 😊 Give me a moment before the next question.",
+  },
+  fi: {
+    hello: "Hei{name}! 👋 Olen <b>VaraaAi</b>-avustaja — ilmainen ajanvarausalusta kynsi-, hius-, ripsi- ja kauneussalongeille.\n\nKysy mitä tahansa, esimerkiksi:\n• Miten VaraaAi auttaa salonkiani?\n• Miten rekisteröin salongin?\n• Miten ilmaiset kanta-asiakaskortit toimivat?",
+    apply: "✨ Rekisteröi salonki ilmaiseksi",
+    lite: "💳 Ilmaiset kanta-asiakaskortit",
+    site: "🌐 VaraaAi.com",
+    busy: "Olen hetken kiireinen — yritä muutaman minuutin päästä uudelleen tai jätä kysymys osoitteessa varaaai.com/support.",
+    slow: "Kirjoitat nopeasti 😊 Odota hetki ennen seuraavaa kysymystä.",
+  },
+};
+type ChatLang = keyof typeof CHAT;
+const chatLocale = (code?: string): ChatLang => (code?.startsWith("vi") ? "vi" : code?.startsWith("fi") ? "fi" : "en");
+const sitePath = (lang: ChatLang, path: string) => `${SITE_URL}${lang === "vi" ? "" : `/${lang}`}${path}`;
+
+function welcome(lang: ChatLang, firstName?: string) {
+  return fill(CHAT[lang].hello, { name: firstName ? ` ${esc(firstName)}` : "" });
+}
+
+/** Buttons under the bot's replies: sign up, free loyalty cards, the site. */
+function linksKeyboard(lang: ChatLang) {
+  const c = CHAT[lang];
+  return {
+    inline_keyboard: [
+      [{ text: c.apply, url: sitePath(lang, "/business/apply") }],
+      [{ text: c.lite, url: sitePath(lang, "/loyalty-lite") }],
+      [{ text: c.site, url: sitePath(lang, "/business") }],
+    ],
+  };
+}
+
+/** The assistant writes markdown with site paths; Telegram wants HTML with full links. */
+function toTelegramHtml(md: string, lang: ChatLang) {
+  const links: string[] = [];
+  let text = md.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_all, label: string, href: string) => {
+    const url = href.startsWith("/") ? sitePath(lang, href) : href;
+    links.push(`<a href="${esc(url)}">${esc(label)}</a>`);
+    return `\u0000${links.length - 1}\u0000`;
+  });
+  text = esc(text)
+    .replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>")
+    .replace(/^#{1,6}\s*(.+)$/gm, "<b>$1</b>")
+    .replace(/^\s*[-*]\s+/gm, "• ")
+    .replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<i>$2</i>");
+  return text.replace(/\u0000(\d+)\u0000/g, (_m, i: string) => links[Number(i)]);
+}
+
+/** Recent turns per private chat, so follow-up questions make sense. Kept in
+ * memory: a restart only forgets the context, never anything that matters. */
+const memory = new Map<string, { at: number; turns: { fromUser: boolean; content: string }[]; recent: number[] }>();
+const HOUR_MS = 60 * 60 * 1000;
+
+async function chatReply(chatId: string, text: string, lang: ChatLang, name: string) {
+  const now = Date.now();
+  const m = memory.get(chatId);
+  const state = m && now - m.at < 6 * HOUR_MS ? m : { at: now, turns: [], recent: [] };
+  state.recent = state.recent.filter((t) => now - t < HOUR_MS);
+  if (state.recent.length >= 30) return void (await sendTelegram(chatId, esc(CHAT[lang].slow)));
+  state.recent.push(now);
+  state.at = now;
+  state.turns.push({ fromUser: true, content: text.slice(0, 1500) });
+  memory.set(chatId, state);
+  if (memory.size > 2000) memory.delete(memory.keys().next().value!);
+
+  const cfg = await botConfig();
+  if (cfg) await call(cfg.token, "sendChatAction", { chat_id: chatId, action: "typing" }).catch(() => {});
+  const reply = await generateSupportReply({
+    context: { role: "guest", name, businessNames: [], locale: lang, channel: "telegram" },
+    history: state.turns,
+  }).catch(() => null);
+  if (!reply) return void (await sendTelegram(chatId, esc(CHAT[lang].busy), linksKeyboard(lang)));
+  state.turns.push({ fromUser: false, content: reply });
+  state.turns = state.turns.slice(-12);
+  // The buttons once in a while, not under every answer.
+  const showButtons = state.turns.filter((t) => !t.fromUser).length % 3 === 1;
+  await sendTelegram(chatId, toTelegramHtml(reply, lang), showButtons ? linksKeyboard(lang) : undefined);
 }

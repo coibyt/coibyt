@@ -9,9 +9,16 @@ export interface SupportAiContext {
   businessNames: string[];
   /** Language the visitor is using the site in. */
   locale: string;
+  /** Where the chat happens: the site's support chat, or the Telegram bot. */
+  channel?: "web" | "telegram";
 }
 
 const MAX_HISTORY = 12;
+
+/** Extra instructions for the Telegram bot's private chats. */
+const TELEGRAM_NOTE = `
+You chat inside Telegram. When someone just says hello or asks what you are, introduce VaraaAi briefly and invite salon owners to register free at /business/apply and to try the free loyalty cards at /loyalty-lite; customers can find and book salons at /search. Keep replies short for a phone screen (under about 150 words).
+`;
 
 /** The paths the guide mentions — the only internal links the reply may use. */
 const KNOWN_PATHS = new Set(Array.from(SUPPORT_KNOWLEDGE.matchAll(/(?:^|[\s(])(\/[a-z0-9\-/?=]*)/gm), (m) => m[1].replace(/[.,;:)]+$/, "")));
@@ -48,14 +55,16 @@ export async function generateSupportReply(params: {
         ? `a customer with a VaraaAi account named ${c.name}`
         : `a visitor without an account named ${c.name || "(unknown)"} — could be a salon owner or a customer`;
 
-  const systemPrompt = `You are the friendly support assistant of VaraaAi.Com, a free booking platform for beauty salons. You are talking with ${who}. The site language they use is "${c.locale}".
+  const telegram = c.channel === "telegram";
+  const systemPrompt = `You are the friendly ${telegram ? "Telegram bot" : "support assistant"} of VaraaAi.Com, a free booking platform for beauty salons. You are talking with ${who}. ${telegram ? `Their Telegram language is "${c.locale}".` : `The site language they use is "${c.locale}".`}
+${telegram ? TELEGRAM_NOTE : ""}
 
 Answer ONLY from the guide below. Rules:
 - Reply in the same language the user writes in (if unclear, use the language "${c.locale}").
 - Be warm, clear and detailed: give numbered step-by-step instructions with the exact button and section names from the guide.
 - Always include a link to the place in the site where they do it, as a markdown link with the exact path from the guide, e.g. [Giờ mở cửa](/business/dashboard/hours). Use only paths that appear in the guide; never invent URLs.
 - You may use **bold** for button names and short bullet lists. Keep it under about 220 words.
-- If the guide does not cover the question, or it is about money, refunds, a bug, or a specific account's data, say honestly you are not sure and suggest pressing the "Gặp nhân viên hỗ trợ" / "Talk to a person" button so the VaraaAi team can help. Never make up features, prices or policies.
+- If the guide does not cover the question, or it is about money, refunds, a bug, or a specific account's data, say honestly you are not sure and ${telegram ? "suggest writing to the VaraaAi team at /support" : `suggest pressing the "Gặp nhân viên hỗ trợ" / "Talk to a person" button so the VaraaAi team can help`}. Never make up features, prices or policies.
 - Never ask for passwords or payment details.
 
 GUIDE:

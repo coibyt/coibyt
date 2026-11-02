@@ -39,6 +39,16 @@ export function TelegramAdmin({ initial }: { initial: TelegramBotStatus | null }
     setToken("");
   }
 
+  const [profileMsg, setProfileMsg] = useState<string | null>(null);
+  async function refreshProfile() {
+    setBusy(true);
+    setProfileMsg(null);
+    const res = await fetch("/api/admin/telegram", { method: "PATCH" }).catch(() => null);
+    const d = await res?.json().catch(() => ({}));
+    setBusy(false);
+    setProfileMsg(res?.ok ? "Đã cập nhật giới thiệu, mô tả và menu lệnh của bot (Việt, Anh, Phần Lan)." : `Telegram từ chối: ${d?.detail ?? "lỗi không rõ"}`);
+  }
+
   async function disconnect() {
     if (!confirm("Ngắt bot? Các salon sẽ không nhận nhắc qua Telegram nữa.")) return;
     setBusy(true);
@@ -91,6 +101,19 @@ export function TelegramAdmin({ initial }: { initial: TelegramBotStatus | null }
               </div>
             ))}
           </dl>
+          <div className="rounded-2xl bg-[#f4f1fa] p-4 text-sm text-[#40325c]">
+            <p className="font-bold">Trợ lý AI trong tin nhắn riêng</p>
+            <p className="mt-1 text-xs leading-relaxed">
+              Ai nhắn riêng cho @{bot.username} sẽ được trợ lý AI của VaraaAi trả lời (cùng kiến thức với chat hỗ trợ trên web), kèm nút “Đăng ký salon miễn phí” và “Thẻ tích điểm miễn phí”. Giới thiệu, mô tả và menu lệnh của bot được đặt tự động khi kết nối.
+            </p>
+            <p className="mt-2 text-xs leading-relaxed">
+              Ảnh đại diện chỉ đặt được qua @BotFather: gửi lệnh <code className="rounded bg-white px-1">/setuserpic</code>, chọn bot, rồi gửi logo VaraaAi.
+            </p>
+            <button type="button" disabled={busy} onClick={refreshProfile} className="btn-outline mt-3 !px-3 !py-1.5 text-xs">
+              {busy ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Bot className="h-3.5 w-3.5" />} Cập nhật giới thiệu bot
+            </button>
+            {profileMsg && <p className="mt-2 text-xs font-semibold">{profileMsg}</p>}
+          </div>
           {bot.lastError && (
             <p className="rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-800">
               Lỗi gần nhất từ Telegram{bot.lastErrorAt ? ` (${new Date(bot.lastErrorAt).toLocaleString("vi-VN")})` : ""}: {bot.lastError}

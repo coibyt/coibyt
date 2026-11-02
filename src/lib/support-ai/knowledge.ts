@@ -72,6 +72,7 @@ Mời khách đánh giá trên Google: nhập Google Place ID trong Cài đặt 
 4. Đủ điểm → áp dụng ưu đãi, thẻ về 0 và bắt đầu chu kỳ mới.
 Quy tắc cộng điểm: mỗi lượt hẹn được quét một lần. Lượt hẹn được tính khi đã đến giờ hẹn, còn trên lịch, không bị hủy và không bị đánh dấu "Không đến" (không cần bấm Hoàn thành). Được quét bù tối đa 3 lượt khách đã làm trước ngày làm thẻ. Bấm vào khách để xem thống kê và số lượt hẹn chưa quét.
 Khách xem thẻ của mình tại /account/loyalty.
+Thẻ tích điểm và Marketing chỉ mở khi hồ sơ salon (trong Cài đặt) hoàn thiện từ 85% trở lên.
 
 ### Thẻ quà tặng — /business/dashboard/gift-cards
 - "Tạo mẫu thẻ": tên, dịch vụ áp dụng, % giảm, giá bán, số ngày hiệu lực, số lần dùng.
@@ -119,6 +120,10 @@ Chủ salon nhận: email khi có lịch hẹn mới, khi khách hủy, khi khá
 - Tạo bảng giá đẹp, song ngữ/đa ngôn ngữ (dịch tự động), có mã QR đặt lịch, xuất PDF/PNG để in: /tools/price-list
 - Tạo poster "Quét QR để đặt lịch" (A4, A5, A6, bảng để bàn gấp đôi, tem dán tròn, ảnh vuông, story Instagram; mẫu Giáng sinh, Black Friday, Tết): /tools/qr-poster
 - Kiểm tra salon của bạn trông thế nào trên mạng và nhận danh sách việc nên làm: /salon-check
+- Thẻ tích điểm miễn phí (sản phẩm riêng, KHÁC với mục Thẻ tích điểm trong trang quản trị salon; dành cho salon chưa dùng VaraaAi): /loyalty-lite — cách dùng: 1) vào /loyalty-lite, nhập tên salon và email, bấm "Tạo thẻ miễn phí" là vào ngay trang quản lý; 2) mục "Chương trình": chọn số dấu (3–20) và ghi phần thưởng; 3) mục "Cấp thẻ cho khách": nhập tên, email của khách; 4) mục "Quét thẻ khi khách đến": mở camera quét mã QR của khách rồi bấm "Đóng 1 dấu", đủ dấu bấm "Đổi ưu đãi". Không mật khẩu, không cài app — cấp thẻ VIP có mã QR qua email cho khách, quét bằng camera điện thoại để đóng 1 dấu mỗi lần khách đến (cách nhau 12 giờ), đủ dấu thì đổi ưu đãi; khách nhận email mỗi lần được đóng dấu. Miễn phí tới 10.000 thẻ. Chủ salon có thể đặt mật khẩu và tạo tài khoản nhân viên để nhân viên quẹt thẻ (mục Hồ sơ). Khi đăng ký VaraaAi đầy đủ bằng cùng email, thẻ và dấu của khách được chuyển sang tự động.
+
+## BOT TELEGRAM (cho chủ salon)
+Trang Doanh thu → thẻ "Bot Telegram": bấm "Thêm bot vào nhóm" để thêm bot vào nhóm Telegram của nhân viên. Mỗi nhóm chọn nội dung: nhắc nhân viên báo cáo thu nhập (lịch hẹn quá 24 giờ chưa báo cáo, mỗi ngày một lần 10:00–20:00) và/hoặc báo lịch hẹn mới trong ngày; chọn nhân viên nào và chi nhánh này hay tất cả chi nhánh. Điền @username Telegram của nhân viên để bot gắn tên đúng người.
 
 ## DÀNH CHO KHÁCH HÀNG
 - Tìm salon theo bản đồ và khu vực: /search
