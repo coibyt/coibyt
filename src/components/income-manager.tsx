@@ -32,6 +32,7 @@ import type { IncomeReportJson } from "@/lib/income";
 import type { OverdueBooking } from "@/lib/income-reminders";
 import { IncomeReportModal } from "@/components/income-report";
 import { giftNet } from "@/lib/income-math";
+import { TelegramRemindersCard } from "@/components/telegram-reminders-card";
 
 type Period = "today" | "week" | "month" | "last";
 type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
@@ -724,6 +725,8 @@ export function IncomeManager({
               </div>
             </section>
           )}
+
+          {isOwner && <TelegramRemindersCard locale={locale} />}
 
           <section className="rounded-3xl bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5 ring-1 ring-[#ecd9ad]">
             <p className="flex items-center gap-2 text-sm font-bold text-[#6b5221]">

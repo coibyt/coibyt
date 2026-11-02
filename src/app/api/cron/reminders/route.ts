@@ -4,6 +4,7 @@ import { sendMail, appointmentReminderEmail, reviewRequestEmail } from "@/lib/ma
 import { localeForCountry } from "@/lib/countries";
 import { sendDueCampaigns } from "@/lib/marketing-send";
 import { settleReferrals } from "@/lib/loyalty-referral";
+import { sendTelegramIncomeReminders } from "@/lib/telegram";
 import { sendIncomeReminders } from "@/lib/income-reminders";
 
 const HOUR_MS = 60 * 60 * 1000;
@@ -187,5 +188,11 @@ export async function GET(req: Request) {
     return 0;
   });
 
-  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders });
+  // The same, in the salon's Telegram staff groups (src/lib/telegram.ts).
+  const telegramReminders = await sendTelegramIncomeReminders().catch((err) => {
+    console.error("[cron] sendTelegramIncomeReminders", err);
+    return 0;
+  });
+
+  return NextResponse.json({ ok: true, reminder24h, reminder2h, reminder15min, reviewRequests, campaigns, referrals, incomeReminders, telegramReminders });
 }

@@ -210,6 +210,10 @@ model Business {
   // The salon-local day from which staff must report every booking's income;
   // earlier bookings never show as unreported. Null = the last 14 days.
   incomeReportsFrom DateTime? @db.Date
+  // Telegram bot (src/lib/telegram.ts): reminds staff in the salon's linked
+  // groups to report income. The code links a group: /start <code>.
+  telegramRemindersOn Boolean   @default(false)
+  telegramLinkCode    String?   @unique @db.VarChar(24)
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.
   ownerId      String
@@ -337,6 +341,7 @@ model Business {
   teamMedia               TeamMedia[]
   staffAnnouncements      StaffAnnouncement[]
   staffTrainings          StaffTraining[]
+  telegramGroups          TelegramGroup[]
 
   @@index([ownerId])
   @@index([status])
@@ -598,6 +603,8 @@ model Staff {
   // at another branch blocks this much extra time before and after it here.
   // Kept the same on every row of the group.
   branchTravelMinutes        Int       @default(0)
+  // Their Telegram @username (without @), so the reminder bot can tag them.
+  telegramUsername           String?   @db.VarChar(64)
   // When on, saving this person's working hours at one branch saves the same
   // hours at their other branches too. Kept the same on every row of the group.
   syncBranchHours            Boolean   @default(false)
@@ -677,6 +684,22 @@ model BranchBusyAdjust {
   updatedAt     DateTime @updatedAt
 
   @@unique([staffId, sourceKey])
+}
+
+/// A Telegram group the salon linked to the reminder bot (src/lib/telegram.ts).
+/// One group can be linked to several branches.
+model TelegramGroup {
+  id             String    @id @default(cuid())
+  businessId     String
+  business       Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  chatId         String    @db.VarChar(32)
+  title          String    @db.VarChar(255)
+  /// The last salon-local day a reminder went to this group.
+  lastRemindedOn String?   @db.VarChar(10)
+  createdAt      DateTime  @default(now())
+
+  @@unique([businessId, chatId])
+  @@index([chatId])
 }
 
 model StaffTimeOff {

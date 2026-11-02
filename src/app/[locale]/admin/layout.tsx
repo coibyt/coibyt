@@ -23,6 +23,7 @@ export default async function AdminLayout({
     { href: "/admin/categories", label: t("categories") },
     { href: "/admin/platform-affiliates", label: t("platformAffiliatesPage.title") },
     { href: "/admin/ringtones", label: locale === "vi" ? "Nhạc chuông" : "Ringtones" },
+    { href: "/admin/telegram", label: "Bot Telegram" },
     {
       href: "/admin/support",
       label: "Hỗ trợ",
