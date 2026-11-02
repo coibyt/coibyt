@@ -46,6 +46,7 @@ import {
   type PersonalTimeKind,
 } from "@/lib/personal-time";
 import { MoveBranchButton } from "@/components/move-branch-button";
+import { IncomeOverdueBanner } from "@/components/income-overdue-banner";
 import { ExternalBusyEditor, type ExternalBusyBlock } from "@/components/external-busy-editor";
 
 interface StaffOption {
@@ -1932,6 +1933,19 @@ export function BookingCalendar({
 
       {error && (
         <p className="rounded-lg bg-berry-50 px-3 py-2 text-sm text-berry-500">{error}</p>
+      )}
+
+      {/* Staff: bookings over 24 hours old still waiting for an income report. */}
+      {!isOwner && viewerStaffId && (
+        <IncomeOverdueBanner
+          locale={locale}
+          timeZone={businessTimezone}
+          refreshKey={bookings}
+          onOpenDay={(startsAt) => {
+            setView("day");
+            setAnchorDate(toZonedTime(new Date(startsAt), businessTimezone));
+          }}
+        />
       )}
 
       {view === "day" && !isOwner && viewerStaffId && ownHoursLoaded && (
