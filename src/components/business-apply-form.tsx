@@ -11,16 +11,21 @@ import { COUNTRIES } from "@/lib/countries";
 export function BusinessApplyForm({
   categories,
   isAuthenticated,
+  initialName = "",
+  initialEmail = "",
 }: {
   categories: { id: string; name: string }[];
   isAuthenticated: boolean;
+  /** Prefilled when coming from Loyalty Lite's upgrade button. */
+  initialName?: string;
+  initialEmail?: string;
 }) {
   const t = useTranslations("business");
   const tAuth = useTranslations("auth");
   const locale = useLocale();
   const router = useRouter();
   const [form, setForm] = useState({
-    name: "",
+    name: initialName,
     description: "",
     categoryId: categories[0]?.id ?? "",
     addressLine: "",
@@ -31,7 +36,7 @@ export function BusinessApplyForm({
   // creates their account, so it needs the same fields regular sign-up does.
   const [account, setAccount] = useState({
     ownerName: "",
-    email: "",
+    email: initialEmail,
     password: "",
     confirmPassword: "",
   });

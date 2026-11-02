@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { giftCardQrPng } from "@/lib/gift-cards";
 import { loyaltyQrPng } from "@/lib/loyalty";
+import { liteQrPng } from "@/lib/loyalty-lite";
 
 /** Public QR images for emails ("/api/email-qr/gift/ABCD1234.png",
  * "/api/email-qr/loyalty/<token>.png"). Gmail and most mail apps don't show
@@ -20,6 +21,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ kind: s
   } else if (kind === "loyalty") {
     const found = await prisma.loyaltyCard.findUnique({ where: { token: code }, select: { id: true } });
     if (found) png = await loyaltyQrPng(code);
+  } else if (kind === "lite") {
+    const found = await prisma.liteCard.findUnique({ where: { token: code }, select: { liteSalon: { select: { locale: true } } } });
+    if (found) png = await liteQrPng(code, found.liteSalon.locale);
   }
   if (!png) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 

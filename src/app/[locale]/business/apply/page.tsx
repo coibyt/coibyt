@@ -13,10 +13,10 @@ export default async function BusinessApplyPage({
   searchParams,
 }: {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ branch?: string }>;
+  searchParams: Promise<{ branch?: string; name?: string; email?: string }>;
 }) {
   const { locale } = await params;
-  const { branch } = await searchParams;
+  const { branch, name, email } = await searchParams;
   const session = await auth();
   const t = await getTranslations("business");
 
@@ -54,6 +54,8 @@ export default async function BusinessApplyPage({
           name: categoryName(locale, c),
         }))}
         isAuthenticated={!!session?.user}
+        initialName={name?.slice(0, 120)}
+        initialEmail={email?.slice(0, 191)}
       />
     </div>
   );

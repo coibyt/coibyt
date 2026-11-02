@@ -1924,6 +1924,56 @@ model ToolEvent {
   @@index([tool, event, createdAt])
 }
 
+/// Loyalty Lite (/loyalty-lite, src/lib/loyalty-lite.ts): a free stamp card a
+/// salon can try with just its name and email, before signing up as a full
+/// VaraaAi salon. Signed in with a link/cookie holding accessToken; on
+/// upgrade (same email applies as an owner) its cards move to the salon.
+model LiteSalon {
+  id                 String     @id @default(cuid())
+  email              String     @unique @db.VarChar(191)
+  salonName          String     @db.VarChar(120)
+  ownerName          String?    @db.VarChar(120)
+  locale             String     @default("vi") @db.VarChar(8)
+  accessToken        String     @unique @db.VarChar(64)
+  stampsRequired     Int        @default(10)
+  rewardText         String     @db.VarChar(80)
+  emailVerifiedAt    DateTime?
+  lastSeenAt         DateTime?
+  upgradedBusinessId String?
+  createdAt          DateTime   @default(now())
+  cards              LiteCard[]
+}
+
+model LiteCard {
+  id            String          @id @default(cuid())
+  liteSalonId   String
+  liteSalon     LiteSalon       @relation(fields: [liteSalonId], references: [id], onDelete: Cascade)
+  /// On the QR: /loyalty-lite/c/<token>.
+  token         String          @unique @db.VarChar(16)
+  customerName  String          @db.VarChar(120)
+  customerEmail String?         @db.VarChar(191)
+  /// Stamps toward the next reward.
+  stamps        Int             @default(0)
+  totalStamps   Int             @default(0)
+  rewardsUsed   Int             @default(0)
+  lastStampAt   DateTime?
+  createdAt     DateTime        @default(now())
+  events        LiteCardEvent[]
+
+  @@index([liteSalonId])
+}
+
+model LiteCardEvent {
+  id        String   @id @default(cuid())
+  cardId    String
+  card      LiteCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  /// "STAMP" or "REWARD".
+  kind      String   @db.VarChar(12)
+  createdAt DateTime @default(now())
+
+  @@index([cardId])
+}
+
 // Platform-wide switches the admin changes from the admin pages, as
 // key/value pairs (e.g. "supportAi" = "on").
 model PlatformSetting {

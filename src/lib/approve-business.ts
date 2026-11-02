@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 import { sendMail, businessReadyEmail } from "@/lib/mailer";
 import { geocodeAddress } from "@/lib/geocode";
+import { importLiteSalon } from "@/lib/loyalty-lite";
 
 const COUNTRY_NAMES: Record<string, string> = {
   VN: "Vietnam",
@@ -20,6 +21,9 @@ export async function approveBusiness(businessId: string) {
     data: { status: "APPROVED", approvedAt: new Date() },
     include: { owner: { select: { name: true, email: true, locale: true } } },
   });
+
+  // Tried Loyalty Lite with this email: its stamp card and customers move in.
+  await importLiteSalon(business.owner.email, businessId).catch((err) => console.error("[approve] importLiteSalon", err));
 
   // Best-effort — a missing/unresolvable address just means the business
   // won't show up on the map yet, it doesn't block approval either way.
