@@ -1,18 +1,20 @@
 import { randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
+import type { LiteSalon } from "@prisma/client";
 import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
 import { randomGiftCode } from "@/lib/gift-cards";
 import { SITE_URL } from "@/lib/email/ui";
 
 /** Loyalty Lite: a free stamp card a salon tries with only its name and an
- * email (/loyalty-lite). No password — the welcome email's link (and the
- * browser cookie it sets) is the key. Limited to LITE_MAX_CARDS customers;
+ * email (/loyalty-lite). The welcome email's link (and the browser cookie it
+ * sets) is the key; the owner may also set a password and give staff their
+ * own logins (LiteStaff). Limited to LITE_MAX_CARDS customers;
  * applying as a full VaraaAi salon with the same email moves the program
  * and cards over (importLiteSalon). */
 
 export const LITE_COOKIE = "varaaai_lite";
-export const LITE_MAX_CARDS = 1000;
+export const LITE_MAX_CARDS = 10000;
 /** One stamp per visit: a card can't be stamped again within this time. */
 export const LITE_STAMP_GAP_HOURS = 12;
 const HOUR = 60 * 60 * 1000;
@@ -59,17 +61,54 @@ async function newCardToken() {
   throw new Error("COULD_NOT_GENERATE_TOKEN");
 }
 
-/** The salon this browser is signed in to, if any. */
-export async function currentLiteSalon() {
+export type LiteSalonRow = LiteSalon;
+
+export interface LiteSession {
+  salon: LiteSalon;
+  role: "owner" | "staff";
+  staff: { id: string; name: string } | null;
+}
+
+const stale = (d: Date | null) => !d || Date.now() - d.getTime() > HOUR;
+
+/** Who this browser is signed in as: the salon's owner (the cookie holds
+ * LiteSalon.accessToken) or one of its staff (LiteStaff.accessToken). */
+export async function currentLiteSession(): Promise<LiteSession | null> {
   const token = (await cookies()).get(LITE_COOKIE)?.value;
   if (!token || !/^[a-f0-9]{48}$/.test(token)) return null;
   const salon = await prisma.liteSalon.findUnique({ where: { accessToken: token } });
-  if (salon && (!salon.lastSeenAt || Date.now() - salon.lastSeenAt.getTime() > HOUR)) {
-    await prisma.liteSalon.update({ where: { id: salon.id }, data: { lastSeenAt: new Date() } }).catch(() => {});
+  if (salon) {
+    if (stale(salon.lastSeenAt)) await prisma.liteSalon.update({ where: { id: salon.id }, data: { lastSeenAt: new Date() } }).catch(() => {});
+    return { salon, role: "owner", staff: null };
   }
-  return salon;
+  const staff = await prisma.liteStaff.findUnique({ where: { accessToken: token }, include: { liteSalon: true } });
+  if (!staff?.active) return null;
+  if (stale(staff.lastSeenAt)) await prisma.liteStaff.update({ where: { id: staff.id }, data: { lastSeenAt: new Date() } }).catch(() => {});
+  return { salon: staff.liteSalon, role: "staff", staff: { id: staff.id, name: staff.name } };
 }
-export type LiteSalonRow = NonNullable<Awaited<ReturnType<typeof currentLiteSalon>>>;
+
+/** The salon this browser works for — owner or staff: enough to scan, stamp and give cards. */
+export async function currentLiteSalon() {
+  return (await currentLiteSession())?.salon ?? null;
+}
+
+/** Only the owner: the program, deleting cards, the profile and staff. */
+export async function currentLiteOwner() {
+  const s = await currentLiteSession();
+  return s?.role === "owner" ? s.salon : null;
+}
+
+/** A staff login as the owner sees it (never the password or token). */
+export const LITE_STAFF_SELECT = { id: true, name: true, email: true, active: true, lastSeenAt: true, createdAt: true } as const;
+
+/** An email already used by a Lite salon or a Lite staff login. */
+export async function liteEmailTaken(email: string, except?: { salonId?: string; staffId?: string }) {
+  const [salon, staff] = await Promise.all([
+    prisma.liteSalon.findUnique({ where: { email }, select: { id: true } }),
+    prisma.liteStaff.findUnique({ where: { email }, select: { id: true } }),
+  ]);
+  return (!!salon && salon.id !== except?.salonId) || (!!staff && staff.id !== except?.staffId);
+}
 
 export async function createLiteCard(salon: LiteSalonRow, input: { customerName: string; customerEmail?: string | null }) {
   const count = await prisma.liteCard.count({ where: { liteSalonId: salon.id } });

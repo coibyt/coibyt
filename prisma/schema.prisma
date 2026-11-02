@@ -1940,8 +1940,29 @@ model LiteSalon {
   emailVerifiedAt    DateTime?
   lastSeenAt         DateTime?
   upgradedBusinessId String?
+  /// Optional: lets the owner sign in with email + password on other devices.
+  passwordHash       String?    @db.VarChar(100)
   createdAt          DateTime   @default(now())
   cards              LiteCard[]
+  staff              LiteStaff[]
+}
+
+/// A Loyalty Lite staff login: scans and stamps cards for the salon, but
+/// can't change the program, delete cards or manage the account.
+model LiteStaff {
+  id           String    @id @default(cuid())
+  liteSalonId  String
+  liteSalon    LiteSalon @relation(fields: [liteSalonId], references: [id], onDelete: Cascade)
+  name         String    @db.VarChar(120)
+  email        String    @unique @db.VarChar(191)
+  passwordHash String    @db.VarChar(100)
+  /// Held in the browser cookie, like LiteSalon.accessToken.
+  accessToken  String    @unique @db.VarChar(64)
+  active       Boolean   @default(true)
+  lastSeenAt   DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@index([liteSalonId])
 }
 
 model LiteCard {

@@ -16,9 +16,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 /** Loyalty Lite: try VaraaAi's loyalty cards with only a salon name and an
  * email (src/lib/loyalty-lite.ts). */
-export default async function LoyaltyLitePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ link?: string }> }) {
+export default async function LoyaltyLitePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ link?: string; login?: string }> }) {
   const { locale } = await params;
-  const { link } = await searchParams;
+  const { link, login } = await searchParams;
   const t = liteStrings(locale);
   const signedIn = await currentLiteSalon();
   const labels = { member: t.cardMember, code: t.cardCode, reward: t.cardReward, progress: t.cardProgress.replace("{n}", "7").replace("{total}", "10") };
@@ -68,11 +68,7 @@ export default async function LoyaltyLitePage({ params, searchParams }: { params
                 </Link>
               </div>
             ) : (
-              <>
-                <p className="font-serif text-2xl">{t.formTitle}</p>
-                <p className="mb-5 mt-1 text-sm text-ink-400">{t.formSub}</p>
-                <LiteSignupForm locale={locale} t={t} expired={link === "expired"} />
-              </>
+              <LiteSignupForm locale={locale} t={t} expired={link === "expired"} initialMode={login ? "login" : "signup"} />
             )}
           </div>
         </div>

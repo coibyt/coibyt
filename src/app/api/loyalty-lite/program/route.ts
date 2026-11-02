@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
-import { currentLiteSalon } from "@/lib/loyalty-lite";
+import { currentLiteOwner } from "@/lib/loyalty-lite";
 
 /** The salon's stamp card: how many stamps, what they earn, its name. */
 const schema = z.object({
@@ -11,7 +11,7 @@ const schema = z.object({
 });
 
 export async function PATCH(req: Request) {
-  const salon = await currentLiteSalon();
+  const salon = await currentLiteOwner();
   if (!salon) return NextResponse.json({ error: "SIGNED_OUT" }, { status: 401 });
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });

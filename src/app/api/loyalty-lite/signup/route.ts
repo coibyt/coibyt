@@ -33,6 +33,10 @@ export async function POST(req: Request) {
   const { salonName, email, ownerName } = parsed.data;
   const locale = liteLocale(parsed.data.locale);
 
+  // A staff login's email can't also open a salon of its own.
+  if (await prisma.liteStaff.findUnique({ where: { email }, select: { id: true } })) {
+    return NextResponse.json({ error: "STAFF_EMAIL" }, { status: 409 });
+  }
   const existing = await prisma.liteSalon.findUnique({ where: { email } });
   if (existing) {
     await sendMail({ to: existing.email, ...liteOwnerEmail(existing, "signin") }).catch((err) => console.error("[lite] signin mail", err));

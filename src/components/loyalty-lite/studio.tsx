@@ -22,11 +22,13 @@ import {
   Sparkles,
   Stamp,
   Trash2,
+  UserRound,
   Users,
 } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
 import { LiteMemberCard } from "@/components/loyalty-lite/member-card";
+import { LiteProfilePanel } from "@/components/loyalty-lite/profile-panel";
 
 export interface LiteCardRow {
   id: string;
@@ -40,7 +42,7 @@ export interface LiteCardRow {
   createdAt: string;
 }
 
-type Tab = "cards" | "guide";
+type Tab = "cards" | "guide" | "profile";
 /** Which section a message belongs to — it shows inside that section. */
 type Area = "scan" | "new" | "program" | "cards";
 type Flash = { ok: boolean; text: string } | null;
@@ -60,6 +62,9 @@ export function LiteStudio({
   cardBase,
   maxCards,
   stamps30,
+  role,
+  staffName,
+  account,
 }: {
   locale: string;
   t: LiteStrings;
@@ -68,7 +73,12 @@ export function LiteStudio({
   cardBase: string;
   maxCards: number;
   stamps30: number;
+  /** Staff scan, stamp and give cards; the program, deleting and Profile are the owner's. */
+  role: "owner" | "staff";
+  staffName: string | null;
+  account: { ownerName: string; hasPassword: boolean };
 }) {
+  const isOwner = role === "owner";
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("cards");
   const [area, setArea] = useState<Area>("scan");
@@ -240,6 +250,7 @@ export function LiteStudio({
   const tabs: { key: Tab; label: string; icon: typeof Stamp }[] = [
     { key: "cards", label: t.tabCards, icon: Users },
     { key: "guide", label: t.tabGuide, icon: BookOpen },
+    ...(isOwner ? [{ key: "profile" as const, label: t.tabProfile, icon: UserRound }] : []),
   ];
 
   const field = "mt-1 h-11 w-full rounded-2xl border border-ink-100 bg-white px-4 text-sm text-ink-900 placeholder:text-ink-300 focus:border-[#c99a3f] focus:outline-none focus:ring-4 focus:ring-[#c99a3f]/15";
@@ -302,6 +313,12 @@ export function LiteStudio({
               <Stamp className="h-4 w-4" />
               {t.studioEyebrow}
             </p>
+            {staffName && (
+              <p className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-2.5 py-0.5 text-[11px] font-semibold text-white/80">
+                <UserRound className="h-3 w-3" />
+                {fill(t.staffBadge, { name: staffName })}
+              </p>
+            )}
             <h1 className="mt-2 truncate font-serif text-3xl sm:text-4xl">{salon.salonName}</h1>
             <p className="mt-1 text-sm text-white/60">
               {fill(t.programLine, { n: N, reward: salon.rewardText })}
@@ -445,6 +462,7 @@ export function LiteStudio({
               )}
             </section>
 
+            {isOwner && (
             <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
               <Head icon={Settings2} title={t.programTitle} sub={t.programSub} />
               <form onSubmit={saveProgram} className="mt-5 space-y-4">
@@ -480,6 +498,7 @@ export function LiteStudio({
               </form>
               <Flash at="program" />
             </section>
+            )}
 
           {/* Customers and the guide */}
           <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pt-2">
@@ -555,9 +574,11 @@ export function LiteStudio({
                               <Mail className="h-4 w-4" />
                             </button>
                           )}
-                          <button type="button" title={t.remove} disabled={!!busy} onClick={() => remove(c)} className="rounded-full p-2 text-ink-300 hover:bg-berry-50 hover:text-berry-600">
-                            <Trash2 className="h-4 w-4" />
-                          </button>
+                          {isOwner && (
+                            <button type="button" title={t.remove} disabled={!!busy} onClick={() => remove(c)} className="rounded-full p-2 text-ink-300 hover:bg-berry-50 hover:text-berry-600">
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          )}
                         </span>
                       </li>
                     );
@@ -599,6 +620,10 @@ export function LiteStudio({
               </div>
             </section>
           )}
+
+          {tab === "profile" && isOwner && (
+            <LiteProfilePanel locale={locale} t={t} initial={{ ownerName: account.ownerName, email: initial.email, hasPassword: account.hasPassword }} onSignOut={signOut} />
+          )}
         </div>
 
         {/* Upgrade */}
@@ -621,7 +646,7 @@ export function LiteStudio({
                 </li>
               ))}
             </ul>
-            {!initial.upgraded && (
+            {isOwner && !initial.upgraded && (
               <Link href={upgradeHref} className={`${dark} mt-5 w-full`}>
                 {t.upgradeCta}
                 <ChevronRight className="h-4 w-4" />

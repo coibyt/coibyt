@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
-import { currentLiteSalon, redeemLiteCard, stampLiteCard } from "@/lib/loyalty-lite";
+import { currentLiteOwner, currentLiteSalon, redeemLiteCard, stampLiteCard } from "@/lib/loyalty-lite";
 import { liteCardEmail, liteStampEmail } from "@/lib/email/loyalty-lite-emails";
 
 const schema = z.object({ action: z.enum(["stamp", "redeem", "resend"]) });
@@ -38,8 +38,9 @@ export async function POST(req: Request, { params }: { params: Promise<{ id: str
 
 export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const salon = await currentLiteSalon();
-  if (!salon) return NextResponse.json({ error: "SIGNED_OUT" }, { status: 401 });
+  // Staff stamp cards; only the owner deletes them.
+  const salon = await currentLiteOwner();
+  if (!salon) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   await prisma.liteCard.deleteMany({ where: { id, liteSalonId: salon.id } });
   return NextResponse.json({ ok: true });
 }

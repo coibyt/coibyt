@@ -54,10 +54,11 @@ const T = {
       { title: `Đủ ${n} dấu`, body: `Bạn nhận <strong>${esc(reward)}</strong>.` },
       { title: "Xem thẻ bất cứ lúc nào", body: "Bấm “Xem thẻ của tôi” để xem số dấu hiện có." },
     ],
-    stampSubject: (s: string) => `+1 dấu tại ${s}`,
-    stampPre: (left: number) => `Còn ${left} dấu nữa là bạn nhận ưu đãi.`,
+    stampSubject: (s: string, have: number, n: number) => `Đóng dấu thành công tại ${s} — bạn có ${have}/${n} dấu`,
+    stampPre: (left: number) => `Còn ${left} dấu nữa là bạn được giảm giá.`,
     stampTitle: (first: string) => `Cảm ơn ${first}, bạn vừa được +1 dấu`,
-    stampLeft: (left: number, reward: string) => `Còn <strong>${left} dấu</strong> nữa là bạn nhận <strong>${esc(reward)}</strong>.`,
+    stampLeft: (have: number, n: number, left: number, reward: string) =>
+      `Thẻ của bạn vừa được đóng dấu thành công. Bạn đang có <strong>${have}/${n} dấu</strong> — còn <strong>${left} dấu</strong> nữa là bạn nhận <strong>${esc(reward)}</strong>.`,
     readySubject: (s: string) => `Bạn đã đủ dấu tại ${s} 🎉`,
     readyPre: "Ưu đãi đang chờ bạn ở lần đến tiếp theo.",
     readyTitle: (first: string) => `Chúc mừng ${first}!`,
@@ -107,10 +108,11 @@ const T = {
       { title: `Collect ${n} stamps`, body: `You get <strong>${esc(reward)}</strong>.` },
       { title: "Check your card any time", body: "Tap “View my card” to see your stamps." },
     ],
-    stampSubject: (s: string) => `+1 stamp at ${s}`,
+    stampSubject: (s: string, have: number, n: number) => `Stamped at ${s} — you have ${have}/${n}`,
     stampPre: (left: number) => `${left} more stamps to your reward.`,
     stampTitle: (first: string) => `Thanks ${first}, that's +1 stamp`,
-    stampLeft: (left: number, reward: string) => `<strong>${left} more stamps</strong> and you get <strong>${esc(reward)}</strong>.`,
+    stampLeft: (have: number, n: number, left: number, reward: string) =>
+      `Your card was just stamped. You now have <strong>${have}/${n} stamps</strong> — <strong>${left} more</strong> and you get <strong>${esc(reward)}</strong>.`,
     readySubject: (s: string) => `Your card at ${s} is full 🎉`,
     readyPre: "Your reward is waiting at your next visit.",
     readyTitle: (first: string) => `Congratulations, ${first}!`,
@@ -160,10 +162,11 @@ const T = {
       { title: `Kerää ${n} leimaa`, body: `Saat <strong>${esc(reward)}</strong>.` },
       { title: "Katso korttia milloin vain", body: "Napauta ”Näytä korttini” nähdäksesi leimasi." },
     ],
-    stampSubject: (s: string) => `+1 leima: ${s}`,
+    stampSubject: (s: string, have: number, n: number) => `Leima lisätty: ${s} — sinulla on ${have}/${n}`,
     stampPre: (left: number) => `Vielä ${left} leimaa palkintoon.`,
     stampTitle: (first: string) => `Kiitos ${first}, sait +1 leiman`,
-    stampLeft: (left: number, reward: string) => `Vielä <strong>${left} leimaa</strong>, niin saat <strong>${esc(reward)}</strong>.`,
+    stampLeft: (have: number, n: number, left: number, reward: string) =>
+      `Korttisi leimattiin juuri. Sinulla on nyt <strong>${have}/${n} leimaa</strong> — vielä <strong>${left}</strong>, niin saat <strong>${esc(reward)}</strong>.`,
     readySubject: (s: string) => `Korttisi on täynnä: ${s} 🎉`,
     readyPre: "Palkintosi odottaa seuraavalla käynnillä.",
     readyTitle: (first: string) => `Onnittelut, ${first}!`,
@@ -302,7 +305,7 @@ export function liteStampEmail(s: Salon, c: Card) {
   const ready = c.stamps >= s.stampsRequired;
   const left = Math.max(0, s.stampsRequired - c.stamps);
   return {
-    subject: ready ? t.readySubject(s.salonName) : t.stampSubject(s.salonName),
+    subject: ready ? t.readySubject(s.salonName) : t.stampSubject(s.salonName, c.stamps, s.stampsRequired),
     html: emailLayout({
       locale: s.locale,
       preheader: ready ? t.readyPre : t.stampPre(left),
@@ -314,11 +317,99 @@ export function liteStampEmail(s: Salon, c: Card) {
         badge: ready ? "★" : "+1",
       },
       body:
-        para(ready ? t.readyBody(s.rewardText) : t.stampLeft(left, s.rewardText), { center: true }) +
+        para(ready ? t.readyBody(s.rewardText) : t.stampLeft(c.stamps, s.stampsRequired, left, s.rewardText), { center: true }) +
         progressBlock(s, c) +
         button(liteCardUrl(c.token, s.locale), esc(t.viewCard), { variant: ready ? "gold" : "dark" }) +
         para(t.closing(s.salonName), { muted: true, center: true, mt: 18 }),
       footerExtra: footer(s),
+    }),
+  };
+}
+
+const ACCOUNT = {
+  vi: {
+    staffSubject: (s: string) => `Bạn có tài khoản quẹt thẻ tích điểm tại ${s}`,
+    staffPre: "Đăng nhập để quét thẻ và đóng dấu cho khách.",
+    staffEyebrow: "Tài khoản nhân viên",
+    staffTitle: (name: string) => `Chào ${name}, bạn đã có tài khoản`,
+    staffIntro: (s: string) => `${s} vừa tạo cho bạn tài khoản để quét thẻ tích điểm và đóng dấu cho khách.`,
+    staffLogin: "Đăng nhập",
+    staffHow: [
+      { title: "Mở trang đăng nhập", body: "Bấm nút trên, chọn “Đăng nhập bằng mật khẩu”." },
+      { title: "Nhập email và mật khẩu", body: "Email là địa chỉ bạn đang đọc thư này. Mật khẩu do chủ salon đưa cho bạn." },
+      { title: "Quét thẻ cho khách", body: "Mở camera điện thoại quét mã QR trên thẻ của khách rồi bấm “Đóng 1 dấu”." },
+    ],
+    staffNote: "Quên mật khẩu? Nhờ chủ salon đặt lại trong mục Hồ sơ.",
+    changedSubject: (s: string) => `Email đăng nhập thẻ tích điểm của ${s} đã đổi`,
+    changedPre: "Email đăng nhập vừa được đổi.",
+    changedTitle: "Email đăng nhập đã đổi",
+    changedBody: (from: string, to: string) => `Email đăng nhập trang thẻ tích điểm vừa được đổi từ <strong>${esc(from)}</strong> sang <strong>${esc(to)}</strong>. Nếu không phải bạn đổi, hãy trả lời VaraaAi qua trang hỗ trợ ngay.`,
+  },
+  en: {
+    staffSubject: (s: string) => `You have a loyalty card login at ${s}`,
+    staffPre: "Sign in to scan cards and stamp visits.",
+    staffEyebrow: "Staff login",
+    staffTitle: (name: string) => `Hi ${name}, your login is ready`,
+    staffIntro: (s: string) => `${s} created a login for you to scan loyalty cards and stamp customers' visits.`,
+    staffLogin: "Sign in",
+    staffHow: [
+      { title: "Open the sign-in page", body: "Tap the button above and choose “Sign in with password”." },
+      { title: "Enter your email and password", body: "The email is the one you're reading this at. The owner gives you the password." },
+      { title: "Scan customers' cards", body: "Point your phone camera at the QR on the customer's card and tap “Add 1 stamp”." },
+    ],
+    staffNote: "Forgot the password? Ask the owner to reset it under Profile.",
+    changedSubject: (s: string) => `${s}: your loyalty card sign-in email changed`,
+    changedPre: "The sign-in email was just changed.",
+    changedTitle: "Sign-in email changed",
+    changedBody: (from: string, to: string) => `The sign-in email of your loyalty cards changed from <strong>${esc(from)}</strong> to <strong>${esc(to)}</strong>. If this wasn't you, contact VaraaAi through the support page right away.`,
+  },
+  fi: {
+    staffSubject: (s: string) => `Sinulla on kirjautuminen kanta-asiakaskortteihin: ${s}`,
+    staffPre: "Kirjaudu skannaamaan kortteja ja leimaamaan käyntejä.",
+    staffEyebrow: "Henkilökunnan tunnus",
+    staffTitle: (name: string) => `Hei ${name}, tunnuksesi on valmis`,
+    staffIntro: (s: string) => `${s} loi sinulle tunnuksen kanta-asiakaskorttien skannaamiseen ja leimaamiseen.`,
+    staffLogin: "Kirjaudu",
+    staffHow: [
+      { title: "Avaa kirjautuminen", body: "Napauta yllä olevaa painiketta ja valitse ”Kirjaudu salasanalla”." },
+      { title: "Syötä sähköposti ja salasana", body: "Sähköposti on tämä osoite. Salasanan saat omistajalta." },
+      { title: "Skannaa asiakkaiden kortit", body: "Osoita puhelimen kameralla asiakkaan QR-koodia ja napauta ”Lisää 1 leima”." },
+    ],
+    staffNote: "Unohtuiko salasana? Pyydä omistajaa vaihtamaan se kohdassa Profiili.",
+    changedSubject: (s: string) => `${s}: kirjautumissähköposti vaihtui`,
+    changedPre: "Kirjautumissähköposti vaihdettiin juuri.",
+    changedTitle: "Kirjautumissähköposti vaihtui",
+    changedBody: (from: string, to: string) => `Kanta-asiakaskorttien kirjautumissähköposti vaihtui osoitteesta <strong>${esc(from)}</strong> osoitteeseen <strong>${esc(to)}</strong>. Jos et tehnyt tätä, ota heti yhteyttä VaraaAi:hin tukisivun kautta.`,
+  },
+} satisfies Record<LiteLocale, unknown>;
+
+/** To a new staff login: where to sign in (the password comes from the owner). */
+export function liteStaffEmail(s: Salon, staff: { name: string }) {
+  const a = ACCOUNT[liteLocale(s.locale)];
+  const loginUrl = `${SITE_URL}${s.locale === "vi" ? "" : `/${s.locale}`}/loyalty-lite?login=1`;
+  return {
+    subject: a.staffSubject(s.salonName),
+    html: emailLayout({
+      locale: s.locale,
+      preheader: a.staffPre,
+      brand: { name: s.salonName },
+      hero: { eyebrow: esc(a.staffEyebrow), title: esc(a.staffTitle(first(staff.name))), intro: esc(a.staffIntro(s.salonName)), tone: "gold", badge: "✦" },
+      body: button(loginUrl, esc(a.staffLogin), { variant: "dark" }) + steps(a.staffHow) + notice(null, esc(a.staffNote), "info", 20),
+    }),
+  };
+}
+
+/** To the old address when the owner changes the sign-in email. */
+export function liteEmailChangedEmail(s: Salon, from: string, to: string) {
+  const a = ACCOUNT[liteLocale(s.locale)];
+  return {
+    subject: a.changedSubject(s.salonName),
+    html: emailLayout({
+      locale: s.locale,
+      preheader: a.changedPre,
+      brand: null,
+      hero: { title: esc(a.changedTitle), tone: "alert" },
+      body: para(a.changedBody(from, to)),
     }),
   };
 }
