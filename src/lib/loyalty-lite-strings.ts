@@ -139,6 +139,12 @@ const vi = {
   cardSave: "Mẹo: chụp màn hình thẻ để mở nhanh khi ở salon.",
   ownerPanel: "Dành cho salon",
   promo: "Tạo thẻ tích điểm miễn phí cho salon của bạn",
+  promoEyebrow: "Mới · Miễn phí",
+  promoTitle: "Dùng thử thẻ tích điểm ngay hôm nay",
+  promoText: "Chỉ cần tên salon và email — không mật khẩu, không cài app. Cấp thẻ VIP có mã QR cho khách, quét bằng camera điện thoại và đóng dấu mỗi lần khách đến.",
+  promoPoints: ["Sẵn sàng trong 30 giây", "Miễn phí cho 50 khách", "Nâng cấp giữ nguyên thẻ của khách"],
+  promoCta: "Tạo thẻ tích điểm miễn phí",
+  footerLink: "Thẻ tích điểm miễn phí",
 };
 
 type LiteStrings = typeof vi;
@@ -278,6 +284,12 @@ const en: LiteStrings = {
   cardSave: "Tip: take a screenshot of the card to open it quickly at the salon.",
   ownerPanel: "For the salon",
   promo: "Create free loyalty cards for your salon",
+  promoEyebrow: "New · Free",
+  promoTitle: "Try loyalty cards today",
+  promoText: "Just your salon name and email — no password, no app. Give customers a VIP card with a QR code, scan it with your phone camera and add a stamp at every visit.",
+  promoPoints: ["Ready in 30 seconds", "Free for 50 customers", "Upgrade and keep every card"],
+  promoCta: "Create free loyalty cards",
+  footerLink: "Free loyalty cards",
 };
 
 const fi: LiteStrings = {
@@ -355,6 +367,12 @@ const fi: LiteStrings = {
   cardProgress: "{n}/{total} leimaa",
   ownerPanel: "Salongille",
   promo: "Luo ilmaiset kanta-asiakaskortit salongillesi",
+  promoEyebrow: "Uutta · Ilmainen",
+  promoTitle: "Kokeile kanta-asiakaskortteja jo tänään",
+  promoText: "Vain salongin nimi ja sähköposti — ei salasanaa, ei sovellusta. Anna asiakkaille VIP-kortti QR-koodilla, skannaa se puhelimen kameralla ja lisää leima jokaisella käynnillä.",
+  promoPoints: ["Valmiina 30 sekunnissa", "Ilmainen 50 asiakkaalle", "Päivitä ja säilytä kortit"],
+  promoCta: "Luo ilmaiset kortit",
+  footerLink: "Ilmaiset kanta-asiakaskortit",
 };
 
 const ALL: Record<string, LiteStrings> = { vi, en, fi };

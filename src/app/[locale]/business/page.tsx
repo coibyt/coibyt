@@ -28,6 +28,7 @@ import {
   Smartphone,
   Monitor,
   Sparkles,
+  Stamp,
   Star,
   UserCog,
 } from "lucide-react";
@@ -38,6 +39,9 @@ import { OfferCountdown } from "@/components/offer-countdown";
 import { OpenSupportButton, SupportLauncher } from "@/components/support-launcher";
 import { businessLandingStrings, type BusinessLandingStrings } from "@/lib/business-landing/strings";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
+import { liteStrings } from "@/lib/loyalty-lite-strings";
+import { DEFAULT_REWARD, liteLocale } from "@/lib/loyalty-lite";
+import { LiteMemberCard } from "@/components/loyalty-lite/member-card";
 import { spotlightStrings, type SpotlightStrings } from "@/lib/business-landing/spotlight";
 import { InstallAppButton } from "@/components/install-app-button";
 import { BusinessMapShowcase } from "@/components/business-map-showcase";
@@ -84,6 +88,7 @@ const TOOL_META = [
 export default async function BusinessLandingPage({ params }: { params: Params }) {
   const { locale } = await params;
   const t = businessLandingStrings(locale);
+  const lite = liteStrings(locale);
   const center = supportCenterStrings(locale);
   const spot = spotlightStrings(locale);
   const map = businessMapStrings(locale);
@@ -228,6 +233,51 @@ export default async function BusinessLandingPage({ params }: { params: Params }
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Loyalty Lite: free loyalty cards with just a name and an email */}
+      <section className="container pt-16 sm:pt-24">
+        <div className="relative isolate overflow-hidden rounded-[2.25rem] bg-[#1f182d] p-7 text-white shadow-[0_40px_80px_-45px_rgba(31,24,45,0.9)] sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute -left-20 -top-28 -z-10 h-80 w-80 rounded-full bg-[#624f89]/60 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 right-10 -z-10 h-80 w-80 rounded-full bg-[#c9a96e]/20 blur-3xl" />
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+            <div>
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#e8d3a6]/30 bg-white/5 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.25em] text-[#e8d3a6]">
+                <Stamp className="h-3.5 w-3.5" />
+                {lite.promoEyebrow}
+              </p>
+              <h2 className="mt-4 font-serif text-3xl font-bold leading-tight sm:text-4xl">{lite.promoTitle}</h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/75 sm:text-base">{lite.promoText}</p>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {lite.promoPoints.map((p) => (
+                  <li key={p} className="flex items-center gap-1.5 rounded-full bg-white/[0.07] px-3 py-1.5 text-xs font-semibold text-white/85 ring-1 ring-white/10">
+                    <Check className="h-3.5 w-3.5 text-[#e8d3a6]" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/loyalty-lite"
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-6 py-3 text-sm font-bold text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)] transition hover:brightness-105"
+              >
+                {lite.promoCta}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="mx-auto w-full max-w-sm rotate-[-3deg]">
+              <LiteMemberCard
+                salonName="Moja Beauty"
+                customerName="Sara Pentti"
+                token="K7Q2M9XPRA"
+                stamps={7}
+                required={10}
+                reward={DEFAULT_REWARD[liteLocale(locale)]}
+                labels={{ member: lite.cardMember, code: lite.cardCode, reward: lite.cardReward, progress: lite.cardProgress.replace("{n}", "7").replace("{total}", "10") }}
+                compact
+              />
+            </div>
           </div>
         </div>
       </section>

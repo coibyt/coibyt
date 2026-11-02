@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { priceListNavLabel } from "@/lib/price-list/i18n/nav-label";
 import { posterNavLabel } from "@/lib/qr-poster/i18n/nav-label";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
+import { liteStrings } from "@/lib/loyalty-lite-strings";
 import { spotlightStrings } from "@/lib/business-landing/spotlight";
 import QRCode from "qrcode";
 import { BellRing, Check, Sparkles } from "lucide-react";
@@ -123,6 +124,7 @@ export async function Footer() {
           title={t("forBusiness")}
           links={[
             { href: "/business", label: t("forBusiness") },
+            { href: "/loyalty-lite", label: liteStrings(locale).footerLink },
             { href: "/salon-check", label: locale === "vi" ? "Kiểm tra salon miễn phí" : "Free salon check" },
             { href: "/tools/price-list", label: priceListNavLabel(locale) },
             { href: "/tools/qr-poster", label: posterNavLabel(locale) },
