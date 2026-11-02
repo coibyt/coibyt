@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { botConfig, groupStaff, linkCode, sendTelegramNow } from "@/lib/telegram";
+import { TELEGRAM_LOCALES, botConfig, groupStaff, linkCode, sendTelegramNow } from "@/lib/telegram";
 
 /** The owner's Telegram reminders: on/off, linked groups and staff
  * @usernames (src/lib/telegram.ts). */
@@ -13,9 +13,10 @@ async function state(businessId: string) {
       where: { id: businessId },
       select: {
         ownerId: true,
+        defaultLocale: true,
         telegramRemindersOn: true,
         telegramGroups: {
-          select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true },
+          select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, locale: true },
           orderBy: { createdAt: "asc" },
         },
       },
@@ -34,7 +35,8 @@ async function state(businessId: string) {
     addUrl: cfg && code ? `https://t.me/${cfg.username}?startgroup=${code}` : null,
     command: code ? `/start ${code}` : null,
     on: b.telegramRemindersOn,
-    groups: b.telegramGroups.map((g) => ({ ...g, staffIds: groupStaff(g) })),
+    // A group without its own language posts in the salon's (when the bot speaks it).
+    groups: b.telegramGroups.map((g) => ({ ...g, staffIds: groupStaff(g), locale: g.locale ?? ((TELEGRAM_LOCALES as readonly string[]).includes(b.defaultLocale) ? b.defaultLocale : "en") })),
     staff,
     allStaff: allStaff.map((s) => ({ id: s.id, name: s.name, branch: s.business.name, here: s.businessId === businessId })),
     branches: new Set(allStaff.map((s) => s.businessId)).size,

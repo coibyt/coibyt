@@ -191,8 +191,12 @@ const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w
 
 const salonSelect = { id: true, name: true, ownerId: true, timezone: true, defaultLocale: true, incomeRemindersSince: true, incomeReportsFrom: true } as const;
 type Salon = { id: string; name: string; ownerId: string; timezone: string; defaultLocale: string; incomeRemindersSince: Date | null; incomeReportsFrom: Date | null };
-type GroupRow = { id: string; chatId: string; businessId: string; notifyIncome: boolean; notifyBookings: boolean; allBranches: boolean; staffIds: unknown; lastRemindedOn: string | null };
-const groupSelect = { id: true, chatId: true, businessId: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, lastRemindedOn: true } as const;
+type GroupRow = { id: string; chatId: string; businessId: string; notifyIncome: boolean; notifyBookings: boolean; allBranches: boolean; staffIds: unknown; locale: string | null; lastRemindedOn: string | null };
+
+/** The languages the bot writes in; a group picks one (else the salon's). */
+export const TELEGRAM_LOCALES = ["vi", "en", "fi"] as const;
+const groupLocale = (g: { locale: string | null }, salonLocale: string) => g.locale ?? salonLocale;
+const groupSelect = { id: true, chatId: true, businessId: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, locale: true, lastRemindedOn: true } as const;
 
 /** The staff rows a group is limited to, or null for everyone. */
 export function groupStaff(g: { staffIds: unknown }): string[] | null {
@@ -210,7 +214,8 @@ async function groupSalons(g: GroupRow, home: Salon): Promise<Salon[]> {
 
 /** The reminder for a group — its branches and staff — or null when nobody is late. */
 async function reminderText(g: GroupRow, home: Salon) {
-  const S = strings(home.defaultLocale);
+  const lang = groupLocale(g, home.defaultLocale);
+  const S = strings(lang);
   const salons = await groupSalons(g, home);
   const only = groupStaff(g);
   const overdue: (OverdueBooking & { branch: string; tz: string })[] = [];
@@ -225,7 +230,7 @@ async function reminderText(g: GroupRow, home: Salon) {
   const staff = await prisma.staff.findMany({ where: { id: { in: [...byStaff.keys()] } }, select: { id: true, name: true, telegramUsername: true } });
   const lines = staff.map((s) => {
     const items = byStaff.get(s.id) ?? [];
-    const dayFmt = new Intl.DateTimeFormat(home.defaultLocale, { weekday: "short", day: "numeric", month: "numeric", timeZone: items[0].tz });
+    const dayFmt = new Intl.DateTimeFormat(lang, { weekday: "short", day: "numeric", month: "numeric", timeZone: items[0].tz });
     const days = [...new Set(items.map((i) => dayFmt.format(new Date(i.startsAt))))].join(", ");
     const where = salons.length > 1 ? ` · ${esc(items[0].branch)}` : "";
     return "• " + fill(S.line, { who: tag(s) + where, n: items.length, days: esc(days) });
@@ -267,9 +272,9 @@ export async function sendTelegramIncomeReminders() {
  * reminder (or an all-clear); a bookings-only group gets a short hello. */
 export async function sendTelegramNow(businessId: string) {
   const b = await prisma.business.findUniqueOrThrow({ where: { id: businessId }, select: { ...salonSelect, telegramGroups: { select: groupSelect } } });
-  const S = strings(b.defaultLocale);
   let sent = 0;
   for (const g of b.telegramGroups) {
+    const S = strings(groupLocale(g, b.defaultLocale));
     try {
       const text = g.notifyIncome
         ? ((await reminderText(g, b)) ?? fill(S.allDone, { salon: esc(g.allBranches ? S.allBranches : b.name) }))
@@ -308,14 +313,14 @@ export async function telegramNewBooking(bookingId: string) {
       business: { telegramRemindersOn: true, status: "APPROVED" },
       OR: [{ businessId: bk.business.id }, { allBranches: true, business: { ownerId: bk.business.ownerId } }],
     },
-    select: { chatId: true, staffIds: true, business: { select: { defaultLocale: true } } },
+    select: { chatId: true, staffIds: true, locale: true, business: { select: { defaultLocale: true } } },
   });
   const done = new Set<string>();
   for (const g of groups) {
     const only = groupStaff(g);
     if (done.has(g.chatId) || (only && (!bk.staffId || !only.includes(bk.staffId)))) continue;
     done.add(g.chatId);
-    const S = strings(g.business.defaultLocale);
+    const S = strings(groupLocale(g, g.business.defaultLocale));
     const time = `${formatInTimeZone(bk.startsAt, tz, "HH:mm")}–${formatInTimeZone(bk.endsAt, tz, "HH:mm")}`;
     const text = [
       fill(S.booking, {

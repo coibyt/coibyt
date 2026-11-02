@@ -703,6 +703,8 @@ model TelegramGroup {
   allBranches    Boolean   @default(false)
   /// Only these staff rows (any of the owner's branches); null = everyone.
   staffIds       Json?
+  /// The language the bot posts in here (vi, en, fi); null = the salon's default.
+  locale         String?   @db.VarChar(8)
   createdAt      DateTime  @default(now())
 
   @@unique([businessId, chatId])

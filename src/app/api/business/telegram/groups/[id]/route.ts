@@ -3,6 +3,7 @@ import { z } from "zod";
 import { Prisma } from "@prisma/client";
 import { requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
+import { TELEGRAM_LOCALES } from "@/lib/telegram";
 
 /** What one linked Telegram group gets: income reminders, today's new
  * bookings, which staff, this branch or all the owner's branches. */
@@ -12,6 +13,8 @@ const schema = z.object({
   allBranches: z.boolean().optional(),
   // null or [] = every staff member.
   staffIds: z.array(z.string().cuid()).max(200).nullable().optional(),
+  // The language the bot posts in here; null = the salon's default.
+  locale: z.enum(TELEGRAM_LOCALES).nullable().optional(),
 });
 
 export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
@@ -34,7 +37,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     where: { id },
     // An empty choice means everyone: stored as NULL.
     data: { ...flags, ...(staff !== undefined ? { staffIds: staff?.length ? staff : Prisma.DbNull } : {}) },
-    select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true },
+    select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, locale: true },
   });
   return NextResponse.json({ group: updated });
 }

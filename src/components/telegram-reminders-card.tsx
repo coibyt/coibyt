@@ -22,6 +22,7 @@ interface Group {
   notifyBookings: boolean;
   allBranches: boolean;
   staffIds: string[] | null;
+  locale: string;
 }
 
 const T = {
@@ -46,6 +47,7 @@ const T = {
     whose: "Của nhân viên",
     everyone: "Tất cả nhân viên",
     nothing: "Nhóm này chưa nhận tin nào — chọn ít nhất một loại.",
+    language: "Ngôn ngữ bot đăng",
     add: "Thêm bot vào nhóm",
     copied: "Đã chép",
     groups: "Nhóm đã kết nối",
@@ -80,6 +82,7 @@ const T = {
     whose: "For staff",
     everyone: "All staff",
     nothing: "This group gets nothing yet — choose at least one.",
+    language: "Language the bot posts in",
     add: "Add the bot to a group",
     copied: "Copied",
     groups: "Linked groups",
@@ -114,6 +117,7 @@ const T = {
     whose: "Työntekijät",
     everyone: "Kaikki työntekijät",
     nothing: "Ryhmä ei vielä saa mitään — valitse vähintään yksi.",
+    language: "Botin kieli",
     add: "Lisää botti ryhmään",
     copied: "Kopioitu",
     groups: "Yhdistetyt ryhmät",
@@ -128,6 +132,13 @@ const T = {
     sendFail: "Lähetys epäonnistui — tarkista, että botti on yhä ryhmässä.",
   },
 };
+
+/** The languages the bot can post in (src/lib/telegram.ts), by their own names. */
+const LANGS: [string, string][] = [
+  ["vi", "🇻🇳 Tiếng Việt"],
+  ["en", "🇬🇧 English"],
+  ["fi", "🇫🇮 Suomi"],
+];
 
 /** Owner, on the Doanh thu page: Telegram reminders for staff who haven't
  * reported income (/api/business/telegram, src/lib/telegram.ts). */
@@ -315,6 +326,15 @@ export function TelegramRemindersCard({ locale }: { locale: string }) {
                         </button>
                       </div>
                       {!g.notifyIncome && !g.notifyBookings && <p className="mt-1.5 text-[11px] font-semibold text-berry-600">{t.nothing}</p>}
+
+                      <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-400">{t.language}</p>
+                      <div className="mt-1.5 flex flex-wrap gap-1.5">
+                        {LANGS.map(([code, label]) => (
+                          <button key={code} type="button" onClick={() => saveGroup(g, { locale: code })} className={chip(g.locale === code)}>
+                            {label}
+                          </button>
+                        ))}
+                      </div>
 
                       {s.branches > 1 && (
                         <>
