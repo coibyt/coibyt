@@ -40,7 +40,9 @@ export interface LiteCardRow {
   createdAt: string;
 }
 
-type Tab = "scan" | "new" | "cards" | "program" | "guide";
+type Tab = "cards" | "guide";
+/** Which section a message belongs to — it shows inside that section. */
+type Area = "scan" | "new" | "program" | "cards";
 type Flash = { ok: boolean; text: string } | null;
 
 const fill = (s: string, v: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (m, k: string) => (k in v ? String(v[k]) : m));
@@ -68,7 +70,8 @@ export function LiteStudio({
   stamps30: number;
 }) {
   const router = useRouter();
-  const [tab, setTab] = useState<Tab>(initial.cards.length ? "scan" : "new");
+  const [tab, setTab] = useState<Tab>("cards");
+  const [area, setArea] = useState<Area>("scan");
   const [salon, setSalon] = useState({ salonName: initial.salonName, stampsRequired: initial.stampsRequired, rewardText: initial.rewardText });
   const [cards, setCards] = useState<LiteCardRow[]>(initial.cards);
   const [stampCount, setStampCount] = useState(stamps30);
@@ -105,6 +108,7 @@ export function LiteStudio({
 
   async function lookup(value: string) {
     setBusy("lookup");
+    setArea("scan");
     setFlash(null);
     const res = await fetch("/api/loyalty-lite/lookup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ code: value }) }).catch(() => null);
     setBusy(null);
@@ -117,8 +121,9 @@ export function LiteStudio({
     setFound((await res.json()).card);
   }
 
-  async function act(card: LiteCardRow, action: "stamp" | "redeem" | "resend") {
+  async function act(card: LiteCardRow, action: "stamp" | "redeem" | "resend", where: Area = "cards") {
     setBusy(`${action}-${card.id}`);
+    setArea(where);
     setFlash(null);
     const res = await fetch(`/api/loyalty-lite/cards/${card.id}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action }) }).catch(() => null);
     const d = await res?.json().catch(() => null);
@@ -138,6 +143,7 @@ export function LiteStudio({
   }
 
   async function startCamera() {
+    setArea("scan");
     setFlash(null);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
@@ -176,6 +182,7 @@ export function LiteStudio({
   async function create(e: React.FormEvent) {
     e.preventDefault();
     setBusy("create");
+    setArea("new");
     setFlash(null);
     const res = await fetch("/api/loyalty-lite/cards", {
       method: "POST",
@@ -199,6 +206,7 @@ export function LiteStudio({
   async function saveProgram(e: React.FormEvent) {
     e.preventDefault();
     setBusy("program");
+    setArea("program");
     setFlash(null);
     const res = await fetch("/api/loyalty-lite/program", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify(salon) }).catch(() => null);
     setBusy(null);
@@ -230,10 +238,7 @@ export function LiteStudio({
   const upgradeHref = `/business/apply?name=${encodeURIComponent(salon.salonName)}&email=${encodeURIComponent(initial.email)}`;
 
   const tabs: { key: Tab; label: string; icon: typeof Stamp }[] = [
-    { key: "scan", label: t.tabScan, icon: QrCode },
-    { key: "new", label: t.tabNew, icon: Plus },
     { key: "cards", label: t.tabCards, icon: Users },
-    { key: "program", label: t.tabProgram, icon: Settings2 },
     { key: "guide", label: t.tabGuide, icon: BookOpen },
   ];
 
@@ -241,17 +246,42 @@ export function LiteStudio({
   const gold = "inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_24px_-14px_rgba(185,133,45,0.95)] transition hover:brightness-105 disabled:opacity-60";
   const dark = "inline-flex items-center justify-center gap-2 rounded-full bg-[#1f182d] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#2f2544] disabled:opacity-60";
 
-  function CardActions({ card }: { card: LiteCardRow }) {
+  function Flash({ at }: { at: Area }) {
+    if (!flash || area !== at) return null;
+    return (
+      <p role="status" className={`mt-4 flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold ${flash.ok ? "bg-emerald-50 text-emerald-800" : "bg-berry-50 text-berry-700"}`}>
+        {flash.ok ? <Check className="h-4 w-4 shrink-0" /> : null}
+        {flash.text}
+      </p>
+    );
+  }
+
+  /** A section's title with its icon. */
+  function Head({ icon: Icon, title, sub }: { icon: typeof Stamp; title: string; sub: string }) {
+    return (
+      <div className="flex items-start gap-3">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#624f89] text-[#e8d3a6]">
+          <Icon className="h-5 w-5" />
+        </span>
+        <div className="min-w-0">
+          <p className="font-serif text-2xl leading-tight text-ink-900">{title}</p>
+          <p className="mt-1 text-sm text-ink-400">{sub}</p>
+        </div>
+      </div>
+    );
+  }
+
+  function CardActions({ card, where }: { card: LiteCardRow; where: Area }) {
     const full = card.stamps >= N;
     return (
       <div className="flex flex-wrap gap-2">
         {full ? (
-          <button type="button" disabled={!!busy} onClick={() => act(card, "redeem")} className={gold}>
+          <button type="button" disabled={!!busy} onClick={() => act(card, "redeem", where)} className={gold}>
             {busy === `redeem-${card.id}` ? <Loader2 className="h-4 w-4 animate-spin" /> : <Gift className="h-4 w-4" />}
             {t.redeem}
           </button>
         ) : (
-          <button type="button" disabled={!!busy} onClick={() => act(card, "stamp")} className={dark}>
+          <button type="button" disabled={!!busy} onClick={() => act(card, "stamp", where)} className={dark}>
             {busy === `stamp-${card.id}` ? <Loader2 className="h-4 w-4 animate-spin" /> : <Stamp className="h-4 w-4 text-[#e8d3a6]" />}
             {t.stamp}
           </button>
@@ -284,7 +314,7 @@ export function LiteStudio({
         </div>
         <dl className="relative mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {[
-            [t.statCards, `${cards.length}`, `/${maxCards}`],
+            [t.statCards, `${cards.length}`, `/${maxCards.toLocaleString(locale)}`],
             [t.statStamps, `${stampCount}`, ""],
             [t.statReady, `${ready}`, ""],
             [t.statRewards, `${redeemed}`, ""],
@@ -312,43 +342,10 @@ export function LiteStudio({
         </section>
       )}
 
-      {/* Tabs */}
-      <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1">
-        {tabs.map((x) => {
-          const on = tab === x.key;
-          return (
-            <button
-              key={x.key}
-              type="button"
-              onClick={() => {
-                setTab(x.key);
-                setFlash(null);
-              }}
-              className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold ring-1 transition ${
-                on ? "bg-[#1f182d] text-white ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
-              }`}
-            >
-              <x.icon className={`h-4 w-4 ${on ? "text-[#e8d3a6]" : "text-ink-400"}`} />
-              {x.label}
-              {x.key === "cards" && <span className={`rounded-full px-1.5 text-[10px] font-bold leading-4 ${on ? "bg-white/15" : "bg-mist-50"}`}>{cards.length}</span>}
-            </button>
-          );
-        })}
-      </div>
-
-      {flash && (
-        <p role="status" className={`flex items-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold ${flash.ok ? "bg-emerald-50 text-emerald-800" : "bg-berry-50 text-berry-700"}`}>
-          {flash.ok ? <Check className="h-4 w-4 shrink-0" /> : null}
-          {flash.text}
-        </p>
-      )}
-
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="min-w-0">
-          {tab === "scan" && (
+        <div className="min-w-0 space-y-6">
             <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
-              <p className="font-serif text-2xl text-ink-900">{t.scanTitle}</p>
-              <p className="mt-1 text-sm text-ink-400">{t.scanSub}</p>
+              <Head icon={QrCode} title={t.scanTitle} sub={t.scanSub} />
               {canDetect ? (
                 <div className="mt-4">
                   {camera ? (
@@ -389,6 +386,7 @@ export function LiteStudio({
                 </button>
               </form>
 
+              <Flash at="scan" />
               {found && (
                 <div className="mt-6 grid items-start gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                   <LiteMemberCard salonName={salon.salonName} customerName={found.customerName} token={found.token} stamps={found.stamps} required={N} reward={salon.rewardText} labels={labels(found)} compact />
@@ -398,17 +396,14 @@ export function LiteStudio({
                     <p className={`text-sm font-semibold ${found.stamps >= N ? "text-emerald-700" : "text-ink-700"}`}>
                       {found.stamps >= N ? t.ready : fill(t.stampsOf, { n: found.stamps, total: N })}
                     </p>
-                    <CardActions card={found} />
+                    <CardActions card={found} where="scan" />
                   </div>
                 </div>
               )}
             </section>
-          )}
 
-          {tab === "new" && (
             <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
-              <p className="font-serif text-2xl text-ink-900">{t.newTitle}</p>
-              <p className="mt-1 text-sm text-ink-400">{t.newSub}</p>
+              <Head icon={Plus} title={t.newTitle} sub={t.newSub} />
               <form onSubmit={create} className="mt-5 grid gap-3 sm:grid-cols-2">
                 <label className="block text-xs font-bold text-ink-700">
                   {t.customerName}
@@ -425,6 +420,7 @@ export function LiteStudio({
                   </button>
                 </div>
               </form>
+              <Flash at="new" />
               {created && (
                 <div className="mt-6 grid items-start gap-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
                   <LiteMemberCard
@@ -443,12 +439,70 @@ export function LiteStudio({
                       <ExternalLink className="h-4 w-4" />
                       {t.openCard}
                     </a>
-                    <CardActions card={created.card} />
+                    <CardActions card={created.card} where="new" />
                   </div>
                 </div>
               )}
             </section>
-          )}
+
+            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+              <Head icon={Settings2} title={t.programTitle} sub={t.programSub} />
+              <form onSubmit={saveProgram} className="mt-5 space-y-4">
+                <label className="block text-xs font-bold text-ink-700">
+                  {t.salonName}
+                  <input required minLength={2} maxLength={120} value={salon.salonName} onChange={(e) => setSalon((s) => ({ ...s, salonName: e.target.value }))} className={field} />
+                </label>
+                <div>
+                  <p className="text-xs font-bold text-ink-700">{t.stampsRequired}</p>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {Array.from({ length: 18 }, (_, i) => i + 3).map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => setSalon((s) => ({ ...s, stampsRequired: n }))}
+                        className={`h-10 w-10 rounded-xl text-sm font-bold ring-1 transition ${
+                          salon.stampsRequired === n ? "bg-[#1f182d] text-[#e8d3a6] ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
+                        }`}
+                      >
+                        {n}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                <label className="block text-xs font-bold text-ink-700">
+                  {t.rewardText}
+                  <input required minLength={2} maxLength={80} value={salon.rewardText} onChange={(e) => setSalon((s) => ({ ...s, rewardText: e.target.value }))} placeholder={t.rewardPh} className={field} />
+                </label>
+                <button type="submit" disabled={!!busy} className={gold}>
+                  {busy === "program" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+                  {t.save}
+                </button>
+              </form>
+              <Flash at="program" />
+            </section>
+
+          {/* Customers and the guide */}
+          <div className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-1 pt-2">
+            {tabs.map((x) => {
+              const on = tab === x.key;
+              return (
+                <button
+                  key={x.key}
+                  type="button"
+                  onClick={() => {
+                    setTab(x.key);
+                      }}
+                  className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold ring-1 transition ${
+                    on ? "bg-[#1f182d] text-white ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
+                  }`}
+                >
+                  <x.icon className={`h-4 w-4 ${on ? "text-[#e8d3a6]" : "text-ink-400"}`} />
+                  {x.label}
+                  {x.key === "cards" && <span className={`rounded-full px-1.5 text-[10px] font-bold leading-4 ${on ? "bg-white/15" : "bg-mist-50"}`}>{cards.length}</span>}
+                </button>
+              );
+            })}
+          </div>
 
           {tab === "cards" && (
             <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
@@ -456,6 +510,7 @@ export function LiteStudio({
                 <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-300" />
                 <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchPh} className={`${field} mt-0 pl-10`} />
               </div>
+              <Flash at="cards" />
               {shown.length === 0 ? (
                 <p className="mt-6 text-center text-sm text-ink-400">{t.noCards}</p>
               ) : (
@@ -512,44 +567,6 @@ export function LiteStudio({
             </section>
           )}
 
-          {tab === "program" && (
-            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
-              <p className="font-serif text-2xl text-ink-900">{t.programTitle}</p>
-              <p className="mt-1 text-sm text-ink-400">{t.programSub}</p>
-              <form onSubmit={saveProgram} className="mt-5 space-y-4">
-                <label className="block text-xs font-bold text-ink-700">
-                  {t.salonName}
-                  <input required minLength={2} maxLength={120} value={salon.salonName} onChange={(e) => setSalon((s) => ({ ...s, salonName: e.target.value }))} className={field} />
-                </label>
-                <div>
-                  <p className="text-xs font-bold text-ink-700">{t.stampsRequired}</p>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {Array.from({ length: 18 }, (_, i) => i + 3).map((n) => (
-                      <button
-                        key={n}
-                        type="button"
-                        onClick={() => setSalon((s) => ({ ...s, stampsRequired: n }))}
-                        className={`h-10 w-10 rounded-xl text-sm font-bold ring-1 transition ${
-                          salon.stampsRequired === n ? "bg-[#1f182d] text-[#e8d3a6] ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
-                        }`}
-                      >
-                        {n}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <label className="block text-xs font-bold text-ink-700">
-                  {t.rewardText}
-                  <input required minLength={2} maxLength={80} value={salon.rewardText} onChange={(e) => setSalon((s) => ({ ...s, rewardText: e.target.value }))} placeholder={t.rewardPh} className={field} />
-                </label>
-                <button type="submit" disabled={!!busy} className={gold}>
-                  {busy === "program" ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
-                  {t.save}
-                </button>
-              </form>
-            </section>
-          )}
-
           {tab === "guide" && (
             <section className="space-y-4">
               <div className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
@@ -587,7 +604,7 @@ export function LiteStudio({
         {/* Upgrade */}
         <aside className="space-y-4">
           <div className="rounded-[2rem] border border-[#ecd9ad] bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5">
-            <p className="text-xs font-bold text-[#8a6a2c]">{fill(t.usage, { n: cards.length, max: maxCards })}</p>
+            <p className="text-xs font-bold text-[#8a6a2c]">{fill(t.usage, { n: cards.length, max: maxCards.toLocaleString(locale) })}</p>
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-white">
               <div className="h-full rounded-full bg-gradient-to-r from-[#d9b25c] to-[#b9852d]" style={{ width: `${Math.min(100, (cards.length / maxCards) * 100)}%` }} />
             </div>

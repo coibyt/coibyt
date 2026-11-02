@@ -31,7 +31,7 @@ const T = {
     keyBody: "Đường link trên là chìa khoá vào trang quản lý của bạn. Mở nó trên điện thoại và máy ở quầy để đóng dấu ở đâu cũng được. Đừng chuyển tiếp email này cho người ngoài.",
     upgradeTitle: "Muốn nhiều hơn?",
     upgradeBody: (n: number) =>
-      `Bản miễn phí dùng cho tối đa ${n} khách. Đăng ký VaraaAi đầy đủ bằng cùng email này để có thẻ không giới hạn, đặt lịch online, nhắc lịch tự động, marketing qua email, quản lý nhân viên — thẻ và dấu của khách được chuyển sang tự động.`,
+      `Bản miễn phí dùng cho tối đa ${n.toLocaleString("vi-VN")} khách. Đăng ký VaraaAi đầy đủ bằng cùng email này để có thẻ không giới hạn, đặt lịch online, nhắc lịch tự động, marketing qua email, quản lý nhân viên — thẻ và dấu của khách được chuyển sang tự động.`,
     upgradeCta: "Tìm hiểu VaraaAi cho salon",
     signinSubject: (s: string) => `Link đăng nhập trang thẻ tích điểm của ${s}`,
     signinPre: "Bấm để mở lại trang thẻ tích điểm của salon.",
@@ -84,7 +84,7 @@ const T = {
     keyBody: "The link above is the key to your dashboard. Open it on your phone and the front-desk computer to stamp anywhere. Don't forward this email to anyone outside the salon.",
     upgradeTitle: "Want more?",
     upgradeBody: (n: number) =>
-      `The free version covers up to ${n} customers. Sign up for full VaraaAi with this same email for unlimited cards, online booking, automatic reminders, email marketing and staff tools — your customers' cards and stamps move over automatically.`,
+      `The free version covers up to ${n.toLocaleString("en-US")} customers. Sign up for full VaraaAi with this same email for unlimited cards, online booking, automatic reminders, email marketing and staff tools — your customers' cards and stamps move over automatically.`,
     upgradeCta: "See VaraaAi for salons",
     signinSubject: (s: string) => `Your sign-in link for ${s}'s loyalty cards`,
     signinPre: "Tap to open your salon's loyalty dashboard again.",
@@ -137,7 +137,7 @@ const T = {
     keyBody: "Yllä oleva linkki on avain hallintaasi. Avaa se puhelimessa ja vastaanoton koneella, niin voit leimata missä vain. Älä välitä viestiä salongin ulkopuolelle.",
     upgradeTitle: "Haluatko enemmän?",
     upgradeBody: (n: number) =>
-      `Ilmaisversio riittää ${n} asiakkaalle. Rekisteröidy täyteen VaraaAi:hin samalla sähköpostilla: rajattomasti kortteja, verkkoajanvaraus, automaattiset muistutukset, sähköpostimarkkinointi ja henkilökunnan työkalut — asiakkaiden kortit ja leimat siirtyvät automaattisesti.`,
+      `Ilmaisversio riittää ${n.toLocaleString("fi-FI")} asiakkaalle. Rekisteröidy täyteen VaraaAi:hin samalla sähköpostilla: rajattomasti kortteja, verkkoajanvaraus, automaattiset muistutukset, sähköpostimarkkinointi ja henkilökunnan työkalut — asiakkaiden kortit ja leimat siirtyvät automaattisesti.`,
     upgradeCta: "Tutustu VaraaAi:hin",
     signinSubject: (s: string) => `${s}: kirjautumislinkki kanta-asiakaskortteihin`,
     signinPre: "Avaa salongin kanta-asiakashallinta uudelleen.",

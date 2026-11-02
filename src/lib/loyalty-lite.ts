@@ -12,7 +12,7 @@ import { SITE_URL } from "@/lib/email/ui";
  * and cards over (importLiteSalon). */
 
 export const LITE_COOKIE = "varaaai_lite";
-export const LITE_MAX_CARDS = 50;
+export const LITE_MAX_CARDS = 1000;
 /** One stamp per visit: a card can't be stamped again within this time. */
 export const LITE_STAMP_GAP_HOURS = 12;
 const HOUR = 60 * 60 * 1000;

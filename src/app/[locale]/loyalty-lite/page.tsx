@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { BellRing, Camera, Check, ChevronDown, Gift, Mail, QrCode, ShieldCheck, Smartphone, Sparkles, Stamp } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { siteSerif } from "@/lib/site-fonts";
-import { currentLiteSalon, DEFAULT_REWARD, LITE_MAX_CARDS, liteLocale } from "@/lib/loyalty-lite";
+import { currentLiteSalon, DEFAULT_REWARD, liteLocale } from "@/lib/loyalty-lite";
 import { liteStrings } from "@/lib/loyalty-lite-strings";
 import { ogImage } from "@/lib/og-image";
 import { LiteMemberCard } from "@/components/loyalty-lite/member-card";
@@ -134,7 +134,7 @@ export default async function LoyaltyLitePage({ params, searchParams }: { params
               {t.freeItems.map((x) => (
                 <li key={x} className="flex gap-2.5 text-sm text-ink-700">
                   <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-                  {x.replace("50", String(LITE_MAX_CARDS))}
+                  {x}
                 </li>
               ))}
             </ul>
