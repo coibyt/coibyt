@@ -235,11 +235,15 @@ export async function mirrorBranchHours(staffId: string): Promise<number> {
   });
   if (others.length === 0) return 0;
 
-  let rows: { weekday: number; openMinute: number; closeMinute: number; validFrom: string | null; validUntil: string | null }[] =
+  // One-day changes (validFrom = validUntil, made by dragging on a branch's
+  // calendar) belong to that branch: not copied, and each branch keeps its own.
+  const oneDay = (r: { validFrom: string | null; validUntil: string | null }) => !!r.validFrom && r.validFrom === r.validUntil;
+  let rows: { weekday: number; openMinute: number; closeMinute: number; validFrom: string | null; validUntil: string | null }[] = (
     await prisma.staffHours.findMany({
       where: { staffId },
       select: { weekday: true, openMinute: true, closeMinute: true, validFrom: true, validUntil: true },
-    });
+    })
+  ).filter((r) => !oneDay(r));
   if (!rows.some((r) => r.validFrom === null && r.validUntil === null)) {
     const salon = await prisma.businessHours.findMany({
       where: { businessId: s.businessId },
@@ -249,13 +253,45 @@ export async function mirrorBranchHours(staffId: string): Promise<number> {
   }
 
   const ids = others.map((o) => o.id);
+  const theirOwn = (
+    await prisma.staffHours.findMany({
+      where: { staffId: { in: ids }, validFrom: { not: null } },
+      select: { staffId: true, weekday: true, openMinute: true, closeMinute: true, validFrom: true, validUntil: true },
+    })
+  ).filter(oneDay);
   await prisma.$transaction([
     prisma.staffHours.deleteMany({ where: { staffId: { in: ids } } }),
-    ...(rows.length
-      ? [prisma.staffHours.createMany({ data: ids.flatMap((id) => rows.map((r) => ({ ...r, staffId: id }))) })]
+    ...(rows.length || theirOwn.length
+      ? [prisma.staffHours.createMany({ data: [...ids.flatMap((id) => rows.map((r) => ({ ...r, staffId: id }))), ...theirOwn] })]
       : []),
   ]);
   return ids.length;
+}
+
+/** The calendar's drag at one branch, also at the chosen other branches
+ * (business ids) where the same person works: that period's hours replaced
+ * there. Returns how many branches changed. */
+export async function copyPeriodToBranches(
+  staffId: string,
+  businessIds: string[],
+  period: { hours: { weekday: number; openMinute: number; closeMinute: number }[]; from: string | null; until: string | null },
+) {
+  if (businessIds.length === 0) return 0;
+  const s = await prisma.staff.findUnique({ where: { id: staffId }, select: { branchGroup: true, business: { select: { ownerId: true } } } });
+  if (!s?.branchGroup) return 0;
+  const targets = await prisma.staff.findMany({
+    where: { branchGroup: s.branchGroup, id: { not: staffId }, businessId: { in: businessIds }, business: { ownerId: s.business.ownerId } },
+    select: { id: true },
+  });
+  for (const t of targets) {
+    await prisma.$transaction([
+      prisma.staffHours.deleteMany({ where: { staffId: t.id, validFrom: period.from, validUntil: period.until } }),
+      ...(period.hours.length
+        ? [prisma.staffHours.createMany({ data: period.hours.map((h) => ({ ...h, staffId: t.id, validFrom: period.from, validUntil: period.until })) })]
+        : []),
+    ]);
+  }
+  return targets.length;
 }
 
 const sameName = (s: string) => s.trim().toLowerCase();

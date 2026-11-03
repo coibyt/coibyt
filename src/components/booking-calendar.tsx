@@ -251,6 +251,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: string;
     confirm: string;
     cancel: string;
+    otherBranches: string;
+    onlyThisBranch: string;
   }
 > = {
   vi: {
@@ -261,6 +263,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "Giờ mới là",
     confirm: "Được rồi",
     cancel: "Huỷ bỏ",
+    otherBranches: "Nhân viên này còn làm ở các chi nhánh khác. Đổi giờ ngày này ở:",
+    onlyThisBranch: "Chỉ chi nhánh này (không đổi chi nhánh khác)",
   },
   en: {
     dragStart: "Drag to change start time",
@@ -270,6 +274,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "The new time is",
     confirm: "Confirm",
     cancel: "Cancel",
+    otherBranches: "This person also works at other branches. Change this day at:",
+    onlyThisBranch: "Only this branch (leave the others)",
   },
   fi: {
     dragStart: "Vedä muuttaaksesi alkamisaikaa",
@@ -279,6 +285,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "Uusi aika on",
     confirm: "OK",
     cancel: "Peruuta",
+    otherBranches: "Työntekijä työskentelee myös muissa toimipisteissä. Muuta tämä päivä myös:",
+    onlyThisBranch: "Vain tämä toimipiste (muut ennallaan)",
   },
   pl: {
     dragStart: "Przeciągnij, aby zmienić godzinę rozpoczęcia",
@@ -288,6 +296,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "Nowa godzina to",
     confirm: "OK",
     cancel: "Anuluj",
+    otherBranches: "Ta osoba pracuje też w innych oddziałach. Zmień ten dzień również w:",
+    onlyThisBranch: "Tylko ten oddział (bez zmian w innych)",
   },
   de: {
     dragStart: "Ziehen, um die Startzeit zu ändern",
@@ -297,6 +307,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "Die neue Zeit ist",
     confirm: "OK",
     cancel: "Abbrechen",
+    otherBranches: "Diese Person arbeitet auch in anderen Filialen. Diesen Tag auch ändern in:",
+    onlyThisBranch: "Nur diese Filiale (die anderen bleiben)",
   },
   km: {
     dragStart: "អូសដើម្បីប្តូរម៉ោងចាប់ផ្តើម",
@@ -306,6 +318,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "ម៉ោងថ្មីគឺ",
     confirm: "យល់ព្រម",
     cancel: "បោះបង់",
+    otherBranches: "បុគ្គលិកនេះធ្វើការនៅសាខាផ្សេងទៀតដែរ។ ប្តូរថ្ងៃនេះនៅ៖",
+    onlyThisBranch: "តែសាខានេះប៉ុណ្ណោះ",
   },
   th: {
     dragStart: "ลากเพื่อเปลี่ยนเวลาเริ่มงาน",
@@ -315,6 +329,8 @@ const HOURS_DIALOG: Record<
     newTimeIs: "เวลาใหม่คือ",
     confirm: "ตกลง",
     cancel: "ยกเลิก",
+    otherBranches: "พนักงานคนนี้ทำงานที่สาขาอื่นด้วย เปลี่ยนวันนี้ที่:",
+    onlyThisBranch: "เฉพาะสาขานี้ (สาขาอื่นไม่เปลี่ยน)",
   },
 };
 
@@ -817,7 +833,7 @@ export function BookingCalendar({
     setStaffHoursMap((prev) => new Map(prev).set(staffId, d.hours ?? []));
   }
 
-  async function commitStaffHoursResize(staffId: string, edge: "open" | "close", newMinute: number) {
+  async function commitStaffHoursResize(staffId: string, edge: "open" | "close", newMinute: number, branches: string[] = []) {
     const todayWeekday = anchorDate.getDay();
     const current = getStaffWindow(staffId, anchorDate) ?? {
       weekday: todayWeekday,
@@ -856,6 +872,8 @@ export function BookingCalendar({
         oldFrom: from,
         oldUntil: until,
         hours: newWindows.map(({ weekday, openMinute, closeMinute }) => ({ weekday, openMinute, closeMinute })),
+        // The other branches the owner ticked in the dialog (none by default).
+        branches,
       }),
     });
     await reloadStaffHours(staffId);
@@ -866,11 +884,32 @@ export function BookingCalendar({
     await commitStaffHoursResize(
       pendingHoursChange.staffId,
       pendingHoursChange.edge,
-      pendingHoursChange.newMinute
+      pendingHoursChange.newMinute,
+      hoursBranchPick
     );
     setPendingHoursChange(null);
     setResizePreview(null);
   }
+
+  // The dialog's list: the person's other branches, none ticked by default.
+  const [hoursBranches, setHoursBranches] = useState<{ id: string; name: string }[]>([]);
+  const [hoursBranchPick, setHoursBranchPick] = useState<string[]>([]);
+  const pendingStaffId = pendingHoursChange?.staffId;
+  useEffect(() => {
+    setHoursBranches([]);
+    setHoursBranchPick([]);
+    if (!pendingStaffId || !isOwner) return;
+    let alive = true;
+    fetch(`/api/business/staff/${pendingStaffId}/branches`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: { branches?: { id: string; name: string; on: boolean }[] } | null) => {
+        if (alive && d?.branches) setHoursBranches(d.branches.filter((b) => b.on).map((b) => ({ id: b.id, name: b.name })));
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [pendingStaffId, isOwner]);
 
   function cancelPendingHoursChange() {
     setPendingHoursChange(null);
@@ -3943,6 +3982,26 @@ export function BookingCalendar({
                 {String(pendingHoursChange.newMinute % 60).padStart(2, "0")}
               </span>
             </p>
+            {hoursBranches.length > 0 && (
+              <div className="mb-4 rounded-2xl bg-mist-50 p-3 ring-1 ring-ink-100">
+                <p className="text-xs font-bold text-ink-900">{hd.otherBranches}</p>
+                <label className="mt-2 flex cursor-pointer items-center gap-2 text-sm text-ink-700">
+                  <input type="checkbox" checked={hoursBranchPick.length === 0} onChange={() => setHoursBranchPick([])} className="h-4 w-4 accent-primary-600" />
+                  {hd.onlyThisBranch}
+                </label>
+                {hoursBranches.map((b) => (
+                  <label key={b.id} className="mt-1.5 flex cursor-pointer items-center gap-2 text-sm text-ink-700">
+                    <input
+                      type="checkbox"
+                      checked={hoursBranchPick.includes(b.id)}
+                      onChange={(e) => setHoursBranchPick((p) => (e.target.checked ? [...p, b.id] : p.filter((x) => x !== b.id)))}
+                      className="h-4 w-4 accent-primary-600"
+                    />
+                    {b.name}
+                  </label>
+                ))}
+              </div>
+            )}
             <div className="flex gap-2">
               <button onClick={confirmPendingHoursChange} className="btn-primary">
                 {hd.confirm}

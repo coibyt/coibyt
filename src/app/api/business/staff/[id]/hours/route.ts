@@ -3,7 +3,7 @@ import { z } from "zod";
 import { getBusinessAccess, requireOwnerOnly } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { staffHoursSchema } from "@/lib/validations";
-import { mirrorBranchHours } from "@/lib/staff-branches";
+import { copyPeriodToBranches, mirrorBranchHours } from "@/lib/staff-branches";
 
 const dateString = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable();
 
@@ -15,6 +15,9 @@ const putSchema = z.object({
   oldFrom: dateString.optional(),
   oldUntil: dateString.optional(),
   hours: staffHoursSchema,
+  /** From the calendar's drag: the other branches (business ids) to give the
+   * same change; when given, the usual whole-schedule sync is skipped. */
+  branches: z.array(z.string().cuid()).max(50).optional(),
 });
 
 async function assertOwnership(businessId: string, staffId: string) {
@@ -65,6 +68,7 @@ export async function PUT(
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
   const { hours, from, until, oldFrom, oldUntil } = parsed.data;
+  const branches = "branches" in parsed.data ? parsed.data.branches : undefined;
 
   if (from && until && from > until) {
     return NextResponse.json({ error: "INVALID_RANGE" }, { status: 400 });
@@ -95,8 +99,9 @@ export async function PUT(
         ]
       : []),
   ]);
-  // Same hours at their other branches, when the owner keeps them in sync.
-  const synced = await mirrorBranchHours(id);
+  // A drag on the calendar changes the branches the owner ticked (none by
+  // default); any other edit syncs the person's branches as usual.
+  const synced = branches ? await copyPeriodToBranches(id, branches, { hours, from: newFrom, until: newUntil }) : await mirrorBranchHours(id);
 
   return NextResponse.json({ ok: true, synced });
 }
