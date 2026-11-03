@@ -36,6 +36,9 @@ export function activeStaffPeriod(periods: HoursPeriod[], dateStr: string): Hour
       (!p.validFrom || p.validFrom <= dateStr) && (!p.validUntil || dateStr <= p.validUntil)
   );
   if (covering.length === 0) return null;
-  covering.sort((a, b) => (b.validFrom ?? "").localeCompare(a.validFrom ?? ""));
+  // The latest-starting one wins; on a tie the shorter one, so a one-day
+  // change (validFrom = validUntil, made by dragging on the calendar) beats
+  // the weekly schedule that starts the same day.
+  covering.sort((a, b) => (b.validFrom ?? "").localeCompare(a.validFrom ?? "") || (a.validUntil ?? "9999").localeCompare(b.validUntil ?? "9999"));
   return covering[0];
 }

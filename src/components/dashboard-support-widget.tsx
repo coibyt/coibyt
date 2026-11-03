@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import {
   ArrowLeft,
@@ -41,6 +42,7 @@ const POLL_MS = 60_000;
 export function DashboardSupportWidget({ locale }: { locale: string }) {
   const t = supportWidgetStrings(locale);
   const center = supportCenterStrings(locale);
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState<Tab>("home");
   const [data, setData] = useState<Overview | null>(null);
@@ -93,6 +95,9 @@ export function DashboardSupportWidget({ locale }: { locale: string }) {
     { key: "help", label: t.tabHelp, icon: HelpCircle },
     { key: "news", label: t.tabNews, icon: Megaphone, dot: !!data?.unreadAnnouncements },
   ];
+
+  // Not on the bookings page: its date bar sits where the button would.
+  if (/\/business\/dashboard\/bookings(\/|$)/.test(pathname ?? "")) return null;
 
   return (
     <>
@@ -367,6 +372,7 @@ function PanelHeader({
   onClose: () => void;
   closeLabel: string;
 }) {
+
   return (
     <div className="flex shrink-0 items-center gap-2 bg-gradient-to-r from-primary-700 to-primary-500 px-2 py-3 text-white">
       <button type="button" onClick={onBack} className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-white/15" aria-label="Back">

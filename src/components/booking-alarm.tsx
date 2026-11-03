@@ -117,6 +117,8 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
   // The site-wide copy only rings (once the owner has switched the alarm on
   // in the dashboard) and stays out of the dashboard, which has its own.
   const inactive = global && /\/business\/dashboard(\/|$)/.test(pathname ?? "");
+  // The bookings page keeps its bottom bar clear: no bell button there (it still rings).
+  const noButton = /\/business\/dashboard\/bookings(\/|$)/.test(pathname ?? "");
   const [pref, setPref] = useState<"on" | "off" | null | "loading">("loading");
   const [snoozed, setSnoozed] = useState(false);
   const [alerts, setAlerts] = useState<Alert[]>([]);
@@ -343,7 +345,7 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
         </div>
       )}
 
-      {!global && pref !== null && (
+      {!global && !noButton && pref !== null && (
         <div className="fixed bottom-5 left-5 z-[65]">
           {menu && (
             <div className="mb-2 w-64 animate-slide-up rounded-2xl bg-white p-2 shadow-popover ring-1 ring-ink-100">

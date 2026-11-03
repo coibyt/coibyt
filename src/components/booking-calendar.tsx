@@ -829,21 +829,20 @@ export function BookingCalendar({
     // Equal edges are allowed: an empty window, so nobody can book that day.
     if (updated.openMinute > updated.closeMinute) return;
 
-    // Resizing edits the schedule period that applies to this date. With no
-    // period in force, the week is seeded from the salon's own hours as an
-    // open-ended period, so the other days don't silently become "closed".
-    const period = activeStaffPeriod(
-      groupStaffHours(staffHoursMap.get(staffId) ?? []),
-      format(anchorDate, "yyyy-MM-dd")
-    );
-    const baseWindows = period ? period.windows : businessHours;
+    // Dragging changes this date only: a one-day schedule (validFrom =
+    // validUntil = this day) that wins over the weekly one for that date
+    // (activeStaffPeriod), so next week's same weekday keeps its hours.
+    // Dragging again on a day that already has one edits it in place.
+    const day = format(anchorDate, "yyyy-MM-dd");
+    const period = activeStaffPeriod(groupStaffHours(staffHoursMap.get(staffId) ?? []), day);
+    const baseWindows = (period ? period.windows : businessHours).filter((r) => r.weekday === todayWeekday);
     // Only the dragged window changes; a second shift that day is kept.
     const newWindows = [
-      ...baseWindows.filter((r) => !(r.weekday === todayWeekday && r.openMinute === current.openMinute && r.closeMinute === current.closeMinute)),
+      ...baseWindows.filter((r) => !(r.openMinute === current.openMinute && r.closeMinute === current.closeMinute)),
       updated,
     ];
-    const from = period?.validFrom ?? null;
-    const until = period?.validUntil ?? null;
+    const from = day;
+    const until = day;
 
     await fetch(`/api/business/staff/${staffId}/hours`, {
       method: "PUT",
