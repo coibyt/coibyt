@@ -60,7 +60,7 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
   if (sent) {
     return (
       <div className="py-6 text-center">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#f6efe1] text-[#8a6a2c]">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#fdf2f8] text-[#c42d7f]">
           <MailCheck className="h-7 w-7" />
         </span>
         <p className="mt-4 font-serif text-2xl text-ink-900">{t.checkEmailTitle}</p>
@@ -69,12 +69,16 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
     );
   }
 
-  const field = "mt-1 h-12 w-full rounded-2xl border border-ink-100 bg-white px-4 text-sm text-ink-900 transition placeholder:text-ink-300 focus:border-[#c99a3f] focus:outline-none focus:ring-4 focus:ring-[#c99a3f]/15";
-  const submit = "flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] text-sm font-bold text-white shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)] transition hover:brightness-105 disabled:opacity-70";
+  // The loyalty card's pink.
+  const field =
+    "mt-1.5 h-14 w-full rounded-2xl border border-[#f0cfe0] bg-[#fffafd] px-5 text-base text-ink-900 transition placeholder:text-ink-300 focus:border-[#d6337f] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#d6337f]/15";
+  const submit =
+    "flex h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e0559b] via-[#c42d7f] to-[#a3155f] text-base font-bold text-white shadow-[0_18px_34px_-14px_rgba(163,21,95,0.9)] transition hover:brightness-105 disabled:opacity-70";
+  const label = "block text-sm font-bold text-[#4a1236]";
 
   return (
     <div>
-      <div className="mb-5 grid grid-cols-2 gap-1 rounded-full bg-mist-50 p-1 ring-1 ring-ink-100">
+      <div className="mb-6 grid grid-cols-2 gap-1 rounded-full bg-[#fdf2f8] p-1 ring-1 ring-[#f3c4dd]">
         {(["signup", "login"] as const).map((m) => (
           <button
             key={m}
@@ -83,7 +87,7 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
               setMode(m);
               setError(null);
             }}
-            className={`rounded-full py-2 text-sm font-bold transition ${mode === m ? "bg-[#1f182d] text-white shadow" : "text-ink-500 hover:text-ink-900"}`}
+            className={`rounded-full py-2.5 text-sm font-bold transition ${mode === m ? "bg-gradient-to-r from-[#d6337f] to-[#a3155f] text-white shadow" : "text-[#7a1d55] hover:bg-white"}`}
           >
             {m === "signup" ? t.modeSignup : t.modeLogin}
           </button>
@@ -91,18 +95,16 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
       </div>
 
       {mode === "signup" ? (
-        <form onSubmit={signup} className="space-y-3.5">
-          <p className="font-serif text-2xl text-ink-900">{t.formTitle}</p>
-          <p className="-mt-2 text-sm text-ink-400">{t.formSub}</p>
-          <label className="block text-xs font-bold text-ink-700">
+        <form onSubmit={signup} className="space-y-4">
+          <label className={label}>
             {t.salonName}
             <input required minLength={2} maxLength={120} value={salonName} onChange={(e) => setSalonName(e.target.value)} placeholder={t.salonNamePh} className={field} />
           </label>
-          <label className="block text-xs font-bold text-ink-700">
+          <label className={label}>
             {t.email}
             <input required type="email" maxLength={191} value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.emailPh} className={field} autoComplete="email" />
           </label>
-          <label className="block text-xs font-bold text-ink-700">
+          <label className={label}>
             {t.ownerName}
             <input maxLength={120} value={ownerName} onChange={(e) => setOwnerName(e.target.value)} className={field} autoComplete="name" />
           </label>
@@ -111,17 +113,17 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {t.submit}
           </button>
-          <p className="text-center text-[11px] text-ink-400">{t.terms}</p>
+          <p className="text-center text-xs text-ink-400">{t.terms}</p>
         </form>
       ) : (
-        <form onSubmit={login} className="space-y-3.5">
-          <p className="font-serif text-2xl text-ink-900">{t.loginTitle}</p>
+        <form onSubmit={login} className="space-y-4">
+          <p className="font-serif text-2xl text-[#4a1236]">{t.loginTitle}</p>
           <p className="-mt-2 text-sm text-ink-400">{t.loginSub}</p>
-          <label className="block text-xs font-bold text-ink-700">
+          <label className={label}>
             {t.email}
             <input required type="email" maxLength={191} value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.emailPh} className={field} autoComplete="username" />
           </label>
-          <label className="block text-xs font-bold text-ink-700">
+          <label className={label}>
             {t.password}
             <input required type="password" maxLength={200} value={password} onChange={(e) => setPassword(e.target.value)} className={field} autoComplete="current-password" />
           </label>
@@ -130,7 +132,7 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <KeyRound className="h-4 w-4" />}
             {t.loginSubmit}
           </button>
-          <button type="button" disabled={busy} onClick={sendLink} className="block w-full text-center text-xs font-semibold text-primary-600 hover:underline">
+          <button type="button" disabled={busy} onClick={sendLink} className="block w-full text-center text-sm font-semibold text-[#c42d7f] hover:underline">
             {t.forgot}
           </button>
           <p className="text-center text-[11px] text-ink-400">{t.forgotStaff}</p>
