@@ -12,6 +12,7 @@ import { ContactLinksCard } from "@/components/contact-links-card";
 import { PreferencesCard } from "@/components/preferences-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
 import { AccountSettingsCard } from "@/components/account-settings-card";
+import { AppearanceCard } from "@/components/appearance-card";
 import { SettingsHero, SettingsNav, SettingsSection } from "@/components/settings-shell";
 import { siteSerif } from "@/lib/site-fonts";
 import { settingsStrings, type SettingsSectionId } from "@/lib/settings-strings";
@@ -50,7 +51,7 @@ export default async function BusinessSettingsPage({
     profileChecklist(business.id),
   ]);
 
-  const sections: SettingsSectionId[] = ["profile", "contact", "booking", "payments", "website", "branches", ...(currentUser ? (["account"] as const) : [])];
+  const sections: SettingsSectionId[] = ["profile", "contact", "booking", "payments", "appearance", "website", "branches", ...(currentUser ? (["account"] as const) : [])];
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
   return (
@@ -126,6 +127,20 @@ export default async function BusinessSettingsPage({
                 invoiceCompanyAddress: business.invoiceCompanyAddress,
                 invoiceTaxId: business.invoiceTaxId,
                 invoiceVatPercent: business.invoiceVatPercent,
+              }}
+            />
+          </SettingsSection>
+
+          <SettingsSection id="appearance" locale={locale}>
+            <AppearanceCard
+              locale={locale}
+              timeZone={business.timezone}
+              initial={{
+                calendarBookingBg: business.calendarBookingBg,
+                calendarBookingText: business.calendarBookingText,
+                seasonalTheme: business.seasonalTheme,
+                themeOnBookingPage: business.themeOnBookingPage,
+                themeOnCalendar: business.themeOnCalendar,
               }}
             />
           </SettingsSection>

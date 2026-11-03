@@ -475,6 +475,7 @@ export function BookingCalendar({
   viewerStaffId,
   headerSlot,
   businessId,
+  bookingColors = null,
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
@@ -493,6 +494,8 @@ export function BookingCalendar({
   // customer-history visit belongs here (open its edit form in place) or at
   // another of the owner's branches (switch branches, then land back here).
   businessId: string;
+  /** Settings › Look: colours for live (confirmed / awaiting payment) bookings. */
+  bookingColors?: { bg: string; text: string } | null;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1846,6 +1849,10 @@ export function BookingCalendar({
       toZonedTime(new Date(b.endsAt), businessTimezone),
       "HH:mm"
     )}`;
+    // The owner's colours (or the holiday theme's) for live bookings; finished
+    // and no-show ones keep their status colours.
+    const own = bookingColors && ["PENDING_PAYMENT", "CONFIRMED"].includes(b.status) ? bookingColors : null;
+    const ownStyle = own ? { backgroundColor: own.bg, color: own.text, borderColor: own.text } : {};
     return (
       <button
         key={b.id}
@@ -1860,19 +1867,22 @@ export function BookingCalendar({
         className={`absolute z-20 overflow-hidden rounded-xl border-l-[3px] px-2 py-1 text-left text-[11px] shadow-sm ring-1 ring-black/5 transition hover:z-30 hover:-translate-y-px hover:shadow-md ${
           lane ? "" : "left-1 right-1"
         } ${
-          b.source === "MANUAL"
-            ? "bg-violet-50 border-violet-500 text-violet-800"
-            : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
+          own
+            ? ""
+            : b.source === "MANUAL"
+              ? "bg-violet-50 border-violet-500 text-violet-800"
+              : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
         style={
           lane
             ? {
+                ...ownStyle,
                 top,
                 height,
                 left: `calc(${(lane.lane / lane.lanes) * 100}% + 2px)`,
                 width: `calc(${100 / lane.lanes}% - 4px)`,
               }
-            : { top, height }
+            : { ...ownStyle, top, height }
         }
       >
         <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>

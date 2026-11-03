@@ -7,6 +7,8 @@ import { BookingCalendar } from "@/components/booking-calendar";
 import { BookingsManager } from "@/components/bookings-manager";
 import { useSwitcherSlot } from "@/components/dashboard-body";
 import { PendingCustomerReviews } from "@/components/pending-customer-reviews";
+import { SeasonalBanner } from "@/components/seasonal-banner";
+import type { SeasonalTheme } from "@/lib/seasonal-themes";
 
 interface BookingRow {
   id: string;
@@ -32,6 +34,7 @@ export function BookingsView({
   isOwner,
   viewerStaffId,
   businessId,
+  look,
 }: {
   title: string;
   initialBookings: BookingRow[];
@@ -56,6 +59,8 @@ export function BookingsView({
   isOwner: boolean;
   viewerStaffId: string | null;
   businessId: string;
+  /** Settings › Look: a holiday banner and the booking colours. */
+  look?: { theme: SeasonalTheme | null; colors: { bg: string; text: string } | null };
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -106,6 +111,8 @@ export function BookingsView({
         )}
       </div>
 
+      {look?.theme && <SeasonalBanner theme={look.theme} locale={locale} />}
+
       {isOwner && <PendingCustomerReviews locale={locale} timezone={businessTimezone} />}
 
       {view === "calendar" ? (
@@ -119,6 +126,7 @@ export function BookingsView({
           viewerStaffId={viewerStaffId}
           headerSlot={headerSlot}
           businessId={businessId}
+          bookingColors={look?.colors ?? null}
         />
       ) : (
         <BookingsManager

@@ -213,6 +213,14 @@ model Business {
   // Telegram bot (src/lib/telegram.ts): reminds staff in the salon's linked
   // groups to report income. The code links a group: /start <code>.
   telegramRemindersOn Boolean   @default(false)
+  // Look (src/lib/seasonal-themes.ts): the bookings calendar's booking colours
+  // (#rrggbb, null = default) and a holiday theme ("auto", a theme id, or null)
+  // for the public booking page and/or the bookings calendar.
+  calendarBookingBg   String?   @db.VarChar(9)
+  calendarBookingText String?   @db.VarChar(9)
+  seasonalTheme       String?   @db.VarChar(24)
+  themeOnBookingPage  Boolean   @default(true)
+  themeOnCalendar     Boolean   @default(true)
   telegramLinkCode    String?   @unique @db.VarChar(24)
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.

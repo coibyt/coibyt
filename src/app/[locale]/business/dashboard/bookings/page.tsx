@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { BookingsView } from "@/components/bookings-view";
+import { resolveTheme } from "@/lib/seasonal-themes";
 
 export default async function BusinessBookingsPage({
   params,
@@ -81,6 +82,13 @@ export default async function BusinessBookingsPage({
         }))}
         locale={locale}
         businessTimezone={business.timezone}
+        look={(() => {
+          // The holiday theme (when the owner shows it here) and the booking colours:
+          // the owner's own, else the theme's, else the default.
+          const theme = business.themeOnCalendar ? resolveTheme(business.seasonalTheme, business.timezone) : null;
+          const own = business.calendarBookingBg && business.calendarBookingText ? { bg: business.calendarBookingBg, text: business.calendarBookingText } : null;
+          return { theme, colors: own ?? theme?.booking ?? null };
+        })()}
         staff={staff.map((s) => ({
           id: s.id,
           name: s.name,

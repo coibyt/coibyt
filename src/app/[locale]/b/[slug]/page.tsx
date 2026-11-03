@@ -37,6 +37,8 @@ import { fanpageStrings } from "@/lib/fanpage-strings";
 import { salonJsonLd, salonMetadata } from "@/lib/seo-salon";
 import { jsonLd } from "@/lib/seo";
 import { groupHoursByDay, windowsLabel } from "@/lib/hours-format";
+import { resolveTheme } from "@/lib/seasonal-themes";
+import { SeasonalCoverOverlay } from "@/components/seasonal-banner";
 
 const WEEKDAYS_VI = ["Chủ nhật", "Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7"];
 const WEEKDAYS_EN = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -167,6 +169,7 @@ export default async function BusinessProfilePage({
   ].filter(Boolean) as { href: string; label: string; icon: typeof Mail; external: boolean }[];
 
   const structuredData = await salonJsonLd(slug, locale);
+  const seasonal = business.themeOnBookingPage ? resolveTheme(business.seasonalTheme, business.timezone) : null;
 
   return (
     <div className="bg-mist-50">
@@ -177,6 +180,8 @@ export default async function BusinessProfilePage({
       <div className="relative h-56 w-full bg-gradient-to-br from-primary-700 to-primary-900 sm:h-80">
         {business.coverUrl && <Image src={business.coverUrl} alt="" fill priority className="object-cover" />}
         <div className="absolute inset-0 bg-gradient-to-t from-ink-900/40 via-transparent to-transparent" />
+        {/* Settings › Look: the salon's holiday theme, when it shows on this page. */}
+        {seasonal && <SeasonalCoverOverlay theme={seasonal} locale={locale} />}
       </div>
 
       {/* `relative` here isn't decorative — without it this element is a
