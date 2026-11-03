@@ -345,6 +345,8 @@ interface ServiceOption {
   // the services they're actually set up to perform, instead of every
   // service the salon offers.
   staffIds: string[];
+  /** Staff members' own prices for it (StaffService.priceCentsOverride). */
+  staffPrices?: Record<string, number>;
 }
 
 function servicesForStaff(services: ServiceOption[], staffId: string): ServiceOption[] {
@@ -378,6 +380,10 @@ interface NewBookingDraft {
   customerEmail: string;
   customerNote: string;
   sendNotificationEmails: boolean;
+  /** The owner's price for this booking (as typed); null = the usual price. */
+  priceAmount?: string | null;
+  /** Keep that price for this staff member and service from now on, at every branch. */
+  applyPriceForward?: boolean;
 }
 
 /** A staff member's blocked personal time (lunch, leave…), from
@@ -1597,6 +1603,12 @@ export function BookingCalendar({
         customerEmail: newBooking.customerEmail || undefined,
         customerNote: newBooking.customerNote || undefined,
         sendNotificationEmails: newBooking.sendNotificationEmails,
+        ...(isOwner && newBooking.priceAmount != null && newBooking.priceAmount !== ""
+          ? {
+              servicePriceCents: toSmallestUnit(Number(newBooking.priceAmount) || 0, services.find((x) => x.id === newBooking.serviceId)?.currency ?? "EUR"),
+              applyPriceForward: !!newBooking.applyPriceForward,
+            }
+          : {}),
       }),
     });
     setCreatingBooking(false);
@@ -2504,10 +2516,13 @@ export function BookingCalendar({
         </div>
       )}
 
-      {/* On phones the bar sits above the floating chat and alarm buttons
-          (bottom corners), which would otherwise cover its ends. */}
-      <div className="sticky bottom-[5.25rem] z-30 flex justify-center sm:bottom-4">
-        <div className="flex max-w-full items-center gap-0.5 rounded-full bg-white/90 p-1 shadow-xl shadow-primary-900/10 ring-1 ring-black/5 backdrop-blur-md sm:gap-1 sm:p-1.5">
+      {/* On phones the bar is docked to the bottom edge of the screen (like a
+          native calendar), so it never covers the middle of the grid; on wider
+          screens it floats at the bottom of the calendar. The spacer keeps the
+          last hours scrollable above it. */}
+      <div className="h-16 sm:hidden" aria-hidden />
+      <div className="fixed inset-x-0 bottom-0 z-40 flex justify-center border-t border-ink-100 bg-white/95 px-1 pb-[max(0.375rem,env(safe-area-inset-bottom))] pt-1.5 backdrop-blur-md sm:sticky sm:inset-x-auto sm:bottom-4 sm:z-30 sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+        <div className="flex max-w-full items-center gap-0.5 rounded-full bg-white/90 p-1 ring-1 ring-black/5 sm:gap-1 sm:p-1.5 sm:shadow-xl sm:shadow-primary-900/10 sm:backdrop-blur-md">
           <button
             onClick={() => navigate(-1)}
             className="flex h-8 w-8 items-center justify-center rounded-full text-ink-700 transition-colors hover:bg-primary-50 sm:h-9 sm:w-9"
@@ -3642,6 +3657,8 @@ export function BookingCalendar({
                       setNewBooking({
                         ...newBooking,
                         staffId: newStaffId,
+                        priceAmount: null,
+                        applyPriceForward: false,
                         ...(fallback
                           ? {
                               serviceId: fallback.id,
@@ -3673,6 +3690,8 @@ export function BookingCalendar({
                       ...newBooking,
                       serviceId: value,
                       addOnIds: [],
+                      priceAmount: null,
+                      applyPriceForward: false,
                       ...(kind
                         ? { endsAt: addMinutes(newBooking.startsAt, PERSONAL_TIME_MINUTES[kind]) }
                         : sv
@@ -3685,7 +3704,7 @@ export function BookingCalendar({
                     <optgroup label={locale === "vi" ? "Dịch vụ" : "Services"}>
                       {servicesForStaff(services, newBooking.staffId).map((sv) => (
                         <option key={sv.id} value={sv.id}>
-                          {sv.name} — {formatMoney(sv.priceCents, sv.currency, locale)}
+                          {sv.name} — {formatMoney(sv.staffPrices?.[newBooking.staffId] ?? sv.priceCents, sv.currency, locale)}
                         </option>
                       ))}
                     </optgroup>
@@ -3715,6 +3734,48 @@ export function BookingCalendar({
                   </p>
                 ) : null}
               </div>
+              {isOwner && !personalKindFromOption(newBooking.serviceId) && (() => {
+                const sv = services.find((x) => x.id === newBooking.serviceId);
+                if (!sv) return null;
+                const usual = sv.staffPrices?.[newBooking.staffId] ?? sv.priceCents;
+                const typed = newBooking.priceAmount;
+                const changed = typed != null && typed !== "" && toSmallestUnit(Number(typed) || 0, sv.currency) !== usual;
+                const staffName = staff.find((x) => x.id === newBooking.staffId)?.name ?? "";
+                return (
+                  <div>
+                    <label className="label">{locale === "vi" ? `Giá dịch vụ (${sv.currency})` : `Service price (${sv.currency})`}</label>
+                    <input
+                      type="number"
+                      inputMode="decimal"
+                      min={0}
+                      step="0.01"
+                      className="input"
+                      value={typed ?? String(fromSmallestUnit(usual, sv.currency))}
+                      onChange={(e) => setNewBooking({ ...newBooking, priceAmount: e.target.value })}
+                    />
+                    {changed && (
+                      <>
+                        <p className="mt-1 text-xs text-ink-400">
+                          {locale === "vi" ? `Giá thường: ${formatMoney(usual, sv.currency, locale)} — lịch hẹn này dùng giá mới.` : `Usual price: ${formatMoney(usual, sv.currency, locale)} — this booking uses the new one.`}
+                        </p>
+                        <label className="mt-2 flex cursor-pointer items-start gap-2 rounded-xl bg-[#fffaf0] p-2.5 text-sm text-[#6b5221] ring-1 ring-[#ecd9ad]">
+                          <input
+                            type="checkbox"
+                            checked={!!newBooking.applyPriceForward}
+                            onChange={(e) => setNewBooking({ ...newBooking, applyPriceForward: e.target.checked })}
+                            className="mt-0.5 h-4 w-4 accent-[#c99a3f]"
+                          />
+                          <span>
+                            {locale === "vi"
+                              ? `Áp dụng giá này cho “${sv.name}” của ${staffName} từ nay về sau, ở tất cả chi nhánh`
+                              : `Use this price for “${sv.name}” by ${staffName} from now on, at every branch`}
+                          </span>
+                        </label>
+                      </>
+                    )}
+                  </div>
+                );
+              })()}
               {addOnsForService(addOns, newBooking.serviceId).length > 0 && (
                 <div>
                   <label className="label">{locale === "vi" ? "Dịch vụ phụ" : "Add-ons"}</label>
@@ -3746,11 +3807,15 @@ export function BookingCalendar({
                     const addOnTotal = addOnsForService(addOns, newBooking.serviceId)
                       .filter((a) => newBooking.addOnIds.includes(a.id))
                       .reduce((sum, a) => sum + a.priceCents, 0);
+                    const base =
+                      newBooking.priceAmount != null && newBooking.priceAmount !== ""
+                        ? toSmallestUnit(Number(newBooking.priceAmount) || 0, sv.currency)
+                        : (sv.staffPrices?.[newBooking.staffId] ?? sv.priceCents);
                     return (
                       <p className="mt-1.5 text-xs text-ink-400">
                         {locale === "vi" ? "Tổng cộng" : "Total"}:{" "}
                         <span className="font-medium text-ink-900">
-                          {formatMoney(sv.priceCents + addOnTotal, sv.currency, locale)}
+                          {formatMoney(base + addOnTotal, sv.currency, locale)}
                         </span>
                       </p>
                     );

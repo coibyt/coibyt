@@ -48,7 +48,7 @@ export default async function BusinessBookingsPage({
         durationMin: true,
         priceCents: true,
         currency: true,
-        staff: { select: { staffId: true } },
+        staff: { select: { staffId: true, priceCentsOverride: true } },
       },
     }),
     prisma.serviceAddOn.findMany({
@@ -101,6 +101,8 @@ export default async function BusinessBookingsPage({
           priceCents: s.priceCents,
           currency: s.currency,
           staffIds: s.staff.map((x) => x.staffId),
+          // A staff member's own price for it, where they have one.
+          staffPrices: Object.fromEntries(s.staff.filter((x) => x.priceCentsOverride !== null).map((x) => [x.staffId, x.priceCentsOverride!])),
         }))}
         addOns={addOns.map((a) => ({
           id: a.id,

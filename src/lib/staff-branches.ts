@@ -296,6 +296,35 @@ export async function copyPeriodToBranches(
 
 const sameName = (s: string) => s.trim().toLowerCase();
 
+/** "Use this price from now on, at every branch": the staff member's own price
+ * for the service here, and for the service of the same name at each other
+ * branch where they work. Bookings already made keep their price. */
+export async function setStaffPriceEverywhere(staffId: string, serviceId: string, priceCents: number) {
+  const [me, service] = await Promise.all([
+    prisma.staff.findUnique({ where: { id: staffId }, select: { branchGroup: true, business: { select: { ownerId: true } } } }),
+    prisma.service.findUnique({ where: { id: serviceId }, select: { name: true } }),
+  ]);
+  if (!me || !service) return 0;
+  const rows = me.branchGroup
+    ? await prisma.staff.findMany({ where: { branchGroup: me.branchGroup, business: { ownerId: me.business.ownerId } }, select: { id: true, businessId: true } })
+    : [{ id: staffId, businessId: "" }];
+  let changed = 0;
+  for (const r of rows) {
+    const target =
+      r.id === staffId
+        ? serviceId
+        : (await prisma.service.findMany({ where: { businessId: r.businessId }, select: { id: true, name: true } })).find((x) => sameName(x.name) === sameName(service.name))?.id;
+    if (!target) continue;
+    await prisma.staffService.upsert({
+      where: { staffId_serviceId: { staffId: r.id, serviceId: target } },
+      create: { staffId: r.id, serviceId: target, priceCentsOverride: priceCents },
+      update: { priceCentsOverride: priceCents },
+    });
+    changed++;
+  }
+  return changed;
+}
+
 /** This person's other active rows, when their branches are kept in sync
  * (Staff.syncBranchHours, which since 2026-11 covers hours, services, own
  * prices and profile). Null when off or alone. */

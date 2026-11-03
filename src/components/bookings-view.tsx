@@ -48,6 +48,7 @@ export function BookingsView({
     priceCents: number;
     currency: string;
     staffIds: string[];
+    staffPrices?: Record<string, number>;
   }[];
   addOns: {
     id: string;

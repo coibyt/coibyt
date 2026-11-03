@@ -3,6 +3,7 @@ import { z } from "zod";
 import { bookingActionScope, bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { createBookingAndPayment, notifyStaffOfManualBooking, SlotUnavailableError } from "@/lib/booking-service";
+import { setStaffPriceEverywhere } from "@/lib/staff-branches";
 import { auth } from "@/auth";
 
 const businessBookingSchema = z.object({
@@ -18,6 +19,10 @@ const businessBookingSchema = z.object({
   customerEmail: z.string().email().optional(),
   customerNote: z.string().max(1000).optional(),
   sendNotificationEmails: z.boolean().optional(),
+  // The owner's price for this booking's service, and whether to keep it for
+  // this staff member from now on at every branch.
+  servicePriceCents: z.number().int().min(0).max(100_000_000).optional(),
+  applyPriceForward: z.boolean().optional(),
 });
 
 /** A walk-in/phone customer usually isn't a VaraaAi member yet — reuse their
@@ -90,6 +95,8 @@ export async function POST(req: Request) {
       staffId: data.staffId,
       startsAt: new Date(data.startsAt),
       endsAtOverride: data.endsAt ? new Date(data.endsAt) : undefined,
+      // Prices are the owner's call; staff book at the set price.
+      servicePriceOverrideCents: access.isOwner ? data.servicePriceCents : undefined,
       addOnIds: data.addOnIds,
       customerNote: data.customerNote,
       // A business-created booking has no online payment step, same as cash.
@@ -101,6 +108,9 @@ export async function POST(req: Request) {
       source: "MANUAL",
       allowOverlap: true,
     });
+    if (access.isOwner && data.applyPriceForward && data.servicePriceCents !== undefined) {
+      await setStaffPriceEverywhere(data.staffId, data.serviceId, data.servicePriceCents);
+    }
     // Same-day booking for a staff member with a login: ring them so they can prepare.
     const session = await auth();
     if (session?.user?.id) await notifyStaffOfManualBooking(booking.id, session.user.id, siteUrl);

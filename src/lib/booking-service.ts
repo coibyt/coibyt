@@ -48,6 +48,9 @@ export async function createBookingAndPayment(params: {
    * instead of always using the service's (+ add-ons'/extra services') fixed
    * duration — never accepted from the public customer-facing booking flow. */
   endsAtOverride?: Date;
+  /** The owner's own price for this one booking's main service (dashboard
+   * only) — in place of the staff member's / service's price. */
+  servicePriceOverrideCents?: number;
   customerNote?: string;
   provider: BookingPaymentChoice;
   siteUrl: string;
@@ -96,7 +99,7 @@ export async function createBookingAndPayment(params: {
   });
   // A staff member can charge, or take, a different amount than the
   // service's own base price/duration — see StaffService.*Override.
-  const effectiveServicePriceCents = staffOverride?.priceCentsOverride ?? service.priceCents;
+  const effectiveServicePriceCents = params.servicePriceOverrideCents ?? staffOverride?.priceCentsOverride ?? service.priceCents;
   const effectiveServiceDurationMin = staffOverride?.durationMinOverride ?? service.durationMin;
 
   const addOns = params.addOnIds?.length
