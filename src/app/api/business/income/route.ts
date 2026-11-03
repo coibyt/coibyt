@@ -111,7 +111,7 @@ export async function GET(req: Request) {
     },
     include: { photos: { select: { id: true }, orderBy: { createdAt: "asc" } } },
     orderBy: { serviceAt: "desc" },
-    take: 500,
+    take: 3000,
   });
   return NextResponse.json({ reports: reports.map(reportJson), isOwner: access.isOwner });
 }

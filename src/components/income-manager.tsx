@@ -33,8 +33,12 @@ import type { OverdueBooking } from "@/lib/income-reminders";
 import { IncomeReportModal } from "@/components/income-report";
 import { giftNet } from "@/lib/income-math";
 import { TelegramRemindersCard } from "@/components/telegram-reminders-card";
+import { IncomeSheet, SheetExportButton, downloadCsv } from "@/components/income-sheet";
+import { IncomeDayModal } from "@/components/income-day-modal";
 
-type Period = "today" | "week" | "month" | "last";
+type Period = "today" | "week" | "month" | "last" | "year" | "custom";
+type View = "sheet" | "cards";
+type Pay = "" | "cash" | "bank" | "gift" | "tip";
 type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
 
 const GOLD_BTN =
@@ -51,7 +55,10 @@ function range(period: Period, today: string): [string, string] {
   const monthStart = `${y}-${String(m).padStart(2, "0")}-01`;
   switch (period) {
     case "today":
+    case "custom":
       return [today, today];
+    case "year":
+      return [`${y}-01-01`, today];
     case "week":
       return [shiftDate(today, -6), today];
     case "month":
@@ -82,6 +89,14 @@ export function IncomeManager({
   const [period, setPeriod] = useState<Period>("month");
   const [status, setStatus] = useState<StatusFilter>("");
   const [staffId, setStaffId] = useState("");
+  // Spreadsheet (one table per staff member) or the card list.
+  const [view, setView] = useState<View>(isOwner ? "sheet" : "cards");
+  // Narrowing the loaded reports: how they were paid, and a gift card's discount.
+  const [pay, setPay] = useState<Pay>("");
+  const [giftPct, setGiftPct] = useState<number | null>(null);
+  const [custom, setCustom] = useState<{ from: string; to: string } | null>(null);
+  // The row whose day is open (bookings of that staff member that day).
+  const [dayOf, setDayOf] = useState<IncomeReportJson | null>(null);
   const [reports, setReports] = useState<IncomeReportJson[] | null>(null);
   const [busyId, setBusyId] = useState<string | null>(null);
   // The report the owner is writing a "not approved" reason for.
@@ -98,11 +113,11 @@ export function IncomeManager({
 
   const load = useCallback(async () => {
     if (!today) return;
-    const [from, to] = range(period, today);
+    const [from, to] = period === "custom" && custom ? [custom.from, custom.to] : range(period, today);
     const q = new URLSearchParams({ from, to, ...(status ? { status } : {}), ...(staffId ? { staffId } : {}) });
     const res = await fetch(`/api/business/income?${q}`).catch(() => null);
     if (res?.ok) setReports((await res.json()).reports);
-  }, [today, period, status, staffId]);
+  }, [today, period, status, staffId, custom]);
 
   useEffect(() => {
     setReports(null);
@@ -171,18 +186,56 @@ export function IncomeManager({
 
   const money = (c: number, cur = currency) => formatMoney(c, cur, locale);
   const list = useMemo(() => reports ?? [], [reports]);
+  // What the filters leave: by payment method, a gift card discount, or a tip.
+  const shown = useMemo(() => {
+    const pcts = (r: IncomeReportJson) => [r.giftCard1Cents > 0 ? r.giftCard1Percent : -1, r.giftCard2Cents > 0 ? r.giftCard2Percent : -1];
+    return list.filter((r) => {
+      if (pay === "cash" && !r.cashCents) return false;
+      if (pay === "bank" && !r.bankCents) return false;
+      if (pay === "tip" && !r.tipCents) return false;
+      if (pay === "gift" && !(r.giftCard1Cents || r.giftCard2Cents)) return false;
+      if (pay === "gift" && giftPct !== null && !pcts(r).includes(giftPct)) return false;
+      return true;
+    });
+  }, [list, pay, giftPct]);
+  // The gift card discounts that occur, for the filter's choices.
+  const giftPctsSeen = useMemo(
+    () => [...new Set(list.flatMap((r) => [r.giftCard1Cents > 0 ? r.giftCard1Percent : null, r.giftCard2Cents > 0 ? r.giftCard2Percent : null]).filter((x): x is number => x !== null))].sort((a, b) => a - b),
+    [list],
+  );
+  // The spreadsheet: a table per staff member, busiest first.
+  const sheets = useMemo(() => {
+    const m = new Map<string, { name: string; rows: IncomeReportJson[] }>();
+    for (const r of shown) {
+      const key = r.staffId ?? "";
+      const g = m.get(key) ?? { name: r.staffName ?? S.noStaff, rows: [] };
+      g.rows.push(r);
+      m.set(key, g);
+    }
+    return [...m.values()].sort((a, b) => b.rows.length - a.rows.length);
+  }, [shown, S.noStaff]);
   const stats = useMemo(() => {
     const sum = (xs: IncomeReportJson[]) => xs.reduce((n, r) => n + r.totalCents, 0);
-    const approved = list.filter((r) => r.status === "APPROVED");
-    const pending = list.filter((r) => r.status === "PENDING");
-    const rejected = list.filter((r) => r.status === "REJECTED");
-    const tips = list.reduce((n, r) => n + r.tipCents, 0);
-    return { total: sum(list), approved: sum(approved), pending: sum(pending), pendingCount: pending.length, rejectedCount: rejected.length, count: list.length, tips };
-  }, [list]);
+    const approved = shown.filter((r) => r.status === "APPROVED");
+    const pending = shown.filter((r) => r.status === "PENDING");
+    const rejected = shown.filter((r) => r.status === "REJECTED");
+    const tips = shown.reduce((n, r) => n + r.tipCents, 0);
+    return {
+      total: sum(shown),
+      approved: sum(approved),
+      approvedCount: approved.length,
+      pending: sum(pending),
+      pendingCount: pending.length,
+      rejected: sum(rejected),
+      rejectedCount: rejected.length,
+      count: shown.length,
+      tips,
+    };
+  }, [shown]);
 
   const byStaff = useMemo(() => {
     const m = new Map<string, { name: string; total: number; count: number; pending: number; tips: number }>();
-    for (const r of list) {
+    for (const r of shown) {
       const key = r.staffId ?? "";
       const row = m.get(key) ?? { name: r.staffName ?? S.noStaff, total: 0, count: 0, pending: 0, tips: 0 };
       row.total += r.totalCents;
@@ -192,7 +245,7 @@ export function IncomeManager({
       m.set(key, row);
     }
     return [...m.entries()].sort((a, b) => b[1].total - a[1].total);
-  }, [list, S.noStaff]);
+  }, [shown, S.noStaff]);
 
   async function setApproval(r: IncomeReportJson, action: "approve" | "unapprove" | "reject", note?: string) {
     setBusyId(r.id);
@@ -243,20 +296,37 @@ export function IncomeManager({
           </p>
           <h1 className="mt-2 font-serif text-3xl leading-tight sm:text-4xl">{isOwner ? S.ownerTitle : S.staffTitle}</h1>
           <p className="mt-2 max-w-2xl text-sm text-white/70">{isOwner ? S.ownerSub : S.staffSub}</p>
-          <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-4">
-            {[
-              { icon: Wallet, label: `${S.statTotal} · ${fill(S.reportsN, { n: stats.count })}`, value: money(stats.total) },
-              { icon: CheckCircle2, label: S.statApproved, value: money(stats.approved) },
-              { icon: Clock3, label: `${S.statPending} (${stats.pendingCount})`, value: money(stats.pending) },
-              { icon: HandCoins, label: S.statTip, value: money(stats.tips) },
-            ].map((x) => (
-              <div key={x.label} className="min-w-0 rounded-2xl bg-white/[0.07] p-4 ring-1 ring-white/10">
-                <x.icon className="h-4 w-4 text-[#e8d3a6]" />
-                <p className="mt-3 truncate text-xl font-bold tabular-nums sm:text-2xl">{reports ? x.value : "–"}</p>
-                <p className="truncate text-[11px] font-semibold text-white/55">{x.label}</p>
-              </div>
-            ))}
+          <div className="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-5">
+            {(
+              [
+                { icon: Wallet, label: `${S.statTotal} · ${fill(S.reportsN, { n: stats.count })}`, value: money(stats.total), filter: "" as StatusFilter, tone: "" },
+                { icon: CheckCircle2, label: `${S.statApproved} (${stats.approvedCount})`, value: money(stats.approved), filter: "APPROVED" as StatusFilter, tone: "text-emerald-200" },
+                { icon: Clock3, label: `${S.statPending} (${stats.pendingCount})`, value: money(stats.pending), filter: "PENDING" as StatusFilter, tone: "text-amber-200" },
+                { icon: XCircle, label: `${S.statRejected} (${stats.rejectedCount})`, value: money(stats.rejected), filter: "REJECTED" as StatusFilter, tone: "text-rose-200" },
+                { icon: HandCoins, label: S.statTip, value: money(stats.tips), filter: null, tone: "" },
+              ] as const
+            ).map((x) => {
+              const on = x.filter !== null && status === x.filter && x.filter !== "";
+              const inner = (
+                <>
+                  <x.icon className={`h-4 w-4 ${x.tone || "text-[#e8d3a6]"}`} />
+                  <p className={`mt-3 truncate text-xl font-bold tabular-nums sm:text-2xl ${x.tone}`}>{reports ? x.value : "–"}</p>
+                  <p className="truncate text-[11px] font-semibold text-white/55">{x.label}</p>
+                </>
+              );
+              const cls = `min-w-0 rounded-2xl p-4 text-left ring-1 transition ${on ? "bg-white/[0.16] ring-[#e8d3a6]/60" : "bg-white/[0.07] ring-white/10"}`;
+              return x.filter === null ? (
+                <div key={x.label} className={cls}>
+                  {inner}
+                </div>
+              ) : (
+                <button key={x.label} type="button" onClick={() => setStatus(status === x.filter ? "" : x.filter)} className={`${cls} hover:bg-white/[0.12]`}>
+                  {inner}
+                </button>
+              );
+            })}
           </div>
+          <p className="mt-2 text-[10px] text-white/40">{S.statHint}</p>
         </div>
       </section>
 
@@ -269,12 +339,17 @@ export function IncomeManager({
               ["week", S.periodWeek],
               ["month", S.periodMonth],
               ["last", S.periodLast],
+              ["year", S.periodYear],
+              ["custom", S.periodCustom],
             ] as [Period, string][]
           ).map(([k, label]) => (
             <button
               key={k}
               type="button"
-              onClick={() => setPeriod(k)}
+              onClick={() => {
+                setPeriod(k);
+                if (k === "custom" && !custom && today) setCustom({ from: `${today.slice(0, 7)}-01`, to: today });
+              }}
               className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-xs font-bold transition ${period === k ? "bg-[#1f182d] text-white shadow" : "text-ink-700 hover:bg-white"}`}
             >
               {label}
@@ -314,6 +389,74 @@ export function IncomeManager({
             ))}
           </select>
         )}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2">
+        {period === "custom" && custom && (
+          <span className="flex items-center gap-1.5 rounded-full bg-white px-2 py-1 ring-1 ring-ink-100">
+            <input type="date" value={custom.from} max={custom.to} onChange={(e) => e.target.value && setCustom({ ...custom, from: e.target.value })} className="rounded-full px-2 py-1 text-xs font-semibold text-ink-900 outline-none" />
+            <span className="text-ink-300">→</span>
+            <input type="date" value={custom.to} min={custom.from} onChange={(e) => e.target.value && setCustom({ ...custom, to: e.target.value })} className="rounded-full px-2 py-1 text-xs font-semibold text-ink-900 outline-none" />
+          </span>
+        )}
+        <div className="flex gap-1 overflow-x-auto rounded-full bg-white p-1 ring-1 ring-ink-100">
+          {(
+            [
+              ["", S.payAll, null],
+              ["cash", S.payCash, Banknote],
+              ["bank", S.payBank, CreditCard],
+              ["gift", S.payGift, Gift],
+              ["tip", S.payTip, HandCoins],
+            ] as [Pay, string, typeof Gift | null][]
+          ).map(([k, label, Icon]) => (
+            <button
+              key={k || "all"}
+              type="button"
+              onClick={() => {
+                setPay(k);
+                setGiftPct(null);
+              }}
+              className={`flex shrink-0 items-center gap-1 whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold transition ${pay === k ? "bg-[#1f182d] text-white" : "text-ink-700 hover:bg-mist-50"}`}
+            >
+              {Icon && <Icon className={`h-3.5 w-3.5 ${pay === k ? "text-[#e8d3a6]" : "text-[#b08a3e]"}`} />}
+              {label}
+            </button>
+          ))}
+        </div>
+        {pay === "gift" && giftPctsSeen.length > 0 && (
+          <div className="flex gap-1 overflow-x-auto rounded-full bg-white p-1 ring-1 ring-ink-100">
+            {[null, ...giftPctsSeen].map((pct) => (
+              <button
+                key={pct ?? "all"}
+                type="button"
+                onClick={() => setGiftPct(pct)}
+                className={`shrink-0 whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-bold transition ${giftPct === pct ? "bg-[#c99a3f] text-white" : "text-ink-700 hover:bg-mist-50"}`}
+              >
+                {pct === null ? S.giftPctAll : fill(S.giftPct, { n: pct })}
+              </button>
+            ))}
+          </div>
+        )}
+        <div className="ml-auto flex items-center gap-2">
+          {view === "sheet" && shown.length > 0 && (
+            <SheetExportButton
+              S={S}
+              onClick={() => downloadCsv(sheets, S, locale, timezone, `${isOwner ? S.ownerTitle : S.staffTitle} ${period === "custom" && custom ? `${custom.from}_${custom.to}` : today ?? ""}.csv`)}
+            />
+          )}
+          <div className="flex gap-1 rounded-full bg-mist-50 p-1">
+            {(
+              [
+                ["sheet", S.viewSheet],
+                ["cards", S.viewCards],
+              ] as [View, string][]
+            ).map(([k, label]) => (
+              <button key={k} type="button" onClick={() => setView(k)} className={`rounded-full px-3.5 py-1.5 text-xs font-bold transition ${view === k ? "bg-white text-[#1f182d] shadow ring-1 ring-ink-100" : "text-ink-700"}`}>
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_300px]">
@@ -367,7 +510,7 @@ export function IncomeManager({
             <div className="flex justify-center rounded-3xl border border-ink-100 bg-white py-16">
               <Loader2 className="h-6 w-6 animate-spin text-primary-500" />
             </div>
-          ) : list.length === 0 ? (
+          ) : shown.length === 0 ? (
             <div className="rounded-3xl border border-dashed border-ink-100 bg-white px-6 py-12 text-center">
               <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#624f89] text-[#e8d3a6]">
                 <Receipt className="h-6 w-6" />
@@ -379,8 +522,15 @@ export function IncomeManager({
                 {S.openCalendar}
               </Link>
             </div>
+          ) : view === "sheet" ? (
+            <>
+              <p className="text-xs text-ink-400">{S.clickRowHint}</p>
+              {sheets.map((g) => (
+                <IncomeSheet key={g.name} name={g.name} rows={g.rows} S={S} locale={locale} timezone={timezone} currency={currency} onRow={setDayOf} />
+              ))}
+            </>
           ) : (
-            list.map((r) => {
+            shown.map((r) => {
               const approved = r.status === "APPROVED";
               const rejected = r.status === "REJECTED";
               const diff = r.totalCents - r.expectedCents;
@@ -795,6 +945,7 @@ export function IncomeManager({
           {toast}
         </div>
       )}
+      {dayOf && <IncomeDayModal report={dayOf} dayReports={list} S={S} locale={locale} timezone={timezone} currency={currency} onClose={() => setDayOf(null)} />}
     </div>
   );
 }
