@@ -36,6 +36,7 @@ export async function GET() {
       id: t.id,
       amount: t.amount,
       reason: t.reason,
+      note: t.note,
       createdAt: t.createdAt.toISOString(),
     })),
   });

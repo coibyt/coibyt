@@ -11,6 +11,7 @@ import { ReadOnlyBanner } from "@/components/read-only-banner";
 import { Users } from "lucide-react";
 import { profileChecklist } from "@/lib/profile-completeness";
 import { ProfileLock } from "@/components/profile-lock";
+import { emailDailyLimitFor } from "@/lib/email-daily-limit";
 
 export default async function MarketingDashboardPage({
   params,
@@ -35,10 +36,11 @@ export default async function MarketingDashboardPage({
 
   // Scheduled campaigns whose time has come, in case the cron isn't set up.
   await sendDueCampaigns(owned.businessId).catch(() => 0);
-  const [counts, business, loyaltyProgram] = await Promise.all([
+  const [counts, business, loyaltyProgram, dailyLimit] = await Promise.all([
     segmentCounts(owned.businessId),
     prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true } }),
     prisma.loyaltyProgram.findUnique({ where: { businessId: owned.businessId }, select: { pointsRequired: true, discountPercent: true } }),
+    emailDailyLimitFor(owned.businessId),
   ]);
 
   return (
@@ -56,6 +58,7 @@ export default async function MarketingDashboardPage({
         salon={business}
         initialSegment={isSegment(segment) ? segment : "ALL"}
         loyaltyProgram={loyaltyProgram}
+        dailyLimit={dailyLimit}
       />
       <div id="vara-points" className="scroll-mt-24">
         <VaraPointsPanel locale={locale} />

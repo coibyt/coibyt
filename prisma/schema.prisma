@@ -221,6 +221,10 @@ model Business {
   seasonalTheme       String?   @db.VarChar(24)
   themeOnBookingPage  Boolean   @default(true)
   themeOnCalendar     Boolean   @default(true)
+  // Admin's cap on marketing emails per day (null = the platform default,
+  // PlatformSetting "emailDailyLimit"); bigger campaigns go out in daily
+  // batches — see src/lib/marketing-send.ts.
+  emailDailyLimit     Int?
   telegramLinkCode    String?   @unique @db.VarChar(24)
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.
@@ -446,11 +450,30 @@ model EmailCampaign {
   // Unique recipients who opened / clicked (EmailCampaignEvent).
   openCount       Int       @default(0)
   clickCount      Int       @default(0)
+  // Emails out so far. Over the salon's daily limit a campaign goes back to
+  // SCHEDULED for the same time tomorrow until everyone has had it.
+  sentCount       Int       @default(0)
 
-  events EmailCampaignEvent[]
+  events     EmailCampaignEvent[]
+  deliveries EmailCampaignDelivery[]
 
   @@index([businessId, createdAt])
   @@index([status, scheduledAt])
+}
+
+// One email of a campaign that went out: who already has it (when a campaign
+// is sent over several days) and how many the salon sent in the last day.
+model EmailCampaignDelivery {
+  id           String        @id @default(cuid())
+  campaignId   String
+  campaign     EmailCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  businessId   String
+  // "user:<id>" or "contact:<id>"
+  recipientKey String        @db.VarChar(80)
+  createdAt    DateTime      @default(now())
+
+  @@unique([campaignId, recipientKey])
+  @@index([businessId, createdAt])
 }
 
 // One open or click per recipient per campaign, for the campaign's stats.
@@ -1008,6 +1031,7 @@ enum VaraPointReason {
   REFERRAL_SIGNUP_BONUS
   EMAIL_SENT
   EMAIL_SENT_COOLDOWN_BYPASS
+  ADMIN_ADJUST
 }
 
 // Full ledger behind User.varaPoints — every earn and spend is one row here,
@@ -1019,6 +1043,8 @@ model VaraPointTransaction {
   user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount    Int
   reason    VaraPointReason
+  // Admin's reason for an ADMIN_ADJUST — shown in the owner's history.
+  note      String?         @db.VarChar(200)
   createdAt DateTime        @default(now())
 
   @@index([userId, createdAt])

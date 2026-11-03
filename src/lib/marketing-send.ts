@@ -8,6 +8,7 @@ import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type Campai
 import { loyaltyQrPng, loyaltyScanUrl, newLoyaltyToken } from "@/lib/loyalty";
 import { SITE_URL } from "@/lib/email/ui";
 import { profileChecklist } from "@/lib/profile-completeness";
+import { DAY_MS, emailDailyLimitFor, emailsSentToday } from "@/lib/email-daily-limit";
 import {
   EMAIL_COOLDOWN_BYPASS_POINTS,
   EMAIL_SENT_POINTS,
@@ -132,12 +133,17 @@ export async function campaignCost(businessId: string, segment: string, includeC
 }
 
 export type SendOutcome =
-  | { ok: true; sent: number; total: number }
+  // remaining > 0: over the salon's daily limit, the rest goes out at nextAt.
+  | { ok: true; sent: number; total: number; remaining: number; nextAt: Date | null }
   | { ok: false; error: "NOT_FOUND" | "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS" | "NO_LOYALTY_PROGRAM"; required?: number; available?: number };
+
+const recipientKey = (c: { id: string; kind: "user" | "contact" }) => `${c.kind}:${c.id}`;
 
 /** Sends a campaign that has been claimed for sending (status SENDING):
  * all-or-nothing on Vara points, only charging for emails that actually
- * went out, and restarting each recipient's 72h cooldown. */
+ * went out, and restarting each recipient's 72h cooldown. Over the salon's
+ * daily email limit it sends one day's share and goes back to SCHEDULED for
+ * the same time tomorrow, skipping whoever already has it. */
 export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   const campaign = await prisma.emailCampaign.findUnique({
     where: { id: campaignId },
@@ -146,19 +152,44 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   if (!campaign || campaign.status !== "SENDING") return { ok: false, error: "NOT_FOUND" };
   const { business } = campaign;
 
-  const { eligible, cooldown, cost } = await campaignCost(campaign.businessId, campaign.segment, campaign.includeCooldown);
-  const tagged = [
+  const { eligible, cooldown } = await campaignCost(campaign.businessId, campaign.segment, campaign.includeCooldown);
+  const delivered = new Set(
+    campaign.sentCount > 0
+      ? (await prisma.emailCampaignDelivery.findMany({ where: { campaignId }, select: { recipientKey: true } })).map((d) => d.recipientKey)
+      : []
+  );
+  const pending = [
     ...eligible.map((customer) => ({ customer, cooldownBypass: false })),
     ...(campaign.includeCooldown ? cooldown.map((customer) => ({ customer, cooldownBypass: true })) : []),
-  ];
+  ].filter(({ customer }) => !delivered.has(recipientKey(customer)));
   const fail = async (error: "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS" | "NO_LOYALTY_PROGRAM", extra = {}) => {
-    await prisma.emailCampaign.update({ where: { id: campaignId }, data: { status: "FAILED", recipientCount: 0 } });
+    await prisma.emailCampaign.update({ where: { id: campaignId }, data: { status: "FAILED", recipientCount: campaign.sentCount } });
     return { ok: false as const, error, ...extra };
   };
-  if (tagged.length === 0) return fail("NO_RECIPIENTS");
+  // Everyone left already had it on an earlier day.
+  if (pending.length === 0 && campaign.sentCount > 0) {
+    await prisma.emailCampaign.update({ where: { id: campaignId }, data: { status: "SENT", sentAt: new Date(), recipientCount: campaign.sentCount } });
+    return { ok: true, sent: 0, total: campaign.sentCount, remaining: 0, nextAt: null };
+  }
+  if (pending.length === 0) return fail("NO_RECIPIENTS");
+
+  // Today's share under the daily limit; tomorrow's run is the same time.
+  const limit = await emailDailyLimitFor(campaign.businessId);
+  const quota = limit === null ? pending.length : Math.max(0, limit - (await emailsSentToday(campaign.businessId)));
+  const tagged = pending.slice(0, quota);
+  let nextAt = new Date((campaign.scheduledAt ?? new Date()).getTime() + DAY_MS);
+  while (nextAt.getTime() <= Date.now()) nextAt = new Date(nextAt.getTime() + DAY_MS);
+  const total = campaign.sentCount + pending.length;
+  // The day's quota is already used up (by another campaign): wait for tomorrow.
+  if (tagged.length === 0) {
+    await prisma.emailCampaign.update({ where: { id: campaignId }, data: { status: "SCHEDULED", scheduledAt: nextAt, recipientCount: total } });
+    return { ok: true, sent: 0, total, remaining: pending.length, nextAt };
+  }
+  const cost = tagged.reduce((a, t) => a + (t.cooldownBypass ? EMAIL_COOLDOWN_BYPASS_POINTS : EMAIL_SENT_POINTS), 0);
 
   // Vara points belong to the owner account (shared across every branch);
-  // checked up front so a campaign goes out in full or not at all.
+  // checked up front so a campaign (or the day's share of it) goes out in
+  // full or not at all.
   const owner = await prisma.user.findUniqueOrThrow({ where: { id: business.ownerId }, select: { varaPoints: true } });
   if (cost > owner.varaPoints) return fail("INSUFFICIENT_VARA_POINTS", { required: cost, available: owner.varaPoints });
 
@@ -196,9 +227,19 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   const sentEligible = sent.filter((r) => !r.cooldownBypass).length;
   const sentCooldown = sent.length - sentEligible;
 
+  if (sent.length > 0) {
+    await prisma.emailCampaignDelivery.createMany({
+      data: sent.map(({ customer }) => ({ campaignId, businessId: campaign.businessId, recipientKey: recipientKey(customer) })),
+      skipDuplicates: true,
+    });
+  }
+  const sentCount = campaign.sentCount + sent.length;
+  const more = tagged.length < pending.length;
   await prisma.emailCampaign.update({
     where: { id: campaignId },
-    data: { status: "SENT", sentAt: new Date(), recipientCount: sent.length },
+    data: more
+      ? { status: "SCHEDULED", scheduledAt: nextAt, sentCount, recipientCount: total }
+      : { status: "SENT", sentAt: new Date(), sentCount, recipientCount: sentCount },
   });
   // Only emails that actually went out are charged.
   if (sentEligible > 0) await awardPoints(business.ownerId, -sentEligible * EMAIL_SENT_POINTS, "EMAIL_SENT");
@@ -221,7 +262,9 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
       )
     );
   }
-  return { ok: true, sent: sent.length, total: tagged.length };
+  return more
+    ? { ok: true, sent: sent.length, total, remaining: pending.length - sent.length, nextAt }
+    : { ok: true, sent: sent.length, total: sentCount, remaining: 0, nextAt: null };
 }
 
 /** Sends every scheduled campaign whose time has come. Called by the

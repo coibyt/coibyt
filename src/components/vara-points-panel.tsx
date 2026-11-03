@@ -8,6 +8,7 @@ interface VaraTransaction {
   id: string;
   amount: number;
   reason: string;
+  note: string | null;
   createdAt: string;
 }
 
@@ -28,6 +29,7 @@ const REASON_LABELS: Record<string, { vi: string; en: string }> = {
   REFERRAL_SIGNUP_BONUS: { vi: "Giới thiệu salon mới thành công", en: "Referred a new salon" },
   EMAIL_SENT: { vi: "Gửi email marketing", en: "Marketing email sent" },
   EMAIL_SENT_COOLDOWN_BYPASS: { vi: "Gửi email trước 72 giờ", en: "Early resend (cooldown bypass)" },
+  ADMIN_ADJUST: { vi: "VaraaAi điều chỉnh", en: "Adjusted by VaraaAi" },
 };
 
 export function VaraPointsPanel({ locale }: { locale: string }) {
@@ -112,8 +114,11 @@ export function VaraPointsPanel({ locale }: { locale: string }) {
           <p className="text-sm font-semibold text-ink-900">{tDash("varaPoints.historyTitle")}</p>
           <ul className="space-y-1">
             {info.recentTransactions.map((t) => (
-              <li key={t.id} className="flex items-center justify-between text-xs text-ink-700">
-                <span>{REASON_LABELS[t.reason]?.[locale === "vi" ? "vi" : "en"] ?? t.reason}</span>
+              <li key={t.id} className="flex items-center justify-between gap-3 text-xs text-ink-700">
+                <span className="min-w-0">
+                  {REASON_LABELS[t.reason]?.[locale === "vi" ? "vi" : "en"] ?? t.reason}
+                  {t.note && <span className="text-ink-400"> · {t.note}</span>}
+                </span>
                 <span className={t.amount >= 0 ? "font-medium text-sage-600" : "font-medium text-berry-500"}>
                   {t.amount >= 0 ? "+" : ""}
                   {t.amount}

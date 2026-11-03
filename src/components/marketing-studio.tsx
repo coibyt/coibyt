@@ -69,6 +69,7 @@ interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" |
   sentAt: string | null;
   createdAt: string;
   recipientCount: number;
+  sentCount: number;
   openCount: number;
   clickCount: number;
 }
@@ -275,6 +276,7 @@ export function MarketingStudio({
   salon,
   initialSegment = "ALL",
   loyaltyProgram,
+  dailyLimit = null,
 }: {
   locale: string;
   isOwner: boolean;
@@ -283,6 +285,8 @@ export function MarketingStudio({
   initialSegment?: Segment;
   /** The salon's loyalty card rules, or null before it has set them up. */
   loyaltyProgram: { pointsRequired: number; discountPercent: number } | null;
+  /** The admin's cap on emails per day (null = none). */
+  dailyLimit?: number | null;
 }) {
   const S = marketingStudioStrings(locale);
   const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
@@ -454,7 +458,14 @@ export function MarketingStudio({
       });
       return;
     }
-    setFlash({ ok: true, text: d.scheduled ? S.scheduled : fill(S.sent, { n: d.sent }) });
+    setFlash({
+      ok: true,
+      text: d.scheduled
+        ? S.scheduled
+        : d.remaining > 0
+          ? fill(S.sentPartly, { n: d.sent, left: d.remaining, time: dateFmt.format(new Date(d.nextAt)), limit: dailyLimit ?? d.sent })
+          : fill(S.sent, { n: d.sent }),
+    });
     setC(EMPTY);
     setOfferOn(false);
     setImageUrl(null);
@@ -933,6 +944,9 @@ export function MarketingStudio({
                 <p className="mt-2 text-xs font-medium text-berry-500">{fill(S.errInsufficient, { required: cost, available: points ?? 0 })}</p>
               )}
               {!ready && <p className="mt-2 text-xs text-ink-400">{S.missing}</p>}
+              {dailyLimit !== null && recipients > dailyLimit && (
+                <p className="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-800 ring-1 ring-amber-200">{fill(S.dailyLimitNote, { limit: dailyLimit })}</p>
+              )}
 
               {confirming ? (
                 <div className="mt-4 rounded-2xl bg-[#1f182d] p-4 text-white">
@@ -1029,6 +1043,7 @@ export function MarketingStudio({
                             </span>
                           )}
                           <span className="text-[11px] text-ink-400" suppressHydrationWarning>
+                            {x.status === "SCHEDULED" && x.sentCount > 0 && `${fill(S.progress, { n: x.sentCount, total: x.recipientCount })} · `}
                             {fill(x.status === "SCHEDULED" ? S.scheduledFor : S.sentOn, { time: dateFmt.format(new Date(time)) })}
                           </span>
                         </div>

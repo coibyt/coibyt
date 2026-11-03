@@ -37,6 +37,7 @@ export async function GET() {
       sentAt: true,
       createdAt: true,
       recipientCount: true,
+      sentCount: true,
       openCount: true,
       clickCount: true,
     },

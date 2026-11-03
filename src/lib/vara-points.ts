@@ -29,6 +29,19 @@ export async function awardPoints(
   });
 }
 
+/** The admin adds (positive) or takes (negative) points by hand, with a
+ * note the owner sees in their history. Never below zero: returns null
+ * instead. Otherwise the new balance. */
+export async function adminAdjustPoints(userId: string, amount: number, note: string | null) {
+  return prisma.$transaction(async (tx) => {
+    const user = await tx.user.findUniqueOrThrow({ where: { id: userId }, select: { varaPoints: true } });
+    if (user.varaPoints + amount < 0) return null;
+    const updated = await tx.user.update({ where: { id: userId }, data: { varaPoints: { increment: amount } } });
+    await tx.varaPointTransaction.create({ data: { userId, amount, reason: "ADMIN_ADJUST", note } });
+    return updated.varaPoints;
+  });
+}
+
 /** "YYYY-MM-DD" in UTC — the check-in day boundary is deliberately
  * timezone-agnostic (unlike business opening hours) since points belong to
  * the owner account, not to any one branch's timezone. */

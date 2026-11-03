@@ -25,6 +25,7 @@ export default async function AdminLayout({
     { href: "/admin/ringtones", label: locale === "vi" ? "Nhạc chuông" : "Ringtones" },
     { href: "/admin/telegram", label: "Bot Telegram" },
     { href: "/admin/site-theme", label: locale === "vi" ? "Giao diện mùa lễ" : "Holiday look" },
+    { href: "/admin/vara-points", label: locale === "vi" ? "Điểm Vara & email" : "Vara points & email" },
     { href: "/admin/loyalty-lite", label: locale === "vi" ? "Thẻ tích điểm miễn phí" : "Free loyalty cards" },
     {
       href: "/admin/support",

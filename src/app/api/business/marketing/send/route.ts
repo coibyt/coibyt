@@ -71,5 +71,5 @@ export async function POST(req: Request) {
   if (!outcome.ok) {
     return NextResponse.json(outcome, { status: outcome.error === "INSUFFICIENT_VARA_POINTS" ? 402 : 409 });
   }
-  return NextResponse.json({ sent: outcome.sent, total: outcome.total, id: campaign.id });
+  return NextResponse.json({ sent: outcome.sent, total: outcome.total, remaining: outcome.remaining, nextAt: outcome.nextAt, id: campaign.id });
 }
