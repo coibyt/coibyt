@@ -125,8 +125,8 @@ export function LiteProfilePanel({
     setMsg(r.ok ? { at: "session", ok: true, text: t.signedOutAll } : { at: "session", ok: false, text: t.errGeneric });
   }
 
-  const field = "mt-1 h-11 w-full rounded-2xl border border-ink-100 bg-white px-4 text-sm text-ink-900 placeholder:text-ink-300 focus:border-[#c99a3f] focus:outline-none focus:ring-4 focus:ring-[#c99a3f]/15";
-  const gold = "inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_24px_-14px_rgba(185,133,45,0.95)] transition hover:brightness-105 disabled:opacity-60";
+  const field = "mt-1 h-11 w-full rounded-2xl border border-[#f3c4dd] bg-white px-4 text-sm text-ink-900 placeholder:text-ink-300 focus:border-[#d6337f] focus:outline-none focus:ring-4 focus:ring-[#d6337f]/15";
+  const gold = "inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e0559b] via-[#c42d7f] to-[#a3155f] px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_24px_-14px_rgba(163,21,95,0.9)] transition hover:brightness-105 disabled:opacity-60";
   const outline = "inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-ink-700 ring-1 ring-ink-100 transition hover:bg-mist-50 disabled:opacity-60";
   const dateFmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 
@@ -140,7 +140,7 @@ export function LiteProfilePanel({
 
   const Head = ({ icon: Icon, title, sub }: { icon: typeof Mail; title: string; sub: string }) => (
     <div className="flex items-start gap-3">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#624f89] text-[#e8d3a6]">
+      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e0559b] to-[#a3155f] text-[#ffe3f1]">
         <Icon className="h-5 w-5" />
       </span>
       <div className="min-w-0">
@@ -152,7 +152,7 @@ export function LiteProfilePanel({
 
   return (
     <div className="space-y-6">
-      <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+      <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
         <Head icon={UserRound} title={t.accountTitle} sub={t.accountSub} />
         <form onSubmit={saveAccount} className="mt-5 grid gap-3 sm:grid-cols-2">
           <label className="block text-xs font-bold text-ink-700">
@@ -173,9 +173,9 @@ export function LiteProfilePanel({
         <Note at="account" />
       </section>
 
-      <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+      <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
         <Head icon={KeyRound} title={t.passwordTitle} sub={t.passwordSub} />
-        <p className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${hasPassword ? "bg-emerald-50 text-emerald-700" : "bg-[#f6efe1] text-[#8a6a2c]"}`}>
+        <p className={`mt-4 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-bold ${hasPassword ? "bg-emerald-50 text-emerald-700" : "bg-[#fdf2f8] text-[#a3155f]"}`}>
           <ShieldCheck className="h-3.5 w-3.5" />
           {hasPassword ? t.passwordOn : t.passwordOff}
         </p>
@@ -199,7 +199,7 @@ export function LiteProfilePanel({
         <Note at="password" />
       </section>
 
-      <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+      <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
         <Head icon={Users} title={t.staffTitle} sub={t.staffSub} />
         {staff === null ? (
           <Loader2 className="mt-5 h-5 w-5 animate-spin text-ink-300" />
@@ -209,7 +209,7 @@ export function LiteProfilePanel({
           <ul className="mt-5 divide-y divide-ink-100">
             {staff.map((s) => (
               <li key={s.id} className="flex flex-wrap items-center gap-3 py-3">
-                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl font-serif text-lg ${s.active ? "bg-gradient-to-br from-[#624f89] to-[#1f182d] text-[#e8d3a6]" : "bg-mist-50 text-ink-300"}`}>
+                <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl font-serif text-lg ${s.active ? "bg-gradient-to-br from-[#e0559b] to-[#a3155f] text-[#ffe3f1]" : "bg-mist-50 text-ink-300"}`}>
                   {s.name.trim()[0]?.toUpperCase()}
                 </span>
                 <span className="min-w-0 flex-1">
@@ -240,7 +240,7 @@ export function LiteProfilePanel({
             ))}
           </ul>
         )}
-        <form onSubmit={addStaff} className="mt-5 grid gap-3 rounded-3xl bg-[#faf8fd] p-4 ring-1 ring-ink-100 sm:grid-cols-3">
+        <form onSubmit={addStaff} className="mt-5 grid gap-3 rounded-3xl bg-[#faf8fd] p-4 ring-1 ring-[#f3c4dd] sm:grid-cols-3">
           <label className="block text-xs font-bold text-ink-700">
             {t.staffName}
             <input required maxLength={120} value={sName} onChange={(e) => setSName(e.target.value)} className={field} />
@@ -263,7 +263,7 @@ export function LiteProfilePanel({
         <Note at="staff" />
       </section>
 
-      <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+      <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
         <Head icon={LogOut} title={t.sessionTitle} sub={t.sessionSub} />
         <div className="mt-5 flex flex-wrap gap-2">
           <button type="button" onClick={onSignOut} className={outline}>

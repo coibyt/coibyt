@@ -24,7 +24,9 @@ export default async function LoyaltyLiteStudioPage({ params }: { params: Promis
   const t = liteStrings(salon.locale);
 
   return (
-    <div className={`${siteSerif.variable} container max-w-6xl py-8 sm:py-10`}>
+    // The loyalty card's pink, like /loyalty-lite.
+    <div className={`${siteSerif.variable} bg-gradient-to-b from-[#fdf2f8] via-[#fff7fb] to-white`}>
+    <div className="container max-w-6xl py-8 sm:py-10">
       <LiteStudio
         locale={salon.locale}
         t={t}
@@ -53,6 +55,7 @@ export default async function LoyaltyLiteStudioPage({ params }: { params: Promis
           })),
         }}
       />
+    </div>
     </div>
   );
 }

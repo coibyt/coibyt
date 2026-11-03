@@ -30,17 +30,17 @@ export function LiteOwnerPanel({ cardId, full, t, required, reward }: { cardId: 
   }
 
   return (
-    <div className="rounded-[1.75rem] border-2 border-dashed border-[#c99a3f]/60 bg-[#fffaf0] p-5">
-      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#8a6a2c]">{t.ownerPanel}</p>
+    <div className="rounded-[1.75rem] border-2 border-dashed border-[#e0559b]/50 bg-[#fff5fa] p-5">
+      <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#a3155f]">{t.ownerPanel}</p>
       <button
         type="button"
         disabled={busy}
         onClick={() => act(full ? "redeem" : "stamp")}
         className={`mt-3 flex h-14 w-full items-center justify-center gap-2 rounded-full text-base font-bold text-white transition disabled:opacity-70 ${
-          full ? "bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] shadow-[0_14px_28px_-14px_rgba(185,133,45,0.95)]" : "bg-[#1f182d]"
+          full ? "bg-gradient-to-r from-[#e0559b] via-[#c42d7f] to-[#a3155f] shadow-[0_14px_28px_-14px_rgba(163,21,95,0.9)]" : "bg-[#a3155f]"
         }`}
       >
-        {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : full ? <Gift className="h-5 w-5" /> : <Stamp className="h-5 w-5 text-[#e8d3a6]" />}
+        {busy ? <Loader2 className="h-5 w-5 animate-spin" /> : full ? <Gift className="h-5 w-5" /> : <Stamp className="h-5 w-5 text-[#ffe3f1]" />}
         {full ? t.redeem : t.stamp}
       </button>
       {msg && <p className={`mt-3 text-center text-sm font-semibold ${msg.ok ? "text-emerald-700" : "text-berry-600"}`}>{msg.text}</p>}

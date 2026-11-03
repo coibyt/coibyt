@@ -253,9 +253,9 @@ export function LiteStudio({
     ...(isOwner ? [{ key: "profile" as const, label: t.tabProfile, icon: UserRound }] : []),
   ];
 
-  const field = "mt-1 h-11 w-full rounded-2xl border border-ink-100 bg-white px-4 text-sm text-ink-900 placeholder:text-ink-300 focus:border-[#c99a3f] focus:outline-none focus:ring-4 focus:ring-[#c99a3f]/15";
-  const gold = "inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#d9b25c] via-[#c99a3f] to-[#b9852d] px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_24px_-14px_rgba(185,133,45,0.95)] transition hover:brightness-105 disabled:opacity-60";
-  const dark = "inline-flex items-center justify-center gap-2 rounded-full bg-[#1f182d] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#2f2544] disabled:opacity-60";
+  const field = "mt-1 h-11 w-full rounded-2xl border border-[#f3c4dd] bg-white px-4 text-sm text-ink-900 placeholder:text-ink-300 focus:border-[#d6337f] focus:outline-none focus:ring-4 focus:ring-[#d6337f]/15";
+  const gold = "inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e0559b] via-[#c42d7f] to-[#a3155f] px-5 py-2.5 text-sm font-bold text-white shadow-[0_12px_24px_-14px_rgba(163,21,95,0.9)] transition hover:brightness-105 disabled:opacity-60";
+  const dark = "inline-flex items-center justify-center gap-2 rounded-full bg-[#a3155f] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#7a1d55] disabled:opacity-60";
 
   function Flash({ at }: { at: Area }) {
     if (!flash || area !== at) return null;
@@ -271,7 +271,7 @@ export function LiteStudio({
   function Head({ icon: Icon, title, sub }: { icon: typeof Stamp; title: string; sub: string }) {
     return (
       <div className="flex items-start gap-3">
-        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#624f89] text-[#e8d3a6]">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e0559b] to-[#a3155f] text-[#ffe3f1]">
           <Icon className="h-5 w-5" />
         </span>
         <div className="min-w-0">
@@ -293,7 +293,7 @@ export function LiteStudio({
           </button>
         ) : (
           <button type="button" disabled={!!busy} onClick={() => act(card, "stamp", where)} className={dark}>
-            {busy === `stamp-${card.id}` ? <Loader2 className="h-4 w-4 animate-spin" /> : <Stamp className="h-4 w-4 text-[#e8d3a6]" />}
+            {busy === `stamp-${card.id}` ? <Loader2 className="h-4 w-4 animate-spin" /> : <Stamp className="h-4 w-4 text-[#ffe3f1]" />}
             {t.stamp}
           </button>
         )}
@@ -304,12 +304,12 @@ export function LiteStudio({
   return (
     <div className="space-y-6">
       {/* Header */}
-      <section className="relative overflow-hidden rounded-[2rem] bg-[#1f182d] p-6 text-white shadow-[0_30px_60px_-35px_rgba(31,24,45,0.9)] sm:p-8">
-        <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-[#624f89]/60 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-28 left-1/4 h-64 w-64 rounded-full bg-[#c9a96e]/20 blur-3xl" />
+      <section className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#e0559b] via-[#c42d7f] to-[#8e1d6d] p-6 text-white shadow-[0_30px_60px_-35px_rgba(163,21,95,0.9)] sm:p-8">
+        <div className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full bg-white/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-28 left-1/4 h-64 w-64 rounded-full bg-[#ffd1e8]/30 blur-3xl" />
         <div className="relative flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
-            <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#e8d3a6]">
+            <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] text-[#ffe3f1]">
               <Stamp className="h-4 w-4" />
               {t.studioEyebrow}
             </p>
@@ -361,7 +361,7 @@ export function LiteStudio({
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
         <div className="min-w-0 space-y-6">
-            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+            <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
               <Head icon={QrCode} title={t.scanTitle} sub={t.scanSub} />
               {canDetect ? (
                 <div className="mt-4">
@@ -378,14 +378,14 @@ export function LiteStudio({
                     </div>
                   ) : (
                     <button type="button" onClick={startCamera} className={`${dark} w-full py-3.5`}>
-                      <Camera className="h-5 w-5 text-[#e8d3a6]" />
+                      <Camera className="h-5 w-5 text-[#ffe3f1]" />
                       {t.scanCamera}
                     </button>
                   )}
                 </div>
               ) : (
-                <p className="mt-4 flex gap-2 rounded-2xl bg-[#f4f1fa] p-3.5 text-xs leading-relaxed text-[#40325c]">
-                  <Camera className="mt-px h-4 w-4 shrink-0 text-[#b08a3e]" />
+                <p className="mt-4 flex gap-2 rounded-2xl bg-[#fdf2f8] p-3.5 text-xs leading-relaxed text-[#7a1d55]">
+                  <Camera className="mt-px h-4 w-4 shrink-0 text-[#c42d7f]" />
                   {t.scanNoCamera}
                 </p>
               )}
@@ -419,7 +419,7 @@ export function LiteStudio({
               )}
             </section>
 
-            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+            <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
               <Head icon={Plus} title={t.newTitle} sub={t.newSub} />
               <form onSubmit={create} className="mt-5 grid gap-3 sm:grid-cols-2">
                 <label className="block text-xs font-bold text-ink-700">
@@ -463,7 +463,7 @@ export function LiteStudio({
             </section>
 
             {isOwner && (
-            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+            <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
               <Head icon={Settings2} title={t.programTitle} sub={t.programSub} />
               <form onSubmit={saveProgram} className="mt-5 space-y-4">
                 <label className="block text-xs font-bold text-ink-700">
@@ -479,7 +479,7 @@ export function LiteStudio({
                         type="button"
                         onClick={() => setSalon((s) => ({ ...s, stampsRequired: n }))}
                         className={`h-10 w-10 rounded-xl text-sm font-bold ring-1 transition ${
-                          salon.stampsRequired === n ? "bg-[#1f182d] text-[#e8d3a6] ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
+                          salon.stampsRequired === n ? "bg-[#a3155f] text-[#ffe3f1] ring-[#a3155f]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
                         }`}
                       >
                         {n}
@@ -512,10 +512,10 @@ export function LiteStudio({
                     setTab(x.key);
                       }}
                   className={`flex shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold ring-1 transition ${
-                    on ? "bg-[#1f182d] text-white ring-[#1f182d]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
+                    on ? "bg-[#a3155f] text-white ring-[#a3155f]" : "bg-white text-ink-700 ring-ink-100 hover:bg-mist-50"
                   }`}
                 >
-                  <x.icon className={`h-4 w-4 ${on ? "text-[#e8d3a6]" : "text-ink-400"}`} />
+                  <x.icon className={`h-4 w-4 ${on ? "text-[#ffe3f1]" : "text-ink-400"}`} />
                   {x.label}
                   {x.key === "cards" && <span className={`rounded-full px-1.5 text-[10px] font-bold leading-4 ${on ? "bg-white/15" : "bg-mist-50"}`}>{cards.length}</span>}
                 </button>
@@ -524,7 +524,7 @@ export function LiteStudio({
           </div>
 
           {tab === "cards" && (
-            <section className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+            <section className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
               <div className="relative">
                 <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-300" />
                 <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t.searchPh} className={`${field} mt-0 pl-10`} />
@@ -538,7 +538,7 @@ export function LiteStudio({
                     const full = c.stamps >= N;
                     return (
                       <li key={c.id} className="flex flex-wrap items-center gap-3 py-3.5">
-                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#624f89] to-[#1f182d] font-serif text-lg text-[#e8d3a6]">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#e0559b] to-[#a3155f] font-serif text-lg text-[#ffe3f1]">
                           {c.customerName.trim()[0]?.toUpperCase()}
                         </span>
                         <span className="min-w-0 flex-1">
@@ -552,7 +552,7 @@ export function LiteStudio({
                           </span>
                           <span className="mt-1.5 flex items-center gap-2">
                             <span className="h-1.5 w-28 overflow-hidden rounded-full bg-mist-50">
-                              <span className="block h-full rounded-full bg-gradient-to-r from-[#d9b25c] to-[#b9852d]" style={{ width: `${(Math.min(c.stamps, N) / N) * 100}%` }} />
+                              <span className="block h-full rounded-full bg-gradient-to-r from-[#e0559b] to-[#a3155f]" style={{ width: `${(Math.min(c.stamps, N) / N) * 100}%` }} />
                             </span>
                             <span className="text-[11px] font-semibold tabular-nums text-ink-500">{fill(t.stampsOf, { n: Math.min(c.stamps, N), total: N })}</span>
                           </span>
@@ -562,7 +562,7 @@ export function LiteStudio({
                             type="button"
                             disabled={!!busy}
                             onClick={() => act(c, full ? "redeem" : "stamp")}
-                            className={`rounded-full px-3 py-1.5 text-xs font-bold ${full ? "bg-gradient-to-r from-[#d9b25c] to-[#b9852d] text-white" : "bg-[#1f182d] text-white"}`}
+                            className={`rounded-full px-3 py-1.5 text-xs font-bold ${full ? "bg-gradient-to-r from-[#e0559b] to-[#a3155f] text-white" : "bg-[#a3155f] text-white"}`}
                           >
                             {busy === `stamp-${c.id}` || busy === `redeem-${c.id}` ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : full ? t.redeem : t.stamp}
                           </button>
@@ -590,12 +590,12 @@ export function LiteStudio({
 
           {tab === "guide" && (
             <section className="space-y-4">
-              <div className="rounded-[2rem] border border-ink-100 bg-white p-5 sm:p-6">
+              <div className="rounded-[2rem] border border-[#f3c4dd] bg-white p-5 sm:p-6">
                 <p className="font-serif text-2xl text-ink-900">{t.guideTitle}</p>
-                <ol className="relative mt-5 space-y-5 before:absolute before:bottom-4 before:left-[15px] before:top-3 before:w-px before:bg-gradient-to-b before:from-[#d9b25c] before:to-[#e2d9ee]">
+                <ol className="relative mt-5 space-y-5 before:absolute before:bottom-4 before:left-[15px] before:top-3 before:w-px before:bg-gradient-to-b before:from-[#e0559b] before:to-[#f3c4dd]">
                   {t.guide.map(([title, body], i) => (
                     <li key={title} className="relative flex gap-3">
-                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#d9b25c] to-[#b9852d] text-xs font-extrabold text-white ring-4 ring-white">{i + 1}</span>
+                      <span className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#e0559b] to-[#a3155f] text-xs font-extrabold text-white ring-4 ring-white">{i + 1}</span>
                       <div className="pt-1">
                         <p className="text-sm font-bold text-ink-900">{title}</p>
                         <p className="mt-0.5 text-sm leading-relaxed text-ink-600">{body}</p>
@@ -604,15 +604,15 @@ export function LiteStudio({
                   ))}
                 </ol>
               </div>
-              <div className="rounded-[2rem] bg-[#1f182d] p-5 text-white sm:p-6">
-                <p className="flex items-center gap-2 font-bold text-[#e8d3a6]">
+              <div className="rounded-[2rem] bg-[#a3155f] p-5 text-white sm:p-6">
+                <p className="flex items-center gap-2 font-bold text-[#ffe3f1]">
                   <Lightbulb className="h-4 w-4" />
                   {t.tipsTitle}
                 </p>
                 <ul className="mt-3 space-y-2 text-sm text-white/80">
                   {t.tips.map((x) => (
                     <li key={x} className="flex gap-2">
-                      <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-[#c9a96e]" />
+                      <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-[#ffd1e8]" />
                       {x}
                     </li>
                   ))}
@@ -628,20 +628,20 @@ export function LiteStudio({
 
         {/* Upgrade */}
         <aside className="space-y-4">
-          <div className="rounded-[2rem] border border-[#ecd9ad] bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] p-5">
-            <p className="text-xs font-bold text-[#8a6a2c]">{fill(t.usage, { n: cards.length, max: maxCards.toLocaleString(locale) })}</p>
+          <div className="rounded-[2rem] border border-[#f3c4dd] bg-gradient-to-br from-[#fff5fa] to-[#fbe3ef] p-5">
+            <p className="text-xs font-bold text-[#a3155f]">{fill(t.usage, { n: cards.length, max: maxCards.toLocaleString(locale) })}</p>
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-white">
-              <div className="h-full rounded-full bg-gradient-to-r from-[#d9b25c] to-[#b9852d]" style={{ width: `${Math.min(100, (cards.length / maxCards) * 100)}%` }} />
+              <div className="h-full rounded-full bg-gradient-to-r from-[#e0559b] to-[#a3155f]" style={{ width: `${Math.min(100, (cards.length / maxCards) * 100)}%` }} />
             </div>
             <p className="mt-5 flex items-center gap-2 font-serif text-xl text-ink-900">
-              <Crown className="h-5 w-5 text-[#b9852d]" />
+              <Crown className="h-5 w-5 text-[#c42d7f]" />
               {t.upgradeTitle}
             </p>
-            <p className="mt-1.5 text-sm leading-relaxed text-[#6b5221]">{t.upgradeSub}</p>
+            <p className="mt-1.5 text-sm leading-relaxed text-[#7a1d55]">{t.upgradeSub}</p>
             <ul className="mt-3 space-y-1.5">
               {t.fullItems.slice(0, 4).map((x) => (
-                <li key={x} className="flex gap-2 text-xs text-[#6b5221]">
-                  <Check className="mt-px h-3.5 w-3.5 shrink-0 text-[#b9852d]" />
+                <li key={x} className="flex gap-2 text-xs text-[#7a1d55]">
+                  <Check className="mt-px h-3.5 w-3.5 shrink-0 text-[#c42d7f]" />
                   {x}
                 </li>
               ))}

@@ -36,7 +36,7 @@ export default async function LiteCardPage({ params }: { params: Promise<{ local
   const qr = await liteQrDataUrl(card.token, salon.locale);
 
   return (
-    <div className={`${siteSerif.variable} min-h-screen bg-gradient-to-b from-[#1f182d] via-[#2a2140] to-[#faf8fd] pb-16 pt-8`}>
+    <div className={`${siteSerif.variable} min-h-screen bg-gradient-to-b from-[#fbe3ef] via-[#fdf2f8] to-white pb-16 pt-8`}>
       <div className="container max-w-md space-y-5">
         <LiteMemberCard
           salonName={salon.salonName}
@@ -51,9 +51,9 @@ export default async function LiteCardPage({ params }: { params: Promise<{ local
 
         {isOwner && <LiteOwnerPanel cardId={card.id} full={full} t={t} required={N} reward={salon.rewardText} />}
 
-        <div className={`rounded-[1.75rem] p-5 ${full ? "bg-gradient-to-br from-[#fffaf0] to-[#f6ead2] ring-1 ring-[#ecd9ad]" : "bg-white ring-1 ring-ink-100"}`}>
+        <div className={`rounded-[1.75rem] p-5 ${full ? "bg-gradient-to-br from-[#fff5fa] to-[#fbe3ef] ring-1 ring-[#f3c4dd]" : "bg-white ring-1 ring-[#f3c4dd]"}`}>
           <p className="flex items-center gap-2 text-sm font-bold text-ink-900">
-            <Gift className="h-4 w-4 text-[#b9852d]" />
+            <Gift className="h-4 w-4 text-[#c42d7f]" />
             {full ? t.cardReady : t.cardLeft.replace("{n}", String(N - card.stamps))}
           </p>
           <p className="mt-2 flex items-start gap-2 text-sm text-ink-500">
