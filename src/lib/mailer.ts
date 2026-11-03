@@ -5,6 +5,7 @@ import { NEW_MESSAGE_STRINGS, OWNER_BOOKING_STRINGS } from "@/lib/email/owner-st
 import { customerExtra, ownerExtra } from "@/lib/email/extra-strings";
 import { chromeStrings } from "@/lib/email/strings";
 import { bookingRef, dateParts, durationMinutes, googleCalendarUrl, icsAttachment } from "@/lib/email/calendar";
+import { withSeasonBand } from "@/lib/platform-season";
 import {
   C,
   SITE_URL,
@@ -66,6 +67,8 @@ export async function sendMail(opts: {
   await transporter.sendMail({
     from: process.env.SMTP_FROM ?? "VaraaAi.Com <noreply@varaaai.com>",
     ...opts,
+    // The admin's holiday band, when emails get the season's look.
+    html: await withSeasonBand(opts.html),
   });
 }
 

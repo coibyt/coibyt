@@ -8,6 +8,10 @@ import { chromeStrings } from "@/lib/email/strings";
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
+/** Where the admin's holiday band goes (filled in, or removed, by sendMail —
+ * src/lib/platform-season.ts). */
+export const EMAIL_SEASON_MARK = "<!--varaaai-season-->";
+
 export const C = {
   page: "#f4f1f8",
   card: "#ffffff",
@@ -140,6 +144,7 @@ export function emailLayout(p: LayoutParams) {
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${C.page}" style="background:${C.page}">
 <tr><td align="center" style="padding:32px 12px 40px">
   <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px">
+    <tr><td>${EMAIL_SEASON_MARK}</td></tr>
     <tr><td align="center" style="padding:4px 0 24px">${brandHeader(p.brand, p.locale)}</td></tr>
     <tr><td style="background:${C.card};border:1px solid ${C.border};border-radius:24px;overflow:hidden" bgcolor="${C.card}">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">

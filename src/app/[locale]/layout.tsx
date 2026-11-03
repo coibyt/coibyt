@@ -15,6 +15,8 @@ import { BookingAlarm } from "@/components/booking-alarm";
 import { SiteVisitTracker } from "@/components/site-visit-tracker";
 import "../globals.css";
 import { ogImage } from "@/lib/og-image";
+import { siteThemeFor } from "@/lib/platform-season";
+import { SiteSeasonStrip } from "@/components/site-season-strip";
 
 const GOOGLE_TAG_ID = "GT-PL3VR4KX";
 const META_PIXEL_ID = "7997185890363074";
@@ -72,6 +74,9 @@ export default async function LocaleLayout({
   if (!isValidLocale(locale)) notFound();
 
   const messages = await getMessages();
+  // Admin › Giao diện mùa lễ: the holiday strip, for public pages and dashboards.
+  const [seasonSite, seasonDashboard] = await Promise.all([siteThemeFor("site"), siteThemeFor("dashboard")]);
+  const season = { site: seasonSite, dashboard: seasonDashboard };
 
   return (
     <html lang={locale} dir={RTL_LOCALES.has(locale) ? "rtl" : "ltr"} className={sans.variable}>
@@ -120,6 +125,7 @@ fbq('track', 'PageView');`,
             <PwaRegister />
             <SiteVisitTracker />
             <Navbar />
+            <SiteSeasonStrip locale={locale} site={season.site} dashboard={season.dashboard} />
             <main className="flex-1">{children}</main>
             <Footer />
             <InstallAppBanner locale={locale} />
