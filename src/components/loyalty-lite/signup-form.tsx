@@ -8,7 +8,20 @@ import type { LiteStrings } from "@/lib/loyalty-lite-strings";
 /** Loyalty Lite's card on /loyalty-lite: create a salon (a new one goes
  * straight to its studio; a known email gets a sign-in link instead), or
  * sign in with email + password — the owner or a staff login. */
-export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: { locale: string; t: LiteStrings; expired: boolean; initialMode?: "signup" | "login" }) {
+export function LiteSignupForm({
+  locale,
+  t,
+  expired,
+  initialMode = "signup",
+  compact = false,
+}: {
+  locale: string;
+  t: LiteStrings;
+  expired: boolean;
+  initialMode?: "signup" | "login";
+  /** The welcome popup: no tabs or owner-name field, a link to switch instead. */
+  compact?: boolean;
+}) {
   const router = useRouter();
   const [mode, setMode] = useState(initialMode);
   const [salonName, setSalonName] = useState("");
@@ -76,8 +89,14 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
     "flex h-14 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#e0559b] via-[#c42d7f] to-[#a3155f] text-base font-bold text-white shadow-[0_18px_34px_-14px_rgba(163,21,95,0.9)] transition hover:brightness-105 disabled:opacity-70";
   const label = "block text-sm font-bold text-[#4a1236]";
 
+  const switchMode = () => {
+    setMode(mode === "signup" ? "login" : "signup");
+    setError(null);
+  };
+
   return (
     <div>
+      {!compact && (
       <div className="mb-6 grid grid-cols-2 gap-1 rounded-full bg-[#fdf2f8] p-1 ring-1 ring-[#f3c4dd]">
         {(["signup", "login"] as const).map((m) => (
           <button
@@ -93,6 +112,7 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
           </button>
         ))}
       </div>
+      )}
 
       {mode === "signup" ? (
         <form onSubmit={signup} className="space-y-4">
@@ -104,16 +124,27 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
             {t.email}
             <input required type="email" maxLength={191} value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.emailPh} className={field} autoComplete="email" />
           </label>
-          <label className={label}>
-            {t.ownerName}
-            <input maxLength={120} value={ownerName} onChange={(e) => setOwnerName(e.target.value)} className={field} autoComplete="name" />
-          </label>
+          {!compact && (
+            <label className={label}>
+              {t.ownerName}
+              <input maxLength={120} value={ownerName} onChange={(e) => setOwnerName(e.target.value)} className={field} autoComplete="name" />
+            </label>
+          )}
           {error && <p className="rounded-xl bg-berry-50 px-3 py-2 text-xs font-semibold text-berry-600">{error}</p>}
           <button type="submit" disabled={busy} className={submit}>
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {t.submit}
           </button>
-          <p className="text-center text-xs text-ink-400">{t.terms}</p>
+          {compact ? (
+            <p className="text-center text-sm text-ink-500">
+              {t.popupHaveAccount}{" "}
+              <button type="button" onClick={switchMode} className="font-bold text-[#c42d7f] hover:underline">
+                {t.modeLogin}
+              </button>
+            </p>
+          ) : (
+            <p className="text-center text-xs text-ink-400">{t.terms}</p>
+          )}
         </form>
       ) : (
         <form onSubmit={login} className="space-y-4">
@@ -136,6 +167,14 @@ export function LiteSignupForm({ locale, t, expired, initialMode = "signup" }: {
             {t.forgot}
           </button>
           <p className="text-center text-[11px] text-ink-400">{t.forgotStaff}</p>
+          {compact && (
+            <p className="text-center text-sm text-ink-500">
+              {t.popupNoAccount}{" "}
+              <button type="button" onClick={switchMode} className="font-bold text-[#c42d7f] hover:underline">
+                {t.modeSignup}
+              </button>
+            </p>
+          )}
         </form>
       )}
     </div>
