@@ -23,6 +23,9 @@ export function loyaltyScanUrl(token: string) {
   return `${site}/loyalty/${encodeURIComponent(token)}`;
 }
 
+/** The made-up card shown in marketing previews and test emails. */
+export const SAMPLE_LOYALTY_TOKEN = "VARA2026DEMO";
+
 export function loyaltyQrPng(token: string) {
   return QRCode.toBuffer(loyaltyScanUrl(token), { type: "png", width: 240, margin: 1 });
 }

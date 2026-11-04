@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { giftCardQrPng } from "@/lib/gift-cards";
-import { loyaltyQrPng } from "@/lib/loyalty";
+import { SAMPLE_LOYALTY_TOKEN, loyaltyQrPng } from "@/lib/loyalty";
 import { liteQrPng } from "@/lib/loyalty-lite";
 
 /** Public QR images for emails ("/api/email-qr/gift/ABCD1234.png",
@@ -19,7 +19,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ kind: s
     const found = await prisma.giftCardPurchase.findUnique({ where: { code }, select: { status: true } });
     if (found && found.status !== "CANCELLED") png = await giftCardQrPng(code);
   } else if (kind === "loyalty") {
-    const found = await prisma.loyaltyCard.findUnique({ where: { token: code }, select: { id: true } });
+    // The sample card of marketing test emails has no row behind it.
+    const found = code === SAMPLE_LOYALTY_TOKEN || (await prisma.loyaltyCard.findUnique({ where: { token: code }, select: { id: true } }));
     if (found) png = await loyaltyQrPng(code);
   } else if (kind === "lite") {
     const found = await prisma.liteCard.findUnique({ where: { token: code }, select: { liteSalon: { select: { locale: true } } } });

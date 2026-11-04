@@ -1,11 +1,10 @@
 import type { EmailCampaign, LoyaltyProgram } from "@prisma/client";
-import QRCode from "qrcode";
 import { prisma } from "@/lib/prisma";
 import { sendMail } from "@/lib/mailer";
 import { awardPoints } from "@/lib/vara-points";
 import { trackingToken, unsubscribeToken } from "@/lib/marketing-email";
 import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
-import { loyaltyQrPng, loyaltyScanUrl, newLoyaltyToken } from "@/lib/loyalty";
+import { SAMPLE_LOYALTY_TOKEN, loyaltyQrPng, newLoyaltyToken } from "@/lib/loyalty";
 import { SITE_URL } from "@/lib/email/ui";
 import { profileChecklist } from "@/lib/profile-completeness";
 import { DAY_MS, emailDailyLimitFor, emailsSentToday } from "@/lib/email-daily-limit";
@@ -130,12 +129,13 @@ async function cardFor(businessId: string, r: { email: string; name: string }, p
   return { block: toBlock(created, true), createdId: created.id };
 }
 
-/** A sample card for the studio's preview and test emails, with the QR
- * inlined (there's no real card behind it). Null without a loyalty program. */
+/** A sample card for the studio's preview and test emails. Its QR is a
+ * normal https image like a real card's: Gmail and most mail apps block
+ * inline "data:" images. Null without a loyalty program. */
 export async function sampleLoyaltyCard(businessId: string, name: string): Promise<CampaignLoyaltyCard | null> {
   const program = await prisma.loyaltyProgram.findUnique({ where: { businessId } });
   if (!program) return null;
-  const token = "VARA2026DEMO";
+  const token = SAMPLE_LOYALTY_TOKEN;
   return {
     token,
     holder: name || "Anna",
@@ -143,7 +143,7 @@ export async function sampleLoyaltyCard(businessId: string, name: string): Promi
     points: 0,
     pointsRequired: program.pointsRequired,
     discountPercent: program.discountPercent,
-    qrUrl: await QRCode.toDataURL(loyaltyScanUrl(token), { width: 240, margin: 1 }),
+    qrUrl: `${SITE_URL}/api/email-qr/loyalty/${token}.png`,
     sample: true,
   };
 }
