@@ -593,8 +593,8 @@ export function MarketingStudio({
       loyaltyCard: !!x.loyaltyCard && !!loyaltyProgram,
       sender: brand ? x.senderMode : "BRANCH",
       audience:
-        x.audienceCampaignId && (x.audienceGroup === "OPENED" || x.audienceGroup === "CLICKED" || x.audienceGroup === "NOT_OPENED")
-          ? { campaignId: x.audienceCampaignId, group: x.audienceGroup }
+        x.audienceCampaignId && x.audienceGroup && ["OPENED", "OPENED_MANY", "CLICKED", "SCANNED", "NOT_OPENED"].includes(x.audienceGroup)
+          ? { campaignId: x.audienceCampaignId, group: x.audienceGroup as SendableGroup }
           : null,
     };
   }

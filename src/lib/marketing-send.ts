@@ -158,8 +158,9 @@ export type CampaignAudience = { campaignId: string; group: SendableGroup } | nu
 
 /** A stored campaign's follow-up audience, if it was sent to one. */
 export function audienceOf(c: { audienceCampaignId: string | null; audienceGroup: string | null }): CampaignAudience {
-  return c.audienceCampaignId && (c.audienceGroup === "OPENED" || c.audienceGroup === "CLICKED" || c.audienceGroup === "NOT_OPENED")
-    ? { campaignId: c.audienceCampaignId, group: c.audienceGroup }
+  const groups: string[] = ["OPENED", "OPENED_MANY", "CLICKED", "SCANNED", "NOT_OPENED"];
+  return c.audienceCampaignId && c.audienceGroup && groups.includes(c.audienceGroup)
+    ? { campaignId: c.audienceCampaignId, group: c.audienceGroup as SendableGroup }
     : null;
 }
 
@@ -344,7 +345,9 @@ export async function sendDueCampaigns(businessId?: string) {
 }
 
 /** Records one open/click per recipient per campaign and bumps its counters.
- * A click implies an open (images are often blocked). */
+ * A click implies an open (images are often blocked). Opening it again later
+ * counts on the recipient's open (EmailCampaignEvent.count), so the studio
+ * can show who keeps coming back to it. */
 export async function recordCampaignEvent(campaignId: string, customerId: string, kind: "OPEN" | "CLICK") {
   const kinds: ("OPEN" | "CLICK")[] = kind === "CLICK" ? ["OPEN", "CLICK"] : ["OPEN"];
   for (const k of kinds) {
@@ -356,6 +359,15 @@ export async function recordCampaignEvent(campaignId: string, customerId: string
       });
     } catch {
       // Already counted (unique per recipient), or the campaign is gone.
+      // A later real open (the pixel, not a click) counts as one more.
+      if (kind === "OPEN") {
+        await prisma.emailCampaignEvent
+          .updateMany({
+            where: { campaignId, customerId, kind: "OPEN", lastAt: { lt: new Date(Date.now() - 5 * 60 * 1000) } },
+            data: { count: { increment: 1 }, lastAt: new Date() },
+          })
+          .catch(() => {});
+      }
     }
   }
 }

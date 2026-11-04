@@ -19,6 +19,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
 
   return NextResponse.json({
     tracked: audience.tracked,
+    withCards: audience.withCards,
     groups: Object.fromEntries(
       AUDIENCE_GROUPS.map((g) => {
         const people = audience.groups[g];

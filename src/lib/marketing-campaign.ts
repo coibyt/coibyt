@@ -36,7 +36,7 @@ export const campaignContentSchema = z.object({
   sender: z.enum(["BRANCH", "SYSTEM"]).optional().default("BRANCH"),
   // Instead of the segment: one group of an earlier campaign's recipients.
   audience: z
-    .object({ campaignId: z.string().min(1).max(191), group: z.enum(["OPENED", "CLICKED", "NOT_OPENED"]) })
+    .object({ campaignId: z.string().min(1).max(191), group: z.enum(["OPENED", "OPENED_MANY", "CLICKED", "SCANNED", "NOT_OPENED"]) })
     .nullable()
     .optional()
     .default(null),

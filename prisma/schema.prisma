@@ -512,6 +512,10 @@ model EmailCampaignEvent {
   // OPEN | CLICK
   kind       String        @db.VarChar(8)
   createdAt  DateTime      @default(now())
+  // OPEN: how many times they opened it (an open within 5 minutes of the
+  // last one is the same open), and when last.
+  count      Int           @default(1)
+  lastAt     DateTime      @default(now())
 
   @@unique([campaignId, customerId, kind])
 }
@@ -1697,6 +1701,7 @@ model LoyaltyCard {
   scans     LoyaltyScan[]
   rewards   LoyaltyReward[]
   referrals LoyaltyReferral[]
+  views     LoyaltyCardView[]
 
   @@unique([businessId, customerEmail])
 }
@@ -1730,6 +1735,18 @@ model LoyaltyScan {
   createdAt DateTime    @default(now())
 
   @@index([cardId])
+}
+
+// The customer opening their own card page — scanning its QR — rather than
+// the salon's staff stamping it; at most one per card per 10 minutes. Lets a
+// campaign show who looked at their card (src/lib/marketing-audience.ts).
+model LoyaltyCardView {
+  id        String      @id @default(cuid())
+  cardId    String
+  card      LoyaltyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  createdAt DateTime    @default(now())
+
+  @@index([cardId, createdAt])
 }
 
 // Each time the salon applies a loyalty reward, so the customer's history can

@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Loader2, MailOpen, MailX, MousePointerClick, Send, UserX, Users, type LucideIcon } from "lucide-react";
+import { Loader2, MailOpen, MailX, MousePointerClick, QrCode, Repeat2, Send, UserX, Users, type LucideIcon } from "lucide-react";
 import { fill } from "@/lib/shop-strings";
 import type { MarketingStudioStrings } from "@/lib/marketing-studio-strings";
 
-export type AudienceGroup = "OPENED" | "CLICKED" | "NOT_OPENED" | "UNSUBSCRIBED";
+export type AudienceGroup = "OPENED" | "OPENED_MANY" | "CLICKED" | "SCANNED" | "NOT_OPENED" | "UNSUBSCRIBED";
 export type SendableGroup = Exclude<AudienceGroup, "UNSUBSCRIBED">;
 
 interface GroupData {
@@ -16,17 +16,21 @@ interface GroupData {
 }
 export interface AudienceData {
   tracked: boolean;
+  /** The campaign handed out loyalty cards. */
+  withCards: boolean;
   groups: Record<AudienceGroup, GroupData>;
 }
 
 export const GROUP_ICONS: Record<AudienceGroup, LucideIcon> = {
   OPENED: MailOpen,
+  OPENED_MANY: Repeat2,
   CLICKED: MousePointerClick,
+  SCANNED: QrCode,
   NOT_OPENED: MailX,
   UNSUBSCRIBED: UserX,
 };
 
-const GROUPS = ["OPENED", "CLICKED", "NOT_OPENED", "UNSUBSCRIBED"] as const;
+const GROUPS = ["OPENED", "OPENED_MANY", "CLICKED", "SCANNED", "NOT_OPENED", "UNSUBSCRIBED"] as const;
 
 /** Each group's colours: the icon tile, the selected card, the bar and the avatars. */
 const LOOK: Record<AudienceGroup, { tile: string; card: string; bar: string; avatar: string; text: string }> = {
@@ -36,6 +40,20 @@ const LOOK: Record<AudienceGroup, { tile: string; card: string; bar: string; ava
     bar: "bg-emerald-500",
     avatar: "bg-emerald-100 text-emerald-700",
     text: "text-emerald-700",
+  },
+  OPENED_MANY: {
+    tile: "from-cyan-400 to-sky-700",
+    card: "bg-gradient-to-br from-sky-50 to-white ring-sky-300",
+    bar: "bg-sky-500",
+    avatar: "bg-sky-100 text-sky-800",
+    text: "text-sky-700",
+  },
+  SCANNED: {
+    tile: "from-[#e0559b] to-[#a3155f]",
+    card: "bg-gradient-to-br from-[#fdf2f8] to-white ring-[#f3c4dd]",
+    bar: "bg-[#c42d7f]",
+    avatar: "bg-[#fce7f3] text-[#a3155f]",
+    text: "text-[#a3155f]",
   },
   CLICKED: {
     tile: "from-[#8b6fc0] to-[#4b3878]",
@@ -158,7 +176,7 @@ export function MarketingAudiencePanel({
             </div>
           )}
 
-          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2.5 lg:grid-cols-3">
             {GROUPS.map((k) => {
               const Icon = GROUP_ICONS[k];
               const gd = data.groups[k];

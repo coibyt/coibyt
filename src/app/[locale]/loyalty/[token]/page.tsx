@@ -57,6 +57,15 @@ export default async function LoyaltyCardPage({ params }: { params: Params }) {
   const [session, access] = await Promise.all([auth(), getBusinessAccess()]);
   const isStaff =
     !!access && access.business.id === card.businessId && (access.isOwner || access.permissions.bookings);
+  // The customer looking at their own card (not the salon stamping it): once
+  // per 10 minutes, for the marketing studio's "scanned the QR" group.
+  if (!isStaff) {
+    const recent = await prisma.loyaltyCardView.findFirst({
+      where: { cardId: card.id, createdAt: { gt: new Date(Date.now() - 10 * 60 * 1000) } },
+      select: { id: true },
+    });
+    if (!recent) await prisma.loyaltyCardView.create({ data: { cardId: card.id } }).catch(() => {});
+  }
 
   const program = card.business.loyaltyProgram;
   const history: MemberCardData["history"] = [

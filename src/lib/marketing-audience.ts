@@ -1,11 +1,14 @@
 import { prisma } from "@/lib/prisma";
 
-/** Who did what with one sent campaign — opened it, clicked through to book,
- * never opened it, or has since unsubscribed — so the owner can see each
- * group and send it a follow-up campaign. Recipients are known from
+/** Who did what with one sent campaign — opened it, opened it 3+ times,
+ * clicked through to book, scanned their loyalty card's QR since, never
+ * opened it, or has since unsubscribed — so the owner can see each group
+ * and send it a follow-up campaign. Recipients are known from
  * EmailCampaignDelivery (campaigns sent since it exists); for older
  * campaigns only the opens and clicks are, so "didn't open" stays empty. */
-export const AUDIENCE_GROUPS = ["OPENED", "CLICKED", "NOT_OPENED", "UNSUBSCRIBED"] as const;
+export const AUDIENCE_GROUPS = ["OPENED", "OPENED_MANY", "CLICKED", "SCANNED", "NOT_OPENED", "UNSUBSCRIBED"] as const;
+/** Opened the email at least this many times. */
+export const OPENED_MANY_MIN = 3;
 export type AudienceGroup = (typeof AUDIENCE_GROUPS)[number];
 /** Groups a follow-up can go to — never people who unsubscribed. */
 export type SendableGroup = Exclude<AudienceGroup, "UNSUBSCRIBED">;
@@ -18,12 +21,12 @@ export interface AudiencePerson {
 }
 
 export async function campaignAudience(businessId: string, campaignId: string) {
-  const campaign = await prisma.emailCampaign.findFirst({ where: { id: campaignId, businessId }, select: { id: true } });
+  const campaign = await prisma.emailCampaign.findFirst({ where: { id: campaignId, businessId }, select: { id: true, createdAt: true, loyaltyCard: true } });
   if (!campaign) return null;
 
   const [deliveries, events] = await Promise.all([
     prisma.emailCampaignDelivery.findMany({ where: { campaignId }, select: { recipientKey: true } }),
-    prisma.emailCampaignEvent.findMany({ where: { campaignId }, select: { customerId: true, kind: true } }),
+    prisma.emailCampaignEvent.findMany({ where: { campaignId }, select: { customerId: true, kind: true, count: true } }),
   ]);
   const tracked = deliveries.length > 0;
 
@@ -48,11 +51,27 @@ export async function campaignAudience(businessId: string, campaignId: string) {
 
   const strip = (list: (AudiencePerson & { optedOut: boolean })[]): AudiencePerson[] => list.map(({ key, name, email }) => ({ key, name, email }));
   const all = pick(recipients);
+  const openedMany = events.filter((e) => e.kind === "OPEN" && e.count >= OPENED_MANY_MIN).map((e) => e.customerId);
+
+  // Recipients who opened their loyalty card here (scanned its QR) since the campaign went out.
+  const known = pick(ids);
+  const byEmail = new Map(known.map((p) => [p.email.toLowerCase(), p.key.split(":")[1]]));
+  const viewed = byEmail.size
+    ? await prisma.loyaltyCard.findMany({
+        where: { businessId, customerEmail: { in: [...byEmail.keys()] }, views: { some: { createdAt: { gte: campaign.createdAt } } } },
+        select: { customerEmail: true },
+      })
+    : [];
+  const scanned = viewed.map((c) => byEmail.get(c.customerEmail.toLowerCase())).filter((id): id is string => !!id);
+
   return {
     tracked,
+    withCards: campaign.loyaltyCard,
     groups: {
       OPENED: strip(pick(opened)),
+      OPENED_MANY: strip(pick(openedMany)),
       CLICKED: strip(pick(clicked)),
+      SCANNED: strip(pick(scanned)),
       NOT_OPENED: tracked ? strip(all.filter((p) => !opened.has(p.key.split(":")[1]))) : [],
       UNSUBSCRIBED: strip(all.filter((p) => p.optedOut)),
     } satisfies Record<AudienceGroup, AudiencePerson[]>,
