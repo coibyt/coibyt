@@ -146,7 +146,11 @@ export default async function BusinessDashboardLayout({
   return (
     <div className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[180px_1fr]">
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
-      <DashboardBody switcher={switcher}>{children}</DashboardBody>
+      <DashboardBody switcher={switcher}>
+        <div key={business.id} className="contents">
+          {children}
+        </div>
+      </DashboardBody>
       {/* Owners and staff alike: support chat and the same-day booking alarm. */}
       <DashboardSupportWidget locale={locale} />
       <BookingAlarm
