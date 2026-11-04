@@ -394,12 +394,14 @@ export function MarketingStudio({
   const ready = c.subject.trim() !== "" && c.message.trim() !== "";
   const canSend = isOwner && ready && recipients > 0 && (left === null || left >= 0);
 
-  const sentCampaigns = (campaigns ?? []).filter((x) => x.status === "SENT");
-  const totalSent = sentCampaigns.reduce((a, x) => a + x.recipientCount, 0);
-  const tracked = sentCampaigns.filter((x) => x.sentAt);
+  // Emails out so far: sent campaigns, and those still going out day by day.
+  const outSoFar = (x: Campaign) => (x.status === "SENT" ? x.recipientCount : x.status === "SCHEDULED" ? x.sentCount : 0);
+  const sentCampaigns = (campaigns ?? []).filter((x) => outSoFar(x) > 0);
+  const totalSent = sentCampaigns.reduce((a, x) => a + outSoFar(x), 0);
+  const tracked = sentCampaigns.filter((x) => x.sentAt || x.sentCount > 0);
   const avgOpen = pct(
     tracked.reduce((a, x) => a + x.openCount, 0),
-    tracked.reduce((a, x) => a + x.recipientCount, 0)
+    tracked.reduce((a, x) => a + outSoFar(x), 0)
   );
   const reach = counts.ALL.eligible + counts.ALL.cooldown;
   const dateFmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
@@ -1238,33 +1240,41 @@ export function MarketingStudio({
           ) : (
             <>
               {campaigns.map((x) => {
-                const openP = pct(x.openCount, x.recipientCount);
-                const clickP = pct(x.clickCount, x.recipientCount);
+                // Sent, or still going out day by day: either way it has results to show.
+                const live = x.status === "SENT" || (x.status === "SCHEDULED" && x.sentCount > 0);
+                const sentN = x.status === "SENT" ? x.recipientCount : x.sentCount;
+                const openP = pct(x.openCount, sentN);
+                const clickP = pct(x.clickCount, sentN);
                 const time = x.status === "SCHEDULED" && x.scheduledAt ? x.scheduledAt : x.sentAt ?? x.createdAt;
                 return (
                   <article key={x.id} className="rounded-3xl border border-ink-100 bg-white p-5 shadow-[0_18px_40px_-36px_rgba(31,24,45,0.6)]">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div className="min-w-0 flex-1">
                         <div className="flex flex-wrap items-center gap-2">
-                          <span className={`rounded-full px-2.5 py-0.5 text-[11px] font-bold ring-1 ${STATUS_STYLE[x.status] ?? STATUS_STYLE.SENT}`}>
+                          <span className={`whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11px] font-bold ring-1 ${STATUS_STYLE[x.status] ?? STATUS_STYLE.SENT}`}>
                             {S[`status${x.status}` as "statusSENT"] ?? x.status}
                           </span>
-                          <span className="rounded-full bg-mist-50 px-2.5 py-0.5 text-[11px] font-semibold text-ink-400">{S.segments[x.segment]?.[0] ?? x.segment}</span>
+                          <span className="whitespace-nowrap rounded-full bg-mist-50 px-2.5 py-0.5 text-[11px] font-semibold text-ink-400">
+                            {x.audienceGroup ? S[`group${x.audienceGroup}` as "groupOPENED"] ?? x.audienceGroup : S.segments[x.segment]?.[0] ?? x.segment}
+                          </span>
                           {x.loyaltyCard && (
-                            <span className="flex items-center gap-1 rounded-full bg-[#1f182d] px-2.5 py-0.5 text-[11px] font-bold text-[#e8d3a6]">
+                            <span className="flex items-center gap-1 whitespace-nowrap rounded-full bg-[#1f182d] px-2.5 py-0.5 text-[11px] font-bold text-[#e8d3a6]">
                               <CreditCard className="h-3 w-3" />
                               {S.loyaltyBadge}
                             </span>
                           )}
-                          <span className="text-[11px] text-ink-400" suppressHydrationWarning>
-                            {x.status === "SCHEDULED" && x.sentCount > 0 && `${fill(S.progress, { n: x.sentCount, total: x.recipientCount })} · `}
-                            {fill(x.status === "SCHEDULED" ? S.scheduledFor : x.status === "DRAFT" ? S.draftOn : S.sentOn, { time: dateFmt.format(new Date(time)) })}
-                          </span>
                         </div>
-                        <p className="mt-2 truncate text-base font-bold text-ink-900">{x.subject || "—"}</p>
+                        <p className="mt-2 text-xs text-ink-400" suppressHydrationWarning>
+                          {x.status === "SCHEDULED" && x.sentCount > 0 ? (
+                            <span className="font-bold text-ink-700">{fill(S.progress, { n: x.sentCount, total: x.recipientCount })}</span>
+                          ) : (
+                            fill(x.status === "SCHEDULED" ? S.scheduledFor : x.status === "DRAFT" ? S.draftOn : S.sentOn, { time: dateFmt.format(new Date(time)) })
+                          )}
+                        </p>
+                        <p className="mt-1 line-clamp-2 text-base font-bold text-ink-900">{x.subject || "—"}</p>
                         {x.headline && <p className="truncate text-sm text-ink-400">{x.headline}</p>}
                       </div>
-                      <div className="flex shrink-0 gap-1.5">
+                      <div className="flex flex-wrap gap-1.5 sm:shrink-0 sm:justify-end">
                         <button type="button" onClick={() => view(x)} className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-ink-700 ring-1 ring-ink-100 hover:bg-mist-50">
                           <Eye className="h-3.5 w-3.5" />
                           {S.view}
@@ -1294,19 +1304,54 @@ export function MarketingStudio({
                         )}
                       </div>
                     </div>
-                    {x.status === "SENT" && (
-                      <div className="mt-4 grid grid-cols-3 gap-3">
+                    {x.status === "SCHEDULED" && x.sentCount > 0 && (
+                      <div className="mt-4 rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#3b2d57] p-4 text-white">
+                        <div className="flex items-end justify-between gap-3">
+                          <div>
+                            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#e8d3a6]">{S.sendingTitle}</p>
+                            <p className="mt-1 text-2xl font-extrabold tabular-nums">
+                              {x.sentCount.toLocaleString(locale)}
+                              <span className="text-base font-semibold text-white/50"> / {x.recipientCount.toLocaleString(locale)}</span>
+                            </p>
+                          </div>
+                          <p className="text-3xl font-extrabold tabular-nums text-[#e8d3a6]">{pct(x.sentCount, x.recipientCount)}%</p>
+                        </div>
+                        <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-white/15">
+                          <div
+                            className="h-full rounded-full bg-gradient-to-r from-[#e8d3a6] to-[#c99a3f]"
+                            style={{ width: `${Math.max(pct(x.sentCount, x.recipientCount), 2)}%` }}
+                          />
+                        </div>
+                        <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
+                          <p className="rounded-xl bg-white/10 px-3 py-2">
+                            <span className="block text-white/60">{S.sendingLeft}</span>
+                            <span className="font-bold tabular-nums">{(x.recipientCount - x.sentCount).toLocaleString(locale)}</span>
+                          </p>
+                          <p className="rounded-xl bg-white/10 px-3 py-2" suppressHydrationWarning>
+                            <span className="block text-white/60">{S.sendingNext}</span>
+                            <span className="font-bold">{x.scheduledAt ? dateFmt.format(new Date(x.scheduledAt)) : "—"}</span>
+                          </p>
+                        </div>
+                        {dailyLimit !== null && (
+                          <p className="mt-2 text-[11px] text-white/60">
+                            {fill(S.sendingPace, { n: dailyLimit, days: Math.ceil((x.recipientCount - x.sentCount) / dailyLimit) })}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                    {live && (
+                      <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
                         {[
-                          { icon: Users, label: S.recipients, value: x.recipientCount, bar: null },
+                          { icon: Users, label: S.recipients, value: sentN, bar: null },
                           { icon: MailOpen, label: S.opens, value: `${x.openCount} · ${openP}%`, bar: openP },
                           { icon: MousePointerClick, label: S.clicks, value: `${x.clickCount} · ${clickP}%`, bar: clickP },
                         ].map((s) => (
-                          <div key={s.label} className="rounded-2xl bg-mist-50/60 p-3 ring-1 ring-ink-100">
+                          <div key={s.label} className="min-w-0 rounded-2xl bg-mist-50/60 p-2.5 ring-1 ring-ink-100 sm:p-3">
                             <p className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-ink-400">
                               <s.icon className="h-3.5 w-3.5" />
                               {s.label}
                             </p>
-                            <p className="mt-1 text-base font-bold tabular-nums text-ink-900">{s.value}</p>
+                            <p className="mt-1 truncate text-sm font-bold tabular-nums text-ink-900 sm:text-base">{s.value}</p>
                             {s.bar !== null && (
                               <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-ink-100">
                                 <div className="h-full rounded-full bg-gradient-to-r from-[#624f89] to-[#c99a3f]" style={{ width: `${Math.max(s.bar, 2)}%` }} />
@@ -1316,8 +1361,8 @@ export function MarketingStudio({
                         ))}
                       </div>
                     )}
-                    {x.status === "SENT" && (
-                      <MarketingAudiencePanel campaignId={x.id} recipientCount={x.recipientCount} S={S} isOwner={isOwner} onCompose={(group, d) => composeFor(x, group, d)} />
+                    {live && (
+                      <MarketingAudiencePanel campaignId={x.id} recipientCount={sentN} S={S} isOwner={isOwner} onCompose={(group, d) => composeFor(x, group, d)} />
                     )}
                   </article>
                 );

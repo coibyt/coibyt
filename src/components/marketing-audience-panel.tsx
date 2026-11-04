@@ -181,11 +181,11 @@ export function MarketingAudiencePanel({
                   <span className="block truncate text-xs font-semibold text-ink-500">{S[`group${k}`]}</span>
                   {!blank && gd.people.length > 0 && (
                     <span className="mt-2.5 flex -space-x-1.5 overflow-hidden py-0.5 pl-0.5">
-                      {gd.people.slice(0, 4).map((p, i) => (
+                      {gd.people.slice(0, 3).map((p, i) => (
                         <Avatar key={i} p={p} cls={LOOK[k].avatar} size="h-7 w-7 text-[11px]" one />
                       ))}
-                      {gd.count > 4 && (
-                        <span className="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full bg-white px-1 text-[10px] font-bold text-ink-500 ring-2 ring-white">+{gd.count - 4}</span>
+                      {gd.count > 3 && (
+                        <span className="flex h-7 min-w-7 shrink-0 items-center justify-center rounded-full bg-white px-1 text-[10px] font-bold text-ink-500 ring-2 ring-white">+{gd.count - 3}</span>
                       )}
                     </span>
                   )}
