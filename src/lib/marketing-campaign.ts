@@ -34,6 +34,12 @@ export const campaignContentSchema = z.object({
   loyaltyCard: z.boolean().optional().default(false),
   // Sent as this branch, or as the owner's whole brand (User.brandName).
   sender: z.enum(["BRANCH", "SYSTEM"]).optional().default("BRANCH"),
+  // Instead of the segment: one group of an earlier campaign's recipients.
+  audience: z
+    .object({ campaignId: z.string().min(1).max(191), group: z.enum(["OPENED", "CLICKED", "NOT_OPENED"]) })
+    .nullable()
+    .optional()
+    .default(null),
 });
 
 /** A draft may be saved half-written: subject and message can be empty. */
@@ -69,5 +75,7 @@ export function campaignColumns(c: CampaignContent) {
     includeCooldown: c.includeCooldown,
     loyaltyCard: c.loyaltyCard,
     senderMode: c.sender,
+    audienceCampaignId: c.audience?.campaignId ?? null,
+    audienceGroup: c.audience?.group ?? null,
   };
 }

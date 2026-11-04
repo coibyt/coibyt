@@ -8,6 +8,7 @@ import { SAMPLE_LOYALTY_TOKEN, loyaltyQrPng, newLoyaltyToken } from "@/lib/loyal
 import { SITE_URL } from "@/lib/email/ui";
 import { profileChecklist } from "@/lib/profile-completeness";
 import { DAY_MS, emailDailyLimitFor, emailsSentToday } from "@/lib/email-daily-limit";
+import { audienceKeys, type SendableGroup } from "@/lib/marketing-audience";
 import {
   EMAIL_COOLDOWN_BYPASS_POINTS,
   EMAIL_SENT_POINTS,
@@ -148,9 +149,29 @@ export async function sampleLoyaltyCard(businessId: string, name: string): Promi
   };
 }
 
-/** What sending a campaign to its audience costs right now, in Vara points. */
-export async function campaignCost(businessId: string, segment: string, includeCooldown: boolean) {
-  const { eligible, cooldown } = await getMarketingRecipients(businessId, isSegment(segment) ? segment : "ALL");
+export type CampaignAudience = { campaignId: string; group: SendableGroup } | null;
+
+/** A stored campaign's follow-up audience, if it was sent to one. */
+export function audienceOf(c: { audienceCampaignId: string | null; audienceGroup: string | null }): CampaignAudience {
+  return c.audienceCampaignId && (c.audienceGroup === "OPENED" || c.audienceGroup === "CLICKED" || c.audienceGroup === "NOT_OPENED")
+    ? { campaignId: c.audienceCampaignId, group: c.audienceGroup }
+    : null;
+}
+
+function recipientKey(c: { id: string; kind: "user" | "contact" }) {
+  return `${c.kind}:${c.id}`;
+}
+
+/** What sending a campaign to its audience costs right now, in Vara points.
+ * The audience is a segment, or one group of an earlier campaign (still
+ * minus anyone who has unsubscribed since, like every send). */
+export async function campaignCost(businessId: string, segment: string, includeCooldown: boolean, audience: CampaignAudience = null) {
+  let { eligible, cooldown } = await getMarketingRecipients(businessId, audience ? "ALL" : isSegment(segment) ? segment : "ALL");
+  if (audience) {
+    const keys = await audienceKeys(businessId, audience.campaignId, audience.group);
+    eligible = eligible.filter((c) => keys.has(recipientKey(c)));
+    cooldown = cooldown.filter((c) => keys.has(recipientKey(c)));
+  }
   return {
     eligible,
     cooldown,
@@ -164,8 +185,6 @@ export type SendOutcome =
   | { ok: true; sent: number; total: number; remaining: number; nextAt: Date | null }
   | { ok: false; error: "NOT_FOUND" | "INSUFFICIENT_VARA_POINTS" | "NO_RECIPIENTS" | "NO_LOYALTY_PROGRAM"; required?: number; available?: number };
 
-const recipientKey = (c: { id: string; kind: "user" | "contact" }) => `${c.kind}:${c.id}`;
-
 /** Sends a campaign that has been claimed for sending (status SENDING):
  * all-or-nothing on Vara points, only charging for emails that actually
  * went out, and restarting each recipient's 72h cooldown. Over the salon's
@@ -176,7 +195,7 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   if (!campaign || campaign.status !== "SENDING") return { ok: false, error: "NOT_FOUND" };
   const business = await campaignSalon(campaign.businessId, campaign.senderMode);
 
-  const { eligible, cooldown } = await campaignCost(campaign.businessId, campaign.segment, campaign.includeCooldown);
+  const { eligible, cooldown } = await campaignCost(campaign.businessId, campaign.segment, campaign.includeCooldown, audienceOf(campaign));
   const delivered = new Set(
     campaign.sentCount > 0
       ? (await prisma.emailCampaignDelivery.findMany({ where: { campaignId }, select: { recipientKey: true } })).map((d) => d.recipientKey)

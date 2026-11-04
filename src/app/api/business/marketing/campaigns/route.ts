@@ -33,6 +33,8 @@ export async function GET() {
       includeCooldown: true,
       loyaltyCard: true,
       senderMode: true,
+      audienceCampaignId: true,
+      audienceGroup: true,
       status: true,
       scheduledAt: true,
       sentAt: true,

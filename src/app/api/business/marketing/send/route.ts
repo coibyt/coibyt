@@ -51,7 +51,10 @@ export async function POST(req: Request) {
   // Refuse up front when there's nobody to send to or not enough points — a
   // scheduled campaign is checked again when it goes out.
   const owner = await prisma.user.findUniqueOrThrow({ where: { id: access.business.ownerId }, select: { varaPoints: true } });
-  const { recipients, cost } = await campaignCost(businessId, content.segment, content.includeCooldown);
+  if (content.audience && !(await prisma.emailCampaign.findFirst({ where: { id: content.audience.campaignId, businessId }, select: { id: true } }))) {
+    return NextResponse.json({ error: "INVALID" }, { status: 400 });
+  }
+  const { recipients, cost } = await campaignCost(businessId, content.segment, content.includeCooldown, content.audience);
   if (recipients === 0) return NextResponse.json({ error: "NO_RECIPIENTS" }, { status: 409 });
   if (cost > owner.varaPoints) {
     return NextResponse.json({ error: "INSUFFICIENT_VARA_POINTS", required: cost, available: owner.varaPoints }, { status: 402 });

@@ -36,6 +36,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { MarketingContacts } from "@/components/marketing-contacts";
+import { GROUP_ICONS, MarketingAudiencePanel, fetchAudience, type SendableGroup } from "@/components/marketing-audience-panel";
 import { Link } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
 import { marketingStudioStrings, type CampaignTemplate } from "@/lib/marketing-studio-strings";
@@ -59,6 +60,8 @@ interface Content {
   includeCooldown: boolean;
   loyaltyCard: boolean;
   sender: "BRANCH" | "SYSTEM";
+  /** Instead of the segment: one group of an earlier campaign's recipients. */
+  audience: { campaignId: string; group: SendableGroup } | null;
 }
 
 interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" | "ctaUrl" | "offerTitle" | "offerCode"> {
@@ -71,6 +74,8 @@ interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" |
   offerCode: string | null;
   status: "SENT" | "SCHEDULED" | "SENDING" | "CANCELLED" | "FAILED" | "DRAFT";
   senderMode: "BRANCH" | "SYSTEM";
+  audienceCampaignId: string | null;
+  audienceGroup: string | null;
   scheduledAt: string | null;
   sentAt: string | null;
   createdAt: string;
@@ -96,6 +101,7 @@ const EMPTY: Content = {
   includeCooldown: false,
   loyaltyCard: false,
   sender: "BRANCH",
+  audience: null,
 };
 
 const SEGMENT_ICONS: Record<Segment, LucideIcon> = {
@@ -323,6 +329,8 @@ export function MarketingStudio({
   const [brandName, setBrandName] = useState(brand?.name ?? "");
   const [editingBrand, setEditingBrand] = useState(false);
   const [brandDraft, setBrandDraft] = useState(brand?.name ?? "");
+  // The follow-up audience's label and size, while c.audience is set.
+  const [audienceInfo, setAudienceInfo] = useState<{ subject: string; eligible: number; cooldown: number } | null>(null);
   const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
   const [preview, setPreview] = useState<{ html: string; subject: string }>({ html: "", subject: "" });
   const [previewLoading, setPreviewLoading] = useState(false);
@@ -379,7 +387,7 @@ export function MarketingStudio({
     };
   }, [payload]);
 
-  const seg = counts[c.segment];
+  const seg = c.audience && audienceInfo ? { eligible: audienceInfo.eligible, cooldown: audienceInfo.cooldown } : counts[c.segment];
   const recipients = seg.eligible + (c.includeCooldown ? seg.cooldown : 0);
   const cost = seg.eligible * EMAIL_SENT_POINTS + (c.includeCooldown ? seg.cooldown * EMAIL_COOLDOWN_BYPASS_POINTS : 0);
   const left = points !== null ? points - cost : null;
@@ -467,8 +475,22 @@ export function MarketingStudio({
     loadCampaigns();
   }
 
+  /** Starts a follow-up campaign to one group of a sent campaign. */
+  function composeFor(x: Campaign, group: SendableGroup, d: { eligible: number; cooldown: number }) {
+    setC((prev) => ({ ...prev, audience: { campaignId: x.id, group }, includeCooldown: false }));
+    setAudienceInfo({ subject: x.subject, eligible: d.eligible, cooldown: d.cooldown });
+    setTab("compose");
+    top.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function clearAudience() {
+    set("audience", null);
+    setAudienceInfo(null);
+  }
+
   function newCampaign() {
     setDraftId(null);
+    setAudienceInfo(null);
     setC(EMPTY);
     setOfferOn(false);
     setImageUrl(null);
@@ -526,6 +548,7 @@ export function MarketingStudio({
     });
     setC(EMPTY);
     setDraftId(null);
+    setAudienceInfo(null);
     setOfferOn(false);
     setImageUrl(null);
     setMode("now");
@@ -563,12 +586,28 @@ export function MarketingStudio({
       includeCooldown: x.status === "DRAFT" && x.includeCooldown,
       loyaltyCard: !!x.loyaltyCard && !!loyaltyProgram,
       sender: brand ? x.senderMode : "BRANCH",
+      audience:
+        x.audienceCampaignId && (x.audienceGroup === "OPENED" || x.audienceGroup === "CLICKED" || x.audienceGroup === "NOT_OPENED")
+          ? { campaignId: x.audienceCampaignId, group: x.audienceGroup }
+          : null,
     };
   }
 
   function reuse(x: Campaign) {
     setDraftId(x.status === "DRAFT" ? x.id : null);
-    setC(toContent(x));
+    const next = toContent(x);
+    setC(next);
+    setAudienceInfo(null);
+    // A follow-up again: its group's size as it is now.
+    if (next.audience) {
+      const { campaignId, group } = next.audience;
+      const source = campaigns?.find((s) => s.id === campaignId);
+      void fetchAudience(campaignId).then((d) => {
+        const g = d?.groups[group];
+        if (g) setAudienceInfo({ subject: source?.subject ?? "", eligible: g.eligible, cooldown: g.cooldown });
+        else setC((prev) => ({ ...prev, audience: null }));
+      });
+    }
     setOfferOn(!!(x.offerTitle || x.offerCode));
     setImageUrl(x.imageId ? `/api/marketing-image/${x.imageId}` : null);
     setTab("compose");
@@ -706,6 +745,30 @@ export function MarketingStudio({
 
             {/* 1. Audience */}
             <StepCard n={1} title={S.audienceTitle} hint={S.audienceHint} S={S}>
+              {c.audience ? (
+                <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-gradient-to-br from-primary-100/70 to-white p-4 ring-2 ring-primary-200">
+                  <div className="flex min-w-0 items-center gap-3">
+                    {(() => {
+                      const Icon = GROUP_ICONS[c.audience.group];
+                      return (
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-500 text-white">
+                          <Icon className="h-5 w-5" />
+                        </span>
+                      );
+                    })()}
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold text-ink-900">{S[`group${c.audience.group}`]}</p>
+                      <p className="truncate text-xs text-ink-500">{fill(S.audienceFrom, { subject: audienceInfo?.subject || "…" })}</p>
+                      <span className="mt-1 inline-block rounded-full bg-[#fbf3e1] px-2 py-0.5 text-[11px] font-bold text-[#8a6a2b]">
+                        {audienceInfo ? fill(S.customers, { n: audienceInfo.eligible + audienceInfo.cooldown }) : "…"}
+                      </span>
+                    </div>
+                  </div>
+                  <button type="button" onClick={clearAudience} className="text-xs font-bold text-primary-600 hover:underline">
+                    {S.audienceClear}
+                  </button>
+                </div>
+              ) : (
               <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3">
                 {SEGMENTS.map((s) => {
                   const Icon = SEGMENT_ICONS[s];
@@ -737,6 +800,7 @@ export function MarketingStudio({
                   );
                 })}
               </div>
+              )}
               {seg.cooldown > 0 && (
                 <div className="mt-4 rounded-2xl bg-mist-50/70 p-3.5 text-xs text-ink-700 ring-1 ring-ink-100">
                   <p>{fill(S.cooldownNote, { n: seg.cooldown })}</p>
@@ -1251,6 +1315,9 @@ export function MarketingStudio({
                           </div>
                         ))}
                       </div>
+                    )}
+                    {x.status === "SENT" && (
+                      <MarketingAudiencePanel campaignId={x.id} S={S} isOwner={isOwner} onCompose={(group, d) => composeFor(x, group, d)} />
                     )}
                   </article>
                 );

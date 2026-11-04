@@ -460,6 +460,10 @@ model EmailCampaign {
   // BRANCH: sent as this branch ("Moja Beauty Kamppi"); SYSTEM: as the
   // owner's whole brand ("Moja Beauty", User.brandName).
   senderMode      String    @default("BRANCH") @db.VarChar(8)
+  // Sent to one group of an earlier campaign's recipients instead of a
+  // segment: OPENED, CLICKED or NOT_OPENED (src/lib/marketing-audience.ts).
+  audienceCampaignId String?
+  audienceGroup      String? @db.VarChar(12)
   scheduledAt     DateTime?
   sentAt          DateTime?
   // Unique recipients who opened / clicked (EmailCampaignEvent).
