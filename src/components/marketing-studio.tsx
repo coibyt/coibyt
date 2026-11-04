@@ -1317,7 +1317,7 @@ export function MarketingStudio({
                       </div>
                     )}
                     {x.status === "SENT" && (
-                      <MarketingAudiencePanel campaignId={x.id} S={S} isOwner={isOwner} onCompose={(group, d) => composeFor(x, group, d)} />
+                      <MarketingAudiencePanel campaignId={x.id} recipientCount={x.recipientCount} S={S} isOwner={isOwner} onCompose={(group, d) => composeFor(x, group, d)} />
                     )}
                   </article>
                 );
