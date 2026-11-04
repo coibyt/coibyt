@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import QRCode from "qrcode";
 import {
   BadgeCheck,
+  BellRing,
   Building2,
   CalendarClock,
   Check,
@@ -43,6 +44,7 @@ export const SECTION_ICONS: Record<SettingsSectionId, LucideIcon> = {
   contact: Phone,
   booking: CalendarClock,
   payments: CreditCard,
+  notifications: BellRing,
   appearance: Palette,
   website: Globe,
   branches: Building2,

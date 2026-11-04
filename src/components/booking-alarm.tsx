@@ -20,6 +20,8 @@ const RING_MS = 45_000;
 const PREF_KEY = "varaaai_booking_alarm";
 const SNOOZE_KEY = "varaaai_booking_alarm_later";
 const SEEN_KEY = "varaaai_booking_alarm_seen";
+// When this device last chose on/off, to compare with the owner's switch.
+const PREF_AT_KEY = "varaaai_booking_alarm_at";
 
 const L = {
   vi: {
@@ -111,14 +113,27 @@ function readSeen(): string[] {
  * customer books for TODAY while the dashboard is open — in the browser, the
  * installed web app, or the Android app. Also offers to turn on push
  * notifications for when the dashboard is closed. */
-export function BookingAlarm({ locale, global = false }: { locale: string; global?: boolean }) {
+export function BookingAlarm({
+  locale,
+  global = false,
+  staffAlarm,
+}: {
+  locale: string;
+  global?: boolean;
+  /** For staff: the owner's switch for every staff device (Settings →
+   * Staff notifications). Off by default; a device follows the owner's
+   * latest change and may still turn its own alarm on or off after it. */
+  staffAlarm?: { on: boolean; changedAt: string | null };
+}) {
   const t = (L as Record<string, (typeof L)["en"]>)[locale] ?? L.en;
   const pathname = usePathname();
   // The site-wide copy only rings (once the owner has switched the alarm on
   // in the dashboard) and stays out of the dashboard, which has its own.
   const inactive = global && /\/business\/dashboard(\/|$)/.test(pathname ?? "");
-  // The bookings page keeps its bottom bar clear: no bell button there (it still rings).
-  const noButton = /\/business\/dashboard\/bookings(\/|$)/.test(pathname ?? "");
+  // The bookings page keeps its bottom bar clear: no bell button there (it
+  // still rings) — except for staff, whose way to turn their alarm on it is.
+  const onBookings = /\/business\/dashboard\/bookings(\/|$)/.test(pathname ?? "");
+  const noButton = onBookings && !staffAlarm;
   const [pref, setPref] = useState<"on" | "off" | null | "loading">("loading");
   const [snoozed, setSnoozed] = useState(false);
   const [alerts, setAlerts] = useState<Alert[]>([]);
@@ -130,15 +145,32 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
   const titleTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const sinceRef = useRef<string | null>(null);
 
+  const staffOn = staffAlarm?.on;
+  const staffChangedAt = staffAlarm?.changedAt;
   useEffect(() => {
     try {
       const p = localStorage.getItem(PREF_KEY);
-      setPref(p === "on" || p === "off" ? p : null);
+      const own = p === "on" || p === "off" ? p : null;
+      if (staffOn !== undefined) {
+        // Staff: the owner's switch wins over a choice made before it.
+        const changed = staffChangedAt ? Date.parse(staffChangedAt) : 0;
+        const at = Number(localStorage.getItem(PREF_AT_KEY) ?? 0);
+        if (changed && at < changed) {
+          const next = staffOn ? "on" : "off";
+          localStorage.setItem(PREF_KEY, next);
+          localStorage.setItem(PREF_AT_KEY, String(changed));
+          setPref(next);
+        } else {
+          setPref(own ?? "off");
+        }
+        return;
+      }
+      setPref(own);
       setSnoozed(Number(localStorage.getItem(SNOOZE_KEY) ?? 0) > Date.now());
     } catch {
-      setPref(null);
+      setPref(staffOn === undefined ? null : staffOn ? "on" : "off");
     }
-  }, []);
+  }, [staffOn, staffChangedAt]);
 
   const audio = useCallback(() => {
     if (!ctxRef.current) {
@@ -251,6 +283,7 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
     setPref(p);
     try {
       localStorage.setItem(PREF_KEY, p);
+      localStorage.setItem(PREF_AT_KEY, String(Date.now()));
     } catch {}
   }
 
@@ -346,7 +379,7 @@ export function BookingAlarm({ locale, global = false }: { locale: string; globa
       )}
 
       {!global && !noButton && pref !== null && (
-        <div className="fixed bottom-5 left-5 z-[65]">
+        <div className={`fixed left-5 z-[65] ${onBookings ? "bottom-20 sm:bottom-5" : "bottom-5"}`}>
           {menu && (
             <div className="mb-2 w-64 animate-slide-up rounded-2xl bg-white p-2 shadow-popover ring-1 ring-ink-100">
               <p className="px-3 pb-1 pt-2 text-xs font-bold text-ink-900">{pref === "on" ? t.on : t.promptTitle}</p>

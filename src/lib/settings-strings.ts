@@ -2,7 +2,7 @@
  * menu) — Vietnamese, English and Finnish, English for every other
  * language. The cards inside keep their own translations. */
 
-export type SettingsSectionId = "profile" | "contact" | "booking" | "payments" | "appearance" | "website" | "branches" | "account";
+export type SettingsSectionId = "profile" | "contact" | "booking" | "payments" | "notifications" | "appearance" | "website" | "branches" | "account";
 
 export type ChecklistId =
   | "logo"
@@ -63,6 +63,7 @@ const STRINGS = {
       contact: ["Liên hệ & mạng xã hội", "Số điện thoại, email, website, Facebook, Instagram…"],
       booking: ["Đặt lịch & chính sách", "Ngôn ngữ, tiền tệ, thời hạn và chính sách hủy lịch"],
       payments: ["Thanh toán & hóa đơn", "Tài khoản ngân hàng và thông tin xuất hóa đơn"],
+      notifications: ["Thông báo cho nhân viên", "Email lịch hẹn và chuông báo trong ngày"],
       appearance: ["Giao diện & màu sắc", "Giao diện ngày lễ và màu ô lịch hẹn"],
       website: ["Website & nhúng đặt lịch", "Gắn nút đặt lịch vào website hoặc Facebook của bạn"],
       branches: ["Chi nhánh", "Quản lý nhiều cơ sở trong một tài khoản"],
@@ -118,6 +119,7 @@ const STRINGS = {
       contact: ["Contact & social", "Phone, email, website, Facebook, Instagram…"],
       booking: ["Booking & policies", "Language, currency, cancellation window and policy"],
       payments: ["Payments & invoices", "Bank account and invoicing details"],
+      notifications: ["Staff notifications", "Booking emails and the same-day alarm"],
       appearance: ["Look & colours", "Holiday themes and booking colours"],
       website: ["Website & booking widget", "Add a booking button to your website or Facebook"],
       branches: ["Branches", "Run several locations from one account"],
@@ -173,6 +175,7 @@ const STRINGS = {
       contact: ["Yhteystiedot ja some", "Puhelin, sähköposti, verkkosivu, Facebook, Instagram…"],
       booking: ["Varaukset ja ehdot", "Kieli, valuutta, peruutusaika ja -ehdot"],
       payments: ["Maksut ja laskutus", "Pankkitili ja laskutustiedot"],
+      notifications: ["Ilmoitukset työntekijöille", "Varaussähköpostit ja saman päivän hälytys"],
       appearance: ["Ulkoasu ja värit", "Juhlateemat ja varausten värit"],
       website: ["Verkkosivu ja varauspainike", "Lisää varauspainike verkkosivullesi tai Facebookiin"],
       branches: ["Toimipisteet", "Useita toimipisteitä yhdellä tilillä"],

@@ -13,6 +13,7 @@ import {
 } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
 import { sendPushToUser } from "@/lib/push";
+import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { toZonedTime } from "date-fns-tz";
 import type { ComboAssignment } from "@/lib/availability";
 import type { PaymentProvider } from "@prisma/client";
@@ -436,6 +437,8 @@ async function notifyOwnerOfNewBooking(params: {
   const bookingsUrl = `${params.siteUrl}/${locale}/business/dashboard/bookings`;
   // Telegram groups that follow today's new bookings (src/lib/telegram.ts).
   if (params.bookingId) void telegramNewBookingLater(params.bookingId);
+  // The booked staff member's inbox, when the owner has that switched on.
+  if (params.bookingId) await emailStaffAboutBooking(params.bookingId, "new");
 
   try {
     const email = ownerNewBookingEmail({
@@ -657,6 +660,7 @@ export async function notifyStaffOfManualBooking(bookingId: string, creatorUserI
   try {
     void telegramNewBookingLater(bookingId);
     rememberBookingCreator(bookingId, creatorUserId);
+    await emailStaffAboutBooking(bookingId, "new", { actorUserId: creatorUserId });
     const b = await prisma.booking.findUnique({
       where: { id: bookingId },
       select: {

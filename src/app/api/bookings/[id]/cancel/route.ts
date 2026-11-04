@@ -3,6 +3,7 @@ import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { sendMail, ownerBookingCancelledEmail, bookingCancelledEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
+import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 
 export async function POST(
   _req: Request,
@@ -93,6 +94,8 @@ export async function POST(
       console.error("[customer cancel: customer confirmation]", err);
     }
   }
+
+  await emailStaffAboutBooking(id, "cancelled");
 
   return NextResponse.json({ booking: updated });
 }

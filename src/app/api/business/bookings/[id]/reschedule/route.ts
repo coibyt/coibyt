@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
 import { sendBookingRescheduledEmail } from "@/lib/booking-service";
+import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 
 const schema = z.object({
   startsAt: z.string().datetime(),
@@ -81,6 +82,7 @@ export async function PATCH(
     });
 
     await sendBookingRescheduledEmail(id);
+    await emailStaffAboutBooking(id, "moved", { actorStaffId: access.staffId, previousStaffId: booking.staffId, previousStartsAt: booking.startsAt });
 
     return NextResponse.json({ booking: updated });
   } catch (err) {

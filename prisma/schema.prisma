@@ -225,6 +225,14 @@ model Business {
   // PlatformSetting "emailDailyLimit"); bigger campaigns go out in daily
   // batches — see src/lib/marketing-send.ts.
   emailDailyLimit     Int?
+  // Email each staff member when a booking of theirs is made, moved or
+  // cancelled (src/lib/staff-booking-email.ts). Off until the owner turns it on.
+  staffBookingEmails  Boolean   @default(false)
+  // The same-day booking alarm on staff devices, switched for everyone at
+  // once: a device that chose before staffAlarmChangedAt follows this; one
+  // that chose after keeps its own choice (src/components/booking-alarm.tsx).
+  staffAlarmOn        Boolean   @default(false)
+  staffAlarmChangedAt DateTime?
   telegramLinkCode    String?   @unique @db.VarChar(24)
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.

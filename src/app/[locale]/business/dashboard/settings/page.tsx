@@ -13,6 +13,7 @@ import { PreferencesCard } from "@/components/preferences-card";
 import { BusinessProfileCard } from "@/components/business-profile-card";
 import { AccountSettingsCard } from "@/components/account-settings-card";
 import { AppearanceCard } from "@/components/appearance-card";
+import { StaffNotificationsCard } from "@/components/staff-notifications-card";
 import { SettingsHero, SettingsNav, SettingsSection } from "@/components/settings-shell";
 import { siteSerif } from "@/lib/site-fonts";
 import { settingsStrings, type SettingsSectionId } from "@/lib/settings-strings";
@@ -51,7 +52,7 @@ export default async function BusinessSettingsPage({
     profileChecklist(business.id),
   ]);
 
-  const sections: SettingsSectionId[] = ["profile", "contact", "booking", "payments", "appearance", "website", "branches", ...(currentUser ? (["account"] as const) : [])];
+  const sections: SettingsSectionId[] = ["profile", "contact", "booking", "payments", "notifications", "appearance", "website", "branches", ...(currentUser ? (["account"] as const) : [])];
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://varaaai.com";
 
   return (
@@ -128,6 +129,13 @@ export default async function BusinessSettingsPage({
                 invoiceTaxId: business.invoiceTaxId,
                 invoiceVatPercent: business.invoiceVatPercent,
               }}
+            />
+          </SettingsSection>
+
+          <SettingsSection id="notifications" locale={locale}>
+            <StaffNotificationsCard
+              locale={locale}
+              initial={{ staffBookingEmails: business.staffBookingEmails, staffAlarmOn: business.staffAlarmOn }}
             />
           </SettingsSection>
 

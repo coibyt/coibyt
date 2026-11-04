@@ -149,7 +149,10 @@ export default async function BusinessDashboardLayout({
       <DashboardBody switcher={switcher}>{children}</DashboardBody>
       {/* Owners and staff alike: support chat and the same-day booking alarm. */}
       <DashboardSupportWidget locale={locale} />
-      <BookingAlarm locale={locale} />
+      <BookingAlarm
+        locale={locale}
+        staffAlarm={isOwner ? undefined : { on: business.staffAlarmOn, changedAt: business.staffAlarmChangedAt?.toISOString() ?? null }}
+      />
       {/* Staff with bookings not reported 24 hours after they ended, when the
           owner has income report reminders on. */}
       {!isOwner && access.staffId && business.incomeRemindersSince && <IncomeReminderAlarm locale={locale} />}

@@ -11,6 +11,7 @@ import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
 import { sendBookingRescheduledEmail } from "@/lib/booking-service";
+import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { serviceSlots } from "@/lib/booking-slots";
 
 /** One booking by id, for jumping straight from a customer's visit history
@@ -170,6 +171,9 @@ export async function PATCH(
       where: { id },
       data: { status: data.status, cancelReason: data.cancelReason },
     });
+    if (data.status === "CANCELLED" && booking.status !== "CANCELLED") {
+      await emailStaffAboutBooking(id, "cancelled", { actorStaffId: access.staffId });
+    }
     return NextResponse.json({ booking: updated });
   }
 
@@ -305,6 +309,9 @@ export async function PATCH(
 
     if (scheduleChanged && data.notify !== false) {
       await sendBookingRescheduledEmail(id);
+    }
+    if (scheduleChanged || staffId !== booking.staffId) {
+      await emailStaffAboutBooking(id, "moved", { actorStaffId: access.staffId, previousStaffId: booking.staffId, previousStartsAt: booking.startsAt });
     }
 
     return NextResponse.json({ booking: updated, scheduleChanged });
