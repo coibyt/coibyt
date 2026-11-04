@@ -40,7 +40,7 @@ export default async function MarketingDashboardPage({
   await sendDueCampaigns(owned.businessId).catch(() => 0);
   const [counts, business, loyaltyProgram, dailyLimit, session] = await Promise.all([
     segmentCounts(owned.businessId),
-    prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true, ownerId: true } }),
+    prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true, ownerId: true, ownEmailAllowed: true, marketingEmail: true, marketingEmailVerifiedAt: true } }),
     prisma.loyaltyProgram.findUnique({ where: { businessId: owned.businessId }, select: { pointsRequired: true, discountPercent: true } }),
     emailDailyLimitFor(owned.businessId),
     auth(),
@@ -67,6 +67,7 @@ export default async function MarketingDashboardPage({
         dailyLimit={dailyLimit}
         ownerEmail={owned.isOwner ? (session?.user?.email ?? "") : ""}
         brand={brand}
+        ownEmail={business.ownEmailAllowed ? { email: business.marketingEmail, verified: !!business.marketingEmailVerifiedAt } : null}
       />
       <div id="vara-points" className="scroll-mt-24">
         <VaraPointsPanel locale={locale} />

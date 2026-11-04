@@ -40,6 +40,6 @@ export async function POST(req: Request) {
   lastTest.set(userId, Date.now());
   testsToday.set(userId, { day, n: used?.day === day ? used.n + 1 : 1 });
   // From the marketing mailbox, exactly like the real send.
-  await sendMarketingMail({ to: to.data, subject: `[TEST] ${mail.subject}`, html: mail.html, fromName: business.name });
+  await sendMarketingMail({ to: to.data, subject: `[TEST] ${mail.subject}`, html: mail.html, fromName: business.name, replyTo: business.replyTo });
   return NextResponse.json({ ok: true, to: to.data });
 }

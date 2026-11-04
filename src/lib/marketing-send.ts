@@ -49,11 +49,16 @@ export async function brandNameFor(ownerId: string) {
 }
 
 /** The salon a campaign is sent as: the branch, or (SYSTEM) the owner's
- * brand — its name, without the branch's city under it. */
+ * brand — its name, without the branch's city under it. `replyTo` is the
+ * salon's own verified address, when the admin allows one. */
 export async function campaignSalon(businessId: string, senderMode: string) {
-  const business = await prisma.business.findUniqueOrThrow({ where: { id: businessId }, select: { ...salonSelect, defaultLocale: true } });
-  if (senderMode !== "SYSTEM") return business;
-  return { ...business, name: (await brandNameFor(business.ownerId)) || business.name, city: null };
+  const { ownEmailAllowed, marketingEmail, marketingEmailVerifiedAt, ...business } = await prisma.business.findUniqueOrThrow({
+    where: { id: businessId },
+    select: { ...salonSelect, defaultLocale: true, ownEmailAllowed: true, marketingEmail: true, marketingEmailVerifiedAt: true },
+  });
+  const replyTo = ownEmailAllowed && marketingEmailVerifiedAt && marketingEmail ? marketingEmail : null;
+  if (senderMode !== "SYSTEM") return { ...business, replyTo };
+  return { ...business, replyTo, name: (await brandNameFor(business.ownerId)) || business.name, city: null };
 }
 
 export function salonPage(slug: string) {
@@ -253,6 +258,7 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
               subject: mail.subject,
               html: mail.html,
               fromName: business.name,
+              replyTo: business.replyTo,
               unsubscribeUrl: unsubscribeUrl(customer),
               // The QR as a file too, so it can be saved to the phone.
               attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,

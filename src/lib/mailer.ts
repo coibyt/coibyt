@@ -58,6 +58,8 @@ export async function sendMail(opts: {
   attachments?: MailAttachment[];
   /** Shown as the sender's name instead of VaraaAi's (same address). */
   fromName?: string;
+  /** Where the recipient's reply goes, e.g. the salon's own address. */
+  replyTo?: string | null;
 }) {
   // In local dev without SMTP configured, log instead of throwing so the
   // booking flow can still be exercised end-to-end.
@@ -66,10 +68,11 @@ export async function sendMail(opts: {
     return;
   }
   const transporter = getTransporter();
-  const { fromName, ...mail } = opts;
+  const { fromName, replyTo, ...mail } = opts;
   const from = process.env.SMTP_FROM ?? "VaraaAi.Com <noreply@varaaai.com>";
   await transporter.sendMail({
     from: fromName ? { name: fromName, address: from.match(/<([^>]+)>/)?.[1] ?? from } : from,
+    ...(replyTo ? { replyTo: fromName ? { name: fromName, address: replyTo } : replyTo } : {}),
     ...mail,
     // The admin's holiday band, when emails get the season's look.
     html: await withSeasonBand(opts.html),

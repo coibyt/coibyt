@@ -36,6 +36,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { MarketingContacts } from "@/components/marketing-contacts";
+import { MarketingOwnEmail } from "@/components/marketing-own-email";
 import { GROUP_ICONS, MarketingAudiencePanel, fetchAudience, type SendableGroup } from "@/components/marketing-audience-panel";
 import { Link } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
@@ -292,6 +293,7 @@ export function MarketingStudio({
   dailyLimit = null,
   ownerEmail = "",
   brand = null,
+  ownEmail = null,
 }: {
   locale: string;
   isOwner: boolean;
@@ -307,6 +309,8 @@ export function MarketingStudio({
   /** For owners with several branches: the name emails go out as when sent
    * as the whole brand, rather than this branch. */
   brand?: { name: string; branchName: string } | null;
+  /** When the admin lets this salon use its own address: what it has set. */
+  ownEmail?: { email: string | null; verified: boolean } | null;
 }) {
   const S = marketingStudioStrings(locale);
   const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
@@ -1051,6 +1055,7 @@ export function MarketingStudio({
 
             {/* 4. Send */}
             <StepCard n={4} title={S.sendTitle} S={S}>
+              {ownEmail && isOwner && <MarketingOwnEmail S={S} initial={ownEmail} />}
               {brand && (
                 <div className="mb-4">
                   <p className="mb-2 text-xs font-bold uppercase tracking-wider text-ink-400">{S.senderTitle}</p>

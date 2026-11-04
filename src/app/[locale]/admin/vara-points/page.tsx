@@ -23,7 +23,10 @@ export default async function AdminVaraPointsPage({ searchParams }: { searchPara
         name: true,
         email: true,
         varaPoints: true,
-        businesses: { select: { id: true, name: true, city: true, emailDailyLimit: true }, orderBy: { createdAt: "asc" } },
+        businesses: {
+          select: { id: true, name: true, city: true, emailDailyLimit: true, ownEmailAllowed: true, marketingEmail: true, marketingEmailVerifiedAt: true },
+          orderBy: { createdAt: "asc" },
+        },
         varaPointTransactions: { select: { id: true, amount: true, reason: true, note: true, createdAt: true }, orderBy: { createdAt: "desc" }, take: 6 },
       },
       orderBy: { varaPoints: "desc" },
@@ -42,7 +45,7 @@ export default async function AdminVaraPointsPage({ searchParams }: { searchPara
     name: o.name,
     email: o.email,
     varaPoints: o.varaPoints,
-    businesses: o.businesses.map((b) => ({ ...b, sentToday: sentBy.get(b.id) ?? 0 })),
+    businesses: o.businesses.map(({ marketingEmailVerifiedAt, ...b }) => ({ ...b, marketingEmailVerified: !!marketingEmailVerifiedAt, sentToday: sentBy.get(b.id) ?? 0 })),
     history: o.varaPointTransactions.map((t) => ({ ...t, createdAt: t.createdAt.toISOString() })),
   }));
 

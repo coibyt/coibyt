@@ -237,6 +237,14 @@ model Business {
   // that chose after keeps its own choice (src/components/booking-alarm.tsx).
   staffAlarmOn        Boolean   @default(false)
   staffAlarmChangedAt DateTime?
+  // The admin lets this salon's marketing emails carry its own address
+  // (src/lib/marketing-mailer.ts): once the owner verifies it by the link we
+  // email it, it is the Reply-To of every campaign, so customers' replies
+  // reach the salon. Sending still goes through VaraaAi's mailboxes.
+  ownEmailAllowed          Boolean   @default(false)
+  marketingEmail           String?   @db.VarChar(191)
+  marketingEmailToken      String?   @db.VarChar(64)
+  marketingEmailVerifiedAt DateTime?
   telegramLinkCode    String?   @unique @db.VarChar(24)
   // Not unique: one owner account can run several branches (Business rows) —
   // the dashboard switches between them via the `varaaai_business` cookie.

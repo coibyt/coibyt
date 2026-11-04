@@ -9,7 +9,17 @@ export interface AdminVaraOwner {
   name: string | null;
   email: string;
   varaPoints: number;
-  businesses: { id: string; name: string; city: string | null; emailDailyLimit: number | null; sentToday: number }[];
+  businesses: {
+    id: string;
+    name: string;
+    city: string | null;
+    emailDailyLimit: number | null;
+    sentToday: number;
+    ownEmailAllowed: boolean;
+    /** The salon's own address and whether it's verified, when it set one. */
+    marketingEmail: string | null;
+    marketingEmailVerified: boolean;
+  }[];
   history: { id: string; amount: number; reason: string; note: string | null; createdAt: string }[];
 }
 
@@ -72,6 +82,45 @@ function LimitField({ value, placeholder, onSave }: { value: number | null; plac
         Lưu
       </button>
       {state === "err" && <span className="text-xs text-berry-500">Lỗi</span>}
+    </div>
+  );
+}
+
+/** Lets one branch put its own verified address on its marketing emails. */
+function OwnEmailSwitch({ b }: { b: AdminVaraOwner["businesses"][number] }) {
+  const [on, setOn] = useState(b.ownEmailAllowed);
+  const [busy, setBusy] = useState(false);
+  async function toggle() {
+    setBusy(true);
+    const res = await fetch("/api/admin/own-email", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ businessId: b.id, allowed: !on }),
+    }).catch(() => null);
+    setBusy(false);
+    if (res?.ok) setOn(!on);
+  }
+  return (
+    <div className="flex w-full flex-wrap items-center gap-2 pl-6 text-xs">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={on}
+        onClick={toggle}
+        disabled={busy}
+        className={`relative h-5 w-9 shrink-0 rounded-full transition-colors disabled:opacity-60 ${on ? "bg-primary-500" : "bg-ink-100"}`}
+      >
+        <span className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-all ${on ? "left-[18px]" : "left-0.5"}`} />
+      </button>
+      <span className="font-semibold text-ink-700">Cho dùng email riêng của salon</span>
+      {on &&
+        (b.marketingEmail ? (
+          <span className={`rounded-full px-2 py-0.5 ${b.marketingEmailVerified ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
+            {b.marketingEmail} · {b.marketingEmailVerified ? "đã xác minh" : "chờ xác minh"}
+          </span>
+        ) : (
+          <span className="text-ink-400">chủ salon chưa nhập email</span>
+        ))}
     </div>
   );
 }
@@ -207,6 +256,7 @@ function OwnerCard({ owner, defaultLimit }: { owner: AdminVaraOwner; defaultLimi
                 placeholder={defaultLimit ? `Mặc định ${defaultLimit}` : "Không giới hạn"}
                 onSave={(v) => patchLimit(b.id, v)}
               />
+              <OwnEmailSwitch b={b} />
             </li>
           ))}
         </ul>

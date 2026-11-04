@@ -122,6 +122,8 @@ type MailOpts = {
   subject: string;
   html: string;
   fromName: string;
+  /** The salon's own verified address, when the admin allows it. */
+  replyTo?: string | null;
   unsubscribeUrl?: string | null;
   attachments?: { filename: string; content: Buffer; contentType?: string }[];
 };
@@ -129,6 +131,7 @@ type MailOpts = {
 async function sendFrom(smtp: MarketingSmtp, box: MarketingMailbox, opts: MailOpts) {
   await transporterFor(smtp, box).sendMail({
     from: { name: opts.fromName, address: box.user },
+    ...(opts.replyTo ? { replyTo: { name: opts.fromName, address: opts.replyTo } } : {}),
     to: opts.to,
     subject: opts.subject,
     html: await withSeasonBand(opts.html),
@@ -145,7 +148,7 @@ export async function sendMarketingMail(opts: MailOpts) {
   const smtp = await getMarketingSmtp();
   const boxes = smtp?.boxes.filter((b) => b.enabled) ?? [];
   if (!smtp || !boxes.length || !process.env.SMTP_HOST) {
-    await sendMail({ to: opts.to, subject: opts.subject, html: opts.html, fromName: opts.fromName, attachments: opts.attachments });
+    await sendMail({ to: opts.to, subject: opts.subject, html: opts.html, fromName: opts.fromName, replyTo: opts.replyTo, attachments: opts.attachments });
     return;
   }
   // Mailboxes that failed lately go last, so they only get tried when
