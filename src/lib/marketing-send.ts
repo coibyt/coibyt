@@ -1,6 +1,6 @@
 import type { EmailCampaign, LoyaltyProgram } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { sendMail } from "@/lib/mailer";
+import { sendMarketingMail } from "@/lib/marketing-mailer";
 import { awardPoints } from "@/lib/vara-points";
 import { trackingToken, unsubscribeToken } from "@/lib/marketing-email";
 import { campaignEmail, marketingImageUrl, type CampaignLoyaltyCard, type CampaignSalon } from "@/lib/email/marketing-campaign-email";
@@ -248,11 +248,12 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
           const card = program ? await cardFor(campaign.businessId, customer, program) : null;
           const mail = renderCampaign(campaign, business, customer, customer.locale, null, card?.block ?? null);
           try {
-            await sendMail({
+            await sendMarketingMail({
               to: customer.email,
               subject: mail.subject,
               html: mail.html,
               fromName: business.name,
+              unsubscribeUrl: unsubscribeUrl(customer),
               // The QR as a file too, so it can be saved to the phone.
               attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,
             });

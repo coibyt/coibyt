@@ -40,3 +40,6 @@ export async function GET(req: Request) {
       "You've been unsubscribed from marketing emails. You'll still receive emails about your own bookings."
   );
 }
+
+/** One-click unsubscribe from the mail app's own button (List-Unsubscribe-Post). */
+export const POST = GET;

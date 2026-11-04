@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { auth } from "@/auth";
 import { getBusinessAccess } from "@/lib/current-business";
-import { sendMail } from "@/lib/mailer";
+import { sendMarketingMail } from "@/lib/marketing-mailer";
 import { campaignColumns, campaignContentSchema } from "@/lib/marketing-campaign";
 import { campaignSalon, renderCampaign, sampleLoyaltyCard } from "@/lib/marketing-send";
 import { profileLockedError } from "@/lib/profile-completeness";
@@ -39,6 +39,7 @@ export async function POST(req: Request) {
   const mail = renderCampaign(campaignColumns(parsed.data), business, null, business.defaultLocale, session.user.name ?? "", loyalty);
   lastTest.set(userId, Date.now());
   testsToday.set(userId, { day, n: used?.day === day ? used.n + 1 : 1 });
-  await sendMail({ to: to.data, subject: `[TEST] ${mail.subject}`, html: mail.html, fromName: business.name });
+  // From the marketing mailbox, exactly like the real send.
+  await sendMarketingMail({ to: to.data, subject: `[TEST] ${mail.subject}`, html: mail.html, fromName: business.name });
   return NextResponse.json({ ok: true, to: to.data });
 }
