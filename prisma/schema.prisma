@@ -65,6 +65,10 @@ model User {
   // owner's own "become a salon owner" referral link. See VaraPointTransaction
   // for the full ledger; this column is always that ledger's running total.
   varaPoints          Int     @default(0)
+  // The name of all an owner's branches together ("Moja Beauty"), used when
+  // a marketing email is sent as the brand. Null = worked out from the
+  // branch names (src/lib/marketing-send.ts brandNameFor).
+  brandName           String? @db.VarChar(120)
   // "YYYY-MM-DD" (UTC) of the last daily check-in claimed — a plain string,
   // not a DateTime, so "already checked in today" is a single string compare
   // with no timezone math.
@@ -451,8 +455,11 @@ model EmailCampaign {
   // to use it (src/lib/marketing-send.ts).
   loyaltyCard     Boolean   @default(false)
   // SCHEDULED → SENDING → SENT, or CANCELLED. Campaigns sent before this
-  // existed are SENT.
+  // existed are SENT. DRAFT: saved half-written, never sent.
   status          String    @default("SENT") @db.VarChar(12)
+  // BRANCH: sent as this branch ("Moja Beauty Kamppi"); SYSTEM: as the
+  // owner's whole brand ("Moja Beauty", User.brandName).
+  senderMode      String    @default("BRANCH") @db.VarChar(8)
   scheduledAt     DateTime?
   sentAt          DateTime?
   // Unique recipients who opened / clicked (EmailCampaignEvent).

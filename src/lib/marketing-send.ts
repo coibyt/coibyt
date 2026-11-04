@@ -29,6 +29,33 @@ export const salonSelect = {
   ownerId: true,
 } as const;
 
+/** The name of all an owner's branches together: what they set, else the
+ * words every branch name starts with ("Moja Beauty Kamppi" + "Moja Beauty
+ * Sörnäinen" → "Moja Beauty"), else the first branch's name. */
+export async function brandNameFor(ownerId: string) {
+  const [owner, branches] = await Promise.all([
+    prisma.user.findUnique({ where: { id: ownerId }, select: { brandName: true } }),
+    prisma.business.findMany({ where: { ownerId }, select: { name: true }, orderBy: { createdAt: "asc" } }),
+  ]);
+  if (owner?.brandName?.trim()) return owner.brandName.trim();
+  const words = branches.map((b) => b.name.trim().split(/\s+/));
+  const common: string[] = [];
+  for (let i = 0; words.length && i < words[0].length; i++) {
+    if (words.some((w) => w[i]?.toLowerCase() !== words[0][i].toLowerCase())) break;
+    common.push(words[0][i]);
+  }
+  const prefix = common.join(" ").replace(/[\s\-–—|,·:]+$/, "");
+  return branches.length > 1 && prefix.length >= 2 ? prefix : branches[0]?.name ?? "";
+}
+
+/** The salon a campaign is sent as: the branch, or (SYSTEM) the owner's
+ * brand — its name, without the branch's city under it. */
+export async function campaignSalon(businessId: string, senderMode: string) {
+  const business = await prisma.business.findUniqueOrThrow({ where: { id: businessId }, select: { ...salonSelect, defaultLocale: true } });
+  if (senderMode !== "SYSTEM") return business;
+  return { ...business, name: (await brandNameFor(business.ownerId)) || business.name, city: null };
+}
+
 export function salonPage(slug: string) {
   return `${SITE()}/b/${slug}`;
 }
@@ -145,12 +172,9 @@ const recipientKey = (c: { id: string; kind: "user" | "contact" }) => `${c.kind}
  * daily email limit it sends one day's share and goes back to SCHEDULED for
  * the same time tomorrow, skipping whoever already has it. */
 export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
-  const campaign = await prisma.emailCampaign.findUnique({
-    where: { id: campaignId },
-    include: { business: { select: salonSelect } },
-  });
+  const campaign = await prisma.emailCampaign.findUnique({ where: { id: campaignId } });
   if (!campaign || campaign.status !== "SENDING") return { ok: false, error: "NOT_FOUND" };
-  const { business } = campaign;
+  const business = await campaignSalon(campaign.businessId, campaign.senderMode);
 
   const { eligible, cooldown } = await campaignCost(campaign.businessId, campaign.segment, campaign.includeCooldown);
   const delivered = new Set(
@@ -209,6 +233,7 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
               to: customer.email,
               subject: mail.subject,
               html: mail.html,
+              fromName: business.name,
               // The QR as a file too, so it can be saved to the phone.
               attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,
             });

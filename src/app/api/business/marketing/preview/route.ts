@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireOwnerOrReadOnlyViewer } from "@/lib/current-business";
-import { prisma } from "@/lib/prisma";
 import { campaignColumns, campaignContentSchema } from "@/lib/marketing-campaign";
-import { renderCampaign, salonSelect, sampleLoyaltyCard } from "@/lib/marketing-send";
+import { campaignSalon, renderCampaign, sampleLoyaltyCard } from "@/lib/marketing-send";
 
 /** The campaign email exactly as a customer would get it, for the studio's
  * live preview — personalised with a sample name, without tracking. */
@@ -18,12 +17,9 @@ export async function POST(req: Request) {
   });
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
 
-  const business = await prisma.business.findUniqueOrThrow({
-    where: { id: owned.businessId },
-    select: { ...salonSelect, defaultLocale: true },
-  });
+  const business = await campaignSalon(owned.businessId, parsed.data.sender);
   const sampleName = typeof body?.sampleName === "string" ? body.sampleName : "Anna";
   const loyalty = parsed.data.loyaltyCard ? await sampleLoyaltyCard(owned.businessId, sampleName) : null;
   const mail = renderCampaign(campaignColumns(parsed.data), business, null, business.defaultLocale, sampleName, loyalty);
-  return NextResponse.json({ subject: mail.subject, html: mail.html });
+  return NextResponse.json({ subject: mail.subject, html: mail.html, senderName: business.name });
 }

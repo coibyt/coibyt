@@ -11,6 +11,8 @@ const schema = z.object({
   content: campaignContentSchema,
   // ISO time to send later; omitted = send now.
   scheduleAt: z.string().datetime({ offset: true }).nullable().optional(),
+  // The draft this was written from — removed once it's sent or scheduled.
+  draftId: z.string().min(1).nullable().optional(),
 });
 
 /** Sends a campaign now, or schedules it (sent by the reminders cron). */
@@ -30,7 +32,7 @@ export async function POST(req: Request) {
 
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
-  const { content, scheduleAt } = parsed.data;
+  const { content, scheduleAt, draftId } = parsed.data;
 
   if (content.imageId) {
     const img = await prisma.marketingImage.findFirst({ where: { id: content.imageId, businessId }, select: { id: true } });
@@ -65,6 +67,7 @@ export async function POST(req: Request) {
       scheduledAt: when,
     },
   });
+  if (draftId) await prisma.emailCampaign.deleteMany({ where: { id: draftId, businessId, status: "DRAFT" } });
   if (when) return NextResponse.json({ scheduled: true, id: campaign.id, recipients, cost });
 
   const outcome = await sendCampaign(campaign.id);

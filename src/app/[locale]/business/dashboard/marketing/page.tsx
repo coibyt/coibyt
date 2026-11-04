@@ -12,6 +12,8 @@ import { Users } from "lucide-react";
 import { profileChecklist } from "@/lib/profile-completeness";
 import { ProfileLock } from "@/components/profile-lock";
 import { emailDailyLimitFor } from "@/lib/email-daily-limit";
+import { brandNameFor } from "@/lib/marketing-send";
+import { auth } from "@/auth";
 
 export default async function MarketingDashboardPage({
   params,
@@ -36,12 +38,16 @@ export default async function MarketingDashboardPage({
 
   // Scheduled campaigns whose time has come, in case the cron isn't set up.
   await sendDueCampaigns(owned.businessId).catch(() => 0);
-  const [counts, business, loyaltyProgram, dailyLimit] = await Promise.all([
+  const [counts, business, loyaltyProgram, dailyLimit, session] = await Promise.all([
     segmentCounts(owned.businessId),
-    prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true } }),
+    prisma.business.findUniqueOrThrow({ where: { id: owned.businessId }, select: { name: true, logoUrl: true, ownerId: true } }),
     prisma.loyaltyProgram.findUnique({ where: { businessId: owned.businessId }, select: { pointsRequired: true, discountPercent: true } }),
     emailDailyLimitFor(owned.businessId),
+    auth(),
   ]);
+  // Several branches: emails can go out as the whole brand instead of this one.
+  const branchCount = await prisma.business.count({ where: { ownerId: business.ownerId } });
+  const brand = branchCount > 1 ? { name: await brandNameFor(business.ownerId), branchName: business.name } : null;
 
   return (
     <div className={`${siteSerif.variable} space-y-6`}>
@@ -59,6 +65,8 @@ export default async function MarketingDashboardPage({
         initialSegment={isSegment(segment) ? segment : "ALL"}
         loyaltyProgram={loyaltyProgram}
         dailyLimit={dailyLimit}
+        ownerEmail={owned.isOwner ? (session?.user?.email ?? "") : ""}
+        brand={brand}
       />
       <div id="vara-points" className="scroll-mt-24">
         <VaraPointsPanel locale={locale} />

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+  Building2,
   CalendarClock,
   Check,
   Coins,
@@ -18,10 +19,13 @@ import {
   MailOpen,
   Monitor,
   MousePointerClick,
+  Pencil,
+  Save,
   Send,
   Smartphone,
   Sparkles,
   Star,
+  Store,
   Trash2,
   UserPlus,
   Users,
@@ -54,6 +58,7 @@ interface Content {
   segment: Segment;
   includeCooldown: boolean;
   loyaltyCard: boolean;
+  sender: "BRANCH" | "SYSTEM";
 }
 
 interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" | "ctaUrl" | "offerTitle" | "offerCode"> {
@@ -64,7 +69,8 @@ interface Campaign extends Omit<Content, "preheader" | "headline" | "ctaLabel" |
   ctaUrl: string | null;
   offerTitle: string | null;
   offerCode: string | null;
-  status: "SENT" | "SCHEDULED" | "SENDING" | "CANCELLED" | "FAILED";
+  status: "SENT" | "SCHEDULED" | "SENDING" | "CANCELLED" | "FAILED" | "DRAFT";
+  senderMode: "BRANCH" | "SYSTEM";
   scheduledAt: string | null;
   sentAt: string | null;
   createdAt: string;
@@ -89,6 +95,7 @@ const EMPTY: Content = {
   segment: "ALL",
   includeCooldown: false,
   loyaltyCard: false,
+  sender: "BRANCH",
 };
 
 const SEGMENT_ICONS: Record<Segment, LucideIcon> = {
@@ -277,6 +284,8 @@ export function MarketingStudio({
   initialSegment = "ALL",
   loyaltyProgram,
   dailyLimit = null,
+  ownerEmail = "",
+  brand = null,
 }: {
   locale: string;
   isOwner: boolean;
@@ -287,6 +296,11 @@ export function MarketingStudio({
   loyaltyProgram: { pointsRequired: number; discountPercent: number } | null;
   /** The admin's cap on emails per day (null = none). */
   dailyLimit?: number | null;
+  /** Where test emails go unless the owner types another address. */
+  ownerEmail?: string;
+  /** For owners with several branches: the name emails go out as when sent
+   * as the whole brand, rather than this branch. */
+  brand?: { name: string; branchName: string } | null;
 }) {
   const S = marketingStudioStrings(locale);
   const [tab, setTab] = useState<"compose" | "campaigns" | "contacts">("compose");
@@ -303,6 +317,12 @@ export function MarketingStudio({
   const [confirming, setConfirming] = useState(false);
   const [busy, setBusy] = useState(false);
   const [testing, setTesting] = useState(false);
+  const [testTo, setTestTo] = useState(ownerEmail);
+  const [draftId, setDraftId] = useState<string | null>(null);
+  const [savingDraft, setSavingDraft] = useState(false);
+  const [brandName, setBrandName] = useState(brand?.name ?? "");
+  const [editingBrand, setEditingBrand] = useState(false);
+  const [brandDraft, setBrandDraft] = useState(brand?.name ?? "");
   const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
   const [preview, setPreview] = useState<{ html: string; subject: string }>({ html: "", subject: "" });
   const [previewLoading, setPreviewLoading] = useState(false);
@@ -423,12 +443,50 @@ export function MarketingStudio({
     const res = await fetch("/api/business/marketing/test", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: payload }),
+      body: JSON.stringify({ content: payload, to: testTo.trim() || undefined }),
     }).catch(() => null);
     setTesting(false);
     const d = await res?.json().catch(() => ({}));
     if (res?.ok) setFlash({ ok: true, text: fill(S.testSent, { email: d.to }) });
-    else setFlash({ ok: false, text: res?.status === 429 ? S.testTooSoon : S.errGeneric });
+    else setFlash({ ok: false, text: res?.status === 429 ? S.testTooSoon : d?.error === "INVALID_EMAIL" ? S.errEmail : S.errGeneric });
+  }
+
+  async function saveDraft() {
+    setSavingDraft(true);
+    setFlash(null);
+    const res = await fetch("/api/business/marketing/draft", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: draftId, content: payload }),
+    }).catch(() => null);
+    setSavingDraft(false);
+    const d = await res?.json().catch(() => null);
+    if (!res?.ok) return setFlash({ ok: false, text: S.errGeneric });
+    setDraftId(d.id);
+    setFlash({ ok: true, text: S.draftSaved });
+    loadCampaigns();
+  }
+
+  function newCampaign() {
+    setDraftId(null);
+    setC(EMPTY);
+    setOfferOn(false);
+    setImageUrl(null);
+  }
+
+  async function saveBrand() {
+    const res = await fetch("/api/business/brand-name", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ brandName: brandDraft }),
+    }).catch(() => null);
+    if (!res?.ok) return;
+    const d = await res.json();
+    setBrandName(d.brandName);
+    setBrandDraft(d.brandName);
+    setEditingBrand(false);
+    // The preview shows the new name.
+    setC((prev) => ({ ...prev }));
   }
 
   async function send() {
@@ -437,7 +495,7 @@ export function MarketingStudio({
     const res = await fetch("/api/business/marketing/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: payload, scheduleAt: mode === "later" ? new Date(when).toISOString() : null }),
+      body: JSON.stringify({ content: payload, scheduleAt: mode === "later" ? new Date(when).toISOString() : null, draftId }),
     }).catch(() => null);
     setBusy(false);
     setConfirming(false);
@@ -467,6 +525,7 @@ export function MarketingStudio({
           : fill(S.sent, { n: d.sent }),
     });
     setC(EMPTY);
+    setDraftId(null);
     setOfferOn(false);
     setImageUrl(null);
     setMode("now");
@@ -501,17 +560,27 @@ export function MarketingStudio({
       offerCode: x.offerCode ?? "",
       offerExpires: x.offerExpires,
       segment: x.segment,
-      includeCooldown: false,
+      includeCooldown: x.status === "DRAFT" && x.includeCooldown,
       loyaltyCard: !!x.loyaltyCard && !!loyaltyProgram,
+      sender: brand ? x.senderMode : "BRANCH",
     };
   }
 
   function reuse(x: Campaign) {
+    setDraftId(x.status === "DRAFT" ? x.id : null);
     setC(toContent(x));
     setOfferOn(!!(x.offerTitle || x.offerCode));
     setImageUrl(x.imageId ? `/api/marketing-image/${x.imageId}` : null);
     setTab("compose");
     top.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  async function deleteDraft(id: string) {
+    const res = await fetch(`/api/business/marketing/campaigns/${id}`, { method: "DELETE" });
+    if (res.ok) {
+      if (draftId === id) setDraftId(null);
+      loadCampaigns();
+    }
   }
 
   async function cancelSchedule(id: string) {
@@ -524,7 +593,7 @@ export function MarketingStudio({
       html={preview.html}
       subject={preview.subject}
       preheader={c.preheader || c.message.split("\n")[0]}
-      salonName={salon.name}
+      salonName={c.sender === "SYSTEM" && brandName ? brandName : salon.name}
       logoUrl={salon.logoUrl}
       loading={previewLoading}
       S={S}
@@ -537,6 +606,7 @@ export function MarketingStudio({
     SENDING: "bg-primary-100 text-primary-700 ring-primary-200",
     CANCELLED: "bg-ink-100 text-ink-400 ring-ink-100",
     FAILED: "bg-berry-50 text-berry-500 ring-berry-100",
+    DRAFT: "bg-sky-50 text-sky-700 ring-sky-200",
   };
 
   return (
@@ -620,6 +690,18 @@ export function MarketingStudio({
           <div className="min-w-0 space-y-5">
             {!isOwner && (
               <p className="rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-800 ring-1 ring-amber-200">{S.readOnly}</p>
+            )}
+
+            {draftId && (
+              <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl bg-sky-50 px-4 py-3 text-sm ring-1 ring-sky-200">
+                <span className="flex items-center gap-2 font-semibold text-sky-800">
+                  <Pencil className="h-4 w-4" />
+                  {S.draftEditing}
+                </span>
+                <button type="button" onClick={newCampaign} className="text-xs font-bold text-sky-700 hover:underline">
+                  {S.draftNew}
+                </button>
+              </div>
             )}
 
             {/* 1. Audience */}
@@ -903,6 +985,48 @@ export function MarketingStudio({
 
             {/* 4. Send */}
             <StepCard n={4} title={S.sendTitle} S={S}>
+              {brand && (
+                <div className="mb-4">
+                  <p className="mb-2 text-xs font-bold uppercase tracking-wider text-ink-400">{S.senderTitle}</p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {(["SYSTEM", "BRANCH"] as const).map((m) => {
+                      const on = c.sender === m;
+                      return (
+                        <button
+                          key={m}
+                          type="button"
+                          onClick={() => set("sender", m)}
+                          className={`min-w-0 rounded-2xl border px-3 py-3 text-left transition ${
+                            on ? "border-primary-400 bg-primary-100/60 ring-2 ring-primary-200" : "border-ink-100 hover:border-ink-200"
+                          }`}
+                        >
+                          <span className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider ${on ? "text-primary-700" : "text-ink-400"}`}>
+                            {m === "SYSTEM" ? <Building2 className="h-3.5 w-3.5" /> : <Store className="h-3.5 w-3.5" />}
+                            {m === "SYSTEM" ? S.senderSystem : S.senderBranch}
+                          </span>
+                          <span className="mt-1 block truncate text-sm font-bold text-ink-900">{m === "SYSTEM" ? brandName : brand.branchName}</span>
+                          <span className="block truncate text-[11px] text-ink-400">{m === "SYSTEM" ? S.senderSystemHint : S.senderBranchHint}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                  {c.sender === "SYSTEM" &&
+                    isOwner &&
+                    (editingBrand ? (
+                      <div className="mt-2 flex gap-2">
+                        <input value={brandDraft} onChange={(e) => setBrandDraft(e.target.value)} maxLength={120} className={INPUT} />
+                        <button type="button" onClick={saveBrand} className="shrink-0 rounded-full bg-[#1f182d] px-4 text-xs font-bold text-white">
+                          {S.brandSave}
+                        </button>
+                      </div>
+                    ) : (
+                      <button type="button" onClick={() => setEditingBrand(true)} className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-primary-600 hover:underline">
+                        <Pencil className="h-3 w-3" />
+                        {S.brandEdit}
+                      </button>
+                    ))}
+                </div>
+              )}
               <div className="grid grid-cols-2 gap-2">
                 {(["now", "later"] as const).map((m) => (
                   <button
@@ -979,12 +1103,12 @@ export function MarketingStudio({
                   </button>
                   <button
                     type="button"
-                    onClick={sendTest}
-                    disabled={!isOwner || !ready || testing}
+                    onClick={saveDraft}
+                    disabled={!isOwner || savingDraft}
                     className="flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-semibold text-ink-700 ring-1 ring-ink-100 transition hover:bg-mist-50 disabled:opacity-45"
                   >
-                    {testing ? <Loader2 className="h-4 w-4 animate-spin" /> : <FlaskConical className="h-4 w-4" />}
-                    {S.testSend}
+                    {savingDraft ? <Loader2 className="h-4 w-4 animate-spin" /> : <Save className="h-4 w-4" />}
+                    {S.saveDraft}
                   </button>
                   <button
                     type="button"
@@ -994,6 +1118,32 @@ export function MarketingStudio({
                     <Eye className="h-4 w-4" />
                     {S.previewOpen}
                   </button>
+                </div>
+              )}
+
+              {isOwner && (
+                <div className="mt-4 rounded-2xl bg-mist-50/60 p-3 ring-1 ring-ink-100">
+                  <p className="text-xs font-bold text-ink-700">{S.testTo}</p>
+                  <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+                    <input
+                      type="email"
+                      inputMode="email"
+                      value={testTo}
+                      onChange={(e) => setTestTo(e.target.value)}
+                      placeholder="email@example.com"
+                      className={`${INPUT} min-w-0 flex-1`}
+                    />
+                    <button
+                      type="button"
+                      onClick={sendTest}
+                      disabled={!ready || testing || !testTo.trim()}
+                      className="flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-ink-700 ring-1 ring-ink-100 transition hover:bg-mist-50 disabled:opacity-45"
+                    >
+                      {testing ? <Loader2 className="h-4 w-4 animate-spin" /> : <FlaskConical className="h-4 w-4" />}
+                      {S.testSend}
+                    </button>
+                  </div>
+                  <p className="mt-1.5 text-[11px] text-ink-400">{S.testToHint}</p>
                 </div>
               )}
             </StepCard>
@@ -1044,10 +1194,10 @@ export function MarketingStudio({
                           )}
                           <span className="text-[11px] text-ink-400" suppressHydrationWarning>
                             {x.status === "SCHEDULED" && x.sentCount > 0 && `${fill(S.progress, { n: x.sentCount, total: x.recipientCount })} · `}
-                            {fill(x.status === "SCHEDULED" ? S.scheduledFor : S.sentOn, { time: dateFmt.format(new Date(time)) })}
+                            {fill(x.status === "SCHEDULED" ? S.scheduledFor : x.status === "DRAFT" ? S.draftOn : S.sentOn, { time: dateFmt.format(new Date(time)) })}
                           </span>
                         </div>
-                        <p className="mt-2 truncate text-base font-bold text-ink-900">{x.subject}</p>
+                        <p className="mt-2 truncate text-base font-bold text-ink-900">{x.subject || "—"}</p>
                         {x.headline && <p className="truncate text-sm text-ink-400">{x.headline}</p>}
                       </div>
                       <div className="flex shrink-0 gap-1.5">
@@ -1057,8 +1207,19 @@ export function MarketingStudio({
                         </button>
                         {isOwner && (
                           <button type="button" onClick={() => reuse(x)} className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-primary-700 ring-1 ring-primary-200 hover:bg-primary-100/50">
-                            <Copy className="h-3.5 w-3.5" />
-                            {S.reuse}
+                            {x.status === "DRAFT" ? <Pencil className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                            {x.status === "DRAFT" ? S.resume : S.reuse}
+                          </button>
+                        )}
+                        {isOwner && x.status === "DRAFT" && (
+                          <button
+                            type="button"
+                            onClick={() => deleteDraft(x.id)}
+                            aria-label={S.deleteDraft}
+                            title={S.deleteDraft}
+                            className="flex items-center gap-1.5 rounded-full px-3 py-2 text-xs font-semibold text-berry-500 ring-1 ring-berry-100 hover:bg-berry-50"
+                          >
+                            <Trash2 className="h-3.5 w-3.5" />
                           </button>
                         )}
                         {isOwner && x.status === "SCHEDULED" && (

@@ -32,6 +32,14 @@ export const campaignContentSchema = z.object({
   includeCooldown: z.boolean().optional().default(false),
   // Attach each recipient's loyalty card (made for them if they have none).
   loyaltyCard: z.boolean().optional().default(false),
+  // Sent as this branch, or as the owner's whole brand (User.brandName).
+  sender: z.enum(["BRANCH", "SYSTEM"]).optional().default("BRANCH"),
+});
+
+/** A draft may be saved half-written: subject and message can be empty. */
+export const draftContentSchema = campaignContentSchema.extend({
+  subject: z.string().trim().max(150),
+  message: z.string().trim().max(5000),
 });
 
 export type CampaignContent = z.infer<typeof campaignContentSchema>;
@@ -60,5 +68,6 @@ export function campaignColumns(c: CampaignContent) {
     segment: c.segment,
     includeCooldown: c.includeCooldown,
     loyaltyCard: c.loyaltyCard,
+    senderMode: c.sender,
   };
 }
