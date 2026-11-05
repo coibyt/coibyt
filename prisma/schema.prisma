@@ -2006,9 +2006,13 @@ model ToolEvent {
   id        String   @id @default(cuid())
   tool      String
   event     String
+  // The browser's anonymous id (localStorage "varaaai_visitor_id", like
+  // SiteVisit), so a page can count unique visitors, not just views.
+  visitorId String?  @db.VarChar(64)
   createdAt DateTime @default(now())
 
   @@index([tool, event, createdAt])
+  @@index([tool, createdAt, visitorId])
 }
 
 /// Loyalty Lite (/loyalty-lite, src/lib/loyalty-lite.ts): a free stamp card a

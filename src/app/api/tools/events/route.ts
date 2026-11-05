@@ -6,6 +6,8 @@ import { clientIp, rateLimit } from "@/lib/rate-limit";
 const ALLOWED: Record<string, string[]> = {
   price_list: ["open", "download_pdf", "download_png", "cta_click", "translate", "import"],
   qr_poster: ["open", "download_pdf", "download_png", "cta_click"],
+  // /loyalty-lite: a page view, and closing the welcome sign-up card.
+  loyalty_lite: ["open", "popup_close"],
 };
 
 /** Public — anonymous usage counters for the free marketing tools. */
@@ -15,6 +17,7 @@ export async function POST(req: Request) {
   const event = typeof body?.event === "string" ? body.event : "";
   if (!ALLOWED[tool]?.includes(event)) return NextResponse.json({ ok: false }, { status: 400 });
   if (!rateLimit(`tool-ev:${await clientIp()}`, 120, 60 * 60_000)) return NextResponse.json({ ok: false }, { status: 429 });
-  await prisma.toolEvent.create({ data: { tool, event } });
+  const visitorId = typeof body?.visitorId === "string" && /^[\w-]{8,64}$/.test(body.visitorId) ? body.visitorId : null;
+  await prisma.toolEvent.create({ data: { tool, event, visitorId } });
   return NextResponse.json({ ok: true });
 }

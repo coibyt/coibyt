@@ -7,6 +7,7 @@ import { liteStrings } from "@/lib/loyalty-lite-strings";
 import { ogImage } from "@/lib/og-image";
 import { LiteSignupForm } from "@/components/loyalty-lite/signup-form";
 import { LiteSignupPopup } from "@/components/loyalty-lite/signup-popup";
+import { LiteVisitTracker } from "@/components/loyalty-lite/visit-tracker";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -25,6 +26,7 @@ export default async function LoyaltyLitePage({ params, searchParams }: { params
 
   return (
     <div className={`${siteSerif.variable} relative overflow-hidden bg-gradient-to-b from-[#fdf2f8] via-[#fbeaf4] to-white`}>
+      <LiteVisitTracker />
       {/* Visitors without an account meet the sign-up card first, like a welcome screen. */}
       {!signedIn && <LiteSignupPopup locale={locale} t={t} expired={link === "expired"} initialMode={login ? "login" : "signup"} />}
       {/* The glows run behind the whole page, so there is no seam between sections. */}

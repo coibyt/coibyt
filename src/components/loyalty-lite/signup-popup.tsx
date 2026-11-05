@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Check, Sparkles, X } from "lucide-react";
 import { LiteSignupForm } from "@/components/loyalty-lite/signup-form";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
+import { trackLite } from "@/components/loyalty-lite/visit-tracker";
 
 /** The welcome card over /loyalty-lite for visitors without an account:
  * the page blurs behind it and the sign-up form is the first thing they
@@ -36,6 +37,7 @@ export function LiteSignupPopup({ locale, t, expired, initialMode }: { locale: s
 
   function close() {
     setOpen(false);
+    trackLite("popup_close");
     try {
       sessionStorage.setItem("varaaai_lite_popup_closed", "1");
     } catch {}

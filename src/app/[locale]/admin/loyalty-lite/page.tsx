@@ -1,6 +1,7 @@
 import { ArrowUpRight, CreditCard, Crown, Search, Stamp, Store, Users } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
+import { LiteAdminTraffic } from "@/components/loyalty-lite/admin-traffic";
 
 const DAY = 24 * 60 * 60 * 1000;
 
@@ -75,6 +76,8 @@ export default async function AdminLoyaltyLitePage({ searchParams }: { searchPar
           </div>
         ))}
       </div>
+
+      <LiteAdminTraffic />
 
       <form className="relative max-w-md">
         <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-300" />
