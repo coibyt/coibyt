@@ -378,6 +378,9 @@ interface NewBookingDraft {
   customerName: string;
   customerPhone: string;
   customerEmail: string;
+  /** A customer picked from the search whose phone is hidden from this
+   * person: the booking goes to them by id. Cleared when the name changes. */
+  customerId?: string | null;
   customerNote: string;
   sendNotificationEmails: boolean;
   /** The owner's price for this booking (as typed); null = the usual price. */
@@ -1557,7 +1560,7 @@ export function BookingCalendar({
   function pickCustomerMatch(c: CustomerMatch) {
     setNewBooking((prev) =>
       prev
-        ? { ...prev, customerName: c.name, customerPhone: c.phone ?? "", customerEmail: c.email }
+        ? { ...prev, customerName: c.name, customerPhone: c.phone ?? "", customerEmail: c.email, customerId: c.phone ? null : c.id }
         : prev
     );
     setCustomerMatches([]);
@@ -1599,7 +1602,8 @@ export function BookingCalendar({
         endsAt: newBooking.endsAt.toISOString(),
         addOnIds: newBooking.addOnIds,
         customerName: newBooking.customerName,
-        customerPhone: newBooking.customerPhone,
+        customerId: newBooking.customerId || undefined,
+        customerPhone: newBooking.customerPhone.trim() || undefined,
         customerEmail: newBooking.customerEmail || undefined,
         customerNote: newBooking.customerNote || undefined,
         sendNotificationEmails: newBooking.sendNotificationEmails,
@@ -3830,7 +3834,7 @@ export function BookingCalendar({
                   required
                   className="input"
                   value={newBooking.customerName}
-                  onChange={(e) => setNewBooking({ ...newBooking, customerName: e.target.value })}
+                  onChange={(e) => setNewBooking({ ...newBooking, customerName: e.target.value, customerId: null })}
                   autoComplete="off"
                 />
                 {customerMatches.length > 0 && (
@@ -3852,13 +3856,19 @@ export function BookingCalendar({
               </div>
               <div className="relative">
                 <label className="label">{locale === "vi" ? "Số điện thoại" : "Phone number"}</label>
-                <input
-                  required
-                  className="input"
-                  value={newBooking.customerPhone}
-                  onChange={(e) => setNewBooking({ ...newBooking, customerPhone: e.target.value })}
-                  autoComplete="off"
-                />
+                {newBooking.customerId ? (
+                  <p className="input flex items-center text-ink-400">
+                    {locale === "vi" ? "Khách cũ · số điện thoại được ẩn" : "Existing customer · phone hidden"}
+                  </p>
+                ) : (
+                  <input
+                    required
+                    className="input"
+                    value={newBooking.customerPhone}
+                    onChange={(e) => setNewBooking({ ...newBooking, customerPhone: e.target.value })}
+                    autoComplete="off"
+                  />
+                )}
               </div>
               <div>
                 <label className="label">
@@ -3922,7 +3932,7 @@ export function BookingCalendar({
                   newBooking.endsAt <= newBooking.startsAt ||
                   (!personalKindFromOption(newBooking.serviceId) &&
                     (!newBooking.customerName.trim() ||
-                      !newBooking.customerPhone.trim() ||
+                      (!newBooking.customerPhone.trim() && !newBooking.customerId) ||
                       servicesForStaff(services, newBooking.staffId).length === 0))
                 }
                 onClick={submitNewBooking}

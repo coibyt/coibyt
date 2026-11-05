@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { contactCustomersToday } from "@/lib/contact-visibility";
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
@@ -35,5 +36,11 @@ export async function GET(req: Request) {
     if (seen.size >= 8) break;
   }
 
-  return NextResponse.json({ customers: Array.from(seen.values()) });
+  // Staff find customers by name or phone, but only see contact details
+  // when they may (src/lib/contact-visibility.ts).
+  const todayOnly = access.canViewCustomerContactInfo ? await contactCustomersToday(access, access.business.timezone) : null;
+  const sees = (id: string) => access.canViewCustomerContactInfo && (!todayOnly || todayOnly.has(id));
+  return NextResponse.json({
+    customers: Array.from(seen.values()).map((c) => (sees(c.id) ? c : { ...c, phone: null, email: "" })),
+  });
 }

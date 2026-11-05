@@ -1,4 +1,5 @@
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
+import { contactCustomersToday } from "@/lib/contact-visibility";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "@/i18n/navigation";
 import { CustomersManager, type CustomerRow } from "@/components/customers-manager";
@@ -32,8 +33,10 @@ export default async function BusinessCustomersPage({
     prisma.customerNote.findMany({ where: { businessId: access.business.id }, select: { customerId: true } }),
   ]);
   const withNote = new Set(notes.map((n) => n.customerId));
-  // Staff only see phone numbers and emails when they're allowed to.
-  const showContact = access.canViewCustomerContactInfo;
+  // Staff only see phone numbers and emails when they're allowed to — and,
+  // when the owner says so, only for customers booked with them today.
+  const todayOnly = access.canViewCustomerContactInfo ? await contactCustomersToday(access, access.business.timezone) : null;
+  const showContactFor = (customerId: string) => access.canViewCustomerContactInfo && (!todayOnly || todayOnly.has(customerId));
 
   const now = Date.now();
   const byCustomer = new Map<string, CustomerRow>();
@@ -43,8 +46,8 @@ export default async function BusinessCustomersPage({
       c = {
         id: b.customer.id,
         name: b.customer.name,
-        email: showContact ? b.customer.email : null,
-        phone: showContact ? b.customer.phone : null,
+        email: showContactFor(b.customer.id) ? b.customer.email : null,
+        phone: showContactFor(b.customer.id) ? b.customer.phone : null,
         walkIn: b.customer.email.endsWith("@walkin.varaaai.com"),
         visits: 0,
         bookings: 0,

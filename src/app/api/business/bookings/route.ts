@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { seesBookingContact } from "@/lib/contact-visibility";
 import { z } from "zod";
 import { bookingActionScope, bookingStaffScope, getBusinessAccess, requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
@@ -15,7 +16,10 @@ const businessBookingSchema = z.object({
   endsAt: z.string().datetime().optional(),
   addOnIds: z.array(z.string().cuid()).optional(),
   customerName: z.string().min(1).max(120),
-  customerPhone: z.string().min(3).max(30),
+  // An existing customer picked from the search, whose phone this person
+  // may not see: booked by id instead (they must have booked here before).
+  customerId: z.string().min(1).optional(),
+  customerPhone: z.string().min(3).max(30).optional(),
   customerEmail: z.string().email().optional(),
   customerNote: z.string().max(1000).optional(),
   sendNotificationEmails: z.boolean().optional(),
@@ -77,11 +81,21 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "INVALID_TIME_RANGE" }, { status: 400 });
   }
 
-  const customer = await findOrCreateWalkInCustomer({
-    name: data.customerName,
-    phone: data.customerPhone,
-    email: data.customerEmail,
-  });
+  const known = data.customerId
+    ? await prisma.user.findFirst({
+        where: { id: data.customerId, bookings: { some: { businessId } } },
+        select: { id: true, email: true, name: true },
+      })
+    : null;
+  if (data.customerId && !known) return NextResponse.json({ error: "CUSTOMER_NOT_FOUND" }, { status: 404 });
+  if (!known && !data.customerPhone) return NextResponse.json({ error: "PHONE_REQUIRED" }, { status: 400 });
+  const customer =
+    known ??
+    (await findOrCreateWalkInCustomer({
+      name: data.customerName,
+      phone: data.customerPhone!,
+      email: data.customerEmail,
+    }));
 
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? new URL(req.url).origin;
 
@@ -149,5 +163,10 @@ export async function GET(req: Request) {
     take: 100,
   });
 
-  return NextResponse.json({ bookings });
+  // Contact details only for whoever may see them (src/lib/contact-visibility.ts).
+  return NextResponse.json({
+    bookings: bookings.map((b) =>
+      seesBookingContact(access, b, access.business.timezone) ? b : { ...b, customer: { ...b.customer, email: "", phone: null } },
+    ),
+  });
 }

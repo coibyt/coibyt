@@ -5,6 +5,7 @@ import { fromZonedTime } from "date-fns-tz";
 import { addDays } from "date-fns";
 import { serviceSlots } from "@/lib/booking-slots";
 import { isRealCustomerEmail } from "@/lib/booking-service";
+import { seesBookingContact } from "@/lib/contact-visibility";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -16,7 +17,6 @@ export async function GET(req: Request) {
     return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   }
   const businessId = access.business.id;
-  const canViewContact = access.canViewCustomerContactInfo;
   const scopeStaffId = bookingStaffScope(access);
 
   const { searchParams } = new URL(req.url);
@@ -102,9 +102,9 @@ export async function GET(req: Request) {
   });
 
   // Staff who can see everyone's calendar still only see the contact details
-  // of their own customers.
-  const mine = (b: (typeof bookings)[number]) =>
-    access.isOwner || b.staffId === access.staffId || b.extraServices.some((x) => x.staffId === access.staffId);
+  // of their own customers — and, when the owner says so, only on the day.
+  const seesContact = (b: (typeof bookings)[number]) =>
+    seesBookingContact(access, { startsAt: b.startsAt, staffId: b.staffId, extraStaffIds: b.extraServices.map((x) => x.staffId) }, business.timezone);
 
   return NextResponse.json({
     bookings: bookings.map((b) => ({
@@ -121,8 +121,8 @@ export async function GET(req: Request) {
       customerNote: b.customerNote,
       serviceName: b.service.name,
       customerName: b.customer.name,
-      customerPhone: canViewContact && mine(b) ? b.customer.phone : null,
-      customerEmail: canViewContact && mine(b) ? b.customer.email : null,
+      customerPhone: seesContact(b) ? b.customer.phone : null,
+      customerEmail: seesContact(b) ? b.customer.email : null,
       // Whether there is an inbox to tell about a new time — without the address.
       customerHasEmail: isRealCustomerEmail(b.customer.email),
       customerReviewRating: b.customerReview?.rating ?? null,

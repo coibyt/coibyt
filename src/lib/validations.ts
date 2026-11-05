@@ -97,6 +97,7 @@ export const staffSchema = z.object({
   canViewHours: z.boolean().optional(),
   canViewReviews: z.boolean().optional(),
   canViewCustomerContactInfo: z.boolean().optional(),
+  contactTodayOnly: z.boolean().optional(),
   canViewAllBookings: z.boolean().optional(),
   canViewAllPagesReadOnly: z.boolean().optional(),
   // Minutes of advance notice customers must give to book this staff member.

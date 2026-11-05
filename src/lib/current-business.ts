@@ -39,6 +39,9 @@ export interface BusinessAccess {
    * bookings calendar without seeing customers' phone/email on each booking
    * unless this is also granted. */
   canViewCustomerContactInfo: boolean;
+  /** Staff only: contact info only on the day of a booking with that
+   * customer (src/lib/contact-visibility.ts). Always false for the owner. */
+  contactTodayOnly: boolean;
   /** Always true for the owner; for staff, false means booking views and
    * actions are confined to bookings assigned to this staff member. */
   canViewAllBookings: boolean;
@@ -73,6 +76,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       isOwner: true,
       permissions: OWNER_PERMISSIONS,
       canViewCustomerContactInfo: true,
+      contactTodayOnly: false,
       canViewAllBookings: true,
       viewOnlyEverywhere: false,
     };
@@ -111,6 +115,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
           reviews: staff.canViewReviews,
         },
     canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
+    contactTodayOnly: staff.contactTodayOnly,
     canViewAllBookings: staff.canViewAllBookings,
     viewOnlyEverywhere: staff.canViewAllPagesReadOnly,
   };

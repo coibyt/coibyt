@@ -4,6 +4,7 @@ import { redirect } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { BookingsView } from "@/components/bookings-view";
 import { resolveTheme } from "@/lib/seasonal-themes";
+import { seesBookingContact } from "@/lib/contact-visibility";
 
 export default async function BusinessBookingsPage({
   params,
@@ -77,8 +78,7 @@ export default async function BusinessBookingsPage({
           staffId: b.staffId,
           staffName: b.staff?.name ?? null,
           customerName: b.customer.name,
-          customerPhone:
-            access.canViewCustomerContactInfo && (access.isOwner || b.staffId === access.staffId) ? b.customer.phone : null,
+          customerPhone: seesBookingContact(access, { startsAt: b.startsAt, staffId: b.staffId }, business.timezone) ? b.customer.phone : null,
         }))}
         locale={locale}
         businessTimezone={business.timezone}

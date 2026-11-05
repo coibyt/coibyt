@@ -58,6 +58,7 @@ interface StaffRow {
   canViewHours: boolean;
   canViewReviews: boolean;
   canViewCustomerContactInfo: boolean;
+  contactTodayOnly: boolean;
   canViewAllBookings: boolean;
   canViewAllPagesReadOnly: boolean;
   leadTimeMinutes: number;
@@ -81,6 +82,7 @@ const emptyForm = {
   canViewHours: false,
   canViewReviews: false,
   canViewCustomerContactInfo: false,
+  contactTodayOnly: false,
   canViewAllBookings: true,
   canViewAllPagesReadOnly: false,
   leadTimeMinutes: 0,
@@ -222,6 +224,7 @@ export function StaffManager({
       canViewHours: s.canViewHours,
       canViewReviews: s.canViewReviews,
       canViewCustomerContactInfo: s.canViewCustomerContactInfo,
+      contactTodayOnly: s.contactTodayOnly,
       canViewAllBookings: s.canViewAllBookings,
       canViewAllPagesReadOnly: s.canViewAllPagesReadOnly,
       leadTimeMinutes: s.leadTimeMinutes,
@@ -761,6 +764,20 @@ export function StaffManager({
                   </label>
                 ))}
               </div>
+              {form.canViewCustomerContactInfo && (
+                <label className="mt-3 flex cursor-pointer items-start gap-3 rounded-2xl bg-amber-50/70 p-3.5 text-sm text-ink-700 ring-1 ring-amber-200">
+                  <input
+                    type="checkbox"
+                    className="mt-0.5 h-4 w-4 accent-primary-500"
+                    checked={form.contactTodayOnly}
+                    onChange={(e) => setForm({ ...form, contactTodayOnly: e.target.checked })}
+                  />
+                  <span>
+                    {S.contactTodayOnly}
+                    <span className="mt-0.5 block text-[11px] text-ink-400">{S.contactTodayOnlyHint}</span>
+                  </span>
+                </label>
+              )}
               {form.canViewBookings && (
                 <div className="mt-3 grid gap-2 sm:grid-cols-2">
                   {[true, false].map((all) => (

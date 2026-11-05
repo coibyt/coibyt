@@ -17,8 +17,9 @@ export default async function OrdersPage({
     return null;
   }
   const { business } = access;
-  // Staff only see customers' phone numbers and emails when they're allowed to.
-  const showContact = access.canViewCustomerContactInfo;
+  // Staff only see customers' phone numbers and emails when they're allowed
+  // to; an order has no booking day, so "booking day only" staff don't.
+  const showContact = access.canViewCustomerContactInfo && !access.contactTodayOnly;
 
   const orders = await prisma.order.findMany({
     where: { businessId: business.id },

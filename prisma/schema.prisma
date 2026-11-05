@@ -641,6 +641,10 @@ model Staff {
   // calendar without seeing customers' phone/email on each booking unless
   // this is also granted.
   canViewCustomerContactInfo Boolean @default(false)
+  // With the above on: only on a day this person has a booking with the
+  // customer (in the salon's time zone) — hidden on every other day
+  // (src/lib/contact-visibility.ts).
+  contactTodayOnly           Boolean @default(false)
   // When false (and canViewBookings is true), this staff member only sees and
   // acts on bookings assigned to them — never another staff member's. Defaults
   // to true so existing staff keep seeing the whole salon's calendar.

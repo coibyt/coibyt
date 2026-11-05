@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { contactCustomersToday } from "@/lib/contact-visibility";
 import { customerScopeBusinessIds, getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 import { LOYALTY_BACKDATE_VISITS } from "@/lib/loyalty";
@@ -110,9 +111,12 @@ export async function GET(
     });
   }
 
+  // Staff only see contact details when they're allowed to — and, when the
+  // owner says so, only on a day this customer is booked with them.
+  const todayOnly = access.canViewCustomerContactInfo ? await contactCustomersToday(access, timezone) : null;
+  const seesContact = access.canViewCustomerContactInfo && (!todayOnly || todayOnly.has(id));
   return NextResponse.json({
-    // Staff only see contact details when they're allowed to.
-    customer: access.canViewCustomerContactInfo
+    customer: seesContact
       ? { name: customer.name, phone: customer.phone, email: customer.email }
       : { name: customer.name, phone: null, email: "" },
     visitCount: completed.length,

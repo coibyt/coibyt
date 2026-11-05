@@ -11,6 +11,7 @@ import { prisma } from "@/lib/prisma";
 import { addMinutes } from "date-fns";
 import { z } from "zod";
 import { sendBookingRescheduledEmail } from "@/lib/booking-service";
+import { seesBookingContact } from "@/lib/contact-visibility";
 import { emailStaffAboutBooking } from "@/lib/staff-booking-email";
 import { serviceSlots } from "@/lib/booking-slots";
 
@@ -51,7 +52,7 @@ export async function GET(
       customerId: true,
       customerNote: true,
       source: true,
-      business: { select: { name: true } },
+      business: { select: { name: true, timezone: true } },
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
@@ -75,10 +76,12 @@ export async function GET(
   if (!booking) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   // Staff who can see everyone's calendar only see their own customers'
-  // contact details.
-  const canViewContact =
-    access.canViewCustomerContactInfo &&
-    (access.isOwner || booking.staffId === access.staffId || booking.extraServices.some((x) => x.staffId === access.staffId));
+  // contact details — and, when the owner says so, only on the day.
+  const canViewContact = seesBookingContact(
+    access,
+    { startsAt: booking.startsAt, staffId: booking.staffId, extraStaffIds: booking.extraServices.map((x) => x.staffId) },
+    booking.business.timezone,
+  );
   return NextResponse.json({
     id: booking.id,
     businessId: booking.businessId,

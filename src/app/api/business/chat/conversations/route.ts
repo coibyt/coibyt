@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { contactCustomersToday } from "@/lib/contact-visibility";
 import { getBusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
 
@@ -33,6 +34,8 @@ export async function GET() {
     }),
   ]);
 
+  // When the owner limits contact info to the booking day: only customers booked with this person today.
+  const todayOnly = access.canViewCustomerContactInfo ? await contactCustomersToday(access, access.business.timezone) : null;
   return NextResponse.json({
     aiChatEnabled: access.business.aiChatEnabled,
     stats: { aiReplies30 },
@@ -45,7 +48,7 @@ export async function GET() {
       // The synthetic @guest.varaaai.com address is never useful to show —
       // show the real email the guest typed in instead (see
       // User.guestContactEmail), or the real account email otherwise.
-      customerEmail: access.canViewCustomerContactInfo
+      customerEmail: access.canViewCustomerContactInfo && (!todayOnly || todayOnly.has(c.customer.id))
         ? c.customer.isGuest
           ? c.customer.guestContactEmail
           : c.customer.email
