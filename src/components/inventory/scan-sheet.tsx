@@ -20,7 +20,8 @@ const ModeIcon = ({ mode, className }: { mode: Mode; className: string }) =>
 type Stage =
   | { kind: "scan" }
   | { kind: "busy"; text: string }
-  | { kind: "item"; itemId: string }
+  // `barcode`: reached by scanning a product barcode (another product may share it).
+  | { kind: "item"; itemId: string; barcode?: string }
   // AI matches for a photo, or the items sharing a scanned barcode (shared).
   | { kind: "pick"; fields: ItemFields; matches: string[]; shared?: boolean }
   | { kind: "new"; fields: ItemFields; note: string | null };
@@ -52,6 +53,8 @@ export function ScanSheet({
   const [qty, setQty] = useState(1);
   const [locationId, setLocationId] = useState<string | null>(null);
   const [expiry, setExpiry] = useState("");
+  // The last product barcode scanned, kept on an item added from a photo.
+  const [lastBarcode, setLastBarcode] = useState("");
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
@@ -67,11 +70,11 @@ export function ScanSheet({
     return d;
   }
 
-  function openItem(it: InventoryItemRow) {
+  function openItem(it: InventoryItemRow, barcode?: string) {
     setQty(mode === "COUNT" ? it.qty : 1);
     setExpiry("");
     setLocationId(place?.id ?? it.locationId);
-    setStage({ kind: "item", itemId: it.id });
+    setStage({ kind: "item", itemId: it.id, barcode });
   }
 
   async function lookup(raw: string) {
@@ -81,6 +84,8 @@ export function ScanSheet({
     const r = await post("/api/business/inventory/scan", { code: raw });
     setBusy(false);
     if (!r.ok) return setFlash({ ok: false, text: S.errGeneric });
+    const isLabel = /^(VI|VL)-/i.test(raw.trim());
+    setLastBarcode(isLabel ? "" : raw.trim());
     if (r.d.type === "location") {
       const loc = r.d.location as { id: string; name: string };
       setPlace(loc);
@@ -91,7 +96,7 @@ export function ScanSheet({
     if (r.d.type === "item") {
       let it = itemById(String(r.d.itemId));
       if (!it) it = (await refresh())?.items.find((i) => i.id === r.d.itemId);
-      if (it) openItem(it);
+      if (it) openItem(it, isLabel ? undefined : raw.trim());
       return;
     }
     if (r.d.type === "many") {
@@ -113,7 +118,8 @@ export function ScanSheet({
       setStage({ kind: "new", fields: { ...emptyFields(), photo: small }, note: S.aiFailed });
       return;
     }
-    const fields: ItemFields = { ...emptyFields(f.barcode), ...f, photo: small };
+    // A barcode just scanned beats one the AI may (not) have read.
+    const fields: ItemFields = { ...emptyFields(f.barcode), ...f, barcode: lastBarcode || f.barcode, photo: small };
     const matches = (r.d.matches as string[]) ?? [];
     let list = items;
     if (matches.some((id) => !list.find((i) => i.id === id))) list = (await refresh())?.items ?? list;
@@ -251,20 +257,22 @@ export function ScanSheet({
                 {S.find}
               </button>
             </form>
-            <input
-              ref={photoRef}
-              type="file"
-              accept="image/*"
-              capture="environment"
-              className="hidden"
-              onChange={(e) => {
-                const f = e.target.files?.[0];
-                e.target.value = "";
-                if (f) void fromPhoto(f);
-              }}
-            />
           </div>
         )}
+
+        {/* Always here: the photo buttons on every step use it. */}
+        <input
+          ref={photoRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          className="hidden"
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            e.target.value = "";
+            if (f) void fromPhoto(f);
+          }}
+        />
 
         {stage.kind === "busy" && (
           <div className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-white p-6 text-sm font-semibold text-[#4b3878] ring-1 ring-ink-100">
@@ -320,6 +328,16 @@ export function ScanSheet({
                 {fill(mode === "IN" ? S.confirmIn : mode === "OUT" ? S.confirmOut : S.confirmCount, { n: qty })}
               </button>
             </div>
+            {stage.barcode && mode !== "OUT" && (
+              <button
+                type="button"
+                onClick={() => setStage({ kind: "new", fields: emptyFields(stage.barcode), note: S.newItemSub })}
+                className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl py-2.5 text-xs font-bold text-[#4b3878] ring-1 ring-dashed ring-[#e4dcef] hover:bg-[#f6f2fb]"
+              >
+                <Plus className="h-3.5 w-3.5" />
+                {S.notThisOne}
+              </button>
+            )}
           </div>
         )}
 
@@ -367,6 +385,17 @@ export function ScanSheet({
         {stage.kind === "new" && (
           <div className="mt-4 rounded-3xl bg-white p-4 ring-1 ring-ink-100">
             <p className="text-base font-bold text-ink-900">{S.newItem}</p>
+            {stage.note !== S.aiFilled && (
+              <button
+                type="button"
+                onClick={() => photoRef.current?.click()}
+                className="mt-2 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1f182d] to-[#4b3878] py-3 text-sm font-bold text-white"
+              >
+                <Camera className="h-4 w-4" />
+                <Sparkles className="h-3.5 w-3.5 text-[#e8d3a6]" />
+                {S.aiFill}
+              </button>
+            )}
             {stage.note && (
               <p className={`mt-1 flex items-center gap-1.5 text-xs ${stage.note === S.aiFilled ? "font-semibold text-[#8a6a2b]" : "text-ink-500"}`}>
                 {stage.note === S.aiFilled && <Sparkles className="h-3.5 w-3.5" />}
