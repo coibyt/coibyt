@@ -91,6 +91,7 @@ model User {
   businessFollows         BusinessFollow[]
   postComments            PostComment[]
   varaPointTransactions   VaraPointTransaction[]
+  inventoryItems          InventoryItem[]
   referralClicksReceived  ReferralClick[]
   // Businesses created by someone who signed up through this owner's own
   // referral link (see Business.referredByOwner below).
@@ -354,6 +355,9 @@ model Business {
   followers               BusinessFollow[]
   posts                   Post[]
   emailCampaigns          EmailCampaign[]
+  inventoryLocations      InventoryLocation[]
+  inventoryStock          InventoryStock[]
+  inventoryMoves          InventoryMove[]
   marketingImages         MarketingImage[]
   marketingContacts       MarketingContact[]
   customerNotes           CustomerNote[]
@@ -645,6 +649,8 @@ model Staff {
   // customer (in the salon's time zone) — hidden on every other day
   // (src/lib/contact-visibility.ts).
   contactTodayOnly           Boolean @default(false)
+  // May scan stock in and out (src/lib/inventory.ts); the owner always can.
+  canUseInventory            Boolean @default(false)
   // When false (and canViewBookings is true), this staff member only sees and
   // acts on bookings assigned to them — never another staff member's. Defaults
   // to true so existing staff keep seeing the whole salon's calendar.
@@ -2338,4 +2344,87 @@ model StaffTrainingProgress {
 
   @@unique([trainingId, userId])
   @@index([userId])
+}
+
+/// Salon stock (src/lib/inventory.ts). An owner's catalog of supplies, shared
+/// by all their branches: found by its barcode, or by `code` printed as a QR
+/// label (VI-<code>) for things without one.
+model InventoryItem {
+  id        String   @id @default(cuid())
+  ownerId   String
+  owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  code      String   @unique @db.VarChar(16)
+  name      String   @db.VarChar(160)
+  brand     String?  @db.VarChar(80)
+  // gel | polish | liquid | tool | care | lash | hair | other
+  category  String?  @db.VarChar(40)
+  // How it is counted: pcs | bottle | box | pack | tube | jar
+  unit      String   @default("pcs") @db.VarChar(20)
+  barcode   String?  @db.VarChar(64)
+  // At or under this, a branch needs to buy more (a branch can set its own).
+  minQty    Int      @default(0)
+  photo     Bytes?   @db.MediumBlob
+  photoMime String?  @db.VarChar(40)
+  note      String?  @db.VarChar(500)
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  stock InventoryStock[]
+  moves InventoryMove[]
+
+  @@unique([ownerId, barcode])
+  @@index([ownerId, active])
+}
+
+/// A cupboard or shelf at one branch, with its own QR label (VL-<code>).
+model InventoryLocation {
+  id         String           @id @default(cuid())
+  businessId String
+  business   Business         @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  code       String           @unique @db.VarChar(16)
+  name       String           @db.VarChar(80)
+  sortOrder  Int              @default(0)
+  createdAt  DateTime         @default(now())
+  stock      InventoryStock[]
+
+  @@index([businessId])
+}
+
+/// How many of one item a branch has, and where it keeps them.
+model InventoryStock {
+  id         String             @id @default(cuid())
+  itemId     String
+  item       InventoryItem      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business           @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  locationId String?
+  location   InventoryLocation? @relation(fields: [locationId], references: [id], onDelete: SetNull)
+  qty        Int                @default(0)
+  // This branch's own minimum; null = the item's.
+  minQty     Int?
+  updatedAt  DateTime           @updatedAt
+
+  @@unique([itemId, businessId])
+  @@index([businessId])
+}
+
+/// Every scan in or out (and count corrections), with who did it.
+model InventoryMove {
+  id         String        @id @default(cuid())
+  itemId     String
+  item       InventoryItem @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  businessId String
+  business   Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  delta      Int
+  // IN | OUT | COUNT
+  kind       String        @db.VarChar(8)
+  qtyAfter   Int
+  byUserId   String?
+  byName     String?       @db.VarChar(120)
+  note       String?       @db.VarChar(200)
+  createdAt  DateTime      @default(now())
+
+  @@index([businessId, createdAt])
+  @@index([itemId, createdAt])
 }

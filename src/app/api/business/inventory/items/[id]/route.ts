@@ -1,0 +1,64 @@
+import { NextResponse } from "next/server";
+import { z } from "zod";
+import { prisma } from "@/lib/prisma";
+import { inventoryContext } from "@/lib/inventory";
+import { decodePhoto, itemFieldsSchema } from "@/lib/inventory-input";
+
+const schema = itemFieldsSchema.partial().extend({
+  // This branch only: its own minimum (null = the item's) and cupboard.
+  branchMinQty: z.number().int().min(0).max(100000).nullable().optional(),
+  locationId: z.string().min(1).nullable().optional(),
+});
+
+/** Edits an item; branch fields only touch the active branch's stock row. */
+export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const ctx = await inventoryContext();
+  if (!ctx?.canWrite) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const { id } = await params;
+  const item = await prisma.inventoryItem.findFirst({ where: { id, ownerId: ctx.ownerId, active: true }, select: { id: true } });
+  if (!item) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+  const parsed = schema.safeParse(await req.json().catch(() => null));
+  if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
+  const { branchMinQty, locationId, photo, barcode, brand, note, ...rest } = parsed.data;
+
+  if (barcode) {
+    const taken = await prisma.inventoryItem.findFirst({ where: { ownerId: ctx.ownerId, barcode, active: true, NOT: { id } }, select: { id: true } });
+    if (taken) return NextResponse.json({ error: "BARCODE_TAKEN" }, { status: 409 });
+    await prisma.inventoryItem.updateMany({ where: { ownerId: ctx.ownerId, barcode, active: false }, data: { barcode: null } });
+  }
+  if (locationId) {
+    const loc = await prisma.inventoryLocation.findFirst({ where: { id: locationId, businessId: ctx.businessId }, select: { id: true } });
+    if (!loc) return NextResponse.json({ error: "INVALID" }, { status: 400 });
+  }
+  const decoded = photo ? decodePhoto(photo) : null;
+
+  await prisma.inventoryItem.update({
+    where: { id },
+    data: {
+      ...rest,
+      ...(barcode !== undefined ? { barcode: barcode || null } : {}),
+      ...(brand !== undefined ? { brand: brand || null } : {}),
+      ...(note !== undefined ? { note: note || null } : {}),
+      ...(photo === null ? { photo: null, photoMime: null } : decoded ? { photo: decoded.bytes, photoMime: decoded.mime } : {}),
+    },
+  });
+  if (branchMinQty !== undefined || locationId !== undefined) {
+    const data = { ...(branchMinQty !== undefined ? { minQty: branchMinQty } : {}), ...(locationId !== undefined ? { locationId } : {}) };
+    await prisma.inventoryStock.upsert({
+      where: { itemId_businessId: { itemId: id, businessId: ctx.businessId } },
+      update: data,
+      create: { itemId: id, businessId: ctx.businessId, qty: 0, ...data },
+    });
+  }
+  return NextResponse.json({ ok: true });
+}
+
+/** Owner only: takes the item out of every branch's stock (history kept). */
+export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
+  const ctx = await inventoryContext();
+  if (!ctx?.isOwner) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
+  const { id } = await params;
+  const r = await prisma.inventoryItem.updateMany({ where: { id, ownerId: ctx.ownerId }, data: { active: false, barcode: null } });
+  if (r.count === 0) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
+  return NextResponse.json({ ok: true });
+}

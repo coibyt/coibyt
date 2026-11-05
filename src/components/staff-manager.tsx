@@ -59,6 +59,7 @@ interface StaffRow {
   canViewReviews: boolean;
   canViewCustomerContactInfo: boolean;
   contactTodayOnly: boolean;
+  canUseInventory: boolean;
   canViewAllBookings: boolean;
   canViewAllPagesReadOnly: boolean;
   leadTimeMinutes: number;
@@ -83,6 +84,7 @@ const emptyForm = {
   canViewReviews: false,
   canViewCustomerContactInfo: false,
   contactTodayOnly: false,
+  canUseInventory: false,
   canViewAllBookings: true,
   canViewAllPagesReadOnly: false,
   leadTimeMinutes: 0,
@@ -98,6 +100,7 @@ const PERMISSIONS: PermissionKey[] = [
   "canViewProducts",
   "canViewHours",
   "canViewReviews",
+  "canUseInventory",
 ];
 const LEAD_TIMES = [0, 15, 30, 60, 120, 180, 360, 720];
 
@@ -225,6 +228,7 @@ export function StaffManager({
       canViewReviews: s.canViewReviews,
       canViewCustomerContactInfo: s.canViewCustomerContactInfo,
       contactTodayOnly: s.contactTodayOnly,
+      canUseInventory: s.canUseInventory,
       canViewAllBookings: s.canViewAllBookings,
       canViewAllPagesReadOnly: s.canViewAllPagesReadOnly,
       leadTimeMinutes: s.leadTimeMinutes,

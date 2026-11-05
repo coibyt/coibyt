@@ -42,6 +42,8 @@ export interface BusinessAccess {
   /** Staff only: contact info only on the day of a booking with that
    * customer (src/lib/contact-visibility.ts). Always false for the owner. */
   contactTodayOnly: boolean;
+  /** May scan stock in and out (src/lib/inventory.ts). Always true for the owner. */
+  canUseInventory: boolean;
   /** Always true for the owner; for staff, false means booking views and
    * actions are confined to bookings assigned to this staff member. */
   canViewAllBookings: boolean;
@@ -77,6 +79,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
       permissions: OWNER_PERMISSIONS,
       canViewCustomerContactInfo: true,
       contactTodayOnly: false,
+      canUseInventory: true,
       canViewAllBookings: true,
       viewOnlyEverywhere: false,
     };
@@ -116,6 +119,7 @@ export async function getBusinessAccess(): Promise<BusinessAccess | null> {
         },
     canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
     contactTodayOnly: staff.contactTodayOnly,
+    canUseInventory: staff.canUseInventory,
     canViewAllBookings: staff.canViewAllBookings,
     viewOnlyEverywhere: staff.canViewAllPagesReadOnly,
   };

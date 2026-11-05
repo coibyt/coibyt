@@ -15,6 +15,7 @@ import { incomeStrings } from "@/lib/income-strings";
 import { IncomeReminderAlarm } from "@/components/income-reminder-alarm";
 import { teamCounts } from "@/lib/team";
 import { teamStrings } from "@/lib/team-strings";
+import { inventoryStrings } from "@/lib/inventory-strings";
 import { profileChecklist } from "@/lib/profile-completeness";
 
 export default async function BusinessDashboardLayout({
@@ -87,6 +88,9 @@ export default async function BusinessDashboardLayout({
       : []),
     ...(isOwner || permissions.products
       ? [{ href: "/business/dashboard/orders", label: tDash("ordersPage.nav") }]
+      : []),
+    ...(isOwner || access.canUseInventory || viewOnlyEverywhere
+      ? [{ href: "/business/dashboard/inventory", label: inventoryStrings(locale).nav }]
       : []),
     ...(isOwner ? [{ href: "/business/dashboard/staff", label: t("staff") }] : []),
     ...(canViewReadOnlyPages ? [{ href: "/business/dashboard/fanpage", label: t("fanpage") }] : []),

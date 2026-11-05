@@ -67,6 +67,7 @@ export default async function StaffPage({
           canViewReviews: s.canViewReviews,
           canViewCustomerContactInfo: s.canViewCustomerContactInfo,
           contactTodayOnly: s.contactTodayOnly,
+          canUseInventory: s.canUseInventory,
           canViewAllBookings: s.canViewAllBookings,
           canViewAllPagesReadOnly: s.canViewAllPagesReadOnly,
           leadTimeMinutes: s.leadTimeMinutes,

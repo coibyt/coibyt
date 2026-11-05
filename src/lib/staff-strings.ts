@@ -9,7 +9,8 @@ export type PermissionKey =
   | "canViewCustomers"
   | "canViewHours"
   | "canViewReviews"
-  | "canViewCustomerContactInfo";
+  | "canViewCustomerContactInfo"
+  | "canUseInventory";
 
 export type RolePreset = "stylist" | "reception" | "manager";
 
@@ -84,6 +85,7 @@ const STRINGS = {
       canViewHours: "Giờ mở cửa",
       canViewReviews: "Đánh giá",
       canViewCustomerContactInfo: "Số điện thoại & email của khách",
+      canUseInventory: "Kho hàng (quét nhập/xuất)",
     } as Record<PermissionKey, string>,
     scopeAll: "Xem lịch hẹn của tất cả nhân viên",
     scopeOwn: "Chỉ xem lịch hẹn của nhân viên này",
@@ -173,6 +175,7 @@ const STRINGS = {
       canViewHours: "Opening hours",
       canViewReviews: "Reviews",
       canViewCustomerContactInfo: "Customer phone & email",
+      canUseInventory: "Stock (scan in/out)",
     } as Record<PermissionKey, string>,
     scopeAll: "View everyone's bookings",
     scopeOwn: "Only view this staff member's bookings",
@@ -262,6 +265,7 @@ const STRINGS = {
       canViewHours: "Aukioloajat",
       canViewReviews: "Arvostelut",
       canViewCustomerContactInfo: "Asiakkaan puhelin ja sähköposti",
+      canUseInventory: "Varasto (skannaus sisään/ulos)",
     } as Record<PermissionKey, string>,
     scopeAll: "Näkee kaikkien varaukset",
     scopeOwn: "Näkee vain tämän työntekijän varaukset",

@@ -109,6 +109,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
         canViewReviews: staff.canViewReviews,
         canViewCustomerContactInfo: staff.canViewCustomerContactInfo,
         contactTodayOnly: staff.contactTodayOnly,
+        canUseInventory: staff.canUseInventory,
         canViewAllBookings: staff.canViewAllBookings,
         canViewAllPagesReadOnly: staff.canViewAllPagesReadOnly,
       },
