@@ -4,8 +4,10 @@ import { useMemo, useState } from "react";
 import {
   AlertTriangle,
   ArrowDownToLine,
+  ArrowLeftRight,
   ArrowUpFromLine,
   Boxes,
+  CalendarClock,
   Check,
   ClipboardCopy,
   History,
@@ -23,6 +25,7 @@ import {
 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { fill } from "@/lib/shop-strings";
+import { formatMoney } from "@/lib/money";
 import type { InventoryStrings } from "@/lib/inventory-strings";
 import type { InventoryData, InventoryItemRow } from "@/lib/inventory-data";
 import { ScanSheet } from "@/components/inventory/scan-sheet";
@@ -40,7 +43,11 @@ import {
   type ItemFields,
 } from "@/components/inventory/parts";
 
-type Tab = "stock" | "buy" | "history" | "places";
+export type Tab = "stock" | "buy" | "history" | "places";
+
+const DAY = 24 * 60 * 60 * 1000;
+/** Expires within 30 days (or already has), with something still on the shelf. */
+const expiringSoon = (i: InventoryItemRow) => !!i.expiresAt && i.qty > 0 && new Date(i.expiresAt).getTime() - Date.now() < 30 * DAY;
 
 const send = (url: string, method: string, body?: unknown) =>
   fetch(url, { method, headers: { "Content-Type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) })
@@ -56,6 +63,7 @@ export function InventoryManager({
   branchName,
   canWrite,
   isOwner,
+  initialTab = "stock",
 }: {
   S: InventoryStrings;
   locale: string;
@@ -63,9 +71,10 @@ export function InventoryManager({
   branchName: string;
   canWrite: boolean;
   isOwner: boolean;
+  initialTab?: Tab;
 }) {
   const [data, setData] = useState(initial);
-  const [tab, setTab] = useState<Tab>("stock");
+  const [tab, setTab] = useState<Tab>(initialTab);
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string | null>(null);
   const [place, setPlace] = useState<string>("");
@@ -89,6 +98,10 @@ export function InventoryManager({
   const unit = (it: InventoryItemRow) => S.units[it.unit] ?? it.unit;
   const placeName = (id: string | null) => data.locations.find((l) => l.id === id)?.name ?? null;
   const dateFmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  const dayFmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short", year: "numeric" });
+  const money = (cents: number) => formatMoney(cents, data.currency, locale);
+  const expiring = data.items.filter(expiringSoon).sort((a, b) => (a.expiresAt ?? "").localeCompare(b.expiresAt ?? ""));
+  const hasCosts = data.items.some((i) => i.costCents != null);
 
   const low = data.items.filter((i) => statusOf(i) === "low");
   const out = data.items.filter((i) => statusOf(i) === "out");
@@ -128,8 +141,10 @@ export function InventoryManager({
   }
 
   function buyText() {
-    return [`${S.buyTitle} — ${branchName}`, ...toBuy.map((i) => `• ${i.name}${i.brand ? ` (${i.brand})` : ""}: ${fill(S.buyQty, { n: Math.max(1, i.min * 2 - i.qty) })} ${unit(i)}`)].join("\n");
+    return [`${S.buyTitle} — ${branchName}`, ...toBuy.map((i) => `• ${i.name}${i.brand ? ` (${i.brand})` : ""}: ${fill(S.buyQty, { n: buyQty(i) })} ${unit(i)}`)].join("\n");
   }
+  const buyQty = (i: InventoryItemRow) => Math.max(1, i.min * 2 - i.qty);
+  const buyCost = toBuy.reduce((sum, i) => sum + buyQty(i) * (i.costCents ?? 0), 0);
 
   const stats = [
     { icon: Boxes, label: S.statItems, value: data.items.length },
@@ -163,6 +178,16 @@ export function InventoryManager({
             </div>
           ))}
         </div>
+        {hasCosts && (
+          <p className="relative mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-white/70">
+            <span>
+              {S.statValue}: <strong className="text-[#e8d3a6]">{money(data.stockValue)}</strong>
+            </span>
+            <span>
+              {S.spent30}: <strong className="text-[#e8d3a6]">{money(data.spent30)}</strong>
+            </span>
+          </p>
+        )}
         {canWrite && (
           <div className="relative mt-5 grid grid-cols-2 gap-2.5 sm:flex">
             <button
@@ -322,6 +347,12 @@ export function InventoryManager({
                           <MapPin className="h-3 w-3 shrink-0" />
                           {placeName(i.locationId) ?? S.noPlace}
                         </span>
+                        {expiringSoon(i) && (
+                          <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-bold text-orange-700 ring-1 ring-orange-200" suppressHydrationWarning>
+                            <CalendarClock className="h-3 w-3" />
+                            {new Date(i.expiresAt!).getTime() < Date.now() ? S.expired : fill(S.expiresOn, { date: dayFmt.format(new Date(i.expiresAt!)) })}
+                          </span>
+                        )}
                       </span>
                       <span className="shrink-0 text-right">
                         <span className="block text-2xl font-extrabold tabular-nums text-ink-900">{i.qty}</span>
@@ -345,6 +376,7 @@ export function InventoryManager({
             <div>
               <p className="text-base font-bold text-ink-900">{S.buyTitle}</p>
               <p className="mt-0.5 max-w-lg text-xs text-ink-400">{S.buySub}</p>
+              {buyCost > 0 && <p className="mt-1.5 text-sm font-bold text-[#8a6a2b]">{fill(S.buyEstimate, { amount: money(buyCost) })}</p>}
             </div>
             {toBuy.length > 0 && (
               <div className="flex gap-2">
@@ -393,12 +425,45 @@ export function InventoryManager({
                           {fill(S.left, { n: `${i.qty} ${unit(i)}` })} · {fill(S.min, { n: i.min })}
                         </span>
                       </span>
-                      <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-bold ring-1 ${STATUS_STYLE[st]}`}>{fill(S.buyQty, { n: Math.max(1, i.min * 2 - i.qty) })}</span>
+                      <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-bold ring-1 ${STATUS_STYLE[st]}`}>{fill(S.buyQty, { n: buyQty(i) })}</span>
                     </button>
                   </li>
                 );
               })}
             </ul>
+          )}
+          {expiring.length > 0 && (
+            <div className="border-t border-ink-100">
+              <div className="px-5 pt-5">
+                <p className="flex items-center gap-2 text-base font-bold text-ink-900">
+                  <CalendarClock className="h-4 w-4 text-orange-600" />
+                  {S.expiringTitle}
+                </p>
+                <p className="mt-0.5 text-xs text-ink-400">{S.expiringSub}</p>
+              </div>
+              <ul className="mt-2 divide-y divide-ink-100">
+                {expiring.map((i) => {
+                  const past = new Date(i.expiresAt!).getTime() < Date.now();
+                  return (
+                    <li key={i.id}>
+                      <button type="button" onClick={() => setOpenId(i.id)} className="flex w-full items-center gap-3 px-5 py-3 text-left hover:bg-mist-50/60">
+                        <ItemThumb src={photoUrl(i)} size="h-11 w-11" />
+                        <span className="min-w-0 flex-1">
+                          <span className="block truncate text-sm font-bold text-ink-900">{i.name}</span>
+                          <span className="block text-xs text-ink-400">{fill(S.left, { n: `${i.qty} ${unit(i)}` })}</span>
+                        </span>
+                        <span
+                          className={`shrink-0 rounded-full px-3 py-1 text-xs font-bold ring-1 ${past ? "bg-rose-50 text-rose-600 ring-rose-200" : "bg-orange-50 text-orange-700 ring-orange-200"}`}
+                          suppressHydrationWarning
+                        >
+                          {past ? S.expired : fill(S.expiresOn, { date: dayFmt.format(new Date(i.expiresAt!)) })}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           )}
         </section>
       )}
@@ -413,15 +478,24 @@ export function InventoryManager({
                 <li key={m.id} className="flex items-center gap-3 px-5 py-3">
                   <span
                     className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${
-                      m.kind === "IN" ? "bg-emerald-50 text-emerald-600" : m.kind === "OUT" ? "bg-rose-50 text-rose-500" : "bg-mist-50 text-[#624f89]"
+                      m.kind === "IN" ? "bg-emerald-50 text-emerald-600" : m.kind === "OUT" ? "bg-rose-50 text-rose-500" : m.kind.startsWith("XFER") ? "bg-sky-50 text-sky-600" : "bg-mist-50 text-[#624f89]"
                     }`}
                   >
-                    {m.kind === "IN" ? <ArrowDownToLine className="h-4 w-4" /> : m.kind === "OUT" ? <ArrowUpFromLine className="h-4 w-4" /> : <Pencil className="h-4 w-4" />}
+                    {m.kind === "IN" ? (
+                      <ArrowDownToLine className="h-4 w-4" />
+                    ) : m.kind === "OUT" ? (
+                      <ArrowUpFromLine className="h-4 w-4" />
+                    ) : m.kind.startsWith("XFER") ? (
+                      <ArrowLeftRight className="h-4 w-4" />
+                    ) : (
+                      <Pencil className="h-4 w-4" />
+                    )}
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-sm font-semibold text-ink-900">{m.itemName}</span>
                     <span className="block truncate text-[11px] text-ink-400" suppressHydrationWarning>
-                      {S[`move${m.kind}` as "moveIN"]} · {dateFmt.format(new Date(m.createdAt))}
+                      {S[`move${m.kind}` as "moveIN"] ?? m.kind}
+                      {m.note ? ` ${m.note}` : ""} · {dateFmt.format(new Date(m.createdAt))}
                       {m.byName ? ` · ${fill(S.by, { name: m.byName })}` : ""}
                     </span>
                   </span>
@@ -528,7 +602,7 @@ export function InventoryManager({
 
       {adding && (
         <Sheet onClose={() => setAdding(null)} title={S.addItem}>
-          <ItemForm S={S} value={adding} onChange={setAdding} />
+          <ItemForm S={S} value={adding} onChange={setAdding} currency={data.currency} />
           {error && <p className="mt-3 text-xs font-semibold text-rose-600">{error}</p>}
           <button
             type="button"
@@ -604,9 +678,14 @@ function ItemDrawer({
     unit: item.unit,
     barcode: item.barcode ?? "",
     minQty: item.itemMin,
+    costCents: item.costCents,
     note: item.note ?? "",
     photo: photoUrl(item),
   });
+  // The owner's other branches, to move some of this item to.
+  const otherBranches = data.branches.filter((b) => b.id !== data.currentBranchId);
+  const [xferTo, setXferTo] = useState("");
+  const [xferQty, setXferQty] = useState(1);
   const [count, setCount] = useState(item.qty);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -688,6 +767,15 @@ function ItemDrawer({
                 ))}
               </select>
             </label>
+            <label className="col-span-2 block text-xs font-bold text-ink-700">
+              {S.expiry}
+              <input
+                type="date"
+                defaultValue={item.expiresAt ?? ""}
+                onChange={(e) => void run(send(`/api/business/inventory/items/${item.id}`, "PATCH", { expiresAt: e.target.value || null }))}
+                className={`${INPUT} mt-1`}
+              />
+            </label>
             <label className="block text-xs font-bold text-ink-700">
               {S.branchMin}
               <input
@@ -704,6 +792,38 @@ function ItemDrawer({
                 className={`${INPUT} mt-1`}
               />
             </label>
+          </div>
+        </div>
+      )}
+
+      {isOwner && canWrite && otherBranches.length > 0 && (
+        <div className="mt-4 rounded-2xl bg-sky-50/60 p-4 ring-1 ring-sky-100">
+          <p className="flex items-center gap-1.5 text-xs font-bold text-sky-800">
+            <ArrowLeftRight className="h-3.5 w-3.5" />
+            {S.transferTitle}
+          </p>
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <select value={xferTo} onChange={(e) => setXferTo(e.target.value)} className={`${INPUT} w-auto min-w-0 flex-1`} aria-label={S.transferTo}>
+              <option value="">{S.transferTo}…</option>
+              {otherBranches.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name}
+                </option>
+              ))}
+            </select>
+            <Stepper value={xferQty} onChange={setXferQty} />
+            <button
+              type="button"
+              disabled={busy || !xferTo || xferQty > item.qty}
+              onClick={async () => {
+                const name = data.branches.find((b) => b.id === xferTo)?.name ?? "";
+                if (await run(send("/api/business/inventory/transfer", "POST", { itemId: item.id, toBusinessId: xferTo, qty: xferQty })))
+                  setMsg({ ok: true, text: fill(S.doneTransfer, { n: xferQty, branch: name }) });
+              }}
+              className="h-12 rounded-2xl bg-sky-600 px-4 text-sm font-bold text-white disabled:opacity-40"
+            >
+              {fill(S.transferBtn, { n: xferQty })}
+            </button>
           </div>
         </div>
       )}
@@ -728,7 +848,8 @@ function ItemDrawer({
             {history.map((m) => (
               <li key={m.id} className="flex items-center justify-between gap-3 text-xs">
                 <span className="min-w-0 truncate text-ink-600" suppressHydrationWarning>
-                  {S[`move${m.kind}` as "moveIN"]} · {dateFmt.format(new Date(m.createdAt))}
+                  {S[`move${m.kind}` as "moveIN"] ?? m.kind}
+                  {m.note ? ` ${m.note}` : ""} · {dateFmt.format(new Date(m.createdAt))}
                   {m.byName ? ` · ${m.byName}` : ""}
                 </span>
                 <span className={`shrink-0 font-bold tabular-nums ${m.delta > 0 ? "text-emerald-600" : m.delta < 0 ? "text-rose-500" : "text-ink-500"}`}>
@@ -748,7 +869,7 @@ function ItemDrawer({
       {canWrite &&
         (editing ? (
           <div className="mt-4 border-t border-ink-100 pt-4">
-            <ItemForm S={S} value={fields} onChange={setFields} />
+            <ItemForm S={S} value={fields} onChange={setFields} currency={data.currency} />
             <div className="mt-4 flex gap-2">
               <button type="button" onClick={() => setEditing(false)} className="h-11 flex-1 rounded-2xl bg-mist-50 text-sm font-bold text-ink-700 ring-1 ring-ink-100">
                 {S.cancel}

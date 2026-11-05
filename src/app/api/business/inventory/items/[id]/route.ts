@@ -2,12 +2,13 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { inventoryContext } from "@/lib/inventory";
-import { decodePhoto, itemFieldsSchema } from "@/lib/inventory-input";
+import { decodePhoto, expiryDate, itemFieldsSchema, toDate } from "@/lib/inventory-input";
 
 const schema = itemFieldsSchema.partial().extend({
   // This branch only: its own minimum (null = the item's) and cupboard.
   branchMinQty: z.number().int().min(0).max(100000).nullable().optional(),
   locationId: z.string().min(1).nullable().optional(),
+  expiresAt: expiryDate.nullable().optional(),
 });
 
 /** Edits an item; branch fields only touch the active branch's stock row. */
@@ -19,7 +20,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   if (!item) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
-  const { branchMinQty, locationId, photo, barcode, brand, note, ...rest } = parsed.data;
+  const { branchMinQty, locationId, expiresAt, photo, barcode, brand, note, ...rest } = parsed.data;
 
   if (barcode) {
     const taken = await prisma.inventoryItem.findFirst({ where: { ownerId: ctx.ownerId, barcode, active: true, NOT: { id } }, select: { id: true } });
@@ -42,8 +43,12 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       ...(photo === null ? { photo: null, photoMime: null } : decoded ? { photo: decoded.bytes, photoMime: decoded.mime } : {}),
     },
   });
-  if (branchMinQty !== undefined || locationId !== undefined) {
-    const data = { ...(branchMinQty !== undefined ? { minQty: branchMinQty } : {}), ...(locationId !== undefined ? { locationId } : {}) };
+  if (branchMinQty !== undefined || locationId !== undefined || expiresAt !== undefined) {
+    const data = {
+      ...(branchMinQty !== undefined ? { minQty: branchMinQty } : {}),
+      ...(locationId !== undefined ? { locationId } : {}),
+      ...(expiresAt !== undefined ? { expiresAt: toDate(expiresAt) } : {}),
+    };
     await prisma.inventoryStock.upsert({
       where: { itemId_businessId: { itemId: id, businessId: ctx.businessId } },
       update: data,

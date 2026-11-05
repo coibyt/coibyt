@@ -2,12 +2,13 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { InventoryError, inventoryContext, moveStock, newInventoryCode } from "@/lib/inventory";
-import { decodePhoto, itemFieldsSchema } from "@/lib/inventory-input";
+import { decodePhoto, expiryDate, itemFieldsSchema, toDate } from "@/lib/inventory-input";
 
 const schema = itemFieldsSchema.extend({
   // Scanned in straight away, optionally into a cupboard.
   qtyIn: z.number().int().min(0).max(100000).optional().default(0),
   locationId: z.string().min(1).nullable().optional(),
+  expiresAt: expiryDate.nullable().optional(),
 });
 
 /** Adds an item to the owner's catalog (and, with qtyIn, to this branch). */
@@ -35,6 +36,7 @@ export async function POST(req: Request) {
       unit: d.unit,
       barcode: d.barcode || null,
       minQty: d.minQty,
+      costCents: d.costCents,
       note: d.note || null,
       ...(photo ? { photo: photo.bytes, photoMime: photo.mime } : {}),
     },
@@ -43,7 +45,7 @@ export async function POST(req: Request) {
 
   try {
     if (d.qtyIn > 0 || d.locationId) {
-      await moveStock(ctx, { itemId: item.id, kind: "IN", qty: d.qtyIn, locationId: d.locationId ?? undefined });
+      await moveStock(ctx, { itemId: item.id, kind: "IN", qty: d.qtyIn, locationId: d.locationId ?? undefined, expiresAt: toDate(d.expiresAt) });
     }
   } catch (err) {
     if (!(err instanceof InventoryError)) throw err;

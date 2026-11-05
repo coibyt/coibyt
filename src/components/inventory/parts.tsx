@@ -5,6 +5,7 @@ import { Camera, ImageIcon, Package } from "lucide-react";
 import type { InventoryStrings } from "@/lib/inventory-strings";
 import type { InventoryItemRow } from "@/lib/inventory-data";
 import { shrinkPhoto } from "@/components/inventory/camera-scanner";
+import { fromSmallestUnit, toSmallestUnit } from "@/lib/money";
 
 export const CATEGORIES = ["gel", "polish", "liquid", "tool", "care", "lash", "hair", "other"] as const;
 export const UNITS = ["pcs", "bottle", "box", "pack", "tube", "jar"] as const;
@@ -16,12 +17,13 @@ export interface ItemFields {
   unit: string;
   barcode: string;
   minQty: number;
+  costCents: number | null;
   note: string;
   /** A new photo (data URL), or the item's current photo URL to keep it. */
   photo: string | null;
 }
 
-export const emptyFields = (barcode = ""): ItemFields => ({ name: "", brand: "", category: null, unit: "pcs", barcode, minQty: 2, note: "", photo: null });
+export const emptyFields = (barcode = ""): ItemFields => ({ name: "", brand: "", category: null, unit: "pcs", barcode, minQty: 2, costCents: null, note: "", photo: null });
 
 export const photoUrl = (it: Pick<InventoryItemRow, "id" | "photoVer">) => (it.photoVer ? `/api/business/inventory/items/${it.id}/photo?v=${it.photoVer}` : null);
 
@@ -51,7 +53,7 @@ export function ItemThumb({ src, size = "h-12 w-12" }: { src: string | null; siz
 }
 
 /** The fields of an item, for adding one and for editing it. */
-export function ItemForm({ S, value, onChange }: { S: InventoryStrings; value: ItemFields; onChange: (v: ItemFields) => void }) {
+export function ItemForm({ S, value, onChange, currency }: { S: InventoryStrings; value: ItemFields; onChange: (v: ItemFields) => void; currency: string }) {
   const fileRef = useRef<HTMLInputElement>(null);
   const set = <K extends keyof ItemFields>(k: K, v: ItemFields[K]) => onChange({ ...value, [k]: v });
   const label = "block text-xs font-bold text-ink-700";
@@ -124,6 +126,18 @@ export function ItemForm({ S, value, onChange }: { S: InventoryStrings; value: I
         </label>
       </div>
       <p className="-mt-1 text-[11px] text-ink-400">{S.minQtyHint}</p>
+      <label className={label}>
+        {S.cost} ({currency})
+        <input
+          type="number"
+          min={0}
+          step="any"
+          inputMode="decimal"
+          value={value.costCents == null ? "" : fromSmallestUnit(value.costCents, currency)}
+          onChange={(e) => set("costCents", e.target.value === "" ? null : Math.max(0, toSmallestUnit(Number(e.target.value) || 0, currency)))}
+          className={`${INPUT} mt-1`}
+        />
+      </label>
       <label className={label}>
         {S.barcode}
         <input value={value.barcode} onChange={(e) => set("barcode", e.target.value)} placeholder={S.barcodeNone} maxLength={64} className={`${INPUT} mt-1 font-mono`} />

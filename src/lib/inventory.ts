@@ -67,11 +67,87 @@ export async function resolveScan(ctx: InventoryContext, raw: string) {
 
 export class InventoryError extends Error {}
 
+/** Who is scanning, for the history. */
+async function actor(ctx: InventoryContext) {
+  const [session, staff] = await Promise.all([
+    Promise.resolve()
+      .then(() => auth())
+      .catch(() => null),
+    ctx.access.staffId ? prisma.staff.findUnique({ where: { id: ctx.access.staffId }, select: { name: true } }) : null,
+  ]);
+  return { byUserId: session?.user?.id ?? null, byName: staff?.name ?? session?.user?.name ?? null };
+}
+
+type Tx = Parameters<Parameters<typeof prisma.$transaction>[0]>[0];
+// A slow database link shouldn't abort a scan halfway (Prisma's default is 5 s).
+const TX = { maxWait: 10_000, timeout: 20_000 };
+
+/** Changes one branch's count inside a transaction and logs it. Keeps the
+ * nearest expiry date, forgets it when the shelf is empty, and re-arms the
+ * low-stock email once the count is back above the minimum. Returns the
+ * count before and after, and whether this change just made it run low. */
+async function applyMove(
+  tx: Tx,
+  input: {
+    itemId: string;
+    businessId: string;
+    kind: string;
+    next: (qty: number) => number;
+    locationId?: string | null;
+    expiresAt?: Date | null;
+    note?: string | null;
+    by: { byUserId: string | null; byName: string | null };
+  },
+) {
+  const stock = await tx.inventoryStock.upsert({
+    where: { itemId_businessId: { itemId: input.itemId, businessId: input.businessId } },
+    update: {},
+    create: { itemId: input.itemId, businessId: input.businessId, qty: 0 },
+    include: { item: { select: { minQty: true } } },
+  });
+  const next = input.next(stock.qty);
+  if (next < 0) throw new InventoryError("NOT_ENOUGH");
+  const min = minFor(stock, stock.item);
+  const expiresAt =
+    next === 0 ? null : input.expiresAt && (!stock.expiresAt || input.expiresAt < stock.expiresAt) ? input.expiresAt : stock.expiresAt;
+  const nowLow = min > 0 && next <= min;
+  const justLow = nowLow && next < stock.qty && !stock.lowAlertAt;
+  await tx.inventoryStock.update({
+    where: { id: stock.id },
+    data: {
+      qty: next,
+      expiresAt,
+      ...(input.locationId !== undefined ? { locationId: input.locationId } : {}),
+      ...(!nowLow ? { lowAlertAt: null } : justLow ? { lowAlertAt: new Date() } : {}),
+    },
+  });
+  await tx.inventoryMove.create({
+    data: {
+      itemId: input.itemId,
+      businessId: input.businessId,
+      delta: next - stock.qty,
+      kind: input.kind,
+      qtyAfter: next,
+      ...input.by,
+      note: input.note || null,
+    },
+  });
+  return { before: stock.qty, after: next, min, justLow };
+}
+
 /** Scans one item in (+) or out (−) at a branch, or sets its counted
  * quantity (COUNT). Never below zero. Returns the new quantity. */
 export async function moveStock(
   ctx: InventoryContext,
-  input: { itemId: string; kind: "IN" | "OUT" | "COUNT"; qty: number; locationId?: string | null; note?: string | null },
+  input: {
+    itemId: string;
+    kind: "IN" | "OUT" | "COUNT";
+    qty: number;
+    locationId?: string | null;
+    /** Scanning in: the expiry date on what was added. */
+    expiresAt?: Date | null;
+    note?: string | null;
+  },
 ) {
   const item = await prisma.inventoryItem.findFirst({ where: { id: input.itemId, ownerId: ctx.ownerId, active: true }, select: { id: true } });
   if (!item) throw new InventoryError("NOT_FOUND");
@@ -79,40 +155,59 @@ export async function moveStock(
     const loc = await prisma.inventoryLocation.findFirst({ where: { id: input.locationId, businessId: ctx.businessId }, select: { id: true } });
     if (!loc) throw new InventoryError("BAD_LOCATION");
   }
-  const [session, staff] = await Promise.all([
-    Promise.resolve()
-      .then(() => auth())
-      .catch(() => null),
-    ctx.access.staffId ? prisma.staff.findUnique({ where: { id: ctx.access.staffId }, select: { name: true } }) : null,
-  ]);
-  const byName = staff?.name ?? session?.user?.name ?? null;
+  const by = await actor(ctx);
+  const r = await prisma.$transaction((tx) =>
+    applyMove(tx, {
+      itemId: item.id,
+      businessId: ctx.businessId,
+      kind: input.kind,
+      next: (qty) => (input.kind === "COUNT" ? input.qty : qty + (input.kind === "IN" ? input.qty : -input.qty)),
+      locationId: input.locationId,
+      expiresAt: input.kind === "IN" ? input.expiresAt : undefined,
+      note: input.note,
+      by,
+    }),
+    TX,
+  );
+  if (r.justLow) void emailLowStock(item.id, ctx.businessId, r.after, r.min);
+  return r.after;
+}
 
-  return prisma.$transaction(async (tx) => {
-    const stock = await tx.inventoryStock.upsert({
-      where: { itemId_businessId: { itemId: item.id, businessId: ctx.businessId } },
-      update: {},
-      create: { itemId: item.id, businessId: ctx.businessId, qty: 0 },
-    });
-    const next = input.kind === "COUNT" ? input.qty : stock.qty + (input.kind === "IN" ? input.qty : -input.qty);
-    if (next < 0) throw new InventoryError("NOT_ENOUGH");
-    await tx.inventoryStock.update({
-      where: { id: stock.id },
-      data: { qty: next, ...(input.locationId !== undefined ? { locationId: input.locationId } : {}) },
-    });
-    await tx.inventoryMove.create({
-      data: {
-        itemId: item.id,
-        businessId: ctx.businessId,
-        delta: next - stock.qty,
-        kind: input.kind,
-        qtyAfter: next,
-        byUserId: session?.user?.id ?? null,
-        byName,
-        note: input.note || null,
-      },
-    });
-    return next;
-  });
+/** Owner only: moves some of an item from the active branch to another of
+ * theirs, logged at both. Returns the counts after, here and there. */
+export async function transferStock(ctx: InventoryContext, input: { itemId: string; toBusinessId: string; qty: number }) {
+  if (!ctx.isOwner) throw new InventoryError("FORBIDDEN");
+  if (input.toBusinessId === ctx.businessId || input.qty < 1) throw new InventoryError("INVALID");
+  const [item, to] = await Promise.all([
+    prisma.inventoryItem.findFirst({ where: { id: input.itemId, ownerId: ctx.ownerId, active: true }, select: { id: true } }),
+    prisma.business.findFirst({ where: { id: input.toBusinessId, ownerId: ctx.ownerId }, select: { id: true, name: true } }),
+  ]);
+  if (!item || !to) throw new InventoryError("NOT_FOUND");
+  const by = await actor(ctx);
+  const fromName = ctx.access.business.name;
+  const [out, inn] = await prisma.$transaction(async (tx) => {
+    const out = await applyMove(tx, { itemId: item.id, businessId: ctx.businessId, kind: "XFER_OUT", next: (q) => q - input.qty, note: `→ ${to.name}`, by });
+    const inn = await applyMove(tx, { itemId: item.id, businessId: to.id, kind: "XFER_IN", next: (q) => q + input.qty, note: `← ${fromName}`, by });
+    return [out, inn] as const;
+  }, TX);
+  if (out.justLow) void emailLowStock(item.id, ctx.businessId, out.after, out.min);
+  return { here: out.after, there: inn.after };
+}
+
+/** Tells the owner, once per drop, that an item ran low at a branch. */
+async function emailLowStock(itemId: string, businessId: string, qty: number, min: number) {
+  try {
+    const [item, business] = await Promise.all([
+      prisma.inventoryItem.findUnique({ where: { id: itemId }, select: { name: true, brand: true, unit: true } }),
+      prisma.business.findUnique({ where: { id: businessId }, select: { name: true, defaultLocale: true, owner: { select: { name: true, email: true } } } }),
+    ]);
+    if (!item || !business) return;
+    const { lowStockEmail } = await import("@/lib/email/inventory-emails");
+    const { sendMail } = await import("@/lib/mailer");
+    await sendMail({ to: business.owner.email, ...lowStockEmail({ locale: business.defaultLocale, ownerName: business.owner.name, branch: business.name, item, qty, min }) });
+  } catch (err) {
+    console.error("[inventory low-stock email]", itemId, err);
+  }
 }
 
 /** Where an item's minimum comes from: the branch's own, else the item's. */

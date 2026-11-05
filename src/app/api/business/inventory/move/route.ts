@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { InventoryError, inventoryContext, moveStock } from "@/lib/inventory";
+import { expiryDate, toDate } from "@/lib/inventory-input";
 
 const schema = z.object({
   itemId: z.string().min(1),
@@ -10,6 +11,8 @@ const schema = z.object({
   // Scanning in into a cupboard.
   locationId: z.string().min(1).nullable().optional(),
   note: z.string().trim().max(200).optional(),
+  // Scanning in: the expiry date on what was added.
+  expiresAt: expiryDate.nullable().optional(),
 });
 
 /** Scans an item in or out at the active branch, or corrects its count. */
@@ -21,7 +24,7 @@ export async function POST(req: Request) {
   const d = parsed.data;
   if (d.kind !== "COUNT" && d.qty === 0) return NextResponse.json({ error: "INVALID" }, { status: 400 });
   try {
-    const qty = await moveStock(ctx, d);
+    const qty = await moveStock(ctx, { ...d, expiresAt: toDate(d.expiresAt) });
     return NextResponse.json({ qty });
   } catch (err) {
     if (!(err instanceof InventoryError)) throw err;

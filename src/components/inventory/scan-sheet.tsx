@@ -1,14 +1,22 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { ArrowDownToLine, ArrowUpFromLine, Camera, Check, Loader2, MapPin, Plus, Search, Sparkles, X } from "lucide-react";
+import { ArrowDownToLine, ArrowUpFromLine, Camera, Check, ClipboardCheck, Loader2, MapPin, Plus, Search, Sparkles, X } from "lucide-react";
 import { fill } from "@/lib/shop-strings";
 import type { InventoryStrings } from "@/lib/inventory-strings";
 import type { InventoryData, InventoryItemRow } from "@/lib/inventory-data";
 import { CameraScanner, shrinkPhoto } from "@/components/inventory/camera-scanner";
 import { INPUT, ItemForm, ItemThumb, Stepper, emptyFields, fieldsPayload, photoUrl, type ItemFields } from "@/components/inventory/parts";
 
-type Mode = "IN" | "OUT";
+type Mode = "IN" | "OUT" | "COUNT";
+
+const MODE_LOOK: Record<Mode, string> = {
+  IN: "from-emerald-500 to-teal-600",
+  OUT: "from-[#e0559b] to-[#a3155f]",
+  COUNT: "from-[#8b6fc0] to-[#4b3878]",
+};
+const ModeIcon = ({ mode, className }: { mode: Mode; className: string }) =>
+  mode === "IN" ? <ArrowDownToLine className={className} /> : mode === "OUT" ? <ArrowUpFromLine className={className} /> : <ClipboardCheck className={className} />;
 type Stage =
   | { kind: "scan" }
   | { kind: "busy"; text: string }
@@ -21,9 +29,9 @@ const post = (url: string, body: unknown) =>
     .then(async (r) => ({ ok: r.ok, status: r.status, d: await r.json().catch(() => ({})) }))
     .catch(() => ({ ok: false, status: 0, d: {} as Record<string, unknown> }));
 
-/** Full-screen scanning: scan in or out one item after another. A scanned
- * cupboard label sets where items go (scanning in); an unknown code or a
- * photo leads to adding the item, with AI filling in what it reads. */
+/** Full-screen scanning: scan in, out or count one item after another. A
+ * scanned cupboard label sets where items go (scanning in); an unknown code
+ * or a photo leads to adding the item, with AI filling in what it reads. */
 export function ScanSheet({
   S,
   initialMode,
@@ -42,6 +50,7 @@ export function ScanSheet({
   const [place, setPlace] = useState<{ id: string; name: string } | null>(null);
   const [qty, setQty] = useState(1);
   const [locationId, setLocationId] = useState<string | null>(null);
+  const [expiry, setExpiry] = useState("");
   const [code, setCode] = useState("");
   const [busy, setBusy] = useState(false);
   const [flash, setFlash] = useState<{ ok: boolean; text: string } | null>(null);
@@ -58,7 +67,8 @@ export function ScanSheet({
   }
 
   function openItem(it: InventoryItemRow) {
-    setQty(1);
+    setQty(mode === "COUNT" ? it.qty : 1);
+    setExpiry("");
     setLocationId(place?.id ?? it.locationId);
     setStage({ kind: "item", itemId: it.id });
   }
@@ -107,7 +117,7 @@ export function ScanSheet({
       itemId: it.id,
       kind: mode,
       qty,
-      ...(mode === "IN" ? { locationId: locationId ?? undefined } : {}),
+      ...(mode === "IN" ? { locationId: locationId ?? undefined, expiresAt: expiry || undefined } : {}),
     });
     setBusy(false);
     if (!r.ok) {
@@ -116,7 +126,13 @@ export function ScanSheet({
     }
     const left = Number(r.d.qty);
     setItems((list) => list.map((x) => (x.id === it.id ? { ...x, qty: left, locationId: mode === "IN" ? (locationId ?? x.locationId) : x.locationId } : x)));
-    setFlash({ ok: true, text: fill(mode === "IN" ? S.doneIn : S.doneOut, { n: qty, item: it.name, left: `${left} ${unit(it)}` }) });
+    setFlash({
+      ok: true,
+      text:
+        mode === "COUNT"
+          ? fill(S.doneCount, { item: it.name, n: `${left} ${unit(it)}` })
+          : fill(mode === "IN" ? S.doneIn : S.doneOut, { n: qty, item: it.name, left: `${left} ${unit(it)}` }),
+    });
     setStage({ kind: "scan" });
     void reload();
   }
@@ -125,13 +141,13 @@ export function ScanSheet({
     setBusy(true);
     const r = await post("/api/business/inventory/items", {
       ...fieldsPayload(fields),
-      ...(mode === "IN" ? { qtyIn: qty, locationId: locationId ?? place?.id ?? undefined } : {}),
+      ...(mode !== "OUT" ? { qtyIn: qty, locationId: locationId ?? place?.id ?? undefined, expiresAt: expiry || undefined } : {}),
     });
     setBusy(false);
     if (!r.ok) return setFlash({ ok: false, text: r.d.error === "BARCODE_TAKEN" ? S.errBarcodeTaken : S.errGeneric });
     const d = await refresh();
     const it = d?.items.find((i) => i.id === r.d.id);
-    if (mode === "IN" && it) {
+    if (mode !== "OUT" && it) {
       setFlash({ ok: true, text: fill(S.doneIn, { n: qty, item: it.name, left: `${it.qty} ${unit(it)}` }) });
       setStage({ kind: "scan" });
     } else if (it) openItem(it);
@@ -139,24 +155,27 @@ export function ScanSheet({
   }
 
   const current = stage.kind === "item" ? itemById(stage.itemId) : undefined;
-  const accent = mode === "IN" ? "from-emerald-500 to-teal-600" : "from-[#e0559b] to-[#a3155f]";
+  const accent = MODE_LOOK[mode];
 
   return (
     <div className="fixed inset-0 z-[85] flex flex-col bg-[#f7f5fb]" role="dialog" aria-modal="true">
       {/* Mode and close */}
       <div className="flex items-center gap-2 bg-white px-4 py-3 shadow-sm">
-        <div className="grid flex-1 grid-cols-2 gap-1 rounded-full bg-mist-50 p-1 ring-1 ring-ink-100">
-          {(["IN", "OUT"] as const).map((m) => (
+        <div className="grid flex-1 grid-cols-3 gap-1 rounded-full bg-mist-50 p-1 ring-1 ring-ink-100">
+          {(["IN", "OUT", "COUNT"] as const).map((m) => (
             <button
               key={m}
               type="button"
-              onClick={() => setMode(m)}
-              className={`flex items-center justify-center gap-1.5 rounded-full py-2 text-sm font-bold transition ${
-                mode === m ? `bg-gradient-to-r text-white shadow ${m === "IN" ? "from-emerald-500 to-teal-600" : "from-[#e0559b] to-[#a3155f]"}` : "text-ink-500"
+              onClick={() => {
+                setMode(m);
+                setStage({ kind: "scan" });
+              }}
+              className={`flex items-center justify-center gap-1 rounded-full py-2 text-xs font-bold transition sm:text-sm ${
+                mode === m ? `bg-gradient-to-r text-white shadow ${MODE_LOOK[m]}` : "text-ink-500"
               }`}
             >
-              {m === "IN" ? <ArrowDownToLine className="h-4 w-4" /> : <ArrowUpFromLine className="h-4 w-4" />}
-              {m === "IN" ? S.scannerIn : S.scannerOut}
+              <ModeIcon mode={m} className="h-4 w-4 shrink-0" />
+              {m === "IN" ? S.scannerIn : m === "OUT" ? S.scannerOut : S.scannerCount}
             </button>
           ))}
         </div>
@@ -243,10 +262,16 @@ export function ScanSheet({
                 <p className="mt-1 text-sm font-semibold text-ink-700">{fill(S.inStock, { n: `${current.qty} ${unit(current)}` })}</p>
               </div>
             </div>
-            <p className="mt-4 text-xs font-bold text-ink-700">{S.qty}</p>
+            <p className="mt-4 text-xs font-bold text-ink-700">{mode === "COUNT" ? S.countNow : S.qty}</p>
             <div className="mt-1.5">
-              <Stepper value={qty} onChange={setQty} />
+              <Stepper value={qty} onChange={setQty} min={mode === "COUNT" ? 0 : 1} />
             </div>
+            {mode === "IN" && (
+              <label className="mt-3 block text-xs font-bold text-ink-700">
+                {S.expiry}
+                <input type="date" value={expiry} onChange={(e) => setExpiry(e.target.value)} className={`${INPUT} mt-1`} />
+              </label>
+            )}
             {mode === "IN" && data.locations.length > 0 && (
               <label className="mt-3 block text-xs font-bold text-ink-700">
                 {S.where}
@@ -270,8 +295,8 @@ export function ScanSheet({
                 onClick={() => move(current)}
                 className={`flex h-12 flex-[2] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r text-base font-bold text-white shadow disabled:opacity-60 ${accent}`}
               >
-                {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : mode === "IN" ? <ArrowDownToLine className="h-4 w-4" /> : <ArrowUpFromLine className="h-4 w-4" />}
-                {fill(mode === "IN" ? S.confirmIn : S.confirmOut, { n: qty })}
+                {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ModeIcon mode={mode} className="h-4 w-4" />}
+                {fill(mode === "IN" ? S.confirmIn : mode === "OUT" ? S.confirmOut : S.confirmCount, { n: qty })}
               </button>
             </div>
           </div>
@@ -317,14 +342,18 @@ export function ScanSheet({
               </p>
             )}
             <div className="mt-3">
-              <ItemForm S={S} value={stage.fields} onChange={(fields) => setStage({ ...stage, fields })} />
+              <ItemForm S={S} value={stage.fields} onChange={(fields) => setStage({ ...stage, fields })} currency={data.currency} />
             </div>
-            {mode === "IN" && (
+            {mode !== "OUT" && (
               <div className="mt-4">
-                <p className="text-xs font-bold text-ink-700">{S.qty}</p>
+                <p className="text-xs font-bold text-ink-700">{mode === "COUNT" ? S.countNow : S.qty}</p>
                 <div className="mt-1.5">
                   <Stepper value={qty} onChange={setQty} />
                 </div>
+                <label className="mt-3 block text-xs font-bold text-ink-700">
+                  {S.expiry}
+                  <input type="date" value={expiry} onChange={(e) => setExpiry(e.target.value)} className={`${INPUT} mt-1`} />
+                </label>
               </div>
             )}
             <div className="mt-4 flex gap-2">
@@ -338,7 +367,7 @@ export function ScanSheet({
                 className={`flex h-12 flex-[2] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r text-sm font-bold text-white shadow disabled:opacity-50 ${accent}`}
               >
                 {busy && <Loader2 className="h-4 w-4 animate-spin" />}
-                {mode === "IN" ? S.saveAndIn : S.save}
+                {mode !== "OUT" ? S.saveAndIn : S.save}
               </button>
             </div>
           </div>

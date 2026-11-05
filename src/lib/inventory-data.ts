@@ -13,6 +13,10 @@ export interface InventoryItemRow {
   note: string | null;
   /** The item's own minimum (every branch without its own). */
   itemMin: number;
+  /** What one unit costs to buy (smallest currency unit), if set. */
+  costCents: number | null;
+  /** The nearest expiry date of what this branch holds, "YYYY-MM-DD". */
+  expiresAt: string | null;
   /** Changes when the photo does, for the image URL; null = no photo. */
   photoVer: number | null;
   /** At the active branch. */
@@ -27,16 +31,24 @@ export interface InventoryItemRow {
 export interface InventoryData {
   items: InventoryItemRow[];
   locations: { id: string; code: string; name: string; count: number }[];
-  moves: { id: string; itemId: string; itemName: string; unit: string; kind: string; delta: number; qtyAfter: number; byName: string | null; createdAt: string }[];
-  /** Owner with several branches, for the all-branches view. */
+  moves: { id: string; itemId: string; itemName: string; unit: string; kind: string; delta: number; qtyAfter: number; byName: string | null; note: string | null; createdAt: string }[];
+  /** Owner with several branches, for the all-branches view and moving stock. */
   branches: { id: string; name: string }[];
+  currentBranchId: string;
   used7: number;
+  /** The salon's currency, for prices. */
+  currency: string;
+  /** What this branch's stock is worth at purchase prices. */
+  stockValue: number;
+  /** What this branch used (scanned out) in 30 days, at purchase prices. */
+  spent30: number;
 }
 
 /** Everything the stock page shows for the active branch. */
 export async function loadInventory(ctx: InventoryContext): Promise<InventoryData> {
   const branches = ctx.isOwner ? (await listOwnedBusinesses(ctx.ownerId)).map((b) => ({ id: b.id, name: b.name })) : [];
-  const [items, locations, moves, used] = await Promise.all([
+  const since30 = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  const [items, locations, moves, used, out30] = await Promise.all([
     prisma.inventoryItem.findMany({
       where: { ownerId: ctx.ownerId, active: true },
       select: {
@@ -49,11 +61,12 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         barcode: true,
         note: true,
         minQty: true,
+        costCents: true,
         photoMime: true,
         updatedAt: true,
         stock: {
           where: branches.length > 1 ? { businessId: { in: branches.map((b) => b.id) } } : { businessId: ctx.businessId },
-          select: { businessId: true, qty: true, minQty: true, locationId: true },
+          select: { businessId: true, qty: true, minQty: true, locationId: true, expiresAt: true },
         },
       },
       orderBy: { name: "asc" },
@@ -65,7 +78,7 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
     }),
     prisma.inventoryMove.findMany({
       where: { businessId: ctx.businessId },
-      select: { id: true, itemId: true, kind: true, delta: true, qtyAfter: true, byName: true, createdAt: true, item: { select: { name: true, unit: true } } },
+      select: { id: true, itemId: true, kind: true, delta: true, qtyAfter: true, byName: true, note: true, createdAt: true, item: { select: { name: true, unit: true } } },
       orderBy: { createdAt: "desc" },
       take: 150,
     }),
@@ -73,11 +86,18 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
       where: { businessId: ctx.businessId, kind: "OUT", createdAt: { gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) } },
       _sum: { delta: true },
     }),
+    prisma.inventoryMove.groupBy({
+      by: ["itemId"],
+      where: { businessId: ctx.businessId, kind: "OUT", createdAt: { gte: since30 } },
+      _sum: { delta: true },
+    }),
   ]);
+  const cost = new Map(items.map((i) => [i.id, i.costCents ?? 0]));
+  const here = (it: (typeof items)[number]) => it.stock.find((s) => s.businessId === ctx.businessId);
 
   return {
     items: items.map((it) => {
-      const here = it.stock.find((s) => s.businessId === ctx.businessId);
+      const stock = here(it);
       return {
         id: it.id,
         code: it.code,
@@ -88,11 +108,13 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         barcode: it.barcode,
         note: it.note,
         itemMin: it.minQty,
+        costCents: it.costCents,
+        expiresAt: stock?.expiresAt ? stock.expiresAt.toISOString().slice(0, 10) : null,
         photoVer: it.photoMime ? it.updatedAt.getTime() : null,
-        qty: here?.qty ?? 0,
-        min: minFor(here, it),
-        branchMin: here?.minQty ?? null,
-        locationId: here?.locationId ?? null,
+        qty: stock?.qty ?? 0,
+        min: minFor(stock, it),
+        branchMin: stock?.minQty ?? null,
+        locationId: stock?.locationId ?? null,
         ...(branches.length > 1 ? { byBranch: Object.fromEntries(it.stock.map((s) => [s.businessId, s.qty])) } : {}),
       };
     }),
@@ -106,9 +128,14 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
       delta: m.delta,
       qtyAfter: m.qtyAfter,
       byName: m.byName,
+      note: m.note,
       createdAt: m.createdAt.toISOString(),
     })),
     branches: branches.length > 1 ? branches : [],
+    currentBranchId: ctx.businessId,
     used7: Math.abs(used._sum.delta ?? 0),
+    currency: ctx.access.business.defaultCurrency,
+    stockValue: items.reduce((sum, it) => sum + (here(it)?.qty ?? 0) * (it.costCents ?? 0), 0),
+    spent30: out30.reduce((sum, r) => sum + Math.abs(r._sum.delta ?? 0) * (cost.get(r.itemId) ?? 0), 0),
   };
 }

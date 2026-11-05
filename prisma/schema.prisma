@@ -2363,6 +2363,8 @@ model InventoryItem {
   barcode   String?  @db.VarChar(64)
   // At or under this, a branch needs to buy more (a branch can set its own).
   minQty    Int      @default(0)
+  // What one unit costs to buy, in the salon's currency (smallest unit).
+  costCents Int?
   photo     Bytes?   @db.MediumBlob
   photoMime String?  @db.VarChar(40)
   note      String?  @db.VarChar(500)
@@ -2403,6 +2405,11 @@ model InventoryStock {
   qty        Int                @default(0)
   // This branch's own minimum; null = the item's.
   minQty     Int?
+  // The nearest expiry date of what this branch holds (set when scanning in).
+  expiresAt  DateTime?          @db.Date
+  // When the owner was emailed that this ran low here; cleared once it is
+  // back above the minimum, so each drop is told once.
+  lowAlertAt DateTime?
   updatedAt  DateTime           @updatedAt
 
   @@unique([itemId, businessId])
@@ -2417,7 +2424,7 @@ model InventoryMove {
   businessId String
   business   Business      @relation(fields: [businessId], references: [id], onDelete: Cascade)
   delta      Int
-  // IN | OUT | COUNT
+  // IN | OUT | COUNT | XFER_OUT | XFER_IN (moved between branches)
   kind       String        @db.VarChar(8)
   qtyAfter   Int
   byUserId   String?
