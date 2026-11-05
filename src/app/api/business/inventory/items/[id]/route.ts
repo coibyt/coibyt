@@ -22,13 +22,8 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   if (!item) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
-  const { branchMinQty, locationId, expiresAt, photo, barcode, brand, note, ...rest } = parsed.data;
-
-  if (barcode) {
-    const taken = await prisma.inventoryItem.findFirst({ where: { ownerId: ctx.ownerId, barcode, active: true, NOT: { id } }, select: { id: true } });
-    if (taken) return NextResponse.json({ error: "BARCODE_TAKEN" }, { status: 409 });
-    await prisma.inventoryItem.updateMany({ where: { ownerId: ctx.ownerId, barcode, active: false }, data: { barcode: null } });
-  }
+  // A barcode may be shared by several items (colours of one line).
+  const { branchMinQty, locationId, expiresAt, photo, barcode, brand, color, note, ...rest } = parsed.data;
   if (locationId) {
     const loc = await prisma.inventoryLocation.findFirst({ where: { id: locationId, businessId: ctx.businessId }, select: { id: true } });
     if (!loc) return NextResponse.json({ error: "INVALID" }, { status: 400 });
@@ -47,6 +42,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
       ...rest,
       ...(barcode !== undefined ? { barcode: barcode || null } : {}),
       ...(brand !== undefined ? { brand: brand || null } : {}),
+      ...(color !== undefined ? { color: color || null } : {}),
       ...(note !== undefined ? { note: note || null } : {}),
       ...(photo === null ? { photo: null, photoMime: null } : decoded ? { photo: decoded.bytes, photoMime: decoded.mime } : {}),
     },

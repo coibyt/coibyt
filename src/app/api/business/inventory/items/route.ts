@@ -20,12 +20,6 @@ export async function POST(req: Request) {
   const d = parsed.data;
   const photo = decodePhoto(d.photo);
 
-  if (d.barcode && (await prisma.inventoryItem.findFirst({ where: { ownerId: ctx.ownerId, barcode: d.barcode, active: true }, select: { id: true } }))) {
-    return NextResponse.json({ error: "BARCODE_TAKEN" }, { status: 409 });
-  }
-  // A removed item's barcode is freed for a new one.
-  if (d.barcode) await prisma.inventoryItem.updateMany({ where: { ownerId: ctx.ownerId, barcode: d.barcode, active: false }, data: { barcode: null } });
-
   const item = await prisma.inventoryItem.create({
     data: {
       ownerId: ctx.ownerId,
@@ -35,6 +29,7 @@ export async function POST(req: Request) {
       category: d.category,
       unit: d.unit,
       barcode: d.barcode || null,
+      color: d.color || null,
       minQty: d.minQty,
       costCents: d.costCents,
       note: d.note || null,

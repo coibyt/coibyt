@@ -8,6 +8,7 @@ export const itemFieldsSchema = z.object({
   category: z.enum(INVENTORY_CATEGORIES).nullable().optional().default(null),
   unit: z.enum(INVENTORY_UNITS).optional().default("pcs"),
   barcode: z.string().trim().max(64).optional().default(""),
+  color: z.string().trim().max(60).optional().default(""),
   minQty: z.number().int().min(0).max(100000).optional().default(0),
   // What one unit costs to buy, smallest currency unit; null = not set.
   costCents: z.number().int().min(0).max(100_000_000).nullable().optional().default(null),

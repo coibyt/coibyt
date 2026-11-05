@@ -484,6 +484,9 @@ model EmailCampaign {
   // Emails out so far. Over the salon's daily limit a campaign goes back to
   // SCHEDULED for the same time tomorrow until everyone has had it.
   sentCount       Int       @default(0)
+  // Last seen sending (claimed, then after every batch): one left in SENDING
+  // by a restart is put back in the queue (src/lib/marketing-send.ts).
+  sendingSince    DateTime?
 
   events     EmailCampaignEvent[]
   deliveries EmailCampaignDelivery[]
@@ -2365,7 +2368,11 @@ model InventoryItem {
   category  String?  @db.VarChar(40)
   // How it is counted: pcs | bottle | box | pack | tube | jar
   unit      String   @default("pcs") @db.VarChar(20)
+  // Not unique: one barcode can cover several items (a gel line in many
+  // colours); `color` and the photo tell them apart.
   barcode   String?  @db.VarChar(64)
+  // Colour or shade, e.g. "Big Apple Red" or "#15".
+  color     String?  @db.VarChar(60)
   // At or under this, a branch needs to buy more (a branch can set its own).
   minQty    Int      @default(0)
   // What one unit costs to buy, in the salon's currency (smallest unit).
@@ -2383,7 +2390,7 @@ model InventoryItem {
   stock InventoryStock[]
   moves InventoryMove[]
 
-  @@unique([ownerId, barcode])
+  @@index([ownerId, barcode])
   @@index([ownerId, active])
 }
 

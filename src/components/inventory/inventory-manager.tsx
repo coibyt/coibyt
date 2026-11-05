@@ -41,6 +41,7 @@ import {
   Stepper,
   emptyFields,
   fieldsPayload,
+  fullName,
   photoUrl,
   statusOf,
   type ItemFields,
@@ -121,7 +122,7 @@ export function InventoryManager({
       (i) =>
         (!cat || i.category === cat) &&
         (!place || (place === "-" ? !i.locationId : i.locationId === place)) &&
-        (!words || `${i.name} ${i.brand ?? ""} ${i.barcode ?? ""}`.toLowerCase().includes(words)),
+        (!words || `${i.name} ${i.color ?? ""} ${i.brand ?? ""} ${i.barcode ?? ""}`.toLowerCase().includes(words)),
     );
   }, [data.items, q, cat, place]);
 
@@ -350,7 +351,7 @@ export function InventoryManager({
                       <span className="min-w-0 flex-1">
                         <span className="block truncate text-sm font-bold text-ink-900">{i.name}</span>
                         <span className="block truncate text-xs text-ink-400">
-                          {[i.brand, i.category ? S.categories[i.category] : null].filter(Boolean).join(" · ") || "—"}
+                          {[i.color, i.brand, i.category ? S.categories[i.category] : null].filter(Boolean).join(" · ") || "—"}
                         </span>
                         <span className="mt-1 flex items-center gap-1 truncate text-[11px] text-ink-500">
                           <MapPin className="h-3 w-3 shrink-0" />
@@ -723,6 +724,7 @@ function ItemDrawer({
     category: item.category,
     unit: item.unit,
     barcode: item.barcode ?? "",
+    color: item.color ?? "",
     minQty: item.itemMin,
     costCents: item.costCents,
     note: item.note ?? "",
@@ -766,7 +768,7 @@ function ItemDrawer({
   const quick = (kind: "IN" | "OUT") => run(send("/api/business/inventory/move", "POST", { itemId: item.id, kind, qty: 1 }));
 
   return (
-    <Sheet title={item.name} onClose={onClose}>
+    <Sheet title={fullName(item)} onClose={onClose}>
       <div className="flex items-center gap-4">
         <ItemThumb src={photoUrl(item)} size="h-20 w-20" />
         <div className="min-w-0 flex-1">

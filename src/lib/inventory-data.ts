@@ -10,6 +10,7 @@ export interface InventoryItemRow {
   category: string | null;
   unit: string;
   barcode: string | null;
+  color: string | null;
   note: string | null;
   /** The item's own minimum (every branch without its own). */
   itemMin: number;
@@ -66,6 +67,7 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         category: true,
         unit: true,
         barcode: true,
+        color: true,
         note: true,
         minQty: true,
         costCents: true,
@@ -118,6 +120,7 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         category: it.category,
         unit: it.unit,
         barcode: it.barcode,
+        color: it.color,
         note: it.note,
         itemMin: it.minQty,
         costCents: it.costCents,

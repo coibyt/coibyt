@@ -6,7 +6,7 @@ import { fill } from "@/lib/shop-strings";
 import type { InventoryStrings } from "@/lib/inventory-strings";
 import type { InventoryData, InventoryItemRow } from "@/lib/inventory-data";
 import { CameraScanner, shrinkPhoto } from "@/components/inventory/camera-scanner";
-import { INPUT, ItemForm, ItemThumb, Stepper, emptyFields, fieldsPayload, photoUrl, type ItemFields } from "@/components/inventory/parts";
+import { INPUT, ItemForm, ItemThumb, Stepper, emptyFields, fieldsPayload, fullName, photoUrl, type ItemFields } from "@/components/inventory/parts";
 
 type Mode = "IN" | "OUT" | "COUNT";
 
@@ -21,7 +21,8 @@ type Stage =
   | { kind: "scan" }
   | { kind: "busy"; text: string }
   | { kind: "item"; itemId: string }
-  | { kind: "pick"; fields: ItemFields; matches: string[] }
+  // AI matches for a photo, or the items sharing a scanned barcode (shared).
+  | { kind: "pick"; fields: ItemFields; matches: string[]; shared?: boolean }
   | { kind: "new"; fields: ItemFields; note: string | null };
 
 const post = (url: string, body: unknown) =>
@@ -93,6 +94,12 @@ export function ScanSheet({
       if (it) openItem(it);
       return;
     }
+    if (r.d.type === "many") {
+      const ids = r.d.itemIds as string[];
+      if (ids.some((id) => !itemById(id))) await refresh();
+      setStage({ kind: "pick", fields: emptyFields(String(r.d.barcode ?? "")), matches: ids, shared: true });
+      return;
+    }
     setStage({ kind: "new", fields: emptyFields(typeof r.d.barcode === "string" ? r.d.barcode : ""), note: S.newItemSub });
   }
 
@@ -108,6 +115,15 @@ export function ScanSheet({
     }
     const fields: ItemFields = { ...emptyFields(f.barcode), ...f, photo: small };
     const matches = (r.d.matches as string[]) ?? [];
+    let list = items;
+    if (matches.some((id) => !list.find((i) => i.id === id))) list = (await refresh())?.items ?? list;
+    // Sure it's one we have: straight to the quantity.
+    const exact = typeof r.d.exact === "string" ? list.find((i) => i.id === r.d.exact) : undefined;
+    if (exact) {
+      openItem(exact);
+      setFlash({ ok: true, text: fill(S.aiFound, { item: fullName(exact) }) });
+      return;
+    }
     setStage(matches.length ? { kind: "pick", fields, matches } : { kind: "new", fields, note: S.aiFilled });
   }
 
@@ -208,6 +224,20 @@ export function ScanSheet({
 
         {stage.kind === "scan" && (
           <div className="mt-4 space-y-3">
+            <button
+              type="button"
+              onClick={() => photoRef.current?.click()}
+              className="flex w-full items-center gap-3 rounded-3xl bg-gradient-to-r from-[#1f182d] to-[#4b3878] p-4 text-left text-white shadow-[0_18px_36px_-20px_rgba(31,24,45,0.9)]"
+            >
+              <span className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/15">
+                <Camera className="h-6 w-6" />
+                <Sparkles className="absolute -right-1 -top-1 h-4 w-4 text-[#e8d3a6]" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-base font-bold">{S.photoMain}</span>
+                <span className="block text-xs text-white/70">{S.photoMainHint}</span>
+              </span>
+            </button>
             <form
               onSubmit={(e) => {
                 e.preventDefault();
@@ -221,15 +251,6 @@ export function ScanSheet({
                 {S.find}
               </button>
             </form>
-            <button
-              type="button"
-              onClick={() => photoRef.current?.click()}
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-white text-sm font-bold text-[#4b3878] ring-1 ring-[#e4dcef]"
-            >
-              <Sparkles className="h-4 w-4 text-[#c99a3f]" />
-              <Camera className="h-4 w-4" />
-              {S.takePhoto}
-            </button>
             <input
               ref={photoRef}
               type="file"
@@ -257,7 +278,7 @@ export function ScanSheet({
             <div className="flex items-center gap-3">
               <ItemThumb src={photoUrl(current)} size="h-16 w-16" />
               <div className="min-w-0">
-                <p className="truncate text-base font-bold text-ink-900">{current.name}</p>
+                <p className="truncate text-base font-bold text-ink-900">{fullName(current)}</p>
                 {current.brand && <p className="truncate text-xs text-ink-400">{current.brand}</p>}
                 <p className="mt-1 text-sm font-semibold text-ink-700">{fill(S.inStock, { n: `${current.qty} ${unit(current)}` })}</p>
               </div>
@@ -304,7 +325,8 @@ export function ScanSheet({
 
         {stage.kind === "pick" && (
           <div className="mt-4 rounded-3xl bg-white p-4 ring-1 ring-ink-100">
-            <p className="text-sm font-bold text-ink-900">{S.maybeIs}</p>
+            <p className="text-sm font-bold text-ink-900">{stage.shared ? S.sharedTitle : S.maybeIs}</p>
+            {stage.shared && <p className="mt-0.5 text-xs text-ink-500">{S.sharedHint}</p>}
             <ul className="mt-2 space-y-2">
               {stage.matches.map((id) => {
                 const it = itemById(id);
@@ -313,7 +335,7 @@ export function ScanSheet({
                     <button type="button" onClick={() => openItem(it)} className="flex w-full items-center gap-3 rounded-2xl p-2 text-left ring-1 ring-ink-100 hover:bg-mist-50">
                       <ItemThumb src={photoUrl(it)} />
                       <span className="min-w-0">
-                        <span className="block truncate text-sm font-bold text-ink-900">{it.name}</span>
+                        <span className="block truncate text-sm font-bold text-ink-900">{fullName(it)}</span>
                         <span className="block text-xs text-ink-400">{fill(S.inStock, { n: `${it.qty} ${unit(it)}` })}</span>
                       </span>
                     </button>
@@ -321,13 +343,23 @@ export function ScanSheet({
                 ) : null;
               })}
             </ul>
+            {stage.shared && (
+              <button
+                type="button"
+                onClick={() => photoRef.current?.click()}
+                className="mt-3 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#1f182d] to-[#4b3878] py-3 text-sm font-bold text-white"
+              >
+                <Camera className="h-4 w-4" />
+                {S.photoMain}
+              </button>
+            )}
             <button
               type="button"
-              onClick={() => setStage({ kind: "new", fields: stage.fields, note: S.aiFilled })}
-              className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-2xl py-3 text-sm font-bold text-[#4b3878] ring-1 ring-[#e4dcef]"
+              onClick={() => setStage({ kind: "new", fields: stage.fields, note: stage.shared ? S.newItemSub : S.aiFilled })}
+              className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-2xl py-3 text-sm font-bold text-[#4b3878] ring-1 ring-[#e4dcef]"
             >
               <Plus className="h-4 w-4" />
-              {S.notThese}
+              {stage.shared ? S.newSameCode : S.notThese}
             </button>
           </div>
         )}
@@ -341,11 +373,8 @@ export function ScanSheet({
                 {stage.note}
               </p>
             )}
-            <div className="mt-3">
-              <ItemForm S={S} value={stage.fields} onChange={(fields) => setStage({ ...stage, fields })} currency={data.currency} />
-            </div>
             {mode !== "OUT" && (
-              <div className="mt-4">
+              <div className="mt-3 rounded-2xl bg-emerald-50/60 p-3 ring-1 ring-emerald-100">
                 <p className="text-xs font-bold text-ink-700">{mode === "COUNT" ? S.countNow : S.qty}</p>
                 <div className="mt-1.5">
                   <Stepper value={qty} onChange={setQty} />
@@ -356,6 +385,9 @@ export function ScanSheet({
                 </label>
               </div>
             )}
+            <div className="mt-3">
+              <ItemForm S={S} value={stage.fields} onChange={(fields) => setStage({ ...stage, fields })} currency={data.currency} />
+            </div>
             <div className="mt-4 flex gap-2">
               <button type="button" onClick={() => setStage({ kind: "scan" })} className="h-12 flex-1 rounded-2xl bg-mist-50 text-sm font-bold text-ink-700 ring-1 ring-ink-100">
                 {S.cancel}

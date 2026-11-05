@@ -16,6 +16,7 @@ export interface ItemFields {
   category: string | null;
   unit: string;
   barcode: string;
+  color: string;
   minQty: number;
   costCents: number | null;
   note: string;
@@ -23,7 +24,7 @@ export interface ItemFields {
   photo: string | null;
 }
 
-export const emptyFields = (barcode = ""): ItemFields => ({ name: "", brand: "", category: null, unit: "pcs", barcode, minQty: 2, costCents: null, note: "", photo: null });
+export const emptyFields = (barcode = ""): ItemFields => ({ name: "", brand: "", category: null, unit: "pcs", barcode, color: "", minQty: 2, costCents: null, note: "", photo: null });
 
 export const photoUrl = (it: Pick<InventoryItemRow, "id" | "photoVer">) => (it.photoVer ? `/api/business/inventory/items/${it.id}/photo?v=${it.photoVer}` : null);
 
@@ -86,6 +87,10 @@ export function ItemForm({ S, value, onChange, currency }: { S: InventoryStrings
       <label className={label}>
         {S.name}
         <input value={value.name} onChange={(e) => set("name", e.target.value)} maxLength={160} className={`${INPUT} mt-1`} />
+      </label>
+      <label className={label}>
+        {S.color}
+        <input value={value.color} onChange={(e) => set("color", e.target.value)} placeholder={S.colorPh} maxLength={60} className={`${INPUT} mt-1`} />
       </label>
       <div className="grid grid-cols-2 gap-3">
         <label className={label}>
@@ -176,3 +181,6 @@ export function Stepper({ value, onChange, min = 1 }: { value: number; onChange:
     </div>
   );
 }
+
+/** "GelColor 15 ml · Big Apple Red" */
+export const fullName = (it: { name: string; color?: string | null }) => (it.color ? `${it.name} · ${it.color}` : it.name);

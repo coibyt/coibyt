@@ -49,7 +49,8 @@ export async function inventoryContext(): Promise<InventoryContext | null> {
 }
 
 /** What a scanned code points at: one of the owner's items (by barcode or
- * VI- label), one of this branch's cupboards (VL- label), or nothing yet. */
+ * VI- label), several items sharing that barcode, one of this branch's
+ * cupboards (VL- label), or nothing yet. */
 export async function resolveScan(ctx: InventoryContext, raw: string) {
   const code = raw.trim();
   const upper = code.toUpperCase();
@@ -57,10 +58,15 @@ export async function resolveScan(ctx: InventoryContext, raw: string) {
     const location = await prisma.inventoryLocation.findFirst({ where: { code: upper.slice(LOCATION_PREFIX.length), businessId: ctx.businessId } });
     return location ? ({ type: "location", location } as const) : ({ type: "unknown", barcode: null } as const);
   }
-  const item = upper.startsWith(ITEM_PREFIX)
-    ? await prisma.inventoryItem.findFirst({ where: { code: upper.slice(ITEM_PREFIX.length), ownerId: ctx.ownerId, active: true } })
-    : await prisma.inventoryItem.findFirst({ where: { barcode: code, ownerId: ctx.ownerId, active: true } });
-  if (item) return { type: "item", itemId: item.id } as const;
+  if (upper.startsWith(ITEM_PREFIX)) {
+    const item = await prisma.inventoryItem.findFirst({ where: { code: upper.slice(ITEM_PREFIX.length), ownerId: ctx.ownerId, active: true }, select: { id: true } });
+    if (item) return { type: "item", itemId: item.id } as const;
+  } else {
+    const items = await prisma.inventoryItem.findMany({ where: { barcode: code, ownerId: ctx.ownerId, active: true }, select: { id: true }, orderBy: { name: "asc" } });
+    if (items.length === 1) return { type: "item", itemId: items[0].id } as const;
+    // One barcode for several products (e.g. colours of one line): pick one.
+    if (items.length > 1) return { type: "many", itemIds: items.map((i) => i.id), barcode: code } as const;
+  }
   // A product's own barcode we haven't seen: offer to add it.
   return { type: "unknown", barcode: upper.startsWith(ITEM_PREFIX) ? null : code } as const;
 }
