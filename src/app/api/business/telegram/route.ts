@@ -16,7 +16,7 @@ async function state(businessId: string) {
         defaultLocale: true,
         telegramRemindersOn: true,
         telegramGroups: {
-          select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, locale: true },
+          select: { id: true, title: true, notifyIncome: true, notifyBookings: true, notifyStock: true, allBranches: true, staffIds: true, locale: true },
           orderBy: { createdAt: "asc" },
         },
       },

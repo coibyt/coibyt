@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { stockForOrder } from "@/lib/inventory";
 import { z } from "zod";
 import { requireSectionBusinessId } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
@@ -36,6 +37,10 @@ export async function PATCH(
   if (!existing) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   const order = await prisma.order.update({ where: { id }, data: { status } });
+  // Products linked to the salon's stock (src/lib/inventory.ts).
+  if (status !== existing.status && (status === "COMPLETED" || existing.status === "COMPLETED")) {
+    await stockForOrder(id, status === "COMPLETED").catch((err) => console.error("[order stock]", id, err));
+  }
 
   let emailed = false;
   const to = existing.customer.isGuest ? existing.customer.guestContactEmail : existing.customer.email;

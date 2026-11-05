@@ -169,7 +169,7 @@ export async function moveStock(
     }),
     TX,
   );
-  if (r.justLow) void emailLowStock(item.id, ctx.businessId, r.after, r.min);
+  if (r.justLow) void alertLowStock(item.id, ctx.businessId, r.after, r.min);
   return r.after;
 }
 
@@ -190,12 +190,53 @@ export async function transferStock(ctx: InventoryContext, input: { itemId: stri
     const inn = await applyMove(tx, { itemId: item.id, businessId: to.id, kind: "XFER_IN", next: (q) => q + input.qty, note: `← ${fromName}`, by });
     return [out, inn] as const;
   }, TX);
-  if (out.justLow) void emailLowStock(item.id, ctx.businessId, out.after, out.min);
+  if (out.justLow) void alertLowStock(item.id, ctx.businessId, out.after, out.min);
   return { here: out.after, there: inn.after };
 }
 
-/** Tells the owner, once per drop, that an item ran low at a branch. */
-async function emailLowStock(itemId: string, businessId: string, qty: number, min: number) {
+/** A shop order and the salon's stock: completing it takes its products out
+ * of the ordering branch (only those linked to a stock item, never below
+ * zero — the sale already happened); un-completing or cancelling a
+ * completed order puts them back. Idempotent through Order.stockTakenAt. */
+export async function stockForOrder(orderId: string, take: boolean) {
+  const order = await prisma.order.findUnique({
+    where: { id: orderId },
+    select: { id: true, businessId: true, stockTakenAt: true, business: { select: { ownerId: true } }, items: { select: { productId: true, qty: true } } },
+  });
+  if (!order || (take ? !!order.stockTakenAt : !order.stockTakenAt)) return;
+  const qtyBy = new Map<string, number>();
+  for (const it of order.items) if (it.productId) qtyBy.set(it.productId, (qtyBy.get(it.productId) ?? 0) + it.qty);
+  const linked = qtyBy.size
+    ? await prisma.inventoryItem.findMany({ where: { ownerId: order.business.ownerId, active: true, productId: { in: [...qtyBy.keys()] } }, select: { id: true, productId: true } })
+    : [];
+  const by = { byUserId: null, byName: "Shop" };
+  const note = `#${order.id.slice(-6).toUpperCase()}`;
+  const results = await prisma.$transaction(async (tx) => {
+    const out: { itemId: string; after: number; min: number; justLow: boolean }[] = [];
+    for (const it of linked) {
+      const n = qtyBy.get(it.productId!) ?? 0;
+      const r = await applyMove(tx, {
+        itemId: it.id,
+        businessId: order.businessId,
+        kind: take ? "SALE" : "RETURN",
+        next: (q) => (take ? Math.max(0, q - n) : q + n),
+        note,
+        by,
+      });
+      out.push({ itemId: it.id, ...r });
+    }
+    await tx.order.update({ where: { id: order.id }, data: { stockTakenAt: take ? new Date() : null } });
+    return out;
+  }, TX);
+  for (const r of results) if (r.justLow) void alertLowStock(r.itemId, order.businessId, r.after, r.min);
+}
+
+/** Tells the owner by email, and the Telegram groups that follow stock,
+ * once per drop, that an item ran low at a branch. */
+async function alertLowStock(itemId: string, businessId: string, qty: number, min: number) {
+  void import("@/lib/telegram")
+    .then((m) => m.telegramLowStock(itemId, businessId, qty, min))
+    .catch((err) => console.error("[inventory low-stock telegram]", itemId, err));
   try {
     const [item, business] = await Promise.all([
       prisma.inventoryItem.findUnique({ where: { id: itemId }, select: { name: true, brand: true, unit: true } }),

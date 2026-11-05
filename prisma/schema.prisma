@@ -771,6 +771,8 @@ model TelegramGroup {
   /// What the bot posts here: late income reports, and/or new bookings for today.
   notifyIncome   Boolean   @default(true)
   notifyBookings Boolean   @default(false)
+  // Low-stock alerts from the salon's stock (src/lib/inventory.ts).
+  notifyStock    Boolean   @default(false)
   /// Every one of the owner's branches, not only this one.
   allBranches    Boolean   @default(false)
   /// Only these staff rows (any of the owner's branches); null = everyone.
@@ -1946,6 +1948,9 @@ model Order {
   customer   User     @relation(fields: [customerId], references: [id])
 
   status        OrderStatus        @default(PENDING_PAYMENT)
+  // When completing it took its products out of stock (src/lib/inventory.ts
+  // stockForOrder); cleared when that was put back.
+  stockTakenAt  DateTime?
   paymentMethod OrderPaymentMethod
   totalCents    Int
   currency      String             @default("VND")
@@ -2365,6 +2370,9 @@ model InventoryItem {
   minQty    Int      @default(0)
   // What one unit costs to buy, in the salon's currency (smallest unit).
   costCents Int?
+  // A product the salon also sells in its shop: completing an order of it
+  // takes it out of the ordering branch's stock (Order.stockTakenAt).
+  productId String?  @unique
   photo     Bytes?   @db.MediumBlob
   photoMime String?  @db.VarChar(40)
   note      String?  @db.VarChar(500)

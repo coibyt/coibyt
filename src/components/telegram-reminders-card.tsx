@@ -20,6 +20,7 @@ interface Group {
   title: string;
   notifyIncome: boolean;
   notifyBookings: boolean;
+  notifyStock: boolean;
   allBranches: boolean;
   staffIds: string[] | null;
   locale: string;
@@ -41,6 +42,7 @@ const T = {
     kinds: "Nhóm này nhận",
     kindIncome: "Nhắc báo cáo thu nhập",
     kindBookings: "Lịch hẹn mới trong ngày",
+    kindStock: "Kho sắp hết hàng",
     scope: "Chi nhánh",
     thisBranch: "Chi nhánh này",
     allBranches: "Tất cả chi nhánh",
@@ -76,6 +78,7 @@ const T = {
     kinds: "This group gets",
     kindIncome: "Income report reminders",
     kindBookings: "New bookings today",
+    kindStock: "Stock running low",
     scope: "Branch",
     thisBranch: "This branch",
     allBranches: "All branches",
@@ -111,6 +114,7 @@ const T = {
     kinds: "Ryhmä saa",
     kindIncome: "Muistutukset tuloraporteista",
     kindBookings: "Päivän uudet varaukset",
+    kindStock: "Varasto vähissä",
     scope: "Toimipiste",
     thisBranch: "Tämä toimipiste",
     allBranches: "Kaikki toimipisteet",
@@ -324,8 +328,12 @@ export function TelegramRemindersCard({ locale }: { locale: string }) {
                           {g.notifyBookings && <Check className="mr-1 inline h-3 w-3" />}
                           {t.kindBookings}
                         </button>
+                        <button type="button" onClick={() => saveGroup(g, { notifyStock: !g.notifyStock })} className={chip(g.notifyStock)}>
+                          {g.notifyStock && <Check className="mr-1 inline h-3 w-3" />}
+                          {t.kindStock}
+                        </button>
                       </div>
-                      {!g.notifyIncome && !g.notifyBookings && <p className="mt-1.5 text-[11px] font-semibold text-berry-600">{t.nothing}</p>}
+                      {!g.notifyIncome && !g.notifyBookings && !g.notifyStock && <p className="mt-1.5 text-[11px] font-semibold text-berry-600">{t.nothing}</p>}
 
                       <p className="mt-3 text-[10px] font-bold uppercase tracking-wider text-ink-400">{t.language}</p>
                       <div className="mt-1.5 flex flex-wrap gap-1.5">

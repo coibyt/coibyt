@@ -17,6 +17,11 @@ export interface InventoryItemRow {
   costCents: number | null;
   /** The nearest expiry date of what this branch holds, "YYYY-MM-DD". */
   expiresAt: string | null;
+  /** Used per day here over the last 30 days, and the days that lasts. */
+  perDay: number;
+  daysLeft: number | null;
+  /** The shop product it is the stock of, if linked. */
+  productId: string | null;
   /** Changes when the photo does, for the image URL; null = no photo. */
   photoVer: number | null;
   /** At the active branch. */
@@ -42,13 +47,15 @@ export interface InventoryData {
   stockValue: number;
   /** What this branch used (scanned out) in 30 days, at purchase prices. */
   spent30: number;
+  /** Owner: the active branch's shop products, to link items to. */
+  products: { id: string; name: string }[];
 }
 
 /** Everything the stock page shows for the active branch. */
 export async function loadInventory(ctx: InventoryContext): Promise<InventoryData> {
   const branches = ctx.isOwner ? (await listOwnedBusinesses(ctx.ownerId)).map((b) => ({ id: b.id, name: b.name })) : [];
   const since30 = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
-  const [items, locations, moves, used, out30] = await Promise.all([
+  const [items, locations, moves, used, out30, products] = await Promise.all([
     prisma.inventoryItem.findMany({
       where: { ownerId: ctx.ownerId, active: true },
       select: {
@@ -62,6 +69,7 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         note: true,
         minQty: true,
         costCents: true,
+        productId: true,
         photoMime: true,
         updatedAt: true,
         stock: {
@@ -88,10 +96,14 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
     }),
     prisma.inventoryMove.groupBy({
       by: ["itemId"],
-      where: { businessId: ctx.businessId, kind: "OUT", createdAt: { gte: since30 } },
+      where: { businessId: ctx.businessId, kind: { in: ["OUT", "SALE"] }, createdAt: { gte: since30 } },
       _sum: { delta: true },
     }),
+    ctx.isOwner
+      ? prisma.product.findMany({ where: { businessId: ctx.businessId, active: true }, select: { id: true, name: true }, orderBy: { name: "asc" } })
+      : Promise.resolve([] as { id: string; name: string }[]),
   ]);
+  const usedBy = new Map(out30.map((r) => [r.itemId, Math.abs(r._sum.delta ?? 0)]));
   const cost = new Map(items.map((i) => [i.id, i.costCents ?? 0]));
   const here = (it: (typeof items)[number]) => it.stock.find((s) => s.businessId === ctx.businessId);
 
@@ -110,6 +122,11 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
         itemMin: it.minQty,
         costCents: it.costCents,
         expiresAt: stock?.expiresAt ? stock.expiresAt.toISOString().slice(0, 10) : null,
+        ...(() => {
+          const perDay = (usedBy.get(it.id) ?? 0) / 30;
+          return { perDay, daysLeft: perDay > 0 ? Math.floor((stock?.qty ?? 0) / perDay) : null };
+        })(),
+        productId: it.productId,
         photoVer: it.photoMime ? it.updatedAt.getTime() : null,
         qty: stock?.qty ?? 0,
         min: minFor(stock, it),
@@ -136,6 +153,12 @@ export async function loadInventory(ctx: InventoryContext): Promise<InventoryDat
     used7: Math.abs(used._sum.delta ?? 0),
     currency: ctx.access.business.defaultCurrency,
     stockValue: items.reduce((sum, it) => sum + (here(it)?.qty ?? 0) * (it.costCents ?? 0), 0),
-    spent30: out30.reduce((sum, r) => sum + Math.abs(r._sum.delta ?? 0) * (cost.get(r.itemId) ?? 0), 0),
+    // Salon use only — shop sales are takings, not spending.
+    spent30: (await prisma.inventoryMove.groupBy({
+      by: ["itemId"],
+      where: { businessId: ctx.businessId, kind: "OUT", createdAt: { gte: since30 } },
+      _sum: { delta: true },
+    })).reduce((sum, r) => sum + Math.abs(r._sum.delta ?? 0) * (cost.get(r.itemId) ?? 0), 0),
+    products,
   };
 }

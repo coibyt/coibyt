@@ -25,7 +25,7 @@ export default async function InventoryPage({ params, searchParams }: { params: 
         branchName={ctx.access.business.name}
         canWrite={ctx.canWrite}
         isOwner={ctx.isOwner}
-        initialTab={(["stock", "buy", "history", "places"] as const).find((t) => t === tab) as Tab | undefined}
+        initialTab={(["stock", "buy", "history", "places", "report"] as const).find((t) => t === tab) as Tab | undefined}
       />
     </div>
   );

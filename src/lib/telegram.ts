@@ -156,6 +156,8 @@ const T = {
     bookingLink: "Xem lịch hẹn:",
     noStaff: "chưa chọn",
     testBookings: "✅ Bot đang hoạt động. Nhóm này sẽ nhận thông báo khi có lịch hẹn mới trong ngày ({salon}).",
+    lowStock: "⚠️ <b>Sắp hết hàng</b> · {salon}\n\n📦 {item}: còn <b>{qty}</b> (tối thiểu {min})",
+    lowStockLink: "Danh sách cần mua:",
   },
   en: {
     linked: "✅ Group <b>{group}</b> is now linked to <b>{salon}</b> on VaraaAi.\n\nBy default the bot reminds staff whose bookings ended over 24 hours ago without an income report (once a day). The owner chooses what this group gets — reminders, new bookings today, which staff, which branches — under VaraaAi › Income › Telegram bot.",
@@ -170,6 +172,8 @@ const T = {
     bookingLink: "See the bookings:",
     noStaff: "not chosen",
     testBookings: "✅ The bot is working. This group gets a message for every new booking made for today ({salon}).",
+    lowStock: "⚠️ <b>Running low</b> · {salon}\n\n📦 {item}: <b>{qty}</b> left (minimum {min})",
+    lowStockLink: "Shopping list:",
   },
   fi: {
     linked: "✅ Ryhmä <b>{group}</b> on nyt yhdistetty salonkiin <b>{salon}</b> VaraaAi:ssa.\n\nOletuksena botti muistuttaa työntekijöitä, joiden varaus päättyi yli 24 tuntia sitten ilman tuloraporttia (kerran päivässä). Omistaja valitsee ryhmän sisällön — muistutukset, päivän uudet varaukset, työntekijät, toimipisteet — kohdassa VaraaAi › Tulot › Telegram-botti.",
@@ -184,6 +188,8 @@ const T = {
     bookingLink: "Katso varaukset:",
     noStaff: "ei valittu",
     testBookings: "✅ Botti toimii. Tämä ryhmä saa viestin jokaisesta tälle päivälle tehdystä uudesta varauksesta ({salon}).",
+    lowStock: "⚠️ <b>Vähissä</b> · {salon}\n\n📦 {item}: <b>{qty}</b> jäljellä (minimi {min})",
+    lowStockLink: "Ostoslista:",
   },
 };
 const strings = (locale: string) => (T as Record<string, (typeof T)["vi"]>)[locale] ?? T.en;
@@ -334,6 +340,33 @@ export async function telegramNewBooking(bookingId: string) {
       `${S.bookingLink} ${SITE_URL}/business/dashboard/bookings`,
     ].join("\n");
     await sendTelegram(g.chatId, text).catch((err) => console.error("[telegram] booking", g.chatId, err));
+  }
+}
+
+/** Groups that follow the salon's stock: an item ran low at a branch. */
+export async function telegramLowStock(itemId: string, businessId: string, qty: number, min: number) {
+  if (!(await botConfig())) return;
+  const [item, business] = await Promise.all([
+    prisma.inventoryItem.findUnique({ where: { id: itemId }, select: { name: true, brand: true } }),
+    prisma.business.findUnique({ where: { id: businessId }, select: { id: true, name: true, ownerId: true } }),
+  ]);
+  if (!item || !business) return;
+  const groups = await prisma.telegramGroup.findMany({
+    where: {
+      notifyStock: true,
+      business: { telegramRemindersOn: true, status: "APPROVED" },
+      OR: [{ businessId }, { allBranches: true, business: { ownerId: business.ownerId } }],
+    },
+    select: { chatId: true, locale: true, business: { select: { defaultLocale: true } } },
+  });
+  const done = new Set<string>();
+  for (const g of groups) {
+    if (done.has(g.chatId)) continue;
+    done.add(g.chatId);
+    const S = strings(groupLocale(g, g.business.defaultLocale));
+    const name = item.brand ? `${item.brand} ${item.name}` : item.name;
+    const text = [fill(S.lowStock, { salon: esc(business.name), item: esc(name), qty, min }), "", `${S.lowStockLink} ${SITE_URL}/business/dashboard/inventory?tab=buy`].join("\n");
+    await sendTelegram(g.chatId, text).catch((err) => console.error("[telegram] low stock", g.chatId, err));
   }
 }
 

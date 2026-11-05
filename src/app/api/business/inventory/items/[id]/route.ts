@@ -9,6 +9,8 @@ const schema = itemFieldsSchema.partial().extend({
   branchMinQty: z.number().int().min(0).max(100000).nullable().optional(),
   locationId: z.string().min(1).nullable().optional(),
   expiresAt: expiryDate.nullable().optional(),
+  // A product sold in one of the owner's shops; null unlinks.
+  productId: z.string().min(1).nullable().optional(),
 });
 
 /** Edits an item; branch fields only touch the active branch's stock row. */
@@ -30,6 +32,12 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
   if (locationId) {
     const loc = await prisma.inventoryLocation.findFirst({ where: { id: locationId, businessId: ctx.businessId }, select: { id: true } });
     if (!loc) return NextResponse.json({ error: "INVALID" }, { status: 400 });
+  }
+  if (rest.productId) {
+    const product = await prisma.product.findFirst({ where: { id: rest.productId, business: { ownerId: ctx.ownerId } }, select: { id: true } });
+    if (!product) return NextResponse.json({ error: "INVALID" }, { status: 400 });
+    const taken = await prisma.inventoryItem.findFirst({ where: { productId: rest.productId, NOT: { id } }, select: { id: true } });
+    if (taken) return NextResponse.json({ error: "PRODUCT_TAKEN" }, { status: 409 });
   }
   const decoded = photo ? decodePhoto(photo) : null;
 
@@ -63,7 +71,7 @@ export async function DELETE(_req: Request, { params }: { params: Promise<{ id: 
   const ctx = await inventoryContext();
   if (!ctx?.isOwner) return NextResponse.json({ error: "FORBIDDEN" }, { status: 403 });
   const { id } = await params;
-  const r = await prisma.inventoryItem.updateMany({ where: { id, ownerId: ctx.ownerId }, data: { active: false, barcode: null } });
+  const r = await prisma.inventoryItem.updateMany({ where: { id, ownerId: ctx.ownerId }, data: { active: false, barcode: null, productId: null } });
   if (r.count === 0) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   return NextResponse.json({ ok: true });
 }

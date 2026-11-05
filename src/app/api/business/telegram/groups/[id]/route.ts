@@ -10,6 +10,7 @@ import { TELEGRAM_LOCALES } from "@/lib/telegram";
 const schema = z.object({
   notifyIncome: z.boolean().optional(),
   notifyBookings: z.boolean().optional(),
+  notifyStock: z.boolean().optional(),
   allBranches: z.boolean().optional(),
   // null or [] = every staff member.
   staffIds: z.array(z.string().cuid()).max(200).nullable().optional(),
@@ -37,7 +38,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
     where: { id },
     // An empty choice means everyone: stored as NULL.
     data: { ...flags, ...(staff !== undefined ? { staffIds: staff?.length ? staff : Prisma.DbNull } : {}) },
-    select: { id: true, title: true, notifyIncome: true, notifyBookings: true, allBranches: true, staffIds: true, locale: true },
+    select: { id: true, title: true, notifyIncome: true, notifyBookings: true, notifyStock: true, allBranches: true, staffIds: true, locale: true },
   });
   return NextResponse.json({ group: updated });
 }

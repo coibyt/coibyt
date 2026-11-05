@@ -6,8 +6,10 @@ import {
   ArrowDownToLine,
   ArrowLeftRight,
   ArrowUpFromLine,
+  BarChart3,
   Boxes,
   CalendarClock,
+  TrendingDown,
   Check,
   ClipboardCopy,
   History,
@@ -29,6 +31,7 @@ import { formatMoney } from "@/lib/money";
 import type { InventoryStrings } from "@/lib/inventory-strings";
 import type { InventoryData, InventoryItemRow } from "@/lib/inventory-data";
 import { ScanSheet } from "@/components/inventory/scan-sheet";
+import { ReportTab } from "@/components/inventory/report-tab";
 import {
   CATEGORIES,
   INPUT,
@@ -43,11 +46,14 @@ import {
   type ItemFields,
 } from "@/components/inventory/parts";
 
-export type Tab = "stock" | "buy" | "history" | "places";
+export type Tab = "stock" | "buy" | "history" | "places" | "report";
 
 const DAY = 24 * 60 * 60 * 1000;
 /** Expires within 30 days (or already has), with something still on the shelf. */
 const expiringSoon = (i: InventoryItemRow) => !!i.expiresAt && i.qty > 0 && new Date(i.expiresAt).getTime() - Date.now() < 30 * DAY;
+/** At the last 30 days' pace, gone within this many days. */
+const FORECAST_DAYS = 7;
+const runsOutSoon = (i: InventoryItemRow) => i.daysLeft != null && i.daysLeft <= FORECAST_DAYS;
 
 const send = (url: string, method: string, body?: unknown) =>
   fetch(url, { method, headers: { "Content-Type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) })
@@ -106,6 +112,8 @@ export function InventoryManager({
   const low = data.items.filter((i) => statusOf(i) === "low");
   const out = data.items.filter((i) => statusOf(i) === "out");
   const toBuy = data.items.filter((i) => i.min > 0 && i.qty <= i.min).sort((a, b) => a.qty - b.qty);
+  // Not at the minimum yet, but going fast.
+  const forecast = data.items.filter((i) => i.qty > 0 && !(i.min > 0 && i.qty <= i.min) && runsOutSoon(i)).sort((a, b) => (a.daysLeft ?? 0) - (b.daysLeft ?? 0));
 
   const shown = useMemo(() => {
     const words = q.trim().toLowerCase();
@@ -154,9 +162,10 @@ export function InventoryManager({
   ];
   const tabs: { id: Tab; label: string; icon: typeof Boxes; badge?: number }[] = [
     { id: "stock", label: S.tabStock, icon: Boxes },
-    { id: "buy", label: S.tabBuy, icon: ShoppingCart, badge: toBuy.length },
+    { id: "buy", label: S.tabBuy, icon: ShoppingCart, badge: toBuy.length + forecast.length },
     { id: "history", label: S.tabHistory, icon: History },
     { id: "places", label: S.tabPlaces, icon: QrCode },
+    { id: "report", label: S.tabReport, icon: BarChart3 },
   ];
 
   return (
@@ -347,6 +356,12 @@ export function InventoryManager({
                           <MapPin className="h-3 w-3 shrink-0" />
                           {placeName(i.locationId) ?? S.noPlace}
                         </span>
+                        {i.qty > 0 && runsOutSoon(i) && (
+                          <span className="mr-1 mt-1 inline-flex items-center gap-1 rounded-full bg-sky-50 px-2 py-0.5 text-[10px] font-bold text-sky-700 ring-1 ring-sky-200">
+                            <TrendingDown className="h-3 w-3" />
+                            {fill(S.daysLeft, { n: i.daysLeft ?? 0 })}
+                          </span>
+                        )}
                         {expiringSoon(i) && (
                           <span className="mt-1 inline-flex items-center gap-1 rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-bold text-orange-700 ring-1 ring-orange-200" suppressHydrationWarning>
                             <CalendarClock className="h-3 w-3" />
@@ -410,7 +425,7 @@ export function InventoryManager({
             )}
           </div>
           {toBuy.length === 0 ? (
-            <p className="px-5 py-10 text-center text-sm text-ink-400">{S.buyEmpty}</p>
+            forecast.length === 0 && expiring.length === 0 && <p className="px-5 py-10 text-center text-sm text-ink-400">{S.buyEmpty}</p>
           ) : (
             <ul className="divide-y divide-ink-100">
               {toBuy.map((i) => {
@@ -431,6 +446,33 @@ export function InventoryManager({
                 );
               })}
             </ul>
+          )}
+          {forecast.length > 0 && (
+            <div className="border-t border-ink-100">
+              <div className="px-5 pt-5">
+                <p className="flex items-center gap-2 text-base font-bold text-ink-900">
+                  <TrendingDown className="h-4 w-4 text-sky-600" />
+                  {S.forecastTitle}
+                </p>
+                <p className="mt-0.5 text-xs text-ink-400">{S.forecastSub}</p>
+              </div>
+              <ul className="mt-2 divide-y divide-ink-100">
+                {forecast.map((i) => (
+                  <li key={i.id}>
+                    <button type="button" onClick={() => setOpenId(i.id)} className="flex w-full items-center gap-3 px-5 py-3 text-left hover:bg-mist-50/60">
+                      <ItemThumb src={photoUrl(i)} size="h-11 w-11" />
+                      <span className="min-w-0 flex-1">
+                        <span className="block truncate text-sm font-bold text-ink-900">{i.name}</span>
+                        <span className="block text-xs text-ink-400">
+                          {fill(S.left, { n: `${i.qty} ${unit(i)}` })} · {fill(S.forecastLine, { n: i.perDay.toFixed(1).replace(".0", ""), d: i.daysLeft ?? 0 })}
+                        </span>
+                      </span>
+                      <span className="shrink-0 rounded-full bg-sky-50 px-3 py-1 text-xs font-bold text-sky-700 ring-1 ring-sky-200">{fill(S.daysLeft, { n: i.daysLeft ?? 0 })}</span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
           {expiring.length > 0 && (
             <div className="border-t border-ink-100">
@@ -487,6 +529,8 @@ export function InventoryManager({
                       <ArrowUpFromLine className="h-4 w-4" />
                     ) : m.kind.startsWith("XFER") ? (
                       <ArrowLeftRight className="h-4 w-4" />
+                    ) : m.kind === "SALE" || m.kind === "RETURN" ? (
+                      <ShoppingCart className="h-4 w-4" />
                     ) : (
                       <Pencil className="h-4 w-4" />
                     )}
@@ -598,6 +642,8 @@ export function InventoryManager({
         </section>
       )}
 
+      {tab === "report" && <ReportTab S={S} locale={locale} />}
+
       {scanner && <ScanSheet S={S} initialMode={scanner} data={data} reload={reload} onClose={() => setScanner(null)} />}
 
       {adding && (
@@ -698,7 +744,17 @@ function ItemDrawer({
     const r = await p;
     setBusy(false);
     if (!r.ok) {
-      setMsg({ ok: false, text: r.d.error === "NOT_ENOUGH" ? fill(S.notEnough, { n: Number(r.d.qty ?? 0) }) : r.d.error === "BARCODE_TAKEN" ? S.errBarcodeTaken : S.errGeneric });
+      setMsg({
+        ok: false,
+        text:
+          r.d.error === "NOT_ENOUGH"
+            ? fill(S.notEnough, { n: Number(r.d.qty ?? 0) })
+            : r.d.error === "BARCODE_TAKEN"
+              ? S.errBarcodeTaken
+              : r.d.error === "PRODUCT_TAKEN"
+                ? S.errProductTaken
+                : S.errGeneric,
+      });
       return false;
     }
     const d = await reload();
@@ -719,6 +775,10 @@ function ItemDrawer({
             {item.qty} <span className="text-base font-semibold text-ink-400">{unit}</span>
           </p>
           <p className="text-xs text-ink-400">{fill(S.min, { n: item.min })}</p>
+          <p className="mt-0.5 flex items-center gap-1 text-xs text-sky-700">
+            <TrendingDown className="h-3.5 w-3.5 shrink-0" />
+            {item.daysLeft != null ? fill(S.forecastLine, { n: item.perDay.toFixed(1).replace(".0", ""), d: item.daysLeft }) : S.forecastNone}
+          </p>
         </div>
       </div>
 
@@ -794,6 +854,28 @@ function ItemDrawer({
             </label>
           </div>
         </div>
+      )}
+
+      {isOwner && data.products.length > 0 && (
+        <label className="mt-4 block rounded-2xl bg-[#fbf3e1]/60 p-4 text-xs font-bold text-ink-700 ring-1 ring-[#f0dfb7]">
+          <span className="flex items-center gap-1.5">
+            <ShoppingCart className="h-3.5 w-3.5 text-[#8a6a2b]" />
+            {S.shopLink}
+          </span>
+          <select
+            value={item.productId ?? ""}
+            onChange={(e) => run(send(`/api/business/inventory/items/${item.id}`, "PATCH", { productId: e.target.value || null }))}
+            className={`${INPUT} mt-2`}
+          >
+            <option value="">{S.shopNone}</option>
+            {data.products.map((p) => (
+              <option key={p.id} value={p.id}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+          <span className="mt-1.5 block text-[11px] font-normal text-ink-500">{S.shopHint}</span>
+        </label>
       )}
 
       {isOwner && canWrite && otherBranches.length > 0 && (
