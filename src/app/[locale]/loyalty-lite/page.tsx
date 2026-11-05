@@ -8,6 +8,7 @@ import { ogImage } from "@/lib/og-image";
 import { LiteSignupForm } from "@/components/loyalty-lite/signup-form";
 import { LiteSignupPopup } from "@/components/loyalty-lite/signup-popup";
 import { LiteVisitTracker } from "@/components/loyalty-lite/visit-tracker";
+import { LiteOr, LiteTryNow } from "@/components/loyalty-lite/try-now";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -81,7 +82,15 @@ export default async function LoyaltyLitePage({ params, searchParams }: { params
                   </Link>
                 </div>
               ) : (
-                <LiteSignupForm locale={locale} t={t} expired={link === "expired"} initialMode={login ? "login" : "signup"} />
+                <>
+                  {!login && (
+                    <>
+                      <LiteTryNow locale={locale} t={t} />
+                      <LiteOr label={t.tryOr} />
+                    </>
+                  )}
+                  <LiteSignupForm locale={locale} t={t} expired={link === "expired"} initialMode={login ? "login" : "signup"} />
+                </>
               )}
             </div>
           </div>

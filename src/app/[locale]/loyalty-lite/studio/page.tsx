@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "@/i18n/navigation";
 import { prisma } from "@/lib/prisma";
 import { siteSerif } from "@/lib/site-fonts";
-import { currentLiteSession, LITE_MAX_CARDS, liteCardUrl } from "@/lib/loyalty-lite";
+import { currentLiteSession, LITE_MAX_CARDS, LITE_TRIAL_FREE_CARDS, liteCardUrl } from "@/lib/loyalty-lite";
 import { liteStrings } from "@/lib/loyalty-lite-strings";
 import { LiteStudio } from "@/components/loyalty-lite/studio";
 
@@ -32,6 +32,7 @@ export default async function LoyaltyLiteStudioPage({ params }: { params: Promis
         t={t}
         cardBase={liteCardUrl("", salon.locale)}
         maxCards={LITE_MAX_CARDS}
+        trialFreeCards={LITE_TRIAL_FREE_CARDS}
         stamps30={stamps30}
         role={session.role}
         staffName={session.staff?.name ?? null}
@@ -52,6 +53,7 @@ export default async function LoyaltyLiteStudioPage({ params }: { params: Promis
             rewardsUsed: c.rewardsUsed,
             lastStampAt: c.lastStampAt?.toISOString() ?? null,
             createdAt: c.createdAt.toISOString(),
+            sample: c.sample,
           })),
         }}
       />

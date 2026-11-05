@@ -2039,7 +2039,13 @@ model ToolEvent {
 /// upgrade (same email applies as an owner) its cards move to the salon.
 model LiteSalon {
   id                 String     @id @default(cuid())
-  email              String     @unique @db.VarChar(191)
+  /// Null while trying it out without an email (src/lib/loyalty-lite.ts
+  /// createTrialSalon); set when the salon saves itself.
+  email              String?    @unique @db.VarChar(191)
+  /// Started as a trial (no email), and when it then saved an email — the
+  /// admin's trial → saved numbers.
+  trialStartedAt     DateTime?
+  savedAt            DateTime?
   salonName          String     @db.VarChar(120)
   ownerName          String?    @db.VarChar(120)
   locale             String     @default("vi") @db.VarChar(8)
@@ -2082,6 +2088,8 @@ model LiteCard {
   token         String          @unique @db.VarChar(16)
   customerName  String          @db.VarChar(120)
   customerEmail String?         @db.VarChar(191)
+  /// The trial's sample card ("Anna"), not a real customer: not counted.
+  sample        Boolean         @default(false)
   /// Stamps toward the next reward.
   stamps        Int             @default(0)
   totalStamps   Int             @default(0)

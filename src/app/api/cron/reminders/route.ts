@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { deleteStaleTrials } from "@/lib/loyalty-lite";
 import { prisma } from "@/lib/prisma";
 import { sendMail, appointmentReminderEmail, reviewRequestEmail } from "@/lib/mailer";
 import { localeForCountry } from "@/lib/countries";
@@ -169,6 +170,8 @@ export async function GET(req: Request) {
   }
 
   // Marketing campaigns salons scheduled for later.
+  // Loyalty Lite trials that never saved an email.
+  await deleteStaleTrials().catch((err) => console.error("[cron] lite trials", err));
   const campaigns = await sendDueCampaigns().catch((err) => {
     console.error("[cron] campaigns", err);
     return 0;

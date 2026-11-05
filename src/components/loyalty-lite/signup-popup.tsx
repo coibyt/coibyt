@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Check, Sparkles, X } from "lucide-react";
 import { LiteSignupForm } from "@/components/loyalty-lite/signup-form";
+import { LiteOr, LiteTryNow } from "@/components/loyalty-lite/try-now";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
 import { trackLite } from "@/components/loyalty-lite/visit-tracker";
 
@@ -72,6 +73,13 @@ export function LiteSignupPopup({ locale, t, expired, initialMode }: { locale: s
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-600 sm:text-base">{t.popupSub}</p>
 
             <div className="mt-6 text-left">
+              {/* Try first, email later; an expired sign-in link goes straight to the form. */}
+              {!expired && initialMode === "signup" && (
+                <>
+                  <LiteTryNow locale={locale} t={t} />
+                  <LiteOr label={t.tryOr} />
+                </>
+              )}
               <LiteSignupForm locale={locale} t={t} expired={expired} initialMode={initialMode} compact />
             </div>
 

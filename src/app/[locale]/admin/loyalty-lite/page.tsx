@@ -12,14 +12,14 @@ export default async function AdminLoyaltyLitePage({ searchParams }: { searchPar
   const search = q.trim();
   const since30 = new Date(Date.now() - 30 * DAY);
 
-  const [salonCount, cardCount, cardsWithEmail, staffCount, stamps30, upgraded, newSalons30, salons] = await Promise.all([
-    prisma.liteSalon.count(),
+  const [salonCount, cardCount, cardsWithEmail, staffCount, stamps30, upgraded, newSalons30, salons, trialsOpen] = await Promise.all([
+    prisma.liteSalon.count({ where: { email: { not: null } } }),
     prisma.liteCard.count(),
     prisma.liteCard.count({ where: { customerEmail: { not: null } } }),
     prisma.liteStaff.count(),
     prisma.liteCardEvent.count({ where: { kind: "STAMP", createdAt: { gte: since30 } } }),
     prisma.liteSalon.count({ where: { upgradedBusinessId: { not: null } } }),
-    prisma.liteSalon.count({ where: { createdAt: { gte: since30 } } }),
+    prisma.liteSalon.count({ where: { email: { not: null }, OR: [{ createdAt: { gte: since30 }, trialStartedAt: null }, { savedAt: { gte: since30 } }] } }),
     prisma.liteSalon.findMany({
       where: search ? { OR: [{ salonName: { contains: search } }, { email: { contains: search } }, { ownerName: { contains: search } }] } : undefined,
       select: {
@@ -37,6 +37,7 @@ export default async function AdminLoyaltyLitePage({ searchParams }: { searchPar
       orderBy: { createdAt: "desc" },
       take: 500,
     }),
+    prisma.liteSalon.count({ where: { email: null } }),
   ]);
   const stampsBySalon = new Map(
     (
@@ -50,7 +51,7 @@ export default async function AdminLoyaltyLitePage({ searchParams }: { searchPar
 
   const date = new Intl.DateTimeFormat("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" });
   const stats = [
-    { icon: Store, label: "Salon đăng ký", value: salonCount, sub: `+${newSalons30} trong 30 ngày` },
+    { icon: Store, label: "Salon đăng ký", value: salonCount, sub: `+${newSalons30} trong 30 ngày · ${trialsOpen} đang dùng thử` },
     { icon: CreditCard, label: "Thẻ khách hàng", value: cardCount, sub: `${cardsWithEmail} thẻ có email` },
     { icon: Users, label: "Tài khoản nhân viên", value: staffCount, sub: "đăng nhập quẹt thẻ" },
     { icon: Stamp, label: "Dấu 30 ngày qua", value: stamps30, sub: "lượt đóng dấu" },
@@ -119,8 +120,8 @@ export default async function AdminLoyaltyLitePage({ searchParams }: { searchPar
                   </td>
                   <td className="px-4 py-3">
                     <span className="block text-ink-900">{s.ownerName || "—"}</span>
-                    <a href={`mailto:${s.email}`} className="text-xs text-primary-600 hover:underline">
-                      {s.email}
+                    <a href={s.email ? `mailto:${s.email}` : undefined} className="text-xs text-primary-600 hover:underline">
+                      {s.email ?? "Dùng thử — chưa lưu email"}
                     </a>
                     {!s.emailVerifiedAt && <span className="ml-1 text-[10px] text-amber-600">(chưa mở link email)</span>}
                   </td>

@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
   if (link) {
     const salon = await prisma.liteSalon.findUnique({ where: { email } });
-    if (salon) await sendMail({ to: salon.email, ...liteOwnerEmail(salon, "signin") }).catch((err) => console.error("[lite] link mail", err));
+    if (salon) await sendMail({ to: email, ...liteOwnerEmail(salon, "signin") }).catch((err) => console.error("[lite] link mail", err));
     return NextResponse.json({ status: "CHECK_EMAIL" });
   }
   if (!password) return NextResponse.json({ error: "INVALID" }, { status: 400 });

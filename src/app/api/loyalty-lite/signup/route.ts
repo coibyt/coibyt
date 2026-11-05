@@ -39,7 +39,7 @@ export async function POST(req: Request) {
   }
   const existing = await prisma.liteSalon.findUnique({ where: { email } });
   if (existing) {
-    await sendMail({ to: existing.email, ...liteOwnerEmail(existing, "signin") }).catch((err) => console.error("[lite] signin mail", err));
+    await sendMail({ to: email, ...liteOwnerEmail(existing, "signin") }).catch((err) => console.error("[lite] signin mail", err));
     return NextResponse.json({ status: "CHECK_EMAIL" });
   }
 
@@ -47,6 +47,6 @@ export async function POST(req: Request) {
     data: { email, salonName, ownerName: ownerName || null, locale, accessToken: newAccessToken(), rewardText: DEFAULT_REWARD[locale] },
   });
   (await cookies()).set(LITE_COOKIE, salon.accessToken, cookieOptions);
-  await sendMail({ to: salon.email, ...liteOwnerEmail(salon, "welcome") }).catch((err) => console.error("[lite] welcome mail", err));
+  await sendMail({ to: email, ...liteOwnerEmail(salon, "welcome") }).catch((err) => console.error("[lite] welcome mail", err));
   return NextResponse.json({ status: "CREATED" });
 }

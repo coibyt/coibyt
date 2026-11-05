@@ -29,6 +29,7 @@ import { Link, useRouter } from "@/i18n/navigation";
 import type { LiteStrings } from "@/lib/loyalty-lite-strings";
 import { LiteMemberCard } from "@/components/loyalty-lite/member-card";
 import { LiteProfilePanel } from "@/components/loyalty-lite/profile-panel";
+import { LiteTrialSave } from "@/components/loyalty-lite/trial-save";
 
 export interface LiteCardRow {
   id: string;
@@ -40,6 +41,8 @@ export interface LiteCardRow {
   rewardsUsed: number;
   lastStampAt: string | null;
   createdAt: string;
+  /** The trial's sample card: not a real customer. */
+  sample: boolean;
 }
 
 type Tab = "cards" | "guide" | "profile";
@@ -65,10 +68,12 @@ export function LiteStudio({
   role,
   staffName,
   account,
+  trialFreeCards,
 }: {
   locale: string;
   t: LiteStrings;
-  initial: { salonName: string; email: string; stampsRequired: number; rewardText: string; upgraded: boolean; cards: LiteCardRow[] };
+  /** email null: a trial that hasn't saved itself yet. */
+  initial: { salonName: string; email: string | null; stampsRequired: number; rewardText: string; upgraded: boolean; cards: LiteCardRow[] };
   /** The card page URL without the token. */
   cardBase: string;
   maxCards: number;
@@ -77,8 +82,14 @@ export function LiteStudio({
   role: "owner" | "staff";
   staffName: string | null;
   account: { ownerName: string; hasPassword: boolean };
+  /** Real cards a trial may give before it saves an email. */
+  trialFreeCards: number;
 }) {
   const isOwner = role === "owner";
+  const [savedEmail, setSavedEmail] = useState(initial.email);
+  const [trialUrgent, setTrialUrgent] = useState(false);
+  const trialRef = useRef<HTMLDivElement>(null);
+  const trial = isOwner && !savedEmail;
   const router = useRouter();
   const [tab, setTab] = useState<Tab>("cards");
   const [area, setArea] = useState<Area>("scan");
@@ -202,6 +213,13 @@ export function LiteStudio({
     const d = await res?.json().catch(() => null);
     setBusy(null);
     if (!res?.ok) {
+      if (d?.error === "NEED_EMAIL") {
+        // The trial's free cards are used: save the salon first.
+        setTrialUrgent(true);
+        trialRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        setFlash({ ok: false, text: fill(t.trialNeed, { max: trialFreeCards }) });
+        return;
+      }
       setFlash({ ok: false, text: d?.error === "LIMIT" ? t.limit : d?.error === "DUPLICATE" ? t.duplicate : t.errGeneric });
       return;
     }
@@ -233,6 +251,8 @@ export function LiteStudio({
   }
 
   async function signOut() {
+    // A trial lives only in this browser until it's saved.
+    if (trial && !confirm(t.trialSignOut)) return;
     await fetch("/api/loyalty-lite/logout", { method: "POST" }).catch(() => null);
     router.push("/loyalty-lite");
     router.refresh();
@@ -245,7 +265,8 @@ export function LiteStudio({
   const ready = cards.filter((c) => c.stamps >= N).length;
   const redeemed = cards.reduce((sum, c) => sum + c.rewardsUsed, 0);
   const dateFmt = new Intl.DateTimeFormat(locale, { day: "numeric", month: "short" });
-  const upgradeHref = `/business/apply?name=${encodeURIComponent(salon.salonName)}&email=${encodeURIComponent(initial.email)}`;
+  const upgradeHref = `/business/apply?name=${encodeURIComponent(salon.salonName)}&email=${encodeURIComponent(savedEmail ?? "")}`;
+  const realCards = cards.filter((c) => !c.sample).length;
 
   const tabs: { key: Tab; label: string; icon: typeof Stamp }[] = [
     { key: "cards", label: t.tabCards, icon: Users },
@@ -331,7 +352,7 @@ export function LiteStudio({
         </div>
         <dl className="relative mt-6 grid grid-cols-2 gap-2 sm:grid-cols-4">
           {[
-            [t.statCards, `${cards.length}`, `/${maxCards.toLocaleString(locale)}`],
+            [t.statCards, `${realCards}`, `/${(trial ? trialFreeCards : maxCards).toLocaleString(locale)}`],
             [t.statStamps, `${stampCount}`, ""],
             [t.statReady, `${ready}`, ""],
             [t.statRewards, `${redeemed}`, ""],
@@ -346,6 +367,25 @@ export function LiteStudio({
           ))}
         </dl>
       </section>
+
+      {trial && (
+        <LiteTrialSave
+          ref={trialRef}
+          t={t}
+          salonName={salon.salonName}
+          used={realCards}
+          max={trialFreeCards}
+          urgent={trialUrgent || realCards >= trialFreeCards}
+          onSaved={(v) => {
+            setSavedEmail(v.email);
+            setSalon((s) => ({ ...s, salonName: v.salonName }));
+            setTrialUrgent(false);
+            setArea("new");
+            setFlash({ ok: true, text: fill(t.trialSaved, { email: v.email }) });
+            router.refresh();
+          }}
+        />
+      )}
 
       {initial.upgraded && (
         <section className="flex flex-wrap items-center justify-between gap-3 rounded-3xl bg-emerald-50 p-5 ring-1 ring-emerald-200">
@@ -544,6 +584,9 @@ export function LiteStudio({
                         <span className="min-w-0 flex-1">
                           <span className="flex items-center gap-2">
                             <span className="truncate text-sm font-bold text-ink-900">{c.customerName}</span>
+                            {c.sample && (
+                              <span className="shrink-0 rounded-full bg-[#fbf3e1] px-2 py-0.5 text-[10px] font-bold text-[#8a6a2b]">{t.sampleBadge}</span>
+                            )}
                             {full && <span className="shrink-0 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">{t.ready}</span>}
                           </span>
                           <span className="block truncate text-xs text-ink-400">
@@ -621,8 +664,9 @@ export function LiteStudio({
             </section>
           )}
 
-          {tab === "profile" && isOwner && (
-            <LiteProfilePanel locale={locale} t={t} initial={{ ownerName: account.ownerName, email: initial.email, hasPassword: account.hasPassword }} onSignOut={signOut} />
+          {tab === "profile" && isOwner && !savedEmail && <p className="rounded-3xl bg-white p-6 text-sm text-ink-600 ring-1 ring-[#f3c4dd]">{t.trialProfile}</p>}
+          {tab === "profile" && isOwner && savedEmail && (
+            <LiteProfilePanel locale={locale} t={t} initial={{ ownerName: account.ownerName, email: savedEmail, hasPassword: account.hasPassword }} onSignOut={signOut} />
           )}
         </div>
 

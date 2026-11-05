@@ -21,6 +21,8 @@ export async function PATCH(req: Request) {
   const parsed = schema.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: "INVALID" }, { status: 400 });
   const { ownerName, email, password, removePassword } = parsed.data;
+  // A trial saves itself first (/api/loyalty-lite/save): no password or email change before that.
+  if (!salon.email && (email || password)) return NextResponse.json({ error: "TRIAL" }, { status: 409 });
 
   const emailChanged = !!email && email !== salon.email;
   if (emailChanged && (await liteEmailTaken(email, { salonId: salon.id }))) return NextResponse.json({ error: "EMAIL_IN_USE" }, { status: 409 });
@@ -33,7 +35,7 @@ export async function PATCH(req: Request) {
       ...(password ? { passwordHash: await bcrypt.hash(password, 10) } : removePassword ? { passwordHash: null } : {}),
     },
   });
-  if (emailChanged) {
+  if (emailChanged && updated.email && salon.email) {
     // The new address gets a sign-in link (and so proves it works); the old one a heads-up.
     await sendMail({ to: updated.email, ...liteOwnerEmail(updated, "signin") }).catch((err) => console.error("[lite] new email", err));
     await sendMail({ to: salon.email, ...liteEmailChangedEmail(updated, salon.email, updated.email) }).catch((err) => console.error("[lite] old email", err));

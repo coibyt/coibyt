@@ -131,7 +131,16 @@ export function LiteSignupForm({
             </label>
           )}
           {error && <p className="rounded-xl bg-berry-50 px-3 py-2 text-xs font-semibold text-berry-600">{error}</p>}
-          <button type="submit" disabled={busy} className={submit}>
+          {/* Next to "Try it now" in the popup, signing up with an email is the second choice. */}
+          <button
+            type="submit"
+            disabled={busy}
+            className={
+              compact
+                ? "flex h-12 w-full items-center justify-center gap-2 rounded-full bg-white text-sm font-bold text-[#a3155f] ring-2 ring-[#f0cfe0] transition hover:bg-[#fff5fa] disabled:opacity-70"
+                : submit
+            }
+          >
             {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <ArrowRight className="h-4 w-4" />}
             {t.submit}
           </button>

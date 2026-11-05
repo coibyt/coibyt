@@ -8,7 +8,7 @@ import { LITE_MAX_CARDS, liteCardUrl, liteLocale, liteOpenUrl, type LiteLocale }
 const GOLD_LIGHT = "#e8d3a6";
 const MONO = "'SFMono-Regular',Menlo,Consolas,'Courier New',monospace";
 
-type Salon = { salonName: string; ownerName: string | null; email: string; locale: string; accessToken: string; stampsRequired: number; rewardText: string };
+type Salon = { salonName: string; ownerName: string | null; email: string | null; locale: string; accessToken: string; stampsRequired: number; rewardText: string };
 type Card = { token: string; customerName: string; stamps: number };
 
 const T = {

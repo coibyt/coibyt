@@ -15,6 +15,10 @@ import { SITE_URL } from "@/lib/email/ui";
 
 export const LITE_COOKIE = "varaaai_lite";
 export const LITE_MAX_CARDS = 10000;
+/** A trial (no email yet) can give this many real cards before saving itself. */
+export const LITE_TRIAL_FREE_CARDS = 3;
+/** Trials that never save an email are removed after this many days. */
+export const LITE_TRIAL_DAYS = 14;
 /** One stamp per visit: a card can't be stamped again within this time. */
 export const LITE_STAMP_GAP_HOURS = 12;
 const HOUR = 60 * 60 * 1000;
@@ -44,6 +48,31 @@ export const DEFAULT_REWARD: Record<LiteLocale, string> = {
   en: "15% off your next visit",
   fi: "15 % alennus seuraavasta käynnistä",
 };
+
+const TRIAL_NAME: Record<LiteLocale, string> = { vi: "Salon của tôi", en: "My salon", fi: "Oma salonki" };
+const SAMPLE_NAME: Record<LiteLocale, string> = { vi: "Anna (thẻ mẫu)", en: "Anna (sample card)", fi: "Anna (mallikortti)" };
+
+/** "Try it now": a salon without an email, signed in on this browser, with
+ * a sample card already holding a few stamps to scan and stamp. It saves
+ * itself with an email later (/api/loyalty-lite/save). */
+export async function createTrialSalon(locale: LiteLocale) {
+  const now = new Date();
+  const salon = await prisma.liteSalon.create({
+    data: { salonName: TRIAL_NAME[locale], locale, accessToken: newAccessToken(), rewardText: DEFAULT_REWARD[locale], trialStartedAt: now },
+  });
+  await prisma.liteCard.create({
+    data: { liteSalonId: salon.id, token: await newCardToken(), customerName: SAMPLE_NAME[locale], sample: true, stamps: 3, totalStamps: 3, lastStampAt: now },
+  });
+  return salon;
+}
+
+/** Trials that never saved an email, older than LITE_TRIAL_DAYS: gone,
+ * with their cards. Called by the reminders cron. */
+export async function deleteStaleTrials() {
+  const before = new Date(Date.now() - LITE_TRIAL_DAYS * 24 * 60 * 60 * 1000);
+  const r = await prisma.liteSalon.deleteMany({ where: { email: null, createdAt: { lt: before } } });
+  return r.count;
+}
 
 export function newAccessToken() {
   return randomBytes(24).toString("hex");
@@ -111,8 +140,10 @@ export async function liteEmailTaken(email: string, except?: { salonId?: string;
 }
 
 export async function createLiteCard(salon: LiteSalonRow, input: { customerName: string; customerEmail?: string | null }) {
-  const count = await prisma.liteCard.count({ where: { liteSalonId: salon.id } });
+  const count = await prisma.liteCard.count({ where: { liteSalonId: salon.id, sample: false } });
   if (count >= LITE_MAX_CARDS) return { error: "LIMIT" as const };
+  // A trial keeps its customers' cards safe by saving an email first.
+  if (!salon.email && count >= LITE_TRIAL_FREE_CARDS) return { error: "NEED_EMAIL" as const };
   const email = input.customerEmail?.trim().toLowerCase() || null;
   if (email) {
     const dup = await prisma.liteCard.findFirst({ where: { liteSalonId: salon.id, customerEmail: email }, select: { id: true } });

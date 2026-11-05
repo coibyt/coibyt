@@ -1,4 +1,4 @@
-import { Eye, MousePointerClick, TrendingUp, UserPlus } from "lucide-react";
+import { Eye, MousePointerClick, Sparkles, TrendingUp, UserPlus } from "lucide-react";
 import { fromZonedTime, toZonedTime } from "date-fns-tz";
 import { format, subDays } from "date-fns";
 import { prisma } from "@/lib/prisma";
@@ -6,15 +6,23 @@ import { prisma } from "@/lib/prisma";
 const TZ = "Europe/Helsinki";
 const DAYS = 14;
 
-/** Views, unique visitors and the views → visitors → sign-ups funnel of one window. */
+/** A salon that signed up with an email in this window: straight away, or
+ * by saving a trial (trialStartedAt / savedAt). */
+const signedUp = (where: { gte: Date } | undefined) => ({
+  OR: [{ trialStartedAt: null, email: { not: null }, createdAt: where }, { savedAt: where ?? { not: null } }],
+});
+
+/** Views, unique visitors, trials and the views → visitors → sign-ups funnel of one window. */
 async function windowStats(since: Date | null) {
   const where = since ? { gte: since } : undefined;
-  const [views, visitorGroups, signups] = await Promise.all([
+  const [views, visitorGroups, signups, trials, saved] = await Promise.all([
     prisma.toolEvent.count({ where: { tool: "loyalty_lite", event: "open", createdAt: where } }),
     prisma.toolEvent.groupBy({ by: ["visitorId"], where: { tool: "loyalty_lite", event: "open", visitorId: { not: null }, createdAt: where } }),
-    prisma.liteSalon.count({ where: { createdAt: where } }),
+    prisma.liteSalon.count({ where: signedUp(where) }),
+    prisma.liteSalon.count({ where: { trialStartedAt: where ?? { not: null } } }),
+    prisma.liteSalon.count({ where: { savedAt: where ?? { not: null } } }),
   ]);
-  return { views, visitors: visitorGroups.length, signups };
+  return { views, visitors: visitorGroups.length, signups, trials, saved };
 }
 
 /** Admin: who comes to /loyalty-lite and how many of them sign up — today,
@@ -33,7 +41,7 @@ export async function LiteAdminTraffic() {
     windowStats(null),
     prisma.toolEvent.count({ where: { tool: "loyalty_lite", event: "popup_close", createdAt: { gte: subDays(todayStart, 29) } } }),
     prisma.toolEvent.findMany({ where: { tool: "loyalty_lite", event: "open", createdAt: { gte: chartStart } }, select: { createdAt: true, visitorId: true } }),
-    prisma.liteSalon.findMany({ where: { createdAt: { gte: chartStart } }, select: { createdAt: true } }),
+    prisma.liteSalon.findMany({ where: signedUp({ gte: chartStart }), select: { createdAt: true, savedAt: true } }),
   ]);
 
   // Day by day: unique visitors and sign-ups.
@@ -46,7 +54,10 @@ export async function LiteAdminTraffic() {
     visitorsBy.get(k)!.add(e.visitorId ?? `anon-${e.createdAt.getTime()}`);
   }
   const signupsBy = new Map<string, number>();
-  for (const s of salons) signupsBy.set(dayKey(s.createdAt), (signupsBy.get(dayKey(s.createdAt)) ?? 0) + 1);
+  for (const s of salons) {
+    const k = dayKey(s.savedAt ?? s.createdAt);
+    signupsBy.set(k, (signupsBy.get(k) ?? 0) + 1);
+  }
   const chart = days.map((d) => ({ day: d, visitors: visitorsBy.get(d)?.size ?? 0, signups: signupsBy.get(d) ?? 0 }));
   const peak = Math.max(1, ...chart.map((c) => c.visitors), ...chart.map((c) => c.signups));
 
@@ -85,6 +96,14 @@ export async function LiteAdminTraffic() {
                   <Eye className="h-3.5 w-3.5" /> Lượt xem
                 </dt>
                 <dd className="font-bold tabular-nums text-ink-900">{n(s.views)}</dd>
+              </div>
+              <div className="flex items-center justify-between gap-2">
+                <dt className="flex items-center gap-1.5 text-ink-500">
+                  <Sparkles className="h-3.5 w-3.5" /> Dùng thử → lưu email
+                </dt>
+                <dd className="font-bold tabular-nums text-ink-900">
+                  {n(s.trials)} → {n(s.saved)}
+                </dd>
               </div>
               <div className="flex items-center justify-between gap-2">
                 <dt className="flex items-center gap-1.5 text-ink-500">
