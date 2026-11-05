@@ -1246,7 +1246,7 @@ export function MarketingStudio({
             <>
               {campaigns.map((x) => {
                 // Sent, or still going out day by day: either way it has results to show.
-                const live = x.status === "SENT" || (x.status === "SCHEDULED" && x.sentCount > 0);
+                const live = x.status === "SENT" || ((x.status === "SCHEDULED" || x.status === "SENDING") && x.sentCount > 0);
                 const sentN = x.status === "SENT" ? x.recipientCount : x.sentCount;
                 const openP = pct(x.openCount, sentN);
                 const clickP = pct(x.clickCount, sentN);
@@ -1270,7 +1270,7 @@ export function MarketingStudio({
                           )}
                         </div>
                         <p className="mt-2 text-xs text-ink-400" suppressHydrationWarning>
-                          {x.status === "SCHEDULED" && x.sentCount > 0 ? (
+                          {(x.status === "SCHEDULED" || x.status === "SENDING") && x.sentCount > 0 ? (
                             <span className="font-bold text-ink-700">{fill(S.progress, { n: x.sentCount, total: x.recipientCount })}</span>
                           ) : (
                             fill(x.status === "SCHEDULED" ? S.scheduledFor : x.status === "DRAFT" ? S.draftOn : S.sentOn, { time: dateFmt.format(new Date(time)) })
@@ -1309,7 +1309,7 @@ export function MarketingStudio({
                         )}
                       </div>
                     </div>
-                    {x.status === "SCHEDULED" && x.sentCount > 0 && (
+                    {(x.status === "SCHEDULED" || x.status === "SENDING") && x.sentCount > 0 && (
                       <div className="mt-4 rounded-2xl bg-gradient-to-br from-[#1f182d] to-[#3b2d57] p-4 text-white">
                         <div className="flex items-end justify-between gap-3">
                           <div>

@@ -245,85 +245,106 @@ export async function sendCampaign(campaignId: string): Promise<SendOutcome> {
   const program = campaign.loyaltyCard ? await prisma.loyaltyProgram.findUnique({ where: { businessId: campaign.businessId } }) : null;
   if (campaign.loyaltyCard && !program) return fail("NO_LOYALTY_PROGRAM");
 
-  const results: PromiseSettledResult<unknown>[] = [];
+  // Bookkeeping after every batch, not just at the end: if the server
+  // restarts mid-send, whoever already got it is known (no second email),
+  // charged for, and the rest goes out on the next run.
+  const sent: typeof tagged = [];
   for (let i = 0; i < tagged.length; i += SEND_BATCH) {
     const batch = tagged.slice(i, i + SEND_BATCH);
-    results.push(
-      ...(await Promise.allSettled(
-        batch.map(async ({ customer }) => {
-          const card = program ? await cardFor(campaign.businessId, customer, program) : null;
-          const mail = renderCampaign(campaign, business, customer, customer.locale, null, card?.block ?? null);
-          try {
-            await sendMarketingMail({
-              to: customer.email,
-              subject: mail.subject,
-              html: mail.html,
-              fromName: business.name,
-              replyTo: business.replyTo,
-              unsubscribeUrl: unsubscribeUrl(customer),
-              // The QR as a file too, so it can be saved to the phone.
-              attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,
-            });
-          } catch (err) {
-            // A card made for an email that never arrived would greet them
-            // as an existing member next time — undo it.
-            if (card?.createdId) await prisma.loyaltyCard.delete({ where: { id: card.createdId } }).catch(() => {});
-            throw err;
-          }
-        })
-      ))
+    const results = await Promise.allSettled(
+      batch.map(async ({ customer }) => {
+        const card = program ? await cardFor(campaign.businessId, customer, program) : null;
+        const mail = renderCampaign(campaign, business, customer, customer.locale, null, card?.block ?? null);
+        try {
+          await sendMarketingMail({
+            to: customer.email,
+            subject: mail.subject,
+            html: mail.html,
+            fromName: business.name,
+            replyTo: business.replyTo,
+            unsubscribeUrl: unsubscribeUrl(customer),
+            // The QR as a file too, so it can be saved to the phone.
+            attachments: card ? [{ filename: `${card.block.token}.png`, content: await loyaltyQrPng(card.block.token), contentType: "image/png" }] : undefined,
+          });
+        } catch (err) {
+          // A card made for an email that never arrived would greet them
+          // as an existing member next time — undo it.
+          if (card?.createdId) await prisma.loyaltyCard.delete({ where: { id: card.createdId } }).catch(() => {});
+          throw err;
+        }
+      }),
     );
+    const ok = batch.filter((_, j) => results[j].status === "fulfilled");
+    sent.push(...ok);
+    if (ok.length) await recordBatch(campaign.businessId, campaignId, business.ownerId, ok);
+    else await prisma.emailCampaign.update({ where: { id: campaignId }, data: { sendingSince: new Date() } });
   }
 
-  const sent = tagged.filter((_, i) => results[i].status === "fulfilled");
-  const sentEligible = sent.filter((r) => !r.cooldownBypass).length;
-  const sentCooldown = sent.length - sentEligible;
-
-  if (sent.length > 0) {
-    await prisma.emailCampaignDelivery.createMany({
-      data: sent.map(({ customer }) => ({ campaignId, businessId: campaign.businessId, recipientKey: recipientKey(customer) })),
-      skipDuplicates: true,
-    });
-  }
-  const sentCount = campaign.sentCount + sent.length;
+  const sentCount = await prisma.emailCampaignDelivery.count({ where: { campaignId } });
   const more = tagged.length < pending.length;
   await prisma.emailCampaign.update({
     where: { id: campaignId },
     data: more
-      ? { status: "SCHEDULED", scheduledAt: nextAt, sentCount, recipientCount: total }
-      : { status: "SENT", sentAt: new Date(), sentCount, recipientCount: sentCount },
+      ? { status: "SCHEDULED", scheduledAt: nextAt, sentCount, recipientCount: total, sendingSince: null }
+      : { status: "SENT", sentAt: new Date(), sentCount, recipientCount: sentCount, sendingSince: null },
   });
-  // Only emails that actually went out are charged.
-  if (sentEligible > 0) await awardPoints(business.ownerId, -sentEligible * EMAIL_SENT_POINTS, "EMAIL_SENT");
-  if (sentCooldown > 0) {
-    await awardPoints(business.ownerId, -sentCooldown * EMAIL_COOLDOWN_BYPASS_POINTS, "EMAIL_SENT_COOLDOWN_BYPASS");
-  }
-  if (sent.length > 0) {
-    const now = new Date();
-    const contactIds = sent.filter(({ customer }) => customer.kind === "contact").map(({ customer }) => customer.id);
-    if (contactIds.length) {
-      await prisma.marketingContact.updateMany({ where: { id: { in: contactIds } }, data: { lastEmailedAt: now } });
-    }
-    await Promise.all(
-      sent.filter(({ customer }) => customer.kind === "user").map(({ customer }) =>
-        prisma.emailRecipientCooldown.upsert({
-          where: { businessId_customerId: { businessId: campaign.businessId, customerId: customer.id } },
-          update: { lastSentAt: now },
-          create: { businessId: campaign.businessId, customerId: customer.id, lastSentAt: now },
-        })
-      )
-    );
-  }
   return more
     ? { ok: true, sent: sent.length, total, remaining: pending.length - sent.length, nextAt }
     : { ok: true, sent: sent.length, total: sentCount, remaining: 0, nextAt: null };
 }
+
+/** One batch that went out: who got it, the count, the Vara points, and
+ * each recipient's 72h rest. */
+async function recordBatch(
+  businessId: string,
+  campaignId: string,
+  ownerId: string,
+  ok: { customer: { id: string; kind: "user" | "contact" }; cooldownBypass: boolean }[],
+) {
+  const now = new Date();
+  await prisma.emailCampaignDelivery.createMany({
+    data: ok.map(({ customer }) => ({ campaignId, businessId, recipientKey: recipientKey(customer) })),
+    skipDuplicates: true,
+  });
+  await prisma.emailCampaign.update({ where: { id: campaignId }, data: { sentCount: { increment: ok.length }, sendingSince: now } });
+  // Only emails that actually went out are charged.
+  const bypass = ok.filter((r) => r.cooldownBypass).length;
+  if (ok.length - bypass > 0) await awardPoints(ownerId, -(ok.length - bypass) * EMAIL_SENT_POINTS, "EMAIL_SENT");
+  if (bypass > 0) await awardPoints(ownerId, -bypass * EMAIL_COOLDOWN_BYPASS_POINTS, "EMAIL_SENT_COOLDOWN_BYPASS");
+  const contactIds = ok.filter(({ customer }) => customer.kind === "contact").map(({ customer }) => customer.id);
+  if (contactIds.length) await prisma.marketingContact.updateMany({ where: { id: { in: contactIds } }, data: { lastEmailedAt: now } });
+  await Promise.all(
+    ok
+      .filter(({ customer }) => customer.kind === "user")
+      .map(({ customer }) =>
+        prisma.emailRecipientCooldown.upsert({
+          where: { businessId_customerId: { businessId, customerId: customer.id } },
+          update: { lastSentAt: now },
+          create: { businessId, customerId: customer.id, lastSentAt: now },
+        }),
+      ),
+  );
+}
+
+/** A campaign not seen sending for this long was cut off (a restart). */
+const STUCK_MS = 30 * 60 * 1000;
 
 /** Sends every scheduled campaign whose time has come. Called by the
  * reminders cron and, as a fallback, whenever an owner opens the studio.
  * Each campaign is claimed with a conditional update, so two callers never
  * send the same one twice. */
 export async function sendDueCampaigns(businessId?: string) {
+  // Cut off mid-send by a restart: back in the queue; whoever already got
+  // it is skipped (EmailCampaignDelivery).
+  const stuckBefore = new Date(Date.now() - STUCK_MS);
+  await prisma.emailCampaign.updateMany({
+    where: {
+      status: "SENDING",
+      ...(businessId ? { businessId } : {}),
+      OR: [{ sendingSince: { lt: stuckBefore } }, { sendingSince: null, scheduledAt: { lt: stuckBefore } }],
+    },
+    data: { status: "SCHEDULED", scheduledAt: new Date(), sendingSince: null },
+  });
   const due = await prisma.emailCampaign.findMany({
     where: { status: "SCHEDULED", scheduledAt: { lte: new Date() }, ...(businessId ? { businessId } : {}) },
     select: { id: true, businessId: true },
@@ -333,7 +354,7 @@ export async function sendDueCampaigns(businessId?: string) {
   for (const c of due) {
     // Waits, still scheduled, while the salon profile is under the unlock %.
     if (!(await profileChecklist(c.businessId)).unlocked) continue;
-    const claimed = await prisma.emailCampaign.updateMany({ where: { id: c.id, status: "SCHEDULED" }, data: { status: "SENDING" } });
+    const claimed = await prisma.emailCampaign.updateMany({ where: { id: c.id, status: "SCHEDULED" }, data: { status: "SENDING", sendingSince: new Date() } });
     if (claimed.count === 0) continue;
     const r = await sendCampaign(c.id).catch((err) => {
       console.error("[sendDueCampaigns]", c.id, err);

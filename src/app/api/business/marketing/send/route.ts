@@ -68,6 +68,7 @@ export async function POST(req: Request) {
       recipientCount: recipients,
       status: when ? "SCHEDULED" : "SENDING",
       scheduledAt: when,
+      sendingSince: when ? null : new Date(),
     },
   });
   if (draftId) await prisma.emailCampaign.deleteMany({ where: { id: draftId, businessId, status: "DRAFT" } });
