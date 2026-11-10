@@ -14,6 +14,7 @@ export function giftNet(amountCents: number, pct: number) {
 export interface IncomeAmounts {
   cashCents: number;
   bankCents: number;
+  mobilePayCents: number;
   onlineCents: number;
   onlineSource: string | null;
   giftCard1Cents: number;
@@ -28,8 +29,8 @@ export interface IncomeAmounts {
 
 /** Salon income: gift cards count after their discount; the tip is the staff
  * member's own and stays out. */
-export function incomeTotal(a: Pick<IncomeAmounts, "cashCents" | "bankCents" | "onlineCents" | "giftCard1Cents" | "giftCard1Percent" | "giftCard2Cents" | "giftCard2Percent">) {
-  return a.cashCents + a.bankCents + a.onlineCents + giftNet(a.giftCard1Cents, a.giftCard1Percent) + giftNet(a.giftCard2Cents, a.giftCard2Percent);
+export function incomeTotal(a: Pick<IncomeAmounts, "cashCents" | "bankCents" | "mobilePayCents" | "onlineCents" | "giftCard1Cents" | "giftCard1Percent" | "giftCard2Cents" | "giftCard2Percent">) {
+  return a.cashCents + a.bankCents + (a.mobilePayCents ?? 0) + a.onlineCents + giftNet(a.giftCard1Cents, a.giftCard1Percent) + giftNet(a.giftCard2Cents, a.giftCard2Percent);
 }
 
 /** The amounts of a report row (or JSON) as IncomeAmounts. */
@@ -37,6 +38,7 @@ export function pickAmounts(r: IncomeAmounts): IncomeAmounts {
   return {
     cashCents: r.cashCents,
     bankCents: r.bankCents,
+    mobilePayCents: r.mobilePayCents ?? 0,
     onlineCents: r.onlineCents ?? 0,
     onlineSource: r.onlineSource ?? null,
     giftCard1Cents: r.giftCard1Cents,
@@ -50,7 +52,7 @@ export function pickAmounts(r: IncomeAmounts): IncomeAmounts {
   };
 }
 
-export type AmountField = "cash" | "bank" | "online" | "gift1" | "gift2" | "tip" | "total";
+export type AmountField = "cash" | "bank" | "mobilePay" | "online" | "gift1" | "gift2" | "tip" | "total";
 
 /** The salon-income value of one field (gift cards after their discount). */
 export function fieldValue(a: IncomeAmounts, f: AmountField) {
@@ -59,6 +61,8 @@ export function fieldValue(a: IncomeAmounts, f: AmountField) {
       return a.cashCents;
     case "bank":
       return a.bankCents;
+    case "mobilePay":
+      return a.mobilePayCents ?? 0;
     case "online":
       return a.onlineCents ?? 0;
     case "gift1":
@@ -76,7 +80,7 @@ export function fieldValue(a: IncomeAmounts, f: AmountField) {
  * every field when compared field by field, gift cards by amount and discount. */
 export function changedFields(owner: IncomeAmounts, staff: IncomeAmounts | null): { field: AmountField; staff: number; owner: number }[] {
   if (!staff) return [];
-  const fields: AmountField[] = ["cash", "bank", "online", "gift1", "gift2", "tip"];
+  const fields: AmountField[] = ["cash", "bank", "mobilePay", "online", "gift1", "gift2", "tip"];
   const out = fields
     .filter((f) =>
       f === "gift1"

@@ -20,12 +20,13 @@ export function sheetTotals(rows: IncomeReportJson[]) {
       expected: t.expected + r.expectedCents,
       cash: t.cash + r.cashCents,
       bank: t.bank + r.bankCents,
+      mobilePay: t.mobilePay + r.mobilePayCents,
       online: t.online + r.onlineCents,
       gift: t.gift + gift(r),
       tip: t.tip + r.tipCents,
       total: t.total + r.totalCents,
     }),
-    { expected: 0, cash: 0, bank: 0, online: 0, gift: 0, tip: 0, total: 0 },
+    { expected: 0, cash: 0, bank: 0, mobilePay: 0, online: 0, gift: 0, tip: 0, total: 0 },
   );
 }
 
@@ -35,7 +36,7 @@ export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[]
   const amt = (c: number) => (c / 100).toFixed(2);
   const status = (r: IncomeReportJson) => (r.status === "APPROVED" ? S.approved : r.status === "REJECTED" ? S.rejected : S.pending);
   const lines: (string | number)[][] = [
-    [S.colDate, S.byStaff, S.colCustomer, S.colService, S.colPrice, S.colCash, S.colBank, S.colOnline, S.colGift, S.colTip, S.colTotal, S.colStatus, S.colOwnerEdit],
+    [S.colDate, S.byStaff, S.colCustomer, S.colService, S.colPrice, S.colCash, S.colBank, S.colMobilePay, S.colOnline, S.colGift, S.colTip, S.colTotal, S.colStatus, S.colOwnerEdit],
   ];
   for (const g of groups) {
     for (const r of g.rows) {
@@ -47,6 +48,7 @@ export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[]
         amt(r.expectedCents),
         amt(r.cashCents),
         amt(r.bankCents),
+        amt(r.mobilePayCents),
         amt(r.onlineCents),
         amt(gift(r)),
         amt(r.tipCents),
@@ -57,7 +59,7 @@ export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[]
       ]);
     }
     const t = sheetTotals(g.rows);
-    lines.push(["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.online), amt(t.gift), amt(t.tip), amt(t.total), "", ""]);
+    lines.push(["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.mobilePay), amt(t.online), amt(t.gift), amt(t.tip), amt(t.total), "", ""]);
   }
   const csv = "﻿" + lines.map((l) => l.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\r\n");
   const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
@@ -126,7 +128,7 @@ export function IncomeSheet({
         </p>
       </header>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[940px] border-collapse text-xs">
+        <table className="w-full min-w-[1020px] border-collapse text-xs">
           <thead className="bg-mist-50/70">
             <tr>
               <th className={th}>{S.colDate}</th>
@@ -135,6 +137,7 @@ export function IncomeSheet({
               <th className={`${th} text-right`}>{S.colPrice}</th>
               <th className={`${th} text-right`}>{S.colCash}</th>
               <th className={`${th} text-right`}>{S.colBank}</th>
+              <th className={`${th} text-right`}>{S.colMobilePay}</th>
               <th className={`${th} text-right`}>{S.colOnline}</th>
               <th className={`${th} text-right`}>{S.colGift}</th>
               <th className={`${th} bg-[#fffaf0] text-right text-[#8a6a2c]`}>{S.colTip}</th>
@@ -159,6 +162,7 @@ export function IncomeSheet({
                   <td className={`${num} text-ink-400`}>{money(r.expectedCents)}</td>
                   <td className={num}>{cell(r, "cash", r.cashCents)}</td>
                   <td className={num}>{cell(r, "bank", r.bankCents)}</td>
+                  <td className={num}>{cell(r, "mobilePay", r.mobilePayCents)}</td>
                   <td className={num} title={r.onlineSource ?? undefined}>
                     {cell(r, "online", r.onlineCents)}
                   </td>
@@ -214,6 +218,7 @@ export function IncomeSheet({
               <td className={`${num} text-ink-500`}>{money(t.expected)}</td>
               <td className={num}>{money(t.cash)}</td>
               <td className={num}>{money(t.bank)}</td>
+              <td className={num}>{money(t.mobilePay)}</td>
               <td className={num}>{money(t.online)}</td>
               <td className={num}>{money(t.gift)}</td>
               <td className={`${num} bg-[#fffaf0] text-[#6b5221]`}>{money(t.tip)}</td>

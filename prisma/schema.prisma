@@ -2145,6 +2145,7 @@ model StaffIncomeReport {
   bankCents      Int       @default(0)
   // Paid online before the visit (Timma, Booksalon, another channel) — and
   // which channel, as the staff member typed it.
+  mobilePayCents Int       @default(0)
   onlineCents    Int       @default(0)
   onlineSource   String?   @db.VarChar(40)
   giftCard1Cents Int       @default(0)

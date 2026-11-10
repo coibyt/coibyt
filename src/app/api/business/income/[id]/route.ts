@@ -40,6 +40,7 @@ export async function PATCH(req: Request, { params }: { params: Promise<{ id: st
             ? {
                 cashCents: staff.cashCents,
                 bankCents: staff.bankCents,
+                mobilePayCents: staff.mobilePayCents ?? 0,
                 onlineCents: staff.onlineCents ?? 0,
                 onlineSource: staff.onlineSource ?? null,
                 giftCard1Cents: staff.giftCard1Cents,

@@ -16,6 +16,7 @@ import {
   Loader2,
   PenLine,
   Receipt,
+  Smartphone,
   RotateCcw,
   Trash2,
   Wallet,
@@ -155,7 +156,7 @@ export function IncomeReportButton({ bookingId, timeOffId, locale }: { bookingId
   );
 }
 
-type MoneyKey = "cash" | "bank" | "online" | "gift1" | "gift2" | "tip";
+type MoneyKey = "cash" | "bank" | "mobilePay" | "online" | "gift1" | "gift2" | "tip";
 
 export function IncomeReportModal({
   locale,
@@ -190,6 +191,7 @@ export function IncomeReportModal({
   const [f, setF] = useState(() => ({
     cash: amountText(report?.cashCents ?? 0, cur),
     bank: amountText(report?.bankCents ?? 0, cur),
+    mobilePay: amountText(report?.mobilePayCents ?? 0, cur),
     online: amountText(report?.onlineCents ?? 0, cur),
     onlineSource: report?.onlineSource ?? "",
     gift1: amountText(report?.giftCard1Cents ?? 0, cur),
@@ -233,6 +235,7 @@ export function IncomeReportModal({
     const p = {
       cash: parseAmount(f.cash, cur),
       bank: parseAmount(f.bank, cur),
+      mobilePay: parseAmount(f.mobilePay, cur),
       online: parseAmount(f.online, cur),
       gift1: parseAmount(f.gift1, cur),
       gift2: parseAmount(f.gift2, cur),
@@ -241,6 +244,7 @@ export function IncomeReportModal({
     const total = incomeTotal({
       cashCents: p.cash,
       bankCents: p.bank,
+      mobilePayCents: p.mobilePay,
       onlineCents: p.online,
       giftCard1Cents: p.gift1,
       giftCard1Percent: pct.gift1,
@@ -267,6 +271,8 @@ export function IncomeReportModal({
           ? staffVals.cashCents
           : k === "bank"
             ? staffVals.bankCents
+            : k === "mobilePay"
+              ? (staffVals.mobilePayCents ?? 0)
             : k === "online"
               ? staffVals.onlineCents
               : k === "tip"
@@ -325,6 +331,7 @@ export function IncomeReportModal({
         ...(booking.timeOff ? { timeOffId: booking.id } : { bookingId: booking.id }),
         cashCents: totals.p.cash,
         bankCents: totals.p.bank,
+        mobilePayCents: totals.p.mobilePay,
         onlineCents: totals.p.online,
         onlineSource: f.onlineSource.trim(),
         giftCard1Cents: totals.p.gift1,
@@ -414,7 +421,7 @@ export function IncomeReportModal({
           {quick && !locked && booking.expectedCents > 0 && (
             <button
               type="button"
-              onClick={() => setF((p) => ({ ...p, cash: "", bank: "", online: "", gift1: "", gift2: "", [key]: amountText(booking.expectedCents, cur) }))}
+              onClick={() => setF((p) => ({ ...p, cash: "", bank: "", mobilePay: "", online: "", gift1: "", gift2: "", [key]: amountText(booking.expectedCents, cur) }))}
               className="rounded-full bg-primary-100/70 px-2 py-0.5 text-[10px] font-bold text-primary-700 hover:bg-primary-100"
             >
               {fill(S.fillDue, { amount: due })}
@@ -528,6 +535,7 @@ export function IncomeReportModal({
           <section className="grid grid-cols-1 gap-3 rounded-3xl border border-ink-100 bg-white p-4 sm:grid-cols-2">
             {moneyField("cash", S.cash, Banknote, true)}
             {moneyField("bank", S.bank, CreditCard, true)}
+            <div className="sm:col-span-2">{moneyField("mobilePay", S.mobilePay, Smartphone, true)}</div>
           </section>
 
           {/* Paid online before the visit: Timma, Booksalon or another channel. */}
@@ -549,7 +557,6 @@ export function IncomeReportModal({
                   <option value="Timma" />
                   <option value="Booksalon" />
                   <option value="VaraaAi" />
-                  <option value="MobilePay" />
                 </datalist>
               </label>
             </div>

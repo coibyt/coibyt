@@ -7,7 +7,7 @@ import type { IncomeReportJson } from "@/lib/income";
 import type { IncomeStrings } from "@/lib/income-strings";
 
 export function fieldLabel(S: IncomeStrings, f: AmountField) {
-  return { cash: S.cash, bank: S.bank, online: S.online, gift1: S.gift1, gift2: S.gift2, tip: S.tip, total: S.total }[f];
+  return { cash: S.cash, bank: S.bank, mobilePay: S.mobilePay, online: S.online, gift1: S.gift1, gift2: S.gift2, tip: S.tip, total: S.total }[f];
 }
 
 /** A staff member's amount crossed out, the owner's beside it. */

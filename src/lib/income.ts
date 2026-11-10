@@ -31,6 +31,7 @@ export const incomeReportSchema = z
     timeOffId: z.string().min(1).max(40).optional(),
     cashCents: cents.default(0),
     bankCents: cents.default(0),
+    mobilePayCents: cents.default(0),
     // Paid online in advance (Timma, Booksalon…) and the channel.
     onlineCents: cents.default(0),
     onlineSource: code,
@@ -46,13 +47,14 @@ export const incomeReportSchema = z
     ownerEditNote: z.string().trim().max(1000).optional(),
   })
   .refine((d) => !!d.bookingId !== !!d.timeOffId, { message: "TARGET" })
-  .refine((d) => d.cashCents + d.bankCents + d.onlineCents + d.giftCard1Cents + d.giftCard2Cents + d.tipCents > 0, { message: "EMPTY" });
+  .refine((d) => d.cashCents + d.bankCents + d.mobilePayCents + d.onlineCents + d.giftCard1Cents + d.giftCard2Cents + d.tipCents > 0, { message: "EMPTY" });
 
 /** The stored amounts for what was entered: codes tidied, total worked out. */
 export function amountsFrom(d: z.infer<typeof incomeReportSchema>): IncomeAmounts {
   const a = {
     cashCents: d.cashCents,
     bankCents: d.bankCents,
+    mobilePayCents: d.mobilePayCents,
     onlineCents: d.onlineCents,
     onlineSource: d.onlineCents > 0 && d.onlineSource ? d.onlineSource.slice(0, 40) : null,
     giftCard1Cents: d.giftCard1Cents,
@@ -71,6 +73,7 @@ export function sameAmounts(a: IncomeAmounts, b: IncomeAmounts) {
   return (
     a.cashCents === b.cashCents &&
     a.bankCents === b.bankCents &&
+    (a.mobilePayCents ?? 0) === (b.mobilePayCents ?? 0) &&
     a.onlineCents === b.onlineCents &&
     a.giftCard1Cents === b.giftCard1Cents &&
     a.giftCard1Percent === b.giftCard1Percent &&
@@ -126,6 +129,7 @@ export function reportJson(r: StaffIncomeReport & { photos: PhotoRow[] }) {
     currency: r.currency,
     cashCents: r.cashCents,
     bankCents: r.bankCents,
+    mobilePayCents: r.mobilePayCents,
     onlineCents: r.onlineCents,
     onlineSource: r.onlineSource,
     giftCard1Cents: r.giftCard1Cents,

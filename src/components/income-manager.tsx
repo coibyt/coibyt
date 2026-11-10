@@ -15,6 +15,7 @@ import {
   Gift,
   Globe,
   HandCoins,
+  Smartphone,
   Loader2,
   Pencil,
   Receipt,
@@ -40,7 +41,7 @@ import { IncomeDayModal } from "@/components/income-day-modal";
 
 type Period = "today" | "week" | "month" | "last" | "year" | "custom";
 type View = "sheet" | "cards";
-type Pay = "" | "cash" | "bank" | "online" | "gift" | "tip";
+type Pay = "" | "cash" | "bank" | "mobilePay" | "online" | "gift" | "tip";
 type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
 
 const GOLD_BTN =
@@ -197,6 +198,7 @@ export function IncomeManager({
     return list.filter((r) => {
       if (pay === "cash" && !r.cashCents) return false;
       if (pay === "bank" && !r.bankCents) return false;
+      if (pay === "mobilePay" && !r.mobilePayCents) return false;
       if (pay === "online" && !r.onlineCents) return false;
       if (pay === "tip" && !r.tipCents) return false;
       if (pay === "gift" && !(r.giftCard1Cents || r.giftCard2Cents)) return false;
@@ -411,6 +413,7 @@ export function IncomeManager({
               ["", S.payAll, null],
               ["cash", S.payCash, Banknote],
               ["bank", S.payBank, CreditCard],
+              ["mobilePay", S.payMobilePay, Smartphone],
               ["online", S.payOnline, Globe],
               ["gift", S.payGift, Gift],
               ["tip", S.payTip, HandCoins],
@@ -551,6 +554,7 @@ export function IncomeManager({
               const parts = [
                 { f: "cash" as const, icon: Banknote, label: S.cash, v: r.cashCents },
                 { f: "bank" as const, icon: CreditCard, label: S.bank, v: r.bankCents },
+                { f: "mobilePay" as const, icon: Smartphone, label: S.payMobilePay, v: r.mobilePayCents },
                 { f: "online" as const, icon: Globe, label: r.onlineSource ? `${S.payOnline} · ${r.onlineSource}` : S.payOnline, v: r.onlineCents },
                 { f: "gift1" as const, icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents, pct: r.giftCard1Percent },
                 { f: "gift2" as const, icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents, pct: r.giftCard2Percent },
