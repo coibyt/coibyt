@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import { redirect } from "@/i18n/navigation";
 import { incomeAccess } from "@/lib/income";
 import { prisma } from "@/lib/prisma";
@@ -9,7 +10,8 @@ import { IncomeManager } from "@/components/income-manager";
 export default async function IncomePage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const access = await incomeAccess();
-  if (!access) {
+  const session = await auth();
+  if (!access || !session?.user) {
     redirect({ href: "/business/dashboard", locale });
     return null;
   }
@@ -25,6 +27,7 @@ export default async function IncomePage({ params }: { params: Promise<{ locale:
         timezone={access.business.timezone}
         currency={access.business.defaultCurrency}
         staff={staff}
+        me={session.user.id}
       />
     </div>
   );

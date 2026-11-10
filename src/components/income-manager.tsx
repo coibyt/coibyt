@@ -13,6 +13,7 @@ import {
   Clock3,
   CreditCard,
   Gift,
+  Globe,
   HandCoins,
   Loader2,
   Pencil,
@@ -31,14 +32,15 @@ import { formatMoney } from "@/lib/money";
 import type { IncomeReportJson } from "@/lib/income";
 import type { OverdueBooking } from "@/lib/income-reminders";
 import { IncomeReportModal } from "@/components/income-report";
-import { giftNet } from "@/lib/income-math";
+import { fieldValue, giftNet, type AmountField } from "@/lib/income-math";
+import { OwnerCorrection, OwnerEditedBadge } from "@/components/income-correction";
 import { TelegramRemindersCard } from "@/components/telegram-reminders-card";
 import { IncomeSheet, SheetExportButton, downloadCsv } from "@/components/income-sheet";
 import { IncomeDayModal } from "@/components/income-day-modal";
 
 type Period = "today" | "week" | "month" | "last" | "year" | "custom";
 type View = "sheet" | "cards";
-type Pay = "" | "cash" | "bank" | "gift" | "tip";
+type Pay = "" | "cash" | "bank" | "online" | "gift" | "tip";
 type StatusFilter = "" | "PENDING" | "APPROVED" | "REJECTED";
 
 const GOLD_BTN =
@@ -76,9 +78,12 @@ export function IncomeManager({
   timezone,
   currency,
   staff,
+  me,
 }: {
   locale: string;
   isOwner: boolean;
+  /** The signed-in user — the owner opening a staff member's report corrects it. */
+  me: string;
   timezone: string;
   currency: string;
   /** Owner only: the salon's staff, for the filter. */
@@ -89,8 +94,8 @@ export function IncomeManager({
   const [period, setPeriod] = useState<Period>("month");
   const [status, setStatus] = useState<StatusFilter>("");
   const [staffId, setStaffId] = useState("");
-  // Spreadsheet (one table per staff member) or the card list.
-  const [view, setView] = useState<View>(isOwner ? "sheet" : "cards");
+  // The card list (default, for everyone) or the spreadsheet (one table per staff member).
+  const [view, setView] = useState<View>("cards");
   // Narrowing the loaded reports: how they were paid, and a gift card's discount.
   const [pay, setPay] = useState<Pay>("");
   const [giftPct, setGiftPct] = useState<number | null>(null);
@@ -192,6 +197,7 @@ export function IncomeManager({
     return list.filter((r) => {
       if (pay === "cash" && !r.cashCents) return false;
       if (pay === "bank" && !r.bankCents) return false;
+      if (pay === "online" && !r.onlineCents) return false;
       if (pay === "tip" && !r.tipCents) return false;
       if (pay === "gift" && !(r.giftCard1Cents || r.giftCard2Cents)) return false;
       if (pay === "gift" && giftPct !== null && !pcts(r).includes(giftPct)) return false;
@@ -405,6 +411,7 @@ export function IncomeManager({
               ["", S.payAll, null],
               ["cash", S.payCash, Banknote],
               ["bank", S.payBank, CreditCard],
+              ["online", S.payOnline, Globe],
               ["gift", S.payGift, Gift],
               ["tip", S.payTip, HandCoins],
             ] as [Pay, string, typeof Gift | null][]
@@ -534,12 +541,21 @@ export function IncomeManager({
               const approved = r.status === "APPROVED";
               const rejected = r.status === "REJECTED";
               const diff = r.totalCents - r.expectedCents;
+              const corrected = !!r.staffOriginal;
+              // The staff member's value of a field the owner changed (crossed out).
+              const was = (f: AmountField) => {
+                if (!r.staffOriginal) return null;
+                const s = fieldValue(r.staffOriginal, f);
+                return s !== fieldValue(r, f) ? s : null;
+              };
               const parts = [
-                { icon: Banknote, label: S.cash, v: r.cashCents },
-                { icon: CreditCard, label: S.bank, v: r.bankCents },
-                { icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents, pct: r.giftCard1Percent },
-                { icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents, pct: r.giftCard2Percent },
-              ].filter((p) => p.v > 0);
+                { f: "cash" as const, icon: Banknote, label: S.cash, v: r.cashCents },
+                { f: "bank" as const, icon: CreditCard, label: S.bank, v: r.bankCents },
+                { f: "online" as const, icon: Globe, label: r.onlineSource ? `${S.payOnline} · ${r.onlineSource}` : S.payOnline, v: r.onlineCents },
+                { f: "gift1" as const, icon: Gift, label: r.giftCard1Code ? `${S.gift1} · ${r.giftCard1Code}` : S.gift1, v: r.giftCard1Cents, pct: r.giftCard1Percent },
+                { f: "gift2" as const, icon: Gift, label: r.giftCard2Code ? `${S.gift2} · ${r.giftCard2Code}` : S.gift2, v: r.giftCard2Cents, pct: r.giftCard2Percent },
+              ].filter((p) => p.v > 0 || (was(p.f) ?? 0) > 0);
+              const totalWas = was("total");
               return (
                 <article
                   key={r.id}
@@ -564,6 +580,7 @@ export function IncomeManager({
                             {S.pending}
                           </span>
                         )}
+                        {corrected && <OwnerEditedBadge S={S} />}
                         <span className="text-[11px] text-ink-400" suppressHydrationWarning>
                           {dateFmt.format(new Date(r.serviceAt))}
                         </span>
@@ -578,7 +595,10 @@ export function IncomeManager({
                       <p className="truncate text-xs text-ink-400">{r.serviceName}</p>
                     </div>
                     <div className="shrink-0 text-right">
-                      <p className="text-lg font-bold tabular-nums text-ink-900">{money(r.totalCents, r.currency)}</p>
+                      {totalWas !== null && (
+                        <p className="text-xs font-semibold tabular-nums text-ink-300 line-through decoration-berry-400 decoration-2">{money(totalWas, r.currency)}</p>
+                      )}
+                      <p className={`text-lg font-bold tabular-nums ${totalWas !== null ? "text-[#8e1d6d]" : "text-ink-900"}`}>{money(r.totalCents, r.currency)}</p>
                       {r.expectedCents > 0 && (
                         <p className={`text-[11px] font-semibold ${diff === 0 ? "text-ink-400" : "text-amber-700"}`}>
                           {S.expected} {money(r.expectedCents, r.currency)}
@@ -589,11 +609,21 @@ export function IncomeManager({
                   </div>
 
                   <div className="mt-3 flex flex-wrap gap-1.5">
-                    {parts.map((p) => (
-                      <span key={p.label} className="flex items-center gap-1.5 rounded-full bg-mist-50 px-2.5 py-1 text-[11px] font-semibold text-ink-700 ring-1 ring-ink-100">
-                        <p.icon className="h-3 w-3 text-[#b08a3e]" />
+                    {parts.map((p) => {
+                      const staffV = was(p.f);
+                      return (
+                      <span
+                        key={p.label}
+                        className={`flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold text-ink-700 ring-1 ${staffV !== null ? "bg-[#fdf2f8] ring-[#e9c6dc]" : "bg-mist-50 ring-ink-100"}`}
+                      >
+                        <p.icon className={`h-3 w-3 ${staffV !== null ? "text-[#8e1d6d]" : "text-[#b08a3e]"}`} />
                         {p.label}
-                        {"pct" in p && p.pct ? (
+                        {staffV !== null ? (
+                          <>
+                            <span className="tabular-nums text-ink-300 line-through decoration-berry-400 decoration-2">{money(staffV, r.currency)}</span>
+                            <span className="font-bold tabular-nums text-[#8e1d6d]">{money(fieldValue(r, p.f), r.currency)}</span>
+                          </>
+                        ) : "pct" in p && p.pct ? (
                           <>
                             <span className="tabular-nums text-ink-400 line-through">{money(p.v, r.currency)}</span>
                             <span className="rounded-full bg-[#1f182d] px-1.5 text-[10px] font-bold text-[#e8d3a6]">−{p.pct}%</span>
@@ -603,16 +633,25 @@ export function IncomeManager({
                           <span className="tabular-nums text-ink-900">{money(p.v, r.currency)}</span>
                         )}
                       </span>
-                    ))}
-                    {r.tipCents > 0 && (
+                      );
+                    })}
+                    {(r.tipCents > 0 || was("tip") !== null) && (
                       <span className="flex items-center gap-1.5 rounded-full bg-[#fffaf0] px-2.5 py-1 text-[11px] font-semibold text-[#6b5221] ring-1 ring-[#ecd9ad]">
                         <HandCoins className="h-3 w-3" />
                         {S.tip}
+                        {was("tip") !== null && (
+                          <span className="tabular-nums text-ink-300 line-through decoration-berry-400 decoration-2">{money(was("tip")!, r.currency)}</span>
+                        )}
                         <span className="tabular-nums">{money(r.tipCents, r.currency)}</span>
                       </span>
                     )}
                   </div>
                   {r.note && <p className="mt-2 rounded-2xl bg-mist-50/70 px-3 py-2 text-xs text-ink-700">{r.note}</p>}
+                  {(corrected || r.ownerEditNote || r.ownerDocs.length > 0) && (
+                    <div className="mt-3">
+                      <OwnerCorrection report={r} S={S} locale={locale} onZoom={setZoom} />
+                    </div>
+                  )}
                   {rejected && r.ownerNote && (
                     <div className="mt-3 rounded-2xl bg-berry-50 px-3.5 py-3 ring-1 ring-berry-100">
                       <p className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-berry-600">
@@ -645,14 +684,22 @@ export function IncomeManager({
                         {fill(S.approvedOn, { time: dateFmt.format(new Date(r.approvedAt)) })}
                       </span>
                     )}
-                    {!approved && (
+                    {/* The owner corrects any staff member's report, approved or not;
+                        staff edit their own until it's approved or the owner corrected it. */}
+                    {(isOwner ? r.reportedById !== me || !approved : !approved && !corrected) && (
                       <button
                         type="button"
                         onClick={() => setEditing(r)}
-                        className={`mr-auto flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${rejected && !isOwner ? "bg-[#1f182d] text-white" : "text-ink-700 hover:bg-mist-50"}`}
+                        className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold ${approved ? "" : "mr-auto"} ${
+                          rejected && !isOwner
+                            ? "bg-[#1f182d] text-white"
+                            : isOwner && r.reportedById !== me
+                              ? "text-[#8e1d6d] ring-1 ring-[#e9c6dc] hover:bg-[#fdf2f8]"
+                              : "text-ink-700 hover:bg-mist-50"
+                        }`}
                       >
                         <Pencil className="h-3.5 w-3.5" />
-                        {rejected && !isOwner ? S.resubmit : S.update}
+                        {isOwner && r.reportedById !== me ? S.editNumbers : rejected && !isOwner ? S.resubmit : S.update}
                       </button>
                     )}
                     {isOwner && !approved && !rejected && (
@@ -905,6 +952,8 @@ export function IncomeManager({
             currency: reportingOverdue.currency,
           }}
           report={null}
+          isOwner={isOwner}
+          me={me}
           onClose={() => setReportingOverdue(null)}
           onSaved={() => {
             loadOverdue();
@@ -927,8 +976,13 @@ export function IncomeManager({
             currency: editing.currency,
           }}
           report={editing}
+          isOwner={isOwner}
+          me={me}
           onClose={() => setEditing(null)}
-          onSaved={() => load()}
+          onSaved={() => {
+            load();
+            router.refresh();
+          }}
         />
       )}
 

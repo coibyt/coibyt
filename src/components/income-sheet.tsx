@@ -1,16 +1,16 @@
 "use client";
 
-import { CheckCircle2, Clock3, Download, Users, XCircle } from "lucide-react";
+import { CheckCircle2, Clock3, Download, PenLine, Users, XCircle } from "lucide-react";
 import { fill } from "@/lib/shop-strings";
 import { formatMoney } from "@/lib/money";
-import { giftNet } from "@/lib/income-math";
+import { giftNet, staffValueIfChanged, type AmountField } from "@/lib/income-math";
 import type { IncomeReportJson } from "@/lib/income";
 import type { IncomeStrings } from "@/lib/income-strings";
 
 /** One staff member's reports as a spreadsheet: a row per booking and the
  * totals underneath. On the Doanh thu page, "Bảng tính" view. */
 
-const gift = (r: IncomeReportJson) => giftNet(r.giftCard1Cents, r.giftCard1Percent) + giftNet(r.giftCard2Cents, r.giftCard2Percent);
+const gift = (r: Pick<IncomeReportJson, "giftCard1Cents" | "giftCard1Percent" | "giftCard2Cents" | "giftCard2Percent">) => giftNet(r.giftCard1Cents, r.giftCard1Percent) + giftNet(r.giftCard2Cents, r.giftCard2Percent);
 const giftPcts = (r: IncomeReportJson) =>
   [r.giftCard1Cents > 0 ? r.giftCard1Percent : null, r.giftCard2Cents > 0 ? r.giftCard2Percent : null].filter((p): p is number => p !== null && p > 0);
 
@@ -20,11 +20,12 @@ export function sheetTotals(rows: IncomeReportJson[]) {
       expected: t.expected + r.expectedCents,
       cash: t.cash + r.cashCents,
       bank: t.bank + r.bankCents,
+      online: t.online + r.onlineCents,
       gift: t.gift + gift(r),
       tip: t.tip + r.tipCents,
       total: t.total + r.totalCents,
     }),
-    { expected: 0, cash: 0, bank: 0, gift: 0, tip: 0, total: 0 },
+    { expected: 0, cash: 0, bank: 0, online: 0, gift: 0, tip: 0, total: 0 },
   );
 }
 
@@ -33,13 +34,30 @@ export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[]
   const day = new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timezone });
   const amt = (c: number) => (c / 100).toFixed(2);
   const status = (r: IncomeReportJson) => (r.status === "APPROVED" ? S.approved : r.status === "REJECTED" ? S.rejected : S.pending);
-  const lines: (string | number)[][] = [[S.colDate, S.byStaff, S.colCustomer, S.colService, S.colPrice, S.colCash, S.colBank, S.colGift, S.colTip, S.colTotal, S.colStatus]];
+  const lines: (string | number)[][] = [
+    [S.colDate, S.byStaff, S.colCustomer, S.colService, S.colPrice, S.colCash, S.colBank, S.colOnline, S.colGift, S.colTip, S.colTotal, S.colStatus, S.colOwnerEdit],
+  ];
   for (const g of groups) {
     for (const r of g.rows) {
-      lines.push([day.format(new Date(r.serviceAt)), g.name, r.customerName, r.serviceName, amt(r.expectedCents), amt(r.cashCents), amt(r.bankCents), amt(gift(r)), amt(r.tipCents), amt(r.totalCents), status(r)]);
+      lines.push([
+        day.format(new Date(r.serviceAt)),
+        g.name,
+        r.customerName,
+        r.serviceName,
+        amt(r.expectedCents),
+        amt(r.cashCents),
+        amt(r.bankCents),
+        amt(r.onlineCents),
+        amt(gift(r)),
+        amt(r.tipCents),
+        amt(r.totalCents),
+        status(r),
+        // The owner's numbers count; what the staff member entered is kept here.
+        r.staffOriginal ? amt(r.staffOriginal.totalCents) : "",
+      ]);
     }
     const t = sheetTotals(g.rows);
-    lines.push(["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.gift), amt(t.tip), amt(t.total), ""]);
+    lines.push(["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.online), amt(t.gift), amt(t.tip), amt(t.total), "", ""]);
   }
   const csv = "﻿" + lines.map((l) => l.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\r\n");
   const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
@@ -76,6 +94,17 @@ export function IncomeSheet({
   const waiting = rows.filter((r) => r.status !== "APPROVED").reduce((n, r) => n + r.totalCents, 0);
   const th = "whitespace-nowrap px-3 py-2.5 text-left text-[10px] font-bold uppercase tracking-wider text-ink-400";
   const num = "whitespace-nowrap px-3 py-2 text-right tabular-nums";
+  // A cell the owner corrected: the staff member's amount crossed out above the owner's.
+  const cell = (r: IncomeReportJson, f: AmountField, value: number, strong = false) => {
+    const was = staffValueIfChanged(r, f);
+    if (was === null) return strong ? formatMoney(value, r.currency, locale) : money(value);
+    return (
+      <span className="inline-flex flex-col items-end leading-tight">
+        <span className="text-[10px] text-ink-300 line-through decoration-berry-400">{money(was)}</span>
+        <span className="font-bold text-[#8e1d6d]">{strong ? formatMoney(value, r.currency, locale) : money(value)}</span>
+      </span>
+    );
+  };
 
   return (
     <section className="overflow-hidden rounded-3xl border border-ink-100 bg-white shadow-[0_14px_34px_-30px_rgba(31,24,45,0.6)]">
@@ -97,7 +126,7 @@ export function IncomeSheet({
         </p>
       </header>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[860px] border-collapse text-xs">
+        <table className="w-full min-w-[940px] border-collapse text-xs">
           <thead className="bg-mist-50/70">
             <tr>
               <th className={th}>{S.colDate}</th>
@@ -106,6 +135,7 @@ export function IncomeSheet({
               <th className={`${th} text-right`}>{S.colPrice}</th>
               <th className={`${th} text-right`}>{S.colCash}</th>
               <th className={`${th} text-right`}>{S.colBank}</th>
+              <th className={`${th} text-right`}>{S.colOnline}</th>
               <th className={`${th} text-right`}>{S.colGift}</th>
               <th className={`${th} bg-[#fffaf0] text-right text-[#8a6a2c]`}>{S.colTip}</th>
               <th className={`${th} text-right`}>{S.colTotal}</th>
@@ -127,19 +157,34 @@ export function IncomeSheet({
                   <td className="max-w-[160px] truncate px-3 py-2 font-semibold text-ink-900">{r.customerName || "—"}</td>
                   <td className="max-w-[200px] truncate px-3 py-2 text-ink-700">{r.serviceName}</td>
                   <td className={`${num} text-ink-400`}>{money(r.expectedCents)}</td>
-                  <td className={num}>{money(r.cashCents)}</td>
-                  <td className={num}>{money(r.bankCents)}</td>
+                  <td className={num}>{cell(r, "cash", r.cashCents)}</td>
+                  <td className={num}>{cell(r, "bank", r.bankCents)}</td>
+                  <td className={num} title={r.onlineSource ?? undefined}>
+                    {cell(r, "online", r.onlineCents)}
+                  </td>
                   <td className={num}>
-                    {money(gift(r))}
+                    {staffValueIfChanged(r, "gift1") !== null || staffValueIfChanged(r, "gift2") !== null ? (
+                      <span className="inline-flex flex-col items-end leading-tight">
+                        <span className="text-[10px] text-ink-300 line-through decoration-berry-400">{money(gift(r.staffOriginal!))}</span>
+                        <span className="font-bold text-[#8e1d6d]">{money(gift(r))}</span>
+                      </span>
+                    ) : (
+                      money(gift(r))
+                    )}
                     {pcts.map((p) => (
                       <span key={p} className="ml-1 rounded-full bg-[#1f182d] px-1.5 text-[9px] font-bold text-[#e8d3a6]">
                         −{p}%
                       </span>
                     ))}
                   </td>
-                  <td className={`${num} bg-[#fffaf0]/70 text-[#6b5221]`}>{money(r.tipCents)}</td>
-                  <td className={`${num} font-bold text-ink-900`}>{formatMoney(r.totalCents, r.currency, locale)}</td>
+                  <td className={`${num} bg-[#fffaf0]/70 text-[#6b5221]`}>{cell(r, "tip", r.tipCents)}</td>
+                  <td className={`${num} font-bold text-ink-900`}>{cell(r, "total", r.totalCents, true)}</td>
                   <td className="whitespace-nowrap px-3 py-2">
+                    {r.staffOriginal && (
+                      <span title={S.ownerEdited} className="mr-1 inline-flex items-center rounded-full bg-[#8e1d6d]/10 p-1 align-middle text-[#8e1d6d]">
+                        <PenLine className="h-3 w-3" />
+                      </span>
+                    )}
                     {r.status === "APPROVED" ? (
                       <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">
                         <CheckCircle2 className="h-3 w-3" />
@@ -169,6 +214,7 @@ export function IncomeSheet({
               <td className={`${num} text-ink-500`}>{money(t.expected)}</td>
               <td className={num}>{money(t.cash)}</td>
               <td className={num}>{money(t.bank)}</td>
+              <td className={num}>{money(t.online)}</td>
               <td className={num}>{money(t.gift)}</td>
               <td className={`${num} bg-[#fffaf0] text-[#6b5221]`}>{money(t.tip)}</td>
               <td className={`${num} text-sm`}>{formatMoney(t.total, currency, locale)}</td>

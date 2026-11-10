@@ -2,8 +2,9 @@ import { NextResponse } from "next/server";
 import { auth } from "@/auth";
 import type { BusinessAccess } from "@/lib/current-business";
 import { prisma } from "@/lib/prisma";
-import { canReport, incomeAccess, incomeReportSchema, reportJson, reportWithPhotos, REPORTABLE_STATUSES } from "@/lib/income";
-import { giftNet } from "@/lib/income-math";
+import { Prisma } from "@prisma/client";
+import { amountsFrom, canReport, incomeAccess, incomeReportSchema, PHOTO_SELECT, reportJson, reportWithPhotos, REPORTABLE_STATUSES, sameAmounts } from "@/lib/income";
+import { pickAmounts, type IncomeAmounts } from "@/lib/income-math";
 import { INCOME_KINDS, isPersonalTimeKind, personalTimeLabel } from "@/lib/personal-time";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -93,7 +94,8 @@ export async function GET(req: Request) {
     if (!target) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
     const existing = await prisma.staffIncomeReport.findUnique({ where: target.key, select: { id: true } });
     const report = existing ? await reportWithPhotos(existing.id) : null;
-    return NextResponse.json({ booking: target.info, report: report ? reportJson(report) : null, isOwner: access.isOwner });
+    const session = await auth();
+    return NextResponse.json({ booking: target.info, report: report ? reportJson(report) : null, isOwner: access.isOwner, me: session?.user?.id ?? null });
   }
 
   const from = searchParams.get("from");
@@ -109,7 +111,7 @@ export async function GET(req: Request) {
         ? { serviceAt: { gte: new Date(`${from}T00:00:00Z`), lt: new Date(new Date(`${to}T00:00:00Z`).getTime() + 86400000) } }
         : {}),
     },
-    include: { photos: { select: { id: true }, orderBy: { createdAt: "asc" } } },
+    include: { photos: { select: PHOTO_SELECT, orderBy: { createdAt: "asc" } } },
     orderBy: { serviceAt: "desc" },
     take: 3000,
   });
@@ -118,7 +120,12 @@ export async function GET(req: Request) {
 
 /** Saves the report for a booking or time block — new, or an edit while it's
  * still waiting for approval or after the owner sent it back (which makes it
- * wait again). Approved reports are locked until the owner un-approves. */
+ * wait again). Approved reports are locked until the owner un-approves, and
+ * a report the owner corrected is locked for the staff member for good.
+ *
+ * The owner saving someone else's report is a correction: their numbers are
+ * applied, the staff member's are kept in staffOriginal (shown crossed out),
+ * with the owner's reason. The status stays as it was. */
 export async function POST(req: Request) {
   const access = await incomeAccess();
   const session = await auth();
@@ -136,28 +143,35 @@ export async function POST(req: Request) {
   if (!target.reportable) return NextResponse.json({ error: "NOT_REPORTABLE" }, { status: 409 });
 
   const existing = await prisma.staffIncomeReport.findUnique({ where: target.key });
+  const amounts = amountsFrom(d);
+
+  // The owner correcting a report someone else sent in.
+  if (existing && access.isOwner && existing.reportedById !== session.user.id) {
+    const staff = (existing.staffOriginal as unknown as IncomeAmounts | null) ?? pickAmounts(existing);
+    const back = sameAmounts(amounts, staff);
+    const saved = await prisma.staffIncomeReport.update({
+      where: { id: existing.id },
+      data: {
+        ...amounts,
+        // Back to the staff member's numbers: no correction any more.
+        staffOriginal: back ? Prisma.DbNull : (staff as unknown as Prisma.InputJsonValue),
+        ownerEditNote: d.ownerEditNote || null,
+        ownerEditedAt: back && !d.ownerEditNote ? null : new Date(),
+        ownerEditedById: back && !d.ownerEditNote ? null : session.user.id,
+      },
+    });
+    const full = await reportWithPhotos(saved.id);
+    return NextResponse.json({ report: reportJson(full!) });
+  }
+
   if (existing?.status === "APPROVED") return NextResponse.json({ error: "APPROVED" }, { status: 409 });
+  if (existing?.staffOriginal && !access.isOwner) return NextResponse.json({ error: "OWNER_EDITED" }, { status: 409 });
 
-  const amounts = {
-    cashCents: d.cashCents,
-    bankCents: d.bankCents,
-    giftCard1Cents: d.giftCard1Cents,
-    giftCard1Code: d.giftCard1Cents > 0 && d.giftCard1Code ? d.giftCard1Code.toUpperCase() : null,
-    giftCard2Cents: d.giftCard2Cents,
-    giftCard2Code: d.giftCard2Cents > 0 && d.giftCard2Code ? d.giftCard2Code.toUpperCase() : null,
-    giftCard1Percent: d.giftCard1Cents > 0 ? d.giftCard1Percent : 0,
-    giftCard2Percent: d.giftCard2Cents > 0 ? d.giftCard2Percent : 0,
-    tipCents: d.tipCents,
-    // Salon income: gift cards count after their discount; the tip is the
-    // staff member's own and stays out.
-    totalCents: d.cashCents + d.bankCents + giftNet(d.giftCard1Cents, d.giftCard1Percent) + giftNet(d.giftCard2Cents, d.giftCard2Percent),
-    note: d.note || null,
-  };
-
+  const data = { ...amounts, note: d.note || null };
   const saved = existing
-    ? await prisma.staffIncomeReport.update({ where: { id: existing.id }, data: { ...amounts, ...target.snapshot, status: "PENDING" } })
+    ? await prisma.staffIncomeReport.update({ where: { id: existing.id }, data: { ...data, ...target.snapshot, status: "PENDING" } })
     : await prisma.staffIncomeReport.create({
-        data: { businessId: access.business.id, ...target.key, reportedById: session.user.id, ...amounts, ...target.snapshot },
+        data: { businessId: access.business.id, ...target.key, reportedById: session.user.id, ...data, ...target.snapshot },
       });
   const full = await reportWithPhotos(saved.id);
   return NextResponse.json({ report: reportJson(full!) }, { status: existing ? 200 : 201 });
