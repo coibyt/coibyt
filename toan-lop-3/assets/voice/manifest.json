@@ -187,6 +187,11 @@
       "ms": 1560,
       "spoken": "hai mươi tư chia bốn bằng sáu"
     },
+    "24 : 4 = 6 (lần)": {
+      "file": "assets/voice/24-4-6-lan-302dc8.mp3",
+      "ms": 1872,
+      "spoken": "hai mươi tư chia bốn bằng sáu (lần)"
+    },
     "24 : 6 = 4": {
       "file": "assets/voice/24-6-4-5cefc1.mp3",
       "ms": 1512,
@@ -321,6 +326,11 @@
       "file": "assets/voice/382-2-764-612fea.mp3",
       "ms": 2952,
       "spoken": "ba trăm tám mươi hai nhân hai bằng bảy trăm sáu mươi tư"
+    },
+    "4 + 20 = 24 (bông)": {
+      "file": "assets/voice/4-20-24-bong-0b82f2.mp3",
+      "ms": 2112,
+      "spoken": "bốn cộng hai mươi bằng hai mươi tư (bông)"
     },
     "4 cộng 2 bằng 6, thêm 1 bằng 7, viết 7.": {
       "file": "assets/voice/4-cong-2-bang-6-them-1-bang-7-viet-7-61f968.mp3",
@@ -677,6 +687,11 @@
       "ms": 4248,
       "spoken": "chín nghìn bốn trăm năm mươi sáu chia sáu bằng một nghìn năm trăm bảy mươi sáu"
     },
+    "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng.": {
+      "file": "assets/voice/biet-chu-vi-va-hieu-cua-chieu-dai-chieu-0e3e7f.mp3",
+      "ms": 7320,
+      "spoken": "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng."
+    },
     "Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.": {
       "file": "assets/voice/bieu-thuc-chi-co-cong-tru-hoac-chi-co-nh-e82a7f.mp3",
       "ms": 11160,
@@ -942,15 +957,105 @@
       "ms": 7248,
       "spoken": "Bài học: Nâng cao tuần mười tám: Ôn tập nhân, chia và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
     },
+    "Bài học: Nâng cao tuần 19: Ôn tập biểu thức, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-19-on-tap-bieu-thu-c59ad7.mp3",
+      "ms": 7320,
+      "spoken": "Bài học: Nâng cao tuần mười chín: Ôn tập biểu thức, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
     "Bài học: Nâng cao tuần 1: Số đến 1000, cộng trừ và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-1-so-den-1000-cong-cca32b.mp3",
       "ms": 7296,
       "spoken": "Bài học: Nâng cao tuần một: Số đến một nghìn, cộng trừ và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
     },
+    "Bài học: Nâng cao tuần 20: Các số đến 10 000 và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-20-cac-so-den-10-0-73a89a.mp3",
+      "ms": 7512,
+      "spoken": "Bài học: Nâng cao tuần hai mươi: Các số đến mười không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 21: Số La Mã và làm tròn số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-21-so-la-ma-va-lam-ba7b73.mp3",
+      "ms": 6696,
+      "spoken": "Bài học: Nâng cao tuần hai mươi mốt: Số La Mã và làm tròn số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 22: Số đến 10 000 và chu vi các hình. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-22-so-den-10-000-v-8a55d8.mp3",
+      "ms": 7320,
+      "spoken": "Bài học: Nâng cao tuần hai mươi hai: Số đến mười không và chu vi các hình. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 23: Chu vi và diện tích hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-23-chu-vi-va-dien-108aa2.mp3",
+      "ms": 7800,
+      "spoken": "Bài học: Nâng cao tuần hai mươi ba: Chu vi và diện tích hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 24: Diện tích và phép cộng trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-24-dien-tich-va-ph-26c0c4.mp3",
+      "ms": 8736,
+      "spoken": "Bài học: Nâng cao tuần hai mươi tư: Diện tích và phép cộng trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 25: Phép trừ, phép nhân trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-25-phep-tru-phep-n-c113df.mp3",
+      "ms": 8112,
+      "spoken": "Bài học: Nâng cao tuần hai mươi lăm: Phép trừ, phép nhân trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 26: Phép chia và bốn phép tính trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-26-phep-chia-va-bo-bde8b9.mp3",
+      "ms": 7800,
+      "spoken": "Bài học: Nâng cao tuần hai mươi sáu: Phép chia và bốn phép tính trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 27: Các số đến 100 000 và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-27-cac-so-den-100-c23ba7.mp3",
+      "ms": 7656,
+      "spoken": "Bài học: Nâng cao tuần hai mươi bảy: Các số đến một trăm không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 28: Làm tròn số và phép cộng trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-28-lam-tron-so-va-38073f.mp3",
+      "ms": 8616,
+      "spoken": "Bài học: Nâng cao tuần hai mươi tám: Làm tròn số và phép cộng trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 29: Cộng, trừ trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-29-cong-tru-trong-2e85ce.mp3",
+      "ms": 7128,
+      "spoken": "Bài học: Nâng cao tuần hai mươi chín: Cộng, trừ trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
     "Bài học: Nâng cao tuần 2: Tìm thành phần, bảng nhân 2, 3, 5. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-2-tim-thanh-phan-b-5862b6.mp3",
       "ms": 7704,
       "spoken": "Bài học: Nâng cao tuần hai: Tìm thành phần, bảng nhân hai, ba, năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 30: Xem đồng hồ, tháng và năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-30-xem-dong-ho-tha-7f21ad.mp3",
+      "ms": 7320,
+      "spoken": "Bài học: Nâng cao tuần ba mươi: Xem đồng hồ, tháng và năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 31: Tiền Việt Nam và nhân số có năm chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-31-tien-viet-nam-v-0cad07.mp3",
+      "ms": 7008,
+      "spoken": "Bài học: Nâng cao tuần ba mươi mốt: Tiền Việt Nam và nhân số có năm chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 32: Nhân, chia trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-32-nhan-chia-trong-3213ed.mp3",
+      "ms": 7464,
+      "spoken": "Bài học: Nâng cao tuần ba mươi hai: Nhân, chia trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 33: Phép tính và bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-33-phep-tinh-va-ba-78c11c.mp3",
+      "ms": 7224,
+      "spoken": "Bài học: Nâng cao tuần ba mươi ba: Phép tính và bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 34: Thống kê, khả năng xảy ra và các số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-34-thong-ke-kha-na-286cbf.mp3",
+      "ms": 7728,
+      "spoken": "Bài học: Nâng cao tuần ba mươi tư: Thống kê, khả năng xảy ra và các số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 35: Ôn tập các số và bốn phép tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-35-on-tap-cac-so-v-bc8329.mp3",
+      "ms": 7272,
+      "spoken": "Bài học: Nâng cao tuần ba mươi lăm: Ôn tập các số và bốn phép tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nâng cao tuần 36: Ôn tập hình học, đo lường và tổng hợp. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nang-cao-tuan-36-on-tap-hinh-hoc-7cf446.mp3",
+      "ms": 7008,
+      "spoken": "Bài học: Nâng cao tuần ba mươi sáu: Ôn tập hình học, đo lường và tổng hợp. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
     },
     "Bài học: Nâng cao tuần 3: Bảng nhân 4, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-3-bang-nhan-4-hinh-b389a9.mp3",
@@ -1117,6 +1222,11 @@
       "ms": 5496,
       "spoken": "Bài học: Điểm ở giữa. Trung điểm của đoạn thẳng. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
     },
+    "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.": {
+      "file": "assets/voice/bai-nay-co-nhieu-buoc-con-tom-tat-de-tim-7d331c.mp3",
+      "ms": 5280,
+      "spoken": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé."
+    },
     "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.": {
       "file": "assets/voice/bai-nay-can-hai-buoc-tinh-con-tim-so-chu-4ba4ad.mp3",
       "ms": 3576,
@@ -1231,6 +1341,11 @@
       "file": "assets/voice/chia-deu-thanh-cac-phan-bang-nhau-con-th-f5d3b4.mp3",
       "ms": 2928,
       "spoken": "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!"
+    },
+    "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.": {
+      "file": "assets/voice/chieu-dai-cong-chieu-rong-thi-bang-nua-c-23b2f5.mp3",
+      "ms": 2880,
+      "spoken": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật."
     },
     "Chiều dài và chiều rộng phải cùng đơn vị đo.": {
       "file": "assets/voice/chieu-dai-va-chieu-rong-phai-cung-don-vi-610114.mp3",
@@ -1387,6 +1502,11 @@
       "ms": 4608,
       "spoken": "Chữ số trên bé hơn chữ số dưới thì mượn một chục, rồi nhớ một vào hàng bên trái."
     },
+    "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.": {
+      "file": "assets/voice/con-chia-hinh-thanh-cac-hinh-chu-nhat-nh-858119.mp3",
+      "ms": 4440,
+      "spoken": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé."
+    },
     "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.": {
       "file": "assets/voice/con-chia-lan-luot-tu-trai-sang-phai-moi-ab9319.mp3",
       "ms": 3720,
@@ -1401,6 +1521,11 @@
       "file": "assets/voice/con-chon-chu-de-muon-hoc-nhe-bai-nao-co-b51d28.mp3",
       "ms": 3744,
       "spoken": "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy."
+    },
+    "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.": {
+      "file": "assets/voice/con-coi-ca-phan-co-chua-dau-hoi-la-mot-s-3aab24.mp3",
+      "ms": 4992,
+      "spoken": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé."
     },
     "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!": {
       "file": "assets/voice/con-co-nhiem-vu-da-hoan-thanh-bam-nhan-v-a5cb43.mp3",
@@ -1507,6 +1632,11 @@
       "ms": 2856,
       "spoken": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé."
     },
+    "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.": {
+      "file": "assets/voice/con-tinh-gia-tri-cua-tung-bieu-thuc-truo-a55b5f.mp3",
+      "ms": 4248,
+      "spoken": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé."
+    },
     "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.": {
       "file": "assets/voice/con-tinh-ket-qua-tung-dong-truoc-roi-keo-837ad2.mp3",
       "ms": 2784,
@@ -1536,6 +1666,11 @@
       "file": "assets/voice/con-xac-dinh-tung-hang-cua-so-tu-hang-ca-07b79f.mp3",
       "ms": 3120,
       "spoken": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé."
+    },
+    "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.": {
+      "file": "assets/voice/con-xet-tung-hang-tu-hang-don-vi-sang-tr-7a08d6.mp3",
+      "ms": 4656,
+      "spoken": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé."
     },
     "Con đang rất phong độ, cứ thế nhé!": {
       "file": "assets/voice/con-dang-rat-phong-do-cu-the-nhe-743499.mp3",
@@ -2052,6 +2187,11 @@
       "ms": 3552,
       "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé."
     },
+    "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé. Nếu đề chưa cho số lớn, con tìm số lớn trước.": {
+      "file": "assets/voice/muon-biet-so-lon-gap-may-lan-so-be-ta-la-a69353.mp3",
+      "ms": 8280,
+      "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé. Nếu đề chưa cho số lớn, con tìm số lớn trước."
+    },
     "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.": {
       "file": "assets/voice/muon-giam-mot-so-di-nhieu-lan-ta-lay-so-841c18.mp3",
       "ms": 3024,
@@ -2391,6 +2531,16 @@
       "file": "assets/voice/so-du-luon-be-hon-so-chia-neu-so-du-lon-b9c932.mp3",
       "ms": 3960,
       "spoken": "Số dư luôn bé hơn số chia. Nếu số dư lớn hơn, con chia tiếp được nữa đấy!"
+    },
+    "Số hoa của Mai gấp số hoa của Dũng số lần là:": {
+      "file": "assets/voice/so-hoa-cua-mai-gap-so-hoa-cua-dung-so-la-32bb45.mp3",
+      "ms": 2544,
+      "spoken": "Số hoa của Mai gấp số hoa của Dũng số lần là:"
+    },
+    "Số hoa của Mai là:": {
+      "file": "assets/voice/so-hoa-cua-mai-la-b0a387.mp3",
+      "ms": 1128,
+      "spoken": "Số hoa của Mai là:"
     },
     "Số liền sau thì thêm một, số liền trước thì bớt một nhé.": {
       "file": "assets/voice/so-lien-sau-thi-them-mot-so-lien-truoc-t-fe0e7c.mp3",
@@ -2781,6 +2931,11 @@
       "file": "assets/voice/vi-du-ab-8-cm-m-la-trung-diem-cua-ab-thi-978e5e.mp3",
       "ms": 5496,
       "spoken": "Ví dụ: AB bằng tám xăng-ti-mét, M là trung điểm của AB thì AM bằng MB bằng"
+    },
+    "Ví dụ: Dũng có 4 bông hoa. Mai có nhiều hơn Dũng 20 bông hoa. Hỏi số hoa của Mai gấp mấy lần số hoa của Dũng?": {
+      "file": "assets/voice/vi-du-dung-co-4-bong-hoa-mai-co-nhieu-ho-79f0e5.mp3",
+      "ms": 7200,
+      "spoken": "Ví dụ: Dũng có bốn bông hoa. Mai có nhiều hơn Dũng hai mươi bông hoa. Hỏi số hoa của Mai gấp mấy lần số hoa của Dũng?"
     },
     "Ví dụ: Hai số có cùng 4 chữ số. So sánh từ hàng cao nhất, đến hàng trăm có 2 < 3. Vậy 5.297 < 5.317.": {
       "file": "assets/voice/vi-du-hai-so-co-cung-4-chu-so-so-sanh-tu-35158a.mp3",
