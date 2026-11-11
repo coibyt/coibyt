@@ -62,3 +62,23 @@ abstract final class ShowLines {
     for (var i = 1; i <= 15; i++) questionNumber(i),
   }.toList();
 }
+
+/// Tách đề thành các câu để MC đọc (không lặp dấu chấm: "DAKEG.. Đường" → "DAKEG. Đường").
+List<String> promptSentences(String prompt) => [
+  for (final line in prompt.split('\n'))
+    if (line.trim().isNotEmpty) RegExp(r'[.!?:]$').hasMatch(line.trim()) ? line.trim() : '${line.trim()}.',
+];
+
+/// Câu MC đọc một đáp án.
+String answerLine(int index, String choice) => 'Đáp án ${'ABCD'[index]}: $choice.';
+
+/// Hạt giống cố định theo mã câu (giống nhau trên mọi máy/trình duyệt) → thứ tự đáp án cố định,
+/// nhờ vậy lời MC đọc đáp án được ghi âm sẵn.
+/// (Phép tính giữ dưới 2^53 nên trình duyệt và máy ảo Dart cho cùng kết quả.)
+int stableSeed(String id) {
+  var h = 7;
+  for (final c in id.codeUnits) {
+    h = (h * 31 + c) % 1000000007;
+  }
+  return h;
+}

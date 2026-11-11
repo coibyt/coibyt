@@ -41,7 +41,9 @@ void main() {
   });
 
   test('tính điểm: chuỗi đúng cộng thêm, sai mất tim, hết tim là thua; sao & vàng', () {
-    final qs = [for (var i = 0; i < 10; i++) GameQuestion(prompt: 'q$i', choices: ['a', 'b'], correct: 0, problemId: '$i')];
+    final qs = [
+      for (var i = 0; i < 10; i++) GameQuestion(prompt: 'q$i', choices: ['a', 'b'], correct: 0, problemId: '$i'),
+    ];
     final g = ReviewGame(qs);
     expect(g.answer(0, secondsLeft: 10), 150);
     expect(g.answer(0), 120, reason: 'chuỗi 2: +20');

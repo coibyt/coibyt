@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:math';
 
@@ -214,33 +215,57 @@ class AppState extends ChangeNotifier {
     return r.isEmpty || now().difference(r.last.at).inDays >= abilityRetestDays;
   }
 
-  /// Ngân hàng câu hỏi năng lực: mọi câu miễn phí của các chủ đề (trừ chủ đề ôn tập tổng hợp).
-  Future<List<AbilityItem>> abilityBank() async {
-    final items = <AbilityItem>[];
-    final chapters = book?.chapters ?? const <Chapter>[];
-    for (final c in chapters) {
+  /// Ngân hàng câu hỏi năng lực (nạp một lần rồi nhớ; lỗi thì lần sau nạp lại).
+  Future<List<AbilityItem>>? _bank;
+
+  Future<List<AbilityItem>> abilityBank({void Function(int done, int total)? onProgress}) {
+    final f = _bank ??= _loadBank(onProgress);
+    f.catchError((Object _) {
+      _bank = null;
+      return const <AbilityItem>[];
+    });
+    return f;
+  }
+
+  /// Nạp sẵn ngân hàng câu hỏi ở chế độ nền (gọi khi vào trang chủ) để gameshow mở ngay.
+  void warmUpAbilityBank() => unawaited(abilityBank().then((_) {}, onError: (Object _) {}));
+
+  Future<List<AbilityItem>> _loadBank(void Function(int, int)? onProgress) async {
+    // Mỗi chủ đề lấy tối đa [bankLessonsPerChapter] bài trải đều (đầu & giữa chủ đề), tải song song.
+    final jobs = <(LessonRef, AbilityDomain, int)>[];
+    for (final c in book?.chapters ?? const <Chapter>[]) {
       final domain = AbilityDomain.ofChapter(c.order);
-      if (domain == null) continue;
+      if (domain == null || c.lessons.isEmpty) continue;
       final term = (c.volume ?? 1).clamp(1, 2);
-      for (final ref in c.lessons) {
-        try {
-          final lesson = await content.loadLesson(ref.src);
-          for (final p in lesson.problems) {
-            if (p.access != Access.free) continue;
-            items.add(
-              AbilityItem(
-                problem: p,
-                domain: domain,
-                difficulty: (term - 1) * 3 + p.level.clamp(1, 3),
-                lessonId: ref.id,
-              ),
-            );
-          }
-        } on Object {
-          continue; // bài lỗi/chưa có: bỏ qua, vẫn kiểm tra được bằng bài khác
-        }
+      final ls = c.lessons;
+      final picks = bankLessonIndexes(ls.length);
+      for (final i in picks) {
+        jobs.add((ls[i], domain, term));
       }
     }
+    var done = 0;
+    onProgress?.call(0, jobs.length);
+    final parts = await Future.wait([
+      for (final (ref, domain, term) in jobs)
+        content
+            .loadLesson(ref.src)
+            .then(
+              (lesson) => [
+                for (final p in lesson.problems)
+                  if (p.access == Access.free)
+                    AbilityItem(
+                      problem: p,
+                      domain: domain,
+                      difficulty: (term - 1) * 3 + p.level.clamp(1, 3),
+                      lessonId: ref.id,
+                    ),
+              ],
+              onError: (Object _) => const <AbilityItem>[], // bài lỗi: bỏ qua, vẫn kiểm tra bằng bài khác
+            )
+            .whenComplete(() => onProgress?.call(++done, jobs.length)),
+    ]);
+    final items = [for (final p in parts) ...p];
+    if (items.isEmpty) throw StateError('Không tải được câu hỏi');
     return items;
   }
 

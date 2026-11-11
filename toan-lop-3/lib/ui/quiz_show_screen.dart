@@ -22,6 +22,14 @@ const _navy = Color(0xFF0E1A5C);
 const _panelTop = Color(0xFF1B2C8F);
 const _panelBottom = Color(0xFF0A1248);
 
+/// Khung lời MC chỉ hiện phần cuối đang đọc (khoảng 4 dòng), không tràn che màn hình.
+String bubbleTail(String text, {int max = 120}) {
+  if (text.length <= max) return text;
+  final cut = text.substring(text.length - max);
+  final space = cut.indexOf(' ');
+  return '…${space > 0 ? cut.substring(space + 1) : cut}';
+}
+
 /// Thời gian mỗi câu (giây).
 const kShowSeconds = 45;
 
@@ -69,7 +77,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
   final _used = <String>{};
   String? _teacherHint;
   int _burst = 0;
-  bool _presenting = false;
+  HostPose _pose = HostPose.present;
   int _token = 0;
   final _clockWatch = Stopwatch();
 
@@ -84,27 +92,100 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     if (_stage == _Stage.loading && _test == null) _load();
   }
 
+  /// Tiến độ chuẩn bị câu hỏi (đã tải / tổng số bài).
+  int _loaded = 0, _toLoad = 0;
+  bool _loadFailed = false;
+
   Future<void> _load() async {
     final app = AppScope.read(context);
-    final bank = await app.abilityBank();
+    setState(() {
+      _stage = _Stage.loading;
+      _loadFailed = false;
+    });
+    List<AbilityItem> bank;
+    try {
+      bank = await app
+          .abilityBank(
+            onProgress: (d, t) {
+              if (mounted) {
+                setState(() {
+                  _loaded = d;
+                  _toLoad = t;
+                });
+              }
+            },
+          )
+          .timeout(const Duration(seconds: 40));
+    } on Object {
+      if (mounted) setState(() => _loadFailed = true);
+      return;
+    }
     if (!mounted) return;
     // Chỉ dùng câu đổi được thành 4 lựa chọn.
     final usable = [
       for (final i in bank)
-        if (toGameQuestion(i.problem, _random) != null) i,
+        if (toGameQuestion(i.problem, Random(stableSeed(i.problem.id))) != null) i,
     ];
     _test = AbilityTest(usable, random: _random);
     _host.voiceEnabled = app.voiceEnabled;
     _teacher.voiceEnabled = app.voiceEnabled;
-    setState(() => _stage = _Stage.intro);
+    HostAvatar.precache(context);
+    setState(() {
+      _stage = _Stage.intro;
+      _pose = HostPose.present;
+    });
     _music.sting('intro');
-    _presenting = true;
     await _host.say([app.abilityResults.isEmpty ? ShowLines.welcome : ShowLines.welcomeBack]);
-    if (mounted) setState(() => _presenting = false);
+    if (mounted && _stage == _Stage.intro) setState(() => _pose = HostPose.idle);
   }
 
+  Widget _loading() => Center(
+    child: Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          HostAvatar(height: 220, pose: _loadFailed ? HostPose.think : HostPose.present),
+          const SizedBox(height: 12),
+          if (_loadFailed) ...[
+            const Text(
+              'Mạng hơi chậm nên chưa tải xong câu hỏi.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 14),
+            _GoldButton(key: const ValueKey('btn-show-retry'), label: 'THỬ LẠI', onTap: _load),
+          ] else ...[
+            const Text(
+              'Đang chuẩn bị sân khấu…',
+              style: TextStyle(fontSize: 20, color: _gold, fontWeight: FontWeight.w900),
+            ),
+            const SizedBox(height: 10),
+            SizedBox(
+              width: 240,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: LinearProgressIndicator(
+                  value: _toLoad == 0 ? null : _loaded / _toLoad,
+                  minHeight: 10,
+                  color: _gold,
+                  backgroundColor: Colors.white24,
+                ),
+              ),
+            ),
+            if (_toLoad > 0)
+              Padding(
+                padding: const EdgeInsets.only(top: 6),
+                child: Text('$_loaded/$_toLoad', style: const TextStyle(color: Colors.white70)),
+              ),
+          ],
+        ],
+      ),
+    ),
+  );
+
   GameQuestion _q(AbilityItem item) =>
-      _questions.putIfAbsent(item.problem.id, () => toGameQuestion(item.problem, _random)!);
+      _questions.putIfAbsent(item.problem.id, () => toGameQuestion(item.problem, Random(stableSeed(item.problem.id)))!);
 
   @override
   void dispose() {
@@ -135,19 +216,24 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
       _selected = null;
       _removed = {};
       _teacherHint = null;
-      _presenting = true;
+      _pose = HostPose.present;
     });
     _clock.value = 0;
+    // 1) Đưa tay giới thiệu và đọc đề.
     await _host.say([
       ?intro,
       if (n == t.total) ShowLines.finale,
       ShowLines.questionNumber(n),
-      q.prompt.replaceAll('\n', '. '),
+      ...promptSentences(q.prompt),
     ]);
+    if (!mounted || token != _token) return;
+    // 2) Chỉ xuống và đọc lần lượt từng đáp án.
+    setState(() => _pose = HostPose.point);
+    await _host.say([for (var i = 0; i < q.choices.length; i++) answerLine(i, q.choices[i]), ShowLines.chooseNow]);
     if (!mounted || token != _token) return;
     setState(() {
       _stage = _Stage.answering;
-      _presenting = false;
+      _pose = HostPose.think;
     });
     _clock.forward(from: 0);
   }
@@ -182,7 +268,10 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     final t = _test!;
     final q = _q(t.current);
     final ok = choice != null && choice == q.correct;
-    setState(() => _stage = _Stage.revealed);
+    setState(() {
+      _stage = _Stage.revealed;
+      _pose = ok ? HostPose.cheer : HostPose.idle;
+    });
     _flash.repeat(reverse: true, count: 3);
     if (ok) {
       _burst++;
@@ -257,7 +346,10 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     _clock.stop();
     _music.stopBackground();
     _music.sting('win');
-    setState(() => _stage = _Stage.finished);
+    setState(() {
+      _stage = _Stage.finished;
+      _pose = HostPose.cheer;
+    });
     final app = AppScope.read(context);
     final result = _test!.result(app.now(), seconds: _clockWatch.elapsed.inSeconds);
     final previous = app.abilityResults.isEmpty ? null : app.abilityResults.last;
@@ -286,7 +378,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
           child: Stack(
             children: [
               switch (_stage) {
-                _Stage.loading => const Center(child: CircularProgressIndicator(color: _gold)),
+                _Stage.loading => _loading(),
                 _Stage.intro => _intro(),
                 _ => _play(),
               },
@@ -305,12 +397,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     builder: (context, _) => Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        HostAvatar(
-          key: const ValueKey('show-host'),
-          height: height,
-          mouthOpen: _host.mouthOpen,
-          presenting: _presenting || _host.mood == TeacherMood.clap,
-        ),
+        HostAvatar(key: const ValueKey('show-host'), height: height, mouthOpen: _host.mouthOpen, pose: _pose),
         Expanded(
           child: AnimatedOpacity(
             duration: const Duration(milliseconds: 250),
@@ -336,8 +423,10 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
                     style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Color(0xFF5B3FD6)),
                   ),
                   Text(
-                    _host.text.substring(0, _host.visibleChars.clamp(0, _host.text.length)),
+                    bubbleTail(_host.text.substring(0, _host.visibleChars.clamp(0, _host.text.length))),
                     key: const ValueKey('show-host-text'),
+                    maxLines: 4,
+                    overflow: TextOverflow.fade,
                     style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: _navy, height: 1.3),
                   ),
                 ],

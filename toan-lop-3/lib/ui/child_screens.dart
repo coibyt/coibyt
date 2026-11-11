@@ -183,6 +183,8 @@ class _HomeScreenState extends State<HomeScreen> {
       TeacherAssets.instance.precache(context);
       final app = AppScope.read(context);
       app.refreshHearts();
+      // Chuẩn bị sẵn câu hỏi gameshow năng lực ở chế độ nền → bấm vào là chơi ngay.
+      app.warmUpAbilityBank();
       // Mở app là cô chào bằng giọng nói ngay (không cần bấm loa).
       _teacher.voiceEnabled = app.voiceEnabled;
       abilityChapterBuilder = (c) => ChapterScreen(chapter: c);

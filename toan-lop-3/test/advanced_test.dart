@@ -144,11 +144,12 @@ void main() {
         expect(ps.every((p) => p.level >= 2), isTrue, reason: lesson.id);
         expect(ps.where((p) => p.level == 3).length, greaterThanOrEqualTo(5), reason: lesson.id);
         expect(ps.map((p) => p.type).toSet(), containsAll(ProblemType.values), reason: lesson.id);
-        final multi = ps.where(
-          (p) => p.solution.steps.any((b) => b is WordProblemBlock && b.lines.length >= 2),
-        );
+        final multi = ps.where((p) => p.solution.steps.any((b) => b is WordProblemBlock && b.lines.length >= 2));
         expect(multi.length, greaterThanOrEqualTo(3), reason: lesson.id);
-        expect([for (final p in ps) p.id], [for (var i = 1; i <= 8; i++) '${lesson.id}.p${i.toString().padLeft(2, '0')}']);
+        expect(
+          [for (final p in ps) p.id],
+          [for (var i = 1; i <= 8; i++) '${lesson.id}.p${i.toString().padLeft(2, '0')}'],
+        );
         expect(
           [for (final p in ps) p.solution.access],
           [for (var i = 0; i < 8; i++) i == 7 ? Access.vip : Access.free],

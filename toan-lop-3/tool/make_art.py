@@ -214,6 +214,13 @@ HOST_KEEP = KEEP.replace("the same woman, same face, same hairstyle, same ao dai
 JOBS["host_idle"] = dict(group="host", aspect="3:4", prompt=HOST)
 JOBS["host_talk"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Only change: her mouth is open in a lively speaking shape, eyes bright.")
 JOBS["host_present"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Change only her pose: she extends her right arm with an open palm to the side as if presenting the next question, excited smile, mouth slightly open. The hand must stay inside the frame.")
+JOBS["host_blink"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Only change: her eyes are gently closed in a natural blink, same soft smile, mouth closed.")
+JOBS["host_present_talk"] = dict(group="host", aspect="3:4", ref="host_present", prompt=HOST_KEEP.replace("same position", "same presenting pose, same position") + "Only change: her mouth is open in a lively speaking shape.")
+JOBS["host_point"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Change only her pose: she points her right index finger down and forward towards the bottom of the frame as if pointing at the answer options below her, curious encouraging expression, mouth closed with a smile. The hand must stay inside the frame.")
+JOBS["host_point_talk"] = dict(group="host", aspect="3:4", ref="host_point", prompt=HOST_KEEP.replace("same position", "same pointing pose, same position") + "Only change: her mouth is open in a lively speaking shape.")
+JOBS["host_think"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Change only her pose and expression: she touches her chin with her right index finger, eyebrows slightly raised in playful suspense, looking at the viewer as if waiting for an answer, mouth closed with a small smile.")
+JOBS["host_cheer"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Change only her pose and expression: she claps her hands together joyfully in front of her chest, very happy wide smile, eyes squinting with joy, a few small golden sparkles around her hands, mouth closed in a big smile.")
+JOBS["host_cheer_talk"] = dict(group="host", aspect="3:4", ref="host_cheer", prompt=HOST_KEEP.replace("same position", "same clapping pose, same position") + "Only change: her mouth is open wide in a cheerful 'Yay!' shape.")
 JOBS["bg_show"] = dict(group="bg", aspect="9:16", prompt=(
     "An original glamorous TV quiz show studio stage for children, seen from the audience: deep royal blue and "
     "violet lighting, a circular glowing stage floor in the centre, sweeping spotlights, sparkling light bokeh, "

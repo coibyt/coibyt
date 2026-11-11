@@ -68,13 +68,17 @@ void main() {
       await s.selectBook('kntt3');
       return s;
     }))!;
-    final ref = s.book!.chapters.firstWhere((c) => c.id == 'kntt3.c4').lessons.firstWhere(
-      (l) => l.id == 'kntt3.c4.nhan-2cs-1cs',
-    );
+    final ref = s.book!.chapters
+        .firstWhere((c) => c.id == 'kntt3.c4')
+        .lessons
+        .firstWhere((l) => l.id == 'kntt3.c4.nhan-2cs-1cs');
     await tester.pumpWidget(
       AppScope(
         state: s,
-        child: MaterialApp(theme: buildAppTheme(), home: TeacherClassScreen(lessonRef: ref)),
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: TeacherClassScreen(lessonRef: ref),
+        ),
       ),
     );
     for (var i = 0; i < 20 && find.byKey(const ValueKey('class-title')).evaluate().isEmpty; i++) {

@@ -10,9 +10,13 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:http/http.dart' as http;
+import 'package:toan_lop_3/logic/ability.dart';
+import 'package:toan_lop_3/logic/review_game.dart';
 import 'package:toan_lop_3/logic/show_lines.dart';
+import 'package:toan_lop_3/models/problem.dart';
 import 'package:toan_lop_3/logic/spoken_vi.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/models/content.dart';
@@ -55,8 +59,32 @@ String slug(String t) {
 /// Mọi câu cần thu: (câu, giọng). Cô giáo: câu cố định, gợi ý, phần làm mẫu; MC: lời dẫn gameshow.
 List<(String, String)> allLines() => [
   for (final l in teacherLines()) (l, teacherVoice),
-  for (final l in ShowLines.all()) (voiceKey(l), hostVoice),
+  for (final l in {...ShowLines.all(), ...showQuestionLines()}) (voiceKey(l), hostVoice),
 ];
+
+/// MC đọc trọn đề và 4 đáp án của mọi câu gameshow có thể ra (cùng cách chọn bài và thứ tự đáp án như app).
+List<String> showQuestionLines() {
+  final out = <String>{};
+  final catalog = Catalog.fromJson(jsonDecode(File('assets/content/catalog.json').readAsStringSync()));
+  for (final b in catalog.books) {
+    for (final c in b.chapters) {
+      if (AbilityDomain.ofChapter(c.order) == null) continue;
+      for (final i in bankLessonIndexes(c.lessons.length)) {
+        final lesson = Lesson.fromJson(jsonDecode(File(c.lessons[i].src).readAsStringSync()));
+        for (final p in lesson.problems) {
+          if (p.access != Access.free) continue;
+          final q = toGameQuestion(p, Random(stableSeed(p.id)));
+          if (q == null) continue;
+          out.addAll(promptSentences(q.prompt));
+          for (var k = 0; k < q.choices.length; k++) {
+            out.add(answerLine(k, q.choices[k]));
+          }
+        }
+      }
+    }
+  }
+  return [for (final l in out) voiceKey(l)];
+}
 
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
 List<String> teacherLines() {
@@ -187,7 +215,9 @@ Future<void> main(List<String> args) async {
       if (!upToDate(l, v)) (l, v),
   ];
   final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(l.$1).length);
-  print('Tổng ${all.length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.');
+  print(
+    'Tổng ${all.length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.',
+  );
   if (countOnly) {
     for (final (l, _) in missing.take(20)) {
       print('  - ${spokenVietnamese(l)}');

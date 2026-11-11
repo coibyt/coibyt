@@ -12,13 +12,28 @@ import 'package:toan_lop_3/ui/app_theme.dart';
 import 'package:toan_lop_3/ui/quiz_show_screen.dart';
 
 void main() {
+  seedTests();
   test('lời MC: số câu đọc bằng chữ', () {
     expect(ShowLines.questionNumber(1), 'Câu hỏi số một!');
     expect(ShowLines.questionNumber(15), 'Câu hỏi số mười lăm!');
     expect(ShowLines.all().length, greaterThan(25));
   });
 
-  testWidgets('Đấu trường: MC chào, có nhạc; chọn → chốt → lộ đáp án; trợ giúp 50:50, đổi câu; hết giờ', (tester) async {
+  test('MC đọc đề: tách câu không lặp dấu chấm; khung lời chỉ hiện phần cuối', () {
+    expect(promptSentences('Tính độ dài đường gấp khúc DAKEG.\nĐường gấp khúc DAKEG dài ? cm'), [
+      'Tính độ dài đường gấp khúc DAKEG.',
+      'Đường gấp khúc DAKEG dài ? cm.',
+    ]);
+    final long = List.filled(40, 'chữ').join(' ');
+    final tail = bubbleTail(long);
+    expect(tail.length, lessThanOrEqualTo(121));
+    expect(tail.startsWith('…'), isTrue);
+    expect(bubbleTail('ngắn'), 'ngắn');
+  });
+
+  testWidgets('Đấu trường: MC chào, có nhạc; chọn → chốt → lộ đáp án; trợ giúp 50:50, đổi câu; hết giờ', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.5;
     addTearDown(tester.view.reset);
@@ -94,5 +109,13 @@ void main() {
     expect(t.answers[1].$2, isFalse);
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 10));
+  });
+}
+
+void seedTests() {
+  test('hạt giống cố định: cùng mã câu → cùng thứ tự đáp án', () {
+    expect(stableSeed('kntt3.c4.nhan-2cs-1cs.p01'), stableSeed('kntt3.c4.nhan-2cs-1cs.p01'));
+    expect(stableSeed('a'), isNot(stableSeed('b')));
+    expect(stableSeed('kntt3.c4.nhan-2cs-1cs.p01'), lessThan(1000000007));
   });
 }

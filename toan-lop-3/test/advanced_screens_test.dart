@@ -45,7 +45,10 @@ void main() {
     await tester.pumpWidget(
       AppScope(
         state: s,
-        child: MaterialApp(theme: buildAppTheme(), home: AdvancedScreen(book: s.book!)),
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: AdvancedScreen(book: s.book!),
+        ),
       ),
     );
     await tester.pump(const Duration(seconds: 1));

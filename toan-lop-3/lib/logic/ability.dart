@@ -29,6 +29,9 @@ enum AbilityDomain {
   };
 }
 
+/// Bài nào của một chủ đề vào ngân hàng câu hỏi năng lực: bài đầu và bài giữa (đủ câu dễ/khó, tải nhanh).
+List<int> bankLessonIndexes(int lessonCount) => lessonCount == 0 ? const [] : {0, lessonCount ~/ 2}.toList();
+
 /// Một câu trong ngân hàng câu hỏi năng lực.
 class AbilityItem {
   const AbilityItem({required this.problem, required this.domain, required this.difficulty, required this.lessonId});
