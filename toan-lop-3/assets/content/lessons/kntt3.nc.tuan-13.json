@@ -1,0 +1,745 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-13",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 4,
+  "title": "Nâng cao tuần 13: Phép nhân, phép chia, mi-li-mét và gam",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đổi số đo có hai tên đơn vị về đơn vị bé: 1 cm = 10 mm, 1 kg = 1.000 g. Đổi xong mới cộng, trừ hay so sánh.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một chú sâu bò được 4 cm 8 mm, sau đó bò tiếp 18 mm nữa. Hỏi chú sâu đã bò được tất cả bao nhiêu mi-li-mét?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Đổi: 4 cm 8 mm =",
+            "equation": "4 × 10 + 8 = 48 (mm)"
+          },
+          {
+            "explanation": "Chú sâu đã bò được tất cả là:",
+            "equation": "48 + 18 = 66 (mm)"
+          }
+        ],
+        "answer": "Đáp số: 66 mm."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-13.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "template": "8 m 45 mm = {{s1}} mm\n1 kg 455 g = {{s2}} g\n2 kg 300 g = {{s3}} g",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1.455"
+        },
+        {
+          "id": "t2",
+          "text": "2.300"
+        },
+        {
+          "id": "t3",
+          "text": "8.945"
+        },
+        {
+          "id": "t4",
+          "text": "8.045"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.045; 1.455; 2.300",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm nên 8 m = 8.000 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "8.000 + 45 = 8.045"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 1 kg = 1.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "1.000 + 455 = 1.455"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 2 kg = 2.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "2.000 + 300 = 2.300"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo ở cột trái với số đo bằng nó ở cột phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "5 m 395 mm"
+        },
+        {
+          "id": "l2",
+          "text": "7 kg 100 g"
+        },
+        {
+          "id": "l3",
+          "text": "1 m 22 mm"
+        },
+        {
+          "id": "l4",
+          "text": "3 cm 8 mm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "7.100 g"
+        },
+        {
+          "id": "r2",
+          "text": "38 mm"
+        },
+        {
+          "id": "r3",
+          "text": "1.022 mm"
+        },
+        {
+          "id": "r4",
+          "text": "250 mm"
+        },
+        {
+          "id": "r5",
+          "text": "5.395 mm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 m 395 mm = 5.395 mm; 7 kg 100 g = 7.100 g; 1 m 22 mm = 1.022 mm; 3 cm 8 mm = 38 mm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm nên 5 m = 5.000 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "5.000 + 395 = 5.395"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 7 kg = 7.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "7.000 + 100 = 7.100"
+          },
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm nên 1 m = 1.000 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "1.000 + 22 = 1.022"
+          },
+          {
+            "kind": "text",
+            "text": "1 cm = 10 mm nên 3 cm = 30 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "30 + 8 = 38"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào ô trống:"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "template": "5 m 300 mm = {{b1}} mm\n11 mm = {{b2}} cm {{b3}} mm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5300
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5.300 mm; 1 cm 1 mm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm nên 5 m = 5.000 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "5.000 + 300 = 5.300"
+          },
+          {
+            "kind": "text",
+            "text": "11 mm = 10 mm + 1 mm = 1 cm 1 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "10 + 1 = 11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số đo nào lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8 kg 87 g"
+        },
+        {
+          "id": "b",
+          "text": "8.870 g"
+        },
+        {
+          "id": "c",
+          "text": "8.047 g"
+        },
+        {
+          "id": "d",
+          "text": "8 kg 8 g"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.870 g",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi tất cả về g:"
+          },
+          {
+            "kind": "text",
+            "text": "8 kg 87 g = 8.087 g"
+          },
+          {
+            "kind": "text",
+            "text": "8.047 g = 8.047 g"
+          },
+          {
+            "kind": "text",
+            "text": "8 kg 8 g = 8.008 g"
+          },
+          {
+            "kind": "text",
+            "text": "8.870 g = 8.870 g"
+          },
+          {
+            "kind": "text",
+            "text": "Số đo lớn nhất là 8.870 g."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một túi đường nặng 2 kg. Mẹ đã dùng 1.600 g đường để làm bánh, số đường còn lại mẹ chia đều vào 4 lọ. Hỏi mỗi lọ có bao nhiêu gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi lọ có {{b1}} g đường.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 100,
+            "unit": "g",
+            "unitAliases": [
+              "gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100 g đường",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 2 kg = 2.000 g. Số đường còn lại là:",
+                "equation": "2.000 - 1.600 = 400 (g)"
+              },
+              {
+                "explanation": "Số đường mỗi lọ có là:",
+                "equation": "400 : 4 = 100 (g)"
+              }
+            ],
+            "answer": "Đáp số: 100 g đường."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "400",
+            "divisor": "4",
+            "quotient": "100",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một chú sâu bò được 5 cm 1 mm, sau đó bò tiếp 13 mm nữa. Hỏi chú sâu đã bò được tất cả bao nhiêu mi-li-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Chú sâu bò được {{b1}} mm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 64,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "64 mm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi: 5 cm 1 mm =",
+                "equation": "5 × 10 + 1 = 51 (mm)"
+              },
+              {
+                "explanation": "Chú sâu đã bò được tất cả là:",
+                "equation": "51 + 13 = 64 (mm)"
+              }
+            ],
+            "answer": "Đáp số: 64 mm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "51",
+              "13"
+            ],
+            "result": "64",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 3 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cân thăng bằng: đĩa cân bên trái có một quả bưởi và một quả cân 100 g; đĩa cân bên phải có một quả cân 1 kg và một quả cân 500 g. Hỏi quả bưởi nặng bao nhiêu gam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.395 g"
+        },
+        {
+          "id": "b",
+          "text": "1.500 g"
+        },
+        {
+          "id": "c",
+          "text": "1.400 g"
+        },
+        {
+          "id": "d",
+          "text": "900 g"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.400 g",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 1 kg = 1.000 g. Đĩa cân bên phải nặng:",
+                "equation": "1.000 + 500 = 1.500 (g)"
+              },
+              {
+                "explanation": "Quả bưởi nặng là:",
+                "equation": "1.500 - 100 = 1.400 (g)"
+              }
+            ],
+            "answer": "Đáp số: 1.400 g."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1000",
+              "500"
+            ],
+            "result": "1500",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "1500",
+              "100"
+            ],
+            "result": "1400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "5 trừ 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-13.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi hộp có 2 cái bánh. Mẹ mua 27 hộp bánh, mẹ biếu bà 18 cái, số bánh còn lại mẹ chia đều cho 9 bạn nhỏ. Hỏi mỗi bạn được mấy cái bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.2cs_1cs.co_nho",
+        "chia.2cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi bạn được {{b1}} cái bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4,
+            "unit": "cái"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "4 cái bánh",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bánh mẹ mua là:",
+                "equation": "2 × 27 = 54 (cái)"
+              },
+              {
+                "explanation": "Số bánh còn lại là:",
+                "equation": "54 - 18 = 36 (cái)"
+              },
+              {
+                "explanation": "Số bánh mỗi bạn được là:",
+                "equation": "36 : 9 = 4 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 4 cái bánh."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "27",
+              "2"
+            ],
+            "result": "54",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 2 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "54",
+              "18"
+            ],
+            "result": "36",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 8, lấy 14 trừ 8 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2; 5 trừ 2 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -52,7 +52,7 @@ List<String> allLines() {
   final catalog = Catalog.fromJson(jsonDecode(File('assets/content/catalog.json').readAsStringSync()));
   for (final b in catalog.books) {
     for (final c in b.chapters) {
-      for (final l in c.lessons) {
+      for (final l in [...c.lessons, ...c.advancedLessons]) {
         lines.add(TutorLines.lessonIntro(l.title));
       }
     }

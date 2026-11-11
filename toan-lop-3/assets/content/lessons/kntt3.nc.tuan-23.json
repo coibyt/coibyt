@@ -1,0 +1,752 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-23",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c9",
+  "order": 1,
+  "title": "Nâng cao tuần 23: Chu vi và diện tích hình chữ nhật, hình vuông",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn tính diện tích một hình ghép, con tách thành các hình chữ nhật, hình vuông rồi cộng (hoặc trừ) diện tích các phần.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Từ một tờ giấy hình chữ nhật dài 19 cm, rộng 7 cm, bạn Chi cắt đi một hình vuông có cạnh bằng chiều rộng tờ giấy. Tính diện tích phần giấy còn lại."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Diện tích tờ giấy hình chữ nhật là:",
+            "equation": "19 × 7 = 133 (cm²)"
+          },
+          {
+            "explanation": "Diện tích hình vuông cắt đi là:",
+            "equation": "7 × 7 = 49 (cm²)"
+          },
+          {
+            "explanation": "Diện tích phần giấy còn lại là:",
+            "equation": "133 - 49 = 84 (cm²)"
+          }
+        ],
+        "answer": "Đáp số: 84 cm²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-23.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hình với diện tích.",
+      "prompt": {
+        "text": "Nối mỗi hình với diện tích của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình chữ nhật có chu vi 28 cm, chiều rộng 5 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Hình vuông có chu vi 20 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Hình chữ nhật dài 11 cm, rộng 6 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Hình chữ nhật dài 11 cm, rộng 8 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "45 cm²"
+        },
+        {
+          "id": "r2",
+          "text": "25 cm²"
+        },
+        {
+          "id": "r3",
+          "text": "29 cm²"
+        },
+        {
+          "id": "r4",
+          "text": "66 cm²"
+        },
+        {
+          "id": "r5",
+          "text": "88 cm²"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình chữ nhật có chu vi 28 cm, chiều rộng 5 cm: 45 cm²; Hình vuông có chu vi 20 cm: 25 cm²; Hình chữ nhật dài 11 cm, rộng 6 cm: 66 cm²; Hình chữ nhật dài 11 cm, rộng 8 cm: 88 cm²",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "28 : 2 = 14"
+          },
+          {
+            "kind": "equation",
+            "text": "14 - 5 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 5 = 45"
+          },
+          {
+            "kind": "equation",
+            "text": "20 : 4 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 5 = 25"
+          },
+          {
+            "kind": "equation",
+            "text": "11 × 6 = 66"
+          },
+          {
+            "kind": "equation",
+            "text": "11 × 8 = 88"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "hinh_hoc.dien_tich"
+      ],
+      "access": "free",
+      "template": "Hình chữ nhật có diện tích 36 cm², chiều rộng 3 cm thì chiều dài là {{s1}} cm.\nHình vuông có diện tích 49 cm² thì cạnh dài {{s2}} cm.\nHình chữ nhật có diện tích 45 cm², chiều rộng 3 cm thì chiều dài là {{s3}} cm.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "12"
+        },
+        {
+          "id": "t2",
+          "text": "7"
+        },
+        {
+          "id": "t3",
+          "text": "13"
+        },
+        {
+          "id": "t4",
+          "text": "15"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 7; 15",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "36 : 3 = 12"
+          },
+          {
+            "kind": "text",
+            "text": "7 × 7 = 49 nên cạnh hình vuông là 7 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "45 : 3 = 15"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "36",
+            "divisor": "3",
+            "quotient": "12",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.",
+                "partialDividend": 3,
+                "quotientDigit": 1,
+                "product": 3,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 6; 6 chia 3 được 2, viết 2. 2 nhân 3 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 2,
+                "product": 6,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "45",
+            "divisor": "3",
+            "quotient": "15",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 4 trừ 3 bằng 1.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 3,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 5, được 15; 15 chia 3 được 5, viết 5. 5 nhân 3 bằng 15; 15 trừ 15 bằng 0.",
+                "partialDividend": 15,
+                "quotientDigit": 5,
+                "product": 15,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một miếng bìa gồm một hình chữ nhật dài 21 cm, rộng 7 cm và một hình vuông cạnh 4 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích miếng bìa là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 163,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "163 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "21 × 7 = 147 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "4 × 4 = 16 (cm²)"
+              },
+              {
+                "explanation": "Diện tích miếng bìa là:",
+                "equation": "147 + 16 = 163 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 163 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "21",
+              "7"
+            ],
+            "result": "147",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 2 bằng 14, viết 14.",
+                "write": "14"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "147",
+              "16"
+            ],
+            "result": "163",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 6 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Từ một tờ giấy hình chữ nhật dài 20 cm, rộng 8 cm, bạn Chi cắt đi một hình vuông có cạnh bằng chiều rộng tờ giấy. Tính diện tích phần giấy còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "40 cm²"
+        },
+        {
+          "id": "b",
+          "text": "104 cm²"
+        },
+        {
+          "id": "c",
+          "text": "96 cm²"
+        },
+        {
+          "id": "d",
+          "text": "160 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "96 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích tờ giấy hình chữ nhật là:",
+                "equation": "20 × 8 = 160 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông cắt đi là:",
+                "equation": "8 × 8 = 64 (cm²)"
+              },
+              {
+                "explanation": "Diện tích phần giấy còn lại là:",
+                "equation": "160 - 64 = 96 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 96 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "20",
+              "8"
+            ],
+            "result": "160",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "8 nhân 2 bằng 16, viết 16.",
+                "write": "16"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình vuông có chu vi 24 cm. Tính diện tích hình vuông đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích hình vuông là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36 cm²",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cạnh hình vuông dài là:",
+                "equation": "24 : 4 = 6 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "6 × 6 = 36 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 36 cm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một hình vuông được kẻ thành 9 ô vuông nhỏ bằng nhau (3 hàng, mỗi hàng 3 ô). Hỏi trên hình có tất cả bao nhiêu hình vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "16"
+        },
+        {
+          "id": "b",
+          "text": "13"
+        },
+        {
+          "id": "c",
+          "text": "14"
+        },
+        {
+          "id": "d",
+          "text": "15"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "14",
+        "hint": "Con liệt kê theo thứ tự từ bé đến lớn để không bỏ sót và không đếm trùng nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình vuông gồm 1 ô: 9; Hình vuông gồm 4 ô: 4; Hình vuông gồm 9 ô: 1."
+          },
+          {
+            "kind": "equation",
+            "text": "9 + 4 + 1 = 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 50 cm, chiều dài gấp 4 lần chiều rộng. Tính diện tích hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 100,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100 cm²",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi hình chữ nhật là:",
+                "equation": "50 : 2 = 25 (cm)"
+              },
+              {
+                "explanation": "Coi chiều rộng là 1 phần thì chiều dài là 4 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 4 = 5 (phần)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "25 : 5 = 5 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "5 × 4 = 20 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "20 × 5 = 100 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 100 cm²."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "50",
+            "divisor": "2",
+            "quotient": "25",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "5 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "20",
+              "5"
+            ],
+            "result": "100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 2 bằng 10, viết 10.",
+                "write": "10"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-23.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình nào có diện tích lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 200,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hình vuông có chu vi 36 cm"
+        },
+        {
+          "id": "b",
+          "text": "Hình chữ nhật có chu vi 36 cm, chiều rộng 6 cm"
+        },
+        {
+          "id": "c",
+          "text": "Hình chữ nhật dài 14 cm, rộng 6 cm"
+        },
+        {
+          "id": "d",
+          "text": "Hình vuông cạnh 6 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "Hình chữ nhật dài 14 cm, rộng 6 cm",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "14 × 6 = 84"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 6 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "36 : 4 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 9 = 81"
+          },
+          {
+            "kind": "equation",
+            "text": "36 : 2 = 18"
+          },
+          {
+            "kind": "equation",
+            "text": "18 - 6 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "12 × 6 = 72"
+          },
+          {
+            "kind": "text",
+            "text": "Diện tích lớn nhất là 84 cm²."
+          }
+        ]
+      }
+    }
+  ]
+}

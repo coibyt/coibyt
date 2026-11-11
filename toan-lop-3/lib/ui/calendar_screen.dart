@@ -7,7 +7,9 @@ import '../models/content.dart';
 import '../models/exam.dart';
 import '../tutor/teacher_intro.dart';
 import 'app_theme.dart';
+import 'advanced_screens.dart';
 import 'child_screens.dart';
+import '../tutor/teacher_assets.dart';
 import 'exam_screens.dart' show ExamIntroScreen, examArt, examColor;
 import 'widgets/game_art.dart';
 
@@ -52,7 +54,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
     final thisWeek = currentWeek(cal, now);
     final lessons = {
       for (final c in widget.book.chapters)
-        for (final l in c.lessons) l.id: (l, c),
+        for (final l in [...c.lessons, ...c.advancedLessons]) l.id: (l, c),
     };
     final exams = {for (final e in widget.book.exams) e.id: e};
     final term = _term ?? (cal.days.where((d) => d.week == thisWeek).firstOrNull?.term ?? 1);
@@ -359,6 +361,23 @@ class _WeekCardState extends State<_WeekCard> {
                   subtitle: Text(h.start == h.end ? ddmm(h.start) : '${ddmm(h.start)} – ${ddmm(h.end)}'),
                 ),
               for (final d in days) _DayRow(day: d, entry: widget.lessons[d.lessonId], now: widget.now),
+              if (widget.cal.advancedOfWeek(widget.week) case final advId?)
+                if (widget.lessons[advId] case (final adv, _))
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 2, 12, 6),
+                    child: ActionChip(
+                      key: ValueKey('week-adv-${widget.week}'),
+                      avatar: GameIcon(UiAsset.advCrown, size: 24, fallback: const Text('👑')),
+                      backgroundColor: const Color(0xFFF1EBFF),
+                      side: const BorderSide(color: Color(0xFF8E5CF7)),
+                      label: Text(
+                        'Nâng cao: ${advancedShortTitle(adv.title)}',
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFF3B1E8C)),
+                      ),
+                      onPressed: () => openAdvancedLesson(context, adv),
+                    ),
+                  ),
               if (examRefs.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),

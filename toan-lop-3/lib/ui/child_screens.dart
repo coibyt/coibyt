@@ -25,6 +25,7 @@ import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import '../tutor/teacher_intro.dart';
 import 'calendar_screen.dart';
+import 'advanced_screens.dart';
 import 'review_game_screen.dart';
 import 'teacher_class_screen.dart';
 
@@ -246,6 +247,14 @@ class _HomeScreenState extends State<HomeScreen> {
         color: AppColors.vip,
         art: UiAsset.tileBadge,
         builder: (_) => const BadgesScreen(),
+      ),
+      HomeTile(
+        label: 'Nâng cao',
+        subtitle: 'Học sinh giỏi · ×2 vàng',
+        icon: Icons.workspace_premium_rounded,
+        color: const Color(0xFF5B2DB8),
+        art: UiAsset.advCrown,
+        builder: (_) => AdvancedScreen(book: book),
       ),
       ...widget.extraTiles,
     ];
@@ -849,6 +858,8 @@ class ChapterListScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   _CalendarShortcut(book: book),
+                  const SizedBox(height: 10),
+                  AdvancedShortcut(book: book),
                   for (final MapEntry(key: term, value: list) in terms.entries) ...[
                     Padding(
                       padding: const EdgeInsets.fromLTRB(4, 18, 4, 8),
@@ -1111,6 +1122,7 @@ class ChapterScreen extends StatelessWidget {
                       locked: !app.canOpen(l.access),
                     ),
                   ),
+                ChapterAdvancedSection(chapter: chapter),
               ],
             ),
           ),

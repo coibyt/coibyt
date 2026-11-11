@@ -14,6 +14,7 @@ class SchoolCalendar {
     required this.holidays,
     required this.days,
     this.exams = const [],
+    this.advanced = const [],
   });
 
   factory SchoolCalendar.fromJson(Object? json) {
@@ -36,6 +37,7 @@ class SchoolCalendar {
       holidays: r.objects('holidays', CalendarHoliday.fromJson, optional: true),
       days: days,
       exams: r.objects('exams', CalendarExam.fromJson, optional: true),
+      advanced: r.objects('advanced', CalendarAdvanced.fromJson, optional: true),
     );
   }
 
@@ -50,6 +52,9 @@ class SchoolCalendar {
   /// Các ngày học theo thứ tự thời gian.
   final List<CalendarDay> days;
   final List<CalendarExam> exams;
+
+  /// Bài nâng cao của từng tuần (trường tuỳ chọn `advanced`; thiếu → rỗng).
+  final List<CalendarAdvanced> advanced;
 
   /// Ngày học của [date] (bỏ qua giờ phút); null nếu hôm đó không học (cuối tuần, nghỉ lễ, ngoài năm học).
   CalendarDay? dayFor(DateTime date) {
@@ -94,6 +99,14 @@ class SchoolCalendar {
     for (final e in exams)
       if (e.week == week) e,
   ];
+
+  /// Mã bài nâng cao của tuần [week], hoặc null nếu tuần đó không có.
+  String? advancedOfWeek(int week) {
+    for (final a in advanced) {
+      if (a.week == week) return a.lessonId;
+    }
+    return null;
+  }
 
   /// Đợt nghỉ lễ chứa [date], nếu có.
   CalendarHoliday? holidayFor(DateTime date) {
@@ -214,6 +227,19 @@ class CalendarExam {
 
   final int week;
   final String examId;
+}
+
+/// Bài nâng cao gắn với một tuần học (`calendar.advanced[]`).
+class CalendarAdvanced {
+  const CalendarAdvanced({required this.week, required this.lessonId});
+
+  factory CalendarAdvanced.fromJson(JsonReader r) =>
+      CalendarAdvanced(week: r.integer('week', min: 1), lessonId: r.string('lessonId'));
+
+  final int week;
+
+  /// Mã bài trong `advancedLessons` của một chủ đề trong catalog.
+  final String lessonId;
 }
 
 /// Bỏ phần giờ phút: so sánh theo ngày lịch.

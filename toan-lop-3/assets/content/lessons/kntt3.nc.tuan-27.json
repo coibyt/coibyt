@@ -1,0 +1,796 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-27",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c11",
+  "order": 1,
+  "title": "Nâng cao tuần 27: Các số đến 100 000 và so sánh số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Với số có năm chữ số: muốn số lớn nhất, xếp chữ số lớn ở hàng chục nghìn; muốn số bé nhất, xếp chữ số bé nhất khác 0 ở hàng chục nghìn.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: với các chữ số 2, 1, 7, 9, 0, số lớn nhất có 5 chữ số khác nhau là 97.210, số bé nhất là 10.279 (chữ số 0 không đứng đầu)."
+      },
+      {
+        "kind": "equation",
+        "text": "97.210 - 10.279 = 86.931"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-27.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Tìm quy luật rồi kéo thẻ số thích hợp vào ô trống:"
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "65.631; 65.131; 64.631; {{s1}}; {{s2}}; 63.131; 62.631",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "63.631"
+        },
+        {
+          "id": "t2",
+          "text": "64.131"
+        },
+        {
+          "id": "t3",
+          "text": "64.132"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "64.131; 63.631",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số kém số đứng trước nó 500 đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "64.631 - 500 = 64.131"
+          },
+          {
+            "kind": "equation",
+            "text": "64.131 - 500 = 63.631"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 64.132 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với số đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Số bé nhất có 5 chữ số khác nhau"
+        },
+        {
+          "id": "l2",
+          "text": "Số lớn nhất có 5 chữ số khác nhau"
+        },
+        {
+          "id": "l3",
+          "text": "Số lớn nhất có 5 chữ số khác nhau mà tổng các chữ số bằng 13"
+        },
+        {
+          "id": "l4",
+          "text": "Số bé nhất có 5 chữ số mà tổng các chữ số bằng 7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "10.234"
+        },
+        {
+          "id": "r2",
+          "text": "73.210"
+        },
+        {
+          "id": "r3",
+          "text": "10.006"
+        },
+        {
+          "id": "r4",
+          "text": "10.015"
+        },
+        {
+          "id": "r5",
+          "text": "98.765"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Số bé nhất có 5 chữ số khác nhau: 10.234; Số lớn nhất có 5 chữ số khác nhau: 98.765; Số lớn nhất có 5 chữ số khác nhau mà tổng các chữ số bằng 13: 73.210; Số bé nhất có 5 chữ số mà tổng các chữ số bằng 7: 10.006",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số bé nhất có 5 chữ số khác nhau: 10.234."
+          },
+          {
+            "kind": "text",
+            "text": "Số lớn nhất có 5 chữ số khác nhau: 98.765."
+          },
+          {
+            "kind": "text",
+            "text": "Số lớn nhất có 5 chữ số khác nhau mà tổng các chữ số bằng 13: 73.210."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất có 5 chữ số mà tổng các chữ số bằng 7: 10.006."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Từ các chữ số 3, 8, 7, 4, 1, 0, hãy lập số lớn nhất và số bé nhất có 5 chữ số khác nhau."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 87431
+          },
+          "maxLength": 6
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 10347
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "87.431; 10.347",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: chọn 5 chữ số lớn nhất, xếp từ lớn đến bé → 87.431."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số đầu là chữ số bé nhất khác 0, các hàng sau xếp các chữ số bé nhất còn lại từ bé đến lớn → 10.347."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số có 5 chữ số mà tổng các chữ số của số đó bằng 2?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "5"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5",
+        "hint": "Con liệt kê theo thứ tự từ bé đến lớn để không bỏ sót và không đếm trùng nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Liệt kê từ bé đến lớn: 10.001; 10.010; 10.100; 11.000; 20.000."
+          },
+          {
+            "kind": "text",
+            "text": "Có tất cả 5 số."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số lớn nhất và số bé nhất có 5 chữ số khác nhau mà tổng các chữ số bằng 12."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 63210
+          },
+          "maxLength": 6
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 10236
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "63.210; 10.236",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: chọn chữ số lớn nhất có thể cho từng hàng từ trái sang phải, sao cho các hàng còn lại vẫn đủ tổng."
+          },
+          {
+            "kind": "equation",
+            "text": "6 + 3 + 2 + 1 + 0 = 12"
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chọn chữ số bé nhất có thể cho từng hàng từ trái sang phải (hàng đầu khác 0)."
+          },
+          {
+            "kind": "equation",
+            "text": "1 + 0 + 2 + 3 + 6 = 12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 21.000 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 11.000 l. Bể thứ ba có ít hơn bể thứ hai 7.000 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 78000,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "78.000 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "21.000 + 11.000 = 32.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "32.000 - 7.000 = 25.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "21.000 + 32.000 + 25.000 = 78.000 (l)"
+              }
+            ],
+            "answer": "Đáp số: 78.000 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "21000",
+              "11000"
+            ],
+            "result": "32000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "32000",
+              "7000"
+            ],
+            "result": "25000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "2 không trừ được 7, lấy 12 trừ 7 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "21000",
+              "32000",
+              "25000"
+            ],
+            "result": "78000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 2 cộng 5 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 3 cộng 2 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Thư viện thứ nhất có 66.000 quyển sách, thư viện thứ hai có 46.000 quyển sách. Phải chuyển bao nhiêu quyển sách từ thư viện thứ nhất sang thư viện thứ hai để số quyển sách ở hai thư viện bằng nhau?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "20.000 quyển"
+        },
+        {
+          "id": "b",
+          "text": "10.000 quyển"
+        },
+        {
+          "id": "c",
+          "text": "11.000 quyển"
+        },
+        {
+          "id": "d",
+          "text": "12.000 quyển"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10.000 quyển sách",
+        "hint": "Muốn hai phần bằng nhau, con chỉ chuyển một nửa số chênh lệch từ phần nhiều sang phần ít thôi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Thư viện thứ nhất nhiều hơn thư viện thứ hai số quyển sách là:",
+                "equation": "66.000 - 46.000 = 20.000 (quyển)"
+              },
+              {
+                "explanation": "Số quyển sách cần chuyển là:",
+                "equation": "20.000 : 2 = 10.000 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 10.000 quyển sách."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "66000",
+              "46000"
+            ],
+            "result": "20000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "6 trừ 6 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 4,
+                "text": "6 trừ 4 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "20000",
+            "divisor": "2",
+            "quotient": "10000",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-27.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bể thứ nhất có 11.000 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 2.500 l. Bể thứ ba có ít hơn bể thứ hai 11.500 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "26.500 l"
+        },
+        {
+          "id": "b",
+          "text": "24.500 l"
+        },
+        {
+          "id": "c",
+          "text": "27.000 l"
+        },
+        {
+          "id": "d",
+          "text": "38.000 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "26.500 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "11.000 + 2.500 = 13.500 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "13.500 - 11.500 = 2.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "11.000 + 13.500 + 2.000 = 26.500 (l)"
+              }
+            ],
+            "answer": "Đáp số: 26.500 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "11000",
+              "2500"
+            ],
+            "result": "13500",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 2 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "11000",
+              "13500",
+              "2000"
+            ],
+            "result": "26500",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 5 cộng 0 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 3 cộng 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,941 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-24",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c9",
+  "order": 2,
+  "title": "Nâng cao tuần 24: Diện tích và phép cộng trong phạm vi 10 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một hình chữ nhật có chu vi 40 cm, chiều dài hơn chiều rộng 8 cm. Tính chiều dài hình chữ nhật đó."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+            "equation": "40 : 2 = 20 (cm)"
+          },
+          {
+            "explanation": "Hai lần chiều rộng là:",
+            "equation": "20 - 8 = 12 (cm)"
+          },
+          {
+            "explanation": "Chiều rộng hình chữ nhật là:",
+            "equation": "12 : 2 = 6 (cm)"
+          },
+          {
+            "explanation": "Chiều dài hình chữ nhật là:",
+            "equation": "6 + 8 = 14 (cm)"
+          }
+        ],
+        "answer": "Đáp số: 14 cm."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-24.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_10000",
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "? + 2.464 = 3.054 + 3.091"
+        },
+        {
+          "id": "l2",
+          "text": "6.192 - ? = 795 - 359"
+        },
+        {
+          "id": "l3",
+          "text": "? - 2.422 + 3.305 = 6.798"
+        },
+        {
+          "id": "l4",
+          "text": "? + 1.420 - 2.623 = 3.178"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "4.381"
+        },
+        {
+          "id": "r2",
+          "text": "3.681"
+        },
+        {
+          "id": "r3",
+          "text": "5.915"
+        },
+        {
+          "id": "r4",
+          "text": "3.691"
+        },
+        {
+          "id": "r5",
+          "text": "5.756"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "? + 2.464 = 3.054 + 3.091 → 3.681; 6.192 - ? = 795 - 359 → 5.756; ? - 2.422 + 3.305 = 6.798 → 5.915; ? + 1.420 - 2.623 = 3.178 → 4.381",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "3.054 + 3.091 = 6.145"
+          },
+          {
+            "kind": "equation",
+            "text": "6.145 - 2.464 = 3.681"
+          },
+          {
+            "kind": "equation",
+            "text": "795 - 359 = 436"
+          },
+          {
+            "kind": "equation",
+            "text": "6.192 - 436 = 5.756"
+          },
+          {
+            "kind": "equation",
+            "text": "6.798 - 3.305 = 3.493"
+          },
+          {
+            "kind": "equation",
+            "text": "3.493 + 2.422 = 5.915"
+          },
+          {
+            "kind": "equation",
+            "text": "3.178 + 2.623 = 5.801"
+          },
+          {
+            "kind": "equation",
+            "text": "5.801 - 1.420 = 4.381"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo dấu >, <, = vào ô trống.",
+      "prompt": {
+        "text": "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_10000"
+      ],
+      "access": "free",
+      "template": "747 + 1.891 - 1.378 {{s1}} 1.275\n1.673 + 1.657 - 535 {{s2}} 2.867 - 72\n7.359 - 3.541 - 3.436 {{s3}} 379",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "="
+        },
+        {
+          "id": "t2",
+          "text": "<"
+        },
+        {
+          "id": "t3",
+          "text": ">"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "<; =; >",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "747 + 1.891 - 1.378 = 2.638 - 1.378 = 1.260"
+          },
+          {
+            "kind": "text",
+            "text": "1.260 < 1.275 nên 747 + 1.891 - 1.378 < 1.275."
+          },
+          {
+            "kind": "equation",
+            "text": "1.673 + 1.657 - 535 = 3.330 - 535 = 2.795"
+          },
+          {
+            "kind": "equation",
+            "text": "2.867 - 72 = 2.795"
+          },
+          {
+            "kind": "text",
+            "text": "2.795 = 2.795 nên 1.673 + 1.657 - 535 = 2.867 - 72."
+          },
+          {
+            "kind": "equation",
+            "text": "7.359 - 3.541 - 3.436 = 3.818 - 3.436 = 382"
+          },
+          {
+            "kind": "text",
+            "text": "382 > 379 nên 7.359 - 3.541 - 3.436 > 379."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_10000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "1.5{{b1}}5 + 7.{{b2}}51 = {{b3}}.356",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 0
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.505 + 7.851 = 9.356",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1505",
+              "7851"
+            ],
+            "result": "9356",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 8 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 7 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "1.505 + 7.851 = 9.356"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? + 2.709 - 3.344 = 4.315"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_10000",
+        "tim_thanh_phan.so_hang"
+      ],
+      "access": "free",
+      "template": "{{b1}} + 2.709 - 3.344 = 4.315",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4950
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.950",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? + 2.709:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "4315",
+              "3344"
+            ],
+            "result": "7659",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 4 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 4 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 3 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "4.315 + 3.344 = 7.659"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "7659",
+              "2709"
+            ],
+            "result": "4950",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 trừ 9 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "5 trừ 0 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "6 không trừ được 7, lấy 16 trừ 7 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 thêm 1 bằng 3; 7 trừ 3 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "7.659 - 2.709 = 4.950"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "4.950 + 2.709 - 3.344 = 4.315"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 68 cm, chiều dài hơn chiều rộng 20 cm. Tính diện tích hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 189,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "189 cm²",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+                "equation": "68 : 2 = 34 (cm)"
+              },
+              {
+                "explanation": "Hai lần chiều rộng là:",
+                "equation": "34 - 20 = 14 (cm)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "14 : 2 = 7 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "7 + 20 = 27 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "27 × 7 = 189 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 189 cm²."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "68",
+            "divisor": "2",
+            "quotient": "34",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 8; 8 chia 2 được 4, viết 4. 4 nhân 2 bằng 8; 8 trừ 8 bằng 0.",
+                "partialDividend": 8,
+                "quotientDigit": 4,
+                "product": 8,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "34",
+              "20"
+            ],
+            "result": "14",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 trừ 0 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "3 trừ 2 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "7",
+              "20"
+            ],
+            "result": "27",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 0 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "27",
+              "7"
+            ],
+            "result": "189",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 7 bằng 49, viết 9 nhớ 4.",
+                "write": "9",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 2 bằng 14, thêm 4 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một miếng bìa gồm một hình chữ nhật dài 16 cm, rộng 8 cm và một hình vuông cạnh 9 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "209 cm²"
+        },
+        {
+          "id": "b",
+          "text": "164 cm²"
+        },
+        {
+          "id": "c",
+          "text": "218 cm²"
+        },
+        {
+          "id": "d",
+          "text": "84 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "209 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "16 × 8 = 128 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "9 × 9 = 81 (cm²)"
+              },
+              {
+                "explanation": "Diện tích miếng bìa là:",
+                "equation": "128 + 81 = 209 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 209 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "16",
+              "8"
+            ],
+            "result": "128",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 nhân 6 bằng 48, viết 8 nhớ 4.",
+                "write": "8",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "8 nhân 1 bằng 8, thêm 4 bằng 12, viết 12.",
+                "write": "12"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "128",
+              "81"
+            ],
+            "result": "209",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 8 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 2.339 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 726 kg. Kho thứ ba có ít hơn kho thứ hai 743 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_10000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba kho có {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7726,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.726 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "2.339 + 726 = 3.065 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "3.065 - 743 = 2.322 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "2.339 + 3.065 + 2.322 = 7.726 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 7.726 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "2339",
+              "726"
+            ],
+            "result": "3065",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 6 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 2 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 7 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "3065",
+              "743"
+            ],
+            "result": "2322",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 trừ 3 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "6 trừ 4 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 2,
+                "text": "0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "2339",
+              "3065",
+              "2322"
+            ],
+            "result": "7726",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 5 cộng 2 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 6 cộng 2 bằng 11, thêm 1 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 0 cộng 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 3 cộng 2 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-24.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào có giá trị lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_10000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5.526 - 1.640 - 3.363"
+        },
+        {
+          "id": "b",
+          "text": "5.375 - 3.238 - 1.966"
+        },
+        {
+          "id": "c",
+          "text": "2.014 + 681 - 1.298"
+        },
+        {
+          "id": "d",
+          "text": "6.551 - 3.593 - 1.980"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "2.014 + 681 - 1.298 (bằng 1.397)",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6.551 - 3.593 - 1.980 = 2.958 - 1.980 = 978"
+          },
+          {
+            "kind": "equation",
+            "text": "5.526 - 1.640 - 3.363 = 3.886 - 3.363 = 523"
+          },
+          {
+            "kind": "equation",
+            "text": "5.375 - 3.238 - 1.966 = 2.137 - 1.966 = 171"
+          },
+          {
+            "kind": "equation",
+            "text": "2.014 + 681 - 1.298 = 2.695 - 1.298 = 1.397"
+          },
+          {
+            "kind": "text",
+            "text": "Giá trị lớn nhất là 1.397, của biểu thức 2.014 + 681 - 1.298."
+          }
+        ]
+      }
+    }
+  ]
+}

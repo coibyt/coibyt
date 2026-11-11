@@ -1,0 +1,779 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-14",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c5",
+  "order": 1,
+  "title": "Nâng cao tuần 14: Mi-li-lít, nhiệt độ và đổi đơn vị đo",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "1 l = 1.000 ml. Muốn tính với số đo có hai tên đơn vị (như 1 l 250 ml), con đổi hết về mi-li-lít trước.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bình thứ nhất có 1 l 300 ml nước. Bình thứ hai có ít hơn bình thứ nhất 130 ml nước. Hỏi cả hai bình có bao nhiêu mi-li-lít nước?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Đổi 1 l 300 ml =",
+            "equation": "1.000 + 300 = 1.300 (ml)"
+          },
+          {
+            "explanation": "Số nước ở bình thứ hai là:",
+            "equation": "1.300 - 130 = 1.170 (ml)"
+          },
+          {
+            "explanation": "Số nước ở cả hai bình là:",
+            "equation": "1.300 + 1.170 = 2.470 (ml)"
+          }
+        ],
+        "answer": "Đáp số: 2.470 ml."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-14.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "do_luong.khoi_luong",
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "4 l 77 ml = {{s1}} ml\n3 kg 600 g = {{s2}} g\n9 kg 60 g = {{s3}} g",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4.077"
+        },
+        {
+          "id": "t2",
+          "text": "9.060"
+        },
+        {
+          "id": "t3",
+          "text": "3.600"
+        },
+        {
+          "id": "t4",
+          "text": "4.977"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.077; 3.600; 9.060",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 4 l = 4.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "4.000 + 77 = 4.077"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 3 kg = 3.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "3.000 + 600 = 3.600"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 9 kg = 9.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "9.000 + 60 = 9.060"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo ở cột trái với số đo bằng nó ở cột phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "do_luong.khoi_luong",
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "8 l 300 ml"
+        },
+        {
+          "id": "l2",
+          "text": "6 kg 51 g"
+        },
+        {
+          "id": "l3",
+          "text": "7 kg 175 g"
+        },
+        {
+          "id": "l4",
+          "text": "4 m 30 mm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "4.030 mm"
+        },
+        {
+          "id": "r2",
+          "text": "6.051 g"
+        },
+        {
+          "id": "r3",
+          "text": "7.175 g"
+        },
+        {
+          "id": "r4",
+          "text": "37 ml"
+        },
+        {
+          "id": "r5",
+          "text": "8.300 ml"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8 l 300 ml = 8.300 ml; 6 kg 51 g = 6.051 g; 7 kg 175 g = 7.175 g; 4 m 30 mm = 4.030 mm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 8 l = 8.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "8.000 + 300 = 8.300"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 6 kg = 6.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "6.000 + 51 = 6.051"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 7 kg = 7.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "7.000 + 175 = 7.175"
+          },
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm nên 4 m = 4.000 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "4.000 + 30 = 4.030"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một can có 2 l nước cam. Mẹ rót ra 4 cốc, mỗi cốc 200 ml. Hỏi trong can còn lại bao nhiêu mi-li-lít nước cam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Trong can còn lại {{b1}} ml nước cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1200,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.200 ml",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước cam đã rót ra 4 cốc là:",
+                "equation": "200 × 4 = 800 (ml)"
+              },
+              {
+                "explanation": "Đổi 2 l = 2.000 ml. Số nước cam còn lại là:",
+                "equation": "2.000 - 800 = 1.200 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 1.200 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "200",
+              "4"
+            ],
+            "result": "800",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "2000",
+              "800"
+            ],
+            "result": "1200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 không trừ được 8, lấy 10 trừ 8 bằng 2, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lúc 6 giờ sáng, nhiệt độ ở Sa Pa là 17 °C. Đến trưa, nhiệt độ tăng thêm 12 °C. Đến tối, nhiệt độ giảm đi 5 °C so với buổi trưa. Hỏi nhiệt độ buổi tối cao hơn nhiệt độ lúc 6 giờ sáng bao nhiêu độ C?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.nhiet_do",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7 °C"
+        },
+        {
+          "id": "b",
+          "text": "12 °C"
+        },
+        {
+          "id": "c",
+          "text": "17 °C"
+        },
+        {
+          "id": "d",
+          "text": "24 °C"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 °C",
+        "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nhiệt độ buổi trưa là:",
+                "equation": "17 + 12 = 29 (°C)"
+              },
+              {
+                "explanation": "Nhiệt độ buổi tối là:",
+                "equation": "29 - 5 = 24 (°C)"
+              },
+              {
+                "explanation": "Buổi tối cao hơn lúc 6 giờ sáng là:",
+                "equation": "24 - 17 = 7 (°C)"
+              }
+            ],
+            "answer": "Đáp số: 7 °C."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "17",
+              "12"
+            ],
+            "result": "29",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 2 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "29",
+              "5"
+            ],
+            "result": "24",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 trừ 5 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số đo nào lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2 l 7 ml"
+        },
+        {
+          "id": "b",
+          "text": "2.106 ml"
+        },
+        {
+          "id": "c",
+          "text": "2 l 76 ml"
+        },
+        {
+          "id": "d",
+          "text": "2.760 ml"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.760 ml",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi tất cả về ml:"
+          },
+          {
+            "kind": "text",
+            "text": "2 l 76 ml = 2.076 ml"
+          },
+          {
+            "kind": "text",
+            "text": "2.106 ml = 2.106 ml"
+          },
+          {
+            "kind": "text",
+            "text": "2 l 7 ml = 2.007 ml"
+          },
+          {
+            "kind": "text",
+            "text": "2.760 ml = 2.760 ml"
+          },
+          {
+            "kind": "text",
+            "text": "Số đo lớn nhất là 2.760 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bình thứ nhất có 1 l 200 ml nước. Bình thứ hai có ít hơn bình thứ nhất 235 ml nước. Hỏi cả hai bình có bao nhiêu mi-li-lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả hai bình có {{b1}} ml nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2165,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.165 ml",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 1 l 200 ml =",
+                "equation": "1.000 + 200 = 1.200 (ml)"
+              },
+              {
+                "explanation": "Số nước ở bình thứ hai là:",
+                "equation": "1.200 - 235 = 965 (ml)"
+              },
+              {
+                "explanation": "Số nước ở cả hai bình là:",
+                "equation": "1.200 + 965 = 2.165 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 2.165 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1200",
+              "965"
+            ],
+            "result": "2165",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 6 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 9 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lúc 6 giờ sáng, nhiệt độ ở Sa Pa là 14 °C. Đến trưa, nhiệt độ tăng thêm 5 °C. Đến tối, nhiệt độ giảm đi 4 °C so với buổi trưa. Hỏi nhiệt độ buổi tối cao hơn nhiệt độ lúc 6 giờ sáng bao nhiêu độ C?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.nhiet_do",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Buổi tối cao hơn buổi sáng {{b1}} °C.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1,
+            "unit": "°C",
+            "unitAliases": [
+              "độ C",
+              "độ"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1 °C",
+        "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nhiệt độ buổi trưa là:",
+                "equation": "14 + 5 = 19 (°C)"
+              },
+              {
+                "explanation": "Nhiệt độ buổi tối là:",
+                "equation": "19 - 4 = 15 (°C)"
+              },
+              {
+                "explanation": "Buổi tối cao hơn lúc 6 giờ sáng là:",
+                "equation": "15 - 14 = 1 (°C)"
+              }
+            ],
+            "answer": "Đáp số: 1 °C."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14",
+              "5"
+            ],
+            "result": "19",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 5 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "19",
+              "4"
+            ],
+            "result": "15",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 trừ 4 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-14.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào ô trống:"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "template": "3 l 39 ml = {{b1}} ml\n7.600 g = {{b2}} kg {{b3}} g",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3039
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 600
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3.039 ml; 7 kg 600 g",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 3 l = 3.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "3.000 + 39 = 3.039"
+          },
+          {
+            "kind": "text",
+            "text": "7.600 g = 7.000 g + 600 g = 7 kg 600 g."
+          },
+          {
+            "kind": "equation",
+            "text": "7.000 + 600 = 7.600"
+          }
+        ]
+      }
+    }
+  ]
+}

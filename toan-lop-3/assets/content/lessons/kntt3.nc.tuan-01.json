@@ -1,0 +1,711 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-01",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 1,
+  "title": "Nâng cao tuần 1: Số đến 1000, cộng trừ và tìm thành phần",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán “nghĩ một số”: muốn tìm số ban đầu, ta tính ngược từ kết quả. Phép cộng đổi thành phép trừ, phép trừ đổi thành phép cộng.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bạn Hùng nghĩ ra một số. Lấy số đó cộng với 248 rồi trừ đi 293 thì được 389. Hỏi bạn Hùng đã nghĩ ra số nào?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số trước khi trừ đi 293 là:",
+            "equation": "389 + 293 = 682"
+          },
+          {
+            "explanation": "Số bạn Hùng đã nghĩ là:",
+            "equation": "682 - 248 = 434"
+          }
+        ],
+        "answer": "Đáp số: 434."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-01.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Tìm quy luật rồi kéo thẻ số thích hợp vào ô trống:"
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.pham_vi_1000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "946; 896; 846; 796; {{s1}}; {{s2}}; 646",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "696"
+        },
+        {
+          "id": "t2",
+          "text": "746"
+        },
+        {
+          "id": "t3",
+          "text": "747"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "746; 696",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số kém số đứng trước nó 50 đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "796 - 50 = 746"
+          },
+          {
+            "kind": "equation",
+            "text": "746 - 50 = 696"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 747 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "620 - ? = 141 - 89"
+        },
+        {
+          "id": "l2",
+          "text": "? + 356 = 213 + 196"
+        },
+        {
+          "id": "l3",
+          "text": "? - 124 + 166 = 384"
+        },
+        {
+          "id": "l4",
+          "text": "? + 390 - 168 = 437"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "342"
+        },
+        {
+          "id": "r2",
+          "text": "578"
+        },
+        {
+          "id": "r3",
+          "text": "53"
+        },
+        {
+          "id": "r4",
+          "text": "215"
+        },
+        {
+          "id": "r5",
+          "text": "568"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "620 - ? = 141 - 89 → 568; ? + 356 = 213 + 196 → 53; ? - 124 + 166 = 384 → 342; ? + 390 - 168 = 437 → 215",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "141 - 89 = 52"
+          },
+          {
+            "kind": "equation",
+            "text": "620 - 52 = 568"
+          },
+          {
+            "kind": "equation",
+            "text": "213 + 196 = 409"
+          },
+          {
+            "kind": "equation",
+            "text": "409 - 356 = 53"
+          },
+          {
+            "kind": "equation",
+            "text": "384 - 166 = 218"
+          },
+          {
+            "kind": "equation",
+            "text": "218 + 124 = 342"
+          },
+          {
+            "kind": "equation",
+            "text": "437 + 168 = 605"
+          },
+          {
+            "kind": "equation",
+            "text": "605 - 390 = 215"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Từ các chữ số 0, 2, 6, 8, hãy lập số lớn nhất và số bé nhất có 3 chữ số khác nhau."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.pham_vi_1000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 862
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 206
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "862; 206",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: chọn 3 chữ số lớn nhất, xếp từ lớn đến bé → 862."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số đầu là chữ số bé nhất khác 0, các hàng sau xếp các chữ số bé nhất còn lại từ bé đến lớn → 206."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số có 3 chữ số mà tổng các chữ số của số đó bằng 5?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "so.pham_vi_1000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "16"
+        },
+        {
+          "id": "b",
+          "text": "14"
+        },
+        {
+          "id": "c",
+          "text": "15"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15",
+        "hint": "Con liệt kê theo thứ tự từ bé đến lớn để không bỏ sót và không đếm trùng nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Liệt kê từ bé đến lớn: 104; 113; 122; 131; 140; 203; 212; 221; 230; 302; 311; 320; 401; 410; 500."
+          },
+          {
+            "kind": "text",
+            "text": "Có tất cả 15 số."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_1000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "58{{b1}} + {{b2}}24 = 8{{b3}}4",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 0
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 0
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "580 + 224 = 804",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "580",
+              "224"
+            ],
+            "result": "804",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "8 cộng 2 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 2 bằng 7, thêm 1 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "580 + 224 = 804"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Thùng thứ nhất có 100 l nước. Thùng thứ hai có nhiều hơn thùng thứ nhất 73 l. Thùng thứ ba có ít hơn thùng thứ hai 30 l. Hỏi cả ba thùng có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_1000",
+        "cong_tru.pham_vi_1000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba thùng có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 416,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "416 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở thùng thứ hai là:",
+                "equation": "100 + 73 = 173 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng thứ ba là:",
+                "equation": "173 - 30 = 143 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba thùng là:",
+                "equation": "100 + 173 + 143 = 416 (l)"
+              }
+            ],
+            "answer": "Đáp số: 416 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "100",
+              "73"
+            ],
+            "result": "173",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 3 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 7 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "173",
+              "30"
+            ],
+            "result": "143",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 trừ 0 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "7 trừ 3 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "100",
+              "173",
+              "143"
+            ],
+            "result": "416",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 7 cộng 4 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 1 cộng 1 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn An nghĩ ra một số. Lấy số đó cộng với 374 rồi trừ đi 89 thì được 616. Hỏi bạn An đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "332"
+        },
+        {
+          "id": "b",
+          "text": "341"
+        },
+        {
+          "id": "c",
+          "text": "331"
+        },
+        {
+          "id": "d",
+          "text": "705"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "331",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi trừ đi 89 là:",
+                "equation": "616 + 89 = 705"
+              },
+              {
+                "explanation": "Số bạn An đã nghĩ là:",
+                "equation": "705 - 374 = 331"
+              }
+            ],
+            "answer": "Đáp số: 331."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "616",
+              "89"
+            ],
+            "result": "705",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 9 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 8 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "705",
+              "374"
+            ],
+            "result": "331",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 trừ 4 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 1,
+                "text": "0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 thêm 1 bằng 4; 7 trừ 4 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-01.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Rổ thứ nhất có 198 quả cam, rổ thứ hai có 180 quả cam. Phải chuyển bao nhiêu quả cam từ rổ thứ nhất sang rổ thứ hai để số quả cam ở hai rổ bằng nhau?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "so.pham_vi_1000",
+        "cong_tru.pham_vi_1000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Phải chuyển {{b1}} quả cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "9 quả cam",
+        "hint": "Muốn hai phần bằng nhau, con chỉ chuyển một nửa số chênh lệch từ phần nhiều sang phần ít thôi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Rổ thứ nhất nhiều hơn rổ thứ hai số quả cam là:",
+                "equation": "198 - 180 = 18 (quả)"
+              },
+              {
+                "explanation": "Số quả cam cần chuyển là:",
+                "equation": "18 : 2 = 9 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 9 quả cam."
+          }
+        ]
+      }
+    }
+  ]
+}

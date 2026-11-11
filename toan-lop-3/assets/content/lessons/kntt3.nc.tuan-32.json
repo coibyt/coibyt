@@ -1,0 +1,1077 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-32",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c14",
+  "order": 1,
+  "title": "Nâng cao tuần 32: Nhân, chia trong phạm vi 100 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán rút về đơn vị: tìm giá trị của một phần (phép chia) trước, rồi tìm giá trị của nhiều phần (phép nhân).",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Có 9 xe chở hàng như nhau chở được tất cả 71.496 kg hàng. Hỏi 4 xe như thế chở được bao nhiêu ki-lô-gam hàng?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Mỗi xe chở được số hàng là:",
+            "equation": "71.496 : 9 = 7.944 (kg)"
+          },
+          {
+            "explanation": "4 xe chở được số hàng là:",
+            "equation": "7.944 × 4 = 31.776 (kg)"
+          }
+        ],
+        "answer": "Đáp số: 31.776 kg hàng."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-32.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "15.019 + 40.336 : 8"
+        },
+        {
+          "id": "l2",
+          "text": "28.520 + 7.285 × 7"
+        },
+        {
+          "id": "l3",
+          "text": "20.616 : 8 + 13.174"
+        },
+        {
+          "id": "l4",
+          "text": "60.050 - (31.201 + 6.543)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "79.515"
+        },
+        {
+          "id": "r2",
+          "text": "22.306"
+        },
+        {
+          "id": "r3",
+          "text": "15.751"
+        },
+        {
+          "id": "r4",
+          "text": "79.525"
+        },
+        {
+          "id": "r5",
+          "text": "20.061"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15.019 + 40.336 : 8 = 20.061; 28.520 + 7.285 × 7 = 79.515; 20.616 : 8 + 13.174 = 15.751; 60.050 - (31.201 + 6.543) = 22.306",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "15.019 + 40.336 : 8 = 15.019 + 5.042 = 20.061"
+          },
+          {
+            "kind": "equation",
+            "text": "28.520 + 7.285 × 7 = 28.520 + 50.995 = 79.515"
+          },
+          {
+            "kind": "equation",
+            "text": "20.616 : 8 + 13.174 = 2.577 + 13.174 = 15.751"
+          },
+          {
+            "kind": "equation",
+            "text": "60.050 - (31.201 + 6.543) = 60.050 - 37.744 = 22.306"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Bắt đầu từ số 1.329, làm lần lượt theo từng dòng (dòng sau dùng kết quả của dòng trên). Kéo thẻ số đúng vào mỗi ô."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "template": "Cộng với 15.365: {{s1}}\nNhân với 4: {{s2}}\nTrừ đi 8.286: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "58.490"
+        },
+        {
+          "id": "t2",
+          "text": "58.491"
+        },
+        {
+          "id": "t3",
+          "text": "16.694"
+        },
+        {
+          "id": "t4",
+          "text": "66.776"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "16.694; 66.776; 58.490",
+        "hint": "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "1.329 + 15.365 = 16.694"
+          },
+          {
+            "kind": "equation",
+            "text": "16.694 × 4 = 66.776"
+          },
+          {
+            "kind": "equation",
+            "text": "66.776 - 8.286 = 58.490"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1329",
+              "15365"
+            ],
+            "result": "16694",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 5 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 6 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 5 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "16694",
+              "4"
+            ],
+            "result": "66776",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 4 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 9 bằng 36, thêm 1 bằng 37, viết 7 nhớ 3.",
+                "write": "7",
+                "carry": 3
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 6 bằng 24, thêm 3 bằng 27, viết 7 nhớ 2.",
+                "write": "7",
+                "carry": 2
+              },
+              {
+                "place": 3,
+                "text": "4 nhân 6 bằng 24, thêm 2 bằng 26, viết 6 nhớ 2.",
+                "write": "6",
+                "carry": 2
+              },
+              {
+                "place": 4,
+                "text": "4 nhân 1 bằng 4, thêm 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "66776",
+              "8286"
+            ],
+            "result": "58490",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 6 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "7 không trừ được 8, lấy 17 trừ 8 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 thêm 1 bằng 3; 7 trừ 3 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "6 không trừ được 8, lấy 16 trừ 8 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "6 trừ 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? : 4 + 24.635 = 29.227"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.5cs_1cs",
+        "tim_thanh_phan.so_bi_chia"
+      ],
+      "access": "free",
+      "template": "{{b1}} : 4 + 24.635 = 29.227",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 18368
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18.368",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? : 4:"
+          },
+          {
+            "kind": "equation",
+            "text": "29.227 - 24.635 = 4.592"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "4592",
+              "4"
+            ],
+            "result": "18368",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 2 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 9 bằng 36, viết 6 nhớ 3.",
+                "write": "6",
+                "carry": 3
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 5 bằng 20, thêm 3 bằng 23, viết 3 nhớ 2.",
+                "write": "3",
+                "carry": 2
+              },
+              {
+                "place": 3,
+                "text": "4 nhân 4 bằng 16, thêm 2 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "4.592 × 4 = 18.368"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "18.368 : 4 + 24.635 = 29.227"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong một phép chia cho 6, thương là 4.576. Số bị chia lớn nhất có thể là bao nhiêu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.5cs_1cs",
+        "chia.co_du",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "27.456"
+        },
+        {
+          "id": "b",
+          "text": "27.461"
+        },
+        {
+          "id": "c",
+          "text": "27.462"
+        },
+        {
+          "id": "d",
+          "text": "27.457"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "27.461",
+        "hint": "Số dư lớn nhất luôn kém số chia đúng một đơn vị.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số dư lớn nhất luôn kém số chia đúng một đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Số dư lớn nhất là 6 - 1 = 5."
+          },
+          {
+            "kind": "equation",
+            "text": "4.576 × 6 + 5 = 27.461"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "27461",
+            "divisor": "6",
+            "quotient": "4576",
+            "remainder": 5,
+            "digitSteps": [
+              {
+                "text": "27 chia 6 được 4, viết 4. 4 nhân 6 bằng 24; 27 trừ 24 bằng 3.",
+                "partialDividend": 27,
+                "quotientDigit": 4,
+                "product": 24,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 4, được 34; 34 chia 6 được 5, viết 5. 5 nhân 6 bằng 30; 34 trừ 30 bằng 4.",
+                "partialDividend": 34,
+                "quotientDigit": 5,
+                "product": 30,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 6, được 46; 46 chia 6 được 7, viết 7. 7 nhân 6 bằng 42; 46 trừ 42 bằng 4.",
+                "partialDividend": 46,
+                "quotientDigit": 7,
+                "product": 42,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 1, được 41; 41 chia 6 được 6, viết 6. 6 nhân 6 bằng 36; 41 trừ 36 bằng 5.",
+                "partialDividend": 41,
+                "quotientDigit": 6,
+                "product": 36,
+                "remainder": 5
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 5 xe chở hàng như nhau chở được tất cả 32.260 kg hàng. Hỏi 8 xe như thế chở được bao nhiêu ki-lô-gam hàng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "8 xe chở được {{b1}} kg hàng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 51616,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "51.616 kg hàng",
+        "hint": "Con tìm giá trị của một phần trước, rồi mới tìm giá trị của nhiều phần nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Mỗi xe chở được số hàng là:",
+                "equation": "32.260 : 5 = 6.452 (kg)"
+              },
+              {
+                "explanation": "8 xe chở được số hàng là:",
+                "equation": "6.452 × 8 = 51.616 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 51.616 kg hàng."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "32260",
+            "divisor": "5",
+            "quotient": "6452",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "32 chia 5 được 6, viết 6. 6 nhân 5 bằng 30; 32 trừ 30 bằng 2.",
+                "partialDividend": 32,
+                "quotientDigit": 6,
+                "product": 30,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 2, được 22; 22 chia 5 được 4, viết 4. 4 nhân 5 bằng 20; 22 trừ 20 bằng 2.",
+                "partialDividend": 22,
+                "quotientDigit": 4,
+                "product": 20,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 6, được 26; 26 chia 5 được 5, viết 5. 5 nhân 5 bằng 25; 26 trừ 25 bằng 1.",
+                "partialDividend": 26,
+                "quotientDigit": 5,
+                "product": 25,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 5 được 2, viết 2. 2 nhân 5 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 2,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "6452",
+              "8"
+            ],
+            "result": "51616",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 nhân 2 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "8 nhân 5 bằng 40, thêm 1 bằng 41, viết 1 nhớ 4.",
+                "write": "1",
+                "carry": 4
+              },
+              {
+                "place": 2,
+                "text": "8 nhân 4 bằng 32, thêm 4 bằng 36, viết 6 nhớ 3.",
+                "write": "6",
+                "carry": 3
+              },
+              {
+                "place": 3,
+                "text": "8 nhân 6 bằng 48, thêm 3 bằng 51, viết 51.",
+                "write": "51"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một đội công nhân phải sửa một quãng đường dài 18.216 m. Tuần thứ nhất đội sửa được 1/6 quãng đường, tuần thứ hai sửa được nhiều hơn tuần thứ nhất 604 m. Hỏi đội còn phải sửa bao nhiêu mét đường nữa?"
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "chia.5cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "12.144 m"
+        },
+        {
+          "id": "b",
+          "text": "15.180 m"
+        },
+        {
+          "id": "c",
+          "text": "11.540 m"
+        },
+        {
+          "id": "d",
+          "text": "14.576 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11.540 m",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tuần thứ nhất đội sửa được là:",
+                "equation": "18.216 : 6 = 3.036 (m)"
+              },
+              {
+                "explanation": "Tuần thứ hai đội sửa được là:",
+                "equation": "3.036 + 604 = 3.640 (m)"
+              },
+              {
+                "explanation": "Hai tuần đội sửa được là:",
+                "equation": "3.036 + 3.640 = 6.676 (m)"
+              },
+              {
+                "explanation": "Số mét đường còn phải sửa là:",
+                "equation": "18.216 - 6.676 = 11.540 (m)"
+              }
+            ],
+            "answer": "Đáp số: 11.540 m."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "18216",
+            "divisor": "6",
+            "quotient": "3036",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "18 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 18 trừ 18 bằng 0.",
+                "partialDividend": 18,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 2; 2 chia 6 được 0, viết 0. 0 nhân 6 bằng 0; 2 trừ 0 bằng 2.",
+                "partialDividend": 2,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 1, được 21; 21 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 21 trừ 18 bằng 3.",
+                "partialDividend": 21,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 6, được 36; 36 chia 6 được 6, viết 6. 6 nhân 6 bằng 36; 36 trừ 36 bằng 0.",
+                "partialDividend": 36,
+                "quotientDigit": 6,
+                "product": 36,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3036",
+              "604"
+            ],
+            "result": "3640",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 4 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 0 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 6 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "Hạ 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3036",
+              "3640"
+            ],
+            "result": "6676",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 0 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 4 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 6 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "18216",
+              "6676"
+            ],
+            "result": "11540",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 6 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "1 không trừ được 7, lấy 11 trừ 7 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 thêm 1 bằng 7; 2 không trừ được 7, lấy 12 trừ 7 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "6 thêm 1 bằng 7; 8 trừ 7 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi hộp có 7 cái bánh. Mẹ mua 2576 hộp bánh, mẹ biếu bà 10.777 cái, số bánh còn lại mẹ chia đều cho 5 bạn nhỏ. Hỏi mỗi bạn được mấy cái bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi bạn được {{b1}} cái bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1451,
+            "unit": "cái"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.451 cái bánh",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bánh mẹ mua là:",
+                "equation": "7 × 2.576 = 18.032 (cái)"
+              },
+              {
+                "explanation": "Số bánh còn lại là:",
+                "equation": "18.032 - 10.777 = 7.255 (cái)"
+              },
+              {
+                "explanation": "Số bánh mỗi bạn được là:",
+                "equation": "7.255 : 5 = 1.451 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 1.451 cái bánh."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "2576",
+              "7"
+            ],
+            "result": "18032",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 6 bằng 42, viết 2 nhớ 4.",
+                "write": "2",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 7 bằng 49, thêm 4 bằng 53, viết 3 nhớ 5.",
+                "write": "3",
+                "carry": 5
+              },
+              {
+                "place": 2,
+                "text": "7 nhân 5 bằng 35, thêm 5 bằng 40, viết 0 nhớ 4.",
+                "write": "0",
+                "carry": 4
+              },
+              {
+                "place": 3,
+                "text": "7 nhân 2 bằng 14, thêm 4 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "7255",
+            "divisor": "5",
+            "quotient": "1451",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "7 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 7 trừ 5 bằng 2.",
+                "partialDividend": 7,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 2, được 22; 22 chia 5 được 4, viết 4. 4 nhân 5 bằng 20; 22 trừ 20 bằng 2.",
+                "partialDividend": 22,
+                "quotientDigit": 4,
+                "product": 20,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 5, được 25; 25 chia 5 được 5, viết 5. 5 nhân 5 bằng 25; 25 trừ 25 bằng 0.",
+                "partialDividend": 25,
+                "quotientDigit": 5,
+                "product": 25,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 5; 5 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 5 trừ 5 bằng 0.",
+                "partialDividend": 5,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-32.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Thư viện có 1.901 quyển truyện và 226 quyển từ điển cần xếp vào các ngăn tủ, mỗi ngăn xếp được nhiều nhất 8 quyển. Hỏi cần ít nhất bao nhiêu ngăn tủ?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "chia.4cs_1cs",
+        "chia.co_du",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cần ít nhất {{b1}} ngăn tủ.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 266,
+            "unit": "ngăn tủ"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "266 ngăn tủ",
+        "hint": "Phép chia còn dư thì phần dư vẫn cần thêm một chỗ nữa, con đừng quên nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số sách cần xếp là:",
+                "equation": "1.901 + 226 = 2.127 (quyển)"
+              },
+              {
+                "explanation": "Ta có 2.127 : 8 = 265 (dư 7). Còn 7 quyển nữa nên cần thêm 1 ngăn. Số ngăn cần có ít nhất là:",
+                "equation": "265 + 1 = 266 (ngăn)"
+              }
+            ],
+            "answer": "Đáp số: 266 ngăn tủ."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1901",
+              "226"
+            ],
+            "result": "2127",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 6 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 2 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 2 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "2127",
+            "divisor": "8",
+            "quotient": "265",
+            "remainder": 7,
+            "digitSteps": [
+              {
+                "text": "21 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 21 trừ 16 bằng 5.",
+                "partialDividend": 21,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 2, được 52; 52 chia 8 được 6, viết 6. 6 nhân 8 bằng 48; 52 trừ 48 bằng 4.",
+                "partialDividend": 52,
+                "quotientDigit": 6,
+                "product": 48,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 7, được 47; 47 chia 8 được 5, viết 5. 5 nhân 8 bằng 40; 47 trừ 40 bằng 7.",
+                "partialDividend": 47,
+                "quotientDigit": 5,
+                "product": 40,
+                "remainder": 7
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

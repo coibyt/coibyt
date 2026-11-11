@@ -1,0 +1,655 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-02",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 2,
+  "title": "Nâng cao tuần 2: Tìm thành phần, bảng nhân 2, 3, 5",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Khi dấu ? nằm trong một phép nhân (hoặc chia) và còn thêm phép cộng, trừ, ta coi cả phép nhân (chia) đó là một số chưa biết: tìm nó trước, rồi mới tìm dấu ?.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: tìm số thích hợp thay cho dấu ?: ? × 5 - 26 = 14"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Tìm ? × 5:",
+            "equation": "14 + 26 = 40"
+          },
+          {
+            "explanation": "Tìm ?:",
+            "equation": "40 : 5 = 8"
+          }
+        ],
+        "answer": "Đáp số: 8."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-02.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo dấu >, <, = vào ô trống.",
+      "prompt": {
+        "text": "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "8 × 3 - 14 {{s1}} 12\n6 × 5 + 32 {{s2}} 59\n18 : 2 + 11 {{s3}} 25 - 5",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "<"
+        },
+        {
+          "id": "t2",
+          "text": "="
+        },
+        {
+          "id": "t3",
+          "text": ">"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "<; >; =",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "8 × 3 - 14 = 24 - 14 = 10"
+          },
+          {
+            "kind": "text",
+            "text": "10 < 12 nên 8 × 3 - 14 < 12."
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 5 + 32 = 30 + 32 = 62"
+          },
+          {
+            "kind": "text",
+            "text": "62 > 59 nên 6 × 5 + 32 > 59."
+          },
+          {
+            "kind": "equation",
+            "text": "18 : 2 + 11 = 9 + 11 = 20"
+          },
+          {
+            "kind": "equation",
+            "text": "25 - 5 = 20"
+          },
+          {
+            "kind": "text",
+            "text": "20 = 20 nên 18 : 2 + 11 = 25 - 5."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "tim_thanh_phan.so_bi_chia",
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "? × 5 + 17 = 67"
+        },
+        {
+          "id": "l2",
+          "text": "? : 5 + 14 = 17"
+        },
+        {
+          "id": "l3",
+          "text": "? × 2 - 14 = 2"
+        },
+        {
+          "id": "l4",
+          "text": "? : 5 - 2 = 6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "40"
+        },
+        {
+          "id": "r2",
+          "text": "20"
+        },
+        {
+          "id": "r3",
+          "text": "8"
+        },
+        {
+          "id": "r4",
+          "text": "15"
+        },
+        {
+          "id": "r5",
+          "text": "10"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "? × 5 + 17 = 67 → 10; ? : 5 + 14 = 17 → 15; ? × 2 - 14 = 2 → 8; ? : 5 - 2 = 6 → 40",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "67 - 17 = 50"
+          },
+          {
+            "kind": "equation",
+            "text": "50 : 5 = 10"
+          },
+          {
+            "kind": "equation",
+            "text": "17 - 14 = 3"
+          },
+          {
+            "kind": "equation",
+            "text": "3 × 5 = 15"
+          },
+          {
+            "kind": "equation",
+            "text": "2 + 14 = 16"
+          },
+          {
+            "kind": "equation",
+            "text": "16 : 2 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "6 + 2 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 5 = 40"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? × 2 - 6 = 10"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "{{b1}} × 2 - 6 = 10",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? × 2:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10",
+              "6"
+            ],
+            "result": "16",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 6 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "10 + 6 = 16"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "equation",
+            "text": "16 : 2 = 8"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 2 - 6 = 10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào có giá trị lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "20 : 2 + 13"
+        },
+        {
+          "id": "b",
+          "text": "6 × 5 - 26"
+        },
+        {
+          "id": "c",
+          "text": "15 : 5 + 17"
+        },
+        {
+          "id": "d",
+          "text": "4 × 3 + 2"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "20 : 2 + 13 (bằng 23)",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "20 : 2 + 13 = 10 + 13 = 23"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 5 - 26 = 30 - 26 = 4"
+          },
+          {
+            "kind": "equation",
+            "text": "4 × 3 + 2 = 12 + 2 = 14"
+          },
+          {
+            "kind": "equation",
+            "text": "15 : 5 + 17 = 3 + 17 = 20"
+          },
+          {
+            "kind": "text",
+            "text": "Giá trị lớn nhất là 23, của biểu thức 20 : 2 + 13."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_1000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "{{b1}}41 - 9{{b2}} = 7{{b3}}9",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "841 - 92 = 749",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "841",
+              "92"
+            ],
+            "result": "749",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 không trừ được 2, lấy 11 trừ 2 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 thêm 1 bằng 10; 4 không trừ được 10, lấy 14 trừ 10 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 trừ 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "841 - 92 = 749"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Cô giáo mua 6 hộp bút chì xanh, mỗi hộp có 3 chiếc và 7 hộp bút chì đỏ, mỗi hộp có 5 chiếc. Hỏi cô giáo mua tất cả bao nhiêu chiếc bút chì?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cô giáo mua tất cả {{b1}} chiếc bút chì.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 53,
+            "unit": "chiếc"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "53 chiếc bút chì",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bút chì xanh là:",
+                "equation": "3 × 6 = 18 (chiếc)"
+              },
+              {
+                "explanation": "Số bút chì đỏ là:",
+                "equation": "5 × 7 = 35 (chiếc)"
+              },
+              {
+                "explanation": "Số bút chì cô giáo mua tất cả là:",
+                "equation": "18 + 35 = 53 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 53 chiếc bút chì."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "18",
+              "35"
+            ],
+            "result": "53",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 3 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Mai nghĩ ra một số. Lấy số đó chia cho 2 rồi cộng thêm 5 thì được 8. Hỏi bạn Mai đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bang_nhan_chia",
+        "tim_thanh_phan.thua_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "16"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi cộng thêm 5 là:",
+                "equation": "8 - 5 = 3"
+              },
+              {
+                "explanation": "Số bạn Mai đã nghĩ là:",
+                "equation": "3 × 2 = 6"
+              }
+            ],
+            "answer": "Đáp số: 6."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-02.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lớp 3A xếp thành 5 hàng, mỗi hàng 5 bạn. Lớp 3B xếp thành 9 hàng, mỗi hàng 2 bạn. Hỏi lớp 3A nhiều hơn lớp 3B bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Lớp 3A nhiều hơn lớp 3B {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "7 bạn",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số học sinh lớp 3A là:",
+                "equation": "5 × 5 = 25 (bạn)"
+              },
+              {
+                "explanation": "Số học sinh lớp 3B là:",
+                "equation": "2 × 9 = 18 (bạn)"
+              },
+              {
+                "explanation": "Lớp 3A nhiều hơn lớp 3B số bạn là:",
+                "equation": "25 - 18 = 7 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 7 bạn."
+          }
+        ]
+      }
+    }
+  ]
+}

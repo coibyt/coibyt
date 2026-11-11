@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:toan_lop_3/logic/advanced_hints.dart';
 import 'package:toan_lop_3/logic/content_validator.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/logic/tutor_hints.dart';
@@ -104,14 +105,16 @@ void main() {
   });
 
   group('Gợi ý', () {
-    test('mọi gợi ý của bài sinh tự động nằm trong kGeneratedHints, không chứa chữ số', () {
+    test('mọi gợi ý của bài sinh tự động nằm trong kGeneratedHints ∪ kAdvancedHints, không chứa chữ số', () {
       expect(kGeneratedHints.length, lessThanOrEqualTo(60));
-      expect(kGeneratedHints.toSet(), hasLength(kGeneratedHints.length));
-      expect(kGeneratedHints.any((h) => RegExp(r'\d').hasMatch(h)), isFalse);
+      expect(kAdvancedHints.length, lessThanOrEqualTo(30));
+      final allowed = {...kGeneratedHints, ...kAdvancedHints};
+      expect(allowed, hasLength(kGeneratedHints.length + kAdvancedHints.length));
+      expect(allowed.any((h) => RegExp(r'\d').hasMatch(h)), isFalse);
       for (final r in refs.where((r) => !handWritten.contains(r.id))) {
         for (final p in lessons[r.id]!.problems) {
           final h = p.solution.hint;
-          if (h != null) expect(kGeneratedHints, contains(h), reason: p.id);
+          if (h != null) expect(allowed, contains(h), reason: p.id);
         }
       }
     });

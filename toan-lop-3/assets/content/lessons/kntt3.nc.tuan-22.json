@@ -1,0 +1,782 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-22",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c8",
+  "order": 3,
+  "title": "Nâng cao tuần 22: Số đến 10 000 và chu vi các hình",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Nửa chu vi hình chữ nhật bằng chiều dài cộng chiều rộng. Biết chu vi và một cạnh, con tìm được cạnh còn lại.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một hình vuông có chu vi bằng chu vi của hình chữ nhật có chiều dài 20 cm và chiều rộng 6 cm. Tính độ dài cạnh hình vuông."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Chu vi hình chữ nhật là:",
+            "equation": "(20 + 6) × 2 = 52 (cm)"
+          },
+          {
+            "explanation": "Cạnh của hình vuông dài là:",
+            "equation": "52 : 4 = 13 (cm)"
+          }
+        ],
+        "answer": "Đáp số: 13 cm."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-22.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hình với chu vi.",
+      "prompt": {
+        "text": "Nối mỗi hình với chu vi của nó (đổi về xăng-ti-mét)."
+      },
+      "level": 2,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình chữ nhật dài 2 m, rộng 40 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Hình vuông cạnh 3 dm 8 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Hình chữ nhật dài 28 cm, rộng 7 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Hình vuông cạnh 21 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "70 cm"
+        },
+        {
+          "id": "r2",
+          "text": "84 cm"
+        },
+        {
+          "id": "r3",
+          "text": "480 cm"
+        },
+        {
+          "id": "r4",
+          "text": "72 cm"
+        },
+        {
+          "id": "r5",
+          "text": "152 cm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình chữ nhật dài 2 m, rộng 40 cm: 480 cm; Hình vuông cạnh 3 dm 8 cm: 152 cm; Hình chữ nhật dài 28 cm, rộng 7 cm: 70 cm; Hình vuông cạnh 21 cm: 84 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "2 m = 200 cm"
+          },
+          {
+            "kind": "equation",
+            "text": "(200 + 40) × 2 = 480"
+          },
+          {
+            "kind": "text",
+            "text": "3 dm 8 cm = 38 cm"
+          },
+          {
+            "kind": "equation",
+            "text": "38 × 4 = 152"
+          },
+          {
+            "kind": "equation",
+            "text": "(28 + 7) × 2 = 70"
+          },
+          {
+            "kind": "equation",
+            "text": "21 × 4 = 84"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Hình vuông có chu vi 20 cm thì cạnh dài {{s1}} cm.\nHình chữ nhật có chu vi 46 cm, chiều dài 14 cm thì chiều rộng là {{s2}} cm.\nHình tam giác có ba cạnh bằng nhau và chu vi 18 cm thì mỗi cạnh dài {{s3}} cm.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "5"
+        },
+        {
+          "id": "t2",
+          "text": "14"
+        },
+        {
+          "id": "t3",
+          "text": "9"
+        },
+        {
+          "id": "t4",
+          "text": "6"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 9; 6",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "20 : 4 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "46 : 2 = 23"
+          },
+          {
+            "kind": "equation",
+            "text": "23 - 14 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "18 : 3 = 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chiều dài 10 cm, chiều rộng 7 cm. Ghép thêm một hình vuông cạnh 7 cm vào chiều rộng của hình chữ nhật để được một hình chữ nhật mới. Tính chu vi hình chữ nhật mới."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Chu vi hình chữ nhật mới là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 cm",
+        "hint": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chiều dài hình chữ nhật mới là:",
+                "equation": "10 + 7 = 17 (cm)"
+              },
+              {
+                "explanation": "Chu vi hình chữ nhật mới là:",
+                "equation": "(17 + 7) × 2 = 48 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 48 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10",
+              "7"
+            ],
+            "result": "17",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 7 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "17",
+              "7"
+            ],
+            "result": "24",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "24",
+              "2"
+            ],
+            "result": "48",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một hình vuông có chu vi bằng chu vi của hình chữ nhật có chiều dài 17 cm và chiều rộng 3 cm. Tính độ dài cạnh hình vuông."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10 cm"
+        },
+        {
+          "id": "b",
+          "text": "11 cm"
+        },
+        {
+          "id": "c",
+          "text": "12 cm"
+        },
+        {
+          "id": "d",
+          "text": "40 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10 cm",
+        "hint": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chu vi hình chữ nhật là:",
+                "equation": "(17 + 3) × 2 = 40 (cm)"
+              },
+              {
+                "explanation": "Cạnh của hình vuông dài là:",
+                "equation": "40 : 4 = 10 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 10 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "17",
+              "3"
+            ],
+            "result": "20",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 3 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "20",
+              "2"
+            ],
+            "result": "40",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 44 cm, chiều dài hơn chiều rộng 14 cm. Tính chiều dài hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Chiều dài là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 18,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18 cm",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+                "equation": "44 : 2 = 22 (cm)"
+              },
+              {
+                "explanation": "Hai lần chiều rộng là:",
+                "equation": "22 - 14 = 8 (cm)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "8 : 2 = 4 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "4 + 14 = 18 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 18 cm."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "44",
+            "divisor": "2",
+            "quotient": "22",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 4; 4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "4",
+              "14"
+            ],
+            "result": "18",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chiều dài 35 m, chiều rộng 18 m. Người ta rào xung quanh mảnh vườn, chừa lại một lối vào rộng 4 m. Hỏi hàng rào dài bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Hàng rào dài {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 102,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "102 m",
+        "hint": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chu vi mảnh vườn là:",
+                "equation": "(35 + 18) × 2 = 106 (m)"
+              },
+              {
+                "explanation": "Hàng rào dài là:",
+                "equation": "106 - 4 = 102 (m)"
+              }
+            ],
+            "answer": "Đáp số: 102 m."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "35",
+              "18"
+            ],
+            "result": "53",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 8 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "53",
+              "2"
+            ],
+            "result": "106",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 5 bằng 10, viết 10.",
+                "write": "10"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "106",
+              "4"
+            ],
+            "result": "102",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 4 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm quy luật rồi viết số thích hợp vào ô trống:"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.pham_vi_10000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "5.169; 5.144; 5.119; {{b1}}; {{b2}}; 5.044; 5.019",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5094
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5069
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5.094; 5.069",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số kém số đứng trước nó 25 đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5.119 - 25 = 5.094"
+          },
+          {
+            "kind": "equation",
+            "text": "5.094 - 25 = 5.069"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-22.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình nào có chu vi lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hình vuông cạnh 2 dm 6 cm"
+        },
+        {
+          "id": "b",
+          "text": "Hình tam giác có ba cạnh đều dài 9 cm"
+        },
+        {
+          "id": "c",
+          "text": "Hình vuông cạnh 11 cm"
+        },
+        {
+          "id": "d",
+          "text": "Hình chữ nhật dài 10 cm, rộng 8 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "Hình vuông cạnh 2 dm 6 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(10 + 8) × 2 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "11 × 4 = 44"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 3 = 27"
+          },
+          {
+            "kind": "equation",
+            "text": "26 × 4 = 104"
+          },
+          {
+            "kind": "text",
+            "text": "Chu vi lớn nhất là 104 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

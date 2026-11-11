@@ -1,0 +1,779 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-18",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 3,
+  "title": "Nâng cao tuần 18: Ôn tập nhân, chia và biểu thức số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Với dấu ? nằm trong ngoặc, con coi cả biểu thức trong ngoặc là một số chưa biết, tìm nó trước rồi mới tìm dấu ?.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: tìm số thích hợp thay cho dấu ?: (? - 93) : 3 = 97"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Tìm ? - 93:",
+            "equation": "97 × 3 = 291"
+          },
+          {
+            "explanation": "Tìm ?:",
+            "equation": "291 + 93 = 384"
+          }
+        ],
+        "answer": "Đáp số: 384."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-18.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "46 × 7 - 271"
+        },
+        {
+          "id": "l2",
+          "text": "136 + 480 : 4"
+        },
+        {
+          "id": "l3",
+          "text": "229 + 106 × 5"
+        },
+        {
+          "id": "l4",
+          "text": "333 + 71 × 4"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "266"
+        },
+        {
+          "id": "r2",
+          "text": "51"
+        },
+        {
+          "id": "r3",
+          "text": "759"
+        },
+        {
+          "id": "r4",
+          "text": "256"
+        },
+        {
+          "id": "r5",
+          "text": "617"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "46 × 7 - 271 = 51; 136 + 480 : 4 = 256; 229 + 106 × 5 = 759; 333 + 71 × 4 = 617",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "46 × 7 - 271 = 322 - 271 = 51"
+          },
+          {
+            "kind": "equation",
+            "text": "136 + 480 : 4 = 136 + 120 = 256"
+          },
+          {
+            "kind": "equation",
+            "text": "229 + 106 × 5 = 229 + 530 = 759"
+          },
+          {
+            "kind": "equation",
+            "text": "333 + 71 × 4 = 333 + 284 = 617"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Tìm quy luật rồi kéo thẻ số thích hợp vào ô trống:"
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "155; 160; 166; 173; {{s1}}; 190; {{s2}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "200"
+        },
+        {
+          "id": "t2",
+          "text": "182"
+        },
+        {
+          "id": "t3",
+          "text": "181"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "181; 200",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Khoảng cách giữa hai số liền nhau tăng dần, mỗi lần thêm 1 đơn vị: 5, 6, 7, 8, 9, 10.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "173 + 8 = 181"
+          },
+          {
+            "kind": "equation",
+            "text": "190 + 10 = 200"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 182 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "{{b1}}92 × 8 = {{b2}}.73{{b3}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "592 × 8 = 4.736",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "592",
+              "8"
+            ],
+            "result": "4736",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 nhân 2 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "8 nhân 9 bằng 72, thêm 1 bằng 73, viết 3 nhớ 7.",
+                "write": "3",
+                "carry": 7
+              },
+              {
+                "place": 2,
+                "text": "8 nhân 5 bằng 40, thêm 7 bằng 47, viết 47.",
+                "write": "47"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "592 × 8 = 4.736"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n(? + 124) × 5 = 985"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bieu_thuc",
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "73"
+        },
+        {
+          "id": "b",
+          "text": "83"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "197"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "73",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? + 124:"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "985",
+            "divisor": "5",
+            "quotient": "197",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 9 trừ 5 bằng 4.",
+                "partialDividend": 9,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 8, được 48; 48 chia 5 được 9, viết 9. 9 nhân 5 bằng 45; 48 trừ 45 bằng 3.",
+                "partialDividend": 48,
+                "quotientDigit": 9,
+                "product": 45,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 5, được 35; 35 chia 5 được 7, viết 7. 7 nhân 5 bằng 35; 35 trừ 35 bằng 0.",
+                "partialDividend": 35,
+                "quotientDigit": 7,
+                "product": 35,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "985 : 5 = 197"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "equation",
+            "text": "197 - 124 = 73"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "(73 + 124) × 5 = 985"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bao thứ nhất có 57 kg ngô. Số ngô ở bao thứ hai gấp 8 lần bao thứ nhất. Số ngô ở bao thứ ba bằng số ngô ở bao thứ hai giảm đi 4 lần. Hỏi cả ba bao có bao nhiêu ki-lô-gam ngô?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bao có {{b1}} kg ngô.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 627,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "627 kg ngô",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số ngô ở bao thứ hai là:",
+                "equation": "57 × 8 = 456 (kg)"
+              },
+              {
+                "explanation": "Số ngô ở bao thứ ba là:",
+                "equation": "456 : 4 = 114 (kg)"
+              },
+              {
+                "explanation": "Số ngô ở cả ba bao là:",
+                "equation": "57 + 456 + 114 = 627 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 627 kg ngô."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "57",
+              "8"
+            ],
+            "result": "456",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 nhân 7 bằng 56, viết 6 nhớ 5.",
+                "write": "6",
+                "carry": 5
+              },
+              {
+                "place": 1,
+                "text": "8 nhân 5 bằng 40, thêm 5 bằng 45, viết 45.",
+                "write": "45"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "456",
+            "divisor": "4",
+            "quotient": "114",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 5; 5 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 6, được 16; 16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 4,
+                "product": 16,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "57",
+              "456",
+              "114"
+            ],
+            "result": "627",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 6 cộng 4 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 5 cộng 1 bằng 11, thêm 1 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 208 l nước. Thùng to có số nước gấp 7 lần thùng nhỏ. Hỏi thùng to có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "26 l"
+        },
+        {
+          "id": "b",
+          "text": "208 l"
+        },
+        {
+          "id": "c",
+          "text": "182 l"
+        },
+        {
+          "id": "d",
+          "text": "189 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "182 l nước",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nước ở thùng nhỏ là 1 phần thì số nước ở thùng to là 7 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 7 = 8 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số nước ở thùng nhỏ) là:",
+                "equation": "208 : 8 = 26 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng to là:",
+                "equation": "26 × 7 = 182 (l)"
+              }
+            ],
+            "answer": "Đáp số: 182 l nước."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "208",
+            "divisor": "8",
+            "quotient": "26",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "20 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 20 trừ 16 bằng 4.",
+                "partialDividend": 20,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 8, được 48; 48 chia 8 được 6, viết 6. 6 nhân 8 bằng 48; 48 trừ 48 bằng 0.",
+                "partialDividend": 48,
+                "quotientDigit": 6,
+                "product": 48,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "26",
+              "7"
+            ],
+            "result": "182",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 6 bằng 42, viết 2 nhớ 4.",
+                "write": "2",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 2 bằng 14, thêm 4 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Chi có nhiều hơn bạn Minh 132 nhãn vở. Số nhãn vở của Chi gấp 7 lần số nhãn vở của Minh. Hỏi bạn Minh có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bạn Minh có {{b1}} nhãn vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 22,
+            "unit": "nhãn vở"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "22 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Minh là 1 phần thì số nhãn vở của Chi là 7 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "7 - 1 = 6 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Minh là:",
+                "equation": "132 : 6 = 22 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 22 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "132",
+            "divisor": "6",
+            "quotient": "22",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "13 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 13 trừ 12 bằng 1.",
+                "partialDividend": 13,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-18.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Trong một phép chia cho 6, thương là 32. Số bị chia lớn nhất có thể là bao nhiêu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.co_du",
+        "chia.3cs_1cs",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số bị chia lớn nhất là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 197
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "197",
+        "hint": "Số dư lớn nhất luôn kém số chia đúng một đơn vị.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số dư lớn nhất luôn kém số chia đúng một đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Số dư lớn nhất là 6 - 1 = 5."
+          },
+          {
+            "kind": "equation",
+            "text": "32 × 6 + 5 = 197"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "197",
+            "divisor": "6",
+            "quotient": "32",
+            "remainder": 5,
+            "digitSteps": [
+              {
+                "text": "19 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 19 trừ 18 bằng 1.",
+                "partialDividend": 19,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 7, được 17; 17 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 17 trừ 12 bằng 5.",
+                "partialDividend": 17,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

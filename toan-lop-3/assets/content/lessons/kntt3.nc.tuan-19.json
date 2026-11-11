@@ -1,0 +1,791 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-19",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c7",
+  "order": 1,
+  "title": "Nâng cao tuần 19: Ôn tập biểu thức, hình học và đo lường",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đổi số đo về cùng một đơn vị bé rồi mới tính. Bài nhiều bước: con viết rõ mỗi bước tìm được gì.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một túi đường nặng 3 kg. Mẹ đã dùng 2.730 g đường để làm bánh, số đường còn lại mẹ chia đều vào 2 lọ. Hỏi mỗi lọ có bao nhiêu gam đường?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Đổi 3 kg = 3.000 g. Số đường còn lại là:",
+            "equation": "3.000 - 2.730 = 270 (g)"
+          },
+          {
+            "explanation": "Số đường mỗi lọ có là:",
+            "equation": "270 : 2 = 135 (g)"
+          }
+        ],
+        "answer": "Đáp số: 135 g đường."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-19.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "7 m 72 cm = {{s1}} cm\n9 l 92 ml = {{s2}} ml\n2 cm 9 mm = {{s3}} mm",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "9.092"
+        },
+        {
+          "id": "t2",
+          "text": "29"
+        },
+        {
+          "id": "t3",
+          "text": "862"
+        },
+        {
+          "id": "t4",
+          "text": "772"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "772; 9.092; 29",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm nên 7 m = 700 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "700 + 72 = 772"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 9 l = 9.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "9.000 + 92 = 9.092"
+          },
+          {
+            "kind": "text",
+            "text": "1 cm = 10 mm nên 2 cm = 20 mm."
+          },
+          {
+            "kind": "equation",
+            "text": "20 + 9 = 29"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo ở cột trái với số đo bằng nó ở cột phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 kg 95 g"
+        },
+        {
+          "id": "l2",
+          "text": "8 l 5 ml"
+        },
+        {
+          "id": "l3",
+          "text": "2 l 600 ml"
+        },
+        {
+          "id": "l4",
+          "text": "9 kg 175 g"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "9.175 g"
+        },
+        {
+          "id": "r2",
+          "text": "6.095 g"
+        },
+        {
+          "id": "r3",
+          "text": "2.600 ml"
+        },
+        {
+          "id": "r4",
+          "text": "24 mm"
+        },
+        {
+          "id": "r5",
+          "text": "8.005 ml"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 kg 95 g = 6.095 g; 8 l 5 ml = 8.005 ml; 2 l 600 ml = 2.600 ml; 9 kg 175 g = 9.175 g",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 6 kg = 6.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "6.000 + 95 = 6.095"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 8 l = 8.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "8.000 + 5 = 8.005"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 2 l = 2.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "2.000 + 600 = 2.600"
+          },
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g nên 9 kg = 9.000 g."
+          },
+          {
+            "kind": "equation",
+            "text": "9.000 + 175 = 9.175"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào có giá trị lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "585 - (329 + 99)"
+        },
+        {
+          "id": "b",
+          "text": "351 - (198 + 11)"
+        },
+        {
+          "id": "c",
+          "text": "140 + 168 : 3"
+        },
+        {
+          "id": "d",
+          "text": "570 - (143 + 107)"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "570 - (143 + 107) (bằng 320)",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "351 - (198 + 11) = 351 - 209 = 142"
+          },
+          {
+            "kind": "equation",
+            "text": "570 - (143 + 107) = 570 - 250 = 320"
+          },
+          {
+            "kind": "equation",
+            "text": "140 + 168 : 3 = 140 + 56 = 196"
+          },
+          {
+            "kind": "equation",
+            "text": "585 - (329 + 99) = 585 - 428 = 157"
+          },
+          {
+            "kind": "text",
+            "text": "Giá trị lớn nhất là 320, của biểu thức 570 - (143 + 107)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một cuộn ruy băng dài 2 m 35 cm. Chị Hoa cắt đi 79 cm để buộc hộp quà, phần còn lại cắt thành 6 đoạn dài bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi đoạn dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 26,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "26 cm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 2 m 35 cm =",
+                "equation": "200 + 35 = 235 (cm)"
+              },
+              {
+                "explanation": "Phần ruy băng còn lại dài là:",
+                "equation": "235 - 79 = 156 (cm)"
+              },
+              {
+                "explanation": "Mỗi đoạn dài là:",
+                "equation": "156 : 6 = 26 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 26 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "235",
+              "79"
+            ],
+            "result": "156",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 không trừ được 9, lấy 15 trừ 9 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "7 thêm 1 bằng 8; 3 không trừ được 8, lấy 13 trừ 8 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "156",
+            "divisor": "6",
+            "quotient": "26",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "15 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 15 trừ 12 bằng 3.",
+                "partialDividend": 15,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 6, được 36; 36 chia 6 được 6, viết 6. 6 nhân 6 bằng 36; 36 trừ 36 bằng 0.",
+                "partialDividend": 36,
+                "quotientDigit": 6,
+                "product": 36,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Đoạn thẳng AB dài 92 cm. M là trung điểm của đoạn thẳng AB, N là trung điểm của đoạn thẳng MB. Tính độ dài đoạn thẳng AN."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "AN = {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 69,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "69 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài đoạn thẳng AM (bằng MB) là:",
+                "equation": "92 : 2 = 46 (cm)"
+              },
+              {
+                "explanation": "Độ dài đoạn thẳng MN là:",
+                "equation": "46 : 2 = 23 (cm)"
+              },
+              {
+                "explanation": "Độ dài đoạn thẳng AN là:",
+                "equation": "46 + 23 = 69 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 69 cm."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "92",
+            "divisor": "2",
+            "quotient": "46",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 2 được 4, viết 4. 4 nhân 2 bằng 8; 9 trừ 8 bằng 1.",
+                "partialDividend": 9,
+                "quotientDigit": 4,
+                "product": 8,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 2 được 6, viết 6. 6 nhân 2 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 6,
+                "product": 12,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "46",
+            "divisor": "2",
+            "quotient": "23",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 6; 6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "46",
+              "23"
+            ],
+            "result": "69",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 3 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "4 cộng 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Nam vẽ 3 hình tròn bằng nhau, mỗi hình có bán kính 11 cm, xếp thành một hàng sát nhau (hình nọ chạm hình kia). Hỏi hàng hình tròn đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "77 cm"
+        },
+        {
+          "id": "b",
+          "text": "66 cm"
+        },
+        {
+          "id": "c",
+          "text": "33 cm"
+        },
+        {
+          "id": "d",
+          "text": "25 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "66 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đường kính của mỗi hình tròn là:",
+                "equation": "11 × 2 = 22 (cm)"
+              },
+              {
+                "explanation": "Hàng hình tròn dài là:",
+                "equation": "22 × 3 = 66 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 66 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "11",
+              "2"
+            ],
+            "result": "22",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "22",
+              "3"
+            ],
+            "result": "66",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Hà nghĩ ra một số. Lấy số đó trừ đi 229 rồi chia kết quả cho 6 thì được 97. Hỏi bạn Hà đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bạn Hà đã nghĩ ra số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 811
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "811",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi chia cho 6 là:",
+                "equation": "97 × 6 = 582"
+              },
+              {
+                "explanation": "Số bạn Hà đã nghĩ là:",
+                "equation": "582 + 229 = 811"
+              }
+            ],
+            "answer": "Đáp số: 811."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "97",
+              "6"
+            ],
+            "result": "582",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 7 bằng 42, viết 2 nhớ 4.",
+                "write": "2",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 9 bằng 54, thêm 4 bằng 58, viết 58.",
+                "write": "58"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "582",
+              "229"
+            ],
+            "result": "811",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 9 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "8 cộng 2 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 2 bằng 7, thêm 1 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-19.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Đặt dấu ngoặc vào biểu thức 42 + 33 × 7 - 4 để được giá trị bằng 141. Cách đặt nào đúng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "(42 + 33) × 7 - 4"
+        },
+        {
+          "id": "b",
+          "text": "42 + 33 × (7 - 4)"
+        },
+        {
+          "id": "c",
+          "text": "(42 + 33) × (7 - 4)"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "42 + 33 × (7 - 4)",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tính giá trị từng cách đặt dấu ngoặc:"
+          },
+          {
+            "kind": "equation",
+            "text": "(42 + 33) × 7 - 4 = 521"
+          },
+          {
+            "kind": "equation",
+            "text": "42 + 33 × (7 - 4) = 141"
+          },
+          {
+            "kind": "equation",
+            "text": "(42 + 33) × (7 - 4) = 225"
+          },
+          {
+            "kind": "text",
+            "text": "Chỉ có 42 + 33 × (7 - 4) bằng 141."
+          }
+        ]
+      }
+    }
+  ]
+}

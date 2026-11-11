@@ -1,0 +1,911 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-29",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c12",
+  "order": 1,
+  "title": "Nâng cao tuần 29: Cộng, trừ trong phạm vi 100 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn hai phần bằng nhau, con tìm số chênh lệch rồi chuyển một nửa số chênh lệch từ phần nhiều sang phần ít.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Vườn ươm thứ nhất có 40.443 cây giống, vườn ươm thứ hai có 22.551 cây giống. Phải chuyển bao nhiêu cây giống từ vườn ươm thứ nhất sang vườn ươm thứ hai để số cây giống ở hai vườn ươm bằng nhau?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Vườn ươm thứ nhất nhiều hơn vườn ươm thứ hai số cây giống là:",
+            "equation": "40.443 - 22.551 = 17.892 (cây)"
+          },
+          {
+            "explanation": "Số cây giống cần chuyển là:",
+            "equation": "17.892 : 2 = 8.946 (cây)"
+          }
+        ],
+        "answer": "Đáp số: 8.946 cây giống."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-29.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp thay cho mỗi dấu ? (vào ô trống)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "template": "{{s1}} + 4.479 = 5.183 + 34.680\n45.966 - {{s2}} = 31.346 - 5.984\n{{s3}} + 13.299 - 31.555 = 35.012",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "20.604"
+        },
+        {
+          "id": "t2",
+          "text": "35.384"
+        },
+        {
+          "id": "t3",
+          "text": "20.614"
+        },
+        {
+          "id": "t4",
+          "text": "53.268"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "35.384; 20.604; 53.268",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "5.183 + 34.680 = 39.863"
+          },
+          {
+            "kind": "equation",
+            "text": "39.863 - 4.479 = 35.384"
+          },
+          {
+            "kind": "equation",
+            "text": "31.346 - 5.984 = 25.362"
+          },
+          {
+            "kind": "equation",
+            "text": "45.966 - 25.362 = 20.604"
+          },
+          {
+            "kind": "equation",
+            "text": "35.012 + 31.555 = 66.567"
+          },
+          {
+            "kind": "equation",
+            "text": "66.567 - 13.299 = 53.268"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 20.614 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "55.331 - (13.325 + 12.604)"
+        },
+        {
+          "id": "l2",
+          "text": "29.232 + 5.609 - 3.647"
+        },
+        {
+          "id": "l3",
+          "text": "16.859 + 19.741 - 12.813"
+        },
+        {
+          "id": "l4",
+          "text": "7.310 + 39.294 - 11.912"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "31.194"
+        },
+        {
+          "id": "r2",
+          "text": "29.402"
+        },
+        {
+          "id": "r3",
+          "text": "31.204"
+        },
+        {
+          "id": "r4",
+          "text": "23.787"
+        },
+        {
+          "id": "r5",
+          "text": "34.692"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "55.331 - (13.325 + 12.604) = 29.402; 29.232 + 5.609 - 3.647 = 31.194; 16.859 + 19.741 - 12.813 = 23.787; 7.310 + 39.294 - 11.912 = 34.692",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "55.331 - (13.325 + 12.604) = 55.331 - 25.929 = 29.402"
+          },
+          {
+            "kind": "equation",
+            "text": "29.232 + 5.609 - 3.647 = 34.841 - 3.647 = 31.194"
+          },
+          {
+            "kind": "equation",
+            "text": "16.859 + 19.741 - 12.813 = 36.600 - 12.813 = 23.787"
+          },
+          {
+            "kind": "equation",
+            "text": "7.310 + 39.294 - 11.912 = 46.604 - 11.912 = 34.692"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "{{b1}}9.544 - {{b2}}.670 = 11.{{b3}}74",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "19.544 - 7.670 = 11.874",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "19544",
+              "7670"
+            ],
+            "result": "11874",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 trừ 0 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "4 không trừ được 7, lấy 14 trừ 7 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 thêm 1 bằng 7; 5 không trừ được 7, lấy 15 trừ 7 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "7 thêm 1 bằng 8; 9 trừ 8 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "19.544 - 7.670 = 11.874"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "35.608 - ? = 21.768 - 17.585"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "template": "35.608 - {{b1}} = 21.768 - 17.585",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 31425
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "31.425",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tính hiệu ở vế phải:"
+          },
+          {
+            "kind": "equation",
+            "text": "21.768 - 17.585 = 4.183"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm số trừ ?:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "35608",
+              "4183"
+            ],
+            "result": "31425",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 trừ 3 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "0 không trừ được 8, lấy 10 trừ 8 bằng 2, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "5 trừ 4 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "35.608 - 4.183 = 31.425"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "35.608 - 31.425 = 21.768 - 17.585"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào có giá trị bé nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "32.365 - (16.585 + 11.176)"
+        },
+        {
+          "id": "b",
+          "text": "45.690 - 20.078 - 15.505"
+        },
+        {
+          "id": "c",
+          "text": "51.433 - 28.786 - 13.160"
+        },
+        {
+          "id": "d",
+          "text": "4.988 + 4.139 - 8.232"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.988 + 4.139 - 8.232 (bằng 895)",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "32.365 - (16.585 + 11.176) = 32.365 - 27.761 = 4.604"
+          },
+          {
+            "kind": "equation",
+            "text": "4.988 + 4.139 - 8.232 = 9.127 - 8.232 = 895"
+          },
+          {
+            "kind": "equation",
+            "text": "45.690 - 20.078 - 15.505 = 25.612 - 15.505 = 10.107"
+          },
+          {
+            "kind": "equation",
+            "text": "51.433 - 28.786 - 13.160 = 22.647 - 13.160 = 9.487"
+          },
+          {
+            "kind": "text",
+            "text": "Giá trị bé nhất là 895, của biểu thức 4.988 + 4.139 - 8.232."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 31.144 bao xi măng, kho thứ hai có 14.072 bao xi măng. Phải chuyển bao nhiêu bao xi măng từ kho thứ nhất sang kho thứ hai để số bao xi măng ở hai kho bằng nhau?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Phải chuyển {{b1}} bao xi măng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8536,
+            "unit": "bao"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.536 bao xi măng",
+        "hint": "Muốn hai phần bằng nhau, con chỉ chuyển một nửa số chênh lệch từ phần nhiều sang phần ít thôi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Kho thứ nhất nhiều hơn kho thứ hai số bao xi măng là:",
+                "equation": "31.144 - 14.072 = 17.072 (bao)"
+              },
+              {
+                "explanation": "Số bao xi măng cần chuyển là:",
+                "equation": "17.072 : 2 = 8.536 (bao)"
+              }
+            ],
+            "answer": "Đáp số: 8.536 bao xi măng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "31144",
+              "14072"
+            ],
+            "result": "17072",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 trừ 2 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "4 không trừ được 7, lấy 14 trừ 7 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "0 thêm 1 bằng 1; 1 trừ 1 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "1 không trừ được 4, lấy 11 trừ 4 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2; 3 trừ 2 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "17072",
+            "divisor": "2",
+            "quotient": "8536",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "17 chia 2 được 8, viết 8. 8 nhân 2 bằng 16; 17 trừ 16 bằng 1.",
+                "partialDividend": 17,
+                "quotientDigit": 8,
+                "product": 16,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 7; 7 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 7 trừ 6 bằng 1.",
+                "partialDividend": 7,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 2 được 6, viết 6. 6 nhân 2 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 6,
+                "product": 12,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kho thứ nhất có 15.891 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 9.559 kg. Kho thứ ba có ít hơn kho thứ hai 3.439 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "63.352 kg"
+        },
+        {
+          "id": "b",
+          "text": "66.791 kg"
+        },
+        {
+          "id": "c",
+          "text": "50.900 kg"
+        },
+        {
+          "id": "d",
+          "text": "41.341 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "63.352 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "15.891 + 9.559 = 25.450 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "25.450 - 3.439 = 22.011 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "15.891 + 25.450 + 22.011 = 63.352 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 63.352 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15891",
+              "9559"
+            ],
+            "result": "25450",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 9 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 cộng 5 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 cộng 5 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 9 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "25450",
+              "3439"
+            ],
+            "result": "22011",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 9, lấy 10 trừ 9 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 thêm 1 bằng 4; 5 trừ 4 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 2,
+                "text": "4 trừ 4 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "5 trừ 3 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15891",
+              "25450",
+              "22011"
+            ],
+            "result": "63352",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 0 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "9 cộng 5 cộng 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 cộng 4 cộng 0 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 5 cộng 2 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 cộng 2 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-29.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Khang nghĩ ra một số. Lấy số đó trừ đi 20.748 rồi cộng với 15.147 thì được 29.706. Hỏi bạn Khang đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bạn Khang đã nghĩ ra số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 35307
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "35.307",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi cộng với 15.147 là:",
+                "equation": "29.706 - 15.147 = 14.559"
+              },
+              {
+                "explanation": "Số bạn Khang đã nghĩ là:",
+                "equation": "14.559 + 20.748 = 35.307"
+              }
+            ],
+            "answer": "Đáp số: 35.307."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "29706",
+              "15147"
+            ],
+            "result": "14559",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 không trừ được 7, lấy 16 trừ 7 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 thêm 1 bằng 5; 0 không trừ được 5, lấy 10 trừ 5 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 thêm 1 bằng 2; 7 trừ 2 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "9 trừ 5 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14559",
+              "20748"
+            ],
+            "result": "35307",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 8 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 4 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 7 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 0 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

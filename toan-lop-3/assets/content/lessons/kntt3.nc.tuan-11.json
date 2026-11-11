@@ -1,0 +1,702 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-11",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 2,
+  "title": "Nâng cao tuần 11: Chia số có hai chữ số, giảm một số lần",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán “hiệu và gấp”: coi số bé là 1 phần thì số lớn là mấy phần như thế. Lấy hiệu chia cho hiệu số phần để được số bé.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bạn Khang có nhiều hơn bạn Hoa 16 nhãn vở. Số nhãn vở của Khang gấp 9 lần số nhãn vở của Hoa. Hỏi bạn Hoa có bao nhiêu nhãn vở?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Coi số nhãn vở của Hoa là 1 phần thì số nhãn vở của Khang là 9 phần như thế. Hiệu số phần bằng nhau là:",
+            "equation": "9 - 1 = 8 (phần)"
+          },
+          {
+            "explanation": "Số nhãn vở của Hoa là:",
+            "equation": "16 : 8 = 2 (nhãn vở)"
+          }
+        ],
+        "answer": "Đáp số: 2 nhãn vở."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-11.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp thay cho mỗi dấu ? (vào ô trống)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_chia",
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "template": "{{s1}} : 2 + 14 = 31\n{{s2}} : 2 - 14 = 9\n{{s3}} : 2 + 17 = 32",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "34"
+        },
+        {
+          "id": "t2",
+          "text": "30"
+        },
+        {
+          "id": "t3",
+          "text": "46"
+        },
+        {
+          "id": "t4",
+          "text": "56"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "34; 46; 30",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "31 - 14 = 17"
+          },
+          {
+            "kind": "equation",
+            "text": "17 × 2 = 34"
+          },
+          {
+            "kind": "equation",
+            "text": "9 + 14 = 23"
+          },
+          {
+            "kind": "equation",
+            "text": "23 × 2 = 46"
+          },
+          {
+            "kind": "equation",
+            "text": "32 - 17 = 15"
+          },
+          {
+            "kind": "equation",
+            "text": "15 × 2 = 30"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 56 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "12 × 4 + 20"
+        },
+        {
+          "id": "l2",
+          "text": "58 : 2 + 32"
+        },
+        {
+          "id": "l3",
+          "text": "33 : 3 + 28"
+        },
+        {
+          "id": "l4",
+          "text": "17 × 2 - 27"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "71"
+        },
+        {
+          "id": "r2",
+          "text": "61"
+        },
+        {
+          "id": "r3",
+          "text": "39"
+        },
+        {
+          "id": "r4",
+          "text": "68"
+        },
+        {
+          "id": "r5",
+          "text": "7"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12 × 4 + 20 = 68; 58 : 2 + 32 = 61; 33 : 3 + 28 = 39; 17 × 2 - 27 = 7",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "12 × 4 + 20 = 48 + 20 = 68"
+          },
+          {
+            "kind": "equation",
+            "text": "58 : 2 + 32 = 29 + 32 = 61"
+          },
+          {
+            "kind": "equation",
+            "text": "33 : 3 + 28 = 11 + 28 = 39"
+          },
+          {
+            "kind": "equation",
+            "text": "17 × 2 - 27 = 34 - 27 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "(? - 7) : 3 = 21"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_chia",
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "template": "({{b1}} - 7) : 3 = 21",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 70
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "70",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? - 7:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "21",
+              "3"
+            ],
+            "result": "63",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "21 × 3 = 63"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "63",
+              "7"
+            ],
+            "result": "70",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 7 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "63 + 7 = 70"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "(70 - 7) : 3 = 21"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cần thêm vào số 46 ít nhất bao nhiêu đơn vị để được một số chia hết cho 6?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.co_du",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "46",
+            "divisor": "6",
+            "quotient": "7",
+            "remainder": 4,
+            "digitSteps": [
+              {
+                "text": "46 chia 6 được 7, viết 7. 7 nhân 6 bằng 42; 46 trừ 42 bằng 4.",
+                "partialDividend": 46,
+                "quotientDigit": 7,
+                "product": 42,
+                "remainder": 4
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": "46 : 6 = 7 (dư 4). Thêm vào cho đủ một lần 6 nữa thì chia hết:"
+          },
+          {
+            "kind": "equation",
+            "text": "6 - 4 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "46 + 2 = 48"
+          },
+          {
+            "kind": "equation",
+            "text": "48 : 6 = 8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Dũng có nhiều hơn bạn Hoa 26 nhãn vở. Số nhãn vở của Dũng gấp 3 lần số nhãn vở của Hoa. Hỏi bạn Hoa có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bạn Hoa có {{b1}} nhãn vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 13,
+            "unit": "nhãn vở"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "13 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Hoa là 1 phần thì số nhãn vở của Dũng là 3 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "3 - 1 = 2 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Hoa là:",
+                "equation": "26 : 2 = 13 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 13 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "26",
+            "divisor": "2",
+            "quotient": "13",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 6; 6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bao thứ nhất có 4 kg ngô. Số ngô ở bao thứ hai gấp 4 lần bao thứ nhất. Số ngô ở bao thứ ba bằng số ngô ở bao thứ hai giảm đi 2 lần. Hỏi cả ba bao có bao nhiêu ki-lô-gam ngô?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "28 kg"
+        },
+        {
+          "id": "b",
+          "text": "20 kg"
+        },
+        {
+          "id": "c",
+          "text": "32 kg"
+        },
+        {
+          "id": "d",
+          "text": "24 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "28 kg ngô",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số ngô ở bao thứ hai là:",
+                "equation": "4 × 4 = 16 (kg)"
+              },
+              {
+                "explanation": "Số ngô ở bao thứ ba là:",
+                "equation": "16 : 2 = 8 (kg)"
+              },
+              {
+                "explanation": "Số ngô ở cả ba bao là:",
+                "equation": "4 + 16 + 8 = 28 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 28 kg ngô."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "4",
+              "16",
+              "8"
+            ],
+            "result": "28",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 6 cộng 8 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một trường có 29 học sinh và 2 thầy cô đi tham quan bằng thuyền. Mỗi thuyền chở được nhiều nhất 9 người. Hỏi cần ít nhất bao nhiêu chiếc thuyền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "chia.co_du",
+        "chia.2cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cần ít nhất {{b1}} chiếc thuyền.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4,
+            "unit": "chiếc thuyền"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 chiếc thuyền",
+        "hint": "Phép chia còn dư thì phần dư vẫn cần thêm một chỗ nữa, con đừng quên nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số người đi tham quan là:",
+                "equation": "29 + 2 = 31 (người)"
+              },
+              {
+                "explanation": "Ta có 31 : 9 = 3 (dư 4). Còn 4 người nữa nên cần thêm 1 thuyền. Số thuyền cần có ít nhất là:",
+                "equation": "3 + 1 = 4 (thuyền)"
+              }
+            ],
+            "answer": "Đáp số: 4 chiếc thuyền."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "29",
+              "2"
+            ],
+            "result": "31",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 2 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "31",
+            "divisor": "9",
+            "quotient": "3",
+            "remainder": 4,
+            "digitSteps": [
+              {
+                "text": "31 chia 9 được 3, viết 3. 3 nhân 9 bằng 27; 31 trừ 27 bằng 4.",
+                "partialDividend": 31,
+                "quotientDigit": 3,
+                "product": 27,
+                "remainder": 4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-11.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số tiếp theo của dãy số sau là số nào?\n64; 32; 16; 8; 4; …"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "1"
+        },
+        {
+          "id": "d",
+          "text": "2"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "2",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số bằng số đứng trước nó giảm đi 2 lần.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "4 : 2 = 2"
+          }
+        ]
+      }
+    }
+  ]
+}

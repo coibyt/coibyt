@@ -39,7 +39,19 @@ class LessonRef {
     required this.src,
     required this.access,
     this.skillIds = const [],
+    this.periods,
   });
+
+  /// Một mục bài học trong catalog (dùng chung cho `lessons` và `advancedLessons`).
+  factory LessonRef.fromJson(JsonReader l) => LessonRef(
+    id: l.string('id'),
+    order: l.integer('order', min: 1),
+    title: l.string('title'),
+    src: l.string('src'),
+    access: Access.values.byName(l.oneOf('access', {'free', 'vip'})),
+    skillIds: l.strings('skillIds', optional: true),
+    periods: l.optInteger('periods', min: 1, max: 5),
+  );
 
   final String id;
   final int order;
@@ -51,16 +63,32 @@ class LessonRef {
 
   /// Kỹ năng bài học luyện (để gợi ý "ôn ngay").
   final List<String> skillIds;
+
+  /// Số tiết học trên lớp (schema 1.3.0+), null nếu không khai báo.
+  final int? periods;
 }
 
 class Chapter {
-  const Chapter({required this.id, required this.order, required this.title, required this.lessons, this.volume});
+  const Chapter({
+    required this.id,
+    required this.order,
+    required this.title,
+    required this.lessons,
+    this.volume,
+    this.advancedLessons = const [],
+  });
 
   final String id;
   final int order;
   final int? volume;
   final String title;
+
+  /// Bài học cơ bản — tính hoàn thành chủ đề, sao, huy hiệu theo các bài này.
   final List<LessonRef> lessons;
+
+  /// Bài NÂNG CAO (mỗi tuần học một bài, cho học sinh khá giỏi), trường tuỳ chọn `advancedLessons`.
+  /// Không tính vào hoàn thành chủ đề / sao / huy hiệu.
+  final List<LessonRef> advancedLessons;
 }
 
 class Book {
@@ -119,17 +147,8 @@ class Catalog {
               order: c.integer('order', min: 1),
               volume: c.optInteger('volume', min: 1, max: 2),
               title: c.string('title'),
-              lessons: c.objects(
-                'lessons',
-                (l) => LessonRef(
-                  id: l.string('id'),
-                  order: l.integer('order', min: 1),
-                  title: l.string('title'),
-                  src: l.string('src'),
-                  access: Access.values.byName(l.oneOf('access', {'free', 'vip'})),
-                  skillIds: l.strings('skillIds', optional: true),
-                ),
-              ),
+              lessons: c.objects('lessons', LessonRef.fromJson),
+              advancedLessons: c.objects('advancedLessons', LessonRef.fromJson, optional: true),
             ),
           ),
           exams: b.objects('exams', ExamRef.fromJson, optional: true),

@@ -1,0 +1,861 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-12",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 3,
+  "title": "Nâng cao tuần 12: Giảm một số lần và bài toán nhiều bước",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán về tuổi: mỗi năm ai cũng thêm 1 tuổi, nên hiệu số tuổi của hai người không bao giờ thay đổi.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Năm nay mẹ 29 tuổi, con 7 tuổi. Hỏi khi con 17 tuổi thì mẹ bao nhiêu tuổi?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Mẹ hơn con số tuổi là:",
+            "equation": "29 - 7 = 22 (tuổi)"
+          },
+          {
+            "explanation": "Khi con 17 tuổi thì tuổi của mẹ là:",
+            "equation": "17 + 22 = 39 (tuổi)"
+          }
+        ],
+        "answer": "Đáp số: 39 tuổi."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-12.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Bắt đầu từ số 24, làm lần lượt theo từng dòng (dòng sau dùng kết quả của dòng trên). Kéo thẻ số đúng vào mỗi ô."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "template": "Bớt đi 22: {{s1}}\nGấp lên 3 lần: {{s2}}\nThêm 17: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "2"
+        },
+        {
+          "id": "t2",
+          "text": "23"
+        },
+        {
+          "id": "t3",
+          "text": "33"
+        },
+        {
+          "id": "t4",
+          "text": "6"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2; 6; 23",
+        "hint": "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "24 - 22 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 3 = 6"
+          },
+          {
+            "kind": "equation",
+            "text": "6 + 17 = 23"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "6",
+              "17"
+            ],
+            "result": "23",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 7 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "tim_thanh_phan.so_bi_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "? × 2 + 38 = 98"
+        },
+        {
+          "id": "l2",
+          "text": "? : 2 + 30 = 60"
+        },
+        {
+          "id": "l3",
+          "text": "? : 4 - 20 = 3"
+        },
+        {
+          "id": "l4",
+          "text": "(? + 24) × 2 = 70"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "40"
+        },
+        {
+          "id": "r2",
+          "text": "11"
+        },
+        {
+          "id": "r3",
+          "text": "30"
+        },
+        {
+          "id": "r4",
+          "text": "60"
+        },
+        {
+          "id": "r5",
+          "text": "92"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "? × 2 + 38 = 98 → 30; ? : 2 + 30 = 60 → 60; ? : 4 - 20 = 3 → 92; (? + 24) × 2 = 70 → 11",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "98 - 38 = 60"
+          },
+          {
+            "kind": "equation",
+            "text": "60 : 2 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "60 - 30 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "30 × 2 = 60"
+          },
+          {
+            "kind": "equation",
+            "text": "3 + 20 = 23"
+          },
+          {
+            "kind": "equation",
+            "text": "23 × 4 = 92"
+          },
+          {
+            "kind": "equation",
+            "text": "70 : 2 = 35"
+          },
+          {
+            "kind": "equation",
+            "text": "35 - 24 = 11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Thùng thứ nhất có 14 l dầu. Thùng thứ hai có nhiều hơn thùng thứ nhất 6 l. Thùng thứ ba có ít hơn thùng thứ hai 5 l. Hỏi cả ba thùng có bao nhiêu lít dầu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba thùng có {{b1}} l dầu.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 49,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "49 l dầu",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số dầu ở thùng thứ hai là:",
+                "equation": "14 + 6 = 20 (l)"
+              },
+              {
+                "explanation": "Số dầu ở thùng thứ ba là:",
+                "equation": "20 - 5 = 15 (l)"
+              },
+              {
+                "explanation": "Số dầu ở cả ba thùng là:",
+                "equation": "14 + 20 + 15 = 49 (l)"
+              }
+            ],
+            "answer": "Đáp số: 49 l dầu."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14",
+              "6"
+            ],
+            "result": "20",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 6 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "20",
+              "5"
+            ],
+            "result": "15",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 5, lấy 10 trừ 5 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14",
+              "20",
+              "15"
+            ],
+            "result": "49",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 0 cộng 5 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 2 cộng 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Năm nay con 9 tuổi, tuổi mẹ gấp 5 lần tuổi con. Hỏi 4 năm nữa, tổng số tuổi của hai mẹ con là bao nhiêu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "58 tuổi"
+        },
+        {
+          "id": "b",
+          "text": "62 tuổi"
+        },
+        {
+          "id": "c",
+          "text": "66 tuổi"
+        },
+        {
+          "id": "d",
+          "text": "54 tuổi"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "62 tuổi",
+        "hint": "Mỗi năm ai cũng thêm một tuổi, nên hai người luôn hơn kém nhau một số tuổi không đổi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Năm nay mẹ có số tuổi là:",
+                "equation": "9 × 5 = 45 (tuổi)"
+              },
+              {
+                "explanation": "Năm nay tổng số tuổi của hai mẹ con là:",
+                "equation": "45 + 9 = 54 (tuổi)"
+              },
+              {
+                "explanation": "Sau 4 năm, mỗi người thêm 4 tuổi. Tổng số tuổi của hai mẹ con khi đó là:",
+                "equation": "54 + 4 + 4 = 62 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 62 tuổi."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "45",
+              "9"
+            ],
+            "result": "54",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 9 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "54",
+              "4",
+              "4"
+            ],
+            "result": "62",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 4 cộng 4 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Năm nay mẹ 37 tuổi, con 9 tuổi. Hỏi khi con 14 tuổi thì mẹ bao nhiêu tuổi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Khi đó mẹ {{b1}} tuổi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 42,
+            "unit": "tuổi"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "42 tuổi",
+        "hint": "Mỗi năm ai cũng thêm một tuổi, nên hai người luôn hơn kém nhau một số tuổi không đổi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Mẹ hơn con số tuổi là:",
+                "equation": "37 - 9 = 28 (tuổi)"
+              },
+              {
+                "explanation": "Khi con 14 tuổi thì tuổi của mẹ là:",
+                "equation": "14 + 28 = 42 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 42 tuổi."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "37",
+              "9"
+            ],
+            "result": "28",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 không trừ được 9, lấy 17 trừ 9 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14",
+              "28"
+            ],
+            "result": "42",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 8 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Thùng thứ nhất có 52 chai nước, thùng thứ hai có 22 chai nước. Phải chuyển bao nhiêu chai nước từ thùng thứ nhất sang thùng thứ hai để số chai nước ở hai thùng bằng nhau?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "18 chai"
+        },
+        {
+          "id": "b",
+          "text": "30 chai"
+        },
+        {
+          "id": "c",
+          "text": "15 chai"
+        },
+        {
+          "id": "d",
+          "text": "16 chai"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 chai nước",
+        "hint": "Muốn hai phần bằng nhau, con chỉ chuyển một nửa số chênh lệch từ phần nhiều sang phần ít thôi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Thùng thứ nhất nhiều hơn thùng thứ hai số chai nước là:",
+                "equation": "52 - 22 = 30 (chai)"
+              },
+              {
+                "explanation": "Số chai nước cần chuyển là:",
+                "equation": "30 : 2 = 15 (chai)"
+              }
+            ],
+            "answer": "Đáp số: 15 chai nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "52",
+              "22"
+            ],
+            "result": "30",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 trừ 2 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "5 trừ 2 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "30",
+            "divisor": "2",
+            "quotient": "15",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "3 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 3 trừ 2 bằng 1.",
+                "partialDividend": 3,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trường mua 21 bó hoa, mỗi bó có 4 bông. Các bạn dùng 28 bông để cắm lọ trên bàn cô giáo, số hoa còn lại cắm đều vào 8 lọ. Hỏi mỗi lọ có bao nhiêu bông hoa?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.2cs_1cs.co_nho",
+        "chia.2cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi lọ có {{b1}} bông hoa.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "bông"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 bông hoa",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số hoa trường mua là:",
+                "equation": "4 × 21 = 84 (bông)"
+              },
+              {
+                "explanation": "Số hoa còn lại là:",
+                "equation": "84 - 28 = 56 (bông)"
+              },
+              {
+                "explanation": "Số hoa mỗi lọ có là:",
+                "equation": "56 : 8 = 7 (bông)"
+              }
+            ],
+            "answer": "Đáp số: 7 bông hoa."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "21",
+              "4"
+            ],
+            "result": "84",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "84",
+              "28"
+            ],
+            "result": "56",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 8, lấy 14 trừ 8 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 thêm 1 bằng 3; 8 trừ 3 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-12.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Minh nghĩ ra một số. Gấp số đó lên 2 lần rồi bớt đi 31 thì được 23. Hỏi bạn Minh đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bạn Minh đã nghĩ ra số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 27
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "27",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi bớt đi 31 là:",
+                "equation": "23 + 31 = 54"
+              },
+              {
+                "explanation": "Số bạn Minh đã nghĩ là:",
+                "equation": "54 : 2 = 27"
+              }
+            ],
+            "answer": "Đáp số: 27."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23",
+              "31"
+            ],
+            "result": "54",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 3 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "54",
+            "divisor": "2",
+            "quotient": "27",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "5 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 4, được 14; 14 chia 2 được 7, viết 7. 7 nhân 2 bằng 14; 14 trừ 14 bằng 0.",
+                "partialDividend": 14,
+                "quotientDigit": 7,
+                "product": 14,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

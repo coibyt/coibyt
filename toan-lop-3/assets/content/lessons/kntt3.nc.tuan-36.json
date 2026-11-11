@@ -1,0 +1,822 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-36",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c16",
+  "order": 2,
+  "title": "Nâng cao tuần 36: Ôn tập hình học, đo lường và tổng hợp",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn tính diện tích hình ghép, con tách hình thành các hình chữ nhật, hình vuông đã biết cách tính.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một miếng bìa gồm một hình chữ nhật dài 17 cm, rộng 9 cm và một hình vuông cạnh 4 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Diện tích hình chữ nhật là:",
+            "equation": "17 × 9 = 153 (cm²)"
+          },
+          {
+            "explanation": "Diện tích hình vuông là:",
+            "equation": "4 × 4 = 16 (cm²)"
+          },
+          {
+            "explanation": "Diện tích miếng bìa là:",
+            "equation": "153 + 16 = 169 (cm²)"
+          }
+        ],
+        "answer": "Đáp số: 169 cm²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-36.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo ở cột trái với số đo bằng nó ở cột phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich",
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "5 giờ 18 phút"
+        },
+        {
+          "id": "l2",
+          "text": "7 m 86 cm"
+        },
+        {
+          "id": "l3",
+          "text": "4 giờ 47 phút"
+        },
+        {
+          "id": "l4",
+          "text": "8 m 88 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "888 cm"
+        },
+        {
+          "id": "r2",
+          "text": "318 phút"
+        },
+        {
+          "id": "r3",
+          "text": "287 phút"
+        },
+        {
+          "id": "r4",
+          "text": "786 cm"
+        },
+        {
+          "id": "r5",
+          "text": "25 ml"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 giờ 18 phút = 318 phút; 7 m 86 cm = 786 cm; 4 giờ 47 phút = 287 phút; 8 m 88 cm = 888 cm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 giờ = 60 phút nên 5 giờ = 300 phút."
+          },
+          {
+            "kind": "equation",
+            "text": "300 + 18 = 318"
+          },
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm nên 7 m = 700 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "700 + 86 = 786"
+          },
+          {
+            "kind": "text",
+            "text": "1 giờ = 60 phút nên 4 giờ = 240 phút."
+          },
+          {
+            "kind": "equation",
+            "text": "240 + 47 = 287"
+          },
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm nên 8 m = 800 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "800 + 88 = 888"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich",
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "4 km 85 m = {{s1}} m\n7 l 12 ml = {{s2}} ml\n8 l 300 ml = {{s3}} ml",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "7.012"
+        },
+        {
+          "id": "t2",
+          "text": "4.085"
+        },
+        {
+          "id": "t3",
+          "text": "8.300"
+        },
+        {
+          "id": "t4",
+          "text": "4.985"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.085; 7.012; 8.300",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 km = 1.000 m nên 4 km = 4.000 m."
+          },
+          {
+            "kind": "equation",
+            "text": "4.000 + 85 = 4.085"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 7 l = 7.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "7.000 + 12 = 7.012"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml nên 8 l = 8.000 ml."
+          },
+          {
+            "kind": "equation",
+            "text": "8.000 + 300 = 8.300"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một miếng bìa gồm một hình chữ nhật dài 15 cm, rộng 7 cm và một hình vuông cạnh 8 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích miếng bìa là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 169,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "169 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "15 × 7 = 105 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "8 × 8 = 64 (cm²)"
+              },
+              {
+                "explanation": "Diện tích miếng bìa là:",
+                "equation": "105 + 64 = 169 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 169 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "15",
+              "7"
+            ],
+            "result": "105",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 5 bằng 35, viết 5 nhớ 3.",
+                "write": "5",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 1 bằng 7, thêm 3 bằng 10, viết 10.",
+                "write": "10"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "105",
+              "64"
+            ],
+            "result": "169",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 4 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 6 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 50 cm, chiều dài hơn chiều rộng 19 cm. Tính diện tích hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "hinh_hoc.chu_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "86 cm²"
+        },
+        {
+          "id": "b",
+          "text": "50 cm²"
+        },
+        {
+          "id": "c",
+          "text": "88 cm²"
+        },
+        {
+          "id": "d",
+          "text": "66 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "66 cm²",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+                "equation": "50 : 2 = 25 (cm)"
+              },
+              {
+                "explanation": "Hai lần chiều rộng là:",
+                "equation": "25 - 19 = 6 (cm)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "6 : 2 = 3 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "3 + 19 = 22 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "22 × 3 = 66 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 66 cm²."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "50",
+            "divisor": "2",
+            "quotient": "25",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "5 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3",
+              "19"
+            ],
+            "result": "22",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 9 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "22",
+              "3"
+            ],
+            "result": "66",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ mua 4 kg cam, mỗi ki-lô-gam giá 9.000 đồng và một hộp bánh giá 21.000 đồng. Mẹ đưa cô bán hàng tờ 100.000 đồng. Hỏi cô bán hàng phải trả lại mẹ bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tien.viet_nam",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cô bán hàng trả lại {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 43000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "43.000 đồng",
+        "hint": "Tiền trả lại bằng số tiền đưa cho người bán trừ đi số tiền phải trả.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Mua 4 kg cam hết số tiền là:",
+                "equation": "9.000 × 4 = 36.000 (đồng)"
+              },
+              {
+                "explanation": "Mẹ phải trả tất cả là:",
+                "equation": "36.000 + 21.000 = 57.000 (đồng)"
+              },
+              {
+                "explanation": "Cô bán hàng trả lại mẹ là:",
+                "equation": "100.000 - 57.000 = 43.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 43.000 đồng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "9000",
+              "4"
+            ],
+            "result": "36000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "4 nhân 9 bằng 36, viết 36.",
+                "write": "36"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "36000",
+              "21000"
+            ],
+            "result": "57000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "6 cộng 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 4,
+                "text": "3 cộng 2 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chuyến đi thăm bảo tàng kéo dài từ 10 giờ 20 phút đến 11 giờ 40 phút. Hỏi thời gian đó dài bao nhiêu phút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "thoi_gian.dong_ho",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "80 phút"
+        },
+        {
+          "id": "b",
+          "text": "90 phút"
+        },
+        {
+          "id": "c",
+          "text": "120 phút"
+        },
+        {
+          "id": "d",
+          "text": "140 phút"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "80 phút",
+        "hint": "Con đếm số phút đến giờ đúng tiếp theo trước, rồi đếm tiếp phần thời gian còn lại nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Từ 10 giờ 20 phút đến 11 giờ là:",
+                "equation": "60 - 20 = 40 (phút)"
+              },
+              {
+                "explanation": "Từ 11 giờ đến 11 giờ 40 phút là 40 phút. Thời gian đó dài là:",
+                "equation": "40 + 40 = 80 (phút)"
+              }
+            ],
+            "answer": "Đáp số: 80 phút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một túi đường nặng 4 kg. Mẹ đã dùng 3.100 g đường để làm bánh, số đường còn lại mẹ chia đều vào 3 lọ. Hỏi mỗi lọ có bao nhiêu gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi lọ có {{b1}} g đường.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 300,
+            "unit": "g",
+            "unitAliases": [
+              "gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "300 g đường",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 4 kg = 4.000 g. Số đường còn lại là:",
+                "equation": "4.000 - 3.100 = 900 (g)"
+              },
+              {
+                "explanation": "Số đường mỗi lọ có là:",
+                "equation": "900 : 3 = 300 (g)"
+              }
+            ],
+            "answer": "Đáp số: 300 g đường."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "900",
+            "divisor": "3",
+            "quotient": "300",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 9 trừ 9 bằng 0.",
+                "partialDividend": 9,
+                "quotientDigit": 3,
+                "product": 9,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-36.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trong một hộp kín có 3 viên bi xanh, 7 viên bi vàng và 6 viên bi đỏ. Không nhìn vào hộp, phải lấy ra ít nhất bao nhiêu viên bi để chắc chắn có ít nhất 1 viên bi đỏ?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "xac_suat.kha_nang",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Phải lấy ít nhất {{b1}} viên bi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11,
+            "unit": "viên"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "11 viên bi",
+        "hint": "Con nghĩ đến lúc không may nhất: lấy ra hết các viên khác màu rồi mới đến màu cần lấy.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Lúc không may nhất, ta lấy ra hết số bi không phải màu đỏ:",
+                "equation": "3 + 7 = 10 (viên)"
+              },
+              {
+                "explanation": "Lấy thêm 1 viên nữa thì chắc chắn có 1 viên bi đỏ. Số bi ít nhất phải lấy là:",
+                "equation": "10 + 1 = 11 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 11 viên bi."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10",
+              "1"
+            ],
+            "result": "11",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 1 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

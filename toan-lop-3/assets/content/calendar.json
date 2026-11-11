@@ -1705,5 +1705,151 @@
       "week": 36,
       "examId": "kntt3.gen.tuan-36"
     }
+  ],
+  "advanced": [
+    {
+      "week": 1,
+      "lessonId": "kntt3.nc.tuan-01"
+    },
+    {
+      "week": 2,
+      "lessonId": "kntt3.nc.tuan-02"
+    },
+    {
+      "week": 3,
+      "lessonId": "kntt3.nc.tuan-03"
+    },
+    {
+      "week": 4,
+      "lessonId": "kntt3.nc.tuan-04"
+    },
+    {
+      "week": 5,
+      "lessonId": "kntt3.nc.tuan-05"
+    },
+    {
+      "week": 6,
+      "lessonId": "kntt3.nc.tuan-06"
+    },
+    {
+      "week": 7,
+      "lessonId": "kntt3.nc.tuan-07"
+    },
+    {
+      "week": 8,
+      "lessonId": "kntt3.nc.tuan-08"
+    },
+    {
+      "week": 9,
+      "lessonId": "kntt3.nc.tuan-09"
+    },
+    {
+      "week": 10,
+      "lessonId": "kntt3.nc.tuan-10"
+    },
+    {
+      "week": 11,
+      "lessonId": "kntt3.nc.tuan-11"
+    },
+    {
+      "week": 12,
+      "lessonId": "kntt3.nc.tuan-12"
+    },
+    {
+      "week": 13,
+      "lessonId": "kntt3.nc.tuan-13"
+    },
+    {
+      "week": 14,
+      "lessonId": "kntt3.nc.tuan-14"
+    },
+    {
+      "week": 15,
+      "lessonId": "kntt3.nc.tuan-15"
+    },
+    {
+      "week": 16,
+      "lessonId": "kntt3.nc.tuan-16"
+    },
+    {
+      "week": 17,
+      "lessonId": "kntt3.nc.tuan-17"
+    },
+    {
+      "week": 18,
+      "lessonId": "kntt3.nc.tuan-18"
+    },
+    {
+      "week": 19,
+      "lessonId": "kntt3.nc.tuan-19"
+    },
+    {
+      "week": 20,
+      "lessonId": "kntt3.nc.tuan-20"
+    },
+    {
+      "week": 21,
+      "lessonId": "kntt3.nc.tuan-21"
+    },
+    {
+      "week": 22,
+      "lessonId": "kntt3.nc.tuan-22"
+    },
+    {
+      "week": 23,
+      "lessonId": "kntt3.nc.tuan-23"
+    },
+    {
+      "week": 24,
+      "lessonId": "kntt3.nc.tuan-24"
+    },
+    {
+      "week": 25,
+      "lessonId": "kntt3.nc.tuan-25"
+    },
+    {
+      "week": 26,
+      "lessonId": "kntt3.nc.tuan-26"
+    },
+    {
+      "week": 27,
+      "lessonId": "kntt3.nc.tuan-27"
+    },
+    {
+      "week": 28,
+      "lessonId": "kntt3.nc.tuan-28"
+    },
+    {
+      "week": 29,
+      "lessonId": "kntt3.nc.tuan-29"
+    },
+    {
+      "week": 30,
+      "lessonId": "kntt3.nc.tuan-30"
+    },
+    {
+      "week": 31,
+      "lessonId": "kntt3.nc.tuan-31"
+    },
+    {
+      "week": 32,
+      "lessonId": "kntt3.nc.tuan-32"
+    },
+    {
+      "week": 33,
+      "lessonId": "kntt3.nc.tuan-33"
+    },
+    {
+      "week": 34,
+      "lessonId": "kntt3.nc.tuan-34"
+    },
+    {
+      "week": 35,
+      "lessonId": "kntt3.nc.tuan-35"
+    },
+    {
+      "week": 36,
+      "lessonId": "kntt3.nc.tuan-36"
+    }
   ]
 }

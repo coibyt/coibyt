@@ -1,0 +1,903 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-15",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c5",
+  "order": 2,
+  "title": "Nâng cao tuần 15: Nhân, chia số có ba chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán “nghĩ một số” có phép nhân, chia: tính ngược từ kết quả, phép nhân đổi thành phép chia, phép chia đổi thành phép nhân.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bạn Mai nghĩ ra một số. Lấy số đó nhân với 7 rồi cộng thêm 121 thì được 520. Hỏi bạn Mai đã nghĩ ra số nào?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số trước khi cộng thêm 121 là:",
+            "equation": "520 - 121 = 399"
+          },
+          {
+            "explanation": "Số bạn Mai đã nghĩ là:",
+            "equation": "399 : 7 = 57"
+          }
+        ],
+        "answer": "Đáp số: 57."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-15.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "? : 2 - 31 = 67"
+        },
+        {
+          "id": "l2",
+          "text": "? × 5 - 148 = 122"
+        },
+        {
+          "id": "l3",
+          "text": "? × 4 + 107 = 651"
+        },
+        {
+          "id": "l4",
+          "text": "833 - ? × 9 = 140"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "54"
+        },
+        {
+          "id": "r2",
+          "text": "196"
+        },
+        {
+          "id": "r3",
+          "text": "77"
+        },
+        {
+          "id": "r4",
+          "text": "136"
+        },
+        {
+          "id": "r5",
+          "text": "206"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "? : 2 - 31 = 67 → 196; ? × 5 - 148 = 122 → 54; ? × 4 + 107 = 651 → 136; 833 - ? × 9 = 140 → 77",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "67 + 31 = 98"
+          },
+          {
+            "kind": "equation",
+            "text": "98 × 2 = 196"
+          },
+          {
+            "kind": "equation",
+            "text": "122 + 148 = 270"
+          },
+          {
+            "kind": "equation",
+            "text": "270 : 5 = 54"
+          },
+          {
+            "kind": "equation",
+            "text": "651 - 107 = 544"
+          },
+          {
+            "kind": "equation",
+            "text": "544 : 4 = 136"
+          },
+          {
+            "kind": "equation",
+            "text": "833 - 140 = 693"
+          },
+          {
+            "kind": "equation",
+            "text": "693 : 9 = 77"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Bắt đầu từ số 106, làm lần lượt theo từng dòng (dòng sau dùng kết quả của dòng trên). Kéo thẻ số đúng vào mỗi ô."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "Cộng với 252: {{s1}}\nNhân với 2: {{s2}}\nTrừ đi 73: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "643"
+        },
+        {
+          "id": "t2",
+          "text": "644"
+        },
+        {
+          "id": "t3",
+          "text": "358"
+        },
+        {
+          "id": "t4",
+          "text": "716"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "358; 716; 643",
+        "hint": "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "106 + 252 = 358"
+          },
+          {
+            "kind": "equation",
+            "text": "358 × 2 = 716"
+          },
+          {
+            "kind": "equation",
+            "text": "716 - 73 = 643"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "106",
+              "252"
+            ],
+            "result": "358",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 2 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 2 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "358",
+              "2"
+            ],
+            "result": "716",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 8 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 5 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "716",
+              "73"
+            ],
+            "result": "643",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 3 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "1 không trừ được 7, lấy 11 trừ 7 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "7 trừ 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "59{{b1}} × 7 = {{b2}}.1{{b3}}1",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "593 × 7 = 4.151",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "593",
+              "7"
+            ],
+            "result": "4151",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 3 bằng 21, viết 1 nhớ 2.",
+                "write": "1",
+                "carry": 2
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 9 bằng 63, thêm 2 bằng 65, viết 5 nhớ 6.",
+                "write": "5",
+                "carry": 6
+              },
+              {
+                "place": 2,
+                "text": "7 nhân 5 bằng 35, thêm 6 bằng 41, viết 41.",
+                "write": "41"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "593 × 7 = 4.151"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? × 4 + 264 = 432"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs",
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "template": "{{b1}} × 4 + 264 = 432",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 42
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "42",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? × 4:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "432",
+              "264"
+            ],
+            "result": "168",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 không trừ được 4, lấy 12 trừ 4 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 thêm 1 bằng 7; 3 không trừ được 7, lấy 13 trừ 7 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 thêm 1 bằng 3; 4 trừ 3 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "432 - 264 = 168"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "168",
+            "divisor": "4",
+            "quotient": "42",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 4,
+                "product": 16,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 8; 8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.",
+                "partialDividend": 8,
+                "quotientDigit": 2,
+                "product": 8,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "168 : 4 = 42"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "42 × 4 + 264 = 432"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trường mua 28 bó hoa, mỗi bó có 4 bông. Các bạn dùng 52 bông để cắm lọ trên bàn cô giáo, số hoa còn lại cắm đều vào 5 lọ. Hỏi mỗi lọ có bao nhiêu bông hoa?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi lọ có {{b1}} bông hoa.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 12,
+            "unit": "bông"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12 bông hoa",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số hoa trường mua là:",
+                "equation": "4 × 28 = 112 (bông)"
+              },
+              {
+                "explanation": "Số hoa còn lại là:",
+                "equation": "112 - 52 = 60 (bông)"
+              },
+              {
+                "explanation": "Số hoa mỗi lọ có là:",
+                "equation": "60 : 5 = 12 (bông)"
+              }
+            ],
+            "answer": "Đáp số: 12 bông hoa."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "28",
+              "4"
+            ],
+            "result": "112",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 8 bằng 32, viết 2 nhớ 3.",
+                "write": "2",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 2 bằng 8, thêm 3 bằng 11, viết 11.",
+                "write": "11"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "60",
+            "divisor": "5",
+            "quotient": "12",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "6 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 6 trừ 5 bằng 1.",
+                "partialDividend": 6,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 5 được 2, viết 2. 2 nhân 5 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 2,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một cuộn ruy băng dài 2 m 72 cm. Chị Hoa cắt đi 83 cm để buộc hộp quà, phần còn lại cắt thành 9 đoạn dài bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.do_dai",
+        "chia.3cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "189 cm"
+        },
+        {
+          "id": "b",
+          "text": "22 cm"
+        },
+        {
+          "id": "c",
+          "text": "21 cm"
+        },
+        {
+          "id": "d",
+          "text": "23 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "21 cm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi 2 m 72 cm =",
+                "equation": "200 + 72 = 272 (cm)"
+              },
+              {
+                "explanation": "Phần ruy băng còn lại dài là:",
+                "equation": "272 - 83 = 189 (cm)"
+              },
+              {
+                "explanation": "Mỗi đoạn dài là:",
+                "equation": "189 : 9 = 21 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 21 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "272",
+              "83"
+            ],
+            "result": "189",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 không trừ được 3, lấy 12 trừ 3 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "8 thêm 1 bằng 9; 7 không trừ được 9, lấy 17 trừ 9 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "long_division",
+            "dividend": "189",
+            "divisor": "9",
+            "quotient": "21",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "18 chia 9 được 2, viết 2. 2 nhân 9 bằng 18; 18 trừ 18 bằng 0.",
+                "partialDividend": 18,
+                "quotientDigit": 2,
+                "product": 18,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 9; 9 chia 9 được 1, viết 1. 1 nhân 9 bằng 9; 9 trừ 9 bằng 0.",
+                "partialDividend": 9,
+                "quotientDigit": 1,
+                "product": 9,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Khang nghĩ ra một số. Lấy số đó chia cho 3 rồi cộng thêm 183 thì được 255. Hỏi bạn Khang đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "226"
+        },
+        {
+          "id": "b",
+          "text": "217"
+        },
+        {
+          "id": "c",
+          "text": "72"
+        },
+        {
+          "id": "d",
+          "text": "216"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "216",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi cộng thêm 183 là:",
+                "equation": "255 - 183 = 72"
+              },
+              {
+                "explanation": "Số bạn Khang đã nghĩ là:",
+                "equation": "72 × 3 = 216"
+              }
+            ],
+            "answer": "Đáp số: 216."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "72",
+              "3"
+            ],
+            "result": "216",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 7 bằng 21, viết 21.",
+                "write": "21"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-15.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lớp 3A xếp thành 4 hàng, mỗi hàng 210 bạn. Lớp 3B xếp thành 3 hàng, mỗi hàng 279 bạn. Hỏi lớp 3A nhiều hơn lớp 3B bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Lớp 3A nhiều hơn lớp 3B {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3 bạn",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số học sinh lớp 3A là:",
+                "equation": "210 × 4 = 840 (bạn)"
+              },
+              {
+                "explanation": "Số học sinh lớp 3B là:",
+                "equation": "279 × 3 = 837 (bạn)"
+              },
+              {
+                "explanation": "Lớp 3A nhiều hơn lớp 3B số bạn là:",
+                "equation": "840 - 837 = 3 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 3 bạn."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "210",
+              "4"
+            ],
+            "result": "840",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "279",
+              "3"
+            ],
+            "result": "837",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 9 bằng 27, viết 7 nhớ 2.",
+                "write": "7",
+                "carry": 2
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 7 bằng 21, thêm 2 bằng 23, viết 3 nhớ 2.",
+                "write": "3",
+                "carry": 2
+              },
+              {
+                "place": 2,
+                "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,644 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-03",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 3,
+  "title": "Nâng cao tuần 3: Bảng nhân 4, hình học và đo lường",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn cộng, trừ hay so sánh các số đo, con đổi về cùng một đơn vị: 1 m = 100 cm, 1 m = 10 dm, 1 dm = 10 cm, 1 km = 1.000 m.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 4 dm 3 cm = 40 cm + 3 cm = 43 cm."
+      },
+      {
+        "kind": "equation",
+        "text": "40 + 3 = 43"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-03.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "1 m 73 cm = {{s1}} cm\n3 m 66 cm = {{s2}} cm\n9 km 500 m = {{s3}} m",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "9.500"
+        },
+        {
+          "id": "t2",
+          "text": "263"
+        },
+        {
+          "id": "t3",
+          "text": "173"
+        },
+        {
+          "id": "t4",
+          "text": "366"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "173; 366; 9.500",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm nên 1 m = 100 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "100 + 73 = 173"
+          },
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm nên 3 m = 300 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "300 + 66 = 366"
+          },
+          {
+            "kind": "text",
+            "text": "1 km = 1.000 m nên 9 km = 9.000 m."
+          },
+          {
+            "kind": "equation",
+            "text": "9.000 + 500 = 9.500"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 × 3 + 2"
+        },
+        {
+          "id": "l2",
+          "text": "4 × 4 - 11"
+        },
+        {
+          "id": "l3",
+          "text": "7 × 5 + 23"
+        },
+        {
+          "id": "l4",
+          "text": "9 × 2 + 33"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "15"
+        },
+        {
+          "id": "r2",
+          "text": "20"
+        },
+        {
+          "id": "r3",
+          "text": "5"
+        },
+        {
+          "id": "r4",
+          "text": "51"
+        },
+        {
+          "id": "r5",
+          "text": "58"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 × 3 + 2 = 20; 4 × 4 - 11 = 5; 7 × 5 + 23 = 58; 9 × 2 + 33 = 51",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 × 3 + 2 = 18 + 2 = 20"
+          },
+          {
+            "kind": "equation",
+            "text": "4 × 4 - 11 = 16 - 11 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 5 + 23 = 35 + 23 = 58"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 2 + 33 = 18 + 33 = 51"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "40 - ? × 4 = 16"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "40 - {{b1}} × 4 = 16",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? × 4:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "40",
+              "16"
+            ],
+            "result": "24",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 6, lấy 10 trừ 6 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2; 4 trừ 2 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "40 - 16 = 24"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "equation",
+            "text": "24 : 4 = 6"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "40 - 6 × 4 = 16"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số đo nào lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2 dm 4 cm"
+        },
+        {
+          "id": "b",
+          "text": "2 dm 3 cm"
+        },
+        {
+          "id": "c",
+          "text": "29 cm"
+        },
+        {
+          "id": "d",
+          "text": "22 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "29 cm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi tất cả về cm:"
+          },
+          {
+            "kind": "text",
+            "text": "2 dm 3 cm = 23 cm"
+          },
+          {
+            "kind": "text",
+            "text": "29 cm = 29 cm"
+          },
+          {
+            "kind": "text",
+            "text": "2 dm 4 cm = 24 cm"
+          },
+          {
+            "kind": "text",
+            "text": "22 cm = 22 cm"
+          },
+          {
+            "kind": "text",
+            "text": "Số đo lớn nhất là 29 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Con kiến bò theo một đường gấp khúc gồm 3 đoạn thẳng, mỗi đoạn dài 9 cm, rồi bò tiếp thẳng thêm 23 cm nữa. Hỏi con kiến đã bò được tất cả bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.do_dai",
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Con kiến bò được {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 50,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "50 cm",
+        "hint": "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài đường gấp khúc là:",
+                "equation": "9 × 3 = 27 (cm)"
+              },
+              {
+                "explanation": "Con kiến đã bò được tất cả là:",
+                "equation": "27 + 23 = 50 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 50 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "27",
+              "23"
+            ],
+            "result": "50",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 3 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 2 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một sợi dây dài 1 m. Bạn An cắt ra 5 đoạn, mỗi đoạn dài 6 cm. Hỏi sợi dây còn lại dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.do_dai",
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Sợi dây còn lại dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 70,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "70 cm",
+        "hint": "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đổi: 1 m = 100 cm. Độ dài 5 đoạn dây đã cắt là:",
+                "equation": "6 × 5 = 30 (cm)"
+              },
+              {
+                "explanation": "Sợi dây còn lại dài là:",
+                "equation": "100 - 30 = 70 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 70 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một bao gạo nặng 50 kg. Buổi sáng cửa hàng bán 3 lần, mỗi lần 4 kg gạo; buổi chiều bán thêm 11 kg gạo. Hỏi bao gạo còn lại bao nhiêu ki-lô-gam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "38 kg"
+        },
+        {
+          "id": "b",
+          "text": "31 kg"
+        },
+        {
+          "id": "c",
+          "text": "27 kg"
+        },
+        {
+          "id": "d",
+          "text": "39 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "27 kg gạo",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Buổi sáng cửa hàng bán được số gạo là:",
+                "equation": "4 × 3 = 12 (kg)"
+              },
+              {
+                "explanation": "Cả ngày cửa hàng bán được số gạo là:",
+                "equation": "12 + 11 = 23 (kg)"
+              },
+              {
+                "explanation": "Bao gạo còn lại số ki-lô-gam là:",
+                "equation": "50 - 23 = 27 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 27 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "12",
+              "11"
+            ],
+            "result": "23",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "50",
+              "23"
+            ],
+            "result": "27",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 3, lấy 10 trừ 3 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 thêm 1 bằng 3; 5 trừ 3 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-03.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số tiếp theo của dãy số sau là số nào?\n38; 49; 42; 53; 46; 57; …"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "114"
+        },
+        {
+          "id": "b",
+          "text": "51"
+        },
+        {
+          "id": "c",
+          "text": "68"
+        },
+        {
+          "id": "d",
+          "text": "50"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "50",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số lần lượt thêm 11 rồi bớt 7, cứ thế lặp lại.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "57 - 7 = 50"
+          }
+        ]
+      }
+    }
+  ]
+}

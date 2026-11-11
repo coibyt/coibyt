@@ -12,7 +12,7 @@ catalog.json                       ← mục lục + danh sách kỹ năng (skil
         └── Bài học (lessonRef)    trỏ tới file lessons/<id>.json
 lessons/<id>.json                  ← 1 bài học = lý thuyết (theory) + các Bài Toán (problems)
 exams/<id>.json                    ← đề kiểm tra (Phase 3, xem mục 7)
-calendar.json                      ← lịch học từng ngày của năm học (từ 1.3.0, xem mục 10)
+calendar.json                      ← lịch học từng ngày của năm học (từ 1.3.0, xem mục 10; bài nâng cao: mục 11)
 ```
 
 - Mỗi bài học là **một file riêng** → tải về / cập nhật từng bài, không phải cả cuốn sách.
@@ -188,3 +188,36 @@ cần thầy cô đối chiếu phạm vi kiến thức.
   cuối HK1 ở tuần cuối học kì 1).
 - `SchoolCalendar.dayFor(ngày)`, `lessonForDate(ngày)`, `daysOfWeek(tuần)`, `nextDayFrom(ngày)`, `holidayFor(ngày)`.
   Kiểm tra “mọi `lessonId` có trong catalog” nằm trong `test/curriculum_test.dart`.
+
+## 11. Mạch NÂNG CAO — mỗi tuần một bài (cho học sinh khá, giỏi)
+
+`python3 tool/gen_advanced.py` sinh **36 bài nâng cao**, mỗi tuần học một bài: mã `kntt3.nc.tuan-NN`
+(NN = số tuần, 2 chữ số), file `lessons/kntt3.nc.tuan-NN.json`, tên kiểu
+“Nâng cao tuần 5: Bảng nhân 8, 9 và tìm thành phần”.
+
+- Nội dung **mở rộng đúng các bài cơ bản học trong tuần đó** (tra theo `calendar.json` → `days` → `lessonId`),
+  ở mức cao hơn nhưng vẫn trong kiến thức lớp 3 (không phân số ngoài “một phần mấy”, không số âm, số ≤ 100 000):
+  bài toán hai, ba bước tính; tìm số chưa biết trong phép tính có hai dấu phép tính (`? × 4 + 15 = 63`);
+  “nghĩ một số”; điền chữ số còn thiếu; dãy số theo quy luật; chuỗi gấp/giảm; tổng – gấp, hiệu – gấp; tuổi;
+  chu vi, diện tích hình ghép; đổi số đo có hai tên đơn vị; khoảng thời gian; tiền trả lại; đếm hình, đếm số;
+  lập số từ chữ số; suy luận với số dư; “chắc chắn” lấy được bi…
+- Mỗi bài: `theory` = “Bí kíp nâng cao” (2–3 khối: quy tắc/chiến lược + một ví dụ giải mẫu) và **8 bài toán**
+  mức 2 → 3 (phần lớn mức 3), đủ 4 dạng, ít nhất 3 bài có lời văn giải bằng nhiều bước (khối “Bài giải” + Đáp số).
+  Mọi số, đáp án, đặt tính, phép chia đều tính bằng code và được kiểm tra lại toán. Lời giải bài cuối là VIP.
+- **Gợi ý**: chỉ dùng câu trong `kGeneratedHints` (`tutor_hints.dart`) hoặc `kAdvancedHints`
+  (`lib/logic/advanced_hints.dart`, ≤ 30 câu, không có chữ số, file sinh tự động).
+- **Catalog**: mỗi chủ đề có thêm mảng tuỳ chọn `advancedLessons` (cùng dạng với `lessons`, `periods: 1`). Bài nâng cao
+  của một tuần nằm trong chủ đề của **bài cơ bản đầu tiên** của tuần đó. Bài nâng cao **không** nằm trong `lessons`
+  nên không ảnh hưởng hoàn thành chủ đề, sao, huy hiệu. Mã bài phải duy nhất trên cả `lessons` và `advancedLessons`.
+  Kỹ năng mới: `giai_toan.nhieu_buoc`, `tu_duy.quy_luat`.
+- **Lịch**: `calendar.json` có thêm mảng tuỳ chọn `"advanced": [{ "week": 5, "lessonId": "kntt3.nc.tuan-05" }, …]`
+  (model: `SchoolCalendar.advanced`, `advancedOfWeek(tuần)`).
+
+**Thứ tự chạy các script sinh nội dung** (chạy lại cả ba ra đúng file cũ):
+
+```
+python3 tool/gen_curriculum.py && python3 tool/gen_advanced.py && python3 tool/gen_exams.py
+```
+
+`gen_curriculum.py` viết lại catalog/lịch (xoá `advancedLessons`, `advanced`), `gen_advanced.py` thêm lại mạch nâng cao,
+`gen_exams.py` sinh đề (chỉ lấy câu từ bài cơ bản). Nếu lịch học đổi, `gen_advanced.py` sẽ báo tuần nào cần xem lại đề.

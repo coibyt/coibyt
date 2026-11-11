@@ -296,6 +296,18 @@
       "name": "Khả năng xảy ra của một sự kiện (chắc chắn, có thể, không thể)",
       "strand": "thong_ke_xac_suat",
       "kidName": "khả năng xảy ra"
+    },
+    {
+      "id": "giai_toan.nhieu_buoc",
+      "name": "Giải toán có lời văn hai, ba bước tính (nâng cao)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "giải toán nhiều bước"
+    },
+    {
+      "id": "tu_duy.quy_luat",
+      "name": "Tư duy toán: tìm quy luật, điền chữ số, suy luận (nâng cao)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "toán tư duy"
     }
   ],
   "books": [
@@ -423,6 +435,71 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-01",
+              "order": 1,
+              "title": "Nâng cao tuần 1: Số đến 1000, cộng trừ và tìm thành phần",
+              "src": "assets/content/lessons/kntt3.nc.tuan-01.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_1000",
+                "tu_duy.quy_luat",
+                "tim_thanh_phan.so_hang",
+                "tim_thanh_phan.so_bi_tru",
+                "cong_tru.pham_vi_1000",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-02",
+              "order": 2,
+              "title": "Nâng cao tuần 2: Tìm thành phần, bảng nhân 2, 3, 5",
+              "src": "assets/content/lessons/kntt3.nc.tuan-02.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "tim_thanh_phan.so_bi_chia",
+                "cong_tru.pham_vi_1000",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-03",
+              "order": 3,
+              "title": "Nâng cao tuần 3: Bảng nhân 4, hình học và đo lường",
+              "src": "assets/content/lessons/kntt3.nc.tuan-03.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.nhieu_buoc",
+                "do_luong.khoi_luong",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-04",
+              "order": 4,
+              "title": "Nâng cao tuần 4: Bảng nhân, bảng chia 6, 7",
+              "src": "assets/content/lessons/kntt3.nc.tuan-04.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "tim_thanh_phan.so_bi_chia",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -529,6 +606,39 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-05",
+              "order": 1,
+              "title": "Nâng cao tuần 5: Bảng nhân 8, 9 và tìm thành phần",
+              "src": "assets/content/lessons/kntt3.nc.tuan-05.json",
+              "access": "free",
+              "skillIds": [
+                "tim_thanh_phan.thua_so",
+                "tim_thanh_phan.so_bi_chia",
+                "bang_nhan_chia",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-06",
+              "order": 2,
+              "title": "Nâng cao tuần 6: Tìm thành phần và một phần mấy",
+              "src": "assets/content/lessons/kntt3.nc.tuan-06.json",
+              "access": "free",
+              "skillIds": [
+                "phan_so.mot_phan",
+                "tim_thanh_phan.so_bi_chia",
+                "tim_thanh_phan.so_chia",
+                "giai_toan.nhieu_buoc",
+                "bang_nhan_chia",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -627,6 +737,51 @@
                 "giai_toan.hai_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-07",
+              "order": 1,
+              "title": "Nâng cao tuần 7: Trung điểm, hình tròn và góc",
+              "src": "assets/content/lessons/kntt3.nc.tuan-07.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.hinh_phang",
+                "giai_toan.nhieu_buoc",
+                "hinh_hoc.goc",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-08",
+              "order": 2,
+              "title": "Nâng cao tuần 8: Góc vuông, hình chữ nhật, hình vuông",
+              "src": "assets/content/lessons/kntt3.nc.tuan-08.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.da_giac",
+                "hinh_hoc.goc",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-09",
+              "order": 3,
+              "title": "Nâng cao tuần 9: Khối hình và nhân số có hai chữ số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-09.json",
+              "access": "free",
+              "skillIds": [
+                "tim_thanh_phan.thua_so",
+                "nhan.2cs_1cs.co_nho",
+                "hinh_hoc.khoi",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
             }
           ]
         },
@@ -738,6 +893,71 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-10",
+              "order": 1,
+              "title": "Nâng cao tuần 10: Gấp một số lần, chia có dư",
+              "src": "assets/content/lessons/kntt3.nc.tuan-10.json",
+              "access": "free",
+              "skillIds": [
+                "gap_giam.so_lan",
+                "nhan.2cs_1cs.co_nho",
+                "chia.co_du",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-11",
+              "order": 2,
+              "title": "Nâng cao tuần 11: Chia số có hai chữ số, giảm một số lần",
+              "src": "assets/content/lessons/kntt3.nc.tuan-11.json",
+              "access": "free",
+              "skillIds": [
+                "tim_thanh_phan.so_bi_chia",
+                "chia.2cs_1cs",
+                "chia.co_du",
+                "tu_duy.quy_luat",
+                "gap_giam.so_lan",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-12",
+              "order": 3,
+              "title": "Nâng cao tuần 12: Giảm một số lần và bài toán nhiều bước",
+              "src": "assets/content/lessons/kntt3.nc.tuan-12.json",
+              "access": "free",
+              "skillIds": [
+                "gap_giam.so_lan",
+                "tim_thanh_phan.thua_so",
+                "tim_thanh_phan.so_bi_chia",
+                "giai_toan.hai_phep_tinh",
+                "giai_toan.nhieu_buoc",
+                "nhan.2cs_1cs.co_nho",
+                "chia.2cs_1cs"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-13",
+              "order": 4,
+              "title": "Nâng cao tuần 13: Phép nhân, phép chia, mi-li-mét và gam",
+              "src": "assets/content/lessons/kntt3.nc.tuan-13.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "giai_toan.nhieu_buoc",
+                "nhan.2cs_1cs.co_nho",
+                "chia.2cs_1cs"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -810,6 +1030,39 @@
                 "giai_toan.mot_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-14",
+              "order": 1,
+              "title": "Nâng cao tuần 14: Mi-li-lít, nhiệt độ và đổi đơn vị đo",
+              "src": "assets/content/lessons/kntt3.nc.tuan-14.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.dung_tich",
+                "do_luong.khoi_luong",
+                "do_luong.do_dai",
+                "giai_toan.nhieu_buoc",
+                "do_luong.nhiet_do"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-15",
+              "order": 2,
+              "title": "Nâng cao tuần 15: Nhân, chia số có ba chữ số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-15.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.3cs_1cs",
+                "chia.3cs_1cs",
+                "tu_duy.quy_luat",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.nhieu_buoc",
+                "do_luong.do_dai"
+              ],
+              "periods": 1
             }
           ]
         },
@@ -900,6 +1153,54 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-16",
+              "order": 1,
+              "title": "Nâng cao tuần 16: Chia số có ba chữ số và biểu thức số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-16.json",
+              "access": "free",
+              "skillIds": [
+                "bieu_thuc",
+                "chia.3cs_1cs",
+                "tim_thanh_phan.so_bi_chia",
+                "giai_toan.nhieu_buoc",
+                "chia.co_du"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-17",
+              "order": 2,
+              "title": "Nâng cao tuần 17: Biểu thức số và so sánh gấp mấy lần",
+              "src": "assets/content/lessons/kntt3.nc.tuan-17.json",
+              "access": "free",
+              "skillIds": [
+                "so_sanh.gap_may_lan",
+                "do_luong.do_dai",
+                "bieu_thuc",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-18",
+              "order": 3,
+              "title": "Nâng cao tuần 18: Ôn tập nhân, chia và biểu thức số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-18.json",
+              "access": "free",
+              "skillIds": [
+                "bieu_thuc",
+                "tu_duy.quy_luat",
+                "nhan.3cs_1cs",
+                "chia.3cs_1cs",
+                "gap_giam.so_lan",
+                "giai_toan.nhieu_buoc",
+                "chia.co_du"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -978,6 +1279,24 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-19",
+              "order": 1,
+              "title": "Nâng cao tuần 19: Ôn tập biểu thức, hình học và đo lường",
+              "src": "assets/content/lessons/kntt3.nc.tuan-19.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "bieu_thuc",
+                "giai_toan.nhieu_buoc",
+                "hinh_hoc.hinh_phang"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -1045,6 +1364,52 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-20",
+              "order": 1,
+              "title": "Nâng cao tuần 20: Các số đến 10 000 và so sánh số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-20.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_10000",
+                "tu_duy.quy_luat",
+                "so.so_sanh",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-21",
+              "order": 2,
+              "title": "Nâng cao tuần 21: Số La Mã và làm tròn số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-21.json",
+              "access": "free",
+              "skillIds": [
+                "so.la_ma",
+                "tu_duy.quy_luat",
+                "so.lam_tron",
+                "giai_toan.nhieu_buoc",
+                "so.pham_vi_10000"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-22",
+              "order": 3,
+              "title": "Nâng cao tuần 22: Số đến 10 000 và chu vi các hình",
+              "src": "assets/content/lessons/kntt3.nc.tuan-22.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.chu_vi",
+                "do_luong.do_dai",
+                "giai_toan.nhieu_buoc",
+                "so.pham_vi_10000",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -1105,6 +1470,39 @@
                 "giai_toan.hai_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-23",
+              "order": 1,
+              "title": "Nâng cao tuần 23: Chu vi và diện tích hình chữ nhật, hình vuông",
+              "src": "assets/content/lessons/kntt3.nc.tuan-23.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.dien_tich",
+                "hinh_hoc.chu_vi",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-24",
+              "order": 2,
+              "title": "Nâng cao tuần 24: Diện tích và phép cộng trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-24.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_10000",
+                "tim_thanh_phan.so_hang",
+                "tim_thanh_phan.so_bi_tru",
+                "tu_duy.quy_luat",
+                "hinh_hoc.dien_tich",
+                "hinh_hoc.chu_vi",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
             }
           ]
         },
@@ -1186,6 +1584,39 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-25",
+              "order": 1,
+              "title": "Nâng cao tuần 25: Phép trừ, phép nhân trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-25.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_10000",
+                "nhan.4cs_1cs",
+                "tu_duy.quy_luat",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-26",
+              "order": 2,
+              "title": "Nâng cao tuần 26: Phép chia và bốn phép tính trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-26.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.4cs_1cs",
+                "chia.4cs_1cs",
+                "tim_thanh_phan.so_bi_chia",
+                "chia.co_du",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -1240,6 +1671,38 @@
               ],
               "periods": 2
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-27",
+              "order": 1,
+              "title": "Nâng cao tuần 27: Các số đến 100 000 và so sánh số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-27.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_100000",
+                "tu_duy.quy_luat",
+                "so.so_sanh",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-28",
+              "order": 2,
+              "title": "Nâng cao tuần 28: Làm tròn số và phép cộng trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-28.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "tim_thanh_phan.so_hang",
+                "tim_thanh_phan.so_bi_tru",
+                "so.lam_tron",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -1289,6 +1752,23 @@
                 "giai_toan.hai_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-29",
+              "order": 1,
+              "title": "Nâng cao tuần 29: Cộng, trừ trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-29.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "tim_thanh_phan.so_hang",
+                "tim_thanh_phan.so_bi_tru",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc"
+              ],
+              "periods": 1
             }
           ]
         },
@@ -1352,6 +1832,37 @@
               ],
               "periods": 1
             }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-30",
+              "order": 1,
+              "title": "Nâng cao tuần 30: Xem đồng hồ, tháng và năm",
+              "src": "assets/content/lessons/kntt3.nc.tuan-30.json",
+              "access": "free",
+              "skillIds": [
+                "thoi_gian.dong_ho",
+                "thoi_gian.lich",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-31",
+              "order": 2,
+              "title": "Nâng cao tuần 31: Tiền Việt Nam và nhân số có năm chữ số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-31.json",
+              "access": "free",
+              "skillIds": [
+                "tien.viet_nam",
+                "giai_toan.nhieu_buoc",
+                "nhan.5cs_1cs",
+                "tu_duy.quy_luat",
+                "tim_thanh_phan.thua_so"
+              ],
+              "periods": 1
+            }
           ]
         },
         {
@@ -1401,6 +1912,40 @@
                 "giai_toan.hai_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-32",
+              "order": 1,
+              "title": "Nâng cao tuần 32: Nhân, chia trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.nc.tuan-32.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.5cs_1cs",
+                "chia.5cs_1cs",
+                "tim_thanh_phan.so_bi_chia",
+                "chia.co_du",
+                "tu_duy.quy_luat",
+                "giai_toan.nhieu_buoc",
+                "chia.4cs_1cs"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-33",
+              "order": 2,
+              "title": "Nâng cao tuần 33: Phép tính và bảng số liệu thống kê",
+              "src": "assets/content/lessons/kntt3.nc.tuan-33.json",
+              "access": "free",
+              "skillIds": [
+                "thong_ke.so_lieu",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat",
+                "nhan.5cs_1cs",
+                "chia.5cs_1cs"
+              ],
+              "periods": 1
             }
           ]
         },
@@ -1455,6 +2000,23 @@
                 "thong_ke.so_lieu",
                 "xac_suat.kha_nang",
                 "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 1
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-34",
+              "order": 1,
+              "title": "Nâng cao tuần 34: Thống kê, khả năng xảy ra và các số",
+              "src": "assets/content/lessons/kntt3.nc.tuan-34.json",
+              "access": "free",
+              "skillIds": [
+                "xac_suat.kha_nang",
+                "so.pham_vi_100000",
+                "giai_toan.nhieu_buoc",
+                "tu_duy.quy_luat",
+                "thong_ke.so_lieu"
               ],
               "periods": 1
             }
@@ -1536,6 +2098,44 @@
                 "giai_toan.mot_phep_tinh"
               ],
               "periods": 2
+            }
+          ],
+          "advancedLessons": [
+            {
+              "id": "kntt3.nc.tuan-35",
+              "order": 1,
+              "title": "Nâng cao tuần 35: Ôn tập các số và bốn phép tính",
+              "src": "assets/content/lessons/kntt3.nc.tuan-35.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "nhan.5cs_1cs",
+                "bieu_thuc",
+                "tu_duy.quy_luat",
+                "chia.5cs_1cs",
+                "giai_toan.nhieu_buoc",
+                "so.pham_vi_100000"
+              ],
+              "periods": 1
+            },
+            {
+              "id": "kntt3.nc.tuan-36",
+              "order": 2,
+              "title": "Nâng cao tuần 36: Ôn tập hình học, đo lường và tổng hợp",
+              "src": "assets/content/lessons/kntt3.nc.tuan-36.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "thoi_gian.dong_ho",
+                "hinh_hoc.dien_tich",
+                "giai_toan.nhieu_buoc",
+                "hinh_hoc.chu_vi",
+                "tien.viet_nam",
+                "xac_suat.kha_nang"
+              ],
+              "periods": 1
             }
           ]
         }

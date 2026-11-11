@@ -1,0 +1,876 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-28",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c11",
+  "order": 2,
+  "title": "Nâng cao tuần 28: Làm tròn số và phép cộng trong phạm vi 100 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Các số làm tròn đến hàng nghìn được cùng một số tròn nghìn: bé nhất là số tròn nghìn đó bớt 500, lớn nhất là số tròn nghìn đó thêm 499.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: các số làm tròn đến hàng nghìn được 78.000 là các số từ 77.500 đến 78.499."
+      },
+      {
+        "kind": "equation",
+        "text": "78.000 - 500 = 77.500"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-28.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "? + 18.098 = 23.738 + 8.277"
+        },
+        {
+          "id": "l2",
+          "text": "28.853 - ? = 17.776 - 14.403"
+        },
+        {
+          "id": "l3",
+          "text": "? + 28.549 - 13.727 = 71.025"
+        },
+        {
+          "id": "l4",
+          "text": "? - 29.029 + 25.265 = 54.015"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "13.927"
+        },
+        {
+          "id": "r2",
+          "text": "56.203"
+        },
+        {
+          "id": "r3",
+          "text": "57.779"
+        },
+        {
+          "id": "r4",
+          "text": "25.480"
+        },
+        {
+          "id": "r5",
+          "text": "13.917"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "? + 18.098 = 23.738 + 8.277 → 13.917; 28.853 - ? = 17.776 - 14.403 → 25.480; ? + 28.549 - 13.727 = 71.025 → 56.203; ? - 29.029 + 25.265 = 54.015 → 57.779",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "23.738 + 8.277 = 32.015"
+          },
+          {
+            "kind": "equation",
+            "text": "32.015 - 18.098 = 13.917"
+          },
+          {
+            "kind": "equation",
+            "text": "17.776 - 14.403 = 3.373"
+          },
+          {
+            "kind": "equation",
+            "text": "28.853 - 3.373 = 25.480"
+          },
+          {
+            "kind": "equation",
+            "text": "71.025 + 13.727 = 84.752"
+          },
+          {
+            "kind": "equation",
+            "text": "84.752 - 28.549 = 56.203"
+          },
+          {
+            "kind": "equation",
+            "text": "54.015 - 25.265 = 28.750"
+          },
+          {
+            "kind": "equation",
+            "text": "28.750 + 29.029 = 57.779"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo dấu >, <, = vào ô trống.",
+      "prompt": {
+        "text": "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "template": "37.012 - (5.609 + 7.535) {{s1}} 31.156 - 7.288\n71.621 - 39.435 - 23.036 {{s2}} 9.169\n38.469 + 19.614 - 14.657 {{s3}} 42.239",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": ">"
+        },
+        {
+          "id": "t2",
+          "text": "="
+        },
+        {
+          "id": "t3",
+          "text": "<"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "=; <; >",
+        "hint": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "37.012 - (5.609 + 7.535) = 37.012 - 13.144 = 23.868"
+          },
+          {
+            "kind": "equation",
+            "text": "31.156 - 7.288 = 23.868"
+          },
+          {
+            "kind": "text",
+            "text": "23.868 = 23.868 nên 37.012 - (5.609 + 7.535) = 31.156 - 7.288."
+          },
+          {
+            "kind": "equation",
+            "text": "71.621 - 39.435 - 23.036 = 32.186 - 23.036 = 9.150"
+          },
+          {
+            "kind": "text",
+            "text": "9.150 < 9.169 nên 71.621 - 39.435 - 23.036 < 9.169."
+          },
+          {
+            "kind": "equation",
+            "text": "38.469 + 19.614 - 14.657 = 58.083 - 14.657 = 43.426"
+          },
+          {
+            "kind": "text",
+            "text": "43.426 > 42.239 nên 38.469 + 19.614 - 14.657 > 42.239."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Khi làm tròn đến hàng nghìn, một số được làm tròn thành 16.000. Tìm số lớn nhất và số bé nhất có thể có."
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "so.lam_tron",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 16499
+          },
+          "maxLength": 6
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 15500
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "16.499; 15.500",
+        "hint": "Con tìm tất cả các số làm tròn được số đã cho, rồi chọn số lớn nhất hoặc bé nhất trong đó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số làm tròn đến hàng nghìn được 16.000 là các số từ 15.500 đến 16.499."
+          },
+          {
+            "kind": "equation",
+            "text": "16.000 - 500 = 15.500"
+          },
+          {
+            "kind": "equation",
+            "text": "16.000 + 500 - 1 = 16.499"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số lớn nhất mà khi làm tròn đến hàng chục nghìn được 60.000 là:"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.lam_tron",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "65.000"
+        },
+        {
+          "id": "b",
+          "text": "69.999"
+        },
+        {
+          "id": "c",
+          "text": "64.999"
+        },
+        {
+          "id": "d",
+          "text": "54.999"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "64.999",
+        "hint": "Con tìm tất cả các số làm tròn được số đã cho, rồi chọn số lớn nhất hoặc bé nhất trong đó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số làm tròn đến hàng chục nghìn được 60.000 là các số từ 55.000 đến 64.999."
+          },
+          {
+            "kind": "equation",
+            "text": "60.000 - 5.000 = 55.000"
+          },
+          {
+            "kind": "equation",
+            "text": "60.000 + 5.000 - 1 = 64.999"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "10.{{b1}}61 + 4{{b2}}.523 = {{b3}}5.484",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10.961 + 44.523 = 55.484",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10961",
+              "44523"
+            ],
+            "result": "55484",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 3 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 2 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 5 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 4 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 4 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "10.961 + 44.523 = 55.484"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 18.001 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 7.907 l. Bể thứ ba có ít hơn bể thứ hai 11.599 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 58218,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "58.218 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "18.001 + 7.907 = 25.908 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "25.908 - 11.599 = 14.309 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "18.001 + 25.908 + 14.309 = 58.218 (l)"
+              }
+            ],
+            "answer": "Đáp số: 58.218 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "18001",
+              "7907"
+            ],
+            "result": "25908",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 7 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 9 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 3,
+                "text": "8 cộng 7 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "25908",
+              "11599"
+            ],
+            "result": "14309",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 không trừ được 9, lấy 18 trừ 9 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 thêm 1 bằng 10; 0 không trừ được 10, lấy 10 trừ 10 bằng 0, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 thêm 1 bằng 6; 9 trừ 6 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "5 trừ 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "18001",
+              "25908",
+              "14309"
+            ],
+            "result": "58218",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 8 cộng 9 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, thêm 1 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 9 cộng 3 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "8 cộng 5 cộng 4 bằng 17, thêm 1 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 cộng 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Buổi sáng cửa hàng bán được 8.893 kg gạo, buổi chiều bán được 2.139 kg gạo. Bạn Nam làm tròn mỗi số đến hàng nghìn rồi cộng lại để ước lượng. Tính tổng ước lượng của Nam và cho biết tổng đó chênh lệch với tổng đúng bao nhiêu ki-lô-gam."
+      },
+      "level": 3,
+      "estimatedSeconds": 200,
+      "skillIds": [
+        "so.lam_tron",
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Tổng ước lượng là {{b1}} kg.\nChênh lệch với tổng đúng {{b2}} kg.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11000,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 32,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11.000 kg; chênh lệch 32 kg",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Làm tròn 8.893 đến hàng nghìn được 9.000; làm tròn 2.139 được 2.000. Tổng ước lượng là:",
+                "equation": "9.000 + 2.000 = 11.000"
+              },
+              {
+                "explanation": "Tổng đúng là:",
+                "equation": "8.893 + 2.139 = 11.032"
+              },
+              {
+                "explanation": "Tổng đúng và tổng ước lượng chênh lệch nhau:",
+                "equation": "11.032 - 11.000 = 32"
+              }
+            ],
+            "answer": "Đáp số: tổng ước lượng 11.000 kg; chênh lệch 32 kg."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "9000",
+              "2000"
+            ],
+            "result": "11000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 2 bằng 11, viết 11.",
+                "write": "11"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "8893",
+              "2139"
+            ],
+            "result": "11032",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 9 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 cộng 3 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 cộng 1 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "8 cộng 2 bằng 10, thêm 1 bằng 11, viết 11.",
+                "write": "11"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-28.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Dũng nghĩ ra một số. Lấy số đó cộng với 19.935 rồi trừ đi 11.082 thì được 29.962. Hỏi bạn Dũng đã nghĩ ra số nào?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "21.119"
+        },
+        {
+          "id": "b",
+          "text": "21.110"
+        },
+        {
+          "id": "c",
+          "text": "41.044"
+        },
+        {
+          "id": "d",
+          "text": "21.109"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "21.109",
+        "hint": "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số trước khi trừ đi 11.082 là:",
+                "equation": "29.962 + 11.082 = 41.044"
+              },
+              {
+                "explanation": "Số bạn Dũng đã nghĩ là:",
+                "equation": "41.044 - 19.935 = 21.109"
+              }
+            ],
+            "answer": "Đáp số: 21.109."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "29962",
+              "11082"
+            ],
+            "result": "41044",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 8 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 0 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 1 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 1 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "41044",
+              "19935"
+            ],
+            "result": "21109",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 5, lấy 14 trừ 5 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 thêm 1 bằng 4; 4 trừ 4 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 không trừ được 9, lấy 10 trừ 9 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 thêm 1 bằng 10; 1 không trừ được 10, lấy 11 trừ 10 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2; 4 trừ 2 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

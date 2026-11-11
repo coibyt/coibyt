@@ -25,13 +25,15 @@ List<ContentIssue> validateCatalog(Catalog catalog) {
     _unique(issues, '\$.books[$bi].chapters', [for (final c in book.chapters) c.id]);
     for (final chapter in book.chapters) {
       lessonIds.addAll(chapter.lessons.map((l) => l.id));
+      lessonIds.addAll(chapter.advancedLessons.map((l) => l.id));
     }
   }
-  _unique(issues, r'$.books[*].chapters[*].lessons', lessonIds);
+  // Mã bài học phải duy nhất trên cả `lessons` lẫn `advancedLessons`.
+  _unique(issues, r'$.books[*].chapters[*].(lessons|advancedLessons)', lessonIds);
   final skillIds = {for (final s in catalog.skills) s.id};
   for (final b in catalog.books) {
     for (final c in b.chapters) {
-      for (final l in c.lessons) {
+      for (final l in [...c.lessons, ...c.advancedLessons]) {
         for (final s in l.skillIds) {
           if (!skillIds.contains(s)) issues.add(ContentIssue('lesson ${l.id}', 'kỹ năng "$s" chưa khai báo'));
         }

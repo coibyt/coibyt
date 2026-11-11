@@ -1,0 +1,665 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.nc.tuan-06",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c2",
+  "order": 2,
+  "title": "Nâng cao tuần 6: Tìm thành phần và một phần mấy",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đã bán (hay đã dùng) 1/3 thì còn lại 2 phần như thế. Con vẽ sơ đồ, tìm giá trị một phần rồi mới tìm cả số.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một cửa hàng có một số ki-lô-gam đường. Cửa hàng đã bán 1/4 số đường thì còn lại 12 kg. Hỏi lúc đầu cửa hàng có bao nhiêu ki-lô-gam đường?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Coi số đường lúc đầu gồm 4 phần bằng nhau thì đã bán 1 phần, còn lại số phần là:",
+            "equation": "4 - 1 = 3 (phần)"
+          },
+          {
+            "explanation": "Giá trị của một phần là:",
+            "equation": "12 : 3 = 4 (kg)"
+          },
+          {
+            "explanation": "Số đường lúc đầu là:",
+            "equation": "4 × 4 = 16 (kg)"
+          }
+        ],
+        "answer": "Đáp số: 16 kg đường."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.nc.tuan-06.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.mot_phan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "1/7 của số ? là 2"
+        },
+        {
+          "id": "l2",
+          "text": "1/5 của số ? là 8"
+        },
+        {
+          "id": "l3",
+          "text": "1/7 của số ? là 7"
+        },
+        {
+          "id": "l4",
+          "text": "1/9 của số ? là 8"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "72"
+        },
+        {
+          "id": "r2",
+          "text": "14"
+        },
+        {
+          "id": "r3",
+          "text": "40"
+        },
+        {
+          "id": "r4",
+          "text": "49"
+        },
+        {
+          "id": "r5",
+          "text": "16"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/7 của số ? là 2 → 14; 1/5 của số ? là 8 → 40; 1/7 của số ? là 7 → 49; 1/9 của số ? là 8 → 72",
+        "hint": "Biết giá trị của một phần, con lấy giá trị đó nhân với số phần bằng nhau nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biết giá trị của một phần, con lấy giá trị đó nhân với số phần bằng nhau nhé."
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 7 = 14"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 5 = 40"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 7 = 49"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 9 = 72"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo dấu >, <, = vào ô trống.",
+      "prompt": {
+        "text": "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.mot_phan"
+      ],
+      "access": "free",
+      "template": "1/5 của 45 {{s1}} 1/3 của 15\n1/3 của 27 {{s2}} 1/7 của 63\n1/2 của 4 {{s3}} 1/3 của 6",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": ">"
+        },
+        {
+          "id": "t2",
+          "text": "="
+        },
+        {
+          "id": "t3",
+          "text": "<"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": ">; =; =",
+        "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "27 : 3 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "63 : 7 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "45 : 5 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "15 : 3 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "4 : 2 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "6 : 3 = 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? : 4 + 22 = 32"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_chia",
+        "tim_thanh_phan.so_chia"
+      ],
+      "access": "free",
+      "template": "{{b1}} : 4 + 22 = 32",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 40
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "40",
+        "hint": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tìm ? : 4:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "32",
+              "22"
+            ],
+            "result": "10",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 trừ 2 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "3 trừ 2 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "32 - 22 = 10"
+          },
+          {
+            "kind": "text",
+            "text": "Tìm ?:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "10",
+              "4"
+            ],
+            "result": "40",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "10 × 4 = 40"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "40 : 4 + 22 = 32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "Chọn dấu thích hợp để điền vào chỗ chấm:\n1/2 của 20 … 1/5 của 45"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "phan_so.mot_phan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": "="
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": ">",
+        "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "20 : 2 = 10"
+          },
+          {
+            "kind": "equation",
+            "text": "45 : 5 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "10 > 9 nên 1/2 của 20 > 1/5 của 45."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mai có 48 nhãn vở. Mai cho em 1/8 số nhãn vở, rồi cho bạn 28 nhãn vở. Hỏi Mai còn lại bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.mot_phan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mai còn lại {{b1}} nhãn vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 14,
+            "unit": "nhãn vở"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "14 nhãn vở",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nhãn vở Mai cho em là:",
+                "equation": "48 : 8 = 6 (nhãn vở)"
+              },
+              {
+                "explanation": "Số nhãn vở Mai đã cho đi là:",
+                "equation": "6 + 28 = 34 (nhãn vở)"
+              },
+              {
+                "explanation": "Số nhãn vở Mai còn lại là:",
+                "equation": "48 - 34 = 14 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 14 nhãn vở."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "6",
+              "28"
+            ],
+            "result": "34",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 8 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "48",
+              "34"
+            ],
+            "result": "14",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 trừ 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "4 trừ 3 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một cửa hàng có một số ki-lô-gam đường. Cửa hàng đã bán 1/3 số đường thì còn lại 16 kg. Hỏi lúc đầu cửa hàng có bao nhiêu ki-lô-gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.mot_phan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "19 kg"
+        },
+        {
+          "id": "b",
+          "text": "24 kg"
+        },
+        {
+          "id": "c",
+          "text": "32 kg"
+        },
+        {
+          "id": "d",
+          "text": "48 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "24 kg đường",
+        "hint": "Con vẽ sơ đồ, chia thành các phần bằng nhau rồi xem phần còn lại ứng với mấy phần nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số đường lúc đầu gồm 3 phần bằng nhau thì đã bán 1 phần, còn lại số phần là:",
+                "equation": "3 - 1 = 2 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần là:",
+                "equation": "16 : 2 = 8 (kg)"
+              },
+              {
+                "explanation": "Số đường lúc đầu là:",
+                "equation": "8 × 3 = 24 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 24 kg đường."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ có 24 quả cam. Mẹ biếu bà 1/4 số cam, số cam còn lại mẹ xếp đều vào 9 đĩa. Hỏi mỗi đĩa có bao nhiêu quả cam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.mot_phan",
+        "bang_nhan_chia",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Mỗi đĩa có {{b1}} quả cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 quả cam",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số cam mẹ biếu bà là:",
+                "equation": "24 : 4 = 6 (quả)"
+              },
+              {
+                "explanation": "Số cam còn lại là:",
+                "equation": "24 - 6 = 18 (quả)"
+              },
+              {
+                "explanation": "Số cam mỗi đĩa có là:",
+                "equation": "18 : 9 = 2 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 2 quả cam."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "24",
+              "6"
+            ],
+            "result": "18",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 6, lấy 14 trừ 6 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.nc.tuan-06.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm quy luật rồi viết số thích hợp vào ô trống:"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "2; 4; 8; {{b1}}; 32; {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 16
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 64
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "16; 64",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số gấp 2 lần số đứng trước nó.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 2 = 16"
+          },
+          {
+            "kind": "equation",
+            "text": "32 × 2 = 64"
+          }
+        ]
+      }
+    }
+  ]
+}

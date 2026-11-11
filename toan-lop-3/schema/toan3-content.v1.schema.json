@@ -901,6 +901,53 @@
       },
       "additionalProperties": false
     },
+    "lessonRef": {
+      "title": "Mục bài học trong catalog (dùng cho lessons và advancedLessons)",
+      "type": "object",
+      "required": [
+        "id",
+        "order",
+        "title",
+        "src",
+        "access"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Đường dẫn file lesson (asset trong app, sau này có thể là URL tải về)."
+        },
+        "access": {
+          "$ref": "#/$defs/access"
+        },
+        "skillIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/skillId"
+          },
+          "description": "Từ 1.2.0: kỹ năng bài học luyện — để bảng điểm gợi ý 'ôn ngay' đúng bài."
+        },
+        "periods": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 5,
+          "description": "Từ 1.3.0: số tiết học trên lớp của bài (cả năm lớp 3 = 175 tiết). Dùng để xếp lịch học từng ngày (calendar.json)."
+        }
+      },
+      "additionalProperties": false
+    },
     "catalog": {
       "title": "Mục lục",
       "type": "object",
@@ -1020,51 +1067,15 @@
                     "lessons": {
                       "type": "array",
                       "items": {
-                        "type": "object",
-                        "required": [
-                          "id",
-                          "order",
-                          "title",
-                          "src",
-                          "access"
-                        ],
-                        "properties": {
-                          "id": {
-                            "$ref": "#/$defs/id"
-                          },
-                          "order": {
-                            "type": "integer",
-                            "minimum": 1
-                          },
-                          "title": {
-                            "type": "string",
-                            "minLength": 1
-                          },
-                          "src": {
-                            "type": "string",
-                            "minLength": 1,
-                            "description": "Đường dẫn file lesson (asset trong app, sau này có thể là URL tải về)."
-                          },
-                          "access": {
-                            "$ref": "#/$defs/access"
-                          },
-                          "skillIds": {
-                            "type": "array",
-                            "uniqueItems": true,
-                            "items": {
-                              "$ref": "#/$defs/skillId"
-                            },
-                            "description": "Từ 1.2.0: kỹ năng bài học luyện — để bảng điểm gợi ý 'ôn ngay' đúng bài."
-                          },
-                          "periods": {
-                            "type": "integer",
-                            "minimum": 1,
-                            "maximum": 5,
-                            "description": "Từ 1.3.0: số tiết học trên lớp của bài (cả năm lớp 3 = 175 tiết). Dùng để xếp lịch học từng ngày (calendar.json)."
-                          }
-                        },
-                        "additionalProperties": false
+                        "$ref": "#/$defs/lessonRef"
                       }
+                    },
+                    "advancedLessons": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/$defs/lessonRef"
+                      },
+                      "description": "Tuỳ chọn: bài NÂNG CAO của chủ đề (mỗi tuần học một bài, cho học sinh khá giỏi; mã kntt3.nc.tuan-NN). Không tính vào hoàn thành chủ đề, sao, huy hiệu. Mã bài phải duy nhất trên cả lessons và advancedLessons."
                     }
                   },
                   "additionalProperties": false
@@ -1410,6 +1421,28 @@
             "additionalProperties": false
           },
           "description": "Đề kiểm tra gợi ý làm trong tuần nào."
+        },
+        "advanced": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "week",
+              "lessonId"
+            ],
+            "properties": {
+              "week": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "lessonId": {
+                "$ref": "#/$defs/id",
+                "description": "Mã bài nâng cao trong catalog (chapters[].advancedLessons[])."
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Tuỳ chọn: bài nâng cao gợi ý cho từng tuần học (mỗi tuần một bài)."
         }
       },
       "additionalProperties": false
