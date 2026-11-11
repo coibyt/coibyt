@@ -64,7 +64,7 @@ void main() {
       for (final ref in [...c.lessons, ...c.advancedLessons]) {
         final l = loadLessonFromDisk(ref.id);
         for (final s in buildDemoScript(l.theory.blocks, problems: l.problems)) {
-          if (s.quiz != null) lines.addAll([...s.say, s.quiz!.reveal]);
+          if (s.quiz != null) lines.addAll([...s.say, s.quiz!.reveal, ...s.quiz!.followUp]);
         }
       }
     }

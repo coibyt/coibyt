@@ -137,10 +137,10 @@ class DemoPlayer extends ChangeNotifier {
         _answered[i] = pick;
         final ok = pick == q.correct;
         notifyListeners();
-        await teacher.say(
-          ok ? [TutorLines.quizRight[i % TutorLines.quizRight.length]] : [TutorLines.quizWrong, q.reveal],
-          mood: ok ? TeacherMood.clap : TeacherMood.think,
-        );
+        await teacher.say([
+          if (ok) TutorLines.quizRight[i % TutorLines.quizRight.length] else ...[TutorLines.quizWrong, q.reveal],
+          ...q.followUp, // dẫn dắt sang nội dung bài
+        ], mood: ok ? TeacherMood.clap : TeacherMood.think);
         if (token != _token || _disposed) return;
       }
       await Future<void>.delayed(gap);

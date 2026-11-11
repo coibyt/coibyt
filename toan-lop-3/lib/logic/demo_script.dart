@@ -12,15 +12,27 @@ import 'tutor.dart';
 
 /// Câu cô hỏi nhanh giữa giờ giảng: bé chạm chọn, cô khen hoặc giải thích rồi giảng tiếp.
 class DemoQuiz {
-  const DemoQuiz({required this.question, required this.choices, required this.correct});
+  const DemoQuiz({required this.question, required this.choices, required this.correct, this.followUp = const []});
 
   final String question;
   final List<String> choices;
   final int correct;
 
+  /// Sau khi bé trả lời: cô dẫn dắt sang nội dung bài (nhắc quy tắc, chỉ lên bảng…).
+  final List<String> followUp;
+
+  /// Cô đọc từng phương án: "Phương án A: 18."
+  List<String> get optionLines => [for (var i = 0; i < choices.length; i++) optionLine(i, choices[i])];
+
+  DemoQuiz withFollowUp(List<String> lines) =>
+      DemoQuiz(question: question, choices: choices, correct: correct, followUp: lines);
+
   /// Cô nói khi bé chọn sai (hoặc để nhắc lại đáp án).
   String get reveal => 'Đáp án đúng là ${choices[correct]} nhé!';
 }
+
+/// Cô đọc một phương án (khác cách MC đọc "Đáp án A…" để mỗi giọng có câu riêng).
+String optionLine(int i, String choice) => 'Phương án ${'ABC'[i]}: $choice.';
 
 /// Câu hỏi với 3 lựa chọn số, thứ tự cố định theo [seedKey] (để ghi âm sẵn lời cô).
 DemoQuiz _numberQuiz(String question, int answer, String seedKey, {String unit = ''}) {
@@ -112,7 +124,7 @@ List<DemoScene> buildDemoScript(
   DemoScene? ask(DemoQuiz? q, int block, {int? step}) {
     if (q == null || quizzes >= maxQuizzes) return null;
     quizzes++;
-    return DemoScene(say: [q.question], block: block, step: step, quiz: q, mood: DemoMood.idle);
+    return DemoScene(say: [q.question, ...q.optionLines], block: block, step: step, quiz: q, mood: DemoMood.idle);
   }
 
   for (final (i, b) in blocks.indexed) {
@@ -127,7 +139,7 @@ List<DemoScene> buildDemoScript(
         );
       case EquationBlock(:final text):
         // Hỏi trước, rồi cô mới đọc kết quả.
-        final q = ask(equationQuiz(text), i);
+        final q = ask(equationQuiz(text)?.withFollowUp(const [TutorLines.bridgeEquation]), i);
         if (q != null) scenes.add(q);
         scenes.add(DemoScene(say: [text], block: i));
       case final ColumnArithmeticBlock c:
@@ -135,7 +147,7 @@ List<DemoScene> buildDemoScript(
         final askAt = c.digitSteps.length > 1 ? 1 : 0;
         for (final (k, s) in c.digitSteps.indexed) {
           if (k == askAt) {
-            final q = ask(stepQuiz(s.text), i, step: k);
+            final q = ask(stepQuiz(s.text)?.withFollowUp(const [TutorLines.bridgeStep]), i, step: k);
             if (q != null) scenes.add(q);
           }
           scenes.add(DemoScene(say: [s.text], block: i, step: k + 1));
@@ -144,12 +156,19 @@ List<DemoScene> buildDemoScript(
         scenes.add(DemoScene(say: const [TutorLines.demoDivision], block: i, step: 0));
         for (final (k, s) in d.digitSteps.indexed) {
           if (k == 0) {
-            final q = ask(stepQuiz(s.text), i, step: k);
+            final q = ask(stepQuiz(s.text)?.withFollowUp(const [TutorLines.bridgeStep]), i, step: k);
             if (q != null) scenes.add(q);
           }
           scenes.add(DemoScene(say: [s.text], block: i, step: k + 1));
         }
       case final WordProblemBlock w:
+        for (final l in w.lines) {
+          final q = ask(equationQuiz(l.equation)?.withFollowUp(const [TutorLines.bridgeEquation]), i);
+          if (q != null) {
+            scenes.add(q);
+            break;
+          }
+        }
         scenes.add(
           DemoScene(
             say: [
@@ -163,10 +182,14 @@ List<DemoScene> buildDemoScript(
     }
   }
   if (quizzes == 0) {
-    final q = problemQuiz(problems);
+    // Không có phép tính để hỏi: lấy câu dễ nhất của bài, rồi cô nhắc lại quy tắc của bài.
+    final rule =
+        blocks.whereType<TextBlock>().where((b) => b.style == TextBlockStyle.rule).firstOrNull ??
+        blocks.whereType<TextBlock>().firstOrNull;
+    final q = problemQuiz(problems)?.withFollowUp([TutorLines.bridgeLesson, ?rule?.text]);
     if (q != null) {
       quizzes++;
-      scenes.add(DemoScene(say: [TutorLines.quizLead, q.question], quiz: q, mood: DemoMood.idle));
+      scenes.add(DemoScene(say: [TutorLines.quizLead, q.question, ...q.optionLines], quiz: q, mood: DemoMood.idle));
     }
   }
   for (final (k, t) in tips.indexed) {

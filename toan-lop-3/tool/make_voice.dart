@@ -107,7 +107,7 @@ List<String> teacherLines() {
     // Cô làm mẫu phần Nhớ nhanh: đọc từng khối và từng bước đặt tính.
     for (final s in buildDemoScript(lesson.theory.blocks, problems: lesson.problems)) {
       lines.addAll(s.say);
-      if (s.quiz != null) lines.add(s.quiz!.reveal);
+      if (s.quiz != null) lines.addAll([s.quiz!.reveal, ...s.quiz!.followUp]);
     }
   }
   return [for (final l in lines) voiceKey(l)];

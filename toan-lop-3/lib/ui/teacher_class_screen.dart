@@ -348,7 +348,7 @@ class QuizPanel extends StatelessWidget {
                 child: FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
-                    q.choices[i],
+                    '${'ABC'[i]}. ${q.choices[i]}',
                     style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: Colors.white),
                   ),
                 ),

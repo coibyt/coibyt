@@ -41,6 +41,9 @@ abstract final class TutorLines {
     'Tuyệt vời, con hiểu bài rồi đấy!',
   ];
   static const quizWrong = 'Chưa đúng rồi, không sao đâu!';
+  static const bridgeEquation = 'Cô ghi phép tính lên bảng, con nhìn kỹ nhé!';
+  static const bridgeStep = 'Cô viết kết quả vào phép tính, mình làm tiếp bước sau nhé!';
+  static const bridgeLesson = 'Con vừa dùng đúng kiến thức của bài hôm nay đấy! Mình cùng nhớ lại nhé.';
   static const solutionIntro = 'Con xem cô làm mẫu bài này nhé!';
   static const tipLead = {
     TipKind.secret: 'Bí quyết của cô nè!',
@@ -156,6 +159,9 @@ abstract final class TutorLines {
     quizLead,
     ...quizRight,
     quizWrong,
+    bridgeEquation,
+    bridgeStep,
+    bridgeLesson,
     ...tipLead.values,
     ...allTipTexts(),
     gameIntro,
