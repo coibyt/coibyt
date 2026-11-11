@@ -21,7 +21,10 @@ lên giấy.
 
 Bản web (Flutter web) chạy được trên trình duyệt điện thoại, có camera, thao tác chạm, bộ lọc nét và thư viện mẫu.
 Quay time-lapse chỉ có ở bản app cài trên máy, vì cần bộ mã hoá video của điện thoại.
-Build bằng `tool/build_web_lab.sh <đường-dẫn> <thư-mục-ra>` và đặt trong `public/` của repo Babelisa.
+Build bằng `tool/build_web_lab.sh /lab/tracelight-xxxx/ <thư-mục-repo-babelisa>`. Script đặt trang vào
+`public/lab/…` và tách các tệp `.wasm` sang `lab-bin/…`, vì máy chủ phía trước của Hostinger gắn `.wasm` là
+`text/plain` (trình duyệt từ chối chạy, app kẹt ở màn hình chờ). `server.js` của Babelisa phục vụ `lab-bin/` với
+đúng kiểu `application/wasm`.
 
 ## Công nghệ đã chốt: Flutter
 
