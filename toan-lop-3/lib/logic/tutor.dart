@@ -41,6 +41,18 @@ abstract final class TutorLines {
     TipKind.warning: 'Cẩn thận nhé!',
   };
 
+  // Trò chơi ôn tập bóng bay
+  static const gameIntro =
+      'Trò chơi bóng bay bắt đầu! Con chạm vào quả bóng có đáp án đúng trước khi bóng bay mất nhé!';
+  static const gameTimeout = 'Ôi, bóng bay mất rồi! Câu sau mình nhanh tay hơn nhé!';
+  static const gameWrong = 'Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa.';
+  static const gameRecord = 'Kỷ lục mới! Con giỏi quá!';
+  static const gameLocked = 'Con học xong các bài của chủ đề này là mở được trò chơi nhé!';
+
+  // Học nâng cao
+  static const advIntro =
+      'Chào mừng con đến khu Nâng cao dành cho học sinh giỏi! Học xong các bài cơ bản của tuần là mở được bài nâng cao, thưởng gấp đôi vàng nhé!';
+
   // Kiểm tra năng lực
   static const abilityInvite =
       'Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.';
@@ -136,6 +148,12 @@ abstract final class TutorLines {
     solutionIntro,
     ...tipLead.values,
     ...allTipTexts(),
+    gameIntro,
+    gameTimeout,
+    gameWrong,
+    gameRecord,
+    gameLocked,
+    advIntro,
     abilityInvite,
     abilityIntro,
     abilityRetest,

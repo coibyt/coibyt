@@ -9,9 +9,16 @@ class BadgeContext {
   final Catalog catalog;
   final DateTime now;
 
+  /// Số bài nâng cao (học sinh giỏi) đã có sao, và số bài được 3 sao.
+  int advancedDone([int minStars = 1]) =>
+      progress.lessons.entries.where((e) => isAdvancedLessonId(e.key) && e.value.bestStars >= minStars).length;
+
   int get lessonsPlayed => progress.lessons.values.fold(0, (s, l) => s + l.plays);
   int get bestExamScore => progress.exams.fold(0, (best, e) => e.score.round() > best ? e.score.round() : best);
 }
+
+/// Bài nâng cao (khu học sinh giỏi): mã `kntt3.nc.…` (không tính thử thách ngày `…#ngay-…`).
+bool isAdvancedLessonId(String id) => id.startsWith('kntt3.nc.') && !id.contains('#');
 
 /// Một huy hiệu (tên tự đặt, không lấy từ app khác).
 class BadgeDef {
@@ -113,6 +120,27 @@ final List<BadgeDef> allBadges = [
     description: 'Được 10 điểm khi thi thử',
     emoji: '🏆',
     earned: (c) => c.bestExamScore >= 10,
+  ),
+  BadgeDef(
+    id: 'adv_first',
+    title: 'Học sinh giỏi',
+    description: 'Có sao ở một bài nâng cao',
+    emoji: '👑',
+    earned: (c) => c.advancedDone() >= 1,
+  ),
+  BadgeDef(
+    id: 'adv_5',
+    title: 'Nhà toán học nhí',
+    description: 'Có sao ở 5 bài nâng cao',
+    emoji: '🧠',
+    earned: (c) => c.advancedDone() >= 5,
+  ),
+  BadgeDef(
+    id: 'adv_3stars',
+    title: 'Thiên tài nhỏ',
+    description: 'Được 3 sao ở một bài nâng cao',
+    emoji: '💎',
+    earned: (c) => c.advancedDone(3) >= 1,
   ),
 ];
 

@@ -25,6 +25,7 @@ import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import '../tutor/teacher_intro.dart';
 import 'calendar_screen.dart';
+import 'review_game_screen.dart';
 import 'teacher_class_screen.dart';
 
 /// Chuyển màn hình (gom một chỗ cho dễ đổi hiệu ứng sau này).
@@ -1095,6 +1096,10 @@ class ChapterScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             sliver: SliverList.list(
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 14),
+                  child: ReviewGameCard(chapter: chapter),
+                ),
                 for (final (i, l) in lessons.indexed)
                   Padding(
                     padding: const EdgeInsets.only(bottom: 12),

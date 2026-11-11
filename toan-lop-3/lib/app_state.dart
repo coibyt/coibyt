@@ -53,6 +53,7 @@ class AppState extends ChangeNotifier {
   static const optInKey = 'lb.optIn';
   static const missionsKey = 'missions.daily';
   static const abilityKey = 'ability.results';
+  static const advUnlockKey = 'adv.unlocked';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -90,6 +91,106 @@ class AppState extends ChangeNotifier {
   }
 
   bool get canStartExam => progress.hearts > 0;
+
+  // ---- Trò chơi ôn tập theo chủ đề ----
+
+  static const gameUnlockCost = 30;
+  static String _gameKey(String chapterId) => 'game.best.$chapterId';
+
+  /// Kỷ lục (điểm, sao) của trò chơi ôn tập một chủ đề.
+  (int, int) gameBest(String chapterId) {
+    final parts = (store.get(_gameKey(chapterId)) ?? '0,0').split(',');
+    return (int.tryParse(parts.first) ?? 0, int.tryParse(parts.last) ?? 0);
+  }
+
+  /// Mở trò chơi khi mọi bài của chủ đề đã có sao, hoặc đã mở bằng vàng, hoặc đã từng chơi.
+  bool gameUnlocked(Chapter c) {
+    if (store.get('game.unlocked.${c.id}') == 'true' || gameBest(c.id).$1 > 0) return true;
+    return c.lessons.isNotEmpty && c.lessons.every((l) => (lessonProgress(l.id)?.bestStars ?? 0) > 0);
+  }
+
+  Future<bool> unlockGame(Chapter c) async {
+    if (gameUnlocked(c)) return true;
+    if (progress.coins < gameUnlockCost) return false;
+    progress.coins -= gameUnlockCost;
+    await store.put('game.unlocked.${c.id}', 'true');
+    await _save();
+    return true;
+  }
+
+  /// Lưu kết quả một ván; trả về true nếu phá kỷ lục.
+  Future<bool> saveGameResult(String chapterId, {required int score, required int stars, required int coins}) async {
+    final (best, bestStars) = gameBest(chapterId);
+    final record = score > best;
+    await store.put(_gameKey(chapterId), '${max(score, best)},${max(stars, bestStars)}');
+    progress.coins += coins;
+    progress.totalPoints += score ~/ 100;
+    _addDayPoints(score ~/ 100);
+    _markActive();
+    missions.record(correct: 0, stars: 0, isLesson: false);
+    await _save();
+    return record;
+  }
+
+  // ---- Học nâng cao (học sinh giỏi) ----
+
+  /// Giá mở khoá sớm một bài nâng cao bằng chìa khoá vàng.
+  static const advUnlockCost = 40;
+
+  /// Tuần của bài nâng cao `kntt3.nc.tuan-NN` (null nếu không phải).
+  static int? advancedWeek(String lessonId) {
+    final m = RegExp(r'\.nc\.tuan-(\d+)$').firstMatch(lessonId);
+    return m == null ? null : int.parse(m[1]!);
+  }
+
+  /// Các bài cơ bản học trong tuần [week] (theo lịch).
+  List<String> basicLessonsOfWeek(int week) => [
+    ...{for (final d in calendar?.daysOfWeek(week) ?? const <CalendarDay>[]) d.lessonId},
+  ];
+
+  /// (đã xong, tổng số) bài cơ bản của tuần ứng với bài nâng cao [lessonId].
+  (int, int) advancedProgress(String lessonId) {
+    final week = advancedWeek(lessonId);
+    if (week == null) return (0, 0);
+    final basics = basicLessonsOfWeek(week);
+    return (basics.where((id) => (lessonProgress(id)?.bestStars ?? 0) > 0).length, basics.length);
+  }
+
+  Set<String> get _advKeys => {...(store.get(advUnlockKey) ?? '').split(',').where((s) => s.isNotEmpty)};
+
+  /// Bài nâng cao đã mở chưa: học xong (có sao) mọi bài cơ bản của tuần, hoặc đã dùng chìa khoá vàng.
+  bool advancedUnlocked(String lessonId) {
+    if (_advKeys.contains(lessonId) || (lessonProgress(lessonId)?.plays ?? 0) > 0) return true;
+    final (done, total) = advancedProgress(lessonId);
+    return total > 0 && done >= total;
+  }
+
+  /// Dùng [advUnlockCost] vàng mở khoá sớm; false nếu không đủ vàng.
+  Future<bool> unlockAdvanced(String lessonId) async {
+    if (advancedUnlocked(lessonId)) return true;
+    if (progress.coins < advUnlockCost) return false;
+    progress.coins -= advUnlockCost;
+    await store.put(advUnlockKey, [..._advKeys, lessonId].join(','));
+    await _save();
+    return true;
+  }
+
+  /// Thử thách hôm nay: một câu của bài nâng cao tuần này (đổi mỗi ngày).
+  Lesson dailyChallenge(Lesson advanced, DateTime day) {
+    final pool = advanced.problems.where((p) => p.access == Access.free).toList();
+    final p = pool[(day.weekday - 1 + day.day) % pool.length];
+    return Lesson(
+      schemaVersion: advanced.schemaVersion,
+      id: '${advanced.id}#ngay-${dayKey(day)}',
+      bookId: advanced.bookId,
+      chapterId: advanced.chapterId,
+      order: advanced.order,
+      title: 'Thử thách hôm nay',
+      contentRev: advanced.contentRev,
+      theory: advanced.theory,
+      problems: [p],
+    );
+  }
 
   // ---- Kiểm tra năng lực ----
 
@@ -433,7 +534,8 @@ class AppState extends ChangeNotifier {
       ..bestStars = session.stars > lp.bestStars ? session.stars : lp.bestStars;
     progress.totalPoints += earned;
     _addDayPoints(earned);
-    final coins = coinsForPractice(earned);
+    // Bài nâng cao (học sinh giỏi): thưởng vàng gấp đôi.
+    final coins = coinsForPractice(earned) * (isAdvancedLessonId(session.lessonId.split('#').first) ? 2 : 1);
     progress.coins += coins;
     regenHearts(progress, now());
     final hearts = restoreHeartsForPractice(progress, correct: session.correctCount, total: session.problems.length);

@@ -184,6 +184,23 @@ JOBS["bg_advanced"] = dict(group="bg", aspect="9:16", prompt=(
     "soft constellations, elegant and calm, low contrast with lots of empty space in the middle, no characters, "
     "no text. " + STYLE + " " + CLEAN))
 
+# ---- Trò chơi ôn tập "Bóng bay Toán học" ----
+for _name, _colour, _bg in [
+    ("balloon_red", "glossy cherry-red", GREEN),
+    ("balloon_blue", "glossy sky-blue", GREEN),
+    ("balloon_yellow", "glossy sunny-yellow", GREEN),
+    ("balloon_green", "glossy mint-green", MAGENTA),
+]:
+    JOBS[_name] = dict(group="ui", aspect="3:4", key="green" if _bg == GREEN else "magenta", prompt=(
+        f"A single cute {_colour} party balloon with a soft highlight reflection, a small knot and a short curly "
+        f"white string, round and plump, front view, centered with generous empty margin, premium 3D game asset. "
+        f"{STYLE} {_bg} {CLEAN}"))
+JOBS["game_trophy"] = dict(group="ui", aspect="1:1", prompt=obj("A shiny golden trophy with confetti and three small stars above it, celebration"))
+JOBS["bg_game"] = dict(group="bg", aspect="9:16", prompt=(
+    "A bright joyful background for a children's balloon-popping math game: a sunny blue sky with fluffy white "
+    "clouds, a gentle rainbow, a cheerful amusement park with colourful tents and a small ferris wheel far at the "
+    "bottom, soft and low contrast in the middle for gameplay, no characters, no balloons, no text. " + STYLE + " " + CLEAN))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",
