@@ -190,13 +190,45 @@ class _QuizBodyState extends State<_QuizBody> {
       final instruction = p.displayInstruction.trim();
       final tip = _session.index == 0 && !_tipSaid && _tips.isNotEmpty ? _tips.first : null;
       _tipSaid = true;
-      _teacher.say([
-        if (tip != null) ...[TutorLines.tipLead[tip.kind]!, tip.text],
-        if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction,
-        text,
-      ]);
+      final token = ++_readToken;
+      final template = switch (p.body) {
+        FillBlankBody(:final template) => readableTemplate(template, text),
+        _ => null,
+      };
+      () async {
+        await _teacher.say([
+          if (tip != null) ...[TutorLines.tipLead[tip.kind]!, tip.text],
+          if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction,
+          text,
+          ?template,
+        ]);
+        // Trắc nghiệm: cô đọc lần lượt từng đáp án, đáp án đang đọc sáng lên.
+        final body = p.body;
+        if (body is! MultipleChoiceBody) return;
+        final order = _orderOf(p);
+        if (!mounted || token != _readToken || _answer != null) return;
+        await _teacher.say(const [TutorLines.readChoices]);
+        for (final id in order) {
+          if (!mounted || token != _readToken || _answer != null) break;
+          setState(() => _readingChoice = id);
+          await _teacher.say([body.choices.firstWhere((c) => c.id == id).text]);
+        }
+        if (mounted && token == _readToken) setState(() => _readingChoice = null);
+      }();
     });
   }
+
+  /// Thứ tự đáp án của một câu trắc nghiệm (xáo một lần, cố định trong lượt) — để cô đọc đúng thứ tự trên màn hình.
+  final _orders = <String, List<String>>{};
+  int _readToken = 0;
+  String? _readingChoice;
+
+  List<String> _orderOf(Problem p) => _orders.putIfAbsent(p.id, () {
+    final body = p.body as MultipleChoiceBody;
+    final ids = [for (final c in body.choices) c.id];
+    if (body.shuffleChoices) ids.shuffle(widget.random ?? Random());
+    return ids;
+  });
 
   /// Bé ngồi im lâu: cô hỏi có cần gợi ý không; làm xong mà chưa bấm: nhắc bấm Kiểm tra.
   void _watchTick() {
@@ -216,6 +248,7 @@ class _QuizBodyState extends State<_QuizBody> {
   }
 
   void _onAnswerChanged(Problem problem, UserAnswer a) {
+    if (_readingChoice != null) setState(_stopReading);
     _answer = a;
     _idleSeconds = 0;
     _answerComplete = checkAnswer(problem, a).status != CheckStatus.incomplete;
@@ -246,7 +279,13 @@ class _QuizBodyState extends State<_QuizBody> {
     super.dispose();
   }
 
+  void _stopReading() {
+    _readToken++;
+    _readingChoice = null;
+  }
+
   void _check() {
+    _stopReading();
     final problem = _session.current;
     final answer = _answer ?? _emptyAnswer(problem);
     final result = _session.submit(answer);
@@ -275,6 +314,7 @@ class _QuizBodyState extends State<_QuizBody> {
   };
 
   void _next() {
+    _stopReading();
     widget.sound.tap();
     _teacher.clear();
     _resetWatch();
@@ -419,6 +459,7 @@ class _QuizBodyState extends State<_QuizBody> {
       enabled: phase == QuestionPhase.answering,
       check: phase == QuestionPhase.answering ? null : _session.lastCheck,
       showCorrect: phase == QuestionPhase.revealed,
+      readingChoiceId: _readingChoice,
     );
     return Scaffold(
       body: ScreenBackground(
@@ -493,6 +534,7 @@ class _QuizBodyState extends State<_QuizBody> {
     state: s,
     onChanged: (a) => _onAnswerChanged(problem, a),
     random: widget.random,
+    choiceOrder: problem.body is MultipleChoiceBody ? _orderOf(problem) : null,
   );
 }
 

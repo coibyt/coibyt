@@ -103,11 +103,24 @@ List<String> teacherLines() {
     final lesson = Lesson.fromJson(jsonDecode(f.readAsStringSync()));
     for (final p in lesson.problems) {
       lines.add(brain.hint(p));
+      // Luyện tập: cô đọc câu lệnh, đề, mẫu điền số và từng đáp án trắc nghiệm.
+      lines.addAll([p.displayInstruction, p.prompt.text.trim()]);
+      final body = p.body;
+      if (body is FillBlankBody) {
+        final t = readableTemplate(body.template, p.prompt.text);
+        if (t != null) lines.add(t);
+      }
+      if (body is MultipleChoiceBody) {
+        for (final c in body.choices) {
+          lines.add(c.text);
+        }
+      }
     }
     // Cô làm mẫu phần Nhớ nhanh: đọc từng khối và từng bước đặt tính.
-    for (final s in buildDemoScript(lesson.theory.blocks, problems: lesson.problems)) {
+    for (final s in buildDemoScript(lesson.theory.blocks, problems: lesson.problems, checks: true)) {
       lines.addAll(s.say);
-      if (s.quiz != null) lines.addAll([s.quiz!.reveal, ...s.quiz!.followUp]);
+      final q = s.quiz;
+      if (q != null && !q.survey) lines.addAll([q.reveal, ...q.followUp, ...remedyLines(q), q.easier.question]);
     }
   }
   return [for (final l in lines) voiceKey(l)];

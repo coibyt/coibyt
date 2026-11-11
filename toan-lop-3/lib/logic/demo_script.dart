@@ -6,13 +6,40 @@ import 'dart:math';
 import '../models/blocks.dart';
 import '../models/problem.dart';
 import 'review_game.dart';
+import 'visual_story.dart';
 import 'show_lines.dart' show stableSeed;
 import 'tips.dart';
 import 'tutor.dart';
 
 /// Câu cô hỏi nhanh giữa giờ giảng: bé chạm chọn, cô khen hoặc giải thích rồi giảng tiếp.
 class DemoQuiz {
-  const DemoQuiz({required this.question, required this.choices, required this.correct, this.followUp = const []});
+  const DemoQuiz({
+    required this.question,
+    required this.choices,
+    required this.correct,
+    this.followUp = const [],
+    this.aid,
+    this.survey = false,
+  });
+
+  /// Phép tính để vẽ tranh minh hoạ khi bé trả lời sai ("6 × 8 = 48"); null = không có tranh.
+  final String? aid;
+
+  /// Câu hỏi khảo sát (con đã hiểu bài chưa?) — không có đáp án đúng/sai.
+  final bool survey;
+
+  /// Câu hỏi dễ hơn: chỉ còn đáp án đúng và một đáp án sai.
+  DemoQuiz get easier {
+    if (choices.length <= 2) return this;
+    final keep = [correct, (correct + 1) % choices.length]..sort();
+    return DemoQuiz(
+      question: question,
+      choices: [for (final i in keep) choices[i]],
+      correct: keep.indexOf(correct),
+      followUp: followUp,
+      aid: aid,
+    );
+  }
 
   final String question;
   final List<String> choices;
@@ -25,7 +52,10 @@ class DemoQuiz {
   List<String> get optionLines => [for (var i = 0; i < choices.length; i++) optionLine(i, choices[i])];
 
   DemoQuiz withFollowUp(List<String> lines) =>
-      DemoQuiz(question: question, choices: choices, correct: correct, followUp: lines);
+      DemoQuiz(question: question, choices: choices, correct: correct, followUp: lines, aid: aid);
+
+  DemoQuiz withAid(String? equation) =>
+      DemoQuiz(question: question, choices: choices, correct: correct, followUp: followUp, aid: equation);
 
   /// Cô nói khi bé chọn sai (hoặc để nhắc lại đáp án).
   String get reveal => 'Đáp án đúng là ${choices[correct]} nhé!';
@@ -55,17 +85,28 @@ DemoQuiz? equationQuiz(String text) {
   if (m == null) return null;
   final answer = int.tryParse(m[2]!.replaceAll('.', ''));
   if (answer == null) return null;
-  return _numberQuiz('Đố con: ${m[1]!.trim()} = ?', answer, text);
+  return _numberQuiz('Đố con: ${m[1]!.trim()} = ?', answer, text).withAid(text.trim());
 }
 
 /// Câu hỏi nhanh cho một bước đặt tính "3 nhân 6 bằng 18, viết 8 nhớ 1." (null nếu không hợp).
 DemoQuiz? stepQuiz(String stepText) {
   final m = _stepOp.firstMatch(stepText);
   if (m != null) {
-    return _numberQuiz('Đố con: ${m[1]} ${m[2]} ${m[3]} bằng bao nhiêu?', int.parse(m[4]!), stepText);
+    const sym = {'nhân': '×', 'cộng': '+', 'trừ': '−'};
+    return _numberQuiz(
+      'Đố con: ${m[1]} ${m[2]} ${m[3]} bằng bao nhiêu?',
+      int.parse(m[4]!),
+      stepText,
+    ).withAid('${m[1]} ${sym[m[2]]} ${m[3]} = ${m[4]}');
   }
   final d = _stepDiv.firstMatch(stepText);
-  if (d != null) return _numberQuiz('Đố con: ${d[1]} chia ${d[2]} được mấy?', int.parse(d[3]!), stepText);
+  if (d != null) {
+    return _numberQuiz(
+      'Đố con: ${d[1]} chia ${d[2]} được mấy?',
+      int.parse(d[3]!),
+      stepText,
+    ).withAid('${d[1]} : ${d[2]} = ${d[3]}');
+  }
   return null;
 }
 
@@ -92,7 +133,22 @@ enum DemoMood { idle, point, clap }
 
 /// Một cảnh trong lúc cô làm mẫu: cô nói [say] trong khi bảng hiện khối [block] tới bước [step].
 class DemoScene {
-  const DemoScene({required this.say, this.block, this.step, this.tip, this.quiz, this.mood = DemoMood.point});
+  const DemoScene({
+    required this.say,
+    this.block,
+    this.step,
+    this.tip,
+    this.quiz,
+    this.check = false,
+    this.summary = false,
+    this.mood = DemoMood.point,
+  });
+
+  /// Câu kiểm tra hiểu bài cuối giờ.
+  final bool check;
+
+  /// Cô tổng kết phần kiểm tra (lời nói tuỳ kết quả).
+  final bool summary;
 
   /// Cô hỏi nhanh: đọc [quiz].question rồi chờ bé chọn.
   final DemoQuiz? quiz;
@@ -118,6 +174,7 @@ List<DemoScene> buildDemoScript(
   List<String> outro = const [],
   List<Problem> problems = const [],
   int maxQuizzes = 3,
+  bool checks = false,
 }) {
   final scenes = <DemoScene>[if (intro.isNotEmpty) DemoScene(say: intro, mood: DemoMood.idle)];
   var quizzes = 0;
@@ -195,6 +252,43 @@ List<DemoScene> buildDemoScript(
   for (final (k, t) in tips.indexed) {
     scenes.add(DemoScene(say: [TutorLines.tipLead[t.kind]!, t.text], tip: k, mood: DemoMood.idle));
   }
+  if (checks) {
+    // Cuối giờ: con đã hiểu bài chưa? rồi 2 câu kiểm tra (không trùng câu đã hỏi).
+    final asked = {for (final s in scenes) ?s.quiz?.question};
+    final cands = <DemoQuiz>[
+      for (final b in blocks)
+        if (b is EquationBlock)
+          ?equationQuiz(b.text)
+        else if (b is WordProblemBlock)
+          for (final l in b.lines) ?equationQuiz(l.equation),
+      for (final p in [...problems]..sort((a, b) => a.level.compareTo(b.level)))
+        if (p.access == Access.free) ?problemQuiz([p]),
+    ];
+    final picked = <DemoQuiz>[];
+    for (final q in cands) {
+      if (picked.length >= 2) break;
+      if (asked.add(q.question)) picked.add(q);
+    }
+    if (picked.isNotEmpty) {
+      final survey = DemoQuiz(
+        question: TutorLines.understandAsk,
+        choices: TutorLines.understandOptions,
+        correct: 0,
+        survey: true,
+      );
+      scenes.add(DemoScene(say: [survey.question, ...survey.optionLines], quiz: survey, mood: DemoMood.idle));
+      for (final q in picked) {
+        scenes.add(DemoScene(say: [q.question, ...q.optionLines], quiz: q, check: true, mood: DemoMood.idle));
+      }
+      scenes.add(const DemoScene(say: [], summary: true, mood: DemoMood.clap));
+    }
+  }
   if (outro.isNotEmpty) scenes.add(DemoScene(say: outro, mood: DemoMood.clap));
   return scenes;
 }
+
+/// Mọi câu cô có thể nói khi thuyết minh tranh cho câu hỏi [q] (để ghi âm sẵn).
+List<String> remedyLines(DemoQuiz q) => [
+  for (final (text, _) in aidStory(q.aid ?? '')?.lines ?? const <StoryLine>[]) text,
+  ...q.easier.optionLines,
+];

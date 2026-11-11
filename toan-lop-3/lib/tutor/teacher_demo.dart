@@ -4,11 +4,13 @@ import 'package:flutter/foundation.dart';
 
 import '../logic/demo_script.dart';
 import '../logic/tutor.dart';
+import '../logic/visual_story.dart';
 import '../models/blocks.dart';
 import 'teacher_avatar.dart';
 import 'teacher_controller.dart';
 
 export '../logic/demo_script.dart';
+export '../logic/visual_story.dart';
 
 TeacherMood _mood(DemoMood m) => switch (m) {
   DemoMood.idle => TeacherMood.idle,
@@ -52,11 +54,8 @@ class DemoPlayer extends ChangeNotifier {
 
   /// (đúng, đã trả lời, tổng số câu hỏi).
   (int, int, int) get quizScore {
-    var right = 0;
-    for (final e in _answered.entries) {
-      if (scenes[e.key].quiz?.correct == e.value) right++;
-    }
-    return (right, _answered.length, scenes.where((s) => s.quiz != null).length);
+    final right = _results.values.where((v) => v).length;
+    return (right, _results.length, scenes.where((s) => s.quiz != null && !s.quiz!.survey).length);
   }
 
   /// Khối [block] có câu hỏi nhanh chưa trả lời (→ che kết quả của phép tính mẫu).
@@ -66,6 +65,47 @@ class DemoPlayer extends ChangeNotifier {
       if (s.quiz != null && s.block == block && !_answered.containsKey(i)) return true;
     }
     return false;
+  }
+
+  // ---- Câu hỏi đang hỏi (có thể là bản dễ hơn khi bé sai) ----
+  DemoQuiz? _activeQuiz;
+  int? _picked;
+  final _results = <int, bool>{};
+  AidStory? _story;
+  int? _lit;
+  Timer? _encourage;
+
+  /// Câu hỏi đang hiện trên màn hình.
+  DemoQuiz? get activeQuiz => _activeQuiz;
+
+  /// Đáp án bé vừa chọn cho [activeQuiz] (null = chưa chọn).
+  int? get picked => _picked;
+
+  /// Tranh cô đang thuyết minh khi bé trả lời sai (null = không thuyết minh).
+  AidStory? get story => _story;
+
+  /// Nhóm đồ vật đang sáng trong lúc cô đếm.
+  int? get lit => _lit;
+
+  /// Hỏi [q] và chờ bé chọn; null nếu bị dừng/huỷ. Bé nghĩ lâu thì cô động viên.
+  Future<int?> _ask(int token, DemoQuiz q) async {
+    _activeQuiz = q;
+    _picked = null;
+    _waiting = Completer<int>();
+    notifyListeners();
+    var nudges = 0;
+    _encourage?.cancel();
+    _encourage = Timer.periodic(const Duration(seconds: 12), (_) {
+      if (_waiting == null || teacher.speaking || nudges >= TutorLines.encourage.length) return;
+      teacher.say([TutorLines.encourage[nudges++]], mood: TeacherMood.idle);
+    });
+    final pick = await _waiting!.future;
+    _encourage?.cancel();
+    _waiting = null;
+    if (token != _token || _disposed || pick < 0) return null;
+    _picked = pick;
+    notifyListeners();
+    return pick;
   }
 
   /// Bé chọn đáp án [choice] cho câu cô đang hỏi.
@@ -126,22 +166,81 @@ class DemoPlayer extends ChangeNotifier {
       notifyListeners();
       await teacher.say(s.say, mood: _mood(s.mood));
       if (token != _token || _disposed) return;
+      if (s.summary) {
+        final checks = [
+          for (final (k, sc) in scenes.indexed)
+            if (sc.check) _results[k] ?? false,
+        ];
+        await teacher.say([
+          checks.every((v) => v) ? TutorLines.checkPassed : TutorLines.checkTried,
+        ], mood: TeacherMood.clap);
+        if (token != _token || _disposed) return;
+      }
       final q = s.quiz;
       if (q != null && !_answered.containsKey(i)) {
-        // Cô hỏi xong: chờ bé chạm chọn đáp án.
-        _waiting = Completer<int>();
-        notifyListeners();
-        final pick = await _waiting!.future;
-        _waiting = null;
-        if (token != _token || _disposed) return;
+        final pick = await _ask(token, q);
+        if (pick == null) return;
         _answered[i] = pick;
-        final ok = pick == q.correct;
+        if (q.survey) {
+          // Con đã hiểu bài chưa? → hỏi kiểm tra; "giảng lại" → quay về đầu bài.
+          _activeQuiz = null;
+          notifyListeners();
+          if (pick == 2) {
+            await teacher.say(const [TutorLines.understandAgain], mood: TeacherMood.idle);
+            if (token != _token || _disposed) return;
+            restart();
+            return;
+          }
+          await teacher.say([
+            pick == 0 ? TutorLines.understandYes : TutorLines.understandUnsure,
+          ], mood: TeacherMood.clap);
+          if (token != _token || _disposed) return;
+        } else {
+          final ok = pick == q.correct;
+          _results[i] = ok;
+          notifyListeners();
+          if (ok) {
+            await teacher.say([
+              TutorLines.quizRight[i % TutorLines.quizRight.length],
+              ...q.followUp, // dẫn dắt sang nội dung bài
+            ], mood: TeacherMood.clap);
+          } else {
+            // Sai: cô thuyết minh tranh đồ vật (từng nhóm sáng lên), rồi hỏi lại câu dễ hơn.
+            final story = aidStory(q.aid ?? '');
+            await teacher.say(const [TutorLines.quizWrong, TutorLines.remedyLook], mood: TeacherMood.think);
+            if (token != _token || _disposed) return;
+            if (story != null) {
+              _story = story;
+              for (final (text, lit) in story.lines) {
+                _lit = lit;
+                notifyListeners();
+                await teacher.say([text], mood: TeacherMood.point);
+                if (token != _token || _disposed) return;
+              }
+              _lit = null;
+            }
+            final easy = q.easier;
+            await teacher.say([TutorLines.remedyRetry, easy.question, ...easy.optionLines], mood: TeacherMood.idle);
+            if (token != _token || _disposed) return;
+            final again = await _ask(token, easy);
+            if (again == null) return;
+            final ok2 = again == easy.correct;
+            await teacher.say([
+              if (ok2)
+                TutorLines.quizRight[(i + 1) % TutorLines.quizRight.length]
+              else ...[
+                TutorLines.remedyReveal,
+                q.reveal,
+              ],
+              ...q.followUp,
+            ], mood: ok2 ? TeacherMood.clap : TeacherMood.idle);
+            _story = null;
+          }
+          if (token != _token || _disposed) return;
+        }
+        _activeQuiz = null;
+        _picked = null;
         notifyListeners();
-        await teacher.say([
-          if (ok) TutorLines.quizRight[i % TutorLines.quizRight.length] else ...[TutorLines.quizWrong, q.reveal],
-          ...q.followUp, // dẫn dắt sang nội dung bài
-        ], mood: ok ? TeacherMood.clap : TeacherMood.think);
-        if (token != _token || _disposed) return;
       }
       await Future<void>.delayed(gap);
     }
@@ -152,6 +251,11 @@ class DemoPlayer extends ChangeNotifier {
   }
 
   void _cancelWait() {
+    _encourage?.cancel();
+    _activeQuiz = null;
+    _picked = null;
+    _story = null;
+    _lit = null;
     final w = _waiting;
     _waiting = null;
     if (w != null && !w.isCompleted) w.complete(-1);
@@ -170,6 +274,7 @@ class DemoPlayer extends ChangeNotifier {
     _token++;
     _cancelWait();
     _answered.clear();
+    _results.clear();
     teacher.clear();
     for (final d in drivers.values) {
       d.value = 0;

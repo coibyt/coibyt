@@ -9,7 +9,10 @@ import 'number_pad.dart';
 
 /// Tham số chung cho mọi khu vực trả lời.
 class AnswerViewState {
-  const AnswerViewState({required this.enabled, required this.check, required this.showCorrect});
+  const AnswerViewState({required this.enabled, required this.check, required this.showCorrect, this.readingChoiceId});
+
+  /// Đáp án cô đang đọc (sáng viền vàng).
+  final String? readingChoiceId;
 
   /// Bé còn được thay đổi câu trả lời không.
   final bool enabled;
@@ -42,7 +45,11 @@ class MultipleChoiceView extends StatefulWidget {
     required this.onChanged,
     this.random,
     this.initial,
+    this.order,
   });
+
+  /// Thứ tự hiển thị các đáp án (mã); null = tự xáo theo [random].
+  final List<String>? order;
 
   final MultipleChoiceBody body;
   final AnswerViewState state;
@@ -63,8 +70,14 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
   @override
   void initState() {
     super.initState();
-    _order = [...widget.body.choices];
-    if (widget.body.shuffleChoices) _order.shuffle(widget.random ?? Random());
+    final byId = {for (final c in widget.body.choices) c.id: c};
+    final given = widget.order;
+    if (given != null && given.length == byId.length && given.every(byId.containsKey)) {
+      _order = [for (final id in given) byId[id]!];
+    } else {
+      _order = [...widget.body.choices];
+      if (widget.body.shuffleChoices) _order.shuffle(widget.random ?? Random());
+    }
     _selected.addAll(widget.initial?.selectedIds ?? const {});
   }
 
@@ -94,6 +107,7 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
               label: String.fromCharCode(65 + i), // A, B, C, D
               text: choice.text,
               selected: _selected.contains(choice.id),
+              reading: s.readingChoiceId == choice.id,
               resultColor: s.showCorrect && widget.body.correctChoiceIds.contains(choice.id)
                   ? AppColors.good
                   : (s.check != null ? _partColor(s.check!.partCorrect[choice.id]) : null),
@@ -113,18 +127,24 @@ class _ChoiceTile extends StatelessWidget {
     required this.selected,
     required this.onTap,
     this.resultColor,
+    this.reading = false,
   });
 
   final String label;
   final String text;
   final bool selected;
+
+  /// Cô đang đọc đáp án này.
+  final bool reading;
   final Color? resultColor;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final hasResult = resultColor != null && resultColor != Colors.transparent;
-    final border = hasResult ? resultColor! : (selected ? AppColors.sky : Colors.black12);
+    final border = hasResult
+        ? resultColor!
+        : (selected ? AppColors.sky : (reading ? const Color(0xFFFFB800) : Colors.black12));
     final fill = hasResult
         ? (resultColor == AppColors.good ? AppColors.goodSoft : AppColors.tryAgainSoft)
         : (selected ? AppColors.skySoft : Colors.white);
@@ -143,21 +163,24 @@ class _ChoiceTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSizes.radius),
-              border: Border.all(color: border, width: selected || hasResult ? 4 : 2),
+              border: Border.all(color: border, width: selected || hasResult || reading ? 4 : 2),
+              boxShadow: reading ? const [BoxShadow(color: Color(0x66FFC93C), blurRadius: 14)] : const [],
             ),
             child: Row(
               children: [
                 CircleAvatar(
                   radius: 22,
                   backgroundColor: selected ? AppColors.sky : AppColors.honeySoft,
-                  child: Text(
-                    label,
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      color: selected ? Colors.white : AppColors.ink,
-                    ),
-                  ),
+                  child: reading && !selected
+                      ? const Icon(Icons.volume_up_rounded, color: Color(0xFFE07A00))
+                      : Text(
+                          label,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.w700,
+                            color: selected ? Colors.white : AppColors.ink,
+                          ),
+                        ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(child: Text(text, style: _bigText(context))),
@@ -687,6 +710,7 @@ Widget buildAnswerView({
   required ValueChanged<UserAnswer> onChanged,
   UserAnswer? initial,
   Random? random,
+  List<String>? choiceOrder,
 }) {
   return switch (problem.body) {
     final MultipleChoiceBody b => MultipleChoiceView(
@@ -694,6 +718,7 @@ Widget buildAnswerView({
       state: state,
       onChanged: onChanged,
       random: random,
+      order: choiceOrder,
       initial: initial is ChoiceAnswer ? initial : null,
     ),
     final FillBlankBody b => FillBlankView(

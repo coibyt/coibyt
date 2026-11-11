@@ -1,148 +1,142 @@
 import 'package:flutter/material.dart';
 
-import '../../tutor/teacher_assets.dart';
-import 'game_art.dart';
+import '../../logic/visual_story.dart';
 
-/// Tranh minh hoạ cho một phép tính mẫu, vẽ bằng hình 3D có sẵn — số lượng luôn đúng:
-/// * a × b (Việt Nam: a được lấy b lần) → b nhóm, mỗi nhóm a ngôi sao;
-/// * a : b = c → a quả chia đều vào b hộp, mỗi hộp c;
-/// * a + b, a − b (≤ 20) → hai nhóm / gạch bớt;
-/// * số lớn hơn → khối trăm, thanh chục, khối đơn vị của kết quả.
+/// Tranh minh hoạ một phép tính bằng đồ vật 3D (Kie.ai) — số lượng luôn đúng:
+/// * a × b → b đĩa/giỏ/hộp, mỗi cái a đồ vật;  * a : b = c → chia đều vào b vật đựng;
+/// * a + b → hai nhóm;  * a − b → gạch bớt;  * số lớn → khối trăm, thanh chục, khối đơn vị.
+/// [lit]: nhóm đang được cô đếm (0..lit sáng, các nhóm sau mờ); null = sáng hết.
 class VisualAid extends StatelessWidget {
-  const VisualAid._({required this.kind, required this.a, required this.b, required this.c});
+  const VisualAid({super.key, required this.story, this.lit, this.compact = false});
 
-  final String kind;
-  final int a;
-  final int b;
-  final int c;
+  final AidStory story;
+  final int? lit;
+  final bool compact;
 
-  static final _re = RegExp(r'^\s*([\d.]+)\s*([+\-−×x*:÷])\s*([\d.]+)\s*=\s*([\d.]+)\s*$');
-
-  /// Tranh cho "a op b = c"; null nếu không vẽ được (biểu thức dài, số quá lớn…).
-  static VisualAid? forEquation(String text) {
-    final m = _re.firstMatch(text);
-    if (m == null) return null;
-    int n(String s) => int.parse(s.replaceAll('.', ''));
-    final (a, b, c) = (n(m[1]!), n(m[3]!), n(m[4]!));
-    final op = m[2]!;
-    if ((op == '×' || op == 'x' || op == '*') && a <= 10 && b <= 10 && a * b <= 60) {
-      return VisualAid._(kind: 'mul', a: a, b: b, c: c);
-    }
-    if ((op == ':' || op == '÷') && a <= 60 && b >= 1 && b <= 10 && c * b <= a) {
-      return VisualAid._(kind: 'div', a: a, b: b, c: c);
-    }
-    if (op == '+' && a + b <= 20) return VisualAid._(kind: 'add', a: a, b: b, c: c);
-    if ((op == '-' || op == '−') && a <= 20) return VisualAid._(kind: 'sub', a: a, b: b, c: c);
-    if (c > 0 && c < 10000) return VisualAid._(kind: 'place', a: a, b: b, c: c);
-    return null;
+  /// Tranh cho "a op b = c"; null nếu không vẽ được.
+  static VisualAid? forEquation(String text, {int? lit, bool compact = false}) {
+    final s = aidStory(text);
+    return s == null ? null : VisualAid(story: s, lit: lit, compact: compact);
   }
+
+  static String _asset(String stem) => 'assets/ui/$stem.webp';
+
+  Widget _img(String stem, double size, {Widget? fallback}) => Image.asset(
+    _asset(stem),
+    width: size,
+    height: size,
+    fit: BoxFit.contain,
+    errorBuilder: (_, _, _) => fallback ?? Icon(Icons.circle, size: size * 0.7, color: Colors.orange),
+  );
 
   @override
   Widget build(BuildContext context) {
-    final (Widget art, String caption) = switch (kind) {
-      'mul' => (
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          alignment: WrapAlignment.center,
-          children: [for (var g = 0; g < b; g++) _group(a, UiAsset.star, const Color(0xFFFFF4D6))],
+    final s = story;
+    final itemSize = compact ? 22.0 : 28.0;
+    Widget group(int g) {
+      final n = s.itemsIn(g);
+      final on = lit == null || g <= lit!;
+      final current = lit != null && g == lit;
+      final crossedFrom = s.kind == 'sub' ? n - s.b : n;
+      return AnimatedScale(
+        scale: current ? 1.08 : 1,
+        duration: const Duration(milliseconds: 250),
+        child: AnimatedOpacity(
+          opacity: on ? 1 : 0.3,
+          duration: const Duration(milliseconds: 250),
+          child: Container(
+            width: compact ? 118 : 140,
+            padding: const EdgeInsets.fromLTRB(4, 4, 4, 0),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              color: current ? const Color(0xFFFFF1C2) : Colors.transparent,
+              boxShadow: current ? const [BoxShadow(color: Color(0x88FFC93C), blurRadius: 14)] : const [],
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: 0,
+                  runSpacing: 0,
+                  children: [
+                    for (var i = 0; i < n; i++)
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Opacity(opacity: i >= crossedFrom ? 0.3 : 1, child: _img('obj_${s.theme.item}', itemSize)),
+                          if (i >= crossedFrom)
+                            Icon(Icons.close_rounded, color: const Color(0xFFE5484D), size: itemSize),
+                        ],
+                      ),
+                  ],
+                ),
+                Transform.translate(
+                  offset: const Offset(0, -6),
+                  child: _img('ctr_${s.theme.container}', compact ? 70 : 86, fallback: const SizedBox(height: 10)),
+                ),
+              ],
+            ),
+          ),
         ),
-        '$b nhóm, mỗi nhóm $a ngôi sao: $a được lấy $b lần, tất cả có $c.',
-      ),
-      'div' => (
-        Wrap(
-          spacing: 8,
-          runSpacing: 8,
-          alignment: WrapAlignment.center,
-          children: [for (var g = 0; g < b; g++) _group(c, UiAsset.coin, const Color(0xFFE8F1FF))],
-        ),
-        '$a đồng vàng chia đều vào $b hộp, mỗi hộp được $c.',
-      ),
-      'add' => (
-        Wrap(
-          spacing: 10,
-          alignment: WrapAlignment.center,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            _group(a, UiAsset.star, const Color(0xFFFFF4D6)),
-            const Text('+', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900)),
-            _group(b, UiAsset.heart, const Color(0xFFFFE3EA)),
-          ],
-        ),
-        'Gộp $a và $b được $c.',
-      ),
-      'sub' => (
-        _group(a, UiAsset.star, const Color(0xFFFFF4D6), crossed: b),
-        'Có $a, bớt đi $b (gạch chéo), còn lại $c.',
-      ),
-      _ => (_PlaceValue(value: c), _placeCaption(c)),
-    };
+      );
+    }
+
+    final Widget art = s.kind == 'place'
+        ? _PlaceValue(value: s.c)
+        : Wrap(
+            spacing: 6,
+            runSpacing: 2,
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.end,
+            children: [
+              for (var g = 0; g < s.groups; g++) ...[
+                if (s.kind == 'add' && g == 1)
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 40),
+                    child: Text('+', style: TextStyle(fontSize: 30, fontWeight: FontWeight.w900)),
+                  ),
+                group(g),
+              ],
+            ],
+          );
     return Container(
       key: const ValueKey('visual-aid'),
       margin: const EdgeInsets.only(top: 8),
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        gradient: const LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [Color(0xFFFFFDF6), Color(0xFFFFF3D6)],
+        ),
         borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: const Color(0xFFCFE3FF), width: 2),
+        border: Border.all(color: const Color(0xFFFFD66B), width: 2),
       ),
       child: Column(
         children: [
           const Row(
             children: [
-              Icon(Icons.image_rounded, color: Color(0xFF3A86FF), size: 20),
+              Icon(Icons.image_rounded, color: Color(0xFFE07A00), size: 20),
               SizedBox(width: 6),
               Text(
                 'Tranh minh hoạ',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Color(0xFF3A86FF)),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Color(0xFFE07A00)),
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           art,
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
-            caption,
+            s.caption,
             textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            style: TextStyle(fontSize: compact ? 14 : 16, fontWeight: FontWeight.w700),
           ),
         ],
       ),
     );
   }
-
-  static String _placeCaption(int v) {
-    final t = v ~/ 1000, h = v ~/ 100 % 10, d = v ~/ 10 % 10, u = v % 10;
-    return [
-      if (t > 0) '$t nghìn',
-      if (t > 0 || h > 0) '$h trăm',
-      if (t > 0 || h > 0 || d > 0) '$d chục',
-      '$u đơn vị',
-    ].join(', ').replaceFirst(RegExp(r'^'), 'Kết quả gồm ');
-  }
-
-  Widget _group(int count, UiAsset art, Color bg, {int crossed = 0}) => Container(
-    padding: const EdgeInsets.all(6),
-    decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(12)),
-    constraints: const BoxConstraints(maxWidth: 150),
-    child: Wrap(
-      spacing: 2,
-      runSpacing: 2,
-      children: [
-        for (var i = 0; i < count; i++)
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              Opacity(
-                opacity: i >= count - crossed ? 0.35 : 1,
-                child: GameIcon(art, size: 24, fallback: const Icon(Icons.circle, size: 18, color: Colors.orange)),
-              ),
-              if (i >= count - crossed) const Icon(Icons.close_rounded, color: Color(0xFFE5484D), size: 24),
-            ],
-          ),
-      ],
-    ),
-  );
 }
 
 /// Khối trăm (ô vuông 10×10), thanh chục, khối đơn vị — nghìn vẽ bằng khối lớn có chữ "1000".

@@ -5,7 +5,9 @@ import 'package:toan_lop_3/logic/tips.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/services/content_repository.dart';
 import 'package:toan_lop_3/services/kv_store.dart';
+import 'package:toan_lop_3/models/blocks.dart';
 import 'package:toan_lop_3/services/tutor_voice.dart';
+import 'package:toan_lop_3/tutor/teacher_controller.dart';
 import 'package:toan_lop_3/tutor/teacher_demo.dart';
 import 'package:toan_lop_3/tutor/tutor_audio_service.dart';
 import 'package:toan_lop_3/ui/app_theme.dart';
@@ -29,6 +31,7 @@ class _Voice implements TutorVoice {
 }
 
 void main() {
+  remedyWidgetTests();
   test('mẹo theo tên bài: đúng chủ đề, không trùng, tối đa 3', () {
     final nhan = tipsForLesson('Nhân số có hai chữ số với số có một chữ số');
     expect(nhan.first.text, contains('Nhân từ phải sang trái'));
@@ -100,5 +103,61 @@ void main() {
     expect(find.byKey(const ValueKey('tip-0')), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 10));
+  });
+}
+
+void remedyWidgetTests() {
+  testWidgets('Trả lời sai: cô thuyết minh tranh đồ vật rồi hỏi lại câu dễ hơn (2 đáp án)', (tester) async {
+    tester.view.physicalSize = const Size(1080, 2340);
+    tester.view.devicePixelRatio = 2.5;
+    addTearDown(tester.view.reset);
+    final voice = _Voice();
+    final saved = TutorAudioService.instance;
+    TutorAudioService.instance = TutorAudioService(fallback: voice);
+    addTearDown(() => TutorAudioService.instance = saved);
+    final teacher = TeacherController();
+    final blocks = <ContentBlock>[const EquationBlock(text: '6 × 8 = 48')];
+    final player = DemoPlayer(blocks: blocks, teacher: teacher, scenes: buildDemoScript(blocks));
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: buildAppTheme(),
+        home: Scaffold(
+          body: ListenableBuilder(
+            listenable: player,
+            builder: (_, _) => SingleChildScrollView(child: QuizPanel(player: player)),
+          ),
+        ),
+      ),
+    );
+    player.play();
+    for (var i = 0; i < 60 && !player.waitingAnswer; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
+    expect(player.waitingAnswer, isTrue);
+    final q = player.activeQuiz!;
+    expect(voice.spoken.any((s) => s.contains('Phương án A')), isTrue, reason: 'cô đọc các phương án');
+    final wrong = (q.correct + 1) % q.choices.length;
+    await tester.tap(find.byKey(ValueKey('class-quiz-$wrong')));
+    // Cô thuyết minh tranh: tranh hiện ra, cô đếm 6, 12, …
+    for (var i = 0; i < 40 && find.byKey(const ValueKey('remedy-aid')).evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
+    expect(find.byKey(const ValueKey('remedy-aid')), findsOneWidget);
+    for (var i = 0; i < 120 && !(player.waitingAnswer && player.activeQuiz!.choices.length == 2); i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
+    expect(voice.spoken, contains('sáu nhân tám bằng bốn mươi tám.'.replaceFirst('sáu', 'Vậy sáu')));
+    final easy = player.activeQuiz!;
+    expect(easy.choices, hasLength(2));
+    await tester.pump();
+    await tester.tap(find.byKey(ValueKey('class-quiz-${easy.correct}')));
+    for (var i = 0; i < 60 && !player.done; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
+    expect(player.done, isTrue);
+    player.dispose();
+    teacher.dispose();
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 5));
   });
 }

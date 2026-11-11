@@ -269,11 +269,18 @@ class QuizPanel extends StatelessWidget {
   final DemoPlayer player;
 
   static const _colors = [Color(0xFF3A86FF), Color(0xFFFF6FB5), Color(0xFF2EB872)];
+  static const _surveyIcons = [
+    Icons.sentiment_very_satisfied_rounded,
+    Icons.help_outline_rounded,
+    Icons.replay_rounded,
+  ];
 
   @override
   Widget build(BuildContext context) {
-    final q = player.current!.quiz!;
-    final picked = player.answerOf(player.index);
+    final story = player.story;
+    final q = player.activeQuiz;
+    if (q == null && story == null) return const SizedBox.shrink();
+    final picked = player.picked;
     return Container(
       key: const ValueKey('class-quiz'),
       margin: const EdgeInsets.only(bottom: 6),
@@ -286,40 +293,83 @@ class QuizPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            children: [
-              const Icon(Icons.quiz_rounded, color: Color(0xFFE07A00)),
-              const SizedBox(width: 6),
-              Expanded(
-                child: Text(
-                  q.question,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Color(0xFF4A2A00)),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              for (var i = 0; i < q.choices.length; i++) ...[
-                if (i > 0) const SizedBox(width: 8),
-                Expanded(child: _choice(i, q, picked)),
-              ],
-            ],
-          ),
-          if (picked == null && player.waitingAnswer)
-            const Padding(
-              padding: EdgeInsets.only(top: 6),
-              child: Text(
-                'Con chạm vào đáp án đúng nhé!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14, color: Colors.black54, fontWeight: FontWeight.w600),
+          // Cô thuyết minh tranh đồ vật khi bé trả lời sai: nhóm đang đếm sáng lên.
+          if (story != null)
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 250),
+              child: SingleChildScrollView(
+                child: VisualAid(key: const ValueKey('remedy-aid'), story: story, lit: player.lit, compact: true),
               ),
             ),
+          if (q != null) ...[
+            Row(
+              children: [
+                Icon(q.survey ? Icons.psychology_alt_rounded : Icons.quiz_rounded, color: const Color(0xFFE07A00)),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    q.question,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Color(0xFF4A2A00)),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            if (q.survey)
+              Column(
+                children: [
+                  for (var i = 0; i < q.choices.length; i++)
+                    Padding(padding: const EdgeInsets.only(bottom: 6), child: _surveyChoice(i, q, picked)),
+                ],
+              )
+            else
+              Row(
+                children: [
+                  for (var i = 0; i < q.choices.length; i++) ...[
+                    if (i > 0) const SizedBox(width: 8),
+                    Expanded(child: _choice(i, q, picked)),
+                  ],
+                ],
+              ),
+            if (picked == null && player.waitingAnswer)
+              const Padding(
+                padding: EdgeInsets.only(top: 6),
+                child: Text(
+                  'Con chạm vào đáp án nhé!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 14, color: Colors.black54, fontWeight: FontWeight.w600),
+                ),
+              ),
+          ],
         ],
       ),
     );
   }
+
+  Widget _surveyChoice(int i, DemoQuiz q, int? picked) => Material(
+    color: picked == null ? _colors[i % 3] : (picked == i ? const Color(0xFF8E5CF7) : Colors.black26),
+    borderRadius: BorderRadius.circular(16),
+    child: InkWell(
+      key: ValueKey('class-survey-$i'),
+      borderRadius: BorderRadius.circular(16),
+      onTap: picked != null || !player.waitingAnswer ? null : () => player.answer(i),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+        child: Row(
+          children: [
+            Icon(_surveyIcons[i % 3], color: Colors.white),
+            const SizedBox(width: 8),
+            Expanded(
+              child: Text(
+                '${'ABC'[i]}. ${q.choices[i]}',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
 
   Widget _choice(int i, DemoQuiz q, int? picked) {
     final answered = picked != null;
@@ -484,7 +534,7 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
       teacher: _teacher,
       scenes: buildDemoScript(
         blocks,
-        intro: [TutorLines.lessonIntro(widget.lessonRef.title)],
+        intro: const [TutorLines.classStart], // lời giới thiệu bài đã nói ở màn bài học → không lặp
         tips: _tips,
         outro: const [TutorLines.classDone],
       ),
@@ -623,7 +673,7 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           TeacherHud(key: const ValueKey('class-teacher'), controller: _teacher, avatarHeight: 110),
-                          if (p.current?.quiz != null) QuizPanel(player: p),
+                          QuizPanel(player: p),
                           if (p.done && p.quizScore.$3 > 0) _QuizScoreChip(score: p.quizScore),
                           DemoControls(player: p),
                           const SizedBox(height: 6),

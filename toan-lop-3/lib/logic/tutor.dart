@@ -33,7 +33,9 @@ abstract final class TutorLines {
   // Cô làm mẫu / bí quyết
   static const demoColumn = 'Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.';
   static const demoDivision = 'Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải.';
+  static const classStart = 'Cô bắt đầu giảng nhé! Con nhìn bảng và nghe cô nói nhé.';
   static const classDone = 'Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!';
+  static const readChoices = 'Các đáp án là:';
   static const quizLead = 'Cô hỏi con một câu nhé!';
   static const quizRight = [
     'Đúng rồi! Con giỏi lắm!',
@@ -41,6 +43,18 @@ abstract final class TutorLines {
     'Tuyệt vời, con hiểu bài rồi đấy!',
   ];
   static const quizWrong = 'Chưa đúng rồi, không sao đâu!';
+  // Giảng lại khi bé trả lời sai, kiểm tra hiểu bài cuối giờ
+  static const remedyLook = 'Không sao đâu! Mình cùng xem tranh minh hoạ nhé.';
+  static const remedyRetry = 'Bây giờ con thử lại nhé, cô chỉ để lại hai đáp án thôi!';
+  static const remedyReveal = 'Con cố gắng lắm rồi! Mình cùng nhớ nhé:';
+  static const encourage = ['Con nghĩ kỹ nhé, cô tin con làm được!', 'Con nhìn lại bảng xem, gợi ý ở ngay đó!'];
+  static const understandAsk = 'Con đã hiểu bài chưa nào? Con chọn giúp cô nhé!';
+  static const understandOptions = ['Con hiểu rồi!', 'Con chưa chắc lắm', 'Cô giảng lại giúp con'];
+  static const understandYes = 'Tuyệt vời! Cô đố con hai câu để kiểm tra nhé!';
+  static const understandUnsure = 'Không sao, cô hỏi con hai câu thật dễ, mình cùng làm nhé!';
+  static const understandAgain = 'Được rồi, cô giảng lại từ đầu cho con nhé!';
+  static const checkPassed = 'Con trả lời đúng hết! Con đã hiểu bài rồi đấy!';
+  static const checkTried = 'Con đã cố gắng rất tốt! Mình luyện tập thêm để nhớ bài lâu hơn nhé!';
   static const bridgeEquation = 'Cô ghi phép tính lên bảng, con nhìn kỹ nhé!';
   static const bridgeStep = 'Cô viết kết quả vào phép tính, mình làm tiếp bước sau nhé!';
   static const bridgeLesson = 'Con vừa dùng đúng kiến thức của bài hôm nay đấy! Mình cùng nhớ lại nhé.';
@@ -154,11 +168,23 @@ abstract final class TutorLines {
     screenTheory,
     demoColumn,
     demoDivision,
+    classStart,
     classDone,
     solutionIntro,
+    readChoices,
     quizLead,
     ...quizRight,
     quizWrong,
+    remedyLook,
+    remedyRetry,
+    remedyReveal,
+    ...encourage,
+    understandAsk,
+    understandYes,
+    understandUnsure,
+    understandAgain,
+    checkPassed,
+    checkTried,
     bridgeEquation,
     bridgeStep,
     bridgeLesson,
@@ -285,4 +311,11 @@ class TutorBrain {
   }
 
   String idleNudge() => _pick(TutorLines.idleNudge);
+}
+
+/// Câu cô đọc thêm cho bài điền số: mẫu có số và khác đề ("21 × 3 = ?"); null = không cần đọc.
+String? readableTemplate(String template, String prompt) {
+  final t = template.replaceAll(RegExp(r'\{\{\s*[A-Za-z0-9_]+\s*\}\}'), '?').trim();
+  if (!RegExp(r'\d').hasMatch(t) || t == prompt.trim() || t.length > 120) return null;
+  return t.replaceAll('\n', '. ');
 }

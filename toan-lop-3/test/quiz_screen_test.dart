@@ -166,5 +166,8 @@ void main() {
     await gesture.up();
     await tester.pumpAndSettle();
     expect(find.descendant(of: slot, matching: find.text('48')), findsOneWidget);
+    // Cô còn đang đọc dở: tháo cây widget rồi chờ hết các hẹn giờ của giọng đọc.
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(seconds: 30));
   });
 }

@@ -294,6 +294,21 @@ JOBS["bg_splash"] = dict(group="bg", aspect="9:16", prompt=(
     "floating soft golden light particles, gentle bokeh, warm honey, peach and royal purple tones, a soft radial "
     "glow in the centre for a logo, very elegant and dreamy, no characters, no text. " + STYLE + " " + CLEAN))
 
+# ---- Đồ vật minh hoạ (đếm, nhân, chia) ----
+for _n, _d in {
+    "obj_apple": "A single shiny red apple with a small green leaf, front view",
+    "obj_orange": "A single juicy round orange fruit with a small green leaf",
+    "obj_candy": "A single colourful wrapped candy sweet with twisted wrapper ends, pink and yellow stripes",
+    "obj_pencil": "A single yellow wooden pencil with a pink eraser, standing upright, slightly tilted",
+    "obj_cupcake": "A single cute cupcake with pink frosting and a cherry on top",
+    "obj_flower": "A single cute pink daisy flower with a short green stem and one leaf",
+    "ctr_plate": "An empty round white ceramic plate with a thin blue rim, seen from a low three-quarter angle, wide and flat",
+    "ctr_basket": "An empty woven wicker basket with a handle, seen from the front",
+    "ctr_box": "An empty open cardboard gift box in pastel blue, seen from the front, low and wide",
+    "ctr_vase": "An empty small glass jar vase with a ribbon, seen from the front",
+}.items():
+    JOBS[_n] = dict(group="ui", aspect="1:1", prompt=obj(_d))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",
