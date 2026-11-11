@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "catalog",
+  "contentRev": 1,
+  "skills": [
+    { "id": "nhan.2cs_1cs.khong_nho", "name": "Nhân số có hai chữ số với số có một chữ số (không nhớ)", "strand": "so_va_phep_tinh" },
+    { "id": "nhan.2cs_1cs.co_nho", "name": "Nhân số có hai chữ số với số có một chữ số (có nhớ)", "strand": "so_va_phep_tinh" },
+    { "id": "chia.2cs_1cs", "name": "Chia số có hai chữ số cho số có một chữ số", "strand": "so_va_phep_tinh" },
+    { "id": "cong_tru.pham_vi_100", "name": "Cộng, trừ có nhớ trong phạm vi 100", "strand": "so_va_phep_tinh" },
+    { "id": "tim_thanh_phan.thua_so", "name": "Tìm thừa số chưa biết", "strand": "so_va_phep_tinh" },
+    { "id": "so_sanh.ket_qua", "name": "So sánh kết quả các phép tính", "strand": "so_va_phep_tinh" },
+    { "id": "giai_toan.mot_phep_tinh", "name": "Giải toán có lời văn (một phép tính)", "strand": "so_va_phep_tinh" },
+    { "id": "giai_toan.hai_phep_tinh", "name": "Giải toán có lời văn (hai phép tính)", "strand": "so_va_phep_tinh" }
+  ],
+  "books": [
+    {
+      "id": "kntt3",
+      "series": "ket_noi_tri_thuc",
+      "grade": 3,
+      "title": "Toán 3 — Kết nối tri thức với cuộc sống",
+      "chapters": [
+        {
+          "id": "kntt3.c4",
+          "order": 4,
+          "volume": 1,
+          "title": "Phép nhân, phép chia trong phạm vi 100",
+          "lessons": [
+            {
+              "id": "kntt3.c4.nhan-2cs-1cs",
+              "order": 1,
+              "title": "Nhân số có hai chữ số với số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c4.nhan-2cs-1cs.json",
+              "access": "free"
+            },
+            {
+              "id": "kntt3.c4.chia-2cs-1cs",
+              "order": 2,
+              "title": "Chia số có hai chữ số cho số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c4.chia-2cs-1cs.json",
+              "access": "free"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ctst3",
+      "series": "chan_troi_sang_tao",
+      "grade": 3,
+      "title": "Toán 3 — Chân trời sáng tạo",
+      "chapters": []
+    }
+  ]
+}

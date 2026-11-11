@@ -1,0 +1,410 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "lesson",
+  "id": "kntt3.c4.nhan-2cs-1cs",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 1,
+  "title": "Nhân số có hai chữ số với số có một chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      { "kind": "text", "style": "rule", "text": "Đặt tính thẳng cột. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau." },
+      { "kind": "text", "text": "Ví dụ: 26 × 3 = ?" },
+      {
+        "kind": "column_arithmetic",
+        "operation": "multiply",
+        "operands": ["26", "3"],
+        "result": "78",
+        "digitSteps": [
+          { "place": 0, "text": "3 nhân 6 bằng 18, viết 8 nhớ 1.", "write": "8", "carry": 1 },
+          { "place": 1, "text": "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.", "write": "7", "carry": 0 }
+        ]
+      },
+      { "kind": "equation", "text": "26 × 3 = 78" },
+      { "kind": "text", "style": "tip", "text": "Đừng quên cộng thêm số nhớ vào lượt nhân tiếp theo nhé!" }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": { "text": "21 × 3 = ?", "speak": "hai mươi mốt nhân ba bằng bao nhiêu?" },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": ["nhan.2cs_1cs.khong_nho"],
+      "access": "free",
+      "template": "21 × 3 = {{b1}}",
+      "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 63 }, "maxLength": 3 }],
+      "solution": {
+        "access": "free",
+        "answerText": "63",
+        "hint": "Lấy 3 nhân hàng đơn vị trước: 3 × 1 = ?",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["21", "3"],
+            "result": "63",
+            "digitSteps": [
+              { "place": 0, "text": "3 nhân 1 bằng 3, viết 3.", "write": "3" },
+              { "place": 1, "text": "3 nhân 2 bằng 6, viết 6.", "write": "6" }
+            ]
+          },
+          { "kind": "equation", "text": "21 × 3 = 63" }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": { "text": "Kết quả của phép nhân 32 × 3 là:" },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": ["nhan.2cs_1cs.khong_nho"],
+      "access": "free",
+      "choices": [
+        { "id": "a", "text": "66" },
+        { "id": "b", "text": "96" },
+        { "id": "c", "text": "99" },
+        { "id": "d", "text": "69" }
+      ],
+      "correctChoiceIds": ["b"],
+      "solution": {
+        "access": "free",
+        "answerText": "96",
+        "hint": "Nhân hàng đơn vị trước: 3 × 2 = ?",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["32", "3"],
+            "result": "96",
+            "digitSteps": [
+              { "place": 0, "text": "3 nhân 2 bằng 6, viết 6.", "write": "6" },
+              { "place": 1, "text": "3 nhân 3 bằng 9, viết 9.", "write": "9" }
+            ]
+          },
+          { "kind": "equation", "text": "32 × 3 = 96" }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": { "text": "16 × 5 = ?" },
+      "level": 2,
+      "estimatedSeconds": 45,
+      "skillIds": ["nhan.2cs_1cs.co_nho"],
+      "access": "free",
+      "template": "16 × 5 = {{b1}}",
+      "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 80 }, "maxLength": 3 }],
+      "solution": {
+        "access": "free",
+        "answerText": "80",
+        "hint": "5 × 6 = 30, viết 0 và nhớ 3 nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["16", "5"],
+            "result": "80",
+            "digitSteps": [
+              { "place": 0, "text": "5 nhân 6 bằng 30, viết 0 nhớ 3.", "write": "0", "carry": 3 },
+              { "place": 1, "text": "5 nhân 1 bằng 5, thêm 3 bằng 8, viết 8.", "write": "8" }
+            ]
+          },
+          { "kind": "equation", "text": "16 × 5 = 80" }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": { "text": "Mỗi đoạn dây dài 15 cm. Hỏi 3 đoạn dây như thế dài bao nhiêu xăng-ti-mét?" },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": ["nhan.2cs_1cs.co_nho", "giai_toan.mot_phep_tinh"],
+      "access": "free",
+      "template": "3 đoạn dây dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": { "kind": "number", "value": 45, "unit": "cm", "unitAliases": ["xăng-ti-mét", "xentimet"] },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45 cm",
+        "hint": "3 đoạn dây, mỗi đoạn 15 cm: ta làm phép nhân 15 × 3.",
+        "steps": [
+          { "kind": "text", "text": "Có 3 đoạn dây bằng nhau, mỗi đoạn 15 cm, nên ta tính 15 × 3." },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["15", "3"],
+            "result": "45",
+            "digitSteps": [
+              { "place": 0, "text": "3 nhân 5 bằng 15, viết 5 nhớ 1.", "write": "5", "carry": 1 },
+              { "place": 1, "text": "3 nhân 1 bằng 3, thêm 1 bằng 4, viết 4.", "write": "4" }
+            ]
+          },
+          { "kind": "equation", "text": "15 × 3 = 45" },
+          { "kind": "text", "text": "Vậy 3 đoạn dây dài 45 cm." }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": { "text": "Mỗi hộp có 24 cái bút chì màu. Hỏi 3 hộp như thế có tất cả bao nhiêu cái bút chì màu?" },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": ["nhan.2cs_1cs.co_nho", "giai_toan.mot_phep_tinh"],
+      "access": "free",
+      "choices": [
+        { "id": "a", "text": "27 cái" },
+        { "id": "b", "text": "72 cái" },
+        { "id": "c", "text": "62 cái" },
+        { "id": "d", "text": "82 cái" }
+      ],
+      "correctChoiceIds": ["b"],
+      "solution": {
+        "access": "free",
+        "answerText": "72 cái bút chì màu",
+        "hint": "3 hộp, mỗi hộp 24 cái: ta làm phép nhân, không phải phép cộng 24 + 3.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [{ "explanation": "Số bút chì màu của 3 hộp là:", "equation": "24 × 3 = 72 (cái)" }],
+            "answer": "Đáp số: 72 cái bút chì màu."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["24", "3"],
+            "result": "72",
+            "digitSteps": [
+              { "place": 0, "text": "3 nhân 4 bằng 12, viết 2 nhớ 1.", "write": "2", "carry": 1 },
+              { "place": 1, "text": "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.", "write": "7" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": { "text": "Kéo thẻ số đúng vào mỗi ô trống." },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": ["nhan.2cs_1cs.khong_nho"],
+      "access": "free",
+      "template": "12 × 4 = {{s1}}\n23 × 3 = {{s2}}\n41 × 2 = {{s3}}",
+      "tokens": [
+        { "id": "t1", "text": "48" },
+        { "id": "t2", "text": "69" },
+        { "id": "t3", "text": "82" },
+        { "id": "t4", "text": "84" }
+      ],
+      "slots": [
+        { "id": "s1", "accept": ["t1"] },
+        { "id": "s2", "accept": ["t2"] },
+        { "id": "s3", "accept": ["t3"] }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48; 69; 82",
+        "steps": [
+          { "kind": "equation", "text": "12 × 4 = 48" },
+          { "kind": "equation", "text": "23 × 3 = 69" },
+          { "kind": "equation", "text": "41 × 2 = 82" },
+          { "kind": "text", "style": "tip", "text": "Thẻ 84 là thẻ thừa, không dùng đến." }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p07",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": { "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó." },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": ["nhan.2cs_1cs.khong_nho", "nhan.2cs_1cs.co_nho"],
+      "access": "free",
+      "left": [
+        { "id": "l1", "text": "13 × 3" },
+        { "id": "l2", "text": "25 × 2" },
+        { "id": "l3", "text": "17 × 4" },
+        { "id": "l4", "text": "11 × 5" }
+      ],
+      "right": [
+        { "id": "r1", "text": "50" },
+        { "id": "r2", "text": "39" },
+        { "id": "r3", "text": "55" },
+        { "id": "r4", "text": "68" },
+        { "id": "r5", "text": "58" }
+      ],
+      "pairs": [
+        { "left": "l1", "right": "r2" },
+        { "left": "l2", "right": "r1" },
+        { "left": "l3", "right": "r4" },
+        { "left": "l4", "right": "r3" }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "13 × 3 = 39; 25 × 2 = 50; 17 × 4 = 68; 11 × 5 = 55",
+        "steps": [
+          { "kind": "equation", "text": "13 × 3 = 39" },
+          { "kind": "equation", "text": "25 × 2 = 50" },
+          { "kind": "equation", "text": "17 × 4 = 68" },
+          { "kind": "equation", "text": "11 × 5 = 55" }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": { "text": "Phép tính nào có kết quả lớn nhất?" },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": ["nhan.2cs_1cs.co_nho", "so_sanh.ket_qua"],
+      "access": "free",
+      "choices": [
+        { "id": "a", "text": "19 × 4" },
+        { "id": "b", "text": "26 × 3" },
+        { "id": "c", "text": "38 × 2" },
+        { "id": "d", "text": "15 × 5" }
+      ],
+      "correctChoiceIds": ["b"],
+      "solution": {
+        "access": "free",
+        "answerText": "26 × 3 (bằng 78)",
+        "hint": "Tính kết quả từng phép tính rồi so sánh.",
+        "steps": [
+          { "kind": "text", "text": "Tính kết quả từng phép tính:" },
+          { "kind": "equation", "text": "19 × 4 = 76" },
+          { "kind": "equation", "text": "26 × 3 = 78" },
+          { "kind": "equation", "text": "38 × 2 = 76" },
+          { "kind": "equation", "text": "15 × 5 = 75" },
+          { "kind": "text", "text": "Số lớn nhất là 78. Vậy phép tính 26 × 3 có kết quả lớn nhất." }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": { "text": "Lớp 3A có 4 tổ, mỗi tổ trồng được 13 cây. Lớp 3B trồng được 38 cây. Hỏi cả hai lớp trồng được bao nhiêu cây?" },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": ["giai_toan.hai_phep_tinh", "nhan.2cs_1cs.co_nho", "cong_tru.pham_vi_100"],
+      "access": "free",
+      "template": "Cả hai lớp trồng được {{b1}} cây.",
+      "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 90, "unit": "cây" }, "maxLength": 3 }],
+      "solution": {
+        "access": "free",
+        "answerText": "90 cây",
+        "hint": "Bước 1: tìm số cây lớp 3A trồng. Bước 2: cộng thêm số cây lớp 3B.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              { "explanation": "Số cây lớp 3A trồng được là:", "equation": "13 × 4 = 52 (cây)" },
+              { "explanation": "Số cây cả hai lớp trồng được là:", "equation": "52 + 38 = 90 (cây)" }
+            ],
+            "answer": "Đáp số: 90 cây."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["13", "4"],
+            "result": "52",
+            "digitSteps": [
+              { "place": 0, "text": "4 nhân 3 bằng 12, viết 2 nhớ 1.", "write": "2", "carry": 1 },
+              { "place": 1, "text": "4 nhân 1 bằng 4, thêm 1 bằng 5, viết 5.", "write": "5" }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": ["52", "38"],
+            "result": "90",
+            "digitSteps": [
+              { "place": 0, "text": "2 cộng 8 bằng 10, viết 0 nhớ 1.", "write": "0", "carry": 1 },
+              { "place": 1, "text": "5 cộng 3 bằng 8, thêm 1 bằng 9, viết 9.", "write": "9" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.nhan-2cs-1cs.p10",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": { "text": "Một cửa hàng có 93 kg gạo. Cửa hàng đã bán 2 bao gạo, mỗi bao 27 kg. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?" },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": ["giai_toan.hai_phep_tinh", "nhan.2cs_1cs.co_nho", "cong_tru.pham_vi_100"],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} kg gạo.",
+      "blanks": [
+        { "id": "b1", "answer": { "kind": "number", "value": 39, "unit": "kg", "unitAliases": ["ki-lô-gam"] }, "maxLength": 3 }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "39 kg gạo",
+        "hint": "Tìm số gạo đã bán trước (2 bao), rồi lấy 93 kg trừ đi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              { "explanation": "Số gạo cửa hàng đã bán là:", "equation": "27 × 2 = 54 (kg)" },
+              { "explanation": "Số gạo cửa hàng còn lại là:", "equation": "93 - 54 = 39 (kg)" }
+            ],
+            "answer": "Đáp số: 39 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": ["27", "2"],
+            "result": "54",
+            "digitSteps": [
+              { "place": 0, "text": "2 nhân 7 bằng 14, viết 4 nhớ 1.", "write": "4", "carry": 1 },
+              { "place": 1, "text": "2 nhân 2 bằng 4, thêm 1 bằng 5, viết 5.", "write": "5" }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": ["93", "54"],
+            "result": "39",
+            "digitSteps": [
+              { "place": 0, "text": "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.", "write": "9", "carry": 1 },
+              { "place": 1, "text": "5 thêm 1 bằng 6; 9 trừ 6 bằng 3, viết 3.", "write": "3" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

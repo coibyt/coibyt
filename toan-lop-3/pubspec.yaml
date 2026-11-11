@@ -1,0 +1,37 @@
+name: toan_lop_3
+description: "Ong Vàng Toán 3 - học toán lớp 3 cho bé (tên tạm)."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  # Cần Flutter 3.35 trở lên (Dart 3.9+). Bản đã kiểm tra: Flutter 3.47.9.
+  sdk: ">=3.9.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Chuẩn hoá Unicode NFC cho tiếng Việt (gõ Telex/VNI có thể ra chữ tổ hợp).
+  unorm_dart: ^0.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/content/
+    - assets/content/lessons/
+    - assets/sounds/
+
+  fonts:
+    # Andika (SIL, giấy phép OFL 1.1 — xem assets/fonts/OFL.txt): font thiết kế cho
+    # trẻ mới tập đọc, chữ "a" một tầng giống chữ viết tay/SGK, đủ dấu tiếng Việt.
+    - family: Andika
+      fonts:
+        - asset: assets/fonts/Andika-Regular.ttf
+        - asset: assets/fonts/Andika-Bold.ttf
+          weight: 700
