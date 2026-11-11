@@ -895,23 +895,26 @@ class _CalendarShortcut extends StatelessWidget {
             gradient: const LinearGradient(colors: [Color(0xFF6A5CFF), Color(0xFF9B6BFF)]),
             boxShadow: const [BoxShadow(color: Color(0x406A5CFF), blurRadius: 12, offset: Offset(0, 5))],
           ),
-          child: const Row(
+          child: Row(
             children: [
-              Icon(Icons.calendar_month_rounded, color: Colors.white, size: 40),
-              SizedBox(width: 12),
+              const Icon(Icons.calendar_month_rounded, color: Colors.white, size: 40),
+              const SizedBox(width: 12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Lịch học từng ngày',
                       style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: Colors.white),
                     ),
-                    Text('Cả năm học: 35 tuần, 175 tiết Toán', style: TextStyle(fontSize: 15, color: Colors.white)),
+                    Text(
+                      'Cả năm học: ${cal.weekCount} tuần, ${cal.days.length} tiết Toán',
+                      style: const TextStyle(fontSize: 15, color: Colors.white),
+                    ),
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right_rounded, color: Colors.white, size: 36),
+              const Icon(Icons.chevron_right_rounded, color: Colors.white, size: 36),
             ],
           ),
         ),
