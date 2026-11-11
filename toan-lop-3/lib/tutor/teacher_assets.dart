@@ -53,6 +53,12 @@ enum UiAsset {
   examGiuaki,
   examCuoiki,
   examOntap,
+  abSo,
+  abCongtru,
+  abNhanchia,
+  abHinh,
+  abDoluong,
+  abRocket,
   ruler,
   button;
 
@@ -99,6 +105,9 @@ class TeacherAssets {
 
   /// Hình nền (`assets/bg/<name>.webp`), vd 'home', 'lesson'.
   String? background(String name) => _first('assets/bg/$name');
+
+  /// Huy hiệu hạng năng lực 1–4 (`assets/ui/ab_rank_<n>.webp`).
+  String? abilityRank(int n) => _first('${uiDir}ab_rank_$n');
 
   /// Ảnh bìa chủ đề thứ [order] (`assets/chapters/<order>.webp`).
   String? chapter(int order) => _first('assets/chapters/$order');

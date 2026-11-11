@@ -22,6 +22,16 @@
       "ms": 3648,
       "spoken": "bảy chia bốn được một, còn dư ba. Hạ hai xuống được ba mươi hai."
     },
+    "Bài học: Chia số có hai chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-chia-so-co-hai-chu-so-cho-so-co-54e539.mp3",
+      "ms": 6696,
+      "spoken": "Bài học: Chia số có hai chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
+    "Bài học: Nhân số có hai chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
+      "file": "assets/voice/bai-hoc-nhan-so-co-hai-chu-so-voi-so-co-42fae4.mp3",
+      "ms": 6408,
+      "spoken": "Bài học: Nhân số có hai chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+    },
     "Bài này hơi khó. Cô với con cùng xem từng bước nhé!": {
       "file": "assets/voice/bai-nay-hoi-kho-co-voi-con-cung-xem-tung-a97b83.mp3",
       "ms": 2760,
@@ -31,6 +41,11 @@
       "file": "assets/voice/buoc-1-tim-so-cay-lop-3a-trong-buoc-2-co-5ce693.mp3",
       "ms": 5448,
       "spoken": "Bước một: tìm số cây lớp ba A trồng. Bước hai: cộng thêm số cây lớp ba B."
+    },
+    "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé.": {
+      "file": "assets/voice/bat-dau-nao-con-doc-ky-de-roi-tra-loi-nh-d22a13.mp3",
+      "ms": 2088,
+      "spoken": "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé."
     },
     "Chia hàng chục trước: 8 chia 2 được mấy?": {
       "file": "assets/voice/chia-hang-chuc-truoc-8-chia-2-duoc-may-2b872f.mp3",
@@ -107,6 +122,11 @@
       "ms": 3024,
       "spoken": "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé."
     },
+    "Con giữ vững phong độ rồi, cố thêm chút nữa nhé!": {
+      "file": "assets/voice/con-giu-vung-phong-do-roi-co-them-chut-n-b591c2.mp3",
+      "ms": 2088,
+      "spoken": "Con giữ vững phong độ rồi, cố thêm chút nữa nhé!"
+    },
     "Con hãy làm hết các ô trước nhé!": {
       "file": "assets/voice/con-hay-lam-het-cac-o-truoc-nhe-e60b72.mp3",
       "ms": 1488,
@@ -137,6 +157,11 @@
       "ms": 3648,
       "spoken": "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé."
     },
+    "Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!": {
+      "file": "assets/voice/con-tien-bo-hon-lan-truoc-roi-co-rat-tu-7cee8c.mp3",
+      "ms": 2616,
+      "spoken": "Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!"
+    },
     "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.": {
       "file": "assets/voice/con-tinh-ket-qua-tung-dong-truoc-roi-keo-837ad2.mp3",
       "ms": 2784,
@@ -156,6 +181,16 @@
       "file": "assets/voice/con-dang-rat-phong-do-cu-the-nhe-743499.mp3",
       "ms": 1752,
       "spoken": "Con đang rất phong độ, cứ thế nhé!"
+    },
+    "Con đã làm được một nửa rồi, cố lên nào!": {
+      "file": "assets/voice/con-da-lam-duoc-mot-nua-roi-co-len-nao-bdd6e1.mp3",
+      "ms": 2256,
+      "spoken": "Con đã làm được một nửa rồi, cố lên nào!"
+    },
+    "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!": {
+      "file": "assets/voice/con-dat-hang-hat-mam-cham-chi-minh-hoc-t-65a51d.mp3",
+      "ms": 4344,
+      "spoken": "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!"
     },
     "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?": {
       "file": "assets/voice/con-doc-cham-lai-de-bai-de-cho-biet-gi-h-454620.mp3",
@@ -187,6 +222,11 @@
       "ms": 1872,
       "spoken": "Cố lên nào! Mình luyện lại bài này nhé!"
     },
+    "Giỏi lắm! Con đạt hạng Nhà thám hiểm số!": {
+      "file": "assets/voice/gioi-lam-con-dat-hang-nha-tham-hiem-so-f52dbf.mp3",
+      "ms": 2088,
+      "spoken": "Giỏi lắm! Con đạt hạng Nhà thám hiểm số!"
+    },
     "Giỏi quá!": {
       "file": "assets/voice/gioi-qua-ca2ca5.mp3",
       "ms": 672,
@@ -207,6 +247,11 @@
       "ms": 1824,
       "spoken": "Không sao, mình cùng ôn lại từ đầu nhé!"
     },
+    "Không sao, mình sang câu tiếp theo nhé!": {
+      "file": "assets/voice/khong-sao-minh-sang-cau-tiep-theo-nhe-2c8d74.mp3",
+      "ms": 1848,
+      "spoken": "Không sao, mình sang câu tiếp theo nhé!"
+    },
     "Không sao, mình thử lại nhé.": {
       "file": "assets/voice/khong-sao-minh-thu-lai-nhe-4dda29.mp3",
       "ms": 1224,
@@ -226,6 +271,36 @@
       "file": "assets/voice/muon-tim-thua-so-chua-biet-ta-lay-tich-c-86275a.mp3",
       "ms": 3048,
       "spoken": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết."
+    },
+    "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!": {
+      "file": "assets/voice/minh-cung-lam-bai-kiem-tra-nang-luc-nhe-67ffdd.mp3",
+      "ms": 6528,
+      "spoken": "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!"
+    },
+    "Mình nên luyện thêm phần hình học nhé!": {
+      "file": "assets/voice/minh-nen-luyen-them-phan-hinh-hoc-nhe-5f2024.mp3",
+      "ms": 1656,
+      "spoken": "Mình nên luyện thêm phần hình học nhé!"
+    },
+    "Mình nên luyện thêm phần phép cộng, phép trừ nhé!": {
+      "file": "assets/voice/minh-nen-luyen-them-phan-phep-cong-phep-bb17b2.mp3",
+      "ms": 2160,
+      "spoken": "Mình nên luyện thêm phần phép cộng, phép trừ nhé!"
+    },
+    "Mình nên luyện thêm phần phép nhân, phép chia nhé!": {
+      "file": "assets/voice/minh-nen-luyen-them-phan-phep-nhan-phep-d03692.mp3",
+      "ms": 2016,
+      "spoken": "Mình nên luyện thêm phần phép nhân, phép chia nhé!"
+    },
+    "Mình nên luyện thêm phần số và cấu tạo số nhé!": {
+      "file": "assets/voice/minh-nen-luyen-them-phan-so-va-cau-tao-s-800f7f.mp3",
+      "ms": 2016,
+      "spoken": "Mình nên luyện thêm phần số và cấu tạo số nhé!"
+    },
+    "Mình nên luyện thêm phần đo lường, thời gian, tiền, thống kê nhé!": {
+      "file": "assets/voice/minh-nen-luyen-them-phan-do-luong-thoi-g-af6231.mp3",
+      "ms": 3216,
+      "spoken": "Mình nên luyện thêm phần đo lường, thời gian, tiền, thống kê nhé!"
     },
     "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?": {
       "file": "assets/voice/moi-nhom-bang-nhau-co-nhieu-nhom-con-thu-f276a9.mp3",
@@ -252,6 +327,11 @@
       "ms": 1992,
       "spoken": "Siêu quá! Một chuỗi câu đúng dài luôn!"
     },
+    "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.": {
+      "file": "assets/voice/truoc-khi-hoc-con-lam-bai-kiem-tra-nang-6374f6.mp3",
+      "ms": 4656,
+      "spoken": "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực."
+    },
     "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!": {
       "file": "assets/voice/tru-tu-hang-don-vi-truoc-khong-tru-duoc-bb313d.mp3",
       "ms": 2832,
@@ -261,6 +341,11 @@
       "file": "assets/voice/tuyet-voi-e462f8.mp3",
       "ms": 696,
       "spoken": "Tuyệt vời!"
+    },
+    "Tuyệt vời! Con đạt hạng Kim cương Toán học!": {
+      "file": "assets/voice/tuyet-voi-con-dat-hang-kim-cuong-toan-ho-9737f5.mp3",
+      "ms": 1848,
+      "spoken": "Tuyệt vời! Con đạt hạng Kim cương Toán học!"
     },
     "Tìm số gạo đã bán trước (2 bao), rồi lấy 93 kg trừ đi.": {
       "file": "assets/voice/tim-so-gao-da-ban-truoc-2-bao-roi-lay-93-42a547.mp3",
@@ -286,6 +371,11 @@
       "file": "assets/voice/xuat-sac-con-duoc-ba-sao-a41b80.mp3",
       "ms": 1632,
       "spoken": "Xuất sắc! Con được ba sao!"
+    },
+    "Xuất sắc! Con đạt hạng Ngôi sao Toán học!": {
+      "file": "assets/voice/xuat-sac-con-dat-hang-ngoi-sao-toan-hoc-52c81a.mp3",
+      "ms": 1848,
+      "spoken": "Xuất sắc! Con đạt hạng Ngôi sao Toán học!"
     },
     "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!": {
       "file": "assets/voice/day-la-bo-suu-tap-huy-hieu-cua-con-co-ga-ad226e.mp3",
@@ -316,6 +406,11 @@
       "file": "assets/voice/dung-roi-con-lam-tot-lam-50827f.mp3",
       "ms": 1392,
       "spoken": "Đúng rồi, con làm tốt lắm!"
+    },
+    "Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!": {
+      "file": "assets/voice/den-luc-kiem-tra-lai-nang-luc-roi-minh-c-654291.mp3",
+      "ms": 3744,
+      "spoken": "Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!"
     },
     "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?": {
       "file": "assets/voice/de-bai-co-tu-nhieu-hon-con-thu-cong-them-b20f5d.mp3",

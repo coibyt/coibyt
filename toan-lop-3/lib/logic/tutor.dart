@@ -2,6 +2,7 @@ import 'dart:math';
 
 import '../models/blocks.dart';
 import '../models/problem.dart';
+import 'ability.dart';
 
 /// Tên cô giáo ảo (đổi ở đây nếu muốn tên khác).
 const kTeacherName = 'Cô Mai';
@@ -22,10 +23,32 @@ abstract final class TutorLines {
   static const screenShop = 'Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.';
   static const screenRank = 'Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.';
   static const screenBadges = 'Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!';
+
   /// Cô giới thiệu bài khi bé mở một bài học (mỗi bài một câu, ghi âm sẵn bằng 11max).
   static String lessonIntro(String title) => 'Bài học: $title. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!';
 
   static const screenTheory = 'Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.';
+
+  // Kiểm tra năng lực
+  static const abilityInvite =
+      'Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.';
+  static const abilityIntro =
+      'Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!';
+  static const abilityRetest = 'Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!';
+  static const abilityStart = 'Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé.';
+  static const abilityNext = 'Không sao, mình sang câu tiếp theo nhé!';
+  static const abilityHalf = 'Con đã làm được một nửa rồi, cố lên nào!';
+  static const abilityImproved = 'Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!';
+  static const abilitySame = 'Con giữ vững phong độ rồi, cố thêm chút nữa nhé!';
+  static const abilityRank = {
+    1: 'Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!',
+    2: 'Giỏi lắm! Con đạt hạng Nhà thám hiểm số!',
+    3: 'Xuất sắc! Con đạt hạng Ngôi sao Toán học!',
+    4: 'Tuyệt vời! Con đạt hạng Kim cương Toán học!',
+  };
+
+  /// Gợi ý luyện thêm mảng yếu nhất (tên mảng viết thường).
+  static String abilityWeak(String domainTitle) => 'Mình nên luyện thêm phần ${domainTitle.toLowerCase()} nhé!';
 
   static const praise = ['Xuất sắc!', 'Chính xác!', 'Giỏi quá!', 'Tuyệt vời!', 'Đúng rồi, con làm tốt lắm!'];
   static const praiseFast = ['Con làm nhanh quá!', 'Nhanh mà chính xác, giỏi lắm!'];
@@ -95,6 +118,16 @@ abstract final class TutorLines {
     screenRank,
     screenBadges,
     screenTheory,
+    abilityInvite,
+    abilityIntro,
+    abilityRetest,
+    abilityStart,
+    abilityNext,
+    abilityHalf,
+    abilityImproved,
+    abilitySame,
+    ...abilityRank.values,
+    for (final d in AbilityDomain.values) abilityWeak(d.title),
     ...praise,
     ...praiseFast,
     ...praiseCombo,

@@ -6,6 +6,7 @@ import '../app_state.dart';
 import '../logic/tutor.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
+import 'ability_screens.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
 import 'leaderboard_screen.dart';
@@ -180,7 +181,14 @@ class _HomeScreenState extends State<HomeScreen> {
       app.refreshHearts();
       // Mở app là cô chào bằng giọng nói ngay (không cần bấm loa).
       _teacher.voiceEnabled = app.voiceEnabled;
-      _teacher.say([TutorLines.greeting, if (app.missions.claimable > 0) TutorLines.missionReady]);
+      abilityChapterBuilder = (c) => ChapterScreen(chapter: c);
+      _teacher.say([
+        TutorLines.greeting,
+        if (app.abilityResults.isEmpty)
+          TutorLines.abilityInvite
+        else if (app.missions.claimable > 0)
+          TutorLines.missionReady,
+      ]);
       if (!app.greetedToday) app.markGreeted();
     });
   }
@@ -256,6 +264,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.fromLTRB(8, 8, 12, 12),
                       child: TeacherHud(key: const ValueKey('home-tutor'), controller: _teacher, avatarHeight: 170),
                     ),
+                    const SizedBox(height: 12),
+                    AbilityHomeCard(app: app),
                     const SizedBox(height: 12),
                     _DailyCard(app: app),
                     const SizedBox(height: 12),

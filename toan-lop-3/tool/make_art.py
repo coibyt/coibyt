@@ -139,6 +139,26 @@ JOBS["bg_exam"] = dict(group="bg", aspect="9:16", prompt=(
     "palette, extremely low contrast, mostly empty smooth space in the middle, no characters, no desks in the "
     "centre. " + STYLE + " " + CLEAN))
 
+# ---- Kiểm tra năng lực ----
+ABILITY = {
+    "ab_so": "A glowing crystal block with the shape of building blocks stacked into a tower, magical blue sparkles",
+    "ab_congtru": "Two cute glossy 3D symbols, a plus sign and a minus sign, made of shiny candy-like green and orange glass",
+    "ab_nhanchia": "Two cute glossy 3D symbols, a multiplication cross and a division sign, made of shiny purple and pink glass",
+    "ab_hinh": "A cute set of 3D geometry shapes: a cube, a sphere, a pyramid and a ruler with a small compass",
+    "ab_doluong": "A cute kitchen scale, a small clock and a measuring cup grouped together, warm glossy colours",
+    "ab_rocket": "A cheerful cartoon rocket launching upward with a golden flame trail and stars",
+    "ab_rank_1": "A small bronze shield emblem with a sprouting green leaf",
+    "ab_rank_2": "A silver shield emblem with a shining blue star",
+    "ab_rank_3": "A gold shield emblem with a glowing star and small wings",
+    "ab_rank_4": "A radiant diamond crystal shield emblem with a crown and golden wings, magical glow",
+}
+for n, desc in ABILITY.items():
+    JOBS[n] = dict(group="ui", aspect="1:1", prompt=obj(desc))
+JOBS["bg_ability"] = dict(group="bg", aspect="9:16", prompt=(
+    "A magical background for a children's math skill test: a soft starry twilight sky in deep indigo fading to "
+    "lavender and peach near the bottom, gentle glowing constellations made of tiny dots, floating soft clouds, "
+    "calm and low contrast with lots of empty space in the middle, no characters, no text. " + STYLE + " " + CLEAN))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",

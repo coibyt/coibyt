@@ -47,6 +47,15 @@ String slug(String t) {
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
 List<String> allLines() {
   final lines = <String>{...TutorLines.all()};
+  // Lời cô giới thiệu từng bài học trong mục lục.
+  final catalog = Catalog.fromJson(jsonDecode(File('assets/content/catalog.json').readAsStringSync()));
+  for (final b in catalog.books) {
+    for (final c in b.chapters) {
+      for (final l in c.lessons) {
+        lines.add(TutorLines.lessonIntro(l.title));
+      }
+    }
+  }
   final brain = TutorBrain();
   for (final f in Directory('assets/content/lessons').listSync().whereType<File>()) {
     if (!f.path.endsWith('.json')) continue;

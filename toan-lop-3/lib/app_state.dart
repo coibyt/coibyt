@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
+import 'logic/ability.dart';
 import 'logic/badges.dart';
 import 'logic/economy.dart';
 import 'logic/exam_session.dart';
@@ -50,6 +51,7 @@ class AppState extends ChangeNotifier {
   static const nicknameKey = 'lb.nickname';
   static const optInKey = 'lb.optIn';
   static const missionsKey = 'missions.daily';
+  static const abilityKey = 'ability.results';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -83,6 +85,77 @@ class AppState extends ChangeNotifier {
   }
 
   bool get canStartExam => progress.hearts > 0;
+
+  // ---- Kiểm tra năng lực ----
+
+  /// Các lần kiểm tra năng lực (cũ → mới).
+  List<AbilityResult> get abilityResults {
+    try {
+      final raw = store.get(abilityKey);
+      if (raw == null) return const [];
+      return [for (final j in jsonDecode(raw) as List) AbilityResult.fromJson((j as Map).cast<String, dynamic>())];
+    } on Object {
+      return const [];
+    }
+  }
+
+  /// Số ngày nên chờ giữa hai lần kiểm tra (để thấy tiến bộ thật).
+  static const abilityRetestDays = 14;
+
+  /// Đến lúc nên kiểm tra (lần đầu, hoặc đã đủ [abilityRetestDays] ngày từ lần trước).
+  bool get abilityDue {
+    final r = abilityResults;
+    return r.isEmpty || now().difference(r.last.at).inDays >= abilityRetestDays;
+  }
+
+  /// Ngân hàng câu hỏi năng lực: mọi câu miễn phí của các chủ đề (trừ chủ đề ôn tập tổng hợp).
+  Future<List<AbilityItem>> abilityBank() async {
+    final items = <AbilityItem>[];
+    final chapters = book?.chapters ?? const <Chapter>[];
+    for (final c in chapters) {
+      final domain = AbilityDomain.ofChapter(c.order);
+      if (domain == null) continue;
+      final term = (c.volume ?? 1).clamp(1, 2);
+      for (final ref in c.lessons) {
+        try {
+          final lesson = await content.loadLesson(ref.src);
+          for (final p in lesson.problems) {
+            if (p.access != Access.free) continue;
+            items.add(
+              AbilityItem(
+                problem: p,
+                domain: domain,
+                difficulty: (term - 1) * 3 + p.level.clamp(1, 3),
+                lessonId: ref.id,
+              ),
+            );
+          }
+        } on Object {
+          continue; // bài lỗi/chưa có: bỏ qua, vẫn kiểm tra được bằng bài khác
+        }
+      }
+    }
+    return items;
+  }
+
+  /// Lưu kết quả; thưởng vàng: lần đầu 30, các lần sau 20 + 1 vàng cho mỗi điểm tiến bộ.
+  Future<int> saveAbilityResult(AbilityResult r) async {
+    final list = [...abilityResults];
+    final prev = list.isEmpty ? null : list.last;
+    final due = abilityDue;
+    list.add(r);
+    await store.put(abilityKey, jsonEncode([for (final x in list) x.toJson()]));
+    var coins = 0;
+    if (prev == null) {
+      coins = 30;
+    } else if (due) {
+      coins = 20 + max(0, r.overall - prev.overall);
+    }
+    progress.coins += coins;
+    _markActive();
+    await _save();
+    return coins;
+  }
 
   // ---- Nhiệm vụ hằng ngày ----
 
