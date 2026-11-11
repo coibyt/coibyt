@@ -24,6 +24,9 @@ class _Clear extends _Action {
 /// pictures of the whole canvas, so it is tiny in memory and unlimited.
 class DrawingController extends ChangeNotifier {
   DrawTool _tool = DrawTool.brush;
+
+  /// Shop brush effect applied to new brush strokes.
+  BrushEffect effect = BrushEffect.normal;
   Color _color = const Color(0xFF2A2433);
   double _brushSize = 6;
   double _eraserSize = 26;
@@ -100,6 +103,7 @@ class DrawingController extends ChangeNotifier {
     _liveCanvasWidth = canvasWidth;
     _live = Stroke(
       tool: t,
+      effect: t == DrawTool.brush ? effect : BrushEffect.normal,
       color: _color,
       width: (t == DrawTool.eraser ? _eraserSize : _brushSize) / canvasWidth,
       points: <StrokePoint>[_point(position, pressure)],

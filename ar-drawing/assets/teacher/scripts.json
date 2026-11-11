@@ -86,5 +86,35 @@
       "id": "tour_done",
       "mood": "cheer"
     }
+  ],
+  "exam_hall_intro": [
+    {
+      "id": "exam_hall_intro_1",
+      "mood": "wave"
+    },
+    {
+      "id": "exam_hall_intro_2",
+      "mood": "point"
+    }
+  ],
+  "shop_intro": [
+    {
+      "id": "shop_intro_1",
+      "mood": "cheer"
+    },
+    {
+      "id": "shop_intro_2",
+      "mood": "point"
+    }
+  ],
+  "leaderboard_intro": [
+    {
+      "id": "leaderboard_intro_1",
+      "mood": "wave"
+    },
+    {
+      "id": "leaderboard_intro_2",
+      "mood": "point"
+    }
   ]
 }

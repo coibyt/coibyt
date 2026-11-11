@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../../../core/i18n/app_language.dart';
 import '../../../core/i18n/language_controller.dart';
+import '../../game/game_store.dart';
 import '../teacher_controller.dart';
 import '../teacher_scope.dart';
 import '../teacher_script.dart';
@@ -19,7 +20,11 @@ const Map<String, String> kLumiPoses = <String, String>{
   'cheer': 'assets/teacher/lumi_cheer.png',
 };
 
-String lumiPose(String mood) => kLumiPoses[mood] ?? kLumiPoses['happy']!;
+String lumiPose(String mood, [LumiOutfit outfit = LumiOutfit.classic]) {
+  final String key = kLumiPoses.containsKey(mood) ? mood : 'happy';
+  if (outfit == LumiOutfit.classic) return kLumiPoses[key]!;
+  return 'assets/teacher/outfits/${outfit.name}/lumi_$key.png';
+}
 
 /// Lumi, the virtual art teacher: a character in the corner of the screen
 /// with a speech bubble. Text types out in sync with the Vietnamese
@@ -444,8 +449,8 @@ class _LumiAvatarState extends State<_LumiAvatar> with SingleTickerProviderState
             ),
           ),
           child: Image.asset(
-            lumiPose(widget.mood),
-            key: ValueKey<String>(widget.mood),
+            lumiPose(widget.mood, GameScope.maybeOf(context)?.outfit ?? LumiOutfit.classic),
+            key: ValueKey<String>('${widget.mood}-${GameScope.maybeOf(context)?.outfit.name}'),
             height: widget.height,
             fit: BoxFit.contain,
             filterQuality: FilterQuality.medium,
@@ -482,7 +487,7 @@ class _CollapsedLumi extends StatelessWidget {
               maxHeight: 84,
               alignment: Alignment.topCenter,
               child: Image.asset(
-                lumiPose(mood),
+                lumiPose(mood, GameScope.maybeOf(context)?.outfit ?? LumiOutfit.classic),
                 height: 84,
                 fit: BoxFit.cover,
                 alignment: Alignment.topCenter,

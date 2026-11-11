@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:tracelight/core/i18n/app_language.dart';
 import 'package:tracelight/core/i18n/translations.dart';
+import 'package:tracelight/features/draw/stroke.dart';
+import 'package:tracelight/features/game/game_store.dart';
+import 'package:tracelight/features/leaderboard/player_profile.dart';
 import 'package:tracelight/features/lessons/lesson.dart';
 import 'package:tracelight/features/templates/template_catalog.dart';
 import 'package:tracelight/features/teacher/teacher_script.dart';
@@ -70,6 +73,46 @@ void main() {
       ],
       for (final String id in loadScripts().ids)
         for (final TeacherLine line in loadScripts()[id]) line.textKey,
+    ];
+    for (final String k in keys) {
+      expect(vi.has(k), isTrue, reason: 'vi: $k');
+      expect(en.has(k), isTrue, reason: 'en: $k');
+    }
+  });
+
+  test('dynamic keys of exams, shop, ranks and Lumi coaching exist', () {
+    final List<String> keys = <String>[
+      for (final Prize p in GameStore.prizes) p.nameKey,
+      for (final BrushEffect e in BrushEffect.values) 'shop.effect.${e.name}',
+      for (final ArtistRank r in ArtistRank.values) r.labelKey,
+      for (final LumiOutfit o in LumiOutfit.values) 'shop.outfit.${o.name}',
+      for (final String t in <String>['sketch', 'draw_color', 'color_shade'])
+        'teacher.lines.exam_start_$t',
+      for (final String g in <String>['excellent', 'good', 'average', 'fail'])
+        'teacher.lines.result_$g',
+      for (int i = 1; i <= 4; i++) 'teacher.lines.praise_$i',
+      for (final String h in <String>[
+        'proportion_wide',
+        'proportion_tall',
+        'color_dark',
+        'color_light',
+        'color_warm',
+        'color_hue',
+      ])
+        'teacher.lines.hint_$h',
+      for (final String l in <String>[
+        'exam_time_5min',
+        'exam_time_1min',
+        'drill_intro',
+        'drill_pass',
+        'drill_retry',
+        'energy_empty',
+        'gacha_win_brush',
+        'gacha_win_outfit',
+        'gacha_dupe',
+        'rank_up',
+      ])
+        'teacher.lines.$l',
     ];
     for (final String k in keys) {
       expect(vi.has(k), isTrue, reason: 'vi: $k');

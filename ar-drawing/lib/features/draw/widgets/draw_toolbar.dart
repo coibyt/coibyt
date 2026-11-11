@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/i18n/language_controller.dart';
+import '../../game/game_store.dart';
 import '../drawing_controller.dart';
 import '../stroke.dart';
 import 'color_picker_sheet.dart';
@@ -31,6 +32,9 @@ class DrawToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colors = Theme.of(context).colorScheme;
+    final GameStore? game = GameScope.maybeOf(context);
+    // Brush effect owned and chosen in the shop.
+    if (game != null) controller.effect = game.brushEffect;
     return ListenableBuilder(
       listenable: controller,
       builder: (BuildContext context, _) {
@@ -60,6 +64,29 @@ class DrawToolbar extends StatelessWidget {
                         selected: eraser,
                         onTap: () => controller.tool = DrawTool.eraser,
                       ),
+                      if (game != null && game.brushesOwned.length > 1)
+                        PopupMenuButton<BrushEffect>(
+                          key: const Key('effectButton'),
+                          tooltip: context.tr('shop.brushes'),
+                          initialValue: game.brushEffect,
+                          icon: Icon(effectIcon(game.brushEffect), color: const Color(0xFFFFB547)),
+                          onSelected: (BrushEffect e) {
+                            controller.effect = e;
+                            controller.tool = DrawTool.brush;
+                            game.useBrushEffect(e);
+                          },
+                          itemBuilder: (BuildContext context) => <PopupMenuEntry<BrushEffect>>[
+                            for (final BrushEffect e in BrushEffect.values)
+                              if (game.brushesOwned.contains(e))
+                                PopupMenuItem<BrushEffect>(
+                                  value: e,
+                                  child: ListTile(
+                                    leading: Icon(effectIcon(e)),
+                                    title: Text(context.tr('shop.effect.${e.name}')),
+                                  ),
+                                ),
+                          ],
+                        ),
                       const SizedBox(width: 4),
                       // Preview of the line size (and colour).
                       SizedBox(
@@ -199,3 +226,10 @@ class _ToolButton extends StatelessWidget {
     );
   }
 }
+
+IconData effectIcon(BrushEffect e) => switch (e) {
+  BrushEffect.normal => Icons.brush,
+  BrushEffect.sparkle => Icons.auto_awesome,
+  BrushEffect.rainbow => Icons.looks,
+  BrushEffect.neon => Icons.flare,
+};

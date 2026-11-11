@@ -2,19 +2,55 @@ import 'package:flutter/material.dart';
 
 import '../../core/app_theme.dart';
 import '../../core/i18n/language_controller.dart';
+import '../game/energy_sheet.dart';
+import '../game/game_store.dart';
+import '../teacher/teacher_controller.dart';
+import '../teacher/teacher_script.dart';
+import '../teacher/teacher_scope.dart';
+import '../teacher/widgets/teacher_overlay.dart';
 import 'exam.dart';
 import 'exam_record_store.dart';
 import 'exam_screen.dart';
 
 /// "Exam hall": 15-minute tests, one-period tests, mid-term and end-of-term
 /// exams, each with the best mark so far.
-class ExamsScreen extends StatelessWidget {
+class ExamsScreen extends StatefulWidget {
   const ExamsScreen({super.key, required this.exams, this.examBuilder});
 
   final List<Exam> exams;
   final Widget Function(Exam exam)? examBuilder;
 
+  @override
+  State<ExamsScreen> createState() => _ExamsScreenState();
+}
+
+class _ExamsScreenState extends State<ExamsScreen> {
+  final TeacherController _teacher = TeacherController();
+
+  List<Exam> get exams => widget.exams;
+  Widget Function(Exam exam)? get examBuilder => widget.examBuilder;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _teacher.introduce(TeacherScope.maybeOf(context), 'exam_hall_intro');
+    });
+  }
+
+  @override
+  void dispose() {
+    _teacher.dispose();
+    super.dispose();
+  }
+
   Future<void> _start(BuildContext context, Exam exam) async {
+    final GameStore? game = GameScope.read(context);
+    if (game != null && !game.canTakeExam) {
+      _teacher.say(const <TeacherLine>[TeacherLine(id: 'energy_empty', mood: 'happy')]);
+      await showEnergySheet(context);
+      return;
+    }
     final bool? go = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => AlertDialog(
@@ -36,6 +72,10 @@ class ExamsScreen extends StatelessWidget {
               Text(
                 '• ${context.tr(w.key == Criterion.proportion && exam.task.printedOutline ? 'exam.criterion.neatness' : 'exam.criterion.${w.key.name}')}: ${(w.value * 100).round()}%',
               ),
+            if (game != null) ...<Widget>[
+              const SizedBox(height: 10),
+              Text(context.tr('game.examCost'), style: const TextStyle(color: Color(0xFFFF9F43))),
+            ],
           ],
         ),
         actions: <Widget>[
@@ -52,6 +92,7 @@ class ExamsScreen extends StatelessWidget {
       ),
     );
     if (!(go ?? false) || !context.mounted) return;
+    _teacher.close();
     await Navigator.of(context).push(
       MaterialPageRoute<void>(builder: (_) => examBuilder?.call(exam) ?? ExamScreen(exam: exam)),
     );
@@ -60,43 +101,67 @@ class ExamsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ExamRecordStore? records = ExamRecordScope.maybeOf(context);
+    final GameStore? game = GameScope.maybeOf(context);
     final ThemeData theme = Theme.of(context);
     return Scaffold(
       backgroundColor: AppTheme.ink,
-      appBar: AppBar(backgroundColor: AppTheme.ink, title: Text(context.tr('exam.hall'))),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
-        children: <Widget>[
-          Text(
-            context.tr('exam.hallHint'),
-            style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white70),
-          ),
-          for (final ExamType type in ExamType.values) ...<Widget>[
-            Padding(
-              padding: const EdgeInsets.fromLTRB(4, 20, 4, 8),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Text(context.tr(type.labelKey), style: theme.textTheme.titleLarge),
-                  ),
-                  Text(
-                    context.tr('exam.minutes', args: <String, Object?>{'minutes': type.minutes}),
-                    style: const TextStyle(color: Colors.white70),
-                  ),
-                ],
+      appBar: AppBar(
+        backgroundColor: AppTheme.ink,
+        title: Text(context.tr('exam.hall')),
+        actions: <Widget>[
+          if (game != null)
+            TextButton.icon(
+              key: const Key('hallBrushes'),
+              onPressed: () => showEnergySheet(context),
+              icon: const Icon(Icons.brush, color: Color(0xFFFF9F43)),
+              label: Text(
+                '${game.brushes}/${GameStore.maxBrushes}',
+                style: const TextStyle(color: Colors.white),
               ),
             ),
-            for (final Exam exam in exams.where((Exam e) => e.type == type))
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: _ExamCard(
-                  exam: exam,
-                  best: records?.best(exam.id)?.total,
-                  attempts: records?.attemptsOf(exam.id) ?? 0,
-                  onTap: () => _start(context, exam),
-                ),
+        ],
+      ),
+      body: Stack(
+        children: <Widget>[
+          ListView(
+            padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+            children: <Widget>[
+              Text(
+                context.tr('exam.hallHint'),
+                style: theme.textTheme.bodyMedium?.copyWith(color: Colors.white70),
               ),
-          ],
+              for (final ExamType type in ExamType.values) ...<Widget>[
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(4, 20, 4, 8),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(context.tr(type.labelKey), style: theme.textTheme.titleLarge),
+                      ),
+                      Text(
+                        context.tr(
+                          'exam.minutes',
+                          args: <String, Object?>{'minutes': type.minutes},
+                        ),
+                        style: const TextStyle(color: Colors.white70),
+                      ),
+                    ],
+                  ),
+                ),
+                for (final Exam exam in exams.where((Exam e) => e.type == type))
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: _ExamCard(
+                      exam: exam,
+                      best: records?.best(exam.id)?.total,
+                      attempts: records?.attemptsOf(exam.id) ?? 0,
+                      onTap: () => _start(context, exam),
+                    ),
+                  ),
+              ],
+            ],
+          ),
+          Positioned.fill(child: TeacherOverlay(controller: _teacher)),
         ],
       ),
     );

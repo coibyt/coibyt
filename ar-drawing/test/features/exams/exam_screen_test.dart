@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tracelight/features/draw/widgets/drawing_canvas.dart';
 import 'package:tracelight/features/exams/exam.dart';
+import 'package:tracelight/features/game/game_store.dart';
 import 'package:tracelight/features/exams/exam_record_store.dart';
 import 'package:tracelight/features/exams/exam_result_screen.dart';
 import 'package:tracelight/features/exams/exam_screen.dart';
@@ -41,16 +42,19 @@ void main() {
   final List<Exam> exams = loadExams();
   Exam byId(String id) => exams.firstWhere((Exam e) => e.id == id);
 
-  Future<ExamRecordStore> pumpExam(WidgetTester tester, Exam exam) async {
+  Future<ExamRecordStore> pumpExam(WidgetTester tester, Exam exam, {GameStore? game}) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     final ExamRecordStore store = ExamRecordStore();
     await tester.pumpWidget(
       testApp(
-        ExamRecordScope(
-          store: store,
-          child: ExamScreen(exam: exam),
+        GameScope(
+          store: game ?? GameStore(),
+          child: ExamRecordScope(
+            store: store,
+            child: ExamScreen(exam: exam),
+          ),
         ),
       ),
     );
@@ -93,11 +97,15 @@ void main() {
     await tester.pump();
     expect(find.byKey(const Key('gradingLabel')), findsOneWidget);
     await tester.runAsync(() async {
-      for (int i = 0; i < 100 && store.attempts.isEmpty; i++) {
+      for (int i = 0; i < 100 && find.byType(ExamResultScreen).evaluate().isEmpty; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 50));
+        await tester.pump(const Duration(milliseconds: 50));
       }
     });
-    await tester.pumpAndSettle();
+    // Lumi keeps floating on the report card: pump frames instead of settling.
+    for (int i = 0; i < 10; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
     expect(find.byType(ExamResultScreen), findsOneWidget);
     expect(find.byKey(const Key('totalScore')), findsOneWidget);
     expect(find.byKey(const Key('criterion-proportion')), findsOneWidget);
@@ -117,12 +125,15 @@ void main() {
     });
     await drawCircle(tester);
     await tester.runAsync(() async {
-      for (int i = 0; i < 120 && store.attempts.isEmpty; i++) {
+      for (int i = 0; i < 120 && find.byType(ExamResultScreen).evaluate().isEmpty; i++) {
         await Future<void>.delayed(const Duration(milliseconds: 50));
         await tester.pump(const Duration(milliseconds: 300));
       }
     });
-    await tester.pumpAndSettle();
+    // Lumi keeps floating on the report card: pump frames instead of settling.
+    for (int i = 0; i < 10; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
     expect(store.attempts, hasLength(1));
     expect(find.text("Time's up! Your paper was handed in automatically."), findsOneWidget);
   });
@@ -136,6 +147,36 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(ExamScreen), findsOneWidget);
     expect(store.attempts, isEmpty);
+  });
+
+  testWidgets('quitting an exam half-way costs an energy brush', (WidgetTester tester) async {
+    final GameStore game = GameStore();
+    await tester.pumpWidget(
+      GameScope(
+        store: game,
+        child: testApp(
+          Builder(
+            builder: (BuildContext context) => Scaffold(
+              body: TextButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(builder: (_) => ExamScreen(exam: byId('quick_cat'))),
+                ),
+                child: const Text('go'),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('go'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('leaveExam')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('confirmDialogOk')));
+    await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 100)));
+    await tester.pumpAndSettle();
+    expect(find.byType(ExamScreen), findsNothing);
+    expect(game.brushes, GameStore.maxBrushes - 1);
   });
 
   testWidgets('exam hall lists every type with best marks', (WidgetTester tester) async {

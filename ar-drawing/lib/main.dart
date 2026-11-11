@@ -5,6 +5,9 @@ import 'app.dart';
 import 'core/i18n/language_controller.dart';
 import 'features/exams/exam.dart';
 import 'features/exams/exam_record_store.dart';
+import 'features/game/game_store.dart';
+import 'features/leaderboard/leaderboard_client.dart';
+import 'features/leaderboard/player_profile.dart';
 import 'features/lessons/lesson.dart';
 import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
@@ -25,6 +28,8 @@ Future<void> main() async {
     LessonProgressStore progress,
     ExamCatalog exams,
     ExamRecordStore examRecords,
+    GameStore game,
+    PlayerProfile profile,
   ) = await (
     LanguageController.load(),
     TeacherServices.load(),
@@ -32,6 +37,8 @@ Future<void> main() async {
     LessonProgressStore.load(),
     ExamCatalog.load(),
     ExamRecordStore.load(),
+    GameStore.load(),
+    PlayerProfile.load(),
   ).wait;
 
   runApp(
@@ -42,6 +49,9 @@ Future<void> main() async {
       progress: progress,
       exams: exams,
       examRecords: examRecords,
+      game: game,
+      profile: profile,
+      leaderboard: LeaderboardClient(),
     ),
   );
 }

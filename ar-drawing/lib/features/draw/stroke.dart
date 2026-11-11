@@ -1,9 +1,14 @@
+import 'dart:math' as math;
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart' show HSVColor;
 
 /// Tools of the digital drawing board.
 enum DrawTool { brush, eraser }
+
+/// Special brushes won in the shop.
+enum BrushEffect { normal, sparkle, rainbow, neon }
 
 /// One sampled point of a stroke.
 ///
@@ -31,17 +36,24 @@ class Stroke {
     required this.color,
     required this.width,
     required this.points,
+    this.effect = BrushEffect.normal,
   });
 
   final DrawTool tool;
+  final BrushEffect effect;
   final Color color;
 
   /// Line width relative to the canvas width.
   final double width;
   final List<StrokePoint> points;
 
-  Stroke withPoint(StrokePoint p) =>
-      Stroke(tool: tool, color: color, width: width, points: <StrokePoint>[...points, p]);
+  Stroke withPoint(StrokePoint p) => Stroke(
+    tool: tool,
+    color: color,
+    width: width,
+    points: <StrokePoint>[...points, p],
+    effect: effect,
+  );
 }
 
 /// Light pressure still leaves a visible line; full pressure gives the
@@ -54,6 +66,10 @@ double pressureFactor(double pressure) => 0.35 + 0.65 * pressure.clamp(0.0, 1.0)
 void paintStroke(Canvas canvas, Stroke stroke, double canvasWidth) {
   final List<StrokePoint> pts = stroke.points;
   if (pts.isEmpty) return;
+  if (stroke.tool == DrawTool.brush && stroke.effect != BrushEffect.normal) {
+    _paintEffect(canvas, stroke, canvasWidth);
+    return;
+  }
   final double base = stroke.width * canvasWidth;
   final Paint paint = Paint()
     ..color = stroke.color
@@ -104,4 +120,92 @@ void paintStroke(Canvas canvas, Stroke stroke, double canvasWidth) {
     canvas.drawPath(seg, paint..strokeWidth = base * pressureFactor(p));
     start = end;
   }
+}
+
+/// Shop brushes:
+/// - rainbow: the hue travels along the line;
+/// - neon: a soft coloured glow with a bright core;
+/// - sparkle: the line plus little stars scattered along it (positions come
+///   from the stroke itself, so a redraw looks identical).
+void _paintEffect(Canvas canvas, Stroke stroke, double canvasWidth) {
+  final List<Offset> pts = <Offset>[
+    for (final StrokePoint p in stroke.points) p.scaled(canvasWidth),
+  ];
+  final double w = stroke.width * canvasWidth;
+  final Paint line = Paint()
+    ..isAntiAlias = true
+    ..strokeCap = StrokeCap.round
+    ..strokeJoin = StrokeJoin.round
+    ..style = PaintingStyle.stroke
+    ..strokeWidth = w;
+  Path path() {
+    final Path p = Path()..moveTo(pts.first.dx, pts.first.dy);
+    for (final Offset o in pts.skip(1)) {
+      p.lineTo(o.dx, o.dy);
+    }
+    if (pts.length == 1) p.lineTo(pts.first.dx + 0.01, pts.first.dy);
+    return p;
+  }
+
+  switch (stroke.effect) {
+    case BrushEffect.rainbow:
+      double travelled = 0;
+      final HSVColor base = HSVColor.fromColor(stroke.color);
+      for (int i = 1; i < pts.length; i++) {
+        travelled += (pts[i] - pts[i - 1]).distance;
+        final double hue = (base.hue + travelled * 1.2) % 360;
+        canvas.drawLine(
+          pts[i - 1],
+          pts[i],
+          line..color = HSVColor.fromAHSV(1, hue, 0.85, 0.95).toColor(),
+        );
+      }
+      if (pts.length == 1) canvas.drawPath(path(), line..color = stroke.color);
+    case BrushEffect.neon:
+      canvas.drawPath(
+        path(),
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round
+          ..strokeWidth = w * 2.2
+          ..color = stroke.color.withValues(alpha: 0.55)
+          ..maskFilter = MaskFilter.blur(BlurStyle.normal, math.max(2, w * 0.8)),
+      );
+      canvas.drawPath(
+        path(),
+        line..color = Color.lerp(stroke.color, const Color(0xFFFFFFFF), 0.65)!,
+      );
+    case BrushEffect.sparkle:
+      canvas.drawPath(path(), line..color = stroke.color);
+      final Paint star = Paint()..color = const Color(0xFFFFF4B0);
+      double travelled = 0, next = w * 1.5;
+      for (int i = 1; i < pts.length; i++) {
+        travelled += (pts[i] - pts[i - 1]).distance;
+        if (travelled < next) continue;
+        next = travelled + w * 2.5;
+        // Pseudo-random but stable offset from the point itself.
+        final double seed = math.sin(pts[i].dx * 12.9898 + pts[i].dy * 78.233) * 43758.5453;
+        final double r = seed - seed.floorToDouble();
+        final Offset c = pts[i] + Offset((r - 0.5) * w * 1.6, (0.5 - (r * 7) % 1) * w * 1.6);
+        _star(canvas, c, w * (0.35 + 0.35 * r), star);
+      }
+    case BrushEffect.normal:
+      break;
+  }
+}
+
+void _star(Canvas canvas, Offset c, double r, Paint paint) {
+  final Path p = Path();
+  for (int i = 0; i < 8; i++) {
+    final double a = i * math.pi / 4;
+    final double rr = i.isEven ? r : r * 0.32;
+    final Offset o = c + Offset(math.cos(a) * rr, math.sin(a) * rr);
+    if (i == 0) {
+      p.moveTo(o.dx, o.dy);
+    } else {
+      p.lineTo(o.dx, o.dy);
+    }
+  }
+  canvas.drawPath(p..close(), paint);
 }

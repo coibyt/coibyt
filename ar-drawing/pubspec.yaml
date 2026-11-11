@@ -49,6 +49,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   clock: ^1.1.3
+  http: ^1.6.0
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,9 @@ flutter:
     - assets/templates/food/
     - assets/i18n/
     - assets/teacher/
+    - assets/teacher/outfits/flower/
+    - assets/teacher/outfits/witch/
+    - assets/teacher/outfits/star/
     - assets/audio/teacher/
     - assets/audio/teacher/vi/
     - assets/lessons/

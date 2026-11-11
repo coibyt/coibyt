@@ -13,7 +13,16 @@ import '../draw/stroke.dart';
 import '../draw/widgets/draw_toolbar.dart';
 import '../draw/widgets/drawing_canvas.dart';
 import '../timelapse/timelapse_composer.dart' show resolveImage;
+import '../game/game_store.dart';
+import '../leaderboard/leaderboard_client.dart';
+import '../leaderboard/leaderboard_screen.dart' show lifetimePoints;
+import '../leaderboard/player_profile.dart';
+import '../teacher/hint_coach.dart';
+import '../teacher/teacher_controller.dart';
+import '../teacher/teacher_script.dart';
+import '../teacher/widgets/teacher_overlay.dart';
 import 'exam.dart';
+import 'model_analysis.dart';
 import 'exam_record_store.dart';
 import 'exam_result_screen.dart';
 import 'exam_scoring.dart';
@@ -53,13 +62,51 @@ class _ExamScreenState extends State<ExamScreen> {
   bool _submitted = false;
   Size? _outlineSize;
   Size _canvasSize = Size.zero;
+  final TeacherController _teacher = TeacherController();
+  HintCoach? _coach;
+  bool _warned5 = false, _warned1 = false;
+
+  void _onInk() {
+    final GameStore? game = GameScope.read(context);
+    if (game != null && !game.activeToday && _drawing.strokes.isNotEmpty) {
+      unawaited(game.recordActivity());
+    }
+  }
 
   @override
   void initState() {
     super.initState();
+    _drawing.addListener(_onInk);
     _left = widget.exam.timeLimit;
     _ticker = Timer.periodic(const Duration(milliseconds: 250), (_) => _tick());
     if (widget.exam.task.printedOutline) unawaited(_loadOutlineSize());
+    unawaited(_startTutor());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final String task = switch (widget.exam.task) {
+        ExamTask.sketch => 'sketch',
+        ExamTask.drawColor => 'draw_color',
+        ExamTask.colorShade => 'color_shade',
+      };
+      _teacher.say(<TeacherLine>[TeacherLine(id: 'exam_start_$task', mood: 'wave')]);
+    });
+  }
+
+  /// The tutor watches proportions (freehand tasks) and colours (colour
+  /// tasks) and gives gentle hints.
+  Future<void> _startTutor() async {
+    try {
+      final ModelInfo info = await analyzeModel(widget.exam.modelAsset);
+      if (!mounted) return;
+      _coach = HintCoach(
+        drawing: _drawing,
+        teacher: _teacher,
+        modelAspect: widget.exam.task.printedOutline ? null : info.aspect,
+        modelColors: widget.exam.task.gradesColor ? info.colors : const <Color>[],
+      );
+    } on Object catch (e) {
+      debugPrint('Tutor could not analyse the model: $e');
+    }
   }
 
   Future<void> _loadOutlineSize() async {
@@ -73,6 +120,16 @@ class _ExamScreenState extends State<ExamScreen> {
     final Duration left = _endsAt.difference(clock.now());
     if (!mounted) return;
     setState(() => _left = left.isNegative ? Duration.zero : left);
+    if (!_warned5 &&
+        widget.exam.timeLimit > const Duration(minutes: 6) &&
+        left <= const Duration(minutes: 5)) {
+      _warned5 = true;
+      _teacher.say(const <TeacherLine>[TeacherLine(id: 'exam_time_5min', mood: 'point')]);
+    }
+    if (!_warned1 && left <= const Duration(minutes: 1) && left > Duration.zero) {
+      _warned1 = true;
+      _teacher.say(const <TeacherLine>[TeacherLine(id: 'exam_time_1min', mood: 'point')]);
+    }
     if (left <= Duration.zero && !_submitted) {
       unawaited(_submit(timeUp: true));
     }
@@ -81,6 +138,8 @@ class _ExamScreenState extends State<ExamScreen> {
   @override
   void dispose() {
     _ticker?.cancel();
+    _coach?.dispose();
+    _teacher.dispose();
     _drawing.dispose();
     super.dispose();
   }
@@ -162,22 +221,56 @@ class _ExamScreenState extends State<ExamScreen> {
     );
     final ExamScore score = await compute(gradeExam, request, debugLabel: 'gradeExam');
     if (!mounted) return;
-    await ExamRecordScope.maybeOf(context)?.record(widget.exam, score);
+    final ExamRecordStore? records = ExamRecordScope.maybeOf(context);
+    final GameStore? game = GameScope.read(context);
+    final PlayerProfile? profile = ProfileScope.maybeOf(context);
+    final LeaderboardClient? board = LeaderboardScope.maybeOf(context);
+    final ArtistRank rankBefore = ArtistRank.of(lifetimePoints(records));
+    await records?.record(widget.exam, score);
+    final bool rankUp =
+        records != null && ArtistRank.of(lifetimePoints(records)).index > rankBefore.index;
+    final ExamReward? reward = await game?.onExamGraded(widget.exam, score);
     widget.onGraded?.call(widget.exam, score, drawing);
+    // Leaderboard only with a nickname; Hall of Fame only with consent.
+    if (profile != null && profile.joined && board != null && score.total > 0) {
+      unawaited(_publish(board, profile, score, drawing));
+    }
     if (!mounted) return;
     await Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(
-        builder: (_) =>
-            ExamResultScreen(exam: widget.exam, score: score, drawing: drawing, timeUp: timeUp),
+        builder: (_) => ExamResultScreen(
+          exam: widget.exam,
+          score: score,
+          drawing: drawing,
+          timeUp: timeUp,
+          reward: reward,
+          rankUp: rankUp,
+        ),
       ),
     );
+  }
+
+  Future<void> _publish(
+    LeaderboardClient board,
+    PlayerProfile profile,
+    ExamScore score,
+    ui.Image drawing,
+  ) async {
+    final Map<String, Object?>? ok = await board.submitScore(profile, widget.exam.id, score.total);
+    if (ok == null || !profile.shareArt || !score.passed) return;
+    final ByteData? png = await drawing.toByteData(format: ui.ImageByteFormat.png);
+    if (png == null) return;
+    await board.uploadArt(profile, widget.exam.id, score.total, png.buffer.asUint8List());
   }
 
   Future<void> _leave() async {
     if (_submitted) return;
     if (!await _confirm('exam.leaveTitle', 'exam.leaveBody', 'exam.leave')) return;
+    if (!mounted) return;
     _submitted = true;
     _ticker?.cancel();
+    // Leaving an exam half-way costs an energy brush.
+    await GameScope.read(context)?.loseBrush();
     widget.onAbandoned?.call(widget.exam);
     if (mounted) Navigator.of(context).pop();
   }
@@ -283,6 +376,17 @@ class _ExamScreenState extends State<ExamScreen> {
                               ),
                             ),
                           DrawingCanvas(key: _keys.canvas, controller: _drawing),
+                          Positioned(
+                            left: 0,
+                            right: 0,
+                            bottom: 8,
+                            child: TeacherOverlay(
+                              controller: _teacher,
+                              inline: true,
+                              collapsedAlignment: Alignment.bottomRight,
+                              autoAdvance: const Duration(seconds: 2),
+                            ),
+                          ),
                           // The model on the "teacher's desk".
                           Positioned(
                             left: 10,

@@ -14,6 +14,7 @@ import '../timelapse/timelapse_composer.dart';
 import '../timelapse/timelapse_recorder.dart';
 import '../timelapse/timelapse_result_screen.dart';
 import '../timelapse/video_encoder.dart';
+import '../game/game_store.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
@@ -131,7 +132,10 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
 
   void _recordProgress() {
     final LessonProgress? p = _progress;
-    if (p != null) unawaited(LessonProgressScope.maybeOf(context)?.record(p.lesson, p.index));
+    if (p != null) {
+      unawaited(LessonProgressScope.maybeOf(context)?.record(p.lesson, p.index));
+      unawaited(GameScope.read(context)?.recordActivity());
+    }
   }
 
   void _onStepChanged() {

@@ -3,10 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../core/i18n/language_controller.dart';
+import '../game/game_store.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
+import '../teacher/hint_coach.dart';
 import '../teacher/teacher_controller.dart';
+import '../teacher/teacher_script.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/widgets/teacher_overlay.dart';
 import 'drawing_controller.dart';
@@ -45,6 +48,10 @@ class _DrawScreenState extends State<DrawScreen> {
   final DrawToolbarKeys _keys = DrawToolbarKeys();
   LessonProgress? _progress;
   OnboardingTour? _tour;
+  HintCoach? _coach;
+  final PraiseRotator _praise = PraiseRotator();
+  int _strokesAtStep = 0;
+  int _lastStep = 0;
   bool _showTemplate = true;
   double _templateOpacity = 0.35;
 
@@ -54,8 +61,22 @@ class _DrawScreenState extends State<DrawScreen> {
     final Lesson? lesson = widget.lesson;
     if (lesson != null) {
       _progress = LessonProgress(lesson)..addListener(_onStepChanged);
+      _coach = HintCoach(
+        drawing: _drawing,
+        teacher: _teacher,
+        modelColors: _stepColors(lesson.steps.first),
+      );
     }
+    _drawing.addListener(_onInk);
     WidgetsBinding.instance.addPostFrameCallback((_) => _start());
+  }
+
+  /// Drawing counts as today's creative activity (daily streak).
+  void _onInk() {
+    final GameStore? game = GameScope.read(context);
+    if (game != null && !game.activeToday && _drawing.strokes.isNotEmpty) {
+      unawaited(game.recordActivity());
+    }
   }
 
   void _start() {
@@ -90,9 +111,25 @@ class _DrawScreenState extends State<DrawScreen> {
     });
   }
 
+  /// Colours the tutor compares picks with (white highlight and the
+  /// graphite outline step don't need hints).
+  List<Color> _stepColors(LessonStep step) => step.kind == StepKind.outline
+      ? const <Color>[]
+      : <Color>[for (final PaletteColor p in step.palette) p.color];
+
   void _onStepChanged() {
     setState(() {});
-    _teacher.say(_progress!.step.lines);
+    final LessonProgress p = _progress!;
+    final bool forward = p.index > _lastStep;
+    final bool drewSomething = _drawing.strokes.length > _strokesAtStep;
+    _lastStep = p.index;
+    _strokesAtStep = _drawing.strokes.length;
+    _coach?.modelColors = _stepColors(p.step);
+    // Praise real work when moving on, then explain the new step.
+    _teacher.say(<TeacherLine>[
+      if (forward && drewSomething && p.step.kind != StepKind.done) _praise.next(),
+      ...p.step.lines,
+    ]);
     _recordProgress();
   }
 
@@ -105,6 +142,7 @@ class _DrawScreenState extends State<DrawScreen> {
   @override
   void dispose() {
     _tour?.dispose();
+    _coach?.dispose();
     _progress?.dispose();
     _teacher.dispose();
     _drawing.dispose();

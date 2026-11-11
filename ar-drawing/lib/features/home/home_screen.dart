@@ -13,6 +13,10 @@ import '../draw/draw_mode_sheet.dart';
 import '../draw/draw_screen.dart';
 import '../exams/exam.dart';
 import '../exams/exams_screen.dart';
+import '../game/game_status_bar.dart';
+import '../game/game_store.dart';
+import '../game/shop_screen.dart';
+import '../leaderboard/leaderboard_screen.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../sketch/sketch_screen.dart';
@@ -105,6 +109,16 @@ class _HomeScreenState extends State<HomeScreen> {
     _teacher.close();
     Navigator.of(context)
         .push(MaterialPageRoute<void>(builder: (_) => ExamsScreen(exams: widget.exams)));
+  }
+
+  void _openShop() {
+    _teacher.close();
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ShopScreen()));
+  }
+
+  void _openLeaderboard() {
+    _teacher.close();
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const LeaderboardScreen()));
   }
 
   void _openBlankCanvas() {
@@ -238,6 +252,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SliverToBoxAdapter(
                   child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                    child: GameStatusBar(onCoins: _openShop),
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                     child: _OwnPhotoCard(onTap: _traceOwnPhoto),
                   ),
@@ -258,6 +278,37 @@ class _HomeScreenState extends State<HomeScreen> {
                         title: context.tr('exam.hallCard'),
                         subtitle: context.tr('exam.hallCardHint'),
                         onTap: _openExamHall,
+                      ),
+                    ),
+                  ),
+                if (GameScope.maybeOf(context) != null)
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: HomeTile(
+                              key: const Key('shopCard'),
+                              icon: Icons.card_giftcard,
+                              title: context.tr('shop.title'),
+                              subtitle: context.tr('shop.card'),
+                              onTap: _openShop,
+                              trailing: const SizedBox.shrink(),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: HomeTile(
+                              key: const Key('leaderboardCard'),
+                              icon: Icons.emoji_events,
+                              title: context.tr('board.title'),
+                              subtitle: context.tr('board.card'),
+                              onTap: _openLeaderboard,
+                              trailing: const SizedBox.shrink(),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
