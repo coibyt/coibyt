@@ -1,16 +1,15 @@
-# Âm thanh (chỗ trống — Phase 1)
+# Âm thanh
 
-Phase 1 chưa có file âm thanh thật. `lib/services/sound_service.dart` đang dùng
-âm "click" của hệ thống + rung nhẹ để giữ chỗ.
+Các file `.wav` ở đây được **tự tổng hợp bằng code** (`tool/make_sounds.py`), không lấy
+từ nguồn nào khác nên không vướng bản quyền. Muốn đổi âm: sửa script rồi chạy lại
 
-Khi có âm thanh thật (Phase 2/4), đặt các file sau vào thư mục này rồi thay
-`PlaceholderSoundService` bằng bản dùng gói `audioplayers`:
+    python tool/make_sounds.py
 
-| File            | Khi nào phát                  | Gợi ý                      |
-|-----------------|-------------------------------|----------------------------|
-| `correct.mp3`   | Bé trả lời đúng               | Tiếng "ting" vui, < 1 giây |
-| `wrong.mp3`     | Bé trả lời chưa đúng          | Âm nhẹ nhàng, KHÔNG gắt    |
-| `tap.mp3`       | Chạm nút / thả thẻ số         | Rất ngắn                   |
-| `finish.mp3`    | Hoàn thành bài                | Vỗ tay ngắn                |
+| File          | Khi nào phát                         |
+|---------------|--------------------------------------|
+| `correct.wav` | Bé trả lời đúng (hai nốt đi lên)     |
+| `wrong.wav`   | Bé trả lời chưa đúng (nhẹ, không gắt)|
+| `tap.wav`     | Chạm nút / chuyển bài                |
+| `finish.wav`  | Hoàn thành bài / nộp bài thi         |
 
-Chỉ dùng âm thanh tự làm hoặc có giấy phép rõ ràng (CC0 / mua bản quyền).
+Nếu sau này thay bằng âm thanh thu âm/mua: chỉ dùng file có giấy phép rõ ràng (CC0 hoặc đã mua).

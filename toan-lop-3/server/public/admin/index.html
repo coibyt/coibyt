@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CMS Ong Vàng Toán 3</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css"
+        integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"
+          integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+  <style>
+    :root { --bg: #fffdf5; --fg: #222; --muted: #666; --line: #ddd; --accent: #f5a400; --bad: #c62828; --good: #2e7d32; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+    header { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 10px 16px; border-bottom: 2px solid var(--accent); background: #fff8e1; }
+    header h1 { font-size: 18px; margin: 0 12px 0 0; }
+    main { display: grid; grid-template-columns: 300px 1fr; gap: 0; min-height: calc(100vh - 56px); }
+    @media (max-width: 800px) { main { grid-template-columns: 1fr; } }
+    aside { border-right: 1px solid var(--line); padding: 12px; overflow: auto; }
+    section { padding: 12px 16px; min-width: 0; }
+    input[type=password], input[type=text] { padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+    button { padding: 6px 12px; border: 1px solid #c98a00; background: var(--accent); color: #222; border-radius: 6px; font: inherit; cursor: pointer; }
+    button.secondary { background: #fff; border-color: var(--line); }
+    button:disabled { opacity: .5; cursor: default; }
+    ul.docs { list-style: none; margin: 8px 0 0; padding: 0; }
+    ul.docs li { padding: 6px 8px; border-radius: 6px; cursor: pointer; border: 1px solid transparent; }
+    ul.docs li:hover { background: #fff3cd; }
+    ul.docs li.active { border-color: var(--accent); background: #fff3cd; }
+    .meta { color: var(--muted); font-size: 12px; }
+    .tag { display: inline-block; padding: 0 6px; border-radius: 10px; font-size: 11px; background: #eee; margin-left: 4px; }
+    .tag.vip { background: #ffe082; }
+    .tag.draft { background: #ffcdd2; }
+    .toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+    textarea { width: 100%; min-height: 45vh; font: 13px/1.4 ui-monospace, Consolas, monospace; padding: 8px; border: 1px solid var(--line); border-radius: 6px; tab-size: 2; }
+    #status { margin: 8px 0; white-space: pre-wrap; }
+    #status.bad { color: var(--bad); }
+    #status.good { color: var(--good); }
+    #issues { margin: 0; padding-left: 18px; color: var(--bad); }
+    #issues code { color: #555; }
+    .preview { margin-top: 16px; border-top: 1px dashed var(--line); padding-top: 8px; }
+    .problem { border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin: 8px 0; background: #fff; }
+    .problem .math { margin: 4px 0; }
+    .problem ol { margin: 4px 0; }
+    .problem li.correct { color: var(--good); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>🐝 CMS Ong Vàng Toán 3</h1>
+  <label>Mã quản trị
+    <input id="token" type="password" autocomplete="off" size="28" placeholder="ADMIN_TOKEN">
+  </label>
+  <button id="btnLoad" class="secondary">Tải danh sách</button>
+  <span class="meta">Mã chỉ lưu trong tab này (sessionStorage).</span>
+</header>
+<main>
+  <aside>
+    <div class="toolbar">
+      <button id="btnNew" class="secondary">+ Tài liệu mới</button>
+    </div>
+    <ul id="docs" class="docs"></ul>
+  </aside>
+  <section>
+    <div class="toolbar">
+      <strong id="docTitle">Chưa chọn tài liệu</strong>
+      <span id="docMeta" class="meta"></span>
+    </div>
+    <div class="toolbar">
+      <label>Mã (id): <input id="docId" type="text" size="36" placeholder="vd kntt3.c4.nhan-2cs-1cs (catalog: catalog)"></label>
+      <button id="btnCheck">Kiểm tra</button>
+      <button id="btnSave">Lưu nháp</button>
+      <button id="btnPublish">Xuất bản</button>
+      <button id="btnFormat" class="secondary">Định dạng JSON</button>
+    </div>
+    <textarea id="editor" spellcheck="false" placeholder="Dán nội dung JSON (catalog / lesson / exam) vào đây"></textarea>
+    <div id="status"></div>
+    <ul id="issues"></ul>
+    <div class="preview">
+      <strong>Xem trước</strong> <span class="meta">(chỉ hiển thị đề bài và lựa chọn)</span>
+      <div id="preview"></div>
+    </div>
+  </section>
+</main>
+<script src="admin.js"></script>
+</body>
+</html>

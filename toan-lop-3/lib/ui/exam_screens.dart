@@ -179,12 +179,13 @@ class ExamRunScreen extends StatefulWidget {
   const ExamRunScreen({
     super.key,
     required this.exam,
-    this.sound = const PlaceholderSoundService(),
+    this.sound,
     this.random,
   });
 
   final Exam exam;
-  final SoundService sound;
+  /// null = dùng [AppSound.instance].
+  final SoundService? sound;
   final Random? random;
 
   @override
@@ -213,7 +214,7 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
   Future<void> _finish({bool timedOut = false}) async {
     _timer?.cancel();
     final result = _session.submit(timedOut: timedOut);
-    widget.sound.finish();
+    (widget.sound ?? AppSound.instance).finish();
     final app = AppScope.read(context);
     final reward = app.recordExam(result);
     if (!mounted) return;
@@ -407,7 +408,6 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
                           child: BigButton(
                             key: const ValueKey('btn-prev'),
                             label: 'Câu trước',
-                            icon: Icons.arrow_back_rounded,
                             color: AppColors.sky,
                             outlined: true,
                             onPressed: i == 0 ? null : () => _session.goTo(i - 1),

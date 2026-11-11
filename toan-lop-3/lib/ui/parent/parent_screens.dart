@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../app_state.dart';
-import '../../config.dart';
 import '../app_theme.dart';
 import '../child_screens.dart';
 import '../widgets/number_pad.dart';
+import 'account_section.dart';
 
 /// Mở khu phụ huynh sau khi qua "cổng phụ huynh".
 Future<void> openParentArea(BuildContext context, {Random? random}) async {
@@ -170,18 +170,7 @@ class ParentScreen extends StatelessWidget {
                     color: r.score >= 5 ? AppColors.good : AppColors.tryAgain,
                   ),
               ]),
-              if (AppConfig.allowDevVip)
-                _Card(children: [
-                  const Text('VIP (bản thử)', style: h),
-                  SwitchListTile(
-                    key: const ValueKey('dev-vip'),
-                    contentPadding: EdgeInsets.zero,
-                    value: app.isVip,
-                    onChanged: app.setVip,
-                    title: const Text('Bật VIP để thử bài nâng cao và lời giải chi tiết'),
-                    subtitle: const Text('Chỉ có ở bản thử nghiệm, bản phát hành sẽ không có công tắc này.'),
-                  ),
-                ]),
+              const AccountSection(),
               _Card(children: [
                 const Text('Cài đặt', style: h),
                 ListTile(

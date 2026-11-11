@@ -28,7 +28,7 @@ class BigButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (icon != null) ...[Icon(icon, size: 28), const SizedBox(width: 8)],
-        Flexible(child: Text(label, textAlign: TextAlign.center)),
+        Flexible(child: Text(label, textAlign: TextAlign.center, maxLines: 2)),
       ],
     );
     final minSize = const Size(AppSizes.minTouch, AppSizes.minTouch);
@@ -41,7 +41,7 @@ class BigButton extends StatelessWidget {
           side: BorderSide(color: color, width: 3),
           shape: shape,
           textStyle: textStyle,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
         ),
         child: child,
       );
@@ -54,7 +54,7 @@ class BigButton extends StatelessWidget {
         foregroundColor: Colors.white,
         shape: shape,
         textStyle: textStyle,
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 12),
         elevation: 2,
       ),
       child: child,

@@ -1,0 +1,36 @@
+{
+    "name": "Ong Vàng Toán 3",
+    "short_name": "Toán 3",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#FFF8E7",
+    "theme_color": "#FFC93C",
+    "description": "Luyện toán lớp 3 cho bé: lý thuyết, bài tập, lời giải từng bước, thi thử.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "lang": "vi"
+}

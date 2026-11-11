@@ -169,6 +169,63 @@ class Progress {
     return best;
   }
 
+  /// Gộp tiến độ từ hai máy (cùng quy tắc với server: server/src/merge.js).
+  /// Hai bên có updatedAt bằng nhau thì [b] (bản gửi đến) được coi là mới hơn.
+  static Progress merge(Progress a, Progress b) {
+    final aNewer = (a.updatedAt ?? DateTime(0)).isAfter(b.updatedAt ?? DateTime(0));
+    final newer = aNewer ? a : b;
+    final lessons = <String, LessonProgress>{};
+    for (final id in {...a.lessons.keys, ...b.lessons.keys}) {
+      final x = a.lessons[id];
+      final y = b.lessons[id];
+      if (x == null || y == null) {
+        lessons[id] = LessonProgress.fromJson((x ?? y)!.toJson());
+        continue;
+      }
+      DateTime? last = x.lastPlayed;
+      if (y.lastPlayed != null && (last == null || y.lastPlayed!.isAfter(last))) last = y.lastPlayed;
+      lessons[id] = LessonProgress(
+        bestStars: x.bestStars > y.bestStars ? x.bestStars : y.bestStars,
+        bestPoints: x.bestPoints > y.bestPoints ? x.bestPoints : y.bestPoints,
+        plays: x.plays > y.plays ? x.plays : y.plays,
+        lastPlayed: last,
+      );
+    }
+    final skills = <String, SkillProgress>{};
+    for (final id in {...a.skills.keys, ...b.skills.keys}) {
+      final x = a.skills[id];
+      final y = b.skills[id];
+      final pick = x == null
+          ? y!
+          : y == null
+              ? x
+              : (x.total != y.total ? (x.total > y.total ? x : y) : (x.correct >= y.correct ? x : y));
+      skills[id] = SkillProgress(correct: pick.correct, total: pick.total);
+    }
+    // Trùng (examId, at) — so đến mili-giây như server — thì giữ bản của bên mới hơn.
+    final older = aNewer ? b : a;
+    final exams = <String, ExamRecord>{};
+    for (final e in [...newer.exams, ...older.exams]) {
+      exams.putIfAbsent('${e.examId}@${e.at.millisecondsSinceEpoch}', () => e);
+    }
+    final badges = <String, DateTime>{...a.badges};
+    for (final e in b.badges.entries) {
+      final cur = badges[e.key];
+      if (cur == null || e.value.isBefore(cur)) badges[e.key] = e.value;
+    }
+    return Progress(
+      childName: newer.childName,
+      bookId: newer.bookId,
+      totalPoints: a.totalPoints > b.totalPoints ? a.totalPoints : b.totalPoints,
+      lessons: lessons,
+      skills: skills,
+      activeDays: {...a.activeDays, ...b.activeDays},
+      exams: exams.values.toList()..sort((x, y) => x.at.compareTo(y.at)),
+      badges: badges,
+      updatedAt: aNewer ? a.updatedAt : (b.updatedAt ?? a.updatedAt),
+    );
+  }
+
   Map<String, dynamic> toJson() => {
         'v': version,
         'childName': childName,

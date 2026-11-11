@@ -1,0 +1,24 @@
+# PostgreSQL 16 cho phát triển trên máy cá nhân (tuỳ chọn).
+# Chạy:  docker compose up -d      Dừng:  docker compose down
+# Mật khẩu dưới đây CHỈ dùng trên máy cá nhân, không dùng cho server thật.
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: toan3
+      POSTGRES_PASSWORD: toan3_dev_only
+      POSTGRES_DB: toan3
+    ports:
+      - "127.0.0.1:5432:5432"
+    volumes:
+      - toan3_pgdata:/var/lib/postgresql/data
+      - ./docker/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U toan3 -d toan3"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  toan3_pgdata:

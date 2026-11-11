@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import '../logic/answer_checker.dart';
+import '../logic/badges.dart';
 import '../logic/quiz_session.dart';
 import '../models/blocks.dart';
 import '../models/content.dart';
@@ -27,7 +28,7 @@ class QuizScreen extends StatefulWidget {
     this.lesson,
     this.isVip = false,
     this.repository,
-    this.sound = const PlaceholderSoundService(),
+    this.sound,
     this.random,
     this.onFinished,
   }) : assert(lessonAsset != null || lesson != null);
@@ -39,7 +40,8 @@ class QuizScreen extends StatefulWidget {
   final Lesson? lesson;
   final bool isVip;
   final ContentRepository? repository;
-  final SoundService sound;
+  /// null = dùng [AppSound.instance].
+  final SoundService? sound;
 
   /// Cố định thứ tự xáo trộn (dùng trong test).
   final Random? random;
@@ -85,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
         return _QuizBody(
           lesson: snap.data!,
           isVip: widget.isVip,
-          sound: widget.sound,
+          sound: widget.sound ?? AppSound.instance,
           random: widget.random,
           onFinished: widget.onFinished,
         );
@@ -493,7 +495,6 @@ class _FeedbackAndActions extends StatelessWidget {
                     child: BigButton(
                       key: const ValueKey('btn-solution'),
                       label: 'Xem lời giải',
-                      icon: Icons.menu_book_rounded,
                       color: AppColors.sky,
                       outlined: true,
                       onPressed: onSolution,
@@ -619,9 +620,6 @@ class RewardBanner extends StatelessWidget {
 
   final Future<RewardOutcome?>? reward;
 
-  /// Đổi mã huy hiệu → tên hiển thị (Phase 4 gán).
-  static String Function(String badgeId) badgeTitle = (id) => id;
-
   @override
   Widget build(BuildContext context) {
     if (reward == null) return const SizedBox.shrink();
@@ -652,11 +650,12 @@ class RewardBanner extends StatelessWidget {
                   ),
                   child: Row(
                     children: [
-                      const Icon(Icons.military_tech_rounded, color: AppColors.tryAgain, size: 40),
+                      Text(badgeById(id)?.emoji ?? '🏅', style: const TextStyle(fontSize: 36)),
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          'Huy hiệu mới: ${badgeTitle(id)}',
+                          'Huy hiệu mới: ${badgeById(id)?.title ?? id}',
+                          key: ValueKey('new-badge-$id'),
                           style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                         ),
                       ),

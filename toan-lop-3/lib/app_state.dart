@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 
+import 'logic/badges.dart';
 import 'logic/exam_session.dart';
 import 'logic/quiz_session.dart';
 import 'models/content.dart';
@@ -9,6 +10,7 @@ import 'models/problem.dart';
 import 'models/progress.dart';
 import 'services/content_repository.dart';
 import 'services/kv_store.dart';
+import 'services/sync_service.dart';
 
 /// Kết quả ghi nhận sau một lượt luyện tập / thi.
 class RewardOutcome {
@@ -28,6 +30,7 @@ class AppState extends ChangeNotifier {
 
   static const progressKey = 'progress.v1';
   static const vipKey = 'vip.dev';
+  static const vipUntilKey = 'vip.until';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -36,15 +39,48 @@ class AppState extends ChangeNotifier {
   late Catalog catalog;
   late Progress progress;
   bool _vip = false;
+  DateTime? _vipUntil;
+
+  /// Đăng nhập & đồng bộ (null = bản offline, chưa cấu hình máy chủ).
+  SyncService? sync;
 
   Future<void> init() async {
     catalog = await content.loadCatalog();
     final raw = store.get(progressKey);
     progress = raw == null ? Progress() : Progress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
     _vip = store.get(vipKey) == 'true';
+    _vipUntil = DateTime.tryParse(store.get(vipUntilKey) ?? '');
   }
 
-  bool get isVip => _vip;
+  /// VIP thật (từ máy chủ, sau khi mua) hoặc VIP thử (bản thử nghiệm).
+  bool get isVip => _vip || (_vipUntil?.isAfter(now()) ?? false);
+  bool get isDevVip => _vip;
+  DateTime? get vipUntil => _vipUntil;
+
+  /// Cập nhật hạn VIP theo tài khoản trên máy chủ.
+  Future<void> setServerVip(DateTime? until) async {
+    _vipUntil = until;
+    if (until == null) {
+      await store.delete(vipUntilKey);
+    } else {
+      await store.put(vipUntilKey, until.toIso8601String());
+    }
+    notifyListeners();
+  }
+
+  /// Thay tiến độ (sau khi gộp với máy chủ).
+  Future<void> replaceProgress(Progress p) async {
+    progress = p;
+    await store.put(progressKey, jsonEncode(progress.toJson()));
+    notifyListeners();
+  }
+
+  /// Nạp lại mục lục (sau khi tải nội dung mới).
+  Future<void> reloadCatalog() async {
+    content.invalidate();
+    catalog = await content.loadCatalog();
+    notifyListeners();
+  }
 
   Book? get book {
     final id = progress.bookId;
@@ -76,7 +112,7 @@ class AppState extends ChangeNotifier {
     await _save();
   }
 
-  /// Bật/tắt VIP để THỬ (bản xem trước). Phase 4: VIP thật đến từ mua hàng + server.
+  /// Bật/tắt VIP để THỬ (bản xem trước). VIP thật đến từ mua hàng + máy chủ.
   Future<void> setVip(bool value) async {
     _vip = value;
     await store.put(vipKey, '$value');
@@ -132,7 +168,7 @@ class AppState extends ChangeNotifier {
     progress.totalPoints += earned;
     _addSkillStats(session.skillStats());
     _markActive();
-    final badges = onAfterRecord(progress);
+    final badges = _awardBadges();
     await _save();
     return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
   }
@@ -166,14 +202,14 @@ class AppState extends ChangeNotifier {
     progress.totalPoints += earned;
     _addSkillStats(result.skillStats());
     _markActive();
-    final badges = onAfterRecord(progress);
+    final badges = _awardBadges();
     await _save();
     return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
   }
 
-  /// Điểm móc cho luật huy hiệu (Phase 4). Trả về các huy hiệu mới.
-  @protected
-  List<String> onAfterRecord(Progress progress) => const [];
+  /// Trao huy hiệu mới (nếu đủ điều kiện) sau mỗi lần ghi nhận.
+  List<String> _awardBadges() =>
+      awardBadges(BadgeContext(progress: progress, catalog: catalog, now: now()));
 
   /// Kỹ năng yếu tích luỹ (tỉ lệ đúng < 60%, có ít nhất 2 lượt).
   List<(Skill, SkillProgress)> weakSkills({double threshold = 0.6, int minTotal = 2}) {

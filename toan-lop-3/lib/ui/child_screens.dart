@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
+import 'badges_screen.dart';
 import 'exam_screens.dart';
 import 'parent/parent_screens.dart';
 import 'quiz_screen.dart';
@@ -153,6 +154,12 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.assignment_rounded,
         color: AppColors.tryAgain,
         builder: (_) => ExamListScreen(book: book),
+      ),
+      HomeTile(
+        label: 'Huy hiệu',
+        icon: Icons.military_tech_rounded,
+        color: const Color(0xFF8E5CF7),
+        builder: (_) => const BadgesScreen(),
       ),
       ...extraTiles,
     ];
@@ -309,12 +316,12 @@ class _StarsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          for (var i = 0; i < 3; i++)
-            Icon(Icons.star_rounded, size: size, color: i < stars ? AppColors.honey : Colors.black12),
-        ],
-      );
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      for (var i = 0; i < 3; i++)
+        Icon(Icons.star_rounded, size: size, color: i < stars ? AppColors.honey : Colors.black12),
+    ],
+  );
 }
 
 class ChapterListScreen extends StatelessWidget {
@@ -341,41 +348,49 @@ class ChapterListScreen extends StatelessWidget {
                   key: ValueKey('chapter-${c.id}'),
                   borderRadius: BorderRadius.circular(22),
                   onTap: () => pushScreen<void>(context, ChapterScreen(chapter: c)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: AppColors.honey,
-                          child: Text(
-                            '${c.order}',
-                            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.ink),
+                  child: Semantics(
+                    button: true,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16),
+                      child: Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: AppColors.honey,
+                            child: Text(
+                              '${c.order}',
+                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.ink),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(c.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
-                              const SizedBox(height: 6),
-                              Builder(builder: (context) {
-                                final (got, max) = app.chapterStars(c);
-                                return ClipRRect(
-                                  borderRadius: BorderRadius.circular(8),
-                                  child: LinearProgressIndicator(
-                                    value: max == 0 ? 0 : got / max,
-                                    minHeight: 12,
-                                    color: AppColors.honey,
-                                    backgroundColor: AppColors.cream,
-                                  ),
-                                );
-                              }),
-                            ],
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(c.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                                const SizedBox(height: 6),
+                                Builder(
+                                  builder: (context) {
+                                    final (got, max) = app.chapterStars(c);
+                                    // ExcludeSemantics: để cả thẻ được đọc là "nút", không phải "thanh tiến độ".
+                                    return ExcludeSemantics(
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(8),
+                                        child: LinearProgressIndicator(
+                                          value: max == 0 ? 0 : got / max,
+                                          minHeight: 12,
+                                          color: AppColors.honey,
+                                          backgroundColor: AppColors.cream,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -534,17 +549,16 @@ class TheoryScreen extends StatelessWidget {
                   Text(lesson.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
                   const SizedBox(height: 16),
                   for (final b in lesson.theory.blocks)
-                    Padding(padding: const EdgeInsets.only(bottom: 16), child: BlockView(block: b)),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 16),
+                      child: BlockView(block: b),
+                    ),
                   BigButton(
                     label: 'Luyện tập ngay',
                     icon: Icons.edit_rounded,
                     onPressed: () => Navigator.of(context).pushReplacement(
                       MaterialPageRoute<void>(
-                        builder: (_) => QuizScreen(
-                          lesson: lesson,
-                          isVip: app.isVip,
-                          onFinished: app.recordQuiz,
-                        ),
+                        builder: (_) => QuizScreen(lesson: lesson, isVip: app.isVip, onFinished: app.recordQuiz),
                       ),
                     ),
                   ),

@@ -17,6 +17,12 @@ dependencies:
   # Lưu offline (tiến độ, nội dung tải về) — chạy được cả Android, iOS và web.
   hive_ce: ^2.23.3
   hive_ce_flutter: ^2.5.0
+  # Âm thanh phản hồi đúng/sai (Android, iOS, web).
+  audioplayers: ^6.8.1
+  # Gọi API máy chủ (đồng bộ tiến độ, tải đề, xác minh VIP).
+  http: ^1.6.0
+  # Mua VIP trong app (App Store / Google Play).
+  in_app_purchase: ^3.3.1
 
 dev_dependencies:
   flutter_test:
