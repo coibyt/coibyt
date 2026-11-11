@@ -39,7 +39,7 @@ class _StartGateState extends State<StartGate> with SingleTickerProviderStateMix
   }
 
   void _enter() {
-    ShowMusic.instance.sting('intro');
+    ShowMusic.instance.welcome(); // nhạc chào nhẹ nhàng (không dùng kèn gameshow)
     setState(() => _open = true);
   }
 

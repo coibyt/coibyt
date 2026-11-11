@@ -29,6 +29,9 @@ JOBS = {
                    "sparkling glockenspiel, exciting and joyful, big finish, no vocals", 0, 9, 1.5),
     "show_lock": ("Original short suspense drum roll with rising strings for a quiz show final answer moment, "
                   "dramatic but kid-friendly, building tension, no vocals", 0, 6, 0.5),
+    "welcome": ("Original very soft and gentle welcome music for young children opening a learning app: a tender music "
+                "box and celesta melody with warm soft piano and light airy pads, calm, sweet, peaceful, slow 70 BPM, "
+                "no drums, no brass, no sudden loud sounds, no vocals", 0, 14, 4),
     "exam_bg": ("Original calm instrumental background music for children concentrating on a school math test: gentle "
                 "soft piano, warm pads, light pizzicato strings and a soft steady pulse, peaceful, focused, encouraging, "
                 "loopable, 80 BPM, no drums, no vocals", 6, 70, 3),

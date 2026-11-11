@@ -12,6 +12,9 @@ abstract class ShowMusic {
   /// Đoạn nhạc ngắn: intro (mở màn), lock (chốt đáp án), win (kết thúc).
   Future<void> sting(String name);
   Future<void> stopAll();
+
+  /// Nhạc chào nhẹ nhàng khi bé chạm vào màn mở đầu (hộp nhạc, nhỏ dần vào – ra, không làm bé giật mình).
+  Future<void> welcome();
 }
 
 class SilentShowMusic implements ShowMusic {
@@ -25,11 +28,30 @@ class SilentShowMusic implements ShowMusic {
   Future<void> sting(String name) async => played.add(name);
   @override
   Future<void> stopAll() async {}
+  @override
+  Future<void> welcome() async => played.add('welcome');
 }
 
 class AudioShowMusic implements ShowMusic {
   AudioPlayer? _bg;
   AudioPlayer? _fx;
+  AudioPlayer? _welcome;
+
+  @override
+  Future<void> welcome() async {
+    try {
+      final p = _welcome ??= AudioPlayer(playerId: 'welcome')..setReleaseMode(ReleaseMode.stop);
+      await p.setVolume(0.05);
+      await p.play(AssetSource('sounds/welcome.mp3'));
+      // Tăng âm lượng từ từ trong 2 giây, giữ nhỏ để không át giọng cô.
+      for (var i = 1; i <= 8; i++) {
+        await Future<void>.delayed(const Duration(milliseconds: 250));
+        await p.setVolume(0.05 + 0.025 * i);
+      }
+    } on Object catch (e) {
+      debugPrint('Không phát được nhạc chào: $e');
+    }
+  }
 
   @override
   Future<void> playBackground() async {
