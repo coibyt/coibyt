@@ -63,7 +63,7 @@ DemoQuiz? problemQuiz(List<Problem> problems) {
   final sorted = [...problems]..sort((a, b) => a.level.compareTo(b.level));
   for (final p in sorted) {
     if (p.access != Access.free) continue;
-    final q = toGameQuestion(p, Random(stableSeed(p.id)));
+    final q = showQuestion(p);
     if (q == null) continue;
     final picks = <int>{q.correct, ...List.generate(q.choices.length, (i) => i)}.take(3).toList()..sort();
     return DemoQuiz(

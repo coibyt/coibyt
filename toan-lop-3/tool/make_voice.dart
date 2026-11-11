@@ -10,7 +10,6 @@
 // ignore_for_file: avoid_print
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math';
 
 import 'package:http/http.dart' as http;
 import 'package:toan_lop_3/logic/ability.dart';
@@ -73,7 +72,7 @@ List<String> showQuestionLines() {
         final lesson = Lesson.fromJson(jsonDecode(File(c.lessons[i].src).readAsStringSync()));
         for (final p in lesson.problems) {
           if (p.access != Access.free) continue;
-          final q = toGameQuestion(p, Random(stableSeed(p.id)));
+          final q = showQuestion(p);
           if (q == null) continue;
           out.addAll(promptSentences(q.prompt));
           for (var k = 0; k < q.choices.length; k++) {

@@ -64,6 +64,7 @@ void main() {
   });
 
   gameScreenTests();
+  promptContextTests();
 }
 
 Future<AppState> _app() async {
@@ -122,5 +123,25 @@ void gameScreenTests() {
     expect(s.gameBest(chapter.id).$1, g.score);
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 10));
+  });
+}
+
+void promptContextTests() {
+  test('câu hỏi gameshow/bóng bay giữ trọn đề (không mất phần "Mỗi ngày nhà máy may…")', () {
+    var checked = 0;
+    for (final c in loadCatalogFromDisk().books.first.chapters) {
+      for (final ref in c.lessons) {
+        for (final p in loadLessonFromDisk(ref.id).problems) {
+          final q = showQuestion(p);
+          if (q == null) continue;
+          final text = p.prompt.text.trim();
+          if (RegExp(r'\d').hasMatch(text) || text.length > 30) {
+            expect(q.prompt, contains(text), reason: p.id);
+            checked++;
+          }
+        }
+      }
+    }
+    expect(checked, greaterThan(100));
   });
 }

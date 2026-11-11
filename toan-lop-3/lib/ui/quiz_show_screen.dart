@@ -61,14 +61,37 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
   final _teacher = TeacherController(voiceEnabled: false);
   late final AnimationController _clock =
       AnimationController(
-        vsync: this,
-        duration: const Duration(seconds: kShowSeconds),
-      )..addStatusListener((s) {
-        if (s == AnimationStatus.completed && _stage == _Stage.answering) _timeUp();
-      });
+          vsync: this,
+          duration: const Duration(seconds: kShowSeconds),
+        )
+        ..addStatusListener((s) {
+          if (s == AnimationStatus.completed && _stage == _Stage.answering) _timeUp();
+        })
+        ..addListener(_onTick);
   late final AnimationController _flash = AnimationController(vsync: this, duration: const Duration(milliseconds: 260));
 
   var _stage = _Stage.loading;
+
+  // Lời MC tuỳ lúc: suy nghĩ lâu, sắp hết giờ, số lần đổi đáp án, chuỗi đúng.
+  bool _thinkSaid = false;
+  bool _hurrySaid = false;
+  int _picks = 0;
+  int _streak = 0;
+
+  void _onTick() {
+    if (_stage != _Stage.answering || _host.speaking) return;
+    final elapsed = _clock.value * kShowSeconds;
+    final left = kShowSeconds - elapsed;
+    final n = _test?.index ?? 0;
+    if (!_hurrySaid && left <= 10) {
+      _hurrySaid = true;
+      _host.say(const [ShowLines.hurry]);
+    } else if (!_thinkSaid && elapsed >= 15 && _selected == null) {
+      _thinkSaid = true;
+      _host.say([ShowLines.thinking[n % ShowLines.thinking.length]], mood: TeacherMood.think);
+    }
+  }
+
   AbilityTest? _test;
   final _questions = <String, GameQuestion>{};
   final _results = <bool>[];
@@ -124,7 +147,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     // Chỉ dùng câu đổi được thành 4 lựa chọn.
     final usable = [
       for (final i in bank)
-        if (toGameQuestion(i.problem, Random(stableSeed(i.problem.id))) != null) i,
+        if (showQuestion(i.problem) != null) i,
     ];
     _test = AbilityTest(usable, random: _random);
     _host.voiceEnabled = app.voiceEnabled;
@@ -184,8 +207,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     ),
   );
 
-  GameQuestion _q(AbilityItem item) =>
-      _questions.putIfAbsent(item.problem.id, () => toGameQuestion(item.problem, Random(stableSeed(item.problem.id)))!);
+  GameQuestion _q(AbilityItem item) => _questions.putIfAbsent(item.problem.id, () => showQuestion(item.problem)!);
 
   @override
   void dispose() {
@@ -218,11 +240,14 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
       _teacherHint = null;
       _pose = HostPose.present;
     });
+    _thinkSaid = false;
+    _hurrySaid = false;
+    _picks = 0;
     _clock.value = 0;
     // 1) Đưa tay giới thiệu và đọc đề.
     await _host.say([
       ?intro,
-      if (n == t.total) ShowLines.finale,
+      if (n == t.total) ShowLines.finale else if (intro == null && n > 1) ShowLines.hype[n % ShowLines.hype.length],
       ShowLines.questionNumber(n),
       ...promptSentences(q.prompt),
     ]);
@@ -242,7 +267,8 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     if (_stage != _Stage.answering || _removed.contains(i)) return;
     _sound.tap();
     setState(() => _selected = i);
-    if (!_host.speaking) _host.say(const [ShowLines.confirm]);
+    _picks++;
+    _host.say([_picks == 1 ? ShowLines.confirm : ShowLines.confirmMore[_picks % ShowLines.confirmMore.length]]);
   }
 
   Future<void> _lock() async {
@@ -281,11 +307,20 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     }
     final n = t.index + 1;
     final token = ++_token;
+    _streak = ok ? _streak + 1 : 0;
     await _host.say([
       if (ok)
-        ShowLines.correct[n % ShowLines.correct.length]
-      else
-        (choice == null ? ShowLines.timeout : ShowLines.wrong),
+        (n.isEven
+            ? ShowLines.correctFun[n % ShowLines.correctFun.length]
+            : ShowLines.correct[n % ShowLines.correct.length])
+      else if (choice == null)
+        ShowLines.timeout
+      else ...[
+        ShowLines.wrongKind[n % ShowLines.wrongKind.length],
+        ShowLines.wrong,
+      ],
+      if (_streak == 3) ShowLines.streak3,
+      if (_streak == 5) ShowLines.streak5,
       if (n == 5) ShowLines.milestone5,
       if (n == 10) ShowLines.milestone10,
     ], mood: ok ? TeacherMood.clap : TeacherMood.think);
@@ -300,6 +335,64 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
       _music.playBackground();
       _ask();
     }
+  }
+
+  /// Bé bấm "Nghe lại": MC đọc lại trọn đề và đáp án (tạm dừng đồng hồ trong lúc đọc).
+  Future<void> _replay() async {
+    if (_stage != _Stage.answering) return;
+    final q = _q(_test!.current);
+    _clock.stop();
+    setState(() => _pose = HostPose.present);
+    await _host.say([
+      ShowLines.replay,
+      ...promptSentences(q.prompt),
+      for (var i = 0; i < q.choices.length; i++) answerLine(i, q.choices[i]),
+    ]);
+    if (!mounted || _stage != _Stage.answering) return;
+    setState(() => _pose = HostPose.think);
+    _clock.forward();
+  }
+
+  /// Xem trọn đề (đề dài bị thu gọn trên bảng).
+  void _showFullQuestion() {
+    final q = _q(_test!.current);
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: const Color(0xFF0A1248),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(24))),
+      builder: (context) => SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(18, 16, 18, 20),
+          child: Column(
+            key: const ValueKey('show-full-question'),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                'Câu hỏi số ${_test!.index + 1}',
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w900, color: _gold),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                q.prompt,
+                style: const TextStyle(fontSize: 21, height: 1.4, fontWeight: FontWeight.w700, color: Colors.white),
+              ),
+              const SizedBox(height: 12),
+              for (var i = 0; i < q.choices.length; i++)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Text(
+                    '◆ ${'ABCD'[i]}: ${q.choices[i]}',
+                    style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: Color(0xFFD9DEFF)),
+                  ),
+                ),
+              const SizedBox(height: 8),
+              _GoldButton(label: 'ĐÃ HIỂU', onTap: () => Navigator.pop(context)),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 
   // ---- Quyền trợ giúp ----
@@ -610,21 +703,50 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
                       ),
                     ),
                     const SizedBox(height: 8),
-                    _HexBar(
-                      key: ValueKey('show-q-${t.index}-${q.problemId}'),
-                      top: _panelTop,
-                      bottom: _panelBottom,
-                      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                      child: Text(
-                        q.prompt,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          height: 1.3,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
+                    GestureDetector(
+                      key: const ValueKey('show-question-panel'),
+                      onTap: _showFullQuestion,
+                      child: _HexBar(
+                        key: ValueKey('show-q-${t.index}-${q.problemId}'),
+                        top: _panelTop,
+                        bottom: _panelBottom,
+                        padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+                        child: Text(
+                          q.prompt,
+                          maxLines: 6,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            height: 1.3,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton.icon(
+                          key: const ValueKey('show-view-full'),
+                          onPressed: _showFullQuestion,
+                          icon: const Icon(Icons.zoom_in_rounded, color: _gold),
+                          label: const Text(
+                            'Xem trọn đề',
+                            style: TextStyle(color: _gold, fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                        TextButton.icon(
+                          key: const ValueKey('show-replay'),
+                          onPressed: _stage == _Stage.answering ? _replay : null,
+                          icon: const Icon(Icons.volume_up_rounded, color: _gold),
+                          label: const Text(
+                            'Nghe lại',
+                            style: TextStyle(color: _gold, fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 12),
                     for (var i = 0; i < q.choices.length; i++)

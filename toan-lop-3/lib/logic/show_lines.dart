@@ -22,6 +22,56 @@ abstract final class ShowLines {
   static const finale = 'Đây là câu hỏi cuối cùng! Hãy thật bình tĩnh nhé!';
   static const end = 'Chương trình đã kết thúc! Cùng xem bảng năng lực của con nào!';
 
+  // ---- Lời khích lệ, tâm lý, vui nhộn ----
+
+  /// Trước khi đọc đề (xen kẽ để không nhàm).
+  static const hype = [
+    'Câu tiếp theo đây! Con đã sẵn sàng chưa nào?',
+    'Câu này nghe nói các bạn giỏi nhất lớp mới làm được đấy!',
+    'Câu này dễ như ăn kẹo, đúng không nào?',
+    'Cả trường quay đang nín thở chờ con đấy!',
+    'Thêm một bậc thang nữa thôi, cố lên nhà vô địch!',
+    'Đọc thật kỹ đề nhé, có bẫy nhỏ đấy!',
+  ];
+
+  /// Bé suy nghĩ lâu (sau khoảng mười lăm giây).
+  static const thinking = [
+    'Bình tĩnh nào, con còn nhiều thời gian lắm!',
+    'Hít một hơi thật sâu, nghĩ kỹ rồi chọn nhé!',
+    'Cô Mai đang hồi hộp theo con đấy!',
+    'Con có thể dùng quyền trợ giúp nếu cần nhé!',
+  ];
+
+  /// Còn mười giây.
+  static const hurry = 'Nhanh lên nào, chỉ còn mười giây thôi!';
+
+  /// Khi bé đã chọn một đáp án (đổi lượt cho vui).
+  static const confirmMore = [
+    'Chắc chưa? Chắc chắn chưa nào?',
+    'Đáp án này nghe hợp lý đấy… nhưng con có chắc không?',
+    'Con tin vào đáp án này chứ? Bấm chốt đáp án nhé!',
+  ];
+
+  /// Đúng — câu vui.
+  static const correctFun = [
+    'Chuẩn không cần chỉnh!',
+    'Đúng rồi! Con giỏi hơn cả máy tính bỏ túi!',
+    'Tuyệt cú mèo! Cả trường quay vỗ tay nào!',
+  ];
+
+  /// Sai — động viên.
+  static const wrongKind = [
+    'Ôi tiếc quá! Không sao, nhà toán học cũng có lúc nhầm mà!',
+    'Suýt nữa thì đúng rồi! Câu sau mình gỡ lại nhé!',
+  ];
+
+  /// Đúng liên tiếp.
+  static const streak3 = 'Ba câu đúng liên tiếp! Con đang bốc lửa đấy!';
+  static const streak5 = 'Năm câu đúng liên tiếp! Không ai cản nổi con nữa rồi!';
+
+  /// Bé bấm nghe lại câu hỏi.
+  static const replay = 'Cô đọc lại câu hỏi nhé!';
+
   static const _numbers = [
     'một',
     'hai',
@@ -60,6 +110,15 @@ abstract final class ShowLines {
     finale,
     end,
     for (var i = 1; i <= 15; i++) questionNumber(i),
+    ...hype,
+    ...thinking,
+    hurry,
+    ...confirmMore,
+    ...correctFun,
+    ...wrongKind,
+    streak3,
+    streak5,
+    replay,
   }.toList();
 }
 

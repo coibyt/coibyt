@@ -3,7 +3,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:toan_lop_3/logic/ability.dart';
+import 'package:toan_lop_3/logic/demo_script.dart';
+import 'package:toan_lop_3/logic/review_game.dart';
+import 'package:toan_lop_3/logic/show_lines.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
+import 'package:toan_lop_3/models/problem.dart';
 import 'package:toan_lop_3/tutor/teacher_gallery_screen.dart';
 import 'package:toan_lop_3/tutor/voice_library.dart';
 import 'package:toan_lop_3/ui/app_theme.dart';
@@ -33,6 +38,41 @@ void main() {
       expect(File(clip.file).existsSync(), isTrue, reason: clip.file);
       expect(clip.durationMs, inInclusiveRange(300, 15000), reason: '$l: ${clip.durationMs} ms');
     }
+  });
+
+  test('gameshow: MC có giọng ghi âm cho MỌI câu dẫn, đề và đáp án có thể ra; cô có giọng cho mọi câu hỏi nhanh', () {
+    final lib = VoiceLibrary.fromJson(
+      jsonDecode(File('assets/voice/manifest.json').readAsStringSync()) as Map<String, dynamic>,
+    );
+    final lines = <String>{...ShowLines.all()};
+    final catalog = loadCatalogFromDisk();
+    for (final c in catalog.books.first.chapters) {
+      if (AbilityDomain.ofChapter(c.order) != null) {
+        for (final i in bankLessonIndexes(c.lessons.length)) {
+          for (final p in loadLessonFromDisk(c.lessons[i].id).problems) {
+            if (p.access != Access.free) continue;
+            final q = showQuestion(p);
+            if (q == null) continue;
+            lines.addAll(promptSentences(q.prompt));
+            for (var k = 0; k < q.choices.length; k++) {
+              lines.add(answerLine(k, q.choices[k]));
+            }
+          }
+        }
+      }
+      // Cô giảng: câu hỏi nhanh và lời nhắc đáp án.
+      for (final ref in [...c.lessons, ...c.advancedLessons]) {
+        final l = loadLessonFromDisk(ref.id);
+        for (final s in buildDemoScript(l.theory.blocks, problems: l.problems)) {
+          if (s.quiz != null) lines.addAll([...s.say, s.quiz!.reveal]);
+        }
+      }
+    }
+    final missing = [
+      for (final l in lines)
+        if (lib.lookup(l) == null) l,
+    ];
+    expect(missing, isEmpty, reason: 'Thiếu giọng (${missing.length}):\n${missing.take(20).join('\n')}');
   });
 
   testWidgets('màn xem cô giáo: đủ tư thế, nút nói thử', (tester) async {

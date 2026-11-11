@@ -5,6 +5,7 @@ library;
 import 'dart:math';
 
 import '../models/problem.dart';
+import 'show_lines.dart' show stableSeed;
 
 class GameQuestion {
   const GameQuestion({required this.prompt, required this.choices, required this.correct, required this.problemId});
@@ -20,15 +21,18 @@ class GameQuestion {
 /// Độ dài tối đa của đề trong trò chơi (đề dài quá thì bé không kịp đọc).
 const maxPrompt = 150;
 
+/// Gameshow cho phép đề dài hơn (bé bấm xem trọn đề, MC đọc hết).
+const maxShowPrompt = 320;
+
 final _blank = RegExp(r'\{\{\s*([A-Za-z0-9_]+)\s*\}\}');
 
 /// Đổi một bài tập thành câu hỏi bóng bay (null nếu không hợp: đề quá dài, nhiều ô trống, đáp án dài…).
-GameQuestion? toGameQuestion(Problem p, Random random) {
+GameQuestion? toGameQuestion(Problem p, Random random, {int maxLength = maxPrompt}) {
   final body = p.body;
   final promptText = p.prompt.text.trim();
   if (body is MultipleChoiceBody) {
     if (body.multiSelect || body.correctChoiceIds.length != 1 || body.choices.length < 2) return null;
-    if (promptText.length > maxPrompt || body.choices.any((c) => c.text.length > 24 || c.text.isEmpty)) return null;
+    if (promptText.length > maxLength || body.choices.any((c) => c.text.length > 24 || c.text.isEmpty)) return null;
     final opts = [...body.choices]..shuffle(random);
     final chosen = opts.take(4).toList();
     if (!chosen.any((c) => body.correctChoiceIds.contains(c.id))) {
@@ -55,8 +59,10 @@ GameQuestion? toGameQuestion(Problem p, Random random) {
     final answers = {for (final b in body.blanks) b.id: b.answer.displayAnswer};
     final shown = body.template.replaceAllMapped(_blank, (m) => m[1] == ask.id ? '?' : answers[m[1]] ?? '?').trim();
     final hasNumbers = RegExp(r'\d').hasMatch(shown.replaceAll('?', ''));
-    final prompt = shown == '?' || !hasNumbers ? '$promptText${shown == '?' ? '' : '\n$shown'}' : shown;
-    if (prompt.length > maxPrompt || prompt.contains('\n\n')) return null;
+    // Đề có nội dung (có số, hoặc dài) thì luôn giữ lại; chỉ bỏ câu lệnh chung chung như "Tính.".
+    final generic = !RegExp(r'\d').hasMatch(promptText) && promptText.length <= 30;
+    final prompt = shown == '?' ? promptText : (generic && hasNumbers ? shown : '$promptText\n$shown');
+    if (prompt.length > maxLength || prompt.contains('\n\n')) return null;
     final unit = rule.unit == null ? '' : ' ${rule.unit}';
     final wrong = numberDistractors(v, random);
     final values = [v, ...wrong]..shuffle(random);
@@ -172,3 +178,6 @@ class ReviewGame {
   /// Vàng thưởng: 2 vàng mỗi câu đúng, thêm 10 nếu được 3 sao.
   int get coins => correctCount * 2 + (stars == 3 ? 10 : 0);
 }
+
+/// Câu hỏi gameshow của một bài tập: thứ tự đáp án cố định theo mã câu (để MC đọc bằng giọng ghi âm sẵn).
+GameQuestion? showQuestion(Problem p) => toGameQuestion(p, Random(stableSeed(p.id)), maxLength: maxShowPrompt);
