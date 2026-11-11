@@ -1,11 +1,11 @@
 {
     "name": "Ong Vàng Toán 3",
-    "short_name": "Toán 3",
+    "short_name": "Ong Vàng Toán 3",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#FFF8E7",
-    "theme_color": "#FFC93C",
-    "description": "Luyện toán lớp 3 cho bé: lý thuyết, bài tập, lời giải từng bước, thi thử.",
+    "background_color": "#2B1470",
+    "theme_color": "#2B1470",
+    "description": "Học Toán lớp 3 cùng cô Mai: bài giảng có giọng nói, luyện tập, gameshow, trò chơi ôn tập.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

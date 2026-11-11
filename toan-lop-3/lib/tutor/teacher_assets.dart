@@ -67,6 +67,7 @@ enum UiAsset {
   advBrain,
   advDaily,
   advLock,
+  logoEmblem,
   balloonRed,
   balloonBlue,
   balloonYellow,

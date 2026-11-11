@@ -279,6 +279,21 @@ for _c in _catalog["books"][0]["chapters"]:
                 f"One seamless full-bleed scene filling the entire frame, no borders, no people's faces close-up, "
                 f"no text, no letters, no numbers. {STYLE} {CLEAN}"))
 
+# ---- Logo & màn mở đầu ----
+JOBS["logo_emblem"] = dict(group="ui", aspect="1:1", prompt=obj(
+    "A premium 3D game logo emblem for a children's math app: a cute chubby golden honey bee mascot with big "
+    "sparkling eyes and a happy smile, wearing a small navy graduation cap with a golden tassel and holding a "
+    "golden pencil, flying in front of a glossy golden honeycomb hexagon shield with a rich gold rim, tiny stars "
+    "and sparkles around, luxurious, iconic, symmetrical composition"))
+JOBS["icon_app"] = dict(group="bg", aspect="1:1", prompt=(
+    "A premium mobile app icon: a cute chubby golden honey bee mascot wearing a small navy graduation cap with a "
+    "golden tassel, holding a golden pencil, centered on a glossy warm honey-gold to orange gradient background "
+    "with a subtle honeycomb pattern and soft glow, rounded friendly look, no text. " + STYLE + " " + CLEAN))
+JOBS["bg_splash"] = dict(group="bg", aspect="9:16", prompt=(
+    "A magical luxurious opening background for a children's math game: a glowing golden honeycomb sky at sunrise, "
+    "floating soft golden light particles, gentle bokeh, warm honey, peach and royal purple tones, a soft radial "
+    "glow in the centre for a logo, very elegant and dreamy, no characters, no text. " + STYLE + " " + CLEAN))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",

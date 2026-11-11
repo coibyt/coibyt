@@ -16,8 +16,8 @@ import 'tutor/voice_library.dart';
 import 'ui/app_theme.dart';
 import 'ui/break_reminder.dart';
 import 'ui/child_screens.dart';
+import 'ui/splash_view.dart';
 import 'ui/start_gate.dart';
-import 'ui/widgets/bee_mascot.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -77,11 +77,7 @@ class _OngVangAppState extends State<OngVangApp> {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: buildAppTheme(),
-            home: Scaffold(
-              body: Center(
-                child: snap.hasError ? Text('Không mở được app: ${snap.error}') : const BeeMascot(size: 140),
-              ),
-            ),
+            home: AppSplash(error: snap.hasError ? snap.error : null),
           );
         }
         // AppScope bọc NGOÀI MaterialApp để mọi màn hình (kể cả màn được push) đều thấy.
