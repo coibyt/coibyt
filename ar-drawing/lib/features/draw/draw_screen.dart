@@ -104,6 +104,10 @@ class _DrawScreenState extends State<DrawScreen> {
       _waitingDemo = false;
       final TeacherLine? intro = _beginDemo();
       _teacher.say(intro != null ? <TeacherLine>[intro] : _progress!.step.lines);
+    } else if (_demoIndex == null && _drawing.strokes.length == _strokesAtStep) {
+      // Slow network: the demo arrived late, but nothing is drawn yet.
+      final TeacherLine? intro = _beginDemo();
+      if (intro != null) _teacher.say(<TeacherLine>[intro]);
     }
   }
 
@@ -197,7 +201,7 @@ class _DrawScreenState extends State<DrawScreen> {
       if (_demo == null) {
         // Wait a moment for the demonstration to load (tiny JSON asset).
         _waitingDemo = true;
-        Future<void>.delayed(const Duration(milliseconds: 1500), () {
+        Future<void>.delayed(const Duration(milliseconds: 3000), () {
           if (!mounted || !_waitingDemo) return;
           _waitingDemo = false;
           _teacher.say(progress.step.lines);

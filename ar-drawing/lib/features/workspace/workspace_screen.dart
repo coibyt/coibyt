@@ -121,7 +121,13 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
       _progress = LessonProgress(lesson)..addListener(_onStepChanged);
       unawaited(
         LessonDemo.load(lesson).then((LessonDemo? d) {
-          if (mounted) setState(() => _demo = d);
+          if (!mounted) return;
+          setState(() => _demo = d);
+          // Lumi already spoke before the demo arrived: show it now.
+          if (_greeted && _demoIndex == null) {
+            final TeacherLine? intro = _beginDemo();
+            if (intro != null) _teacher.say(<TeacherLine>[intro]);
+          }
         }),
       );
     }
