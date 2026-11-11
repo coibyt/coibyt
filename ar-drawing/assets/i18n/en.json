@@ -340,5 +340,92 @@
     "clearBody": "You can still bring it back with Undo.",
     "cancel": "Cancel",
     "tour": "How to use the drawing board"
+  },
+  "exam": {
+    "hall": "Art exam hall",
+    "hallHint": "15-minute tests, one-period tests, mid-term and end-of-term exams. No tracing layer here: look at the model and draw it yourself.",
+    "hallCard": "Art exam hall",
+    "hallCardHint": "Timed tests, graded automatically",
+    "type": {
+      "quiz15": "15-minute test",
+      "period": "One-period test",
+      "midterm": "Mid-term exam",
+      "finalExam": "End-of-term exam"
+    },
+    "task": {
+      "sketch": "Quick sketch: look at the model and draw its shape in lines.",
+      "drawColor": "Finished drawing: draw the model, then colour it.",
+      "colorShade": "Colouring and shading: the outline is printed on the exam paper."
+    },
+    "title": {
+      "quick_cube": "Sketch: cube",
+      "quick_apple": "Sketch: apple",
+      "quick_cat": "Sketch: tabby kitten",
+      "period_vase": "Still life: tulip vase",
+      "period_fox": "Animals: fox cub",
+      "period_car": "Vehicles: vintage car",
+      "midterm_cylinder": "Shading a cylinder",
+      "midterm_cupcake": "Colouring a cupcake",
+      "final_landscape": "Landscape: mountain lake",
+      "final_portrait": "Portrait of a girl"
+    },
+    "rules": "Time: {minutes} minutes. No tracing layer. The paper is collected automatically when time is up.",
+    "minutes": "{minutes} min",
+    "start": "Start the exam",
+    "notTaken": "Not taken",
+    "attempts": "{count} attempts",
+    "model": "Model",
+    "submit": "Hand in",
+    "submitTitle": "Hand in now?",
+    "submitBody": "You can't change it afterwards.",
+    "keepDrawing": "Keep drawing",
+    "leave": "Leave exam",
+    "leaveTitle": "Leave the exam?",
+    "leaveBody": "Your work will not be graded.",
+    "grading": "Grading…",
+    "timeUp": "Time's up! Your paper was handed in automatically.",
+    "reportCard": "Report card",
+    "outOf10": "Mark (out of 10)",
+    "passed": "Passed",
+    "notPassed": "Not passed",
+    "grade": {
+      "excellent": "Excellent",
+      "good": "Good",
+      "average": "Average",
+      "fail": "Not yet"
+    },
+    "criterion": {
+      "proportion": "Proportions",
+      "neatness": "Shape and neat colouring",
+      "color": "Colour accuracy",
+      "creativity": "Creativity"
+    },
+    "colorNotGraded": "Sketch tests don't grade colour.",
+    "creativityNote": "Creativity is an automatic estimate (colour variety, extra details, stroke variety), for guidance only.",
+    "yourDrawing": "Your drawing",
+    "backToList": "Exam hall",
+    "retake": "Try again",
+    "advice": {
+      "proportion": {
+        "high": "Shape and proportions are very close to the model.",
+        "mid": "The shape is close but proportions are off. Compare height and width of the model before drawing.",
+        "low": "The shape differs a lot. Block in the big shapes first, details later."
+      },
+      "neatness": {
+        "high": "Very neat colouring inside the lines.",
+        "mid": "Some colour went over the lines.",
+        "low": "A lot of colour went outside. Slow down near the outline."
+      },
+      "color": {
+        "high": "Colours and light/shadow are very close to the model.",
+        "mid": "Colours are mostly right, but light and shadow are not clear yet.",
+        "low": "Colours differ from the model or the subject isn't coloured enough. Look closely at each area."
+      },
+      "creativity": {
+        "high": "Lots of personal touches and interesting details.",
+        "mid": "A bit of creativity. Try adding a background or details of your own.",
+        "low": "Be brave: add details, a background or colours of your own."
+      }
+    }
   }
 }

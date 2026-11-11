@@ -1,0 +1,24 @@
+{
+  "exams": [
+    { "id": "quick_cube", "type": "quiz15", "subject": "cube", "task": "sketch",
+      "weights": { "proportion": 0.75, "creativity": 0.25 } },
+    { "id": "quick_apple", "type": "quiz15", "subject": "apple", "task": "sketch",
+      "weights": { "proportion": 0.75, "creativity": 0.25 } },
+    { "id": "quick_cat", "type": "quiz15", "subject": "cat", "task": "sketch",
+      "weights": { "proportion": 0.75, "creativity": 0.25 } },
+    { "id": "period_vase", "type": "period", "subject": "flower_vase", "task": "draw_color",
+      "weights": { "proportion": 0.4, "color": 0.35, "creativity": 0.25 } },
+    { "id": "period_fox", "type": "period", "subject": "fox", "task": "draw_color",
+      "weights": { "proportion": 0.4, "color": 0.35, "creativity": 0.25 } },
+    { "id": "period_car", "type": "period", "subject": "vintage_car", "task": "draw_color",
+      "weights": { "proportion": 0.4, "color": 0.35, "creativity": 0.25 } },
+    { "id": "midterm_cylinder", "type": "midterm", "subject": "cylinder", "task": "color_shade",
+      "weights": { "proportion": 0.25, "color": 0.55, "creativity": 0.2 } },
+    { "id": "midterm_cupcake", "type": "midterm", "subject": "cupcake", "task": "color_shade",
+      "weights": { "proportion": 0.25, "color": 0.55, "creativity": 0.2 } },
+    { "id": "final_landscape", "type": "final", "subject": "mountain_lake", "task": "color_shade",
+      "weights": { "proportion": 0.25, "color": 0.55, "creativity": 0.2 } },
+    { "id": "final_portrait", "type": "final", "subject": "portrait_girl", "task": "color_shade",
+      "weights": { "proportion": 0.25, "color": 0.55, "creativity": 0.2 } }
+  ]
+}

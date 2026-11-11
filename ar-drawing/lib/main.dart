@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 import 'core/i18n/language_controller.dart';
+import 'features/exams/exam.dart';
+import 'features/exams/exam_record_store.dart';
 import 'features/lessons/lesson.dart';
 import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
@@ -21,12 +23,25 @@ Future<void> main() async {
     TeacherServices teacher,
     LessonCatalog lessons,
     LessonProgressStore progress,
+    ExamCatalog exams,
+    ExamRecordStore examRecords,
   ) = await (
     LanguageController.load(),
     TeacherServices.load(),
     LessonCatalog.load(),
     LessonProgressStore.load(),
+    ExamCatalog.load(),
+    ExamRecordStore.load(),
   ).wait;
 
-  runApp(TraceLightApp(language: language, teacher: teacher, lessons: lessons, progress: progress));
+  runApp(
+    TraceLightApp(
+      language: language,
+      teacher: teacher,
+      lessons: lessons,
+      progress: progress,
+      exams: exams,
+      examRecords: examRecords,
+    ),
+  );
 }

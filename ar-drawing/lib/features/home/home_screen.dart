@@ -11,6 +11,8 @@ import '../../core/i18n/language_controller.dart';
 import '../academy/academy_screen.dart';
 import '../draw/draw_mode_sheet.dart';
 import '../draw/draw_screen.dart';
+import '../exams/exam.dart';
+import '../exams/exams_screen.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../sketch/sketch_screen.dart';
@@ -39,6 +41,7 @@ class HomeScreen extends StatefulWidget {
     super.key,
     this.templates = kTemplates,
     this.lessons = const <Lesson>[],
+    this.exams = const <Exam>[],
     this.pickPhoto = _pickFromGallery,
     this.workspaceBuilder,
     this.drawBuilder,
@@ -47,6 +50,7 @@ class HomeScreen extends StatefulWidget {
 
   final List<DrawingTemplate> templates;
   final List<Lesson> lessons;
+  final List<Exam> exams;
 
   /// Opens a colouring lesson in the chosen mode (overridable in tests).
   final Widget Function(Lesson lesson, DrawMode mode)? lessonBuilder;
@@ -96,6 +100,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _draw(ImageProvider? image) =>
       widget.drawBuilder?.call(image) ?? DrawScreen(template: image);
+
+  void _openExamHall() {
+    _teacher.close();
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => ExamsScreen(exams: widget.exams)));
+  }
 
   void _openBlankCanvas() {
     _teacher.close();
@@ -238,6 +248,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: _BlankCanvasCard(onTap: _openBlankCanvas),
                   ),
                 ),
+                if (widget.exams.isNotEmpty)
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                      child: HomeTile(
+                        key: const Key('examHallCard'),
+                        icon: Icons.assignment,
+                        title: context.tr('exam.hallCard'),
+                        subtitle: context.tr('exam.hallCardHint'),
+                        onTap: _openExamHall,
+                      ),
+                    ),
+                  ),
                 if (widget.lessons.isNotEmpty) ...<Widget>[
                   SliverToBoxAdapter(
                     child: Padding(
@@ -585,6 +608,59 @@ class _BlankCanvasCard extends StatelessWidget {
                 ),
               ),
               const Icon(Icons.chevron_right),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Compact dark tile for a home destination.
+class HomeTile extends StatelessWidget {
+  const HomeTile({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+    required this.onTap,
+    this.trailing,
+  });
+
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xFF232838),
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(18),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
+          child: Row(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 20,
+                backgroundColor: const Color(0xFFFFF8EC),
+                child: Icon(icon, color: const Color(0xFFB0661B)),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(title, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16)),
+                    Text(subtitle, style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                  ],
+                ),
+              ),
+              trailing ?? const Icon(Icons.chevron_right),
             ],
           ),
         ),

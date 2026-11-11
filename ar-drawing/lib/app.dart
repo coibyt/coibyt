@@ -5,6 +5,8 @@ import 'core/app_theme.dart';
 import 'core/i18n/app_language.dart';
 import 'core/i18n/language_controller.dart';
 import 'features/home/home_screen.dart';
+import 'features/exams/exam.dart';
+import 'features/exams/exam_record_store.dart';
 import 'features/lessons/lesson.dart';
 import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
@@ -17,15 +19,19 @@ class TraceLightApp extends StatelessWidget {
     required this.teacher,
     this.lessons = LessonCatalog.empty,
     this.progress,
+    this.exams = ExamCatalog.empty,
+    this.examRecords,
     this.home,
   });
-
-  /// Learner's progress in the lessons (empty in tests by default).
-  final LessonProgressStore? progress;
 
   final LanguageController language;
   final TeacherServices teacher;
   final LessonCatalog lessons;
+
+  /// Learner's progress in the lessons (empty in tests by default).
+  final LessonProgressStore? progress;
+  final ExamCatalog exams;
+  final ExamRecordStore? examRecords;
 
   /// Replaces the home screen (tests).
   final Widget? home;
@@ -38,16 +44,21 @@ class TraceLightApp extends StatelessWidget {
         services: teacher,
         child: LessonProgressScope(
           store: progress ?? LessonProgressStore(),
-          child: ListenableBuilder(
-            listenable: language,
-            builder: (BuildContext context, _) => MaterialApp(
-              title: language.translations.tr('app.name'),
-              debugShowCheckedModeBanner: false,
-              theme: AppTheme.dark(),
-              locale: language.language.locale,
-              supportedLocales: <Locale>[for (final AppLanguage l in AppLanguage.values) l.locale],
-              localizationsDelegates: GlobalMaterialLocalizations.delegates,
-              home: home ?? HomeScreen(lessons: lessons.lessons),
+          child: ExamRecordScope(
+            store: examRecords ?? ExamRecordStore(),
+            child: ListenableBuilder(
+              listenable: language,
+              builder: (BuildContext context, _) => MaterialApp(
+                title: language.translations.tr('app.name'),
+                debugShowCheckedModeBanner: false,
+                theme: AppTheme.dark(),
+                locale: language.language.locale,
+                supportedLocales: <Locale>[
+                  for (final AppLanguage l in AppLanguage.values) l.locale,
+                ],
+                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                home: home ?? HomeScreen(lessons: lessons.lessons, exams: exams.exams),
+              ),
             ),
           ),
         ),

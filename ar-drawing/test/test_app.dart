@@ -7,6 +7,8 @@ import 'package:tracelight/core/app_theme.dart';
 import 'package:tracelight/core/i18n/app_language.dart';
 import 'package:tracelight/core/i18n/language_controller.dart';
 import 'package:tracelight/core/i18n/translations.dart';
+import 'package:tracelight/features/exams/exam.dart';
+import 'package:tracelight/features/exams/exam_scoring.dart';
 import 'package:tracelight/features/lessons/lesson.dart';
 import 'package:tracelight/features/teacher/teacher_scope.dart';
 import 'package:tracelight/features/teacher/teacher_script.dart';
@@ -59,4 +61,14 @@ Widget testApp(
       ),
     ),
   );
+}
+
+/// Builds a simple exam score (tests).
+class ExamScoreStub {
+  const ExamScoreStub(this.total);
+
+  final double total;
+
+  ExamScore get score =>
+      ExamScore(criteria: const <Criterion, double>{Criterion.proportion: 0.75}, total: total);
 }

@@ -340,5 +340,92 @@
     "clearBody": "Bạn vẫn có thể bấm Hoàn tác để lấy lại.",
     "cancel": "Huỷ",
     "tour": "Hướng dẫn dùng bảng vẽ"
+  },
+  "exam": {
+    "hall": "Phòng thi Mỹ thuật",
+    "hallHint": "Kiểm tra 15 phút, 1 tiết, thi giữa kỳ và cuối kỳ. Trong phòng thi không có lớp tranh để đồ theo: bạn quan sát mẫu và tự vẽ.",
+    "hallCard": "Phòng thi Mỹ thuật",
+    "hallCardHint": "Thi có giờ, chấm điểm tự động",
+    "type": {
+      "quiz15": "Kiểm tra 15 phút",
+      "period": "Kiểm tra 1 tiết",
+      "midterm": "Thi giữa kỳ",
+      "finalExam": "Thi cuối kỳ"
+    },
+    "task": {
+      "sketch": "Ký họa nhanh: nhìn mẫu và vẽ lại hình dáng bằng nét.",
+      "drawColor": "Vẽ hoàn thiện: vẽ lại mẫu rồi tô màu.",
+      "colorShade": "Tô màu và đánh bóng: nét đã in sẵn trên giấy thi."
+    },
+    "title": {
+      "quick_cube": "Ký họa khối lập phương",
+      "quick_apple": "Ký họa quả táo",
+      "quick_cat": "Ký họa mèo mướp",
+      "period_vase": "Tĩnh vật: bình hoa tulip",
+      "period_fox": "Động vật: cáo con",
+      "period_car": "Xe cộ: xe hơi cổ",
+      "midterm_cylinder": "Đánh bóng khối trụ",
+      "midterm_cupcake": "Tô màu bánh cupcake",
+      "final_landscape": "Phong cảnh núi và hồ",
+      "final_portrait": "Chân dung cô gái"
+    },
+    "rules": "Thời gian: {minutes} phút. Không có lớp đồ nét. Hết giờ, bài sẽ tự động được nộp.",
+    "minutes": "{minutes} phút",
+    "start": "Bắt đầu thi",
+    "notTaken": "Chưa thi",
+    "attempts": "{count} lần thi",
+    "model": "Mẫu vẽ",
+    "submit": "Nộp bài",
+    "submitTitle": "Nộp bài ngay?",
+    "submitBody": "Sau khi nộp bạn không sửa được nữa.",
+    "keepDrawing": "Vẽ tiếp",
+    "leave": "Bỏ thi",
+    "leaveTitle": "Bỏ bài thi?",
+    "leaveBody": "Bài làm sẽ không được chấm điểm.",
+    "grading": "Đang chấm bài…",
+    "timeUp": "Hết giờ! Bài đã được nộp tự động.",
+    "reportCard": "Bảng điểm",
+    "outOf10": "Điểm (thang 10)",
+    "passed": "Đạt",
+    "notPassed": "Chưa đạt",
+    "grade": {
+      "excellent": "Giỏi",
+      "good": "Khá",
+      "average": "Trung bình",
+      "fail": "Chưa đạt"
+    },
+    "criterion": {
+      "proportion": "Đúng tỷ lệ",
+      "neatness": "Đúng hình, tô gọn trong nét",
+      "color": "Màu sắc chuẩn",
+      "creativity": "Sáng tạo"
+    },
+    "colorNotGraded": "Bài ký họa không chấm màu sắc.",
+    "creativityNote": "Điểm Sáng tạo là ước lượng tự động (độ phong phú màu, chi tiết thêm, sự đa dạng nét), chỉ để tham khảo.",
+    "yourDrawing": "Bài của bạn",
+    "backToList": "Phòng thi",
+    "retake": "Thi lại",
+    "advice": {
+      "proportion": {
+        "high": "Hình dáng và tỷ lệ rất sát với mẫu.",
+        "mid": "Hình dáng khá giống, nhưng tỷ lệ còn lệch. Hãy so chiều cao với chiều rộng của mẫu trước khi vẽ.",
+        "low": "Hình còn khác mẫu nhiều. Hãy phác các khối lớn trước, rồi mới vẽ chi tiết."
+      },
+      "neatness": {
+        "high": "Tô rất gọn trong nét.",
+        "mid": "Còn tô lem ra ngoài nét ở vài chỗ.",
+        "low": "Tô lem ra ngoài nhiều. Hãy tô chậm ở sát đường viền."
+      },
+      "color": {
+        "high": "Màu sắc và sáng tối rất giống mẫu.",
+        "mid": "Màu khá đúng, nhưng vùng sáng và vùng tối chưa rõ.",
+        "low": "Màu còn khác mẫu, hoặc chưa tô đủ. Quan sát kỹ màu của từng mảng nhé."
+      },
+      "creativity": {
+        "high": "Bài có nhiều nét riêng và chi tiết thú vị.",
+        "mid": "Có chút sáng tạo. Thử thêm nền hoặc chi tiết của riêng bạn.",
+        "low": "Hãy mạnh dạn thêm chi tiết, nền hoặc màu sắc của riêng bạn."
+      }
+    }
   }
 }
