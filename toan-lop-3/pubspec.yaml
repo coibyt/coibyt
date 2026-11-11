@@ -5,14 +5,18 @@ publish_to: 'none'
 version: 0.1.0+1
 
 environment:
-  # Cần Flutter 3.35 trở lên (Dart 3.9+). Bản đã kiểm tra: Flutter 3.47.9.
-  sdk: ">=3.9.0 <4.0.0"
+  # Cần Flutter 3.44 trở lên (Dart 3.10+). Bản đã kiểm tra: Flutter 3.47.9.
+  sdk: ">=3.10.0 <4.0.0"
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
     sdk: flutter
   # Chuẩn hoá Unicode NFC cho tiếng Việt (gõ Telex/VNI có thể ra chữ tổ hợp).
   unorm_dart: ^0.3.3
+  # Lưu offline (tiến độ, nội dung tải về) — chạy được cả Android, iOS và web.
+  hive_ce: ^2.23.3
+  hive_ce_flutter: ^2.5.0
 
 dev_dependencies:
   flutter_test:

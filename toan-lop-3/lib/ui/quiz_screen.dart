@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+import '../app_state.dart';
 import '../logic/answer_checker.dart';
 import '../logic/quiz_session.dart';
 import '../models/blocks.dart';
@@ -14,8 +15,8 @@ import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
 import 'widgets/solution_view.dart';
 
-/// Gọi khi bé làm xong bài (để lưu điểm, huy hiệu... — Phase 4).
-typedef QuizFinished = void Function(QuizSession session);
+/// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
+typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
 
 /// Màn hình luyện tập một bài học: nạp JSON, hiện từng Bài Toán, chấm ngay,
 /// cho thử lại 1 lần, "Xem lời giải" từng bước, tổng kết sao cuối bài.
@@ -117,6 +118,7 @@ class _QuizBodyState extends State<_QuizBody> {
   UserAnswer? _answer;
   int _attemptKey = 0;
   bool _finishReported = false;
+  Future<RewardOutcome?>? _reward;
 
   @override
   void initState() {
@@ -128,6 +130,7 @@ class _QuizBodyState extends State<_QuizBody> {
     _session = QuizSession(lesson: widget.lesson, isVip: widget.isVip, random: widget.random);
     _answer = null;
     _finishReported = false;
+    _reward = null;
     _attemptKey++;
   }
 
@@ -167,7 +170,7 @@ class _QuizBodyState extends State<_QuizBody> {
     if (_session.isFinished && !_finishReported) {
       _finishReported = true;
       widget.sound.finish();
-      widget.onFinished?.call(_session);
+      _reward = widget.onFinished?.call(_session);
     }
   }
 
@@ -251,6 +254,7 @@ class _QuizBodyState extends State<_QuizBody> {
     if (_session.isFinished) {
       return QuizSummary(
         session: _session,
+        reward: _reward,
         onRestart: () => setState(_start),
         onExit: () => Navigator.of(context).maybePop(),
       );
@@ -540,9 +544,11 @@ class QuizSummary extends StatelessWidget {
     required this.session,
     required this.onRestart,
     required this.onExit,
+    this.reward,
   });
 
   final QuizSession session;
+  final Future<RewardOutcome?>? reward;
   final VoidCallback onRestart;
   final VoidCallback onExit;
 
@@ -588,6 +594,7 @@ class QuizSummary extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 24),
                   ),
+                  RewardBanner(reward: reward),
                   if (session.lockedVipCount > 0) ...[
                     const SizedBox(height: 8),
                     Text(
@@ -606,6 +613,64 @@ class QuizSummary extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+/// Hiện "+điểm" và huy hiệu mới sau khi lưu tiến độ.
+class RewardBanner extends StatelessWidget {
+  const RewardBanner({super.key, required this.reward});
+
+  final Future<RewardOutcome?>? reward;
+
+  /// Đổi mã huy hiệu → tên hiển thị (Phase 4 gán).
+  static String Function(String badgeId) badgeTitle = (id) => id;
+
+  @override
+  Widget build(BuildContext context) {
+    if (reward == null) return const SizedBox.shrink();
+    return FutureBuilder<RewardOutcome?>(
+      future: reward,
+      builder: (context, snap) {
+        final r = snap.data;
+        if (r == null) return const SizedBox.shrink();
+        return Padding(
+          padding: const EdgeInsets.only(top: 12),
+          child: Column(
+            children: [
+              if (r.pointsEarned > 0)
+                Text(
+                  '+${r.pointsEarned} điểm thưởng',
+                  key: const ValueKey('reward-points'),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.good),
+                ),
+              for (final id in r.newBadgeIds)
+                Container(
+                  margin: const EdgeInsets.only(top: 8),
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: AppColors.honeySoft,
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: AppColors.honey, width: 3),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.military_tech_rounded, color: AppColors.tryAgain, size: 40),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          'Huy hiệu mới: ${badgeTitle(id)}',
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
