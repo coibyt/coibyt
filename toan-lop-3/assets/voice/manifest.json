@@ -172,6 +172,11 @@
       "ms": 1728,
       "spoken": "hai nhân năm cộng bốn bằng mười bốn"
     },
+    "20 - 8 = 12 (cm)": {
+      "file": "assets/voice/20-8-12-cm-d3ab82.mp3",
+      "ms": 2472,
+      "spoken": "hai mươi trừ tám bằng mười hai ( xăng-ti-mét)"
+    },
     "20.224 = 20.000 + 200 + 20 + 4": {
       "file": "assets/voice/20-224-20-000-200-20-4-fe6e1d.mp3",
       "ms": 4584,
@@ -366,6 +371,11 @@
       "file": "assets/voice/40-7-47-l-169f86.mp3",
       "ms": 2016,
       "spoken": "bốn mươi cộng bảy bằng bốn mươi bảy ( lít)"
+    },
+    "40 : 2 = 20 (cm)": {
+      "file": "assets/voice/40-2-20-cm-e6c7a6.mp3",
+      "ms": 2040,
+      "spoken": "bốn mươi chia hai bằng hai mươi ( xăng-ti-mét)"
     },
     "40 : 5 = 8": {
       "file": "assets/voice/40-5-8-5ae8a4.mp3",
@@ -1922,6 +1932,11 @@
       "ms": 2448,
       "spoken": "Gộp các tờ tiền giống nhau lại để đếm cho nhanh."
     },
+    "Hai lần chiều rộng là:": {
+      "file": "assets/voice/hai-lan-chieu-rong-la-21dd13.mp3",
+      "ms": 1200,
+      "spoken": "Hai lần chiều rộng là:"
+    },
     "Hàng nào cộng được từ 10 trở lên thì viết chữ số hàng đơn vị và nhớ 1 sang hàng bên trái.": {
       "file": "assets/voice/hang-nao-cong-duoc-tu-10-tro-len-thi-vie-605f37.mp3",
       "ms": 5136,
@@ -2467,6 +2482,11 @@
       "ms": 4488,
       "spoken": "Nắm tay lại đếm các đốt ngón tay: tháng ở đốt nhô lên có ba mươi mốt ngày."
     },
+    "Nửa chu vi (chiều dài cộng chiều rộng) là:": {
+      "file": "assets/voice/nua-chu-vi-chieu-dai-cong-chieu-rong-la-fd6314.mp3",
+      "ms": 2280,
+      "spoken": "Nửa chu vi (chiều dài cộng chiều rộng) là:"
+    },
     "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!": {
       "file": "assets/voice/oa-ruong-bau-mo-roi-con-gioi-qua-xong-he-fa0456.mp3",
       "ms": 3288,
@@ -2951,6 +2971,11 @@
       "file": "assets/voice/vi-du-lop-3a-3b-so-cay-25-30-lop-3b-tron-491325.mp3",
       "ms": 7920,
       "spoken": "Ví dụ: Lớp | ba A | ba B Số cây | hai mươi lăm | ba mươi Lớp ba B trồng được ba mươi cây, nhiều hơn lớp ba A."
+    },
+    "Ví dụ: Một hình chữ nhật có chu vi 40 cm, chiều dài hơn chiều rộng 8 cm. Tính chiều dài hình chữ nhật đó.": {
+      "file": "assets/voice/vi-du-mot-hinh-chu-nhat-co-chu-vi-40-cm-115935.mp3",
+      "ms": 8400,
+      "spoken": "Ví dụ: Một hình chữ nhật có chu vi bốn mươi xăng-ti-mét, chiều dài hơn chiều rộng tám xăng-ti-mét. Tính chiều dài hình chữ nhật đó."
     },
     "Ví dụ: Thùng thứ nhất có 40 l nước, thùng thứ hai nhiều hơn 7 l. Cả hai thùng có bao nhiêu lít?": {
       "file": "assets/voice/vi-du-thung-thu-nhat-co-40-l-nuoc-thung-73fa3d.mp3",
