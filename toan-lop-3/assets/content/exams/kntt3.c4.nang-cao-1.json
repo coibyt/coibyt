@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.1.0",
+  "kind": "exam",
+  "id": "kntt3.c4.nang-cao-1",
+  "bookId": "kntt3",
+  "chapterIds": ["kntt3.c4"],
+  "title": "Đề nâng cao Chủ đề 4",
+  "examType": "on_tap",
+  "durationMinutes": 35,
+  "access": "vip",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Đề nâng cao",
+      "items": [
+        {
+          "points": 1.5,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q01",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tìm số thích hợp.",
+            "prompt": { "text": "Số nào nhân với 5 thì được 75?" },
+            "level": 3,
+            "skillIds": ["tim_thanh_phan.thua_so", "chia.2cs_1cs"],
+            "access": "vip",
+            "template": "{{b1}} × 5 = 75",
+            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 15 }, "maxLength": 3 }],
+            "solution": {
+              "access": "vip",
+              "answerText": "15",
+              "steps": [
+                { "kind": "text", "style": "rule", "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết." },
+                { "kind": "equation", "text": "75 : 5 = 15" },
+                {
+                  "kind": "long_division",
+                  "dividend": "75",
+                  "divisor": "5",
+                  "quotient": "15",
+                  "remainder": 0,
+                  "digitSteps": [
+                    { "text": "7 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 7 trừ 5 bằng 2.", "partialDividend": 7, "quotientDigit": 1, "product": 5, "remainder": 2 },
+                    { "text": "Hạ 5, được 25; 25 chia 5 được 5, viết 5. 5 nhân 5 bằng 25; 25 trừ 25 bằng 0.", "partialDividend": 25, "quotientDigit": 5, "product": 25, "remainder": 0 }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1.5,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": { "text": "Một số nhân với 3 rồi cộng thêm 8 thì được 50. Số đó là:" },
+            "level": 3,
+            "skillIds": ["tim_thanh_phan.thua_so", "chia.2cs_1cs"],
+            "access": "vip",
+            "choices": [
+              { "id": "a", "text": "12" },
+              { "id": "b", "text": "14" },
+              { "id": "c", "text": "16" },
+              { "id": "d", "text": "19" }
+            ],
+            "correctChoiceIds": ["b"],
+            "solution": {
+              "access": "vip",
+              "answerText": "14",
+              "hint": "Làm ngược lại: bớt 8 trước, rồi chia cho 3.",
+              "steps": [
+                { "kind": "text", "text": "Trước khi cộng thêm 8, số đó nhân với 3 được:" },
+                { "kind": "equation", "text": "50 - 8 = 42" },
+                { "kind": "text", "text": "Vậy số cần tìm là:" },
+                { "kind": "equation", "text": "42 : 3 = 14" },
+                { "kind": "text", "text": "Thử lại:" },
+                { "kind": "equation", "text": "14 × 3 + 8 = 50" }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1.5,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": { "text": "Một sợi dây dài 84 cm được cắt thành 4 đoạn bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?" },
+            "level": 2,
+            "skillIds": ["chia.2cs_1cs", "giai_toan.mot_phep_tinh"],
+            "access": "vip",
+            "template": "Mỗi đoạn dài {{b1}} cm.",
+            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 21, "unit": "cm", "unitAliases": ["xăng-ti-mét"] }, "maxLength": 3 }],
+            "solution": {
+              "access": "vip",
+              "answerText": "21 cm",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [{ "explanation": "Mỗi đoạn dây dài là:", "equation": "84 : 4 = 21 (cm)" }],
+                  "answer": "Đáp số: 21 cm."
+                },
+                {
+                  "kind": "long_division",
+                  "dividend": "84",
+                  "divisor": "4",
+                  "quotient": "21",
+                  "remainder": 0,
+                  "digitSteps": [
+                    { "text": "8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.", "partialDividend": 8, "quotientDigit": 2, "product": 8, "remainder": 0 },
+                    { "text": "Hạ 4; 4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.", "partialDividend": 4, "quotientDigit": 1, "product": 4, "remainder": 0 }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1.5,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối hai phép tính bằng nhau.",
+            "prompt": { "text": "Nối hai phép tính có cùng kết quả." },
+            "level": 3,
+            "skillIds": ["so_sanh.ket_qua", "nhan.2cs_1cs.co_nho", "chia.2cs_1cs"],
+            "access": "vip",
+            "left": [
+              { "id": "l1", "text": "12 × 4" },
+              { "id": "l2", "text": "90 : 3" },
+              { "id": "l3", "text": "13 × 5" },
+              { "id": "l4", "text": "88 : 8" }
+            ],
+            "right": [
+              { "id": "r1", "text": "16 × 3" },
+              { "id": "r2", "text": "60 : 2" },
+              { "id": "r3", "text": "99 : 9" },
+              { "id": "r4", "text": "35 + 30" },
+              { "id": "r5", "text": "22 × 3" }
+            ],
+            "pairs": [
+              { "left": "l1", "right": "r1" },
+              { "left": "l2", "right": "r2" },
+              { "left": "l3", "right": "r4" },
+              { "left": "l4", "right": "r3" }
+            ],
+            "solution": {
+              "access": "vip",
+              "answerText": "12 × 4 và 16 × 3; 90 : 3 và 60 : 2; 13 × 5 và 35 + 30; 88 : 8 và 99 : 9",
+              "steps": [
+                { "kind": "equation", "text": "12 × 4 = 48 = 16 × 3" },
+                { "kind": "equation", "text": "90 : 3 = 30 = 60 : 2" },
+                { "kind": "equation", "text": "13 × 5 = 65 = 35 + 30" },
+                { "kind": "equation", "text": "88 : 8 = 11 = 99 : 9" },
+                { "kind": "text", "style": "tip", "text": "22 × 3 = 66 không bằng phép tính nào ở cột trái." }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": { "text": "Lan có 48 nhãn vở, Lan chia đều cho 4 bạn. Mỗi bạn đã dùng 5 nhãn vở. Hỏi mỗi bạn còn lại bao nhiêu nhãn vở?" },
+            "level": 3,
+            "skillIds": ["giai_toan.hai_phep_tinh", "chia.2cs_1cs"],
+            "access": "vip",
+            "template": "Mỗi bạn còn lại {{b1}} nhãn vở.",
+            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 7, "unit": "nhãn vở" }, "maxLength": 2 }],
+            "solution": {
+              "access": "vip",
+              "answerText": "7 nhãn vở",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    { "explanation": "Số nhãn vở mỗi bạn được chia là:", "equation": "48 : 4 = 12 (nhãn vở)" },
+                    { "explanation": "Số nhãn vở mỗi bạn còn lại là:", "equation": "12 - 5 = 7 (nhãn vở)" }
+                  ],
+                  "answer": "Đáp số: 7 nhãn vở."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.nang-cao-1.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo dấu phép tính.",
+            "prompt": { "text": "Kéo dấu +, -, ×, : thích hợp vào ô trống." },
+            "level": 3,
+            "skillIds": ["nhan.2cs_1cs.co_nho", "chia.2cs_1cs", "cong_tru.pham_vi_100"],
+            "access": "vip",
+            "template": "24 {{s1}} 3 = 72\n96 {{s2}} 3 = 32\n45 {{s3}} 9 = 54",
+            "tokens": [
+              { "id": "t1", "text": "+" },
+              { "id": "t2", "text": "-" },
+              { "id": "t3", "text": "×" },
+              { "id": "t4", "text": ":" }
+            ],
+            "slots": [
+              { "id": "s1", "accept": ["t3"] },
+              { "id": "s2", "accept": ["t4"] },
+              { "id": "s3", "accept": ["t1"] }
+            ],
+            "solution": {
+              "access": "vip",
+              "answerText": "×; :; +",
+              "steps": [
+                { "kind": "equation", "text": "24 × 3 = 72" },
+                { "kind": "equation", "text": "96 : 3 = 32" },
+                { "kind": "equation", "text": "45 + 9 = 54" }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

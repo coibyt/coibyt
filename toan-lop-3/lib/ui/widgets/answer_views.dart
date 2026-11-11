@@ -49,12 +49,16 @@ class MultipleChoiceView extends StatefulWidget {
     required this.state,
     required this.onChanged,
     this.random,
+    this.initial,
   });
 
   final MultipleChoiceBody body;
   final AnswerViewState state;
   final ValueChanged<UserAnswer> onChanged;
   final Random? random;
+
+  /// Câu trả lời đã có (khôi phục khi quay lại câu này trong đề thi).
+  final ChoiceAnswer? initial;
 
   @override
   State<MultipleChoiceView> createState() => _MultipleChoiceViewState();
@@ -69,6 +73,7 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
     super.initState();
     _order = [...widget.body.choices];
     if (widget.body.shuffleChoices) _order.shuffle(widget.random ?? Random());
+    _selected.addAll(widget.initial?.selectedIds ?? const {});
   }
 
   void _tap(String id) {
@@ -189,11 +194,13 @@ class FillBlankView extends StatefulWidget {
     required this.body,
     required this.state,
     required this.onChanged,
+    this.initial,
   });
 
   final FillBlankBody body;
   final AnswerViewState state;
   final ValueChanged<UserAnswer> onChanged;
+  final BlankAnswer? initial;
 
   @override
   State<FillBlankView> createState() => _FillBlankViewState();
@@ -210,9 +217,10 @@ class _FillBlankViewState extends State<FillBlankView> {
   void initState() {
     super.initState();
     _active = widget.body.blanks.first.id;
+    _values.addAll(widget.initial?.values ?? const {});
     for (final b in widget.body.blanks) {
       if (b.answer is TextAnswerRule) {
-        _textControllers[b.id] = TextEditingController();
+        _textControllers[b.id] = TextEditingController(text: _values[b.id] ?? '');
       }
     }
   }
@@ -280,7 +288,7 @@ class _FillBlankViewState extends State<FillBlankView> {
             ],
           ),
         ),
-        if (_allNumeric) ...[
+        if (_allNumeric && s.enabled) ...[
           const SizedBox(height: 12),
           NumberPad(onDigit: _digit, onBackspace: _backspace, enabled: s.enabled),
         ],
@@ -370,11 +378,13 @@ class DragDropView extends StatefulWidget {
     required this.body,
     required this.state,
     required this.onChanged,
+    this.initial,
   });
 
   final DragDropBody body;
   final AnswerViewState state;
   final ValueChanged<UserAnswer> onChanged;
+  final DragDropAnswer? initial;
 
   @override
   State<DragDropView> createState() => _DragDropViewState();
@@ -383,6 +393,12 @@ class DragDropView extends StatefulWidget {
 class _DragDropViewState extends State<DragDropView> {
   final Map<String, String?> _placements = {};
   String? _selectedToken;
+
+  @override
+  void initState() {
+    super.initState();
+    _placements.addAll(widget.initial?.placements ?? const {});
+  }
 
   Set<String> get _usedTokens => {for (final t in _placements.values) ?t};
 
@@ -545,12 +561,14 @@ class MatchingView extends StatefulWidget {
     required this.state,
     required this.onChanged,
     this.random,
+    this.initial,
   });
 
   final MatchingBody body;
   final AnswerViewState state;
   final ValueChanged<UserAnswer> onChanged;
   final Random? random;
+  final MatchingAnswer? initial;
 
   @override
   State<MatchingView> createState() => _MatchingViewState();
@@ -566,6 +584,7 @@ class _MatchingViewState extends State<MatchingView> {
     super.initState();
     _rightOrder = [...widget.body.right];
     if (widget.body.shuffleRight) _rightOrder.shuffle(widget.random ?? Random());
+    _pairs.addAll(widget.initial?.pairs ?? const {});
   }
 
   Color _colorOfLeft(String leftId) {
@@ -683,4 +702,24 @@ class _MatchingViewState extends State<MatchingView> {
       ),
     );
   }
+}
+
+/// Dựng khu trả lời phù hợp dạng bài (dùng chung cho luyện tập và đề thi).
+Widget buildAnswerView({
+  required Problem problem,
+  required AnswerViewState state,
+  required ValueChanged<UserAnswer> onChanged,
+  UserAnswer? initial,
+  Random? random,
+}) {
+  return switch (problem.body) {
+    final MultipleChoiceBody b => MultipleChoiceView(
+        body: b, state: state, onChanged: onChanged, random: random, initial: initial is ChoiceAnswer ? initial : null),
+    final FillBlankBody b =>
+      FillBlankView(body: b, state: state, onChanged: onChanged, initial: initial is BlankAnswer ? initial : null),
+    final DragDropBody b =>
+      DragDropView(body: b, state: state, onChanged: onChanged, initial: initial is DragDropAnswer ? initial : null),
+    final MatchingBody b => MatchingView(
+        body: b, state: state, onChanged: onChanged, random: random, initial: initial is MatchingAnswer ? initial : null),
+  };
 }

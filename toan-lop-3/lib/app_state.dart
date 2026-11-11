@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 
+import 'logic/exam_session.dart';
 import 'logic/quiz_session.dart';
 import 'models/content.dart';
 import 'models/problem.dart';
@@ -130,6 +131,40 @@ class AppState extends ChangeNotifier {
       ..bestStars = session.stars > lp.bestStars ? session.stars : lp.bestStars;
     progress.totalPoints += earned;
     _addSkillStats(session.skillStats());
+    _markActive();
+    final badges = onAfterRecord(progress);
+    await _save();
+    return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
+  }
+
+  /// Điểm cao nhất (làm tròn) của một đề, null nếu chưa làm.
+  int? bestExamScore(String examId) {
+    int? best;
+    for (final r in progress.exams) {
+      if (r.examId != examId) continue;
+      final v = r.score.round();
+      if (best == null || v > best) best = v;
+    }
+    return best;
+  }
+
+  /// Ghi nhận một lần làm đề. Điểm thưởng: lần đầu = điểm đề × 5;
+  /// làm lại = phần điểm vượt kỷ lục × 5 + 2 điểm chăm chỉ.
+  Future<RewardOutcome> recordExam(ExamResult result) async {
+    final best = bestExamScore(result.exam.id);
+    final score = result.roundedScore;
+    final earned = best == null ? score * 5 : (score > best ? (score - best) * 5 : 0) + 2;
+    progress.exams.add(ExamRecord(
+      examId: result.exam.id,
+      score: result.rawScore,
+      correct: result.correctCount,
+      total: result.items.length,
+      usedSeconds: result.usedSeconds,
+      at: now(),
+      weakSkillIds: [for (final w in result.weakSkills()) w.skillId],
+    ));
+    progress.totalPoints += earned;
+    _addSkillStats(result.skillStats());
     _markActive();
     final badges = onAfterRecord(progress);
     await _save();

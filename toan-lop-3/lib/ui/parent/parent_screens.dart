@@ -118,6 +118,10 @@ class ParentScreen extends StatelessWidget {
         for (final c in b.chapters)
           for (final l in c.lessons) l.id: l.title,
     };
+    final examTitles = {
+      for (final b in app.catalog.books)
+        for (final e in b.exams) e.id: e.title,
+    };
     const h = TextStyle(fontSize: 20, fontWeight: FontWeight.w700);
     return Scaffold(
       appBar: AppBar(title: const Text('Khu phụ huynh'), backgroundColor: AppColors.honeySoft),
@@ -153,6 +157,18 @@ class ParentScreen extends StatelessWidget {
                 if (app.progress.lessons.isEmpty) const Text('Bé chưa làm bài nào.'),
                 for (final e in app.progress.lessons.entries)
                   _row(lessonTitles[e.key] ?? e.key, '${'★' * e.value.bestStars}${'☆' * (3 - e.value.bestStars)} · ${e.value.plays} lần'),
+              ]),
+              _Card(children: [
+                const Text('Lịch sử thi thử', style: h),
+                const SizedBox(height: 8),
+                if (app.progress.exams.isEmpty) const Text('Bé chưa làm đề nào.'),
+                for (final r in app.progress.exams.reversed.take(10))
+                  _row(
+                    '${examTitles[r.examId] ?? r.examId}\n${_date(r.at)}'
+                        '${r.weakSkillIds.isEmpty ? '' : '\nCần ôn: ${r.weakSkillIds.map((id) => app.skillsById[id]?.name ?? id).join('; ')}'}',
+                    '${r.score.round()} điểm (${r.correct}/${r.total})',
+                    color: r.score >= 5 ? AppColors.good : AppColors.tryAgain,
+                  ),
               ]),
               if (AppConfig.allowDevVip)
                 _Card(children: [
@@ -193,6 +209,9 @@ class ParentScreen extends StatelessWidget {
       ),
     );
   }
+
+  static String _date(DateTime t) =>
+      '${t.day.toString().padLeft(2, '0')}/${t.month.toString().padLeft(2, '0')}/${t.year}';
 
   static Widget _row(String label, String value, {Color? color}) => Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),

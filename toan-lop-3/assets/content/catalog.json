@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "kind": "catalog",
   "contentRev": 1,
   "skills": [
@@ -40,6 +40,24 @@
               "access": "free"
             }
           ]
+        }
+      ],
+      "exams": [
+        {
+          "id": "kntt3.c4.de-1",
+          "title": "Kiểm tra Chủ đề 4 — Đề số 1",
+          "src": "assets/content/exams/kntt3.c4.de-1.json",
+          "access": "free",
+          "examType": "chu_de",
+          "durationMinutes": 30
+        },
+        {
+          "id": "kntt3.c4.nang-cao-1",
+          "title": "Đề nâng cao Chủ đề 4",
+          "src": "assets/content/exams/kntt3.c4.nang-cao-1.json",
+          "access": "vip",
+          "examType": "on_tap",
+          "durationMinutes": 35
         }
       ]
     },

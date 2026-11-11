@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
+import 'exam_screens.dart';
 import 'parent/parent_screens.dart';
 import 'quiz_screen.dart';
 import 'widgets/bee_mascot.dart';
@@ -146,6 +147,12 @@ class HomeScreen extends StatelessWidget {
         icon: Icons.auto_stories_rounded,
         color: AppColors.sky,
         builder: (_) => ChapterListScreen(book: book),
+      ),
+      HomeTile(
+        label: 'Thi thử',
+        icon: Icons.assignment_rounded,
+        color: AppColors.tryAgain,
+        builder: (_) => ExamListScreen(book: book),
       ),
       ...extraTiles,
     ];

@@ -29,6 +29,7 @@ flutter:
   assets:
     - assets/content/
     - assets/content/lessons/
+    - assets/content/exams/
     - assets/sounds/
 
   fonts:

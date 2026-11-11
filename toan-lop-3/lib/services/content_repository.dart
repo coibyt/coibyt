@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 
 import '../logic/content_validator.dart';
 import '../models/content.dart';
+import '../models/exam.dart';
 
 /// Nội dung bị lỗi: thông báo rõ cho người soạn (chế độ debug).
 class InvalidContentException implements Exception {
@@ -49,5 +50,17 @@ class ContentRepository {
     );
     if (issues.isNotEmpty) throw InvalidContentException(assetPath, issues);
     return lesson;
+  }
+
+  /// Nạp và kiểm tra một đề kiểm tra.
+  Future<Exam> loadExam(String assetPath) async {
+    final catalog = await loadCatalog();
+    final exam = Exam.fromJson(jsonDecode(await _bundle.loadString(assetPath)));
+    final issues = validateExam(
+      exam,
+      knownSkillIds: catalog.skills.map((s) => s.id).toSet(),
+    );
+    if (issues.isNotEmpty) throw InvalidContentException(assetPath, issues);
+    return exam;
   }
 }

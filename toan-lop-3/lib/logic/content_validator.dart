@@ -1,5 +1,6 @@
 import '../models/blocks.dart';
 import '../models/content.dart';
+import '../models/exam.dart';
 import '../models/problem.dart';
 import 'expression_evaluator.dart';
 
@@ -27,6 +28,10 @@ List<ContentIssue> validateCatalog(Catalog catalog) {
     }
   }
   _unique(issues, r'$.books[*].chapters[*].lessons', lessonIds);
+  _unique(issues, r'$.books[*].exams', [
+    for (final b in catalog.books)
+      for (final e in b.exams) e.id,
+  ]);
   return issues;
 }
 
@@ -40,6 +45,23 @@ List<ContentIssue> validateLesson(Lesson lesson, {Set<String>? knownSkillIds}) {
   _unique(issues, r'$.problems', [for (final p in lesson.problems) p.id]);
   for (final (i, problem) in lesson.problems.indexed) {
     _validateProblem(issues, '\$.problems[$i]', problem, knownSkillIds);
+  }
+  return issues;
+}
+
+/// Kiểm tra một đề: như bài học, cộng thêm tổng điểm phải bằng 10.
+List<ContentIssue> validateExam(Exam exam, {Set<String>? knownSkillIds}) {
+  final issues = <ContentIssue>[];
+  final ids = <String>[];
+  for (final (si, section) in exam.sections.indexed) {
+    for (final (ii, item) in section.items.indexed) {
+      ids.add(item.problem.id);
+      _validateProblem(issues, '\$.sections[$si].items[$ii].problem', item.problem, knownSkillIds);
+    }
+  }
+  _unique(issues, r'$.sections[*].items[*].problem', ids);
+  if ((exam.totalPoints - 10).abs() > 1e-9) {
+    issues.add(ContentIssue(r'$.sections', 'tổng điểm phải là 10, đang là ${exam.totalPoints}'));
   }
   return issues;
 }

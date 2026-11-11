@@ -66,7 +66,11 @@ void main() {
     await pumpQuiz(tester, lesson);
     await tapKey(tester, 'btn-solution'); // bỏ qua bài 1 bằng cách xem lời giải
     expect(find.text('Lời giải'), findsOneWidget);
+    // Lời giải hiện từng bước: bấm "Bắt đầu" để thấy bước 1.
+    expect(find.text('3 nhân 1 bằng 3, viết 3.'), findsNothing);
+    await tapKey(tester, 'step-next');
     expect(find.text('3 nhân 1 bằng 3, viết 3.'), findsOneWidget);
+    expect(find.text('3 nhân 2 bằng 6, viết 6.'), findsNothing);
     await tester.tap(find.byTooltip('Đóng'));
     await tester.pumpAndSettle();
     await tapKey(tester, 'btn-next');
@@ -79,7 +83,9 @@ void main() {
 
     expect(find.text('Lời giải'), findsOneWidget);
     expect(find.text('Đặt tính rồi tính:'), findsOneWidget);
+    await tapKey(tester, 'step-all');
     expect(find.text('3 nhân 3 bằng 9, viết 9.'), findsOneWidget);
+    expect(find.text('Xong!'), findsOneWidget);
     expect(find.text('Đáp án: 96'), findsWidgets);
   });
 

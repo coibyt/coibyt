@@ -2,10 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ongvang.example/schema/toan3-content.v1.schema.json",
   "title": "Ong Vàng Toán 3 — nội dung học (schema v1)",
-  "description": "Một file nội dung là MỘT trong hai loại: 'catalog' (mục lục Bộ sách → Chủ đề → Bài học) hoặc 'lesson' (một bài học: lý thuyết + danh sách Bài Toán). schemaVersion theo semver: app chấp nhận mọi bản 1.x; tăng MINOR khi chỉ THÊM trường tuỳ chọn, tăng MAJOR khi đổi/xoá trường. Miền placeholder 'ongvang.example' sẽ thay khi có domain thật.",
+  "description": "Một file nội dung là MỘT trong ba loại: 'catalog' (mục lục Bộ sách → Chủ đề → Bài học / Đề kiểm tra), 'lesson' (một bài học: lý thuyết + danh sách Bài Toán) hoặc 'exam' (đề kiểm tra, từ 1.1.0). schemaVersion theo semver: app chấp nhận mọi bản 1.x; tăng MINOR khi chỉ THÊM trường tuỳ chọn, tăng MAJOR khi đổi/xoá trường. Miền placeholder 'ongvang.example' sẽ thay khi có domain thật.",
   "oneOf": [
-    { "$ref": "#/$defs/catalog" },
-    { "$ref": "#/$defs/lesson" }
+    {
+      "$ref": "#/$defs/catalog"
+    },
+    {
+      "$ref": "#/$defs/lesson"
+    },
+    {
+      "$ref": "#/$defs/exam"
+    }
   ],
   "$defs": {
     "schemaVersion": {
@@ -26,123 +33,286 @@
       "description": "Mã kỹ năng dùng cho báo cáo 'chủ đề còn yếu'. Phải được khai báo trong catalog.skills."
     },
     "access": {
-      "enum": ["free", "vip"],
+      "enum": [
+        "free",
+        "vip"
+      ],
       "description": "free = ai cũng dùng được; vip = cần tài khoản VIP."
     },
     "image": {
       "type": "object",
-      "required": ["src", "alt"],
+      "required": [
+        "src",
+        "alt"
+      ],
       "properties": {
-        "src": { "type": "string", "minLength": 1, "description": "Đường dẫn asset trong app (vd assets/images/...) hoặc URL tải về sau (Phase 4)." },
-        "alt": { "type": "string", "minLength": 1, "description": "Mô tả ngắn cho trình đọc màn hình / phụ huynh." },
-        "aspectRatio": { "type": "number", "exclusiveMinimum": 0 }
+        "src": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Đường dẫn asset trong app (vd assets/images/...) hoặc URL tải về sau (Phase 4)."
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Mô tả ngắn cho trình đọc màn hình / phụ huynh."
+        },
+        "aspectRatio": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
       },
       "additionalProperties": false
     },
     "richText": {
       "type": "object",
-      "required": ["text"],
+      "required": [
+        "text"
+      ],
       "properties": {
-        "text": { "type": "string", "minLength": 1, "description": "Văn bản thuần tiếng Việt (Unicode NFC). Dùng × cho nhân, : cho chia, - cho trừ." },
-        "math": { "type": "string", "description": "Tuỳ chọn: công thức LaTeX do CMS nhập (vd phân số). App hiển thị 'text' nếu chưa có bộ vẽ công thức." },
-        "image": { "$ref": "#/$defs/image" },
-        "speak": { "type": "string", "description": "Tuỳ chọn: câu đọc to (TTS / file ghi âm) cho bé chưa đọc nhanh, vd 'hai mươi mốt nhân ba'." }
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Văn bản thuần tiếng Việt (Unicode NFC). Dùng × cho nhân, : cho chia, - cho trừ."
+        },
+        "math": {
+          "type": "string",
+          "description": "Tuỳ chọn: công thức LaTeX do CMS nhập (vd phân số). App hiển thị 'text' nếu chưa có bộ vẽ công thức."
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        },
+        "speak": {
+          "type": "string",
+          "description": "Tuỳ chọn: câu đọc to (TTS / file ghi âm) cho bé chưa đọc nhanh, vd 'hai mươi mốt nhân ba'."
+        }
       },
       "additionalProperties": false
     },
-
     "answerRule": {
       "description": "Luật chấm một ô trống.",
       "oneOf": [
-        { "$ref": "#/$defs/numberAnswer" },
-        { "$ref": "#/$defs/textAnswer" }
+        {
+          "$ref": "#/$defs/numberAnswer"
+        },
+        {
+          "$ref": "#/$defs/textAnswer"
+        }
       ]
     },
     "numberAnswer": {
       "type": "object",
-      "required": ["kind", "value"],
+      "required": [
+        "kind",
+        "value"
+      ],
       "properties": {
-        "kind": { "const": "number" },
-        "value": { "type": "integer", "minimum": 0, "maximum": 1000000 },
-        "alsoAccept": { "type": "array", "items": { "type": "integer", "minimum": 0 }, "uniqueItems": true },
-        "unit": { "type": "string", "minLength": 1, "description": "Đơn vị hiển thị cạnh ô (vd cm, kg). Bé gõ kèm đơn vị vẫn được chấm đúng." },
-        "unitAliases": { "type": "array", "items": { "type": "string", "minLength": 1 }, "description": "Cách viết khác của đơn vị, vd ['ki-lô-gam']." },
-        "allowLeadingZeros": { "type": "boolean", "default": true }
+        "kind": {
+          "const": "number"
+        },
+        "value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "alsoAccept": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "uniqueItems": true
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Đơn vị hiển thị cạnh ô (vd cm, kg). Bé gõ kèm đơn vị vẫn được chấm đúng."
+        },
+        "unitAliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Cách viết khác của đơn vị, vd ['ki-lô-gam']."
+        },
+        "allowLeadingZeros": {
+          "type": "boolean",
+          "default": true
+        }
       },
       "additionalProperties": false,
       "$comment": "Chuẩn hoá số: NFC → bỏ khoảng trắng đầu/cuối → bỏ đơn vị cuối (nếu có) → bỏ khoảng trắng giữa các chữ số ('12 345') → dấu chấm phân nhóm nghìn kiểu Việt Nam ('12.345') → số nguyên. Dấu phẩy, chữ cái, số âm, số thập phân = sai định dạng (app nhắc nhẹ 'hãy nhập số', không tính là trả lời sai)."
     },
     "textAnswer": {
       "type": "object",
-      "required": ["kind", "values"],
+      "required": [
+        "kind",
+        "values"
+      ],
       "properties": {
-        "kind": { "const": "text" },
-        "values": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
-        "ignoreCase": { "type": "boolean", "default": true },
-        "ignoreDiacritics": { "type": "boolean", "default": false, "description": "Mặc định KHÔNG bỏ qua dấu: 'ba' khác 'bà'." }
+        "kind": {
+          "const": "text"
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "ignoreCase": {
+          "type": "boolean",
+          "default": true
+        },
+        "ignoreDiacritics": {
+          "type": "boolean",
+          "default": false,
+          "description": "Mặc định KHÔNG bỏ qua dấu: 'ba' khác 'bà'."
+        }
       },
       "additionalProperties": false
     },
-
     "block": {
       "description": "Khối nội dung dùng chung cho phần lý thuyết và các bước lời giải.",
       "oneOf": [
-        { "$ref": "#/$defs/textBlock" },
-        { "$ref": "#/$defs/equationBlock" },
-        { "$ref": "#/$defs/columnArithmeticBlock" },
-        { "$ref": "#/$defs/longDivisionBlock" },
-        { "$ref": "#/$defs/wordProblemBlock" },
-        { "$ref": "#/$defs/imageBlock" }
+        {
+          "$ref": "#/$defs/textBlock"
+        },
+        {
+          "$ref": "#/$defs/equationBlock"
+        },
+        {
+          "$ref": "#/$defs/columnArithmeticBlock"
+        },
+        {
+          "$ref": "#/$defs/longDivisionBlock"
+        },
+        {
+          "$ref": "#/$defs/wordProblemBlock"
+        },
+        {
+          "$ref": "#/$defs/imageBlock"
+        }
       ]
     },
     "textBlock": {
       "type": "object",
-      "required": ["kind", "text"],
+      "required": [
+        "kind",
+        "text"
+      ],
       "properties": {
-        "kind": { "const": "text" },
-        "text": { "type": "string", "minLength": 1 },
-        "style": { "enum": ["normal", "rule", "tip"], "default": "normal", "description": "rule = quy tắc cần nhớ (đóng khung); tip = mẹo nhỏ." }
+        "kind": {
+          "const": "text"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "style": {
+          "enum": [
+            "normal",
+            "rule",
+            "tip"
+          ],
+          "default": "normal",
+          "description": "rule = quy tắc cần nhớ (đóng khung); tip = mẹo nhỏ."
+        }
       },
       "additionalProperties": false
     },
     "equationBlock": {
       "type": "object",
-      "required": ["kind", "text"],
+      "required": [
+        "kind",
+        "text"
+      ],
       "properties": {
-        "kind": { "const": "equation" },
-        "text": { "type": "string", "minLength": 1, "description": "Vd '21 × 3 = 63'. App tự kiểm tra phép tính đúng khi nạp nội dung." },
-        "math": { "type": "string" }
+        "kind": {
+          "const": "equation"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Vd '21 × 3 = 63'. App tự kiểm tra phép tính đúng khi nạp nội dung."
+        },
+        "math": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
-    "digitString": { "type": "string", "pattern": "^(0|[1-9][0-9]*)$" },
+    "digitString": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)$"
+    },
     "columnArithmeticBlock": {
       "type": "object",
       "description": "Đặt tính rồi tính (cộng, trừ, nhân với số có một chữ số). Dữ liệu đủ để vẽ từng chữ số theo cột (Phase 3).",
-      "required": ["kind", "operation", "operands", "result", "digitSteps"],
+      "required": [
+        "kind",
+        "operation",
+        "operands",
+        "result",
+        "digitSteps"
+      ],
       "properties": {
-        "kind": { "const": "column_arithmetic" },
-        "operation": { "enum": ["add", "subtract", "multiply"] },
+        "kind": {
+          "const": "column_arithmetic"
+        },
+        "operation": {
+          "enum": [
+            "add",
+            "subtract",
+            "multiply"
+          ]
+        },
         "operands": {
           "type": "array",
           "minItems": 2,
           "maxItems": 3,
-          "items": { "$ref": "#/$defs/digitString" },
+          "items": {
+            "$ref": "#/$defs/digitString"
+          },
           "description": "Các số theo thứ tự viết từ trên xuống (trừ/nhân: đúng 2 số; với nhân, số thứ hai là thừa số có một chữ số)."
         },
-        "result": { "$ref": "#/$defs/digitString" },
+        "result": {
+          "$ref": "#/$defs/digitString"
+        },
         "digitSteps": {
           "type": "array",
           "minItems": 1,
           "description": "Từng lượt tính từ hàng đơn vị sang trái.",
           "items": {
             "type": "object",
-            "required": ["place", "text", "write"],
+            "required": [
+              "place",
+              "text",
+              "write"
+            ],
             "properties": {
-              "place": { "type": "integer", "minimum": 0, "description": "0 = hàng đơn vị, 1 = hàng chục, 2 = hàng trăm..." },
-              "text": { "type": "string", "minLength": 1, "description": "Lời đọc theo SGK, vd '6 cộng 8 bằng 14, viết 4 nhớ 1.'" },
-              "write": { "type": "string", "pattern": "^[0-9]+$", "description": "Chữ số viết xuống. Chỉ lượt cuối được viết nhiều chữ số (vd '13')." },
-              "carry": { "type": "integer", "minimum": 0, "default": 0, "description": "Số nhớ sang lượt sau." }
+              "place": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "0 = hàng đơn vị, 1 = hàng chục, 2 = hàng trăm..."
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Lời đọc theo SGK, vd '6 cộng 8 bằng 14, viết 4 nhớ 1.'"
+              },
+              "write": {
+                "type": "string",
+                "pattern": "^[0-9]+$",
+                "description": "Chữ số viết xuống. Chỉ lượt cuối được viết nhiều chữ số (vd '13')."
+              },
+              "carry": {
+                "type": "integer",
+                "minimum": 0,
+                "default": 0,
+                "description": "Số nhớ sang lượt sau."
+              }
             },
             "additionalProperties": false
           }
@@ -153,25 +323,67 @@
     "longDivisionBlock": {
       "type": "object",
       "description": "Phép chia đặt tính (chia cho số có một chữ số).",
-      "required": ["kind", "dividend", "divisor", "quotient", "remainder", "digitSteps"],
+      "required": [
+        "kind",
+        "dividend",
+        "divisor",
+        "quotient",
+        "remainder",
+        "digitSteps"
+      ],
       "properties": {
-        "kind": { "const": "long_division" },
-        "dividend": { "$ref": "#/$defs/digitString" },
-        "divisor": { "type": "string", "pattern": "^[1-9]$" },
-        "quotient": { "$ref": "#/$defs/digitString" },
-        "remainder": { "type": "integer", "minimum": 0 },
+        "kind": {
+          "const": "long_division"
+        },
+        "dividend": {
+          "$ref": "#/$defs/digitString"
+        },
+        "divisor": {
+          "type": "string",
+          "pattern": "^[1-9]$"
+        },
+        "quotient": {
+          "$ref": "#/$defs/digitString"
+        },
+        "remainder": {
+          "type": "integer",
+          "minimum": 0
+        },
         "digitSteps": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["text", "partialDividend", "quotientDigit", "product", "remainder"],
+            "required": [
+              "text",
+              "partialDividend",
+              "quotientDigit",
+              "product",
+              "remainder"
+            ],
             "properties": {
-              "text": { "type": "string", "minLength": 1, "description": "Vd 'Hạ 6, được 16; 16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.'" },
-              "partialDividend": { "type": "integer", "minimum": 0 },
-              "quotientDigit": { "type": "integer", "minimum": 0, "maximum": 9 },
-              "product": { "type": "integer", "minimum": 0 },
-              "remainder": { "type": "integer", "minimum": 0 }
+              "text": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Vd 'Hạ 6, được 16; 16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.'"
+              },
+              "partialDividend": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "quotientDigit": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9
+              },
+              "product": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "remainder": {
+                "type": "integer",
+                "minimum": 0
+              }
             },
             "additionalProperties": false
           }
@@ -182,68 +394,180 @@
     "wordProblemBlock": {
       "type": "object",
       "description": "Trình bày 'Bài giải' của bài toán có lời văn: mỗi dòng = câu lời giải + phép tính, cuối cùng là Đáp số.",
-      "required": ["kind", "lines", "answer"],
+      "required": [
+        "kind",
+        "lines",
+        "answer"
+      ],
       "properties": {
-        "kind": { "const": "word_problem" },
+        "kind": {
+          "const": "word_problem"
+        },
         "lines": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["explanation", "equation"],
+            "required": [
+              "explanation",
+              "equation"
+            ],
             "properties": {
-              "explanation": { "type": "string", "minLength": 1, "description": "Vd 'Số bút chì màu của 3 hộp là:'" },
-              "equation": { "type": "string", "minLength": 1, "description": "Vd '24 × 3 = 72 (cái)'. Phần trong ngoặc là đơn vị." }
+              "explanation": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Vd 'Số bút chì màu của 3 hộp là:'"
+              },
+              "equation": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Vd '24 × 3 = 72 (cái)'. Phần trong ngoặc là đơn vị."
+              }
             },
             "additionalProperties": false
           }
         },
-        "answer": { "type": "string", "pattern": "^Đáp số: .+", "description": "Vd 'Đáp số: 72 cái bút chì màu.'" }
+        "answer": {
+          "type": "string",
+          "pattern": "^Đáp số: .+",
+          "description": "Vd 'Đáp số: 72 cái bút chì màu.'"
+        }
       },
       "additionalProperties": false
     },
     "imageBlock": {
       "type": "object",
-      "required": ["kind", "image"],
+      "required": [
+        "kind",
+        "image"
+      ],
       "properties": {
-        "kind": { "const": "image" },
-        "image": { "$ref": "#/$defs/image" }
+        "kind": {
+          "const": "image"
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        }
       },
       "additionalProperties": false
     },
-
     "solution": {
       "type": "object",
-      "required": ["access", "answerText", "steps"],
+      "required": [
+        "access",
+        "answerText",
+        "steps"
+      ],
       "properties": {
-        "access": { "$ref": "#/$defs/access", "description": "vip = lời giải từng bước chỉ mở cho VIP; đáp án cuối (answerText) luôn hiện." },
-        "answerText": { "type": "string", "minLength": 1, "description": "Đáp án ngắn gọn, vd '63' hoặc '72 cái bút chì màu'." },
-        "hint": { "type": "string", "description": "Gợi ý nhẹ hiện sau lần sai đầu tiên." },
-        "steps": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/block" } }
+        "access": {
+          "$ref": "#/$defs/access",
+          "description": "vip = lời giải từng bước chỉ mở cho VIP; đáp án cuối (answerText) luôn hiện."
+        },
+        "answerText": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Đáp án ngắn gọn, vd '63' hoặc '72 cái bút chì màu'."
+        },
+        "hint": {
+          "type": "string",
+          "description": "Gợi ý nhẹ hiện sau lần sai đầu tiên."
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/block"
+          }
+        }
       },
       "additionalProperties": false
     },
-
     "problemBase": {
       "type": "object",
-      "required": ["id", "rev", "type", "prompt", "level", "skillIds", "access", "solution"],
+      "required": [
+        "id",
+        "rev",
+        "type",
+        "prompt",
+        "level",
+        "skillIds",
+        "access",
+        "solution"
+      ],
       "properties": {
-        "id": { "$ref": "#/$defs/id" },
-        "rev": { "type": "integer", "minimum": 1, "description": "Số lần sửa nội dung. Tăng khi sửa đề/đáp án để app biết cập nhật." },
-        "type": { "enum": ["multiple_choice", "fill_blank", "drag_drop", "matching"] },
-        "instruction": { "type": "string", "minLength": 1, "maxLength": 40, "description": "Câu lệnh NGẮN cho bé (≤ 40 ký tự), vd 'Chọn đáp án đúng.' Bỏ trống thì app dùng câu mặc định theo dạng bài." },
-        "prompt": { "$ref": "#/$defs/richText" },
-        "level": { "enum": [1, 2, 3], "description": "Mức 1 nhận biết · Mức 2 kết nối/hiểu · Mức 3 vận dụng (theo cách chia mức đánh giá ở tiểu học)." },
-        "estimatedSeconds": { "type": "integer", "minimum": 5, "maximum": 900, "description": "Thời gian dự kiến — dùng để xếp đề thi (Phase 3)." },
-        "skillIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/skillId" } },
-        "tags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
-        "access": { "$ref": "#/$defs/access", "description": "vip = cả bài toán chỉ dành cho VIP." },
-        "solution": { "$ref": "#/$defs/solution" },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "rev": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Số lần sửa nội dung. Tăng khi sửa đề/đáp án để app biết cập nhật."
+        },
+        "type": {
+          "enum": [
+            "multiple_choice",
+            "fill_blank",
+            "drag_drop",
+            "matching"
+          ]
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "Câu lệnh NGẮN cho bé (≤ 40 ký tự), vd 'Chọn đáp án đúng.' Bỏ trống thì app dùng câu mặc định theo dạng bài."
+        },
+        "prompt": {
+          "$ref": "#/$defs/richText"
+        },
+        "level": {
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "description": "Mức 1 nhận biết · Mức 2 kết nối/hiểu · Mức 3 vận dụng (theo cách chia mức đánh giá ở tiểu học)."
+        },
+        "estimatedSeconds": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 900,
+          "description": "Thời gian dự kiến — dùng để xếp đề thi (Phase 3)."
+        },
+        "skillIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/skillId"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "access": {
+          "$ref": "#/$defs/access",
+          "description": "vip = cả bài toán chỉ dành cho VIP."
+        },
+        "solution": {
+          "$ref": "#/$defs/solution"
+        },
         "feedback": {
           "type": "object",
           "properties": {
-            "correct": { "type": "string", "minLength": 1 },
-            "incorrect": { "type": "string", "minLength": 1 }
+            "correct": {
+              "type": "string",
+              "minLength": 1
+            },
+            "incorrect": {
+              "type": "string",
+              "minLength": 1
+            }
           },
           "additionalProperties": false,
           "description": "Tuỳ chọn: câu khen/động viên riêng cho bài này (mặc định app chọn ngẫu nhiên câu tử tế)."
@@ -252,42 +576,108 @@
     },
     "option": {
       "type": "object",
-      "required": ["id", "text"],
+      "required": [
+        "id",
+        "text"
+      ],
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
-        "text": { "type": "string", "minLength": 1 },
-        "image": { "$ref": "#/$defs/image" }
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "image": {
+          "$ref": "#/$defs/image"
+        }
       },
       "additionalProperties": false
     },
     "multipleChoiceProblem": {
-      "allOf": [{ "$ref": "#/$defs/problemBase" }],
-      "required": ["choices", "correctChoiceIds"],
+      "allOf": [
+        {
+          "$ref": "#/$defs/problemBase"
+        }
+      ],
+      "required": [
+        "choices",
+        "correctChoiceIds"
+      ],
       "properties": {
-        "type": { "const": "multiple_choice" },
-        "choices": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "$ref": "#/$defs/option" } },
-        "correctChoiceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
-        "multiSelect": { "type": "boolean", "default": false },
-        "shuffleChoices": { "type": "boolean", "default": true }
+        "type": {
+          "const": "multiple_choice"
+        },
+        "choices": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "correctChoiceIds": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "multiSelect": {
+          "type": "boolean",
+          "default": false
+        },
+        "shuffleChoices": {
+          "type": "boolean",
+          "default": true
+        }
       },
       "unevaluatedProperties": false
     },
     "fillBlankProblem": {
-      "allOf": [{ "$ref": "#/$defs/problemBase" }],
-      "required": ["template", "blanks"],
+      "allOf": [
+        {
+          "$ref": "#/$defs/problemBase"
+        }
+      ],
+      "required": [
+        "template",
+        "blanks"
+      ],
       "properties": {
-        "type": { "const": "fill_blank" },
-        "template": { "type": "string", "pattern": "\\{\\{[a-z0-9_]+\\}\\}", "description": "Dòng có ô trống, vd '21 × 3 = {{b1}}'. Mỗi {{id}} phải có trong blanks. Dùng \\n để xuống dòng." },
+        "type": {
+          "const": "fill_blank"
+        },
+        "template": {
+          "type": "string",
+          "pattern": "\\{\\{[a-z0-9_]+\\}\\}",
+          "description": "Dòng có ô trống, vd '21 × 3 = {{b1}}'. Mỗi {{id}} phải có trong blanks. Dùng \\n để xuống dòng."
+        },
         "blanks": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "answer"],
+            "required": [
+              "id",
+              "answer"
+            ],
             "properties": {
-              "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
-              "answer": { "$ref": "#/$defs/answerRule" },
-              "maxLength": { "type": "integer", "minimum": 1, "maximum": 7, "description": "Số ký tự tối đa (độ rộng ô)." }
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "answer": {
+                "$ref": "#/$defs/answerRule"
+              },
+              "maxLength": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 7,
+                "description": "Số ký tự tối đa (độ rộng ô)."
+              }
             },
             "additionalProperties": false
           }
@@ -296,106 +686,265 @@
       "unevaluatedProperties": false
     },
     "dragDropProblem": {
-      "allOf": [{ "$ref": "#/$defs/problemBase" }],
-      "required": ["template", "tokens", "slots"],
+      "allOf": [
+        {
+          "$ref": "#/$defs/problemBase"
+        }
+      ],
+      "required": [
+        "template",
+        "tokens",
+        "slots"
+      ],
       "properties": {
-        "type": { "const": "drag_drop" },
-        "template": { "type": "string", "pattern": "\\{\\{[a-z0-9_]+\\}\\}", "description": "Dòng có ô thả, vd '12 × 4 = {{s1}}'. Sắp xếp thứ tự: '{{s1}} < {{s2}} < {{s3}}'." },
-        "tokens": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/option" }, "description": "Các thẻ số để kéo (có thể có thẻ gây nhiễu)." },
+        "type": {
+          "const": "drag_drop"
+        },
+        "template": {
+          "type": "string",
+          "pattern": "\\{\\{[a-z0-9_]+\\}\\}",
+          "description": "Dòng có ô thả, vd '12 × 4 = {{s1}}'. Sắp xếp thứ tự: '{{s1}} < {{s2}} < {{s3}}'."
+        },
+        "tokens": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/option"
+          },
+          "description": "Các thẻ số để kéo (có thể có thẻ gây nhiễu)."
+        },
         "slots": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "accept"],
+            "required": [
+              "id",
+              "accept"
+            ],
             "properties": {
-              "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
-              "accept": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" }, "description": "Mã các thẻ được coi là đúng cho ô này (liệt kê nhiều thẻ khi có thẻ trùng giá trị)." }
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9_]+$"
+              },
+              "accept": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string"
+                },
+                "description": "Mã các thẻ được coi là đúng cho ô này (liệt kê nhiều thẻ khi có thẻ trùng giá trị)."
+              }
             },
             "additionalProperties": false
           }
         },
-        "reuseTokens": { "type": "boolean", "default": false, "description": "true = một thẻ được thả vào nhiều ô." }
+        "reuseTokens": {
+          "type": "boolean",
+          "default": false,
+          "description": "true = một thẻ được thả vào nhiều ô."
+        }
       },
       "unevaluatedProperties": false
     },
     "matchingProblem": {
-      "allOf": [{ "$ref": "#/$defs/problemBase" }],
-      "required": ["left", "right", "pairs"],
+      "allOf": [
+        {
+          "$ref": "#/$defs/problemBase"
+        }
+      ],
+      "required": [
+        "left",
+        "right",
+        "pairs"
+      ],
       "properties": {
-        "type": { "const": "matching" },
-        "left": { "type": "array", "minItems": 2, "maxItems": 6, "items": { "$ref": "#/$defs/option" } },
-        "right": { "type": "array", "minItems": 2, "maxItems": 7, "items": { "$ref": "#/$defs/option" }, "description": "Có thể nhiều hơn cột trái (thẻ gây nhiễu)." },
+        "type": {
+          "const": "matching"
+        },
+        "left": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "$ref": "#/$defs/option"
+          }
+        },
+        "right": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 7,
+          "items": {
+            "$ref": "#/$defs/option"
+          },
+          "description": "Có thể nhiều hơn cột trái (thẻ gây nhiễu)."
+        },
         "pairs": {
           "type": "array",
           "minItems": 2,
           "items": {
             "type": "object",
-            "required": ["left", "right"],
-            "properties": { "left": { "type": "string" }, "right": { "type": "string" } },
+            "required": [
+              "left",
+              "right"
+            ],
+            "properties": {
+              "left": {
+                "type": "string"
+              },
+              "right": {
+                "type": "string"
+              }
+            },
             "additionalProperties": false
           },
           "description": "Mỗi mục bên trái nối với đúng một mục bên phải."
         },
-        "shuffleRight": { "type": "boolean", "default": true }
+        "shuffleRight": {
+          "type": "boolean",
+          "default": true
+        }
       },
       "unevaluatedProperties": false
     },
     "problem": {
       "title": "Bài Toán",
       "oneOf": [
-        { "$ref": "#/$defs/multipleChoiceProblem" },
-        { "$ref": "#/$defs/fillBlankProblem" },
-        { "$ref": "#/$defs/dragDropProblem" },
-        { "$ref": "#/$defs/matchingProblem" }
+        {
+          "$ref": "#/$defs/multipleChoiceProblem"
+        },
+        {
+          "$ref": "#/$defs/fillBlankProblem"
+        },
+        {
+          "$ref": "#/$defs/dragDropProblem"
+        },
+        {
+          "$ref": "#/$defs/matchingProblem"
+        }
       ]
     },
-
     "lesson": {
       "title": "Bài học",
       "type": "object",
-      "required": ["schemaVersion", "kind", "id", "bookId", "chapterId", "order", "title", "contentRev", "theory", "problems"],
+      "required": [
+        "schemaVersion",
+        "kind",
+        "id",
+        "bookId",
+        "chapterId",
+        "order",
+        "title",
+        "contentRev",
+        "theory",
+        "problems"
+      ],
       "properties": {
-        "schemaVersion": { "$ref": "#/$defs/schemaVersion" },
-        "kind": { "const": "lesson" },
-        "id": { "$ref": "#/$defs/id" },
-        "bookId": { "$ref": "#/$defs/id" },
-        "chapterId": { "$ref": "#/$defs/id" },
-        "order": { "type": "integer", "minimum": 1 },
-        "title": { "type": "string", "minLength": 1 },
-        "contentRev": { "type": "integer", "minimum": 1, "description": "Tăng mỗi lần xuất bản lại bài học (đồng bộ / tải bản mới)." },
+        "schemaVersion": {
+          "$ref": "#/$defs/schemaVersion"
+        },
+        "kind": {
+          "const": "lesson"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "bookId": {
+          "$ref": "#/$defs/id"
+        },
+        "chapterId": {
+          "$ref": "#/$defs/id"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentRev": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Tăng mỗi lần xuất bản lại bài học (đồng bộ / tải bản mới)."
+        },
         "theory": {
           "type": "object",
-          "required": ["blocks"],
+          "required": [
+            "blocks"
+          ],
           "properties": {
-            "title": { "type": "string" },
-            "blocks": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/block" } }
+            "title": {
+              "type": "string"
+            },
+            "blocks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$ref": "#/$defs/block"
+              }
+            }
           },
           "additionalProperties": false
         },
-        "problems": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/problem" } }
+        "problems": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/problem"
+          }
+        }
       },
       "additionalProperties": false
     },
-
     "catalog": {
       "title": "Mục lục",
       "type": "object",
-      "required": ["schemaVersion", "kind", "contentRev", "skills", "books"],
+      "required": [
+        "schemaVersion",
+        "kind",
+        "contentRev",
+        "skills",
+        "books"
+      ],
       "properties": {
-        "schemaVersion": { "$ref": "#/$defs/schemaVersion" },
-        "kind": { "const": "catalog" },
-        "contentRev": { "type": "integer", "minimum": 1 },
+        "schemaVersion": {
+          "$ref": "#/$defs/schemaVersion"
+        },
+        "kind": {
+          "const": "catalog"
+        },
+        "contentRev": {
+          "type": "integer",
+          "minimum": 1
+        },
         "skills": {
           "type": "array",
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "name"],
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
-              "id": { "$ref": "#/$defs/skillId" },
-              "name": { "type": "string", "minLength": 1, "description": "Tên kỹ năng cho phụ huynh đọc trong báo cáo." },
-              "strand": { "enum": ["so_va_phep_tinh", "hinh_hoc_va_do_luong", "thong_ke_xac_suat"], "description": "Mạch kiến thức." }
+              "id": {
+                "$ref": "#/$defs/skillId"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Tên kỹ năng cho phụ huynh đọc trong báo cáo."
+              },
+              "strand": {
+                "enum": [
+                  "so_va_phep_tinh",
+                  "hinh_hoc_va_do_luong",
+                  "thong_ke_xac_suat"
+                ],
+                "description": "Mạch kiến thức."
+              }
             },
             "additionalProperties": false
           }
@@ -405,36 +954,141 @@
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "series", "grade", "title", "chapters"],
+            "required": [
+              "id",
+              "series",
+              "grade",
+              "title",
+              "chapters"
+            ],
             "properties": {
-              "id": { "$ref": "#/$defs/id" },
-              "series": { "enum": ["ket_noi_tri_thuc", "chan_troi_sang_tao", "canh_dieu"] },
-              "grade": { "const": 3 },
-              "title": { "type": "string", "minLength": 1 },
+              "id": {
+                "$ref": "#/$defs/id"
+              },
+              "series": {
+                "enum": [
+                  "ket_noi_tri_thuc",
+                  "chan_troi_sang_tao",
+                  "canh_dieu"
+                ]
+              },
+              "grade": {
+                "const": 3
+              },
+              "title": {
+                "type": "string",
+                "minLength": 1
+              },
               "chapters": {
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "required": ["id", "order", "title", "lessons"],
+                  "required": [
+                    "id",
+                    "order",
+                    "title",
+                    "lessons"
+                  ],
                   "properties": {
-                    "id": { "$ref": "#/$defs/id" },
-                    "order": { "type": "integer", "minimum": 1 },
-                    "volume": { "enum": [1, 2], "description": "Tập 1 / Tập 2." },
-                    "title": { "type": "string", "minLength": 1 },
+                    "id": {
+                      "$ref": "#/$defs/id"
+                    },
+                    "order": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "volume": {
+                      "enum": [
+                        1,
+                        2
+                      ],
+                      "description": "Tập 1 / Tập 2."
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
                     "lessons": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id", "order", "title", "src", "access"],
+                        "required": [
+                          "id",
+                          "order",
+                          "title",
+                          "src",
+                          "access"
+                        ],
                         "properties": {
-                          "id": { "$ref": "#/$defs/id" },
-                          "order": { "type": "integer", "minimum": 1 },
-                          "title": { "type": "string", "minLength": 1 },
-                          "src": { "type": "string", "minLength": 1, "description": "Đường dẫn file lesson (asset trong app, sau này có thể là URL tải về)." },
-                          "access": { "$ref": "#/$defs/access" }
+                          "id": {
+                            "$ref": "#/$defs/id"
+                          },
+                          "order": {
+                            "type": "integer",
+                            "minimum": 1
+                          },
+                          "title": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "src": {
+                            "type": "string",
+                            "minLength": 1,
+                            "description": "Đường dẫn file lesson (asset trong app, sau này có thể là URL tải về)."
+                          },
+                          "access": {
+                            "$ref": "#/$defs/access"
+                          }
                         },
                         "additionalProperties": false
                       }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              },
+              "exams": {
+                "type": "array",
+                "description": "Từ 1.1.0: danh sách đề kiểm tra của bộ sách.",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "id",
+                    "title",
+                    "src",
+                    "access",
+                    "examType",
+                    "durationMinutes"
+                  ],
+                  "properties": {
+                    "id": {
+                      "$ref": "#/$defs/id"
+                    },
+                    "title": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "src": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "access": {
+                      "$ref": "#/$defs/access"
+                    },
+                    "examType": {
+                      "enum": [
+                        "chu_de",
+                        "giua_hk1",
+                        "cuoi_hk1",
+                        "giua_hk2",
+                        "cuoi_hk2",
+                        "on_tap"
+                      ]
+                    },
+                    "durationMinutes": {
+                      "type": "integer",
+                      "minimum": 5,
+                      "maximum": 90
                     }
                   },
                   "additionalProperties": false
@@ -446,6 +1100,115 @@
         }
       },
       "additionalProperties": false
+    },
+    "exam": {
+      "title": "Đề kiểm tra (từ schema 1.1.0)",
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "kind",
+        "id",
+        "bookId",
+        "title",
+        "examType",
+        "durationMinutes",
+        "access",
+        "contentRev",
+        "sections"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "#/$defs/schemaVersion"
+        },
+        "kind": {
+          "const": "exam"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "bookId": {
+          "$ref": "#/$defs/id"
+        },
+        "chapterIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true,
+          "description": "Các chủ đề mà đề kiểm tra bao phủ."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "examType": {
+          "enum": [
+            "chu_de",
+            "giua_hk1",
+            "cuoi_hk1",
+            "giua_hk2",
+            "cuoi_hk2",
+            "on_tap"
+          ],
+          "description": "chu_de = kiểm tra theo chủ đề; giua/cuoi_hk = giữa/cuối học kì."
+        },
+        "durationMinutes": {
+          "type": "integer",
+          "minimum": 5,
+          "maximum": 90
+        },
+        "access": {
+          "$ref": "#/$defs/access"
+        },
+        "contentRev": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sections": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "items"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Vd 'Phần 1. Trắc nghiệm'."
+              },
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "points",
+                    "problem"
+                  ],
+                  "properties": {
+                    "points": {
+                      "type": "number",
+                      "exclusiveMinimum": 0,
+                      "multipleOf": 0.25,
+                      "description": "Điểm của câu. Tổng cả đề phải bằng 10 (app tự kiểm tra)."
+                    },
+                    "problem": {
+                      "$ref": "#/$defs/problem"
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "$comment": "Chấm: trắc nghiệm đúng/sai cả câu; điền số, kéo thả, nối được điểm theo tỉ lệ phần đúng (làm tròn xuống 0,25). Điểm hiển thị cho bé làm tròn thành số nguyên."
     }
   }
 }

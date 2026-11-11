@@ -1,4 +1,5 @@
 import 'blocks.dart';
+import 'exam.dart';
 import 'json_reader.dart';
 import 'problem.dart';
 
@@ -66,12 +67,16 @@ class Book {
     required this.series,
     required this.title,
     required this.chapters,
+    this.exams = const [],
   });
 
   final String id;
   final BookSeries series;
   final String title;
   final List<Chapter> chapters;
+
+  /// Đề kiểm tra (schema 1.1.0+).
+  final List<ExamRef> exams;
 }
 
 /// Mục lục: Bộ sách → Chủ đề → Bài học, kèm danh sách kỹ năng.
@@ -132,6 +137,7 @@ class Catalog {
                 ),
               ),
             ),
+            exams: b.objects('exams', ExamRef.fromJson, optional: true),
           );
         },
         minItems: 1,

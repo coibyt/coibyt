@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/blocks.dart';
 import '../../models/problem.dart';
 import '../app_theme.dart';
+import 'step_solver.dart';
 
 /// Nội dung "Xem lời giải": đáp án + các bước (hoặc khoá VIP).
 class SolutionPanel extends StatelessWidget {
@@ -94,8 +95,8 @@ class BlockView extends StatelessWidget {
           text,
           style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: AppColors.sky),
         ),
-      final ColumnArithmeticBlock b => ColumnArithmeticView(block: b),
-      final LongDivisionBlock b => LongDivisionView(block: b),
+      final ColumnArithmeticBlock b => ColumnStepper(block: b),
+      final LongDivisionBlock b => DivisionStepper(block: b),
       final WordProblemBlock b => WordProblemView(block: b),
       ImageBlock(:final image) => Semantics(
           label: image.alt,
@@ -147,151 +148,6 @@ class _TextBlockView extends StatelessWidget {
           ],
         );
     }
-  }
-}
-
-const _cellWidth = 30.0;
-const _digitStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.w700, height: 1.25);
-
-Widget _cells(List<String> chars, {Color color = AppColors.ink}) => Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        for (final c in chars)
-          SizedBox(
-            width: _cellWidth,
-            child: Text(c, textAlign: TextAlign.center, style: _digitStyle.copyWith(color: color)),
-          ),
-      ],
-    );
-
-List<String> _rightAlign(String s, int width) =>
-    [...List.filled(width - s.length, ''), ...s.split('')];
-
-/// "Đặt tính rồi tính": các số thẳng cột theo hàng + lời giải từng lượt.
-/// Phase 3 sẽ thêm hiệu ứng hiện từng chữ số và chữ số nhớ.
-class ColumnArithmeticView extends StatelessWidget {
-  const ColumnArithmeticView({super.key, required this.block});
-
-  final ColumnArithmeticBlock block;
-
-  @override
-  Widget build(BuildContext context) {
-    final digits = [...block.operands.map((o) => o.length), block.result.length].reduce((a, b) => a > b ? a : b);
-    final width = digits + 1; // + 1 cột cho dấu phép tính
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.skySoft, width: 3),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
-          const SizedBox(height: 8),
-          Center(
-            child: Semantics(
-              label: '${block.operands.join(' ${block.operation.symbol} ')} bằng ${block.result}',
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  for (final (i, o) in block.operands.indexed)
-                    _cells([
-                      i == 1 ? block.operation.symbol : '',
-                      ..._rightAlign(o, width - 1),
-                    ]),
-                  Container(height: 3, width: _cellWidth * width, color: AppColors.ink),
-                  _cells(['', ..._rightAlign(block.result, width - 1)], color: AppColors.good),
-                ],
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          for (final (i, step) in block.digitSteps.indexed) _NumberedLine(n: i + 1, text: step.text),
-        ],
-      ),
-    );
-  }
-}
-
-/// Phép chia đặt tính (bố cục rút gọn cho Phase 1).
-class LongDivisionView extends StatelessWidget {
-  const LongDivisionView({super.key, required this.block});
-
-  final LongDivisionBlock block;
-
-  @override
-  Widget build(BuildContext context) {
-    final w = block.dividend.length;
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.skySoft, width: 3),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
-          const SizedBox(height: 8),
-          Center(
-            child: Semantics(
-              label: '${block.dividend} chia ${block.divisor} được ${block.quotient}'
-                  '${block.remainder > 0 ? ', dư ${block.remainder}' : ''}',
-              child: IntrinsicHeight(
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _cells(_rightAlign(block.dividend, w)),
-                    Container(width: 3, color: AppColors.ink),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _cells(['', ...block.divisor.split('')]),
-                        Container(height: 3, width: _cellWidth * (block.quotient.length + 1), color: AppColors.ink),
-                        _cells(['', ...block.quotient.split('')], color: AppColors.good),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: 10),
-          for (final (i, step) in block.digitSteps.indexed) _NumberedLine(n: i + 1, text: step.text),
-          if (block.remainder > 0) Text('Số dư: ${block.remainder}', style: const TextStyle(fontSize: 19)),
-        ],
-      ),
-    );
-  }
-}
-
-class _NumberedLine extends StatelessWidget {
-  const _NumberedLine({required this.n, required this.text});
-
-  final int n;
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CircleAvatar(
-            radius: 15,
-            backgroundColor: AppColors.sky,
-            child: Text('$n', style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700)),
-          ),
-          const SizedBox(width: 10),
-          Expanded(child: Text(text, style: const TextStyle(fontSize: 20, height: 1.35))),
-        ],
-      ),
-    );
   }
 }
 

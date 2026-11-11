@@ -310,16 +310,12 @@ class _QuizBodyState extends State<_QuizBody> {
     );
   }
 
-  Widget _answerArea(Problem problem, AnswerViewState s) {
-    void changed(UserAnswer a) => _answer = a;
-    return switch (problem.body) {
-      final MultipleChoiceBody b =>
-        MultipleChoiceView(body: b, state: s, onChanged: changed, random: widget.random),
-      final FillBlankBody b => FillBlankView(body: b, state: s, onChanged: changed),
-      final DragDropBody b => DragDropView(body: b, state: s, onChanged: changed),
-      final MatchingBody b => MatchingView(body: b, state: s, onChanged: changed, random: widget.random),
-    };
-  }
+  Widget _answerArea(Problem problem, AnswerViewState s) => buildAnswerView(
+        problem: problem,
+        state: s,
+        onChanged: (a) => _answer = a,
+        random: widget.random,
+      );
 }
 
 class _TopBar extends StatelessWidget {
