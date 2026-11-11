@@ -47,6 +47,12 @@ enum UiAsset {
   tileShop,
   tileBadge,
   tileMission,
+  examTuan,
+  examKt15,
+  exam1tiet,
+  examGiuaki,
+  examCuoiki,
+  examOntap,
   ruler,
   button;
 
@@ -93,6 +99,9 @@ class TeacherAssets {
 
   /// Hình nền (`assets/bg/<name>.webp`), vd 'home', 'lesson'.
   String? background(String name) => _first('assets/bg/$name');
+
+  /// Ảnh bìa chủ đề thứ [order] (`assets/chapters/<order>.webp`).
+  String? chapter(int order) => _first('assets/chapters/$order');
 
   /// Đủ bộ ảnh tối thiểu để dùng ảnh thật thay hình vẽ.
   bool get hasTeacherImages => pose(TeacherPose.idle) != null;

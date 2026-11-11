@@ -10,7 +10,7 @@ Cách dùng (chạy trong thư mục toan-lop-3, cần: pip install pillow):
   python tool/prepare_teacher_assets.py teacher <thư-mục>   # teacher_idle.png ... (nền xanh)
   python tool/prepare_teacher_assets.py ui <thư-mục>        # coin.png, star.png ... (nền hồng sẫm)
 
-Kết quả: assets/tutor/teacher_*.webp, assets/ui/*.webp, assets/pets/*.webp, assets/bg/*.webp.
+Kết quả: assets/tutor/teacher_*.webp, assets/ui/*.webp, assets/pets/*.webp, assets/bg/*.webp, assets/chapters/*.webp.
 Màu nền được LẤY MẪU ở mép ảnh (ảnh AI thường không đúng tuyệt đối #00FF00 / #FF00FF).
 Các tư thế cô giáo được cắt bằng CÙNG một khung → đổi khung hình (chớp mắt, nói) không bị nhảy.
 """
@@ -109,9 +109,9 @@ def item(src: pathlib.Path, key: str, dest: pathlib.Path, size: int) -> None:
     save_webp(im, dest)
 
 
-def background(src: pathlib.Path, dest: pathlib.Path) -> None:
+def background(src: pathlib.Path, dest: pathlib.Path, width: int = BG_WIDTH) -> None:
     im = Image.open(src).convert("RGB")
-    im = im.resize((BG_WIDTH, round(im.height * BG_WIDTH / im.width)), Image.LANCZOS)
+    im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     save_webp(im, dest, quality=78)
 
 
@@ -128,6 +128,8 @@ def auto() -> None:
             item(src, m["key"], ROOT / "assets" / "pets" / f"{name.removeprefix('pet_')}.webp", SIZES["pets"])
         elif m["group"] == "bg":
             background(src, ROOT / "assets" / "bg" / f"{name.removeprefix('bg_')}.webp")
+        elif m["group"] == "chapters":
+            background(src, ROOT / "assets" / "chapters" / f"{name.removeprefix('chapter_')}.webp", width=640)
 
 
 if __name__ == "__main__":

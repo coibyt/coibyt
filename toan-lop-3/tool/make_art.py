@@ -122,6 +122,48 @@ PETS = {
     "kylan": ("a magical white baby unicorn with a pastel rainbow mane and a golden horn", GREEN),
     "rong": ("a friendly baby green dragon with tiny wings and a little golden belly", MAGENTA),
 }
+# ---- khu Luyện thi ----
+EXAM_ICONS = {
+    "exam_tuan": "A shiny round weekly challenge badge: a small golden calendar page with a big check mark, ribbon below",
+    "exam_kt15": "A cute glossy red-and-gold stopwatch with a lightning bolt sparkle beside it",
+    "exam_1tiet": "A wooden clipboard holding a neat exam paper with a pencil and a small green check mark",
+    "exam_giuaki": "A small mountain peak with a bright orange flag planted at the halfway ledge, sparkles",
+    "exam_cuoiki": "A grand golden trophy cup with a laurel wreath and a red ribbon, sparkling",
+    "exam_ontap": "A stack of three colourful books with a glowing purple bookmark and a small star",
+}
+for n, desc in EXAM_ICONS.items():
+    JOBS[n] = dict(group="ui", aspect="1:1", prompt=obj(desc))
+JOBS["bg_exam"] = dict(group="bg", aspect="9:16", prompt=(
+    "A soft calm background illustration for a children's exam practice screen: a bright airy school hall with tall "
+    "windows and warm morning light, very faint pastel pennant garlands near the top, light lavender and cream "
+    "palette, extremely low contrast, mostly empty smooth space in the middle, no characters, no desks in the "
+    "centre. " + STYLE + " " + CLEAN))
+
+# ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
+CHAPTERS = {
+    1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",
+    2: "a magical tower of colourful building blocks arranged in neat groups and rows, glowing softly, floating sparkles, a cozy playroom",
+    3: "a playful world of flat shapes and solids: a big circle, triangles, squares, rectangles, a cube and a box floating in a pastel sky garden, a compass and ruler",
+    4: "a bustling fruit market stall where apples and oranges are arranged in equal groups in baskets, a happy sunny morning",
+    5: "a little science lab table with a measuring tape, a ruler, a kitchen scale with fruits, a measuring jug of water and a thermometer, warm light",
+    6: "a grand cozy library of floating glowing number cards and golden gears, a big magic book, rich warm colours",
+    7: "a festive end-of-term celebration in a decorated classroom with garlands, a golden trophy and confetti, cheerful",
+    8: "a starry night sky where thousands of tiny golden stars form neat glowing clusters over a calm lake, magical",
+    9: "a beautiful garden seen from above with neat rectangular and square flower beds bordered by little fences, sunny",
+    10: "a busy toy factory with conveyor belts carrying colourful boxes in rows, cheerful robots, warm light",
+    11: "a vast sunny landscape of rolling hills with a long winding road to a castle far away, adventure mood",
+    12: "a lively harbour with colourful sailing boats loading and unloading cargo crates, bright blue sea, sunny",
+    13: "a cozy room with a big friendly wall clock, a wall calendar, a piggy bank and colourful paper money and coins on a desk",
+    14: "a busy bakery with trays of identical cupcakes arranged in perfect rows and boxes, warm golden light",
+    15: "a cheerful school fair with a big colourful bar chart board, a spinner wheel and a glass jar of coloured marbles",
+    16: "a triumphant mountain summit at sunrise with a small flag, golden light, sparkling clouds below, sense of achievement",
+}
+for n, desc in CHAPTERS.items():
+    JOBS[f"chapter_{n}"] = dict(group="chapters", aspect="4:3", prompt=(
+        f"A rich, beautiful illustration for a children's math lesson chapter card: {desc}. Wide composition with "
+        f"the main subject in the right two-thirds, soft and calm on the left side. No characters' faces close-up, "
+        f"no people. {STYLE} {CLEAN}"))
+
 for pid, (desc, bg) in PETS.items():
     JOBS[f"pet_{pid}"] = dict(group="pets", aspect="1:1", prompt=pet(desc, bg), key="green" if bg == GREEN else "magenta")
 

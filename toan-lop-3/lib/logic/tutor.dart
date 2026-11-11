@@ -22,6 +22,9 @@ abstract final class TutorLines {
   static const screenShop = 'Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.';
   static const screenRank = 'Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.';
   static const screenBadges = 'Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!';
+  /// Cô giới thiệu bài khi bé mở một bài học (mỗi bài một câu, ghi âm sẵn bằng 11max).
+  static String lessonIntro(String title) => 'Bài học: $title. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!';
+
   static const screenTheory = 'Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.';
 
   static const praise = ['Xuất sắc!', 'Chính xác!', 'Giỏi quá!', 'Tuyệt vời!', 'Đúng rồi, con làm tốt lắm!'];
