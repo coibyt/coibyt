@@ -12,6 +12,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
+import 'package:toan_lop_3/logic/show_lines.dart';
 import 'package:toan_lop_3/logic/spoken_vi.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/models/content.dart';
@@ -21,8 +22,14 @@ import 'package:unorm_dart/unorm_dart.dart' as unorm;
 const api = 'https://api.11max.id.vn';
 const model = 'eleven_flash_v2_5';
 
-/// Giọng nữ đa ngôn ngữ "Sarah" (cùng giọng Babelisa dùng cho tiếng Việt).
-const voiceId = 'EXAVITQu4vr4xnSDxMaL';
+/// Giọng cô Mai: "Trang" — nữ trẻ miền Nam, nhẹ nhàng (chủ dự án chọn trên 11max).
+const teacherVoice = 'HAAKLJlaJeGl18MKHYeg';
+
+/// Giọng MC gameshow: "Sarah" (khác giọng cô Mai để bé phân biệt hai nhân vật).
+const hostVoice = 'EXAVITQu4vr4xnSDxMaL';
+
+/// Số câu thu cùng lúc.
+const workers = 4;
 const outDir = 'assets/voice';
 const creditsPerChar = 0.5;
 
@@ -45,8 +52,14 @@ String slug(String t) {
   return '$short-${h.toRadixString(16).padLeft(8, '0').substring(0, 6)}';
 }
 
+/// Mọi câu cần thu: (câu, giọng). Cô giáo: câu cố định, gợi ý, phần làm mẫu; MC: lời dẫn gameshow.
+List<(String, String)> allLines() => [
+  for (final l in teacherLines()) (l, teacherVoice),
+  for (final l in ShowLines.all()) (voiceKey(l), hostVoice),
+];
+
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
-List<String> allLines() {
+List<String> teacherLines() {
   final lines = <String>{...TutorLines.all()};
   // Lời cô giới thiệu từng bài học trong mục lục.
   final catalog = Catalog.fromJson(jsonDecode(File('assets/content/catalog.json').readAsStringSync()));
@@ -72,7 +85,7 @@ List<String> allLines() {
   return [for (final l in lines) voiceKey(l)];
 }
 
-Future<List<int>> tts(http.Client c, String key, String text) async {
+Future<List<int>> tts(http.Client c, String key, String text, String voiceId) async {
   final headers = {'xi-api-key': key, 'Content-Type': 'application/json'};
   final body = jsonEncode({
     'text': text,
@@ -158,32 +171,25 @@ Future<void> main(List<String> args) async {
   final manifestFile = File('$outDir/manifest.json');
   final manifest = manifestFile.existsSync()
       ? (jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>)
-      : <String, dynamic>{'version': 1, 'voice': 'Sarah (11max, $model)', 'lines': <String, dynamic>{}};
+      : <String, dynamic>{'version': 1, 'lines': <String, dynamic>{}};
   final lines = manifest['lines'] as Map<String, dynamic>;
 
-  // Câu cần tạo: chưa có file, hoặc bản đọc (số/ký hiệu → chữ) đã đổi so với lần tạo trước.
-  bool upToDate(String l) {
+  // Câu cần tạo: chưa có file, khác giọng, hoặc bản đọc (số/ký hiệu → chữ) đã đổi so với lần tạo trước.
+  bool upToDate(String l, String voice) {
     final e = lines[l] as Map<String, dynamic>?;
-    if (e == null || !File(e['file'] as String).existsSync()) return false;
-    final spoken = spokenVietnamese(l);
-    if (e['spoken'] == spoken) return true;
-    if (e['spoken'] == null && spoken == l) {
-      e['spoken'] = spoken; // câu không có số/ký hiệu: bản cũ vẫn đúng
-      return true;
-    }
-    return false;
+    if (e == null || !File(e['file'] as String).existsSync() || e['voice'] != voice) return false;
+    return e['spoken'] == spokenVietnamese(l);
   }
 
+  final all = allLines();
   final missing = [
-    for (final l in allLines())
-      if (!upToDate(l)) l,
+    for (final (l, v) in all)
+      if (!upToDate(l, v)) (l, v),
   ];
-  final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(l).length);
-  print(
-    'Tổng ${allLines().length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.',
-  );
+  final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(l.$1).length);
+  print('Tổng ${all.length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.');
   if (countOnly) {
-    for (final l in missing) {
+    for (final (l, _) in missing.take(20)) {
       print('  - ${spokenVietnamese(l)}');
     }
     return;
@@ -192,19 +198,34 @@ Future<void> main(List<String> args) async {
   final key = Platform.environment['MAX11_API_KEY'] ?? 'proxy-injected';
   final client = http.Client();
   var done = 0;
-  for (final text in missing.take(limit ?? missing.length)) {
-    final file = '$outDir/${slug(text)}.mp3';
-    final spoken = spokenVietnamese(text);
-    stdout.write('• $spoken\n');
-    final audio = await tts(client, key, spoken);
-    final ms = await shrink(audio, File(file));
-    lines[text] = {'file': file, 'ms': ms, 'spoken': spoken};
-    done++;
-    // Ghi danh mục sau mỗi câu: dừng giữa chừng vẫn giữ phần đã tạo.
+  void saveManifest() {
     final sorted = Map.fromEntries(lines.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
     manifest['lines'] = sorted;
+    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Sarah ($hostVoice) · $model';
     manifestFile.writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(manifest)}\n');
   }
+
+  final queue = [...missing.take(limit ?? missing.length)];
+  Future<void> worker() async {
+    while (queue.isNotEmpty) {
+      final (text, voice) = queue.removeAt(0);
+      final file = '$outDir/${slug(text)}.mp3';
+      final spoken = spokenVietnamese(text);
+      try {
+        final audio = await tts(client, key, spoken, voice);
+        final ms = await shrink(audio, File(file));
+        lines[text] = {'file': file, 'ms': ms, 'spoken': spoken, 'voice': voice};
+        done++;
+        stdout.write('• [$done] $spoken\n');
+        // Ghi danh mục sau mỗi câu: dừng giữa chừng vẫn giữ phần đã tạo.
+        saveManifest();
+      } on Exception catch (e) {
+        print('  BỎ QUA (lỗi: $e): $spoken');
+      }
+    }
+  }
+
+  await Future.wait([for (var i = 0; i < workers; i++) worker()]);
   client.close();
   print('Xong: tạo $done câu.');
 }

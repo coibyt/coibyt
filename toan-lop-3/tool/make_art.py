@@ -201,6 +201,25 @@ JOBS["bg_game"] = dict(group="bg", aspect="9:16", prompt=(
     "clouds, a gentle rainbow, a cheerful amusement park with colourful tents and a small ferris wheel far at the "
     "bottom, soft and low contrast in the middle for gameplay, no characters, no balloons, no text. " + STYLE + " " + CLEAN))
 
+# ---- Đấu trường Ngôi sao Toán học (gameshow kiểm tra năng lực) ----
+HOST = (
+    "An original 3D character for a children's math quiz show: a charming, energetic young Vietnamese female TV "
+    "show host in her mid twenties, bright friendly smile, sparkling dark eyes, shoulder-length glossy black hair "
+    "with soft waves, wearing an elegant modest royal-blue sequined long-sleeve gown with a small golden star "
+    "brooch, holding a small golden question card in her left hand. Waist-up portrait facing the viewer, centered, "
+    "the character fills about 85% of the frame height with empty margin around her. Modest and age-appropriate. "
+    "Not resembling any real person or existing character. " + STYLE + " " + GREEN + " " + CLEAN
+)
+HOST_KEEP = KEEP.replace("the same woman, same face, same hairstyle, same ao dai and embroidery", "the same woman, same face, same hairstyle, same royal-blue gown and brooch")
+JOBS["host_idle"] = dict(group="host", aspect="3:4", prompt=HOST)
+JOBS["host_talk"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Only change: her mouth is open in a lively speaking shape, eyes bright.")
+JOBS["host_present"] = dict(group="host", aspect="3:4", ref="host_idle", prompt=HOST_KEEP + "Change only her pose: she extends her right arm with an open palm to the side as if presenting the next question, excited smile, mouth slightly open. The hand must stay inside the frame.")
+JOBS["bg_show"] = dict(group="bg", aspect="9:16", prompt=(
+    "An original glamorous TV quiz show studio stage for children, seen from the audience: deep royal blue and "
+    "violet lighting, a circular glowing stage floor in the centre, sweeping spotlights, sparkling light bokeh, "
+    "shiny reflective floor, elegant and dramatic yet friendly, no people, no text, no logos, no screens with "
+    "writing, plenty of dark calm space in the middle. " + STYLE + " " + CLEAN))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",

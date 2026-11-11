@@ -17,6 +17,7 @@ import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import '../tutor/teacher_intro.dart';
 import 'app_theme.dart';
+import 'quiz_show_screen.dart';
 import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_art.dart';
@@ -95,7 +96,7 @@ class AbilityHomeCard extends StatelessWidget {
       child: InkWell(
         key: const ValueKey('ability-card'),
         borderRadius: BorderRadius.circular(26),
-        onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const AbilityIntroScreen())),
+        onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const QuizShowScreen())),
         child: Ink(
           padding: const EdgeInsets.fromLTRB(10, 12, 14, 12),
           decoration: BoxDecoration(
@@ -256,7 +257,7 @@ class AbilityIntroScreen extends StatelessWidget {
                     color: const Color(0xFFFF9F1C),
                     onPressed: () => Navigator.of(
                       context,
-                    ).pushReplacement(MaterialPageRoute<void>(builder: (_) => const AbilityTestScreen())),
+                    ).pushReplacement(MaterialPageRoute<void>(builder: (_) => const QuizShowScreen())),
                   ),
                 ],
               ),

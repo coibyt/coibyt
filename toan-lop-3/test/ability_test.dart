@@ -68,6 +68,7 @@ void main() {
   });
 
   abilityAppTests();
+  swapTests();
 }
 
 Future<AppState> _state(DateTime Function() clock) async {
@@ -109,11 +110,8 @@ void abilityAppTests() {
     tester.view.devicePixelRatio = 2.5;
     addTearDown(tester.view.reset);
     final s = (await tester.runAsync(() => _state(() => DateTime(2026, 11, 11))))!;
-    await tester.pumpWidget(_wrap(s, const AbilityIntroScreen()));
-    await tester.pump();
-    expect(find.text('5 mảng kiến thức'), findsOneWidget);
-    await tester.ensureVisible(find.byKey(const ValueKey('btn-ability-start')));
-    await tester.tap(find.byKey(const ValueKey('btn-ability-start')));
+    // Bản làm bài kiểu thường (gameshow có kiểm thử riêng trong quiz_show_test.dart).
+    await tester.pumpWidget(_wrap(s, const AbilityTestScreen()));
     for (var i = 0; i < 200 && find.byKey(const ValueKey('ability-progress')).evaluate().isEmpty; i++) {
       await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 50)));
       await tester.pump(const Duration(milliseconds: 100));
@@ -156,5 +154,23 @@ void abilityAppTests() {
     expect(find.text(' +54 vàng'), findsOneWidget);
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(seconds: 10));
+  });
+}
+
+void swapTests() {
+  test('đổi câu hỏi: cùng mảng, câu mới chưa dùng', () {
+    final problems = [
+      ...loadLessonFromDisk('kntt3.c4.nhan-2cs-1cs').problems,
+      ...loadLessonFromDisk('kntt3.c4.chia-2cs-1cs').problems,
+    ];
+    final bank = [
+      for (final p in problems)
+        AbilityItem(problem: p, domain: AbilityDomain.nhanChia, difficulty: p.level, lessonId: 'x'),
+    ];
+    final t = AbilityTest(bank, random: Random(5));
+    final before = t.current.problem.id;
+    expect(t.swap(), isTrue);
+    expect(t.current.problem.id, isNot(before));
+    expect(t.current.domain, AbilityDomain.nhanChia);
   });
 }

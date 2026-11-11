@@ -1,16 +1,18 @@
 {
   "version": 1,
-  "voice": "Sarah (11max, eleven_flash_v2_5)",
+  "voice": "Cô Mai: Trang (HAAKLJlaJeGl18MKHYeg) · MC: Sarah (EXAVITQu4vr4xnSDxMaL) · eleven_flash_v2_5",
   "lines": {
     "(12 + 7) × 2 = 38": {
       "file": "assets/voice/12-7-2-38-38fd8b.mp3",
-      "ms": 2424,
-      "spoken": "(mười hai cộng bảy) × hai bằng ba mươi tám"
+      "ms": 2592,
+      "spoken": "(mười hai cộng bảy) × hai bằng ba mươi tám",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "(20 + 6) × 2 = 52 (cm)": {
       "file": "assets/voice/20-6-2-52-cm-56c0f4.mp3",
-      "ms": 3456,
-      "spoken": "(hai mươi cộng sáu) × hai bằng năm mươi hai ( xăng-ti-mét)"
+      "ms": 3024,
+      "spoken": "(hai mươi cộng sáu) × hai bằng năm mươi hai ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "(321 + 95) × 2 = 416 × 2 = 832": {
       "file": "assets/voice/321-95-2-416-2-832-7796ab.mp3",
@@ -29,8 +31,9 @@
     },
     "0 cộng 4 bằng 4, thêm 1 bằng 5, viết 5.": {
       "file": "assets/voice/0-cong-4-bang-4-them-1-bang-5-viet-5-68df5c.mp3",
-      "ms": 2976,
-      "spoken": "không cộng bốn bằng bốn, thêm một bằng năm, viết năm."
+      "ms": 3984,
+      "spoken": "không cộng bốn bằng bốn, thêm một bằng năm, viết năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "0 không trừ được 6, lấy 10 trừ 6 bằng 4, viết 4 nhớ 1.": {
       "file": "assets/voice/0-khong-tru-duoc-6-lay-10-tru-6-bang-4-v-217236.mp3",
@@ -94,8 +97,9 @@
     },
     "1.072 × 7 = 7.504 (chiếc)": {
       "file": "assets/voice/1-072-7-7-504-chiec-db90f4.mp3",
-      "ms": 4224,
-      "spoken": "một nghìn không trăm bảy mươi hai nhân bảy bằng bảy nghìn năm trăm linh bốn (chiếc)"
+      "ms": 4776,
+      "spoken": "một nghìn không trăm bảy mươi hai nhân bảy bằng bảy nghìn năm trăm linh bốn (chiếc)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "1.300 + 1.170 = 2.470 (ml)": {
       "file": "assets/voice/1-300-1-170-2-470-ml-4888ac.mp3",
@@ -139,8 +143,9 @@
     },
     "12 : 2 = 6 (cm)": {
       "file": "assets/voice/12-2-6-cm-d825da.mp3",
-      "ms": 2064,
-      "spoken": "mười hai chia hai bằng sáu ( xăng-ti-mét)"
+      "ms": 2352,
+      "spoken": "mười hai chia hai bằng sáu ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "12 : 3 = 4 (kg)": {
       "file": "assets/voice/12-3-4-kg-2f7feb.mp3",
@@ -189,8 +194,9 @@
     },
     "14 chia 5 được 2, viết 2. 2 nhân 5 bằng 10; 14 trừ 10 bằng 4.": {
       "file": "assets/voice/14-chia-5-duoc-2-viet-2-2-nhan-5-bang-10-b6e9c5.mp3",
-      "ms": 5328,
-      "spoken": "mười bốn chia năm được hai, viết hai. hai nhân năm bằng mười; mười bốn trừ mười bằng bốn."
+      "ms": 6456,
+      "spoken": "mười bốn chia năm được hai, viết hai. hai nhân năm bằng mười; mười bốn trừ mười bằng bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "153 + 16 = 169 (cm²)": {
       "file": "assets/voice/153-16-169-cm-add7e1.mp3",
@@ -244,8 +250,9 @@
     },
     "2 cộng 2 bằng 4, thêm 1 bằng 5, viết 5.": {
       "file": "assets/voice/2-cong-2-bang-4-them-1-bang-5-viet-5-f4554f.mp3",
-      "ms": 2472,
-      "spoken": "hai cộng hai bằng bốn, thêm một bằng năm, viết năm."
+      "ms": 3792,
+      "spoken": "hai cộng hai bằng bốn, thêm một bằng năm, viết năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2 cộng 8 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.": {
       "file": "assets/voice/2-cong-8-bang-10-them-1-bang-11-viet-1-n-322f47.mp3",
@@ -269,18 +276,21 @@
     },
     "2 nhân 4 bằng 8, thêm 1 bằng 9, viết 9.": {
       "file": "assets/voice/2-nhan-4-bang-8-them-1-bang-9-viet-9-b2f228.mp3",
-      "ms": 3144,
-      "spoken": "hai nhân bốn bằng tám, thêm một bằng chín, viết chín."
+      "ms": 3840,
+      "spoken": "hai nhân bốn bằng tám, thêm một bằng chín, viết chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2 nhân 5 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.": {
       "file": "assets/voice/2-nhan-5-bang-10-them-1-bang-11-viet-1-n-078a10.mp3",
-      "ms": 3816,
-      "spoken": "hai nhân năm bằng mười, thêm một bằng mười một, viết một nhớ một."
+      "ms": 4224,
+      "spoken": "hai nhân năm bằng mười, thêm một bằng mười một, viết một nhớ một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2 nhân 6 bằng 12, viết 2 nhớ 1.": {
       "file": "assets/voice/2-nhan-6-bang-12-viet-2-nho-1-351583.mp3",
-      "ms": 2208,
-      "spoken": "hai nhân sáu bằng mười hai, viết hai nhớ một."
+      "ms": 3096,
+      "spoken": "hai nhân sáu bằng mười hai, viết hai nhớ một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2 nhân 8 bằng 16, viết 6 nhớ 1.": {
       "file": "assets/voice/2-nhan-8-bang-16-viet-6-nho-1-4b4019.mp3",
@@ -289,8 +299,9 @@
     },
     "2 × 5 + 4 = 14": {
       "file": "assets/voice/2-5-4-14-d3caa9.mp3",
-      "ms": 1728,
-      "spoken": "hai nhân năm cộng bốn bằng mười bốn"
+      "ms": 2376,
+      "spoken": "hai nhân năm cộng bốn bằng mười bốn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2.097 - 1.606 = 491 (m)": {
       "file": "assets/voice/2-097-1-606-491-m-9239dd.mp3",
@@ -304,8 +315,9 @@
     },
     "20 - 8 = 12 (cm)": {
       "file": "assets/voice/20-8-12-cm-d3ab82.mp3",
-      "ms": 2472,
-      "spoken": "hai mươi trừ tám bằng mười hai ( xăng-ti-mét)"
+      "ms": 2544,
+      "spoken": "hai mươi trừ tám bằng mười hai ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "20.224 = 20.000 + 200 + 20 + 4": {
       "file": "assets/voice/20-224-20-000-200-20-4-fe6e1d.mp3",
@@ -334,8 +346,9 @@
     },
     "24 : 4 = 6 (lần)": {
       "file": "assets/voice/24-4-6-lan-302dc8.mp3",
-      "ms": 1872,
-      "spoken": "hai mươi tư chia bốn bằng sáu (lần)"
+      "ms": 2304,
+      "spoken": "hai mươi tư chia bốn bằng sáu (lần)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "24 : 6 = 4": {
       "file": "assets/voice/24-6-4-5cefc1.mp3",
@@ -349,8 +362,9 @@
     },
     "26 × 3 = 78": {
       "file": "assets/voice/26-3-78-5ba891.mp3",
-      "ms": 2040,
-      "spoken": "hai mươi sáu nhân ba bằng bảy mươi tám"
+      "ms": 2736,
+      "spoken": "hai mươi sáu nhân ba bằng bảy mươi tám",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "27 : 9 = 3 (l)": {
       "file": "assets/voice/27-9-3-l-0cafc0.mp3",
@@ -389,8 +403,9 @@
     },
     "3 hộp, mỗi hộp 24 cái: ta làm phép nhân, không phải phép cộng 24 + 3.": {
       "file": "assets/voice/3-hop-moi-hop-24-cai-ta-lam-phep-nhan-kh-7ba2d3.mp3",
-      "ms": 4896,
-      "spoken": "ba hộp, mỗi hộp hai mươi tư cái: ta làm phép nhân, không phải phép cộng hai mươi tư cộng ba."
+      "ms": 6192,
+      "spoken": "ba hộp, mỗi hộp hai mươi tư cái: ta làm phép nhân, không phải phép cộng hai mươi tư cộng ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.": {
       "file": "assets/voice/3-khong-tru-duoc-4-lay-13-tru-4-bang-9-v-8216de.mp3",
@@ -404,8 +419,9 @@
     },
     "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.": {
       "file": "assets/voice/3-nhan-2-bang-6-them-1-bang-7-viet-7-bf9db2.mp3",
-      "ms": 2712,
-      "spoken": "ba nhân hai bằng sáu, thêm một bằng bảy, viết bảy."
+      "ms": 3744,
+      "spoken": "ba nhân hai bằng sáu, thêm một bằng bảy, viết bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.": {
       "file": "assets/voice/3-nhan-2-bang-6-them-2-bang-8-viet-8-87d44b.mp3",
@@ -424,8 +440,9 @@
     },
     "3 nhân 6 bằng 18, viết 8 nhớ 1.": {
       "file": "assets/voice/3-nhan-6-bang-18-viet-8-nho-1-7868a7.mp3",
-      "ms": 2376,
-      "spoken": "ba nhân sáu bằng mười tám, viết tám nhớ một."
+      "ms": 3168,
+      "spoken": "ba nhân sáu bằng mười tám, viết tám nhớ một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3 nhân 7 bằng 21, viết 1 nhớ 2.": {
       "file": "assets/voice/3-nhan-7-bang-21-viet-1-nho-2-a7e918.mp3",
@@ -464,8 +481,9 @@
     },
     "3 đoạn dây, mỗi đoạn 15 cm: ta làm phép nhân 15 × 3.": {
       "file": "assets/voice/3-doan-day-moi-doan-15-cm-ta-lam-phep-nh-96d2c5.mp3",
-      "ms": 4512,
-      "spoken": "ba đoạn dây, mỗi đoạn mười lăm xăng-ti-mét: ta làm phép nhân mười lăm nhân ba."
+      "ms": 5112,
+      "spoken": "ba đoạn dây, mỗi đoạn mười lăm xăng-ti-mét: ta làm phép nhân mười lăm nhân ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3.000 - 2.730 = 270 (g)": {
       "file": "assets/voice/3-000-2-730-270-g-902a7f.mp3",
@@ -479,8 +497,9 @@
     },
     "3.820 : 4 = 955 (chiếc)": {
       "file": "assets/voice/3-820-4-955-chiec-64e91b.mp3",
-      "ms": 3864,
-      "spoken": "ba nghìn tám trăm hai mươi chia bốn bằng chín trăm năm mươi lăm (chiếc)"
+      "ms": 3792,
+      "spoken": "ba nghìn tám trăm hai mươi chia bốn bằng chín trăm năm mươi lăm (chiếc)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "30 - 25 = 5": {
       "file": "assets/voice/30-25-5-18cdbe.mp3",
@@ -494,8 +513,9 @@
     },
     "316 + 281 - 13 = 597 - 13 = 584": {
       "file": "assets/voice/316-281-13-597-13-584-d405ae.mp3",
-      "ms": 7200,
-      "spoken": "ba trăm mười sáu cộng hai trăm tám mươi mốt trừ mười ba bằng năm trăm chín mươi bảy trừ mười ba bằng năm trăm tám mươi tư"
+      "ms": 8112,
+      "spoken": "ba trăm mười sáu cộng hai trăm tám mươi mốt trừ mười ba bằng năm trăm chín mươi bảy trừ mười ba bằng năm trăm tám mươi tư",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "321 + 95 × 2 = 321 + 190 = 511": {
       "file": "assets/voice/321-95-2-321-190-511-c384ee.mp3",
@@ -544,8 +564,9 @@
     },
     "4 + 20 = 24 (bông)": {
       "file": "assets/voice/4-20-24-bong-0b82f2.mp3",
-      "ms": 2112,
-      "spoken": "bốn cộng hai mươi bằng hai mươi tư (bông)"
+      "ms": 2856,
+      "spoken": "bốn cộng hai mươi bằng hai mươi tư (bông)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "4 - 1 = 3 (phần)": {
       "file": "assets/voice/4-1-3-phan-566d8c.mp3",
@@ -619,8 +640,9 @@
     },
     "40 : 2 = 20 (cm)": {
       "file": "assets/voice/40-2-20-cm-e6c7a6.mp3",
-      "ms": 2040,
-      "spoken": "bốn mươi chia hai bằng hai mươi ( xăng-ti-mét)"
+      "ms": 2688,
+      "spoken": "bốn mươi chia hai bằng hai mươi ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "40 : 5 = 8": {
       "file": "assets/voice/40-5-8-5ae8a4.mp3",
@@ -649,8 +671,9 @@
     },
     "45.646 × 2 = 91.292": {
       "file": "assets/voice/45-646-2-91-292-8aea9a.mp3",
-      "ms": 5496,
-      "spoken": "bốn mươi lăm nghìn sáu trăm bốn mươi sáu nhân hai bằng chín mươi mốt nghìn hai trăm chín mươi hai"
+      "ms": 5592,
+      "spoken": "bốn mươi lăm nghìn sáu trăm bốn mươi sáu nhân hai bằng chín mươi mốt nghìn hai trăm chín mươi hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "48 + 18 = 66 (mm)": {
       "file": "assets/voice/48-18-66-mm-c28d53.mp3",
@@ -669,13 +692,15 @@
     },
     "49 chia 6 được 8, viết 8. 8 nhân 6 bằng 48; 49 trừ 48 bằng 1.": {
       "file": "assets/voice/49-chia-6-duoc-8-viet-8-8-nhan-6-bang-48-1d9496.mp3",
-      "ms": 6792,
-      "spoken": "bốn mươi chín chia sáu được tám, viết tám. tám nhân sáu bằng bốn mươi tám; bốn mươi chín trừ bốn mươi tám bằng một."
+      "ms": 7560,
+      "spoken": "bốn mươi chín chia sáu được tám, viết tám. tám nhân sáu bằng bốn mươi tám; bốn mươi chín trừ bốn mươi tám bằng một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "49.374 : 6 = 8.229": {
       "file": "assets/voice/49-374-6-8-229-db3f4d.mp3",
-      "ms": 4632,
-      "spoken": "bốn mươi chín nghìn ba trăm bảy mươi tư chia sáu bằng tám nghìn hai trăm hai mươi chín"
+      "ms": 4656,
+      "spoken": "bốn mươi chín nghìn ba trăm bảy mươi tư chia sáu bằng tám nghìn hai trăm hai mươi chín",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "5 + 35 = 40 (phút)": {
       "file": "assets/voice/5-35-40-phut-63528d.mp3",
@@ -729,8 +754,9 @@
     },
     "5 × 6 = 30, viết 0 và nhớ 3 nhé.": {
       "file": "assets/voice/5-6-30-viet-0-va-nho-3-nhe-f63179.mp3",
-      "ms": 2904,
-      "spoken": "năm nhân sáu bằng ba mươi, viết không và nhớ ba nhé."
+      "ms": 3720,
+      "spoken": "năm nhân sáu bằng ba mươi, viết không và nhớ ba nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "5.005 = 5.000 + 5": {
       "file": "assets/voice/5-005-5-000-5-4d1620.mp3",
@@ -749,8 +775,9 @@
     },
     "52 : 4 = 13 (cm)": {
       "file": "assets/voice/52-4-13-cm-4610aa.mp3",
-      "ms": 2760,
-      "spoken": "năm mươi hai chia bốn bằng mười ba ( xăng-ti-mét)"
+      "ms": 2712,
+      "spoken": "năm mươi hai chia bốn bằng mười ba ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "520 - 121 = 399": {
       "file": "assets/voice/520-121-399-57fc50.mp3",
@@ -759,8 +786,9 @@
     },
     "53.021 = 50.000 + 3.000 + 20 + 1": {
       "file": "assets/voice/53-021-50-000-3-000-20-1-0998ac.mp3",
-      "ms": 4656,
-      "spoken": "năm mươi ba nghìn không trăm hai mươi mốt bằng năm mươi nghìn cộng ba nghìn cộng hai mươi cộng một"
+      "ms": 5064,
+      "spoken": "năm mươi ba nghìn không trăm hai mươi mốt bằng năm mươi nghìn cộng ba nghìn cộng hai mươi cộng một",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "54 : 9 = 6": {
       "file": "assets/voice/54-9-6-b48872.mp3",
@@ -779,8 +807,9 @@
     },
     "6 + 8 = 14 (cm)": {
       "file": "assets/voice/6-8-14-cm-6afb91.mp3",
-      "ms": 2232,
-      "spoken": "sáu cộng tám bằng mười bốn ( xăng-ti-mét)"
+      "ms": 2400,
+      "spoken": "sáu cộng tám bằng mười bốn ( xăng-ti-mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.": {
       "file": "assets/voice/6-chia-2-duoc-3-viet-3-3-nhan-2-bang-6-6-bebb96.mp3",
@@ -869,8 +898,9 @@
     },
     "7 cộng 2 bằng 9, viết 9.": {
       "file": "assets/voice/7-cong-2-bang-9-viet-9-7892a3.mp3",
-      "ms": 1920,
-      "spoken": "bảy cộng hai bằng chín, viết chín."
+      "ms": 2592,
+      "spoken": "bảy cộng hai bằng chín, viết chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "7 × 2 = 14": {
       "file": "assets/voice/7-2-14-c326e5.mp3",
@@ -899,8 +929,9 @@
     },
     "7.504 - 3.684 = 3.820 (chiếc)": {
       "file": "assets/voice/7-504-3-684-3-820-chiec-bf72bd.mp3",
-      "ms": 5664,
-      "spoken": "bảy nghìn năm trăm linh bốn trừ ba nghìn sáu trăm tám mươi tư bằng ba nghìn tám trăm hai mươi (chiếc)"
+      "ms": 6168,
+      "spoken": "bảy nghìn năm trăm linh bốn trừ ba nghìn sáu trăm tám mươi tư bằng ba nghìn tám trăm hai mươi (chiếc)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "7.944 × 4 = 31.776 (kg)": {
       "file": "assets/voice/7-944-4-31-776-kg-f2e867.mp3",
@@ -909,8 +940,9 @@
     },
     "70.929 + 24.222 = 95.151": {
       "file": "assets/voice/70-929-24-222-95-151-b1c003.mp3",
-      "ms": 6648,
-      "spoken": "bảy mươi nghìn chín trăm hai mươi chín cộng hai mươi tư nghìn hai trăm hai mươi hai bằng chín mươi lăm nghìn một trăm năm mươi mốt"
+      "ms": 7248,
+      "spoken": "bảy mươi nghìn chín trăm hai mươi chín cộng hai mươi tư nghìn hai trăm hai mươi hai bằng chín mươi lăm nghìn một trăm năm mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "71.496 : 9 = 7.944 (kg)": {
       "file": "assets/voice/71-496-9-7-944-kg-e9dd69.mp3",
@@ -964,8 +996,9 @@
     },
     "8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.": {
       "file": "assets/voice/8-chia-4-duoc-2-viet-2-2-nhan-4-bang-8-8-a63293.mp3",
-      "ms": 5160,
-      "spoken": "tám chia bốn được hai, viết hai. hai nhân bốn bằng tám; tám trừ tám bằng không."
+      "ms": 6360,
+      "spoken": "tám chia bốn được hai, viết hai. hai nhân bốn bằng tám; tám trừ tám bằng không.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "8 cộng 5 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.": {
       "file": "assets/voice/8-cong-5-bang-13-them-1-bang-14-viet-4-n-94966e.mp3",
@@ -1009,8 +1042,9 @@
     },
     "8.548 : 4 = 2.137": {
       "file": "assets/voice/8-548-4-2-137-fa2345.mp3",
-      "ms": 4056,
-      "spoken": "tám nghìn năm trăm bốn mươi tám chia bốn bằng hai nghìn một trăm ba mươi bảy"
+      "ms": 4704,
+      "spoken": "tám nghìn năm trăm bốn mươi tám chia bốn bằng hai nghìn một trăm ba mươi bảy",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "81.605 - 11.816 = 69.789": {
       "file": "assets/voice/81-605-11-816-69-789-6e3183.mp3",
@@ -1044,8 +1078,9 @@
     },
     "9 cộng 2 bằng 11, viết 1 nhớ 1.": {
       "file": "assets/voice/9-cong-2-bang-11-viet-1-nho-1-5ff2ef.mp3",
-      "ms": 2256,
-      "spoken": "chín cộng hai bằng mười một, viết một nhớ một."
+      "ms": 2928,
+      "spoken": "chín cộng hai bằng mười một, viết một nhớ một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "9 trừ 0 bằng 9, viết 9.": {
       "file": "assets/voice/9-tru-0-bang-9-viet-9-4f29c5.mp3",
@@ -1089,8 +1124,9 @@
     },
     "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng.": {
       "file": "assets/voice/biet-chu-vi-va-hieu-cua-chieu-dai-chieu-0e3e7f.mp3",
-      "ms": 7320,
-      "spoken": "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng."
+      "ms": 7008,
+      "spoken": "Biết chu vi và hiệu của chiều dài, chiều rộng: lấy nửa chu vi trừ đi hiệu rồi chia đôi để được chiều rộng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Biết giá trị của một phần, con lấy giá trị đó nhân với số phần bằng nhau nhé.": {
       "file": "assets/voice/biet-gia-tri-cua-mot-phan-con-lay-gia-tr-d1cbf2.mp3",
@@ -1099,18 +1135,21 @@
     },
     "Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.": {
       "file": "assets/voice/bieu-thuc-chi-co-cong-tru-hoac-chi-co-nh-e82a7f.mp3",
-      "ms": 11160,
-      "spoken": "Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau."
+      "ms": 12936,
+      "spoken": "Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.": {
       "file": "assets/voice/bieu-thuc-chi-co-cong-tru-hoac-chi-co-nh-0a4063.mp3",
-      "ms": 5232,
-      "spoken": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải."
+      "ms": 6192,
+      "spoken": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.": {
       "file": "assets/voice/bieu-thuc-co-cong-tru-nhan-chia-thi-con-7aaa49.mp3",
-      "ms": 4488,
-      "spoken": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé."
+      "ms": 6504,
+      "spoken": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Biểu thức có dấu ngoặc ( ) thì tính trong ngoặc trước.": {
       "file": "assets/voice/bieu-thuc-co-dau-ngoac-thi-tinh-trong-ng-71972f.mp3",
@@ -1119,8 +1158,9 @@
     },
     "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.": {
       "file": "assets/voice/bieu-thuc-co-dau-ngoac-thi-con-tinh-tron-ae25f6.mp3",
-      "ms": 2568,
-      "spoken": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé."
+      "ms": 2952,
+      "spoken": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Biểu thức có dấu ngoặc thì tính trong ngoặc trước. Không có ngoặc thì nhân, chia trước; cộng, trừ sau. Đặt ngoặc khác chỗ có thể làm giá trị thay đổi.": {
       "file": "assets/voice/bieu-thuc-co-dau-ngoac-thi-tinh-trong-ng-72b08e.mp3",
@@ -1129,523 +1169,627 @@
     },
     "Biểu thức có ngoặc thì tính trong ngoặc trước.": {
       "file": "assets/voice/bieu-thuc-co-ngoac-thi-tinh-trong-ngoac-84bfb9.mp3",
-      "ms": 1992,
-      "spoken": "Biểu thức có ngoặc thì tính trong ngoặc trước."
+      "ms": 2568,
+      "spoken": "Biểu thức có ngoặc thì tính trong ngoặc trước.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Biểu thức số. Tính giá trị của biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bieu-thuc-so-tinh-gia-tri-cua-bi-4462ba.mp3",
-      "ms": 5808,
-      "spoken": "Bài học: Biểu thức số. Tính giá trị của biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7728,
+      "spoken": "Bài học: Biểu thức số. Tính giá trị của biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bài toán giải bằng hai bước tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bai-toan-giai-bang-hai-buoc-tinh-903537.mp3",
-      "ms": 4896,
-      "spoken": "Bài học: Bài toán giải bằng hai bước tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6624,
+      "spoken": "Bài học: Bài toán giải bằng hai bước tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 3, bảng chia 3. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-3-bang-chia-3-con-xem-6dd0c8.mp3",
-      "ms": 4968,
-      "spoken": "Bài học: Bảng nhân ba, bảng chia ba. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6192,
+      "spoken": "Bài học: Bảng nhân ba, bảng chia ba. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 4, bảng chia 4. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-4-bang-chia-4-con-xem-7567f7.mp3",
-      "ms": 4776,
-      "spoken": "Bài học: Bảng nhân bốn, bảng chia bốn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6768,
+      "spoken": "Bài học: Bảng nhân bốn, bảng chia bốn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 6, bảng chia 6. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-6-bang-chia-6-con-xem-eed21b.mp3",
-      "ms": 5136,
-      "spoken": "Bài học: Bảng nhân sáu, bảng chia sáu. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6408,
+      "spoken": "Bài học: Bảng nhân sáu, bảng chia sáu. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 7, bảng chia 7. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-7-bang-chia-7-con-xem-cab6a8.mp3",
-      "ms": 4632,
-      "spoken": "Bài học: Bảng nhân bảy, bảng chia bảy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6552,
+      "spoken": "Bài học: Bảng nhân bảy, bảng chia bảy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 8, bảng chia 8. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-8-bang-chia-8-con-xem-85ee81.mp3",
-      "ms": 5328,
-      "spoken": "Bài học: Bảng nhân tám, bảng chia tám. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6480,
+      "spoken": "Bài học: Bảng nhân tám, bảng chia tám. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng nhân 9, bảng chia 9. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-nhan-9-bang-chia-9-con-xem-b35403.mp3",
-      "ms": 5352,
-      "spoken": "Bài học: Bảng nhân chín, bảng chia chín. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6720,
+      "spoken": "Bài học: Bảng nhân chín, bảng chia chín. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-bang-so-lieu-thong-ke-con-xem-nh-be7077.mp3",
-      "ms": 4536,
-      "spoken": "Bài học: Bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5544,
+      "spoken": "Bài học: Bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Chia số có ba chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-chia-so-co-ba-chu-so-cho-so-co-m-6a50db.mp3",
-      "ms": 6216,
-      "spoken": "Bài học: Chia số có ba chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8136,
+      "spoken": "Bài học: Chia số có ba chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Chia số có bốn chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-chia-so-co-bon-chu-so-cho-so-co-2686fe.mp3",
-      "ms": 6000,
-      "spoken": "Bài học: Chia số có bốn chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7176,
+      "spoken": "Bài học: Chia số có bốn chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Chia số có hai chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-chia-so-co-hai-chu-so-cho-so-co-54e539.mp3",
-      "ms": 6696,
-      "spoken": "Bài học: Chia số có hai chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7752,
+      "spoken": "Bài học: Chia số có hai chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Chia số có năm chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-chia-so-co-nam-chu-so-cho-so-co-6ffdbb.mp3",
-      "ms": 6576,
-      "spoken": "Bài học: Chia số có năm chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7536,
+      "spoken": "Bài học: Chia số có năm chữ số cho số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-chu-vi-hinh-tam-giac-hinh-tu-gia-a15358.mp3",
-      "ms": 6720,
-      "spoken": "Bài học: Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8856,
+      "spoken": "Bài học: Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Các số có bốn chữ số. Số 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-cac-so-co-bon-chu-so-so-10-000-c-6e25aa.mp3",
-      "ms": 5088,
-      "spoken": "Bài học: Các số có bốn chữ số. Số mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7344,
+      "spoken": "Bài học: Các số có bốn chữ số. Số mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Các số có năm chữ số. Số 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-cac-so-co-nam-chu-so-so-100-000-104fe8.mp3",
-      "ms": 6552,
-      "spoken": "Bài học: Các số có năm chữ số. Số một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7128,
+      "spoken": "Bài học: Các số có năm chữ số. Số một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Diện tích của một hình. Xăng-ti-mét vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-dien-tich-cua-mot-hinh-xang-ti-m-29fd93.mp3",
-      "ms": 5808,
-      "spoken": "Bài học: Diện tích của một hình. Xăng-ti-mét vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7752,
+      "spoken": "Bài học: Diện tích của một hình. Xăng-ti-mét vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Diện tích hình chữ nhật, diện tích hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-dien-tich-hinh-chu-nhat-dien-tic-700121.mp3",
-      "ms": 6408,
-      "spoken": "Bài học: Diện tích hình chữ nhật, diện tích hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6912,
+      "spoken": "Bài học: Diện tích hình chữ nhật, diện tích hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-gam-con-xem-nho-nhanh-cung-co-ro-f07c5c.mp3",
-      "ms": 4152,
-      "spoken": "Bài học: Gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 4752,
+      "spoken": "Bài học: Gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Giảm một số đi một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-giam-mot-so-di-mot-so-lan-con-xe-2edefd.mp3",
-      "ms": 4632,
-      "spoken": "Bài học: Giảm một số đi một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6144,
+      "spoken": "Bài học: Giảm một số đi một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Góc, góc vuông, góc không vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-goc-goc-vuong-goc-khong-vuong-co-4a6fb3.mp3",
-      "ms": 5448,
-      "spoken": "Bài học: Góc, góc vuông, góc không vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6936,
+      "spoken": "Bài học: Góc, góc vuông, góc không vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Gấp một số lên một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-gap-mot-so-len-mot-so-lan-con-xe-686fd0.mp3",
-      "ms": 4440,
-      "spoken": "Bài học: Gấp một số lên một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6096,
+      "spoken": "Bài học: Gấp một số lên một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-hinh-tam-giac-hinh-tu-giac-hinh-8aa0fd.mp3",
-      "ms": 6168,
-      "spoken": "Bài học: Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8184,
+      "spoken": "Bài học: Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Hình tròn. Tâm, bán kính, đường kính của hình tròn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-hinh-tron-tam-ban-kinh-duong-kin-695925.mp3",
-      "ms": 7632,
-      "spoken": "Bài học: Hình tròn. Tâm, bán kính, đường kính của hình tròn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8832,
+      "spoken": "Bài học: Hình tròn. Tâm, bán kính, đường kính của hình tròn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Khả năng xảy ra của một sự kiện. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-kha-nang-xay-ra-cua-mot-su-kien-bdb6de.mp3",
-      "ms": 5280,
-      "spoken": "Bài học: Khả năng xảy ra của một sự kiện. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6408,
+      "spoken": "Bài học: Khả năng xảy ra của một sự kiện. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Khối lập phương, khối hộp chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-khoi-lap-phuong-khoi-hop-chu-nha-149362.mp3",
-      "ms": 5064,
-      "spoken": "Bài học: Khối lập phương, khối hộp chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6600,
+      "spoken": "Bài học: Khối lập phương, khối hộp chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Luyện tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-luyen-tap-chung-con-xem-nho-nhan-779a58.mp3",
-      "ms": 4800,
-      "spoken": "Bài học: Luyện tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 4992,
+      "spoken": "Bài học: Luyện tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Làm quen với chữ số La Mã. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-lam-quen-voi-chu-so-la-ma-con-xe-6cef3b.mp3",
-      "ms": 4848,
-      "spoken": "Bài học: Làm quen với chữ số La Mã. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5904,
+      "spoken": "Bài học: Làm quen với chữ số La Mã. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Làm tròn số đến hàng chục, hàng trăm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-lam-tron-so-den-hang-chuc-hang-t-6df74c.mp3",
-      "ms": 5496,
-      "spoken": "Bài học: Làm tròn số đến hàng chục, hàng trăm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5952,
+      "spoken": "Bài học: Làm tròn số đến hàng chục, hàng trăm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Làm tròn số đến hàng nghìn, hàng chục nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-lam-tron-so-den-hang-nghin-hang-1e0258.mp3",
-      "ms": 6000,
-      "spoken": "Bài học: Làm tròn số đến hàng nghìn, hàng chục nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7632,
+      "spoken": "Bài học: Làm tròn số đến hàng nghìn, hàng chục nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Mi-li-lít. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-mi-li-lit-con-xem-nho-nhanh-cung-afcb8b.mp3",
-      "ms": 4032,
-      "spoken": "Bài học: Mi-li-lít. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5112,
+      "spoken": "Bài học: Mi-li-lít. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Mi-li-mét. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-mi-li-met-con-xem-nho-nhanh-cung-3b87b1.mp3",
-      "ms": 3768,
-      "spoken": "Bài học: Mi-li-mét. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 4944,
+      "spoken": "Bài học: Mi-li-mét. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-mot-phan-may-con-xem-nho-nhanh-c-06cc6d.mp3",
-      "ms": 3960,
-      "spoken": "Bài học: Một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5448,
+      "spoken": "Bài học: Một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nhiệt độ. Đơn vị đo nhiệt độ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nhiet-do-don-vi-do-nhiet-do-con-83831c.mp3",
-      "ms": 5136,
-      "spoken": "Bài học: Nhiệt độ. Đơn vị đo nhiệt độ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7224,
+      "spoken": "Bài học: Nhiệt độ. Đơn vị đo nhiệt độ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nhân số có ba chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nhan-so-co-ba-chu-so-voi-so-co-m-8099fe.mp3",
-      "ms": 5904,
-      "spoken": "Bài học: Nhân số có ba chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7440,
+      "spoken": "Bài học: Nhân số có ba chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nhân số có bốn chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nhan-so-co-bon-chu-so-voi-so-co-dd8f64.mp3",
-      "ms": 6312,
-      "spoken": "Bài học: Nhân số có bốn chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7416,
+      "spoken": "Bài học: Nhân số có bốn chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nhân số có hai chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nhan-so-co-hai-chu-so-voi-so-co-42fae4.mp3",
-      "ms": 6408,
-      "spoken": "Bài học: Nhân số có hai chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7632,
+      "spoken": "Bài học: Nhân số có hai chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nhân số có năm chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nhan-so-co-nam-chu-so-voi-so-co-e6ddf7.mp3",
-      "ms": 6552,
-      "spoken": "Bài học: Nhân số có năm chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7416,
+      "spoken": "Bài học: Nhân số có năm chữ số với số có một chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 10: Gấp một số lần, chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-10-gap-mot-so-lan-d9b3d8.mp3",
-      "ms": 7176,
-      "spoken": "Bài học: Nâng cao tuần mười: Gấp một số lần, chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8040,
+      "spoken": "Bài học: Nâng cao tuần mười: Gấp một số lần, chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 11: Chia số có hai chữ số, giảm một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-11-chia-so-co-hai-f47094.mp3",
-      "ms": 7632,
-      "spoken": "Bài học: Nâng cao tuần mười một: Chia số có hai chữ số, giảm một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8256,
+      "spoken": "Bài học: Nâng cao tuần mười một: Chia số có hai chữ số, giảm một số lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 12: Giảm một số lần và bài toán nhiều bước. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-12-giam-mot-so-lan-bb1d22.mp3",
-      "ms": 6528,
-      "spoken": "Bài học: Nâng cao tuần mười hai: Giảm một số lần và bài toán nhiều bước. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7392,
+      "spoken": "Bài học: Nâng cao tuần mười hai: Giảm một số lần và bài toán nhiều bước. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 13: Phép nhân, phép chia, mi-li-mét và gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-13-phep-nhan-phep-3e352c.mp3",
-      "ms": 7224,
-      "spoken": "Bài học: Nâng cao tuần mười ba: Phép nhân, phép chia, mi-li-mét và gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9456,
+      "spoken": "Bài học: Nâng cao tuần mười ba: Phép nhân, phép chia, mi-li-mét và gam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 14: Mi-li-lít, nhiệt độ và đổi đơn vị đo. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-14-mi-li-lit-nhiet-077202.mp3",
-      "ms": 7056,
-      "spoken": "Bài học: Nâng cao tuần mười bốn: Mi-li-lít, nhiệt độ và đổi đơn vị đo. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8784,
+      "spoken": "Bài học: Nâng cao tuần mười bốn: Mi-li-lít, nhiệt độ và đổi đơn vị đo. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 15: Nhân, chia số có ba chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-15-nhan-chia-so-co-3f1c8d.mp3",
-      "ms": 7464,
-      "spoken": "Bài học: Nâng cao tuần mười lăm: Nhân, chia số có ba chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8040,
+      "spoken": "Bài học: Nâng cao tuần mười lăm: Nhân, chia số có ba chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 16: Chia số có ba chữ số và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-16-chia-so-co-ba-c-f86736.mp3",
-      "ms": 7104,
-      "spoken": "Bài học: Nâng cao tuần mười sáu: Chia số có ba chữ số và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8352,
+      "spoken": "Bài học: Nâng cao tuần mười sáu: Chia số có ba chữ số và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 17: Biểu thức số và so sánh gấp mấy lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-17-bieu-thuc-so-va-b28a8b.mp3",
-      "ms": 7176,
-      "spoken": "Bài học: Nâng cao tuần mười bảy: Biểu thức số và so sánh gấp mấy lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8448,
+      "spoken": "Bài học: Nâng cao tuần mười bảy: Biểu thức số và so sánh gấp mấy lần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 18: Ôn tập nhân, chia và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-18-on-tap-nhan-chi-417a20.mp3",
-      "ms": 7248,
-      "spoken": "Bài học: Nâng cao tuần mười tám: Ôn tập nhân, chia và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8352,
+      "spoken": "Bài học: Nâng cao tuần mười tám: Ôn tập nhân, chia và biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 19: Ôn tập biểu thức, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-19-on-tap-bieu-thu-c59ad7.mp3",
-      "ms": 7320,
-      "spoken": "Bài học: Nâng cao tuần mười chín: Ôn tập biểu thức, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8064,
+      "spoken": "Bài học: Nâng cao tuần mười chín: Ôn tập biểu thức, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 1: Số đến 1000, cộng trừ và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-1-so-den-1000-cong-cca32b.mp3",
-      "ms": 7296,
-      "spoken": "Bài học: Nâng cao tuần một: Số đến một nghìn, cộng trừ và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9072,
+      "spoken": "Bài học: Nâng cao tuần một: Số đến một nghìn, cộng trừ và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 20: Các số đến 10 000 và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-20-cac-so-den-10-0-73a89a.mp3",
-      "ms": 7512,
-      "spoken": "Bài học: Nâng cao tuần hai mươi: Các số đến mười không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7896,
+      "spoken": "Bài học: Nâng cao tuần hai mươi: Các số đến mười không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 21: Số La Mã và làm tròn số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-21-so-la-ma-va-lam-ba7b73.mp3",
-      "ms": 6696,
-      "spoken": "Bài học: Nâng cao tuần hai mươi mốt: Số La Mã và làm tròn số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7296,
+      "spoken": "Bài học: Nâng cao tuần hai mươi mốt: Số La Mã và làm tròn số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 22: Số đến 10 000 và chu vi các hình. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-22-so-den-10-000-v-8a55d8.mp3",
-      "ms": 7320,
-      "spoken": "Bài học: Nâng cao tuần hai mươi hai: Số đến mười không và chu vi các hình. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8760,
+      "spoken": "Bài học: Nâng cao tuần hai mươi hai: Số đến mười không và chu vi các hình. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 23: Chu vi và diện tích hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-23-chu-vi-va-dien-108aa2.mp3",
-      "ms": 7800,
-      "spoken": "Bài học: Nâng cao tuần hai mươi ba: Chu vi và diện tích hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9528,
+      "spoken": "Bài học: Nâng cao tuần hai mươi ba: Chu vi và diện tích hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 24: Diện tích và phép cộng trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-24-dien-tich-va-ph-26c0c4.mp3",
-      "ms": 8736,
-      "spoken": "Bài học: Nâng cao tuần hai mươi tư: Diện tích và phép cộng trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8400,
+      "spoken": "Bài học: Nâng cao tuần hai mươi tư: Diện tích và phép cộng trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 25: Phép trừ, phép nhân trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-25-phep-tru-phep-n-c113df.mp3",
-      "ms": 8112,
-      "spoken": "Bài học: Nâng cao tuần hai mươi lăm: Phép trừ, phép nhân trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8448,
+      "spoken": "Bài học: Nâng cao tuần hai mươi lăm: Phép trừ, phép nhân trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 26: Phép chia và bốn phép tính trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-26-phep-chia-va-bo-bde8b9.mp3",
-      "ms": 7800,
-      "spoken": "Bài học: Nâng cao tuần hai mươi sáu: Phép chia và bốn phép tính trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9192,
+      "spoken": "Bài học: Nâng cao tuần hai mươi sáu: Phép chia và bốn phép tính trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 27: Các số đến 100 000 và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-27-cac-so-den-100-c23ba7.mp3",
-      "ms": 7656,
-      "spoken": "Bài học: Nâng cao tuần hai mươi bảy: Các số đến một trăm không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9504,
+      "spoken": "Bài học: Nâng cao tuần hai mươi bảy: Các số đến một trăm không và so sánh số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 28: Làm tròn số và phép cộng trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-28-lam-tron-so-va-38073f.mp3",
-      "ms": 8616,
-      "spoken": "Bài học: Nâng cao tuần hai mươi tám: Làm tròn số và phép cộng trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8664,
+      "spoken": "Bài học: Nâng cao tuần hai mươi tám: Làm tròn số và phép cộng trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 29: Cộng, trừ trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-29-cong-tru-trong-2e85ce.mp3",
-      "ms": 7128,
-      "spoken": "Bài học: Nâng cao tuần hai mươi chín: Cộng, trừ trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9144,
+      "spoken": "Bài học: Nâng cao tuần hai mươi chín: Cộng, trừ trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 2: Tìm thành phần, bảng nhân 2, 3, 5. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-2-tim-thanh-phan-b-5862b6.mp3",
-      "ms": 7704,
-      "spoken": "Bài học: Nâng cao tuần hai: Tìm thành phần, bảng nhân hai, ba, năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9432,
+      "spoken": "Bài học: Nâng cao tuần hai: Tìm thành phần, bảng nhân hai, ba, năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 30: Xem đồng hồ, tháng và năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-30-xem-dong-ho-tha-7f21ad.mp3",
-      "ms": 7320,
-      "spoken": "Bài học: Nâng cao tuần ba mươi: Xem đồng hồ, tháng và năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7824,
+      "spoken": "Bài học: Nâng cao tuần ba mươi: Xem đồng hồ, tháng và năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 31: Tiền Việt Nam và nhân số có năm chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-31-tien-viet-nam-v-0cad07.mp3",
-      "ms": 7008,
-      "spoken": "Bài học: Nâng cao tuần ba mươi mốt: Tiền Việt Nam và nhân số có năm chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9216,
+      "spoken": "Bài học: Nâng cao tuần ba mươi mốt: Tiền Việt Nam và nhân số có năm chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 32: Nhân, chia trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-32-nhan-chia-trong-3213ed.mp3",
-      "ms": 7464,
-      "spoken": "Bài học: Nâng cao tuần ba mươi hai: Nhân, chia trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8760,
+      "spoken": "Bài học: Nâng cao tuần ba mươi hai: Nhân, chia trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 33: Phép tính và bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-33-phep-tinh-va-ba-78c11c.mp3",
-      "ms": 7224,
-      "spoken": "Bài học: Nâng cao tuần ba mươi ba: Phép tính và bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8448,
+      "spoken": "Bài học: Nâng cao tuần ba mươi ba: Phép tính và bảng số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 34: Thống kê, khả năng xảy ra và các số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-34-thong-ke-kha-na-286cbf.mp3",
-      "ms": 7728,
-      "spoken": "Bài học: Nâng cao tuần ba mươi tư: Thống kê, khả năng xảy ra và các số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8832,
+      "spoken": "Bài học: Nâng cao tuần ba mươi tư: Thống kê, khả năng xảy ra và các số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 35: Ôn tập các số và bốn phép tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-35-on-tap-cac-so-v-bc8329.mp3",
-      "ms": 7272,
-      "spoken": "Bài học: Nâng cao tuần ba mươi lăm: Ôn tập các số và bốn phép tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8448,
+      "spoken": "Bài học: Nâng cao tuần ba mươi lăm: Ôn tập các số và bốn phép tính. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 36: Ôn tập hình học, đo lường và tổng hợp. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-36-on-tap-hinh-hoc-7cf446.mp3",
-      "ms": 7008,
-      "spoken": "Bài học: Nâng cao tuần ba mươi sáu: Ôn tập hình học, đo lường và tổng hợp. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 9072,
+      "spoken": "Bài học: Nâng cao tuần ba mươi sáu: Ôn tập hình học, đo lường và tổng hợp. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 3: Bảng nhân 4, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-3-bang-nhan-4-hinh-b389a9.mp3",
-      "ms": 7680,
-      "spoken": "Bài học: Nâng cao tuần ba: Bảng nhân bốn, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8640,
+      "spoken": "Bài học: Nâng cao tuần ba: Bảng nhân bốn, hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 4: Bảng nhân, bảng chia 6, 7. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-4-bang-nhan-bang-c-c8b582.mp3",
-      "ms": 7440,
-      "spoken": "Bài học: Nâng cao tuần bốn: Bảng nhân, bảng chia sáu, bảy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8616,
+      "spoken": "Bài học: Nâng cao tuần bốn: Bảng nhân, bảng chia sáu, bảy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 5: Bảng nhân 8, 9 và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-5-bang-nhan-8-9-va-6cab64.mp3",
-      "ms": 7200,
-      "spoken": "Bài học: Nâng cao tuần năm: Bảng nhân tám, chín và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8760,
+      "spoken": "Bài học: Nâng cao tuần năm: Bảng nhân tám, chín và tìm thành phần. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 6: Tìm thành phần và một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-6-tim-thanh-phan-v-a27063.mp3",
-      "ms": 6648,
-      "spoken": "Bài học: Nâng cao tuần sáu: Tìm thành phần và một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7416,
+      "spoken": "Bài học: Nâng cao tuần sáu: Tìm thành phần và một phần mấy. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 7: Trung điểm, hình tròn và góc. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-7-trung-diem-hinh-091745.mp3",
-      "ms": 6864,
-      "spoken": "Bài học: Nâng cao tuần bảy: Trung điểm, hình tròn và góc. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7728,
+      "spoken": "Bài học: Nâng cao tuần bảy: Trung điểm, hình tròn và góc. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 8: Góc vuông, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-8-goc-vuong-hinh-c-986b51.mp3",
-      "ms": 7536,
-      "spoken": "Bài học: Nâng cao tuần tám: Góc vuông, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8976,
+      "spoken": "Bài học: Nâng cao tuần tám: Góc vuông, hình chữ nhật, hình vuông. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Nâng cao tuần 9: Khối hình và nhân số có hai chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-nang-cao-tuan-9-khoi-hinh-va-nha-907015.mp3",
-      "ms": 7152,
-      "spoken": "Bài học: Nâng cao tuần chín: Khối hình và nhân số có hai chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7488,
+      "spoken": "Bài học: Nâng cao tuần chín: Khối hình và nhân số có hai chữ số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Phép chia hết, phép chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-phep-chia-het-phep-chia-co-du-co-fe4695.mp3",
-      "ms": 5304,
-      "spoken": "Bài học: Phép chia hết, phép chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6480,
+      "spoken": "Bài học: Phép chia hết, phép chia có dư. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Phép cộng trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-phep-cong-trong-pham-vi-10-000-c-b08e78.mp3",
-      "ms": 5256,
-      "spoken": "Bài học: Phép cộng trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6360,
+      "spoken": "Bài học: Phép cộng trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Phép cộng trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-phep-cong-trong-pham-vi-100-000-b9c9a7.mp3",
-      "ms": 5448,
-      "spoken": "Bài học: Phép cộng trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6408,
+      "spoken": "Bài học: Phép cộng trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Phép trừ trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-phep-tru-trong-pham-vi-10-000-co-bf4e7e.mp3",
-      "ms": 5040,
-      "spoken": "Bài học: Phép trừ trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6264,
+      "spoken": "Bài học: Phép trừ trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Phép trừ trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-phep-tru-trong-pham-vi-100-000-c-78a4f0.mp3",
-      "ms": 5472,
-      "spoken": "Bài học: Phép trừ trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6240,
+      "spoken": "Bài học: Phép trừ trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: So sánh các số trong phạm vi 10 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-so-sanh-cac-so-trong-pham-vi-10-23acdc.mp3",
-      "ms": 5904,
-      "spoken": "Bài học: So sánh các số trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6552,
+      "spoken": "Bài học: So sánh các số trong phạm vi mười không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: So sánh các số trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-so-sanh-cac-so-trong-pham-vi-100-897a0f.mp3",
-      "ms": 6312,
-      "spoken": "Bài học: So sánh các số trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7392,
+      "spoken": "Bài học: So sánh các số trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: So sánh số lớn gấp mấy lần số bé. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-so-sanh-so-lon-gap-may-lan-so-be-f8bea5.mp3",
-      "ms": 5400,
-      "spoken": "Bài học: So sánh số lớn gấp mấy lần số bé. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6888,
+      "spoken": "Bài học: So sánh số lớn gấp mấy lần số bé. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Thu thập, phân loại, ghi chép số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-thu-thap-phan-loai-ghi-chep-so-l-317448.mp3",
-      "ms": 6264,
-      "spoken": "Bài học: Thu thập, phân loại, ghi chép số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7800,
+      "spoken": "Bài học: Thu thập, phân loại, ghi chép số liệu thống kê. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Thực hành vẽ góc vuông, đường tròn, hình vuông, hình chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-thuc-hanh-ve-goc-vuong-duong-tro-b5bb78.mp3",
-      "ms": 6960,
-      "spoken": "Bài học: Thực hành vẽ góc vuông, đường tròn, hình vuông, hình chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8640,
+      "spoken": "Bài học: Thực hành vẽ góc vuông, đường tròn, hình vuông, hình chữ nhật. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Thực hành xem đồng hồ, xem lịch. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-thuc-hanh-xem-dong-ho-xem-lich-c-48ec1e.mp3",
-      "ms": 5280,
-      "spoken": "Bài học: Thực hành xem đồng hồ, xem lịch. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6336,
+      "spoken": "Bài học: Thực hành xem đồng hồ, xem lịch. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Tiền Việt Nam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-tien-viet-nam-con-xem-nho-nhanh-6de870.mp3",
-      "ms": 4152,
-      "spoken": "Bài học: Tiền Việt Nam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5304,
+      "spoken": "Bài học: Tiền Việt Nam. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Tìm thành phần trong phép cộng, phép trừ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-tim-thanh-phan-trong-phep-cong-p-202014.mp3",
-      "ms": 6072,
-      "spoken": "Bài học: Tìm thành phần trong phép cộng, phép trừ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6768,
+      "spoken": "Bài học: Tìm thành phần trong phép cộng, phép trừ. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Tìm thành phần trong phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-tim-thanh-phan-trong-phep-nhan-p-03e59b.mp3",
-      "ms": 5664,
-      "spoken": "Bài học: Tìm thành phần trong phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7080,
+      "spoken": "Bài học: Tìm thành phần trong phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Tính giá trị của biểu thức số (tiếp theo). Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-tinh-gia-tri-cua-bieu-thuc-so-ti-9fadbd.mp3",
-      "ms": 5832,
-      "spoken": "Bài học: Tính giá trị của biểu thức số (tiếp theo). Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6432,
+      "spoken": "Bài học: Tính giá trị của biểu thức số (tiếp theo). Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Xem đồng hồ. Tháng – năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-xem-dong-ho-thang-nam-con-xem-nh-f7659d.mp3",
-      "ms": 4704,
-      "spoken": "Bài học: Xem đồng hồ. Tháng – năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7536,
+      "spoken": "Bài học: Xem đồng hồ. Tháng – năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-bieu-thuc-so-con-xem-nho-c9f246.mp3",
-      "ms": 4704,
-      "spoken": "Bài học: Ôn tập biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5688,
+      "spoken": "Bài học: Ôn tập biểu thức số. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập bảng nhân 2, 5, bảng chia 2, 5. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-bang-nhan-2-5-bang-chia-2-16d332.mp3",
-      "ms": 6192,
-      "spoken": "Bài học: Ôn tập bảng nhân hai, năm, bảng chia hai, năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8304,
+      "spoken": "Bài học: Ôn tập bảng nhân hai, năm, bảng chia hai, năm. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-chung-con-xem-nho-nhanh-c-759f4d.mp3",
-      "ms": 4608,
-      "spoken": "Bài học: Ôn tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 5136,
+      "spoken": "Bài học: Ôn tập chung. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập các số trong phạm vi 100 000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-cac-so-trong-pham-vi-100-410243.mp3",
-      "ms": 5928,
-      "spoken": "Bài học: Ôn tập các số trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7152,
+      "spoken": "Bài học: Ôn tập các số trong phạm vi một trăm không. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập các số đến 1000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-cac-so-den-1000-con-xem-n-3266d5.mp3",
-      "ms": 4680,
-      "spoken": "Bài học: Ôn tập các số đến một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6024,
+      "spoken": "Bài học: Ôn tập các số đến một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-hinh-hoc-va-do-luong-con-c1541d.mp3",
-      "ms": 4632,
-      "spoken": "Bài học: Ôn tập hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6240,
+      "spoken": "Bài học: Ôn tập hình học và đo lường. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập phép cộng, phép trừ trong phạm vi 1000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-phep-cong-phep-tru-trong-d7ee12.mp3",
-      "ms": 6576,
-      "spoken": "Bài học: Ôn tập phép cộng, phép trừ trong phạm vi một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 7056,
+      "spoken": "Bài học: Ôn tập phép cộng, phép trừ trong phạm vi một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập phép cộng, phép trừ, phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-phep-cong-phep-tru-phep-n-0de785.mp3",
-      "ms": 6744,
-      "spoken": "Bài học: Ôn tập phép cộng, phép trừ, phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8856,
+      "spoken": "Bài học: Ôn tập phép cộng, phép trừ, phép nhân, phép chia. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Ôn tập phép nhân, phép chia trong phạm vi 100, 1000. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-on-tap-phep-nhan-phep-chia-trong-20ea1a.mp3",
-      "ms": 7488,
-      "spoken": "Bài học: Ôn tập phép nhân, phép chia trong phạm vi một trăm, một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 8184,
+      "spoken": "Bài học: Ôn tập phép nhân, phép chia trong phạm vi một trăm, một nghìn. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Điểm ở giữa. Trung điểm của đoạn thẳng. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!": {
       "file": "assets/voice/bai-hoc-diem-o-giua-trung-diem-cua-doan-b30bf5.mp3",
-      "ms": 5496,
-      "spoken": "Bài học: Điểm ở giữa. Trung điểm của đoạn thẳng. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!"
+      "ms": 6720,
+      "spoken": "Bài học: Điểm ở giữa. Trung điểm của đoạn thẳng. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.": {
       "file": "assets/voice/bai-nay-co-nhieu-buoc-con-tom-tat-de-tim-7d331c.mp3",
-      "ms": 5280,
-      "spoken": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé."
+      "ms": 6552,
+      "spoken": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.": {
       "file": "assets/voice/bai-nay-can-hai-buoc-tinh-con-tim-so-chu-4ba4ad.mp3",
-      "ms": 3576,
-      "spoken": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé."
+      "ms": 4416,
+      "spoken": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài này hơi khó. Cô với con cùng xem từng bước nhé!": {
       "file": "assets/voice/bai-nay-hoi-kho-co-voi-con-cung-xem-tung-a97b83.mp3",
-      "ms": 2760,
-      "spoken": "Bài này hơi khó. Cô với con cùng xem từng bước nhé!"
+      "ms": 3624,
+      "spoken": "Bài này hơi khó. Cô với con cùng xem từng bước nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài toán giải bằng hai bước tính: bước 1 tìm số chưa biết mà đề chưa cho; bước 2 dùng số đó để trả lời câu hỏi.": {
       "file": "assets/voice/bai-toan-giai-bang-hai-buoc-tinh-buoc-1-8b6761.mp3",
@@ -1654,13 +1798,15 @@
     },
     "Bài toán hai bước: tìm điều chưa biết trước, rồi mới tìm điều đề hỏi.": {
       "file": "assets/voice/bai-toan-hai-buoc-tim-dieu-chua-biet-tru-ceacdd.mp3",
-      "ms": 3672,
-      "spoken": "Bài toán hai bước: tìm điều chưa biết trước, rồi mới tìm điều đề hỏi."
+      "ms": 4800,
+      "spoken": "Bài toán hai bước: tìm điều chưa biết trước, rồi mới tìm điều đề hỏi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài toán nhiều bước với số lớn: con tóm tắt đề, tính từng bước và đặt tính cẩn thận.": {
       "file": "assets/voice/bai-toan-nhieu-buoc-voi-so-lon-con-tom-t-4ac776.mp3",
-      "ms": 4416,
-      "spoken": "Bài toán nhiều bước với số lớn: con tóm tắt đề, tính từng bước và đặt tính cẩn thận."
+      "ms": 6456,
+      "spoken": "Bài toán nhiều bước với số lớn: con tóm tắt đề, tính từng bước và đặt tính cẩn thận.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài toán rút về đơn vị: tìm giá trị của một phần (phép chia) trước, rồi tìm giá trị của nhiều phần (phép nhân).": {
       "file": "assets/voice/bai-toan-rut-ve-don-vi-tim-gia-tri-cua-m-a82d46.mp3",
@@ -1699,13 +1845,15 @@
     },
     "Bí quyết của cô nè!": {
       "file": "assets/voice/bi-quyet-cua-co-ne-e735c7.mp3",
-      "ms": 1008,
-      "spoken": "Bí quyết của cô nè!"
+      "ms": 1536,
+      "spoken": "Bí quyết của cô nè!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bước 1: tìm số cây lớp 3A trồng. Bước 2: cộng thêm số cây lớp 3B.": {
       "file": "assets/voice/buoc-1-tim-so-cay-lop-3a-trong-buoc-2-co-5ce693.mp3",
-      "ms": 5448,
-      "spoken": "Bước một: tìm số cây lớp ba A trồng. Bước hai: cộng thêm số cây lớp ba B."
+      "ms": 6096,
+      "spoken": "Bước một: tìm số cây lớp ba A trồng. Bước hai: cộng thêm số cây lớp ba B.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bảng nhân 2: 2 × 1 = 2; 2 × 2 = 4; 2 × 3 = 6; 2 × 4 = 8; 2 × 5 = 10; 2 × 6 = 12; 2 × 7 = 14; 2 × 8 = 16; 2 × 9 = 18; 2 × 10 = 20.": {
       "file": "assets/voice/bang-nhan-2-2-1-2-2-2-4-2-3-6-2-4-8-2-5-0a5348.mp3",
@@ -1754,8 +1902,9 @@
     },
     "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé.": {
       "file": "assets/voice/bat-dau-nao-con-doc-ky-de-roi-tra-loi-nh-d22a13.mp3",
-      "ms": 2088,
-      "spoken": "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé."
+      "ms": 3432,
+      "spoken": "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chia hàng chục trước: 8 chia 2 được mấy?": {
       "file": "assets/voice/chia-hang-chuc-truoc-8-chia-2-duoc-may-2b872f.mp3",
@@ -1774,13 +1923,15 @@
     },
     "Chia từ trái sang phải. Mỗi lượt: chia, nhân, trừ, rồi hạ chữ số tiếp theo.": {
       "file": "assets/voice/chia-tu-trai-sang-phai-moi-luot-chia-nha-f0b903.mp3",
-      "ms": 4896,
-      "spoken": "Chia từ trái sang phải. Mỗi lượt: chia, nhân, trừ, rồi hạ chữ số tiếp theo."
+      "ms": 6000,
+      "spoken": "Chia từ trái sang phải. Mỗi lượt: chia, nhân, trừ, rồi hạ chữ số tiếp theo.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống nhé.": {
       "file": "assets/voice/chia-tu-trai-sang-phai-chia-hang-chuc-tr-1e156a.mp3",
-      "ms": 4152,
-      "spoken": "Chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống nhé."
+      "ms": 4944,
+      "spoken": "Chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chia đều 75 quả vào 5 giỏ: ta làm phép chia 75 : 5.": {
       "file": "assets/voice/chia-deu-75-qua-vao-5-gio-ta-lam-phep-ch-b0c4dd.mp3",
@@ -1789,13 +1940,15 @@
     },
     "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!": {
       "file": "assets/voice/chia-deu-thanh-cac-phan-bang-nhau-con-th-f5d3b4.mp3",
-      "ms": 2928,
-      "spoken": "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!"
+      "ms": 3648,
+      "spoken": "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.": {
       "file": "assets/voice/chieu-dai-cong-chieu-rong-thi-bang-nua-c-23b2f5.mp3",
-      "ms": 2880,
-      "spoken": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật."
+      "ms": 3528,
+      "spoken": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chiều dài của hình chữ nhật là:": {
       "file": "assets/voice/chieu-dai-cua-hinh-chu-nhat-la-f583ff.mp3",
@@ -1804,23 +1957,27 @@
     },
     "Chiều dài hình chữ nhật là:": {
       "file": "assets/voice/chieu-dai-hinh-chu-nhat-la-23d31e.mp3",
-      "ms": 1392,
-      "spoken": "Chiều dài hình chữ nhật là:"
+      "ms": 1800,
+      "spoken": "Chiều dài hình chữ nhật là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chiều dài và chiều rộng phải cùng đơn vị đo.": {
       "file": "assets/voice/chieu-dai-va-chieu-rong-phai-cung-don-vi-610114.mp3",
-      "ms": 2016,
-      "spoken": "Chiều dài và chiều rộng phải cùng đơn vị đo."
+      "ms": 2640,
+      "spoken": "Chiều dài và chiều rộng phải cùng đơn vị đo.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chiều rộng hình chữ nhật là:": {
       "file": "assets/voice/chieu-rong-hinh-chu-nhat-la-2b7b2d.mp3",
-      "ms": 1248,
-      "spoken": "Chiều rộng hình chữ nhật là:"
+      "ms": 1824,
+      "spoken": "Chiều rộng hình chữ nhật là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi của một hình là tổng độ dài các cạnh của hình đó.": {
       "file": "assets/voice/chu-vi-cua-mot-hinh-la-tong-do-dai-cac-c-15ba27.mp3",
-      "ms": 2760,
-      "spoken": "Chu vi của một hình là tổng độ dài các cạnh của hình đó."
+      "ms": 3480,
+      "spoken": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi hình chữ nhật = (dài + rộng) × 2; diện tích hình chữ nhật = dài × rộng.": {
       "file": "assets/voice/chu-vi-hinh-chu-nhat-dai-rong-2-dien-tic-30b8e0.mp3",
@@ -1829,18 +1986,21 @@
     },
     "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.": {
       "file": "assets/voice/chu-vi-hinh-chu-nhat-bang-chieu-dai-cong-e72b35.mp3",
-      "ms": 3600,
-      "spoken": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai."
+      "ms": 4248,
+      "spoken": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng, rồi nhân hai.": {
       "file": "assets/voice/chu-vi-hinh-chu-nhat-bang-chieu-dai-cong-e8229b.mp3",
-      "ms": 3216,
-      "spoken": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng, rồi nhân hai."
+      "ms": 3936,
+      "spoken": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng, rồi nhân hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi hình chữ nhật là:": {
       "file": "assets/voice/chu-vi-hinh-chu-nhat-la-e6b704.mp3",
-      "ms": 1176,
-      "spoken": "Chu vi hình chữ nhật là:"
+      "ms": 1656,
+      "spoken": "Chu vi hình chữ nhật là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi hình vuông = cạnh × 4; diện tích hình vuông = cạnh × cạnh.": {
       "file": "assets/voice/chu-vi-hinh-vuong-canh-4-dien-tich-hinh-ad7424.mp3",
@@ -1849,23 +2009,27 @@
     },
     "Chu vi hình vuông bằng độ dài một cạnh nhân bốn.": {
       "file": "assets/voice/chu-vi-hinh-vuong-bang-do-dai-mot-canh-n-52d038.mp3",
-      "ms": 2328,
-      "spoken": "Chu vi hình vuông bằng độ dài một cạnh nhân bốn."
+      "ms": 2832,
+      "spoken": "Chu vi hình vuông bằng độ dài một cạnh nhân bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.": {
       "file": "assets/voice/chu-vi-hinh-vuong-bang-do-dai-mot-canh-n-eeec13.mp3",
-      "ms": 2544,
-      "spoken": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn."
+      "ms": 2976,
+      "spoken": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi là tổng độ dài các cạnh của hình.": {
       "file": "assets/voice/chu-vi-la-tong-do-dai-cac-canh-cua-hinh-6fd744.mp3",
-      "ms": 1872,
-      "spoken": "Chu vi là tổng độ dài các cạnh của hình."
+      "ms": 2640,
+      "spoken": "Chu vi là tổng độ dài các cạnh của hình.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi một hình là tổng độ dài các cạnh của hình đó. Chu vi hình chữ nhật = (dài + rộng) × 2; chu vi hình vuông = cạnh × 4.": {
       "file": "assets/voice/chu-vi-mot-hinh-la-tong-do-dai-cac-canh-faa2cc.mp3",
-      "ms": 8904,
-      "spoken": "Chu vi một hình là tổng độ dài các cạnh của hình đó. Chu vi hình chữ nhật bằng (dài + rộng) × hai; chu vi hình vuông bằng cạnh × bốn."
+      "ms": 8328,
+      "spoken": "Chu vi một hình là tổng độ dài các cạnh của hình đó. Chu vi hình chữ nhật bằng (dài + rộng) × hai; chu vi hình vuông bằng cạnh × bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chu vi đo bằng cm, diện tích đo bằng cm² – đừng nhầm nhé!": {
       "file": "assets/voice/chu-vi-do-bang-cm-dien-tich-do-bang-cm-d-59d598.mp3",
@@ -1874,23 +2038,27 @@
     },
     "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.": {
       "file": "assets/voice/chao-mung-con-den-cua-hang-dung-vang-de-c62c15.mp3",
-      "ms": 3168,
-      "spoken": "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào."
+      "ms": 3960,
+      "spoken": "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chào mừng con đến khu Nâng cao dành cho học sinh giỏi! Học xong các bài cơ bản của tuần là mở được bài nâng cao, thưởng gấp đôi vàng nhé!": {
       "file": "assets/voice/chao-mung-con-den-khu-nang-cao-danh-cho-05a3b3.mp3",
-      "ms": 6768,
-      "spoken": "Chào mừng con đến khu Nâng cao dành cho học sinh giỏi! Học xong các bài cơ bản của tuần là mở được bài nâng cao, thưởng gấp đôi vàng nhé!"
+      "ms": 8088,
+      "spoken": "Chào mừng con đến khu Nâng cao dành cho học sinh giỏi! Học xong các bài cơ bản của tuần là mở được bài nâng cao, thưởng gấp đôi vàng nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm 10 môn Toán nhé!": {
       "file": "assets/voice/chao-mung-con-hom-nay-chung-ta-cung-chin-80055d.mp3",
-      "ms": 3144,
-      "spoken": "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm mười môn Toán nhé!"
+      "ms": 4128,
+      "spoken": "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm mười môn Toán nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chính xác!": {
       "file": "assets/voice/chinh-xac-64bd99.mp3",
-      "ms": 600,
-      "spoken": "Chính xác!"
+      "ms": 696,
+      "spoken": "Chính xác!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chú sâu đã bò được tất cả là:": {
       "file": "assets/voice/chu-sau-da-bo-duoc-tat-ca-la-3ba7ba.mp3",
@@ -1899,23 +2067,27 @@
     },
     "Chưa chính xác rồi, con thử chia từ hàng chục trước xem sao?": {
       "file": "assets/voice/chua-chinh-xac-roi-con-thu-chia-tu-hang-e85c69.mp3",
-      "ms": 3072,
-      "spoken": "Chưa chính xác rồi, con thử chia từ hàng chục trước xem sao?"
+      "ms": 3696,
+      "spoken": "Chưa chính xác rồi, con thử chia từ hàng chục trước xem sao?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chưa chính xác rồi, con thử tính cột hàng đơn vị trước xem sao?": {
       "file": "assets/voice/chua-chinh-xac-roi-con-thu-tinh-cot-hang-349829.mp3",
-      "ms": 2832,
-      "spoken": "Chưa chính xác rồi, con thử tính cột hàng đơn vị trước xem sao?"
+      "ms": 3768,
+      "spoken": "Chưa chính xác rồi, con thử tính cột hàng đơn vị trước xem sao?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chưa chính xác rồi.": {
       "file": "assets/voice/chua-chinh-xac-roi-48da5c.mp3",
-      "ms": 984,
-      "spoken": "Chưa chính xác rồi."
+      "ms": 1296,
+      "spoken": "Chưa chính xác rồi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa.": {
       "file": "assets/voice/chua-dung-roi-qua-bong-dung-dang-sang-le-1211a3.mp3",
-      "ms": 2304,
-      "spoken": "Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa."
+      "ms": 3024,
+      "spoken": "Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chắc chắn là luôn xảy ra, không thể là không bao giờ xảy ra, có thể là lúc xảy ra lúc không.": {
       "file": "assets/voice/chac-chan-la-luon-xay-ra-khong-the-la-kh-06fea9.mp3",
@@ -1924,8 +2096,9 @@
     },
     "Chắc chắn là lần nào cũng xảy ra. Không thể là không bao giờ xảy ra. Có thể là lúc có lúc không.": {
       "file": "assets/voice/chac-chan-la-lan-nao-cung-xay-ra-khong-t-74afc6.mp3",
-      "ms": 5616,
-      "spoken": "Chắc chắn là lần nào cũng xảy ra. Không thể là không bao giờ xảy ra. Có thể là lúc có lúc không."
+      "ms": 6864,
+      "spoken": "Chắc chắn là lần nào cũng xảy ra. Không thể là không bao giờ xảy ra. Có thể là lúc có lúc không.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chắc chắn – có thể – không thể.": {
       "file": "assets/voice/chac-chan-co-the-khong-the-812854.mp3",
@@ -1934,18 +2107,21 @@
     },
     "Chỉ có cộng trừ, hoặc chỉ có nhân chia, thì tính lần lượt từ trái sang phải.": {
       "file": "assets/voice/chi-co-cong-tru-hoac-chi-co-nhan-chia-th-e6ef99.mp3",
-      "ms": 4776,
-      "spoken": "Chỉ có cộng trừ, hoặc chỉ có nhân chia, thì tính lần lượt từ trái sang phải."
+      "ms": 5280,
+      "spoken": "Chỉ có cộng trừ, hoặc chỉ có nhân chia, thì tính lần lượt từ trái sang phải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ I là một, V là năm, X là mười.": {
       "file": "assets/voice/chu-i-la-mot-v-la-nam-x-la-muoi-50ea12.mp3",
-      "ms": 2496,
-      "spoken": "Chữ I là một, V là năm, X là mười."
+      "ms": 3312,
+      "spoken": "Chữ I là một, V là năm, X là mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ I đứng bên phải thì cộng thêm, đứng bên trái thì bớt đi. VI là sáu, IV là bốn.": {
       "file": "assets/voice/chu-i-dung-ben-phai-thi-cong-them-dung-b-d74ac9.mp3",
-      "ms": 5640,
-      "spoken": "Chữ I đứng bên phải thì cộng thêm, đứng bên trái thì bớt đi. VI là sáu, IV là bốn."
+      "ms": 7008,
+      "spoken": "Chữ I đứng bên phải thì cộng thêm, đứng bên trái thì bớt đi. VI là sáu, IV là bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ số 0 ở hàng chục đọc là “linh”, ví dụ 105 đọc là “một trăm linh năm”.": {
       "file": "assets/voice/chu-so-0-o-hang-chuc-doc-la-linh-vi-du-1-0e3d42.mp3",
@@ -1959,13 +2135,15 @@
     },
     "Chữ số La Mã: I là 1, V là 5, X là 10. Chữ số nhỏ đứng bên phải chữ số lớn thì cộng thêm; đứng bên trái thì trừ đi.": {
       "file": "assets/voice/chu-so-la-ma-i-la-1-v-la-5-x-la-10-chu-s-b5fb2d.mp3",
-      "ms": 8304,
-      "spoken": "Chữ số La Mã: I là một, V là năm, X là mười. Chữ số nhỏ đứng bên phải chữ số lớn thì cộng thêm; đứng bên trái thì trừ đi."
+      "ms": 10728,
+      "spoken": "Chữ số La Mã: I là một, V là năm, X là mười. Chữ số nhỏ đứng bên phải chữ số lớn thì cộng thêm; đứng bên trái thì trừ đi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ số hàng trăm của 26.550 là 5, lớn hơn hoặc bằng 5 nên làm tròn lên.": {
       "file": "assets/voice/chu-so-hang-tram-cua-26-550-la-5-lon-hon-17c553.mp3",
-      "ms": 5568,
-      "spoken": "Chữ số hàng trăm của hai mươi sáu nghìn năm trăm năm mươi là năm, lớn hơn hoặc bằng năm nên làm tròn lên."
+      "ms": 7704,
+      "spoken": "Chữ số hàng trăm của hai mươi sáu nghìn năm trăm năm mươi là năm, lớn hơn hoặc bằng năm nên làm tròn lên.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ số hàng đơn vị của 9.201 là 1, bé hơn 5 nên làm tròn xuống.": {
       "file": "assets/voice/chu-so-hang-don-vi-cua-9-201-la-1-be-hon-e359de.mp3",
@@ -1974,8 +2152,9 @@
     },
     "Chữ số trên bé hơn chữ số dưới thì mượn một chục, rồi nhớ một vào hàng bên trái.": {
       "file": "assets/voice/chu-so-tren-be-hon-chu-so-duoi-thi-muon-cc5a28.mp3",
-      "ms": 4608,
-      "spoken": "Chữ số trên bé hơn chữ số dưới thì mượn một chục, rồi nhớ một vào hàng bên trái."
+      "ms": 5496,
+      "spoken": "Chữ số trên bé hơn chữ số dưới thì mượn một chục, rồi nhớ một vào hàng bên trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Coi số gạo ở kho thứ nhất là 1 phần thì số gạo ở kho thứ hai là 8 phần như thế. Tổng số phần bằng nhau là:": {
       "file": "assets/voice/coi-so-gao-o-kho-thu-nhat-la-1-phan-thi-0ce89f.mp3",
@@ -1999,38 +2178,45 @@
     },
     "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.": {
       "file": "assets/voice/con-chia-hinh-thanh-cac-hinh-chu-nhat-nh-858119.mp3",
-      "ms": 4440,
-      "spoken": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé."
+      "ms": 6168,
+      "spoken": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.": {
       "file": "assets/voice/con-chia-lan-luot-tu-trai-sang-phai-moi-ab9319.mp3",
-      "ms": 3720,
-      "spoken": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé."
+      "ms": 4104,
+      "spoken": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con chỉ cần nhập số thôi nhé!": {
       "file": "assets/voice/con-chi-can-nhap-so-thoi-nhe-123b7e.mp3",
-      "ms": 1368,
-      "spoken": "Con chỉ cần nhập số thôi nhé!"
+      "ms": 1776,
+      "spoken": "Con chỉ cần nhập số thôi nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy.": {
       "file": "assets/voice/con-chon-chu-de-muon-hoc-nhe-bai-nao-co-b51d28.mp3",
-      "ms": 3744,
-      "spoken": "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy."
+      "ms": 4320,
+      "spoken": "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.": {
       "file": "assets/voice/con-coi-ca-phan-co-chua-dau-hoi-la-mot-s-3aab24.mp3",
-      "ms": 4992,
-      "spoken": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé."
+      "ms": 5568,
+      "spoken": "Con coi cả phần có chứa dấu hỏi là một số chưa biết, tìm phần đó trước rồi mới tìm dấu hỏi nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!": {
       "file": "assets/voice/con-co-nhiem-vu-da-hoan-thanh-bam-nhan-v-a5cb43.mp3",
-      "ms": 2040,
-      "spoken": "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!"
+      "ms": 3264,
+      "spoken": "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!": {
       "file": "assets/voice/con-can-co-goi-y-khong-bam-nut-goi-y-nhe-08b168.mp3",
-      "ms": 1992,
-      "spoken": "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!"
+      "ms": 3096,
+      "spoken": "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con cộng giá trị của các tờ tiền lại với nhau nhé.": {
       "file": "assets/voice/con-cong-gia-tri-cua-cac-to-tien-lai-voi-7220bf.mp3",
@@ -2039,33 +2225,39 @@
     },
     "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé.": {
       "file": "assets/voice/con-cu-binh-tinh-tinh-ra-nhap-truoc-roi-247e9c.mp3",
-      "ms": 3024,
-      "spoken": "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé."
+      "ms": 3792,
+      "spoken": "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con dùng ê ke để kiểm tra góc vuông nhé.": {
       "file": "assets/voice/con-dung-e-ke-de-kiem-tra-goc-vuong-nhe-83d27a.mp3",
-      "ms": 1920,
-      "spoken": "Con dùng ê ke để kiểm tra góc vuông nhé."
+      "ms": 2616,
+      "spoken": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con giữ vững phong độ rồi, cố thêm chút nữa nhé!": {
       "file": "assets/voice/con-giu-vung-phong-do-roi-co-them-chut-n-b591c2.mp3",
-      "ms": 2088,
-      "spoken": "Con giữ vững phong độ rồi, cố thêm chút nữa nhé!"
+      "ms": 3072,
+      "spoken": "Con giữ vững phong độ rồi, cố thêm chút nữa nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con hãy làm hết các ô trước nhé!": {
       "file": "assets/voice/con-hay-lam-het-cac-o-truoc-nhe-e60b72.mp3",
-      "ms": 1488,
-      "spoken": "Con hãy làm hết các ô trước nhé!"
+      "ms": 2016,
+      "spoken": "Con hãy làm hết các ô trước nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con học lâu rồi, giỏi lắm! Mình nghỉ mắt năm phút nhé: nhìn ra xa, uống nước rồi quay lại học tiếp.": {
       "file": "assets/voice/con-hoc-lau-roi-gioi-lam-minh-nghi-mat-n-a8cf07.mp3",
-      "ms": 6336,
-      "spoken": "Con học lâu rồi, giỏi lắm! Mình nghỉ mắt năm phút nhé: nhìn ra xa, uống nước rồi quay lại học tiếp."
+      "ms": 7344,
+      "spoken": "Con học lâu rồi, giỏi lắm! Mình nghỉ mắt năm phút nhé: nhìn ra xa, uống nước rồi quay lại học tiếp.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con học xong các bài của chủ đề này là mở được trò chơi nhé!": {
       "file": "assets/voice/con-hoc-xong-cac-bai-cua-chu-de-nay-la-m-203e50.mp3",
-      "ms": 2808,
-      "spoken": "Con học xong các bài của chủ đề này là mở được trò chơi nhé!"
+      "ms": 3408,
+      "spoken": "Con học xong các bài của chủ đề này là mở được trò chơi nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con liệt kê theo thứ tự từ bé đến lớn để không bỏ sót và không đếm trùng nhé.": {
       "file": "assets/voice/con-liet-ke-theo-thu-tu-tu-be-den-lon-de-8ef922.mp3",
@@ -2074,13 +2266,15 @@
     },
     "Con làm nhanh quá!": {
       "file": "assets/voice/con-lam-nhanh-qua-50e73b.mp3",
-      "ms": 1032,
-      "spoken": "Con làm nhanh quá!"
+      "ms": 1224,
+      "spoken": "Con làm nhanh quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con làm xong rồi thì bấm Kiểm tra nhé!": {
       "file": "assets/voice/con-lam-xong-roi-thi-bam-kiem-tra-nhe-ac5858.mp3",
-      "ms": 1920,
-      "spoken": "Con làm xong rồi thì bấm Kiểm tra nhé!"
+      "ms": 2448,
+      "spoken": "Con làm xong rồi thì bấm Kiểm tra nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con nghĩ xem số nào nhân với số chia thì được số bị chia nhé.": {
       "file": "assets/voice/con-nghi-xem-so-nao-nhan-voi-so-chia-thi-bbe4df.mp3",
@@ -2099,38 +2293,45 @@
     },
     "Con nhân hàng đơn vị trước, rồi mới nhân hàng chục. Đừng quên số nhớ!": {
       "file": "assets/voice/con-nhan-hang-don-vi-truoc-roi-moi-nhan-0239a6.mp3",
-      "ms": 3720,
-      "spoken": "Con nhân hàng đơn vị trước, rồi mới nhân hàng chục. Đừng quên số nhớ!"
+      "ms": 4512,
+      "spoken": "Con nhân hàng đơn vị trước, rồi mới nhân hàng chục. Đừng quên số nhớ!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.": {
       "file": "assets/voice/con-nhan-lan-luot-tu-hang-don-vi-sang-tr-332164.mp3",
-      "ms": 3936,
-      "spoken": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé."
+      "ms": 4344,
+      "spoken": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.": {
       "file": "assets/voice/con-nhin-chu-so-ngay-ben-phai-hang-can-l-b9cb85.mp3",
-      "ms": 6840,
-      "spoken": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên."
+      "ms": 7872,
+      "spoken": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.": {
       "file": "assets/voice/con-so-sanh-cac-so-roi-xep-lan-luot-tu-b-7624fa.mp3",
-      "ms": 3096,
-      "spoken": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé."
+      "ms": 3744,
+      "spoken": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.": {
       "file": "assets/voice/con-so-sanh-tu-hang-cao-nhat-so-nao-co-c-aa3ba9.mp3",
-      "ms": 4680,
-      "spoken": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn."
+      "ms": 5688,
+      "spoken": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé.": {
       "file": "assets/voice/con-thu-cong-hang-don-vi-truoc-xem-sao-n-77cbfb.mp3",
-      "ms": 3648,
-      "spoken": "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé."
+      "ms": 4944,
+      "spoken": "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!": {
       "file": "assets/voice/con-tien-bo-hon-lan-truoc-roi-co-rat-tu-7cee8c.mp3",
-      "ms": 2616,
-      "spoken": "Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!"
+      "ms": 3864,
+      "spoken": "Con tiến bộ hơn lần trước rồi! Cô rất tự hào về con!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tìm giá trị của một phần trước, rồi mới tìm giá trị của nhiều phần nhé.": {
       "file": "assets/voice/con-tim-gia-tri-cua-mot-phan-truoc-roi-m-95f7b3.mp3",
@@ -2144,23 +2345,27 @@
     },
     "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.": {
       "file": "assets/voice/con-tim-xem-hai-so-dung-lien-nhau-hon-ke-a98d0d.mp3",
-      "ms": 2856,
-      "spoken": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé."
+      "ms": 3648,
+      "spoken": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.": {
       "file": "assets/voice/con-tinh-gia-tri-cua-tung-bieu-thuc-truo-a55b5f.mp3",
-      "ms": 4248,
-      "spoken": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé."
+      "ms": 4320,
+      "spoken": "Con tính giá trị của từng biểu thức trước, rồi mới so sánh các kết quả nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.": {
       "file": "assets/voice/con-tinh-ket-qua-tung-dong-truoc-roi-keo-837ad2.mp3",
-      "ms": 2784,
-      "spoken": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé."
+      "ms": 2952,
+      "spoken": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới.": {
       "file": "assets/voice/con-tinh-lan-luot-tung-dong-ket-qua-cua-cfba68.mp3",
-      "ms": 4392,
-      "spoken": "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới."
+      "ms": 5184,
+      "spoken": "Con tính lần lượt từng dòng; kết quả của dòng trên là số bắt đầu của dòng dưới.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tính ngược từ kết quả về số ban đầu: cộng thì đổi thành trừ, trừ thì đổi thành cộng, nhân thì đổi thành chia, chia thì đổi thành nhân.": {
       "file": "assets/voice/con-tinh-nguoc-tu-ket-qua-ve-so-ban-dau-ea37fb.mp3",
@@ -2169,13 +2374,15 @@
     },
     "Con tính ra nháp trước, rồi mới chọn đáp án nhé.": {
       "file": "assets/voice/con-tinh-ra-nhap-truoc-roi-moi-chon-dap-bcb329.mp3",
-      "ms": 2136,
-      "spoken": "Con tính ra nháp trước, rồi mới chọn đáp án nhé."
+      "ms": 3096,
+      "spoken": "Con tính ra nháp trước, rồi mới chọn đáp án nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.": {
       "file": "assets/voice/con-tinh-tung-phep-tinh-ben-trai-truoc-r-f19e79.mp3",
-      "ms": 3600,
-      "spoken": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé."
+      "ms": 4464,
+      "spoken": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con tóm tắt bài toán trước khi giải nhé.": {
       "file": "assets/voice/con-tom-tat-bai-toan-truoc-khi-giai-nhe-cfa2ab.mp3",
@@ -2194,58 +2401,69 @@
     },
     "Con xem cô làm mẫu bài này nhé!": {
       "file": "assets/voice/con-xem-co-lam-mau-bai-nay-nhe-18e65b.mp3",
-      "ms": 1368,
-      "spoken": "Con xem cô làm mẫu bài này nhé!"
+      "ms": 2064,
+      "spoken": "Con xem cô làm mẫu bài này nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.": {
       "file": "assets/voice/con-xem-moi-so-hon-kem-hay-gap-so-dung-t-1b3094.mp3",
-      "ms": 4440,
-      "spoken": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé."
+      "ms": 5736,
+      "spoken": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.": {
       "file": "assets/voice/con-xac-dinh-tung-hang-cua-so-tu-hang-ca-07b79f.mp3",
-      "ms": 3120,
-      "spoken": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé."
+      "ms": 4560,
+      "spoken": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.": {
       "file": "assets/voice/con-xet-tung-hang-tu-hang-don-vi-sang-tr-7a08d6.mp3",
-      "ms": 4656,
-      "spoken": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé."
+      "ms": 5208,
+      "spoken": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đang rất phong độ, cứ thế nhé!": {
       "file": "assets/voice/con-dang-rat-phong-do-cu-the-nhe-743499.mp3",
-      "ms": 1752,
-      "spoken": "Con đang rất phong độ, cứ thế nhé!"
+      "ms": 2616,
+      "spoken": "Con đang rất phong độ, cứ thế nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đã làm được một nửa rồi, cố lên nào!": {
       "file": "assets/voice/con-da-lam-duoc-mot-nua-roi-co-len-nao-bdd6e1.mp3",
-      "ms": 2256,
-      "spoken": "Con đã làm được một nửa rồi, cố lên nào!"
+      "ms": 3072,
+      "spoken": "Con đã làm được một nửa rồi, cố lên nào!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!": {
       "file": "assets/voice/con-da-nam-duoc-bai-roi-minh-bat-dau-luy-95239e.mp3",
-      "ms": 2448,
-      "spoken": "Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!"
+      "ms": 3264,
+      "spoken": "Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!": {
       "file": "assets/voice/con-dat-hang-hat-mam-cham-chi-minh-hoc-t-65a51d.mp3",
-      "ms": 4344,
-      "spoken": "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!"
+      "ms": 4944,
+      "spoken": "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.": {
       "file": "assets/voice/con-dat-tinh-thang-cot-roi-cong-tu-hang-22a0e3.mp3",
-      "ms": 4752,
-      "spoken": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé."
+      "ms": 5400,
+      "spoken": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.": {
       "file": "assets/voice/con-dat-tinh-thang-cot-roi-tru-tu-hang-d-dc065e.mp3",
-      "ms": 6000,
-      "spoken": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé."
+      "ms": 6552,
+      "spoken": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.": {
       "file": "assets/voice/con-dem-can-than-so-canh-so-dinh-so-goc-7e1bcc.mp3",
-      "ms": 2808,
-      "spoken": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé."
+      "ms": 4032,
+      "spoken": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.": {
       "file": "assets/voice/con-dem-can-than-tung-loai-dem-xong-loai-9ebc00.mp3",
@@ -2274,18 +2492,21 @@
     },
     "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?": {
       "file": "assets/voice/con-doc-cham-lai-de-bai-de-cho-biet-gi-h-454620.mp3",
-      "ms": 3216,
-      "spoken": "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?"
+      "ms": 4296,
+      "spoken": "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đọc kỹ đề và tính cẩn thận từng bước nhé.": {
       "file": "assets/voice/con-doc-ky-de-va-tinh-can-than-tung-buoc-de28a4.mp3",
-      "ms": 2064,
-      "spoken": "Con đọc kỹ đề và tính cẩn thận từng bước nhé."
+      "ms": 2688,
+      "spoken": "Con đọc kỹ đề và tính cẩn thận từng bước nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.": {
       "file": "assets/voice/con-doc-ky-de-de-cho-biet-gi-hoi-gi-roi-381b53.mp3",
-      "ms": 4152,
-      "spoken": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé."
+      "ms": 5376,
+      "spoken": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đọc lại bảng nhân hoặc đếm thêm đều để tìm kết quả nhé.": {
       "file": "assets/voice/con-doc-lai-bang-nhan-hoac-dem-them-deu-b76b1f.mp3",
@@ -2294,8 +2515,9 @@
     },
     "Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.": {
       "file": "assets/voice/con-doc-phan-nho-nhanh-cung-co-nhe-roi-m-55a58f.mp3",
-      "ms": 3000,
-      "spoken": "Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập."
+      "ms": 3264,
+      "spoken": "Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.": {
       "file": "assets/voice/con-doc-so-lieu-o-tung-dong-roi-so-sanh-c96de3.mp3",
@@ -2304,8 +2526,9 @@
     },
     "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.": {
       "file": "assets/voice/con-doc-so-lan-luot-theo-tung-hang-tu-tr-1b7138.mp3",
-      "ms": 2904,
-      "spoken": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé."
+      "ms": 3576,
+      "spoken": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đổi số đo có hai tên đơn vị về đơn vị bé hơn, rồi mới so sánh hoặc tính nhé.": {
       "file": "assets/voice/con-doi-so-do-co-hai-ten-don-vi-ve-don-v-982d68.mp3",
@@ -2319,8 +2542,9 @@
     },
     "Các mặt của khối lập phương đều là hình vuông bằng nhau.": {
       "file": "assets/voice/cac-mat-cua-khoi-lap-phuong-deu-la-hinh-25eae3.mp3",
-      "ms": 2664,
-      "spoken": "Các mặt của khối lập phương đều là hình vuông bằng nhau."
+      "ms": 3312,
+      "spoken": "Các mặt của khối lập phương đều là hình vuông bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Các số làm tròn đến hàng nghìn được cùng một số tròn nghìn: bé nhất là số tròn nghìn đó bớt 500, lớn nhất là số tròn nghìn đó thêm 499.": {
       "file": "assets/voice/cac-so-lam-tron-den-hang-nghin-duoc-cung-fee985.mp3",
@@ -2334,13 +2558,15 @@
     },
     "Có cả nhân, chia và cộng, trừ thì nhân chia trước, cộng trừ sau.": {
       "file": "assets/voice/co-ca-nhan-chia-va-cong-tru-thi-nhan-chi-2741d8.mp3",
-      "ms": 2976,
-      "spoken": "Có cả nhân, chia và cộng, trừ thì nhân chia trước, cộng trừ sau."
+      "ms": 4872,
+      "spoken": "Có cả nhân, chia và cộng, trừ thì nhân chia trước, cộng trừ sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Có từ \"gấp\", con nghĩ tới phép nhân nhé!": {
       "file": "assets/voice/co-tu-gap-con-nghi-toi-phep-nhan-nhe-6e2bc7.mp3",
-      "ms": 2232,
-      "spoken": "Có từ \"gấp\", con nghĩ tới phép nhân nhé!"
+      "ms": 2808,
+      "spoken": "Có từ \"gấp\", con nghĩ tới phép nhân nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cô bán hàng trả lại mẹ là:": {
       "file": "assets/voice/co-ban-hang-tra-lai-me-la-386c33.mp3",
@@ -2349,38 +2575,45 @@
     },
     "Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.": {
       "file": "assets/voice/co-lam-mau-nhe-minh-dat-tinh-thang-cot-r-b5b355.mp3",
-      "ms": 3840,
-      "spoken": "Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái."
+      "ms": 4296,
+      "spoken": "Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải.": {
       "file": "assets/voice/co-lam-mau-phep-chia-nhe-minh-chia-lan-l-8544bc.mp3",
-      "ms": 2952,
-      "spoken": "Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải."
+      "ms": 4152,
+      "spoken": "Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cùng số chữ số thì so sánh từng hàng, từ trái sang phải.": {
       "file": "assets/voice/cung-so-chu-so-thi-so-sanh-tung-hang-tu-f34a79.mp3",
-      "ms": 3144,
-      "spoken": "Cùng số chữ số thì so sánh từng hàng, từ trái sang phải."
+      "ms": 4200,
+      "spoken": "Cùng số chữ số thì so sánh từng hàng, từ trái sang phải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.": {
       "file": "assets/voice/cung-xem-bang-xep-hang-nhe-hoc-deu-moi-n-452041.mp3",
-      "ms": 3048,
-      "spoken": "Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào."
+      "ms": 3912,
+      "spoken": "Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cạnh của hình vuông dài là:": {
       "file": "assets/voice/canh-cua-hinh-vuong-dai-la-4bbabd.mp3",
-      "ms": 1512,
-      "spoken": "Cạnh của hình vuông dài là:"
+      "ms": 1704,
+      "spoken": "Cạnh của hình vuông dài là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cẩn thận nhé!": {
       "file": "assets/voice/can-than-nhe-31b0e4.mp3",
-      "ms": 792,
-      "spoken": "Cẩn thận nhé!"
+      "ms": 1032,
+      "spoken": "Cẩn thận nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cố lên nào! Mình luyện lại bài này nhé!": {
       "file": "assets/voice/co-len-nao-minh-luyen-lai-bai-nay-nhe-ea0028.mp3",
-      "ms": 1872,
-      "spoken": "Cố lên nào! Mình luyện lại bài này nhé!"
+      "ms": 2472,
+      "spoken": "Cố lên nào! Mình luyện lại bài này nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cố lên! Con đã học xong chương trình Toán lớp 3.": {
       "file": "assets/voice/co-len-con-da-hoc-xong-chuong-trinh-toan-f95091.mp3",
@@ -2389,13 +2622,15 @@
     },
     "Cộng hai chữ số được từ mười trở lên thì nhớ một sang hàng bên trái.": {
       "file": "assets/voice/cong-hai-chu-so-duoc-tu-muoi-tro-len-thi-75a9f6.mp3",
-      "ms": 3744,
-      "spoken": "Cộng hai chữ số được từ mười trở lên thì nhớ một sang hàng bên trái."
+      "ms": 5088,
+      "spoken": "Cộng hai chữ số được từ mười trở lên thì nhớ một sang hàng bên trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cộng tiền như cộng số bình thường, rồi viết thêm chữ đồng.": {
       "file": "assets/voice/cong-tien-nhu-cong-so-binh-thuong-roi-vi-f23759.mp3",
-      "ms": 2928,
-      "spoken": "Cộng tiền như cộng số bình thường, rồi viết thêm chữ đồng."
+      "ms": 3624,
+      "spoken": "Cộng tiền như cộng số bình thường, rồi viết thêm chữ đồng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cứ sau bảy ngày lại đến đúng thứ đó, con chia số ngày cho bảy rồi xem số dư nhé.": {
       "file": "assets/voice/cu-sau-bay-ngay-lai-den-dung-thu-do-con-fb14ca.mp3",
@@ -2409,8 +2644,9 @@
     },
     "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng, cùng một đơn vị đo.": {
       "file": "assets/voice/dien-tich-hinh-chu-nhat-bang-chieu-dai-n-dec2c0.mp3",
-      "ms": 3576,
-      "spoken": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng, cùng một đơn vị đo."
+      "ms": 4584,
+      "spoken": "Diện tích hình chữ nhật bằng chiều dài nhân chiều rộng, cùng một đơn vị đo.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.": {
       "file": "assets/voice/dien-tich-hinh-chu-nhat-bang-chieu-dai-n-3a6901.mp3",
@@ -2424,8 +2660,9 @@
     },
     "Diện tích hình vuông bằng độ dài một cạnh nhân với chính nó.": {
       "file": "assets/voice/dien-tich-hinh-vuong-bang-do-dai-mot-can-8f7e20.mp3",
-      "ms": 2880,
-      "spoken": "Diện tích hình vuông bằng độ dài một cạnh nhân với chính nó."
+      "ms": 3288,
+      "spoken": "Diện tích hình vuông bằng độ dài một cạnh nhân với chính nó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Diện tích hình vuông cắt đi là:": {
       "file": "assets/voice/dien-tich-hinh-vuong-cat-di-la-5458e3.mp3",
@@ -2459,13 +2696,15 @@
     },
     "Diện tích viết đơn vị là xăng-ti-mét vuông, đừng quên chữ vuông nhé.": {
       "file": "assets/voice/dien-tich-viet-don-vi-la-xang-ti-met-vuo-ae07c9.mp3",
-      "ms": 3120,
-      "spoken": "Diện tích viết đơn vị là xăng-ti-mét vuông, đừng quên chữ vuông nhé."
+      "ms": 4200,
+      "spoken": "Diện tích viết đơn vị là xăng-ti-mét vuông, đừng quên chữ vuông nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Dùng góc của tờ giấy hoặc ê ke để kiểm tra góc vuông.": {
       "file": "assets/voice/dung-goc-cua-to-giay-hoac-e-ke-de-kiem-t-c31b7e.mp3",
-      "ms": 2736,
-      "spoken": "Dùng góc của tờ giấy hoặc ê ke để kiểm tra góc vuông."
+      "ms": 3384,
+      "spoken": "Dùng góc của tờ giấy hoặc ê ke để kiểm tra góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Dùng ê ke để vẽ góc vuông, dùng com-pa để vẽ đường tròn, dùng thước để vẽ đoạn thẳng có độ dài cho trước.": {
       "file": "assets/voice/dung-e-ke-de-ve-goc-vuong-dung-com-pa-de-b8d4d6.mp3",
@@ -2494,58 +2733,69 @@
     },
     "Giảm một số đi mấy lần thì lấy số đó chia cho số lần.": {
       "file": "assets/voice/giam-mot-so-di-may-lan-thi-lay-so-do-chi-0a9b62.mp3",
-      "ms": 3168,
-      "spoken": "Giảm một số đi mấy lần thì lấy số đó chia cho số lần."
+      "ms": 3960,
+      "spoken": "Giảm một số đi mấy lần thì lấy số đó chia cho số lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Giỏi lắm! Con đạt hạng Nhà thám hiểm số!": {
       "file": "assets/voice/gioi-lam-con-dat-hang-nha-tham-hiem-so-f52dbf.mp3",
-      "ms": 2088,
-      "spoken": "Giỏi lắm! Con đạt hạng Nhà thám hiểm số!"
+      "ms": 2712,
+      "spoken": "Giỏi lắm! Con đạt hạng Nhà thám hiểm số!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Giỏi quá!": {
       "file": "assets/voice/gioi-qua-ca2ca5.mp3",
-      "ms": 672,
-      "spoken": "Giỏi quá!"
+      "ms": 888,
+      "spoken": "Giỏi quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Góc vuông giống góc của quyển vở, của bảng đen.": {
       "file": "assets/voice/goc-vuong-giong-goc-cua-quyen-vo-cua-ban-ab3754.mp3",
-      "ms": 2496,
-      "spoken": "Góc vuông giống góc của quyển vở, của bảng đen."
+      "ms": 3144,
+      "spoken": "Góc vuông giống góc của quyển vở, của bảng đen.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Góc được tạo bởi hai cạnh chung một đỉnh. Dùng ê ke để kiểm tra góc vuông và góc không vuông.": {
       "file": "assets/voice/goc-duoc-tao-boi-hai-canh-chung-mot-dinh-d7c1e1.mp3",
-      "ms": 5232,
-      "spoken": "Góc được tạo bởi hai cạnh chung một đỉnh. Dùng ê ke để kiểm tra góc vuông và góc không vuông."
+      "ms": 6000,
+      "spoken": "Góc được tạo bởi hai cạnh chung một đỉnh. Dùng ê ke để kiểm tra góc vuông và góc không vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Gạch chân điều đề cho và điều đề hỏi, con sẽ thấy ngay cần làm phép tính gì.": {
       "file": "assets/voice/gach-chan-dieu-de-cho-va-dieu-de-hoi-con-7c556f.mp3",
-      "ms": 4608,
-      "spoken": "Gạch chân điều đề cho và điều đề hỏi, con sẽ thấy ngay cần làm phép tính gì."
+      "ms": 5184,
+      "spoken": "Gạch chân điều đề cho và điều đề hỏi, con sẽ thấy ngay cần làm phép tính gì.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Gấp một số lên mấy lần thì lấy số đó nhân với số lần.": {
       "file": "assets/voice/gap-mot-so-len-may-lan-thi-lay-so-do-nha-c12354.mp3",
-      "ms": 2784,
-      "spoken": "Gấp một số lên mấy lần thì lấy số đó nhân với số lần."
+      "ms": 3720,
+      "spoken": "Gấp một số lên mấy lần thì lấy số đó nhân với số lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Gần đúng rồi!": {
       "file": "assets/voice/gan-dung-roi-edba7f.mp3",
-      "ms": 888,
-      "spoken": "Gần đúng rồi!"
+      "ms": 1224,
+      "spoken": "Gần đúng rồi!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Gặp bài khó, con làm bài dễ trước rồi quay lại sau.": {
       "file": "assets/voice/gap-bai-kho-con-lam-bai-de-truoc-roi-qua-cdf08d.mp3",
-      "ms": 2880,
-      "spoken": "Gặp bài khó, con làm bài dễ trước rồi quay lại sau."
+      "ms": 3624,
+      "spoken": "Gặp bài khó, con làm bài dễ trước rồi quay lại sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Gộp các tờ tiền giống nhau lại để đếm cho nhanh.": {
       "file": "assets/voice/gop-cac-to-tien-giong-nhau-lai-de-dem-ch-ec2361.mp3",
-      "ms": 2448,
-      "spoken": "Gộp các tờ tiền giống nhau lại để đếm cho nhanh."
+      "ms": 3408,
+      "spoken": "Gộp các tờ tiền giống nhau lại để đếm cho nhanh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hai lần chiều rộng là:": {
       "file": "assets/voice/hai-lan-chieu-rong-la-21dd13.mp3",
-      "ms": 1200,
-      "spoken": "Hai lần chiều rộng là:"
+      "ms": 1632,
+      "spoken": "Hai lần chiều rộng là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hai tuần đội sửa được là:": {
       "file": "assets/voice/hai-tuan-doi-sua-duoc-la-a7a6f0.mp3",
@@ -2554,18 +2804,21 @@
     },
     "Hàng nào cộng được từ 10 trở lên thì viết chữ số hàng đơn vị và nhớ 1 sang hàng bên trái.": {
       "file": "assets/voice/hang-nao-cong-duoc-tu-10-tro-len-thi-vie-605f37.mp3",
-      "ms": 5136,
-      "spoken": "Hàng nào cộng được từ mười trở lên thì viết chữ số hàng đơn vị và nhớ một sang hàng bên trái."
+      "ms": 6264,
+      "spoken": "Hàng nào cộng được từ mười trở lên thì viết chữ số hàng đơn vị và nhớ một sang hàng bên trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hàng nào không có thì viết chữ số không vào hàng đó.": {
       "file": "assets/voice/hang-nao-khong-co-thi-viet-chu-so-khong-8f8420.mp3",
-      "ms": 2784,
-      "spoken": "Hàng nào không có thì viết chữ số không vào hàng đó."
+      "ms": 3240,
+      "spoken": "Hàng nào không có thì viết chữ số không vào hàng đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình chữ nhật có hai chiều dài bằng nhau, hai chiều rộng bằng nhau.": {
       "file": "assets/voice/hinh-chu-nhat-co-hai-chieu-dai-bang-nhau-3b17bd.mp3",
-      "ms": 3480,
-      "spoken": "Hình chữ nhật có hai chiều dài bằng nhau, hai chiều rộng bằng nhau."
+      "ms": 4128,
+      "spoken": "Hình chữ nhật có hai chiều dài bằng nhau, hai chiều rộng bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau; hình vuông có bốn cạnh bằng nhau. Ghép các hình vuông bằng nhau thành một hàng ta được hình chữ nhật.": {
       "file": "assets/voice/hinh-chu-nhat-co-hai-canh-dai-bang-nhau-619435.mp3",
@@ -2574,8 +2827,9 @@
     },
     "Hình tam giác có 3 cạnh, 3 đỉnh. Hình tứ giác có 4 cạnh, 4 đỉnh.": {
       "file": "assets/voice/hinh-tam-giac-co-3-canh-3-dinh-hinh-tu-g-0b74e6.mp3",
-      "ms": 4344,
-      "spoken": "Hình tam giác có ba cạnh, ba đỉnh. Hình tứ giác có bốn cạnh, bốn đỉnh."
+      "ms": 5688,
+      "spoken": "Hình tam giác có ba cạnh, ba đỉnh. Hình tứ giác có bốn cạnh, bốn đỉnh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình tam giác có 3 cạnh, 3 đỉnh; hình tứ giác có 4 cạnh, 4 đỉnh. Hình chữ nhật có 4 góc vuông, hai cạnh dài bằng nhau, hai cạnh ngắn bằng nhau; hình vuông có 4 góc vuông và 4 cạnh bằng nhau.": {
       "file": "assets/voice/hinh-tam-giac-co-3-canh-3-dinh-hinh-tu-g-5d8eb1.mp3",
@@ -2589,13 +2843,15 @@
     },
     "Hình vuông có 4 cạnh bằng nhau và 4 góc vuông.": {
       "file": "assets/voice/hinh-vuong-co-4-canh-bang-nhau-va-4-goc-8f25ab.mp3",
-      "ms": 2568,
-      "spoken": "Hình vuông có bốn cạnh bằng nhau và bốn góc vuông."
+      "ms": 3144,
+      "spoken": "Hình vuông có bốn cạnh bằng nhau và bốn góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình vuông và hình chữ nhật đều có 4 góc vuông.": {
       "file": "assets/voice/hinh-vuong-va-hinh-chu-nhat-deu-co-4-goc-01f629.mp3",
-      "ms": 2328,
-      "spoken": "Hình vuông và hình chữ nhật đều có bốn góc vuông."
+      "ms": 2952,
+      "spoken": "Hình vuông và hình chữ nhật đều có bốn góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.": {
       "file": "assets/voice/ha-0-0-chia-8-duoc-0-viet-0-0-nhan-8-ban-206506.mp3",
@@ -2614,13 +2870,15 @@
     },
     "Hạ 3, được 13; 13 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 13 trừ 12 bằng 1.": {
       "file": "assets/voice/ha-3-duoc-13-13-chia-6-duoc-2-viet-2-2-n-3caf8b.mp3",
-      "ms": 7056,
-      "spoken": "Hạ ba, được mười ba; mười ba chia sáu được hai, viết hai. hai nhân sáu bằng mười hai; mười ba trừ mười hai bằng một."
+      "ms": 8544,
+      "spoken": "Hạ ba, được mười ba; mười ba chia sáu được hai, viết hai. hai nhân sáu bằng mười hai; mười ba trừ mười hai bằng một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 4, được 14; 14 chia 4 được 3, viết 3. 3 nhân 4 bằng 12; 14 trừ 12 bằng 2.": {
       "file": "assets/voice/ha-4-duoc-14-14-chia-4-duoc-3-viet-3-3-n-3ec7f3.mp3",
-      "ms": 7704,
-      "spoken": "Hạ bốn, được mười bốn; mười bốn chia bốn được ba, viết ba. ba nhân bốn bằng mười hai; mười bốn trừ mười hai bằng hai."
+      "ms": 9600,
+      "spoken": "Hạ bốn, được mười bốn; mười bốn chia bốn được ba, viết ba. ba nhân bốn bằng mười hai; mười bốn trừ mười hai bằng hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 4, được 34; 34 chia 6 được 5, viết 5. 5 nhân 6 bằng 30; 34 trừ 30 bằng 4.": {
       "file": "assets/voice/ha-4-duoc-34-34-chia-6-duoc-5-viet-5-5-n-d7bb6b.mp3",
@@ -2629,8 +2887,9 @@
     },
     "Hạ 4, được 54; 54 chia 6 được 9, viết 9. 9 nhân 6 bằng 54; 54 trừ 54 bằng 0.": {
       "file": "assets/voice/ha-4-duoc-54-54-chia-6-duoc-9-viet-9-9-n-9f8474.mp3",
-      "ms": 8808,
-      "spoken": "Hạ bốn, được năm mươi tư; năm mươi tư chia sáu được chín, viết chín. chín nhân sáu bằng năm mươi tư; năm mươi tư trừ năm mươi tư bằng không."
+      "ms": 9504,
+      "spoken": "Hạ bốn, được năm mươi tư; năm mươi tư chia sáu được chín, viết chín. chín nhân sáu bằng năm mươi tư; năm mươi tư trừ năm mươi tư bằng không.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 5, được 35; 35 chia 5 được 7, viết 7. 7 nhân 5 bằng 35; 35 trừ 35 bằng 0.": {
       "file": "assets/voice/ha-5-duoc-35-35-chia-5-duoc-7-viet-7-7-n-a54a3c.mp3",
@@ -2644,8 +2903,9 @@
     },
     "Hạ 5; 5 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 5 trừ 4 bằng 1.": {
       "file": "assets/voice/ha-5-5-chia-4-duoc-1-viet-1-1-nhan-4-ban-c1de65.mp3",
-      "ms": 5424,
-      "spoken": "Hạ năm; năm chia bốn được một, viết một. một nhân bốn bằng bốn; năm trừ bốn bằng một."
+      "ms": 6792,
+      "spoken": "Hạ năm; năm chia bốn được một, viết một. một nhân bốn bằng bốn; năm trừ bốn bằng một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 6, được 26; 26 chia 5 được 5, viết 5. 5 nhân 5 bằng 25; 26 trừ 25 bằng 1.": {
       "file": "assets/voice/ha-6-duoc-26-26-chia-5-duoc-5-viet-5-5-n-a295f4.mp3",
@@ -2659,13 +2919,15 @@
     },
     "Hạ 7, được 17; 17 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 17 trừ 12 bằng 5.": {
       "file": "assets/voice/ha-7-duoc-17-17-chia-6-duoc-2-viet-2-2-n-f29968.mp3",
-      "ms": 8496,
-      "spoken": "Hạ bảy, được mười bảy; mười bảy chia sáu được hai, viết hai. hai nhân sáu bằng mười hai; mười bảy trừ mười hai bằng năm."
+      "ms": 9048,
+      "spoken": "Hạ bảy, được mười bảy; mười bảy chia sáu được hai, viết hai. hai nhân sáu bằng mười hai; mười bảy trừ mười hai bằng năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 8, được 28; 28 chia 4 được 7, viết 7. 7 nhân 4 bằng 28; 28 trừ 28 bằng 0.": {
       "file": "assets/voice/ha-8-duoc-28-28-chia-4-duoc-7-viet-7-7-n-970037.mp3",
-      "ms": 8712,
-      "spoken": "Hạ tám, được hai mươi tám; hai mươi tám chia bốn được bảy, viết bảy. bảy nhân bốn bằng hai mươi tám; hai mươi tám trừ hai mươi tám bằng không."
+      "ms": 9960,
+      "spoken": "Hạ tám, được hai mươi tám; hai mươi tám chia bốn được bảy, viết bảy. bảy nhân bốn bằng hai mươi tám; hai mươi tám trừ hai mươi tám bằng không.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hạ 8; 8 chia 2 được 4, viết 4. 4 nhân 2 bằng 8; 8 trừ 8 bằng 0.": {
       "file": "assets/voice/ha-8-8-chia-2-duoc-4-viet-4-4-nhan-2-ban-ce9b44.mp3",
@@ -2674,8 +2936,9 @@
     },
     "Hạ một chữ số mà không chia được thì viết số không vào thương.": {
       "file": "assets/voice/ha-mot-chu-so-ma-khong-chia-duoc-thi-vie-9c2ebd.mp3",
-      "ms": 3096,
-      "spoken": "Hạ một chữ số mà không chia được thì viết số không vào thương."
+      "ms": 4056,
+      "spoken": "Hạ một chữ số mà không chia được thì viết số không vào thương.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hộp có bóng đỏ và bóng xanh. Lấy 1 quả: có thể được bóng đỏ, có thể được bóng xanh.": {
       "file": "assets/voice/hop-co-bong-do-va-bong-xanh-lay-1-qua-co-653a8e.mp3",
@@ -2699,28 +2962,33 @@
     },
     "Khi làm tròn số đến một hàng, ta nhìn chữ số ở hàng ngay bên phải: nếu bé hơn 5 thì làm tròn xuống, nếu lớn hơn hoặc bằng 5 thì làm tròn lên.": {
       "file": "assets/voice/khi-lam-tron-so-den-mot-hang-ta-nhin-chu-4590b9.mp3",
-      "ms": 8928,
-      "spoken": "Khi làm tròn số đến một hàng, ta nhìn chữ số ở hàng ngay bên phải: nếu bé hơn năm thì làm tròn xuống, nếu lớn hơn hoặc bằng năm thì làm tròn lên."
+      "ms": 10248,
+      "spoken": "Khi làm tròn số đến một hàng, ta nhìn chữ số ở hàng ngay bên phải: nếu bé hơn năm thì làm tròn xuống, nếu lớn hơn hoặc bằng năm thì làm tròn lên.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Không sao cả! Mình cùng xem cách làm nhé.": {
       "file": "assets/voice/khong-sao-ca-minh-cung-xem-cach-lam-nhe-62620b.mp3",
-      "ms": 1992,
-      "spoken": "Không sao cả! Mình cùng xem cách làm nhé."
+      "ms": 3024,
+      "spoken": "Không sao cả! Mình cùng xem cách làm nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Không sao, mình cùng ôn lại từ đầu nhé!": {
       "file": "assets/voice/khong-sao-minh-cung-on-lai-tu-dau-nhe-3491a9.mp3",
-      "ms": 1824,
-      "spoken": "Không sao, mình cùng ôn lại từ đầu nhé!"
+      "ms": 2808,
+      "spoken": "Không sao, mình cùng ôn lại từ đầu nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Không sao, mình sang câu tiếp theo nhé!": {
       "file": "assets/voice/khong-sao-minh-sang-cau-tiep-theo-nhe-2c8d74.mp3",
-      "ms": 1848,
-      "spoken": "Không sao, mình sang câu tiếp theo nhé!"
+      "ms": 2592,
+      "spoken": "Không sao, mình sang câu tiếp theo nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Không sao, mình thử lại nhé.": {
       "file": "assets/voice/khong-sao-minh-thu-lai-nhe-4dda29.mp3",
-      "ms": 1224,
-      "spoken": "Không sao, mình thử lại nhé."
+      "ms": 2328,
+      "spoken": "Không sao, mình thử lại nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Khối lập phương có 12 cạnh. Số dây thép làm khung là:": {
       "file": "assets/voice/khoi-lap-phuong-co-12-canh-so-day-thep-l-d19287.mp3",
@@ -2744,13 +3012,15 @@
     },
     "Khối lập phương và khối hộp chữ nhật đều có 6 mặt, 8 đỉnh, 12 cạnh.": {
       "file": "assets/voice/khoi-lap-phuong-va-khoi-hop-chu-nhat-deu-e8ef51.mp3",
-      "ms": 4272,
-      "spoken": "Khối lập phương và khối hộp chữ nhật đều có sáu mặt, tám đỉnh, mười hai cạnh."
+      "ms": 5184,
+      "spoken": "Khối lập phương và khối hộp chữ nhật đều có sáu mặt, tám đỉnh, mười hai cạnh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kim ngắn chỉ giờ, kim dài chỉ phút. Kim dài đi hết một vòng là một giờ.": {
       "file": "assets/voice/kim-ngan-chi-gio-kim-dai-chi-phut-kim-da-409b38.mp3",
-      "ms": 4416,
-      "spoken": "Kim ngắn chỉ giờ, kim dài chỉ phút. Kim dài đi hết một vòng là một giờ."
+      "ms": 5256,
+      "spoken": "Kim ngắn chỉ giờ, kim dài chỉ phút. Kim dài đi hết một vòng là một giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kim ngắn chỉ giờ, kim dài chỉ phút; mỗi số trên mặt đồng hồ ứng với 5 phút. Một năm có 12 tháng; tháng 4, 6, 9, 11 có 30 ngày; tháng 2 có 28 hoặc 29 ngày; các tháng còn lại có 31 ngày.": {
       "file": "assets/voice/kim-ngan-chi-gio-kim-dai-chi-phut-moi-so-1ff027.mp3",
@@ -2764,13 +3034,15 @@
     },
     "Kỷ lục mới! Con giỏi quá!": {
       "file": "assets/voice/ky-luc-moi-con-gioi-qua-bb4729.mp3",
-      "ms": 1320,
-      "spoken": "Kỷ lục mới! Con giỏi quá!"
+      "ms": 2304,
+      "spoken": "Kỷ lục mới! Con giỏi quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn 26.550 đến hàng nghìn được 27.000.": {
       "file": "assets/voice/lam-tron-26-550-den-hang-nghin-duoc-27-0-e080e3.mp3",
-      "ms": 4440,
-      "spoken": "Làm tròn hai mươi sáu nghìn năm trăm năm mươi đến hàng nghìn được hai mươi bảy nghìn."
+      "ms": 4632,
+      "spoken": "Làm tròn hai mươi sáu nghìn năm trăm năm mươi đến hàng nghìn được hai mươi bảy nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn 9.201 đến hàng chục được 9.200.": {
       "file": "assets/voice/lam-tron-9-201-den-hang-chuc-duoc-9-200-cd836f.mp3",
@@ -2779,23 +3051,27 @@
     },
     "Làm tròn số giúp ta nói gần đúng một số đo, ví dụ “khoảng 2.000 người”.": {
       "file": "assets/voice/lam-tron-so-giup-ta-noi-gan-dung-mot-so-fa571a.mp3",
-      "ms": 4680,
-      "spoken": "Làm tròn số giúp ta nói gần đúng một số đo, ví dụ “khoảng hai nghìn người”."
+      "ms": 5208,
+      "spoken": "Làm tròn số giúp ta nói gần đúng một số đo, ví dụ “khoảng hai nghìn người”.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn xong, các chữ số bên phải hàng đó đều thành số không.": {
       "file": "assets/voice/lam-tron-xong-cac-chu-so-ben-phai-hang-d-fe60d2.mp3",
-      "ms": 3072,
-      "spoken": "Làm tròn xong, các chữ số bên phải hàng đó đều thành số không."
+      "ms": 4176,
+      "spoken": "Làm tròn xong, các chữ số bên phải hàng đó đều thành số không.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!": {
       "file": "assets/voice/lam-tot-lam-co-them-chut-nua-la-duoc-ba-88eb59.mp3",
-      "ms": 2496,
-      "spoken": "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!"
+      "ms": 3168,
+      "spoken": "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm xong, con dò lại từng bước một lần trước khi bấm kiểm tra nhé.": {
       "file": "assets/voice/lam-xong-con-do-lai-tung-buoc-mot-lan-tr-412d2f.mp3",
-      "ms": 3384,
-      "spoken": "Làm xong, con dò lại từng bước một lần trước khi bấm kiểm tra nhé."
+      "ms": 4080,
+      "spoken": "Làm xong, con dò lại từng bước một lần trước khi bấm kiểm tra nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm xong, con thử lại kết quả bằng phép tính ngược nhé.": {
       "file": "assets/voice/lam-xong-con-thu-lai-ket-qua-bang-phep-t-7da82d.mp3",
@@ -2804,13 +3080,15 @@
     },
     "Làm xong, con ước lượng xem kết quả có hợp lý không nhé.": {
       "file": "assets/voice/lam-xong-con-uoc-luong-xem-ket-qua-co-ho-ec8a08.mp3",
-      "ms": 3048,
-      "spoken": "Làm xong, con ước lượng xem kết quả có hợp lý không nhé."
+      "ms": 3528,
+      "spoken": "Làm xong, con ước lượng xem kết quả có hợp lý không nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Lúc 3 giờ, kim giờ và kim phút tạo thành một góc vuông.": {
       "file": "assets/voice/luc-3-gio-kim-gio-va-kim-phut-tao-thanh-06ba72.mp3",
-      "ms": 3072,
-      "spoken": "Lúc ba giờ, kim giờ và kim phút tạo thành một góc vuông."
+      "ms": 3720,
+      "spoken": "Lúc ba giờ, kim giờ và kim phút tạo thành một góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Lúc không may nhất, ta lấy ra hết số bi không phải màu đỏ:": {
       "file": "assets/voice/luc-khong-may-nhat-ta-lay-ra-het-so-bi-k-d9dc60.mp3",
@@ -2824,8 +3102,9 @@
     },
     "Lấy 3 nhân hàng đơn vị trước: 3 × 1 = ?": {
       "file": "assets/voice/lay-3-nhan-hang-don-vi-truoc-3-1-f0e841.mp3",
-      "ms": 2880,
-      "spoken": "Lấy ba nhân hàng đơn vị trước: ba nhân một bằng bao nhiêu?"
+      "ms": 3768,
+      "spoken": "Lấy ba nhân hàng đơn vị trước: ba nhân một bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Lấy thêm 1 viên nữa thì chắc chắn có 1 viên bi đỏ. Số bi ít nhất phải lấy là:": {
       "file": "assets/voice/lay-them-1-vien-nua-thi-chac-chan-co-1-v-378e56.mp3",
@@ -2859,18 +3138,21 @@
     },
     "Muốn biết số lớn gấp mấy lần số bé, lấy số lớn chia cho số bé.": {
       "file": "assets/voice/muon-biet-so-lon-gap-may-lan-so-be-lay-s-8e2cd1.mp3",
-      "ms": 3120,
-      "spoken": "Muốn biết số lớn gấp mấy lần số bé, lấy số lớn chia cho số bé."
+      "ms": 4704,
+      "spoken": "Muốn biết số lớn gấp mấy lần số bé, lấy số lớn chia cho số bé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.": {
       "file": "assets/voice/muon-biet-so-lon-gap-may-lan-so-be-ta-la-eafb8f.mp3",
-      "ms": 3552,
-      "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé."
+      "ms": 4872,
+      "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé. Nếu đề chưa cho số lớn, con tìm số lớn trước.": {
       "file": "assets/voice/muon-biet-so-lon-gap-may-lan-so-be-ta-la-a69353.mp3",
-      "ms": 8280,
-      "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé. Nếu đề chưa cho số lớn, con tìm số lớn trước."
+      "ms": 8184,
+      "spoken": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé. Nếu đề chưa cho số lớn, con tìm số lớn trước.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn cộng, trừ hay so sánh các số đo, con đổi về cùng một đơn vị: 1 m = 100 cm, 1 m = 10 dm, 1 dm = 10 cm, 1 km = 1.000 m.": {
       "file": "assets/voice/muon-cong-tru-hay-so-sanh-cac-so-do-con-e6c65f.mp3",
@@ -2909,8 +3191,9 @@
     },
     "Muốn tìm một phần mấy của một số, con lấy số đó chia cho số phần.": {
       "file": "assets/voice/muon-tim-mot-phan-may-cua-mot-so-con-lay-d3c826.mp3",
-      "ms": 3336,
-      "spoken": "Muốn tìm một phần mấy của một số, con lấy số đó chia cho số phần."
+      "ms": 4680,
+      "spoken": "Muốn tìm một phần mấy của một số, con lấy số đó chia cho số phần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.": {
       "file": "assets/voice/muon-tim-mot-phan-may-cua-mot-so-ta-lay-edc9da.mp3",
@@ -2919,8 +3202,9 @@
     },
     "Muốn tìm số bị chia, lấy thương nhân với số chia. Muốn tìm số chia, lấy số bị chia chia cho thương.": {
       "file": "assets/voice/muon-tim-so-bi-chia-lay-thuong-nhan-voi-fb1baa.mp3",
-      "ms": 5856,
-      "spoken": "Muốn tìm số bị chia, lấy thương nhân với số chia. Muốn tìm số chia, lấy số bị chia chia cho thương."
+      "ms": 6864,
+      "spoken": "Muốn tìm số bị chia, lấy thương nhân với số chia. Muốn tìm số chia, lấy số bị chia chia cho thương.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm số bị chia, ta lấy thương nhân với số chia.": {
       "file": "assets/voice/muon-tim-so-bi-chia-ta-lay-thuong-nhan-v-ca4415.mp3",
@@ -2929,8 +3213,9 @@
     },
     "Muốn tìm số bị trừ, lấy hiệu cộng với số trừ. Muốn tìm số trừ, lấy số bị trừ trừ đi hiệu.": {
       "file": "assets/voice/muon-tim-so-bi-tru-lay-hieu-cong-voi-so-0efdb0.mp3",
-      "ms": 5520,
-      "spoken": "Muốn tìm số bị trừ, lấy hiệu cộng với số trừ. Muốn tìm số trừ, lấy số bị trừ trừ đi hiệu."
+      "ms": 7152,
+      "spoken": "Muốn tìm số bị trừ, lấy hiệu cộng với số trừ. Muốn tìm số trừ, lấy số bị trừ trừ đi hiệu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.": {
       "file": "assets/voice/muon-tim-so-bi-tru-ta-lay-hieu-cong-voi-2a2e47.mp3",
@@ -2944,13 +3229,15 @@
     },
     "Muốn tìm số hạng chưa biết, lấy tổng trừ đi số hạng đã biết.": {
       "file": "assets/voice/muon-tim-so-hang-chua-biet-lay-tong-tru-62e7e5.mp3",
-      "ms": 2880,
-      "spoken": "Muốn tìm số hạng chưa biết, lấy tổng trừ đi số hạng đã biết."
+      "ms": 4008,
+      "spoken": "Muốn tìm số hạng chưa biết, lấy tổng trừ đi số hạng đã biết.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.": {
       "file": "assets/voice/muon-tim-so-hang-chua-biet-ta-lay-tong-t-ac7514.mp3",
-      "ms": 3048,
-      "spoken": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết."
+      "ms": 3888,
+      "spoken": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết. Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ; muốn tìm số trừ, ta lấy số bị trừ trừ đi hiệu.": {
       "file": "assets/voice/muon-tim-so-hang-chua-biet-ta-lay-tong-t-637698.mp3",
@@ -2964,8 +3251,9 @@
     },
     "Muốn tìm thừa số chưa biết, lấy tích chia cho thừa số đã biết.": {
       "file": "assets/voice/muon-tim-thua-so-chua-biet-lay-tich-chia-a347fd.mp3",
-      "ms": 3120,
-      "spoken": "Muốn tìm thừa số chưa biết, lấy tích chia cho thừa số đã biết."
+      "ms": 3984,
+      "spoken": "Muốn tìm thừa số chưa biết, lấy tích chia cho thừa số đã biết.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.": {
       "file": "assets/voice/muon-tim-thua-so-chua-biet-ta-lay-tich-c-86275a.mp3",
@@ -3009,38 +3297,45 @@
     },
     "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!": {
       "file": "assets/voice/minh-cung-lam-bai-kiem-tra-nang-luc-nhe-67ffdd.mp3",
-      "ms": 6528,
-      "spoken": "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!"
+      "ms": 7776,
+      "spoken": "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình nên luyện thêm phần hình học nhé!": {
       "file": "assets/voice/minh-nen-luyen-them-phan-hinh-hoc-nhe-5f2024.mp3",
-      "ms": 1656,
-      "spoken": "Mình nên luyện thêm phần hình học nhé!"
+      "ms": 1992,
+      "spoken": "Mình nên luyện thêm phần hình học nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình nên luyện thêm phần phép cộng, phép trừ nhé!": {
       "file": "assets/voice/minh-nen-luyen-them-phan-phep-cong-phep-bb17b2.mp3",
-      "ms": 2160,
-      "spoken": "Mình nên luyện thêm phần phép cộng, phép trừ nhé!"
+      "ms": 2952,
+      "spoken": "Mình nên luyện thêm phần phép cộng, phép trừ nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình nên luyện thêm phần phép nhân, phép chia nhé!": {
       "file": "assets/voice/minh-nen-luyen-them-phan-phep-nhan-phep-d03692.mp3",
-      "ms": 2016,
-      "spoken": "Mình nên luyện thêm phần phép nhân, phép chia nhé!"
+      "ms": 2976,
+      "spoken": "Mình nên luyện thêm phần phép nhân, phép chia nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình nên luyện thêm phần số và cấu tạo số nhé!": {
       "file": "assets/voice/minh-nen-luyen-them-phan-so-va-cau-tao-s-800f7f.mp3",
-      "ms": 2016,
-      "spoken": "Mình nên luyện thêm phần số và cấu tạo số nhé!"
+      "ms": 2928,
+      "spoken": "Mình nên luyện thêm phần số và cấu tạo số nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình nên luyện thêm phần đo lường, thời gian, tiền, thống kê nhé!": {
       "file": "assets/voice/minh-nen-luyen-them-phan-do-luong-thoi-g-af6231.mp3",
-      "ms": 3216,
-      "spoken": "Mình nên luyện thêm phần đo lường, thời gian, tiền, thống kê nhé!"
+      "ms": 4536,
+      "spoken": "Mình nên luyện thêm phần đo lường, thời gian, tiền, thống kê nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mặt đồng hồ thường ghi số La Mã từ I đến XII.": {
       "file": "assets/voice/mat-dong-ho-thuong-ghi-so-la-ma-tu-i-den-61b94b.mp3",
-      "ms": 2400,
-      "spoken": "Mặt đồng hồ thường ghi số La Mã từ I đến XII."
+      "ms": 3168,
+      "spoken": "Mặt đồng hồ thường ghi số La Mã từ I đến XII.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mẹ hơn con số tuổi là:": {
       "file": "assets/voice/me-hon-con-so-tuoi-la-c13dd1.mp3",
@@ -3054,23 +3349,27 @@
     },
     "Mẹo bảng nhân 9: cộng hai chữ số của tích luôn được 9. Ví dụ 9 × 4 = 36, và 3 + 6 = 9.": {
       "file": "assets/voice/meo-bang-nhan-9-cong-hai-chu-so-cua-tich-074192.mp3",
-      "ms": 7896,
-      "spoken": "Mẹo bảng nhân chín: cộng hai chữ số của tích luôn được chín. Ví dụ chín nhân bốn bằng ba mươi sáu, và ba cộng sáu bằng chín."
+      "ms": 8664,
+      "spoken": "Mẹo bảng nhân chín: cộng hai chữ số của tích luôn được chín. Ví dụ chín nhân bốn bằng ba mươi sáu, và ba cộng sáu bằng chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mẹo nhớ nhanh nè!": {
       "file": "assets/voice/meo-nho-nhanh-ne-9ee642.mp3",
-      "ms": 1032,
-      "spoken": "Mẹo nhớ nhanh nè!"
+      "ms": 1344,
+      "spoken": "Mẹo nhớ nhanh nè!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mọi bán kính của một hình tròn đều dài bằng nhau.": {
       "file": "assets/voice/moi-ban-kinh-cua-mot-hinh-tron-deu-dai-b-858ff5.mp3",
-      "ms": 2304,
-      "spoken": "Mọi bán kính của một hình tròn đều dài bằng nhau."
+      "ms": 2904,
+      "spoken": "Mọi bán kính của một hình tròn đều dài bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?": {
       "file": "assets/voice/moi-nhom-bang-nhau-co-nhieu-nhom-con-thu-f276a9.mp3",
-      "ms": 2784,
-      "spoken": "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?"
+      "ms": 4224,
+      "spoken": "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi năm ai cũng thêm một tuổi, nên hai người luôn hơn kém nhau một số tuổi không đổi.": {
       "file": "assets/voice/moi-nam-ai-cung-them-mot-tuoi-nen-hai-ng-67ac74.mp3",
@@ -3084,18 +3383,21 @@
     },
     "Một ki-lô-gam bằng một nghìn gam.": {
       "file": "assets/voice/mot-ki-lo-gam-bang-mot-nghin-gam-a81b1c.mp3",
-      "ms": 1824,
-      "spoken": "Một ki-lô-gam bằng một nghìn gam."
+      "ms": 2208,
+      "spoken": "Một ki-lô-gam bằng một nghìn gam.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một lít bằng một nghìn mi-li-lít.": {
       "file": "assets/voice/mot-lit-bang-mot-nghin-mi-li-lit-72c83d.mp3",
       "ms": 1824,
-      "spoken": "Một lít bằng một nghìn mi-li-lít."
+      "spoken": "Một lít bằng một nghìn mi-li-lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một phần hai là một nửa. Một phần tư là một nửa của một nửa.": {
       "file": "assets/voice/mot-phan-hai-la-mot-nua-mot-phan-tu-la-m-ec01b7.mp3",
-      "ms": 3312,
-      "spoken": "Một phần hai là một nửa. Một phần tư là một nửa của một nửa."
+      "ms": 4296,
+      "spoken": "Một phần hai là một nửa. Một phần tư là một nửa của một nửa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một sự kiện có thể chắc chắn xảy ra, có thể xảy ra hoặc không thể xảy ra.": {
       "file": "assets/voice/mot-su-kien-co-the-chac-chan-xay-ra-co-t-4cc8bb.mp3",
@@ -3114,18 +3416,21 @@
     },
     "Một xăng-ti-mét bằng mười mi-li-mét. Một mét bằng một nghìn mi-li-mét.": {
       "file": "assets/voice/mot-xang-ti-met-bang-muoi-mi-li-met-mot-c58613.mp3",
-      "ms": 4440,
-      "spoken": "Một xăng-ti-mét bằng mười mi-li-mét. Một mét bằng một nghìn mi-li-mét."
+      "ms": 4800,
+      "spoken": "Một xăng-ti-mét bằng mười mi-li-mét. Một mét bằng một nghìn mi-li-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhanh mà chính xác, giỏi lắm!": {
       "file": "assets/voice/nhanh-ma-chinh-xac-gioi-lam-1fc867.mp3",
-      "ms": 1176,
-      "spoken": "Nhanh mà chính xác, giỏi lắm!"
+      "ms": 2280,
+      "spoken": "Nhanh mà chính xác, giỏi lắm!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.": {
       "file": "assets/voice/nhieu-hon-thi-lam-phep-cong-it-hon-thi-l-ad6b4d.mp3",
-      "ms": 2952,
-      "spoken": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé."
+      "ms": 3480,
+      "spoken": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhiệt độ cho biết nóng hay lạnh, đo bằng nhiệt kế. Đơn vị đo nhiệt độ là độ C, viết là °C.": {
       "file": "assets/voice/nhiet-do-cho-biet-nong-hay-lanh-do-bang-fb032c.mp3",
@@ -3139,28 +3444,33 @@
     },
     "Nhân hàng đơn vị trước: 3 × 2 = ?": {
       "file": "assets/voice/nhan-hang-don-vi-truoc-3-2-4674ab.mp3",
-      "ms": 2472,
-      "spoken": "Nhân hàng đơn vị trước: ba nhân hai bằng bao nhiêu?"
+      "ms": 3528,
+      "spoken": "Nhân hàng đơn vị trước: ba nhân hai bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhân từ phải sang trái, bắt đầu từ hàng đơn vị.": {
       "file": "assets/voice/nhan-tu-phai-sang-trai-bat-dau-tu-hang-d-a63c6a.mp3",
-      "ms": 2520,
-      "spoken": "Nhân từ phải sang trái, bắt đầu từ hàng đơn vị."
+      "ms": 3312,
+      "spoken": "Nhân từ phải sang trái, bắt đầu từ hàng đơn vị.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhân với 9 thì lấy nhân với 10 rồi bớt đi một lần số đó. 9 × 7 = 70 − 7 = 63.": {
       "file": "assets/voice/nhan-voi-9-thi-lay-nhan-voi-10-roi-bot-d-e6915f.mp3",
-      "ms": 7008,
-      "spoken": "Nhân với chín thì lấy nhân với mười rồi bớt đi một lần số đó. chín nhân bảy bằng bảy mươi trừ bảy bằng sáu mươi ba."
+      "ms": 7680,
+      "spoken": "Nhân với chín thì lấy nhân với mười rồi bớt đi một lần số đó. chín nhân bảy bằng bảy mươi trừ bảy bằng sáu mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhân xong mỗi hàng, đừng quên cộng thêm số nhớ của lượt trước.": {
       "file": "assets/voice/nhan-xong-moi-hang-dung-quen-cong-them-s-3d0968.mp3",
-      "ms": 2880,
-      "spoken": "Nhân xong mỗi hàng, đừng quên cộng thêm số nhớ của lượt trước."
+      "ms": 3840,
+      "spoken": "Nhân xong mỗi hàng, đừng quên cộng thêm số nhớ của lượt trước.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhìn chữ số ngay bên phải hàng cần làm tròn: từ năm trở lên thì làm tròn lên, dưới năm thì làm tròn xuống.": {
       "file": "assets/voice/nhin-chu-so-ngay-ben-phai-hang-can-lam-t-0b11ef.mp3",
-      "ms": 6864,
-      "spoken": "Nhìn chữ số ngay bên phải hàng cần làm tròn: từ năm trở lên thì làm tròn lên, dưới năm thì làm tròn xuống."
+      "ms": 7152,
+      "spoken": "Nhìn chữ số ngay bên phải hàng cần làm tròn: từ năm trở lên thì làm tròn lên, dưới năm thì làm tròn xuống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhớ các đơn vị đo đã học: 1 m = 10 dm, 1 dm = 10 cm, 1 m = 100 cm, 1 km = 1.000 m. Đo khối lượng dùng ki-lô-gam (kg), đo dung tích dùng lít (l).": {
       "file": "assets/voice/nho-cac-don-vi-do-da-hoc-1-m-10-dm-1-dm-a1eebf.mp3",
@@ -3169,8 +3479,9 @@
     },
     "Nhớ nhé: I là một, V là năm, X là mười; chữ số nhỏ đứng bên phải thì cộng thêm, đứng bên trái thì trừ đi.": {
       "file": "assets/voice/nho-nhe-i-la-mot-v-la-nam-x-la-muoi-chu-0da7cf.mp3",
-      "ms": 7224,
-      "spoken": "Nhớ nhé: I là một, V là năm, X là mười; chữ số nhỏ đứng bên phải thì cộng thêm, đứng bên trái thì trừ đi."
+      "ms": 8544,
+      "spoken": "Nhớ nhé: I là một, V là năm, X là mười; chữ số nhỏ đứng bên phải thì cộng thêm, đứng bên trái thì trừ đi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nhớ nhé: một ki-lô-gam bằng một nghìn gam.": {
       "file": "assets/voice/nho-nhe-mot-ki-lo-gam-bang-mot-nghin-gam-01f393.mp3",
@@ -3189,8 +3500,9 @@
     },
     "Nước đá tan ở không độ C, nước sôi ở một trăm độ C.": {
       "file": "assets/voice/nuoc-da-tan-o-khong-do-c-nuoc-soi-o-mot-bde704.mp3",
-      "ms": 3144,
-      "spoken": "Nước đá tan ở không độ C, nước sôi ở một trăm độ C."
+      "ms": 3600,
+      "spoken": "Nước đá tan ở không độ C, nước sôi ở một trăm độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nước đá đang tan khoảng 0 °C, nước sôi 100 °C.": {
       "file": "assets/voice/nuoc-da-dang-tan-khoang-0-c-nuoc-soi-100-d0a0e5.mp3",
@@ -3199,23 +3511,27 @@
     },
     "Nắm tay lại đếm các đốt ngón tay: tháng ở đốt nhô lên có ba mươi mốt ngày.": {
       "file": "assets/voice/nam-tay-lai-dem-cac-dot-ngon-tay-thang-o-c88bf4.mp3",
-      "ms": 4488,
-      "spoken": "Nắm tay lại đếm các đốt ngón tay: tháng ở đốt nhô lên có ba mươi mốt ngày."
+      "ms": 5376,
+      "spoken": "Nắm tay lại đếm các đốt ngón tay: tháng ở đốt nhô lên có ba mươi mốt ngày.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nửa chu vi (chiều dài cộng chiều rộng) là:": {
       "file": "assets/voice/nua-chu-vi-chieu-dai-cong-chieu-rong-la-fd6314.mp3",
-      "ms": 2280,
-      "spoken": "Nửa chu vi (chiều dài cộng chiều rộng) là:"
+      "ms": 2592,
+      "spoken": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nửa chu vi hình chữ nhật bằng chiều dài cộng chiều rộng. Biết chu vi và một cạnh, con tìm được cạnh còn lại.": {
       "file": "assets/voice/nua-chu-vi-hinh-chu-nhat-bang-chieu-dai-1667a6.mp3",
-      "ms": 6072,
-      "spoken": "Nửa chu vi hình chữ nhật bằng chiều dài cộng chiều rộng. Biết chu vi và một cạnh, con tìm được cạnh còn lại."
+      "ms": 6552,
+      "spoken": "Nửa chu vi hình chữ nhật bằng chiều dài cộng chiều rộng. Biết chu vi và một cạnh, con tìm được cạnh còn lại.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!": {
       "file": "assets/voice/oa-ruong-bau-mo-roi-con-gioi-qua-xong-he-fa0456.mp3",
-      "ms": 3288,
-      "spoken": "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!"
+      "ms": 4728,
+      "spoken": "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phép chia còn dư thì phần dư vẫn cần thêm một chỗ nữa, con đừng quên nhé.": {
       "file": "assets/voice/phep-chia-con-du-thi-phan-du-van-can-the-03e7b3.mp3",
@@ -3224,18 +3540,21 @@
     },
     "Phép chia có số dư bằng 0 là phép chia hết; số dư khác 0 là phép chia có dư. Số dư luôn bé hơn số chia.": {
       "file": "assets/voice/phep-chia-co-so-du-bang-0-la-phep-chia-h-349c44.mp3",
-      "ms": 7104,
-      "spoken": "Phép chia có số dư bằng không là phép chia hết; số dư khác không là phép chia có dư. Số dư luôn bé hơn số chia."
+      "ms": 7920,
+      "spoken": "Phép chia có số dư bằng không là phép chia hết; số dư khác không là phép chia có dư. Số dư luôn bé hơn số chia.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phép chia là phép nhân ngược lại. Biết 6 × 4 = 24 thì 24 : 6 = 4 và 24 : 4 = 6.": {
       "file": "assets/voice/phep-chia-la-phep-nhan-nguoc-lai-biet-6-b03744.mp3",
-      "ms": 8112,
-      "spoken": "Phép chia là phép nhân ngược lại. Biết sáu nhân bốn bằng hai mươi tư thì hai mươi tư chia sáu bằng bốn và hai mươi tư chia bốn bằng sáu."
+      "ms": 9192,
+      "spoken": "Phép chia là phép nhân ngược lại. Biết sáu nhân bốn bằng hai mươi tư thì hai mươi tư chia sáu bằng bốn và hai mươi tư chia bốn bằng sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phép chia là phép nhân ngược lại. Biết 9 × 6 = 54 thì 54 : 9 = 6.": {
       "file": "assets/voice/phep-chia-la-phep-nhan-nguoc-lai-biet-9-a8c681.mp3",
-      "ms": 6120,
-      "spoken": "Phép chia là phép nhân ngược lại. Biết chín nhân sáu bằng năm mươi tư thì năm mươi tư chia chín bằng sáu."
+      "ms": 6456,
+      "spoken": "Phép chia là phép nhân ngược lại. Biết chín nhân sáu bằng năm mươi tư thì năm mươi tư chia chín bằng sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phép chia thì chia từ trái sang phải; số dư luôn bé hơn số chia.": {
       "file": "assets/voice/phep-chia-thi-chia-tu-trai-sang-phai-so-298b5e.mp3",
@@ -3249,13 +3568,15 @@
     },
     "Quên một dòng trong bảng nhân? Lấy dòng ngay trên rồi cộng thêm một lần số đó.": {
       "file": "assets/voice/quen-mot-dong-trong-bang-nhan-lay-dong-n-aabed1.mp3",
-      "ms": 4464,
-      "spoken": "Quên một dòng trong bảng nhân? Lấy dòng ngay trên rồi cộng thêm một lần số đó."
+      "ms": 4896,
+      "spoken": "Quên một dòng trong bảng nhân? Lấy dòng ngay trên rồi cộng thêm một lần số đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Siêu quá! Một chuỗi câu đúng dài luôn!": {
       "file": "assets/voice/sieu-qua-mot-chuoi-cau-dung-dai-luon-2a2466.mp3",
-      "ms": 1992,
-      "spoken": "Siêu quá! Một chuỗi câu đúng dài luôn!"
+      "ms": 2784,
+      "spoken": "Siêu quá! Một chuỗi câu đúng dài luôn!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "So sánh: 10 + 2 × 3 = 16, còn (10 + 2) × 3 = 36. Dấu ngoặc làm thay đổi thứ tự tính.": {
       "file": "assets/voice/so-sanh-10-2-3-16-con-10-2-3-36-dau-ngoa-04041d.mp3",
@@ -3319,8 +3640,9 @@
     },
     "Số dư luôn bé hơn số chia. Nếu số dư lớn hơn, con chia tiếp được nữa đấy!": {
       "file": "assets/voice/so-du-luon-be-hon-so-chia-neu-so-du-lon-b9c932.mp3",
-      "ms": 3960,
-      "spoken": "Số dư luôn bé hơn số chia. Nếu số dư lớn hơn, con chia tiếp được nữa đấy!"
+      "ms": 5160,
+      "spoken": "Số dư luôn bé hơn số chia. Nếu số dư lớn hơn, con chia tiếp được nữa đấy!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số dư lớn nhất luôn kém số chia đúng một đơn vị.": {
       "file": "assets/voice/so-du-lon-nhat-luon-kem-so-chia-dung-mot-3f6909.mp3",
@@ -3334,13 +3656,15 @@
     },
     "Số hoa của Mai gấp số hoa của Dũng số lần là:": {
       "file": "assets/voice/so-hoa-cua-mai-gap-so-hoa-cua-dung-so-la-32bb45.mp3",
-      "ms": 2544,
-      "spoken": "Số hoa của Mai gấp số hoa của Dũng số lần là:"
+      "ms": 3216,
+      "spoken": "Số hoa của Mai gấp số hoa của Dũng số lần là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số hoa của Mai là:": {
       "file": "assets/voice/so-hoa-cua-mai-la-b0a387.mp3",
-      "ms": 1128,
-      "spoken": "Số hoa của Mai là:"
+      "ms": 1656,
+      "spoken": "Số hoa của Mai là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số liền sau thì thêm một, số liền trước thì bớt một nhé.": {
       "file": "assets/voice/so-lien-sau-thi-them-mot-so-lien-truoc-t-fe0e7c.mp3",
@@ -3369,8 +3693,9 @@
     },
     "Số nào có nhiều chữ số hơn thì lớn hơn.": {
       "file": "assets/voice/so-nao-co-nhieu-chu-so-hon-thi-lon-hon-bc8994.mp3",
-      "ms": 1824,
-      "spoken": "Số nào có nhiều chữ số hơn thì lớn hơn."
+      "ms": 2880,
+      "spoken": "Số nào có nhiều chữ số hơn thì lớn hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số nào có nhiều chữ số hơn thì lớn hơn. Nếu hai số có cùng số chữ số thì so sánh từng cặp chữ số cùng hàng, bắt đầu từ hàng cao nhất.": {
       "file": "assets/voice/so-nao-co-nhieu-chu-so-hon-thi-lon-hon-n-ef270e.mp3",
@@ -3414,18 +3739,21 @@
     },
     "Số áo còn lại là:": {
       "file": "assets/voice/so-ao-con-lai-la-208645.mp3",
-      "ms": 1296,
-      "spoken": "Số áo còn lại là:"
+      "ms": 1608,
+      "spoken": "Số áo còn lại là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số áo mỗi cửa hàng nhận được là:": {
       "file": "assets/voice/so-ao-moi-cua-hang-nhan-duoc-la-e7f741.mp3",
-      "ms": 1896,
-      "spoken": "Số áo mỗi cửa hàng nhận được là:"
+      "ms": 2400,
+      "spoken": "Số áo mỗi cửa hàng nhận được là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số áo xưởng may được trong 7 ngày là:": {
       "file": "assets/voice/so-ao-xuong-may-duoc-trong-7-ngay-la-c86ba8.mp3",
-      "ms": 1896,
-      "spoken": "Số áo xưởng may được trong bảy ngày là:"
+      "ms": 2472,
+      "spoken": "Số áo xưởng may được trong bảy ngày là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số đường lúc đầu là:": {
       "file": "assets/voice/so-duong-luc-dau-la-90c24e.mp3",
@@ -3464,23 +3792,27 @@
     },
     "Thử lại phép chia có dư: lấy thương nhân số chia, rồi cộng số dư.": {
       "file": "assets/voice/thu-lai-phep-chia-co-du-lay-thuong-nhan-b8bd93.mp3",
-      "ms": 3744,
-      "spoken": "Thử lại phép chia có dư: lấy thương nhân số chia, rồi cộng số dư."
+      "ms": 4968,
+      "spoken": "Thử lại phép chia có dư: lấy thương nhân số chia, rồi cộng số dư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thử lại phép cộng bằng cách lấy tổng trừ đi một số hạng.": {
       "file": "assets/voice/thu-lai-phep-cong-bang-cach-lay-tong-tru-515902.mp3",
-      "ms": 2928,
-      "spoken": "Thử lại phép cộng bằng cách lấy tổng trừ đi một số hạng."
+      "ms": 3312,
+      "spoken": "Thử lại phép cộng bằng cách lấy tổng trừ đi một số hạng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thử lại phép trừ: lấy hiệu cộng với số trừ, phải ra số bị trừ.": {
       "file": "assets/voice/thu-lai-phep-tru-lay-hieu-cong-voi-so-tr-63d5f0.mp3",
-      "ms": 3312,
-      "spoken": "Thử lại phép trừ: lấy hiệu cộng với số trừ, phải ra số bị trừ."
+      "ms": 4704,
+      "spoken": "Thử lại phép trừ: lấy hiệu cộng với số trừ, phải ra số bị trừ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thử lại:": {
       "file": "assets/voice/thu-lai-520e50.mp3",
-      "ms": 648,
-      "spoken": "Thử lại:"
+      "ms": 816,
+      "spoken": "Thử lại:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thử lại: lấy hiệu cộng với số trừ phải được số bị trừ.": {
       "file": "assets/voice/thu-lai-lay-hieu-cong-voi-so-tru-phai-du-04f380.mp3",
@@ -3489,8 +3821,9 @@
     },
     "Thử lại: lấy thương nhân với số chia, cộng số dư, phải ra số bị chia.": {
       "file": "assets/voice/thu-lai-lay-thuong-nhan-voi-so-chia-cong-b7df7c.mp3",
-      "ms": 4680,
-      "spoken": "Thử lại: lấy thương nhân với số chia, cộng số dư, phải ra số bị chia."
+      "ms": 5712,
+      "spoken": "Thử lại: lấy thương nhân với số chia, cộng số dư, phải ra số bị chia.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tiền Việt Nam có các tờ 1.000, 2.000, 5.000, 10.000, 20.000, 50.000, 100.000 đồng. Muốn biết có bao nhiêu tiền, ta cộng giá trị các tờ tiền.": {
       "file": "assets/voice/tien-viet-nam-co-cac-to-1-000-2-000-5-00-57cdbc.mp3",
@@ -3549,13 +3882,15 @@
     },
     "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.": {
       "file": "assets/voice/trong-phep-chia-co-du-so-du-luon-be-hon-1a14b2.mp3",
-      "ms": 3312,
-      "spoken": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé."
+      "ms": 3624,
+      "spoken": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trung điểm chia đoạn thẳng thành hai phần dài bằng nhau.": {
       "file": "assets/voice/trung-diem-chia-doan-thang-thanh-hai-pha-5ac145.mp3",
-      "ms": 2688,
-      "spoken": "Trung điểm chia đoạn thẳng thành hai phần dài bằng nhau."
+      "ms": 3192,
+      "spoken": "Trung điểm chia đoạn thẳng thành hai phần dài bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trung điểm chia đoạn thẳng thành hai đoạn dài bằng nhau; đường kính dài gấp 2 lần bán kính. Con tìm lần lượt từng đoạn thẳng.": {
       "file": "assets/voice/trung-diem-chia-doan-thang-thanh-hai-doa-8a0af9.mp3",
@@ -3579,28 +3914,33 @@
     },
     "Trò chơi bóng bay bắt đầu! Con chạm vào quả bóng có đáp án đúng trước khi bóng bay mất nhé!": {
       "file": "assets/voice/tro-choi-bong-bay-bat-dau-con-cham-vao-q-0071eb.mp3",
-      "ms": 4272,
-      "spoken": "Trò chơi bóng bay bắt đầu! Con chạm vào quả bóng có đáp án đúng trước khi bóng bay mất nhé!"
+      "ms": 5256,
+      "spoken": "Trò chơi bóng bay bắt đầu! Con chạm vào quả bóng có đáp án đúng trước khi bóng bay mất nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.": {
       "file": "assets/voice/truoc-khi-hoc-con-lam-bai-kiem-tra-nang-6374f6.mp3",
-      "ms": 4656,
-      "spoken": "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực."
+      "ms": 5112,
+      "spoken": "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!": {
       "file": "assets/voice/tru-tu-hang-don-vi-truoc-khong-tru-duoc-bb313d.mp3",
-      "ms": 2832,
-      "spoken": "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!"
+      "ms": 4200,
+      "spoken": "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tuyệt vời!": {
       "file": "assets/voice/tuyet-voi-e462f8.mp3",
-      "ms": 696,
-      "spoken": "Tuyệt vời!"
+      "ms": 864,
+      "spoken": "Tuyệt vời!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tuyệt vời! Con đạt hạng Kim cương Toán học!": {
       "file": "assets/voice/tuyet-voi-con-dat-hang-kim-cuong-toan-ho-9737f5.mp3",
-      "ms": 1848,
-      "spoken": "Tuyệt vời! Con đạt hạng Kim cương Toán học!"
+      "ms": 2928,
+      "spoken": "Tuyệt vời! Con đạt hạng Kim cương Toán học!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tuần thứ hai đội sửa được là:": {
       "file": "assets/voice/tuan-thu-hai-doi-sua-duoc-la-50158e.mp3",
@@ -3639,18 +3979,21 @@
     },
     "Tìm số gạo đã bán trước (2 bao), rồi lấy 93 kg trừ đi.": {
       "file": "assets/voice/tim-so-gao-da-ban-truoc-2-bao-roi-lay-93-42a547.mp3",
-      "ms": 4416,
-      "spoken": "Tìm số gạo đã bán trước (hai bao), rồi lấy chín mươi ba ki-lô-gam trừ đi."
+      "ms": 4752,
+      "spoken": "Tìm số gạo đã bán trước (hai bao), rồi lấy chín mươi ba ki-lô-gam trừ đi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tìm xong, con thay số vào phép tính để thử lại nhé.": {
       "file": "assets/voice/tim-xong-con-thay-so-vao-phep-tinh-de-th-e89544.mp3",
-      "ms": 2496,
-      "spoken": "Tìm xong, con thay số vào phép tính để thử lại nhé."
+      "ms": 3408,
+      "spoken": "Tìm xong, con thay số vào phép tính để thử lại nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tìm xong, con thay số vào phép tính để thử lại xem có đúng không nhé.": {
       "file": "assets/voice/tim-xong-con-thay-so-vao-phep-tinh-de-th-adca77.mp3",
-      "ms": 3456,
-      "spoken": "Tìm xong, con thay số vào phép tính để thử lại xem có đúng không nhé."
+      "ms": 4320,
+      "spoken": "Tìm xong, con thay số vào phép tính để thử lại xem có đúng không nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tính khoảng thời gian: đếm số phút đến giờ đúng tiếp theo, rồi đếm tiếp phần còn lại. 1 giờ = 60 phút.": {
       "file": "assets/voice/tinh-khoang-thoi-gian-dem-so-phut-den-gi-30b6cb.mp3",
@@ -3659,8 +4002,9 @@
     },
     "Tính kết quả từng phép tính rồi so sánh.": {
       "file": "assets/voice/tinh-ket-qua-tung-phep-tinh-roi-so-sanh-eb7b08.mp3",
-      "ms": 2088,
-      "spoken": "Tính kết quả từng phép tính rồi so sánh."
+      "ms": 2640,
+      "spoken": "Tính kết quả từng phép tính rồi so sánh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tổ Ba và Tổ Bốn được:": {
       "file": "assets/voice/to-ba-va-to-bon-duoc-8b6905.mp3",
@@ -3699,8 +4043,9 @@
     },
     "Ví dụ:": {
       "file": "assets/voice/vi-du-3adb28.mp3",
-      "ms": 600,
-      "spoken": "Ví dụ:"
+      "ms": 744,
+      "spoken": "Ví dụ:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 1/5 của 10 là:": {
       "file": "assets/voice/vi-du-1-5-cua-10-la-154d16.mp3",
@@ -3719,8 +4064,9 @@
     },
     "Ví dụ: 14 : 5 = 2 (dư 4)": {
       "file": "assets/voice/vi-du-14-5-2-du-4-a6e77b.mp3",
-      "ms": 2424,
-      "spoken": "Ví dụ: mười bốn chia năm bằng hai (dư bốn)"
+      "ms": 3192,
+      "spoken": "Ví dụ: mười bốn chia năm bằng hai (dư bốn)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 160 : 8 = ?": {
       "file": "assets/voice/vi-du-160-8-0dc061.mp3",
@@ -3749,8 +4095,9 @@
     },
     "Ví dụ: 26 × 3 = ?": {
       "file": "assets/voice/vi-du-26-3-cc510a.mp3",
-      "ms": 2136,
-      "spoken": "Ví dụ: hai mươi sáu nhân ba bằng bao nhiêu?"
+      "ms": 2904,
+      "spoken": "Ví dụ: hai mươi sáu nhân ba bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 27 × 3 = ?": {
       "file": "assets/voice/vi-du-27-3-6052c9.mp3",
@@ -3799,13 +4146,15 @@
     },
     "Ví dụ: 45.646 × 2 = ?": {
       "file": "assets/voice/vi-du-45-646-2-6c2222.mp3",
-      "ms": 4056,
-      "spoken": "Ví dụ: bốn mươi lăm nghìn sáu trăm bốn mươi sáu nhân hai bằng bao nhiêu?"
+      "ms": 4416,
+      "spoken": "Ví dụ: bốn mươi lăm nghìn sáu trăm bốn mươi sáu nhân hai bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 49.374 : 6 = ?": {
       "file": "assets/voice/vi-du-49-374-6-58e7aa.mp3",
-      "ms": 3648,
-      "spoken": "Ví dụ: bốn mươi chín nghìn ba trăm bảy mươi tư chia sáu bằng bao nhiêu?"
+      "ms": 4248,
+      "spoken": "Ví dụ: bốn mươi chín nghìn ba trăm bảy mươi tư chia sáu bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 5.005 đọc là “năm nghìn không trăm linh năm”.": {
       "file": "assets/voice/vi-du-5-005-doc-la-nam-nghin-khong-tram-aa1dd9.mp3",
@@ -3834,8 +4183,9 @@
     },
     "Ví dụ: 70.929 + 24.222 = ?": {
       "file": "assets/voice/vi-du-70-929-24-222-9f125e.mp3",
-      "ms": 5592,
-      "spoken": "Ví dụ: bảy mươi nghìn chín trăm hai mươi chín cộng hai mươi tư nghìn hai trăm hai mươi hai bằng bao nhiêu?"
+      "ms": 5736,
+      "spoken": "Ví dụ: bảy mươi nghìn chín trăm hai mươi chín cộng hai mươi tư nghìn hai trăm hai mươi hai bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 74.606 - 58.865 = ?": {
       "file": "assets/voice/vi-du-74-606-58-865-659b2a.mp3",
@@ -3854,8 +4204,9 @@
     },
     "Ví dụ: 8.548 : 4 = ?": {
       "file": "assets/voice/vi-du-8-548-4-23b9cb.mp3",
-      "ms": 3456,
-      "spoken": "Ví dụ: tám nghìn năm trăm bốn mươi tám chia bốn bằng bao nhiêu?"
+      "ms": 3936,
+      "spoken": "Ví dụ: tám nghìn năm trăm bốn mươi tám chia bốn bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: 81.605 - 11.816 = ?": {
       "file": "assets/voice/vi-du-81-605-11-816-fb557f.mp3",
@@ -3929,8 +4280,9 @@
     },
     "Ví dụ: Dũng có 4 bông hoa. Mai có nhiều hơn Dũng 20 bông hoa. Hỏi số hoa của Mai gấp mấy lần số hoa của Dũng?": {
       "file": "assets/voice/vi-du-dung-co-4-bong-hoa-mai-co-nhieu-ho-79f0e5.mp3",
-      "ms": 7200,
-      "spoken": "Ví dụ: Dũng có bốn bông hoa. Mai có nhiều hơn Dũng hai mươi bông hoa. Hỏi số hoa của Mai gấp mấy lần số hoa của Dũng?"
+      "ms": 8832,
+      "spoken": "Ví dụ: Dũng có bốn bông hoa. Mai có nhiều hơn Dũng hai mươi bông hoa. Hỏi số hoa của Mai gấp mấy lần số hoa của Dũng?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: Ghép 4 hình vuông cạnh 3 cm thành một hàng (cạnh nọ sát cạnh kia) để được một hình chữ nhật. Tính tổng độ dài bốn cạnh của hình chữ nhật đó.": {
       "file": "assets/voice/vi-du-ghep-4-hinh-vuong-canh-3-cm-thanh-174d3a.mp3",
@@ -3974,8 +4326,9 @@
     },
     "Ví dụ: Mỗi ngày một xưởng may được 1.072 chiếc áo. Sau 7 ngày, xưởng đã giao cho cửa hàng 3.684 chiếc áo, số áo còn lại xưởng chia đều cho 4 cửa hàng khác. Hỏi mỗi cửa hàng đó nhận được bao nhiêu chiếc áo?": {
       "file": "assets/voice/vi-du-moi-ngay-mot-xuong-may-duoc-1-072-af1c61.mp3",
-      "ms": 15912,
-      "spoken": "Ví dụ: Mỗi ngày một xưởng may được một nghìn không trăm bảy mươi hai chiếc áo. Sau bảy ngày, xưởng đã giao cho cửa hàng ba nghìn sáu trăm tám mươi tư chiếc áo, số áo còn lại xưởng chia đều cho bốn cửa hàng khác. Hỏi mỗi cửa hàng đó nhận được bao nhiêu chiếc áo?"
+      "ms": 15528,
+      "spoken": "Ví dụ: Mỗi ngày một xưởng may được một nghìn không trăm bảy mươi hai chiếc áo. Sau bảy ngày, xưởng đã giao cho cửa hàng ba nghìn sáu trăm tám mươi tư chiếc áo, số áo còn lại xưởng chia đều cho bốn cửa hàng khác. Hỏi mỗi cửa hàng đó nhận được bao nhiêu chiếc áo?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: Một chú sâu bò được 4 cm 8 mm, sau đó bò tiếp 18 mm nữa. Hỏi chú sâu đã bò được tất cả bao nhiêu mi-li-mét?": {
       "file": "assets/voice/vi-du-mot-chu-sau-bo-duoc-4-cm-8-mm-sau-234968.mp3",
@@ -3989,13 +4342,15 @@
     },
     "Ví dụ: Một hình chữ nhật có chu vi 40 cm, chiều dài hơn chiều rộng 8 cm. Tính chiều dài hình chữ nhật đó.": {
       "file": "assets/voice/vi-du-mot-hinh-chu-nhat-co-chu-vi-40-cm-115935.mp3",
-      "ms": 8400,
-      "spoken": "Ví dụ: Một hình chữ nhật có chu vi bốn mươi xăng-ti-mét, chiều dài hơn chiều rộng tám xăng-ti-mét. Tính chiều dài hình chữ nhật đó."
+      "ms": 8424,
+      "spoken": "Ví dụ: Một hình chữ nhật có chu vi bốn mươi xăng-ti-mét, chiều dài hơn chiều rộng tám xăng-ti-mét. Tính chiều dài hình chữ nhật đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: Một hình vuông có chu vi bằng chu vi của hình chữ nhật có chiều dài 20 cm và chiều rộng 6 cm. Tính độ dài cạnh hình vuông.": {
       "file": "assets/voice/vi-du-mot-hinh-vuong-co-chu-vi-bang-chu-0dd274.mp3",
-      "ms": 9984,
-      "spoken": "Ví dụ: Một hình vuông có chu vi bằng chu vi của hình chữ nhật có chiều dài hai mươi xăng-ti-mét và chiều rộng sáu xăng-ti-mét. Tính độ dài cạnh hình vuông."
+      "ms": 10056,
+      "spoken": "Ví dụ: Một hình vuông có chu vi bằng chu vi của hình chữ nhật có chiều dài hai mươi xăng-ti-mét và chiều rộng sáu xăng-ti-mét. Tính độ dài cạnh hình vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: Một miếng bìa gồm một hình chữ nhật dài 17 cm, rộng 9 cm và một hình vuông cạnh 4 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa.": {
       "file": "assets/voice/vi-du-mot-mieng-bia-gom-mot-hinh-chu-nha-71741f.mp3",
@@ -4039,8 +4394,9 @@
     },
     "Ví dụ: VI = 6, IV = 4, IX = 9, XI = 11.": {
       "file": "assets/voice/vi-du-vi-6-iv-4-ix-9-xi-11-f9d52d.mp3",
-      "ms": 4848,
-      "spoken": "Ví dụ: VI bằng sáu, IV bằng bốn, IX bằng chín, XI bằng mười một."
+      "ms": 5568,
+      "spoken": "Ví dụ: VI bằng sáu, IV bằng bốn, IX bằng chín, XI bằng mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: Vườn ươm thứ nhất có 40.443 cây giống, vườn ươm thứ hai có 22.551 cây giống. Phải chuyển bao nhiêu cây giống từ vườn ươm thứ nhất sang vườn ươm thứ hai để số cây giống ở hai vườn ươm bằng nhau?": {
       "file": "assets/voice/vi-du-vuon-uom-thu-nhat-co-40-443-cay-gi-3a60fe.mp3",
@@ -4079,8 +4435,9 @@
     },
     "Ví dụ: góc đỉnh O, cạnh OP, OI.": {
       "file": "assets/voice/vi-du-goc-dinh-o-canh-op-oi-40194e.mp3",
-      "ms": 2040,
-      "spoken": "Ví dụ: góc đỉnh O, cạnh OP, OI."
+      "ms": 3528,
+      "spoken": "Ví dụ: góc đỉnh O, cạnh OP, OI.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: gấp 8 lên 5 lần được:": {
       "file": "assets/voice/vi-du-gap-8-len-5-lan-duoc-9c69c0.mp3",
@@ -4094,8 +4451,9 @@
     },
     "Ví dụ: hình chữ nhật dài 12 cm, rộng 7 cm có chu vi:": {
       "file": "assets/voice/vi-du-hinh-chu-nhat-dai-12-cm-rong-7-cm-6e3d2d.mp3",
-      "ms": 4296,
-      "spoken": "Ví dụ: hình chữ nhật dài mười hai xăng-ti-mét, rộng bảy xăng-ti-mét có chu vi:"
+      "ms": 5448,
+      "spoken": "Ví dụ: hình chữ nhật dài mười hai xăng-ti-mét, rộng bảy xăng-ti-mét có chu vi:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: hình chữ nhật dài 9 cm, rộng 4 cm có diện tích:": {
       "file": "assets/voice/vi-du-hinh-chu-nhat-dai-9-cm-rong-4-cm-c-2d9ad2.mp3",
@@ -4114,8 +4472,9 @@
     },
     "Ví dụ: làm tròn 26.550 đến hàng nghìn.": {
       "file": "assets/voice/vi-du-lam-tron-26-550-den-hang-nghin-7446da.mp3",
-      "ms": 3528,
-      "spoken": "Ví dụ: làm tròn hai mươi sáu nghìn năm trăm năm mươi đến hàng nghìn."
+      "ms": 4224,
+      "spoken": "Ví dụ: làm tròn hai mươi sáu nghìn năm trăm năm mươi đến hàng nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ví dụ: làm tròn 9.201 đến hàng chục.": {
       "file": "assets/voice/vi-du-lam-tron-9-201-den-hang-chuc-5f33b5.mp3",
@@ -4224,28 +4583,33 @@
     },
     "Xuất sắc!": {
       "file": "assets/voice/xuat-sac-e23096.mp3",
-      "ms": 720,
-      "spoken": "Xuất sắc!"
+      "ms": 624,
+      "spoken": "Xuất sắc!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Xuất sắc! Con làm đúng liền mấy câu rồi!": {
       "file": "assets/voice/xuat-sac-con-lam-dung-lien-may-cau-roi-f0788a.mp3",
-      "ms": 2040,
-      "spoken": "Xuất sắc! Con làm đúng liền mấy câu rồi!"
+      "ms": 2976,
+      "spoken": "Xuất sắc! Con làm đúng liền mấy câu rồi!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Xuất sắc! Con được ba sao!": {
       "file": "assets/voice/xuat-sac-con-duoc-ba-sao-a41b80.mp3",
-      "ms": 1632,
-      "spoken": "Xuất sắc! Con được ba sao!"
+      "ms": 2304,
+      "spoken": "Xuất sắc! Con được ba sao!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Xuất sắc! Con đạt hạng Ngôi sao Toán học!": {
       "file": "assets/voice/xuat-sac-con-dat-hang-ngoi-sao-toan-hoc-52c81a.mp3",
-      "ms": 1848,
-      "spoken": "Xuất sắc! Con đạt hạng Ngôi sao Toán học!"
+      "ms": 2856,
+      "spoken": "Xuất sắc! Con đạt hạng Ngôi sao Toán học!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ôi, bóng bay mất rồi! Câu sau mình nhanh tay hơn nhé!": {
       "file": "assets/voice/oi-bong-bay-mat-roi-cau-sau-minh-nhanh-t-890cd4.mp3",
-      "ms": 2736,
-      "spoken": "Ôi, bóng bay mất rồi! Câu sau mình nhanh tay hơn nhé!"
+      "ms": 3864,
+      "spoken": "Ôi, bóng bay mất rồi! Câu sau mình nhanh tay hơn nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ôn lại bảng nhân, bảng chia 6, 7, 8, 9; tìm thành phần chưa biết; tìm một phần mấy của một số.": {
       "file": "assets/voice/on-lai-bang-nhan-bang-chia-6-7-8-9-tim-t-3efbd2.mp3",
@@ -4269,8 +4633,9 @@
     },
     "Ôn lại cách đặt tính rồi tính và giải toán có lời văn với các số đã học.": {
       "file": "assets/voice/on-lai-cach-dat-tinh-roi-tinh-va-giai-to-f42312.mp3",
-      "ms": 3696,
-      "spoken": "Ôn lại cách đặt tính rồi tính và giải toán có lời văn với các số đã học."
+      "ms": 4296,
+      "spoken": "Ôn lại cách đặt tính rồi tính và giải toán có lời văn với các số đã học.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ôn lại: 1 cm = 10 mm; 1 kg = 1.000 g; 1 l = 1.000 ml; nhiệt độ đo bằng độ C.": {
       "file": "assets/voice/on-lai-1-cm-10-mm-1-kg-1-000-g-1-l-1-000-d6db5a.mp3",
@@ -4329,8 +4694,9 @@
     },
     "Ôn lại: đọc, viết, so sánh số có năm chữ số; làm tròn số đến hàng nghìn, hàng chục nghìn.": {
       "file": "assets/voice/on-lai-doc-viet-so-sanh-so-co-nam-chu-so-949367.mp3",
-      "ms": 6168,
-      "spoken": "Ôn lại: đọc, viết, so sánh số có năm chữ số; làm tròn số đến hàng nghìn, hàng chục nghìn."
+      "ms": 7440,
+      "spoken": "Ôn lại: đọc, viết, so sánh số có năm chữ số; làm tròn số đến hàng nghìn, hàng chục nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ôn tập cuối năm: số và phép tính, hình học và đo lường, thống kê và khả năng xảy ra.": {
       "file": "assets/voice/on-tap-cuoi-nam-so-va-phep-tinh-hinh-hoc-c37dd9.mp3",
@@ -4344,23 +4710,27 @@
     },
     "Đo cả đoạn thẳng rồi chia đôi là tìm được trung điểm.": {
       "file": "assets/voice/do-ca-doan-thang-roi-chia-doi-la-tim-duo-1f88ab.mp3",
-      "ms": 2472,
-      "spoken": "Đo cả đoạn thẳng rồi chia đôi là tìm được trung điểm."
+      "ms": 3408,
+      "spoken": "Đo cả đoạn thẳng rồi chia đôi là tìm được trung điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!": {
       "file": "assets/voice/day-la-bo-suu-tap-huy-hieu-cua-con-co-ga-ad226e.mp3",
-      "ms": 3072,
-      "spoken": "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!"
+      "ms": 4344,
+      "spoken": "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!": {
       "file": "assets/voice/day-la-lich-hoc-ca-nam-con-cham-vao-mot-27c6b6.mp3",
-      "ms": 3312,
-      "spoken": "Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!"
+      "ms": 4512,
+      "spoken": "Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!": {
       "file": "assets/voice/day-la-phong-luyen-thi-con-lam-de-nhu-th-2e3f95.mp3",
-      "ms": 3864,
-      "spoken": "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!"
+      "ms": 3984,
+      "spoken": "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đã bán (hay đã dùng) 1/3 thì còn lại 2 phần như thế. Con vẽ sơ đồ, tìm giá trị một phần rồi mới tìm cả số.": {
       "file": "assets/voice/da-ban-hay-da-dung-1-3-thi-con-lai-2-pha-8fdb1d.mp3",
@@ -4369,18 +4739,21 @@
     },
     "Đúng rồi! Con sửa giỏi lắm!": {
       "file": "assets/voice/dung-roi-con-sua-gioi-lam-f713c7.mp3",
-      "ms": 1392,
-      "spoken": "Đúng rồi! Con sửa giỏi lắm!"
+      "ms": 2448,
+      "spoken": "Đúng rồi! Con sửa giỏi lắm!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đúng rồi! Kiên trì thật tuyệt!": {
       "file": "assets/voice/dung-roi-kien-tri-that-tuyet-8b2690.mp3",
-      "ms": 1320,
-      "spoken": "Đúng rồi! Kiên trì thật tuyệt!"
+      "ms": 2184,
+      "spoken": "Đúng rồi! Kiên trì thật tuyệt!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đúng rồi, con làm tốt lắm!": {
       "file": "assets/voice/dung-roi-con-lam-tot-lam-50827f.mp3",
-      "ms": 1392,
-      "spoken": "Đúng rồi, con làm tốt lắm!"
+      "ms": 2376,
+      "spoken": "Đúng rồi, con làm tốt lắm!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đường kính dài gấp 2 lần bán kính; tâm là trung điểm của đường kính.": {
       "file": "assets/voice/duong-kinh-dai-gap-2-lan-ban-kinh-tam-la-10a51d.mp3",
@@ -4389,8 +4762,9 @@
     },
     "Đường kính dài gấp đôi bán kính. Bán kính bằng một nửa đường kính.": {
       "file": "assets/voice/duong-kinh-dai-gap-doi-ban-kinh-ban-kinh-80f55b.mp3",
-      "ms": 3912,
-      "spoken": "Đường kính dài gấp đôi bán kính. Bán kính bằng một nửa đường kính."
+      "ms": 4296,
+      "spoken": "Đường kính dài gấp đôi bán kính. Bán kính bằng một nửa đường kính.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đặt tính rồi chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống chia tiếp.": {
       "file": "assets/voice/dat-tinh-roi-chia-tu-trai-sang-phai-chia-97e2ec.mp3",
@@ -4399,13 +4773,15 @@
     },
     "Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái.": {
       "file": "assets/voice/dat-tinh-roi-nhan-thua-so-co-mot-chu-so-7e19cc.mp3",
-      "ms": 6168,
-      "spoken": "Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái."
+      "ms": 6768,
+      "spoken": "Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.": {
       "file": "assets/voice/dat-tinh-sao-cho-cac-chu-so-cung-hang-th-b35ea6.mp3",
-      "ms": 6936,
-      "spoken": "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị."
+      "ms": 7368,
+      "spoken": "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đặt tính thẳng cột rồi trừ lần lượt từ phải sang trái. Nếu chữ số trên bé hơn thì lấy thêm 10 để trừ và nhớ 1 sang hàng bên trái của số trừ.": {
       "file": "assets/voice/dat-tinh-thang-cot-roi-tru-lan-luot-tu-p-de81d4.mp3",
@@ -4414,18 +4790,21 @@
     },
     "Đặt tính thẳng cột, cộng từ hàng đơn vị sang trái.": {
       "file": "assets/voice/dat-tinh-thang-cot-cong-tu-hang-don-vi-s-65d311.mp3",
-      "ms": 2592,
-      "spoken": "Đặt tính thẳng cột, cộng từ hàng đơn vị sang trái."
+      "ms": 3312,
+      "spoken": "Đặt tính thẳng cột, cộng từ hàng đơn vị sang trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đặt tính thẳng cột, trừ từ hàng đơn vị sang trái.": {
       "file": "assets/voice/dat-tinh-thang-cot-tru-tu-hang-don-vi-sa-d6b41c.mp3",
-      "ms": 2568,
-      "spoken": "Đặt tính thẳng cột, trừ từ hàng đơn vị sang trái."
+      "ms": 3432,
+      "spoken": "Đặt tính thẳng cột, trừ từ hàng đơn vị sang trái.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đặt tính thẳng cột. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau.": {
       "file": "assets/voice/dat-tinh-thang-cot-nhan-tu-phai-sang-tra-f2d429.mp3",
-      "ms": 4704,
-      "spoken": "Đặt tính thẳng cột. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau."
+      "ms": 5952,
+      "spoken": "Đặt tính thẳng cột. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đếm thêm 3 để nhớ bảng: 3, 6, 9, 12, 15, …": {
       "file": "assets/voice/dem-them-3-de-nho-bang-3-6-9-12-15-991b61.mp3",
@@ -4469,23 +4848,27 @@
     },
     "Đếm xong thì đánh dấu lại để không đếm sót, không đếm trùng.": {
       "file": "assets/voice/dem-xong-thi-danh-dau-lai-de-khong-dem-s-9e052b.mp3",
-      "ms": 3000,
-      "spoken": "Đếm xong thì đánh dấu lại để không đếm sót, không đếm trùng."
+      "ms": 3840,
+      "spoken": "Đếm xong thì đánh dấu lại để không đếm sót, không đếm trùng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!": {
       "file": "assets/voice/den-luc-kiem-tra-lai-nang-luc-roi-minh-c-654291.mp3",
-      "ms": 3744,
-      "spoken": "Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!"
+      "ms": 4416,
+      "spoken": "Đến lúc kiểm tra lại năng lực rồi! Mình cùng xem con tiến bộ thế nào nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?": {
       "file": "assets/voice/de-bai-co-tu-nhieu-hon-con-thu-cong-them-b20f5d.mp3",
-      "ms": 2928,
-      "spoken": "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?"
+      "ms": 3720,
+      "spoken": "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đề hỏi \"còn lại\", mình lấy số ban đầu bớt đi số đã dùng nhé.": {
       "file": "assets/voice/de-hoi-con-lai-minh-lay-so-ban-dau-bot-d-d7b285.mp3",
-      "ms": 3024,
-      "spoken": "Đề hỏi \"còn lại\", mình lấy số ban đầu bớt đi số đã dùng nhé."
+      "ms": 4176,
+      "spoken": "Đề hỏi \"còn lại\", mình lấy số ban đầu bớt đi số đã dùng nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đọc bảng số liệu: viết ra các số cần dùng, rồi tính theo từng bước câu hỏi yêu cầu.": {
       "file": "assets/voice/doc-bang-so-lieu-viet-ra-cac-so-can-dung-8f7bf6.mp3",
@@ -4494,28 +4877,33 @@
     },
     "Đọc kỹ lại đề bài xem có từ \"ít hơn\" không nhé! Mình phải bớt đi đấy.": {
       "file": "assets/voice/doc-ky-lai-de-bai-xem-co-tu-it-hon-khong-fde63f.mp3",
-      "ms": 3144,
-      "spoken": "Đọc kỹ lại đề bài xem có từ \"ít hơn\" không nhé! Mình phải bớt đi đấy."
+      "ms": 4416,
+      "spoken": "Đọc kỹ lại đề bài xem có từ \"ít hơn\" không nhé! Mình phải bớt đi đấy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đọc kỹ tên hàng và tên cột của bảng trước khi trả lời.": {
       "file": "assets/voice/doc-ky-ten-hang-va-ten-cot-cua-bang-truo-483c6b.mp3",
-      "ms": 3072,
-      "spoken": "Đọc kỹ tên hàng và tên cột của bảng trước khi trả lời."
+      "ms": 3408,
+      "spoken": "Đọc kỹ tên hàng và tên cột của bảng trước khi trả lời.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đọc nhiệt kế: nhìn đỉnh cột chất lỏng chỉ vào vạch số nào.": {
       "file": "assets/voice/doc-nhiet-ke-nhin-dinh-cot-chat-long-chi-470cb0.mp3",
-      "ms": 3456,
-      "spoken": "Đọc nhiệt kế: nhìn đỉnh cột chất lỏng chỉ vào vạch số nào."
+      "ms": 4512,
+      "spoken": "Đọc nhiệt kế: nhìn đỉnh cột chất lỏng chỉ vào vạch số nào.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đọc số theo từng lớp: hàng nghìn, rồi hàng trăm, hàng chục, hàng đơn vị.": {
       "file": "assets/voice/doc-so-theo-tung-lop-hang-nghin-roi-hang-5887f2.mp3",
-      "ms": 4344,
-      "spoken": "Đọc số theo từng lớp: hàng nghìn, rồi hàng trăm, hàng chục, hàng đơn vị."
+      "ms": 5496,
+      "spoken": "Đọc số theo từng lớp: hàng nghìn, rồi hàng trăm, hàng chục, hàng đơn vị.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đọc đề hai lần: lần một hiểu đề cho gì, lần hai xem đề hỏi gì.": {
       "file": "assets/voice/doc-de-hai-lan-lan-mot-hieu-de-cho-gi-la-7fbaee.mp3",
-      "ms": 3576,
-      "spoken": "Đọc đề hai lần: lần một hiểu đề cho gì, lần hai xem đề hỏi gì."
+      "ms": 4896,
+      "spoken": "Đọc đề hai lần: lần một hiểu đề cho gì, lần hai xem đề hỏi gì.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đổi 1 l 300 ml =": {
       "file": "assets/voice/doi-1-l-300-ml-17e00b.mp3",
@@ -4529,8 +4917,9 @@
     },
     "Đổi chỗ hai thừa số thì tích không đổi. Thuộc 3 × 7 là biết luôn 7 × 3!": {
       "file": "assets/voice/doi-cho-hai-thua-so-thi-tich-khong-doi-t-5ecd1b.mp3",
-      "ms": 4368,
-      "spoken": "Đổi chỗ hai thừa số thì tích không đổi. Thuộc ba nhân bảy là biết luôn bảy nhân ba!"
+      "ms": 5496,
+      "spoken": "Đổi chỗ hai thừa số thì tích không đổi. Thuộc ba nhân bảy là biết luôn bảy nhân ba!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đổi số đo có hai tên đơn vị về đơn vị bé: 1 cm = 10 mm, 1 kg = 1.000 g. Đổi xong mới cộng, trừ hay so sánh.": {
       "file": "assets/voice/doi-so-do-co-hai-ten-don-vi-ve-don-vi-be-ce22e0.mp3",
@@ -4544,8 +4933,9 @@
     },
     "Đổi về cùng một đơn vị rồi mới so sánh hay cộng trừ nhé.": {
       "file": "assets/voice/doi-ve-cung-mot-don-vi-roi-moi-so-sanh-h-2b546c.mp3",
-      "ms": 3048,
-      "spoken": "Đổi về cùng một đơn vị rồi mới so sánh hay cộng trừ nhé."
+      "ms": 3624,
+      "spoken": "Đổi về cùng một đơn vị rồi mới so sánh hay cộng trừ nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đổi: 4 cm 8 mm =": {
       "file": "assets/voice/doi-4-cm-8-mm-42ff54.mp3",
@@ -4579,8 +4969,9 @@
     },
     "Đừng nhầm: giảm đi mấy lần là phép chia, còn bớt đi mấy đơn vị là phép trừ.": {
       "file": "assets/voice/dung-nham-giam-di-may-lan-la-phep-chia-c-d6f661.mp3",
-      "ms": 4584,
-      "spoken": "Đừng nhầm: giảm đi mấy lần là phép chia, còn bớt đi mấy đơn vị là phép trừ."
+      "ms": 5424,
+      "spoken": "Đừng nhầm: giảm đi mấy lần là phép chia, còn bớt đi mấy đơn vị là phép trừ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đừng nhầm: gấp 8 lên 5 lần là 8 × 5, còn thêm 5 vào 8 là 8 + 5.": {
       "file": "assets/voice/dung-nham-gap-8-len-5-lan-la-8-5-con-the-69c18d.mp3",
@@ -4589,13 +4980,15 @@
     },
     "Đừng quên cộng thêm số nhớ vào lượt nhân tiếp theo nhé!": {
       "file": "assets/voice/dung-quen-cong-them-so-nho-vao-luot-nhan-591ac9.mp3",
-      "ms": 2304,
-      "spoken": "Đừng quên cộng thêm số nhớ vào lượt nhân tiếp theo nhé!"
+      "ms": 3000,
+      "spoken": "Đừng quên cộng thêm số nhớ vào lượt nhân tiếp theo nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ước lượng trước: làm tròn số rồi nhân nhẩm, để biết kết quả khoảng bao nhiêu.": {
       "file": "assets/voice/uoc-luong-truoc-lam-tron-so-roi-nhan-nha-a3c97c.mp3",
-      "ms": 4800,
-      "spoken": "Ước lượng trước: làm tròn số rồi nhân nhẩm, để biết kết quả khoảng bao nhiêu."
+      "ms": 5256,
+      "spoken": "Ước lượng trước: làm tròn số rồi nhân nhẩm, để biết kết quả khoảng bao nhiêu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "“Gấp mấy lần” thì làm phép chia; “hơn bao nhiêu” thì làm phép trừ.": {
       "file": "assets/voice/gap-may-lan-thi-lam-phep-chia-hon-bao-nh-9f52e8.mp3",

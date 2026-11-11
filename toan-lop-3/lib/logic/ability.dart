@@ -151,6 +151,26 @@ class AbilityTest {
     _pickNext();
   }
 
+  /// Quyền trợ giúp "Đổi câu hỏi": thay câu hiện tại bằng câu khác cùng mảng, độ khó gần nhất.
+  /// Trả về false nếu không còn câu nào để đổi.
+  bool swap() {
+    final cur = _current;
+    if (cur == null) return false;
+    final candidates = [
+      for (final it in _bank[cur.domain]!)
+        if (!_used.contains(it.problem.id)) it,
+    ];
+    if (candidates.isEmpty) return false;
+    final best = candidates.map((c) => (c.difficulty - cur.difficulty).abs()).reduce(min);
+    final near = [
+      for (final c in candidates)
+        if ((c.difficulty - cur.difficulty).abs() == best) c,
+    ];
+    _current = near[_random.nextInt(near.length)];
+    _used.add(_current!.problem.id);
+    return true;
+  }
+
   void _pickNext() {
     _current = null;
     if (answers.length >= total) return;

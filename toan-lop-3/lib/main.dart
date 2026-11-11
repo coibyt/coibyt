@@ -7,6 +7,7 @@ import 'config.dart';
 import 'services/api_client.dart';
 import 'services/content_repository.dart';
 import 'services/kv_store.dart';
+import 'services/show_music.dart';
 import 'services/sound_service.dart';
 import 'services/sync_service.dart';
 import 'services/tutor_voice.dart';
@@ -22,6 +23,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppSound.instance = AudioSoundService();
   AppTutorVoice.instance = TtsTutorVoice();
+  ShowMusic.instance = AudioShowMusic();
   runApp(const OngVangApp());
 }
 

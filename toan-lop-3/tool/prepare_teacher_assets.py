@@ -88,16 +88,16 @@ def save_webp(img: Image.Image, dest: pathlib.Path, quality=86):
     print(f"OK  {dest.relative_to(ROOT)}  ({dest.stat().st_size // 1024} KB)")
 
 
-def teacher(files: dict) -> None:
+def teacher(files: dict, prefix: str = "teacher", folder: str = "tutor") -> None:
     if "idle" not in files:
-        sys.exit("Thiếu teacher_idle (bắt buộc).")
+        sys.exit(f"Thiếu {prefix}_idle (bắt buộc).")
     keyed = {p: key_out(Image.open(f), "green") for p, f in files.items()}
     base = keyed["idle"].size
     keyed = {p: (im if im.size == base else im.resize(base, Image.LANCZOS)) for p, im in keyed.items()}
     boxes = [im.getbbox() for im in keyed.values() if im.getbbox()]
     box = (min(b[0] for b in boxes), min(b[1] for b in boxes), max(b[2] for b in boxes), max(b[3] for b in boxes))
     for p, im in keyed.items():
-        save_webp(fit_canvas(im.crop(box), TEACHER_HEIGHT, 0.75), ROOT / "assets" / "tutor" / f"teacher_{p}.webp")
+        save_webp(fit_canvas(im.crop(box), TEACHER_HEIGHT, 0.75), ROOT / "assets" / folder / f"{prefix}_{p}.webp")
 
 
 def item(src: pathlib.Path, key: str, dest: pathlib.Path, size: int) -> None:
@@ -139,6 +139,9 @@ def auto() -> None:
     poses = {n.removeprefix("teacher_"): RAW / f"{n}.png" for n, m in meta.items() if m["group"] == "teacher"}
     if poses:
         teacher(poses)
+    host = {n.removeprefix("host_"): RAW / f"{n}.png" for n, m in meta.items() if m["group"] == "host"}
+    if host:
+        teacher(host, prefix="host", folder="host")
     for name, m in meta.items():
         src = RAW / f"{name}.png"
         if m["group"] == "ui":
