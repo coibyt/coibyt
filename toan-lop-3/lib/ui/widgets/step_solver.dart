@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/blocks.dart';
@@ -150,18 +151,31 @@ class _Frame extends StatelessWidget {
   );
 }
 
-/// Mixin quản lý bước hiện tại.
+/// Mixin quản lý bước hiện tại. Có [driver] thì cô giáo điều khiển bước (làm mẫu), ẩn nút bấm.
 mixin _Stepping<T extends StatefulWidget> on State<T> {
-  int step = 0;
+  int _step = 0;
   int get totalSteps;
+  ValueListenable<int>? get driver;
 
-  Widget controls() => _StepControls(
-    step: step,
-    total: totalSteps,
-    onBack: () => setState(() => step--),
-    onNext: () => setState(() => step++),
-    onAll: () => setState(() => step = totalSteps),
-  );
+  int get step => (driver?.value ?? _step).clamp(0, totalSteps);
+  set step(int v) => _step = v;
+
+  void _onDriver() {
+    if (mounted) setState(() {});
+  }
+
+  void attachDriver() => driver?.addListener(_onDriver);
+  void detachDriver() => driver?.removeListener(_onDriver);
+
+  Widget controls() => driver != null
+      ? const SizedBox.shrink()
+      : _StepControls(
+          step: step,
+          total: totalSteps,
+          onBack: () => setState(() => _step--),
+          onNext: () => setState(() => _step++),
+          onAll: () => setState(() => _step = totalSteps),
+        );
 }
 
 // ===========================================================================
@@ -169,7 +183,10 @@ mixin _Stepping<T extends StatefulWidget> on State<T> {
 // ===========================================================================
 
 class ColumnStepper extends StatefulWidget {
-  const ColumnStepper({super.key, required this.block, this.startAtEnd = false});
+  const ColumnStepper({super.key, required this.block, this.startAtEnd = false, this.driver});
+
+  /// Bước hiện tại do cô giáo điều khiển khi làm mẫu (null = bé tự bấm).
+  final ValueListenable<int>? driver;
 
   final ColumnArithmeticBlock block;
 
@@ -181,6 +198,24 @@ class ColumnStepper extends StatefulWidget {
 }
 
 class _ColumnStepperState extends State<ColumnStepper> with _Stepping {
+  @override
+  ValueListenable<int>? get driver => widget.driver;
+
+  @override
+  void didUpdateWidget(ColumnStepper old) {
+    super.didUpdateWidget(old);
+    if (old.driver != widget.driver) {
+      old.driver?.removeListener(_onDriver);
+      attachDriver();
+    }
+  }
+
+  @override
+  void dispose() {
+    detachDriver();
+    super.dispose();
+  }
+
   ColumnArithmeticBlock get b => widget.block;
 
   @override
@@ -190,6 +225,7 @@ class _ColumnStepperState extends State<ColumnStepper> with _Stepping {
   void initState() {
     super.initState();
     if (widget.startAtEnd) step = totalSteps;
+    attachDriver();
   }
 
   @override
@@ -286,7 +322,10 @@ class _ColumnStepperState extends State<ColumnStepper> with _Stepping {
 // ===========================================================================
 
 class DivisionStepper extends StatefulWidget {
-  const DivisionStepper({super.key, required this.block, this.startAtEnd = false});
+  const DivisionStepper({super.key, required this.block, this.startAtEnd = false, this.driver});
+
+  /// Bước hiện tại do cô giáo điều khiển khi làm mẫu (null = bé tự bấm).
+  final ValueListenable<int>? driver;
 
   final LongDivisionBlock block;
   final bool startAtEnd;
@@ -296,6 +335,24 @@ class DivisionStepper extends StatefulWidget {
 }
 
 class _DivisionStepperState extends State<DivisionStepper> with _Stepping {
+  @override
+  ValueListenable<int>? get driver => widget.driver;
+
+  @override
+  void didUpdateWidget(DivisionStepper old) {
+    super.didUpdateWidget(old);
+    if (old.driver != widget.driver) {
+      old.driver?.removeListener(_onDriver);
+      attachDriver();
+    }
+  }
+
+  @override
+  void dispose() {
+    detachDriver();
+    super.dispose();
+  }
+
   LongDivisionBlock get b => widget.block;
 
   @override
@@ -305,6 +362,7 @@ class _DivisionStepperState extends State<DivisionStepper> with _Stepping {
   void initState() {
     super.initState();
     if (widget.startAtEnd) step = totalSteps;
+    attachDriver();
   }
 
   @override

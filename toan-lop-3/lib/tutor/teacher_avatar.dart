@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'teacher_assets.dart';
 
 /// Tâm trạng (tư thế chính) của cô giáo.
-enum TeacherMood { idle, think, clap }
+/// point: chỉ tay lên bảng khi làm mẫu / giảng bài.
+enum TeacherMood { idle, think, clap, point }
 
 /// Cô giáo sống động: thở nhẹ, thỉnh thoảng chớp mắt, mở/ngậm miệng theo [mouthOpen].
 ///
@@ -89,6 +90,11 @@ class _TeacherAvatarState extends State<TeacherAvatar> with SingleTickerProvider
         TeacherMood.idle => a.pose(TeacherPose.talk) ?? a.pose(TeacherPose.idle),
         TeacherMood.think => a.pose(TeacherPose.thinkTalk) ?? a.pose(TeacherPose.think),
         TeacherMood.clap => a.pose(TeacherPose.clapTalk) ?? a.pose(TeacherPose.clap),
+        TeacherMood.point =>
+          a.pose(TeacherPose.pointTalk) ??
+              a.pose(TeacherPose.point) ??
+              a.pose(TeacherPose.talk) ??
+              a.pose(TeacherPose.idle),
       };
     }
     if (_eyesClosed && m == TeacherMood.idle) return a.pose(TeacherPose.blink) ?? a.pose(TeacherPose.idle);
@@ -96,6 +102,7 @@ class _TeacherAvatarState extends State<TeacherAvatar> with SingleTickerProvider
       TeacherMood.idle => a.pose(TeacherPose.idle),
       TeacherMood.think => a.pose(TeacherPose.think) ?? a.pose(TeacherPose.idle),
       TeacherMood.clap => a.pose(TeacherPose.clap) ?? a.pose(TeacherPose.idle),
+      TeacherMood.point => a.pose(TeacherPose.point) ?? a.pose(TeacherPose.idle),
     };
   }
 
@@ -243,6 +250,11 @@ class TeacherPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
     final hand = Paint()..color = _skin;
     switch (mood) {
+      case TeacherMood.point:
+        canvas.drawLine(const Offset(96, 272), const Offset(80, 350), sleeve);
+        canvas.drawCircle(const Offset(80, 362), 13, hand);
+        canvas.drawLine(const Offset(204, 272), const Offset(256, 226), sleeve); // tay chỉ lên bảng
+        canvas.drawCircle(const Offset(262, 220), 13, hand);
       case TeacherMood.idle:
         canvas.drawLine(const Offset(96, 272), const Offset(80, 350), sleeve);
         canvas.drawLine(const Offset(204, 272), const Offset(220, 350), sleeve);

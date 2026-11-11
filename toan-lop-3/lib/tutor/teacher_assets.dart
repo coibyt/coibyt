@@ -23,11 +23,18 @@ enum TeacherPose {
   clap,
 
   /// [clap] mở miệng (tuỳ chọn).
-  clapTalk;
+  clapTalk,
+
+  /// Chỉ tay lên bảng khi làm mẫu.
+  point,
+
+  /// [point] mở miệng.
+  pointTalk;
 
   String get fileStem => switch (this) {
     TeacherPose.thinkTalk => 'think_talk',
     TeacherPose.clapTalk => 'clap_talk',
+    TeacherPose.pointTalk => 'point_talk',
     _ => name,
   };
 }
@@ -53,6 +60,13 @@ enum UiAsset {
   examGiuaki,
   examCuoiki,
   examOntap,
+  tipSecret,
+  tipMagic,
+  tipBulb,
+  advCrown,
+  advBrain,
+  advDaily,
+  advLock,
   abSo,
   abCongtru,
   abNhanchia,

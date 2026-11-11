@@ -20,12 +20,12 @@ import 'parent/parent_screens.dart';
 import 'quiz_screen.dart';
 import 'widgets/bee_mascot.dart';
 import 'widgets/big_button.dart';
-import 'widgets/solution_view.dart';
 import '../tutor/teacher_assets.dart';
 import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import '../tutor/teacher_intro.dart';
 import 'calendar_screen.dart';
+import 'teacher_class_screen.dart';
 
 /// Chuyển màn hình (gom một chỗ cho dễ đổi hiệu ứng sau này).
 Future<T?> pushScreen<T>(BuildContext context, Widget screen) =>
@@ -1266,57 +1266,12 @@ class LessonScreen extends StatelessWidget {
   }
 }
 
+/// Nhớ nhanh: cô giáo tự giảng, làm mẫu từng bước, đọc bí quyết & mẹo.
 class TheoryScreen extends StatelessWidget {
   const TheoryScreen({super.key, required this.lessonRef});
 
   final LessonRef lessonRef;
 
   @override
-  Widget build(BuildContext context) {
-    final app = AppScope.of(context);
-    return Scaffold(
-      appBar: AppBar(title: const Text('Nhớ nhanh'), backgroundColor: AppColors.cream),
-      body: FutureBuilder(
-        future: app.content.loadLesson(lessonRef.src),
-        builder: (context, snap) {
-          if (snap.hasError) return Center(child: Text('${snap.error}'));
-          if (!snap.hasData) return const Center(child: CircularProgressIndicator());
-          final lesson = snap.data!;
-          return Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 640),
-              child: ListView(
-                padding: const EdgeInsets.all(20),
-                children: [
-                  Text(lesson.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
-                  const SizedBox(height: 12),
-                  const TeacherIntro(lines: [TutorLines.screenTheory], avatarHeight: 96),
-                  const SizedBox(height: 16),
-                  for (final b in lesson.theory.blocks)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      child: BlockView(block: b),
-                    ),
-                  BigButton(
-                    label: 'Luyện tập ngay',
-                    icon: Icons.edit_rounded,
-                    onPressed: () => Navigator.of(context).pushReplacement(
-                      MaterialPageRoute<void>(
-                        builder: (_) => QuizScreen(
-                          lesson: lesson,
-                          isVip: app.isVip,
-                          onFinished: app.recordQuiz,
-                          voiceOn: app.voiceEnabled,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
-  }
+  Widget build(BuildContext context) => TeacherClassScreen(lessonRef: lessonRef);
 }

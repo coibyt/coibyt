@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:toan_lop_3/logic/spoken_vi.dart';
+import 'package:toan_lop_3/logic/tips.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/services/sound_service.dart';
 import 'package:toan_lop_3/services/tutor_voice.dart';
@@ -172,6 +173,8 @@ void main() {
         'teacher_think_talk.png',
         'teacher_clap.png',
         'teacher_clap_talk.png',
+        'teacher_point.png',
+        'teacher_point_talk.png',
       ]);
     });
   });
@@ -245,12 +248,17 @@ void main() {
       final voice = AudibleVoice();
       await pumpQuiz(tester, voice, readAloud: true);
       await tester.pump(const Duration(seconds: 3));
-      expect(voice.spoken, ['Tính.', 'hai mươi mốt nhân ba bằng bao nhiêu?']);
+      // Câu đầu: cô nói một bí quyết của bài, rồi đọc đề.
+      for (var i = 0; i < 20 && voice.spoken.length < 4; i++) {
+        await tester.pump(const Duration(seconds: 1));
+      }
+      expect(voice.spoken.take(2), [TutorLines.tipLead[TipKind.secret], tipsForLesson(lesson.title).first.text]);
+      expect(voice.spoken.skip(2), ['Tính.', 'hai mươi mốt nhân ba bằng bao nhiêu?']);
       // Cô đọc xong mới bắt đầu tính thời gian bé ngồi im.
       await tester.pump(const Duration(seconds: 20));
-      expect(voice.spoken, hasLength(2));
+      expect(voice.spoken, hasLength(4));
       await tester.pump(const Duration(seconds: 12));
-      expect(voice.spoken, hasLength(3));
+      expect(voice.spoken, hasLength(5));
       expect(TutorLines.idleNudge, contains(voice.spoken.last));
       await tester.pump(const Duration(seconds: 6));
     });

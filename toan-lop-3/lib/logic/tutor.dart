@@ -3,6 +3,7 @@ import 'dart:math';
 import '../models/blocks.dart';
 import '../models/problem.dart';
 import 'ability.dart';
+import 'tips.dart';
 
 /// Tên cô giáo ảo (đổi ở đây nếu muốn tên khác).
 const kTeacherName = 'Cô Mai';
@@ -28,6 +29,17 @@ abstract final class TutorLines {
   static String lessonIntro(String title) => 'Bài học: $title. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!';
 
   static const screenTheory = 'Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.';
+
+  // Cô làm mẫu / bí quyết
+  static const demoColumn = 'Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.';
+  static const demoDivision = 'Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải.';
+  static const classDone = 'Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!';
+  static const solutionIntro = 'Con xem cô làm mẫu bài này nhé!';
+  static const tipLead = {
+    TipKind.secret: 'Bí quyết của cô nè!',
+    TipKind.trick: 'Mẹo nhớ nhanh nè!',
+    TipKind.warning: 'Cẩn thận nhé!',
+  };
 
   // Kiểm tra năng lực
   static const abilityInvite =
@@ -118,6 +130,12 @@ abstract final class TutorLines {
     screenRank,
     screenBadges,
     screenTheory,
+    demoColumn,
+    demoDivision,
+    classDone,
+    solutionIntro,
+    ...tipLead.values,
+    ...allTipTexts(),
     abilityInvite,
     abilityIntro,
     abilityRetest,

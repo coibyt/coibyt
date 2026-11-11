@@ -49,7 +49,8 @@ class TeacherController extends ChangeNotifier {
   /// Cô nói [parts] (các câu nối tiếp) với tâm trạng [mood].
   /// [holdMood]: giữ tư thế (vd vỗ tay) bao lâu sau khi nói xong rồi về mỉm cười.
   /// [forceVoice]: đọc thành tiếng kể cả khi đã tắt tự đọc (bé chủ động bấm loa).
-  void say(
+  /// Trả về Future xong khi cô nói hết (để nối các bước làm mẫu).
+  Future<void> say(
     List<String> parts, {
     TeacherMood mood = TeacherMood.idle,
     Duration holdMood = const Duration(seconds: 2),
@@ -59,7 +60,7 @@ class TeacherController extends ChangeNotifier {
       for (final p in parts)
         if (p.trim().isNotEmpty) p.trim(),
     ];
-    if (clean.isEmpty) return;
+    if (clean.isEmpty) return Future.value();
     _stopTimers();
     _parts = clean;
     _text = clean.join(' ');
@@ -95,7 +96,7 @@ class TeacherController extends ChangeNotifier {
         notifyListeners();
       }
     });
-    u.done.then((_) {
+    final finished = u.done.then((_) {
       if (!identical(_utterance, u)) return;
       _lipTimer?.cancel();
       _speaking = false;
@@ -109,6 +110,7 @@ class TeacherController extends ChangeNotifier {
         });
       }
     });
+    return finished;
   }
 
   /// Nói lại câu vừa rồi (bé bấm loa).

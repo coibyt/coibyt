@@ -1,0 +1,507 @@
+import 'package:flutter/material.dart';
+
+import '../app_state.dart';
+import '../logic/tips.dart';
+import '../logic/tutor.dart';
+import '../models/blocks.dart';
+import '../models/content.dart';
+import '../models/problem.dart';
+import '../tutor/teacher_assets.dart';
+import '../tutor/teacher_controller.dart';
+import '../tutor/teacher_demo.dart';
+import '../tutor/teacher_hud.dart';
+import 'app_theme.dart';
+import 'quiz_screen.dart';
+import 'widgets/big_button.dart';
+import 'widgets/game_art.dart';
+import 'widgets/solution_view.dart';
+import 'widgets/step_solver.dart';
+
+/// Màu, ảnh của thẻ mẹo.
+Color tipColor(TipKind k) => switch (k) {
+  TipKind.secret => const Color(0xFFE09B00),
+  TipKind.trick => const Color(0xFF8E5CF7),
+  TipKind.warning => const Color(0xFFFF6B4A),
+};
+
+UiAsset tipArt(TipKind k) => switch (k) {
+  TipKind.secret => UiAsset.tipSecret,
+  TipKind.trick => UiAsset.tipMagic,
+  TipKind.warning => UiAsset.tipBulb,
+};
+
+/// Thẻ "Bí quyết / Mẹo / Cẩn thận".
+class TipCard extends StatelessWidget {
+  const TipCard({super.key, required this.tip, this.active = false});
+
+  final Tip tip;
+  final bool active;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = tipColor(tip.kind);
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.fromLTRB(8, 10, 14, 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        gradient: LinearGradient(colors: [c.withValues(alpha: 0.16), Colors.white], stops: const [0, 0.5]),
+        border: Border.all(color: active ? c : c.withValues(alpha: 0.35), width: active ? 3 : 1.5),
+        boxShadow: active ? [BoxShadow(color: c.withValues(alpha: 0.35), blurRadius: 14)] : const [],
+      ),
+      child: Row(
+        children: [
+          GameIcon(tipArt(tip.kind), size: 52, fallback: Icon(Icons.lightbulb_rounded, color: c, size: 40)),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  tip.kind.title,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800, color: c),
+                ),
+                Text(tip.text, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600, height: 1.3)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Một khối nội dung trong lúc cô làm mẫu: tô sáng khối đang giảng, làm mờ khối chưa tới.
+class DemoBlockView extends StatelessWidget {
+  const DemoBlockView({super.key, required this.block, required this.index, required this.player});
+
+  final ContentBlock block;
+  final int index;
+  final DemoPlayer player;
+
+  @override
+  Widget build(BuildContext context) {
+    final active = player.activeBlock == index;
+    final reached = player.reached(index);
+    final Widget child = switch (block) {
+      final ColumnArithmeticBlock b => ColumnStepper(block: b, driver: player.drivers[index]),
+      final LongDivisionBlock b => DivisionStepper(block: b, driver: player.drivers[index]),
+      TextBlock(:final text, :final style) => _TextCard(text: text, style: style),
+      EquationBlock(:final text) => _ChalkEquation(text: text),
+      _ => BlockView(block: block),
+    };
+    return AnimatedOpacity(
+      duration: const Duration(milliseconds: 350),
+      opacity: reached ? 1 : 0.35,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(22),
+          boxShadow: active ? const [BoxShadow(color: Color(0x88FFC93C), blurRadius: 18, spreadRadius: 2)] : const [],
+        ),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            child,
+            if (active)
+              Positioned(
+                right: 8,
+                top: -12,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+                  decoration: BoxDecoration(color: const Color(0xFFFF7A00), borderRadius: BorderRadius.circular(12)),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.record_voice_over_rounded, color: Colors.white, size: 16),
+                      SizedBox(width: 4),
+                      Text(
+                        'Cô đang giảng',
+                        style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.white),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _TextCard extends StatelessWidget {
+  const _TextCard({required this.text, required this.style});
+
+  final String text;
+  final TextBlockStyle style;
+
+  @override
+  Widget build(BuildContext context) {
+    final (Color bg, Color edge, UiAsset? art, String? label) = switch (style) {
+      TextBlockStyle.rule => (const Color(0xFFFFF4D6), const Color(0xFFFFC93C), UiAsset.tipBulb, 'Ghi nhớ'),
+      TextBlockStyle.tip => (const Color(0xFFF1EBFF), const Color(0xFF8E5CF7), UiAsset.tipMagic, 'Mẹo'),
+      TextBlockStyle.normal => (Colors.white, const Color(0xFFDCE7FF), null, null),
+    };
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: bg,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: edge, width: 2),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (art != null) ...[
+            GameIcon(art, size: 44, fallback: Icon(Icons.lightbulb_rounded, color: edge, size: 34)),
+            const SizedBox(width: 8),
+          ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (label != null)
+                  Text(
+                    label,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: edge),
+                  ),
+                Text(text, style: const TextStyle(fontSize: 19, height: 1.4, fontWeight: FontWeight.w600)),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ChalkEquation extends StatelessWidget {
+  const _ChalkEquation({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: double.infinity,
+    padding: const EdgeInsets.all(6),
+    decoration: BoxDecoration(color: const Color(0xFFB27A3C), borderRadius: BorderRadius.circular(18)),
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      decoration: BoxDecoration(color: const Color(0xFF1E4D38), borderRadius: BorderRadius.circular(13)),
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w800, color: Color(0xFFF8F6EA)),
+      ),
+    ),
+  );
+}
+
+/// Thanh điều khiển: nghe lại · tạm dừng/tiếp tục · xem hết, kèm tiến độ.
+class DemoControls extends StatelessWidget {
+  const DemoControls({super.key, required this.player});
+
+  final DemoPlayer player;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        IconButton.filledTonal(
+          key: const ValueKey('demo-restart'),
+          tooltip: 'Nghe lại từ đầu',
+          onPressed: player.restart,
+          icon: const Icon(Icons.replay_rounded),
+        ),
+        const SizedBox(width: 6),
+        IconButton.filled(
+          key: const ValueKey('demo-play'),
+          tooltip: player.playing ? 'Tạm dừng' : 'Tiếp tục',
+          style: IconButton.styleFrom(backgroundColor: const Color(0xFF5B3FD6)),
+          onPressed: player.playing ? player.pause : player.play,
+          icon: Icon(player.playing ? Icons.pause_rounded : Icons.play_arrow_rounded),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: LinearProgressIndicator(
+              value: player.progress,
+              minHeight: 10,
+              color: const Color(0xFFFFB800),
+              backgroundColor: const Color(0xFFEDE7FF),
+            ),
+          ),
+        ),
+        if (!player.done)
+          TextButton(
+            key: const ValueKey('demo-skip'),
+            onPressed: player.skipToEnd,
+            child: const Text('Xem hết', style: TextStyle(fontSize: 16)),
+          ),
+      ],
+    );
+  }
+}
+
+// ===========================================================================
+// Lớp học của cô: cô tự giảng Nhớ nhanh, làm mẫu từng bước, đọc bí quyết & mẹo
+// ===========================================================================
+
+class TeacherClassScreen extends StatefulWidget {
+  const TeacherClassScreen({super.key, required this.lessonRef});
+
+  final LessonRef lessonRef;
+
+  @override
+  State<TeacherClassScreen> createState() => _TeacherClassScreenState();
+}
+
+class _TeacherClassScreenState extends State<TeacherClassScreen> {
+  Future<Lesson>? _lesson;
+  final _teacher = TeacherController(voiceEnabled: false);
+  DemoPlayer? _player;
+  List<Tip> _tips = const [];
+  final _blockKeys = <int, GlobalKey>{};
+  final _tipsKey = GlobalKey();
+  int? _scrolledTo;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _lesson ??= AppScope.read(context).content.loadLesson(widget.lessonRef.src);
+  }
+
+  @override
+  void dispose() {
+    _player?.removeListener(_follow);
+    _player?.dispose();
+    _teacher.dispose();
+    super.dispose();
+  }
+
+  void _start(Lesson lesson) {
+    _tips = tipsForLesson(lesson.title);
+    final blocks = lesson.theory.blocks;
+    _player = DemoPlayer(
+      blocks: blocks,
+      teacher: _teacher,
+      scenes: buildDemoScript(
+        blocks,
+        intro: [TutorLines.lessonIntro(widget.lessonRef.title)],
+        tips: _tips,
+        outro: const [TutorLines.classDone],
+      ),
+    )..addListener(_follow);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _teacher.voiceEnabled = AppScope.read(context).voiceEnabled;
+      _player!.play(); // mở ra là cô giảng luôn
+    });
+  }
+
+  /// Cuộn theo khối cô đang giảng.
+  void _follow() {
+    if (!mounted) return;
+    setState(() {});
+    final p = _player!;
+    final target = p.current?.tip != null ? -1 : p.activeBlock;
+    if (target == null || target == _scrolledTo) return;
+    _scrolledTo = target;
+    final ctx = (target == -1 ? _tipsKey : _blockKeys[target])?.currentContext;
+    if (ctx != null && ctx.mounted) {
+      Scrollable.ensureVisible(ctx, alignment: 0.15, duration: const Duration(milliseconds: 450));
+    }
+  }
+
+  void _practice(Lesson lesson) {
+    final app = AppScope.read(context);
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+        builder: (_) =>
+            QuizScreen(lesson: lesson, isVip: app.isVip, onFinished: app.recordQuiz, voiceOn: app.voiceEnabled),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Nhớ nhanh cùng cô'),
+        backgroundColor: const Color(0xFF1E4D38),
+        foregroundColor: Colors.white,
+      ),
+      body: ScreenBackground(
+        name: 'class',
+        veil: 0.45,
+        child: FutureBuilder<Lesson>(
+          future: _lesson,
+          builder: (context, snap) {
+            if (snap.hasError) return Center(child: Text('${snap.error}'));
+            if (!snap.hasData) return const Center(child: CircularProgressIndicator());
+            final lesson = snap.data!;
+            if (_player == null) _start(lesson);
+            final p = _player!;
+            final blocks = lesson.theory.blocks;
+            return Column(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 680),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Text(
+                              lesson.title,
+                              key: const ValueKey('class-title'),
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.w800,
+                                color: Color(0xFF1E4D38),
+                                shadows: [Shadow(color: Colors.white, blurRadius: 8)],
+                              ),
+                            ),
+                            const SizedBox(height: 14),
+                            for (final (i, b) in blocks.indexed)
+                              KeyedSubtree(
+                                key: _blockKeys.putIfAbsent(i, GlobalKey.new),
+                                child: DemoBlockView(block: b, index: i, player: p),
+                              ),
+                            if (_tips.isNotEmpty) ...[
+                              const SizedBox(height: 6),
+                              Row(
+                                key: _tipsKey,
+                                children: [
+                                  GameIcon(
+                                    UiAsset.tipSecret,
+                                    size: 36,
+                                    fallback: const Icon(Icons.vpn_key_rounded, color: Color(0xFFE09B00)),
+                                  ),
+                                  const SizedBox(width: 6),
+                                  const Expanded(
+                                    child: Text(
+                                      'Bí quyết & mẹo của cô',
+                                      style: TextStyle(
+                                        fontSize: 21,
+                                        fontWeight: FontWeight.w800,
+                                        color: Color(0xFF5A3A00),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8),
+                              for (final (k, t) in _tips.indexed)
+                                AnimatedOpacity(
+                                  duration: const Duration(milliseconds: 350),
+                                  opacity: k < p.tipsShown ? 1 : 0.35,
+                                  child: TipCard(key: ValueKey('tip-$k'), tip: t, active: p.current?.tip == k),
+                                ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(12, 8, 12, 12),
+                  decoration: const BoxDecoration(
+                    color: Color(0xF2FFFFFF),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(26)),
+                    boxShadow: [BoxShadow(color: Color(0x22000000), blurRadius: 12, offset: Offset(0, -3))],
+                  ),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 680),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TeacherHud(key: const ValueKey('class-teacher'), controller: _teacher, avatarHeight: 110),
+                          DemoControls(player: p),
+                          const SizedBox(height: 6),
+                          BigButton(
+                            key: const ValueKey('btn-class-practice'),
+                            label: 'Luyện tập ngay',
+                            icon: Icons.edit_rounded,
+                            color: p.done ? AppColors.good : const Color(0xFF7FCFA3),
+                            onPressed: () => _practice(lesson),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+// ===========================================================================
+// Lời giải: cô làm mẫu bài vừa làm
+// ===========================================================================
+
+/// Lời giải trong bảng trượt: cô tự làm mẫu từng bước và nói (mở ra là chạy).
+class SolutionDemo extends StatefulWidget {
+  const SolutionDemo({super.key, required this.problem, required this.voiceOn});
+
+  final Problem problem;
+  final bool voiceOn;
+
+  @override
+  State<SolutionDemo> createState() => _SolutionDemoState();
+}
+
+class _SolutionDemoState extends State<SolutionDemo> {
+  late final TeacherController _teacher = TeacherController(voiceEnabled: widget.voiceOn);
+  late final List<ContentBlock> _blocks = widget.problem.solution.steps;
+  late final DemoPlayer _player = DemoPlayer(
+    blocks: _blocks,
+    teacher: _teacher,
+    scenes: buildDemoScript(_blocks, intro: const [TutorLines.solutionIntro]),
+  )..addListener(_changed);
+
+  void _changed() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _player.play();
+    });
+  }
+
+  @override
+  void dispose() {
+    _player.removeListener(_changed);
+    _player.dispose();
+    _teacher.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Column(
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: [
+      TeacherHud(controller: _teacher, avatarHeight: 92),
+      DemoControls(player: _player),
+      const SizedBox(height: 10),
+      for (final (i, b) in _blocks.indexed)
+        DemoBlockView(key: ValueKey('solution-step-$i'), block: b, index: i, player: _player),
+    ],
+  );
+}

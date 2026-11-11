@@ -79,9 +79,11 @@ void main() {
     expect(find.byKey(const ValueKey('btn-solution')), findsNothing, reason: 'chưa xin gợi ý thì chưa có lời giải');
     await openSolution(tester); // bỏ qua bài 1 bằng cách xem lời giải
     expect(find.text('Lời giải'), findsOneWidget);
-    // Lời giải hiện từng bước: bấm "Bắt đầu" để thấy bước 1.
+    // Cô tự làm mẫu từng bước (không cần bấm): lúc đầu chưa có bước nào, lát sau hiện bước 1.
     expect(find.text('3 nhân 1 bằng 3, viết 3.'), findsNothing);
-    await tapKey(tester, 'step-next');
+    for (var i = 0; i < 40 && find.text('3 nhân 1 bằng 3, viết 3.').evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
     expect(find.text('3 nhân 1 bằng 3, viết 3.'), findsOneWidget);
     expect(find.text('3 nhân 2 bằng 6, viết 6.'), findsNothing);
     await tester.tap(find.byTooltip('Đóng'));
@@ -96,9 +98,8 @@ void main() {
 
     expect(find.text('Lời giải'), findsOneWidget);
     expect(find.text('Đặt tính rồi tính:'), findsOneWidget);
-    await tapKey(tester, 'step-all');
+    await tapKey(tester, 'demo-skip'); // "Xem hết": hiện mọi bước ngay
     expect(find.text('3 nhân 3 bằng 9, viết 9.'), findsOneWidget);
-    expect(find.text('Xong!'), findsOneWidget);
     expect(find.text('Đáp án: 96'), findsWidgets);
   });
 

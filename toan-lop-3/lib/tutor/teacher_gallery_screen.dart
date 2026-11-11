@@ -110,6 +110,7 @@ class _TeacherGalleryScreenState extends State<TeacherGalleryScreen> {
     TeacherMood.idle => 'Mỉm cười',
     TeacherMood.think => 'Suy nghĩ',
     TeacherMood.clap => 'Vỗ tay',
+    TeacherMood.point => 'Chỉ bảng',
   };
 
   Widget _status(String name, String? path, {bool preview = false}) => ListTile(

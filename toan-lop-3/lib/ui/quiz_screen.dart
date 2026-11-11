@@ -25,7 +25,9 @@ import '../tutor/teacher_avatar.dart';
 import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import '../tutor/tutor_audio_service.dart';
+import '../logic/tips.dart';
 import '../logic/tutor.dart';
+import 'teacher_class_screen.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
 typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
@@ -153,6 +155,10 @@ class _QuizBodyState extends State<_QuizBody> {
   bool _finishReported = false;
   Future<RewardOutcome?>? _reward;
 
+  // ---- Bí quyết & mẹo của bài ----
+  late final List<Tip> _tips = tipsForLesson(widget.lesson.title);
+  bool _tipSaid = false;
+
   // ---- Cô giáo ảo ----
   late final TutorAudioService _audio = TutorAudioService(fallback: widget.voice);
   late final TeacherController _teacher = TeacherController(audio: _audio, voiceEnabled: widget.voiceOn);
@@ -179,9 +185,16 @@ class _QuizBodyState extends State<_QuizBody> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || !widget.readAloud || _session.isFinished || _session.problems.isEmpty) return;
       final p = _session.current;
-      final text = (p.prompt.speak ?? p.prompt.text).trim();
+      // Khung thoại hiện đúng chữ trên bảng (21 × 3 = ?); giọng đọc tự đổi số thành chữ.
+      final text = p.prompt.text.trim();
       final instruction = p.displayInstruction.trim();
-      _teacher.say([if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction, text]);
+      final tip = _session.index == 0 && !_tipSaid && _tips.isNotEmpty ? _tips.first : null;
+      _tipSaid = true;
+      _teacher.say([
+        if (tip != null) ...[TutorLines.tipLead[tip.kind]!, tip.text],
+        if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction,
+        text,
+      ]);
     });
   }
 
@@ -317,8 +330,37 @@ class _QuizBodyState extends State<_QuizBody> {
               ],
             ),
             const SizedBox(height: 8),
-            SolutionPanel(problem: problem, locked: _session.solutionLocked(problem)),
+            SolutionPanel(problem: problem, locked: _session.solutionLocked(problem), showSteps: false),
+            if (!_session.solutionLocked(problem) && problem.solution.steps.isNotEmpty)
+              SolutionDemo(key: ValueKey('demo-${problem.id}'), problem: problem, voiceOn: widget.voiceOn),
           ],
+        ),
+      ),
+    );
+  }
+
+  /// Bảng "Bí quyết & mẹo": cô đọc to từng mẹo.
+  void _openTips() {
+    if (_tips.isEmpty) return;
+    _teacher.say([
+      for (final t in _tips) ...[TutorLines.tipLead[t.kind]!, t.text],
+    ]);
+    showModalBottomSheet<void>(
+      context: context,
+      backgroundColor: const Color(0xFFFFFBF0),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+      builder: (context) => SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 20),
+          child: Column(
+            key: const ValueKey('tips-sheet'),
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Text('Bí quyết & mẹo của cô', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+              const SizedBox(height: 12),
+              for (final t in _tips) TipCard(tip: t),
+            ],
+          ),
         ),
       ),
     );
@@ -393,6 +435,7 @@ class _QuizBodyState extends State<_QuizBody> {
                     total: _session.problems.length,
                     onClose: () => Navigator.of(context).maybePop(),
                     onTheory: _openTheory,
+                    onTips: _openTips,
                   ),
                   Expanded(
                     child: SingleChildScrollView(
@@ -460,6 +503,7 @@ class _TopBar extends StatelessWidget {
     required this.total,
     required this.onClose,
     required this.onTheory,
+    required this.onTips,
   });
 
   final int combo;
@@ -467,6 +511,7 @@ class _TopBar extends StatelessWidget {
   final int total;
   final VoidCallback onClose;
   final VoidCallback onTheory;
+  final VoidCallback onTips;
 
   @override
   Widget build(BuildContext context) {
@@ -502,7 +547,16 @@ class _TopBar extends StatelessWidget {
               ),
             ),
           Text('$current/$total', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-          const SizedBox(width: 4),
+          IconButton(
+            key: const ValueKey('btn-tips'),
+            tooltip: 'Bí quyết & mẹo của cô',
+            onPressed: onTips,
+            icon: GameIcon(
+              UiAsset.tipBulb,
+              size: 36,
+              fallback: const Icon(Icons.lightbulb_rounded, color: AppColors.honey),
+            ),
+          ),
           IconButton(
             iconSize: 34,
             tooltip: 'Nhớ nhanh',
@@ -661,7 +715,7 @@ class _FeedbackAndActions extends StatelessWidget {
               TeacherHud(
                 key: const ValueKey('feedback-message'),
                 controller: teacher,
-                avatarHeight: 118,
+                avatarHeight: 92,
                 textColor: fg,
                 footer: phase == QuestionPhase.revealed
                     ? Text(

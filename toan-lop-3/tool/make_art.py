@@ -80,6 +80,10 @@ JOBS = {
                          prompt=KEEP + "Change only her pose and expression: she claps her hands together in front of her chest, very happy wide smile with eyes squinting joyfully, a few small golden sparkles around her hands."),
     "teacher_clap_talk": dict(group="teacher", aspect="3:4", ref="teacher_clap",
                               prompt=KEEP.replace("same position", "same clapping pose, same position") + "Only change: her mouth is open wide in a cheerful 'Yay!' shape."),
+    "teacher_point": dict(group="teacher", aspect="3:4", ref="teacher_idle",
+                          prompt=KEEP + "Change only her pose: she raises her right hand to shoulder height and points her index finger to the side (towards the viewer's left) as if pointing at a chalkboard while explaining, friendly confident expression, mouth closed with a soft smile. The raised hand must stay inside the frame."),
+    "teacher_point_talk": dict(group="teacher", aspect="3:4", ref="teacher_point",
+                               prompt=KEEP.replace("same position", "same pointing pose, same position") + "Only change: her mouth is open in a friendly speaking shape as if explaining."),
     # ---- vật phẩm (1:1, nền hồng sẫm) ----
     "coin": dict(group="ui", aspect="1:1", prompt=obj("A shiny thick gold coin with an embossed star in the centre and a beaded rim, slightly tilted")),
     "star": dict(group="ui", aspect="1:1", prompt=obj("A plump shiny golden-yellow star with soft rounded points and a sparkle highlight")),
@@ -158,6 +162,27 @@ JOBS["bg_ability"] = dict(group="bg", aspect="9:16", prompt=(
     "A magical background for a children's math skill test: a soft starry twilight sky in deep indigo fading to "
     "lavender and peach near the bottom, gentle glowing constellations made of tiny dots, floating soft clouds, "
     "calm and low contrast with lots of empty space in the middle, no characters, no text. " + STYLE + " " + CLEAN))
+
+# ---- Lớp học của cô: bí quyết, mẹo ----
+JOBS["tip_secret"] = dict(group="ui", aspect="1:1", prompt=obj("An ornate golden key with a glowing heart-shaped bow and tiny sparkles, a secret treasure key"))
+JOBS["tip_magic"] = dict(group="ui", aspect="1:1", prompt=obj("A cute magic wand with a glowing star tip and a trail of colourful sparkles"))
+JOBS["tip_bulb"] = dict(group="ui", aspect="1:1", prompt=obj("A cute glowing light bulb with a happy warm golden glow and small rays, an idea symbol"))
+JOBS["bg_class"] = dict(group="bg", aspect="9:16", prompt=(
+    "A cozy bright primary-school classroom background for a children's math lesson: a large empty dark-green "
+    "chalkboard with a light oak frame on the wall at the top, warm morning sunlight from a window on the side, "
+    "a few potted plants and colourful paper garlands, soft pastel cream walls, calm and low contrast in the "
+    "lower half for content, no people, no text on the board. " + STYLE + " " + CLEAN))
+
+# ---- Học nâng cao (học sinh giỏi) ----
+JOBS["adv_crown"] = dict(group="ui", aspect="1:1", prompt=obj("A majestic small golden crown studded with purple and blue gems, glowing softly, royal and premium"))
+JOBS["adv_brain"] = dict(group="ui", aspect="1:1", prompt=obj("A cute glowing purple crystal brain with tiny golden gears and sparkles, a genius symbol"))
+JOBS["adv_daily"] = dict(group="ui", aspect="1:1", prompt=obj("A glowing golden challenge medallion with a lightning bolt and a small star, daily challenge emblem"))
+JOBS["adv_lock"] = dict(group="ui", aspect="1:1", prompt=obj("An ornate purple and gold padlock with a small keyhole shaped like a star"))
+JOBS["bg_advanced"] = dict(group="bg", aspect="9:16", prompt=(
+    "A luxurious magical background for an advanced math challenge area for gifted children: a grand twilight "
+    "library hall in deep royal purple and midnight blue with golden trims, floating glowing golden stars and "
+    "soft constellations, elegant and calm, low contrast with lots of empty space in the middle, no characters, "
+    "no text. " + STYLE + " " + CLEAN))
 
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {

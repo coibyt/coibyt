@@ -7,7 +7,10 @@ import 'step_solver.dart';
 
 /// Nội dung "Xem lời giải": đáp án + các bước (hoặc khoá VIP).
 class SolutionPanel extends StatelessWidget {
-  const SolutionPanel({super.key, required this.problem, required this.locked});
+  const SolutionPanel({super.key, required this.problem, required this.locked, this.showSteps = true});
+
+  /// false: chỉ hiện đáp án (các bước do cô làm mẫu hiện riêng).
+  final bool showSteps;
 
   final Problem problem;
 
@@ -39,7 +42,7 @@ class SolutionPanel extends StatelessWidget {
         const SizedBox(height: 16),
         if (locked)
           const _VipLockCard()
-        else
+        else if (showSteps)
           for (final (i, step) in solution.steps.indexed)
             Padding(
               padding: const EdgeInsets.only(bottom: 14),

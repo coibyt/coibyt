@@ -23,7 +23,7 @@ from PIL import Image
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / ".art-raw"
-TEACHER_POSES = ["idle", "blink", "talk", "think", "think_talk", "clap", "clap_talk"]
+TEACHER_POSES = ["idle", "blink", "talk", "think", "think_talk", "clap", "clap_talk", "point", "point_talk"]
 TEACHER_HEIGHT = 900
 SIZES = {"ui": 512, "pets": 384}
 BG_WIDTH = 1080

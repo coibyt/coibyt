@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:toan_lop_3/logic/spoken_vi.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/models/content.dart';
+import 'package:toan_lop_3/logic/demo_script.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
 const api = 'https://api.11max.id.vn';
@@ -62,6 +63,10 @@ List<String> allLines() {
     final lesson = Lesson.fromJson(jsonDecode(f.readAsStringSync()));
     for (final p in lesson.problems) {
       lines.add(brain.hint(p));
+    }
+    // Cô làm mẫu phần Nhớ nhanh: đọc từng khối và từng bước đặt tính.
+    for (final s in buildDemoScript(lesson.theory.blocks)) {
+      lines.addAll(s.say);
     }
   }
   return [for (final l in lines) voiceKey(l)];
