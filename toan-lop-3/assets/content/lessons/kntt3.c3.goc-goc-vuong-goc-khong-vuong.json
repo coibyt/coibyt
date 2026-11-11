@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c3",
+  "order": 3,
+  "title": "Góc, góc vuông, góc không vuông",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Góc được tạo bởi hai cạnh chung một đỉnh. Dùng ê ke để kiểm tra góc vuông và góc không vuông.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: góc đỉnh O, cạnh OP, OI."
+      },
+      {
+        "kind": "text",
+        "text": "Lúc 3 giờ, kim giờ và kim phút tạo thành một góc vuông."
+      },
+      {
+        "kind": "text",
+        "text": "Hình vuông và hình chữ nhật đều có 4 góc vuông.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Để kiểm tra một góc có phải là góc vuông hay không, ta dùng dụng cụ nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "com-pa"
+        },
+        {
+          "id": "b",
+          "text": "thước dây"
+        },
+        {
+          "id": "c",
+          "text": "ê ke"
+        },
+        {
+          "id": "d",
+          "text": "cân đĩa"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "ê ke",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Ta đặt góc vuông của ê ke trùng với đỉnh và một cạnh của góc để kiểm tra."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một góc có hai cạnh là EG và EP. Đỉnh của góc là điểm nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Điểm E"
+        },
+        {
+          "id": "b",
+          "text": "Điểm G"
+        },
+        {
+          "id": "c",
+          "text": "Điểm P"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Điểm E",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai cạnh EG và EP chung điểm E, nên E là đỉnh của góc."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đếm số góc vuông của mỗi hình."
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "template": "Hình vuông có {{b1}} góc vuông.\nHình chữ nhật có {{b2}} góc vuông.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4; 4",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình vuông có 4 góc vuông. Hình chữ nhật cũng có 4 góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10 giờ"
+        },
+        {
+          "id": "b",
+          "text": "7 giờ"
+        },
+        {
+          "id": "c",
+          "text": "6 giờ"
+        },
+        {
+          "id": "d",
+          "text": "9 giờ"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 giờ",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Lúc 9 giờ, kim phút chỉ số 12, kim giờ chỉ số 9; hai kim tạo thành góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tứ giác HOKQ có góc đỉnh H và góc đỉnh O là góc vuông, các góc còn lại không phải góc vuông."
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "template": "Hình tứ giác đó có {{b1}} góc vuông và {{b2}} góc không vuông.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2; 2",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 góc."
+          },
+          {
+            "kind": "equation",
+            "text": "4 - 2 = 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi hình với số góc vuông của hình đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình tam giác có một góc vuông"
+        },
+        {
+          "id": "l2",
+          "text": "Hình vuông"
+        },
+        {
+          "id": "l3",
+          "text": "Hình tam giác có ba cạnh bằng nhau"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "2 góc vuông"
+        },
+        {
+          "id": "r2",
+          "text": "4 góc vuông"
+        },
+        {
+          "id": "r3",
+          "text": "1 góc vuông"
+        },
+        {
+          "id": "r4",
+          "text": "Không có góc vuông"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình tam giác có một góc vuông: 1 góc vuông; Hình vuông: 4 góc vuông; Hình tam giác có ba cạnh bằng nhau: Không có góc vuông",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tam giác có một góc vuông: 1 góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Hình vuông: 4 góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Hình tam giác có ba cạnh bằng nhau: Không có góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "template": "Hình chữ nhật có {{s1}} góc vuông.\nHình tam giác có {{s2}} góc.\nHình tứ giác có {{s3}} góc.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3"
+        },
+        {
+          "id": "t2",
+          "text": "4"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "5"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "4; 3; 4",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình chữ nhật có 4 góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Hình tam giác có 3 góc."
+          },
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 góc."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Hoa cắt được 2 tấm bìa hình vuông và 3 tấm bìa hình chữ nhật. Hỏi tất cả các tấm bìa đó có bao nhiêu góc vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.goc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Có tất cả {{b1}} góc vuông.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 20,
+            "unit": "góc"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "20 góc vuông",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tấm bìa bạn Hoa cắt được là:",
+                "equation": "2 + 3 = 5 (tấm)"
+              },
+              {
+                "explanation": "Số góc vuông có tất cả là:",
+                "equation": "4 × 5 = 20 (góc)"
+              }
+            ],
+            "answer": "Đáp số: 20 góc vuông."
+          }
+        ]
+      }
+    }
+  ]
+}

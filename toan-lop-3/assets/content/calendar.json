@@ -1,0 +1,1709 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "calendar",
+  "bookId": "kntt3",
+  "schoolYear": "2026-2027",
+  "terms": [
+    {
+      "term": 1,
+      "start": "2026-09-07",
+      "end": "2027-01-15"
+    },
+    {
+      "term": 2,
+      "start": "2027-01-18",
+      "end": "2027-05-21"
+    }
+  ],
+  "holidays": [
+    {
+      "start": "2027-01-01",
+      "end": "2027-01-01",
+      "name": "Tết Dương lịch"
+    },
+    {
+      "start": "2027-02-04",
+      "end": "2027-02-14",
+      "name": "Nghỉ Tết Nguyên Đán Đinh Mùi (mùng 1 Tết: 6/2/2027)"
+    },
+    {
+      "start": "2027-04-16",
+      "end": "2027-04-16",
+      "name": "Giỗ Tổ Hùng Vương (10/3 âm lịch)"
+    },
+    {
+      "start": "2027-04-30",
+      "end": "2027-04-30",
+      "name": "Ngày Giải phóng miền Nam, thống nhất đất nước"
+    },
+    {
+      "start": "2027-05-01",
+      "end": "2027-05-01",
+      "name": "Ngày Quốc tế Lao động"
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-09-07",
+      "week": 1,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-cac-so-den-1000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-08",
+      "week": 1,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-cac-so-den-1000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-09",
+      "week": 1,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-10",
+      "week": 1,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-11",
+      "week": 1,
+      "term": 1,
+      "lessonId": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-14",
+      "week": 2,
+      "term": 1,
+      "lessonId": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-15",
+      "week": 2,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-bang-nhan-2-5-bang-chia-2-5",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-16",
+      "week": 2,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-bang-nhan-2-5-bang-chia-2-5",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-17",
+      "week": 2,
+      "term": 1,
+      "lessonId": "kntt3.c1.bang-nhan-3-bang-chia-3",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-18",
+      "week": 2,
+      "term": 1,
+      "lessonId": "kntt3.c1.bang-nhan-3-bang-chia-3",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-21",
+      "week": 3,
+      "term": 1,
+      "lessonId": "kntt3.c1.bang-nhan-4-bang-chia-4",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-22",
+      "week": 3,
+      "term": 1,
+      "lessonId": "kntt3.c1.bang-nhan-4-bang-chia-4",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-23",
+      "week": 3,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-hinh-hoc-va-do-luong",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-24",
+      "week": 3,
+      "term": 1,
+      "lessonId": "kntt3.c1.on-tap-hinh-hoc-va-do-luong",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-25",
+      "week": 3,
+      "term": 1,
+      "lessonId": "kntt3.c1.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-28",
+      "week": 4,
+      "term": 1,
+      "lessonId": "kntt3.c1.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-29",
+      "week": 4,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-6-bang-chia-6",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-09-30",
+      "week": 4,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-6-bang-chia-6",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-01",
+      "week": 4,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-7-bang-chia-7",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-02",
+      "week": 4,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-7-bang-chia-7",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-05",
+      "week": 5,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-8-bang-chia-8",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-06",
+      "week": 5,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-8-bang-chia-8",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-07",
+      "week": 5,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-9-bang-chia-9",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-08",
+      "week": 5,
+      "term": 1,
+      "lessonId": "kntt3.c2.bang-nhan-9-bang-chia-9",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-09",
+      "week": 5,
+      "term": 1,
+      "lessonId": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-12",
+      "week": 6,
+      "term": 1,
+      "lessonId": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-13",
+      "week": 6,
+      "term": 1,
+      "lessonId": "kntt3.c2.mot-phan-may",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-14",
+      "week": 6,
+      "term": 1,
+      "lessonId": "kntt3.c2.mot-phan-may",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-15",
+      "week": 6,
+      "term": 1,
+      "lessonId": "kntt3.c2.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-16",
+      "week": 6,
+      "term": 1,
+      "lessonId": "kntt3.c2.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-19",
+      "week": 7,
+      "term": 1,
+      "lessonId": "kntt3.c3.diem-o-giua-trung-diem",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-20",
+      "week": 7,
+      "term": 1,
+      "lessonId": "kntt3.c3.diem-o-giua-trung-diem",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-21",
+      "week": 7,
+      "term": 1,
+      "lessonId": "kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-22",
+      "week": 7,
+      "term": 1,
+      "lessonId": "kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-23",
+      "week": 7,
+      "term": 1,
+      "lessonId": "kntt3.c3.goc-goc-vuong-goc-khong-vuong",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-26",
+      "week": 8,
+      "term": 1,
+      "lessonId": "kntt3.c3.goc-goc-vuong-goc-khong-vuong",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-27",
+      "week": 8,
+      "term": 1,
+      "lessonId": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-28",
+      "week": 8,
+      "term": 1,
+      "lessonId": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-29",
+      "week": 8,
+      "term": 1,
+      "lessonId": "kntt3.c3.thuc-hanh-ve-goc-vuong-duong-tron",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-10-30",
+      "week": 8,
+      "term": 1,
+      "lessonId": "kntt3.c3.thuc-hanh-ve-goc-vuong-duong-tron",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-02",
+      "week": 9,
+      "term": 1,
+      "lessonId": "kntt3.c3.khoi-lap-phuong-khoi-hop-chu-nhat",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-03",
+      "week": 9,
+      "term": 1,
+      "lessonId": "kntt3.c3.khoi-lap-phuong-khoi-hop-chu-nhat",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-04",
+      "week": 9,
+      "term": 1,
+      "lessonId": "kntt3.c3.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-05",
+      "week": 9,
+      "term": 1,
+      "lessonId": "kntt3.c3.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-06",
+      "week": 9,
+      "term": 1,
+      "lessonId": "kntt3.c4.nhan-2cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-09",
+      "week": 10,
+      "term": 1,
+      "lessonId": "kntt3.c4.nhan-2cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-10",
+      "week": 10,
+      "term": 1,
+      "lessonId": "kntt3.c4.nhan-2cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-11",
+      "week": 10,
+      "term": 1,
+      "lessonId": "kntt3.c4.gap-mot-so-len-mot-so-lan",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-12",
+      "week": 10,
+      "term": 1,
+      "lessonId": "kntt3.c4.gap-mot-so-len-mot-so-lan",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-13",
+      "week": 10,
+      "term": 1,
+      "lessonId": "kntt3.c4.phep-chia-het-phep-chia-co-du",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-16",
+      "week": 11,
+      "term": 1,
+      "lessonId": "kntt3.c4.phep-chia-het-phep-chia-co-du",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-17",
+      "week": 11,
+      "term": 1,
+      "lessonId": "kntt3.c4.chia-2cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-18",
+      "week": 11,
+      "term": 1,
+      "lessonId": "kntt3.c4.chia-2cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-19",
+      "week": 11,
+      "term": 1,
+      "lessonId": "kntt3.c4.chia-2cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-20",
+      "week": 11,
+      "term": 1,
+      "lessonId": "kntt3.c4.giam-mot-so-di-mot-so-lan",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-23",
+      "week": 12,
+      "term": 1,
+      "lessonId": "kntt3.c4.giam-mot-so-di-mot-so-lan",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-24",
+      "week": 12,
+      "term": 1,
+      "lessonId": "kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-25",
+      "week": 12,
+      "term": 1,
+      "lessonId": "kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-26",
+      "week": 12,
+      "term": 1,
+      "lessonId": "kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-11-27",
+      "week": 12,
+      "term": 1,
+      "lessonId": "kntt3.c4.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-11-30",
+      "week": 13,
+      "term": 1,
+      "lessonId": "kntt3.c4.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-01",
+      "week": 13,
+      "term": 1,
+      "lessonId": "kntt3.c5.mi-li-met",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-02",
+      "week": 13,
+      "term": 1,
+      "lessonId": "kntt3.c5.mi-li-met",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-03",
+      "week": 13,
+      "term": 1,
+      "lessonId": "kntt3.c5.gam",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-04",
+      "week": 13,
+      "term": 1,
+      "lessonId": "kntt3.c5.gam",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-07",
+      "week": 14,
+      "term": 1,
+      "lessonId": "kntt3.c5.mi-li-lit",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-08",
+      "week": 14,
+      "term": 1,
+      "lessonId": "kntt3.c5.mi-li-lit",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-09",
+      "week": 14,
+      "term": 1,
+      "lessonId": "kntt3.c5.nhiet-do-don-vi-do-nhiet-do",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-10",
+      "week": 14,
+      "term": 1,
+      "lessonId": "kntt3.c5.nhiet-do-don-vi-do-nhiet-do",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-11",
+      "week": 14,
+      "term": 1,
+      "lessonId": "kntt3.c5.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-14",
+      "week": 15,
+      "term": 1,
+      "lessonId": "kntt3.c5.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-15",
+      "week": 15,
+      "term": 1,
+      "lessonId": "kntt3.c6.nhan-3cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-16",
+      "week": 15,
+      "term": 1,
+      "lessonId": "kntt3.c6.nhan-3cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-17",
+      "week": 15,
+      "term": 1,
+      "lessonId": "kntt3.c6.nhan-3cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-18",
+      "week": 15,
+      "term": 1,
+      "lessonId": "kntt3.c6.chia-3cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-21",
+      "week": 16,
+      "term": 1,
+      "lessonId": "kntt3.c6.chia-3cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-22",
+      "week": 16,
+      "term": 1,
+      "lessonId": "kntt3.c6.chia-3cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-23",
+      "week": 16,
+      "term": 1,
+      "lessonId": "kntt3.c6.bieu-thuc-so",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-24",
+      "week": 16,
+      "term": 1,
+      "lessonId": "kntt3.c6.bieu-thuc-so",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-25",
+      "week": 16,
+      "term": 1,
+      "lessonId": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-28",
+      "week": 17,
+      "term": 1,
+      "lessonId": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-29",
+      "week": 17,
+      "term": 1,
+      "lessonId": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2026-12-30",
+      "week": 17,
+      "term": 1,
+      "lessonId": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2026-12-31",
+      "week": 17,
+      "term": 1,
+      "lessonId": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-04",
+      "week": 18,
+      "term": 1,
+      "lessonId": "kntt3.c6.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-05",
+      "week": 18,
+      "term": 1,
+      "lessonId": "kntt3.c6.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-06",
+      "week": 18,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-phep-nhan-phep-chia",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-07",
+      "week": 18,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-phep-nhan-phep-chia",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-08",
+      "week": 18,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-bieu-thuc-so",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-11",
+      "week": 19,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-bieu-thuc-so",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-12",
+      "week": 19,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-hinh-hoc-va-do-luong",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-13",
+      "week": 19,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-hinh-hoc-va-do-luong",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-14",
+      "week": 19,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-15",
+      "week": 19,
+      "term": 1,
+      "lessonId": "kntt3.c7.on-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-18",
+      "week": 20,
+      "term": 2,
+      "lessonId": "kntt3.c8.cac-so-co-bon-chu-so-so-10000",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-01-19",
+      "week": 20,
+      "term": 2,
+      "lessonId": "kntt3.c8.cac-so-co-bon-chu-so-so-10000",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-01-20",
+      "week": 20,
+      "term": 2,
+      "lessonId": "kntt3.c8.cac-so-co-bon-chu-so-so-10000",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-01-21",
+      "week": 20,
+      "term": 2,
+      "lessonId": "kntt3.c8.so-sanh-cac-so-pham-vi-10000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-22",
+      "week": 20,
+      "term": 2,
+      "lessonId": "kntt3.c8.so-sanh-cac-so-pham-vi-10000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-25",
+      "week": 21,
+      "term": 2,
+      "lessonId": "kntt3.c8.lam-quen-voi-chu-so-la-ma",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-26",
+      "week": 21,
+      "term": 2,
+      "lessonId": "kntt3.c8.lam-quen-voi-chu-so-la-ma",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-27",
+      "week": 21,
+      "term": 2,
+      "lessonId": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-28",
+      "week": 21,
+      "term": 2,
+      "lessonId": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-01-29",
+      "week": 21,
+      "term": 2,
+      "lessonId": "kntt3.c8.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-01",
+      "week": 22,
+      "term": 2,
+      "lessonId": "kntt3.c8.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-02",
+      "week": 22,
+      "term": 2,
+      "lessonId": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-03",
+      "week": 22,
+      "term": 2,
+      "lessonId": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-15",
+      "week": 23,
+      "term": 2,
+      "lessonId": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-16",
+      "week": 23,
+      "term": 2,
+      "lessonId": "kntt3.c9.dien-tich-cua-mot-hinh-xang-ti-met-vuong",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-17",
+      "week": 23,
+      "term": 2,
+      "lessonId": "kntt3.c9.dien-tich-cua-mot-hinh-xang-ti-met-vuong",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-18",
+      "week": 23,
+      "term": 2,
+      "lessonId": "kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-19",
+      "week": 23,
+      "term": 2,
+      "lessonId": "kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-22",
+      "week": 24,
+      "term": 2,
+      "lessonId": "kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-02-23",
+      "week": 24,
+      "term": 2,
+      "lessonId": "kntt3.c9.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-24",
+      "week": 24,
+      "term": 2,
+      "lessonId": "kntt3.c9.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-25",
+      "week": 24,
+      "term": 2,
+      "lessonId": "kntt3.c10.phep-cong-pham-vi-10000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-02-26",
+      "week": 24,
+      "term": 2,
+      "lessonId": "kntt3.c10.phep-cong-pham-vi-10000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-01",
+      "week": 25,
+      "term": 2,
+      "lessonId": "kntt3.c10.phep-tru-pham-vi-10000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-02",
+      "week": 25,
+      "term": 2,
+      "lessonId": "kntt3.c10.phep-tru-pham-vi-10000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-03",
+      "week": 25,
+      "term": 2,
+      "lessonId": "kntt3.c10.nhan-4cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-04",
+      "week": 25,
+      "term": 2,
+      "lessonId": "kntt3.c10.nhan-4cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-05",
+      "week": 25,
+      "term": 2,
+      "lessonId": "kntt3.c10.nhan-4cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-08",
+      "week": 26,
+      "term": 2,
+      "lessonId": "kntt3.c10.chia-4cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-09",
+      "week": 26,
+      "term": 2,
+      "lessonId": "kntt3.c10.chia-4cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-10",
+      "week": 26,
+      "term": 2,
+      "lessonId": "kntt3.c10.chia-4cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-11",
+      "week": 26,
+      "term": 2,
+      "lessonId": "kntt3.c10.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-12",
+      "week": 26,
+      "term": 2,
+      "lessonId": "kntt3.c10.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-15",
+      "week": 27,
+      "term": 2,
+      "lessonId": "kntt3.c11.cac-so-co-nam-chu-so-so-100000",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-16",
+      "week": 27,
+      "term": 2,
+      "lessonId": "kntt3.c11.cac-so-co-nam-chu-so-so-100000",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-17",
+      "week": 27,
+      "term": 2,
+      "lessonId": "kntt3.c11.cac-so-co-nam-chu-so-so-100000",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-03-18",
+      "week": 27,
+      "term": 2,
+      "lessonId": "kntt3.c11.so-sanh-cac-so-pham-vi-100000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-19",
+      "week": 27,
+      "term": 2,
+      "lessonId": "kntt3.c11.so-sanh-cac-so-pham-vi-100000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-22",
+      "week": 28,
+      "term": 2,
+      "lessonId": "kntt3.c11.lam-tron-so-den-hang-nghin-hang-chuc-nghin",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-23",
+      "week": 28,
+      "term": 2,
+      "lessonId": "kntt3.c11.lam-tron-so-den-hang-nghin-hang-chuc-nghin",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-24",
+      "week": 28,
+      "term": 2,
+      "lessonId": "kntt3.c11.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-25",
+      "week": 28,
+      "term": 2,
+      "lessonId": "kntt3.c11.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-26",
+      "week": 28,
+      "term": 2,
+      "lessonId": "kntt3.c12.phep-cong-pham-vi-100000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-29",
+      "week": 29,
+      "term": 2,
+      "lessonId": "kntt3.c12.phep-cong-pham-vi-100000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-30",
+      "week": 29,
+      "term": 2,
+      "lessonId": "kntt3.c12.phep-tru-pham-vi-100000",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-03-31",
+      "week": 29,
+      "term": 2,
+      "lessonId": "kntt3.c12.phep-tru-pham-vi-100000",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-01",
+      "week": 29,
+      "term": 2,
+      "lessonId": "kntt3.c12.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-02",
+      "week": 29,
+      "term": 2,
+      "lessonId": "kntt3.c12.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-05",
+      "week": 30,
+      "term": 2,
+      "lessonId": "kntt3.c13.xem-dong-ho-thang-nam",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-06",
+      "week": 30,
+      "term": 2,
+      "lessonId": "kntt3.c13.xem-dong-ho-thang-nam",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-07",
+      "week": 30,
+      "term": 2,
+      "lessonId": "kntt3.c13.xem-dong-ho-thang-nam",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-08",
+      "week": 30,
+      "term": 2,
+      "lessonId": "kntt3.c13.thuc-hanh-xem-dong-ho-xem-lich",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-09",
+      "week": 30,
+      "term": 2,
+      "lessonId": "kntt3.c13.thuc-hanh-xem-dong-ho-xem-lich",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-12",
+      "week": 31,
+      "term": 2,
+      "lessonId": "kntt3.c13.tien-viet-nam",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-13",
+      "week": 31,
+      "term": 2,
+      "lessonId": "kntt3.c13.tien-viet-nam",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-14",
+      "week": 31,
+      "term": 2,
+      "lessonId": "kntt3.c13.luyen-tap-chung",
+      "part": 1,
+      "parts": 1
+    },
+    {
+      "date": "2027-04-15",
+      "week": 31,
+      "term": 2,
+      "lessonId": "kntt3.c14.nhan-5cs-1cs",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-19",
+      "week": 32,
+      "term": 2,
+      "lessonId": "kntt3.c14.nhan-5cs-1cs",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-20",
+      "week": 32,
+      "term": 2,
+      "lessonId": "kntt3.c14.chia-5cs-1cs",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-21",
+      "week": 32,
+      "term": 2,
+      "lessonId": "kntt3.c14.chia-5cs-1cs",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-22",
+      "week": 32,
+      "term": 2,
+      "lessonId": "kntt3.c14.chia-5cs-1cs",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-04-23",
+      "week": 32,
+      "term": 2,
+      "lessonId": "kntt3.c14.luyen-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-26",
+      "week": 33,
+      "term": 2,
+      "lessonId": "kntt3.c14.luyen-tap-chung",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-27",
+      "week": 33,
+      "term": 2,
+      "lessonId": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-28",
+      "week": 33,
+      "term": 2,
+      "lessonId": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-04-29",
+      "week": 33,
+      "term": 2,
+      "lessonId": "kntt3.c15.bang-so-lieu-thong-ke",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-05-03",
+      "week": 34,
+      "term": 2,
+      "lessonId": "kntt3.c15.bang-so-lieu-thong-ke",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-05-04",
+      "week": 34,
+      "term": 2,
+      "lessonId": "kntt3.c15.kha-nang-xay-ra-cua-mot-su-kien",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-05-05",
+      "week": 34,
+      "term": 2,
+      "lessonId": "kntt3.c15.kha-nang-xay-ra-cua-mot-su-kien",
+      "part": 2,
+      "parts": 2
+    },
+    {
+      "date": "2027-05-06",
+      "week": 34,
+      "term": 2,
+      "lessonId": "kntt3.c15.luyen-tap-chung",
+      "part": 1,
+      "parts": 1
+    },
+    {
+      "date": "2027-05-07",
+      "week": 34,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-cac-so-pham-vi-100000",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-10",
+      "week": 35,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-cac-so-pham-vi-100000",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-11",
+      "week": 35,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-cac-so-pham-vi-100000",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-12",
+      "week": 35,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-bon-phep-tinh",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-13",
+      "week": 35,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-bon-phep-tinh",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-14",
+      "week": 35,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-bon-phep-tinh",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-17",
+      "week": 36,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-hinh-hoc-va-do-luong",
+      "part": 1,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-18",
+      "week": 36,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-hinh-hoc-va-do-luong",
+      "part": 2,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-19",
+      "week": 36,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-hinh-hoc-va-do-luong",
+      "part": 3,
+      "parts": 3
+    },
+    {
+      "date": "2027-05-20",
+      "week": 36,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-chung",
+      "part": 1,
+      "parts": 2
+    },
+    {
+      "date": "2027-05-21",
+      "week": 36,
+      "term": 2,
+      "lessonId": "kntt3.c16.on-tap-chung",
+      "part": 2,
+      "parts": 2
+    }
+  ],
+  "exams": [
+    {
+      "week": 1,
+      "examId": "kntt3.gen.tuan-01"
+    },
+    {
+      "week": 2,
+      "examId": "kntt3.gen.tuan-02"
+    },
+    {
+      "week": 3,
+      "examId": "kntt3.gen.tuan-03"
+    },
+    {
+      "week": 4,
+      "examId": "kntt3.gen.chu-de-01"
+    },
+    {
+      "week": 4,
+      "examId": "kntt3.gen.tuan-04"
+    },
+    {
+      "week": 5,
+      "examId": "kntt3.gen.tuan-05"
+    },
+    {
+      "week": 6,
+      "examId": "kntt3.gen.chu-de-02"
+    },
+    {
+      "week": 6,
+      "examId": "kntt3.gen.tuan-06"
+    },
+    {
+      "week": 7,
+      "examId": "kntt3.gen.tuan-07"
+    },
+    {
+      "week": 8,
+      "examId": "kntt3.gen.tuan-08"
+    },
+    {
+      "week": 9,
+      "examId": "kntt3.gen.chu-de-03"
+    },
+    {
+      "week": 9,
+      "examId": "kntt3.gen.giua-hk1-de-1"
+    },
+    {
+      "week": 9,
+      "examId": "kntt3.gen.giua-hk1-de-2"
+    },
+    {
+      "week": 9,
+      "examId": "kntt3.gen.tuan-09"
+    },
+    {
+      "week": 9,
+      "examId": "kntt3.giua-hk1.de-1"
+    },
+    {
+      "week": 10,
+      "examId": "kntt3.c4.kt15-nhan"
+    },
+    {
+      "week": 10,
+      "examId": "kntt3.gen.tuan-10"
+    },
+    {
+      "week": 11,
+      "examId": "kntt3.gen.tuan-11"
+    },
+    {
+      "week": 12,
+      "examId": "kntt3.gen.tuan-12"
+    },
+    {
+      "week": 13,
+      "examId": "kntt3.c4.de-1"
+    },
+    {
+      "week": 13,
+      "examId": "kntt3.gen.chu-de-04"
+    },
+    {
+      "week": 13,
+      "examId": "kntt3.gen.tuan-13"
+    },
+    {
+      "week": 14,
+      "examId": "kntt3.c4.nang-cao-1"
+    },
+    {
+      "week": 14,
+      "examId": "kntt3.gen.tuan-14"
+    },
+    {
+      "week": 15,
+      "examId": "kntt3.gen.chu-de-05"
+    },
+    {
+      "week": 15,
+      "examId": "kntt3.gen.tuan-15"
+    },
+    {
+      "week": 16,
+      "examId": "kntt3.gen.tuan-16"
+    },
+    {
+      "week": 17,
+      "examId": "kntt3.gen.tuan-17"
+    },
+    {
+      "week": 18,
+      "examId": "kntt3.gen.chu-de-06"
+    },
+    {
+      "week": 18,
+      "examId": "kntt3.gen.tuan-18"
+    },
+    {
+      "week": 19,
+      "examId": "kntt3.cuoi-hk1.de-1"
+    },
+    {
+      "week": 19,
+      "examId": "kntt3.gen.chu-de-07"
+    },
+    {
+      "week": 19,
+      "examId": "kntt3.gen.cuoi-hk1-de-1"
+    },
+    {
+      "week": 19,
+      "examId": "kntt3.gen.cuoi-hk1-de-2"
+    },
+    {
+      "week": 19,
+      "examId": "kntt3.gen.tuan-19"
+    },
+    {
+      "week": 20,
+      "examId": "kntt3.gen.tuan-20"
+    },
+    {
+      "week": 21,
+      "examId": "kntt3.gen.tuan-21"
+    },
+    {
+      "week": 22,
+      "examId": "kntt3.gen.chu-de-08"
+    },
+    {
+      "week": 22,
+      "examId": "kntt3.gen.tuan-22"
+    },
+    {
+      "week": 23,
+      "examId": "kntt3.gen.tuan-23"
+    },
+    {
+      "week": 24,
+      "examId": "kntt3.gen.chu-de-09"
+    },
+    {
+      "week": 24,
+      "examId": "kntt3.gen.tuan-24"
+    },
+    {
+      "week": 25,
+      "examId": "kntt3.gen.tuan-25"
+    },
+    {
+      "week": 26,
+      "examId": "kntt3.gen.chu-de-10"
+    },
+    {
+      "week": 26,
+      "examId": "kntt3.gen.tuan-26"
+    },
+    {
+      "week": 27,
+      "examId": "kntt3.gen.tuan-27"
+    },
+    {
+      "week": 28,
+      "examId": "kntt3.gen.chu-de-11"
+    },
+    {
+      "week": 28,
+      "examId": "kntt3.gen.giua-hk2-de-1"
+    },
+    {
+      "week": 28,
+      "examId": "kntt3.gen.giua-hk2-de-2"
+    },
+    {
+      "week": 28,
+      "examId": "kntt3.gen.tuan-28"
+    },
+    {
+      "week": 29,
+      "examId": "kntt3.gen.chu-de-12"
+    },
+    {
+      "week": 29,
+      "examId": "kntt3.gen.tuan-29"
+    },
+    {
+      "week": 30,
+      "examId": "kntt3.gen.tuan-30"
+    },
+    {
+      "week": 31,
+      "examId": "kntt3.gen.chu-de-13"
+    },
+    {
+      "week": 31,
+      "examId": "kntt3.gen.tuan-31"
+    },
+    {
+      "week": 32,
+      "examId": "kntt3.gen.tuan-32"
+    },
+    {
+      "week": 33,
+      "examId": "kntt3.gen.chu-de-14"
+    },
+    {
+      "week": 33,
+      "examId": "kntt3.gen.tuan-33"
+    },
+    {
+      "week": 34,
+      "examId": "kntt3.gen.chu-de-15"
+    },
+    {
+      "week": 34,
+      "examId": "kntt3.gen.tuan-34"
+    },
+    {
+      "week": 35,
+      "examId": "kntt3.gen.tuan-35"
+    },
+    {
+      "week": 36,
+      "examId": "kntt3.gen.chu-de-16"
+    },
+    {
+      "week": 36,
+      "examId": "kntt3.gen.cuoi-hk2-de-1"
+    },
+    {
+      "week": 36,
+      "examId": "kntt3.gen.cuoi-hk2-de-2"
+    },
+    {
+      "week": 36,
+      "examId": "kntt3.gen.tuan-36"
+    }
+  ]
+}

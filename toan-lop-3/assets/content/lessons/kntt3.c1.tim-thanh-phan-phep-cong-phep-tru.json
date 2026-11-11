@@ -1,0 +1,755 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 3,
+  "title": "Tìm thành phần trong phép cộng, phép trừ",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết. Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ; muốn tìm số trừ, ta lấy số bị trừ trừ đi hiệu.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: ? + 378 = 798"
+      },
+      {
+        "kind": "equation",
+        "text": "798 - 378 = 420"
+      },
+      {
+        "kind": "text",
+        "text": "Vậy số cần tìm là 420."
+      },
+      {
+        "kind": "text",
+        "text": "Tìm xong, con thay số vào phép tính để thử lại nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? + 26 = 67"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_hang"
+      ],
+      "access": "free",
+      "template": "{{b1}} + 26 = 67",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 41
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "41",
+        "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "67",
+              "26"
+            ],
+            "result": "41",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 trừ 6 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 1,
+                "text": "6 trừ 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "67 - 26 = 41"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "41 + 26 = 67"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "66 + ? = 364"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_hang"
+      ],
+      "access": "free",
+      "template": "66 + {{b1}} = 364",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 298
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "298",
+        "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "364",
+              "66"
+            ],
+            "result": "298",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 6, lấy 14 trừ 6 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 thêm 1 bằng 7; 6 không trừ được 7, lấy 16 trừ 7 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "364 - 66 = 298"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "66 + 298 = 364"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? - 137 = 477"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "template": "{{b1}} - 137 = 477",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 614
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "614",
+        "hint": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "477",
+              "137"
+            ],
+            "result": "614",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 3 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "477 + 137 = 614"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "614 - 137 = 477"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "672 - ? = 189"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "template": "672 - {{b1}} = 189",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 483
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "483",
+        "hint": "Muốn tìm số trừ, ta lấy số bị trừ trừ đi hiệu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số trừ, ta lấy số bị trừ trừ đi hiệu.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "672",
+              "189"
+            ],
+            "result": "483",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 không trừ được 9, lấy 12 trừ 9 bằng 3, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "8 thêm 1 bằng 9; 7 không trừ được 9, lấy 17 trừ 9 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "672 - 189 = 483"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "672 - 483 = 189"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n? + 77 = 359"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "283"
+        },
+        {
+          "id": "b",
+          "text": "281"
+        },
+        {
+          "id": "c",
+          "text": "436"
+        },
+        {
+          "id": "d",
+          "text": "282"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "282",
+        "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "359",
+              "77"
+            ],
+            "result": "282",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 trừ 7 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "5 không trừ được 7, lấy 15 trừ 7 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "359 - 77 = 282"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "282 + 77 = 359"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "59 - ? = 19"
+        },
+        {
+          "id": "l2",
+          "text": "? - 20 = 19"
+        },
+        {
+          "id": "l3",
+          "text": "? - 10 = 11"
+        },
+        {
+          "id": "l4",
+          "text": "47 + ? = 88"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "39"
+        },
+        {
+          "id": "r2",
+          "text": "21"
+        },
+        {
+          "id": "r3",
+          "text": "50"
+        },
+        {
+          "id": "r4",
+          "text": "40"
+        },
+        {
+          "id": "r5",
+          "text": "41"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "59 - ? = 19 → 40; ? - 20 = 19 → 39; ? - 10 = 11 → 21; 47 + ? = 88 → 41",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "59 - 19 = 40"
+          },
+          {
+            "kind": "equation",
+            "text": "19 + 20 = 39"
+          },
+          {
+            "kind": "equation",
+            "text": "11 + 10 = 21"
+          },
+          {
+            "kind": "equation",
+            "text": "88 - 47 = 41"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "tim_thanh_phan.so_bi_tru"
+      ],
+      "access": "free",
+      "template": "{{s1}} - 495 = 317\n699 - {{s2}} = 206\n{{s3}} + 51 = 474",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "493"
+        },
+        {
+          "id": "t2",
+          "text": "423"
+        },
+        {
+          "id": "t3",
+          "text": "503"
+        },
+        {
+          "id": "t4",
+          "text": "812"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "812; 493; 423",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "317 + 495 = 812"
+          },
+          {
+            "kind": "equation",
+            "text": "699 - 206 = 493"
+          },
+          {
+            "kind": "equation",
+            "text": "474 - 51 = 423"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 503 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lan có một số nhãn vở. Lan cho bạn 17 nhãn vở thì còn lại 20 nhãn vở. Hỏi lúc đầu Lan có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_tru",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Lúc đầu Lan có {{b1}} nhãn vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 37,
+            "unit": "nhãn vở"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "37 nhãn vở",
+        "hint": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nhãn vở lúc đầu Lan có là:",
+                "equation": "20 + 17 = 37 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 37 nhãn vở."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "20",
+              "17"
+            ],
+            "result": "37",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 7 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 423 l nước. Thùng thứ nhất có 163 l nước. Hỏi thùng thứ hai có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.so_hang",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "260 l"
+        },
+        {
+          "id": "b",
+          "text": "262 l"
+        },
+        {
+          "id": "c",
+          "text": "586 l"
+        },
+        {
+          "id": "d",
+          "text": "240 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "260 l nước",
+        "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở thùng thứ hai là:",
+                "equation": "423 - 163 = 260 (l)"
+              }
+            ],
+            "answer": "Đáp số: 260 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "423",
+              "163"
+            ],
+            "result": "260",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 trừ 3 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 không trừ được 6, lấy 12 trừ 6 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 thêm 1 bằng 2; 4 trừ 2 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

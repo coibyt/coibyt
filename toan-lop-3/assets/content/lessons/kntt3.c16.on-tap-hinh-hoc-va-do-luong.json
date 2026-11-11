@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c16",
+  "order": 3,
+  "title": "Ôn tập hình học và đo lường",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: chu vi, diện tích; đơn vị đo độ dài, khối lượng, dung tích; xem đồng hồ; tiền Việt Nam.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Chu vi hình chữ nhật = (dài + rộng) × 2; diện tích hình chữ nhật = dài × rộng."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính chu vi.",
+      "prompt": {
+        "text": "Hình chữ nhật ONEB có chiều dài 23 cm, chiều rộng 22 cm. Tính chu vi hình chữ nhật đó."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Chu vi là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 90,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "90 cm",
+        "hint": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(23 + 22) × 2 = 45 × 2 = 90"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình vuông HPMQ có cạnh dài 3 cm. Diện tích của hình vuông đó là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.dien_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9 cm²"
+        },
+        {
+          "id": "b",
+          "text": "12 cm²"
+        },
+        {
+          "id": "c",
+          "text": "6 cm²"
+        },
+        {
+          "id": "d",
+          "text": "14 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 cm²",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "3 × 3 = 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Bố có 1 tờ 5.000 đồng và 1 tờ 1.000 đồng. Hỏi bố có tất cả bao nhiêu tiền?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tien.viet_nam"
+      ],
+      "access": "free",
+      "template": "Bố có tất cả {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6.000 đồng",
+        "hint": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "5.000 + 1.000 = 6.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "7 m = {{b1}} cm\n6.000 ml = {{b2}} l",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 700,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "700 cm; 6 l",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 100 cm; 1 l = 1.000 ml.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 100 = 700"
+          },
+          {
+            "kind": "equation",
+            "text": "6.000 : 1.000 = 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đồng hồ chỉ 10 giờ 25 phút. Thêm 25 phút nữa là mấy giờ mấy phút?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "Lúc đó là {{b1}} giờ {{b2}} phút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10,
+            "unit": "giờ"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 50,
+            "unit": "phút"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10 giờ 50 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "25 + 25 = 50"
+          },
+          {
+            "kind": "text",
+            "text": "Ta được 10 giờ 50 phút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hình với diện tích.",
+      "prompt": {
+        "text": "Nối mỗi hình với diện tích của hình đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 110,
+      "skillIds": [
+        "hinh_hoc.dien_tich"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình chữ nhật dài 6 cm, rộng 5 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Hình chữ nhật dài 12 cm, rộng 8 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Hình vuông cạnh 6 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Hình chữ nhật dài 5 cm, rộng 3 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "96 cm²"
+        },
+        {
+          "id": "r2",
+          "text": "36 cm²"
+        },
+        {
+          "id": "r3",
+          "text": "30 cm²"
+        },
+        {
+          "id": "r4",
+          "text": "6 cm²"
+        },
+        {
+          "id": "r5",
+          "text": "15 cm²"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình chữ nhật dài 6 cm, rộng 5 cm: 30 cm²; Hình chữ nhật dài 12 cm, rộng 8 cm: 96 cm²; Hình vuông cạnh 6 cm: 36 cm²; Hình chữ nhật dài 5 cm, rộng 3 cm: 15 cm²",
+        "hint": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 × 5 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "12 × 8 = 96"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 6 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 3 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3.540 g, 1.960 g, 4.150 g, 3.320 g."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3.320 g"
+        },
+        {
+          "id": "t2",
+          "text": "3.540 g"
+        },
+        {
+          "id": "t3",
+          "text": "1.960 g"
+        },
+        {
+          "id": "t4",
+          "text": "4.150 g"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.960 g < 3.320 g < 3.540 g < 4.150 g",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về gam: 3.540 g = 3.540 g, 1.960 g = 1.960 g, 4.150 g = 4.150 g, 3.320 g = 3.320 g."
+          },
+          {
+            "kind": "text",
+            "text": "1.960 g < 3.320 g < 3.540 g < 4.150 g."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình vuông có chu vi 72 cm. Hỏi cạnh của hình vuông đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cạnh hình vuông dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 18,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18 cm",
+        "hint": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cạnh của hình vuông dài là:",
+                "equation": "72 : 4 = 18 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 18 cm."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "72",
+            "divisor": "4",
+            "quotient": "18",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "7 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 7 trừ 4 bằng 3.",
+                "partialDividend": 7,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 2, được 32; 32 chia 4 được 8, viết 8. 8 nhân 4 bằng 32; 32 trừ 32 bằng 0.",
+                "partialDividend": 32,
+                "quotientDigit": 8,
+                "product": 32,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Từ một tấm bìa hình chữ nhật dài 10 cm, rộng 7 cm, bạn An cắt đi một hình vuông cạnh 4 cm. Hỏi phần bìa còn lại có diện tích bao nhiêu xăng-ti-mét vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Diện tích là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 54,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "54 cm²",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích tấm bìa hình chữ nhật là:",
+                "equation": "10 × 7 = 70 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông cắt đi là:",
+                "equation": "4 × 4 = 16 (cm²)"
+              },
+              {
+                "explanation": "Diện tích phần bìa còn lại là:",
+                "equation": "70 - 16 = 54 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 54 cm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong.p10",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ có 50.000 đồng. Mẹ mua 2 hộp sữa chua, mỗi hộp giá 7.000 đồng. Hỏi mẹ còn lại bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tien.viet_nam",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ còn lại {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "36.000 đồng",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tiền mẹ mua sữa chua là:",
+                "equation": "7.000 × 2 = 14.000 (đồng)"
+              },
+              {
+                "explanation": "Số tiền mẹ còn lại là:",
+                "equation": "50.000 - 14.000 = 36.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 36.000 đồng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "7000",
+              "2"
+            ],
+            "result": "14000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 7 bằng 14, viết 14.",
+                "write": "14"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

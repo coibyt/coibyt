@@ -1,0 +1,689 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-07",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c7"
+  ],
+  "title": "Kiểm tra chủ đề 7",
+  "description": "Ôn tập học kì 1.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "hinh_hoc.goc"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "10 giờ"
+              },
+              {
+                "id": "b",
+                "text": "7 giờ"
+              },
+              {
+                "id": "c",
+                "text": "11 giờ"
+              },
+              {
+                "id": "d",
+                "text": "9 giờ"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9 giờ",
+              "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Lúc 9 giờ, kim phút chỉ số 12, kim giờ chỉ số 9; hai kim tạo thành góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "nhan.3cs_1cs",
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "110 × 5"
+              },
+              {
+                "id": "l2",
+                "text": "116 : 2"
+              },
+              {
+                "id": "l3",
+                "text": "702 : 9"
+              },
+              {
+                "id": "l4",
+                "text": "274 : 2"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "550"
+              },
+              {
+                "id": "r2",
+                "text": "138"
+              },
+              {
+                "id": "r3",
+                "text": "78"
+              },
+              {
+                "id": "r4",
+                "text": "58"
+              },
+              {
+                "id": "r5",
+                "text": "137"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r5"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "110 × 5 = 550; 116 : 2 = 58; 702 : 9 = 78; 274 : 2 = 137",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "110 × 5 = 550"
+                },
+                {
+                  "kind": "equation",
+                  "text": "116 : 2 = 58"
+                },
+                {
+                  "kind": "equation",
+                  "text": "702 : 9 = 78"
+                },
+                {
+                  "kind": "equation",
+                  "text": "274 : 2 = 137"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giá trị của biểu thức 339 + 44 × 3 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "1.149"
+              },
+              {
+                "id": "b",
+                "text": "471"
+              },
+              {
+                "id": "c",
+                "text": "461"
+              },
+              {
+                "id": "d",
+                "text": "481"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "471",
+              "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "339 + 44 × 3 = 339 + 132 = 471"
+                },
+                {
+                  "kind": "text",
+                  "text": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "3 cm ... 28 mm"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.do_dai"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "<"
+              },
+              {
+                "id": "b",
+                "text": "="
+              },
+              {
+                "id": "c",
+                "text": ">"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": ">",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi 3 cm = 30 mm."
+                },
+                {
+                  "kind": "text",
+                  "text": "Ta có 30 mm > 28 mm."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q05",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo tên thành phố vào ô trống.",
+            "prompt": {
+              "text": "Nhiệt độ lúc 9 giờ sáng của một số thành phố:\nSa Pa: 18 °C\nCần Thơ: 9 °C\nHuế: 13 °C\nĐà Lạt: 33 °C\nXếp tên các thành phố theo thứ tự từ lạnh nhất đến nóng nhất."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "do_luong.nhiet_do"
+            ],
+            "access": "free",
+            "template": "{{s1}} → {{s2}} → {{s3}} → {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Sa Pa"
+              },
+              {
+                "id": "t2",
+                "text": "Huế"
+              },
+              {
+                "id": "t3",
+                "text": "Đà Lạt"
+              },
+              {
+                "id": "t4",
+                "text": "Cần Thơ"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Cần Thơ → Huế → Sa Pa → Đà Lạt",
+              "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "9 °C (Cần Thơ) < 13 °C (Huế) < 18 °C (Sa Pa) < 33 °C (Đà Lạt)."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "nhan.3cs_1cs",
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "702 : 6 = {{s1}}\n396 : 4 = {{s2}}\n522 : 6 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "99"
+              },
+              {
+                "id": "t2",
+                "text": "87"
+              },
+              {
+                "id": "t3",
+                "text": "118"
+              },
+              {
+                "id": "t4",
+                "text": "117"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "117; 99; 87",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "702 : 6 = 117"
+                },
+                {
+                  "kind": "equation",
+                  "text": "396 : 4 = 99"
+                },
+                {
+                  "kind": "equation",
+                  "text": "522 : 6 = 87"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 118 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "1/2 của 20 l là bao nhiêu?",
+              "speak": "Một phần hai của 20 l là bao nhiêu?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "phan_so.mot_phan"
+            ],
+            "access": "free",
+            "template": "1/2 của 20 l là {{b1}} l.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 10,
+                  "unit": "l",
+                  "unitAliases": [
+                    "lít"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "10 l",
+              "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "20 : 2 = 10"
+                },
+                {
+                  "kind": "text",
+                  "text": "Vậy 1/2 của 20 l là 10 l."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "276 + 24 × 4 = {{s1}}\n(77 + 39) × 8 = {{s2}}\n(47 + 196) : 9 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "928"
+              },
+              {
+                "id": "t2",
+                "text": "1.200"
+              },
+              {
+                "id": "t3",
+                "text": "372"
+              },
+              {
+                "id": "t4",
+                "text": "27"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "372; 928; 27",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "276 + 24 × 4 = 276 + 96 = 372"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(77 + 39) × 8 = 116 × 8 = 928"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(47 + 196) : 9 = 243 : 9 = 27"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "720 - (125 + 119) = ?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "720 - (125 + 119) = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 476
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "476",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "720 - (125 + 119) = 720 - 244 = 476"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-07.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "376 : 7 = ? (dư ?)"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "chia.3cs_1cs",
+              "chia.co_du"
+            ],
+            "access": "free",
+            "template": "376 : 7 = {{b1}} (dư {{b2}})",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 53
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 5
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "53 (dư 5)",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "376",
+                  "divisor": "7",
+                  "quotient": "53",
+                  "remainder": 5,
+                  "digitSteps": [
+                    {
+                      "text": "37 chia 7 được 5, viết 5. 5 nhân 7 bằng 35; 37 trừ 35 bằng 2.",
+                      "partialDividend": 37,
+                      "quotientDigit": 5,
+                      "product": 35,
+                      "remainder": 2
+                    },
+                    {
+                      "text": "Hạ 6, được 26; 26 chia 7 được 3, viết 3. 3 nhân 7 bằng 21; 26 trừ 21 bằng 5.",
+                      "partialDividend": 26,
+                      "quotientDigit": 3,
+                      "product": 21,
+                      "remainder": 5
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "376 : 7 = 53 (dư 5)"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "53 × 7 + 5 = 376"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

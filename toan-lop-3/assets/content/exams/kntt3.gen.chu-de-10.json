@@ -1,0 +1,883 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-10",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c10"
+  ],
+  "title": "Kiểm tra chủ đề 10",
+  "description": "Cộng, trừ, nhân, chia trong phạm vi 10 000.",
+  "examType": "kt_1_tiet",
+  "term": 2,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.pham_vi_10000",
+              "nhan.4cs_1cs",
+              "chia.4cs_1cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "1.198 - 165"
+              },
+              {
+                "id": "l2",
+                "text": "1.815 + 7.840"
+              },
+              {
+                "id": "l3",
+                "text": "8.081 - 1.535"
+              },
+              {
+                "id": "l4",
+                "text": "5.290 + 223"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "9.655"
+              },
+              {
+                "id": "r2",
+                "text": "5.413"
+              },
+              {
+                "id": "r3",
+                "text": "1.033"
+              },
+              {
+                "id": "r4",
+                "text": "5.513"
+              },
+              {
+                "id": "r5",
+                "text": "6.546"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1.198 - 165 = 1.033; 1.815 + 7.840 = 9.655; 8.081 - 1.535 = 6.546; 5.290 + 223 = 5.513",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "1.198 - 165 = 1.033"
+                },
+                {
+                  "kind": "equation",
+                  "text": "1.815 + 7.840 = 9.655"
+                },
+                {
+                  "kind": "equation",
+                  "text": "8.081 - 1.535 = 6.546"
+                },
+                {
+                  "kind": "equation",
+                  "text": "5.290 + 223 = 5.513"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 2.776 × 3 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.4cs_1cs"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "8.338"
+              },
+              {
+                "id": "b",
+                "text": "8.328"
+              },
+              {
+                "id": "c",
+                "text": "6.118"
+              },
+              {
+                "id": "d",
+                "text": "8.331"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.328",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "2776",
+                    "3"
+                  ],
+                  "result": "8328",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 6 bằng 18, viết 8 nhớ 1.",
+                      "write": "8",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 7 bằng 21, thêm 1 bằng 22, viết 2 nhớ 2.",
+                      "write": "2",
+                      "carry": 2
+                    },
+                    {
+                      "place": 2,
+                      "text": "3 nhân 7 bằng 21, thêm 2 bằng 23, viết 3 nhớ 2.",
+                      "write": "3",
+                      "carry": 2
+                    },
+                    {
+                      "place": 3,
+                      "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+                      "write": "8"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "2.776 × 3 = 8.328"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 7.128 : 3 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.4cs_1cs"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "2.376"
+              },
+              {
+                "id": "b",
+                "text": "2.375"
+              },
+              {
+                "id": "c",
+                "text": "2.377"
+              },
+              {
+                "id": "d",
+                "text": "2.386"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2.376",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "7128",
+                  "divisor": "3",
+                  "quotient": "2376",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "7 chia 3 được 2, viết 2. 2 nhân 3 bằng 6; 7 trừ 6 bằng 1.",
+                      "partialDividend": 7,
+                      "quotientDigit": 2,
+                      "product": 6,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 1, được 11; 11 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 11 trừ 9 bằng 2.",
+                      "partialDividend": 11,
+                      "quotientDigit": 3,
+                      "product": 9,
+                      "remainder": 2
+                    },
+                    {
+                      "text": "Hạ 2, được 22; 22 chia 3 được 7, viết 7. 7 nhân 3 bằng 21; 22 trừ 21 bằng 1.",
+                      "partialDividend": 22,
+                      "quotientDigit": 7,
+                      "product": 21,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 8, được 18; 18 chia 3 được 6, viết 6. 6 nhân 3 bằng 18; 18 trừ 18 bằng 0.",
+                      "partialDividend": 18,
+                      "quotientDigit": 6,
+                      "product": 18,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "7.128 : 3 = 2.376"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 7.778 + 973 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "cong_tru.pham_vi_10000"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "8.761"
+              },
+              {
+                "id": "b",
+                "text": "8.851"
+              },
+              {
+                "id": "c",
+                "text": "7.641"
+              },
+              {
+                "id": "d",
+                "text": "8.751"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.751",
+              "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "add",
+                  "operands": [
+                    "7778",
+                    "973"
+                  ],
+                  "result": "8751",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "8 cộng 3 bằng 11, viết 1 nhớ 1.",
+                      "write": "1",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "7 cộng 7 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                      "write": "5",
+                      "carry": 1
+                    },
+                    {
+                      "place": 2,
+                      "text": "7 cộng 9 bằng 16, thêm 1 bằng 17, viết 7 nhớ 1.",
+                      "write": "7",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "7 thêm 1 bằng 8, viết 8.",
+                      "write": "8"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "7.778 + 973 = 8.751"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q05",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.pham_vi_10000"
+            ],
+            "access": "free",
+            "template": "3.866 + 153 = {{s1}}\n4.189 + 433 = {{s2}}\n3.686 + 3.002 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "4.622"
+              },
+              {
+                "id": "t2",
+                "text": "4.019"
+              },
+              {
+                "id": "t3",
+                "text": "6.688"
+              },
+              {
+                "id": "t4",
+                "text": "3.919"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4.019; 4.622; 6.688",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "3.866 + 153 = 4.019"
+                },
+                {
+                  "kind": "equation",
+                  "text": "4.189 + 433 = 4.622"
+                },
+                {
+                  "kind": "equation",
+                  "text": "3.686 + 3.002 = 6.688"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 3.919 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q06",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tìm số thích hợp.",
+            "prompt": {
+              "text": "? - 4.861 = 1.362"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.pham_vi_10000",
+              "tim_thanh_phan.so_bi_tru"
+            ],
+            "access": "free",
+            "template": "{{b1}} - 4.861 = 1.362",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 6223
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "6.223",
+              "hint": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "add",
+                  "operands": [
+                    "1362",
+                    "4861"
+                  ],
+                  "result": "6223",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "2 cộng 1 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 1,
+                      "text": "6 cộng 6 bằng 12, viết 2 nhớ 1.",
+                      "write": "2",
+                      "carry": 1
+                    },
+                    {
+                      "place": 2,
+                      "text": "3 cộng 8 bằng 11, thêm 1 bằng 12, viết 2 nhớ 1.",
+                      "write": "2",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "1 cộng 4 bằng 5, thêm 1 bằng 6, viết 6.",
+                      "write": "6"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "1.362 + 4.861 = 6.223"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "6.223 - 4.861 = 1.362"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi tháng một cửa hàng bán được 3.843 quyển vở. Hỏi trong 2 tháng cửa hàng đó bán được bao nhiêu quyển vở?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "nhan.4cs_1cs",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Trong 2 tháng cửa hàng bán được {{b1}} quyển vở.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 7686,
+                  "unit": "quyển"
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.686 quyển vở",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số vở cửa hàng bán được trong 2 tháng là:",
+                      "equation": "3.843 × 2 = 7.686 (quyển)"
+                    }
+                  ],
+                  "answer": "Đáp số: 7.686 quyển vở."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "3843",
+                    "2"
+                  ],
+                  "result": "7686",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "2 nhân 3 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 nhân 4 bằng 8, viết 8.",
+                      "write": "8"
+                    },
+                    {
+                      "place": 2,
+                      "text": "2 nhân 8 bằng 16, viết 6 nhớ 1.",
+                      "write": "6",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "2 nhân 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "5.547 : 9 = ? (dư ?)"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "chia.4cs_1cs",
+              "chia.co_du"
+            ],
+            "access": "free",
+            "template": "5.547 : 9 = {{b1}} (dư {{b2}})",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 616
+                },
+                "maxLength": 3
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 3
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "616 (dư 3)",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "5547",
+                  "divisor": "9",
+                  "quotient": "616",
+                  "remainder": 3,
+                  "digitSteps": [
+                    {
+                      "text": "55 chia 9 được 6, viết 6. 6 nhân 9 bằng 54; 55 trừ 54 bằng 1.",
+                      "partialDividend": 55,
+                      "quotientDigit": 6,
+                      "product": 54,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 4, được 14; 14 chia 9 được 1, viết 1. 1 nhân 9 bằng 9; 14 trừ 9 bằng 5.",
+                      "partialDividend": 14,
+                      "quotientDigit": 1,
+                      "product": 9,
+                      "remainder": 5
+                    },
+                    {
+                      "text": "Hạ 7, được 57; 57 chia 9 được 6, viết 6. 6 nhân 9 bằng 54; 57 trừ 54 bằng 3.",
+                      "partialDividend": 57,
+                      "quotientDigit": 6,
+                      "product": 54,
+                      "remainder": 3
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "5.547 : 9 = 616 (dư 3)"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "616 × 9 + 3 = 5.547"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Buổi sáng cửa hàng bán được 5.022 kg gạo, buổi chiều bán được 3.825 kg gạo. Hỏi cả ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.pham_vi_10000",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Cả ngày cửa hàng bán được {{b1}} kg gạo.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 8847,
+                  "unit": "kg",
+                  "unitAliases": [
+                    "ki-lô-gam"
+                  ]
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.847 kg gạo",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số gạo cả ngày cửa hàng bán được là:",
+                      "equation": "5.022 + 3.825 = 8.847 (kg)"
+                    }
+                  ],
+                  "answer": "Đáp số: 8.847 kg gạo."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "add",
+                  "operands": [
+                    "5022",
+                    "3825"
+                  ],
+                  "result": "8847",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "2 cộng 5 bằng 7, viết 7.",
+                      "write": "7"
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 cộng 2 bằng 4, viết 4.",
+                      "write": "4"
+                    },
+                    {
+                      "place": 2,
+                      "text": "0 cộng 8 bằng 8, viết 8.",
+                      "write": "8"
+                    },
+                    {
+                      "place": 3,
+                      "text": "5 cộng 3 bằng 8, viết 8.",
+                      "write": "8"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-10.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Quãng đường từ nhà Lan đến chợ dài 9.375 m. Lan đã đi được 8.014 m. Hỏi Lan còn phải đi bao nhiêu mét nữa?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.pham_vi_10000",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Lan còn phải đi {{b1}} m nữa.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 1361,
+                  "unit": "m",
+                  "unitAliases": [
+                    "mét"
+                  ]
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1.361 m",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Quãng đường Lan còn phải đi là:",
+                      "equation": "9.375 - 8.014 = 1.361 (m)"
+                    }
+                  ],
+                  "answer": "Đáp số: 1.361 m."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "9375",
+                    "8014"
+                  ],
+                  "result": "1361",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "5 trừ 4 bằng 1, viết 1.",
+                      "write": "1"
+                    },
+                    {
+                      "place": 1,
+                      "text": "7 trừ 1 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 2,
+                      "text": "3 trừ 0 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 3,
+                      "text": "9 trừ 8 bằng 1, viết 1.",
+                      "write": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

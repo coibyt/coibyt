@@ -1,0 +1,661 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c5.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c5",
+  "order": 5,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: 1 cm = 10 mm; 1 kg = 1.000 g; 1 l = 1.000 ml; nhiệt độ đo bằng độ C.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Muốn so sánh hoặc tính hai số đo khác đơn vị, ta đổi về cùng một đơn vị."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "9 m = {{b1}} mm\n70 mm = {{b2}} cm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9000,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9.000 mm; 7 cm",
+        "hint": "Nhớ nhé: một xăng-ti-mét bằng mười mi-li-mét, một mét bằng một trăm xăng-ti-mét.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m = 1.000 mm; 1 cm = 10 mm.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 1.000 = 9.000"
+          },
+          {
+            "kind": "equation",
+            "text": "70 : 10 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Một thìa canh chứa khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1 l"
+        },
+        {
+          "id": "b",
+          "text": "15 l"
+        },
+        {
+          "id": "c",
+          "text": "150 l"
+        },
+        {
+          "id": "d",
+          "text": "15 ml"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 ml",
+        "hint": "Con nghĩ đến đồ vật thật ngoài đời rồi chọn số đo hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 15 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "6.000 g ... 6 kg"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": "<"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "=",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 6 kg = 6.000 g."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có 6.000 g = 6.000 g."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó ở bên phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.do_dai",
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "4 kg"
+        },
+        {
+          "id": "l2",
+          "text": "2 m"
+        },
+        {
+          "id": "l3",
+          "text": "2 cm"
+        },
+        {
+          "id": "l4",
+          "text": "3 m"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "4.000 g"
+        },
+        {
+          "id": "r2",
+          "text": "200 mm"
+        },
+        {
+          "id": "r3",
+          "text": "3.000 mm"
+        },
+        {
+          "id": "r4",
+          "text": "20 mm"
+        },
+        {
+          "id": "r5",
+          "text": "2.000 mm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 kg = 4.000 g; 2 m = 2.000 mm; 2 cm = 20 mm; 3 m = 3.000 mm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "4 kg = 4.000 g"
+          },
+          {
+            "kind": "text",
+            "text": "2 m = 2.000 mm"
+          },
+          {
+            "kind": "text",
+            "text": "2 cm = 20 mm"
+          },
+          {
+            "kind": "text",
+            "text": "3 m = 3.000 mm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2.960 ml, 560 ml, 1.490 ml, 4.750 ml."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4.750 ml"
+        },
+        {
+          "id": "t2",
+          "text": "2.960 ml"
+        },
+        {
+          "id": "t3",
+          "text": "560 ml"
+        },
+        {
+          "id": "t4",
+          "text": "1.490 ml"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "560 ml < 1.490 ml < 2.960 ml < 4.750 ml",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về mi-li-lít: 2.960 ml = 2.960 ml, 560 ml = 560 ml, 1.490 ml = 1.490 ml, 4.750 ml = 4.750 ml."
+          },
+          {
+            "kind": "text",
+            "text": "560 ml < 1.490 ml < 2.960 ml < 4.750 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Nhiệt độ lúc 9 giờ sáng của một số thành phố:\nĐà Nẵng: 17 °C\nHà Nội: 18 °C\nĐà Lạt: 14 °C\nSa Pa: 16 °C\nThành phố nào lạnh nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "do_luong.nhiet_do"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Sa Pa"
+        },
+        {
+          "id": "b",
+          "text": "Hà Nội"
+        },
+        {
+          "id": "c",
+          "text": "Đà Lạt"
+        },
+        {
+          "id": "d",
+          "text": "Đà Nẵng"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Đà Lạt",
+        "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "So sánh: 14 °C < 16 °C < 17 °C < 18 °C."
+          },
+          {
+            "kind": "text",
+            "text": "Đà Lạt có nhiệt độ thấp nhất nên lạnh nhất."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một bình có 2 l nước. Mẹ rót ra 4 cốc, mỗi cốc 250 ml. Hỏi trong bình còn lại bao nhiêu mi-li-lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong bình còn lại {{b1}} ml nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1000,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.000 ml",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 2 l = 2.000 ml."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước mẹ đã rót ra là:",
+                "equation": "250 × 4 = 1.000 (ml)"
+              },
+              {
+                "explanation": "Số nước còn lại trong bình là:",
+                "equation": "2.000 - 1.000 = 1.000 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 1.000 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "250",
+              "4"
+            ],
+            "result": "1000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 5 bằng 20, viết 0 nhớ 2.",
+                "write": "0",
+                "carry": 2
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 2 bằng 8, thêm 2 bằng 10, viết 10.",
+                "write": "10"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ mua 2 kg đường. Mẹ đã dùng 680 g đường để làm bánh. Hỏi mẹ còn lại bao nhiêu gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ còn lại {{b1}} g đường.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1320,
+            "unit": "g",
+            "unitAliases": [
+              "gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.320 g",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 2 kg = 2.000 g."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số đường mẹ còn lại là:",
+                "equation": "2.000 - 680 = 1.320 (g)"
+              }
+            ],
+            "answer": "Đáp số: 1.320 g."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "2000",
+              "680"
+            ],
+            "result": "1320",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 không trừ được 8, lấy 10 trừ 8 bằng 2, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 thêm 1 bằng 7; 0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chiếc bút chì dài 16 cm. Sau khi gọt, bút chì ngắn đi 16 mm. Hỏi bút chì còn lại dài bao nhiêu mi-li-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "134 mm"
+        },
+        {
+          "id": "b",
+          "text": "145 mm"
+        },
+        {
+          "id": "c",
+          "text": "154 mm"
+        },
+        {
+          "id": "d",
+          "text": "144 mm"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "144 mm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 16 cm = 160 mm."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Bút chì còn lại dài là:",
+                "equation": "160 - 16 = 144 (mm)"
+              }
+            ],
+            "answer": "Đáp số: 144 mm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "160",
+              "16"
+            ],
+            "result": "144",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 6, lấy 10 trừ 6 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

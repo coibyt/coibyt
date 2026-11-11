@@ -24,6 +24,8 @@ import 'widgets/solution_view.dart';
 import '../tutor/teacher_assets.dart';
 import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
+import '../tutor/teacher_intro.dart';
+import 'calendar_screen.dart';
 
 /// Chuyển màn hình (gom một chỗ cho dễ đổi hiệu ứng sau này).
 Future<T?> pushScreen<T>(BuildContext context, Widget screen) =>
@@ -788,10 +790,31 @@ class _StarsRow extends StatelessWidget {
     mainAxisSize: MainAxisSize.min,
     children: [
       for (var i = 0; i < 3; i++)
-        Icon(Icons.star_rounded, size: size, color: i < stars ? AppColors.honey : Colors.black12),
+        Opacity(
+          opacity: i < stars ? 1 : 0.25,
+          child: GameIcon(
+            UiAsset.star,
+            size: size,
+            fallback: Icon(Icons.star_rounded, size: size, color: AppColors.honey),
+          ),
+        ),
     ],
   );
 }
+
+/// Màu riêng cho từng chủ đề (lặp lại theo vòng).
+const _chapterColors = [
+  Color(0xFF3A86FF),
+  Color(0xFFFF6FB5),
+  Color(0xFF2EB872),
+  Color(0xFFFF9F43),
+  Color(0xFF8E5CF7),
+  Color(0xFF00B8D9),
+  Color(0xFFE5486B),
+  Color(0xFF4CAF50),
+];
+
+Color chapterColor(int order) => _chapterColors[(order - 1) % _chapterColors.length];
 
 class ChapterListScreen extends StatelessWidget {
   const ChapterListScreen({super.key, required this.book});
@@ -800,72 +823,213 @@ class ChapterListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final app = AppScope.of(context);
     final chapters = [...book.chapters]..sort((a, b) => a.order.compareTo(b.order));
+    final terms = <int, List<Chapter>>{};
+    for (final c in chapters) {
+      terms.putIfAbsent(c.volume ?? 1, () => []).add(c);
+    }
     return Scaffold(
       appBar: AppBar(title: const Text('Chọn chủ đề'), backgroundColor: AppColors.cream),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          for (final c in chapters)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 14),
-              child: Material(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(22),
-                child: InkWell(
-                  key: ValueKey('chapter-${c.id}'),
-                  borderRadius: BorderRadius.circular(22),
-                  onTap: () => pushScreen<void>(context, ChapterScreen(chapter: c)),
-                  child: Semantics(
-                    button: true,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            radius: 30,
-                            backgroundColor: AppColors.honey,
-                            child: Text(
-                              '${c.order}',
-                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700, color: AppColors.ink),
-                            ),
-                          ),
-                          const SizedBox(width: 16),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(c.title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
-                                const SizedBox(height: 6),
-                                Builder(
-                                  builder: (context) {
-                                    final (got, max) = app.chapterStars(c);
-                                    // ExcludeSemantics: để cả thẻ được đọc là "nút", không phải "thanh tiến độ".
-                                    return ExcludeSemantics(
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(8),
-                                        child: LinearProgressIndicator(
-                                          value: max == 0 ? 0 : got / max,
-                                          minHeight: 12,
-                                          color: AppColors.honey,
-                                          backgroundColor: AppColors.cream,
-                                        ),
-                                      ),
-                                    );
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
+      body: ScreenBackground(
+        name: 'home',
+        veil: 0.55,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 720),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const TeacherIntro(
+                    key: ValueKey('chapters-intro'),
+                    lines: [TutorLines.screenChapters],
+                    avatarHeight: 96,
+                  ),
+                  const SizedBox(height: 12),
+                  _CalendarShortcut(book: book),
+                  for (final MapEntry(key: term, value: list) in terms.entries) ...[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 18, 4, 8),
+                      child: Text(
+                        term == 1 ? 'Học kì 1 · Tập một' : 'Học kì 2 · Tập hai',
+                        style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800, color: Color(0xFF2B2160)),
+                      ),
+                    ),
+                    for (final c in list)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 14),
+                        child: _ChapterCard(chapter: c),
+                      ),
+                  ],
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Lối tắt sang lịch học từng ngày.
+class _CalendarShortcut extends StatelessWidget {
+  const _CalendarShortcut({required this.book});
+
+  final Book book;
+
+  @override
+  Widget build(BuildContext context) {
+    final cal = AppScope.of(context).calendar;
+    if (cal == null) return const SizedBox.shrink();
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        key: const ValueKey('open-calendar'),
+        borderRadius: BorderRadius.circular(22),
+        onTap: () => pushScreen<void>(context, CalendarScreen(book: book)),
+        child: Ink(
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(22),
+            gradient: const LinearGradient(colors: [Color(0xFF6A5CFF), Color(0xFF9B6BFF)]),
+            boxShadow: const [BoxShadow(color: Color(0x406A5CFF), blurRadius: 12, offset: Offset(0, 5))],
+          ),
+          child: const Row(
+            children: [
+              Icon(Icons.calendar_month_rounded, color: Colors.white, size: 40),
+              SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Lịch học từng ngày',
+                      style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: Colors.white),
+                    ),
+                    Text('Cả năm học: 35 tuần, 175 tiết Toán', style: TextStyle(fontSize: 15, color: Colors.white)),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right_rounded, color: Colors.white, size: 36),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ChapterCard extends StatelessWidget {
+  const _ChapterCard({required this.chapter});
+
+  final Chapter chapter;
+
+  @override
+  Widget build(BuildContext context) {
+    final app = AppScope.of(context);
+    final c = chapter;
+    final color = chapterColor(c.order);
+    final cover = TeacherAssets.instance.chapter(c.order);
+    final (got, max) = app.chapterStars(c);
+    final done = c.lessons.where((l) => (app.lessonProgress(l.id)?.bestStars ?? 0) > 0).length;
+    return Material(
+      color: Colors.white,
+      elevation: 3,
+      shadowColor: color.withValues(alpha: 0.4),
+      borderRadius: BorderRadius.circular(24),
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        key: ValueKey('chapter-${c.id}'),
+        onTap: () => pushScreen<void>(context, ChapterScreen(chapter: c)),
+        child: Semantics(
+          button: true,
+          label: '${c.order}\n${c.title}',
+          excludeSemantics: true,
+          child: SizedBox(
+            height: 128,
+            child: Stack(
+              children: [
+                if (cover != null)
+                  Positioned.fill(
+                    left: 110,
+                    child: Image.asset(
+                      cover,
+                      fit: BoxFit.cover,
+                      alignment: Alignment.centerRight,
+                      errorBuilder: (_, _, _) => const SizedBox(),
+                    ),
+                  ),
+                // Lớp chuyển màu: trái đặc (để chữ rõ) → phải trong (thấy tranh).
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        stops: const [0, 0.5, 1],
+                        colors: [
+                          Colors.white,
+                          Colors.white.withValues(alpha: 0.9),
+                          Colors.white.withValues(alpha: 0.05),
                         ],
                       ),
                     ),
                   ),
                 ),
-              ),
+                Positioned(left: 0, top: 0, bottom: 0, width: 8, child: ColoredBox(color: color)),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(22, 12, 12, 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+                        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
+                        child: Text(
+                          'Chủ đề ${c.order}',
+                          style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: Colors.white),
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      SizedBox(
+                        width: 250,
+                        child: Text(
+                          c.title,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, height: 1.15),
+                        ),
+                      ),
+                      const Spacer(),
+                      SizedBox(
+                        width: 230,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8),
+                                child: LinearProgressIndicator(
+                                  value: max == 0 ? 0 : got / max,
+                                  minHeight: 10,
+                                  color: AppColors.honey,
+                                  backgroundColor: const Color(0xFFEDE7FF),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 8),
+                            Text(
+                              '$done/${c.lessons.length} bài',
+                              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-        ],
+          ),
+        ),
       ),
     );
   }
@@ -880,49 +1044,144 @@ class ChapterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final app = AppScope.of(context);
     final lessons = [...chapter.lessons]..sort((a, b) => a.order.compareTo(b.order));
+    final color = chapterColor(chapter.order);
+    final cover = TeacherAssets.instance.chapter(chapter.order);
     return Scaffold(
-      appBar: AppBar(title: Text('Chủ đề ${chapter.order}'), backgroundColor: AppColors.cream),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          Text(chapter.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
-          const SizedBox(height: 12),
-          for (final (i, l) in lessons.indexed)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Material(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                child: InkWell(
-                  key: ValueKey('lesson-${l.id}'),
-                  borderRadius: BorderRadius.circular(20),
-                  onTap: app.canOpen(l.access)
-                      ? () => pushScreen<void>(context, LessonScreen(lessonRef: l))
-                      : () => _showVipNeeded(context),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        Text('${i + 1}.', style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(l.title, style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w700)),
-                              const SizedBox(height: 4),
-                              _StarsRow(stars: app.lessonProgress(l.id)?.bestStars ?? 0),
-                            ],
-                          ),
-                        ),
-                        if (!app.canOpen(l.access)) const Icon(Icons.lock_rounded, color: AppColors.vip, size: 32),
-                      ],
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            expandedHeight: cover == null ? 120 : 220,
+            backgroundColor: color,
+            foregroundColor: Colors.white,
+            title: Text('Chủ đề ${chapter.order}'),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  if (cover != null) Image.asset(cover, fit: BoxFit.cover, errorBuilder: (_, _, _) => const SizedBox()),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [color.withValues(alpha: 0.35), color.withValues(alpha: 0.85)],
+                      ),
                     ),
                   ),
-                ),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 14),
+                      child: Text(
+                        chapter.title,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                          shadows: [Shadow(color: Color(0x66000000), blurRadius: 6)],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsets.all(16),
+            sliver: SliverList.list(
+              children: [
+                for (final (i, l) in lessons.indexed)
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: _LessonCard(
+                      lesson: l,
+                      index: i + 1,
+                      color: color,
+                      stars: app.lessonProgress(l.id)?.bestStars ?? 0,
+                      locked: !app.canOpen(l.access),
+                    ),
+                  ),
+              ],
+            ),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _LessonCard extends StatelessWidget {
+  const _LessonCard({
+    required this.lesson,
+    required this.index,
+    required this.color,
+    required this.stars,
+    required this.locked,
+  });
+
+  final LessonRef lesson;
+  final int index;
+  final Color color;
+  final int stars;
+  final bool locked;
+
+  @override
+  Widget build(BuildContext context) {
+    final done = stars > 0;
+    return Material(
+      color: Colors.white,
+      elevation: 2,
+      shadowColor: color.withValues(alpha: 0.3),
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        key: ValueKey('lesson-${lesson.id}'),
+        borderRadius: BorderRadius.circular(20),
+        onTap: locked
+            ? () => _showVipNeeded(context)
+            : () => pushScreen<void>(context, LessonScreen(lessonRef: lesson)),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              Container(
+                width: 52,
+                height: 52,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  gradient: LinearGradient(
+                    colors: done
+                        ? const [Color(0xFFFFD66B), Color(0xFFFFB800)]
+                        : [Color.lerp(color, Colors.white, 0.3)!, color],
+                  ),
+                ),
+                child: done
+                    ? const Icon(Icons.check_rounded, color: Colors.white, size: 32)
+                    : Text(
+                        '$index',
+                        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: Colors.white),
+                      ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(lesson.title, style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+                    const SizedBox(height: 4),
+                    _StarsRow(stars: stars, size: 22),
+                  ],
+                ),
+              ),
+              if (locked)
+                const Icon(Icons.lock_rounded, color: AppColors.vip, size: 30)
+              else
+                Icon(Icons.play_circle_fill_rounded, color: color, size: 40),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -949,44 +1208,54 @@ class LessonScreen extends StatelessWidget {
     final lp = app.lessonProgress(lessonRef.id);
     return Scaffold(
       appBar: AppBar(backgroundColor: AppColors.cream),
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 560),
-          child: ListView(
-            padding: const EdgeInsets.all(20),
-            children: [
-              Text(
-                lessonRef.title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700),
-              ),
-              const SizedBox(height: 8),
-              Center(child: _StarsRow(stars: lp?.bestStars ?? 0, size: 44)),
-              const SizedBox(height: 24),
-              BigButton(
-                key: const ValueKey('btn-theory'),
-                label: 'Nhớ nhanh',
-                icon: Icons.lightbulb_rounded,
-                color: AppColors.tryAgain,
-                onPressed: () => pushScreen<void>(context, TheoryScreen(lessonRef: lessonRef)),
-              ),
-              const SizedBox(height: 16),
-              BigButton(
-                key: const ValueKey('btn-practice'),
-                label: 'Luyện tập',
-                icon: Icons.edit_rounded,
-                onPressed: () => pushScreen<void>(
-                  context,
-                  QuizScreen(
-                    lessonAsset: lessonRef.src,
-                    isVip: app.isVip,
-                    repository: app.content,
-                    onFinished: app.recordQuiz,
-                    voiceOn: app.voiceEnabled,
+      body: ScreenBackground(
+        name: 'lesson',
+        veil: 0.2,
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 560),
+            child: ListView(
+              padding: const EdgeInsets.all(20),
+              children: [
+                Text(
+                  lessonRef.title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(height: 8),
+                Center(child: _StarsRow(stars: lp?.bestStars ?? 0, size: 44)),
+                const SizedBox(height: 16),
+                TeacherIntro(
+                  key: const ValueKey('lesson-intro'),
+                  lines: [TutorLines.lessonIntro(lessonRef.title)],
+                  avatarHeight: 120,
+                ),
+                const SizedBox(height: 20),
+                BigButton(
+                  key: const ValueKey('btn-theory'),
+                  label: 'Nhớ nhanh',
+                  icon: Icons.lightbulb_rounded,
+                  color: AppColors.tryAgain,
+                  onPressed: () => pushScreen<void>(context, TheoryScreen(lessonRef: lessonRef)),
+                ),
+                const SizedBox(height: 16),
+                BigButton(
+                  key: const ValueKey('btn-practice'),
+                  label: 'Luyện tập',
+                  icon: Icons.edit_rounded,
+                  onPressed: () => pushScreen<void>(
+                    context,
+                    QuizScreen(
+                      lessonAsset: lessonRef.src,
+                      isVip: app.isVip,
+                      repository: app.content,
+                      onFinished: app.recordQuiz,
+                      voiceOn: app.voiceEnabled,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -1017,6 +1286,8 @@ class TheoryScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 children: [
                   Text(lesson.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
+                  const SizedBox(height: 12),
+                  const TeacherIntro(lines: [TutorLines.screenTheory], avatarHeight: 96),
                   const SizedBox(height: 16),
                   for (final b in lesson.theory.blocks)
                     Padding(

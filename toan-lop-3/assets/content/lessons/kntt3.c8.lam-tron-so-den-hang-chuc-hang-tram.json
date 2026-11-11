@@ -1,0 +1,529 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c8",
+  "order": 4,
+  "title": "Làm tròn số đến hàng chục, hàng trăm",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Khi làm tròn số đến một hàng, ta nhìn chữ số ở hàng ngay bên phải: nếu bé hơn 5 thì làm tròn xuống, nếu lớn hơn hoặc bằng 5 thì làm tròn lên.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: làm tròn 9.201 đến hàng chục."
+      },
+      {
+        "kind": "text",
+        "text": "Chữ số hàng đơn vị của 9.201 là 1, bé hơn 5 nên làm tròn xuống."
+      },
+      {
+        "kind": "text",
+        "text": "Làm tròn 9.201 đến hàng chục được 9.200."
+      },
+      {
+        "kind": "text",
+        "text": "Làm tròn số giúp ta nói gần đúng một số đo, ví dụ “khoảng 2.000 người”.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Làm tròn số 686 đến hàng chục."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn số 686 đến hàng chục ta được số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 690
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "690",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng đơn vị của 686 là 6, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 686 đến hàng chục được 690."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Làm tròn số 3.216 đến hàng chục."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn số 3.216 đến hàng chục ta được số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3220
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.220",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng đơn vị của 3.216 là 6, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 3.216 đến hàng chục được 3.220."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Làm tròn số 7.893 đến hàng trăm."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn số 7.893 đến hàng trăm ta được số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7900
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.900",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục của 7.893 là 9, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 7.893 đến hàng trăm được 7.900."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Làm tròn số 4.050 đến hàng trăm ta được số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4.000"
+        },
+        {
+          "id": "b",
+          "text": "4.200"
+        },
+        {
+          "id": "c",
+          "text": "4.050"
+        },
+        {
+          "id": "d",
+          "text": "4.100"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.100",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục của 4.050 là 5, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 4.050 đến hàng trăm được 4.100."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số với số làm tròn của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "5.515 (làm tròn đến hàng chục)"
+        },
+        {
+          "id": "l2",
+          "text": "5.136 (làm tròn đến hàng chục)"
+        },
+        {
+          "id": "l3",
+          "text": "3.809 (làm tròn đến hàng trăm)"
+        },
+        {
+          "id": "l4",
+          "text": "2.090 (làm tròn đến hàng trăm)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "5.510"
+        },
+        {
+          "id": "r2",
+          "text": "3.800"
+        },
+        {
+          "id": "r3",
+          "text": "2.100"
+        },
+        {
+          "id": "r4",
+          "text": "5.140"
+        },
+        {
+          "id": "r5",
+          "text": "5.520"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5.515 (làm tròn đến hàng chục) → 5.520; 5.136 (làm tròn đến hàng chục) → 5.140; 3.809 (làm tròn đến hàng trăm) → 3.800; 2.090 (làm tròn đến hàng trăm) → 2.100",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Làm tròn 5.515 đến hàng chục được 5.520."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 5.136 đến hàng chục được 5.140."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 3.809 đến hàng trăm được 3.800."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 2.090 đến hàng trăm được 2.100."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo số làm tròn đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn 2.575 đến hàng chục: {{s1}}\nLàm tròn 4.695 đến hàng trăm: {{s2}}\nLàm tròn 3.475 đến hàng chục: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4.700"
+        },
+        {
+          "id": "t2",
+          "text": "2.570"
+        },
+        {
+          "id": "t3",
+          "text": "2.580"
+        },
+        {
+          "id": "t4",
+          "text": "3.480"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.580; 4.700; 3.480",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Làm tròn 2.575 đến hàng chục được 2.580."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 4.695 đến hàng trăm được 4.700."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 3.475 đến hàng chục được 3.480."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Làm tròn số 7.846 đến hàng chục ta được số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7.845"
+        },
+        {
+          "id": "b",
+          "text": "7.850"
+        },
+        {
+          "id": "c",
+          "text": "7.840"
+        },
+        {
+          "id": "d",
+          "text": "7.860"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.850",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng đơn vị của 7.846 là 6, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 7.846 đến hàng chục được 7.850."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Quãng đường từ nhà bác Ba đến thị trấn dài 7.161 m. Làm tròn số đo đó đến hàng trăm thì quãng đường dài khoảng bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Quãng đường dài khoảng {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7200,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.200 m",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục của 7.161 là 6, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 7.161 đến hàng trăm được 7.200."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Quãng đường từ nhà bác Ba đến thị trấn dài 5.295 m. Làm tròn số đo đó đến hàng chục thì quãng đường dài khoảng bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5.300 m"
+        },
+        {
+          "id": "b",
+          "text": "5.295 m"
+        },
+        {
+          "id": "c",
+          "text": "5.310 m"
+        },
+        {
+          "id": "d",
+          "text": "5.290 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "5.300 m",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng đơn vị của 5.295 là 5, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 5.295 đến hàng chục được 5.300."
+          }
+        ]
+      }
+    }
+  ]
+}

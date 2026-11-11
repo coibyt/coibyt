@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 
 import '../logic/content_validator.dart';
+import '../models/calendar.dart';
 import '../models/content.dart';
 import '../models/exam.dart';
 import 'kv_store.dart';
@@ -67,6 +68,17 @@ class ContentRepository {
     final issues = validateLesson(lesson, knownSkillIds: catalog.skills.map((s) => s.id).toSet());
     if (issues.isNotEmpty) throw InvalidContentException(assetPath, issues);
     return lesson;
+  }
+
+  static const calendarPath = 'assets/content/calendar.json';
+
+  /// Lịch học từng ngày (null nếu bản cài chưa có lịch hoặc file lỗi — app vẫn chạy bình thường).
+  Future<SchoolCalendar?> loadCalendar() async {
+    try {
+      return SchoolCalendar.fromJson(jsonDecode(await _bundle.loadString(calendarPath)));
+    } on Object {
+      return null;
+    }
   }
 
   /// Nạp và kiểm tra một đề kiểm tra.

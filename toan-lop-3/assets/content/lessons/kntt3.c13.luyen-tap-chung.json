@@ -1,0 +1,601 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c13.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c13",
+  "order": 4,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: xem đồng hồ, xem lịch, tháng – năm và tiền Việt Nam.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "1 giờ = 60 phút; 1 tuần = 7 ngày; 1 năm = 12 tháng."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Đồng hồ chỉ mấy giờ?",
+      "prompt": {
+        "text": "Kim giờ chỉ quá số 10 một chút, kim phút chỉ vào số 5. Đồng hồ chỉ mấy giờ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5 giờ 50 phút"
+        },
+        {
+          "id": "b",
+          "text": "10 giờ 5 phút"
+        },
+        {
+          "id": "c",
+          "text": "11 giờ 25 phút"
+        },
+        {
+          "id": "d",
+          "text": "10 giờ 25 phút"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10 giờ 25 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kim phút chỉ số 5 nghĩa là 25 phút (mỗi số cách nhau 5 phút)."
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 5 = 25"
+          },
+          {
+            "kind": "text",
+            "text": "Đồng hồ chỉ 10 giờ 25 phút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Bà có 3 tờ 20.000 đồng và 1 tờ 10.000 đồng. Hỏi bà có tất cả bao nhiêu tiền?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tien.viet_nam"
+      ],
+      "access": "free",
+      "template": "Bà có tất cả {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 70000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "70.000 đồng",
+        "hint": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "20.000 × 3 + 10.000 = 70.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Tháng nào dưới đây có 31 ngày?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.lich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Tháng 11"
+        },
+        {
+          "id": "b",
+          "text": "Tháng 5"
+        },
+        {
+          "id": "c",
+          "text": "Tháng 4"
+        },
+        {
+          "id": "d",
+          "text": "Tháng 9"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tháng 5",
+        "hint": "Con đếm tháng trên các khớp nắm tay: tháng ở chỗ gồ lên có ba mươi mốt ngày.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các tháng có 30 ngày: tháng 4, 6, 9, 11. Tháng 2 năm 2027 có 28 ngày. Các tháng còn lại có 31 ngày."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai cách nói cùng giờ.",
+      "prompt": {
+        "text": "Nối mỗi giờ bên trái với cách nói khác của giờ đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "14 giờ"
+        },
+        {
+          "id": "l2",
+          "text": "15 giờ"
+        },
+        {
+          "id": "l3",
+          "text": "20 giờ"
+        },
+        {
+          "id": "l4",
+          "text": "21 giờ"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "1 giờ sáng"
+        },
+        {
+          "id": "r2",
+          "text": "2 giờ chiều"
+        },
+        {
+          "id": "r3",
+          "text": "3 giờ chiều"
+        },
+        {
+          "id": "r4",
+          "text": "9 giờ tối"
+        },
+        {
+          "id": "r5",
+          "text": "8 giờ tối"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "14 giờ = 2 giờ chiều; 15 giờ = 3 giờ chiều; 20 giờ = 8 giờ tối; 21 giờ = 9 giờ tối",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "14 - 12 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "15 - 12 = 3"
+          },
+          {
+            "kind": "equation",
+            "text": "20 - 12 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "21 - 12 = 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "tien.viet_nam"
+      ],
+      "access": "free",
+      "template": "1 tờ 20.000 đồng = {{s1}} tờ 10.000 đồng\n1 tờ 5.000 đồng = {{s2}} tờ 1.000 đồng\n1 tờ 10.000 đồng = {{s3}} tờ 1.000 đồng",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "10"
+        },
+        {
+          "id": "t2",
+          "text": "2"
+        },
+        {
+          "id": "t3",
+          "text": "5"
+        },
+        {
+          "id": "t4",
+          "text": "3"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2; 5; 10",
+        "hint": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "20.000 : 10.000 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "5.000 : 1.000 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "10.000 : 1.000 = 10"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Bạn Hà tập đàn từ 7 giờ 35 phút đến 7 giờ 55 phút. Hỏi thời gian đó là bao nhiêu phút?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "Thời gian đó là {{b1}} phút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 20,
+            "unit": "phút"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "20 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "55 - 35 = 20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Mẹ mua một quyển truyện giá 35.000 đồng. Mẹ đưa cô bán hàng 1 tờ 50.000 đồng. Hỏi cô bán hàng phải trả lại mẹ bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "tien.viet_nam",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "15.000 đồng"
+        },
+        {
+          "id": "b",
+          "text": "25.000 đồng"
+        },
+        {
+          "id": "c",
+          "text": "85.000 đồng"
+        },
+        {
+          "id": "d",
+          "text": "14.000 đồng"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15.000 đồng",
+        "hint": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tiền cô bán hàng phải trả lại mẹ là:",
+                "equation": "50.000 - 35.000 = 15.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 15.000 đồng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "50000",
+              "35000"
+            ],
+            "result": "15000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "0 không trừ được 5, lấy 10 trừ 5 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 thêm 1 bằng 4; 5 trừ 4 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Ngày 4 tháng 4 năm 2027 là Chủ nhật. Hỏi ngày 19 tháng 4 năm 2027 là thứ mấy?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.lich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Thứ Ba"
+        },
+        {
+          "id": "b",
+          "text": "Thứ Bảy"
+        },
+        {
+          "id": "c",
+          "text": "Thứ Hai"
+        },
+        {
+          "id": "d",
+          "text": "Chủ nhật"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Thứ Hai",
+        "hint": "Một tuần có bảy ngày, con đếm thêm từng tuần trên lịch nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "19 - 4 = 15"
+          },
+          {
+            "kind": "text",
+            "text": "15 ngày là 2 tuần và 1 ngày. Ngày 19 tháng 4 là thứ Hai."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ có 50.000 đồng. Mẹ mua 4 hộp sữa chua, mỗi hộp giá 7.000 đồng. Hỏi mẹ còn lại bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tien.viet_nam",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ còn lại {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 22000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "22.000 đồng",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tiền mẹ mua sữa chua là:",
+                "equation": "7.000 × 4 = 28.000 (đồng)"
+              },
+              {
+                "explanation": "Số tiền mẹ còn lại là:",
+                "equation": "50.000 - 28.000 = 22.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 22.000 đồng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "7000",
+              "4"
+            ],
+            "result": "28000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "4 nhân 7 bằng 28, viết 28.",
+                "write": "28"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

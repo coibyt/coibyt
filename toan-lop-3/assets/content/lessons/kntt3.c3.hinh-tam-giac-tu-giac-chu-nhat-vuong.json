@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c3",
+  "order": 4,
+  "title": "Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Hình tam giác có 3 cạnh, 3 đỉnh; hình tứ giác có 4 cạnh, 4 đỉnh. Hình chữ nhật có 4 góc vuông, hai cạnh dài bằng nhau, hai cạnh ngắn bằng nhau; hình vuông có 4 góc vuông và 4 cạnh bằng nhau.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: hình chữ nhật ABCD có AB = 9 cm, BC = 4 cm thì CD = 9 cm, DA = 4 cm."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tứ giác có mấy cạnh, mấy đỉnh?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "Hình tứ giác có {{b1}} cạnh và {{b2}} đỉnh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 cạnh, 4 đỉnh",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 cạnh và 4 đỉnh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình nào dưới đây có 3 cạnh?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hình tròn"
+        },
+        {
+          "id": "b",
+          "text": "Hình chữ nhật"
+        },
+        {
+          "id": "c",
+          "text": "Hình vuông"
+        },
+        {
+          "id": "d",
+          "text": "Hình tam giác"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình tam giác",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đáp án đúng: Hình tam giác."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình chữ nhật CHOQ có CH = 15 cm, HO = 3 cm. Tìm độ dài cạnh OQ và cạnh QC."
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "OQ = {{b1}} cm; QC = {{b2}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 3,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 cm; 3 cm",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau: OQ = CH, QC = HO."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình vuông IEQO có cạnh IE dài 20 cm. Cạnh QO dài bao nhiêu?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "40 cm"
+        },
+        {
+          "id": "b",
+          "text": "21 cm"
+        },
+        {
+          "id": "c",
+          "text": "20 cm"
+        },
+        {
+          "id": "d",
+          "text": "80 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "20 cm",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình vuông có bốn cạnh dài bằng nhau."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối đồ vật với hình.",
+      "prompt": {
+        "text": "Nối mỗi đồ vật với hình dạng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Chiếc thước ê ke"
+        },
+        {
+          "id": "l2",
+          "text": "Mặt đồng xu"
+        },
+        {
+          "id": "l3",
+          "text": "Chiếc khăn mùi xoa"
+        },
+        {
+          "id": "l4",
+          "text": "Mặt quyển sách"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "hình vuông"
+        },
+        {
+          "id": "r2",
+          "text": "hình tròn"
+        },
+        {
+          "id": "r3",
+          "text": "hình chữ nhật"
+        },
+        {
+          "id": "r4",
+          "text": "hình tam giác"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Chiếc thước ê ke: hình tam giác; Mặt đồng xu: hình tròn; Chiếc khăn mùi xoa: hình vuông; Mặt quyển sách: hình chữ nhật",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chiếc thước ê ke có dạng hình tam giác."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt đồng xu có dạng hình tròn."
+          },
+          {
+            "kind": "text",
+            "text": "Chiếc khăn mùi xoa có dạng hình vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt quyển sách có dạng hình chữ nhật."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "Hình tam giác có {{s1}} đỉnh.\nHình chữ nhật có {{s2}} góc vuông.\nHình tứ giác có {{s3}} đỉnh.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "5"
+        },
+        {
+          "id": "t2",
+          "text": "3"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "4"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "3; 4; 4",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tam giác có 3 đỉnh."
+          },
+          {
+            "kind": "text",
+            "text": "Hình chữ nhật có 4 góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 đỉnh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tam giác EQB có các cạnh dài 15 cm, 6 cm và 15 cm. Tổng độ dài ba cạnh của hình tam giác là bao nhiêu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "Tổng độ dài ba cạnh là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "15 + 6 + 15 = 36"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Nam dùng que tính xếp được 3 hình tam giác và 6 hình tứ giác rời nhau, mỗi cạnh là một que tính. Hỏi Nam đã dùng bao nhiêu que tính?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.da_giac",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Nam đã dùng {{b1}} que tính.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 33,
+            "unit": "que"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "33 que tính",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số que tính xếp các hình tam giác là:",
+                "equation": "3 × 3 = 9 (que)"
+              },
+              {
+                "explanation": "Số que tính xếp các hình tứ giác là:",
+                "equation": "4 × 6 = 24 (que)"
+              },
+              {
+                "explanation": "Số que tính Nam đã dùng là:",
+                "equation": "9 + 24 = 33 (que)"
+              }
+            ],
+            "answer": "Đáp số: 33 que tính."
+          }
+        ]
+      }
+    }
+  ]
+}

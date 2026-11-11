@@ -1,0 +1,719 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 2,
+  "title": "Ôn tập phép cộng, phép trừ trong phạm vi 1000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 628 + 186 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "add",
+        "operands": [
+          "628",
+          "186"
+        ],
+        "result": "814",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "8 cộng 6 bằng 14, viết 4 nhớ 1.",
+            "write": "4",
+            "carry": 1
+          },
+          {
+            "place": 1,
+            "text": "2 cộng 8 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+            "write": "1",
+            "carry": 1
+          },
+          {
+            "place": 2,
+            "text": "6 cộng 1 bằng 7, thêm 1 bằng 8, viết 8.",
+            "write": "8"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "628 + 186 = 814"
+      },
+      {
+        "kind": "text",
+        "text": "Phép trừ cũng đặt tính thẳng cột và trừ từ hàng đơn vị; thử lại bằng phép cộng.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "16 + 14 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_100"
+      ],
+      "access": "free",
+      "template": "16 + 14 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "16",
+              "14"
+            ],
+            "result": "30",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 4 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "16 + 14 = 30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "95 - 58 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_100"
+      ],
+      "access": "free",
+      "template": "95 - 58 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 37
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "37",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "95",
+              "58"
+            ],
+            "result": "37",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 không trừ được 8, lấy 15 trừ 8 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 thêm 1 bằng 6; 9 trừ 6 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "95 - 58 = 37"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "204 + 529 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "204 + 529 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 733
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "733",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "204",
+              "529"
+            ],
+            "result": "733",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 9 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 2 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 5 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "204 + 529 = 733"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 972 - 335 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "647"
+        },
+        {
+          "id": "b",
+          "text": "637"
+        },
+        {
+          "id": "c",
+          "text": "627"
+        },
+        {
+          "id": "d",
+          "text": "643"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "637",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "972",
+              "335"
+            ],
+            "result": "637",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 không trừ được 5, lấy 12 trừ 5 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 thêm 1 bằng 4; 7 trừ 4 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 2,
+                "text": "9 trừ 3 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "972 - 335 = 637"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "114 + 41 = {{s1}}\n533 - 208 = {{s2}}\n827 - 327 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "155"
+        },
+        {
+          "id": "t2",
+          "text": "165"
+        },
+        {
+          "id": "t3",
+          "text": "500"
+        },
+        {
+          "id": "t4",
+          "text": "325"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "155; 325; 500",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "114 + 41 = 155"
+          },
+          {
+            "kind": "equation",
+            "text": "533 - 208 = 325"
+          },
+          {
+            "kind": "equation",
+            "text": "827 - 327 = 500"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 165 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_1000"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "693 - 433"
+        },
+        {
+          "id": "l2",
+          "text": "594 - 459"
+        },
+        {
+          "id": "l3",
+          "text": "890 + 96"
+        },
+        {
+          "id": "l4",
+          "text": "650 + 41"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "260"
+        },
+        {
+          "id": "r2",
+          "text": "135"
+        },
+        {
+          "id": "r3",
+          "text": "986"
+        },
+        {
+          "id": "r4",
+          "text": "701"
+        },
+        {
+          "id": "r5",
+          "text": "691"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "693 - 433 = 260; 594 - 459 = 135; 890 + 96 = 986; 650 + 41 = 691",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "693 - 433 = 260"
+          },
+          {
+            "kind": "equation",
+            "text": "594 - 459 = 135"
+          },
+          {
+            "kind": "equation",
+            "text": "890 + 96 = 986"
+          },
+          {
+            "kind": "equation",
+            "text": "650 + 41 = 691"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Đội Một trồng được 358 cây, đội Hai trồng được 555 cây. Hỏi cả hai đội trồng được bao nhiêu cây?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_1000",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai đội trồng được {{b1}} cây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 913,
+            "unit": "cây"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "913 cây",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số cây cả hai đội trồng được là:",
+                "equation": "358 + 555 = 913 (cây)"
+              }
+            ],
+            "answer": "Đáp số: 913 cây."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "358",
+              "555"
+            ],
+            "result": "913",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 5 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 5 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Con đường thứ nhất dài 788 m, con đường thứ hai ngắn hơn con đường thứ nhất 494 m. Hỏi con đường thứ hai dài bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_1000",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "284 m"
+        },
+        {
+          "id": "b",
+          "text": "394 m"
+        },
+        {
+          "id": "c",
+          "text": "294 m"
+        },
+        {
+          "id": "d",
+          "text": "1.282 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "294 m",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài con đường thứ hai là:",
+                "equation": "788 - 494 = 294 (m)"
+              }
+            ],
+            "answer": "Đáp số: 294 m."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "788",
+              "494"
+            ],
+            "result": "294",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 trừ 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "8 không trừ được 9, lấy 18 trừ 9 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "4 thêm 1 bằng 5; 7 trừ 5 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tháng trước cửa hàng bán được 653 quyển vở. Tháng này bán được nhiều hơn tháng trước 208 quyển vở. Hỏi tháng này cửa hàng bán được bao nhiêu quyển vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_1000",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Tháng này bán được {{b1}} quyển vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 861,
+            "unit": "quyển"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "861 quyển vở",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số vở tháng này cửa hàng bán được là:",
+                "equation": "653 + 208 = 861 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 861 quyển vở."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "653",
+              "208"
+            ],
+            "result": "861",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 8 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 0 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

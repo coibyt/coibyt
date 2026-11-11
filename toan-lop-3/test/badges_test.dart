@@ -35,6 +35,14 @@ void main() {
     expect(r1.newBadgeIds, containsAll(['first_lesson', 'three_stars', 'points_100']));
     expect(r1.newBadgeIds, isNot(contains('chapter_done')));
 
+    // Chủ đề 4 có nhiều bài: học xong các bài còn lại (trừ bài chia) — chưa được huy hiệu "xong chủ đề".
+    final c4 = loadCatalogFromDisk().books.first.chapters.firstWhere((c) => c.id == 'kntt3.c4');
+    for (final ref in c4.lessons) {
+      if (ref.id == lesson.id || ref.id == division.id) continue;
+      final r = await app.recordQuiz(perfect(loadLessonFromDisk(ref.id)));
+      expect(r.newBadgeIds, isNot(contains('chapter_done')));
+    }
+
     final r2 = await app.recordQuiz(perfect(division));
     expect(r2.newBadgeIds, contains('chapter_done'));
     expect(r2.newBadgeIds, isNot(contains('first_lesson')), reason: 'không trao lại');

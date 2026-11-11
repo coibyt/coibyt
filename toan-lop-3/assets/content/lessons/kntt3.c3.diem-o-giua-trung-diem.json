@@ -1,0 +1,501 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c3.diem-o-giua-trung-diem",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c3",
+  "order": 1,
+  "title": "Điểm ở giữa. Trung điểm của đoạn thẳng",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "M là trung điểm của đoạn thẳng AB khi M nằm giữa A và B, và AM = MB.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: AB = 8 cm, M là trung điểm của AB thì AM = MB ="
+      },
+      {
+        "kind": "equation",
+        "text": "8 : 2 = 4"
+      },
+      {
+        "kind": "text",
+        "text": "Vậy AM = MB = 4 cm."
+      },
+      {
+        "kind": "text",
+        "text": "Muốn tìm trung điểm, con đo độ dài đoạn thẳng rồi chia đôi.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Ba điểm A, I, P cùng nằm trên một đường thẳng theo thứ tự từ trái sang phải. Điểm nào là điểm ở giữa hai điểm còn lại?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Điểm I"
+        },
+        {
+          "id": "b",
+          "text": "Điểm P"
+        },
+        {
+          "id": "c",
+          "text": "Điểm A"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Điểm I",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Điểm I nằm giữa hai điểm A và P."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "N là trung điểm của đoạn thẳng AE. Đoạn thẳng AE dài 30 cm. Hỏi đoạn thẳng AN dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đoạn thẳng AN dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "N là trung điểm nên AN = NE."
+          },
+          {
+            "kind": "equation",
+            "text": "30 : 2 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "M là trung điểm của đoạn thẳng HE. Đoạn thẳng HM dài 7 cm. Hỏi đoạn thẳng HE dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đoạn thẳng HE dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 14,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "14 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "M là trung điểm nên HM = ME = 7 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 2 = 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Đoạn thẳng MH dài 12 cm. Điểm N nằm giữa M và H, đoạn thẳng MN dài 6 cm. Câu nào đúng?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "N là trung điểm của MH"
+        },
+        {
+          "id": "b",
+          "text": "N không phải trung điểm của MH"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "N là trung điểm của MH",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "12 - 6 = 6"
+          },
+          {
+            "kind": "text",
+            "text": "NH dài 6 cm. MN = NH nên N là trung điểm của MH."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi đoạn thẳng với khoảng cách từ một đầu đoạn thẳng đến trung điểm của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Đoạn thẳng BI dài 24 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Đoạn thẳng MN dài 26 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Đoạn thẳng KC dài 30 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Đoạn thẳng GC dài 10 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "2 cm"
+        },
+        {
+          "id": "r2",
+          "text": "5 cm"
+        },
+        {
+          "id": "r3",
+          "text": "12 cm"
+        },
+        {
+          "id": "r4",
+          "text": "13 cm"
+        },
+        {
+          "id": "r5",
+          "text": "15 cm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Đoạn thẳng BI dài 24 cm → 12 cm; Đoạn thẳng MN dài 26 cm → 13 cm; Đoạn thẳng KC dài 30 cm → 15 cm; Đoạn thẳng GC dài 10 cm → 5 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "24 : 2 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "26 : 2 = 13"
+          },
+          {
+            "kind": "equation",
+            "text": "30 : 2 = 15"
+          },
+          {
+            "kind": "equation",
+            "text": "10 : 2 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "C là trung điểm của MD, MD = 18 cm thì MC = {{s1}} cm\nK là trung điểm của CN, CN = 22 cm thì CK = {{s2}} cm\nK là trung điểm của EN, EN = 28 cm thì EK = {{s3}} cm",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "11"
+        },
+        {
+          "id": "t2",
+          "text": "14"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "9"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9; 11; 14",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "18 : 2 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "22 : 2 = 11"
+          },
+          {
+            "kind": "equation",
+            "text": "28 : 2 = 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đoạn thẳng DE dài 1 m. G là trung điểm của đoạn thẳng DE. Đoạn thẳng DG dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "Đoạn thẳng DG dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 50,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "50 cm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 1 m = 100 cm."
+          },
+          {
+            "kind": "equation",
+            "text": "100 : 2 = 50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.diem-o-giua-trung-diem.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một sợi dây dài 60 m được căng thẳng giữa hai cái cọc. Bạn Nam buộc một chiếc nơ đỏ ở trung điểm của sợi dây. Hỏi chiếc nơ cách mỗi cái cọc bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Chiếc nơ cách mỗi cái cọc {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "30 m",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chiếc nơ cách mỗi cái cọc số mét là:",
+                "equation": "60 : 2 = 30 (m)"
+              }
+            ],
+            "answer": "Đáp số: 30 m."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "60",
+            "divisor": "2",
+            "quotient": "30",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,665 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c7.on-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c7",
+  "order": 4,
+  "title": "Ôn tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập học kì 1: số đến 1.000, bốn phép tính, biểu thức, gấp – giảm số lần, một phần mấy, hình học và đo lường.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 822 - 613 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "subtract",
+        "operands": [
+          "822",
+          "613"
+        ],
+        "result": "209",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "2 không trừ được 3, lấy 12 trừ 3 bằng 9, viết 9 nhớ 1.",
+            "write": "9",
+            "carry": 1
+          },
+          {
+            "place": 1,
+            "text": "1 thêm 1 bằng 2; 2 trừ 2 bằng 0, viết 0.",
+            "write": "0"
+          },
+          {
+            "place": 2,
+            "text": "8 trừ 6 bằng 2, viết 2.",
+            "write": "2"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "822 - 613 = 209"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c7.on-tap-chung.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "713 ... 717"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": "="
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số có cùng 3 chữ số. So sánh từ hàng cao nhất, đến hàng đơn vị có 3 < 7. Vậy 713 < 717."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "377 + 527 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "377 + 527 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 904
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "904",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "377",
+              "527"
+            ],
+            "result": "904",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 cộng 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 2 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 5 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "377 + 527 = 904"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n6 × ? = 24"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4"
+        },
+        {
+          "id": "b",
+          "text": "3"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "18"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "24 : 6 = 4"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 4 = 24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "1/2 của 20 l là bao nhiêu?",
+        "speak": "Một phần hai của 20 l là bao nhiêu?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "phan_so.mot_phan"
+      ],
+      "access": "free",
+      "template": "1/2 của 20 l là {{b1}} l.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10 l",
+        "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "20 : 2 = 10"
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 1/2 của 20 l là 10 l."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức 339 + 44 × 3 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.149"
+        },
+        {
+          "id": "b",
+          "text": "471"
+        },
+        {
+          "id": "c",
+          "text": "461"
+        },
+        {
+          "id": "d",
+          "text": "481"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "471",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "339 + 44 × 3 = 339 + 132 = 471"
+          },
+          {
+            "kind": "text",
+            "text": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "template": "Gấp 3 lên 6 lần được {{s1}}\nGấp 6 lên 6 lần được {{s2}}\nGấp 10 lên 5 lần được {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "20"
+        },
+        {
+          "id": "t2",
+          "text": "50"
+        },
+        {
+          "id": "t3",
+          "text": "18"
+        },
+        {
+          "id": "t4",
+          "text": "36"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18; 36; 50",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "3 × 6 = 18"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 6 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "10 × 5 = 50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p07",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu hỏi với câu trả lời đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "28 gấp mấy lần 4?"
+        },
+        {
+          "id": "l2",
+          "text": "48 gấp mấy lần 8?"
+        },
+        {
+          "id": "l3",
+          "text": "36 gấp mấy lần 9?"
+        },
+        {
+          "id": "l4",
+          "text": "20 gấp mấy lần 4?"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "2 lần"
+        },
+        {
+          "id": "r2",
+          "text": "4 lần"
+        },
+        {
+          "id": "r3",
+          "text": "6 lần"
+        },
+        {
+          "id": "r4",
+          "text": "5 lần"
+        },
+        {
+          "id": "r5",
+          "text": "7 lần"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "28 gấp 7 lần 4; 48 gấp 6 lần 8; 36 gấp 4 lần 9; 20 gấp 5 lần 4",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "28 : 4 = 7"
+          },
+          {
+            "kind": "equation",
+            "text": "48 : 8 = 6"
+          },
+          {
+            "kind": "equation",
+            "text": "36 : 9 = 4"
+          },
+          {
+            "kind": "equation",
+            "text": "20 : 4 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một nhà máy có 6 xưởng, mỗi xưởng làm được 79 chiếc bút. Nhà máy còn nhập thêm 217 chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "nhan.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "Nhà máy có tất cả {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 691,
+            "unit": "chiếc"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "691 chiếc bút",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bút các xưởng làm được là:",
+                "equation": "79 × 6 = 474 (chiếc)"
+              },
+              {
+                "explanation": "Số bút nhà máy có tất cả là:",
+                "equation": "474 + 217 = 691 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 691 chiếc bút."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "79",
+              "6"
+            ],
+            "result": "474",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 9 bằng 54, viết 4 nhớ 5.",
+                "write": "4",
+                "carry": 5
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 7 bằng 42, thêm 5 bằng 47, viết 47.",
+                "write": "47"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "474",
+              "217"
+            ],
+            "result": "691",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 7 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 1 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 22 quả cam, xếp vào các đĩa, mỗi đĩa 4 quả. Hỏi xếp được nhiều nhất bao nhiêu đĩa và còn thừa mấy quả cam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.co_du",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Xếp được nhiều nhất {{b1}} đĩa, còn thừa {{b2}} quả cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "đĩa"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "5 đĩa, thừa 2 quả cam",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "22",
+            "divisor": "4",
+            "quotient": "5",
+            "remainder": 2,
+            "digitSteps": [
+              {
+                "text": "22 chia 4 được 5, viết 5. 5 nhân 4 bằng 20; 22 trừ 20 bằng 2.",
+                "partialDividend": 22,
+                "quotientDigit": 5,
+                "product": 20,
+                "remainder": 2
+              }
+            ]
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Thực hiện phép chia 22 : 4 = 5 (dư 2). Thử lại:",
+                "equation": "5 × 4 + 2 = 22 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 5 đĩa, thừa 2 quả cam."
+          }
+        ]
+      }
+    }
+  ]
+}

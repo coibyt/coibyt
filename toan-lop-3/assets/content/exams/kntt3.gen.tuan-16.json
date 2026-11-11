@@ -1,0 +1,276 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.tuan-16",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c6"
+  ],
+  "title": "Kiểm tra cuối tuần 16",
+  "description": "Ôn lại bài của tuần: Chia số có ba chữ số cho số có một chữ số; Biểu thức số. Tính giá trị của biểu thức số; Tính giá trị của biểu thức số (tiếp theo).",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-16.q01",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "340 : 4 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "340 : 4 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 85
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "85",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "340",
+                  "divisor": "4",
+                  "quotient": "85",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "34 chia 4 được 8, viết 8. 8 nhân 4 bằng 32; 34 trừ 32 bằng 2.",
+                      "partialDividend": 34,
+                      "quotientDigit": 8,
+                      "product": 32,
+                      "remainder": 2
+                    },
+                    {
+                      "text": "Hạ 0, được 20; 20 chia 4 được 5, viết 5. 5 nhân 4 bằng 20; 20 trừ 20 bằng 0.",
+                      "partialDividend": 20,
+                      "quotientDigit": 5,
+                      "product": 20,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "340 : 4 = 85"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-16.q02",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "677 - (34 + 87) = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "677 - (34 + 87) = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 556
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "556",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "677 - (34 + 87) = 677 - 121 = 556"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-16.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "373 + 24 - 56 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "373 + 24 - 56 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 341
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "341",
+              "hint": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "373 + 24 - 56 = 397 - 56 = 341"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-16.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "309 : 3 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "309 : 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 103
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "103",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "309",
+                  "divisor": "3",
+                  "quotient": "103",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.",
+                      "partialDividend": 3,
+                      "quotientDigit": 1,
+                      "product": 3,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                      "partialDividend": 0,
+                      "quotientDigit": 0,
+                      "product": 0,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 9; 9 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 9 trừ 9 bằng 0.",
+                      "partialDividend": 9,
+                      "quotientDigit": 3,
+                      "product": 9,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "309 : 3 = 103"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-16.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "341 - (92 + 125) = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "341 - (92 + 125) = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 124
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "124",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "341 - (92 + 125) = 341 - 217 = 124"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

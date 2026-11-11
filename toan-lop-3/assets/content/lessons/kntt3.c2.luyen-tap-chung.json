@@ -1,0 +1,580 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c2.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c2",
+  "order": 7,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại bảng nhân, bảng chia 6, 7, 8, 9; tìm thành phần chưa biết; tìm một phần mấy của một số.",
+        "style": "rule"
+      },
+      {
+        "kind": "equation",
+        "text": "7 × 8 = 56"
+      },
+      {
+        "kind": "equation",
+        "text": "56 : 7 = 8"
+      },
+      {
+        "kind": "equation",
+        "text": "56 : 8 = 7"
+      },
+      {
+        "kind": "text",
+        "text": "Từ một phép nhân, ta viết được hai phép chia.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính nhẩm.",
+      "prompt": {
+        "text": "7 × 2 = ?\n49 : 7 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "7 × 2 = {{b1}}\n49 : 7 = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 14
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "14; 7",
+        "hint": "Con đọc lại bảng nhân hoặc đếm thêm đều để tìm kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "7 × 2 = 14"
+          },
+          {
+            "kind": "equation",
+            "text": "49 : 7 = 7"
+          },
+          {
+            "kind": "text",
+            "text": "Vì 7 × 7 = 49 nên 49 : 7 = 7.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n7 × ? = 49"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "bang_nhan_chia",
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "42"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "6"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "49 : 7 = 7"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 7 = 49"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? × 3 = 27"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "template": "{{b1}} × 3 = 27",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "27 : 3 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 3 = 27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "1/6 của 54 m là bao nhiêu?",
+        "speak": "Một phần sáu của 54 m là bao nhiêu?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "phan_so.mot_phan"
+      ],
+      "access": "free",
+      "template": "1/6 của 54 m là {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 m",
+        "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "54 : 6 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 1/6 của 54 m là 9 m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "10 × 8 = {{s1}}\n9 × 10 = {{s2}}\n9 × 7 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "90"
+        },
+        {
+          "id": "t2",
+          "text": "88"
+        },
+        {
+          "id": "t3",
+          "text": "80"
+        },
+        {
+          "id": "t4",
+          "text": "63"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "80; 90; 63",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "10 × 8 = 80"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 10 = 90"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 7 = 63"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 88 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 × 5"
+        },
+        {
+          "id": "l2",
+          "text": "7 × 3"
+        },
+        {
+          "id": "l3",
+          "text": "9 × 10"
+        },
+        {
+          "id": "l4",
+          "text": "49 : 7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "30"
+        },
+        {
+          "id": "r2",
+          "text": "21"
+        },
+        {
+          "id": "r3",
+          "text": "8"
+        },
+        {
+          "id": "r4",
+          "text": "7"
+        },
+        {
+          "id": "r5",
+          "text": "90"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 × 5 = 30; 7 × 3 = 21; 9 × 10 = 90; 49 : 7 = 7",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 × 5 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 3 = 21"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 10 = 90"
+          },
+          {
+            "kind": "equation",
+            "text": "49 : 7 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có 81 bông hoa chia đều vào 9 bó. Hỏi mỗi bó có bao nhiêu bông hoa?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9 bông"
+        },
+        {
+          "id": "b",
+          "text": "72 bông"
+        },
+        {
+          "id": "c",
+          "text": "10 bông"
+        },
+        {
+          "id": "d",
+          "text": "8 bông"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 bông hoa",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bông hoa trong mỗi bó là:",
+                "equation": "81 : 9 = 9 (bông)"
+              }
+            ],
+            "answer": "Đáp số: 9 bông hoa."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một sợi dây dài 27 m. Bố cắt đi 1/3 sợi dây. Hỏi bố đã cắt đi bao nhiêu mét dây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "phan_so.mot_phan",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Bố đã cắt đi {{b1}} m dây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 m",
+        "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số mét dây bố đã cắt đi là:",
+                "equation": "27 : 3 = 9 (m)"
+              }
+            ],
+            "answer": "Đáp số: 9 m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi hộp có 8 cái bánh. Mẹ mua 3 hộp bánh, cả nhà đã ăn 15 cái bánh. Hỏi còn lại bao nhiêu cái bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Còn lại {{b1}} cái bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9,
+            "unit": "cái"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "9 cái bánh",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bánh mẹ mua là:",
+                "equation": "8 × 3 = 24 (cái)"
+              },
+              {
+                "explanation": "Số bánh còn lại là:",
+                "equation": "24 - 15 = 9 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 9 cái bánh."
+          }
+        ]
+      }
+    }
+  ]
+}

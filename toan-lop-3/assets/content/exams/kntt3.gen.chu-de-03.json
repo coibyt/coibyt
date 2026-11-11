@@ -1,0 +1,699 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-03",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c3"
+  ],
+  "title": "Kiểm tra chủ đề 3",
+  "description": "Làm quen với hình phẳng, hình khối.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hình tròn tâm Q. Đoạn thẳng AB đi qua tâm Q, hai điểm A và B nằm trên đường tròn. Đoạn thẳng AB là gì của hình tròn?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.hinh_phang"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "bán kính"
+              },
+              {
+                "id": "b",
+                "text": "đường kính"
+              },
+              {
+                "id": "c",
+                "text": "tâm"
+              },
+              {
+                "id": "d",
+                "text": "góc vuông"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "đường kính",
+              "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Tâm là điểm ở giữa hình tròn; bán kính nối tâm với một điểm trên đường tròn; đường kính đi qua tâm, nối hai điểm trên đường tròn và dài gấp đôi bán kính."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Đoạn thẳng MH dài 12 cm. Điểm N nằm giữa M và H, đoạn thẳng MN dài 6 cm. Câu nào đúng?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "hinh_hoc.hinh_phang"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "N là trung điểm của MH"
+              },
+              {
+                "id": "b",
+                "text": "N không phải trung điểm của MH"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "N là trung điểm của MH",
+              "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "12 - 6 = 6"
+                },
+                {
+                  "kind": "text",
+                  "text": "NH dài 6 cm. MN = NH nên N là trung điểm của MH."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "So sánh số cạnh của khối lập phương và khối hộp chữ nhật."
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.khoi"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Khối lập phương nhiều hơn"
+              },
+              {
+                "id": "b",
+                "text": "Bằng nhau"
+              },
+              {
+                "id": "c",
+                "text": "Khối hộp chữ nhật nhiều hơn"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bằng nhau",
+              "hint": "Con đếm lần lượt các mặt, các cạnh, các đỉnh của khối hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Cả hai khối đều có 6 mặt, 12 cạnh và 8 đỉnh."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối dụng cụ với việc làm.",
+            "prompt": {
+              "text": "Nối mỗi dụng cụ với việc ta dùng nó để làm."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "hinh_hoc.goc",
+              "hinh_hoc.hinh_phang",
+              "hinh_hoc.da_giac"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Com-pa"
+              },
+              {
+                "id": "l2",
+                "text": "Thước thẳng"
+              },
+              {
+                "id": "l3",
+                "text": "Ê ke"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "Đo nhiệt độ"
+              },
+              {
+                "id": "r2",
+                "text": "Vẽ và kiểm tra góc vuông"
+              },
+              {
+                "id": "r3",
+                "text": "Vẽ đường tròn"
+              },
+              {
+                "id": "r4",
+                "text": "Vẽ đoạn thẳng"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Com-pa: Vẽ đường tròn; Thước thẳng: Vẽ đoạn thẳng; Ê ke: Vẽ và kiểm tra góc vuông",
+              "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Com-pa: vẽ đường tròn."
+                },
+                {
+                  "kind": "text",
+                  "text": "Thước thẳng: vẽ đoạn thẳng."
+                },
+                {
+                  "kind": "text",
+                  "text": "Ê ke: vẽ và kiểm tra góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối bán kính với đường kính của cùng một hình tròn."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "hinh_hoc.hinh_phang"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Bán kính 14 cm"
+              },
+              {
+                "id": "l2",
+                "text": "Bán kính 4 cm"
+              },
+              {
+                "id": "l3",
+                "text": "Bán kính 10 cm"
+              },
+              {
+                "id": "l4",
+                "text": "Bán kính 15 cm"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "Đường kính 8 cm"
+              },
+              {
+                "id": "r2",
+                "text": "Đường kính 3 cm"
+              },
+              {
+                "id": "r3",
+                "text": "Đường kính 30 cm"
+              },
+              {
+                "id": "r4",
+                "text": "Đường kính 28 cm"
+              },
+              {
+                "id": "r5",
+                "text": "Đường kính 20 cm"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bán kính 14 cm → Đường kính 28 cm; Bán kính 4 cm → Đường kính 8 cm; Bán kính 10 cm → Đường kính 20 cm; Bán kính 15 cm → Đường kính 30 cm",
+              "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "14 × 2 = 28"
+                },
+                {
+                  "kind": "equation",
+                  "text": "4 × 2 = 8"
+                },
+                {
+                  "kind": "equation",
+                  "text": "10 × 2 = 20"
+                },
+                {
+                  "kind": "equation",
+                  "text": "15 × 2 = 30"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q06",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối đồ vật với hình.",
+            "prompt": {
+              "text": "Nối mỗi đồ vật với hình dạng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.da_giac"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Chiếc thước ê ke"
+              },
+              {
+                "id": "l2",
+                "text": "Mặt đồng xu"
+              },
+              {
+                "id": "l3",
+                "text": "Chiếc khăn mùi xoa"
+              },
+              {
+                "id": "l4",
+                "text": "Mặt quyển sách"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "hình vuông"
+              },
+              {
+                "id": "r2",
+                "text": "hình tròn"
+              },
+              {
+                "id": "r3",
+                "text": "hình chữ nhật"
+              },
+              {
+                "id": "r4",
+                "text": "hình tam giác"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Chiếc thước ê ke: hình tam giác; Mặt đồng xu: hình tròn; Chiếc khăn mùi xoa: hình vuông; Mặt quyển sách: hình chữ nhật",
+              "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Chiếc thước ê ke có dạng hình tam giác."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt đồng xu có dạng hình tròn."
+                },
+                {
+                  "kind": "text",
+                  "text": "Chiếc khăn mùi xoa có dạng hình vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt quyển sách có dạng hình chữ nhật."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "hinh_hoc.da_giac"
+            ],
+            "access": "free",
+            "template": "Hình tam giác có {{s1}} đỉnh.\nHình tứ giác có {{s2}} đỉnh.\nHình chữ nhật có {{s3}} góc vuông.",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "3"
+              },
+              {
+                "id": "t2",
+                "text": "2"
+              },
+              {
+                "id": "t3",
+                "text": "5"
+              },
+              {
+                "id": "t4",
+                "text": "4"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "reuseTokens": true,
+            "solution": {
+              "access": "free",
+              "answerText": "3; 4; 4",
+              "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình tam giác có 3 đỉnh."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình tứ giác có 4 đỉnh."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình chữ nhật có 4 góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "M là trung điểm của đoạn thẳng HE. Đoạn thẳng HM dài 7 cm. Hỏi đoạn thẳng HE dài bao nhiêu xăng-ti-mét?"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "hinh_hoc.hinh_phang"
+            ],
+            "access": "free",
+            "template": "Đoạn thẳng HE dài {{b1}} cm.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 14,
+                  "unit": "cm",
+                  "unitAliases": [
+                    "xăng-ti-mét"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "14 cm",
+              "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "M là trung điểm nên HM = ME = 7 cm."
+                },
+                {
+                  "kind": "equation",
+                  "text": "7 × 2 = 14"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Hình tứ giác HOKQ có góc đỉnh H và góc đỉnh O là góc vuông, các góc còn lại không phải góc vuông."
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "hinh_hoc.goc"
+            ],
+            "access": "free",
+            "template": "Hình tứ giác đó có {{b1}} góc vuông và {{b2}} góc không vuông.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 2
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 2
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2; 2",
+              "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình tứ giác có 4 góc."
+                },
+                {
+                  "kind": "equation",
+                  "text": "4 - 2 = 2"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-03.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Mỗi đồ vật có dạng khối gì? Kéo thẻ vào ô trống (một thẻ có thể dùng nhiều lần)."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "hinh_hoc.khoi"
+            ],
+            "access": "free",
+            "template": "Viên gạch: {{s1}}\nCon xúc xắc: {{s2}}\nHộp sữa tươi: {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "hình vuông"
+              },
+              {
+                "id": "t2",
+                "text": "khối hộp chữ nhật"
+              },
+              {
+                "id": "t3",
+                "text": "khối lập phương"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "reuseTokens": true,
+            "solution": {
+              "access": "free",
+              "answerText": "khối hộp chữ nhật; khối lập phương; khối hộp chữ nhật",
+              "hint": "Con đếm lần lượt các mặt, các cạnh, các đỉnh của khối hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Viên gạch: khối hộp chữ nhật."
+                },
+                {
+                  "kind": "text",
+                  "text": "Con xúc xắc: khối lập phương."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hộp sữa tươi: khối hộp chữ nhật."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

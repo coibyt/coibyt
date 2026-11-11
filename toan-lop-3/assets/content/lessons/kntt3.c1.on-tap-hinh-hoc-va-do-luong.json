@@ -1,0 +1,625 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 7,
+  "title": "Ôn tập hình học và đo lường",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Nhớ các đơn vị đo đã học: 1 m = 10 dm, 1 dm = 10 cm, 1 m = 100 cm, 1 km = 1.000 m. Đo khối lượng dùng ki-lô-gam (kg), đo dung tích dùng lít (l).",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 3 m = 300 cm vì 1 m = 100 cm."
+      },
+      {
+        "kind": "equation",
+        "text": "3 × 100 = 300"
+      },
+      {
+        "kind": "text",
+        "text": "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tứ giác có mấy cạnh, mấy đỉnh?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "Hình tứ giác có {{b1}} cạnh và {{b2}} đỉnh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 cạnh, 4 đỉnh",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 cạnh và 4 đỉnh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "5 dm = {{b1}} cm\n70 dm = {{b2}} m",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 50,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "50 cm; 7 m",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 dm = 10 cm; 1 m = 10 dm.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 10 = 50"
+          },
+          {
+            "kind": "equation",
+            "text": "70 : 10 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "28 kg + 15 kg = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.khoi_luong"
+      ],
+      "access": "free",
+      "template": "28 kg + 15 kg = {{b1}} kg",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 43,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "43 kg",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "28",
+              "15"
+            ],
+            "result": "43",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 1 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "28 + 15 = 43"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị kg vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "80 l - 41 l = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "80 l - 41 l = {{b1}} l",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 39,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "39 l",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "80",
+              "41"
+            ],
+            "result": "39",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 1, lấy 10 trừ 1 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 thêm 1 bằng 5; 8 trừ 5 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "80 - 41 = 39"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị l vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đường gấp khúc DAKEG có DA = 10 cm, AK = 16 cm, KE = 17 cm, EG = 11 cm. Tính độ dài đường gấp khúc DAKEG."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "do_luong.do_dai",
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đường gấp khúc DAKEG dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 54,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "54 cm",
+        "hint": "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "10 + 16 + 17 + 11 = 54"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó ở bên phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "2 m"
+        },
+        {
+          "id": "l2",
+          "text": "3 m"
+        },
+        {
+          "id": "l3",
+          "text": "4 m"
+        },
+        {
+          "id": "l4",
+          "text": "6 m"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "40 dm"
+        },
+        {
+          "id": "r2",
+          "text": "200 cm"
+        },
+        {
+          "id": "r3",
+          "text": "30 dm"
+        },
+        {
+          "id": "r4",
+          "text": "600 cm"
+        },
+        {
+          "id": "r5",
+          "text": "2 dm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 m = 200 cm; 3 m = 30 dm; 4 m = 40 dm; 6 m = 600 cm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "2 m = 200 cm"
+          },
+          {
+            "kind": "text",
+            "text": "3 m = 30 dm"
+          },
+          {
+            "kind": "text",
+            "text": "4 m = 40 dm"
+          },
+          {
+            "kind": "text",
+            "text": "6 m = 600 cm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 1 m, 283 cm, 5 m, 289 cm."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "289 cm"
+        },
+        {
+          "id": "t2",
+          "text": "5 m"
+        },
+        {
+          "id": "t3",
+          "text": "283 cm"
+        },
+        {
+          "id": "t4",
+          "text": "1 m"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1 m < 283 cm < 289 cm < 5 m",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về xăng-ti-mét: 1 m = 100 cm, 283 cm = 283 cm, 5 m = 500 cm, 289 cm = 289 cm."
+          },
+          {
+            "kind": "text",
+            "text": "1 m < 283 cm < 289 cm < 5 m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Năm nay nhà máy sản xuất được 87 chiếc xe đạp. Năm ngoái nhà máy sản xuất được ít hơn năm nay 18 chiếc. Hỏi năm ngoái nhà máy sản xuất được bao nhiêu chiếc xe đạp?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_100",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "105 chiếc"
+        },
+        {
+          "id": "b",
+          "text": "69 chiếc"
+        },
+        {
+          "id": "c",
+          "text": "59 chiếc"
+        },
+        {
+          "id": "d",
+          "text": "67 chiếc"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "69 chiếc xe đạp",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số xe đạp năm ngoái nhà máy sản xuất được là:",
+                "equation": "87 - 18 = 69 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 69 chiếc xe đạp."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "87",
+              "18"
+            ],
+            "result": "69",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 không trừ được 8, lấy 17 trừ 8 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2; 8 trừ 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một đường gấp khúc gồm 5 đoạn thẳng, mỗi đoạn dài 3 cm. Hỏi đường gấp khúc đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Đường gấp khúc dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "15 cm",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài đường gấp khúc là:",
+                "equation": "3 × 5 = 15 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 15 cm."
+          },
+          {
+            "kind": "text",
+            "text": "Các đoạn thẳng dài bằng nhau nên ta dùng phép nhân thay cho phép cộng.",
+            "style": "tip"
+          }
+        ]
+      }
+    }
+  ]
+}

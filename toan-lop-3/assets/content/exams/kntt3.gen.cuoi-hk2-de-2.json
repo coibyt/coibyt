@@ -1,0 +1,879 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.cuoi-hk2-de-2",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c8",
+    "kntt3.c9",
+    "kntt3.c10",
+    "kntt3.c11",
+    "kntt3.c12",
+    "kntt3.c13",
+    "kntt3.c14",
+    "kntt3.c15",
+    "kntt3.c16"
+  ],
+  "title": "Đề cuối học kì 2 — Đề số 2",
+  "description": "Ôn tập chủ đề 8, 9, 10, 11, 12, 13, 14, 15, 16.",
+  "examType": "cuoi_hk2",
+  "term": 2,
+  "durationMinutes": 40,
+  "access": "vip",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số với số làm tròn của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "49.203 (làm tròn đến hàng chục nghìn)"
+              },
+              {
+                "id": "l2",
+                "text": "22.331 (làm tròn đến hàng nghìn)"
+              },
+              {
+                "id": "l3",
+                "text": "74.825 (làm tròn đến hàng chục nghìn)"
+              },
+              {
+                "id": "l4",
+                "text": "81.032 (làm tròn đến hàng nghìn)"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "50.000"
+              },
+              {
+                "id": "r2",
+                "text": "40.000"
+              },
+              {
+                "id": "r3",
+                "text": "81.000"
+              },
+              {
+                "id": "r4",
+                "text": "70.000"
+              },
+              {
+                "id": "r5",
+                "text": "22.000"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "49.203 (làm tròn đến hàng chục nghìn) → 50.000; 22.331 (làm tròn đến hàng nghìn) → 22.000; 74.825 (làm tròn đến hàng chục nghìn) → 70.000; 81.032 (làm tròn đến hàng nghìn) → 81.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 49.203 đến hàng chục nghìn được 50.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 22.331 đến hàng nghìn được 22.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 74.825 đến hàng chục nghìn được 70.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 81.032 đến hàng nghìn được 81.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối hai cách nói cùng giờ.",
+            "prompt": {
+              "text": "Nối mỗi giờ bên trái với cách nói khác của giờ đó."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "thoi_gian.dong_ho"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "14 giờ"
+              },
+              {
+                "id": "l2",
+                "text": "15 giờ"
+              },
+              {
+                "id": "l3",
+                "text": "20 giờ"
+              },
+              {
+                "id": "l4",
+                "text": "21 giờ"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "1 giờ sáng"
+              },
+              {
+                "id": "r2",
+                "text": "2 giờ chiều"
+              },
+              {
+                "id": "r3",
+                "text": "3 giờ chiều"
+              },
+              {
+                "id": "r4",
+                "text": "9 giờ tối"
+              },
+              {
+                "id": "r5",
+                "text": "8 giờ tối"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "14 giờ = 2 giờ chiều; 15 giờ = 3 giờ chiều; 20 giờ = 8 giờ tối; 21 giờ = 9 giờ tối",
+              "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "14 - 12 = 2"
+                },
+                {
+                  "kind": "equation",
+                  "text": "15 - 12 = 3"
+                },
+                {
+                  "kind": "equation",
+                  "text": "20 - 12 = 8"
+                },
+                {
+                  "kind": "equation",
+                  "text": "21 - 12 = 9"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "nhan.5cs_1cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "12.427 × 2"
+              },
+              {
+                "id": "l2",
+                "text": "44.234 × 2"
+              },
+              {
+                "id": "l3",
+                "text": "33.343 × 2"
+              },
+              {
+                "id": "l4",
+                "text": "15.740 × 4"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "66.686"
+              },
+              {
+                "id": "r2",
+                "text": "40.860"
+              },
+              {
+                "id": "r3",
+                "text": "62.960"
+              },
+              {
+                "id": "r4",
+                "text": "24.854"
+              },
+              {
+                "id": "r5",
+                "text": "88.468"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "12.427 × 2 = 24.854; 44.234 × 2 = 88.468; 33.343 × 2 = 66.686; 15.740 × 4 = 62.960",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "12.427 × 2 = 24.854"
+                },
+                {
+                  "kind": "equation",
+                  "text": "44.234 × 2 = 88.468"
+                },
+                {
+                  "kind": "equation",
+                  "text": "33.343 × 2 = 66.686"
+                },
+                {
+                  "kind": "equation",
+                  "text": "15.740 × 4 = 62.960"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số 7.034 viết thành tổng là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.pham_vi_10000"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "7.000 + 30 + 4"
+              },
+              {
+                "id": "b",
+                "text": "7.000 + 40 + 4"
+              },
+              {
+                "id": "c",
+                "text": "7.000 + 40 + 3"
+              },
+              {
+                "id": "d",
+                "text": "6.000 + 900 + 30 + 4"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.000 + 30 + 4",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "7.034 = 7.000 + 30 + 4"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối số đo với cách đọc.",
+            "prompt": {
+              "text": "Nối mỗi số đo diện tích với cách đọc đúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.dien_tich"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "80 cm²"
+              },
+              {
+                "id": "l2",
+                "text": "41 cm²"
+              },
+              {
+                "id": "l3",
+                "text": "32 cm²"
+              },
+              {
+                "id": "l4",
+                "text": "63 cm²"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "sáu mươi ba xăng-ti-mét vuông"
+              },
+              {
+                "id": "r2",
+                "text": "mười một xăng-ti-mét vuông"
+              },
+              {
+                "id": "r3",
+                "text": "tám mươi xăng-ti-mét vuông"
+              },
+              {
+                "id": "r4",
+                "text": "ba mươi hai xăng-ti-mét vuông"
+              },
+              {
+                "id": "r5",
+                "text": "bốn mươi mốt xăng-ti-mét vuông"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "80 cm²: tám mươi xăng-ti-mét vuông; 41 cm²: bốn mươi mốt xăng-ti-mét vuông; 32 cm²: ba mươi hai xăng-ti-mét vuông; 63 cm²: sáu mươi ba xăng-ti-mét vuông",
+              "hint": "Con đếm số ô vuông một xăng-ti-mét vuông có trong hình nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "80 cm² đọc là tám mươi xăng-ti-mét vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "41 cm² đọc là bốn mươi mốt xăng-ti-mét vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "32 cm² đọc là ba mươi hai xăng-ti-mét vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "63 cm² đọc là sáu mươi ba xăng-ti-mét vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 88.589 - 7.771 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "cong_tru.pham_vi_100000"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "80.828"
+              },
+              {
+                "id": "b",
+                "text": "81.218"
+              },
+              {
+                "id": "c",
+                "text": "80.808"
+              },
+              {
+                "id": "d",
+                "text": "80.818"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "80.818",
+              "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "88589",
+                    "7771"
+                  ],
+                  "result": "80818",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "9 trừ 1 bằng 8, viết 8.",
+                      "write": "8"
+                    },
+                    {
+                      "place": 1,
+                      "text": "8 trừ 7 bằng 1, viết 1.",
+                      "write": "1"
+                    },
+                    {
+                      "place": 2,
+                      "text": "5 không trừ được 7, lấy 15 trừ 7 bằng 8, viết 8 nhớ 1.",
+                      "write": "8",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "7 thêm 1 bằng 8; 8 trừ 8 bằng 0, viết 0.",
+                      "write": "0"
+                    },
+                    {
+                      "place": 4,
+                      "text": "Hạ 8, viết 8.",
+                      "write": "8"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "88.589 - 7.771 = 80.818"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.pham_vi_10000"
+            ],
+            "access": "free",
+            "template": "3.866 + 153 = {{s1}}\n4.189 + 433 = {{s2}}\n3.686 + 3.002 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "4.622"
+              },
+              {
+                "id": "t2",
+                "text": "4.019"
+              },
+              {
+                "id": "t3",
+                "text": "6.688"
+              },
+              {
+                "id": "t4",
+                "text": "3.919"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4.019; 4.622; 6.688",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "3.866 + 153 = 4.019"
+                },
+                {
+                  "kind": "equation",
+                  "text": "4.189 + 433 = 4.622"
+                },
+                {
+                  "kind": "equation",
+                  "text": "3.686 + 3.002 = 6.688"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 3.919 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 7.641, 7.611, 7.441, 7.623."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "7.611"
+              },
+              {
+                "id": "t2",
+                "text": "7.623"
+              },
+              {
+                "id": "t3",
+                "text": "7.641"
+              },
+              {
+                "id": "t4",
+                "text": "7.441"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.441 < 7.611 < 7.623 < 7.641",
+              "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Ta có: 7.441 < 7.611 < 7.623 < 7.641."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo số liệu từ bé đến lớn.",
+            "prompt": {
+              "text": "Số quyển sách các bạn tổ Hai đọc trong tháng:\nTên | An | Bình | Chi | Dũng\nSố quyển | 12 | 5 | 10 | 7\nKéo các tên vào ô trống theo thứ tự số liệu từ bé đến lớn."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "thong_ke.so_lieu"
+            ],
+            "access": "free",
+            "template": "{{s1}} → {{s2}} → {{s3}} → {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Chi"
+              },
+              {
+                "id": "t2",
+                "text": "An"
+              },
+              {
+                "id": "t3",
+                "text": "Bình"
+              },
+              {
+                "id": "t4",
+                "text": "Dũng"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bình → Dũng → Chi → An",
+              "hint": "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "5 (Bình) < 7 (Dũng) < 10 (Chi) < 12 (An)."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.cuoi-hk2-de-2.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Một con đường dài 2.191 m được chia thành 7 đoạn dài bằng nhau để sửa. Hỏi mỗi đoạn đường dài bao nhiêu mét?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "chia.4cs_1cs",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Mỗi đoạn đường dài {{b1}} m.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 313,
+                  "unit": "m",
+                  "unitAliases": [
+                    "mét"
+                  ]
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "313 m",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Độ dài mỗi đoạn đường là:",
+                      "equation": "2.191 : 7 = 313 (m)"
+                    }
+                  ],
+                  "answer": "Đáp số: 313 m."
+                },
+                {
+                  "kind": "long_division",
+                  "dividend": "2191",
+                  "divisor": "7",
+                  "quotient": "313",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "21 chia 7 được 3, viết 3. 3 nhân 7 bằng 21; 21 trừ 21 bằng 0.",
+                      "partialDividend": 21,
+                      "quotientDigit": 3,
+                      "product": 21,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 9; 9 chia 7 được 1, viết 1. 1 nhân 7 bằng 7; 9 trừ 7 bằng 2.",
+                      "partialDividend": 9,
+                      "quotientDigit": 1,
+                      "product": 7,
+                      "remainder": 2
+                    },
+                    {
+                      "text": "Hạ 1, được 21; 21 chia 7 được 3, viết 3. 3 nhân 7 bằng 21; 21 trừ 21 bằng 0.",
+                      "partialDividend": 21,
+                      "quotientDigit": 3,
+                      "product": 21,
+                      "remainder": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

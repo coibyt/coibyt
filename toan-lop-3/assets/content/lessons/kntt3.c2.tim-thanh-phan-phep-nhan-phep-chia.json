@@ -1,0 +1,577 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c2",
+  "order": 5,
+  "title": "Tìm thành phần trong phép nhân, phép chia",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết. Muốn tìm số bị chia, ta lấy thương nhân với số chia; muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: ? × 5 = 30"
+      },
+      {
+        "kind": "equation",
+        "text": "30 : 5 = 6"
+      },
+      {
+        "kind": "text",
+        "text": "Thử lại:"
+      },
+      {
+        "kind": "equation",
+        "text": "6 × 5 = 30"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? × 6 = 18"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "template": "{{b1}} × 6 = 18",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "18 : 6 = 3"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "3 × 6 = 18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "2 × ? = 18"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "template": "2 × {{b1}} = 18",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "18 : 2 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 9 = 18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? : 2 = 2"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_chia"
+      ],
+      "access": "free",
+      "template": "{{b1}} : 2 = 2",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Muốn tìm số bị chia, ta lấy thương nhân với số chia.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số bị chia, ta lấy thương nhân với số chia.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 2 = 4"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "4 : 2 = 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "12 : ? = 3"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.so_chia"
+      ],
+      "access": "free",
+      "template": "12 : {{b1}} = 3",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "12 : 3 = 4"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "12 : 4 = 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n63 : ? = 7"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "tim_thanh_phan.so_bi_chia",
+        "tim_thanh_phan.so_chia"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "441"
+        },
+        {
+          "id": "d",
+          "text": "8"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "63 : 7 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "63 : 9 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với số thích hợp thay cho dấu ?."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "tim_thanh_phan.so_bi_chia",
+        "tim_thanh_phan.so_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "3 × ? = 21"
+        },
+        {
+          "id": "l2",
+          "text": "3 × ? = 15"
+        },
+        {
+          "id": "l3",
+          "text": "28 : ? = 7"
+        },
+        {
+          "id": "l4",
+          "text": "? × 6 = 36"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "7"
+        },
+        {
+          "id": "r2",
+          "text": "6"
+        },
+        {
+          "id": "r3",
+          "text": "4"
+        },
+        {
+          "id": "r4",
+          "text": "17"
+        },
+        {
+          "id": "r5",
+          "text": "5"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 × ? = 21 → 7; 3 × ? = 15 → 5; 28 : ? = 7 → 4; ? × 6 = 36 → 6",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "21 : 3 = 7"
+          },
+          {
+            "kind": "equation",
+            "text": "15 : 3 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "28 : 7 = 4"
+          },
+          {
+            "kind": "equation",
+            "text": "36 : 6 = 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "tim_thanh_phan.so_bi_chia",
+        "tim_thanh_phan.so_chia"
+      ],
+      "access": "free",
+      "template": "14 : {{s1}} = 2\n{{s2}} : 6 = 9\n{{s3}} × 4 = 40",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "64"
+        },
+        {
+          "id": "t2",
+          "text": "54"
+        },
+        {
+          "id": "t3",
+          "text": "7"
+        },
+        {
+          "id": "t4",
+          "text": "10"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7; 54; 10",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "14 : 2 = 7"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 6 = 54"
+          },
+          {
+            "kind": "equation",
+            "text": "40 : 4 = 10"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 64 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Cô giáo chia đều một số quyển vở cho 4 bạn, mỗi bạn được 9 quyển. Hỏi cô giáo đã chia tất cả bao nhiêu quyển vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.so_bi_chia",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cô giáo đã chia {{b1}} quyển vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36,
+            "unit": "quyển"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36 quyển vở",
+        "hint": "Muốn tìm số bị chia, ta lấy thương nhân với số chia.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số quyển vở cô giáo đã chia là:",
+                "equation": "9 × 4 = 36 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 36 quyển vở."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Mẹ xếp 24 cái bánh vào các hộp, mỗi hộp 8 cái. Hỏi mẹ xếp được bao nhiêu hộp bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tim_thanh_phan.thua_so",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "13 hộp"
+        },
+        {
+          "id": "b",
+          "text": "3 hộp"
+        },
+        {
+          "id": "c",
+          "text": "32 hộp"
+        },
+        {
+          "id": "d",
+          "text": "2 hộp"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3 hộp bánh",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số hộp bánh mẹ xếp được là:",
+                "equation": "24 : 8 = 3 (hộp)"
+              }
+            ],
+            "answer": "Đáp số: 3 hộp bánh."
+          }
+        ]
+      }
+    }
+  ]
+}

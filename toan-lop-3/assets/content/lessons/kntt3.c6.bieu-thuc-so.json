@@ -1,0 +1,574 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c6.bieu-thuc-so",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 3,
+  "title": "Biểu thức số. Tính giá trị của biểu thức số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ:"
+      },
+      {
+        "kind": "equation",
+        "text": "316 + 281 - 13 = 597 - 13 = 584"
+      },
+      {
+        "kind": "equation",
+        "text": "431 - 45 × 7 = 431 - 315 = 116"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "373 + 24 - 56 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "373 + 24 - 56 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 341
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "341",
+        "hint": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "373 + 24 - 56 = 397 - 56 = 341"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "25 : 5 × 3 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "25 : 5 × 3 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15",
+        "hint": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "25 : 5 × 3 = 5 × 3 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "161 + 328 : 8 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "161 + 328 : 8 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 202
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "202",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "161 + 328 : 8 = 161 + 41 = 202"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức 382 - 47 × 4 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "194"
+        },
+        {
+          "id": "b",
+          "text": "184"
+        },
+        {
+          "id": "c",
+          "text": "1.340"
+        },
+        {
+          "id": "d",
+          "text": "204"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "194",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "382 - 47 × 4 = 382 - 188 = 194"
+          },
+          {
+            "kind": "text",
+            "text": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "488 - 26 + 126"
+        },
+        {
+          "id": "l2",
+          "text": "385 + 68 - 16"
+        },
+        {
+          "id": "l3",
+          "text": "379 + 27 × 6"
+        },
+        {
+          "id": "l4",
+          "text": "222 + 39 : 3"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "588"
+        },
+        {
+          "id": "r2",
+          "text": "437"
+        },
+        {
+          "id": "r3",
+          "text": "2.436"
+        },
+        {
+          "id": "r4",
+          "text": "541"
+        },
+        {
+          "id": "r5",
+          "text": "235"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "488 - 26 + 126 = 588; 385 + 68 - 16 = 437; 379 + 27 × 6 = 541; 222 + 39 : 3 = 235",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "488 - 26 + 126 = 462 + 126 = 588"
+          },
+          {
+            "kind": "equation",
+            "text": "385 + 68 - 16 = 453 - 16 = 437"
+          },
+          {
+            "kind": "equation",
+            "text": "379 + 27 × 6 = 379 + 162 = 541"
+          },
+          {
+            "kind": "equation",
+            "text": "222 + 39 : 3 = 222 + 13 = 235"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "333 + 41 × 8 = {{s1}}\n296 - 176 + 19 = {{s2}}\n45 × 4 - 121 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "661"
+        },
+        {
+          "id": "t2",
+          "text": "139"
+        },
+        {
+          "id": "t3",
+          "text": "2.992"
+        },
+        {
+          "id": "t4",
+          "text": "59"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "661; 139; 59",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "333 + 41 × 8 = 333 + 328 = 661"
+          },
+          {
+            "kind": "equation",
+            "text": "296 - 176 + 19 = 120 + 19 = 139"
+          },
+          {
+            "kind": "equation",
+            "text": "45 × 4 - 121 = 180 - 121 = 59"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào có giá trị lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "288 - 45 × 4"
+        },
+        {
+          "id": "b",
+          "text": "298 + 52 × 9"
+        },
+        {
+          "id": "c",
+          "text": "257 - 57 + 143"
+        },
+        {
+          "id": "d",
+          "text": "44 × 9 - 79"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "298 + 52 × 9 (bằng 766)",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "44 × 9 - 79 = 396 - 79 = 317"
+          },
+          {
+            "kind": "equation",
+            "text": "288 - 45 × 4 = 288 - 180 = 108"
+          },
+          {
+            "kind": "equation",
+            "text": "298 + 52 × 9 = 298 + 468 = 766"
+          },
+          {
+            "kind": "equation",
+            "text": "257 - 57 + 143 = 200 + 143 = 343"
+          },
+          {
+            "kind": "text",
+            "text": "Giá trị lớn nhất là 766."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ mua 7 gói kẹo, mỗi gói có 13 cái kẹo, và mua thêm 35 cái bánh. Hỏi mẹ đã mua tất cả bao nhiêu cái kẹo và bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ đã mua tất cả {{b1}} cái kẹo và bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 126,
+            "unit": "cái"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "126 cái kẹo và bánh",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số kẹo và bánh mẹ đã mua là:",
+                "equation": "13 × 7 + 35 = 126 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 126 cái kẹo và bánh."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có thể viết gộp thành một biểu thức rồi tính giá trị của biểu thức đó.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.bieu-thuc-so.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi kho có 38 kg gạo nếp và 40 kg gạo tẻ. Hỏi 5 kho như thế có tất cả bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "5 kho có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 390,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "390 kg gạo",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo có trong mỗi kho là:",
+                "equation": "38 + 40 = 78 (kg)"
+              },
+              {
+                "explanation": "Số gạo có trong 5 kho là:",
+                "equation": "78 × 5 = 390 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 390 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "38",
+              "40"
+            ],
+            "result": "78",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 0 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 4 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "78",
+              "5"
+            ],
+            "result": "390",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 8 bằng 40, viết 0 nhớ 4.",
+                "write": "0",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 7 bằng 35, thêm 4 bằng 39, viết 39.",
+                "write": "39"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

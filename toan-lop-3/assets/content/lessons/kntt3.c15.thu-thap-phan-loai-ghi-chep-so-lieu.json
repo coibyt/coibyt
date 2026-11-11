@@ -1,0 +1,524 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c15",
+  "order": 1,
+  "title": "Thu thập, phân loại, ghi chép số liệu thống kê",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Thu thập số liệu: hỏi, đếm, đo rồi ghi lại. Phân loại theo từng nhóm và đếm số lượng mỗi nhóm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: ghi lại màu áo: xanh, đỏ, xanh, vàng, xanh → xanh: 3, đỏ: 1, vàng: 1."
+      },
+      {
+        "kind": "text",
+        "text": "Đếm xong nhóm nào thì gạch nhóm đó để không đếm sót, đếm trùng.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đếm rồi điền số.",
+      "prompt": {
+        "text": "Bạn Nam ghi lại màu áo của các bạn trong đội văn nghệ:\nxanh, vàng, trắng, vàng, vàng, vàng, xanh, xanh, xanh, vàng, xanh, trắng, trắng, vàng, xanh, trắng, vàng, trắng."
+      },
+      "level": 1,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "template": "Trắng: {{b1}} bạn\nXanh: {{b2}} bạn\nVàng: {{b3}} bạn",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "trắng: 5; xanh: 6; vàng: 7",
+        "hint": "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kết quả kiểm đếm: trắng: 5 bạn; xanh: 6 bạn; vàng: 7 bạn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Tổ Một ghi lại con vật mỗi bạn yêu thích:\nmèo, mèo, chó, thỏ, thỏ, thỏ, thỏ, chó, thỏ, thỏ, mèo, thỏ, thỏ.\nLoại nào được ghi lại nhiều nhất?"
+      },
+      "level": 1,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "chó"
+        },
+        {
+          "id": "b",
+          "text": "mèo"
+        },
+        {
+          "id": "c",
+          "text": "thỏ"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "thỏ",
+        "hint": "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kết quả kiểm đếm: thỏ: 8; mèo: 3; chó: 2."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy thỏ được ghi lại nhiều nhất."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đọc bảng rồi điền số.",
+      "prompt": {
+        "text": "Số ki-lô-gam giấy vụn các lớp thu được:\nLớp 3A: 28 kg\nLớp 3B: 24 kg\nLớp 3C: 32 kg\nLớp 3D: 60 kg"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "template": "Lớp 3B: {{b1}} kg\nLớp 3C: {{b2}} kg",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 24,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 32,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "24; 32",
+        "hint": "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đọc trong bảng: Lớp 3B: 24 kg; Lớp 3C: 32 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Bạn Mai hỏi mỗi bạn trong nhóm thích loại quả nào nhất và ghi lại:\nxoài, xoài, táo, táo, xoài, nho, nho, táo, táo, táo, nho, xoài, táo, táo, táo.\nCó tất cả bao nhiêu bạn được ghi lại?"
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "template": "Có tất cả {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 bạn",
+        "hint": "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kết quả kiểm đếm: xoài: 4; táo: 8; nho: 3."
+          },
+          {
+            "kind": "equation",
+            "text": "4 + 8 + 3 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Đếm rồi kéo số vào ô.",
+      "prompt": {
+        "text": "Tổ Một ghi lại con vật mỗi bạn yêu thích:\ncá vàng, mèo, mèo, thỏ, cá vàng, cá vàng, cá vàng, cá vàng, mèo, thỏ, cá vàng, mèo, cá vàng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "template": "Cá vàng: {{s1}}\nMèo: {{s2}}\nThỏ: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "7"
+        },
+        {
+          "id": "t2",
+          "text": "3"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "4"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "cá vàng: 7; mèo: 4; thỏ: 2",
+        "hint": "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kết quả kiểm đếm: cá vàng: 7; mèo: 4; thỏ: 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Hà ghi lại các xe đi qua cổng trường trong 5 phút:\nxe máy, xe đạp, ô tô, xe đạp, xe đạp, xe máy, xe đạp, xe đạp, xe máy, ô tô, xe đạp, xe đạp, xe máy, ô tô, xe đạp, xe máy, xe máy.\nLoại nào được ghi lại ít nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "xe đạp"
+        },
+        {
+          "id": "b",
+          "text": "xe máy"
+        },
+        {
+          "id": "c",
+          "text": "ô tô"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "ô tô",
+        "hint": "Con đếm cẩn thận từng loại, đếm xong loại nào thì đánh dấu loại đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kết quả kiểm đếm: xe máy: 6; xe đạp: 8; ô tô: 3."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy ô tô được ghi lại ít nhất."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p07",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối theo bảng số liệu.",
+      "prompt": {
+        "text": "Số cây các lớp khối Ba trồng được:\nLớp 3A: 24 cây\nLớp 3B: 33 cây\nLớp 3C: 26 cây\nLớp 3D: 15 cây\nNối mỗi tên với số liệu đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.so_lieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Lớp 3A"
+        },
+        {
+          "id": "l2",
+          "text": "Lớp 3B"
+        },
+        {
+          "id": "l3",
+          "text": "Lớp 3C"
+        },
+        {
+          "id": "l4",
+          "text": "Lớp 3D"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "26 cây"
+        },
+        {
+          "id": "r2",
+          "text": "33 cây"
+        },
+        {
+          "id": "r3",
+          "text": "15 cây"
+        },
+        {
+          "id": "r4",
+          "text": "16 cây"
+        },
+        {
+          "id": "r5",
+          "text": "24 cây"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Lớp 3A: 24; Lớp 3B: 33; Lớp 3C: 26; Lớp 3D: 15",
+        "hint": "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Lớp 3A: 24 cây; Lớp 3B: 33 cây; Lớp 3C: 26 cây; Lớp 3D: 15 cây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số học sinh tham gia các câu lạc bộ:\nBóng đá: 30 bạn\nCờ vua: 28 bạn\nVẽ: 18 bạn\nBơi: 11 bạn\nBóng đá nhiều hơn Bơi bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.so_lieu",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "41 bạn"
+        },
+        {
+          "id": "b",
+          "text": "20 bạn"
+        },
+        {
+          "id": "c",
+          "text": "19 bạn"
+        },
+        {
+          "id": "d",
+          "text": "18 bạn"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "19 bạn",
+        "hint": "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Bóng đá nhiều hơn Bơi số bạn là:",
+                "equation": "30 - 11 = 19 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 19 bạn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Số cây các lớp khối Ba trồng được:\nLớp 3A: 47 cây\nLớp 3B: 20 cây\nLớp 3C: 23 cây\nLớp 3D: 44 cây\nLớp 3C cần thêm bao nhiêu cây nữa thì bằng Lớp 3A?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "thong_ke.so_lieu",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Lớp 3C cần thêm {{b1}} cây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 24,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "24 cây",
+        "hint": "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số cây Lớp 3C cần thêm là:",
+                "equation": "47 - 23 = 24 (cây)"
+              }
+            ],
+            "answer": "Đáp số: 24 cây."
+          }
+        ]
+      }
+    }
+  ]
+}

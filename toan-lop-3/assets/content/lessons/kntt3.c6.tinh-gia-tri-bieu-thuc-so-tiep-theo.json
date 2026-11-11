@@ -1,0 +1,518 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 4,
+  "title": "Tính giá trị của biểu thức số (tiếp theo)",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Biểu thức có dấu ngoặc ( ) thì tính trong ngoặc trước.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ:"
+      },
+      {
+        "kind": "equation",
+        "text": "(39 + 37) × 2 = 76 × 2 = 152"
+      },
+      {
+        "kind": "text",
+        "text": "So sánh: 10 + 2 × 3 = 16, còn (10 + 2) × 3 = 36. Dấu ngoặc làm thay đổi thứ tự tính.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "341 - (92 + 125) = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "341 - (92 + 125) = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 124
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "124",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "341 - (92 + 125) = 341 - 217 = 124"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "677 - (34 + 87) = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "677 - (34 + 87) = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 556
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "556",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "677 - (34 + 87) = 677 - 121 = 556"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức (51 + 32) × 7 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "591"
+        },
+        {
+          "id": "b",
+          "text": "581"
+        },
+        {
+          "id": "c",
+          "text": "275"
+        },
+        {
+          "id": "d",
+          "text": "571"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "581",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(51 + 32) × 7 = 83 × 7 = 581"
+          },
+          {
+            "kind": "text",
+            "text": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "324 - 44 × 2 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "324 - 44 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 236
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "236",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "324 - 44 × 2 = 324 - 88 = 236"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "(16 + 11) : 3"
+        },
+        {
+          "id": "l2",
+          "text": "266 + 294 : 7"
+        },
+        {
+          "id": "l3",
+          "text": "369 - 41 × 7"
+        },
+        {
+          "id": "l4",
+          "text": "675 - 45 × 9"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "80"
+        },
+        {
+          "id": "r2",
+          "text": "308"
+        },
+        {
+          "id": "r3",
+          "text": "9"
+        },
+        {
+          "id": "r4",
+          "text": "270"
+        },
+        {
+          "id": "r5",
+          "text": "82"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(16 + 11) : 3 = 9; 266 + 294 : 7 = 308; 369 - 41 × 7 = 82; 675 - 45 × 9 = 270",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(16 + 11) : 3 = 27 : 3 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "266 + 294 : 7 = 266 + 42 = 308"
+          },
+          {
+            "kind": "equation",
+            "text": "369 - 41 × 7 = 369 - 287 = 82"
+          },
+          {
+            "kind": "equation",
+            "text": "675 - 45 × 9 = 675 - 405 = 270"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "(44 + 222) : 7 = {{s1}}\n(111 - 59) × 6 = {{s2}}\n(132 - 55) × 8 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "38"
+        },
+        {
+          "id": "t2",
+          "text": "322"
+        },
+        {
+          "id": "t3",
+          "text": "616"
+        },
+        {
+          "id": "t4",
+          "text": "312"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "38; 312; 616",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(44 + 222) : 7 = 266 : 7 = 38"
+          },
+          {
+            "kind": "equation",
+            "text": "(111 - 59) × 6 = 52 × 6 = 312"
+          },
+          {
+            "kind": "equation",
+            "text": "(132 - 55) × 8 = 77 × 8 = 616"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "35 + 39 × 6 ... (35 + 39) × 6"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "35 + 39 × 6 = 269"
+          },
+          {
+            "kind": "equation",
+            "text": "(35 + 39) × 6 = 444"
+          },
+          {
+            "kind": "text",
+            "text": "Vì 269 < 444 nên 35 + 39 × 6 < (35 + 39) × 6."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lớp 3A có 23 bạn nam và 12 bạn nữ. Cô giáo chia đều cả lớp thành 5 nhóm. Hỏi mỗi nhóm có bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mỗi nhóm có {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 bạn",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bạn trong mỗi nhóm là:",
+                "equation": "(23 + 12) : 5 = 7 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 7 bạn."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có thể viết gộp thành một biểu thức rồi tính giá trị của biểu thức đó.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ mua 5 gói kẹo, mỗi gói có 19 cái kẹo, và mua thêm 42 cái bánh. Hỏi mẹ đã mua tất cả bao nhiêu cái kẹo và bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ đã mua tất cả {{b1}} cái kẹo và bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 137,
+            "unit": "cái"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "137 cái kẹo và bánh",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số kẹo và bánh mẹ đã mua là:",
+                "equation": "19 × 5 + 42 = 137 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 137 cái kẹo và bánh."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có thể viết gộp thành một biểu thức rồi tính giá trị của biểu thức đó.",
+            "style": "tip"
+          }
+        ]
+      }
+    }
+  ]
+}

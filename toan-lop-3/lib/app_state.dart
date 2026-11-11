@@ -10,6 +10,7 @@ import 'logic/exam_session.dart';
 import 'logic/leaderboard.dart';
 import 'logic/missions.dart';
 import 'logic/quiz_session.dart';
+import 'models/calendar.dart';
 import 'models/content.dart';
 import 'models/problem.dart';
 import 'models/progress.dart';
@@ -59,6 +60,9 @@ class AppState extends ChangeNotifier {
 
   late Catalog catalog;
   late Progress progress;
+
+  /// Lịch học từng ngày cả năm (null = chưa có).
+  SchoolCalendar? calendar;
   bool _vip = false;
   DateTime? _vipUntil;
 
@@ -67,6 +71,7 @@ class AppState extends ChangeNotifier {
 
   Future<void> init() async {
     catalog = await content.loadCatalog();
+    calendar = await content.loadCalendar();
     final raw = store.get(progressKey);
     progress = raw == null ? Progress() : Progress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
     _vip = store.get(vipKey) == 'true';
@@ -340,6 +345,7 @@ class AppState extends ChangeNotifier {
   Future<void> reloadCatalog() async {
     content.invalidate();
     catalog = await content.loadCatalog();
+    calendar = await content.loadCalendar();
     notifyListeners();
   }
 

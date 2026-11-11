@@ -77,8 +77,10 @@ Future<AppState> _state(DateTime Function() clock) async {
   return s;
 }
 
-Widget _wrap(AppState s, Widget child) =>
-    AppScope(state: s, child: MaterialApp(theme: buildAppTheme(), home: child));
+Widget _wrap(AppState s, Widget child) => AppScope(
+  state: s,
+  child: MaterialApp(theme: buildAppTheme(), home: child),
+);
 
 void abilityAppTests() {
   testWidgets('AppState: ngân hàng câu hỏi, thưởng vàng lần đầu / lần sau theo tiến bộ', (tester) async {

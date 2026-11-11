@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.2.0",
+  "schemaVersion": "1.3.0",
   "kind": "catalog",
   "contentRev": 2,
   "skills": [
@@ -104,6 +104,198 @@
       "name": "Đơn vị đo: mi-li-mét, gam, mi-li-lít, nhiệt độ",
       "kidName": "đơn vị đo",
       "strand": "hinh_hoc_va_do_luong"
+    },
+    {
+      "id": "tim_thanh_phan.so_bi_tru",
+      "name": "Tìm số bị trừ, số trừ chưa biết",
+      "strand": "so_va_phep_tinh",
+      "kidName": "tìm thành phần chưa biết"
+    },
+    {
+      "id": "tim_thanh_phan.so_chia",
+      "name": "Tìm số chia chưa biết",
+      "strand": "so_va_phep_tinh",
+      "kidName": "tìm thành phần chưa biết"
+    },
+    {
+      "id": "phan_so.mot_phan",
+      "name": "Tìm một phần mấy của một số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "một phần mấy"
+    },
+    {
+      "id": "gap_giam.so_lan",
+      "name": "Gấp một số lên, giảm một số đi một số lần",
+      "strand": "so_va_phep_tinh",
+      "kidName": "gấp, giảm một số lần"
+    },
+    {
+      "id": "so_sanh.gap_may_lan",
+      "name": "So sánh số lớn gấp mấy lần số bé",
+      "strand": "so_va_phep_tinh",
+      "kidName": "gấp, giảm một số lần"
+    },
+    {
+      "id": "chia.co_du",
+      "name": "Phép chia hết, phép chia có dư",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép chia"
+    },
+    {
+      "id": "bieu_thuc",
+      "name": "Biểu thức số, tính giá trị của biểu thức",
+      "strand": "so_va_phep_tinh",
+      "kidName": "biểu thức"
+    },
+    {
+      "id": "so.pham_vi_10000",
+      "name": "Đọc, viết, cấu tạo các số trong phạm vi 10 000",
+      "strand": "so_va_phep_tinh",
+      "kidName": "đọc, viết số"
+    },
+    {
+      "id": "so.pham_vi_100000",
+      "name": "Đọc, viết, cấu tạo các số trong phạm vi 100 000",
+      "strand": "so_va_phep_tinh",
+      "kidName": "đọc, viết số"
+    },
+    {
+      "id": "so.so_sanh",
+      "name": "So sánh, sắp xếp các số trong phạm vi 100 000",
+      "strand": "so_va_phep_tinh",
+      "kidName": "so sánh số"
+    },
+    {
+      "id": "so.lam_tron",
+      "name": "Làm tròn số đến hàng chục, trăm, nghìn, chục nghìn",
+      "strand": "so_va_phep_tinh",
+      "kidName": "làm tròn số"
+    },
+    {
+      "id": "so.la_ma",
+      "name": "Đọc, viết chữ số La Mã (I đến XX)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "số La Mã"
+    },
+    {
+      "id": "cong_tru.pham_vi_10000",
+      "name": "Cộng, trừ trong phạm vi 10 000",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép cộng, phép trừ"
+    },
+    {
+      "id": "cong_tru.pham_vi_100000",
+      "name": "Cộng, trừ trong phạm vi 100 000",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép cộng, phép trừ"
+    },
+    {
+      "id": "nhan.4cs_1cs",
+      "name": "Nhân số có bốn chữ số với số có một chữ số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép nhân"
+    },
+    {
+      "id": "nhan.5cs_1cs",
+      "name": "Nhân số có năm chữ số với số có một chữ số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép nhân"
+    },
+    {
+      "id": "chia.4cs_1cs",
+      "name": "Chia số có bốn chữ số cho số có một chữ số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép chia"
+    },
+    {
+      "id": "chia.5cs_1cs",
+      "name": "Chia số có năm chữ số cho số có một chữ số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép chia"
+    },
+    {
+      "id": "hinh_hoc.goc",
+      "name": "Góc vuông, góc không vuông; vẽ hình bằng ê ke, com-pa",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "hình học"
+    },
+    {
+      "id": "hinh_hoc.da_giac",
+      "name": "Hình tam giác, hình tứ giác, hình chữ nhật, hình vuông",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "hình học"
+    },
+    {
+      "id": "hinh_hoc.khoi",
+      "name": "Khối lập phương, khối hộp chữ nhật",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "hình học"
+    },
+    {
+      "id": "hinh_hoc.chu_vi",
+      "name": "Chu vi hình tam giác, tứ giác, chữ nhật, vuông",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "chu vi, diện tích"
+    },
+    {
+      "id": "hinh_hoc.dien_tich",
+      "name": "Diện tích; xăng-ti-mét vuông; diện tích hình chữ nhật, hình vuông",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "chu vi, diện tích"
+    },
+    {
+      "id": "do_luong.do_dai",
+      "name": "Đơn vị đo độ dài: mi-li-mét, xăng-ti-mét, mét, ki-lô-mét",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "đo lường"
+    },
+    {
+      "id": "do_luong.khoi_luong",
+      "name": "Đơn vị đo khối lượng: gam, ki-lô-gam",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "đo lường"
+    },
+    {
+      "id": "do_luong.dung_tich",
+      "name": "Đơn vị đo dung tích: mi-li-lít, lít",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "đo lường"
+    },
+    {
+      "id": "do_luong.nhiet_do",
+      "name": "Nhiệt độ, đơn vị độ C",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "đo lường"
+    },
+    {
+      "id": "thoi_gian.dong_ho",
+      "name": "Xem đồng hồ, tính khoảng thời gian",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "xem đồng hồ"
+    },
+    {
+      "id": "thoi_gian.lich",
+      "name": "Tháng – năm, xem lịch",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "xem lịch"
+    },
+    {
+      "id": "tien.viet_nam",
+      "name": "Tiền Việt Nam",
+      "strand": "hinh_hoc_va_do_luong",
+      "kidName": "tiền Việt Nam"
+    },
+    {
+      "id": "thong_ke.so_lieu",
+      "name": "Thu thập, phân loại, đọc bảng số liệu thống kê",
+      "strand": "thong_ke_xac_suat",
+      "kidName": "thống kê"
+    },
+    {
+      "id": "xac_suat.kha_nang",
+      "name": "Khả năng xảy ra của một sự kiện (chắc chắn, có thể, không thể)",
+      "strand": "thong_ke_xac_suat",
+      "kidName": "khả năng xảy ra"
     }
   ],
   "books": [
@@ -113,6 +305,331 @@
       "grade": 3,
       "title": "Toán 3 — Kết nối tri thức với cuộc sống",
       "chapters": [
+        {
+          "id": "kntt3.c1",
+          "order": 1,
+          "volume": 1,
+          "title": "Ôn tập và bổ sung",
+          "lessons": [
+            {
+              "id": "kntt3.c1.on-tap-cac-so-den-1000",
+              "order": 1,
+              "title": "Ôn tập các số đến 1000",
+              "src": "assets/content/lessons/kntt3.c1.on-tap-cac-so-den-1000.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_1000"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000",
+              "order": 2,
+              "title": "Ôn tập phép cộng, phép trừ trong phạm vi 1000",
+              "src": "assets/content/lessons/kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100",
+                "cong_tru.pham_vi_1000",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru",
+              "order": 3,
+              "title": "Tìm thành phần trong phép cộng, phép trừ",
+              "src": "assets/content/lessons/kntt3.c1.tim-thanh-phan-phep-cong-phep-tru.json",
+              "access": "free",
+              "skillIds": [
+                "tim_thanh_phan.so_hang",
+                "tim_thanh_phan.so_bi_tru",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.on-tap-bang-nhan-2-5-bang-chia-2-5",
+              "order": 4,
+              "title": "Ôn tập bảng nhân 2, 5, bảng chia 2, 5",
+              "src": "assets/content/lessons/kntt3.c1.on-tap-bang-nhan-2-5-bang-chia-2-5.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.bang-nhan-3-bang-chia-3",
+              "order": 5,
+              "title": "Bảng nhân 3, bảng chia 3",
+              "src": "assets/content/lessons/kntt3.c1.bang-nhan-3-bang-chia-3.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.bang-nhan-4-bang-chia-4",
+              "order": 6,
+              "title": "Bảng nhân 4, bảng chia 4",
+              "src": "assets/content/lessons/kntt3.c1.bang-nhan-4-bang-chia-4.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.on-tap-hinh-hoc-va-do-luong",
+              "order": 7,
+              "title": "Ôn tập hình học và đo lường",
+              "src": "assets/content/lessons/kntt3.c1.on-tap-hinh-hoc-va-do-luong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.da_giac",
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "hinh_hoc.hinh_phang",
+                "cong_tru.pham_vi_100",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c1.luyen-tap-chung",
+              "order": 8,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c1.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_1000",
+                "cong_tru.pham_vi_1000",
+                "tim_thanh_phan.so_hang",
+                "bang_nhan_chia",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c2",
+          "order": 2,
+          "volume": 1,
+          "title": "Bảng nhân, bảng chia",
+          "lessons": [
+            {
+              "id": "kntt3.c2.bang-nhan-6-bang-chia-6",
+              "order": 1,
+              "title": "Bảng nhân 6, bảng chia 6",
+              "src": "assets/content/lessons/kntt3.c2.bang-nhan-6-bang-chia-6.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.bang-nhan-7-bang-chia-7",
+              "order": 2,
+              "title": "Bảng nhân 7, bảng chia 7",
+              "src": "assets/content/lessons/kntt3.c2.bang-nhan-7-bang-chia-7.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.bang-nhan-8-bang-chia-8",
+              "order": 3,
+              "title": "Bảng nhân 8, bảng chia 8",
+              "src": "assets/content/lessons/kntt3.c2.bang-nhan-8-bang-chia-8.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.bang-nhan-9-bang-chia-9",
+              "order": 4,
+              "title": "Bảng nhân 9, bảng chia 9",
+              "src": "assets/content/lessons/kntt3.c2.bang-nhan-9-bang-chia-9.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia",
+              "order": 5,
+              "title": "Tìm thành phần trong phép nhân, phép chia",
+              "src": "assets/content/lessons/kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia.json",
+              "access": "free",
+              "skillIds": [
+                "tim_thanh_phan.thua_so",
+                "tim_thanh_phan.so_bi_chia",
+                "tim_thanh_phan.so_chia",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.mot-phan-may",
+              "order": 6,
+              "title": "Một phần mấy",
+              "src": "assets/content/lessons/kntt3.c2.mot-phan-may.json",
+              "access": "free",
+              "skillIds": [
+                "phan_so.mot_phan",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c2.luyen-tap-chung",
+              "order": 7,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c2.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "tim_thanh_phan.thua_so",
+                "phan_so.mot_phan",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c3",
+          "order": 3,
+          "volume": 1,
+          "title": "Làm quen với hình phẳng, hình khối",
+          "lessons": [
+            {
+              "id": "kntt3.c3.diem-o-giua-trung-diem",
+              "order": 1,
+              "title": "Điểm ở giữa. Trung điểm của đoạn thẳng",
+              "src": "assets/content/lessons/kntt3.c3.diem-o-giua-trung-diem.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.hinh_phang",
+                "do_luong.do_dai",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh",
+              "order": 2,
+              "title": "Hình tròn. Tâm, bán kính, đường kính của hình tròn",
+              "src": "assets/content/lessons/kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.hinh_phang",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.goc-goc-vuong-goc-khong-vuong",
+              "order": 3,
+              "title": "Góc, góc vuông, góc không vuông",
+              "src": "assets/content/lessons/kntt3.c3.goc-goc-vuong-goc-khong-vuong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.goc",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong",
+              "order": 4,
+              "title": "Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông",
+              "src": "assets/content/lessons/kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.da_giac",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.thuc-hanh-ve-goc-vuong-duong-tron",
+              "order": 5,
+              "title": "Thực hành vẽ góc vuông, đường tròn, hình vuông, hình chữ nhật",
+              "src": "assets/content/lessons/kntt3.c3.thuc-hanh-ve-goc-vuong-duong-tron.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.goc",
+                "hinh_hoc.hinh_phang",
+                "hinh_hoc.da_giac",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.khoi-lap-phuong-khoi-hop-chu-nhat",
+              "order": 6,
+              "title": "Khối lập phương, khối hộp chữ nhật",
+              "src": "assets/content/lessons/kntt3.c3.khoi-lap-phuong-khoi-hop-chu-nhat.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.khoi",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c3.luyen-tap-chung",
+              "order": 7,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c3.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.hinh_phang",
+                "hinh_hoc.da_giac",
+                "hinh_hoc.khoi",
+                "hinh_hoc.goc",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
         {
           "id": "kntt3.c4",
           "order": 4,
@@ -132,11 +649,39 @@
                 "giai_toan.hai_phep_tinh",
                 "so_sanh.ket_qua",
                 "cong_tru.pham_vi_100"
-              ]
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c4.gap-mot-so-len-mot-so-lan",
+              "order": 2,
+              "title": "Gấp một số lên một số lần",
+              "src": "assets/content/lessons/kntt3.c4.gap-mot-so-len-mot-so-lan.json",
+              "access": "free",
+              "skillIds": [
+                "gap_giam.so_lan",
+                "nhan.2cs_1cs.co_nho",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c4.phep-chia-het-phep-chia-co-du",
+              "order": 3,
+              "title": "Phép chia hết, phép chia có dư",
+              "src": "assets/content/lessons/kntt3.c4.phep-chia-het-phep-chia-co-du.json",
+              "access": "free",
+              "skillIds": [
+                "chia.co_du",
+                "chia.2cs_1cs",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
             },
             {
               "id": "kntt3.c4.chia-2cs-1cs",
-              "order": 2,
+              "order": 4,
               "title": "Chia số có hai chữ số cho số có một chữ số",
               "src": "assets/content/lessons/kntt3.c4.chia-2cs-1cs.json",
               "access": "free",
@@ -145,7 +690,852 @@
                 "tim_thanh_phan.thua_so",
                 "giai_toan.mot_phep_tinh",
                 "giai_toan.hai_phep_tinh"
-              ]
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c4.giam-mot-so-di-mot-so-lan",
+              "order": 5,
+              "title": "Giảm một số đi một số lần",
+              "src": "assets/content/lessons/kntt3.c4.giam-mot-so-di-mot-so-lan.json",
+              "access": "free",
+              "skillIds": [
+                "gap_giam.so_lan",
+                "chia.2cs_1cs",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh",
+              "order": 6,
+              "title": "Bài toán giải bằng hai bước tính",
+              "src": "assets/content/lessons/kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh",
+                "gap_giam.so_lan",
+                "nhan.2cs_1cs.co_nho"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c4.luyen-tap-chung",
+              "order": 7,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c4.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.2cs_1cs.co_nho",
+                "chia.2cs_1cs",
+                "chia.co_du",
+                "gap_giam.so_lan",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c5",
+          "order": 5,
+          "volume": 1,
+          "title": "Một số đơn vị đo độ dài, khối lượng, dung tích, nhiệt độ",
+          "lessons": [
+            {
+              "id": "kntt3.c5.mi-li-met",
+              "order": 1,
+              "title": "Mi-li-mét",
+              "src": "assets/content/lessons/kntt3.c5.mi-li-met.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c5.gam",
+              "order": 2,
+              "title": "Gam",
+              "src": "assets/content/lessons/kntt3.c5.gam.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.khoi_luong",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c5.mi-li-lit",
+              "order": 3,
+              "title": "Mi-li-lít",
+              "src": "assets/content/lessons/kntt3.c5.mi-li-lit.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.dung_tich",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c5.nhiet-do-don-vi-do-nhiet-do",
+              "order": 4,
+              "title": "Nhiệt độ. Đơn vị đo nhiệt độ",
+              "src": "assets/content/lessons/kntt3.c5.nhiet-do-don-vi-do-nhiet-do.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.nhiet_do",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c5.luyen-tap-chung",
+              "order": 5,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c5.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "do_luong.nhiet_do",
+                "giai_toan.hai_phep_tinh",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c6",
+          "order": 6,
+          "volume": 1,
+          "title": "Phép nhân, phép chia trong phạm vi 1000",
+          "lessons": [
+            {
+              "id": "kntt3.c6.nhan-3cs-1cs",
+              "order": 1,
+              "title": "Nhân số có ba chữ số với số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c6.nhan-3cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.3cs_1cs",
+                "giai_toan.mot_phep_tinh",
+                "so_sanh.ket_qua",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c6.chia-3cs-1cs",
+              "order": 2,
+              "title": "Chia số có ba chữ số cho số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c6.chia-3cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "chia.3cs_1cs",
+                "chia.co_du",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c6.bieu-thuc-so",
+              "order": 3,
+              "title": "Biểu thức số. Tính giá trị của biểu thức số",
+              "src": "assets/content/lessons/kntt3.c6.bieu-thuc-so.json",
+              "access": "free",
+              "skillIds": [
+                "bieu_thuc",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo",
+              "order": 4,
+              "title": "Tính giá trị của biểu thức số (tiếp theo)",
+              "src": "assets/content/lessons/kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo.json",
+              "access": "free",
+              "skillIds": [
+                "bieu_thuc",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be",
+              "order": 5,
+              "title": "So sánh số lớn gấp mấy lần số bé",
+              "src": "assets/content/lessons/kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.json",
+              "access": "free",
+              "skillIds": [
+                "so_sanh.gap_may_lan",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c6.luyen-tap-chung",
+              "order": 6,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c6.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.3cs_1cs",
+                "chia.3cs_1cs",
+                "bieu_thuc",
+                "so_sanh.gap_may_lan",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c7",
+          "order": 7,
+          "volume": 1,
+          "title": "Ôn tập học kì 1",
+          "lessons": [
+            {
+              "id": "kntt3.c7.on-tap-phep-nhan-phep-chia",
+              "order": 1,
+              "title": "Ôn tập phép nhân, phép chia trong phạm vi 100, 1000",
+              "src": "assets/content/lessons/kntt3.c7.on-tap-phep-nhan-phep-chia.json",
+              "access": "free",
+              "skillIds": [
+                "bang_nhan_chia",
+                "nhan.2cs_1cs.co_nho",
+                "chia.2cs_1cs",
+                "nhan.3cs_1cs",
+                "chia.3cs_1cs",
+                "chia.co_du",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c7.on-tap-bieu-thuc-so",
+              "order": 2,
+              "title": "Ôn tập biểu thức số",
+              "src": "assets/content/lessons/kntt3.c7.on-tap-bieu-thuc-so.json",
+              "access": "free",
+              "skillIds": [
+                "bieu_thuc",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong",
+              "order": 3,
+              "title": "Ôn tập hình học và đo lường",
+              "src": "assets/content/lessons/kntt3.c7.on-tap-hinh-hoc-va-do-luong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.hinh_phang",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "hinh_hoc.goc",
+                "do_luong.do_dai",
+                "hinh_hoc.khoi",
+                "do_luong.nhiet_do",
+                "giai_toan.hai_phep_tinh",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c7.on-tap-chung",
+              "order": 4,
+              "title": "Ôn tập chung",
+              "src": "assets/content/lessons/kntt3.c7.on-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_1000",
+                "cong_tru.pham_vi_1000",
+                "bang_nhan_chia",
+                "phan_so.mot_phan",
+                "bieu_thuc",
+                "gap_giam.so_lan",
+                "so_sanh.gap_may_lan",
+                "giai_toan.hai_phep_tinh",
+                "nhan.3cs_1cs",
+                "chia.co_du",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c8",
+          "order": 8,
+          "volume": 2,
+          "title": "Các số đến 10 000",
+          "lessons": [
+            {
+              "id": "kntt3.c8.cac-so-co-bon-chu-so-so-10000",
+              "order": 1,
+              "title": "Các số có bốn chữ số. Số 10 000",
+              "src": "assets/content/lessons/kntt3.c8.cac-so-co-bon-chu-so-so-10000.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_10000"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c8.so-sanh-cac-so-pham-vi-10000",
+              "order": 2,
+              "title": "So sánh các số trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.c8.so-sanh-cac-so-pham-vi-10000.json",
+              "access": "free",
+              "skillIds": [
+                "so.so_sanh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c8.lam-quen-voi-chu-so-la-ma",
+              "order": 3,
+              "title": "Làm quen với chữ số La Mã",
+              "src": "assets/content/lessons/kntt3.c8.lam-quen-voi-chu-so-la-ma.json",
+              "access": "free",
+              "skillIds": [
+                "so.la_ma",
+                "thoi_gian.dong_ho"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram",
+              "order": 4,
+              "title": "Làm tròn số đến hàng chục, hàng trăm",
+              "src": "assets/content/lessons/kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram.json",
+              "access": "free",
+              "skillIds": [
+                "so.lam_tron"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c8.luyen-tap-chung",
+              "order": 5,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c8.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_10000",
+                "so.so_sanh",
+                "so.la_ma",
+                "so.lam_tron"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c9",
+          "order": 9,
+          "volume": 2,
+          "title": "Chu vi, diện tích một số hình phẳng",
+          "lessons": [
+            {
+              "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong",
+              "order": 1,
+              "title": "Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông",
+              "src": "assets/content/lessons/kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.chu_vi",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c9.dien-tich-cua-mot-hinh-xang-ti-met-vuong",
+              "order": 2,
+              "title": "Diện tích của một hình. Xăng-ti-mét vuông",
+              "src": "assets/content/lessons/kntt3.c9.dien-tich-cua-mot-hinh-xang-ti-met-vuong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.dien_tich",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong",
+              "order": 3,
+              "title": "Diện tích hình chữ nhật, diện tích hình vuông",
+              "src": "assets/content/lessons/kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.dien_tich",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh",
+                "hinh_hoc.chu_vi"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c9.luyen-tap-chung",
+              "order": 4,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c9.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.chu_vi",
+                "hinh_hoc.dien_tich",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c10",
+          "order": 10,
+          "volume": 2,
+          "title": "Cộng, trừ, nhân, chia trong phạm vi 10 000",
+          "lessons": [
+            {
+              "id": "kntt3.c10.phep-cong-pham-vi-10000",
+              "order": 1,
+              "title": "Phép cộng trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.c10.phep-cong-pham-vi-10000.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_10000",
+                "tim_thanh_phan.so_hang",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c10.phep-tru-pham-vi-10000",
+              "order": 2,
+              "title": "Phép trừ trong phạm vi 10 000",
+              "src": "assets/content/lessons/kntt3.c10.phep-tru-pham-vi-10000.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_10000",
+                "tim_thanh_phan.so_bi_tru",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c10.nhan-4cs-1cs",
+              "order": 3,
+              "title": "Nhân số có bốn chữ số với số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c10.nhan-4cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.4cs_1cs",
+                "giai_toan.mot_phep_tinh",
+                "so_sanh.ket_qua",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c10.chia-4cs-1cs",
+              "order": 4,
+              "title": "Chia số có bốn chữ số cho số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c10.chia-4cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "chia.4cs_1cs",
+                "chia.co_du",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c10.luyen-tap-chung",
+              "order": 5,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c10.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_10000",
+                "nhan.4cs_1cs",
+                "chia.4cs_1cs",
+                "tim_thanh_phan.so_hang",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c11",
+          "order": 11,
+          "volume": 2,
+          "title": "Các số đến 100 000",
+          "lessons": [
+            {
+              "id": "kntt3.c11.cac-so-co-nam-chu-so-so-100000",
+              "order": 1,
+              "title": "Các số có năm chữ số. Số 100 000",
+              "src": "assets/content/lessons/kntt3.c11.cac-so-co-nam-chu-so-so-100000.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_100000"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c11.so-sanh-cac-so-pham-vi-100000",
+              "order": 2,
+              "title": "So sánh các số trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.c11.so-sanh-cac-so-pham-vi-100000.json",
+              "access": "free",
+              "skillIds": [
+                "so.so_sanh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c11.lam-tron-so-den-hang-nghin-hang-chuc-nghin",
+              "order": 3,
+              "title": "Làm tròn số đến hàng nghìn, hàng chục nghìn",
+              "src": "assets/content/lessons/kntt3.c11.lam-tron-so-den-hang-nghin-hang-chuc-nghin.json",
+              "access": "free",
+              "skillIds": [
+                "so.lam_tron"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c11.luyen-tap-chung",
+              "order": 4,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c11.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_100000",
+                "so.so_sanh",
+                "so.lam_tron"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c12",
+          "order": 12,
+          "volume": 2,
+          "title": "Cộng, trừ trong phạm vi 100 000",
+          "lessons": [
+            {
+              "id": "kntt3.c12.phep-cong-pham-vi-100000",
+              "order": 1,
+              "title": "Phép cộng trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.c12.phep-cong-pham-vi-100000.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "tim_thanh_phan.so_hang",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c12.phep-tru-pham-vi-100000",
+              "order": 2,
+              "title": "Phép trừ trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.c12.phep-tru-pham-vi-100000.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "tim_thanh_phan.so_bi_tru",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c12.luyen-tap-chung",
+              "order": 3,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c12.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "tim_thanh_phan.so_hang",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c13",
+          "order": 13,
+          "volume": 2,
+          "title": "Xem đồng hồ. Tháng – năm. Tiền Việt Nam",
+          "lessons": [
+            {
+              "id": "kntt3.c13.xem-dong-ho-thang-nam",
+              "order": 1,
+              "title": "Xem đồng hồ. Tháng – năm",
+              "src": "assets/content/lessons/kntt3.c13.xem-dong-ho-thang-nam.json",
+              "access": "free",
+              "skillIds": [
+                "thoi_gian.dong_ho",
+                "thoi_gian.lich",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c13.thuc-hanh-xem-dong-ho-xem-lich",
+              "order": 2,
+              "title": "Thực hành xem đồng hồ, xem lịch",
+              "src": "assets/content/lessons/kntt3.c13.thuc-hanh-xem-dong-ho-xem-lich.json",
+              "access": "free",
+              "skillIds": [
+                "thoi_gian.dong_ho",
+                "thoi_gian.lich",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c13.tien-viet-nam",
+              "order": 3,
+              "title": "Tiền Việt Nam",
+              "src": "assets/content/lessons/kntt3.c13.tien-viet-nam.json",
+              "access": "free",
+              "skillIds": [
+                "tien.viet_nam",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c13.luyen-tap-chung",
+              "order": 4,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c13.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "thoi_gian.dong_ho",
+                "tien.viet_nam",
+                "thoi_gian.lich",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 1
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c14",
+          "order": 14,
+          "volume": 2,
+          "title": "Nhân, chia trong phạm vi 100 000",
+          "lessons": [
+            {
+              "id": "kntt3.c14.nhan-5cs-1cs",
+              "order": 1,
+              "title": "Nhân số có năm chữ số với số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c14.nhan-5cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.5cs_1cs",
+                "giai_toan.mot_phep_tinh",
+                "so_sanh.ket_qua",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c14.chia-5cs-1cs",
+              "order": 2,
+              "title": "Chia số có năm chữ số cho số có một chữ số",
+              "src": "assets/content/lessons/kntt3.c14.chia-5cs-1cs.json",
+              "access": "free",
+              "skillIds": [
+                "chia.5cs_1cs",
+                "chia.co_du",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c14.luyen-tap-chung",
+              "order": 3,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c14.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "nhan.5cs_1cs",
+                "chia.5cs_1cs",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 2
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c15",
+          "order": 15,
+          "volume": 2,
+          "title": "Làm quen với yếu tố thống kê, xác suất",
+          "lessons": [
+            {
+              "id": "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu",
+              "order": 1,
+              "title": "Thu thập, phân loại, ghi chép số liệu thống kê",
+              "src": "assets/content/lessons/kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu.json",
+              "access": "free",
+              "skillIds": [
+                "thong_ke.so_lieu",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c15.bang-so-lieu-thong-ke",
+              "order": 2,
+              "title": "Bảng số liệu thống kê",
+              "src": "assets/content/lessons/kntt3.c15.bang-so-lieu-thong-ke.json",
+              "access": "free",
+              "skillIds": [
+                "thong_ke.so_lieu",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c15.kha-nang-xay-ra-cua-mot-su-kien",
+              "order": 3,
+              "title": "Khả năng xảy ra của một sự kiện",
+              "src": "assets/content/lessons/kntt3.c15.kha-nang-xay-ra-cua-mot-su-kien.json",
+              "access": "free",
+              "skillIds": [
+                "xac_suat.kha_nang"
+              ],
+              "periods": 2
+            },
+            {
+              "id": "kntt3.c15.luyen-tap-chung",
+              "order": 4,
+              "title": "Luyện tập chung",
+              "src": "assets/content/lessons/kntt3.c15.luyen-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "thong_ke.so_lieu",
+                "xac_suat.kha_nang",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 1
+            }
+          ]
+        },
+        {
+          "id": "kntt3.c16",
+          "order": 16,
+          "volume": 2,
+          "title": "Ôn tập cuối năm",
+          "lessons": [
+            {
+              "id": "kntt3.c16.on-tap-cac-so-pham-vi-100000",
+              "order": 1,
+              "title": "Ôn tập các số trong phạm vi 100 000",
+              "src": "assets/content/lessons/kntt3.c16.on-tap-cac-so-pham-vi-100000.json",
+              "access": "free",
+              "skillIds": [
+                "so.pham_vi_100000",
+                "so.so_sanh",
+                "so.lam_tron",
+                "so.la_ma"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c16.on-tap-bon-phep-tinh",
+              "order": 2,
+              "title": "Ôn tập phép cộng, phép trừ, phép nhân, phép chia",
+              "src": "assets/content/lessons/kntt3.c16.on-tap-bon-phep-tinh.json",
+              "access": "free",
+              "skillIds": [
+                "cong_tru.pham_vi_100000",
+                "nhan.4cs_1cs",
+                "chia.5cs_1cs",
+                "cong_tru.pham_vi_10000",
+                "chia.4cs_1cs",
+                "bieu_thuc",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh",
+                "nhan.5cs_1cs"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c16.on-tap-hinh-hoc-va-do-luong",
+              "order": 3,
+              "title": "Ôn tập hình học và đo lường",
+              "src": "assets/content/lessons/kntt3.c16.on-tap-hinh-hoc-va-do-luong.json",
+              "access": "free",
+              "skillIds": [
+                "hinh_hoc.chu_vi",
+                "hinh_hoc.dien_tich",
+                "tien.viet_nam",
+                "do_luong.do_dai",
+                "do_luong.khoi_luong",
+                "do_luong.dung_tich",
+                "thoi_gian.dong_ho",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ],
+              "periods": 3
+            },
+            {
+              "id": "kntt3.c16.on-tap-chung",
+              "order": 4,
+              "title": "Ôn tập chung",
+              "src": "assets/content/lessons/kntt3.c16.on-tap-chung.json",
+              "access": "free",
+              "skillIds": [
+                "thong_ke.so_lieu",
+                "xac_suat.kha_nang",
+                "so.so_sanh",
+                "nhan.5cs_1cs",
+                "so.lam_tron",
+                "giai_toan.hai_phep_tinh",
+                "chia.5cs_1cs",
+                "tien.viet_nam",
+                "giai_toan.mot_phep_tinh"
+              ],
+              "periods": 2
             }
           ]
         }
@@ -195,6 +1585,546 @@
           "examType": "on_tap",
           "durationMinutes": 35,
           "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-01",
+          "title": "Kiểm tra cuối tuần 1",
+          "src": "assets/content/exams/kntt3.gen.tuan-01.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-02",
+          "title": "Kiểm tra cuối tuần 2",
+          "src": "assets/content/exams/kntt3.gen.tuan-02.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-03",
+          "title": "Kiểm tra cuối tuần 3",
+          "src": "assets/content/exams/kntt3.gen.tuan-03.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-04",
+          "title": "Kiểm tra cuối tuần 4",
+          "src": "assets/content/exams/kntt3.gen.tuan-04.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-05",
+          "title": "Kiểm tra cuối tuần 5",
+          "src": "assets/content/exams/kntt3.gen.tuan-05.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-06",
+          "title": "Kiểm tra cuối tuần 6",
+          "src": "assets/content/exams/kntt3.gen.tuan-06.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-07",
+          "title": "Kiểm tra cuối tuần 7",
+          "src": "assets/content/exams/kntt3.gen.tuan-07.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-08",
+          "title": "Kiểm tra cuối tuần 8",
+          "src": "assets/content/exams/kntt3.gen.tuan-08.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-09",
+          "title": "Kiểm tra cuối tuần 9",
+          "src": "assets/content/exams/kntt3.gen.tuan-09.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-10",
+          "title": "Kiểm tra cuối tuần 10",
+          "src": "assets/content/exams/kntt3.gen.tuan-10.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-11",
+          "title": "Kiểm tra cuối tuần 11",
+          "src": "assets/content/exams/kntt3.gen.tuan-11.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-12",
+          "title": "Kiểm tra cuối tuần 12",
+          "src": "assets/content/exams/kntt3.gen.tuan-12.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-13",
+          "title": "Kiểm tra cuối tuần 13",
+          "src": "assets/content/exams/kntt3.gen.tuan-13.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-14",
+          "title": "Kiểm tra cuối tuần 14",
+          "src": "assets/content/exams/kntt3.gen.tuan-14.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-15",
+          "title": "Kiểm tra cuối tuần 15",
+          "src": "assets/content/exams/kntt3.gen.tuan-15.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-16",
+          "title": "Kiểm tra cuối tuần 16",
+          "src": "assets/content/exams/kntt3.gen.tuan-16.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-17",
+          "title": "Kiểm tra cuối tuần 17",
+          "src": "assets/content/exams/kntt3.gen.tuan-17.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-18",
+          "title": "Kiểm tra cuối tuần 18",
+          "src": "assets/content/exams/kntt3.gen.tuan-18.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-19",
+          "title": "Kiểm tra cuối tuần 19",
+          "src": "assets/content/exams/kntt3.gen.tuan-19.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.tuan-20",
+          "title": "Kiểm tra cuối tuần 20",
+          "src": "assets/content/exams/kntt3.gen.tuan-20.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-21",
+          "title": "Kiểm tra cuối tuần 21",
+          "src": "assets/content/exams/kntt3.gen.tuan-21.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-22",
+          "title": "Kiểm tra cuối tuần 22",
+          "src": "assets/content/exams/kntt3.gen.tuan-22.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-23",
+          "title": "Kiểm tra cuối tuần 23",
+          "src": "assets/content/exams/kntt3.gen.tuan-23.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-24",
+          "title": "Kiểm tra cuối tuần 24",
+          "src": "assets/content/exams/kntt3.gen.tuan-24.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-25",
+          "title": "Kiểm tra cuối tuần 25",
+          "src": "assets/content/exams/kntt3.gen.tuan-25.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-26",
+          "title": "Kiểm tra cuối tuần 26",
+          "src": "assets/content/exams/kntt3.gen.tuan-26.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-27",
+          "title": "Kiểm tra cuối tuần 27",
+          "src": "assets/content/exams/kntt3.gen.tuan-27.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-28",
+          "title": "Kiểm tra cuối tuần 28",
+          "src": "assets/content/exams/kntt3.gen.tuan-28.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-29",
+          "title": "Kiểm tra cuối tuần 29",
+          "src": "assets/content/exams/kntt3.gen.tuan-29.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-30",
+          "title": "Kiểm tra cuối tuần 30",
+          "src": "assets/content/exams/kntt3.gen.tuan-30.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-31",
+          "title": "Kiểm tra cuối tuần 31",
+          "src": "assets/content/exams/kntt3.gen.tuan-31.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-32",
+          "title": "Kiểm tra cuối tuần 32",
+          "src": "assets/content/exams/kntt3.gen.tuan-32.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-33",
+          "title": "Kiểm tra cuối tuần 33",
+          "src": "assets/content/exams/kntt3.gen.tuan-33.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-34",
+          "title": "Kiểm tra cuối tuần 34",
+          "src": "assets/content/exams/kntt3.gen.tuan-34.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-35",
+          "title": "Kiểm tra cuối tuần 35",
+          "src": "assets/content/exams/kntt3.gen.tuan-35.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.tuan-36",
+          "title": "Kiểm tra cuối tuần 36",
+          "src": "assets/content/exams/kntt3.gen.tuan-36.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-01",
+          "title": "Kiểm tra chủ đề 1",
+          "src": "assets/content/exams/kntt3.gen.chu-de-01.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-02",
+          "title": "Kiểm tra chủ đề 2",
+          "src": "assets/content/exams/kntt3.gen.chu-de-02.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-03",
+          "title": "Kiểm tra chủ đề 3",
+          "src": "assets/content/exams/kntt3.gen.chu-de-03.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-04",
+          "title": "Kiểm tra chủ đề 4",
+          "src": "assets/content/exams/kntt3.gen.chu-de-04.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-05",
+          "title": "Kiểm tra chủ đề 5",
+          "src": "assets/content/exams/kntt3.gen.chu-de-05.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-06",
+          "title": "Kiểm tra chủ đề 6",
+          "src": "assets/content/exams/kntt3.gen.chu-de-06.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-07",
+          "title": "Kiểm tra chủ đề 7",
+          "src": "assets/content/exams/kntt3.gen.chu-de-07.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.chu-de-08",
+          "title": "Kiểm tra chủ đề 8",
+          "src": "assets/content/exams/kntt3.gen.chu-de-08.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-09",
+          "title": "Kiểm tra chủ đề 9",
+          "src": "assets/content/exams/kntt3.gen.chu-de-09.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-10",
+          "title": "Kiểm tra chủ đề 10",
+          "src": "assets/content/exams/kntt3.gen.chu-de-10.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-11",
+          "title": "Kiểm tra chủ đề 11",
+          "src": "assets/content/exams/kntt3.gen.chu-de-11.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-12",
+          "title": "Kiểm tra chủ đề 12",
+          "src": "assets/content/exams/kntt3.gen.chu-de-12.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-13",
+          "title": "Kiểm tra chủ đề 13",
+          "src": "assets/content/exams/kntt3.gen.chu-de-13.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-14",
+          "title": "Kiểm tra chủ đề 14",
+          "src": "assets/content/exams/kntt3.gen.chu-de-14.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-15",
+          "title": "Kiểm tra chủ đề 15",
+          "src": "assets/content/exams/kntt3.gen.chu-de-15.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.chu-de-16",
+          "title": "Kiểm tra chủ đề 16",
+          "src": "assets/content/exams/kntt3.gen.chu-de-16.json",
+          "access": "free",
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.giua-hk1-de-1",
+          "title": "Đề giữa học kì 1 — Đề số 2",
+          "src": "assets/content/exams/kntt3.gen.giua-hk1-de-1.json",
+          "access": "free",
+          "examType": "giua_hk1",
+          "durationMinutes": 40,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.giua-hk1-de-2",
+          "title": "Đề giữa học kì 1 — Đề số 3",
+          "src": "assets/content/exams/kntt3.gen.giua-hk1-de-2.json",
+          "access": "vip",
+          "examType": "giua_hk1",
+          "durationMinutes": 40,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.cuoi-hk1-de-1",
+          "title": "Đề cuối học kì 1 — Đề số 2",
+          "src": "assets/content/exams/kntt3.gen.cuoi-hk1-de-1.json",
+          "access": "free",
+          "examType": "cuoi_hk1",
+          "durationMinutes": 40,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.cuoi-hk1-de-2",
+          "title": "Đề cuối học kì 1 — Đề số 3",
+          "src": "assets/content/exams/kntt3.gen.cuoi-hk1-de-2.json",
+          "access": "vip",
+          "examType": "cuoi_hk1",
+          "durationMinutes": 40,
+          "term": 1
+        },
+        {
+          "id": "kntt3.gen.giua-hk2-de-1",
+          "title": "Đề giữa học kì 2 — Đề số 1",
+          "src": "assets/content/exams/kntt3.gen.giua-hk2-de-1.json",
+          "access": "free",
+          "examType": "giua_hk2",
+          "durationMinutes": 40,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.giua-hk2-de-2",
+          "title": "Đề giữa học kì 2 — Đề số 2",
+          "src": "assets/content/exams/kntt3.gen.giua-hk2-de-2.json",
+          "access": "vip",
+          "examType": "giua_hk2",
+          "durationMinutes": 40,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.cuoi-hk2-de-1",
+          "title": "Đề cuối học kì 2 — Đề số 1",
+          "src": "assets/content/exams/kntt3.gen.cuoi-hk2-de-1.json",
+          "access": "free",
+          "examType": "cuoi_hk2",
+          "durationMinutes": 40,
+          "term": 2
+        },
+        {
+          "id": "kntt3.gen.cuoi-hk2-de-2",
+          "title": "Đề cuối học kì 2 — Đề số 2",
+          "src": "assets/content/exams/kntt3.gen.cuoi-hk2-de-2.json",
+          "access": "vip",
+          "examType": "cuoi_hk2",
+          "durationMinutes": 40,
+          "term": 2
         }
       ]
     },

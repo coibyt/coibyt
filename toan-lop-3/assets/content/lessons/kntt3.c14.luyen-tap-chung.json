@@ -1,0 +1,786 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c14.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c14",
+  "order": 3,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại cách đặt tính rồi tính và giải toán có lời văn với các số đã học.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 49.374 : 6 = ?"
+      },
+      {
+        "kind": "long_division",
+        "dividend": "49374",
+        "divisor": "6",
+        "quotient": "8229",
+        "remainder": 0,
+        "digitSteps": [
+          {
+            "text": "49 chia 6 được 8, viết 8. 8 nhân 6 bằng 48; 49 trừ 48 bằng 1.",
+            "partialDividend": 49,
+            "quotientDigit": 8,
+            "product": 48,
+            "remainder": 1
+          },
+          {
+            "text": "Hạ 3, được 13; 13 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 13 trừ 12 bằng 1.",
+            "partialDividend": 13,
+            "quotientDigit": 2,
+            "product": 12,
+            "remainder": 1
+          },
+          {
+            "text": "Hạ 7, được 17; 17 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 17 trừ 12 bằng 5.",
+            "partialDividend": 17,
+            "quotientDigit": 2,
+            "product": 12,
+            "remainder": 5
+          },
+          {
+            "text": "Hạ 4, được 54; 54 chia 6 được 9, viết 9. 9 nhân 6 bằng 54; 54 trừ 54 bằng 0.",
+            "partialDividend": 54,
+            "quotientDigit": 9,
+            "product": 54,
+            "remainder": 0
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "49.374 : 6 = 8.229"
+      },
+      {
+        "kind": "text",
+        "text": "Làm xong, con ước lượng xem kết quả có hợp lý không nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "14.070 × 4 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.5cs_1cs"
+      ],
+      "access": "free",
+      "template": "14.070 × 4 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 56280
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "56.280",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "14070",
+              "4"
+            ],
+            "result": "56280",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 7 bằng 28, viết 8 nhớ 2.",
+                "write": "8",
+                "carry": 2
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 0 bằng 0, thêm 2 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "4 nhân 4 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "4 nhân 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "14.070 × 4 = 56.280"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 79.764 : 6 là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "13.293"
+        },
+        {
+          "id": "b",
+          "text": "13.304"
+        },
+        {
+          "id": "c",
+          "text": "13.295"
+        },
+        {
+          "id": "d",
+          "text": "13.294"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "13.294",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "79764",
+            "divisor": "6",
+            "quotient": "13294",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "7 chia 6 được 1, viết 1. 1 nhân 6 bằng 6; 7 trừ 6 bằng 1.",
+                "partialDividend": 7,
+                "quotientDigit": 1,
+                "product": 6,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 9, được 19; 19 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 19 trừ 18 bằng 1.",
+                "partialDividend": 19,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 7, được 17; 17 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 17 trừ 12 bằng 5.",
+                "partialDividend": 17,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 6, được 56; 56 chia 6 được 9, viết 9. 9 nhân 6 bằng 54; 56 trừ 54 bằng 2.",
+                "partialDividend": 56,
+                "quotientDigit": 9,
+                "product": 54,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 4, được 24; 24 chia 6 được 4, viết 4. 4 nhân 6 bằng 24; 24 trừ 24 bằng 0.",
+                "partialDividend": 24,
+                "quotientDigit": 4,
+                "product": 24,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "79.764 : 6 = 13.294"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "29.224 × 2 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.5cs_1cs"
+      ],
+      "access": "free",
+      "template": "29.224 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 58448
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "58.448",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "29224",
+              "2"
+            ],
+            "result": "58448",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 9 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 nhân 2 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "29.224 × 2 = 58.448"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 25.686 : 3 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8.562"
+        },
+        {
+          "id": "b",
+          "text": "8.563"
+        },
+        {
+          "id": "c",
+          "text": "8.572"
+        },
+        {
+          "id": "d",
+          "text": "8.561"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.562",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "25686",
+            "divisor": "3",
+            "quotient": "8562",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "25 chia 3 được 8, viết 8. 8 nhân 3 bằng 24; 25 trừ 24 bằng 1.",
+                "partialDividend": 25,
+                "quotientDigit": 8,
+                "product": 24,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 6, được 16; 16 chia 3 được 5, viết 5. 5 nhân 3 bằng 15; 16 trừ 15 bằng 1.",
+                "partialDividend": 16,
+                "quotientDigit": 5,
+                "product": 15,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 8, được 18; 18 chia 3 được 6, viết 6. 6 nhân 3 bằng 18; 18 trừ 18 bằng 0.",
+                "partialDividend": 18,
+                "quotientDigit": 6,
+                "product": 18,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 6; 6 chia 3 được 2, viết 2. 2 nhân 3 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 2,
+                "product": 6,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "25.686 : 3 = 8.562"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "template": "34.202 × 2 = {{s1}}\n12.439 × 7 = {{s2}}\n12.408 : 3 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "87.073"
+        },
+        {
+          "id": "t2",
+          "text": "68.404"
+        },
+        {
+          "id": "t3",
+          "text": "68.406"
+        },
+        {
+          "id": "t4",
+          "text": "4.136"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "68.404; 87.073; 4.136",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "34.202 × 2 = 68.404"
+          },
+          {
+            "kind": "equation",
+            "text": "12.439 × 7 = 87.073"
+          },
+          {
+            "kind": "equation",
+            "text": "12.408 : 3 = 4.136"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 68.406 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "11.872 × 7"
+        },
+        {
+          "id": "l2",
+          "text": "54.586 : 7"
+        },
+        {
+          "id": "l3",
+          "text": "23.002 × 2"
+        },
+        {
+          "id": "l4",
+          "text": "75.882 : 6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "12.648"
+        },
+        {
+          "id": "r2",
+          "text": "12.647"
+        },
+        {
+          "id": "r3",
+          "text": "46.004"
+        },
+        {
+          "id": "r4",
+          "text": "83.104"
+        },
+        {
+          "id": "r5",
+          "text": "7.798"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11.872 × 7 = 83.104; 54.586 : 7 = 7.798; 23.002 × 2 = 46.004; 75.882 : 6 = 12.647",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "11.872 × 7 = 83.104"
+          },
+          {
+            "kind": "equation",
+            "text": "54.586 : 7 = 7.798"
+          },
+          {
+            "kind": "equation",
+            "text": "23.002 × 2 = 46.004"
+          },
+          {
+            "kind": "equation",
+            "text": "75.882 : 6 = 12.647"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một nhà máy may được 51.834 chiếc áo trong 6 ngày, số áo may được mỗi ngày như nhau. Hỏi mỗi ngày nhà máy may được bao nhiêu chiếc áo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.5cs_1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mỗi ngày nhà máy may được {{b1}} chiếc áo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8639,
+            "unit": "chiếc"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.639 chiếc áo",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số áo nhà máy may được mỗi ngày là:",
+                "equation": "51.834 : 6 = 8.639 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 8.639 chiếc áo."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "51834",
+            "divisor": "6",
+            "quotient": "8639",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "51 chia 6 được 8, viết 8. 8 nhân 6 bằng 48; 51 trừ 48 bằng 3.",
+                "partialDividend": 51,
+                "quotientDigit": 8,
+                "product": 48,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 8, được 38; 38 chia 6 được 6, viết 6. 6 nhân 6 bằng 36; 38 trừ 36 bằng 2.",
+                "partialDividend": 38,
+                "quotientDigit": 6,
+                "product": 36,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 3, được 23; 23 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 23 trừ 18 bằng 5.",
+                "partialDividend": 23,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 4, được 54; 54 chia 6 được 9, viết 9. 9 nhân 6 bằng 54; 54 trừ 54 bằng 0.",
+                "partialDividend": 54,
+                "quotientDigit": 9,
+                "product": 54,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c14.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 43.536 quyển sách chia đều cho 4 thư viện. Sau đó mỗi thư viện được tặng thêm 1.935 quyển. Hỏi lúc này mỗi thư viện có bao nhiêu quyển sách?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.5cs_1cs",
+        "chia.5cs_1cs",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mỗi thư viện có {{b1}} quyển sách.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 12819,
+            "unit": "quyển"
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "12.819 quyển sách",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số sách mỗi thư viện được chia là:",
+                "equation": "43.536 : 4 = 10.884 (quyển)"
+              },
+              {
+                "explanation": "Số sách mỗi thư viện có lúc này là:",
+                "equation": "10.884 + 1.935 = 12.819 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 12.819 quyển sách."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "43536",
+            "divisor": "4",
+            "quotient": "10884",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 3; 3 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 3 trừ 0 bằng 3.",
+                "partialDividend": 3,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 5, được 35; 35 chia 4 được 8, viết 8. 8 nhân 4 bằng 32; 35 trừ 32 bằng 3.",
+                "partialDividend": 35,
+                "quotientDigit": 8,
+                "product": 32,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 3, được 33; 33 chia 4 được 8, viết 8. 8 nhân 4 bằng 32; 33 trừ 32 bằng 1.",
+                "partialDividend": 33,
+                "quotientDigit": 8,
+                "product": 32,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 6, được 16; 16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 4,
+                "product": 16,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10884",
+              "1935"
+            ],
+            "result": "12819",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 cộng 5 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "8 cộng 3 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 cộng 9 bằng 17, thêm 1 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 1 bằng 1, thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

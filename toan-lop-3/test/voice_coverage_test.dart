@@ -16,10 +16,12 @@ void main() {
       jsonDecode(File('assets/voice/manifest.json').readAsStringSync()) as Map<String, dynamic>,
     );
     final brain = TutorBrain();
+    // Gợi ý của bài sinh tự động lấy từ kGeneratedHints (lib/logic/tutor_hints.dart), ghi âm riêng;
+    // ở đây chỉ kiểm tra câu cố định + gợi ý của hai bài viết tay Chủ đề 4.
     final lines = {
       ...TutorLines.all(),
-      for (final f in lessonFiles())
-        for (final p in loadLessonFromDisk(f.uri.pathSegments.last.replaceAll('.json', '')).problems) brain.hint(p),
+      for (final id in const ['kntt3.c4.nhan-2cs-1cs', 'kntt3.c4.chia-2cs-1cs'])
+        for (final p in loadLessonFromDisk(id).problems) brain.hint(p),
     };
     final missing = [
       for (final l in lines)

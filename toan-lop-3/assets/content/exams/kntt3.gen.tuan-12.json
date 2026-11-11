@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.tuan-12",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c4"
+  ],
+  "title": "Kiểm tra cuối tuần 12",
+  "description": "Ôn lại bài của tuần: Giảm một số đi một số lần; Bài toán giải bằng hai bước tính; Luyện tập chung.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-12.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giảm 63 đi 7 lần được:"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "gap_giam.so_lan"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "8"
+              },
+              {
+                "id": "b",
+                "text": "9"
+              },
+              {
+                "id": "c",
+                "text": "16"
+              },
+              {
+                "id": "d",
+                "text": "56"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9",
+              "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "63 : 7 = 9"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-12.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Con đường thứ nhất dài 54 m, con đường thứ hai ngắn hơn con đường thứ nhất 28 m. Hỏi con đường thứ hai dài bao nhiêu mét?"
+            },
+            "level": 1,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.pham_vi_100",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "24 m"
+              },
+              {
+                "id": "b",
+                "text": "16 m"
+              },
+              {
+                "id": "c",
+                "text": "82 m"
+              },
+              {
+                "id": "d",
+                "text": "26 m"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "26 m",
+              "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Độ dài con đường thứ hai là:",
+                      "equation": "54 - 28 = 26 (m)"
+                    }
+                  ],
+                  "answer": "Đáp số: 26 m."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "54",
+                    "28"
+                  ],
+                  "result": "26",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "4 không trừ được 8, lấy 14 trừ 8 bằng 6, viết 6 nhớ 1.",
+                      "write": "6",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 thêm 1 bằng 3; 5 trừ 3 bằng 2, viết 2.",
+                      "write": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-12.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 96 : 4 là:"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.2cs_1cs"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "24"
+              },
+              {
+                "id": "b",
+                "text": "23"
+              },
+              {
+                "id": "c",
+                "text": "34"
+              },
+              {
+                "id": "d",
+                "text": "25"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "24",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "96",
+                  "divisor": "4",
+                  "quotient": "24",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "9 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 9 trừ 8 bằng 1.",
+                      "partialDividend": 9,
+                      "quotientDigit": 2,
+                      "product": 8,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 6, được 16; 16 chia 4 được 4, viết 4. 4 nhân 4 bằng 16; 16 trừ 16 bằng 0.",
+                      "partialDividend": 16,
+                      "quotientDigit": 4,
+                      "product": 16,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "96 : 4 = 24"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-12.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "24 × 3 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho"
+            ],
+            "access": "free",
+            "template": "24 × 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 72
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "72",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "24",
+                    "3"
+                  ],
+                  "result": "72",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 4 bằng 12, viết 2 nhớ 1.",
+                      "write": "2",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "24 × 3 = 72"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-12.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Giảm 42 đi 7 lần được bao nhiêu?"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "gap_giam.so_lan"
+            ],
+            "access": "free",
+            "template": "Giảm 42 đi 7 lần được {{b1}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 6
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "6",
+              "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "42 : 7 = 6"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

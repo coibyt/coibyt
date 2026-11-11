@@ -1,0 +1,767 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c6.chia-3cs-1cs",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 2,
+  "title": "Chia số có ba chữ số cho số có một chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Chia lần lượt từ trái sang phải: mỗi lượt chia, nhân rồi trừ, sau đó hạ chữ số tiếp theo xuống.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 752 : 8 = ?"
+      },
+      {
+        "kind": "long_division",
+        "dividend": "752",
+        "divisor": "8",
+        "quotient": "94",
+        "remainder": 0,
+        "digitSteps": [
+          {
+            "text": "75 chia 8 được 9, viết 9. 9 nhân 8 bằng 72; 75 trừ 72 bằng 3.",
+            "partialDividend": 75,
+            "quotientDigit": 9,
+            "product": 72,
+            "remainder": 3
+          },
+          {
+            "text": "Hạ 2, được 32; 32 chia 8 được 4, viết 4. 4 nhân 8 bằng 32; 32 trừ 32 bằng 0.",
+            "partialDividend": 32,
+            "quotientDigit": 4,
+            "product": 32,
+            "remainder": 0
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "752 : 8 = 94"
+      },
+      {
+        "kind": "text",
+        "text": "Lượt nào số đem chia bé hơn số chia thì viết 0 ở thương rồi hạ tiếp. Thử lại bằng phép nhân.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "340 : 4 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "340 : 4 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 85
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "85",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "340",
+            "divisor": "4",
+            "quotient": "85",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "34 chia 4 được 8, viết 8. 8 nhân 4 bằng 32; 34 trừ 32 bằng 2.",
+                "partialDividend": 34,
+                "quotientDigit": 8,
+                "product": 32,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 0, được 20; 20 chia 4 được 5, viết 5. 5 nhân 4 bằng 20; 20 trừ 20 bằng 0.",
+                "partialDividend": 20,
+                "quotientDigit": 5,
+                "product": 20,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "340 : 4 = 85"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "309 : 3 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "309 : 3 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 103
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "103",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "309",
+            "divisor": "3",
+            "quotient": "103",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.",
+                "partialDividend": 3,
+                "quotientDigit": 1,
+                "product": 3,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 9; 9 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 9 trừ 9 bằng 0.",
+                "partialDividend": 9,
+                "quotientDigit": 3,
+                "product": 9,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "309 : 3 = 103"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 200 : 8 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "25"
+        },
+        {
+          "id": "b",
+          "text": "35"
+        },
+        {
+          "id": "c",
+          "text": "26"
+        },
+        {
+          "id": "d",
+          "text": "24"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "25",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "200",
+            "divisor": "8",
+            "quotient": "25",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "20 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 20 trừ 16 bằng 4.",
+                "partialDividend": 20,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 0, được 40; 40 chia 8 được 5, viết 5. 5 nhân 8 bằng 40; 40 trừ 40 bằng 0.",
+                "partialDividend": 40,
+                "quotientDigit": 5,
+                "product": 40,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "200 : 8 = 25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "162 : 2 = {{s1}}\n798 : 6 = {{s2}}\n595 : 5 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "81"
+        },
+        {
+          "id": "t2",
+          "text": "133"
+        },
+        {
+          "id": "t3",
+          "text": "119"
+        },
+        {
+          "id": "t4",
+          "text": "82"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "81; 133; 119",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "162 : 2 = 81"
+          },
+          {
+            "kind": "equation",
+            "text": "798 : 6 = 133"
+          },
+          {
+            "kind": "equation",
+            "text": "595 : 5 = 119"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 82 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "520 : 8"
+        },
+        {
+          "id": "l2",
+          "text": "973 : 7"
+        },
+        {
+          "id": "l3",
+          "text": "456 : 8"
+        },
+        {
+          "id": "l4",
+          "text": "360 : 8"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "65"
+        },
+        {
+          "id": "r2",
+          "text": "139"
+        },
+        {
+          "id": "r3",
+          "text": "57"
+        },
+        {
+          "id": "r4",
+          "text": "46"
+        },
+        {
+          "id": "r5",
+          "text": "45"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "520 : 8 = 65; 973 : 7 = 139; 456 : 8 = 57; 360 : 8 = 45",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "520 : 8 = 65"
+          },
+          {
+            "kind": "equation",
+            "text": "973 : 7 = 139"
+          },
+          {
+            "kind": "equation",
+            "text": "456 : 8 = 57"
+          },
+          {
+            "kind": "equation",
+            "text": "360 : 8 = 45"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "982 : 6 = ? (dư ?)"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "chia.co_du"
+      ],
+      "access": "free",
+      "template": "982 : 6 = {{b1}} (dư {{b2}})",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 163
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "163 (dư 4)",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "982",
+            "divisor": "6",
+            "quotient": "163",
+            "remainder": 4,
+            "digitSteps": [
+              {
+                "text": "9 chia 6 được 1, viết 1. 1 nhân 6 bằng 6; 9 trừ 6 bằng 3.",
+                "partialDividend": 9,
+                "quotientDigit": 1,
+                "product": 6,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 8, được 38; 38 chia 6 được 6, viết 6. 6 nhân 6 bằng 36; 38 trừ 36 bằng 2.",
+                "partialDividend": 38,
+                "quotientDigit": 6,
+                "product": 36,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 2, được 22; 22 chia 6 được 3, viết 3. 3 nhân 6 bằng 18; 22 trừ 18 bằng 4.",
+                "partialDividend": 22,
+                "quotientDigit": 3,
+                "product": 18,
+                "remainder": 4
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": "982 : 6 = 163 (dư 4)"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "163 × 6 + 4 = 982"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 396 viên phấn, xếp đều vào các hộp, mỗi hộp 9 viên phấn. Hỏi xếp được bao nhiêu hộp?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Xếp được {{b1}} hộp.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 44,
+            "unit": "hộp"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "44 hộp",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số hộp xếp được là:",
+                "equation": "396 : 9 = 44 (hộp)"
+              }
+            ],
+            "answer": "Đáp số: 44 hộp."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "396",
+            "divisor": "9",
+            "quotient": "44",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "39 chia 9 được 4, viết 4. 4 nhân 9 bằng 36; 39 trừ 36 bằng 3.",
+                "partialDividend": 39,
+                "quotientDigit": 4,
+                "product": 36,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 6, được 36; 36 chia 9 được 4, viết 4. 4 nhân 9 bằng 36; 36 trừ 36 bằng 0.",
+                "partialDividend": 36,
+                "quotientDigit": 4,
+                "product": 36,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có 304 kg đường chia đều vào 8 túi. Hỏi mỗi túi có bao nhiêu ki-lô-gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "48 kg"
+        },
+        {
+          "id": "b",
+          "text": "38 kg"
+        },
+        {
+          "id": "c",
+          "text": "296 kg"
+        },
+        {
+          "id": "d",
+          "text": "39 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "38 kg đường",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số đường trong mỗi túi là:",
+                "equation": "304 : 8 = 38 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 38 kg đường."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "304",
+            "divisor": "8",
+            "quotient": "38",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "30 chia 8 được 3, viết 3. 3 nhân 8 bằng 24; 30 trừ 24 bằng 6.",
+                "partialDividend": 30,
+                "quotientDigit": 3,
+                "product": 24,
+                "remainder": 6
+              },
+              {
+                "text": "Hạ 4, được 64; 64 chia 8 được 8, viết 8. 8 nhân 8 bằng 64; 64 trừ 64 bằng 0.",
+                "partialDividend": 64,
+                "quotientDigit": 8,
+                "product": 64,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.chia-3cs-1cs.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một con đường dài 276 m. Đội công nhân đã sửa được 1/2 con đường. Hỏi còn bao nhiêu mét đường chưa sửa?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Còn {{b1}} m đường chưa sửa.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 138,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "138 m",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số mét đường đã sửa là:",
+                "equation": "276 : 2 = 138 (m)"
+              },
+              {
+                "explanation": "Số mét đường chưa sửa là:",
+                "equation": "276 - 138 = 138 (m)"
+              }
+            ],
+            "answer": "Đáp số: 138 m."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "276",
+            "divisor": "2",
+            "quotient": "138",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 7; 7 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 7 trừ 6 bằng 1.",
+                "partialDividend": 7,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 6, được 16; 16 chia 2 được 8, viết 8. 8 nhân 2 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 8,
+                "product": 16,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "276",
+              "138"
+            ],
+            "result": "138",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 không trừ được 8, lấy 16 trừ 8 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 thêm 1 bằng 4; 7 trừ 4 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 2,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

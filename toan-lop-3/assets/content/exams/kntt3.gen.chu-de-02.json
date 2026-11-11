@@ -1,0 +1,680 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-02",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c2"
+  ],
+  "title": "Kiểm tra chủ đề 2",
+  "description": "Bảng nhân, bảng chia.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi ô bên trái với kết quả đúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "phan_so.mot_phan"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "1/9 của 45"
+              },
+              {
+                "id": "l2",
+                "text": "1/2 của 8"
+              },
+              {
+                "id": "l3",
+                "text": "1/4 của 12"
+              },
+              {
+                "id": "l4",
+                "text": "1/5 của 35"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "2"
+              },
+              {
+                "id": "r2",
+                "text": "5"
+              },
+              {
+                "id": "r3",
+                "text": "4"
+              },
+              {
+                "id": "r4",
+                "text": "7"
+              },
+              {
+                "id": "r5",
+                "text": "3"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1/9 của 45 là 5; 1/2 của 8 là 4; 1/4 của 12 là 3; 1/5 của 35 là 7",
+              "hint": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "45 : 9 = 5"
+                },
+                {
+                  "kind": "equation",
+                  "text": "8 : 2 = 4"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 4 = 3"
+                },
+                {
+                  "kind": "equation",
+                  "text": "35 : 5 = 7"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "9 × 6"
+              },
+              {
+                "id": "l2",
+                "text": "9 × 2"
+              },
+              {
+                "id": "l3",
+                "text": "27 : 9"
+              },
+              {
+                "id": "l4",
+                "text": "9 × 5"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "3"
+              },
+              {
+                "id": "r2",
+                "text": "5"
+              },
+              {
+                "id": "r3",
+                "text": "45"
+              },
+              {
+                "id": "r4",
+                "text": "18"
+              },
+              {
+                "id": "r5",
+                "text": "54"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9 × 6 = 54; 9 × 2 = 18; 27 : 9 = 3; 9 × 5 = 45",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "9 × 6 = 54"
+                },
+                {
+                  "kind": "equation",
+                  "text": "9 × 2 = 18"
+                },
+                {
+                  "kind": "equation",
+                  "text": "27 : 9 = 3"
+                },
+                {
+                  "kind": "equation",
+                  "text": "9 × 5 = 45"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số thích hợp thay cho dấu ? là:\n63 : ? = 7"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tim_thanh_phan.thua_so",
+              "tim_thanh_phan.so_bi_chia",
+              "tim_thanh_phan.so_chia"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "9"
+              },
+              {
+                "id": "b",
+                "text": "10"
+              },
+              {
+                "id": "c",
+                "text": "441"
+              },
+              {
+                "id": "d",
+                "text": "8"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9",
+              "hint": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "63 : 7 = 9"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "63 : 9 = 7"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Có 81 bông hoa chia đều vào 9 bó. Hỏi mỗi bó có bao nhiêu bông hoa?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "9 bông"
+              },
+              {
+                "id": "b",
+                "text": "72 bông"
+              },
+              {
+                "id": "c",
+                "text": "10 bông"
+              },
+              {
+                "id": "d",
+                "text": "8 bông"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9 bông hoa",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số bông hoa trong mỗi bó là:",
+                      "equation": "81 : 9 = 9 (bông)"
+                    }
+                  ],
+                  "answer": "Đáp số: 9 bông hoa."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi bó có 8 bông hoa. Hỏi 4 bó như thế có tất cả bao nhiêu bông hoa?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "4 bó có {{b1}} bông hoa.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 32,
+                  "unit": "bông"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "32 bông hoa",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số bông hoa có trong 4 bó là:",
+                      "equation": "8 × 4 = 32 (bông)"
+                    }
+                  ],
+                  "answer": "Đáp số: 32 bông hoa."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bang_nhan_chia"
+            ],
+            "access": "free",
+            "template": "10 × 8 = {{s1}}\n9 × 10 = {{s2}}\n9 × 7 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "90"
+              },
+              {
+                "id": "t2",
+                "text": "88"
+              },
+              {
+                "id": "t3",
+                "text": "80"
+              },
+              {
+                "id": "t4",
+                "text": "63"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "80; 90; 63",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "10 × 8 = 80"
+                },
+                {
+                  "kind": "equation",
+                  "text": "9 × 10 = 90"
+                },
+                {
+                  "kind": "equation",
+                  "text": "9 × 7 = 63"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 88 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi lọ có 7 viên kẹo. Hỏi 5 lọ như thế có tất cả bao nhiêu viên kẹo?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "5 lọ có {{b1}} viên kẹo.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 35,
+                  "unit": "viên"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "35 viên kẹo",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số viên kẹo có trong 5 lọ là:",
+                      "equation": "7 × 5 = 35 (viên)"
+                    }
+                  ],
+                  "answer": "Đáp số: 35 viên kẹo."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi túi có 6 kg đường. Hỏi 8 túi như thế có tất cả bao nhiêu ki-lô-gam đường?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "8 túi có {{b1}} kg đường.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 48,
+                  "unit": "kg",
+                  "unitAliases": [
+                    "ki-lô-gam"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "48 kg đường",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số đường có trong 8 túi là:",
+                      "equation": "6 × 8 = 48 (kg)"
+                    }
+                  ],
+                  "answer": "Đáp số: 48 kg đường."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi can có 9 l dầu. Hỏi 3 can như thế có tất cả bao nhiêu lít dầu?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "bang_nhan_chia",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "3 can có {{b1}} l dầu.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 27,
+                  "unit": "l",
+                  "unitAliases": [
+                    "lít"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "27 l dầu",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số dầu có trong 3 can là:",
+                      "equation": "9 × 3 = 27 (l)"
+                    }
+                  ],
+                  "answer": "Đáp số: 27 l dầu."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-02.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tìm số thích hợp.",
+            "prompt": {
+              "text": "12 : ? = 3"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tim_thanh_phan.so_chia"
+            ],
+            "access": "free",
+            "template": "12 : {{b1}} = 3",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 4
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4",
+              "hint": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 3 = 4"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 4 = 3"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

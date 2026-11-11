@@ -1,0 +1,569 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c7",
+  "order": 3,
+  "title": "Ôn tập hình học và đo lường",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: trung điểm, hình tròn, góc vuông, khối hình; các đơn vị mm, g, ml, °C.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "1 cm = 10 mm; 1 kg = 1.000 g; 1 l = 1.000 ml; đường kính = bán kính × 2."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "O là trung điểm của đoạn thẳng AI. Đoạn thẳng AI dài 22 cm. Hỏi đoạn thẳng AO dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đoạn thẳng AO dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "O là trung điểm nên AO = OI."
+          },
+          {
+            "kind": "equation",
+            "text": "22 : 2 = 11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tròn tâm K có bán kính 15 cm. Đường kính của hình tròn đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đường kính dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "15 × 2 = 30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.khoi_luong",
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "5 kg = {{b1}} g\n5.000 ml = {{b2}} l",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5000,
+            "unit": "g",
+            "unitAliases": [
+              "gam"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5.000 g; 5 l",
+        "hint": "Nhớ nhé: một ki-lô-gam bằng một nghìn gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 kg = 1.000 g; 1 l = 1.000 ml.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 1.000 = 5.000"
+          },
+          {
+            "kind": "equation",
+            "text": "5.000 : 1.000 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10 giờ"
+        },
+        {
+          "id": "b",
+          "text": "7 giờ"
+        },
+        {
+          "id": "c",
+          "text": "11 giờ"
+        },
+        {
+          "id": "d",
+          "text": "9 giờ"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 giờ",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Lúc 9 giờ, kim phút chỉ số 12, kim giờ chỉ số 9; hai kim tạo thành góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "3 cm ... 28 mm"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<"
+        },
+        {
+          "id": "b",
+          "text": "="
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": ">",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 3 cm = 30 mm."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có 30 mm > 28 mm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi ô bên trái với số đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.khoi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Số đỉnh của khối hộp chữ nhật"
+        },
+        {
+          "id": "l2",
+          "text": "Số mặt của khối hộp chữ nhật"
+        },
+        {
+          "id": "l3",
+          "text": "Số cạnh của khối hộp chữ nhật"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "12"
+        },
+        {
+          "id": "r2",
+          "text": "4"
+        },
+        {
+          "id": "r3",
+          "text": "8"
+        },
+        {
+          "id": "r4",
+          "text": "6"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Số đỉnh của khối hộp chữ nhật: 8; Số mặt của khối hộp chữ nhật: 6; Số cạnh của khối hộp chữ nhật: 12",
+        "hint": "Con đếm lần lượt các mặt, các cạnh, các đỉnh của khối hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Khối hộp chữ nhật có 6 mặt, 12 cạnh, 8 đỉnh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo tên thành phố vào ô trống.",
+      "prompt": {
+        "text": "Nhiệt độ lúc 9 giờ sáng của một số thành phố:\nSa Pa: 18 °C\nCần Thơ: 9 °C\nHuế: 13 °C\nĐà Lạt: 33 °C\nXếp tên các thành phố theo thứ tự từ lạnh nhất đến nóng nhất."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.nhiet_do"
+      ],
+      "access": "free",
+      "template": "{{s1}} → {{s2}} → {{s3}} → {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "Sa Pa"
+        },
+        {
+          "id": "t2",
+          "text": "Huế"
+        },
+        {
+          "id": "t3",
+          "text": "Đà Lạt"
+        },
+        {
+          "id": "t4",
+          "text": "Cần Thơ"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Cần Thơ → Huế → Sa Pa → Đà Lạt",
+        "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "9 °C (Cần Thơ) < 13 °C (Huế) < 18 °C (Sa Pa) < 33 °C (Đà Lạt)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một bình có 1 l nước. Mẹ rót ra 2 cốc, mỗi cốc 200 ml. Hỏi trong bình còn lại bao nhiêu mi-li-lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong bình còn lại {{b1}} ml nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 600,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "600 ml",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 1 l = 1.000 ml."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước mẹ đã rót ra là:",
+                "equation": "200 × 2 = 400 (ml)"
+              },
+              {
+                "explanation": "Số nước còn lại trong bình là:",
+                "equation": "1.000 - 400 = 600 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 600 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "200",
+              "2"
+            ],
+            "result": "400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-hinh-hoc-va-do-luong.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một chiếc mâm hình tròn có bán kính 45 cm. Hỏi đường kính chiếc mâm dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Đường kính chiếc mâm dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 90,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "90 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đường kính chiếc mâm dài là:",
+                "equation": "45 × 2 = 90 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 90 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "45",
+              "2"
+            ],
+            "result": "90",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 5 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 4 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

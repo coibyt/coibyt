@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.tuan-17",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c6"
+  ],
+  "title": "Kiểm tra cuối tuần 17",
+  "description": "Ôn lại bài của tuần: Tính giá trị của biểu thức số (tiếp theo); So sánh số lớn gấp mấy lần số bé.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-17.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số 15 gấp mấy lần số 3?"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "so_sanh.gap_may_lan"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "5 lần"
+              },
+              {
+                "id": "b",
+                "text": "12 lần"
+              },
+              {
+                "id": "c",
+                "text": "6 lần"
+              },
+              {
+                "id": "d",
+                "text": "4 lần"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5 lần",
+              "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "15 : 3 = 5"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-17.q02",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Số lớn là 12, số bé là 3. Số lớn gấp mấy lần số bé?"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "so_sanh.gap_may_lan"
+            ],
+            "access": "free",
+            "template": "Số lớn gấp {{b1}} lần số bé.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 4,
+                  "unit": "lần"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4 lần",
+              "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 3 = 4"
+                },
+                {
+                  "kind": "text",
+                  "text": "Vậy 12 gấp 4 lần 3."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-17.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "341 - (92 + 125) = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "341 - (92 + 125) = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 124
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "124",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "341 - (92 + 125) = 341 - 217 = 124"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-17.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "677 - (34 + 87) = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "677 - (34 + 87) = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 556
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "556",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "677 - (34 + 87) = 677 - 121 = 556"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-17.q05",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "so_sanh.gap_may_lan"
+            ],
+            "access": "free",
+            "template": "6 gấp {{s1}} lần 3\n12 gấp {{s2}} lần 3\n32 gấp {{s3}} lần 4",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "2"
+              },
+              {
+                "id": "t2",
+                "text": "4"
+              },
+              {
+                "id": "t3",
+                "text": "3"
+              },
+              {
+                "id": "t4",
+                "text": "8"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2; 4; 8",
+              "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "6 : 3 = 2"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 3 = 4"
+                },
+                {
+                  "kind": "equation",
+                  "text": "32 : 4 = 8"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

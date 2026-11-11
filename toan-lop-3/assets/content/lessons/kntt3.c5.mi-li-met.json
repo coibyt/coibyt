@@ -1,0 +1,625 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c5.mi-li-met",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c5",
+  "order": 1,
+  "title": "Mi-li-mét",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Mi-li-mét (mm) là đơn vị đo độ dài rất nhỏ. 1 cm = 10 mm; 1 m = 1.000 mm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 6 cm = 60 mm vì"
+      },
+      {
+        "kind": "equation",
+        "text": "6 × 10 = 60"
+      },
+      {
+        "kind": "text",
+        "text": "Trên thước kẻ, khoảng cách giữa hai vạch nhỏ liền nhau là 1 mm.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c5.mi-li-met.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "2 cm = {{b1}} mm\n200 mm = {{b2}} dm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 20,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "dm",
+            "unitAliases": [
+              "đề-xi-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "20 mm; 2 dm",
+        "hint": "Nhớ nhé: một xăng-ti-mét bằng mười mi-li-mét, một mét bằng một trăm xăng-ti-mét.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 cm = 10 mm; 1 dm = 100 mm.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 10 = 20"
+          },
+          {
+            "kind": "equation",
+            "text": "200 : 100 = 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Cửa ra vào lớp học cao khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2 km"
+        },
+        {
+          "id": "b",
+          "text": "2 m"
+        },
+        {
+          "id": "c",
+          "text": "2 mm"
+        },
+        {
+          "id": "d",
+          "text": "2 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 m",
+        "hint": "Con nghĩ đến đồ vật thật ngoài đời rồi chọn số đo hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 2 m."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "59 mm + 14 mm = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "59 mm + 14 mm = {{b1}} mm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 73,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "73 mm",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "59",
+              "14"
+            ],
+            "result": "73",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 4 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 1 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "59 + 14 = 73"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị mm vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "6 cm ... 55 mm"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": ">"
+        },
+        {
+          "id": "b",
+          "text": "="
+        },
+        {
+          "id": "c",
+          "text": "<"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": ">",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 6 cm = 60 mm."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có 60 mm > 55 mm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó ở bên phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "7 m"
+        },
+        {
+          "id": "l2",
+          "text": "5 dm"
+        },
+        {
+          "id": "l3",
+          "text": "3 m"
+        },
+        {
+          "id": "l4",
+          "text": "7 dm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "2 mm"
+        },
+        {
+          "id": "r2",
+          "text": "7.000 mm"
+        },
+        {
+          "id": "r3",
+          "text": "500 mm"
+        },
+        {
+          "id": "r4",
+          "text": "3.000 mm"
+        },
+        {
+          "id": "r5",
+          "text": "700 mm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 m = 7.000 mm; 5 dm = 500 mm; 3 m = 3.000 mm; 7 dm = 700 mm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "7 m = 7.000 mm"
+          },
+          {
+            "kind": "text",
+            "text": "5 dm = 500 mm"
+          },
+          {
+            "kind": "text",
+            "text": "3 m = 3.000 mm"
+          },
+          {
+            "kind": "text",
+            "text": "7 dm = 700 mm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2 cm, 44 mm, 5 cm, 3 cm."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "44 mm"
+        },
+        {
+          "id": "t2",
+          "text": "3 cm"
+        },
+        {
+          "id": "t3",
+          "text": "2 cm"
+        },
+        {
+          "id": "t4",
+          "text": "5 cm"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 cm < 3 cm < 44 mm < 5 cm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về mi-li-mét: 2 cm = 20 mm, 44 mm = 44 mm, 5 cm = 50 mm, 3 cm = 30 mm."
+          },
+          {
+            "kind": "text",
+            "text": "2 cm < 3 cm < 44 mm < 5 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "95 mm - 79 mm = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.do_dai"
+      ],
+      "access": "free",
+      "template": "95 mm - 79 mm = {{b1}} mm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 16,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "16 mm",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "95",
+              "79"
+            ],
+            "result": "16",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 không trừ được 9, lấy 15 trừ 9 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "7 thêm 1 bằng 8; 9 trừ 8 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "95 - 79 = 16"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị mm vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Con sâu xanh dài 34 mm, con sâu nâu ngắn hơn con sâu xanh 9 mm. Hỏi con sâu nâu dài bao nhiêu mi-li-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Con sâu nâu dài {{b1}} mm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 25,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "25 mm",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Con sâu nâu dài là:",
+                "equation": "34 - 9 = 25 (mm)"
+              }
+            ],
+            "answer": "Đáp số: 25 mm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-met.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Chiếc bút chì dài 18 cm. Sau khi gọt, bút chì ngắn đi 33 mm. Hỏi bút chì còn lại dài bao nhiêu mi-li-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.do_dai",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Bút chì còn lại dài {{b1}} mm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 147,
+            "unit": "mm",
+            "unitAliases": [
+              "mi-li-mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "147 mm",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 18 cm = 180 mm."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Bút chì còn lại dài là:",
+                "equation": "180 - 33 = 147 (mm)"
+              }
+            ],
+            "answer": "Đáp số: 147 mm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "180",
+              "33"
+            ],
+            "result": "147",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 không trừ được 3, lấy 10 trừ 3 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 thêm 1 bằng 4; 8 trừ 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

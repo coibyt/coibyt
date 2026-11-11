@@ -1,0 +1,776 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-06",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c6"
+  ],
+  "title": "Kiểm tra chủ đề 6",
+  "description": "Phép nhân, phép chia trong phạm vi 1000.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 200 : 8 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "25"
+              },
+              {
+                "id": "b",
+                "text": "35"
+              },
+              {
+                "id": "c",
+                "text": "26"
+              },
+              {
+                "id": "d",
+                "text": "24"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "25",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "200",
+                  "divisor": "8",
+                  "quotient": "25",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "20 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 20 trừ 16 bằng 4.",
+                      "partialDividend": 20,
+                      "quotientDigit": 2,
+                      "product": 16,
+                      "remainder": 4
+                    },
+                    {
+                      "text": "Hạ 0, được 40; 40 chia 8 được 5, viết 5. 5 nhân 8 bằng 40; 40 trừ 40 bằng 0.",
+                      "partialDividend": 40,
+                      "quotientDigit": 5,
+                      "product": 40,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "200 : 8 = 25"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi câu hỏi với câu trả lời đúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "so_sanh.gap_may_lan"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "40 gấp mấy lần 5?"
+              },
+              {
+                "id": "l2",
+                "text": "81 gấp mấy lần 9?"
+              },
+              {
+                "id": "l3",
+                "text": "6 gấp mấy lần 3?"
+              },
+              {
+                "id": "l4",
+                "text": "10 gấp mấy lần 2?"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "5 lần"
+              },
+              {
+                "id": "r2",
+                "text": "8 lần"
+              },
+              {
+                "id": "r3",
+                "text": "3 lần"
+              },
+              {
+                "id": "r4",
+                "text": "2 lần"
+              },
+              {
+                "id": "r5",
+                "text": "9 lần"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "40 gấp 8 lần 5; 81 gấp 9 lần 9; 6 gấp 2 lần 3; 10 gấp 5 lần 2",
+              "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "40 : 5 = 8"
+                },
+                {
+                  "kind": "equation",
+                  "text": "81 : 9 = 9"
+                },
+                {
+                  "kind": "equation",
+                  "text": "6 : 3 = 2"
+                },
+                {
+                  "kind": "equation",
+                  "text": "10 : 2 = 5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giá trị của biểu thức (42 + 189) : 7 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "69"
+              },
+              {
+                "id": "b",
+                "text": "43"
+              },
+              {
+                "id": "c",
+                "text": "23"
+              },
+              {
+                "id": "d",
+                "text": "33"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "33",
+              "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "(42 + 189) : 7 = 231 : 7 = 33"
+                },
+                {
+                  "kind": "text",
+                  "text": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "520 : 8"
+              },
+              {
+                "id": "l2",
+                "text": "973 : 7"
+              },
+              {
+                "id": "l3",
+                "text": "456 : 8"
+              },
+              {
+                "id": "l4",
+                "text": "360 : 8"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "65"
+              },
+              {
+                "id": "r2",
+                "text": "139"
+              },
+              {
+                "id": "r3",
+                "text": "57"
+              },
+              {
+                "id": "r4",
+                "text": "46"
+              },
+              {
+                "id": "r5",
+                "text": "45"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r5"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "520 : 8 = 65; 973 : 7 = 139; 456 : 8 = 57; 360 : 8 = 45",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "520 : 8 = 65"
+                },
+                {
+                  "kind": "equation",
+                  "text": "973 : 7 = 139"
+                },
+                {
+                  "kind": "equation",
+                  "text": "456 : 8 = 57"
+                },
+                {
+                  "kind": "equation",
+                  "text": "360 : 8 = 45"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối biểu thức với giá trị.",
+            "prompt": {
+              "text": "Nối mỗi biểu thức với giá trị của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 120,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "(16 + 11) : 3"
+              },
+              {
+                "id": "l2",
+                "text": "266 + 294 : 7"
+              },
+              {
+                "id": "l3",
+                "text": "369 - 41 × 7"
+              },
+              {
+                "id": "l4",
+                "text": "675 - 45 × 9"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "80"
+              },
+              {
+                "id": "r2",
+                "text": "308"
+              },
+              {
+                "id": "r3",
+                "text": "9"
+              },
+              {
+                "id": "r4",
+                "text": "270"
+              },
+              {
+                "id": "r5",
+                "text": "82"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "(16 + 11) : 3 = 9; 266 + 294 : 7 = 308; 369 - 41 × 7 = 82; 675 - 45 × 9 = 270",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "(16 + 11) : 3 = 27 : 3 = 9"
+                },
+                {
+                  "kind": "equation",
+                  "text": "266 + 294 : 7 = 266 + 42 = 308"
+                },
+                {
+                  "kind": "equation",
+                  "text": "369 - 41 × 7 = 369 - 287 = 82"
+                },
+                {
+                  "kind": "equation",
+                  "text": "675 - 45 × 9 = 675 - 405 = 270"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giá trị của biểu thức 382 - 47 × 4 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "194"
+              },
+              {
+                "id": "b",
+                "text": "184"
+              },
+              {
+                "id": "c",
+                "text": "1.340"
+              },
+              {
+                "id": "d",
+                "text": "204"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "194",
+              "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "382 - 47 × 4 = 382 - 188 = 194"
+                },
+                {
+                  "kind": "text",
+                  "text": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính giá trị của biểu thức.",
+            "prompt": {
+              "text": "161 + 328 : 8 = ?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "161 + 328 : 8 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 202
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "202",
+              "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "161 + 328 : 8 = 161 + 41 = 202"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "bieu_thuc"
+            ],
+            "access": "free",
+            "template": "(41 + 19) : 5 = {{s1}}\n76 + 205 : 5 = {{s2}}\n161 + 93 : 3 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "117"
+              },
+              {
+                "id": "t2",
+                "text": "192"
+              },
+              {
+                "id": "t3",
+                "text": "12"
+              },
+              {
+                "id": "t4",
+                "text": "127"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "12; 117; 192",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "(41 + 19) : 5 = 60 : 5 = 12"
+                },
+                {
+                  "kind": "equation",
+                  "text": "76 + 205 : 5 = 76 + 41 = 117"
+                },
+                {
+                  "kind": "equation",
+                  "text": "161 + 93 : 3 = 161 + 31 = 192"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi ngày một nhà máy may được 114 chiếc áo. Hỏi trong 8 ngày nhà máy đó may được bao nhiêu chiếc áo?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "nhan.3cs_1cs",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Trong 8 ngày nhà máy may được {{b1}} chiếc áo.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 912,
+                  "unit": "chiếc"
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "912 chiếc áo",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số áo nhà máy may được trong 8 ngày là:",
+                      "equation": "114 × 8 = 912 (chiếc)"
+                    }
+                  ],
+                  "answer": "Đáp số: 912 chiếc áo."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "114",
+                    "8"
+                  ],
+                  "result": "912",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "8 nhân 4 bằng 32, viết 2 nhớ 3.",
+                      "write": "2",
+                      "carry": 3
+                    },
+                    {
+                      "place": 1,
+                      "text": "8 nhân 1 bằng 8, thêm 3 bằng 11, viết 1 nhớ 1.",
+                      "write": "1",
+                      "carry": 1
+                    },
+                    {
+                      "place": 2,
+                      "text": "8 nhân 1 bằng 8, thêm 1 bằng 9, viết 9.",
+                      "write": "9"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-06.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "so_sanh.gap_may_lan"
+            ],
+            "access": "free",
+            "template": "6 gấp {{s1}} lần 3\n12 gấp {{s2}} lần 3\n32 gấp {{s3}} lần 4",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "2"
+              },
+              {
+                "id": "t2",
+                "text": "4"
+              },
+              {
+                "id": "t3",
+                "text": "3"
+              },
+              {
+                "id": "t4",
+                "text": "8"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2; 4; 8",
+              "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "6 : 3 = 2"
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 : 3 = 4"
+                },
+                {
+                  "kind": "equation",
+                  "text": "32 : 4 = 8"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

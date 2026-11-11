@@ -1,0 +1,336 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.tuan-31",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c13",
+    "kntt3.c14"
+  ],
+  "title": "Kiểm tra cuối tuần 31",
+  "description": "Ôn lại bài của tuần: Tiền Việt Nam; Luyện tập chung; Nhân số có năm chữ số với số có một chữ số.",
+  "examType": "kt_15p",
+  "term": 2,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-31.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Đồng hồ chỉ mấy giờ?",
+            "prompt": {
+              "text": "Kim giờ chỉ quá số 10 một chút, kim phút chỉ vào số 5. Đồng hồ chỉ mấy giờ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "thoi_gian.dong_ho"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "5 giờ 50 phút"
+              },
+              {
+                "id": "b",
+                "text": "10 giờ 5 phút"
+              },
+              {
+                "id": "c",
+                "text": "11 giờ 25 phút"
+              },
+              {
+                "id": "d",
+                "text": "10 giờ 25 phút"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "10 giờ 25 phút",
+              "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Kim phút chỉ số 5 nghĩa là 25 phút (mỗi số cách nhau 5 phút)."
+                },
+                {
+                  "kind": "equation",
+                  "text": "5 × 5 = 25"
+                },
+                {
+                  "kind": "text",
+                  "text": "Đồng hồ chỉ 10 giờ 25 phút."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-31.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Tháng nào dưới đây có 31 ngày?"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "thoi_gian.lich"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Tháng 11"
+              },
+              {
+                "id": "b",
+                "text": "Tháng 5"
+              },
+              {
+                "id": "c",
+                "text": "Tháng 4"
+              },
+              {
+                "id": "d",
+                "text": "Tháng 9"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Tháng 5",
+              "hint": "Con đếm tháng trên các khớp nắm tay: tháng ở chỗ gồ lên có ba mươi mốt ngày.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Các tháng có 30 ngày: tháng 4, 6, 9, 11. Tháng 2 năm 2027 có 28 ngày. Các tháng còn lại có 31 ngày."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-31.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "10.112 × 3 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.5cs_1cs"
+            ],
+            "access": "free",
+            "template": "10.112 × 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 30336
+                },
+                "maxLength": 6
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "30.336",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "10112",
+                    "3"
+                  ],
+                  "result": "30336",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 2 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 1 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 2,
+                      "text": "3 nhân 1 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 3,
+                      "text": "3 nhân 0 bằng 0, viết 0.",
+                      "write": "0"
+                    },
+                    {
+                      "place": 4,
+                      "text": "3 nhân 1 bằng 3, viết 3.",
+                      "write": "3"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "10.112 × 3 = 30.336"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-31.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Bố có 3 tờ 20.000 đồng và 3 tờ 1.000 đồng. Hỏi bố có tất cả bao nhiêu tiền?"
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tien.viet_nam"
+            ],
+            "access": "free",
+            "template": "Bố có tất cả {{b1}} đồng.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 63000,
+                  "unit": "đồng",
+                  "unitAliases": [
+                    "đ"
+                  ]
+                },
+                "maxLength": 6
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "63.000 đồng",
+              "hint": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "20.000 × 3 + 1.000 × 3 = 63.000"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-31.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "10.643 × 7 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.5cs_1cs"
+            ],
+            "access": "free",
+            "template": "10.643 × 7 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 74501
+                },
+                "maxLength": 6
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "74.501",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "10643",
+                    "7"
+                  ],
+                  "result": "74501",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "7 nhân 3 bằng 21, viết 1 nhớ 2.",
+                      "write": "1",
+                      "carry": 2
+                    },
+                    {
+                      "place": 1,
+                      "text": "7 nhân 4 bằng 28, thêm 2 bằng 30, viết 0 nhớ 3.",
+                      "write": "0",
+                      "carry": 3
+                    },
+                    {
+                      "place": 2,
+                      "text": "7 nhân 6 bằng 42, thêm 3 bằng 45, viết 5 nhớ 4.",
+                      "write": "5",
+                      "carry": 4
+                    },
+                    {
+                      "place": 3,
+                      "text": "7 nhân 0 bằng 0, thêm 4 bằng 4, viết 4.",
+                      "write": "4"
+                    },
+                    {
+                      "place": 4,
+                      "text": "7 nhân 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "10.643 × 7 = 74.501"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c7.on-tap-bieu-thuc-so",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c7",
+  "order": 2,
+  "title": "Ôn tập biểu thức số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Thứ tự tính giá trị biểu thức: trong ngoặc trước; nhân, chia trước; cộng, trừ sau; cùng loại thì từ trái sang phải.",
+        "style": "rule"
+      },
+      {
+        "kind": "equation",
+        "text": "37 × 8 - 130 = 296 - 130 = 166"
+      },
+      {
+        "kind": "equation",
+        "text": "(76 + 31) × 2 = 107 × 2 = 214"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "475 - 171 + 128 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "475 - 171 + 128 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 432
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "432",
+        "hint": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "475 - 171 + 128 = 304 + 128 = 432"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "15 : 3 × 5 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "15 : 3 × 5 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 25
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "25",
+        "hint": "Biểu thức chỉ có cộng, trừ hoặc chỉ có nhân, chia thì con tính lần lượt từ trái sang phải.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "15 : 3 × 5 = 5 × 5 = 25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "230 - 32 × 2 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "230 - 32 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 166
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "166",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "230 - 32 × 2 = 230 - 64 = 166"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "720 - (125 + 119) = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "720 - (125 + 119) = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 476
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "476",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "720 - (125 + 119) = 720 - 244 = 476"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "362 + 34 × 3"
+        },
+        {
+          "id": "l2",
+          "text": "24 : 3 × 6"
+        },
+        {
+          "id": "l3",
+          "text": "(69 + 80) × 3"
+        },
+        {
+          "id": "l4",
+          "text": "9 × 6 : 2"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "464"
+        },
+        {
+          "id": "r2",
+          "text": "447"
+        },
+        {
+          "id": "r3",
+          "text": "1.188"
+        },
+        {
+          "id": "r4",
+          "text": "48"
+        },
+        {
+          "id": "r5",
+          "text": "27"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "362 + 34 × 3 = 464; 24 : 3 × 6 = 48; (69 + 80) × 3 = 447; 9 × 6 : 2 = 27",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "362 + 34 × 3 = 362 + 102 = 464"
+          },
+          {
+            "kind": "equation",
+            "text": "24 : 3 × 6 = 8 × 6 = 48"
+          },
+          {
+            "kind": "equation",
+            "text": "(69 + 80) × 3 = 149 × 3 = 447"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 6 : 2 = 54 : 2 = 27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "276 + 24 × 4 = {{s1}}\n(77 + 39) × 8 = {{s2}}\n(47 + 196) : 9 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "928"
+        },
+        {
+          "id": "t2",
+          "text": "1.200"
+        },
+        {
+          "id": "t3",
+          "text": "372"
+        },
+        {
+          "id": "t4",
+          "text": "27"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "372; 928; 27",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "276 + 24 × 4 = 276 + 96 = 372"
+          },
+          {
+            "kind": "equation",
+            "text": "(77 + 39) × 8 = 116 × 8 = 928"
+          },
+          {
+            "kind": "equation",
+            "text": "(47 + 196) : 9 = 243 : 9 = 27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "54 + 38 × 2 ... (54 + 38) × 2"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "54 + 38 × 2 = 130"
+          },
+          {
+            "kind": "equation",
+            "text": "(54 + 38) × 2 = 184"
+          },
+          {
+            "kind": "text",
+            "text": "Vì 130 < 184 nên 54 + 38 × 2 < (54 + 38) × 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ mua 3 gói kẹo, mỗi gói có 26 cái kẹo, và mua thêm 22 cái bánh. Hỏi mẹ đã mua tất cả bao nhiêu cái kẹo và bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ đã mua tất cả {{b1}} cái kẹo và bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 100,
+            "unit": "cái"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100 cái kẹo và bánh",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số kẹo và bánh mẹ đã mua là:",
+                "equation": "26 × 3 + 22 = 100 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 100 cái kẹo và bánh."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có thể viết gộp thành một biểu thức rồi tính giá trị của biểu thức đó.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-bieu-thuc-so.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lớp 3A có 10 bạn nam và 11 bạn nữ. Cô giáo chia đều cả lớp thành 3 nhóm. Hỏi mỗi nhóm có bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mỗi nhóm có {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "7 bạn",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bạn trong mỗi nhóm là:",
+                "equation": "(10 + 11) : 3 = 7 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 7 bạn."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có thể viết gộp thành một biểu thức rồi tính giá trị của biểu thức đó.",
+            "style": "tip"
+          }
+        ]
+      }
+    }
+  ]
+}

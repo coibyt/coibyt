@@ -1,0 +1,554 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c13.xem-dong-ho-thang-nam",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c13",
+  "order": 1,
+  "title": "Xem đồng hồ. Tháng – năm",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Kim ngắn chỉ giờ, kim dài chỉ phút; mỗi số trên mặt đồng hồ ứng với 5 phút. Một năm có 12 tháng; tháng 4, 6, 9, 11 có 30 ngày; tháng 2 có 28 hoặc 29 ngày; các tháng còn lại có 31 ngày.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 8 giờ 40 phút còn gọi là 9 giờ kém 20 phút."
+      },
+      {
+        "kind": "equation",
+        "text": "60 - 40 = 20"
+      },
+      {
+        "kind": "text",
+        "text": "13 giờ là 1 giờ chiều, 20 giờ là 8 giờ tối.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Đồng hồ chỉ mấy giờ?",
+      "prompt": {
+        "text": "Kim giờ chỉ giữa số 3 và số 4, kim phút chỉ vào số 11. Đồng hồ chỉ mấy giờ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4 giờ 55 phút"
+        },
+        {
+          "id": "b",
+          "text": "3 giờ 11 phút"
+        },
+        {
+          "id": "c",
+          "text": "11 giờ 15 phút"
+        },
+        {
+          "id": "d",
+          "text": "3 giờ 55 phút"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 giờ 55 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Kim phút chỉ số 11 nghĩa là 55 phút (mỗi số cách nhau 5 phút)."
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 11 = 55"
+          },
+          {
+            "kind": "text",
+            "text": "Đồng hồ chỉ 3 giờ 55 phút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "3 giờ 55 phút còn gọi là mấy giờ kém mấy phút?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "3 giờ 55 phút hay 4 giờ kém {{b1}} phút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "phút"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 giờ kém 5 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Còn bao nhiêu phút nữa thì đủ 60 phút?"
+          },
+          {
+            "kind": "equation",
+            "text": "60 - 55 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tháng 6 và tháng 3 có bao nhiêu ngày?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.lich"
+      ],
+      "access": "free",
+      "template": "Tháng 6 có {{b1}} ngày.\nTháng 3 có {{b2}} ngày.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "ngày"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 31,
+            "unit": "ngày"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30 ngày; 31 ngày",
+        "hint": "Con đếm tháng trên các khớp nắm tay: tháng ở chỗ gồ lên có ba mươi mốt ngày.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tháng 6 có 30 ngày, tháng 3 có 31 ngày."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Tháng nào dưới đây có 30 ngày?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.lich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Tháng 9"
+        },
+        {
+          "id": "b",
+          "text": "Tháng 3"
+        },
+        {
+          "id": "c",
+          "text": "Tháng 5"
+        },
+        {
+          "id": "d",
+          "text": "Tháng 7"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tháng 9",
+        "hint": "Con đếm tháng trên các khớp nắm tay: tháng ở chỗ gồ lên có ba mươi mốt ngày.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các tháng có 30 ngày: tháng 4, 6, 9, 11. Tháng 2 năm 2027 có 28 ngày. Các tháng còn lại có 31 ngày."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai cách nói cùng giờ.",
+      "prompt": {
+        "text": "Nối mỗi giờ bên trái với cách nói khác của giờ đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "15 giờ"
+        },
+        {
+          "id": "l2",
+          "text": "14 giờ"
+        },
+        {
+          "id": "l3",
+          "text": "20 giờ"
+        },
+        {
+          "id": "l4",
+          "text": "17 giờ"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "1 giờ sáng"
+        },
+        {
+          "id": "r2",
+          "text": "3 giờ chiều"
+        },
+        {
+          "id": "r3",
+          "text": "5 giờ chiều"
+        },
+        {
+          "id": "r4",
+          "text": "8 giờ tối"
+        },
+        {
+          "id": "r5",
+          "text": "2 giờ chiều"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 giờ = 3 giờ chiều; 14 giờ = 2 giờ chiều; 20 giờ = 8 giờ tối; 17 giờ = 5 giờ chiều",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "15 - 12 = 3"
+          },
+          {
+            "kind": "equation",
+            "text": "14 - 12 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "20 - 12 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "17 - 12 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thoi_gian.lich",
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "Tháng 2 năm 2027 có {{s1}} ngày.\nMột tuần lễ có {{s2}} ngày.\nMột năm có {{s3}} tháng.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "30"
+        },
+        {
+          "id": "t2",
+          "text": "7"
+        },
+        {
+          "id": "t3",
+          "text": "28"
+        },
+        {
+          "id": "t4",
+          "text": "12"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "28; 7; 12",
+        "hint": "Một tuần có bảy ngày, con đếm thêm từng tuần trên lịch nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tháng 2 năm 2027 có 28 ngày."
+          },
+          {
+            "kind": "text",
+            "text": "Một tuần lễ có 7 ngày."
+          },
+          {
+            "kind": "text",
+            "text": "Một năm có 12 tháng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đồng hồ chỉ 7 giờ 5 phút. Thêm 20 phút nữa là mấy giờ mấy phút?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thoi_gian.dong_ho"
+      ],
+      "access": "free",
+      "template": "Lúc đó là {{b1}} giờ {{b2}} phút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "giờ"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 25,
+            "unit": "phút"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 giờ 25 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "5 + 20 = 25"
+          },
+          {
+            "kind": "text",
+            "text": "Ta được 7 giờ 25 phút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Ngày 3 tháng 1 năm 2027 là Chủ nhật. Hỏi ngày 19 tháng 1 năm 2027 là thứ mấy?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.lich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Thứ Hai"
+        },
+        {
+          "id": "b",
+          "text": "Thứ Bảy"
+        },
+        {
+          "id": "c",
+          "text": "Thứ Ba"
+        },
+        {
+          "id": "d",
+          "text": "Thứ Sáu"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Thứ Ba",
+        "hint": "Một tuần có bảy ngày, con đếm thêm từng tuần trên lịch nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "19 - 3 = 16"
+          },
+          {
+            "kind": "text",
+            "text": "16 ngày là 2 tuần và 2 ngày. Ngày 19 tháng 1 là thứ Ba."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c13.xem-dong-ho-thang-nam.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Buổi học bơi bắt đầu lúc 9 giờ 30 phút và kéo dài 35 phút. Hỏi buổi học bơi kết thúc lúc mấy giờ mấy phút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thoi_gian.dong_ho",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Buổi học bơi kết thúc lúc {{b1}} giờ {{b2}} phút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10,
+            "unit": "giờ"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "phút"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "10 giờ 5 phút",
+        "hint": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "30 + 35 = 65"
+          },
+          {
+            "kind": "equation",
+            "text": "65 - 60 = 5"
+          },
+          {
+            "kind": "text",
+            "text": "65 phút = 1 giờ 5 phút, nên ta được 10 giờ 5 phút."
+          }
+        ]
+      }
+    }
+  ]
+}

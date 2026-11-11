@@ -1,0 +1,610 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c9",
+  "order": 1,
+  "title": "Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Chu vi một hình là tổng độ dài các cạnh của hình đó. Chu vi hình chữ nhật = (dài + rộng) × 2; chu vi hình vuông = cạnh × 4.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: hình chữ nhật dài 12 cm, rộng 7 cm có chu vi:"
+      },
+      {
+        "kind": "equation",
+        "text": "(12 + 7) × 2 = 38"
+      },
+      {
+        "kind": "text",
+        "text": "Chiều dài và chiều rộng phải cùng đơn vị đo.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính chu vi.",
+      "prompt": {
+        "text": "Hình tam giác APK có độ dài các cạnh là 16 cm, 7 cm và 22 cm. Tính chu vi hình tam giác đó."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Chu vi là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 45,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "16",
+              "7",
+              "22"
+            ],
+            "result": "45",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 7 cộng 2 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "16 + 7 + 22 = 45"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính chu vi.",
+      "prompt": {
+        "text": "Hình tứ giác OENA có độ dài các cạnh là 15 cm, 21 cm, 16 cm và 15 cm. Tính chu vi hình tứ giác đó."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Chu vi là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 67,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "67 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "15 + 21 + 16 + 15 = 67"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính chu vi.",
+      "prompt": {
+        "text": "Hình chữ nhật KHOG có chiều dài 27 cm, chiều rộng 15 cm. Tính chu vi hình chữ nhật đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Chu vi là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 84,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "84 cm",
+        "hint": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(27 + 15) × 2 = 42 × 2 = 84"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình vuông IMCD có cạnh dài 17 cm. Chu vi của hình vuông đó là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "289 cm"
+        },
+        {
+          "id": "b",
+          "text": "68 cm"
+        },
+        {
+          "id": "c",
+          "text": "34 cm"
+        },
+        {
+          "id": "d",
+          "text": "72 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "68 cm",
+        "hint": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "17 × 4 = 68"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hình với chu vi.",
+      "prompt": {
+        "text": "Nối mỗi hình với chu vi của hình đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình chữ nhật dài 10 cm, rộng 5 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Hình vuông cạnh 12 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Hình chữ nhật dài 20 cm, rộng 10 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Hình chữ nhật dài 4 cm, rộng 3 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "60 cm"
+        },
+        {
+          "id": "r2",
+          "text": "48 cm"
+        },
+        {
+          "id": "r3",
+          "text": "10 cm"
+        },
+        {
+          "id": "r4",
+          "text": "30 cm"
+        },
+        {
+          "id": "r5",
+          "text": "14 cm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình chữ nhật dài 10 cm, rộng 5 cm: 30 cm; Hình vuông cạnh 12 cm: 48 cm; Hình chữ nhật dài 20 cm, rộng 10 cm: 60 cm; Hình chữ nhật dài 4 cm, rộng 3 cm: 14 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(10 + 5) × 2 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "12 × 4 = 48"
+          },
+          {
+            "kind": "equation",
+            "text": "(20 + 10) × 2 = 60"
+          },
+          {
+            "kind": "equation",
+            "text": "(4 + 3) × 2 = 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo chu vi đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Hình vuông cạnh 8 cm: chu vi {{s1}} cm\nHình chữ nhật dài 5 cm, rộng 4 cm: chu vi {{s2}} cm\nHình vuông cạnh 7 cm: chu vi {{s3}} cm",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "32"
+        },
+        {
+          "id": "t2",
+          "text": "28"
+        },
+        {
+          "id": "t3",
+          "text": "10"
+        },
+        {
+          "id": "t4",
+          "text": "18"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "32 cm; 18 cm; 28 cm",
+        "hint": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "8 × 4 = 32"
+          },
+          {
+            "kind": "equation",
+            "text": "(5 + 4) × 2 = 18"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 4 = 28"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chiều dài 17 m, chiều rộng 13 m. Người ta rào xung quanh mảnh vườn. Hỏi hàng rào dài bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Hàng rào dài {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 60,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60 m",
+        "hint": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chu vi mảnh vườn là:",
+                "equation": "(17 + 13) × 2 = 60 (m)"
+              }
+            ],
+            "answer": "Đáp số: 60 m."
+          },
+          {
+            "kind": "text",
+            "text": "Độ dài hàng rào chính là chu vi mảnh vườn.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một hình vuông có chu vi 28 cm. Hỏi cạnh của hình vuông đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7 cm"
+        },
+        {
+          "id": "b",
+          "text": "5 cm"
+        },
+        {
+          "id": "c",
+          "text": "11 cm"
+        },
+        {
+          "id": "d",
+          "text": "14 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 cm",
+        "hint": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cạnh của hình vuông dài là:",
+                "equation": "28 : 4 = 7 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 7 cm."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "28",
+            "divisor": "4",
+            "quotient": "7",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "28 chia 4 được 7, viết 7. 7 nhân 4 bằng 28; 28 trừ 28 bằng 0.",
+                "partialDividend": 28,
+                "quotientDigit": 7,
+                "product": 28,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một khung ảnh hình vuông có cạnh 29 cm. Bạn Mai dán ruy băng xung quanh khung ảnh. Hỏi Mai cần đoạn ruy băng dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mai cần {{b1}} cm ruy băng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 116,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "116 cm",
+        "hint": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chu vi khung ảnh là:",
+                "equation": "29 × 4 = 116 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 116 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "29",
+              "4"
+            ],
+            "result": "116",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 9 bằng 36, viết 6 nhớ 3.",
+                "write": "6",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 2 bằng 8, thêm 3 bằng 11, viết 11.",
+                "write": "11"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c3.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c3",
+  "order": 7,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: trung điểm, hình tròn, góc vuông, các hình phẳng và khối hình đã học.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Trung điểm chia đôi đoạn thẳng. Đường kính gấp đôi bán kính. Hình vuông có 4 góc vuông."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "E là trung điểm của đoạn thẳng KD. Đoạn thẳng KD dài 30 cm. Hỏi đoạn thẳng KE dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đoạn thẳng KE dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 cm",
+        "hint": "Trung điểm nằm ở giữa và chia đoạn thẳng thành hai phần dài bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "E là trung điểm nên KE = ED."
+          },
+          {
+            "kind": "equation",
+            "text": "30 : 2 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình tròn tâm G có bán kính 15 cm. Đường kính của hình tròn đó dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "template": "Đường kính dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "15 × 2 = 30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình nào dưới đây có 3 cạnh?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hình tam giác"
+        },
+        {
+          "id": "b",
+          "text": "Hình vuông"
+        },
+        {
+          "id": "c",
+          "text": "Hình chữ nhật"
+        },
+        {
+          "id": "d",
+          "text": "Hình tròn"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình tam giác",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đáp án đúng: Hình tam giác."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Khối hộp chữ nhật có mấy mặt, mấy cạnh, mấy đỉnh?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.khoi"
+      ],
+      "access": "free",
+      "template": "Khối hộp chữ nhật có {{b1}} mặt, {{b2}} cạnh và {{b3}} đỉnh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 12
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 mặt, 12 cạnh, 8 đỉnh",
+        "hint": "Con đếm lần lượt các mặt, các cạnh, các đỉnh của khối hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Khối hộp chữ nhật có 6 mặt, 12 cạnh và 8 đỉnh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "hinh_hoc.goc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9 giờ"
+        },
+        {
+          "id": "b",
+          "text": "8 giờ"
+        },
+        {
+          "id": "c",
+          "text": "7 giờ"
+        },
+        {
+          "id": "d",
+          "text": "10 giờ"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 giờ",
+        "hint": "Con dùng ê ke để kiểm tra góc vuông nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Lúc 9 giờ, kim phút chỉ số 12, kim giờ chỉ số 9; hai kim tạo thành góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối bán kính với đường kính của cùng một hình tròn."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.hinh_phang"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Bán kính 9 cm"
+        },
+        {
+          "id": "l2",
+          "text": "Bán kính 3 cm"
+        },
+        {
+          "id": "l3",
+          "text": "Bán kính 7 cm"
+        },
+        {
+          "id": "l4",
+          "text": "Bán kính 14 cm"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "Đường kính 6 cm"
+        },
+        {
+          "id": "r2",
+          "text": "Đường kính 18 cm"
+        },
+        {
+          "id": "r3",
+          "text": "Đường kính 28 cm"
+        },
+        {
+          "id": "r4",
+          "text": "Đường kính 14 cm"
+        },
+        {
+          "id": "r5",
+          "text": "Đường kính 5 cm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Bán kính 9 cm → Đường kính 18 cm; Bán kính 3 cm → Đường kính 6 cm; Bán kính 7 cm → Đường kính 14 cm; Bán kính 14 cm → Đường kính 28 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "9 × 2 = 18"
+          },
+          {
+            "kind": "equation",
+            "text": "3 × 2 = 6"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 2 = 14"
+          },
+          {
+            "kind": "equation",
+            "text": "14 × 2 = 28"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.da_giac"
+      ],
+      "access": "free",
+      "template": "Hình tam giác có {{s1}} đỉnh.\nHình tứ giác có {{s2}} đỉnh.\nHình chữ nhật có {{s3}} góc vuông.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3"
+        },
+        {
+          "id": "t2",
+          "text": "2"
+        },
+        {
+          "id": "t3",
+          "text": "5"
+        },
+        {
+          "id": "t4",
+          "text": "4"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "reuseTokens": true,
+      "solution": {
+        "access": "free",
+        "answerText": "3; 4; 4",
+        "hint": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình tam giác có 3 đỉnh."
+          },
+          {
+            "kind": "text",
+            "text": "Hình tứ giác có 4 đỉnh."
+          },
+          {
+            "kind": "text",
+            "text": "Hình chữ nhật có 4 góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một chiếc mâm hình tròn có bán kính 34 cm. Hỏi đường kính chiếc mâm dài bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.hinh_phang",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Đường kính chiếc mâm dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 68,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "68 cm",
+        "hint": "Trong một hình tròn, đường kính dài gấp đôi bán kính nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Đường kính chiếc mâm dài là:",
+                "equation": "34 × 2 = 68 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 68 cm."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "34",
+              "2"
+            ],
+            "result": "68",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c3.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bạn Hoa cắt được 4 tấm bìa hình vuông và 2 tấm bìa hình chữ nhật. Hỏi tất cả các tấm bìa đó có bao nhiêu góc vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.goc",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Có tất cả {{b1}} góc vuông.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 24,
+            "unit": "góc"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "24 góc vuông",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tấm bìa bạn Hoa cắt được là:",
+                "equation": "4 + 2 = 6 (tấm)"
+              },
+              {
+                "explanation": "Số góc vuông có tất cả là:",
+                "equation": "4 × 6 = 24 (góc)"
+              }
+            ],
+            "answer": "Đáp số: 24 góc vuông."
+          }
+        ]
+      }
+    }
+  ]
+}

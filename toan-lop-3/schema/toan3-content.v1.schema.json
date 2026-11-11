@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://ongvang.example/schema/toan3-content.v1.schema.json",
   "title": "Ong Vàng Toán 3 — nội dung học (schema v1)",
-  "description": "Một file nội dung là MỘT trong ba loại: 'catalog' (mục lục Bộ sách → Chủ đề → Bài học / Đề kiểm tra), 'lesson' (một bài học: lý thuyết + danh sách Bài Toán) hoặc 'exam' (đề kiểm tra, từ 1.1.0). schemaVersion theo semver: app chấp nhận mọi bản 1.x; tăng MINOR khi chỉ THÊM trường tuỳ chọn, tăng MAJOR khi đổi/xoá trường. Miền placeholder 'ongvang.example' sẽ thay khi có domain thật.",
+  "description": "Một file nội dung là MỘT trong bốn loại: 'catalog' (mục lục Bộ sách → Chủ đề → Bài học / Đề kiểm tra), 'lesson' (một bài học: lý thuyết + danh sách Bài Toán), 'exam' (đề kiểm tra, từ 1.1.0) hoặc 'calendar' (lịch học từng ngày của năm học, từ 1.3.0). schemaVersion theo semver: app chấp nhận mọi bản 1.x; tăng MINOR khi chỉ THÊM trường tuỳ chọn, tăng MAJOR khi đổi/xoá trường. Miền placeholder 'ongvang.example' sẽ thay khi có domain thật.",
   "oneOf": [
     {
       "$ref": "#/$defs/catalog"
@@ -12,6 +12,9 @@
     },
     {
       "$ref": "#/$defs/exam"
+    },
+    {
+      "$ref": "#/$defs/calendar"
     }
   ],
   "$defs": {
@@ -1052,6 +1055,12 @@
                               "$ref": "#/$defs/skillId"
                             },
                             "description": "Từ 1.2.0: kỹ năng bài học luyện — để bảng điểm gợi ý 'ôn ngay' đúng bài."
+                          },
+                          "periods": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 5,
+                            "description": "Từ 1.3.0: số tiết học trên lớp của bài (cả năm lớp 3 = 175 tiết). Dùng để xếp lịch học từng ngày (calendar.json)."
                           }
                         },
                         "additionalProperties": false
@@ -1246,6 +1255,164 @@
       },
       "additionalProperties": false,
       "$comment": "Chấm: trắc nghiệm đúng/sai cả câu; điền số, kéo thả, nối được điểm theo tỉ lệ phần đúng (làm tròn xuống 0,25). Điểm hiển thị cho bé làm tròn thành số nguyên. Thời gian theo loại đề (app kiểm tra): kt_15p = 15 phút; kt_1_tiet = 35–45; giữa/cuối kì = 35–60."
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Ngày theo ISO 8601 (YYYY-MM-DD), giờ địa phương Việt Nam."
+    },
+    "calendar": {
+      "title": "Lịch học từng ngày (từ schema 1.3.0)",
+      "description": "Mỗi ngày học (thứ Hai – thứ Sáu, trừ ngày nghỉ lễ) ứng với một tiết Toán: bài học nào, tiết thứ mấy của bài. Các ngày nối tiếp nhau theo đúng thứ tự bài học trong catalog.",
+      "type": "object",
+      "required": [
+        "schemaVersion",
+        "kind",
+        "bookId",
+        "schoolYear",
+        "terms",
+        "holidays",
+        "days"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "$ref": "#/$defs/schemaVersion"
+        },
+        "kind": {
+          "const": "calendar"
+        },
+        "bookId": {
+          "$ref": "#/$defs/id"
+        },
+        "schoolYear": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{4}$",
+          "description": "Vd '2026-2027'."
+        },
+        "terms": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "term",
+              "start",
+              "end"
+            ],
+            "properties": {
+              "term": {
+                "enum": [
+                  1,
+                  2
+                ]
+              },
+              "start": {
+                "$ref": "#/$defs/date"
+              },
+              "end": {
+                "$ref": "#/$defs/date"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "holidays": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "start",
+              "end",
+              "name"
+            ],
+            "properties": {
+              "start": {
+                "$ref": "#/$defs/date"
+              },
+              "end": {
+                "$ref": "#/$defs/date"
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Các đợt nghỉ lễ (tính cả ngày đầu và ngày cuối)."
+        },
+        "days": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "date",
+              "week",
+              "term",
+              "lessonId",
+              "part",
+              "parts"
+            ],
+            "properties": {
+              "date": {
+                "$ref": "#/$defs/date"
+              },
+              "week": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Tuần học thứ mấy (tuần thứ Hai – thứ Sáu có ít nhất một ngày học)."
+              },
+              "term": {
+                "enum": [
+                  1,
+                  2
+                ]
+              },
+              "lessonId": {
+                "$ref": "#/$defs/id",
+                "description": "Mã bài học trong catalog."
+              },
+              "part": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Tiết thứ mấy của bài (1..parts)."
+              },
+              "parts": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5,
+                "description": "Bài học có tất cả mấy tiết (= periods trong catalog)."
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "exams": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "week",
+              "examId"
+            ],
+            "properties": {
+              "week": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "examId": {
+                "$ref": "#/$defs/id",
+                "description": "Mã đề trong catalog (books[].exams[])."
+              }
+            },
+            "additionalProperties": false
+          },
+          "description": "Đề kiểm tra gợi ý làm trong tuần nào."
+        }
+      },
+      "additionalProperties": false
     }
   }
 }

@@ -1,0 +1,665 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c6.luyen-tap-chung",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 6,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: nhân, chia số có ba chữ số với số có một chữ số; tính giá trị biểu thức; so sánh số lớn gấp mấy lần số bé.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 120 × 5 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "multiply",
+        "operands": [
+          "120",
+          "5"
+        ],
+        "result": "600",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "5 nhân 0 bằng 0, viết 0.",
+            "write": "0"
+          },
+          {
+            "place": 1,
+            "text": "5 nhân 2 bằng 10, viết 0 nhớ 1.",
+            "write": "0",
+            "carry": 1
+          },
+          {
+            "place": 2,
+            "text": "5 nhân 1 bằng 5, thêm 1 bằng 6, viết 6.",
+            "write": "6"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "120 × 5 = 600"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "142 × 4 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "142 × 4 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 568
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "568",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "142",
+              "4"
+            ],
+            "result": "568",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 2 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 4 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "142 × 4 = 568"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 768 : 8 là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "95"
+        },
+        {
+          "id": "b",
+          "text": "97"
+        },
+        {
+          "id": "c",
+          "text": "96"
+        },
+        {
+          "id": "d",
+          "text": "960"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "96",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "768",
+            "divisor": "8",
+            "quotient": "96",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "76 chia 8 được 9, viết 9. 9 nhân 8 bằng 72; 76 trừ 72 bằng 4.",
+                "partialDividend": 76,
+                "quotientDigit": 9,
+                "product": 72,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 8, được 48; 48 chia 8 được 6, viết 6. 6 nhân 8 bằng 48; 48 trừ 48 bằng 0.",
+                "partialDividend": 48,
+                "quotientDigit": 6,
+                "product": 48,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "768 : 8 = 96"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "54 - 12 × 3 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "54 - 12 × 3 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 18
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "54 - 12 × 3 = 54 - 36 = 18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức (42 + 189) : 7 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "69"
+        },
+        {
+          "id": "b",
+          "text": "43"
+        },
+        {
+          "id": "c",
+          "text": "23"
+        },
+        {
+          "id": "d",
+          "text": "33"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "33",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(42 + 189) : 7 = 231 : 7 = 33"
+          },
+          {
+            "kind": "text",
+            "text": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số lớn là 28, số bé là 4. Số lớn gấp mấy lần số bé?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "template": "Số lớn gấp {{b1}} lần số bé.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 lần",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "28 : 4 = 7"
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 28 gấp 7 lần 4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "381 : 3"
+        },
+        {
+          "id": "l2",
+          "text": "464 : 2"
+        },
+        {
+          "id": "l3",
+          "text": "594 : 3"
+        },
+        {
+          "id": "l4",
+          "text": "129 × 7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "127"
+        },
+        {
+          "id": "r2",
+          "text": "198"
+        },
+        {
+          "id": "r3",
+          "text": "232"
+        },
+        {
+          "id": "r4",
+          "text": "743"
+        },
+        {
+          "id": "r5",
+          "text": "903"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "381 : 3 = 127; 464 : 2 = 232; 594 : 3 = 198; 129 × 7 = 903",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "381 : 3 = 127"
+          },
+          {
+            "kind": "equation",
+            "text": "464 : 2 = 232"
+          },
+          {
+            "kind": "equation",
+            "text": "594 : 3 = 198"
+          },
+          {
+            "kind": "equation",
+            "text": "129 × 7 = 903"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "(41 + 19) : 5 = {{s1}}\n76 + 205 : 5 = {{s2}}\n161 + 93 : 3 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "117"
+        },
+        {
+          "id": "t2",
+          "text": "192"
+        },
+        {
+          "id": "t3",
+          "text": "12"
+        },
+        {
+          "id": "t4",
+          "text": "127"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 117; 192",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(41 + 19) : 5 = 60 : 5 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "76 + 205 : 5 = 76 + 41 = 117"
+          },
+          {
+            "kind": "equation",
+            "text": "161 + 93 : 3 = 161 + 31 = 192"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi tháng một cửa hàng bán được 477 quyển vở. Hỏi trong 2 tháng cửa hàng đó bán được bao nhiêu quyển vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong 2 tháng cửa hàng bán được {{b1}} quyển vở.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 954,
+            "unit": "quyển"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "954 quyển vở",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số vở cửa hàng bán được trong 2 tháng là:",
+                "equation": "477 × 2 = 954 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 954 quyển vở."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "477",
+              "2"
+            ],
+            "result": "954",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 7 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 4 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi kho có 76 kg gạo nếp và 20 kg gạo tẻ. Hỏi 6 kho như thế có tất cả bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "nhan.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "6 kho có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 576,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "576 kg gạo",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo có trong mỗi kho là:",
+                "equation": "76 + 20 = 96 (kg)"
+              },
+              {
+                "explanation": "Số gạo có trong 6 kho là:",
+                "equation": "96 × 6 = 576 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 576 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "76",
+              "20"
+            ],
+            "result": "96",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 0 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 2 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "96",
+              "6"
+            ],
+            "result": "576",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 6 bằng 36, viết 6 nhớ 3.",
+                "write": "6",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 9 bằng 54, thêm 3 bằng 57, viết 57.",
+                "write": "57"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

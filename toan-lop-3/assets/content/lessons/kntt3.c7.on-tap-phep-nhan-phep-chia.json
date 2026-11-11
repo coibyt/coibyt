@@ -1,0 +1,736 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c7.on-tap-phep-nhan-phep-chia",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c7",
+  "order": 1,
+  "title": "Ôn tập phép nhân, phép chia trong phạm vi 100, 1000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại cách đặt tính nhân, chia với số có một chữ số trong phạm vi 100 và 1.000.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 160 : 8 = ?"
+      },
+      {
+        "kind": "long_division",
+        "dividend": "160",
+        "divisor": "8",
+        "quotient": "20",
+        "remainder": 0,
+        "digitSteps": [
+          {
+            "text": "16 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 16 trừ 16 bằng 0.",
+            "partialDividend": 16,
+            "quotientDigit": 2,
+            "product": 16,
+            "remainder": 0
+          },
+          {
+            "text": "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.",
+            "partialDividend": 0,
+            "quotientDigit": 0,
+            "product": 0,
+            "remainder": 0
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "160 : 8 = 20"
+      },
+      {
+        "kind": "text",
+        "text": "Thử lại phép chia bằng phép nhân: thương nhân với số chia (cộng số dư nếu có) bằng số bị chia.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính nhẩm.",
+      "prompt": {
+        "text": "9 × 10 = ?\n72 : 9 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "9 × 10 = {{b1}}\n72 : 9 = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 90
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "90; 8",
+        "hint": "Con đọc lại bảng nhân hoặc đếm thêm đều để tìm kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "9 × 10 = 90"
+          },
+          {
+            "kind": "equation",
+            "text": "72 : 9 = 8"
+          },
+          {
+            "kind": "text",
+            "text": "Vì 9 × 8 = 72 nên 72 : 9 = 8.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "15 × 6 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.2cs_1cs.co_nho"
+      ],
+      "access": "free",
+      "template": "15 × 6 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 90
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "90",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "15",
+              "6"
+            ],
+            "result": "90",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 5 bằng 30, viết 0 nhớ 3.",
+                "write": "0",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 1 bằng 6, thêm 3 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "15 × 6 = 90"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 72 : 6 là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "11"
+        },
+        {
+          "id": "b",
+          "text": "12"
+        },
+        {
+          "id": "c",
+          "text": "22"
+        },
+        {
+          "id": "d",
+          "text": "13"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "72",
+            "divisor": "6",
+            "quotient": "12",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "7 chia 6 được 1, viết 1. 1 nhân 6 bằng 6; 7 trừ 6 bằng 1.",
+                "partialDividend": 7,
+                "quotientDigit": 1,
+                "product": 6,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 6 được 2, viết 2. 2 nhân 6 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 2,
+                "product": 12,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "72 : 6 = 12"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "275 × 3 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "275 × 3 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 825
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "825",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "275",
+              "3"
+            ],
+            "result": "825",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 5 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 7 bằng 21, thêm 1 bằng 22, viết 2 nhớ 2.",
+                "write": "2",
+                "carry": 2
+              },
+              {
+                "place": 2,
+                "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "275 × 3 = 825"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "376 : 7 = ? (dư ?)"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "chia.co_du"
+      ],
+      "access": "free",
+      "template": "376 : 7 = {{b1}} (dư {{b2}})",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 53
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "53 (dư 5)",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "376",
+            "divisor": "7",
+            "quotient": "53",
+            "remainder": 5,
+            "digitSteps": [
+              {
+                "text": "37 chia 7 được 5, viết 5. 5 nhân 7 bằng 35; 37 trừ 35 bằng 2.",
+                "partialDividend": 37,
+                "quotientDigit": 5,
+                "product": 35,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 6, được 26; 26 chia 7 được 3, viết 3. 3 nhân 7 bằng 21; 26 trừ 21 bằng 5.",
+                "partialDividend": 26,
+                "quotientDigit": 3,
+                "product": 21,
+                "remainder": 5
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": "376 : 7 = 53 (dư 5)"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "53 × 7 + 5 = 376"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "702 : 6 = {{s1}}\n396 : 4 = {{s2}}\n522 : 6 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "99"
+        },
+        {
+          "id": "t2",
+          "text": "87"
+        },
+        {
+          "id": "t3",
+          "text": "118"
+        },
+        {
+          "id": "t4",
+          "text": "117"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "117; 99; 87",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "702 : 6 = 117"
+          },
+          {
+            "kind": "equation",
+            "text": "396 : 4 = 99"
+          },
+          {
+            "kind": "equation",
+            "text": "522 : 6 = 87"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 118 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p07",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.3cs_1cs",
+        "chia.3cs_1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "110 × 5"
+        },
+        {
+          "id": "l2",
+          "text": "116 : 2"
+        },
+        {
+          "id": "l3",
+          "text": "702 : 9"
+        },
+        {
+          "id": "l4",
+          "text": "274 : 2"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "550"
+        },
+        {
+          "id": "r2",
+          "text": "138"
+        },
+        {
+          "id": "r3",
+          "text": "78"
+        },
+        {
+          "id": "r4",
+          "text": "58"
+        },
+        {
+          "id": "r5",
+          "text": "137"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "110 × 5 = 550; 116 : 2 = 58; 702 : 9 = 78; 274 : 2 = 137",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "110 × 5 = 550"
+          },
+          {
+            "kind": "equation",
+            "text": "116 : 2 = 58"
+          },
+          {
+            "kind": "equation",
+            "text": "702 : 9 = 78"
+          },
+          {
+            "kind": "equation",
+            "text": "274 : 2 = 137"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 254 kg đường chia đều vào 2 túi. Hỏi mỗi túi có bao nhiêu ki-lô-gam đường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.3cs_1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mỗi túi có {{b1}} kg đường.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 127,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "127 kg đường",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số đường trong mỗi túi là:",
+                "equation": "254 : 2 = 127 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 127 kg đường."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "254",
+            "divisor": "2",
+            "quotient": "127",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 5; 5 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 4, được 14; 14 chia 2 được 7, viết 7. 7 nhân 2 bằng 14; 14 trừ 14 bằng 0.",
+                "partialDividend": 14,
+                "quotientDigit": 7,
+                "product": 14,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c7.on-tap-phep-nhan-phep-chia.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một kho có 883 kg thóc. Người ta đã chở đi 3 xe, mỗi xe chở 80 kg thóc. Hỏi trong kho còn lại bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "nhan.3cs_1cs"
+      ],
+      "access": "free",
+      "template": "Trong kho còn lại {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 643,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "643 kg thóc",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc đã chở đi là:",
+                "equation": "80 × 3 = 240 (kg)"
+              },
+              {
+                "explanation": "Số thóc còn lại trong kho là:",
+                "equation": "883 - 240 = 643 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 643 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "80",
+              "3"
+            ],
+            "result": "240",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 8 bằng 24, viết 24.",
+                "write": "24"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "883",
+              "240"
+            ],
+            "result": "643",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 trừ 0 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "8 trừ 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "8 trừ 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

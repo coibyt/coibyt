@@ -1,0 +1,349 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.tuan-15",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c5",
+    "kntt3.c6"
+  ],
+  "title": "Kiểm tra cuối tuần 15",
+  "description": "Ôn lại bài của tuần: Luyện tập chung; Nhân số có ba chữ số với số có một chữ số; Chia số có ba chữ số cho số có một chữ số.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-15.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn số đo phù hợp.",
+            "prompt": {
+              "text": "Một thìa canh chứa khoảng:"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "do_luong.do_dai",
+              "do_luong.khoi_luong",
+              "do_luong.dung_tich"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "1 l"
+              },
+              {
+                "id": "b",
+                "text": "15 l"
+              },
+              {
+                "id": "c",
+                "text": "150 l"
+              },
+              {
+                "id": "d",
+                "text": "15 ml"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "15 ml",
+              "hint": "Con nghĩ đến đồ vật thật ngoài đời rồi chọn số đo hợp lý nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số đo phù hợp là 15 ml."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-15.q02",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "332 × 3 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "332 × 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 996
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "996",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "332",
+                    "3"
+                  ],
+                  "result": "996",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 2 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 3 bằng 9, viết 9.",
+                      "write": "9"
+                    },
+                    {
+                      "place": 2,
+                      "text": "3 nhân 3 bằng 9, viết 9.",
+                      "write": "9"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "332 × 3 = 996"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-15.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Viết số thích hợp vào chỗ trống:"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.do_dai"
+            ],
+            "access": "free",
+            "template": "9 m = {{b1}} mm\n70 mm = {{b2}} cm",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 9000,
+                  "unit": "mm",
+                  "unitAliases": [
+                    "mi-li-mét"
+                  ]
+                },
+                "maxLength": 5
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 7,
+                  "unit": "cm",
+                  "unitAliases": [
+                    "xăng-ti-mét"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9.000 mm; 7 cm",
+              "hint": "Nhớ nhé: một xăng-ti-mét bằng mười mi-li-mét, một mét bằng một trăm xăng-ti-mét.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "1 m = 1.000 mm; 1 cm = 10 mm.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "9 × 1.000 = 9.000"
+                },
+                {
+                  "kind": "equation",
+                  "text": "70 : 10 = 7"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-15.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "309 : 3 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "309 : 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 103
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "103",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "309",
+                  "divisor": "3",
+                  "quotient": "103",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.",
+                      "partialDividend": 3,
+                      "quotientDigit": 1,
+                      "product": 3,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                      "partialDividend": 0,
+                      "quotientDigit": 0,
+                      "product": 0,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 9; 9 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 9 trừ 9 bằng 0.",
+                      "partialDividend": 9,
+                      "quotientDigit": 3,
+                      "product": 9,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "309 : 3 = 103"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.gen.tuan-15.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "392 × 2 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.3cs_1cs"
+            ],
+            "access": "free",
+            "template": "392 × 2 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 784
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "784",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "392",
+                    "2"
+                  ],
+                  "result": "784",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "2 nhân 2 bằng 4, viết 4.",
+                      "write": "4"
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 nhân 9 bằng 18, viết 8 nhớ 1.",
+                      "write": "8",
+                      "carry": 1
+                    },
+                    {
+                      "place": 2,
+                      "text": "2 nhân 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "392 × 2 = 784"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

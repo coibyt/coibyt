@@ -1,0 +1,666 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c5.mi-li-lit",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c5",
+  "order": 3,
+  "title": "Mi-li-lít",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Mi-li-lít (ml) là đơn vị đo dung tích. 1 l = 1.000 ml.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 3 l = 3.000 ml vì"
+      },
+      {
+        "kind": "equation",
+        "text": "3 × 1.000 = 3.000"
+      },
+      {
+        "kind": "text",
+        "text": "Một thìa canh nước khoảng 15 ml.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c5.mi-li-lit.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "7 l = {{b1}} ml\n9.000 ml = {{b2}} l",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7000,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 9,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.000 ml; 9 l",
+        "hint": "Nhớ nhé: một lít bằng một nghìn mi-li-lít.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 1.000 = 7.000"
+          },
+          {
+            "kind": "equation",
+            "text": "9.000 : 1.000 = 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Một thìa canh chứa khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1 l"
+        },
+        {
+          "id": "b",
+          "text": "150 l"
+        },
+        {
+          "id": "c",
+          "text": "15 l"
+        },
+        {
+          "id": "d",
+          "text": "15 ml"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 ml",
+        "hint": "Con nghĩ đến đồ vật thật ngoài đời rồi chọn số đo hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 15 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "709 ml + 289 ml = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "709 ml + 289 ml = {{b1}} ml",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 998,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "998 ml",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "709",
+              "289"
+            ],
+            "result": "998",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 cộng 9 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 8 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "7 cộng 2 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "709 + 289 = 998"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị ml vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "4.100 ml ... 4 l"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": ">",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 4 l = 4.000 ml."
+          },
+          {
+            "kind": "text",
+            "text": "Ta có 4.100 ml > 4.000 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó ở bên phải."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 l"
+        },
+        {
+          "id": "l2",
+          "text": "7 l"
+        },
+        {
+          "id": "l3",
+          "text": "9 l"
+        },
+        {
+          "id": "l4",
+          "text": "1 l"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "7.000 ml"
+        },
+        {
+          "id": "r2",
+          "text": "200 ml"
+        },
+        {
+          "id": "r3",
+          "text": "1.000 ml"
+        },
+        {
+          "id": "r4",
+          "text": "9.000 ml"
+        },
+        {
+          "id": "r5",
+          "text": "6.000 ml"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 l = 6.000 ml; 7 l = 7.000 ml; 9 l = 9.000 ml; 1 l = 1.000 ml",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "6 l = 6.000 ml"
+          },
+          {
+            "kind": "text",
+            "text": "7 l = 7.000 ml"
+          },
+          {
+            "kind": "text",
+            "text": "9 l = 9.000 ml"
+          },
+          {
+            "kind": "text",
+            "text": "1 l = 1.000 ml"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2.550 ml, 980 ml, 2 l, 4.040 ml."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4.040 ml"
+        },
+        {
+          "id": "t2",
+          "text": "2 l"
+        },
+        {
+          "id": "t3",
+          "text": "2.550 ml"
+        },
+        {
+          "id": "t4",
+          "text": "980 ml"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "980 ml < 2 l < 2.550 ml < 4.040 ml",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về mi-li-lít: 2.550 ml = 2.550 ml, 980 ml = 980 ml, 2 l = 2.000 ml, 4.040 ml = 4.040 ml."
+          },
+          {
+            "kind": "text",
+            "text": "980 ml < 2 l < 2.550 ml < 4.040 ml."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính.",
+      "prompt": {
+        "text": "25 ml × 3 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dung_tich"
+      ],
+      "access": "free",
+      "template": "25 ml × 3 = {{b1}} ml",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 75,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "75 ml",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "25",
+              "3"
+            ],
+            "result": "75",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 5 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "25 × 3 = 75"
+          },
+          {
+            "kind": "text",
+            "text": "Viết thêm đơn vị ml vào kết quả.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong can có 190 ml dầu ăn. Mẹ đổ thêm vào can 260 ml dầu ăn nữa. Hỏi trong can có tất cả bao nhiêu mi-li-lít dầu ăn?"
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "440 ml"
+        },
+        {
+          "id": "b",
+          "text": "460 ml"
+        },
+        {
+          "id": "c",
+          "text": "450 ml"
+        },
+        {
+          "id": "d",
+          "text": "451 ml"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "450 ml",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số dầu ăn có trong can là:",
+                "equation": "190 + 260 = 450 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 450 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "190",
+              "260"
+            ],
+            "result": "450",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "9 cộng 6 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c5.mi-li-lit.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một bình có 1 l nước. Mẹ rót ra 2 cốc, mỗi cốc 200 ml. Hỏi trong bình còn lại bao nhiêu mi-li-lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.dung_tich",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong bình còn lại {{b1}} ml nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 600,
+            "unit": "ml",
+            "unitAliases": [
+              "mi-li-lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "600 ml",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 1 l = 1.000 ml."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước mẹ đã rót ra là:",
+                "equation": "200 × 2 = 400 (ml)"
+              },
+              {
+                "explanation": "Số nước còn lại trong bình là:",
+                "equation": "1.000 - 400 = 600 (ml)"
+              }
+            ],
+            "answer": "Đáp số: 600 ml."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "200",
+              "2"
+            ],
+            "result": "400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

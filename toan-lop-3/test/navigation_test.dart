@@ -44,6 +44,8 @@ void main() {
 
     await tapKey(tester, 'tile-Học bài');
     // Thẻ chủ đề phải được trình đọc màn hình nhận là NÚT (không phải thanh tiến độ).
+    await tester.ensureVisible(find.byKey(const ValueKey('chapter-kntt3.c4')));
+    await tester.pumpAndSettle();
     final handle = tester.ensureSemantics();
     expect(
       tester.getSemantics(find.byKey(const ValueKey('chapter-kntt3.c4'))),

@@ -1,0 +1,509 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c6",
+  "order": 5,
+  "title": "So sánh số lớn gấp mấy lần số bé",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 24 gấp mấy lần 6?"
+      },
+      {
+        "kind": "equation",
+        "text": "24 : 6 = 4"
+      },
+      {
+        "kind": "text",
+        "text": "Vậy 24 gấp 4 lần 6."
+      },
+      {
+        "kind": "text",
+        "text": "“Gấp mấy lần” thì làm phép chia; “hơn bao nhiêu” thì làm phép trừ.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số lớn là 12, số bé là 3. Số lớn gấp mấy lần số bé?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "template": "Số lớn gấp {{b1}} lần số bé.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 lần",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "12 : 3 = 4"
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 12 gấp 4 lần 3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số 15 gấp mấy lần số 3?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5 lần"
+        },
+        {
+          "id": "b",
+          "text": "12 lần"
+        },
+        {
+          "id": "c",
+          "text": "6 lần"
+        },
+        {
+          "id": "d",
+          "text": "4 lần"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 lần",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "15 : 3 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p03",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "template": "6 gấp {{s1}} lần 3\n12 gấp {{s2}} lần 3\n32 gấp {{s3}} lần 4",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "2"
+        },
+        {
+          "id": "t2",
+          "text": "4"
+        },
+        {
+          "id": "t3",
+          "text": "3"
+        },
+        {
+          "id": "t4",
+          "text": "8"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2; 4; 8",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 : 3 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "12 : 3 = 4"
+          },
+          {
+            "kind": "equation",
+            "text": "32 : 4 = 8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu hỏi với câu trả lời đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "40 gấp mấy lần 5?"
+        },
+        {
+          "id": "l2",
+          "text": "81 gấp mấy lần 9?"
+        },
+        {
+          "id": "l3",
+          "text": "6 gấp mấy lần 3?"
+        },
+        {
+          "id": "l4",
+          "text": "10 gấp mấy lần 2?"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "5 lần"
+        },
+        {
+          "id": "r2",
+          "text": "8 lần"
+        },
+        {
+          "id": "r3",
+          "text": "3 lần"
+        },
+        {
+          "id": "r4",
+          "text": "2 lần"
+        },
+        {
+          "id": "r5",
+          "text": "9 lần"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "40 gấp 8 lần 5; 81 gấp 9 lần 9; 6 gấp 2 lần 3; 10 gấp 5 lần 2",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "40 : 5 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "81 : 9 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "6 : 3 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "10 : 2 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Vườn nhà Hoa có 7 cây bưởi và 14 cây cam. Hỏi số cây cam gấp mấy lần số cây bưởi?"
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "so_sanh.gap_may_lan",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Số cây cam gấp {{b1}} lần số cây bưởi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 lần",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ta có:",
+                "equation": "14 : 7 = 2 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 2 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Vườn nhà Hoa có 8 cây bưởi và 24 cây cam. Hỏi số cây cam gấp mấy lần số cây bưởi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "so_sanh.gap_may_lan",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4 lần"
+        },
+        {
+          "id": "b",
+          "text": "1 lần"
+        },
+        {
+          "id": "c",
+          "text": "16 lần"
+        },
+        {
+          "id": "d",
+          "text": "3 lần"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 lần",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ta có:",
+                "equation": "24 : 8 = 3 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 3 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "So sánh số 4 với số 2."
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so_sanh.gap_may_lan"
+      ],
+      "access": "free",
+      "template": "Số 4 gấp {{b1}} lần số 2.\nSố 4 hơn số 2 là {{b2}} đơn vị.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 lần; 2",
+        "hint": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "4 : 2 = 2"
+          },
+          {
+            "kind": "equation",
+            "text": "4 - 2 = 2"
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 4 gấp 2 lần 2 và hơn 2 là 2 đơn vị."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lan có 7 quyển truyện, Hùng có nhiều hơn Lan 7 quyển truyện. Hỏi số truyện của Hùng gấp mấy lần số truyện của Lan?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so_sanh.gap_may_lan",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Số truyện của Hùng gấp {{b1}} lần số truyện của Lan.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "2 lần",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số truyện của Hùng là:",
+                "equation": "7 + 7 = 14 (quyển)"
+              },
+              {
+                "explanation": "Số truyện của Hùng gấp số truyện của Lan số lần là:",
+                "equation": "14 : 7 = 2 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 2 lần."
+          }
+        ]
+      }
+    }
+  ]
+}

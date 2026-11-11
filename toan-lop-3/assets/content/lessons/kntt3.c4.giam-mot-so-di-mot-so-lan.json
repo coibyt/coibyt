@@ -1,0 +1,611 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c4.giam-mot-so-di-mot-so-lan",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 5,
+  "title": "Giảm một số đi một số lần",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: giảm 40 đi 5 lần được:"
+      },
+      {
+        "kind": "equation",
+        "text": "40 : 5 = 8"
+      },
+      {
+        "kind": "text",
+        "text": "Đừng nhầm: giảm 40 đi 5 lần là 40 : 5, còn bớt 5 từ 40 là 40 - 5.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Giảm 42 đi 7 lần được bao nhiêu?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "template": "Giảm 42 đi 7 lần được {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "42 : 7 = 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giảm 63 đi 7 lần được:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "8"
+        },
+        {
+          "id": "b",
+          "text": "9"
+        },
+        {
+          "id": "c",
+          "text": "16"
+        },
+        {
+          "id": "d",
+          "text": "56"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "63 : 7 = 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Giảm 90 đi 6 lần được bao nhiêu?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "template": "Giảm 90 đi 6 lần được {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+            "style": "rule"
+          },
+          {
+            "kind": "long_division",
+            "dividend": "90",
+            "divisor": "6",
+            "quotient": "15",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 6 được 1, viết 1. 1 nhân 6 bằng 6; 9 trừ 6 bằng 3.",
+                "partialDividend": 9,
+                "quotientDigit": 1,
+                "product": 6,
+                "remainder": 3
+              },
+              {
+                "text": "Hạ 0, được 30; 30 chia 6 được 5, viết 5. 5 nhân 6 bằng 30; 30 trừ 30 bằng 0.",
+                "partialDividend": 30,
+                "quotientDigit": 5,
+                "product": 30,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "90 : 6 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "template": "Giảm 40 đi 5 lần được {{s1}}\nGiảm 45 đi 9 lần được {{s2}}\nGiảm 12 đi 4 lần được {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "8"
+        },
+        {
+          "id": "t2",
+          "text": "10"
+        },
+        {
+          "id": "t3",
+          "text": "3"
+        },
+        {
+          "id": "t4",
+          "text": "5"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8; 5; 3",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "40 : 5 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "45 : 9 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "12 : 4 = 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi ô bên trái với kết quả đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Thêm 2 vào 6"
+        },
+        {
+          "id": "l2",
+          "text": "Bớt 7 từ 63"
+        },
+        {
+          "id": "l3",
+          "text": "Giảm 27 đi 3 lần"
+        },
+        {
+          "id": "l4",
+          "text": "Bớt 3 từ 21"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "56"
+        },
+        {
+          "id": "r2",
+          "text": "10"
+        },
+        {
+          "id": "r3",
+          "text": "18"
+        },
+        {
+          "id": "r4",
+          "text": "8"
+        },
+        {
+          "id": "r5",
+          "text": "9"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Thêm 2 vào 6 được 8; Bớt 7 từ 63 được 56; Giảm 27 đi 3 lần được 9; Bớt 3 từ 21 được 18",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 + 2 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "63 - 7 = 56"
+          },
+          {
+            "kind": "equation",
+            "text": "27 : 3 = 9"
+          },
+          {
+            "kind": "equation",
+            "text": "21 - 3 = 18"
+          },
+          {
+            "kind": "text",
+            "text": "Gấp, giảm một số lần thì làm phép nhân, phép chia; thêm, bớt thì làm phép cộng, phép trừ.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ có 36 quả táo. Sau khi mẹ biếu bà, số táo của mẹ giảm đi 6 lần. Hỏi mẹ còn lại bao nhiêu quả táo?"
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mẹ còn lại {{b1}} quả táo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 quả táo",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số táo mẹ còn lại là:",
+                "equation": "36 : 6 = 6 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 6 quả táo."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một tấm vải dài 90 m. Sau khi may áo, tấm vải giảm đi 2 lần. Hỏi tấm vải còn lại dài bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.mot_phep_tinh",
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "88 m"
+        },
+        {
+          "id": "b",
+          "text": "47 m"
+        },
+        {
+          "id": "c",
+          "text": "25 m"
+        },
+        {
+          "id": "d",
+          "text": "45 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45 m",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài tấm vải còn lại là:",
+                "equation": "90 : 2 = 45 (m)"
+              }
+            ],
+            "answer": "Đáp số: 45 m."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "90",
+            "divisor": "2",
+            "quotient": "45",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 2 được 4, viết 4. 4 nhân 2 bằng 8; 9 trừ 8 bằng 1.",
+                "partialDividend": 9,
+                "quotientDigit": 4,
+                "product": 8,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 0, được 10; 10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một thùng có 24 l dầu. Sau khi dùng, số dầu trong thùng giảm đi 4 lần. Hỏi đã dùng bao nhiêu lít dầu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "gap_giam.so_lan",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Đã dùng {{b1}} l dầu.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 18,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18 l dầu",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số dầu còn lại trong thùng là:",
+                "equation": "24 : 4 = 6 (l)"
+              },
+              {
+                "explanation": "Số dầu đã dùng là:",
+                "equation": "24 - 6 = 18 (l)"
+              }
+            ],
+            "answer": "Đáp số: 18 l dầu."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "24",
+              "6"
+            ],
+            "result": "18",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 6, lấy 14 trừ 6 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.giam-mot-so-di-mot-so-lan.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Gấp 9 lên 8 lần rồi giảm đi 2 lần thì được bao nhiêu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "gap_giam.so_lan"
+      ],
+      "access": "free",
+      "template": "Gấp 9 lên 8 lần rồi giảm đi 2 lần được {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "36",
+        "hint": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "9 × 8 = 72"
+          },
+          {
+            "kind": "equation",
+            "text": "72 : 2 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 8 : 2 = 36"
+          }
+        ]
+      }
+    }
+  ]
+}

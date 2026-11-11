@@ -1,0 +1,545 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c1.on-tap-cac-so-den-1000",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c1",
+  "order": 1,
+  "title": "Ôn tập các số đến 1000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Số có ba chữ số gồm hàng trăm, hàng chục và hàng đơn vị. So sánh hai số có ba chữ số: so sánh từ hàng trăm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 209 gồm 2 trăm, 0 chục và 9 đơn vị; đọc là “hai trăm linh chín”."
+      },
+      {
+        "kind": "equation",
+        "text": "209 = 200 + 9"
+      },
+      {
+        "kind": "text",
+        "text": "Chữ số 0 ở hàng chục đọc là “linh”, ví dụ 105 đọc là “một trăm linh năm”.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số “chín trăm linh chín” viết là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "909"
+        },
+        {
+          "id": "b",
+          "text": "910"
+        },
+        {
+          "id": "c",
+          "text": "919"
+        },
+        {
+          "id": "d",
+          "text": "990"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "909",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“chín trăm linh chín” viết là 909."
+          },
+          {
+            "kind": "equation",
+            "text": "909 = 900 + 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn cách đọc đúng.",
+      "prompt": {
+        "text": "Số 606 đọc là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "sáu trăm linh sáu"
+        },
+        {
+          "id": "b",
+          "text": "sáu trăm sáu mươi"
+        },
+        {
+          "id": "c",
+          "text": "sáu trăm linh bảy"
+        },
+        {
+          "id": "d",
+          "text": "năm trăm chín mươi sáu"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "sáu trăm linh sáu",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "606 đọc là: sáu trăm linh sáu."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số 108 gồm mấy trăm, mấy chục, ...?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "Số 108 gồm {{b1}} trăm, {{b2}} chục và {{b3}} đơn vị.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 0
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1 trăm, 0 chục, 8 đơn vị",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "108 = 100 + 8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số liền trước và số liền sau của số 145."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "Số liền trước của 145 là {{b1}}.\nSố liền sau của 145 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 144
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 146
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "144; 146",
+        "hint": "Số liền sau thì thêm một, số liền trước thì bớt một nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "145 - 1 = 144"
+          },
+          {
+            "kind": "equation",
+            "text": "145 + 1 = 146"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "109 ... 109"
+      },
+      "level": 2,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": "<"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "=",
+        "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số có các chữ số ở từng hàng đều giống nhau. Vậy 109 = 109."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối số với cách đọc.",
+      "prompt": {
+        "text": "Nối mỗi số với cách đọc đúng của số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "204"
+        },
+        {
+          "id": "l2",
+          "text": "637"
+        },
+        {
+          "id": "l3",
+          "text": "769"
+        },
+        {
+          "id": "l4",
+          "text": "892"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "sáu trăm ba mươi bảy"
+        },
+        {
+          "id": "r2",
+          "text": "bảy trăm sáu mươi chín"
+        },
+        {
+          "id": "r3",
+          "text": "hai trăm linh bốn"
+        },
+        {
+          "id": "r4",
+          "text": "hai trăm bốn mươi"
+        },
+        {
+          "id": "r5",
+          "text": "tám trăm chín mươi hai"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "204: hai trăm linh bốn; 637: sáu trăm ba mươi bảy; 769: bảy trăm sáu mươi chín; 892: tám trăm chín mươi hai",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "204: hai trăm linh bốn."
+          },
+          {
+            "kind": "text",
+            "text": "637: sáu trăm ba mươi bảy."
+          },
+          {
+            "kind": "text",
+            "text": "769: bảy trăm sáu mươi chín."
+          },
+          {
+            "kind": "text",
+            "text": "892: tám trăm chín mươi hai."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 738, 796, 748, 798."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "798"
+        },
+        {
+          "id": "t2",
+          "text": "796"
+        },
+        {
+          "id": "t3",
+          "text": "748"
+        },
+        {
+          "id": "t4",
+          "text": "738"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "738 < 748 < 796 < 798",
+        "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Ta có: 738 < 748 < 796 < 798."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số lớn nhất trong các số 617, 666, 667, 637 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "666"
+        },
+        {
+          "id": "b",
+          "text": "637"
+        },
+        {
+          "id": "c",
+          "text": "667"
+        },
+        {
+          "id": "d",
+          "text": "617"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "667",
+        "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xếp các số theo thứ tự từ bé đến lớn: 617 < 637 < 666 < 667."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy số lớn nhất là 667."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c1.on-tap-cac-so-den-1000.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Dùng cả 3 chữ số 7, 0, 9, mỗi chữ số một lần, để viết số có 3 chữ số."
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.pham_vi_1000"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 970
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 709
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "970; 709",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: xếp các chữ số từ lớn đến bé → 970."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số 0 không đứng đầu, nên chữ số đầu là 7 → 709."
+          }
+        ]
+      }
+    }
+  ]
+}

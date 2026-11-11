@@ -1,0 +1,753 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt3.gen.chu-de-05",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c5"
+  ],
+  "title": "Kiểm tra chủ đề 5",
+  "description": "Một số đơn vị đo độ dài, khối lượng, dung tích, nhiệt độ.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối hai số đo bằng nhau.",
+            "prompt": {
+              "text": "Nối mỗi số đo bên trái với số đo bằng nó ở bên phải."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "do_luong.do_dai",
+              "do_luong.khoi_luong",
+              "do_luong.dung_tich"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "4 kg"
+              },
+              {
+                "id": "l2",
+                "text": "2 m"
+              },
+              {
+                "id": "l3",
+                "text": "2 cm"
+              },
+              {
+                "id": "l4",
+                "text": "3 m"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "4.000 g"
+              },
+              {
+                "id": "r2",
+                "text": "200 mm"
+              },
+              {
+                "id": "r3",
+                "text": "3.000 mm"
+              },
+              {
+                "id": "r4",
+                "text": "20 mm"
+              },
+              {
+                "id": "r5",
+                "text": "2.000 mm"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4 kg = 4.000 g; 2 m = 2.000 mm; 2 cm = 20 mm; 3 m = 3.000 mm",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "4 kg = 4.000 g"
+                },
+                {
+                  "kind": "text",
+                  "text": "2 m = 2.000 mm"
+                },
+                {
+                  "kind": "text",
+                  "text": "2 cm = 20 mm"
+                },
+                {
+                  "kind": "text",
+                  "text": "3 m = 3.000 mm"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi trường hợp với nhiệt độ phù hợp."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "do_luong.nhiet_do"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Nước đá đang tan"
+              },
+              {
+                "id": "l2",
+                "text": "Nước đang sôi"
+              },
+              {
+                "id": "l3",
+                "text": "Thân nhiệt người khỏe mạnh"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "60 °C"
+              },
+              {
+                "id": "r2",
+                "text": "100 °C"
+              },
+              {
+                "id": "r3",
+                "text": "0 °C"
+              },
+              {
+                "id": "r4",
+                "text": "37 °C"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Nước đá đang tan: 0 °C; Nước đang sôi: 100 °C; Thân nhiệt người khỏe mạnh: 37 °C",
+              "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Nước đá đang tan: khoảng 0 °C."
+                },
+                {
+                  "kind": "text",
+                  "text": "Nước đang sôi: khoảng 100 °C."
+                },
+                {
+                  "kind": "text",
+                  "text": "Thân nhiệt người khỏe mạnh: khoảng 37 °C."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "6 cm ... 55 mm"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.do_dai"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": ">"
+              },
+              {
+                "id": "b",
+                "text": "="
+              },
+              {
+                "id": "c",
+                "text": "<"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": ">",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi 6 cm = 60 mm."
+                },
+                {
+                  "kind": "text",
+                  "text": "Ta có 60 mm > 55 mm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Nhiệt độ lúc 9 giờ sáng của một số thành phố:\nSa Pa: 20 °C\nHải Phòng: 16 °C\nNha Trang: 35 °C\nHà Nội: 15 °C\nThành phố nào lạnh nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "do_luong.nhiet_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Hải Phòng"
+              },
+              {
+                "id": "b",
+                "text": "Hà Nội"
+              },
+              {
+                "id": "c",
+                "text": "Sa Pa"
+              },
+              {
+                "id": "d",
+                "text": "Nha Trang"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Hà Nội",
+              "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh: 15 °C < 16 °C < 20 °C < 35 °C."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hà Nội có nhiệt độ thấp nhất nên lạnh nhất."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Nhiệt độ lúc 9 giờ sáng của một số thành phố:\nĐà Nẵng: 17 °C\nHà Nội: 18 °C\nĐà Lạt: 14 °C\nSa Pa: 16 °C\nThành phố nào lạnh nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "do_luong.nhiet_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Sa Pa"
+              },
+              {
+                "id": "b",
+                "text": "Hà Nội"
+              },
+              {
+                "id": "c",
+                "text": "Đà Lạt"
+              },
+              {
+                "id": "d",
+                "text": "Đà Nẵng"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Đà Lạt",
+              "hint": "Nhiệt độ càng cao thì càng nóng, nhiệt độ càng thấp thì càng lạnh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh: 14 °C < 16 °C < 17 °C < 18 °C."
+                },
+                {
+                  "kind": "text",
+                  "text": "Đà Lạt có nhiệt độ thấp nhất nên lạnh nhất."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2 cm, 44 mm, 5 cm, 3 cm."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.do_dai"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "44 mm"
+              },
+              {
+                "id": "t2",
+                "text": "3 cm"
+              },
+              {
+                "id": "t3",
+                "text": "2 cm"
+              },
+              {
+                "id": "t4",
+                "text": "5 cm"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2 cm < 3 cm < 44 mm < 5 cm",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về mi-li-mét: 2 cm = 20 mm, 44 mm = 44 mm, 5 cm = 50 mm, 3 cm = 30 mm."
+                },
+                {
+                  "kind": "text",
+                  "text": "2 cm < 3 cm < 44 mm < 5 cm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2.550 ml, 980 ml, 2 l, 4.040 ml."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.dung_tich"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "4.040 ml"
+              },
+              {
+                "id": "t2",
+                "text": "2 l"
+              },
+              {
+                "id": "t3",
+                "text": "2.550 ml"
+              },
+              {
+                "id": "t4",
+                "text": "980 ml"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "980 ml < 2 l < 2.550 ml < 4.040 ml",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về mi-li-lít: 2.550 ml = 2.550 ml, 980 ml = 980 ml, 2 l = 2.000 ml, 4.040 ml = 4.040 ml."
+                },
+                {
+                  "kind": "text",
+                  "text": "980 ml < 2 l < 2.550 ml < 4.040 ml."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2.960 ml, 560 ml, 1.490 ml, 4.750 ml."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.dung_tich"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "4.750 ml"
+              },
+              {
+                "id": "t2",
+                "text": "2.960 ml"
+              },
+              {
+                "id": "t3",
+                "text": "560 ml"
+              },
+              {
+                "id": "t4",
+                "text": "1.490 ml"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "560 ml < 1.490 ml < 2.960 ml < 4.750 ml",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về mi-li-lít: 2.960 ml = 2.960 ml, 560 ml = 560 ml, 1.490 ml = 1.490 ml, 4.750 ml = 4.750 ml."
+                },
+                {
+                  "kind": "text",
+                  "text": "560 ml < 1.490 ml < 2.960 ml < 4.750 ml."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 1 kg, 3.580 g, 3.100 g, 4.610 g."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.khoi_luong"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "3.580 g"
+              },
+              {
+                "id": "t2",
+                "text": "3.100 g"
+              },
+              {
+                "id": "t3",
+                "text": "4.610 g"
+              },
+              {
+                "id": "t4",
+                "text": "1 kg"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1 kg < 3.100 g < 3.580 g < 4.610 g",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về gam: 1 kg = 1.000 g, 3.580 g = 3.580 g, 3.100 g = 3.100 g, 4.610 g = 4.610 g."
+                },
+                {
+                  "kind": "text",
+                  "text": "1 kg < 3.100 g < 3.580 g < 4.610 g."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt3.gen.chu-de-05.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính.",
+            "prompt": {
+              "text": "25 ml × 3 = ?"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.dung_tich"
+            ],
+            "access": "free",
+            "template": "25 ml × 3 = {{b1}} ml",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 75,
+                  "unit": "ml",
+                  "unitAliases": [
+                    "mi-li-lít"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "75 ml",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "25",
+                    "3"
+                  ],
+                  "result": "75",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 5 bằng 15, viết 5 nhớ 1.",
+                      "write": "5",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 2 bằng 6, thêm 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "25 × 3 = 75"
+                },
+                {
+                  "kind": "text",
+                  "text": "Viết thêm đơn vị ml vào kết quả.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

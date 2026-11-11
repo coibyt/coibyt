@@ -1,0 +1,682 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c4.phep-chia-het-phep-chia-co-du",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c4",
+  "order": 3,
+  "title": "Phép chia hết, phép chia có dư",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Phép chia có số dư bằng 0 là phép chia hết; số dư khác 0 là phép chia có dư. Số dư luôn bé hơn số chia.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 14 : 5 = 2 (dư 4)"
+      },
+      {
+        "kind": "long_division",
+        "dividend": "14",
+        "divisor": "5",
+        "quotient": "2",
+        "remainder": 4,
+        "digitSteps": [
+          {
+            "text": "14 chia 5 được 2, viết 2. 2 nhân 5 bằng 10; 14 trừ 10 bằng 4.",
+            "partialDividend": 14,
+            "quotientDigit": 2,
+            "product": 10,
+            "remainder": 4
+          }
+        ]
+      },
+      {
+        "kind": "text",
+        "text": "Thử lại:"
+      },
+      {
+        "kind": "equation",
+        "text": "2 × 5 + 4 = 14"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Phép chia nào dưới đây là phép chia hết?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "33 : 6"
+        },
+        {
+          "id": "b",
+          "text": "24 : 6"
+        },
+        {
+          "id": "c",
+          "text": "11 : 6"
+        },
+        {
+          "id": "d",
+          "text": "32 : 6"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "24 : 6",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "24 : 6 = 4 (dư 0)"
+          },
+          {
+            "kind": "text",
+            "text": "33 : 6 = 5 (dư 3)"
+          },
+          {
+            "kind": "text",
+            "text": "32 : 6 = 5 (dư 2)"
+          },
+          {
+            "kind": "text",
+            "text": "11 : 6 = 1 (dư 5)"
+          },
+          {
+            "kind": "text",
+            "text": "Chỉ có phép chia 24 : 6 có số dư là 0, nên đó là phép chia hết."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "29 : 5 = ? (dư ?)"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "template": "29 : 5 = {{b1}} (dư {{b2}})",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 (dư 4)",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "29",
+            "divisor": "5",
+            "quotient": "5",
+            "remainder": 4,
+            "digitSteps": [
+              {
+                "text": "29 chia 5 được 5, viết 5. 5 nhân 5 bằng 25; 29 trừ 25 bằng 4.",
+                "partialDividend": 29,
+                "quotientDigit": 5,
+                "product": 25,
+                "remainder": 4
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": "29 : 5 = 5 (dư 4)"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 5 + 4 = 29"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "95 : 3 = ? (dư ?)"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "chia.co_du",
+        "chia.2cs_1cs"
+      ],
+      "access": "free",
+      "template": "95 : 3 = {{b1}} (dư {{b2}})",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 31
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "31 (dư 2)",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "95",
+            "divisor": "3",
+            "quotient": "31",
+            "remainder": 2,
+            "digitSteps": [
+              {
+                "text": "9 chia 3 được 3, viết 3. 3 nhân 3 bằng 9; 9 trừ 9 bằng 0.",
+                "partialDividend": 9,
+                "quotientDigit": 3,
+                "product": 9,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 5; 5 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 5 trừ 3 bằng 2.",
+                "partialDividend": 5,
+                "quotientDigit": 1,
+                "product": 3,
+                "remainder": 2
+              }
+            ]
+          },
+          {
+            "kind": "text",
+            "text": "95 : 3 = 31 (dư 2)"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "31 × 3 + 2 = 95"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong phép chia cho 8, số dư lớn nhất có thể là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6"
+        },
+        {
+          "id": "b",
+          "text": "8"
+        },
+        {
+          "id": "c",
+          "text": "7"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Số dư bé hơn 8 nên số dư lớn nhất là 7."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép chia với số dư.",
+      "prompt": {
+        "text": "Nối mỗi phép chia với số dư của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "36 : 7"
+        },
+        {
+          "id": "l2",
+          "text": "51 : 6"
+        },
+        {
+          "id": "l3",
+          "text": "27 : 5"
+        },
+        {
+          "id": "l4",
+          "text": "56 : 8"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "dư 1"
+        },
+        {
+          "id": "r2",
+          "text": "dư 0"
+        },
+        {
+          "id": "r3",
+          "text": "dư 4"
+        },
+        {
+          "id": "r4",
+          "text": "dư 2"
+        },
+        {
+          "id": "r5",
+          "text": "dư 3"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36 : 7 → dư 1; 51 : 6 → dư 3; 27 : 5 → dư 2; 56 : 8 → dư 0",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "56 : 8 = 7 (dư 0)"
+          },
+          {
+            "kind": "text",
+            "text": "36 : 7 = 5 (dư 1)"
+          },
+          {
+            "kind": "text",
+            "text": "27 : 5 = 5 (dư 2)"
+          },
+          {
+            "kind": "text",
+            "text": "51 : 6 = 8 (dư 3)"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "template": "29 : 5 = {{s1}} (dư {{s2}})\n25 : 3 = {{s3}} (dư {{s4}})",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1"
+        },
+        {
+          "id": "t2",
+          "text": "5"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "8"
+        },
+        {
+          "id": "t5",
+          "text": "4"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t5"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 (dư 4); 8 (dư 1)",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "29 : 5 = 5 (dư 4)"
+          },
+          {
+            "kind": "text",
+            "text": "25 : 3 = 8 (dư 1)"
+          },
+          {
+            "kind": "equation",
+            "text": "5 × 5 + 4 = 29"
+          },
+          {
+            "kind": "equation",
+            "text": "8 × 3 + 1 = 25"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Có 25 quả cam, xếp vào các đĩa, mỗi đĩa 4 quả. Hỏi xếp được nhiều nhất bao nhiêu đĩa và còn thừa mấy quả cam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.co_du",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Xếp được nhiều nhất {{b1}} đĩa, còn thừa {{b2}} quả cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "đĩa"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 1,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 đĩa, thừa 1 quả cam",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "25",
+            "divisor": "4",
+            "quotient": "6",
+            "remainder": 1,
+            "digitSteps": [
+              {
+                "text": "25 chia 4 được 6, viết 6. 6 nhân 4 bằng 24; 25 trừ 24 bằng 1.",
+                "partialDividend": 25,
+                "quotientDigit": 6,
+                "product": 24,
+                "remainder": 1
+              }
+            ]
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Thực hiện phép chia 25 : 4 = 6 (dư 1). Thử lại:",
+                "equation": "6 × 4 + 1 = 25 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 6 đĩa, thừa 1 quả cam."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lớp 3D có 57 học sinh, mỗi bàn ngồi 5 bạn. Hỏi cần ít nhất bao nhiêu cái bàn để tất cả các bạn đều có chỗ ngồi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "chia.co_du",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "13 cái bàn"
+        },
+        {
+          "id": "b",
+          "text": "2 cái bàn"
+        },
+        {
+          "id": "c",
+          "text": "11 cái bàn"
+        },
+        {
+          "id": "d",
+          "text": "12 cái bàn"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12 cái bàn",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "57",
+            "divisor": "5",
+            "quotient": "11",
+            "remainder": 2,
+            "digitSteps": [
+              {
+                "text": "5 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 5 trừ 5 bằng 0.",
+                "partialDividend": 5,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 7; 7 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 7 trừ 5 bằng 2.",
+                "partialDividend": 7,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 2
+              }
+            ]
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ta có 57 : 5 = 11 (dư 2). Còn 2 bạn chưa có chỗ nên cần thêm 1 bàn nữa. Số bàn cần có ít nhất là:",
+                "equation": "11 + 1 = 12 (cái bàn)"
+              }
+            ],
+            "answer": "Đáp số: 12 cái bàn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c4.phep-chia-het-phep-chia-co-du.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Trong một phép chia có dư, số chia là 5, thương là 6 và số dư là 4. Tìm số bị chia."
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "chia.co_du"
+      ],
+      "access": "free",
+      "template": "Số bị chia là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 34
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "34",
+        "hint": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số bị chia bằng thương nhân với số chia rồi cộng với số dư."
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 5 + 4 = 34"
+          }
+        ]
+      }
+    }
+  ]
+}

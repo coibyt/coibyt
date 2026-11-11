@@ -1,0 +1,579 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt3.c2.bang-nhan-6-bang-chia-6",
+  "bookId": "kntt3",
+  "chapterId": "kntt3.c2",
+  "order": 1,
+  "title": "Bảng nhân 6, bảng chia 6",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Trong bảng nhân 6, mỗi lần thêm một lần thừa số thì tích tăng thêm đúng số đó. Bảng chia là phép tính ngược của bảng nhân.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Bảng nhân 6: 6 × 1 = 6; 6 × 2 = 12; 6 × 3 = 18; 6 × 4 = 24; 6 × 5 = 30; 6 × 6 = 36; 6 × 7 = 42; 6 × 8 = 48; 6 × 9 = 54; 6 × 10 = 60."
+      },
+      {
+        "kind": "equation",
+        "text": "6 × 8 = 48"
+      },
+      {
+        "kind": "equation",
+        "text": "48 : 6 = 8"
+      },
+      {
+        "kind": "text",
+        "text": "Đếm thêm 6 để nhớ bảng: 6, 12, 18, 24, 30, …",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính nhẩm.",
+      "prompt": {
+        "text": "6 × 9 = ?\n36 : 6 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "6 × 9 = {{b1}}\n36 : 6 = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 54
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "54; 6",
+        "hint": "Con đọc lại bảng nhân hoặc đếm thêm đều để tìm kết quả nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 × 9 = 54"
+          },
+          {
+            "kind": "equation",
+            "text": "36 : 6 = 6"
+          },
+          {
+            "kind": "text",
+            "text": "Vì 6 × 6 = 36 nên 36 : 6 = 6.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Đếm thêm 6 rồi điền số còn thiếu:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "6; 12; 18; {{b1}}; {{b2}}; 36",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 24
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 30
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "24; 30",
+        "hint": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đếm thêm 6: 6; 12; 18; 24; 30; 36."
+          },
+          {
+            "kind": "equation",
+            "text": "18 + 6 = 24"
+          },
+          {
+            "kind": "equation",
+            "text": "24 + 6 = 30"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 48 : 6 là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 25,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "80"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8",
+        "hint": "Con nghĩ xem số nào nhân với số chia thì được số bị chia nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "48 : 6 = 8"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số thích hợp thay cho dấu ? là:\n6 × ? = 54"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "bang_nhan_chia",
+        "tim_thanh_phan.thua_so"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "48"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "9"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "54 : 6 = 9"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 9 = 54"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "template": "36 : 6 = {{s1}}\n6 × 4 = {{s2}}\n2 × 6 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "12"
+        },
+        {
+          "id": "t2",
+          "text": "24"
+        },
+        {
+          "id": "t3",
+          "text": "7"
+        },
+        {
+          "id": "t4",
+          "text": "6"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6; 24; 12",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "36 : 6 = 6"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 4 = 24"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 6 = 12"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 7 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bang_nhan_chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 × 6"
+        },
+        {
+          "id": "l2",
+          "text": "6 × 3"
+        },
+        {
+          "id": "l3",
+          "text": "6 × 10"
+        },
+        {
+          "id": "l4",
+          "text": "42 : 6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "18"
+        },
+        {
+          "id": "r2",
+          "text": "8"
+        },
+        {
+          "id": "r3",
+          "text": "7"
+        },
+        {
+          "id": "r4",
+          "text": "36"
+        },
+        {
+          "id": "r5",
+          "text": "60"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 × 6 = 36; 6 × 3 = 18; 6 × 10 = 60; 42 : 6 = 7",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "6 × 6 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 3 = 18"
+          },
+          {
+            "kind": "equation",
+            "text": "6 × 10 = 60"
+          },
+          {
+            "kind": "equation",
+            "text": "42 : 6 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi túi có 6 kg đường. Hỏi 8 túi như thế có tất cả bao nhiêu ki-lô-gam đường?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "8 túi có {{b1}} kg đường.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 kg đường",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số đường có trong 8 túi là:",
+                "equation": "6 × 8 = 48 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 48 kg đường."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có 18 m vải chia đều vào 6 cuộn. Hỏi mỗi cuộn có bao nhiêu mét vải?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "13 m"
+        },
+        {
+          "id": "b",
+          "text": "12 m"
+        },
+        {
+          "id": "c",
+          "text": "4 m"
+        },
+        {
+          "id": "d",
+          "text": "3 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 m vải",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số vải trong mỗi cuộn là:",
+                "equation": "18 : 6 = 3 (m)"
+              }
+            ],
+            "answer": "Đáp số: 3 m vải."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt3.c2.bang-nhan-6-bang-chia-6.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi hộp có 6 cái bánh. Mẹ mua 7 hộp bánh, cả nhà đã ăn 36 cái bánh. Hỏi còn lại bao nhiêu cái bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bang_nhan_chia",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Còn lại {{b1}} cái bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "cái"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "6 cái bánh",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bánh mẹ mua là:",
+                "equation": "6 × 7 = 42 (cái)"
+              },
+              {
+                "explanation": "Số bánh còn lại là:",
+                "equation": "42 - 36 = 6 (cái)"
+              }
+            ],
+            "answer": "Đáp số: 6 cái bánh."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -79,6 +79,7 @@ H = {
     "shape": "Con đếm cẩn thận số cạnh, số đỉnh, số góc của hình nhé.",
     "solid": "Con đếm lần lượt các mặt, các cạnh, các đỉnh của khối hình nhé.",
     "perimeter": "Chu vi của một hình là tổng độ dài các cạnh của hình đó.",
+    "polyline": "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.",
     "perim_rect": "Chu vi hình chữ nhật bằng chiều dài cộng chiều rộng rồi nhân với hai.",
     "perim_square": "Chu vi hình vuông bằng độ dài một cạnh nhân với bốn.",
     "area": "Diện tích hình chữ nhật bằng chiều dài nhân với chiều rộng; hình vuông thì lấy cạnh nhân với cạnh.",
@@ -833,15 +834,39 @@ COUNT_GROUPS = [
     ("hộp", "cái bút chì", "cái"), ("túi", "quả cam", "quả"), ("bó", "bông hoa", "bông"),
     ("thùng", "chai nước", "chai"), ("ngăn", "quyển sách", "quyển"), ("khay", "cái bánh", "cái"),
     ("hàng", "cây", "cây"), ("lọ", "viên kẹo", "viên"), ("hộp", "viên phấn", "viên"),
-    ("rổ", "quả trứng", "quả"), ("bàn", "học sinh", "học sinh"), ("xe", "thùng hàng", "thùng"),
+    ("rổ", "quả trứng", "quả"), ("nhóm", "bạn", "bạn"), ("xe", "thùng hàng", "thùng"),
 ]
 MEASURE_GROUPS = [
     ("bao", "gạo", "kg", "ki-lô-gam"), ("can", "dầu", "l", "lít"), ("cuộn", "vải", "m", "mét"),
-    ("thùng", "nước mắm", "l", "lít"), ("xe", "cát", "kg", "ki-lô-gam"),
+    ("thùng", "nước mắm", "l", "lít"), ("túi", "đường", "kg", "ki-lô-gam"),
+]
+
+
+BIG_MUL = [
+    lambda a, k, r: (f"Mỗi ngày một nhà máy may được {fmt(a)} chiếc áo. Hỏi trong {k} ngày nhà máy đó may được bao nhiêu chiếc áo?",
+                     f"Trong {k} ngày nhà máy may được □ chiếc áo.", f"Số áo nhà máy may được trong {k} ngày là:", "chiếc", "chiếc", f"{fmt(r)} chiếc áo"),
+    lambda a, k, r: (f"Mỗi xe tải chở {fmt(a)} kg xi măng. Hỏi {k} xe tải như thế chở được bao nhiêu ki-lô-gam xi măng?",
+                     f"{k} xe tải chở được □ kg xi măng.", f"Số xi măng {k} xe tải chở được là:", "kg", "kg", f"{fmt(r)} kg xi măng"),
+    lambda a, k, r: (f"Mỗi bể chứa {fmt(a)} l nước. Hỏi {k} bể như thế chứa được bao nhiêu lít nước?",
+                     f"{k} bể chứa được □ l nước.", f"Số nước {k} bể chứa được là:", "l", "l", f"{fmt(r)} l nước"),
+    lambda a, k, r: (f"Mỗi tháng một cửa hàng bán được {fmt(a)} quyển vở. Hỏi trong {k} tháng cửa hàng đó bán được bao nhiêu quyển vở?",
+                     f"Trong {k} tháng cửa hàng bán được □ quyển vở.", f"Số vở cửa hàng bán được trong {k} tháng là:", "quyển", "quyển", f"{fmt(r)} quyển vở"),
+]
+BIG_DIV = [
+    lambda a, k, r: (f"Một nhà máy may được {fmt(a)} chiếc áo trong {k} ngày, số áo may được mỗi ngày như nhau. Hỏi mỗi ngày nhà máy may được bao nhiêu chiếc áo?",
+                     "Mỗi ngày nhà máy may được □ chiếc áo.", "Số áo nhà máy may được mỗi ngày là:", "chiếc", "chiếc", f"{fmt(r)} chiếc áo"),
+    lambda a, k, r: (f"Có {fmt(a)} kg gạo chia đều vào {k} kho. Hỏi mỗi kho có bao nhiêu ki-lô-gam gạo?",
+                     "Mỗi kho có □ kg gạo.", "Số gạo mỗi kho có là:", "kg", "kg", f"{fmt(r)} kg gạo"),
+    lambda a, k, r: (f"Người ta chia đều {fmt(a)} quyển sách cho {k} thư viện. Hỏi mỗi thư viện nhận được bao nhiêu quyển sách?",
+                     "Mỗi thư viện nhận được □ quyển sách.", "Số sách mỗi thư viện nhận được là:", "quyển", "quyển", f"{fmt(r)} quyển sách"),
+    lambda a, k, r: (f"Một con đường dài {fmt(a)} m được chia thành {k} đoạn dài bằng nhau để sửa. Hỏi mỗi đoạn đường dài bao nhiêu mét?",
+                     "Mỗi đoạn đường dài □ m.", "Độ dài mỗi đoạn đường là:", "m", "m", f"{fmt(r)} m"),
 ]
 
 
 def ctx_mul(rng, a, k, r):
+    if a >= 100:
+        return rng.choice(BIG_MUL)(a, k, r)
     if rng.random() < 0.6:
         g, item, u = rng.choice(COUNT_GROUPS)
         return (f"Mỗi {g} có {fmt(a)} {item}. Hỏi {k} {g} như thế có tất cả bao nhiêu {item}?",
@@ -852,6 +877,8 @@ def ctx_mul(rng, a, k, r):
 
 
 def ctx_div(rng, a, k, r):
+    if a >= 1000:
+        return rng.choice(BIG_DIV)(a, k, r)
     kind = rng.random()
     if kind < 0.45:
         g, item, u = rng.choice(COUNT_GROUPS)
@@ -866,46 +893,60 @@ def ctx_div(rng, a, k, r):
             f"Mỗi {g} có □ {u} {item}.", f"Số {item} trong mỗi {g} là:", u, u, f"{fmt(r)} {u} {item}")
 
 
+# (giá trị lớn nhất còn hợp lý, ngữ cảnh)
 ADD_CTX = [
-    lambda a, b, r: (f"Buổi sáng cửa hàng bán được {fmt(a)} kg gạo, buổi chiều bán được {fmt(b)} kg gạo. Hỏi cả ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?",
-                     "Cả ngày cửa hàng bán được □ kg gạo.", "Số gạo cả ngày cửa hàng bán được là:", "kg", "kg", f"{fmt(r)} kg gạo"),
-    lambda a, b, r: (f"Thư viện có {fmt(a)} quyển truyện và {fmt(b)} quyển sách khoa học. Hỏi thư viện có tất cả bao nhiêu quyển sách?",
-                     "Thư viện có □ quyển sách.", "Số quyển sách thư viện có là:", "quyển", "quyển", f"{fmt(r)} quyển sách"),
-    lambda a, b, r: (f"Đội Một trồng được {fmt(a)} cây, đội Hai trồng được {fmt(b)} cây. Hỏi cả hai đội trồng được bao nhiêu cây?",
-                     "Cả hai đội trồng được □ cây.", "Số cây cả hai đội trồng được là:", "cây", "cây", f"{fmt(r)} cây"),
-    lambda a, b, r: (f"Quãng đường từ nhà Minh đến bưu điện dài {fmt(a)} m, từ bưu điện đến trường dài {fmt(b)} m. Hỏi quãng đường từ nhà Minh qua bưu điện đến trường dài bao nhiêu mét?",
-                     "Quãng đường đó dài □ m.", "Quãng đường từ nhà Minh qua bưu điện đến trường dài là:", "m", "m", f"{fmt(r)} m"),
-    lambda a, b, r: (f"Một trang trại nuôi {fmt(a)} con gà và {fmt(b)} con vịt. Hỏi trang trại nuôi tất cả bao nhiêu con gà và vịt?",
-                     "Trang trại nuôi □ con gà và vịt.", "Số con gà và vịt trang trại nuôi là:", "con", "con", f"{fmt(r)} con"),
+    (100000, lambda a, b, r: (f"Tháng Một nhà máy sản xuất được {fmt(a)} chiếc bút, tháng Hai sản xuất được {fmt(b)} chiếc bút. Hỏi cả hai tháng nhà máy sản xuất được bao nhiêu chiếc bút?",
+                              "Cả hai tháng sản xuất được □ chiếc bút.", "Số bút cả hai tháng nhà máy sản xuất được là:", "chiếc", "chiếc", f"{fmt(r)} chiếc bút")),
+    (10000, lambda a, b, r: (f"Buổi sáng cửa hàng bán được {fmt(a)} kg gạo, buổi chiều bán được {fmt(b)} kg gạo. Hỏi cả ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?",
+                             "Cả ngày cửa hàng bán được □ kg gạo.", "Số gạo cả ngày cửa hàng bán được là:", "kg", "kg", f"{fmt(r)} kg gạo")),
+    (100000, lambda a, b, r: (f"Thư viện có {fmt(a)} quyển truyện và {fmt(b)} quyển sách khoa học. Hỏi thư viện có tất cả bao nhiêu quyển sách?",
+                              "Thư viện có □ quyển sách.", "Số quyển sách thư viện có là:", "quyển", "quyển", f"{fmt(r)} quyển sách")),
+    (10000, lambda a, b, r: (f"Đội Một trồng được {fmt(a)} cây, đội Hai trồng được {fmt(b)} cây. Hỏi cả hai đội trồng được bao nhiêu cây?",
+                             "Cả hai đội trồng được □ cây.", "Số cây cả hai đội trồng được là:", "cây", "cây", f"{fmt(r)} cây")),
+    (10000, lambda a, b, r: (f"Quãng đường từ nhà Minh đến bưu điện dài {fmt(a)} m, từ bưu điện đến trường dài {fmt(b)} m. Hỏi quãng đường từ nhà Minh qua bưu điện đến trường dài bao nhiêu mét?",
+                             "Quãng đường đó dài □ m.", "Quãng đường từ nhà Minh qua bưu điện đến trường dài là:", "m", "m", f"{fmt(r)} m")),
+    (100000, lambda a, b, r: (f"Một trang trại nuôi {fmt(a)} con gà và {fmt(b)} con vịt. Hỏi trang trại nuôi tất cả bao nhiêu con gà và vịt?",
+                              "Trang trại nuôi □ con gà và vịt.", "Số con gà và vịt trang trại nuôi là:", "con", "con", f"{fmt(r)} con")),
 ]
 SUB_CTX = [
-    lambda a, b, r: (f"Một cửa hàng có {fmt(a)} kg đường, đã bán {fmt(b)} kg đường. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam đường?",
-                     "Cửa hàng còn lại □ kg đường.", "Số đường cửa hàng còn lại là:", "kg", "kg", f"{fmt(r)} kg đường"),
-    lambda a, b, r: (f"Một xưởng may cần may {fmt(a)} chiếc áo, đã may được {fmt(b)} chiếc áo. Hỏi xưởng còn phải may bao nhiêu chiếc áo nữa?",
-                     "Xưởng còn phải may □ chiếc áo.", "Số áo xưởng còn phải may là:", "chiếc", "chiếc", f"{fmt(r)} chiếc áo"),
-    lambda a, b, r: (f"Quãng đường từ nhà Lan đến chợ dài {fmt(a)} m. Lan đã đi được {fmt(b)} m. Hỏi Lan còn phải đi bao nhiêu mét nữa?",
-                     "Lan còn phải đi □ m nữa.", "Quãng đường Lan còn phải đi là:", "m", "m", f"{fmt(r)} m"),
-    lambda a, b, r: (f"Một trường học có {fmt(a)} học sinh, trong đó có {fmt(b)} học sinh nam. Hỏi trường đó có bao nhiêu học sinh nữ?",
-                     "Trường đó có □ học sinh nữ.", "Số học sinh nữ của trường là:", "học sinh", "học sinh", f"{fmt(r)} học sinh nữ"),
-    lambda a, b, r: (f"Một bể chứa {fmt(a)} l nước. Người ta đã dùng {fmt(b)} l nước. Hỏi trong bể còn lại bao nhiêu lít nước?",
-                     "Trong bể còn lại □ l nước.", "Số nước còn lại trong bể là:", "l", "l", f"{fmt(r)} l nước"),
+    (100000, lambda a, b, r: (f"Một sân vận động có {fmt(a)} chỗ ngồi. Đã có {fmt(b)} khán giả vào ngồi. Hỏi sân vận động còn bao nhiêu chỗ trống?",
+                              "Còn □ chỗ trống.", "Số chỗ trống còn lại là:", "chỗ", "chỗ", f"{fmt(r)} chỗ")),
+    (10000, lambda a, b, r: (f"Một cửa hàng có {fmt(a)} kg đường, đã bán {fmt(b)} kg đường. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam đường?",
+                             "Cửa hàng còn lại □ kg đường.", "Số đường cửa hàng còn lại là:", "kg", "kg", f"{fmt(r)} kg đường")),
+    (100000, lambda a, b, r: (f"Một xưởng may cần may {fmt(a)} chiếc áo, đã may được {fmt(b)} chiếc áo. Hỏi xưởng còn phải may bao nhiêu chiếc áo nữa?",
+                              "Xưởng còn phải may □ chiếc áo.", "Số áo xưởng còn phải may là:", "chiếc", "chiếc", f"{fmt(r)} chiếc áo")),
+    (10000, lambda a, b, r: (f"Quãng đường từ nhà Lan đến chợ dài {fmt(a)} m. Lan đã đi được {fmt(b)} m. Hỏi Lan còn phải đi bao nhiêu mét nữa?",
+                             "Lan còn phải đi □ m nữa.", "Quãng đường Lan còn phải đi là:", "m", "m", f"{fmt(r)} m")),
+    (3000, lambda a, b, r: (f"Một trường học có {fmt(a)} học sinh, trong đó có {fmt(b)} học sinh nam. Hỏi trường đó có bao nhiêu học sinh nữ?",
+                            "Trường đó có □ học sinh nữ.", "Số học sinh nữ của trường là:", "học sinh", "học sinh", f"{fmt(r)} học sinh nữ")),
+    (100000, lambda a, b, r: (f"Một bể chứa {fmt(a)} l nước. Người ta đã dùng {fmt(b)} l nước. Hỏi trong bể còn lại bao nhiêu lít nước?",
+                              "Trong bể còn lại □ l nước.", "Số nước còn lại trong bể là:", "l", "l", f"{fmt(r)} l nước")),
 ]
 MORE_CTX = [
-    lambda a, b, r: (f"Lớp 3A thu được {fmt(a)} kg giấy vụn, lớp 3B thu được nhiều hơn lớp 3A {fmt(b)} kg. Hỏi lớp 3B thu được bao nhiêu ki-lô-gam giấy vụn?",
-                     "Lớp 3B thu được □ kg giấy vụn.", "Số giấy vụn lớp 3B thu được là:", "kg", "kg", f"{fmt(r)} kg giấy vụn"),
-    lambda a, b, r: (f"Năm ngoái vườn nhà bác Tư thu hoạch được {fmt(a)} kg cam. Năm nay thu hoạch được nhiều hơn năm ngoái {fmt(b)} kg. Hỏi năm nay vườn nhà bác Tư thu hoạch được bao nhiêu ki-lô-gam cam?",
-                     "Năm nay thu hoạch được □ kg cam.", "Số cam năm nay thu hoạch được là:", "kg", "kg", f"{fmt(r)} kg cam"),
-    lambda a, b, r: (f"Cuộn dây xanh dài {fmt(a)} m, cuộn dây đỏ dài hơn cuộn dây xanh {fmt(b)} m. Hỏi cuộn dây đỏ dài bao nhiêu mét?",
-                     "Cuộn dây đỏ dài □ m.", "Độ dài cuộn dây đỏ là:", "m", "m", f"{fmt(r)} m"),
+    (100000, lambda a, b, r: (f"Tháng trước cửa hàng bán được {fmt(a)} quyển vở. Tháng này bán được nhiều hơn tháng trước {fmt(b)} quyển vở. Hỏi tháng này cửa hàng bán được bao nhiêu quyển vở?",
+                              "Tháng này bán được □ quyển vở.", "Số vở tháng này cửa hàng bán được là:", "quyển", "quyển", f"{fmt(r)} quyển vở")),
+    (1000, lambda a, b, r: (f"Lớp 3A thu được {fmt(a)} kg giấy vụn, lớp 3B thu được nhiều hơn lớp 3A {fmt(b)} kg. Hỏi lớp 3B thu được bao nhiêu ki-lô-gam giấy vụn?",
+                            "Lớp 3B thu được □ kg giấy vụn.", "Số giấy vụn lớp 3B thu được là:", "kg", "kg", f"{fmt(r)} kg giấy vụn")),
+    (100000, lambda a, b, r: (f"Năm ngoái trang trại thu hoạch được {fmt(a)} kg cam. Năm nay thu hoạch được nhiều hơn năm ngoái {fmt(b)} kg. Hỏi năm nay trang trại thu hoạch được bao nhiêu ki-lô-gam cam?",
+                              "Năm nay thu hoạch được □ kg cam.", "Số cam năm nay thu hoạch được là:", "kg", "kg", f"{fmt(r)} kg cam")),
+    (10000, lambda a, b, r: (f"Cuộn dây xanh dài {fmt(a)} m, cuộn dây đỏ dài hơn cuộn dây xanh {fmt(b)} m. Hỏi cuộn dây đỏ dài bao nhiêu mét?",
+                             "Cuộn dây đỏ dài □ m.", "Độ dài cuộn dây đỏ là:", "m", "m", f"{fmt(r)} m")),
 ]
 LESS_CTX = [
-    lambda a, b, r: (f"Thùng thứ nhất có {fmt(a)} l dầu, thùng thứ hai có ít hơn thùng thứ nhất {fmt(b)} l. Hỏi thùng thứ hai có bao nhiêu lít dầu?",
-                     "Thùng thứ hai có □ l dầu.", "Số dầu ở thùng thứ hai là:", "l", "l", f"{fmt(r)} l dầu"),
-    lambda a, b, r: (f"Khối lớp Ba có {fmt(a)} học sinh, khối lớp Hai có ít hơn khối lớp Ba {fmt(b)} học sinh. Hỏi khối lớp Hai có bao nhiêu học sinh?",
-                     "Khối lớp Hai có □ học sinh.", "Số học sinh khối lớp Hai là:", "học sinh", "học sinh", f"{fmt(r)} học sinh"),
-    lambda a, b, r: (f"Con đường thứ nhất dài {fmt(a)} m, con đường thứ hai ngắn hơn con đường thứ nhất {fmt(b)} m. Hỏi con đường thứ hai dài bao nhiêu mét?",
-                     "Con đường thứ hai dài □ m.", "Độ dài con đường thứ hai là:", "m", "m", f"{fmt(r)} m"),
+    (100000, lambda a, b, r: (f"Năm nay nhà máy sản xuất được {fmt(a)} chiếc xe đạp. Năm ngoái nhà máy sản xuất được ít hơn năm nay {fmt(b)} chiếc. Hỏi năm ngoái nhà máy sản xuất được bao nhiêu chiếc xe đạp?",
+                              "Năm ngoái sản xuất được □ chiếc xe đạp.", "Số xe đạp năm ngoái nhà máy sản xuất được là:", "chiếc", "chiếc", f"{fmt(r)} chiếc xe đạp")),
+    (1000, lambda a, b, r: (f"Thùng thứ nhất có {fmt(a)} l dầu, thùng thứ hai có ít hơn thùng thứ nhất {fmt(b)} l. Hỏi thùng thứ hai có bao nhiêu lít dầu?",
+                            "Thùng thứ hai có □ l dầu.", "Số dầu ở thùng thứ hai là:", "l", "l", f"{fmt(r)} l dầu")),
+    (1000, lambda a, b, r: (f"Khối lớp Ba có {fmt(a)} học sinh, khối lớp Hai có ít hơn khối lớp Ba {fmt(b)} học sinh. Hỏi khối lớp Hai có bao nhiêu học sinh?",
+                            "Khối lớp Hai có □ học sinh.", "Số học sinh khối lớp Hai là:", "học sinh", "học sinh", f"{fmt(r)} học sinh")),
+    (100000, lambda a, b, r: (f"Con đường thứ nhất dài {fmt(a)} m, con đường thứ hai ngắn hơn con đường thứ nhất {fmt(b)} m. Hỏi con đường thứ hai dài bao nhiêu mét?",
+                              "Con đường thứ hai dài □ m.", "Độ dài con đường thứ hai là:", "m", "m", f"{fmt(r)} m")),
 ]
+
+
+def pick_ctx(rng, pool, *vals):
+    ok = [f for mx, f in pool if max(vals) <= mx]
+    return rng.choice(ok)
 
 
 def b_word(rng, op, a, b, skills, level=2, mode="fill", kind=None):
@@ -918,11 +959,11 @@ def b_word(rng, op, a, b, skills, level=2, mode="fill", kind=None):
         hint, wrong_ops = "word", [a - b, r + 1]
     elif op == "+":
         pool = MORE_CTX if kind == "more" else ADD_CTX
-        prompt, tmpl, expl, eu, bu, ans = rng.choice(pool)(a, b, r)
+        prompt, tmpl, expl, eu, bu, ans = pick_ctx(rng, pool, a, b, r)(a, b, r)
         hint, wrong_ops = ("more_less" if kind else "word"), [a - b if a > b else b - a, r + 10]
     else:
         pool = LESS_CTX if kind == "less" else SUB_CTX
-        prompt, tmpl, expl, eu, bu, ans = rng.choice(pool)(a, b, r)
+        prompt, tmpl, expl, eu, bu, ans = pick_ctx(rng, pool, a, b, r)(a, b, r)
         hint, wrong_ops = ("more_less" if kind else "word"), [a + b, r - 10 if r > 10 else r + 1]
     steps = [WP([(expl, eq(a, op, b, eu))], ans)]
     if needs_block(a, op, b):
@@ -945,8 +986,10 @@ def _scale_pick(rng, M):
 
 
 def b_word2(rng, kind, M, skills, level=3, mode="fill"):
+    """Bài toán giải bằng hai bước tính; M = phạm vi số (100, 1000, 10 000, 100 000)."""
     S = _scale_pick(rng, M)
-    for _ in range(500):
+    big = M >= 1000
+    for _ in range(1000):
         if kind == "mul_add":
             n = rnd(rng, 2, 6)
             k = S(0.04, 0.12) if M > 100 else rnd(rng, 11, 19)
@@ -955,9 +998,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = x + m
             if r >= M:
                 continue
-            prompt = f"Lớp 3A có {n} tổ, mỗi tổ trồng được {fmt(k)} cây. Lớp 3B trồng được {fmt(m)} cây. Hỏi cả hai lớp trồng được bao nhiêu cây?"
-            lines = [("Số cây lớp 3A trồng được là:", eq(k, "×", n, "cây")), ("Số cây cả hai lớp trồng được là:", eq(x, "+", m, "cây"))]
-            tmpl, unit, ans, blocks = "Cả hai lớp trồng được □ cây.", "cây", f"{fmt(r)} cây", [(k, "×", n), (x, "+", m)]
+            blocks = [(k, "×", n), (x, "+", m)]
+            if big:
+                prompt = f"Một nhà máy có {n} xưởng, mỗi xưởng làm được {fmt(k)} chiếc bút. Nhà máy còn nhập thêm {fmt(m)} chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?"
+                lines = [("Số bút các xưởng làm được là:", eq(k, "×", n, "chiếc")), ("Số bút nhà máy có tất cả là:", eq(x, "+", m, "chiếc"))]
+                tmpl, unit, ans = "Nhà máy có tất cả □ chiếc bút.", "chiếc", f"{fmt(r)} chiếc bút"
+            else:
+                prompt = f"Lớp 3A có {n} tổ, mỗi tổ trồng được {fmt(k)} cây. Lớp 3B trồng được {fmt(m)} cây. Hỏi cả hai lớp trồng được bao nhiêu cây?"
+                lines = [("Số cây lớp 3A trồng được là:", eq(k, "×", n, "cây")), ("Số cây cả hai lớp trồng được là:", eq(x, "+", m, "cây"))]
+                tmpl, unit, ans = "Cả hai lớp trồng được □ cây.", "cây", f"{fmt(r)} cây"
         elif kind == "mul_sub":
             n = rnd(rng, 2, 5)
             k = S(0.05, 0.15) if M > 100 else rnd(rng, 12, 25)
@@ -966,9 +1015,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a - x
             if r <= 0 or x >= M:
                 continue
-            prompt = f"Một cửa hàng có {fmt(a)} kg gạo. Cửa hàng đã bán {n} bao gạo, mỗi bao nặng {fmt(k)} kg. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
-            lines = [("Số gạo cửa hàng đã bán là:", eq(k, "×", n, "kg")), ("Số gạo cửa hàng còn lại là:", eq(a, "-", x, "kg"))]
-            tmpl, unit, ans, blocks = "Cửa hàng còn lại □ kg gạo.", "kg", f"{fmt(r)} kg gạo", [(k, "×", n), (a, "-", x)]
+            blocks = [(k, "×", n), (a, "-", x)]
+            if big:
+                prompt = f"Một kho có {fmt(a)} kg thóc. Người ta đã chở đi {n} xe, mỗi xe chở {fmt(k)} kg thóc. Hỏi trong kho còn lại bao nhiêu ki-lô-gam thóc?"
+                lines = [("Số thóc đã chở đi là:", eq(k, "×", n, "kg")), ("Số thóc còn lại trong kho là:", eq(a, "-", x, "kg"))]
+                tmpl, unit, ans = "Trong kho còn lại □ kg thóc.", "kg", f"{fmt(r)} kg thóc"
+            else:
+                prompt = f"Một cửa hàng có {fmt(a)} kg gạo. Cửa hàng đã bán {n} bao gạo, mỗi bao nặng {fmt(k)} kg. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
+                lines = [("Số gạo cửa hàng đã bán là:", eq(k, "×", n, "kg")), ("Số gạo cửa hàng còn lại là:", eq(a, "-", x, "kg"))]
+                tmpl, unit, ans = "Cửa hàng còn lại □ kg gạo.", "kg", f"{fmt(r)} kg gạo"
         elif kind == "more_total":
             a = S(0.15, 0.4)
             b = S(0.03, 0.15)
@@ -976,9 +1031,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a + x
             if r >= M:
                 continue
-            prompt = f"Thùng thứ nhất có {fmt(a)} l nước mắm, thùng thứ hai có nhiều hơn thùng thứ nhất {fmt(b)} l. Hỏi cả hai thùng có bao nhiêu lít nước mắm?"
-            lines = [("Số nước mắm ở thùng thứ hai là:", eq(a, "+", b, "l")), ("Số nước mắm ở cả hai thùng là:", eq(a, "+", x, "l"))]
-            tmpl, unit, ans, blocks = "Cả hai thùng có □ l nước mắm.", "l", f"{fmt(r)} l nước mắm", [(a, "+", b), (a, "+", x)]
+            blocks = [(a, "+", b), (a, "+", x)]
+            if big:
+                prompt = f"Kho thứ nhất có {fmt(a)} kg gạo, kho thứ hai có nhiều hơn kho thứ nhất {fmt(b)} kg gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?"
+                lines = [("Số gạo ở kho thứ hai là:", eq(a, "+", b, "kg")), ("Số gạo ở cả hai kho là:", eq(a, "+", x, "kg"))]
+                tmpl, unit, ans = "Cả hai kho có □ kg gạo.", "kg", f"{fmt(r)} kg gạo"
+            else:
+                prompt = f"Thùng thứ nhất có {fmt(a)} l nước mắm, thùng thứ hai có nhiều hơn thùng thứ nhất {fmt(b)} l. Hỏi cả hai thùng có bao nhiêu lít nước mắm?"
+                lines = [("Số nước mắm ở thùng thứ hai là:", eq(a, "+", b, "l")), ("Số nước mắm ở cả hai thùng là:", eq(a, "+", x, "l"))]
+                tmpl, unit, ans = "Cả hai thùng có □ l nước mắm.", "l", f"{fmt(r)} l nước mắm"
         elif kind == "less_total":
             a = S(0.25, 0.48)
             b = S(0.03, 0.15)
@@ -986,9 +1047,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a + x
             if x <= 0 or r >= M:
                 continue
-            prompt = f"Buổi sáng cửa hàng bán được {fmt(a)} m vải, buổi chiều bán được ít hơn buổi sáng {fmt(b)} m vải. Hỏi cả ngày cửa hàng bán được bao nhiêu mét vải?"
-            lines = [("Số vải bán được buổi chiều là:", eq(a, "-", b, "m")), ("Số vải bán được cả ngày là:", eq(a, "+", x, "m"))]
-            tmpl, unit, ans, blocks = "Cả ngày bán được □ m vải.", "m", f"{fmt(r)} m vải", [(a, "-", b), (a, "+", x)]
+            blocks = [(a, "-", b), (a, "+", x)]
+            if big:
+                prompt = f"Tháng Một nhà máy may được {fmt(a)} chiếc áo, tháng Hai may được ít hơn tháng Một {fmt(b)} chiếc áo. Hỏi cả hai tháng nhà máy may được bao nhiêu chiếc áo?"
+                lines = [("Số áo may được trong tháng Hai là:", eq(a, "-", b, "chiếc")), ("Số áo may được trong cả hai tháng là:", eq(a, "+", x, "chiếc"))]
+                tmpl, unit, ans = "Cả hai tháng may được □ chiếc áo.", "chiếc", f"{fmt(r)} chiếc áo"
+            else:
+                prompt = f"Buổi sáng cửa hàng bán được {fmt(a)} m vải, buổi chiều bán được ít hơn buổi sáng {fmt(b)} m vải. Hỏi cả ngày cửa hàng bán được bao nhiêu mét vải?"
+                lines = [("Số vải bán được buổi chiều là:", eq(a, "-", b, "m")), ("Số vải bán được cả ngày là:", eq(a, "+", x, "m"))]
+                tmpl, unit, ans = "Cả ngày bán được □ m vải.", "m", f"{fmt(r)} m vải"
         elif kind == "sub_sub":
             a = S(0.5, 0.95)
             b = S(0.1, 0.3)
@@ -997,9 +1064,10 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = x - c
             if r <= 0:
                 continue
+            blocks = [(a, "-", b), (x, "-", c)]
             prompt = f"Một kho có {fmt(a)} bao xi măng. Lần thứ nhất người ta chuyển đi {fmt(b)} bao, lần thứ hai chuyển đi {fmt(c)} bao. Hỏi trong kho còn lại bao nhiêu bao xi măng?"
             lines = [("Số bao xi măng còn lại sau lần thứ nhất là:", eq(a, "-", b, "bao")), ("Số bao xi măng còn lại trong kho là:", eq(x, "-", c, "bao"))]
-            tmpl, unit, ans, blocks = "Trong kho còn lại □ bao xi măng.", "bao", f"{fmt(r)} bao xi măng", [(a, "-", b), (x, "-", c)]
+            tmpl, unit, ans = "Trong kho còn lại □ bao xi măng.", "bao", f"{fmt(r)} bao xi măng"
         elif kind == "times_total":
             k = rnd(rng, 2, 5)
             a = S(0.03, 0.15) if M > 100 else rnd(rng, 5, 15)
@@ -1007,9 +1075,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a + x
             if r >= M:
                 continue
-            prompt = f"Mai gấp được {fmt(a)} ngôi sao, Hà gấp được số ngôi sao gấp {k} lần số ngôi sao của Mai. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?"
-            lines = [("Số ngôi sao Hà gấp được là:", eq(a, "×", k, "ngôi sao")), ("Số ngôi sao cả hai bạn gấp được là:", eq(a, "+", x, "ngôi sao"))]
-            tmpl, unit, ans, blocks = "Cả hai bạn gấp được □ ngôi sao.", "ngôi sao", f"{fmt(r)} ngôi sao", [(a, "×", k), (a, "+", x)]
+            blocks = [(a, "×", k), (a, "+", x)]
+            if big:
+                prompt = f"Thư viện có {fmt(a)} quyển truyện, số sách giáo khoa gấp {k} lần số truyện. Hỏi thư viện có tất cả bao nhiêu quyển truyện và sách giáo khoa?"
+                lines = [("Số sách giáo khoa của thư viện là:", eq(a, "×", k, "quyển")), ("Số truyện và sách giáo khoa có tất cả là:", eq(a, "+", x, "quyển"))]
+                tmpl, unit, ans = "Thư viện có tất cả □ quyển.", "quyển", f"{fmt(r)} quyển"
+            else:
+                prompt = f"Mai gấp được {fmt(a)} ngôi sao, Hà gấp được số ngôi sao gấp {k} lần số ngôi sao của Mai. Hỏi cả hai bạn gấp được bao nhiêu ngôi sao?"
+                lines = [("Số ngôi sao Hà gấp được là:", eq(a, "×", k, "ngôi sao")), ("Số ngôi sao cả hai bạn gấp được là:", eq(a, "+", x, "ngôi sao"))]
+                tmpl, unit, ans = "Cả hai bạn gấp được □ ngôi sao.", "ngôi sao", f"{fmt(r)} ngôi sao"
         elif kind == "frac_rest":
             k = rnd(rng, 2, 6)
             x = S(0.05, 0.2) if M > 100 else rnd(rng, 4, 15)
@@ -1017,9 +1091,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a - x
             if a >= M:
                 continue
-            prompt = f"Một sợi dây dài {fmt(a)} m. Người ta cắt đi 1/{k} sợi dây. Hỏi sợi dây còn lại dài bao nhiêu mét?"
-            lines = [("Độ dài đoạn dây đã cắt đi là:", eq(a, ":", k, "m")), ("Độ dài sợi dây còn lại là:", eq(a, "-", x, "m"))]
-            tmpl, unit, ans, blocks = "Sợi dây còn lại dài □ m.", "m", f"{fmt(r)} m", [(a, ":", k), (a, "-", x)]
+            blocks = [(a, ":", k), (a, "-", x)]
+            if big:
+                prompt = f"Một con đường dài {fmt(a)} m. Đội công nhân đã sửa được 1/{k} con đường. Hỏi còn bao nhiêu mét đường chưa sửa?"
+                lines = [("Số mét đường đã sửa là:", eq(a, ":", k, "m")), ("Số mét đường chưa sửa là:", eq(a, "-", x, "m"))]
+                tmpl, unit, ans = "Còn □ m đường chưa sửa.", "m", f"{fmt(r)} m"
+            else:
+                prompt = f"Một sợi dây dài {fmt(a)} m. Người ta cắt đi 1/{k} sợi dây. Hỏi sợi dây còn lại dài bao nhiêu mét?"
+                lines = [("Độ dài đoạn dây đã cắt đi là:", eq(a, ":", k, "m")), ("Độ dài sợi dây còn lại là:", eq(a, "-", x, "m"))]
+                tmpl, unit, ans = "Sợi dây còn lại dài □ m.", "m", f"{fmt(r)} m"
         elif kind == "div_add":
             k = rnd(rng, 2, 6)
             x = S(0.04, 0.15) if M > 100 else rnd(rng, 4, 12)
@@ -1028,9 +1108,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = x + c
             if a >= M:
                 continue
-            prompt = f"Có {fmt(a)} quyển vở chia đều cho {k} tổ. Sau đó, mỗi tổ được thưởng thêm {fmt(c)} quyển vở. Hỏi lúc này mỗi tổ có bao nhiêu quyển vở?"
-            lines = [("Số quyển vở mỗi tổ được chia là:", eq(a, ":", k, "quyển")), ("Số quyển vở của mỗi tổ lúc này là:", eq(x, "+", c, "quyển"))]
-            tmpl, unit, ans, blocks = "Mỗi tổ có □ quyển vở.", "quyển", f"{fmt(r)} quyển vở", [(a, ":", k), (x, "+", c)]
+            blocks = [(a, ":", k), (x, "+", c)]
+            if big:
+                prompt = f"Có {fmt(a)} quyển sách chia đều cho {k} thư viện. Sau đó mỗi thư viện được tặng thêm {fmt(c)} quyển. Hỏi lúc này mỗi thư viện có bao nhiêu quyển sách?"
+                lines = [("Số sách mỗi thư viện được chia là:", eq(a, ":", k, "quyển")), ("Số sách mỗi thư viện có lúc này là:", eq(x, "+", c, "quyển"))]
+                tmpl, unit, ans = "Mỗi thư viện có □ quyển sách.", "quyển", f"{fmt(r)} quyển sách"
+            else:
+                prompt = f"Có {fmt(a)} quyển vở chia đều cho {k} tổ. Sau đó, mỗi tổ được thưởng thêm {fmt(c)} quyển vở. Hỏi lúc này mỗi tổ có bao nhiêu quyển vở?"
+                lines = [("Số quyển vở mỗi tổ được chia là:", eq(a, ":", k, "quyển")), ("Số quyển vở của mỗi tổ lúc này là:", eq(x, "+", c, "quyển"))]
+                tmpl, unit, ans = "Mỗi tổ có □ quyển vở.", "quyển", f"{fmt(r)} quyển vở"
         elif kind == "down_used":
             k = rnd(rng, 2, 5)
             x = S(0.05, 0.2) if M > 100 else rnd(rng, 5, 20)
@@ -1038,9 +1124,11 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = a - x
             if a >= M:
                 continue
-            prompt = f"Một thùng có {fmt(a)} l dầu. Sau khi dùng, số dầu trong thùng giảm đi {k} lần. Hỏi đã dùng bao nhiêu lít dầu?"
-            lines = [("Số dầu còn lại trong thùng là:", eq(a, ":", k, "l")), ("Số dầu đã dùng là:", eq(a, "-", x, "l"))]
-            tmpl, unit, ans, blocks = "Đã dùng □ l dầu.", "l", f"{fmt(r)} l dầu", [(a, ":", k), (a, "-", x)]
+            blocks = [(a, ":", k), (a, "-", x)]
+            what, cont = ("nước", "bể") if big else ("dầu", "thùng")
+            prompt = f"Một {cont} có {fmt(a)} l {what}. Sau khi dùng, số {what} trong {cont} giảm đi {k} lần. Hỏi đã dùng bao nhiêu lít {what}?"
+            lines = [(f"Số {what} còn lại trong {cont} là:", eq(a, ":", k, "l")), (f"Số {what} đã dùng là:", eq(a, "-", x, "l"))]
+            tmpl, unit, ans = f"Đã dùng □ l {what}.", "l", f"{fmt(r)} l {what}"
         elif kind == "add_mul":
             k = rnd(rng, 2, 6)
             a = S(0.02, 0.08) if M > 100 else rnd(rng, 3, 9)
@@ -1049,9 +1137,15 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
             r = x * k
             if r >= M:
                 continue
-            prompt = f"Mỗi hộp có {fmt(a)} bút xanh và {fmt(b)} bút đỏ. Hỏi {k} hộp như thế có tất cả bao nhiêu cái bút?"
-            lines = [("Số bút có trong mỗi hộp là:", eq(a, "+", b, "cái")), (f"Số bút có trong {k} hộp là:", eq(x, "×", k, "cái"))]
-            tmpl, unit, ans, blocks = f"{k} hộp có □ cái bút.", "cái", f"{fmt(r)} cái bút", [(a, "+", b), (x, "×", k)]
+            blocks = [(a, "+", b), (x, "×", k)]
+            if big:
+                prompt = f"Mỗi kho có {fmt(a)} kg gạo nếp và {fmt(b)} kg gạo tẻ. Hỏi {k} kho như thế có tất cả bao nhiêu ki-lô-gam gạo?"
+                lines = [("Số gạo có trong mỗi kho là:", eq(a, "+", b, "kg")), (f"Số gạo có trong {k} kho là:", eq(x, "×", k, "kg"))]
+                tmpl, unit, ans = f"{k} kho có □ kg gạo.", "kg", f"{fmt(r)} kg gạo"
+            else:
+                prompt = f"Mỗi hộp có {fmt(a)} bút xanh và {fmt(b)} bút đỏ. Hỏi {k} hộp như thế có tất cả bao nhiêu cái bút?"
+                lines = [("Số bút có trong mỗi hộp là:", eq(a, "+", b, "cái")), (f"Số bút có trong {k} hộp là:", eq(x, "×", k, "cái"))]
+                tmpl, unit, ans = f"{k} hộp có □ cái bút.", "cái", f"{fmt(r)} cái bút"
         else:
             raise ValueError(kind)
         break
@@ -1064,6 +1158,7 @@ def b_word2(rng, kind, M, skills, level=3, mode="fill"):
     wrong = pick_wrong(rng, r, [x1, r + 10, r - 10], lo=1)
     return mk("multiple_choice", "Chọn đáp án đúng.", prompt, level, 150, skills, ans, steps, "two_step",
               **MC(rng, f"{fmt(r)} {unit}", [f"{fmt(w)} {unit}" for w in wrong]))
+
 
 # ---------------------------------------------------------------------------
 # Tìm thành phần chưa biết
@@ -1361,7 +1456,7 @@ def b_times_mc(rng, up, skills, level=1, big=False):
               [T(H[hint], "rule")] + calc_steps(*op), hint, **MC(rng, fmt(r), [fmt(w) for w in wrong]))
 
 
-def _times_cases(rng, n, mix_plain=False, big=False):
+def _times_cases(rng, n, mix_plain=False, big=False, dirs=(True, False)):
     out, seen = [], set()
     for _ in range(500):
         f = rng.random()
@@ -1373,7 +1468,7 @@ def _times_cases(rng, n, mix_plain=False, big=False):
             else:
                 case = (f"Bớt {k} từ {a * k}", a * k - k, (a * k, "-", k), "more_less")
         else:
-            case = _times_case(rng, rng.random() < 0.5, big)
+            case = _times_case(rng, rng.choice(dirs), big)
         if case[1] in seen or case[0] in {c[0] for c in out}:
             continue
         seen.add(case[1])
@@ -1383,8 +1478,8 @@ def _times_cases(rng, n, mix_plain=False, big=False):
     raise RuntimeError("times cases")
 
 
-def b_times_drag(rng, skills, level=2, big=False):
-    cases = _times_cases(rng, 3, big=big)
+def b_times_drag(rng, skills, level=2, big=False, dirs=(True, False)):
+    cases = _times_cases(rng, 3, big=big, dirs=dirs)
     rs = [c[1] for c in cases]
     extra = next(v for v in pick_wrong(rng, rs[0], [rs[0] + 2]) if v not in rs)
     return mk("drag_drop", "Kéo số vào ô trống.", "Kéo thẻ số đúng vào mỗi ô trống.", level, 70, skills,
@@ -1392,14 +1487,14 @@ def b_times_drag(rng, skills, level=2, big=False):
               **DD(rng, "\n".join(f"{c[0]} được □" for c in cases), [fmt(r) for r in rs], [fmt(extra)]))
 
 
-def b_times_match(rng, skills, level=2):
-    cases = _times_cases(rng, 4, mix_plain=True)
+def b_times_match(rng, skills, level=2, dirs=(True, False)):
+    cases = _times_cases(rng, 4, mix_plain=True, dirs=dirs)
     rs = [c[1] for c in cases]
     extra = next(v for v in pick_wrong(rng, rs[0], [rs[0] + 1]) if v not in rs)
     return mk("matching", "Nối cho đúng.", "Nối mỗi ô bên trái với kết quả đúng.", level, 90, skills,
               "; ".join(f"{c[0]} được {fmt(c[1])}" for c in cases),
               [E(eq(*c[2])) for c in cases] + [T("Gấp, giảm một số lần thì làm phép nhân, phép chia; thêm, bớt thì làm phép cộng, phép trừ.", "tip")],
-              "times_up", **MT(rng, [(c[0], fmt(c[1])) for c in cases], [fmt(extra)]))
+              "match", **MT(rng, [(c[0], fmt(c[1])) for c in cases], [fmt(extra)]))
 
 
 TIMES_UP_WORD = [
@@ -2428,7 +2523,7 @@ def b_angle_tool(rng, skills, level=1):
 def b_angle_vertex(rng, skills, level=1):
     o, a, b = letters(rng, 3)
     return mk("multiple_choice", "Chọn đáp án đúng.", f"Một góc có hai cạnh là {o}{a} và {o}{b}. Đỉnh của góc là điểm nào?", level, 30, skills,
-              f"Điểm {o}", [T(f"Hai cạnh {o}{a} và {o}{b} chung điểm {o}, nên {o} là đỉnh của góc.")], "angle",
+              f"Điểm {o}", [T(f"Hai cạnh {o}{a} và {o}{b} chung điểm {o}, nên {o} là đỉnh của góc.")], "shape",
               **MC(rng, f"Điểm {o}", [f"Điểm {a}", f"Điểm {b}"]))
 
 
@@ -2971,8 +3066,9 @@ def b_conv_fill(rng, pairs, skills, level=1):
     tmpl = f"{x} {b1} = □ {s1}\n{fmt(y * f2)} {s2} = □ {b2}"
     steps = [T(conv_fact(b1, s1) + ("" if (b1, s1) == (b2, s2) else "; " + conv_fact(b2, s2)) + ".", "rule"),
              E(f"{x} × {fmt(f1)} = {fmt(x * f1)}"), E(f"{fmt(y * f2)} : {fmt(f2)} = {y}")]
+    hint = HINT_OF_UNIT[s1] if "mm" not in (s1, s2) and s1 not in ("cm", "dm", "m") else ("length" if "mm" in (s1, s2) else "same_unit")
     return mk("fill_blank", "Điền số thích hợp.", "Viết số thích hợp vào chỗ trống:", level, 50, skills,
-              f"{fmt(x * f1)} {s1}; {y} {b2}", steps, HINT_OF_UNIT[s1], **FB(tmpl, [(x * f1, s1), (y, b2)]))
+              f"{fmt(x * f1)} {s1}; {y} {b2}", steps, hint, **FB(tmpl, [(x * f1, s1), (y, b2)]))
 
 
 def b_conv_match(rng, pairs, skills, level=2):
@@ -3083,7 +3179,7 @@ def b_estimate(rng, kind, skills, level=1):
 def b_scale(rng, skills, level=2):
     ws = rng.sample([500, 200, 100, 50, 20, 10], rnd(rng, 2, 3))
     total = sum(ws)
-    thing = rng.choice(["gói kẹo", "túi đường", "hộp bánh", "quả bưởi"])
+    thing = rng.choice(["gói kẹo", "túi đường", "hộp bánh", "quả xoài"])
     eq_ = " + ".join(map(str, ws)) + f" = {total}"
     return mk("fill_blank", "Điền số thích hợp.",
               f"Cân đĩa thăng bằng. Một đĩa cân đặt {thing}, đĩa cân kia đặt các quả cân: " + ", ".join(f"{w} g" for w in ws) + f". Hỏi {thing} nặng bao nhiêu gam?",
@@ -3255,6 +3351,8 @@ def b_clock_add(rng, skills, level=2, ctx=False):
     h = rnd(rng, 6, 10)
     m = rng.choice(range(0, 60, 5))
     d = rng.choice([15, 20, 25, 30, 35, 40, 45])
+    if (m + d) % 60 == 0:
+        d += 5
     tot = m + d
     h2, m2 = (h + 1, tot - 60) if tot >= 60 else (h, tot)
     if ctx:
@@ -3563,15 +3661,15 @@ def b_tally_drag(rng, skills, level=2):
 
 
 TABLES = [
-    ("Số cây các lớp khối Ba trồng được", ["Lớp 3A", "Lớp 3B", "Lớp 3C", "Lớp 3D"], "cây", (15, 48)),
-    ("Số quyển sách các bạn tổ Hai đọc trong tháng", ["An", "Bình", "Chi", "Dũng"], "quyển", (3, 15)),
-    ("Số học sinh tham gia các câu lạc bộ", ["Bóng đá", "Cờ vua", "Vẽ", "Bơi"], "bạn", (8, 30)),
-    ("Số ki-lô-gam giấy vụn các lớp thu được", ["Lớp 3A", "Lớp 3B", "Lớp 3C", "Lớp 3D"], "kg", (20, 60)),
+    ("Số cây các lớp khối Ba trồng được", ["Lớp 3A", "Lớp 3B", "Lớp 3C", "Lớp 3D"], "cây", (15, 48), "Lớp nào trồng được {} cây?"),
+    ("Số quyển sách các bạn tổ Hai đọc trong tháng", ["An", "Bình", "Chi", "Dũng"], "quyển", (3, 15), "Bạn nào đọc được {} sách?"),
+    ("Số học sinh tham gia các câu lạc bộ", ["Bóng đá", "Cờ vua", "Vẽ", "Bơi"], "bạn", (8, 30), "Câu lạc bộ nào có {} bạn tham gia?"),
+    ("Số ki-lô-gam giấy vụn các lớp thu được", ["Lớp 3A", "Lớp 3B", "Lớp 3C", "Lớp 3D"], "kg", (20, 60), "Lớp nào thu được {} giấy vụn?"),
 ]
 
 
 def _table(rng, grid=False):
-    title, names, unit, (lo, hi) = rng.choice(TABLES)
+    title, names, unit, (lo, hi), _q = rng.choice(TABLES)
     vals = rng.sample(range(lo, hi + 1), len(names))
     if grid:
         head = names[0].split(" ")[0] if names[0].startswith("Lớp") else "Tên"
@@ -3582,11 +3680,27 @@ def _table(rng, grid=False):
     return text, names, vals, unit
 
 
+def _table_q(names, most):
+    for t in TABLES:
+        if t[1] == names:
+            return t[4].format("nhiều nhất" if most else "ít nhất") if "{}" in t[4] else t[4]
+    raise KeyError(names)
+
+
 def b_table_extreme(rng, skills, level=2, most=True, grid=False):
     text, names, vals, unit = _table(rng, grid)
     i = vals.index(max(vals) if most else min(vals))
     word = "nhiều nhất" if most else "ít nhất"
-    return mk("multiple_choice", "Chọn đáp án đúng.", f"{text}\nAi (hoặc nhóm nào) có số liệu {word}?" if not names[0].startswith("Lớp") else f"{text}\nLớp nào có số liệu {word}?",
+    q = _table_q(names, most)
+    if "nhiều nhất" in q and not most:
+        q = q.replace("nhiều nhất", "ít nhất")
+    q = q.replace("được nhiều nhất cây", "được nhiều cây nhất").replace("được ít nhất cây", "được ít cây nhất")
+    q = q.replace("được nhiều nhất sách", "được nhiều sách nhất").replace("được ít nhất sách", "được ít sách nhất")
+    q = q.replace("có nhiều nhất bạn", "có nhiều bạn").replace("có ít nhất bạn", "có ít bạn")
+    q = q.replace("được nhiều nhất giấy vụn", "được nhiều giấy vụn nhất").replace("được ít nhất giấy vụn", "được ít giấy vụn nhất")
+    if q.startswith("Câu lạc bộ"):
+        q = q.replace("tham gia?", "tham gia nhất?")
+    return mk("multiple_choice", "Chọn đáp án đúng.", f"{text}\n{q}",
               level, 60, skills, names[i], [T(" < ".join(f"{v} ({n})" for v, n in sorted(zip(vals, names))) + ".")], "stat_table",
               **MC(rng, names[i], [n for n in names if n != names[i]]))
 
@@ -3738,3 +3852,1292 @@ def b_prob_count(rng, skills, level=2):
     return mk("fill_blank", "Điền số thích hợp.", f"{desc}\nCó thể lấy được quả bóng của mấy màu khác nhau?", level, 50, skills, str(len(cs)),
               [T("Có thể lấy được bóng " + ", ".join(cs) + f": tất cả {len(cs)} màu.")], "probability",
               **FB("Có thể lấy được bóng của □ màu khác nhau.", [len(cs)]))
+
+# ---------------------------------------------------------------------------
+# Một số dạng bổ sung
+# ---------------------------------------------------------------------------
+
+
+def b_polyline(rng, skills, level=2):
+    n = rnd(rng, 3, 4)
+    pts = letters(rng, n + 1)
+    segs = [rnd(rng, 5, 30) for _ in range(n)]
+    name = "".join(pts)
+    s = sum(segs)
+    desc = ", ".join(f"{pts[i]}{pts[i + 1]} = {v} cm" for i, v in enumerate(segs))
+    return mk("fill_blank", "Điền số thích hợp.", f"Đường gấp khúc {name} có {desc}. Tính độ dài đường gấp khúc {name}.", level, 60, skills,
+              f"{s} cm", [T(H["polyline"], "rule"), E(" + ".join(map(str, segs)) + f" = {s}")], "polyline",
+              **FB(f"Đường gấp khúc {name} dài □ cm.", [(s, "cm")]))
+
+
+def b_polyline_word(rng, skills, level=3):
+    n = rnd(rng, 3, 5)
+    a = rnd(rng, 3, 9)
+    return mk("fill_blank", "Giải bài toán.", f"Một đường gấp khúc gồm {n} đoạn thẳng, mỗi đoạn dài {a} cm. Hỏi đường gấp khúc đó dài bao nhiêu xăng-ti-mét?",
+              level, 80, skills, f"{a * n} cm", [WP([("Độ dài đường gấp khúc là:", f"{a} × {n} = {a * n} (cm)")], f"{a * n} cm"),
+                                                  T("Các đoạn thẳng dài bằng nhau nên ta dùng phép nhân thay cho phép cộng.", "tip")], "word",
+              **FB("Đường gấp khúc dài □ cm.", [(a * n, "cm")]))
+
+
+def b_frac_mc(rng, skills, level=2):
+    k = rnd(rng, 2, 9)
+    x = rnd(rng, 2, 10)
+    n = k * x
+    u = rng.choice(FRAC_UNITS)
+    wrong = pick_wrong(rng, x, [n - k, n - x, k if k != x else x + 2], lo=1)
+    return mk("multiple_choice", "Chọn đáp án đúng.", f"1/{k} của {n}{u} là:", level, 40, skills, f"{x}{u}",
+              [T(H["fraction"], "rule"), E(eq(n, ":", k))], "fraction", speak=f"Một phần {FRAC[k]} của {n}{u} là bao nhiêu?",
+              **MC(rng, f"{x}{u}", [f"{w}{u}" for w in wrong]))
+
+
+def b_table_word2(rng, ks, skills, level=3):
+    k = rng.choice(ks)
+    n = rnd(rng, 3, 9)
+    x = k * n
+    m = rnd(rng, 2, x - 2)
+    r = x - m
+    prompt = f"Mỗi hộp có {k} cái bánh. Mẹ mua {n} hộp bánh, cả nhà đã ăn {m} cái bánh. Hỏi còn lại bao nhiêu cái bánh?"
+    steps = [WP([("Số bánh mẹ mua là:", f"{k} × {n} = {x} (cái)"), ("Số bánh còn lại là:", f"{x} - {m} = {r} (cái)")], f"{r} cái bánh")]
+    if x >= 10 and m >= 10 and has_borrow(x, m) and len(str(r)) == len(str(x)):
+        steps.append(col_sub(x, m))
+    return mk("fill_blank", "Giải bài toán.", prompt, level, 120, skills, f"{r} cái bánh", steps, "two_step", **FB("Còn lại □ cái bánh.", [(r, "cái")]))
+
+
+def b_two_drag(rng, skills, level=2):
+    a = rnd(rng, 20, 50)
+    b = rnd(rng, 5, 20)
+    x = a + b
+    r = a + x
+    prompt = f"Thùng thứ nhất có {a} l nước, thùng thứ hai có nhiều hơn thùng thứ nhất {b} l nước. Kéo số thích hợp vào ô trống để hoàn thành bài giải."
+    tmpl = f"Số nước ở thùng thứ hai là: {a} + {b} = □ (l)\nSố nước ở cả hai thùng là: {a} + □ = □ (l)"
+    extra = next(v for v in (a - b, r + 10, x + 1) if v not in (x, r) and v > 0)
+    return mk("drag_drop", "Kéo số vào ô trống.", prompt, level, 100, skills, f"{x}; {x}; {r}",
+              [WP([("Số nước ở thùng thứ hai là:", f"{a} + {b} = {x} (l)"), ("Số nước ở cả hai thùng là:", f"{a} + {x} = {r} (l)")], f"{r} l nước")],
+              "two_step", **DD(rng, tmpl, [str(x), str(x), str(r)], [str(extra)], reuse=True))
+
+
+def b_chain_match(rng, skills, level=2):
+    out = []
+    while len(out) < 4:
+        a, k, c = rnd(rng, 2, 9), rnd(rng, 2, 5), rnd(rng, 2, 9)
+        f = rnd(rng, 0, 2)
+        if f == 0:
+            text, r, steps = f"Gấp {a} lên {k} lần rồi thêm {c}", a * k + c, [E(f"{a} × {k} = {a * k}"), E(f"{a * k} + {c} = {a * k + c}")]
+        elif f == 1:
+            x = a * k
+            text, r, steps = f"Lấy {x} giảm đi {k} lần rồi thêm {c}", a + c, [E(f"{x} : {k} = {a}"), E(f"{a} + {c} = {a + c}")]
+        else:
+            text, r, steps = f"Lấy {a} thêm {c} rồi gấp lên {k} lần", (a + c) * k, [E(f"{a} + {c} = {a + c}"), E(f"{a + c} × {k} = {(a + c) * k}")]
+        if r in {o[1] for o in out}:
+            continue
+        out.append((text, r, steps))
+    extra = next(v for v in range(10, 99) if v not in {o[1] for o in out})
+    return mk("matching", "Nối cho đúng.", "Tính theo hai bước rồi nối với kết quả đúng.", level, 120, skills,
+              "; ".join(f"{t}: {r}" for t, r, _ in out), [st for _, _, sts in out for st in sts], "two_step",
+              **MT(rng, [(t, str(r)) for t, r, _ in out], [str(extra)]))
+
+
+def b_solid_compare(rng, skills, level=2):
+    what = rng.choice(["số đỉnh", "số mặt", "số cạnh"])
+    right = "Bằng nhau"
+    return mk("multiple_choice", "Chọn đáp án đúng.", f"So sánh {what} của khối lập phương và khối hộp chữ nhật.", level, 40, skills, right,
+              [T("Cả hai khối đều có 6 mặt, 12 cạnh và 8 đỉnh.")], "solid",
+              **MC(rng, right, ["Khối lập phương nhiều hơn", "Khối hộp chữ nhật nhiều hơn"]))
+
+
+def b_temp_range(rng, skills, level=3):
+    days = ["thứ Hai", "thứ Ba", "thứ Tư"]
+    ts = rng.sample(range(18, 36), 3)
+    hi, lo = max(ts), min(ts)
+    prompt = "Nhiệt độ cao nhất trong ngày đo được ở một thành phố:\n" + "\n".join(f"{_cap(d)}: {t} °C" for d, t in zip(days, ts)) + \
+             "\nNgày nóng nhất có nhiệt độ cao hơn ngày mát nhất bao nhiêu độ C?"
+    return mk("fill_blank", "Giải bài toán.", prompt, level, 80, skills, f"{hi - lo} °C",
+              [WP([("Nhiệt độ ngày nóng nhất cao hơn ngày mát nhất là:", f"{hi} - {lo} = {hi - lo} (°C)")], f"{hi - lo} °C")], "temperature",
+              **FB("Cao hơn □ °C.", [(hi - lo, "°C")]))
+
+
+def b_cmp_match(rng, d, skills, level=2):
+    pairs = []
+    for sign in "<>=":
+        a = n_digits(rng, d)
+        if sign == "=":
+            b = a
+        else:
+            s_ = list(str(a))
+            i = rnd(rng, 1, d - 1)
+            s_[i] = str((int(s_[i]) + rnd(rng, 1, 8)) % 10)
+            b = int("".join(s_))
+            if (sign == "<") != (a < b):
+                a, b = b, a
+        pairs.append((f"{fmt(a)} ... {fmt(b)}", sign, a, b))
+    rng.shuffle(pairs)
+    return mk("matching", "Nối với dấu thích hợp.", "Nối mỗi cặp số với dấu >, < hoặc = thích hợp.", level, 80, skills,
+              "; ".join(f"{fmt(a)} {s_} {fmt(b)}" for _, s_, a, b in pairs), [T(compare_text(a, b)[1]) for _, _, a, b in pairs], "compare",
+              **MT(rng, [(l, r) for l, r, _, _ in pairs]))
+
+
+def b_area_read_match(rng, skills, level=2):
+    ns = rng.sample(range(11, 99), 4)
+    extra = next(v for v in range(11, 99) if v not in ns)
+    return mk("matching", "Nối số đo với cách đọc.", "Nối mỗi số đo diện tích với cách đọc đúng.", level, 80, skills,
+              "; ".join(f"{n} cm²: {words(n)} xăng-ti-mét vuông" for n in ns), [T(f"{n} cm² đọc là {words(n)} xăng-ti-mét vuông.") for n in ns], "area_count",
+              **MT(rng, [(f"{n} cm²", f"{words(n)} xăng-ti-mét vuông") for n in ns], [f"{words(extra)} xăng-ti-mét vuông"]))
+
+
+def b_area_count_drag(rng, skills, level=2):
+    cs = []
+    while len(cs) < 3:
+        r_, c_ = rnd(rng, 2, 5), rnd(rng, 2, 6)
+        if r_ * c_ in {x * y for x, y in cs}:
+            continue
+        cs.append((r_, c_))
+    vals = [x * y for x, y in cs]
+    extra = next(v for v in range(4, 40) if v not in vals and v != vals[0] + 1) 
+    tmpl = "\n".join(f"Hình gồm {x} hàng, mỗi hàng {y} ô vuông 1 cm²: □ cm²" for x, y in cs)
+    return mk("drag_drop", "Kéo số vào ô trống.", "Kéo diện tích đúng của mỗi hình vào ô trống.", level, 80, skills, "; ".join(f"{v} cm²" for v in vals),
+              [E(f"{y} × {x} = {x * y}") for x, y in cs], "area_count", **DD(rng, tmpl, [str(v) for v in vals], [str(extra)]))
+
+
+def b_area_count_diff(rng, skills, level=3):
+    while True:
+        a1, b1, a2, b2 = rnd(rng, 2, 5), rnd(rng, 3, 7), rnd(rng, 2, 5), rnd(rng, 3, 7)
+        s1, s2 = a1 * b1, a2 * b2
+        if s1 != s2:
+            break
+    big, small = ("A", "B") if s1 > s2 else ("B", "A")
+    d = abs(s1 - s2)
+    prompt = (f"Hình A gồm {a1} hàng, mỗi hàng {b1} ô vuông 1 cm². Hình B gồm {a2} hàng, mỗi hàng {b2} ô vuông 1 cm². "
+              f"Hình nào có diện tích lớn hơn và lớn hơn bao nhiêu xăng-ti-mét vuông?")
+    lines = [("Diện tích hình A là:", f"{b1} × {a1} = {s1} (cm²)"), ("Diện tích hình B là:", f"{b2} × {a2} = {s2} (cm²)"),
+             (f"Hình {big} có diện tích lớn hơn hình {small} là:", f"{max(s1, s2)} - {min(s1, s2)} = {d} (cm²)")]
+    return mk("fill_blank", "Giải bài toán.", prompt, level, 120, skills, f"Hình {big}, lớn hơn {d} cm²", [WP(lines, f"hình {big} lớn hơn {d} cm²")],
+              "two_step", **FB(f"Hình {big} có diện tích lớn hơn hình {small} là □ cm².", [(d, "cm²")]))
+
+# ===========================================================================
+# CÁC BÀI HỌC
+# ===========================================================================
+GT1, GT2 = "giai_toan.mot_phep_tinh", "giai_toan.hai_phep_tinh"
+MAXR = {2: 99, 3: 999, 4: 9999, 5: 100000}
+OP_SKILL = {
+    ("+", 2): "cong_tru.pham_vi_100", ("-", 2): "cong_tru.pham_vi_100",
+    ("+", 3): "cong_tru.pham_vi_1000", ("-", 3): "cong_tru.pham_vi_1000",
+    ("+", 4): "cong_tru.pham_vi_10000", ("-", 4): "cong_tru.pham_vi_10000",
+    ("+", 5): "cong_tru.pham_vi_100000", ("-", 5): "cong_tru.pham_vi_100000",
+    ("×", 2): "nhan.2cs_1cs.co_nho", ("×", 3): "nhan.3cs_1cs", ("×", 4): "nhan.4cs_1cs", ("×", 5): "nhan.5cs_1cs",
+    (":", 2): "chia.2cs_1cs", (":", 3): "chia.3cs_1cs", (":", 4): "chia.4cs_1cs", (":", 5): "chia.5cs_1cs",
+}
+
+
+def pick_for(rng, op, d, carry=True, d2=None, zero=False):
+    if op == "+":
+        return pick_add(rng, d, carry, d2)
+    if op == "-":
+        return pick_sub(rng, d, carry, d2)
+    if op == "×":
+        return pick_mul(rng, d, MAXR[d], carry)
+    return pick_div(rng, d, False, zero)
+
+
+def gen_for(ops, d):
+    def g(rng):
+        op = rng.choice(ops)
+        a, b = pick_for(rng, op, d, rng.random() < 0.75, rng.choice([d, d - 1]) if op in "+-" and d > 2 else None)
+        return a, op, b
+    return g
+
+
+def calc_p(rng, op, d, level, mode="fill", carry=True, d2=None, zero=False, skills=None):
+    a, b = pick_for(rng, op, d, carry, d2, zero)
+    sk = skills or [OP_SKILL[(op, d)]]
+    if op == "×" and d == 2:
+        sk = ["nhan.2cs_1cs.co_nho" if any(digit(a, p) * b >= 10 for p in range(2)) else "nhan.2cs_1cs.khong_nho"]
+    return b_calc(rng, a, op, b, sk, level, mode)
+
+
+def word_p(rng, op, d, level, mode="fill", kind=None, extra=()):
+    a, b = pick_for(rng, op, d, rng.random() < 0.7, None)
+    return b_word(rng, op, a, b, [OP_SKILL[(op, d)], GT1, *extra], level, mode, kind)
+
+
+def theory(rule, example, tip=None):
+    blocks = [T(rule, "rule")] + example
+    if tip:
+        blocks.append(T(tip, "tip"))
+    return blocks
+
+
+def ex_calc(rng, op, d, carry=True, zero=False):
+    a, b = pick_for(rng, op, d, carry, None, zero)
+    return [T(f"Ví dụ: {fmt(a)} {op} {fmt(b)} = ?")] + calc_steps(a, op, b)
+
+
+CALC_RULE = {
+    "+": ("Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.",
+          "Hàng nào cộng được từ 10 trở lên thì viết chữ số hàng đơn vị và nhớ 1 sang hàng bên trái."),
+    "-": ("Đặt tính thẳng cột rồi trừ lần lượt từ phải sang trái. Nếu chữ số trên bé hơn thì lấy thêm 10 để trừ và nhớ 1 sang hàng bên trái của số trừ.",
+          "Thử lại: lấy hiệu cộng với số trừ phải được số bị trừ."),
+    "×": ("Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái.",
+          "Nhân xong mỗi hàng, đừng quên cộng thêm số nhớ của lượt trước."),
+    ":": ("Chia lần lượt từ trái sang phải: mỗi lượt chia, nhân rồi trừ, sau đó hạ chữ số tiếp theo xuống.",
+          "Lượt nào số đem chia bé hơn số chia thì viết 0 ở thương rồi hạ tiếp. Thử lại bằng phép nhân."),
+}
+WORD2_KINDS = {"+": ["more_total", "less_total"], "-": ["sub_sub", "mul_sub"], "×": ["mul_add", "add_mul", "times_total"],
+               ":": ["div_add", "frac_rest", "down_used"]}
+
+
+def calc_lesson(op, d):
+    """Bài học phép tính với số có d chữ số (dùng cho cộng, trừ, nhân, chia)."""
+    def build(rng):
+        sk = [OP_SKILL[(op, d)]]
+        M = MAXR[d] + 1 if d < 5 else 100000
+        rule, tip = CALC_RULE[op]
+        th = theory(rule, ex_calc(rng, op, d), tip)
+        g = gen_for([op], d)
+        if op == ":":
+            ps = [calc_p(rng, op, d, 1), calc_p(rng, op, d, 1, zero=True), calc_p(rng, op, d, 2, "mc"),
+                  b_calc_drag(rng, g, sk, 2), b_calc_match(rng, g, sk, 2)]
+            a, k = pick_div(rng, d, rem=True)
+            ps.append(b_div_rem(rng, a, k, sk + ["chia.co_du"], 2))
+        else:
+            ps = [calc_p(rng, op, d, 1, carry=False), calc_p(rng, op, d, 1), calc_p(rng, op, d, 2, "mc", d2=d - 1 if op in "+-" else None),
+                  b_calc_drag(rng, g, sk, 2), b_calc_match(rng, g, sk, 2)]
+            if op == "+":
+                ps.append(b_find(rng, "addend1", M, sk + ["tim_thanh_phan.so_hang"], 2))
+            elif op == "-":
+                ps.append(b_find(rng, rng.choice(["minuend", "subtrahend"]), M, sk + ["tim_thanh_phan.so_bi_tru"], 2))
+            else:
+                ps.append(b_calc_extreme(rng, g, sk + ["so_sanh.ket_qua"], 3))
+        kind = {"+": "more", "-": "less"}.get(op)
+        ps += [word_p(rng, op, d, 2), word_p(rng, op, d, 3, "mc", kind),
+               b_word2(rng, rng.choice(WORD2_KINDS[op]), M, sk + [GT2], 3)]
+        return th, ps
+    return build
+
+
+def table_lesson(ks):
+    def build(rng):
+        k = ks[-1]
+        sk = ["bang_nhan_chia"]
+        a = rnd(rng, 2, 10)
+        names = ", ".join(map(str, ks))
+        rows = [T(f"Bảng nhân {kk}: " + "; ".join(f"{kk} × {i} = {kk * i}" for i in range(1, 11)) + ".") for kk in ks]
+        th = theory(f"Trong bảng nhân {names}, mỗi lần thêm một lần thừa số thì tích tăng thêm đúng số đó. Bảng chia là phép tính ngược của bảng nhân.",
+                    rows + [E(eq(k, "×", a))] + ([E(eq(k * a, ":", k))] if len(ks) == 1 else []),
+                    f"Đếm thêm {k} để nhớ bảng: " + ", ".join(str(k * i) for i in range(1, 6)) + ", …")
+        kd = rng.choice(ks)
+        ps = [b_table_fill(rng, ks, sk, 1), b_table_count(rng, k, sk, 1),
+              b_calc(rng, k * rnd(rng, 2, 10), ":", k, sk, 1, "mc"),
+              b_table_missing(rng, ks, sk + ["tim_thanh_phan.thua_so"], 2), b_calc_drag(rng, table_gen(ks), sk, 2),
+              b_calc_match(rng, table_gen(ks), sk, 2),
+              b_word(rng, "×", rng.choice(ks), rnd(rng, 2, 10), sk + [GT1], 2),
+              b_word(rng, ":", kd * rnd(rng, 2, 10), kd, sk + [GT1], 3, "mc"),
+              b_table_word2(rng, ks, sk + [GT2], 3)]
+        return th, ps
+    return build
+
+
+def numbers_lesson(d, skill):
+    def build(rng):
+        sk = [skill]
+        n = n_digits(rng, d, zeros=True)
+        names = ", ".join(PLACE[:d][::-1])
+        th = theory(f"Số có {d} chữ số gồm các hàng: {names}. Đọc và viết số từ hàng cao nhất đến hàng đơn vị.",
+                    [T(f"Ví dụ: {fmt(n)} đọc là “{words(n)}”."), E(f"{fmt(n)} = {expand(n)}")],
+                    "Chữ số 0 ở hàng trăm đọc là “không trăm”, ở hàng chục (khi hàng đơn vị khác 0) đọc là “linh”.")
+        ps = [b_num_read_mc(rng, d, sk, 1), b_num_words_mc(rng, d, sk, 1), b_num_place_fill(rng, d, sk, 1),
+              b_num_compose_fill(rng, d, sk, 1), b_num_next_fill(rng, d, sk, 2), b_num_match_words(rng, d, sk, 2),
+              b_num_seq(rng, d, sk, 2, "drag"), b_num_expand_mc(rng, d, sk, 2), b_num_extreme_fill(rng, d, sk, 2),
+              b_num_digits(rng, d, sk, 3)]
+        return th, ps
+    return build
+
+
+def compare_lesson(d):
+    def build(rng):
+        sk = ["so.so_sanh"]
+        a = n_digits(rng, d)
+        b = a + 10 ** rnd(rng, 0, d - 2) * rnd(rng, 1, 3)
+        if len(str(b)) != d:
+            b = a - 10
+        th = theory("Số nào có nhiều chữ số hơn thì lớn hơn. Nếu hai số có cùng số chữ số thì so sánh từng cặp chữ số cùng hàng, bắt đầu từ hàng cao nhất.",
+                    [T("Ví dụ: " + compare_text(a, b)[1])], "Muốn xếp các số từ bé đến lớn, hãy tìm số bé nhất trước.")
+        ps = [b_num_compare_mc(rng, d, sk, 1), b_num_compare_mc(rng, d, sk, 1, d2=d - 1), b_num_extreme_mc(rng, d, sk, 2, True),
+              b_num_extreme_mc(rng, d, sk, 2, False), b_num_order_drag(rng, d, sk, 2), b_cmp_match(rng, d, sk, 2),
+              b_num_extreme_fill(rng, d, sk, 2), b_num_compare_word(rng, d, sk, 3), b_num_digits(rng, d, sk, 3)]
+        return th, ps
+    return build
+
+
+def rounding_lesson(d, bases):
+    def build(rng):
+        sk = ["so.lam_tron"]
+        n = _round_num(rng, d, bases[0])
+        th = theory("Khi làm tròn số đến một hàng, ta nhìn chữ số ở hàng ngay bên phải: nếu bé hơn 5 thì làm tròn xuống, nếu lớn hơn hoặc bằng 5 thì làm tròn lên.",
+                    [T(f"Ví dụ: làm tròn {fmt(n)} đến hàng {ROUND_NAME[bases[0]]}.")] + round_steps(n, bases[0]),
+                    "Làm tròn số giúp ta nói gần đúng một số đo, ví dụ “khoảng 2.000 người”.")
+        b1, b2 = bases
+        ps = [b_round_fill(rng, d - 1 if b1 <= 10 ** (d - 2) and d > 3 else d, b1, sk, 1), b_round_fill(rng, d, b1, sk, 1),
+              b_round_fill(rng, d, b2, sk, 1), b_round_mc(rng, d, b2, sk, 2), b_round_match(rng, d, bases, sk, 2),
+              b_round_drag(rng, d, bases, sk, 2), b_round_mc(rng, d, b1, sk, 2), b_round_word(rng, d, b2, sk, 3),
+              b_round_word(rng, d, b1, sk, 3, "mc")]
+        return th, ps
+    return build
+
+
+# ---------------------------- Chủ đề 1 ------------------------------------
+def L_c1_so(rng):
+    sk = ["so.pham_vi_1000"]
+    n = n_digits(rng, 3, zeros=True)
+    th = theory("Số có ba chữ số gồm hàng trăm, hàng chục và hàng đơn vị. So sánh hai số có ba chữ số: so sánh từ hàng trăm.",
+                [T(f"Ví dụ: {n} gồm {digit(n, 2)} trăm, {digit(n, 1)} chục và {digit(n, 0)} đơn vị; đọc là “{words(n)}”."), E(f"{n} = {expand(n)}")],
+                "Chữ số 0 ở hàng chục đọc là “linh”, ví dụ 105 đọc là “một trăm linh năm”.")
+    ps = [b_num_read_mc(rng, 3, sk, 1), b_num_words_mc(rng, 3, sk, 1), b_num_place_fill(rng, 3, sk, 1), b_num_next_fill(rng, 3, sk, 1),
+          b_num_compare_mc(rng, 3, sk, 2), b_num_match_words(rng, 3, sk, 2), b_num_order_drag(rng, 3, sk, 2),
+          b_num_extreme_mc(rng, 3, sk, 2), b_num_digits(rng, 3, sk, 3)]
+    return th, ps
+
+
+def L_c1_congtru(rng):
+    sk = ["cong_tru.pham_vi_1000"]
+    th = theory(CALC_RULE["+"][0], ex_calc(rng, "+", 3), "Phép trừ cũng đặt tính thẳng cột và trừ từ hàng đơn vị; thử lại bằng phép cộng.")
+    g = gen_for(["+", "-"], 3)
+    ps = [calc_p(rng, "+", 2, 1), calc_p(rng, "-", 2, 1), calc_p(rng, "+", 3, 2), calc_p(rng, "-", 3, 2, "mc"),
+          b_calc_drag(rng, g, sk, 2), b_calc_match(rng, g, sk, 2), word_p(rng, "+", 3, 2),
+          word_p(rng, "-", 3, 3, "mc", "less"), word_p(rng, "+", 3, 3, "fill", "more")]
+    return th, ps
+
+
+def L_c1_timthanhphan(rng):
+    s1, s2 = ["tim_thanh_phan.so_hang"], ["tim_thanh_phan.so_bi_tru"]
+    expr, x, solve, check = find_case(rng, "addend1", 1000)
+    th = theory("Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết. Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ; muốn tìm số trừ, ta lấy số bị trừ trừ đi hiệu.",
+                [T(f"Ví dụ: {expr}"), E(eq(*solve)), T(f"Vậy số cần tìm là {fmt(x)}.")], "Tìm xong, con thay số vào phép tính để thử lại nhé.")
+    ps = [b_find(rng, "addend1", 100, s1, 1), b_find(rng, "addend2", 1000, s1, 1), b_find(rng, "minuend", 1000, s2, 2),
+          b_find(rng, "subtrahend", 1000, s2, 2), b_find(rng, rng.choice(["addend1", "minuend"]), 1000, s1 + s2, 2, "mc"),
+          b_find_match(rng, ["addend1", "addend2", "minuend", "subtrahend"], 100, s1 + s2, 2),
+          b_find_drag(rng, ["addend1", "minuend", "subtrahend"], 1000, s1 + s2, 2),
+          b_find_word(rng, "minuend", 100, s2 + [GT1], 3), b_find_word(rng, "addend", 1000, s1 + [GT1], 3, "mc")]
+    return th, ps
+
+
+def L_c1_hinhdo(rng):
+    sh, dd, kl, dt_ = ["hinh_hoc.da_giac"], ["do_luong.do_dai"], ["do_luong.khoi_luong"], ["do_luong.dung_tich"]
+    th = theory("Nhớ các đơn vị đo đã học: 1 m = 10 dm, 1 dm = 10 cm, 1 m = 100 cm, 1 km = 1.000 m. Đo khối lượng dùng ki-lô-gam (kg), đo dung tích dùng lít (l).",
+                [T("Ví dụ: 3 m = 300 cm vì 1 m = 100 cm."), E("3 × 100 = 300")], "Độ dài đường gấp khúc bằng tổng độ dài các đoạn thẳng của nó.")
+    a, b = pick_add(rng, 2, True)
+    c, d = pick_sub(rng, 2, True)
+    ps = [b_shape_count(rng, sh, 1), b_conv_fill(rng, [("m", "dm"), ("dm", "cm"), ("m", "cm")], dd, 1),
+          b_unit_calc(rng, "kg", kl, 1, "+"), b_unit_calc(rng, "l", dt_, 1, "-"), b_polyline(rng, dd + ["hinh_hoc.hinh_phang"], 2),
+          b_conv_match(rng, [("m", "cm"), ("dm", "cm"), ("km", "m"), ("m", "dm")], dd, 2), b_unit_order(rng, "m", "cm", dd, 2),
+          b_word(rng, "-", c, d, ["cong_tru.pham_vi_100", GT1], 2, "mc", "less"), b_polyline_word(rng, dd + [GT1], 3)]
+    del a, b
+    return th, ps
+
+
+def L_c1_ltc(rng):
+    th = theory("Ôn lại: đọc, so sánh số có ba chữ số; cộng, trừ có nhớ; bảng nhân, bảng chia 2, 3, 4, 5.",
+                ex_calc(rng, "+", 3), "Làm xong, con thử lại kết quả bằng phép tính ngược nhé.")
+    ps = [b_num_compare_mc(rng, 3, ["so.pham_vi_1000"], 1), calc_p(rng, "+", 3, 1), b_find(rng, "addend1", 1000, ["tim_thanh_phan.so_hang"], 2),
+          b_table_missing(rng, [3, 4], ["bang_nhan_chia"], 2), b_calc_drag(rng, table_gen([2, 3, 4, 5]), ["bang_nhan_chia"], 2),
+          b_calc_match(rng, gen_for(["+", "-"], 3), ["cong_tru.pham_vi_1000"], 2), calc_p(rng, "-", 3, 2, "mc"),
+          b_word(rng, "×", rng.choice([3, 4]), rnd(rng, 3, 10), ["bang_nhan_chia", GT1], 3),
+          b_table_word2(rng, [3, 4, 5], ["bang_nhan_chia", GT2], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 2 ------------------------------------
+def L_c2_timthanhphan(rng):
+    sf, sd, sc = ["tim_thanh_phan.thua_so"], ["tim_thanh_phan.so_bi_chia"], ["tim_thanh_phan.so_chia"]
+    expr, x, solve, check = find_case(rng, "factor1", 100)
+    th = theory("Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết. Muốn tìm số bị chia, ta lấy thương nhân với số chia; muốn tìm số chia, ta lấy số bị chia chia cho thương.",
+                [T(f"Ví dụ: {expr}"), E(eq(*solve)), T("Thử lại:"), E(eq(*check))])
+    kinds = ["factor1", "factor2", "dividend", "divisor"]
+    ps = [b_find(rng, "factor1", 100, sf, 1), b_find(rng, "factor2", 100, sf, 1), b_find(rng, "dividend", 100, sd, 2),
+          b_find(rng, "divisor", 100, sc, 2), b_find(rng, rng.choice(kinds), 100, sf + sd + sc, 2, "mc"),
+          b_find_match(rng, kinds, 100, sf + sd + sc, 2), b_find_drag(rng, kinds, 100, sf + sd + sc, 2),
+          b_find_word(rng, "dividend", 100, sd + [GT1], 3), b_find_word(rng, "divisor", 100, sf + [GT1], 3, "mc")]
+    return th, ps
+
+
+def L_c2_motphanmay(rng):
+    sk = ["phan_so.mot_phan"]
+    k, x = rnd(rng, 2, 6), rnd(rng, 2, 9)
+    th = theory("Chia một hình hay một số thành các phần bằng nhau, mỗi phần là “một phần mấy”. Muốn tìm 1/k của một số, ta lấy số đó chia cho k.",
+                [T(f"Ví dụ: 1/{k} của {k * x} là:"), E(eq(k * x, ":", k))], "1/2 đọc là “một phần hai”, 1/4 đọc là “một phần tư”.")
+    ps = [b_frac_concept(rng, sk, 1), b_frac_fill(rng, sk, 1), b_frac_mc(rng, sk, 1), b_frac_match(rng, sk, 2), b_frac_drag(rng, sk, 2),
+          b_frac_word(rng, sk + [GT1], 2), b_frac_word(rng, sk + [GT1], 3, "mc"), b_word2(rng, "frac_rest", 100, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c2_ltc(rng):
+    th = theory("Ôn lại bảng nhân, bảng chia 6, 7, 8, 9; tìm thành phần chưa biết; tìm một phần mấy của một số.",
+                [E(eq(7, "×", 8)), E(eq(56, ":", 7)), E(eq(56, ":", 8))], "Từ một phép nhân, ta viết được hai phép chia.")
+    ks = [6, 7, 8, 9]
+    sk = ["bang_nhan_chia"]
+    kd = rng.choice(ks)
+    ps = [b_table_fill(rng, ks, sk, 1), b_table_missing(rng, ks, sk + ["tim_thanh_phan.thua_so"], 1),
+          b_find(rng, "factor1", 100, ["tim_thanh_phan.thua_so"], 2), b_frac_fill(rng, ["phan_so.mot_phan"], 2),
+          b_calc_drag(rng, table_gen(ks), sk, 2), b_calc_match(rng, table_gen(ks), sk, 2),
+          b_word(rng, ":", kd * rnd(rng, 2, 10), kd, sk + [GT1], 2, "mc"), b_frac_word(rng, ["phan_so.mot_phan", GT1], 3),
+          b_table_word2(rng, ks, sk + [GT2], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 3 ------------------------------------
+def L_c3_trungdiem(rng):
+    sk = ["hinh_hoc.hinh_phang"]
+    x = rnd(rng, 3, 9)
+    th = theory("M là trung điểm của đoạn thẳng AB khi M nằm giữa A và B, và AM = MB.",
+                [T(f"Ví dụ: AB = {2 * x} cm, M là trung điểm của AB thì AM = MB ="), E(f"{2 * x} : 2 = {x}"), T(f"Vậy AM = MB = {x} cm.")],
+                "Muốn tìm trung điểm, con đo độ dài đoạn thẳng rồi chia đôi.")
+    ps = [b_mid_between(rng, sk, 1), b_mid_half(rng, sk, 1), b_mid_half(rng, sk, 2, double=True), b_mid_check(rng, sk, 2),
+          b_mid_match(rng, sk, 2), b_mid_drag(rng, sk, 2), b_mid_unit(rng, sk + ["do_luong.do_dai"], 3), b_mid_word(rng, sk + [GT1], 3)]
+    return th, ps
+
+
+def L_c3_hinhtron(rng):
+    sk = ["hinh_hoc.hinh_phang"]
+    r = rnd(rng, 2, 9)
+    th = theory("Hình tròn có tâm O. Đoạn thẳng nối tâm với một điểm trên đường tròn là bán kính; đoạn thẳng đi qua tâm, nối hai điểm trên đường tròn là đường kính.",
+                [T(f"Ví dụ: bán kính {r} cm thì đường kính dài:"), E(f"{r} × 2 = {2 * r}")], "Đường kính dài gấp 2 lần bán kính; tâm là trung điểm của đường kính.")
+    ps = [b_circle_concept(rng, sk, 1, which=1), b_circle_fill(rng, sk, 1, True), b_circle_fill(rng, sk, 1, False),
+          b_circle_concept(rng, sk, 2, which=rng.choice([0, 2, 3, 4])), b_circle_match(rng, sk, 2), b_circle_drag(rng, sk, 2),
+          b_circle_compare(rng, sk, 3), b_circle_word(rng, sk + [GT1], 3), b_circle_word(rng, sk + [GT1], 3, "mc")]
+    return th, ps
+
+
+def L_c3_goc(rng):
+    sk = ["hinh_hoc.goc"]
+    o, a, b = letters(rng, 3)
+    th = theory("Góc được tạo bởi hai cạnh chung một đỉnh. Dùng ê ke để kiểm tra góc vuông và góc không vuông.",
+                [T(f"Ví dụ: góc đỉnh {o}, cạnh {o}{a}, {o}{b}."), T("Lúc 3 giờ, kim giờ và kim phút tạo thành một góc vuông.")],
+                "Hình vuông và hình chữ nhật đều có 4 góc vuông.")
+    ps = [b_angle_tool(rng, sk, 1), b_angle_vertex(rng, sk, 1), b_angle_count(rng, sk, 1), b_angle_clock(rng, sk, 2),
+          b_angle_quad(rng, sk, 2), b_angle_match(rng, sk, 2), b_angle_drag(rng, sk, 2), b_angle_word(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c3_dagiac(rng):
+    sk = ["hinh_hoc.da_giac"]
+    a, b = rnd(rng, 5, 9), rnd(rng, 2, 4)
+    th = theory("Hình tam giác có 3 cạnh, 3 đỉnh; hình tứ giác có 4 cạnh, 4 đỉnh. Hình chữ nhật có 4 góc vuông, hai cạnh dài bằng nhau, hai cạnh ngắn bằng nhau; hình vuông có 4 góc vuông và 4 cạnh bằng nhau.",
+                [T(f"Ví dụ: hình chữ nhật ABCD có AB = {a} cm, BC = {b} cm thì CD = {a} cm, DA = {b} cm.")])
+    ps = [b_shape_count(rng, sk, 1), b_shape_prop(rng, sk, 1), b_shape_rect_side(rng, sk, 2), b_shape_rect_side(rng, sk, 2, "mc"),
+          b_shape_match(rng, sk, 2), b_shape_drag(rng, sk, 2), b_shape_sum(rng, sk, 3), b_shape_word(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c3_thuchanhve(rng):
+    sk = ["hinh_hoc.goc", "hinh_hoc.hinh_phang", "hinh_hoc.da_giac"]
+    r = rnd(rng, 2, 5)
+    th = theory("Dùng ê ke để vẽ góc vuông, dùng com-pa để vẽ đường tròn, dùng thước để vẽ đoạn thẳng có độ dài cho trước.",
+                [T(f"Ví dụ: muốn vẽ đường tròn bán kính {r} cm, ta mở com-pa rộng {r} cm, đặt đầu nhọn vào tâm rồi quay một vòng.")],
+                "Vẽ hình chữ nhật: vẽ cạnh dài trước, dùng ê ke vẽ hai góc vuông, lấy hai cạnh ngắn bằng nhau rồi nối lại.")
+    ps = [b_draw_tool(rng, sk, 1), b_draw_compass(rng, sk, 1), b_draw_radius(rng, sk, 1), b_draw_grid(rng, sk, 1),
+          b_draw_compass(rng, sk, 2, from_d=True), b_draw_tool_match(rng, sk, 2), b_draw_steps(rng, sk, 2),
+          b_draw_rect_word(rng, sk + [GT1], 2), b_draw_square(rng, sk, 3)]
+    return th, ps
+
+
+def L_c3_khoi(rng):
+    sk = ["hinh_hoc.khoi"]
+    th = theory("Khối lập phương và khối hộp chữ nhật đều có 6 mặt, 12 cạnh và 8 đỉnh. Các mặt của khối lập phương là hình vuông.",
+                [T("Ví dụ: con xúc xắc có dạng khối lập phương; hộp sữa tươi có dạng khối hộp chữ nhật.")])
+    ps = [b_solid_count(rng, sk, 1), b_solid_obj(rng, sk, 1), b_solid_face(rng, sk, 1), b_solid_match(rng, sk, 2),
+          b_solid_drag(rng, sk, 2), b_solid_compare(rng, sk, 2), b_solid_word(rng, sk + [GT1], 2), b_solid_word(rng, sk + [GT1], 3, "mc")]
+    return th, ps
+
+
+def L_c3_ltc(rng):
+    hp, g, dg, kh = ["hinh_hoc.hinh_phang"], ["hinh_hoc.goc"], ["hinh_hoc.da_giac"], ["hinh_hoc.khoi"]
+    th = theory("Ôn lại: trung điểm, hình tròn, góc vuông, các hình phẳng và khối hình đã học.",
+                [T("Trung điểm chia đôi đoạn thẳng. Đường kính gấp đôi bán kính. Hình vuông có 4 góc vuông.")])
+    ps = [b_mid_half(rng, hp, 1), b_circle_fill(rng, hp, 1), b_shape_prop(rng, dg, 1), b_solid_count(rng, kh, 1),
+          b_angle_clock(rng, g, 2), b_circle_match(rng, hp, 2), b_shape_drag(rng, dg, 2), b_circle_word(rng, hp + [GT1], 3),
+          b_angle_word(rng, g + [GT2], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 4 ------------------------------------
+def L_c4_gap(rng):
+    sk = ["gap_giam.so_lan"]
+    a, k = rnd(rng, 3, 9), rnd(rng, 2, 5)
+    th = theory(H["times_up"], [T(f"Ví dụ: gấp {a} lên {k} lần được:"), E(eq(a, "×", k))],
+                f"Đừng nhầm: gấp {a} lên {k} lần là {a} × {k}, còn thêm {k} vào {a} là {a} + {k}.")
+    ps = [b_times_fill(rng, True, sk, 1), b_times_mc(rng, True, sk, 1), b_times_fill(rng, True, sk + ["nhan.2cs_1cs.co_nho"], 2, big=True),
+          b_times_mc(rng, True, sk + ["nhan.2cs_1cs.co_nho"], 2, big=True), b_times_drag(rng, sk, 2, dirs=(True,)),
+          b_times_match(rng, sk, 2, dirs=(True,)), b_times_word(rng, True, sk + [GT1], 2),
+          b_times_word(rng, True, sk + [GT1, "nhan.2cs_1cs.co_nho"], 3, "mc", big=True), b_word2(rng, "times_total", 100, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c4_chiadu(rng):
+    sk = ["chia.co_du"]
+    k = rnd(rng, 3, 9)
+    q, r = rnd(rng, 2, 9), rnd(rng, 1, k - 1)
+    a = q * k + r
+    th = theory("Phép chia có số dư bằng 0 là phép chia hết; số dư khác 0 là phép chia có dư. Số dư luôn bé hơn số chia.",
+                [T(f"Ví dụ: {a} : {k} = {q} (dư {r})"), long_div(a, k), T("Thử lại:"), E(f"{q} × {k} + {r} = {a}")])
+    a1, k1 = pick_div(rng, 2, rem=True)
+    ps = [b_rem_exact_mc(rng, sk, 1), b_div_rem(rng, rnd(rng, 2, 9) * k + rnd(rng, 1, k - 1), k, sk, 1), b_div_rem(rng, a1, k1, sk + ["chia.2cs_1cs"], 2),
+          b_rem_max_mc(rng, sk, 2), b_rem_match(rng, sk, 2), b_rem_drag(rng, sk, 2), b_rem_word(rng, sk + [GT1], 3),
+          b_rem_word(rng, sk + [GT1], 3, ceil=True), b_rem_find_dividend(rng, sk, 3)]
+    return th, ps
+
+
+def L_c4_giam(rng):
+    sk = ["gap_giam.so_lan"]
+    a, k = rnd(rng, 3, 9), rnd(rng, 2, 5)
+    th = theory(H["times_down"], [T(f"Ví dụ: giảm {a * k} đi {k} lần được:"), E(eq(a * k, ":", k))],
+                f"Đừng nhầm: giảm {a * k} đi {k} lần là {a * k} : {k}, còn bớt {k} từ {a * k} là {a * k} - {k}.")
+    ps = [b_times_fill(rng, False, sk, 1), b_times_mc(rng, False, sk, 1), b_times_fill(rng, False, sk + ["chia.2cs_1cs"], 2, big=True),
+          b_times_drag(rng, sk, 2, dirs=(False,)), b_times_match(rng, sk, 2), b_times_word(rng, False, sk + [GT1], 2),
+          b_times_word(rng, False, sk + [GT1, "chia.2cs_1cs"], 3, "mc", big=True), b_word2(rng, "down_used", 100, sk + [GT2], 3),
+          b_times_chain(rng, sk, 3)]
+    return th, ps
+
+
+def L_c4_haibuoc(rng):
+    sk = [GT2]
+    a = rnd(rng, 20, 40)
+    b = rnd(rng, 5, 15)
+    th = theory("Bài toán giải bằng hai bước tính: bước 1 tìm số chưa biết mà đề chưa cho; bước 2 dùng số đó để trả lời câu hỏi.",
+                [T(f"Ví dụ: Thùng thứ nhất có {a} l nước, thùng thứ hai nhiều hơn {b} l. Cả hai thùng có bao nhiêu lít?"),
+                 WP([("Số nước ở thùng thứ hai là:", f"{a} + {b} = {a + b} (l)"), ("Số nước ở cả hai thùng là:", f"{a} + {a + b} = {2 * a + b} (l)")], f"{2 * a + b} l")],
+                "Con tóm tắt bài toán trước khi giải nhé.")
+    c, d = pick_add(rng, 2, True)
+    e, f = pick_sub(rng, 2, True)
+    ps = [b_word(rng, "+", c, d, ["cong_tru.pham_vi_100", GT1], 1), b_word(rng, "-", e, f, ["cong_tru.pham_vi_100", GT1], 1, "mc", "less"),
+          b_word2(rng, "more_total", 100, sk + ["cong_tru.pham_vi_100"], 2), b_word2(rng, "less_total", 100, sk + ["cong_tru.pham_vi_100"], 2, "mc"),
+          b_two_drag(rng, sk, 2), b_chain_match(rng, sk + ["gap_giam.so_lan"], 2),
+          b_word2(rng, "mul_sub", 100, sk + ["nhan.2cs_1cs.co_nho"], 3), b_word2(rng, "sub_sub", 100, sk, 3, "mc"),
+          b_word2(rng, "times_total", 100, sk + ["gap_giam.so_lan"], 3)]
+    return th, ps
+
+
+def L_c4_ltc(rng):
+    th = theory("Ôn lại: nhân, chia số có hai chữ số với số có một chữ số; phép chia có dư; gấp, giảm một số lần; bài toán hai bước tính.",
+                ex_calc(rng, "×", 2), "Phép chia thì chia từ trái sang phải; số dư luôn bé hơn số chia.")
+    g = gen_for(["×", ":"], 2)
+    ps = [calc_p(rng, "×", 2, 1), calc_p(rng, ":", 2, 1, "mc"), b_div_rem(rng, *pick_div(rng, 2, rem=True), ["chia.co_du", "chia.2cs_1cs"], 2),
+          b_times_fill(rng, True, ["gap_giam.so_lan"], 2), b_times_mc(rng, False, ["gap_giam.so_lan"], 2),
+          b_calc_drag(rng, g, ["nhan.2cs_1cs.co_nho", "chia.2cs_1cs"], 2), b_calc_match(rng, g, ["nhan.2cs_1cs.co_nho", "chia.2cs_1cs"], 2),
+          word_p(rng, "×", 2, 3), b_word2(rng, "mul_add", 100, [GT2, "nhan.2cs_1cs.co_nho"], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 5 ------------------------------------
+def L_c5_mm(rng):
+    sk = ["do_luong.do_dai"]
+    x = rnd(rng, 2, 9)
+    th = theory("Mi-li-mét (mm) là đơn vị đo độ dài rất nhỏ. 1 cm = 10 mm; 1 m = 1.000 mm.",
+                [T(f"Ví dụ: {x} cm = {x * 10} mm vì"), E(f"{x} × 10 = {x * 10}")], "Trên thước kẻ, khoảng cách giữa hai vạch nhỏ liền nhau là 1 mm.")
+    ps = [b_conv_fill(rng, [("cm", "mm"), ("dm", "mm"), ("m", "mm")], sk, 1), b_estimate(rng, "length", sk, 1), b_unit_calc(rng, "mm", sk, 1, "+"),
+          b_unit_compare(rng, "cm", "mm", sk, 2), b_conv_match(rng, [("cm", "mm"), ("dm", "mm"), ("m", "mm")], sk, 2),
+          b_unit_order(rng, "cm", "mm", sk, 2), b_unit_calc(rng, "mm", sk, 2, "-"), b_measure_word(rng, "len_less", sk + [GT1], 3),
+          b_measure_word(rng, "len_convert", sk + [GT1], 3)]
+    return th, ps
+
+
+def L_c5_gam(rng):
+    sk = ["do_luong.khoi_luong"]
+    x = rnd(rng, 2, 5)
+    th = theory("Gam (g) là đơn vị đo khối lượng. 1 kg = 1.000 g.",
+                [T(f"Ví dụ: {x} kg = {fmt(x * 1000)} g vì"), E(f"{x} × 1.000 = {fmt(x * 1000)}")], "Muốn so sánh kg với g, con đổi về cùng đơn vị gam.")
+    ps = [b_conv_fill(rng, [("kg", "g")], sk, 1), b_estimate(rng, "mass", sk, 1), b_unit_calc(rng, "g", sk, 1, "+", big=True),
+          b_unit_compare(rng, "kg", "g", sk, 2), b_conv_match(rng, [("kg", "g")], sk, 2), b_unit_order(rng, "kg", "g", sk, 2),
+          b_scale(rng, sk, 2), b_measure_word(rng, "mass_left", sk + [GT1], 3), b_measure_word(rng, "mass_mul", sk + [GT1], 3, "mc")]
+    return th, ps
+
+
+def L_c5_ml(rng):
+    sk = ["do_luong.dung_tich"]
+    x = rnd(rng, 2, 5)
+    th = theory("Mi-li-lít (ml) là đơn vị đo dung tích. 1 l = 1.000 ml.",
+                [T(f"Ví dụ: {x} l = {fmt(x * 1000)} ml vì"), E(f"{x} × 1.000 = {fmt(x * 1000)}")], "Một thìa canh nước khoảng 15 ml.")
+    ps = [b_conv_fill(rng, [("l", "ml")], sk, 1), b_estimate(rng, "volume", sk, 1), b_unit_calc(rng, "ml", sk, 1, "+", big=True),
+          b_unit_compare(rng, "l", "ml", sk, 2), b_conv_match(rng, [("l", "ml")], sk, 2), b_unit_order(rng, "l", "ml", sk, 2),
+          b_unit_calc(rng, "ml", sk, 2, "×"), b_measure_word(rng, "vol_add", sk + [GT1], 2, "mc"), b_measure_word(rng, "vol_two", sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c5_nhietdo(rng):
+    sk = ["do_luong.nhiet_do"]
+    t = rnd(rng, 20, 35)
+    th = theory("Nhiệt độ cho biết nóng hay lạnh, đo bằng nhiệt kế. Đơn vị đo nhiệt độ là độ C, viết là °C.",
+                [T(f"Ví dụ: nhiệt kế chỉ {t} °C, đọc là “{words(t)} độ C”.")], "Nước đá đang tan khoảng 0 °C, nước sôi 100 °C.")
+    ps = [b_temp_read(rng, sk, 1), b_estimate(rng, "temp", sk, 1), b_measure_word(rng, "temp_more", sk + [GT1], 2), b_temp_diff(rng, sk, 2),
+          b_temp_match(rng, sk, 2), b_temp_order(rng, sk, 2), b_temp_extreme(rng, sk, 2), b_measure_word(rng, "temp_fever", sk + [GT1], 3, "mc"),
+          b_temp_range(rng, sk + [GT1], 3)]
+    return th, ps
+
+
+def L_c5_ltc(rng):
+    dd, kl, dt_, nd = ["do_luong.do_dai"], ["do_luong.khoi_luong"], ["do_luong.dung_tich"], ["do_luong.nhiet_do"]
+    th = theory("Ôn lại: 1 cm = 10 mm; 1 kg = 1.000 g; 1 l = 1.000 ml; nhiệt độ đo bằng độ C.",
+                [T("Muốn so sánh hoặc tính hai số đo khác đơn vị, ta đổi về cùng một đơn vị.")])
+    ps = [b_conv_fill(rng, [("cm", "mm"), ("m", "mm")], dd, 1), b_estimate(rng, rng.choice(["length", "mass", "volume"]), dd + kl + dt_, 1),
+          b_unit_compare(rng, "kg", "g", kl, 2), b_conv_match(rng, [("kg", "g"), ("l", "ml"), ("cm", "mm"), ("m", "mm")], dd + kl + dt_, 2),
+          b_unit_order(rng, "l", "ml", dt_, 2), b_temp_extreme(rng, nd, 2), b_measure_word(rng, "vol_two", dt_ + [GT2], 3),
+          b_measure_word(rng, "mass_left", kl + [GT1], 3), b_measure_word(rng, "len_convert", dd + [GT1], 3, "mc")]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 6 ------------------------------------
+def L_c6_bieuthuc(rng):
+    sk = ["bieu_thuc"]
+    e1 = expr_case(rng, "addsub")
+    e2 = expr_case(rng, "mixed")
+    th = theory("Biểu thức chỉ có cộng, trừ (hoặc chỉ có nhân, chia) thì tính từ trái sang phải. Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.",
+                [T("Ví dụ:"), E(e1[2]), E(e2[2])])
+    ps = [b_expr_fill(rng, "addsub", sk, 1), b_expr_fill(rng, "muldiv", sk, 1), b_expr_fill(rng, "mixed", sk, 2), b_expr_mc(rng, "mixed", sk, 2),
+          b_expr_match(rng, ["addsub", "muldiv", "mixed"], sk, 2), b_expr_drag(rng, ["addsub", "muldiv", "mixed"], sk, 2),
+          b_expr_extreme(rng, ["mixed", "addsub"], sk, 3), b_expr_word(rng, sk + [GT2], 3), b_word2(rng, "add_mul", 1000, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c6_bieuthuc2(rng):
+    sk = ["bieu_thuc"]
+    e1 = expr_case(rng, "paren")
+    th = theory("Biểu thức có dấu ngoặc ( ) thì tính trong ngoặc trước.", [T("Ví dụ:"), E(e1[2])],
+                "So sánh: 10 + 2 × 3 = 16, còn (10 + 2) × 3 = 36. Dấu ngoặc làm thay đổi thứ tự tính.")
+    ps = [b_expr_fill(rng, "paren", sk, 1), b_expr_fill(rng, "paren", sk, 1), b_expr_mc(rng, "paren", sk, 2), b_expr_fill(rng, "mixed", sk, 2),
+          b_expr_match(rng, ["paren", "mixed"], sk, 2), b_expr_drag(rng, ["paren"], sk, 2), b_expr_compare(rng, sk, 3),
+          b_expr_word(rng, sk + [GT2], 3, paren=True), b_expr_word(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c6_gapmaylan(rng):
+    sk = ["so_sanh.gap_may_lan"]
+    b, s, k = _ratio_case(rng)
+    th = theory(H["how_many_times"], [T(f"Ví dụ: {b} gấp mấy lần {s}?"), E(eq(b, ":", s)), T(f"Vậy {b} gấp {k} lần {s}.")],
+                "“Gấp mấy lần” thì làm phép chia; “hơn bao nhiêu” thì làm phép trừ.")
+    ps = [b_ratio_fill(rng, sk, 1), b_ratio_mc(rng, sk, 1), b_ratio_drag(rng, sk, 2), b_ratio_match(rng, sk, 2), b_ratio_word(rng, sk + [GT1], 2),
+          b_ratio_word(rng, sk + [GT1], 3, "mc"), b_ratio_two(rng, sk, 3), b_ratio_word2(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c6_ltc(rng):
+    th = theory("Ôn lại: nhân, chia số có ba chữ số với số có một chữ số; tính giá trị biểu thức; so sánh số lớn gấp mấy lần số bé.",
+                ex_calc(rng, "×", 3))
+    g = gen_for(["×", ":"], 3)
+    ps = [calc_p(rng, "×", 3, 1), calc_p(rng, ":", 3, 1, "mc"), b_expr_fill(rng, "mixed", ["bieu_thuc"], 2), b_expr_mc(rng, "paren", ["bieu_thuc"], 2),
+          b_ratio_fill(rng, ["so_sanh.gap_may_lan"], 2), b_calc_match(rng, g, ["nhan.3cs_1cs", "chia.3cs_1cs"], 2),
+          b_expr_drag(rng, ["mixed", "paren"], ["bieu_thuc"], 2), word_p(rng, "×", 3, 3), b_word2(rng, "add_mul", 1000, [GT2, "nhan.3cs_1cs"], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 7 ------------------------------------
+def L_c7_nhanchia(rng):
+    th = theory("Ôn lại cách đặt tính nhân, chia với số có một chữ số trong phạm vi 100 và 1.000.", ex_calc(rng, ":", 3, zero=True),
+                "Thử lại phép chia bằng phép nhân: thương nhân với số chia (cộng số dư nếu có) bằng số bị chia.")
+    g = gen_for(["×", ":"], 3)
+    ps = [b_table_fill(rng, [6, 7, 8, 9], ["bang_nhan_chia"], 1), calc_p(rng, "×", 2, 1), calc_p(rng, ":", 2, 1, "mc"), calc_p(rng, "×", 3, 2),
+          b_div_rem(rng, *pick_div(rng, 3, rem=True), ["chia.3cs_1cs", "chia.co_du"], 2), b_calc_drag(rng, g, ["nhan.3cs_1cs", "chia.3cs_1cs"], 2),
+          b_calc_match(rng, g, ["nhan.3cs_1cs", "chia.3cs_1cs"], 2), word_p(rng, ":", 3, 3), b_word2(rng, "mul_sub", 1000, [GT2, "nhan.3cs_1cs"], 3)]
+    return th, ps
+
+
+def L_c7_bieuthuc(rng):
+    sk = ["bieu_thuc"]
+    th = theory("Thứ tự tính giá trị biểu thức: trong ngoặc trước; nhân, chia trước; cộng, trừ sau; cùng loại thì từ trái sang phải.",
+                [E(expr_case(rng, "mixed")[2]), E(expr_case(rng, "paren")[2])])
+    ps = [b_expr_fill(rng, "addsub", sk, 1), b_expr_fill(rng, "muldiv", sk, 1), b_expr_fill(rng, "mixed", sk, 2), b_expr_fill(rng, "paren", sk, 2),
+          b_expr_match(rng, ["addsub", "muldiv", "mixed", "paren"], sk, 2), b_expr_drag(rng, ["mixed", "paren"], sk, 2),
+          b_expr_compare(rng, sk, 3), b_expr_word(rng, sk + [GT2], 3), b_expr_word(rng, sk + [GT2], 3, paren=True)]
+    return th, ps
+
+
+def L_c7_hinhdo(rng):
+    th = theory("Ôn lại: trung điểm, hình tròn, góc vuông, khối hình; các đơn vị mm, g, ml, °C.",
+                [T("1 cm = 10 mm; 1 kg = 1.000 g; 1 l = 1.000 ml; đường kính = bán kính × 2.")])
+    hp = ["hinh_hoc.hinh_phang"]
+    ps = [b_mid_half(rng, hp, 1), b_circle_fill(rng, hp, 1), b_conv_fill(rng, [("kg", "g"), ("l", "ml")], ["do_luong.khoi_luong", "do_luong.dung_tich"], 1),
+          b_angle_clock(rng, ["hinh_hoc.goc"], 2), b_unit_compare(rng, "cm", "mm", ["do_luong.do_dai"], 2), b_solid_match(rng, ["hinh_hoc.khoi"], 2),
+          b_temp_order(rng, ["do_luong.nhiet_do"], 2), b_measure_word(rng, "vol_two", ["do_luong.dung_tich", GT2], 3), b_circle_word(rng, hp + [GT1], 3)]
+    return th, ps
+
+
+def L_c7_ontapchung(rng):
+    th = theory("Ôn tập học kì 1: số đến 1.000, bốn phép tính, biểu thức, gấp – giảm số lần, một phần mấy, hình học và đo lường.",
+                ex_calc(rng, "-", 3))
+    ps = [b_num_compare_mc(rng, 3, ["so.pham_vi_1000"], 1), calc_p(rng, "+", 3, 1), b_table_missing(rng, [6, 7, 8, 9], ["bang_nhan_chia"], 1),
+          b_frac_fill(rng, ["phan_so.mot_phan"], 2), b_expr_mc(rng, "mixed", ["bieu_thuc"], 2), b_times_drag(rng, ["gap_giam.so_lan"], 2),
+          b_ratio_match(rng, ["so_sanh.gap_may_lan"], 2), b_word2(rng, "mul_add", 1000, [GT2, "nhan.3cs_1cs"], 3),
+          b_rem_word(rng, ["chia.co_du", GT1], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 8 ------------------------------------
+def L_c8_lama(rng):
+    sk = ["so.la_ma"]
+    v = rnd(rng, 11, 19)
+    th = theory("Chữ số La Mã: I là 1, V là 5, X là 10. Chữ số nhỏ đứng bên phải chữ số lớn thì cộng thêm; đứng bên trái thì trừ đi.",
+                [T(f"Ví dụ: VI = 6, IV = 4, IX = 9, {roman(v)} = {v}.")], "Mặt đồng hồ thường ghi số La Mã từ I đến XII.")
+    ps = [b_roman_value_mc(rng, sk, 1), b_roman_write_mc(rng, sk, 1), b_roman_fill(rng, sk, 1), b_roman_match(rng, sk, 2),
+          b_roman_order(rng, sk, 2), b_roman_clock(rng, sk + ["thoi_gian.dong_ho"], 2), b_roman_max(rng, sk, 2), b_roman_calc(rng, sk, 3)]
+    return th, ps
+
+
+def L_c8_ltc(rng):
+    th = theory("Ôn lại: đọc, viết, so sánh số có bốn chữ số; chữ số La Mã; làm tròn số đến hàng chục, hàng trăm.",
+                [E(f"{fmt(n)} = {expand(n)}") for n in [n_digits(rng, 4, zeros=True)]])
+    ps = [b_num_read_mc(rng, 4, ["so.pham_vi_10000"], 1), b_num_compare_mc(rng, 4, ["so.so_sanh"], 1), b_roman_value_mc(rng, ["so.la_ma"], 1),
+          b_num_place_fill(rng, 4, ["so.pham_vi_10000"], 1), b_round_fill(rng, 4, 100, ["so.lam_tron"], 2), b_num_order_drag(rng, 4, ["so.so_sanh"], 2),
+          b_roman_match(rng, ["so.la_ma"], 2), b_round_word(rng, 4, 100, ["so.lam_tron"], 3), b_num_compare_word(rng, 4, ["so.so_sanh"], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 9 ------------------------------------
+def L_c9_chuvi(rng):
+    sk = ["hinh_hoc.chu_vi"]
+    a = rnd(rng, 5, 12)
+    b = rnd(rng, 2, a - 1)
+    th = theory("Chu vi một hình là tổng độ dài các cạnh của hình đó. Chu vi hình chữ nhật = (dài + rộng) × 2; chu vi hình vuông = cạnh × 4.",
+                [T(f"Ví dụ: hình chữ nhật dài {a} cm, rộng {b} cm có chu vi:"), E(f"({a} + {b}) × 2 = {(a + b) * 2}")],
+                "Chiều dài và chiều rộng phải cùng đơn vị đo.")
+    ps = [b_perim(rng, "tri", sk, 1), b_perim(rng, "quad", sk, 1), b_perim(rng, "rect", sk, 2), b_perim(rng, "square", sk, 2, "mc"),
+          b_perim_match(rng, sk, 2), b_perim_drag(rng, sk, 2), b_perim_word(rng, sk + [GT1], 3, "rect"),
+          b_perim_word(rng, sk + [GT1], 3, "square_side", "mc"), b_perim_word(rng, sk + [GT1], 3, "square")]
+    return th, ps
+
+
+def L_c9_cm2(rng):
+    sk = ["hinh_hoc.dien_tich"]
+    r_, c_ = rnd(rng, 2, 4), rnd(rng, 3, 6)
+    th = theory("Diện tích là độ lớn phần mặt phẳng hình chiếm. Xăng-ti-mét vuông (cm²) là diện tích hình vuông cạnh 1 cm.",
+                [T(f"Ví dụ: hình gồm {r_} hàng, mỗi hàng {c_} ô vuông 1 cm² có diện tích:"), E(f"{c_} × {r_} = {r_ * c_}"), T(f"Vậy diện tích là {r_ * c_} cm².")],
+                "Viết cm², đọc là “xăng-ti-mét vuông”.")
+    ps = [b_area_count(rng, sk, 1), b_area_compare(rng, sk, 1), b_area_read(rng, sk, 1), b_area_calc(rng, sk, 1), b_area_order(rng, sk, 2),
+          b_area_read_match(rng, sk, 2), b_area_count_drag(rng, sk, 2), b_area_word(rng, sk + [GT1], 3, "more"), b_area_count_diff(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c9_dientich(rng):
+    sk = ["hinh_hoc.dien_tich"]
+    a = rnd(rng, 4, 9)
+    b = rnd(rng, 2, a - 1)
+    th = theory("Diện tích hình chữ nhật = chiều dài × chiều rộng (cùng đơn vị đo). Diện tích hình vuông = cạnh × cạnh.",
+                [T(f"Ví dụ: hình chữ nhật dài {a} cm, rộng {b} cm có diện tích:"), E(f"{a} × {b} = {a * b}"), T(f"Vậy diện tích là {a * b} cm².")],
+                "Chu vi đo bằng cm, diện tích đo bằng cm² – đừng nhầm nhé!")
+    ps = [b_area(rng, "rect", sk, 1), b_area(rng, "square", sk, 1), b_area(rng, "rect", sk, 2, "mc"), b_area(rng, "square", sk, 2, "mc"),
+          b_area_match(rng, sk, 2), b_area_drag(rng, sk, 2), b_area_word(rng, sk + [GT1], 2, "rect"), b_area_word(rng, sk + [GT1], 3, "square", "mc"),
+          b_area_word(rng, sk + [GT2], 3, "cut"), b_rect_both(rng, sk + ["hinh_hoc.chu_vi"], 3)]
+    return th, ps
+
+
+def L_c9_ltc(rng):
+    cv, dt_ = ["hinh_hoc.chu_vi"], ["hinh_hoc.dien_tich"]
+    th = theory("Ôn lại: chu vi hình tam giác, tứ giác, chữ nhật, vuông; diện tích hình chữ nhật, hình vuông.",
+                [T("Chu vi hình vuông = cạnh × 4; diện tích hình vuông = cạnh × cạnh.")])
+    ps = [b_perim(rng, "rect", cv, 1), b_area(rng, "square", dt_, 1), b_area_calc(rng, dt_, 1), b_perim_match(rng, cv, 2), b_area_drag(rng, dt_, 2),
+          b_rect_both(rng, cv + dt_, 2), b_perim_word(rng, cv + [GT1], 3, "square_side"), b_area_word(rng, dt_ + [GT2], 3, "cut"),
+          b_area_word(rng, dt_ + [GT1], 3, "rect", "mc")]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 10, 12, 14: luyện tập chung phép tính --
+def calc_review(ops, d, extra_find=False):
+    def build(rng):
+        sks = [OP_SKILL[(op, d)] for op in ops]
+        M = MAXR[d] + 1 if d < 5 else 100000
+        th = theory("Ôn lại cách đặt tính rồi tính và giải toán có lời văn với các số đã học.", ex_calc(rng, ops[-1], d),
+                    "Làm xong, con ước lượng xem kết quả có hợp lý không nhé.")
+        g = gen_for(ops, d)
+        ps = [calc_p(rng, ops[0], d, 1), calc_p(rng, ops[1 % len(ops)], d, 1, "mc"), calc_p(rng, ops[2 % len(ops)], d, 2),
+              calc_p(rng, ops[-1], d, 2, "mc"), b_calc_drag(rng, g, sks, 2), b_calc_match(rng, g, sks, 2)]
+        if extra_find:
+            ps.append(b_find(rng, "addend1", M, ["tim_thanh_phan.so_hang"], 2))
+        ps += [word_p(rng, ops[-1], d, 3), b_word2(rng, rng.choice(WORD2_KINDS[ops[0]] + WORD2_KINDS[ops[-1]]), M, sks + [GT2], 3)]
+        return th, ps
+    return build
+
+
+def L_c11_ltc(rng):
+    th = theory("Ôn lại: đọc, viết, so sánh số có năm chữ số; làm tròn số đến hàng nghìn, hàng chục nghìn.",
+                [E(f"{fmt(n)} = {expand(n)}") for n in [n_digits(rng, 5, zeros=True)]])
+    ps = [b_num_words_mc(rng, 5, ["so.pham_vi_100000"], 1), b_num_compare_mc(rng, 5, ["so.so_sanh"], 1), b_num_compose_fill(rng, 5, ["so.pham_vi_100000"], 1),
+          b_round_fill(rng, 5, 1000, ["so.lam_tron"], 2), b_cmp_match(rng, 5, ["so.so_sanh"], 2), b_num_order_drag(rng, 5, ["so.so_sanh"], 2),
+          b_num_seq(rng, 5, ["so.pham_vi_100000"], 2), b_round_word(rng, 5, 10000, ["so.lam_tron"], 3), b_num_compare_word(rng, 5, ["so.so_sanh"], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 13 -----------------------------------
+def L_c13_dongho(rng):
+    dh, lc = ["thoi_gian.dong_ho"], ["thoi_gian.lich"]
+    h, m = rnd(rng, 6, 10), rng.choice([15, 20, 40, 45])
+    th = theory("Kim ngắn chỉ giờ, kim dài chỉ phút; mỗi số trên mặt đồng hồ ứng với 5 phút. Một năm có 12 tháng; tháng 4, 6, 9, 11 có 30 ngày; tháng 2 có 28 hoặc 29 ngày; các tháng còn lại có 31 ngày.",
+                [T(f"Ví dụ: {tfmt(h, m)}" + (f" còn gọi là {h + 1} giờ kém {60 - m} phút." if m > 30 else ".")), E(f"60 - {m} = {60 - m}")],
+                "13 giờ là 1 giờ chiều, 20 giờ là 8 giờ tối.")
+    ps = [b_clock_read(rng, dh, 1), b_clock_kem(rng, dh, 1), b_month_days(rng, lc, 1), b_month_mc(rng, lc, 2), b_clock_pm_match(rng, dh, 2),
+          b_time_units(rng, lc + dh, 2), b_clock_add(rng, dh, 2), b_weekday(rng, lc, 3), b_clock_add(rng, dh + [GT1], 3, ctx=True)]
+    return th, ps
+
+
+def L_c13_thuchanh(rng):
+    dh, lc = ["thoi_gian.dong_ho"], ["thoi_gian.lich"]
+    th = theory("Xem lịch: các ngày cùng thứ trong một tháng cách nhau 7 ngày. Xem đồng hồ: đếm thêm 5 phút cho mỗi số kim phút đi qua.",
+                [T("Ví dụ: nếu ngày 3 là thứ Hai thì các ngày 10, 17, 24 cũng là thứ Hai."), E("3 + 7 = 10")])
+    ps = [b_clock_kem(rng, dh, 1, "mc"), b_clock_read(rng, dh, 1), b_calendar_seq(rng, lc, 2), b_clock_duration(rng, dh, 2), b_month_match(rng, lc, 2),
+          b_clock_order(rng, dh, 2), b_weekday(rng, lc, 3), b_date_word(rng, lc + [GT2], 3)]
+    return th, ps
+
+
+def L_c13_tien(rng):
+    sk = ["tien.viet_nam"]
+    th = theory("Tiền Việt Nam có các tờ 1.000, 2.000, 5.000, 10.000, 20.000, 50.000, 100.000 đồng. Muốn biết có bao nhiêu tiền, ta cộng giá trị các tờ tiền.",
+                [T("Ví dụ: 2 tờ 10.000 đồng và 1 tờ 5.000 đồng là:"), E("10.000 × 2 + 5.000 = 25.000"), T("Vậy có 25.000 đồng.")],
+                "Mua hàng: tiền trả lại = tiền đưa – giá tiền món hàng.")
+    ps = [b_money_extreme(rng, sk, 1), b_money_sum(rng, sk, 1), b_money_exchange(rng, sk, 1), b_money_match(rng, sk, 2),
+          b_money_exchange_drag(rng, sk, 2), b_money_change(rng, sk + [GT1], 2), b_money_change(rng, sk + [GT1], 3, "mc"),
+          b_money_mul(rng, sk + [GT1], 3), b_money_two(rng, sk + [GT2], 3)]
+    return th, ps
+
+
+def L_c13_ltc(rng):
+    dh, lc, tn = ["thoi_gian.dong_ho"], ["thoi_gian.lich"], ["tien.viet_nam"]
+    th = theory("Ôn lại: xem đồng hồ, xem lịch, tháng – năm và tiền Việt Nam.", [T("1 giờ = 60 phút; 1 tuần = 7 ngày; 1 năm = 12 tháng.")])
+    ps = [b_clock_read(rng, dh, 1), b_money_sum(rng, tn, 1), b_month_mc(rng, lc, 1), b_clock_pm_match(rng, dh, 2), b_money_exchange_drag(rng, tn, 2),
+          b_clock_duration(rng, dh, 2), b_money_change(rng, tn + [GT1], 3, "mc"), b_weekday(rng, lc, 3), b_money_two(rng, tn + [GT2], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 15 -----------------------------------
+def L_c15_thuthap(rng):
+    sk = ["thong_ke.so_lieu"]
+    th = theory("Thu thập số liệu: hỏi, đếm, đo rồi ghi lại. Phân loại theo từng nhóm và đếm số lượng mỗi nhóm.",
+                [T("Ví dụ: ghi lại màu áo: xanh, đỏ, xanh, vàng, xanh → xanh: 3, đỏ: 1, vàng: 1.")],
+                "Đếm xong nhóm nào thì gạch nhóm đó để không đếm sót, đếm trùng.")
+    ps = [b_tally_fill(rng, sk, 1), b_tally_mc(rng, sk, 1), b_table_read(rng, sk, 1), b_tally_total(rng, sk, 2), b_tally_drag(rng, sk, 2),
+          b_tally_mc(rng, sk, 2, most=False), b_table_match(rng, sk, 2), b_table_diff(rng, sk + [GT1], 3, mode="mc"), b_table_word(rng, sk + [GT1], 3)]
+    return th, ps
+
+
+def L_c15_bang(rng):
+    sk = ["thong_ke.so_lieu"]
+    th = theory("Bảng số liệu gồm các hàng và cột. Đọc tên ở hàng trên, số liệu tương ứng ở ngay bên dưới.",
+                [T("Ví dụ:\nLớp | 3A | 3B\nSố cây | 25 | 30\nLớp 3B trồng được 30 cây, nhiều hơn lớp 3A."), E("30 - 25 = 5")])
+    ps = [b_table_read(rng, sk, 1, grid=True), b_table_extreme(rng, sk, 1, True, grid=True), b_table_extreme(rng, sk, 2, False, grid=True),
+          b_table_total(rng, sk, 2, grid=True), b_table_order(rng, sk, 2, grid=True), b_table_match(rng, sk, 2, grid=True),
+          b_table_diff(rng, sk + [GT1], 2, grid=True), b_table_word(rng, sk + [GT1], 3, grid=True), b_table_diff(rng, sk + [GT1], 3, grid=True, mode="mc")]
+    return th, ps
+
+
+def L_c15_khanang(rng):
+    sk = ["xac_suat.kha_nang"]
+    th = theory("Một sự kiện có thể chắc chắn xảy ra, có thể xảy ra hoặc không thể xảy ra.",
+                [T("Ví dụ: hộp chỉ có bóng đỏ. Lấy 1 quả: chắc chắn được bóng đỏ, không thể được bóng xanh."),
+                 T("Hộp có bóng đỏ và bóng xanh. Lấy 1 quả: có thể được bóng đỏ, có thể được bóng xanh.")])
+    ps = [b_prob_mc(rng, sk, 1), b_prob_mc(rng, sk, 1), b_prob_count(rng, sk, 1), b_prob_match(rng, sk, 2), b_prob_drag(rng, sk, 2),
+          b_prob_mc(rng, sk, 2), b_prob_fill(rng, sk, 3), b_prob_fill(rng, sk, 3)]
+    return th, ps
+
+
+def L_c15_ltc(rng):
+    tk, xs = ["thong_ke.so_lieu"], ["xac_suat.kha_nang"]
+    th = theory("Ôn lại: thu thập, phân loại số liệu; đọc bảng số liệu; khả năng xảy ra của một sự kiện.",
+                [T("Chắc chắn – có thể – không thể.")])
+    ps = [b_tally_fill(rng, tk, 1), b_prob_mc(rng, xs, 1), b_table_read(rng, tk, 1, grid=True), b_table_extreme(rng, tk, 2), b_prob_match(rng, xs, 2),
+          b_tally_drag(rng, tk, 2), b_table_total(rng, tk, 2, grid=True), b_prob_fill(rng, xs, 3), b_table_word(rng, tk + [GT1], 3)]
+    return th, ps
+
+
+# ---------------------------- Chủ đề 16 -----------------------------------
+def L_c16_so(rng):
+    th = theory("Ôn lại các số trong phạm vi 100.000: đọc, viết, cấu tạo, so sánh, làm tròn; chữ số La Mã.",
+                [E(f"{fmt(n)} = {expand(n)}") for n in [n_digits(rng, 5, zeros=True)]])
+    ps = [b_num_read_mc(rng, 5, ["so.pham_vi_100000"], 1), b_num_words_mc(rng, 5, ["so.pham_vi_100000"], 1), b_num_compare_mc(rng, 5, ["so.so_sanh"], 1),
+          b_round_fill(rng, 5, 1000, ["so.lam_tron"], 2), b_num_order_drag(rng, 5, ["so.so_sanh"], 2), b_roman_match(rng, ["so.la_ma"], 2),
+          b_num_place_fill(rng, 5, ["so.pham_vi_100000"], 2), b_num_digits(rng, 5, ["so.pham_vi_100000"], 3), b_round_word(rng, 5, 10000, ["so.lam_tron"], 3)]
+    return th, ps
+
+
+def L_c16_pheptinh(rng):
+    th = theory("Ôn lại bốn phép tính trong phạm vi 100.000 và thứ tự tính giá trị biểu thức.", ex_calc(rng, "-", 5))
+    g = gen_for(["+", "-", "×", ":"], 4)
+    ps = [calc_p(rng, "+", 5, 1), calc_p(rng, "-", 5, 1, "mc"), calc_p(rng, "×", 4, 2), calc_p(rng, ":", 5, 2),
+          b_calc_drag(rng, g, ["cong_tru.pham_vi_10000", "nhan.4cs_1cs", "chia.4cs_1cs"], 2),
+          b_calc_match(rng, g, ["cong_tru.pham_vi_10000", "nhan.4cs_1cs", "chia.4cs_1cs"], 2), b_expr_fill(rng, "paren", ["bieu_thuc"], 2),
+          word_p(rng, ":", 5, 3), b_word2(rng, "mul_sub", 100000, [GT2, "nhan.5cs_1cs"], 3)]
+    return th, ps
+
+
+def L_c16_hinhdo(rng):
+    cv, dt_ = ["hinh_hoc.chu_vi"], ["hinh_hoc.dien_tich"]
+    th = theory("Ôn lại: chu vi, diện tích; đơn vị đo độ dài, khối lượng, dung tích; xem đồng hồ; tiền Việt Nam.",
+                [T("Chu vi hình chữ nhật = (dài + rộng) × 2; diện tích hình chữ nhật = dài × rộng.")])
+    ps = [b_perim(rng, "rect", cv, 1), b_area(rng, "square", dt_, 1, "mc"), b_money_sum(rng, ["tien.viet_nam"], 1),
+          b_conv_fill(rng, [("kg", "g"), ("l", "ml"), ("m", "cm")], ["do_luong.do_dai", "do_luong.khoi_luong", "do_luong.dung_tich"], 1),
+          b_clock_add(rng, ["thoi_gian.dong_ho"], 2), b_area_match(rng, dt_, 2), b_unit_order(rng, "kg", "g", ["do_luong.khoi_luong"], 2),
+          b_perim_word(rng, cv + [GT1], 3, "square_side"), b_area_word(rng, dt_ + [GT2], 3, "cut"), b_money_two(rng, ["tien.viet_nam", GT2], 3)]
+    return th, ps
+
+
+def L_c16_chung(rng):
+    th = theory("Ôn tập cuối năm: số và phép tính, hình học và đo lường, thống kê và khả năng xảy ra.", [T("Cố lên! Con đã học xong chương trình Toán lớp 3.")])
+    ps = [b_tally_fill(rng, ["thong_ke.so_lieu"], 1), b_prob_mc(rng, ["xac_suat.kha_nang"], 1), b_num_compare_mc(rng, 5, ["so.so_sanh"], 1),
+          calc_p(rng, "×", 5, 2), b_table_order(rng, ["thong_ke.so_lieu"], 2, grid=True), b_prob_match(rng, ["xac_suat.kha_nang"], 2),
+          b_round_mc(rng, 5, 1000, ["so.lam_tron"], 2), b_word2(rng, "frac_rest", 100000, [GT2, "chia.5cs_1cs"], 3), b_money_mul(rng, ["tien.viet_nam", GT1], 3)]
+    return th, ps
+
+
+# ===========================================================================
+# MỤC LỤC CẢ NĂM (thứ tự chủ đề/bài theo SGK; số tiết tổng = 175)
+# ===========================================================================
+EXISTING = "existing"
+CURRICULUM = [
+    (1, "Ôn tập và bổ sung", 1, [
+        ("on-tap-cac-so-den-1000", "Ôn tập các số đến 1000", 2, L_c1_so),
+        ("on-tap-phep-cong-phep-tru-pham-vi-1000", "Ôn tập phép cộng, phép trừ trong phạm vi 1000", 2, L_c1_congtru),
+        ("tim-thanh-phan-phep-cong-phep-tru", "Tìm thành phần trong phép cộng, phép trừ", 2, L_c1_timthanhphan),
+        ("on-tap-bang-nhan-2-5-bang-chia-2-5", "Ôn tập bảng nhân 2, 5, bảng chia 2, 5", 2, table_lesson([2, 5])),
+        ("bang-nhan-3-bang-chia-3", "Bảng nhân 3, bảng chia 3", 2, table_lesson([3])),
+        ("bang-nhan-4-bang-chia-4", "Bảng nhân 4, bảng chia 4", 2, table_lesson([4])),
+        ("on-tap-hinh-hoc-va-do-luong", "Ôn tập hình học và đo lường", 2, L_c1_hinhdo),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c1_ltc),
+    ]),
+    (2, "Bảng nhân, bảng chia", 1, [
+        ("bang-nhan-6-bang-chia-6", "Bảng nhân 6, bảng chia 6", 2, table_lesson([6])),
+        ("bang-nhan-7-bang-chia-7", "Bảng nhân 7, bảng chia 7", 2, table_lesson([7])),
+        ("bang-nhan-8-bang-chia-8", "Bảng nhân 8, bảng chia 8", 2, table_lesson([8])),
+        ("bang-nhan-9-bang-chia-9", "Bảng nhân 9, bảng chia 9", 2, table_lesson([9])),
+        ("tim-thanh-phan-phep-nhan-phep-chia", "Tìm thành phần trong phép nhân, phép chia", 2, L_c2_timthanhphan),
+        ("mot-phan-may", "Một phần mấy", 2, L_c2_motphanmay),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c2_ltc),
+    ]),
+    (3, "Làm quen với hình phẳng, hình khối", 1, [
+        ("diem-o-giua-trung-diem", "Điểm ở giữa. Trung điểm của đoạn thẳng", 2, L_c3_trungdiem),
+        ("hinh-tron-tam-ban-kinh-duong-kinh", "Hình tròn. Tâm, bán kính, đường kính của hình tròn", 2, L_c3_hinhtron),
+        ("goc-goc-vuong-goc-khong-vuong", "Góc, góc vuông, góc không vuông", 2, L_c3_goc),
+        ("hinh-tam-giac-tu-giac-chu-nhat-vuong", "Hình tam giác, hình tứ giác. Hình chữ nhật, hình vuông", 2, L_c3_dagiac),
+        ("thuc-hanh-ve-goc-vuong-duong-tron", "Thực hành vẽ góc vuông, đường tròn, hình vuông, hình chữ nhật", 2, L_c3_thuchanhve),
+        ("khoi-lap-phuong-khoi-hop-chu-nhat", "Khối lập phương, khối hộp chữ nhật", 2, L_c3_khoi),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c3_ltc),
+    ]),
+    (4, "Phép nhân, phép chia trong phạm vi 100", 1, [
+        ("nhan-2cs-1cs", "Nhân số có hai chữ số với số có một chữ số", 3, EXISTING),
+        ("gap-mot-so-len-mot-so-lan", "Gấp một số lên một số lần", 2, L_c4_gap),
+        ("phep-chia-het-phep-chia-co-du", "Phép chia hết, phép chia có dư", 2, L_c4_chiadu),
+        ("chia-2cs-1cs", "Chia số có hai chữ số cho số có một chữ số", 3, EXISTING),
+        ("giam-mot-so-di-mot-so-lan", "Giảm một số đi một số lần", 2, L_c4_giam),
+        ("bai-toan-giai-bang-hai-buoc-tinh", "Bài toán giải bằng hai bước tính", 3, L_c4_haibuoc),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c4_ltc),
+    ]),
+    (5, "Một số đơn vị đo độ dài, khối lượng, dung tích, nhiệt độ", 1, [
+        ("mi-li-met", "Mi-li-mét", 2, L_c5_mm),
+        ("gam", "Gam", 2, L_c5_gam),
+        ("mi-li-lit", "Mi-li-lít", 2, L_c5_ml),
+        ("nhiet-do-don-vi-do-nhiet-do", "Nhiệt độ. Đơn vị đo nhiệt độ", 2, L_c5_nhietdo),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c5_ltc),
+    ]),
+    (6, "Phép nhân, phép chia trong phạm vi 1000", 1, [
+        ("nhan-3cs-1cs", "Nhân số có ba chữ số với số có một chữ số", 3, calc_lesson("×", 3)),
+        ("chia-3cs-1cs", "Chia số có ba chữ số cho số có một chữ số", 3, calc_lesson(":", 3)),
+        ("bieu-thuc-so", "Biểu thức số. Tính giá trị của biểu thức số", 2, L_c6_bieuthuc),
+        ("tinh-gia-tri-bieu-thuc-so-tiep-theo", "Tính giá trị của biểu thức số (tiếp theo)", 3, L_c6_bieuthuc2),
+        ("so-sanh-so-lon-gap-may-lan-so-be", "So sánh số lớn gấp mấy lần số bé", 2, L_c6_gapmaylan),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c6_ltc),
+    ]),
+    (7, "Ôn tập học kì 1", 1, [
+        ("on-tap-phep-nhan-phep-chia", "Ôn tập phép nhân, phép chia trong phạm vi 100, 1000", 2, L_c7_nhanchia),
+        ("on-tap-bieu-thuc-so", "Ôn tập biểu thức số", 2, L_c7_bieuthuc),
+        ("on-tap-hinh-hoc-va-do-luong", "Ôn tập hình học và đo lường", 2, L_c7_hinhdo),
+        ("on-tap-chung", "Ôn tập chung", 2, L_c7_ontapchung),
+    ]),
+    (8, "Các số đến 10 000", 2, [
+        ("cac-so-co-bon-chu-so-so-10000", "Các số có bốn chữ số. Số 10 000", 3, numbers_lesson(4, "so.pham_vi_10000")),
+        ("so-sanh-cac-so-pham-vi-10000", "So sánh các số trong phạm vi 10 000", 2, compare_lesson(4)),
+        ("lam-quen-voi-chu-so-la-ma", "Làm quen với chữ số La Mã", 2, L_c8_lama),
+        ("lam-tron-so-den-hang-chuc-hang-tram", "Làm tròn số đến hàng chục, hàng trăm", 2, rounding_lesson(4, [10, 100])),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c8_ltc),
+    ]),
+    (9, "Chu vi, diện tích một số hình phẳng", 2, [
+        ("chu-vi-tam-giac-tu-giac-chu-nhat-vuong", "Chu vi hình tam giác, hình tứ giác, hình chữ nhật, hình vuông", 3, L_c9_chuvi),
+        ("dien-tich-cua-mot-hinh-xang-ti-met-vuong", "Diện tích của một hình. Xăng-ti-mét vuông", 2, L_c9_cm2),
+        ("dien-tich-hinh-chu-nhat-hinh-vuong", "Diện tích hình chữ nhật, diện tích hình vuông", 3, L_c9_dientich),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c9_ltc),
+    ]),
+    (10, "Cộng, trừ, nhân, chia trong phạm vi 10 000", 2, [
+        ("phep-cong-pham-vi-10000", "Phép cộng trong phạm vi 10 000", 2, calc_lesson("+", 4)),
+        ("phep-tru-pham-vi-10000", "Phép trừ trong phạm vi 10 000", 2, calc_lesson("-", 4)),
+        ("nhan-4cs-1cs", "Nhân số có bốn chữ số với số có một chữ số", 3, calc_lesson("×", 4)),
+        ("chia-4cs-1cs", "Chia số có bốn chữ số cho số có một chữ số", 3, calc_lesson(":", 4)),
+        ("luyen-tap-chung", "Luyện tập chung", 2, calc_review(["+", "-", "×", ":"], 4, extra_find=True)),
+    ]),
+    (11, "Các số đến 100 000", 2, [
+        ("cac-so-co-nam-chu-so-so-100000", "Các số có năm chữ số. Số 100 000", 3, numbers_lesson(5, "so.pham_vi_100000")),
+        ("so-sanh-cac-so-pham-vi-100000", "So sánh các số trong phạm vi 100 000", 2, compare_lesson(5)),
+        ("lam-tron-so-den-hang-nghin-hang-chuc-nghin", "Làm tròn số đến hàng nghìn, hàng chục nghìn", 2, rounding_lesson(5, [1000, 10000])),
+        ("luyen-tap-chung", "Luyện tập chung", 2, L_c11_ltc),
+    ]),
+    (12, "Cộng, trừ trong phạm vi 100 000", 2, [
+        ("phep-cong-pham-vi-100000", "Phép cộng trong phạm vi 100 000", 2, calc_lesson("+", 5)),
+        ("phep-tru-pham-vi-100000", "Phép trừ trong phạm vi 100 000", 2, calc_lesson("-", 5)),
+        ("luyen-tap-chung", "Luyện tập chung", 2, calc_review(["+", "-"], 5, extra_find=True)),
+    ]),
+    (13, "Xem đồng hồ. Tháng – năm. Tiền Việt Nam", 2, [
+        ("xem-dong-ho-thang-nam", "Xem đồng hồ. Tháng – năm", 3, L_c13_dongho),
+        ("thuc-hanh-xem-dong-ho-xem-lich", "Thực hành xem đồng hồ, xem lịch", 2, L_c13_thuchanh),
+        ("tien-viet-nam", "Tiền Việt Nam", 2, L_c13_tien),
+        ("luyen-tap-chung", "Luyện tập chung", 1, L_c13_ltc),
+    ]),
+    (14, "Nhân, chia trong phạm vi 100 000", 2, [
+        ("nhan-5cs-1cs", "Nhân số có năm chữ số với số có một chữ số", 2, calc_lesson("×", 5)),
+        ("chia-5cs-1cs", "Chia số có năm chữ số cho số có một chữ số", 3, calc_lesson(":", 5)),
+        ("luyen-tap-chung", "Luyện tập chung", 2, calc_review(["×", ":"], 5)),
+    ]),
+    (15, "Làm quen với yếu tố thống kê, xác suất", 2, [
+        ("thu-thap-phan-loai-ghi-chep-so-lieu", "Thu thập, phân loại, ghi chép số liệu thống kê", 2, L_c15_thuthap),
+        ("bang-so-lieu-thong-ke", "Bảng số liệu thống kê", 2, L_c15_bang),
+        ("kha-nang-xay-ra-cua-mot-su-kien", "Khả năng xảy ra của một sự kiện", 2, L_c15_khanang),
+        ("luyen-tap-chung", "Luyện tập chung", 1, L_c15_ltc),
+    ]),
+    (16, "Ôn tập cuối năm", 2, [
+        ("on-tap-cac-so-pham-vi-100000", "Ôn tập các số trong phạm vi 100 000", 3, L_c16_so),
+        ("on-tap-bon-phep-tinh", "Ôn tập phép cộng, phép trừ, phép nhân, phép chia", 3, L_c16_pheptinh),
+        ("on-tap-hinh-hoc-va-do-luong", "Ôn tập hình học và đo lường", 3, L_c16_hinhdo),
+        ("on-tap-chung", "Ôn tập chung", 2, L_c16_chung),
+    ]),
+]
+
+NEW_SKILLS = [
+    ("tim_thanh_phan.so_bi_tru", "Tìm số bị trừ, số trừ chưa biết", "so_va_phep_tinh", "tìm thành phần chưa biết"),
+    ("tim_thanh_phan.so_chia", "Tìm số chia chưa biết", "so_va_phep_tinh", "tìm thành phần chưa biết"),
+    ("phan_so.mot_phan", "Tìm một phần mấy của một số", "so_va_phep_tinh", "một phần mấy"),
+    ("gap_giam.so_lan", "Gấp một số lên, giảm một số đi một số lần", "so_va_phep_tinh", "gấp, giảm một số lần"),
+    ("so_sanh.gap_may_lan", "So sánh số lớn gấp mấy lần số bé", "so_va_phep_tinh", "gấp, giảm một số lần"),
+    ("chia.co_du", "Phép chia hết, phép chia có dư", "so_va_phep_tinh", "phép chia"),
+    ("bieu_thuc", "Biểu thức số, tính giá trị của biểu thức", "so_va_phep_tinh", "biểu thức"),
+    ("so.pham_vi_10000", "Đọc, viết, cấu tạo các số trong phạm vi 10 000", "so_va_phep_tinh", "đọc, viết số"),
+    ("so.pham_vi_100000", "Đọc, viết, cấu tạo các số trong phạm vi 100 000", "so_va_phep_tinh", "đọc, viết số"),
+    ("so.so_sanh", "So sánh, sắp xếp các số trong phạm vi 100 000", "so_va_phep_tinh", "so sánh số"),
+    ("so.lam_tron", "Làm tròn số đến hàng chục, trăm, nghìn, chục nghìn", "so_va_phep_tinh", "làm tròn số"),
+    ("so.la_ma", "Đọc, viết chữ số La Mã (I đến XX)", "so_va_phep_tinh", "số La Mã"),
+    ("cong_tru.pham_vi_10000", "Cộng, trừ trong phạm vi 10 000", "so_va_phep_tinh", "phép cộng, phép trừ"),
+    ("cong_tru.pham_vi_100000", "Cộng, trừ trong phạm vi 100 000", "so_va_phep_tinh", "phép cộng, phép trừ"),
+    ("nhan.4cs_1cs", "Nhân số có bốn chữ số với số có một chữ số", "so_va_phep_tinh", "phép nhân"),
+    ("nhan.5cs_1cs", "Nhân số có năm chữ số với số có một chữ số", "so_va_phep_tinh", "phép nhân"),
+    ("chia.4cs_1cs", "Chia số có bốn chữ số cho số có một chữ số", "so_va_phep_tinh", "phép chia"),
+    ("chia.5cs_1cs", "Chia số có năm chữ số cho số có một chữ số", "so_va_phep_tinh", "phép chia"),
+    ("hinh_hoc.goc", "Góc vuông, góc không vuông; vẽ hình bằng ê ke, com-pa", "hinh_hoc_va_do_luong", "hình học"),
+    ("hinh_hoc.da_giac", "Hình tam giác, hình tứ giác, hình chữ nhật, hình vuông", "hinh_hoc_va_do_luong", "hình học"),
+    ("hinh_hoc.khoi", "Khối lập phương, khối hộp chữ nhật", "hinh_hoc_va_do_luong", "hình học"),
+    ("hinh_hoc.chu_vi", "Chu vi hình tam giác, tứ giác, chữ nhật, vuông", "hinh_hoc_va_do_luong", "chu vi, diện tích"),
+    ("hinh_hoc.dien_tich", "Diện tích; xăng-ti-mét vuông; diện tích hình chữ nhật, hình vuông", "hinh_hoc_va_do_luong", "chu vi, diện tích"),
+    ("do_luong.do_dai", "Đơn vị đo độ dài: mi-li-mét, xăng-ti-mét, mét, ki-lô-mét", "hinh_hoc_va_do_luong", "đo lường"),
+    ("do_luong.khoi_luong", "Đơn vị đo khối lượng: gam, ki-lô-gam", "hinh_hoc_va_do_luong", "đo lường"),
+    ("do_luong.dung_tich", "Đơn vị đo dung tích: mi-li-lít, lít", "hinh_hoc_va_do_luong", "đo lường"),
+    ("do_luong.nhiet_do", "Nhiệt độ, đơn vị độ C", "hinh_hoc_va_do_luong", "đo lường"),
+    ("thoi_gian.dong_ho", "Xem đồng hồ, tính khoảng thời gian", "hinh_hoc_va_do_luong", "xem đồng hồ"),
+    ("thoi_gian.lich", "Tháng – năm, xem lịch", "hinh_hoc_va_do_luong", "xem lịch"),
+    ("tien.viet_nam", "Tiền Việt Nam", "hinh_hoc_va_do_luong", "tiền Việt Nam"),
+    ("thong_ke.so_lieu", "Thu thập, phân loại, đọc bảng số liệu thống kê", "thong_ke_xac_suat", "thống kê"),
+    ("xac_suat.kha_nang", "Khả năng xảy ra của một sự kiện (chắc chắn, có thể, không thể)", "thong_ke_xac_suat", "khả năng xảy ra"),
+]
+
+PROBLEM_KEY_ORDER = ["id", "rev", "type", "instruction", "prompt", "level", "estimatedSeconds", "skillIds", "access",
+                     "choices", "correctChoiceIds", "multiSelect", "template", "blanks", "tokens", "slots", "reuseTokens",
+                     "left", "right", "pairs", "solution"]
+TYPES = {"multiple_choice", "fill_blank", "drag_drop", "matching"}
+
+
+def finish_problems(lesson_id, ps):
+    ps = sorted(ps, key=lambda p: p["level"])  # sort ổn định: mức 1 → 3
+    out = []
+    for i, p in enumerate(ps, 1):
+        p = dict(p)
+        p["id"] = f"{lesson_id}.p{i:02d}"
+        p["rev"] = 1
+        p["access"] = "free"
+        sol = p["solution"]
+        p["solution"] = {"access": "vip" if i == len(ps) else "free", **sol}
+        out.append({k: p[k] for k in PROBLEM_KEY_ORDER if k in p})
+    return out
+
+
+def word_problem_count(ps):
+    return sum(1 for p in ps if any(b["kind"] == "word_problem" for b in p["solution"]["steps"]))
+
+
+def build_lesson(lesson_id, chapter_id, order, title, fn):
+    seed = BASE_SEED ^ zlib.crc32(lesson_id.encode("utf-8"))
+    last_err = None
+    for attempt in range(60):
+        rng = random.Random(seed + attempt)
+        try:
+            blocks, ps = fn(rng)
+            for b in blocks:
+                check_block(b)
+            for p in ps:
+                check_problem(p)
+            assert 8 <= len(ps) <= 10, f"{lesson_id}: {len(ps)} bài"
+            assert {p["type"] for p in ps} == TYPES, f"{lesson_id}: thiếu dạng bài"
+            keys = [(p["prompt"]["text"], p.get("template", ""), json.dumps(p.get("choices", p.get("left", [])), ensure_ascii=False)) for p in ps]
+            assert len(set(keys)) == len(keys), f"{lesson_id}: bài trùng"
+            break
+        except (AssertionError, RuntimeError, ValueError, StopIteration) as e:
+            last_err = e
+    else:
+        raise RuntimeError(f"Không sinh được {lesson_id}: {last_err!r}")
+    problems = finish_problems(lesson_id, ps)
+    return {
+        "schemaVersion": SCHEMA_VERSION, "kind": "lesson", "id": lesson_id, "bookId": BOOK, "chapterId": chapter_id,
+        "order": order, "title": title, "contentRev": 1,
+        "theory": {"title": "Nhớ nhanh", "blocks": blocks},
+        "problems": problems,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Lịch năm học 2026–2027
+# ---------------------------------------------------------------------------
+TERMS = [(1, dt.date(2026, 9, 7), dt.date(2027, 1, 15)), (2, dt.date(2027, 1, 18), dt.date(2027, 5, 21))]
+HOLIDAYS = [
+    (dt.date(2027, 1, 1), dt.date(2027, 1, 1), "Tết Dương lịch"),
+    (dt.date(2027, 2, 4), dt.date(2027, 2, 14), "Nghỉ Tết Nguyên Đán Đinh Mùi (mùng 1 Tết: 6/2/2027)"),
+    (dt.date(2027, 4, 16), dt.date(2027, 4, 16), "Giỗ Tổ Hùng Vương (10/3 âm lịch)"),
+    (dt.date(2027, 4, 30), dt.date(2027, 4, 30), "Ngày Giải phóng miền Nam, thống nhất đất nước"),
+    (dt.date(2027, 5, 1), dt.date(2027, 5, 1), "Ngày Quốc tế Lao động"),
+]
+
+
+def school_days():
+    out = []
+    for term, start, end in TERMS:
+        d = start
+        while d <= end:
+            if d.weekday() < 5 and not any(a <= d <= b for a, b, _ in HOLIDAYS):
+                out.append((d, term))
+            d += dt.timedelta(days=1)
+    return out
+
+
+def build_calendar(lesson_rows):
+    """lesson_rows: [(lessonId, periods)] theo thứ tự catalog."""
+    days = school_days()
+    slots = [(lid, part, n) for lid, n in lesson_rows for part in range(1, n + 1)]
+    assert len(days) == len(slots) == 175, (len(days), len(slots))
+    entries, week, last_monday = [], 0, None
+    for (d, term), (lid, part, n) in zip(days, slots):
+        monday = d - dt.timedelta(days=d.weekday())
+        if monday != last_monday:
+            week += 1
+            last_monday = monday
+        entries.append({"date": d.isoformat(), "week": week, "term": term, "lessonId": lid, "part": part, "parts": n})
+
+    def week_after(lesson_id, last=True):
+        rows = [e for e in entries if e["lessonId"] == lesson_id]
+        return (rows[-1] if last else rows[0])["week"]
+
+    term1_last_week = max(e["week"] for e in entries if e["term"] == 1)
+    exams = [
+        # Giữa HK1 ≈ tuần 9, sau khi đã học hết phạm vi của đề (đến bài Hình tròn, Chủ đề 3).
+        {"week": max(9, week_after("kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh")), "examId": "kntt3.giua-hk1.de-1"},
+        {"week": week_after("kntt3.c4.gap-mot-so-len-mot-so-lan", last=False), "examId": "kntt3.c4.kt15-nhan"},
+        {"week": week_after("kntt3.c4.luyen-tap-chung"), "examId": "kntt3.c4.de-1"},
+        {"week": week_after("kntt3.c4.luyen-tap-chung") + 1, "examId": "kntt3.c4.nang-cao-1"},
+        {"week": term1_last_week, "examId": "kntt3.cuoi-hk1.de-1"},
+    ]
+    exams.sort(key=lambda e: e["week"])
+    return {
+        "schemaVersion": SCHEMA_VERSION, "kind": "calendar", "bookId": BOOK, "schoolYear": "2026-2027",
+        "terms": [{"term": t, "start": a.isoformat(), "end": b.isoformat()} for t, a, b in TERMS],
+        "holidays": [{"start": a.isoformat(), "end": b.isoformat(), "name": n} for a, b, n in HOLIDAYS],
+        "days": entries,
+        "exams": exams,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Ghi file
+# ---------------------------------------------------------------------------
+
+
+def dump(path: pathlib.Path, data):
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def write_hints_dart(used: set[str]):
+    hints = list(H.values())
+    assert used <= set(hints)
+    assert len(hints) <= 60 and not any(ch.isdigit() for h in hints for ch in h)
+    def dart_str(h):
+        return "'" + h.replace("\\", "\\\\").replace("'", "\\'").replace("$", "\\$") + "'"
+
+    body = "\n".join(f"  {dart_str(h)}," for h in hints)
+    HINTS_DART.write_text(
+        "// FILE SINH TỰ ĐỘNG bởi tool/gen_curriculum.py — đừng sửa tay, sửa trong script rồi chạy lại.\n"
+        "//\n"
+        "// Các câu gợi ý CHUNG dùng trong bài học sinh tự động (solution.hint). Câu không chứa số nên\n"
+        "// không bao giờ lộ đáp án và chỉ cần ghi âm một lần (tool/make_voice.dart).\n"
+        "library;\n\n"
+        "/// Mọi câu gợi ý mà bài học sinh tự động được phép dùng (đúng từng chữ).\n"
+        "const List<String> kGeneratedHints = [\n" + body + "\n];\n",
+        encoding="utf-8")
+
+
+def main() -> int:
+    catalog_path = CONTENT / "catalog.json"
+    old = json.loads(catalog_path.read_text(encoding="utf-8"))
+    old_book = next(b for b in old["books"] if b["id"] == BOOK)
+    old_lessons = {l["id"]: l for c in old_book.get("chapters", []) for l in c["lessons"]}
+    for lid in HAND_WRITTEN:
+        assert (LESSON_DIR / f"{lid}.json").exists(), lid
+
+    chapters, rows, used_hints, n_problems, generated = [], [], set(), 0, 0
+    for n, ctitle, volume, lessons in CURRICULUM:
+        cid = f"{BOOK}.c{n}"
+        refs = []
+        for order, (slug, title, periods, fn) in enumerate(lessons, 1):
+            lid = f"{cid}.{slug}"
+            src = f"assets/content/lessons/{lid}.json"
+            if fn == EXISTING:
+                assert lid in HAND_WRITTEN, lid
+                lesson = json.loads((LESSON_DIR / f"{lid}.json").read_text(encoding="utf-8"))
+                skill_ids = old_lessons[lid]["skillIds"]
+            else:
+                lesson = build_lesson(lid, cid, order, title, fn)
+                dump(LESSON_DIR / f"{lid}.json", lesson)
+                generated += 1
+                skill_ids = list(dict.fromkeys(s for p in lesson["problems"] for s in p["skillIds"]))
+                used_hints |= {p["solution"]["hint"] for p in lesson["problems"] if "hint" in p["solution"]}
+                wp = word_problem_count(lesson["problems"])
+                if wp < 2:
+                    print(f"  (ít bài có lời văn: {lid} có {wp})")
+            n_problems += len(lesson["problems"])
+            refs.append({"id": lid, "order": order, "title": title, "src": src, "access": "free", "skillIds": skill_ids, "periods": periods})
+            rows.append((lid, periods))
+        chapters.append({"id": cid, "order": n, "volume": volume, "title": ctitle, "lessons": refs})
+
+    skills = list(old["skills"])
+    known = {s["id"] for s in skills}
+    for sid, name, strand, kid in NEW_SKILLS:
+        if sid not in known:
+            skills.append({"id": sid, "name": name, "strand": strand, "kidName": kid})
+            known.add(sid)
+    for c in chapters:
+        for l in c["lessons"]:
+            for s in l["skillIds"]:
+                assert s in known, f"kỹ năng chưa khai báo: {s}"
+
+    new_book = dict(old_book)
+    new_book["chapters"] = chapters
+    books = [new_book if b["id"] == BOOK else b for b in old["books"]]
+    catalog = {"schemaVersion": SCHEMA_VERSION, "kind": "catalog", "contentRev": old["contentRev"], "skills": skills, "books": books}
+    dump(catalog_path, catalog)
+
+    total_periods = sum(p for _, p in rows)
+    assert total_periods == 175, total_periods
+    calendar = build_calendar(rows)
+    dump(CONTENT / "calendar.json", calendar)
+    write_hints_dart(used_hints)
+
+    weeks = max(d["week"] for d in calendar["days"])
+    print(f"Chủ đề: {len(chapters)} · bài học: {len(rows)} (sinh mới {generated}) · bài toán: {n_problems} · "
+          f"tổng số tiết: {total_periods} · ngày học: {len(calendar['days'])} · tuần: {weeks} · kỹ năng: {len(skills)} · "
+          f"câu gợi ý: {len(H)} (đang dùng {len(used_hints)})")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

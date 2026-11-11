@@ -21,19 +21,12 @@ import 'child_screens.dart' show ChapterListScreen, LessonScreen;
 import 'widgets/solution_view.dart';
 import '../tutor/teacher_intro.dart';
 import '../logic/tutor.dart';
+import '../models/calendar.dart';
+import '../tutor/teacher_assets.dart';
+import 'calendar_screen.dart' show currentWeek, ddmm;
+import 'widgets/game_art.dart';
 
-/// Thứ tự nhóm đề trên màn "Luyện thi".
-const _typeOrder = [
-  ExamType.kt15p,
-  ExamType.kt1Tiet,
-  ExamType.giuaHk1,
-  ExamType.cuoiHk1,
-  ExamType.giuaHk2,
-  ExamType.cuoiHk2,
-  ExamType.chuDe,
-  ExamType.onTap,
-];
-
+/// Màu của một loại đề.
 Color _typeColor(ExamType t) => switch (t) {
   ExamType.kt15p => AppColors.good,
   ExamType.kt1Tiet => AppColors.sky,
@@ -42,60 +35,373 @@ Color _typeColor(ExamType t) => switch (t) {
   ExamType.chuDe || ExamType.onTap => AppColors.vip,
 };
 
-IconData _typeIcon(ExamType t) => switch (t) {
-  ExamType.kt15p => Icons.bolt_rounded,
-  ExamType.kt1Tiet => Icons.assignment_rounded,
-  ExamType.giuaHk1 || ExamType.giuaHk2 => Icons.flag_rounded,
-  ExamType.cuoiHk1 || ExamType.cuoiHk2 => Icons.emoji_events_rounded,
-  ExamType.chuDe || ExamType.onTap => Icons.workspace_premium_rounded,
-};
+bool _isWeekly(ExamRef e) => e.id.contains('.tuan-');
+
+Color examColor(ExamRef e) => _isWeekly(e) ? const Color(0xFF00A7C4) : _typeColor(e.examType);
+
+/// Ảnh 3D cho từng loại đề.
+UiAsset examArt(ExamRef e) => _isWeekly(e)
+    ? UiAsset.examTuan
+    : switch (e.examType) {
+        ExamType.kt15p => UiAsset.examKt15,
+        ExamType.kt1Tiet => UiAsset.exam1tiet,
+        ExamType.giuaHk1 || ExamType.giuaHk2 => UiAsset.examGiuaki,
+        ExamType.cuoiHk1 || ExamType.cuoiHk2 => UiAsset.examCuoiki,
+        ExamType.chuDe || ExamType.onTap => UiAsset.examOntap,
+      };
+
+/// Bộ lọc loại đề trên màn Luyện thi.
+enum _ExamFilter {
+  all('Tất cả'),
+  weekly('Cuối tuần'),
+  quick('15 phút'),
+  chapter('1 tiết / Chủ đề'),
+  midterm('Giữa kì'),
+  finals('Cuối kì'),
+  review('Ôn tập');
+
+  const _ExamFilter(this.label);
+  final String label;
+
+  bool accepts(ExamRef e) => switch (this) {
+    all => true,
+    weekly => _isWeekly(e),
+    quick => !_isWeekly(e) && e.examType == ExamType.kt15p,
+    chapter => e.examType == ExamType.kt1Tiet || e.examType == ExamType.chuDe,
+    midterm => e.examType == ExamType.giuaHk1 || e.examType == ExamType.giuaHk2,
+    finals => e.examType == ExamType.cuoiHk1 || e.examType == ExamType.cuoiHk2,
+    review => e.examType == ExamType.onTap,
+  };
+}
 
 // ===========================================================================
-// Danh sách đề, nhóm theo loại
+// Luyện thi: lộ trình đề theo từng tuần của năm học
 // ===========================================================================
 
-class ExamListScreen extends StatelessWidget {
+class ExamListScreen extends StatefulWidget {
   const ExamListScreen({super.key, required this.book});
 
   final Book book;
 
   @override
+  State<ExamListScreen> createState() => _ExamListScreenState();
+}
+
+class _ExamListScreenState extends State<ExamListScreen> {
+  var _filter = _ExamFilter.all;
+  int? _term;
+  final _currentKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final ctx = _currentKey.currentContext;
+      if (ctx != null && ctx.mounted) {
+        Scrollable.ensureVisible(ctx, alignment: 0.05, duration: const Duration(milliseconds: 400));
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final app = AppScope.of(context);
-    final groups = <ExamType, List<ExamRef>>{};
-    for (final e in book.exams) {
-      groups.putIfAbsent(e.examType, () => []).add(e);
+    final book = widget.book;
+    final cal = app.calendar;
+    final now = app.now();
+    final thisWeek = cal == null ? null : currentWeek(cal, now);
+    final weekOf = <String, int>{for (final e in cal?.exams ?? const <CalendarExam>[]) e.examId: e.week};
+    final term = _term ?? (cal?.days.where((d) => d.week == thisWeek).firstOrNull?.term ?? 1);
+    final visible = [
+      for (final e in book.exams)
+        if (_filter.accepts(e) && (e.term ?? 1) == term) e,
+    ];
+    final byWeek = <int, List<ExamRef>>{};
+    final extra = <ExamRef>[];
+    for (final e in visible) {
+      final w = weekOf[e.id];
+      w == null ? extra.add(e) : byWeek.putIfAbsent(w, () => []).add(e);
     }
+    final weeks = byWeek.keys.toList()..sort();
+    final done = book.exams.where((e) => app.bestExamScore(e.id) != null).length;
+    final scores = [for (final e in book.exams) ?app.bestExamScore(e.id)];
+    final avg = scores.isEmpty ? null : scores.reduce((a, b) => a + b) / scores.length;
     return Scaffold(
-      appBar: AppBar(title: const Text('Luyện thi'), backgroundColor: AppColors.cream),
-      body: book.exams.isEmpty
-          ? const Center(child: Text('Chưa có đề nào cho bộ sách này.', style: TextStyle(fontSize: 20)))
-          : Center(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 640),
-                child: ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: [
-                    const TeacherIntro(key: ValueKey('exams-intro'), lines: [TutorLines.screenExams], avatarHeight: 96),
-                    const SizedBox(height: 8),
-                    for (final type in _typeOrder)
-                      if (groups[type] != null) ...[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8, bottom: 8, left: 4),
+      appBar: AppBar(
+        title: const Text('Luyện thi'),
+        backgroundColor: const Color(0xFF5B3FD6),
+        foregroundColor: Colors.white,
+      ),
+      body: ScreenBackground(
+        name: 'exam',
+        veil: 0.35,
+        child: book.exams.isEmpty
+            ? const Center(child: Text('Chưa có đề nào cho bộ sách này.', style: TextStyle(fontSize: 20)))
+            : Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 720),
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const TeacherIntro(
+                          key: ValueKey('exams-intro'),
+                          lines: [TutorLines.screenExams],
+                          avatarHeight: 96,
+                        ),
+                        const SizedBox(height: 12),
+                        _ExamStats(done: done, total: book.exams.length, average: avg),
+                        if (cal != null && thisWeek != null) ...[
+                          const SizedBox(height: 12),
+                          _Countdown(cal: cal, book: book, now: now, thisWeek: thisWeek),
+                        ],
+                        const SizedBox(height: 12),
+                        SegmentedButton<int>(
+                          key: const ValueKey('exam-term'),
+                          segments: const [
+                            ButtonSegment(value: 1, label: Text('Học kì 1', style: TextStyle(fontSize: 17))),
+                            ButtonSegment(value: 2, label: Text('Học kì 2', style: TextStyle(fontSize: 17))),
+                          ],
+                          selected: {term},
+                          onSelectionChanged: (s) => setState(() => _term = s.first),
+                        ),
+                        const SizedBox(height: 8),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              Icon(_typeIcon(type), color: _typeColor(type), size: 26),
-                              const SizedBox(width: 8),
-                              Text(type.displayName, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                              for (final f in _ExamFilter.values)
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 6),
+                                  child: ChoiceChip(
+                                    key: ValueKey('exam-filter-${f.name}'),
+                                    label: Text(f.label, style: const TextStyle(fontSize: 15)),
+                                    selected: _filter == f,
+                                    selectedColor: const Color(0xFFFFD66B),
+                                    onSelected: (_) => setState(() => _filter = f),
+                                  ),
+                                ),
                             ],
                           ),
                         ),
-                        for (final e in groups[type]!) _ExamTile(examRef: e, app: app),
+                        const SizedBox(height: 8),
+                        for (final w in weeks)
+                          _WeekExams(
+                            key: w == thisWeek ? _currentKey : ValueKey('exam-week-$w'),
+                            week: w,
+                            cal: cal!,
+                            isCurrent: w == thisWeek,
+                            exams: byWeek[w]!,
+                            app: app,
+                          ),
+                        if (extra.isNotEmpty) ...[
+                          const Padding(
+                            padding: EdgeInsets.fromLTRB(4, 14, 4, 8),
+                            child: Text(
+                              'Đề luyện thêm',
+                              style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800, color: Color(0xFF2B2160)),
+                            ),
+                          ),
+                          for (final e in extra) _ExamTile(examRef: e, app: app),
+                        ],
+                        if (visible.isEmpty)
+                          const Padding(
+                            padding: EdgeInsets.all(24),
+                            child: Text(
+                              'Không có đề nào khớp bộ lọc.',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ),
                       ],
-                  ],
+                    ),
+                  ),
                 ),
               ),
+      ),
+    );
+  }
+}
+
+class _ExamStats extends StatelessWidget {
+  const _ExamStats({required this.done, required this.total, required this.average});
+
+  final int done;
+  final int total;
+  final double? average;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget stat(String value, String label, Color c) => Expanded(
+      child: Column(
+        children: [
+          Text(
+            value,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: c),
+          ),
+          Text(
+            label,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 13, color: Colors.black54),
+          ),
+        ],
+      ),
+    );
+    return Container(
+      key: const ValueKey('exam-stats'),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.95),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: const [BoxShadow(color: Color(0x1A3A2A80), blurRadius: 12, offset: Offset(0, 4))],
+      ),
+      child: Row(
+        children: [
+          stat('$total', 'đề cả năm', const Color(0xFF5B3FD6)),
+          stat('$done', 'đề đã làm', AppColors.good),
+          stat(average == null ? '–' : average!.toStringAsFixed(1), 'điểm trung bình', const Color(0xFFFF7A00)),
+        ],
+      ),
+    );
+  }
+}
+
+/// Đếm ngược tới kì thi lớn gần nhất (giữa kì / cuối kì).
+class _Countdown extends StatelessWidget {
+  const _Countdown({required this.cal, required this.book, required this.now, required this.thisWeek});
+
+  final SchoolCalendar cal;
+  final Book book;
+  final DateTime now;
+  final int thisWeek;
+
+  @override
+  Widget build(BuildContext context) {
+    const big = {ExamType.giuaHk1, ExamType.cuoiHk1, ExamType.giuaHk2, ExamType.cuoiHk2};
+    final refs = {for (final e in book.exams) e.id: e};
+    CalendarExam? next;
+    for (final e in [...cal.exams]..sort((a, b) => a.week.compareTo(b.week))) {
+      final r = refs[e.examId];
+      if (r != null && big.contains(r.examType) && e.week >= thisWeek) {
+        next = e;
+        break;
+      }
+    }
+    if (next == null) return const SizedBox.shrink();
+    final r = refs[next.examId]!;
+    final days = cal.daysOfWeek(next.week);
+    final target = days.isEmpty ? now : days.last.date;
+    final left = dateOnly(target).difference(dateOnly(now)).inDays;
+    return Container(
+      key: const ValueKey('exam-countdown'),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(22),
+        gradient: const LinearGradient(colors: [Color(0xFFFF5F6D), Color(0xFFFFC371)]),
+        boxShadow: const [BoxShadow(color: Color(0x55FF5F6D), blurRadius: 14, offset: Offset(0, 5))],
+      ),
+      child: Row(
+        children: [
+          GameIcon(examArt(r), size: 64, fallback: const Icon(Icons.flag_rounded, color: Colors.white, size: 44)),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  r.examType.displayName,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w800, color: Colors.white),
+                ),
+                Text(
+                  'Tuần ${next.week} · khoảng ngày ${ddmm(target)}',
+                  style: const TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ],
             ),
+          ),
+          Column(
+            children: [
+              Text(
+                left <= 0 ? 'Tuần này!' : '$left',
+                style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w900, color: Colors.white),
+              ),
+              if (left > 0) const Text('ngày nữa', style: TextStyle(fontSize: 13, color: Colors.white)),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _WeekExams extends StatelessWidget {
+  const _WeekExams({
+    super.key,
+    required this.week,
+    required this.cal,
+    required this.isCurrent,
+    required this.exams,
+    required this.app,
+  });
+
+  final int week;
+  final SchoolCalendar cal;
+  final bool isCurrent;
+  final List<ExamRef> exams;
+  final AppState app;
+
+  @override
+  Widget build(BuildContext context) {
+    final days = cal.daysOfWeek(week);
+    final range = days.isEmpty ? '' : '${ddmm(days.first.date)} – ${ddmm(days.last.date)}';
+    return Padding(
+      padding: const EdgeInsets.only(top: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Padding(
+            padding: const EdgeInsets.fromLTRB(4, 6, 4, 6),
+            child: Row(
+              children: [
+                Container(
+                  width: 12,
+                  height: 12,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isCurrent ? const Color(0xFFFF7A00) : const Color(0xFF5B3FD6),
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'Tuần $week',
+                  style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: Color(0xFF2B2160)),
+                ),
+                const SizedBox(width: 8),
+                Flexible(
+                  child: Text(
+                    range,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 14, color: Colors.black54),
+                  ),
+                ),
+                if (isCurrent)
+                  Container(
+                    margin: const EdgeInsets.only(left: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 1),
+                    decoration: BoxDecoration(color: const Color(0xFFFF7A00), borderRadius: BorderRadius.circular(10)),
+                    child: const Text(
+                      'Tuần này',
+                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w800, color: Colors.white),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          for (final e in exams) _ExamTile(examRef: e, app: app),
+        ],
+      ),
     );
   }
 }
@@ -112,10 +418,14 @@ class _ExamTile extends StatelessWidget {
     final locked = !app.canOpen(e.access);
     final best = app.bestExamScore(e.id);
     final draft = app.examDraft(e.id);
+    final c = examColor(e);
+    final stars = best == null ? 0 : (best >= 9 ? 3 : (best >= 7 ? 2 : (best >= 5 ? 1 : 0)));
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.only(bottom: 10),
       child: Material(
         color: Colors.white,
+        elevation: 2,
+        shadowColor: c.withValues(alpha: 0.35),
         borderRadius: BorderRadius.circular(22),
         child: InkWell(
           key: ValueKey('exam-${e.id}'),
@@ -127,50 +437,52 @@ class _ExamTile extends StatelessWidget {
                   ),
                 )
               : () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ExamIntroScreen(examRef: e))),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
+          child: Container(
+            padding: const EdgeInsets.fromLTRB(10, 10, 12, 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(22),
+              gradient: LinearGradient(colors: [c.withValues(alpha: 0.10), Colors.white], stops: const [0, 0.45]),
+            ),
             child: Row(
               children: [
-                Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    color: _typeColor(e.examType).withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${e.durationMinutes}',
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: _typeColor(e.examType)),
-                      ),
-                      Text('phút', style: TextStyle(fontSize: 13, color: _typeColor(e.examType))),
-                    ],
-                  ),
-                ),
-                const SizedBox(width: 14),
+                GameIcon(examArt(e), size: 62, fallback: Icon(Icons.assignment_rounded, color: c, size: 44)),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(e.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-                      if (draft != null)
-                        const Text(
-                          'Đang làm dở — chạm để làm tiếp',
-                          style: TextStyle(fontSize: 16, color: AppColors.tryAgain, fontWeight: FontWeight.w700),
-                        )
-                      else if (best != null)
-                        Text(
-                          'Điểm cao nhất: $best',
-                          style: const TextStyle(fontSize: 16, color: AppColors.good, fontWeight: FontWeight.w700),
-                        )
-                      else
-                        const Text('Chưa làm', style: TextStyle(fontSize: 16, color: Colors.black54)),
+                      Text(e.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+                      Row(
+                        children: [
+                          Icon(Icons.timer_outlined, size: 16, color: c),
+                          Text(
+                            ' ${e.durationMinutes} phút',
+                            style: TextStyle(fontSize: 14, color: c, fontWeight: FontWeight.w700),
+                          ),
+                          const SizedBox(width: 10),
+                          if (draft != null)
+                            const Text(
+                              'Đang làm dở',
+                              style: TextStyle(fontSize: 14, color: AppColors.tryAgain, fontWeight: FontWeight.w800),
+                            )
+                          else if (best != null)
+                            Text(
+                              'Cao nhất: $best điểm',
+                              style: const TextStyle(fontSize: 14, color: AppColors.good, fontWeight: FontWeight.w800),
+                            )
+                          else
+                            const Text('Chưa làm', style: TextStyle(fontSize: 14, color: Colors.black54)),
+                        ],
+                      ),
                     ],
                   ),
                 ),
-                if (locked) const Icon(Icons.lock_rounded, color: AppColors.vip, size: 32),
+                if (locked)
+                  const Icon(Icons.lock_rounded, color: AppColors.vip, size: 30)
+                else if (best != null)
+                  Text('⭐' * stars, style: const TextStyle(fontSize: 14))
+                else
+                  Icon(Icons.play_circle_fill_rounded, color: c, size: 36),
               ],
             ),
           ),
@@ -230,70 +542,82 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
           return Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 560),
-              child: ListView(
+              child: SingleChildScrollView(
                 padding: const EdgeInsets.all(20),
-                children: [
-                  Icon(_typeIcon(exam.examType), size: 72, color: _typeColor(exam.examType)),
-                  Text(
-                    exam.examType.displayName,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700),
-                  ),
-                  Text(
-                    exam.title,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
-                  ),
-                  if (exam.description != null)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        exam.description!,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(fontSize: 17, color: Colors.black54),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Center(
+                      child: GameIcon(
+                        examArt(widget.examRef),
+                        size: 120,
+                        fallback: Icon(Icons.assignment_rounded, size: 72, color: _typeColor(exam.examType)),
                       ),
                     ),
-                  const SizedBox(height: 16),
-                  _InfoLine(
-                    icon: Icons.timer_rounded,
-                    text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm',
-                  ),
-                  const _InfoLine(icon: Icons.visibility_off_rounded, text: 'Trong giờ thi không xem được đáp án.'),
-                  const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
-                  const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
-                  const _InfoLine(icon: Icons.analytics_rounded, text: 'Nộp bài xong có bảng điểm chi tiết.'),
-                  const _InfoLine(icon: Icons.favorite_rounded, text: 'Mỗi câu sai mất 1 trái tim. Ôn bài để hồi tim.'),
-                  const SizedBox(height: 8),
-                  Center(child: HeartsBar(hearts: app.progress.hearts, size: 30)),
-                  const SizedBox(height: 16),
-                  if (validDraft == null && !app.canStartExam)
-                    _NoHeartsCard(app: app)
-                  else if (validDraft != null) ...[
-                    BigButton(
-                      key: const ValueKey('btn-exam-resume'),
-                      label: 'Làm tiếp (còn ${formatClock(exam.durationMinutes * 60 - validDraft.elapsedSeconds)})',
-                      icon: Icons.play_arrow_rounded,
-                      onPressed: () => _start(exam, draft: validDraft),
+                    Text(
+                      exam.examType.displayName,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700),
                     ),
-                    const SizedBox(height: 12),
-                    BigButton(
-                      key: const ValueKey('btn-exam-restart'),
-                      label: 'Làm lại từ đầu',
-                      color: AppColors.sky,
-                      outlined: true,
-                      onPressed: () async {
-                        await app.clearExamDraft(exam.id);
-                        if (mounted) _start(exam);
-                      },
+                    Text(
+                      exam.title,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
                     ),
-                  ] else
-                    BigButton(
-                      key: const ValueKey('btn-exam-start'),
-                      label: 'Bắt đầu làm bài',
-                      icon: Icons.play_arrow_rounded,
-                      onPressed: () => _start(exam),
+                    if (exam.description != null)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 6),
+                        child: Text(
+                          exam.description!,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 17, color: Colors.black54),
+                        ),
+                      ),
+                    const SizedBox(height: 16),
+                    _InfoLine(
+                      icon: Icons.timer_rounded,
+                      text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm',
                     ),
-                ],
+                    const _InfoLine(icon: Icons.visibility_off_rounded, text: 'Trong giờ thi không xem được đáp án.'),
+                    const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
+                    const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
+                    const _InfoLine(icon: Icons.analytics_rounded, text: 'Nộp bài xong có bảng điểm chi tiết.'),
+                    const _InfoLine(
+                      icon: Icons.favorite_rounded,
+                      text: 'Mỗi câu sai mất 1 trái tim. Ôn bài để hồi tim.',
+                    ),
+                    const SizedBox(height: 8),
+                    Center(child: HeartsBar(hearts: app.progress.hearts, size: 30)),
+                    const SizedBox(height: 16),
+                    if (validDraft == null && !app.canStartExam)
+                      _NoHeartsCard(app: app)
+                    else if (validDraft != null) ...[
+                      BigButton(
+                        key: const ValueKey('btn-exam-resume'),
+                        label: 'Làm tiếp (còn ${formatClock(exam.durationMinutes * 60 - validDraft.elapsedSeconds)})',
+                        icon: Icons.play_arrow_rounded,
+                        onPressed: () => _start(exam, draft: validDraft),
+                      ),
+                      const SizedBox(height: 12),
+                      BigButton(
+                        key: const ValueKey('btn-exam-restart'),
+                        label: 'Làm lại từ đầu',
+                        color: AppColors.sky,
+                        outlined: true,
+                        onPressed: () async {
+                          await app.clearExamDraft(exam.id);
+                          if (mounted) _start(exam);
+                        },
+                      ),
+                    ] else
+                      BigButton(
+                        key: const ValueKey('btn-exam-start'),
+                        label: 'Bắt đầu làm bài',
+                        icon: Icons.play_arrow_rounded,
+                        onPressed: () => _start(exam),
+                      ),
+                  ],
+                ),
               ),
             ),
           );
