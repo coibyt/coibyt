@@ -26,9 +26,10 @@ abstract final class TutorLines {
   static const screenBadges = 'Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!';
 
   /// Cô giới thiệu bài khi bé mở một bài học (mỗi bài một câu, ghi âm sẵn bằng 11max).
-  static String lessonIntro(String title) => 'Bài học: $title. Con xem Nhớ nhanh cùng cô, rồi mình luyện tập nhé!';
+  static String lessonIntro(String title) =>
+      'Bài học: $title. Con xem video bài giảng của cô trước, rồi mình luyện tập nhé!';
 
-  static const screenTheory = 'Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.';
+  static const screenTheory = 'Con xem video bài giảng của cô trước nhé, rồi mình luyện tập.';
 
   // Cô làm mẫu / bí quyết
   static const demoColumn = 'Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.';
