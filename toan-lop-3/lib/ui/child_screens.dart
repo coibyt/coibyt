@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import '../logic/tutor.dart';
-import '../services/tutor_voice.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
 import 'badges_screen.dart';
@@ -16,7 +15,9 @@ import 'quiz_screen.dart';
 import 'widgets/bee_mascot.dart';
 import 'widgets/big_button.dart';
 import 'widgets/solution_view.dart';
-import 'widgets/tutor_bubble.dart';
+import '../tutor/teacher_assets.dart';
+import '../tutor/teacher_controller.dart';
+import '../tutor/teacher_hud.dart';
 
 /// Chuyển màn hình (gom một chỗ cho dễ đổi hiệu ứng sau này).
 Future<T?> pushScreen<T>(BuildContext context, Widget screen) =>
@@ -150,21 +151,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final _brain = TutorBrain();
+  final _teacher = TeacherController(voiceEnabled: false);
 
   @override
   void initState() {
     super.initState();
-    // Cô Ong chào 1 lần mỗi ngày. Trình duyệt có thể chặn đọc khi bé chưa chạm
-    // màn hình — khi đó bé bấm loa trong khung thoại để nghe.
+    // Cô giáo chào bằng giọng nói 1 lần mỗi ngày (các lần sau chỉ hiện chữ).
+    // Trình duyệt có thể chặn phát tiếng khi bé chưa chạm màn hình — bé bấm loa để nghe.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
+      // Nạp sẵn mọi khung hình cô giáo để khi nói (đổi khung) không bị nháy.
+      TeacherAssets.instance.precache(context);
       final app = AppScope.read(context);
-      if (!app.greetedToday && app.voiceEnabled) {
-        AppTutorVoice.instance.speak(_brain.greeting(app.progress.childName));
-        app.markGreeted();
-      }
+      _teacher.voiceEnabled = !app.greetedToday && app.voiceEnabled;
+      _teacher.say(const [TutorLines.greeting]);
+      _teacher.voiceEnabled = app.voiceEnabled;
+      if (!app.greetedToday) app.markGreeted();
     });
+  }
+
+  @override
+  void dispose() {
+    _teacher.dispose();
+    super.dispose();
   }
 
   @override
@@ -238,14 +247,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 const SizedBox(height: 8),
-                TutorBubble(
-                  key: const ValueKey('home-tutor'),
-                  outfit: app.progress.outfit,
-                  companion: app.progress.companion,
-                  text: _brain.greeting(app.progress.childName),
-                  mood: TutorMood.happy,
-                  onSpeak: () => AppTutorVoice.instance.speak(_brain.greeting(app.progress.childName)),
-                ),
+                TeacherHud(key: const ValueKey('home-tutor'), controller: _teacher, avatarHeight: 130),
                 const SizedBox(height: 12),
                 _DailyCard(app: app),
                 const SizedBox(height: 12),

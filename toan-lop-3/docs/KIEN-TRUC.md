@@ -29,6 +29,20 @@ Mục tiêu là bé **muốn quay lại học**, không phải bị "nghiện". 
 
 Khi chưa có máy chủ (bản chơi thử web), bảng xếp hạng là **bảng thử với các bạn mẫu** và ghi rõ trên màn hình.
 
+## Cô giáo ảo
+
+```
+TutorBrain (lib/logic/tutor.dart)        câu nói cố định (TutorLines) + gợi ý theo đề, không lộ đáp án
+TeacherController (lib/tutor/)           tâm trạng, chữ chạy, khớp khẩu hình (đổi miệng mỗi 150 ms khi có tiếng)
+TutorAudioService                        file 11max (assets/voice/manifest.json) → giọng máy → chỉ chữ
+TeacherAvatar                            ảnh Kie.ai (assets/tutor/) hoặc hình vẽ; thở + chớp mắt
+TeacherHud                               cô ở góc dưới + khung thoại trượt lên
+ColumnHintCard / RewardBurst             nháy sáng cột đơn vị / tiền vàng, ngôi sao bay
+```
+
+Câu nói được giữ **cố định** (không chèn tên, số) để giọng ghi sẵn luôn khớp chữ. Chuyển động tắt khi máy bật
+"giảm chuyển động". Trong phòng thi cô giữ im lặng.
+
 ## Các lớp
 
 ```
@@ -88,3 +102,6 @@ Backend                         server/        Node.js + Express + PostgreSQL + 
 | LT-2 | Gia sư ảo Cô Ong (giọng nói, gợi ý, khen) | Xong |
 | LT-3 | Tim, ngọn lửa chuỗi ngày, vàng, thú cưng, cửa hàng, nhắc nghỉ | Xong |
 | LT-4 | Bảng xếp hạng tuần/tháng, danh hiệu, biệt danh an toàn | Xong (bảng thật cần máy chủ) |
+| CG-1 | Cô giáo ảo: HUD góc dưới, khung thoại trượt lên, nhịp thở, chớp mắt; prompt Kie.ai | Xong (đang dùng hình vẽ tạm đến khi có ảnh Kie.ai) |
+| CG-2 | Giọng 11max ghi sẵn, khớp khẩu hình 150 ms, chữ chạy khớp giọng | Xong |
+| CG-3 | Theo dõi thao tác, gợi ý + nháy sáng cột đơn vị, khen + tiền vàng bay | Xong |

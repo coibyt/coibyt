@@ -3,11 +3,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../app_state.dart';
+import '../../logic/tutor.dart' show kTeacherName;
 import '../../services/tutor_voice.dart';
 import '../app_theme.dart';
 import '../child_screens.dart';
 import '../widgets/number_pad.dart';
 import 'account_section.dart';
+import '../../tutor/teacher_gallery_screen.dart';
 
 /// Mở khu phụ huynh sau khi qua "cổng phụ huynh".
 Future<void> openParentArea(BuildContext context, {Random? random}) async {
@@ -220,6 +222,13 @@ class ParentScreen extends StatelessWidget {
                 children: [
                   const Text('Cài đặt', style: h),
                   ListTile(
+                    key: const ValueKey('open-teacher-gallery'),
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.face_retouching_natural_rounded),
+                    title: const Text('Xem cô giáo & ảnh (kiểm tra ảnh Kie.ai, giọng 11max)'),
+                    onTap: () => pushScreen<void>(context, const TeacherGalleryScreen()),
+                  ),
+                  ListTile(
                     contentPadding: EdgeInsets.zero,
                     leading: const Icon(Icons.visibility_rounded),
                     title: const Text('Nhắc bé nghỉ mắt'),
@@ -242,10 +251,10 @@ class ParentScreen extends StatelessWidget {
                     value: app.voiceEnabled,
                     onChanged: app.setVoiceEnabled,
                     secondary: const Icon(Icons.record_voice_over_rounded),
-                    title: const Text('Cô Ong tự đọc to lời thoại'),
+                    title: const Text('$kTeacherName tự đọc to lời thoại'),
                     subtitle: Text(
                       AppTutorVoice.instance.hasVietnamese == false
-                          ? 'Máy này chưa có giọng đọc tiếng Việt: cô Ong chỉ hiện chữ. '
+                          ? 'Câu chưa ghi âm sẵn sẽ dùng giọng đọc của máy; máy này chưa có giọng tiếng Việt nên câu đó chỉ hiện chữ. '
                                 '(Android: Cài đặt → Chuyển văn bản thành giọng nói → cài tiếng Việt.)'
                           : 'Tắt nếu bé học ở nơi cần yên tĩnh.',
                     ),

@@ -93,7 +93,7 @@ class QuizSession extends ChangeNotifier {
   int _index = 0;
   QuestionPhase _phase = QuestionPhase.answering;
   CheckResult? _lastCheck;
-  String? _message;
+  List<String>? _parts;
 
   int get index => _index;
   bool get isFinished => _index >= problems.length;
@@ -103,7 +103,10 @@ class QuizSession extends ChangeNotifier {
   CheckResult? get lastCheck => _lastCheck;
 
   /// Câu phản hồi tử tế đang hiển thị.
-  String? get message => _message;
+  String? get message => _parts?.join(' ');
+
+  /// Lời cô giáo theo từng câu (để phát giọng ghi âm nối tiếp nhau).
+  List<String> get messageParts => _parts ?? const [];
   List<ProblemResult> get results => List.unmodifiable(_results);
 
   bool get canAnswer => _phase == QuestionPhase.answering;
@@ -111,7 +114,7 @@ class QuizSession extends ChangeNotifier {
   /// Đã xem gợi ý cho câu này chưa.
   bool get hintShown => _hintShown;
 
-  /// Cô Ong không giải hộ ngay: chỉ cho xem lời giải sau khi bé đã xin gợi ý
+  /// Cô giáo không giải hộ ngay: chỉ cho xem lời giải sau khi bé đã xin gợi ý
   /// hoặc đã thử trả lời.
   bool get canViewSolution => _phase != QuestionPhase.answering || _hintShown || currentResult.attempts > 0;
 
@@ -119,7 +122,7 @@ class QuizSession extends ChangeNotifier {
   void requestHint() {
     if (isFinished || !canAnswer) return;
     _hintShown = true;
-    _message = tutor.hint(current);
+    _parts = [tutor.hint(current)];
     notifyListeners();
   }
 
@@ -136,9 +139,9 @@ class QuizSession extends ChangeNotifier {
     _lastCheck = result;
     switch (result.status) {
       case CheckStatus.incomplete:
-        _message = 'Con hãy làm hết các ô trước nhé!';
+        _parts = const [TutorLines.incomplete];
       case CheckStatus.invalidFormat:
-        _message = 'Con chỉ cần nhập số thôi nhé!';
+        _parts = const [TutorLines.invalidNumber];
       case CheckStatus.correct:
         currentResult
           ..attempts += 1
@@ -148,17 +151,17 @@ class QuizSession extends ChangeNotifier {
         if (combo > bestCombo) bestCombo = combo;
         final fast = firstTry && _now().difference(_startedAt).inSeconds < 15;
         _phase = QuestionPhase.correct;
-        _message = problem.feedbackCorrect ?? tutor.praise(combo: combo, fast: fast, firstTry: firstTry);
+        _parts = [problem.feedbackCorrect ?? tutor.praise(combo: combo, fast: fast, firstTry: firstTry)];
       case CheckStatus.incorrect:
         currentResult.attempts += 1;
         combo = 0;
         if (currentResult.attempts >= maxAttempts) {
           _phase = QuestionPhase.revealed;
-          _message = tutor.afterReveal();
+          _parts = [tutor.afterReveal()];
         } else {
           _phase = QuestionPhase.incorrect;
           _hintShown = true;
-          _message = problem.feedbackIncorrect ?? tutor.afterWrong(problem);
+          _parts = problem.feedbackIncorrect != null ? [problem.feedbackIncorrect!] : tutor.afterWrong(problem);
         }
     }
     notifyListeners();
@@ -169,7 +172,7 @@ class QuizSession extends ChangeNotifier {
   void retry() {
     if (_phase != QuestionPhase.incorrect) return;
     _phase = QuestionPhase.answering;
-    _message = null;
+    _parts = null;
     notifyListeners();
   }
 
@@ -180,7 +183,7 @@ class QuizSession extends ChangeNotifier {
     if (_phase == QuestionPhase.answering || _phase == QuestionPhase.incorrect) {
       combo = 0;
       _phase = QuestionPhase.revealed;
-      _message = null;
+      _parts = null;
     }
     notifyListeners();
   }
@@ -194,7 +197,7 @@ class QuizSession extends ChangeNotifier {
     _index++;
     _phase = QuestionPhase.answering;
     _lastCheck = null;
-    _message = null;
+    _parts = null;
     _hintShown = false;
     _startedAt = _now();
     notifyListeners();

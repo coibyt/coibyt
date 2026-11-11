@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -16,7 +17,13 @@ import 'app_theme.dart';
 import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
 import 'widgets/solution_view.dart';
-import 'widgets/tutor_bubble.dart';
+import '../tutor/column_hint.dart';
+import '../tutor/reward_burst.dart';
+import '../tutor/teacher_avatar.dart';
+import '../tutor/teacher_controller.dart';
+import '../tutor/teacher_hud.dart';
+import '../tutor/tutor_audio_service.dart';
+import '../logic/tutor.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
 typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
@@ -137,10 +144,51 @@ class _QuizBodyState extends State<_QuizBody> {
   bool _finishReported = false;
   Future<RewardOutcome?>? _reward;
 
+  // ---- Cô giáo ảo ----
+  late final TutorAudioService _audio = TutorAudioService(fallback: widget.voice);
+  late final TeacherController _teacher = TeacherController(audio: _audio, voiceEnabled: widget.voiceOn);
+
+  /// Lượt bắn tiền vàng / ngôi sao.
+  int _burst = 0;
+
+  /// Theo dõi hành vi của bé: số giây không thao tác, đã nhắc chưa.
+  Timer? _watch;
+  int _idleSeconds = 0;
+  bool _answerComplete = false;
+  bool _nudged = false;
+  bool _pressCheckSaid = false;
+
   @override
   void initState() {
     super.initState();
     _start();
+    _watch = Timer.periodic(const Duration(seconds: 1), (_) => _watchTick());
+  }
+
+  /// Bé ngồi im lâu: cô hỏi có cần gợi ý không; làm xong mà chưa bấm: nhắc bấm Kiểm tra.
+  void _watchTick() {
+    if (!mounted || _session.isFinished || _session.phase != QuestionPhase.answering || _teacher.speaking) return;
+    _idleSeconds++;
+    if (_answerComplete && !_pressCheckSaid && _idleSeconds >= 8) {
+      _pressCheckSaid = true;
+      _teacher.say(const [TutorLines.pressCheck]);
+    } else if (!_answerComplete && !_nudged && !_session.hintShown && _idleSeconds >= 25) {
+      _nudged = true;
+      _teacher.say([_session.tutor.idleNudge()], mood: TeacherMood.think);
+    }
+  }
+
+  void _onAnswerChanged(Problem problem, UserAnswer a) {
+    _answer = a;
+    _idleSeconds = 0;
+    _answerComplete = checkAnswer(problem, a).status != CheckStatus.incomplete;
+  }
+
+  void _resetWatch() {
+    _idleSeconds = 0;
+    _answerComplete = false;
+    _nudged = false;
+    _pressCheckSaid = false;
   }
 
   void _start() {
@@ -153,6 +201,9 @@ class _QuizBodyState extends State<_QuizBody> {
 
   @override
   void dispose() {
+    _watch?.cancel();
+    _teacher.dispose();
+    _audio.dispose();
     _session.dispose();
     super.dispose();
   }
@@ -161,21 +212,21 @@ class _QuizBodyState extends State<_QuizBody> {
     final problem = _session.current;
     final answer = _answer ?? _emptyAnswer(problem);
     final result = _session.submit(answer);
-    _say(_session.message);
+    _idleSeconds = 0;
+    final mood = switch (_session.phase) {
+      QuestionPhase.correct => TeacherMood.clap,
+      QuestionPhase.revealed => TeacherMood.idle,
+      _ => TeacherMood.think,
+    };
+    _teacher.say(_session.messageParts, mood: mood);
     if (result.status == CheckStatus.correct) {
+      _burst++;
       widget.sound.correct();
     } else if (result.status == CheckStatus.incorrect) {
       widget.sound.wrong();
       if (_session.phase == QuestionPhase.revealed) _openSolution();
     }
     setState(() {});
-  }
-
-  /// Cô Ong đọc to (nếu bật giọng đọc). [force] = bé bấm loa.
-  void _say(String? text, {bool force = false}) {
-    if (text == null) return;
-    if (!force && !widget.voiceOn) return;
-    widget.voice.speak(text);
   }
 
   UserAnswer _emptyAnswer(Problem p) => switch (p.body) {
@@ -187,6 +238,8 @@ class _QuizBodyState extends State<_QuizBody> {
 
   void _next() {
     widget.sound.tap();
+    _teacher.clear();
+    _resetWatch();
     setState(() {
       _session.next();
       _answer = null;
@@ -289,6 +342,11 @@ class _QuizBodyState extends State<_QuizBody> {
     }
     final problem = _session.current;
     final phase = _session.phase;
+    final focus = _session.tutor.columnFocus(problem);
+    final showColumnHint =
+        focus != null &&
+        (phase == QuestionPhase.incorrect ||
+            (phase == QuestionPhase.answering && (_session.hintShown || _session.currentResult.attempts > 0)));
     final viewState = AnswerViewState(
       enabled: phase == QuestionPhase.answering,
       check: phase == QuestionPhase.answering ? null : _session.lastCheck,
@@ -296,56 +354,73 @@ class _QuizBodyState extends State<_QuizBody> {
     );
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
-            _TopBar(
-              combo: _session.combo,
-              current: _session.index + 1,
-              total: _session.problems.length,
-              onClose: () => Navigator.of(context).maybePop(),
-              onTheory: _openTheory,
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 640),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        _PromptCard(problem: problem),
-                        const SizedBox(height: 16),
-                        KeyedSubtree(
-                          key: ValueKey('${problem.id}#$_attemptKey'),
-                          child: _answerArea(problem, viewState),
+            Column(
+              children: [
+                _TopBar(
+                  combo: _session.combo,
+                  current: _session.index + 1,
+                  total: _session.problems.length,
+                  onClose: () => Navigator.of(context).maybePop(),
+                  onTheory: _openTheory,
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                    child: Center(
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 640),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            _PromptCard(problem: problem),
+                            if (showColumnHint) ...[
+                              const SizedBox(height: 12),
+                              ColumnHintCard(key: ValueKey('hint-${problem.id}'), focus: focus),
+                            ],
+                            const SizedBox(height: 16),
+                            KeyedSubtree(
+                              key: ValueKey('${problem.id}#$_attemptKey'),
+                              child: _answerArea(problem, viewState),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
-              ),
+                _FeedbackAndActions(
+                  session: _session,
+                  teacher: _teacher,
+                  onCheck: _check,
+                  onRetry: () {
+                    _idleSeconds = 0;
+                    setState(_session.retry);
+                  },
+                  onSolution: _openSolution,
+                  onHint: () {
+                    _idleSeconds = 0;
+                    setState(_session.requestHint);
+                    _teacher.say(_session.messageParts, mood: TeacherMood.think);
+                  },
+                  onNext: _next,
+                ),
+              ],
             ),
-            _FeedbackAndActions(
-              session: _session,
-              onCheck: _check,
-              onRetry: () => setState(_session.retry),
-              onSolution: _openSolution,
-              onHint: () {
-                setState(_session.requestHint);
-                _say(_session.message);
-              },
-              onSpeak: () => _say(_session.message, force: true),
-              onNext: _next,
-            ),
+            Positioned.fill(child: RewardBurst(trigger: _burst)),
           ],
         ),
       ),
     );
   }
 
-  Widget _answerArea(Problem problem, AnswerViewState s) =>
-      buildAnswerView(problem: problem, state: s, onChanged: (a) => _answer = a, random: widget.random);
+  Widget _answerArea(Problem problem, AnswerViewState s) => buildAnswerView(
+    problem: problem,
+    state: s,
+    onChanged: (a) => _onAnswerChanged(problem, a),
+    random: widget.random,
+  );
 }
 
 class _TopBar extends StatelessWidget {
@@ -455,31 +530,31 @@ class _PromptCard extends StatelessWidget {
 class _FeedbackAndActions extends StatelessWidget {
   const _FeedbackAndActions({
     required this.session,
+    required this.teacher,
     required this.onCheck,
     required this.onRetry,
     required this.onSolution,
     required this.onHint,
-    required this.onSpeak,
     required this.onNext,
   });
 
   final QuizSession session;
+  final TeacherController teacher;
   final VoidCallback onCheck;
   final VoidCallback onRetry;
   final VoidCallback onSolution;
   final VoidCallback onHint;
-  final VoidCallback onSpeak;
   final VoidCallback onNext;
 
   @override
   Widget build(BuildContext context) {
     final phase = session.phase;
     final message = session.message;
-    final (Color bg, Color fg, TutorMood mood) = switch (phase) {
-      QuestionPhase.correct => (AppColors.goodSoft, AppColors.good, TutorMood.happy),
-      QuestionPhase.incorrect => (AppColors.tryAgainSoft, AppColors.ink, TutorMood.thinking),
-      QuestionPhase.revealed => (AppColors.skySoft, AppColors.ink, TutorMood.neutral),
-      QuestionPhase.answering => (AppColors.honeySoft, AppColors.ink, TutorMood.thinking),
+    final (Color bg, Color fg) = switch (phase) {
+      QuestionPhase.correct => (AppColors.goodSoft, AppColors.good),
+      QuestionPhase.incorrect => (AppColors.tryAgainSoft, AppColors.ink),
+      QuestionPhase.revealed => (AppColors.skySoft, AppColors.ink),
+      QuestionPhase.answering => (AppColors.honeySoft, AppColors.ink),
     };
     final isLast = session.index == session.problems.length - 1;
     return Container(
@@ -495,29 +570,24 @@ class _FeedbackAndActions extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              if (message != null)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  child: TutorBubble(
-                    key: const ValueKey('feedback-message'),
-                    outfit: AppScope.maybeOf(context)?.progress.outfit,
-                    companion: AppScope.maybeOf(context)?.progress.companion,
-                    text: message,
-                    mood: mood,
-                    textColor: fg,
-                    onSpeak: onSpeak,
-                    extra: phase == QuestionPhase.revealed
-                        ? Text(
-                            'Đáp án: ${session.current.solution.answerText}',
-                            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
-                          )
-                        : null,
-                  ),
-                ),
+              // Cô giáo luôn ở góc dưới; khung thoại trượt lên khi cô nói.
+              TeacherHud(
+                key: const ValueKey('feedback-message'),
+                controller: teacher,
+                avatarHeight: 118,
+                textColor: fg,
+                footer: phase == QuestionPhase.revealed
+                    ? Text(
+                        'Đáp án: ${session.current.solution.answerText}',
+                        style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+                      )
+                    : null,
+              ),
+              const SizedBox(height: 6),
               Row(
                 children: [
                   Expanded(
-                    // Cô Ong không giải hộ ngay: lúc đầu chỉ có "Gợi ý"; xin gợi ý
+                    // Cô giáo không giải hộ ngay: lúc đầu chỉ có "Gợi ý"; xin gợi ý
                     // hoặc trả lời rồi mới được "Xem lời giải".
                     child: session.canViewSolution
                         ? BigButton(
@@ -571,7 +641,7 @@ class _FeedbackAndActions extends StatelessWidget {
 }
 
 /// Màn tổng kết cuối bài cho bé: sao, điểm, lời khen.
-class QuizSummary extends StatelessWidget {
+class QuizSummary extends StatefulWidget {
   const QuizSummary({super.key, required this.session, required this.onRestart, required this.onExit, this.reward});
 
   final QuizSession session;
@@ -580,7 +650,38 @@ class QuizSummary extends StatelessWidget {
   final VoidCallback onExit;
 
   @override
+  State<QuizSummary> createState() => _QuizSummaryState();
+}
+
+class _QuizSummaryState extends State<QuizSummary> {
+  late final TeacherController _teacher = TeacherController(
+    voiceEnabled: AppScope.maybeOf(context)?.voiceEnabled ?? false,
+  );
+  int _burst = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final stars = widget.session.stars;
+      _teacher.say([TutorLines.summary[stars]!], mood: stars >= 2 ? TeacherMood.clap : TeacherMood.think);
+      if (stars >= 2) setState(() => _burst++);
+    });
+  }
+
+  @override
+  void dispose() {
+    _teacher.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final session = widget.session;
+    final reward = widget.reward;
+    final onRestart = widget.onRestart;
+    final onExit = widget.onExit;
     final stars = session.stars;
     final title = switch (stars) {
       3 => 'Xuất sắc!',
@@ -589,54 +690,66 @@ class QuizSummary extends StatelessWidget {
       _ => 'Mình luyện thêm nhé!',
     };
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24),
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 520),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        children: [
+          SafeArea(
+            child: Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(24),
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 520),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      for (var i = 0; i < 3; i++)
-                        Icon(Icons.star_rounded, size: 72, color: i < stars ? AppColors.honey : Colors.black12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          for (var i = 0; i < 3; i++)
+                            Icon(Icons.star_rounded, size: 72, color: i < stars ? AppColors.honey : Colors.black12),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        title,
+                        key: const ValueKey('summary-title'),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        'Con làm đúng ${session.correctCount}/${session.problems.length} bài\n'
+                        'Được ${session.totalPoints} điểm',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 24),
+                      ),
+                      RewardBanner(reward: reward),
+                      if (session.lockedVipCount > 0) ...[
+                        const SizedBox(height: 8),
+                        Text(
+                          'Còn ${session.lockedVipCount} bài nâng cao dành cho VIP.',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(fontSize: 18, color: AppColors.vip),
+                        ),
+                      ],
+                      const SizedBox(height: 16),
+                      TeacherHud(controller: _teacher, avatarHeight: 130),
+                      const SizedBox(height: 16),
+                      BigButton(
+                        label: 'Làm lại',
+                        icon: Icons.replay_rounded,
+                        color: AppColors.sky,
+                        onPressed: onRestart,
+                      ),
+                      const SizedBox(height: 12),
+                      BigButton(label: 'Về trang chính', icon: Icons.home_rounded, onPressed: onExit),
                     ],
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    title,
-                    key: const ValueKey('summary-title'),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    'Con làm đúng ${session.correctCount}/${session.problems.length} bài\n'
-                    'Được ${session.totalPoints} điểm',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 24),
-                  ),
-                  RewardBanner(reward: reward),
-                  if (session.lockedVipCount > 0) ...[
-                    const SizedBox(height: 8),
-                    Text(
-                      'Còn ${session.lockedVipCount} bài nâng cao dành cho VIP.',
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 18, color: AppColors.vip),
-                    ),
-                  ],
-                  const SizedBox(height: 28),
-                  BigButton(label: 'Làm lại', icon: Icons.replay_rounded, color: AppColors.sky, onPressed: onRestart),
-                  const SizedBox(height: 12),
-                  BigButton(label: 'Về trang chính', icon: Icons.home_rounded, onPressed: onExit),
-                ],
+                ),
               ),
             ),
           ),
-        ),
+          Positioned.fill(child: RewardBurst(trigger: _burst)),
+        ],
       ),
     );
   }

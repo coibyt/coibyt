@@ -31,6 +31,17 @@ lời giải từng chữ số, mục lục Bộ sách → Chủ đề → Bài 
 4. **Bảng xếp hạng** tuần/tháng (top 50), danh hiệu Tập sự → Học giả → Thần đồng, "thêm X điểm để vượt bạn
    ngay trên"; chỉ hiện **biệt danh ngẫu nhiên** (vd "Mèo Thông Minh 99"), phụ huynh tắt được.
 
+**Đợt 3 (cô giáo ảo sống động):**
+
+1. **Cô giáo ảo "Cô Mai"** ở góc dưới màn hình: thở nhẹ, chớp mắt, khung thoại bo góc trượt lên khi cô nói.
+   Ảnh tạo bằng **Kie.ai** (hướng dẫn prompt: [`docs/HUONG-DAN-ANH-KIE-AI.md`](docs/HUONG-DAN-ANH-KIE-AI.md));
+   chưa có ảnh thì dùng hình vẽ tạm bằng code.
+2. **Giọng nói 11max** ghi âm sẵn cho mọi câu cô nói (`assets/voice/`), **khớp khẩu hình** (miệng đổi mỗi 150 ms
+   khi đang phát tiếng), chữ hiện từng ký tự khớp thời lượng giọng.
+3. **Dẫn dắt từng bước**: bé sai bài đặt tính → cô suy nghĩ, nói "Chưa chính xác rồi, con thử tính cột hàng đơn
+   vị trước xem sao?" và cột hàng đơn vị nháy sáng; bé ngồi im lâu → cô hỏi có cần gợi ý; điền xong chưa bấm →
+   cô nhắc; làm đúng → cô vỗ tay, tiền vàng/ngôi sao bay lên.
+
 ## Chạy thử trên laptop Windows 10 (4 GB RAM)
 
 Máy 4 GB RAM **không nên** chạy máy ảo Android. Cách nhẹ nhất: chạy bản web trong Chrome,
@@ -148,8 +159,9 @@ lib/models/                  Model Dart + fromJson báo lỗi theo đường d�
 lib/logic/                   Chấm bài, chuẩn hoá số, tự kiểm tra toán, phiên luyện tập, đề thi, huy hiệu
 lib/services/                Nạp nội dung, lưu offline (Hive), âm thanh, API, đồng bộ, mua VIP
 lib/ui/                      Màn hình bé, khu phụ huynh, lời giải từng bước
+lib/tutor/                   Cô giáo ảo: ảnh, nhịp thở/chớp mắt, giọng 11max, khớp khẩu hình, gợi ý cột, tiền bay
 web/                         Trang khởi động web, icon (tool/make_icons.py)
-test/                        Unit test + widget test (118 test)
-tool/                        Kiểm tra nội dung, tạo âm thanh/icon, chép bản web sang Babelisa, kiểm tra API
+test/                        Unit test + widget test (131 test)
+tool/                        Kiểm tra nội dung, tạo âm thanh/icon/giọng 11max, xử lý ảnh Kie.ai, chép bản web sang Babelisa
 server/                      Backend Node.js + PostgreSQL + CMS + bảng xếp hạng (91 test)
 ```

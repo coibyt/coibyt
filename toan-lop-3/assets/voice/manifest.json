@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "voice": "Sarah (11max, eleven_flash_v2_5)",
+  "lines": {
+    "3 hộp, mỗi hộp 24 cái: ta làm phép nhân, không phải phép cộng 24 + 3.": {
+      "file": "assets/voice/3-hop-moi-hop-24-cai-ta-lam-phep-nhan-kh-7ba2d3.mp3",
+      "ms": 4896,
+      "spoken": "ba hộp, mỗi hộp hai mươi tư cái: ta làm phép nhân, không phải phép cộng hai mươi tư cộng ba."
+    },
+    "3 đoạn dây, mỗi đoạn 15 cm: ta làm phép nhân 15 × 3.": {
+      "file": "assets/voice/3-doan-day-moi-doan-15-cm-ta-lam-phep-nh-96d2c5.mp3",
+      "ms": 4512,
+      "spoken": "ba đoạn dây, mỗi đoạn mười lăm xăng-ti-mét: ta làm phép nhân mười lăm nhân ba."
+    },
+    "5 × 6 = 30, viết 0 và nhớ 3 nhé.": {
+      "file": "assets/voice/5-6-30-viet-0-va-nho-3-nhe-f63179.mp3",
+      "ms": 2904,
+      "spoken": "năm nhân sáu bằng ba mươi, viết không và nhớ ba nhé."
+    },
+    "7 chia 4 được 1, còn dư 3. Hạ 2 xuống được 32.": {
+      "file": "assets/voice/7-chia-4-duoc-1-con-du-3-ha-2-xuong-duoc-33077d.mp3",
+      "ms": 3648,
+      "spoken": "bảy chia bốn được một, còn dư ba. Hạ hai xuống được ba mươi hai."
+    },
+    "Bài này hơi khó. Cô với con cùng xem từng bước nhé!": {
+      "file": "assets/voice/bai-nay-hoi-kho-co-voi-con-cung-xem-tung-a97b83.mp3",
+      "ms": 2760,
+      "spoken": "Bài này hơi khó. Cô với con cùng xem từng bước nhé!"
+    },
+    "Bước 1: tìm số cây lớp 3A trồng. Bước 2: cộng thêm số cây lớp 3B.": {
+      "file": "assets/voice/buoc-1-tim-so-cay-lop-3a-trong-buoc-2-co-5ce693.mp3",
+      "ms": 5448,
+      "spoken": "Bước một: tìm số cây lớp ba A trồng. Bước hai: cộng thêm số cây lớp ba B."
+    },
+    "Chia hàng chục trước: 8 chia 2 được mấy?": {
+      "file": "assets/voice/chia-hang-chuc-truoc-8-chia-2-duoc-may-2b872f.mp3",
+      "ms": 1992,
+      "spoken": "Chia hàng chục trước: tám chia hai được mấy?"
+    },
+    "Chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống nhé.": {
+      "file": "assets/voice/chia-tu-trai-sang-phai-chia-hang-chuc-tr-1e156a.mp3",
+      "ms": 4152,
+      "spoken": "Chia từ trái sang phải: chia hàng chục trước, rồi hạ hàng đơn vị xuống nhé."
+    },
+    "Chia đều 75 quả vào 5 giỏ: ta làm phép chia 75 : 5.": {
+      "file": "assets/voice/chia-deu-75-qua-vao-5-gio-ta-lam-phep-ch-b0c4dd.mp3",
+      "ms": 4464,
+      "spoken": "Chia đều bảy mươi lăm quả vào năm giỏ: ta làm phép chia bảy mươi lăm chia năm."
+    },
+    "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!": {
+      "file": "assets/voice/chia-deu-thanh-cac-phan-bang-nhau-con-th-f5d3b4.mp3",
+      "ms": 2928,
+      "spoken": "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!"
+    },
+    "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm 10 môn Toán nhé!": {
+      "file": "assets/voice/chao-mung-con-hom-nay-chung-ta-cung-chin-80055d.mp3",
+      "ms": 3144,
+      "spoken": "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm mười môn Toán nhé!"
+    },
+    "Chính xác!": {
+      "file": "assets/voice/chinh-xac-64bd99.mp3",
+      "ms": 600,
+      "spoken": "Chính xác!"
+    },
+    "Chưa chính xác rồi, con thử chia từ hàng chục trước xem sao?": {
+      "file": "assets/voice/chua-chinh-xac-roi-con-thu-chia-tu-hang-e85c69.mp3",
+      "ms": 3072,
+      "spoken": "Chưa chính xác rồi, con thử chia từ hàng chục trước xem sao?"
+    },
+    "Chưa chính xác rồi, con thử tính cột hàng đơn vị trước xem sao?": {
+      "file": "assets/voice/chua-chinh-xac-roi-con-thu-tinh-cot-hang-349829.mp3",
+      "ms": 2832,
+      "spoken": "Chưa chính xác rồi, con thử tính cột hàng đơn vị trước xem sao?"
+    },
+    "Chưa chính xác rồi.": {
+      "file": "assets/voice/chua-chinh-xac-roi-48da5c.mp3",
+      "ms": 984,
+      "spoken": "Chưa chính xác rồi."
+    },
+    "Con chỉ cần nhập số thôi nhé!": {
+      "file": "assets/voice/con-chi-can-nhap-so-thoi-nhe-123b7e.mp3",
+      "ms": 1368,
+      "spoken": "Con chỉ cần nhập số thôi nhé!"
+    },
+    "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!": {
+      "file": "assets/voice/con-can-co-goi-y-khong-bam-nut-goi-y-nhe-08b168.mp3",
+      "ms": 1992,
+      "spoken": "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!"
+    },
+    "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé.": {
+      "file": "assets/voice/con-cu-binh-tinh-tinh-ra-nhap-truoc-roi-247e9c.mp3",
+      "ms": 3024,
+      "spoken": "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé."
+    },
+    "Con hãy làm hết các ô trước nhé!": {
+      "file": "assets/voice/con-hay-lam-het-cac-o-truoc-nhe-e60b72.mp3",
+      "ms": 1488,
+      "spoken": "Con hãy làm hết các ô trước nhé!"
+    },
+    "Con học lâu rồi, giỏi lắm! Mình nghỉ mắt năm phút nhé: nhìn ra xa, uống nước rồi quay lại học tiếp.": {
+      "file": "assets/voice/con-hoc-lau-roi-gioi-lam-minh-nghi-mat-n-a8cf07.mp3",
+      "ms": 6336,
+      "spoken": "Con học lâu rồi, giỏi lắm! Mình nghỉ mắt năm phút nhé: nhìn ra xa, uống nước rồi quay lại học tiếp."
+    },
+    "Con làm nhanh quá!": {
+      "file": "assets/voice/con-lam-nhanh-qua-50e73b.mp3",
+      "ms": 1032,
+      "spoken": "Con làm nhanh quá!"
+    },
+    "Con làm xong rồi thì bấm Kiểm tra nhé!": {
+      "file": "assets/voice/con-lam-xong-roi-thi-bam-kiem-tra-nhe-ac5858.mp3",
+      "ms": 1920,
+      "spoken": "Con làm xong rồi thì bấm Kiểm tra nhé!"
+    },
+    "Con nhân hàng đơn vị trước, rồi mới nhân hàng chục. Đừng quên số nhớ!": {
+      "file": "assets/voice/con-nhan-hang-don-vi-truoc-roi-moi-nhan-0239a6.mp3",
+      "ms": 3720,
+      "spoken": "Con nhân hàng đơn vị trước, rồi mới nhân hàng chục. Đừng quên số nhớ!"
+    },
+    "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé.": {
+      "file": "assets/voice/con-thu-cong-hang-don-vi-truoc-xem-sao-n-77cbfb.mp3",
+      "ms": 3648,
+      "spoken": "Con thử cộng hàng đơn vị trước xem sao? Nhớ cộng số nhớ sang hàng chục nhé."
+    },
+    "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.": {
+      "file": "assets/voice/con-tinh-ket-qua-tung-dong-truoc-roi-keo-837ad2.mp3",
+      "ms": 2784,
+      "spoken": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé."
+    },
+    "Con tính ra nháp trước, rồi mới chọn đáp án nhé.": {
+      "file": "assets/voice/con-tinh-ra-nhap-truoc-roi-moi-chon-dap-bcb329.mp3",
+      "ms": 2136,
+      "spoken": "Con tính ra nháp trước, rồi mới chọn đáp án nhé."
+    },
+    "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.": {
+      "file": "assets/voice/con-tinh-tung-phep-tinh-ben-trai-truoc-r-f19e79.mp3",
+      "ms": 3600,
+      "spoken": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé."
+    },
+    "Con đang rất phong độ, cứ thế nhé!": {
+      "file": "assets/voice/con-dang-rat-phong-do-cu-the-nhe-743499.mp3",
+      "ms": 1752,
+      "spoken": "Con đang rất phong độ, cứ thế nhé!"
+    },
+    "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?": {
+      "file": "assets/voice/con-doc-cham-lai-de-bai-de-cho-biet-gi-h-454620.mp3",
+      "ms": 3216,
+      "spoken": "Con đọc chậm lại đề bài: đề cho biết gì, hỏi gì nhé?"
+    },
+    "Con đọc kỹ đề và tính cẩn thận từng bước nhé.": {
+      "file": "assets/voice/con-doc-ky-de-va-tinh-can-than-tung-buoc-de28a4.mp3",
+      "ms": 2064,
+      "spoken": "Con đọc kỹ đề và tính cẩn thận từng bước nhé."
+    },
+    "Có từ \"gấp\", con nghĩ tới phép nhân nhé!": {
+      "file": "assets/voice/co-tu-gap-con-nghi-toi-phep-nhan-nhe-6e2bc7.mp3",
+      "ms": 2232,
+      "spoken": "Có từ \"gấp\", con nghĩ tới phép nhân nhé!"
+    },
+    "Cố lên nào! Mình luyện lại bài này nhé!": {
+      "file": "assets/voice/co-len-nao-minh-luyen-lai-bai-nay-nhe-ea0028.mp3",
+      "ms": 1872,
+      "spoken": "Cố lên nào! Mình luyện lại bài này nhé!"
+    },
+    "Giỏi quá!": {
+      "file": "assets/voice/gioi-qua-ca2ca5.mp3",
+      "ms": 672,
+      "spoken": "Giỏi quá!"
+    },
+    "Gần đúng rồi!": {
+      "file": "assets/voice/gan-dung-roi-edba7f.mp3",
+      "ms": 888,
+      "spoken": "Gần đúng rồi!"
+    },
+    "Không sao cả! Mình cùng xem cách làm nhé.": {
+      "file": "assets/voice/khong-sao-ca-minh-cung-xem-cach-lam-nhe-62620b.mp3",
+      "ms": 1992,
+      "spoken": "Không sao cả! Mình cùng xem cách làm nhé."
+    },
+    "Không sao, mình cùng ôn lại từ đầu nhé!": {
+      "file": "assets/voice/khong-sao-minh-cung-on-lai-tu-dau-nhe-3491a9.mp3",
+      "ms": 1824,
+      "spoken": "Không sao, mình cùng ôn lại từ đầu nhé!"
+    },
+    "Không sao, mình thử lại nhé.": {
+      "file": "assets/voice/khong-sao-minh-thu-lai-nhe-4dda29.mp3",
+      "ms": 1224,
+      "spoken": "Không sao, mình thử lại nhé."
+    },
+    "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!": {
+      "file": "assets/voice/lam-tot-lam-co-them-chut-nua-la-duoc-ba-88eb59.mp3",
+      "ms": 2496,
+      "spoken": "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!"
+    },
+    "Lấy 3 nhân hàng đơn vị trước: 3 × 1 = ?": {
+      "file": "assets/voice/lay-3-nhan-hang-don-vi-truoc-3-1-f0e841.mp3",
+      "ms": 2880,
+      "spoken": "Lấy ba nhân hàng đơn vị trước: ba nhân một bằng bao nhiêu?"
+    },
+    "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.": {
+      "file": "assets/voice/muon-tim-thua-so-chua-biet-ta-lay-tich-c-86275a.mp3",
+      "ms": 3048,
+      "spoken": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết."
+    },
+    "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?": {
+      "file": "assets/voice/moi-nhom-bang-nhau-co-nhieu-nhom-con-thu-f276a9.mp3",
+      "ms": 2784,
+      "spoken": "Mỗi nhóm bằng nhau, có nhiều nhóm, con thử phép nhân xem sao?"
+    },
+    "Nhanh mà chính xác, giỏi lắm!": {
+      "file": "assets/voice/nhanh-ma-chinh-xac-gioi-lam-1fc867.mp3",
+      "ms": 1176,
+      "spoken": "Nhanh mà chính xác, giỏi lắm!"
+    },
+    "Nhân hàng đơn vị trước: 3 × 2 = ?": {
+      "file": "assets/voice/nhan-hang-don-vi-truoc-3-2-4674ab.mp3",
+      "ms": 2472,
+      "spoken": "Nhân hàng đơn vị trước: ba nhân hai bằng bao nhiêu?"
+    },
+    "Siêu quá! Một chuỗi câu đúng dài luôn!": {
+      "file": "assets/voice/sieu-qua-mot-chuoi-cau-dung-dai-luon-2a2466.mp3",
+      "ms": 1992,
+      "spoken": "Siêu quá! Một chuỗi câu đúng dài luôn!"
+    },
+    "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!": {
+      "file": "assets/voice/tru-tu-hang-don-vi-truoc-khong-tru-duoc-bb313d.mp3",
+      "ms": 2832,
+      "spoken": "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!"
+    },
+    "Tuyệt vời!": {
+      "file": "assets/voice/tuyet-voi-e462f8.mp3",
+      "ms": 696,
+      "spoken": "Tuyệt vời!"
+    },
+    "Tìm số gạo đã bán trước (2 bao), rồi lấy 93 kg trừ đi.": {
+      "file": "assets/voice/tim-so-gao-da-ban-truoc-2-bao-roi-lay-93-42a547.mp3",
+      "ms": 4416,
+      "spoken": "Tìm số gạo đã bán trước (hai bao), rồi lấy chín mươi ba ki-lô-gam trừ đi."
+    },
+    "Tính kết quả từng phép tính rồi so sánh.": {
+      "file": "assets/voice/tinh-ket-qua-tung-phep-tinh-roi-so-sanh-eb7b08.mp3",
+      "ms": 2088,
+      "spoken": "Tính kết quả từng phép tính rồi so sánh."
+    },
+    "Xuất sắc!": {
+      "file": "assets/voice/xuat-sac-e23096.mp3",
+      "ms": 720,
+      "spoken": "Xuất sắc!"
+    },
+    "Xuất sắc! Con làm đúng liền mấy câu rồi!": {
+      "file": "assets/voice/xuat-sac-con-lam-dung-lien-may-cau-roi-f0788a.mp3",
+      "ms": 2040,
+      "spoken": "Xuất sắc! Con làm đúng liền mấy câu rồi!"
+    },
+    "Xuất sắc! Con được ba sao!": {
+      "file": "assets/voice/xuat-sac-con-duoc-ba-sao-a41b80.mp3",
+      "ms": 1632,
+      "spoken": "Xuất sắc! Con được ba sao!"
+    },
+    "Đúng rồi! Con sửa giỏi lắm!": {
+      "file": "assets/voice/dung-roi-con-sua-gioi-lam-f713c7.mp3",
+      "ms": 1392,
+      "spoken": "Đúng rồi! Con sửa giỏi lắm!"
+    },
+    "Đúng rồi! Kiên trì thật tuyệt!": {
+      "file": "assets/voice/dung-roi-kien-tri-that-tuyet-8b2690.mp3",
+      "ms": 1320,
+      "spoken": "Đúng rồi! Kiên trì thật tuyệt!"
+    },
+    "Đúng rồi, con làm tốt lắm!": {
+      "file": "assets/voice/dung-roi-con-lam-tot-lam-50827f.mp3",
+      "ms": 1392,
+      "spoken": "Đúng rồi, con làm tốt lắm!"
+    },
+    "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?": {
+      "file": "assets/voice/de-bai-co-tu-nhieu-hon-con-thu-cong-them-b20f5d.mp3",
+      "ms": 2928,
+      "spoken": "Đề bài có từ \"nhiều hơn\", con thử cộng thêm xem sao?"
+    },
+    "Đề hỏi \"còn lại\", mình lấy số ban đầu bớt đi số đã dùng nhé.": {
+      "file": "assets/voice/de-hoi-con-lai-minh-lay-so-ban-dau-bot-d-d7b285.mp3",
+      "ms": 3024,
+      "spoken": "Đề hỏi \"còn lại\", mình lấy số ban đầu bớt đi số đã dùng nhé."
+    },
+    "Đọc kỹ lại đề bài xem có từ \"ít hơn\" không nhé! Mình phải bớt đi đấy.": {
+      "file": "assets/voice/doc-ky-lai-de-bai-xem-co-tu-it-hon-khong-fde63f.mp3",
+      "ms": 3144,
+      "spoken": "Đọc kỹ lại đề bài xem có từ \"ít hơn\" không nhé! Mình phải bớt đi đấy."
+    }
+  }
+}

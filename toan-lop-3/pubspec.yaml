@@ -39,6 +39,10 @@ flutter:
     - assets/content/lessons/
     - assets/content/exams/
     - assets/sounds/
+    # Cô giáo ảo: ảnh Kie.ai (tuỳ chọn), vật phẩm, giọng 11max
+    - assets/tutor/
+    - assets/ui/
+    - assets/voice/
 
   fonts:
     # Andika (SIL, giấy phép OFL 1.1 — xem assets/fonts/OFL.txt): font thiết kế cho

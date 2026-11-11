@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/models/content.dart';
 import 'package:toan_lop_3/services/sound_service.dart';
 import 'package:toan_lop_3/ui/app_theme.dart';
@@ -59,8 +60,9 @@ void main() {
     await tapKey(tester, 'numpad-6');
     await tapKey(tester, 'btn-check');
     expect(find.byKey(const ValueKey('btn-retry')), findsOneWidget);
-    // Cô Ong gợi ý (không nói đáp án 63)
-    expect(find.textContaining('Lấy 3 nhân hàng đơn vị trước'), findsOneWidget);
+    // Cô giáo gợi ý đúng câu chủ dự án yêu cầu (không nói đáp án 63) và cột đơn vị nháy sáng
+    expect(find.text(TutorLines.wrongColumn, findRichText: true), findsOneWidget);
+    expect(find.byKey(const ValueKey('column-hint')), findsOneWidget);
     expect(find.textContaining('63'), findsNothing);
 
     await tapKey(tester, 'btn-retry');
@@ -111,7 +113,7 @@ void main() {
     expect(find.text('10/10'), findsOneWidget);
     await openSolution(tester);
     expect(find.textContaining('dành cho tài khoản VIP'), findsOneWidget);
-    expect(find.text('Đáp án: 39 kg gạo'), findsOneWidget);
+    expect(find.text('Đáp án: 39 kg gạo'), findsWidgets);
     await tester.tap(find.byTooltip('Đóng'));
     await tester.pumpAndSettle();
     await tapKey(tester, 'btn-next');

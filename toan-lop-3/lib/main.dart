@@ -10,6 +10,8 @@ import 'services/kv_store.dart';
 import 'services/sound_service.dart';
 import 'services/sync_service.dart';
 import 'services/tutor_voice.dart';
+import 'tutor/teacher_assets.dart';
+import 'tutor/voice_library.dart';
 import 'ui/app_theme.dart';
 import 'ui/break_reminder.dart';
 import 'ui/child_screens.dart';
@@ -37,6 +39,9 @@ class _OngVangAppState extends State<OngVangApp> {
   late final Future<AppState> _state = (widget.stateFactory ?? _defaultState)();
 
   static Future<AppState> _defaultState() async {
+    // Ảnh cô giáo (Kie.ai) và giọng ghi âm (11max): có gì dùng nấy, thiếu thì dùng hình vẽ / giọng máy.
+    TeacherAssets.instance = await TeacherAssets.load();
+    VoiceLibrary.instance = await VoiceLibrary.load();
     final store = await HiveStore.open('progress');
     final state = AppState(
       content: ContentRepository(cache: await HiveStore.open('content')),

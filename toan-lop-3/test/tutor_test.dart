@@ -41,7 +41,8 @@ void main() {
 
   test('câu chào đúng lời chủ dự án, có tên bé nếu đã đặt', () {
     expect(brain.greeting('Bé'), 'Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm 10 môn Toán nhé!');
-    expect(brain.greeting('Na'), startsWith('Chào mừng Na!'));
+    // Câu chào cố định (đã ghi âm sẵn) nên không chèn tên bé — giọng luôn khớp chữ.
+    expect(brain.greeting('Na'), brain.greeting());
   });
 
   test('gợi ý của cô Ong KHÔNG BAO GIỜ chứa đáp án (mọi bài, mọi đề)', () {
@@ -100,7 +101,7 @@ void main() {
     now = now.add(const Duration(seconds: 40));
     s.submit(correctAnswerOf(s.current));
     expect(s.combo, 3);
-    expect(s.message, contains('3 câu liền'));
+    expect(TutorLines.praiseCombo, contains(s.message));
     s.next();
     // Câu 4 (điền số 45 cm): sai → gợi ý, chuỗi về 0
     s.submit(const BlankAnswer({'b1': '18'}));
@@ -138,7 +139,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('btn-hint')));
     await tester.pumpAndSettle();
-    expect(voice.spoken.single, contains('Lấy 3 nhân hàng đơn vị trước'));
+    expect(voice.spoken.single, contains('Lấy ba nhân hàng đơn vị trước'), reason: 'giọng máy nhận bản đọc bằng chữ');
     await tester.tap(find.byKey(const ValueKey('numpad-6')));
     await tester.tap(find.byKey(const ValueKey('numpad-3')));
     await tester.pumpAndSettle();

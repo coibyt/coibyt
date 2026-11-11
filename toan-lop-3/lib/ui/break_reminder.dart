@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import 'app_theme.dart';
-import 'widgets/tutor_bubble.dart';
+import '../logic/tutor.dart';
+import '../tutor/teacher_avatar.dart';
+import '../tutor/tutor_audio_service.dart';
 
 /// Nhắc bé nghỉ mắt sau N phút dùng app liên tục (phụ huynh chọn, mặc định 30).
 /// Chỉ đếm khi app đang mở trên màn hình. Không khoá app — chỉ nhắc nhẹ.
@@ -44,26 +46,38 @@ class _BreakReminderState extends State<BreakReminder> with WidgetsBindingObserv
     _minutes = 0;
     final ctx = widget.navigatorKey.currentContext;
     if (ctx == null) return;
+    if (widget.app.voiceEnabled) TutorAudioService.instance.speak(const [TutorLines.breakTime]);
     showDialog<void>(
       context: ctx,
+      barrierDismissible: false,
       builder: (context) => AlertDialog(
         key: const ValueKey('break-dialog'),
         backgroundColor: AppColors.cream,
-        content: TutorBubble(
-          text:
-              'Con học $limit phút rồi, giỏi lắm! Mình nghỉ mắt 5 phút nhé: '
-              'nhìn ra xa, uống nước rồi quay lại học tiếp.',
-          mood: TutorMood.happy,
-          outfit: widget.app.progress.outfit,
-          companion: widget.app.progress.companion,
+        content: Row(
+          children: [
+            const TeacherAvatar(height: 120, mood: TeacherMood.clap),
+            const SizedBox(width: 8),
+            const Expanded(
+              child: Text(TutorLines.breakTime, style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+            ),
+          ],
         ),
-        actions: [FilledButton(onPressed: () => Navigator.pop(context), child: const Text('Vâng ạ'))],
+        actions: [
+          FilledButton(
+            onPressed: () {
+              TutorAudioService.instance.stop();
+              Navigator.pop(context);
+            },
+            child: const Text('Vâng ạ'),
+          ),
+        ],
       ),
     );
   }
 
   @override
   void dispose() {
+    TutorAudioService.instance.stop();
     WidgetsBinding.instance.removeObserver(this);
     _timer?.cancel();
     super.dispose();

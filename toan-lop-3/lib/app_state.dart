@@ -119,7 +119,7 @@ class AppState extends ChangeNotifier {
     progress.pointsByDay[k] = (progress.pointsByDay[k] ?? 0) + points;
   }
 
-  /// Cô Ong tự đọc to lời thoại (mặc định bật; phụ huynh tắt được).
+  /// Cô giáo tự đọc to lời thoại (mặc định bật; phụ huynh tắt được).
   bool get voiceEnabled => store.get(voiceKey) != 'false';
 
   Future<void> setVoiceEnabled(bool value) async {
