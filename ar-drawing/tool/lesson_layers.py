@@ -87,22 +87,34 @@ def split(src, out_dir, max_side=1000):
         shadowed[m] = sh
         area = int(m.sum())
         bk = nearest_pencil(mode_px)
-        palette_base[bk] = palette_base.get(bk, 0) + area
+        acc = palette_base.setdefault(bk, [0, np.zeros(3)])
+        acc[0] += area; acc[1] += mode_px * area
         if is_shadow.sum() > 0.04 * area and is_shadow.sum() > 60:
-            sk = nearest_pencil(px[is_shadow].mean(0))
-            palette_shadow[sk] = palette_shadow.get(sk, 0) + int(is_shadow.sum())
+            sh_px = px[is_shadow].mean(0)
+            sk = nearest_pencil(sh_px)
+            n_sh = int(is_shadow.sum())
+            acc = palette_shadow.setdefault(sk, [0, np.zeros(3)])
+            acc[0] += n_sh; acc[1] += sh_px * n_sh
     # small regions (anti-aliasing fringes): keep original colour everywhere
     os.makedirs(out_dir, exist_ok=True)
     ink = np.zeros((h, w, 4), np.uint8)
     ink[..., :3] = (58, 40, 32)
-    soft = ndimage.gaussian_filter(outline.astype(np.float64), 0.6)
-    ink[..., 3] = (np.clip(np.maximum(outline, soft * 1.8), 0, 1) * 255).astype(np.uint8)
+    # Tracing layer: keep thin ink lines; big dark FILLS (black hair, a dark
+    # background) only contribute their contour, not a solid blob.
+    thick = ndimage.binary_opening(outline, structure=np.ones((21, 21)))
+    thin = outline & ~thick
+    contour = thick & ~ndimage.binary_erosion(thick, iterations=2)
+    line_mask = thin | contour
+    soft = ndimage.gaussian_filter(line_mask.astype(np.float64), 0.6)
+    ink[..., 3] = (np.clip(np.maximum(line_mask, soft * 1.8), 0, 1) * 255).astype(np.uint8)
     def save(rgb, name, alpha_=alpha):
         Image.fromarray(np.dstack([rgb.clip(0, 255).astype(np.uint8), alpha_]), 'RGBA').save(f'{out_dir}/{name}.png', optimize=True)
     Image.fromarray(ink, 'RGBA').save(f'{out_dir}/1_outline.png', optimize=True)
     base[outline] = a[outline]; shadowed[outline] = a[outline]
     save(base, '2_base'); save(shadowed, '3_shadow'); save(a, '4_final')
-    top = lambda d, k: [x for x, _ in sorted(d.items(), key=lambda kv: -kv[1])][:k]
+    def top(d, k):
+        items = sorted(d.items(), key=lambda kv: -kv[1][0])[:k]
+        return [{"pencil": p, "hex": hexof(acc[1] / acc[0]), "area": acc[0]} for p, acc in items]
     return {"base": top(palette_base, 5), "shadow": top(palette_shadow, 4)}
 
 if __name__ == '__main__':

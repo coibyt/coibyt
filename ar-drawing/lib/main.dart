@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'app.dart';
 import 'core/i18n/language_controller.dart';
 import 'features/lessons/lesson.dart';
+import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
 
 Future<void> main() async {
@@ -15,11 +16,17 @@ Future<void> main() async {
 
   // Language files, Lumi's scripts / voice-over and the lessons are small
   // bundled JSON files: load them before the first frame.
-  final (LanguageController language, TeacherServices teacher, LessonCatalog lessons) = await (
+  final (
+    LanguageController language,
+    TeacherServices teacher,
+    LessonCatalog lessons,
+    LessonProgressStore progress,
+  ) = await (
     LanguageController.load(),
     TeacherServices.load(),
     LessonCatalog.load(),
+    LessonProgressStore.load(),
   ).wait;
 
-  runApp(TraceLightApp(language: language, teacher: teacher, lessons: lessons));
+  runApp(TraceLightApp(language: language, teacher: teacher, lessons: lessons, progress: progress));
 }

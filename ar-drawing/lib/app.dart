@@ -6,6 +6,7 @@ import 'core/i18n/app_language.dart';
 import 'core/i18n/language_controller.dart';
 import 'features/home/home_screen.dart';
 import 'features/lessons/lesson.dart';
+import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
 
 /// Root widget of TraceLight (working name).
@@ -15,8 +16,12 @@ class TraceLightApp extends StatelessWidget {
     required this.language,
     required this.teacher,
     this.lessons = LessonCatalog.empty,
+    this.progress,
     this.home,
   });
+
+  /// Learner's progress in the lessons (empty in tests by default).
+  final LessonProgressStore? progress;
 
   final LanguageController language;
   final TeacherServices teacher;
@@ -31,16 +36,19 @@ class TraceLightApp extends StatelessWidget {
       controller: language,
       child: TeacherScope(
         services: teacher,
-        child: ListenableBuilder(
-          listenable: language,
-          builder: (BuildContext context, _) => MaterialApp(
-            title: language.translations.tr('app.name'),
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.dark(),
-            locale: language.language.locale,
-            supportedLocales: <Locale>[for (final AppLanguage l in AppLanguage.values) l.locale],
-            localizationsDelegates: GlobalMaterialLocalizations.delegates,
-            home: home ?? HomeScreen(lessons: lessons.lessons),
+        child: LessonProgressScope(
+          store: progress ?? LessonProgressStore(),
+          child: ListenableBuilder(
+            listenable: language,
+            builder: (BuildContext context, _) => MaterialApp(
+              title: language.translations.tr('app.name'),
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.dark(),
+              locale: language.language.locale,
+              supportedLocales: <Locale>[for (final AppLanguage l in AppLanguage.values) l.locale],
+              localizationsDelegates: GlobalMaterialLocalizations.delegates,
+              home: home ?? HomeScreen(lessons: lessons.lessons),
+            ),
           ),
         ),
       ),

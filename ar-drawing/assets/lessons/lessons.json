@@ -1,55 +1,1226 @@
 {
-  "lessons": [
+ "lessons": [
+  {
+   "id": "sphere",
+   "level": "basic",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
     {
-      "id": "apple",
-      "difficulty": "easy",
-      "light": "topLeft",
-      "steps": [
-        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
-          "lines": ["lesson_apple_outline", "lesson_light_topleft"] },
-        { "kind": "base", "overlay": "2_base", "palette": ["red", "darkgreen", "brown"], "mood": "point",
-          "lines": ["lesson_apple_base"] },
-        { "kind": "shadow", "overlay": "3_shadow", "palette": ["crimson", "darkgreen"], "mood": "point",
-          "lines": ["lesson_apple_shadow"] },
-        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
-          "lines": ["lesson_apple_highlight"] },
-        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
-          "lines": ["lesson_apple_done"] }
-      ]
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_sphere_outline",
+      "lesson_light_topleft"
+     ]
     },
     {
-      "id": "fox",
-      "difficulty": "medium",
-      "light": "topLeft",
-      "steps": [
-        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
-          "lines": ["lesson_fox_outline", "lesson_light_topleft"] },
-        { "kind": "base", "overlay": "2_base", "palette": ["orange", "cream", "tan", "darkbrown"], "mood": "point",
-          "lines": ["lesson_fox_base"] },
-        { "kind": "shadow", "overlay": "3_shadow", "palette": ["rust", "brown"], "mood": "point",
-          "lines": ["lesson_fox_shadow"] },
-        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
-          "lines": ["lesson_fox_highlight"] },
-        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
-          "lines": ["lesson_fox_done"] }
-      ]
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "lightgrey",
+       "hex": "#DEDEDE"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_sphere_base"
+     ]
     },
     {
-      "id": "cupcake",
-      "difficulty": "medium",
-      "light": "topLeft",
-      "steps": [
-        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
-          "lines": ["lesson_cupcake_outline", "lesson_light_topleft"] },
-        { "kind": "base", "overlay": "2_base", "palette": ["pink", "red", "turquoise", "tan"], "mood": "point",
-          "lines": ["lesson_cupcake_base"] },
-        { "kind": "shadow", "overlay": "3_shadow", "palette": ["magenta", "crimson", "turquoise", "brown"], "mood": "point",
-          "lines": ["lesson_cupcake_shadow"] },
-        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
-          "lines": ["lesson_cupcake_highlight"] },
-        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
-          "lines": ["lesson_cupcake_done"] }
-      ]
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "grey",
+       "hex": "#AEAEAE"
+      },
+      {
+       "pencil": "grey",
+       "hex": "#909090"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_sphere_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_sphere_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_sphere_done"
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "id": "cube",
+   "level": "basic",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_cube_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "tan",
+       "hex": "#F0B478"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cube_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "brown",
+       "hex": "#C08A4E"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cube_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_cube_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_cube_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cylinder",
+   "level": "basic",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_cylinder_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "sky",
+       "hex": "#96D8F0"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cylinder_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "turquoise",
+       "hex": "#6CAEC6"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cylinder_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_cylinder_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_cylinder_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "apple",
+   "level": "basic",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_apple_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "red",
+       "hex": "#C62A30"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#367836"
+      },
+      {
+       "pencil": "brown",
+       "hex": "#48240C"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_apple_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "crimson",
+       "hex": "#9C1E1E"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#244F24"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_apple_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_apple_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_apple_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cupcake",
+   "level": "basic",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_cupcake_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "pink",
+       "hex": "#F0A8C0"
+      },
+      {
+       "pencil": "red",
+       "hex": "#C62430"
+      },
+      {
+       "pencil": "turquoise",
+       "hex": "#90D2D8"
+      },
+      {
+       "pencil": "tan",
+       "hex": "#C68A48"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cupcake_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "magenta",
+       "hex": "#DE7896"
+      },
+      {
+       "pencil": "crimson",
+       "hex": "#9C1E26"
+      },
+      {
+       "pencil": "turquoise",
+       "hex": "#6CAEBA"
+      },
+      {
+       "pencil": "brown",
+       "hex": "#8A5A2A"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cupcake_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_cupcake_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_cupcake_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fox",
+   "level": "intermediate",
+   "topic": "animals",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_fox_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "orange",
+       "hex": "#EA9042"
+      },
+      {
+       "pencil": "cream",
+       "hex": "#F6EAD2"
+      },
+      {
+       "pencil": "tan",
+       "hex": "#C0A88A"
+      },
+      {
+       "pencil": "darkbrown",
+       "hex": "#54240C"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_fox_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "rust",
+       "hex": "#C0662A"
+      },
+      {
+       "pencil": "brown",
+       "hex": "#84481E"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_fox_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_fox_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_fox_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cat",
+   "level": "intermediate",
+   "topic": "animals",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_cat_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "grey",
+       "hex": "#A2A2A2"
+      },
+      {
+       "pencil": "lightpink",
+       "hex": "#EAB4A8"
+      },
+      {
+       "pencil": "lime",
+       "hex": "#89DC73"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cat_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "grey",
+       "hex": "#727272"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#559E4A"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_cat_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_cat_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_cat_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "flower_vase",
+   "level": "intermediate",
+   "topic": "stillLife",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_flower_vase_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "blue",
+       "hex": "#5A90C0"
+      },
+      {
+       "pencil": "yellow",
+       "hex": "#F6D242"
+      },
+      {
+       "pencil": "green",
+       "hex": "#78A85A"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_flower_vase_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "navy",
+       "hex": "#3C6C90"
+      },
+      {
+       "pencil": "yellow",
+       "hex": "#CCA224"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#5D8546"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_flower_vase_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_flower_vase_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_flower_vase_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vintage_car",
+   "level": "intermediate",
+   "topic": "vehicles",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_vintage_car_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "mint",
+       "hex": "#A8E4C0"
+      },
+      {
+       "pencil": "lightgrey",
+       "hex": "#D8D8D8"
+      },
+      {
+       "pencil": "black",
+       "hex": "#484848"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_vintage_car_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "mint",
+       "hex": "#78B496"
+      },
+      {
+       "pencil": "grey",
+       "hex": "#A8A8A8"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_vintage_car_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_vintage_car_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_vintage_car_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mountain_lake",
+   "level": "intermediate",
+   "topic": "landscape",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_mountain_lake_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "grey",
+       "hex": "#849CA2"
+      },
+      {
+       "pencil": "green",
+       "hex": "#7EA860"
+      },
+      {
+       "pencil": "sky",
+       "hex": "#60A8CC"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#668448"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_mountain_lake_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "grey",
+       "hex": "#667E84"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#66844E"
+      },
+      {
+       "pencil": "blue",
+       "hex": "#5089A9"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_mountain_lake_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      },
+      {
+       "pencil": "lightgrey",
+       "hex": "#CCD8DE"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_mountain_lake_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_mountain_lake_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "portrait_girl",
+   "level": "advanced",
+   "topic": "portrait",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_portrait_girl_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "skin",
+       "hex": "#F6CCA8"
+      },
+      {
+       "pencil": "black",
+       "hex": "#242424"
+      },
+      {
+       "pencil": "teal",
+       "hex": "#2A666C"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_portrait_girl_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "tan",
+       "hex": "#EA9C78"
+      },
+      {
+       "pencil": "teal",
+       "hex": "#1E4E5A"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_portrait_girl_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_portrait_girl_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_portrait_girl_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "scooter",
+   "level": "advanced",
+   "topic": "vehicles",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_scooter_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "red",
+       "hex": "#F65A48"
+      },
+      {
+       "pencil": "cream",
+       "hex": "#D2C09C"
+      },
+      {
+       "pencil": "grey",
+       "hex": "#424242"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_scooter_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "crimson",
+       "hex": "#C0483C"
+      },
+      {
+       "pencil": "black",
+       "hex": "#303030"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_scooter_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      },
+      {
+       "pencil": "cream",
+       "hex": "#FCF0D2"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_scooter_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_scooter_done"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "starry_night",
+   "level": "advanced",
+   "topic": "masters",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_starry_night_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "blue",
+       "hex": "#4890AE"
+      },
+      {
+       "pencil": "sky",
+       "hex": "#6CAEC0"
+      },
+      {
+       "pencil": "yellow",
+       "hex": "#E8D059"
+      },
+      {
+       "pencil": "darkgreen",
+       "hex": "#2F5A3C"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_starry_night_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "navy",
+       "hex": "#1F3A68"
+      },
+      {
+       "pencil": "blue",
+       "hex": "#4F8499"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_starry_night_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "lemon",
+       "hex": "#F7EE9A"
+      },
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_starry_night_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_starry_night_done"
+     ]
+    }
+   ],
+   "credit": "lesson.credit.starry_night"
+  },
+  {
+   "id": "pearl_earring",
+   "level": "advanced",
+   "topic": "masters",
+   "light": "topLeft",
+   "steps": [
+    {
+     "kind": "outline",
+     "overlay": "1_outline",
+     "palette": [
+      {
+       "pencil": "graphite",
+       "hex": "#4A4A4A"
+      }
+     ],
+     "mood": "wave",
+     "lines": [
+      "lesson_pearl_earring_outline",
+      "lesson_light_topleft"
+     ]
+    },
+    {
+     "kind": "base",
+     "overlay": "2_base",
+     "palette": [
+      {
+       "pencil": "skin",
+       "hex": "#E4BA96"
+      },
+      {
+       "pencil": "blue",
+       "hex": "#3C608A"
+      },
+      {
+       "pencil": "yellow",
+       "hex": "#EABA66"
+      },
+      {
+       "pencil": "darkbrown",
+       "hex": "#48302A"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_pearl_earring_base"
+     ]
+    },
+    {
+     "kind": "shadow",
+     "overlay": "3_shadow",
+     "palette": [
+      {
+       "pencil": "tan",
+       "hex": "#B48A64"
+      },
+      {
+       "pencil": "navy",
+       "hex": "#182A42"
+      }
+     ],
+     "mood": "point",
+     "lines": [
+      "lesson_pearl_earring_shadow"
+     ]
+    },
+    {
+     "kind": "highlight",
+     "overlay": "4_final",
+     "palette": [
+      {
+       "pencil": "white",
+       "hex": "#FFFFFF"
+      }
+     ],
+     "mood": "happy",
+     "lines": [
+      "lesson_pearl_earring_highlight"
+     ]
+    },
+    {
+     "kind": "done",
+     "overlay": "4_final",
+     "palette": [],
+     "mood": "cheer",
+     "lines": [
+      "lesson_pearl_earring_done"
+     ]
+    }
+   ],
+   "credit": "lesson.credit.pearl_earring"
+  }
+ ]
 }

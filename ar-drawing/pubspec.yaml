@@ -88,6 +88,17 @@ flutter:
     - assets/lessons/apple/
     - assets/lessons/fox/
     - assets/lessons/cupcake/
+    - assets/lessons/sphere/
+    - assets/lessons/cube/
+    - assets/lessons/cylinder/
+    - assets/lessons/cat/
+    - assets/lessons/flower_vase/
+    - assets/lessons/vintage_car/
+    - assets/lessons/mountain_lake/
+    - assets/lessons/portrait_girl/
+    - assets/lessons/starry_night/
+    - assets/lessons/pearl_earring/
+    - assets/lessons/scooter/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

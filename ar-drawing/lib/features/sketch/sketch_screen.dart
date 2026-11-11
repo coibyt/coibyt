@@ -4,6 +4,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
 import '../../core/i18n/language_controller.dart';
+import '../draw/draw_mode_sheet.dart';
+import '../draw/draw_screen.dart';
 import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/widgets/teacher_overlay.dart';
@@ -13,13 +15,16 @@ import 'sketch_filter.dart';
 /// Lets the user turn a picked photo into clean lines (or pencil / keep the
 /// photo), preview it on "paper", then start tracing it.
 class SketchScreen extends StatefulWidget {
-  const SketchScreen({super.key, required this.photo, this.workspaceBuilder});
+  const SketchScreen({super.key, required this.photo, this.workspaceBuilder, this.drawBuilder});
 
   /// Encoded photo bytes as picked from the gallery.
   final Uint8List photo;
 
   /// Opens the workspace for the chosen picture (overridable in tests).
   final Widget Function(ImageProvider image)? workspaceBuilder;
+
+  /// Opens the digital drawing board for the picture (overridable in tests).
+  final Widget Function(ImageProvider? image)? drawBuilder;
 
   @override
   State<SketchScreen> createState() => _SketchScreenState();
@@ -74,15 +79,18 @@ class _SketchScreenState extends State<SketchScreen> {
     }
   }
 
-  void _trace() {
+  Future<void> _trace() async {
     final Uint8List? bytes = _result;
     if (bytes == null) return;
     _teacher.close();
+    final DrawMode? mode = await showDrawModeSheet(context);
+    if (mode == null || !mounted) return;
     final ImageProvider image = MemoryImage(bytes);
-    Navigator.of(context).push(
+    await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) =>
-            widget.workspaceBuilder?.call(image) ?? WorkspaceScreen(overlayImage: image),
+        builder: (_) => mode == DrawMode.camera
+            ? widget.workspaceBuilder?.call(image) ?? WorkspaceScreen(overlayImage: image)
+            : widget.drawBuilder?.call(image) ?? DrawScreen(template: image),
       ),
     );
   }

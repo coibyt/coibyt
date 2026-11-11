@@ -8,7 +8,11 @@ import '../../core/app_assets.dart';
 import '../../core/app_theme.dart';
 import '../../core/i18n/app_language.dart';
 import '../../core/i18n/language_controller.dart';
+import '../academy/academy_screen.dart';
+import '../draw/draw_mode_sheet.dart';
+import '../draw/draw_screen.dart';
 import '../lessons/lesson.dart';
+import '../lessons/lesson_progress_store.dart';
 import '../sketch/sketch_screen.dart';
 import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_scope.dart';
@@ -37,14 +41,18 @@ class HomeScreen extends StatefulWidget {
     this.lessons = const <Lesson>[],
     this.pickPhoto = _pickFromGallery,
     this.workspaceBuilder,
+    this.drawBuilder,
     this.lessonBuilder,
   });
 
   final List<DrawingTemplate> templates;
   final List<Lesson> lessons;
 
-  /// Opens a colouring lesson (overridable in tests).
-  final Widget Function(Lesson lesson)? lessonBuilder;
+  /// Opens a colouring lesson in the chosen mode (overridable in tests).
+  final Widget Function(Lesson lesson, DrawMode mode)? lessonBuilder;
+
+  /// Opens the digital drawing board (overridable in tests).
+  final Widget Function(ImageProvider? image)? drawBuilder;
   final PhotoPicker pickPhoto;
 
   /// Opens the workspace for a picture (overridable in tests).
@@ -74,11 +82,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _openLesson(Lesson lesson) {
     _teacher.close();
+    openLesson(context, lesson, builder: widget.lessonBuilder);
+  }
+
+  void _openAcademy() {
+    _teacher.close();
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => widget.lessonBuilder?.call(lesson) ?? WorkspaceScreen(lesson: lesson),
+        builder: (_) => AcademyScreen(lessons: widget.lessons, lessonBuilder: widget.lessonBuilder),
       ),
     );
+  }
+
+  Widget _draw(ImageProvider? image) =>
+      widget.drawBuilder?.call(image) ?? DrawScreen(template: image);
+
+  void _openBlankCanvas() {
+    _teacher.close();
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => _draw(null)));
   }
 
   void _toggleLanguage() {
@@ -89,10 +110,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _workspace(ImageProvider image) =>
       widget.workspaceBuilder?.call(image) ?? WorkspaceScreen(overlayImage: image);
 
-  void _openTemplate(DrawingTemplate template) {
+  Future<void> _openTemplate(DrawingTemplate template) async {
     _teacher.close();
-    Navigator.of(context)
-        .push(MaterialPageRoute<void>(builder: (_) => _workspace(AssetImage(template.asset))));
+    final DrawMode? mode = await showDrawModeSheet(context);
+    if (mode == null || !mounted) return;
+    final ImageProvider image = AssetImage(template.asset);
+    await Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => mode == DrawMode.camera ? _workspace(image) : _draw(image),
+      ),
+    );
   }
 
   Future<void> _traceOwnPhoto() async {
@@ -101,7 +128,11 @@ class _HomeScreenState extends State<HomeScreen> {
     _teacher.close();
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => SketchScreen(photo: bytes, workspaceBuilder: widget.workspaceBuilder),
+        builder: (_) => SketchScreen(
+          photo: bytes,
+          workspaceBuilder: widget.workspaceBuilder,
+          drawBuilder: widget.drawBuilder,
+        ),
       ),
     );
   }
@@ -201,11 +232,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: _OwnPhotoCard(onTap: _traceOwnPhoto),
                   ),
                 ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                    child: _BlankCanvasCard(onTap: _openBlankCanvas),
+                  ),
+                ),
                 if (widget.lessons.isNotEmpty) ...<Widget>[
                   SliverToBoxAdapter(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 16, 20, 2),
-                      child: Text(context.tr('lesson.section'), style: theme.textTheme.titleLarge),
+                      padding: const EdgeInsets.fromLTRB(20, 12, 8, 0),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Text(
+                              context.tr('lesson.section'),
+                              style: theme.textTheme.titleLarge,
+                            ),
+                          ),
+                          TextButton(
+                            key: const Key('seeAllLessons'),
+                            onPressed: _openAcademy,
+                            child: Text(context.tr('academy.seeAll')),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SliverToBoxAdapter(
@@ -219,14 +270,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   SliverToBoxAdapter(
                     child: SizedBox(
-                      height: 186,
+                      height: 236,
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         padding: const EdgeInsets.symmetric(horizontal: 16),
                         itemCount: widget.lessons.length,
                         separatorBuilder: (_, _) => const SizedBox(width: 12),
-                        itemBuilder: (BuildContext context, int i) => _LessonCard(
+                        itemBuilder: (BuildContext context, int i) => CourseCard(
+                          width: 160,
                           lesson: widget.lessons[i],
+                          progress: LessonProgressScope.maybeOf(context),
                           onTap: () => _openLesson(widget.lessons[i]),
                         ),
                       ),
@@ -287,72 +340,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Positioned.fill(child: TeacherOverlay(controller: _teacher)),
         ],
-      ),
-    );
-  }
-}
-
-class _LessonCard extends StatelessWidget {
-  const _LessonCard({required this.lesson, required this.onTap});
-
-  final Lesson lesson;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      key: Key('lesson-${lesson.id}'),
-      color: const Color(0xFFF7F3EA),
-      borderRadius: BorderRadius.circular(18),
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: SizedBox(
-          width: 160,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Image.asset(lesson.thumbnail, fit: BoxFit.contain),
-                ),
-              ),
-              Container(
-                color: Colors.white,
-                padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      context.tr(lesson.titleKey),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(color: AppTheme.ink, fontWeight: FontWeight.w800),
-                    ),
-                    Row(
-                      children: <Widget>[
-                        const Icon(Icons.palette, size: 13, color: Color(0xFFFF9F43)),
-                        const SizedBox(width: 4),
-                        Expanded(
-                          child: Text(
-                            context.tr(
-                              'lesson.steps',
-                              args: <String, Object?>{'count': lesson.steps.length},
-                            ),
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(color: Color(0x9914161F), fontSize: 12),
-                          ),
-                        ),
-                        _DifficultyDots(difficulty: lesson.difficulty),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }
@@ -553,6 +540,54 @@ class _DifficultyDots extends StatelessWidget {
               ),
             ),
         ],
+      ),
+    );
+  }
+}
+
+class _BlankCanvasCard extends StatelessWidget {
+  const _BlankCanvasCard({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      key: const Key('blankCanvasCard'),
+      color: const Color(0xFF232838),
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(18),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
+          child: Row(
+            children: <Widget>[
+              const CircleAvatar(
+                radius: 20,
+                backgroundColor: Color(0xFFFFF8EC),
+                child: Icon(Icons.draw, color: Color(0xFFB0661B)),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      context.tr('home.blankCanvas'),
+                      style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
+                    ),
+                    Text(
+                      context.tr('home.blankCanvasHint'),
+                      style: const TextStyle(color: Colors.white70, fontSize: 13),
+                    ),
+                  ],
+                ),
+              ),
+              const Icon(Icons.chevron_right),
+            ],
+          ),
+        ),
       ),
     );
   }

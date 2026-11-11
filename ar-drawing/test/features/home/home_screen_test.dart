@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tracelight/features/draw/draw_mode_sheet.dart';
 import 'package:tracelight/features/home/home_screen.dart';
 import 'package:tracelight/features/lessons/lesson.dart';
 import 'package:tracelight/features/sketch/sketch_screen.dart';
@@ -11,6 +12,7 @@ import '../../test_images.dart';
 void main() {
   ImageProvider? opened;
   Lesson? openedLesson;
+  DrawMode? openedMode;
 
   Widget fakeWorkspace(ImageProvider image) {
     opened = image;
@@ -28,9 +30,14 @@ void main() {
           workspaceBuilder: fakeWorkspace,
           pickPhoto: picker ?? () async => null,
           lessons: loadLessons().lessons,
-          lessonBuilder: (Lesson lesson) {
+          lessonBuilder: (Lesson lesson, DrawMode mode) {
             openedLesson = lesson;
+            openedMode = mode;
             return const Scaffold(body: Text('lesson'));
+          },
+          drawBuilder: (ImageProvider? image) {
+            opened = image;
+            return const Scaffold(body: Text('draw'));
           },
         ),
       ),
@@ -73,6 +80,9 @@ void main() {
     await pumpHome(tester);
     await tester.tap(find.byKey(const Key('template-fox_cub')));
     await tester.pumpAndSettle();
+    expect(find.text('How do you want to draw?'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('mode-camera')));
+    await tester.pumpAndSettle();
     expect(find.text('workspace'), findsOneWidget);
     expect((opened! as AssetImage).assetName, 'assets/templates/animals/fox_cub.png');
   });
@@ -102,10 +112,13 @@ void main() {
   testWidgets('lesson cards open the colouring lesson', (WidgetTester tester) async {
     await pumpHome(tester);
     expect(find.text('Colouring lessons'), findsOneWidget);
-    await tester.tap(find.byKey(const Key('lesson-apple')));
+    await tester.tap(find.byKey(const Key('lesson-sphere')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('mode-screen')));
     await tester.pumpAndSettle();
     expect(find.text('lesson'), findsOneWidget);
-    expect(openedLesson!.id, 'apple');
+    expect(openedLesson!.id, 'sphere');
+    expect(openedMode, DrawMode.screen);
   });
 
   testWidgets('language button switches the whole interface', (WidgetTester tester) async {

@@ -15,6 +15,7 @@ import '../timelapse/timelapse_recorder.dart';
 import '../timelapse/timelapse_result_screen.dart';
 import '../timelapse/video_encoder.dart';
 import '../lessons/lesson.dart';
+import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
 import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_scope.dart';
@@ -122,14 +123,21 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     final LessonProgress? progress = _progress;
     if (progress != null) {
       _teacher.say(progress.step.lines);
+      _recordProgress();
     } else {
       _teacher.introduce(TeacherScope.maybeOf(context), 'workspace_intro');
     }
   }
 
+  void _recordProgress() {
+    final LessonProgress? p = _progress;
+    if (p != null) unawaited(LessonProgressScope.maybeOf(context)?.record(p.lesson, p.index));
+  }
+
   void _onStepChanged() {
     setState(() {});
     _teacher.say(_progress!.step.lines);
+    _recordProgress();
     // Keep the time-lapse in step with the screen.
     if (_recorder != null) unawaited(_updateVideoOverlay());
   }

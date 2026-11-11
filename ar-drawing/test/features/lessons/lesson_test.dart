@@ -16,15 +16,23 @@ void main() {
   final LessonCatalog catalog = loadLessons();
 
   test('every lesson teaches outline → base → shadow → highlight → done', () {
-    expect(catalog.lessons, hasLength(greaterThanOrEqualTo(3)));
+    expect(catalog.lessons, hasLength(greaterThanOrEqualTo(14)));
+    // The course covers every level and topic.
+    expect(catalog.lessons.map((Lesson l) => l.level).toSet(), LessonLevel.values.toSet());
+    expect(catalog.lessons.map((Lesson l) => l.topic).toSet(), LessonTopic.values.toSet());
+    // Master studies credit the original (public-domain) painting.
+    for (final Lesson l in catalog.lessons.where((Lesson l) => l.topic == LessonTopic.masters)) {
+      expect(l.creditKey, isNotNull, reason: l.id);
+    }
     for (final Lesson l in catalog.lessons) {
       expect(l.steps.map((LessonStep s) => s.kind), StepKind.values, reason: l.id);
       expect(File(l.thumbnail).existsSync(), isTrue, reason: l.thumbnail);
       for (final LessonStep s in l.steps) {
         expect(File(s.overlay).existsSync(), isTrue, reason: s.overlay);
         expect(s.lines, isNotEmpty);
-        for (final String p in s.palette) {
-          expect(kPencilColors.containsKey(p), isTrue, reason: '${l.id}: $p');
+        for (final PaletteColor p in s.palette) {
+          expect(kPencilColors.containsKey(p.pencil), isTrue, reason: '${l.id}: ${p.pencil}');
+          expect(p.hex, matches(RegExp(r'^#[0-9A-F]{6}$')));
         }
       }
       // Colouring steps tell the learner which pencils to use.

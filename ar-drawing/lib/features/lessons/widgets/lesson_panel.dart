@@ -6,10 +6,20 @@ import '../lesson.dart';
 /// Bottom panel of a lesson: step name and progress, the pencils to use in
 /// real life, light direction, and Back / Next.
 class LessonPanel extends StatelessWidget {
-  const LessonPanel({super.key, required this.progress, required this.onFinish});
+  const LessonPanel({
+    super.key,
+    required this.progress,
+    required this.onFinish,
+    this.onPickColor,
+    this.selectedColor,
+  });
 
   final LessonProgress progress;
   final VoidCallback onFinish;
+
+  /// Digital drawing: tapping a swatch loads that exact shade in the brush.
+  final ValueChanged<Color>? onPickColor;
+  final Color? selectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +62,11 @@ class LessonPanel extends StatelessWidget {
                   _StepDots(index: progress.index, total: progress.total),
                   if (step.palette.isNotEmpty) ...<Widget>[
                     const SizedBox(height: 8),
-                    PencilPalette(pencils: step.palette),
+                    PencilPalette(
+                      colors: step.palette,
+                      onPick: onPickColor,
+                      selected: selectedColor,
+                    ),
                   ],
                 ],
               ),
@@ -78,11 +92,14 @@ class LessonPanel extends StatelessWidget {
   }
 }
 
-/// Swatches of the real colour pencils for this step, with their names.
+/// Swatches of the colours for this step: the real pencil's name, and in
+/// digital mode the exact shade as a tappable chip.
 class PencilPalette extends StatelessWidget {
-  const PencilPalette({super.key, required this.pencils});
+  const PencilPalette({super.key, required this.colors, this.onPick, this.selected});
 
-  final List<String> pencils;
+  final List<PaletteColor> colors;
+  final ValueChanged<Color>? onPick;
+  final Color? selected;
 
   @override
   Widget build(BuildContext context) {
@@ -92,32 +109,47 @@ class PencilPalette extends StatelessWidget {
       spacing: 6,
       runSpacing: 6,
       children: <Widget>[
-        for (final String id in pencils)
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.35),
-              borderRadius: BorderRadius.circular(14),
+        for (final PaletteColor c in colors)
+          Material(
+            key: Key('palette-${c.pencil}'),
+            color: Colors.black.withValues(alpha: 0.35),
+            shape: StadiumBorder(
+              side: BorderSide(
+                color: selected == c.color
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.transparent,
+                width: 2,
+              ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(4, 3, 9, 3),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Container(
-                    width: 18,
-                    height: 18,
-                    decoration: BoxDecoration(
-                      color: kPencilColors[id] ?? Colors.grey,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white70, width: 1.5),
+            child: InkWell(
+              customBorder: const StadiumBorder(),
+              onTap: onPick == null ? null : () => onPick!(c.color),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(4, 3, 9, 3),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Container(
+                      width: 18,
+                      height: 18,
+                      decoration: BoxDecoration(
+                        color: onPick == null ? kPencilColors[c.pencil] ?? c.color : c.color,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white70, width: 1.5),
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 5),
-                  Text(
-                    context.tr('pencil.$id'),
-                    style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600),
-                  ),
-                ],
+                    const SizedBox(width: 5),
+                    Flexible(
+                      child: Text(
+                        onPick == null
+                            ? context.tr('pencil.${c.pencil}')
+                            : '${context.tr('pencil.${c.pencil}')} ${c.hex}',
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

@@ -59,9 +59,13 @@ void main() {
       for (final String p in kPencilColors.keys) 'pencil.$p',
       for (final Lesson l in loadLessons().lessons) ...<String>[
         l.titleKey,
+        l.level.labelKey,
+        l.topic.labelKey,
+        'academy.levelHint.${l.level.name}',
+        ?l.creditKey,
         for (final LessonStep s in l.steps) ...<String>[
           for (final TeacherLine line in s.lines) line.textKey,
-          for (final String p in s.palette) 'pencil.$p',
+          for (final PaletteColor p in s.palette) 'pencil.${p.pencil}',
         ],
       ],
       for (final String id in loadScripts().ids)
