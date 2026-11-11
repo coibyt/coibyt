@@ -102,3 +102,15 @@ Kiểm tra cấu trúc bằng schema: `python tool/validate_content.py`.
 ## 7. Đề kiểm tra (`kind: "exam"`, thêm ở schema 1.1.0)
 
 Xem mục đề thi trong schema: `durationMinutes`, các phần (`sections`) chứa Bài Toán kèm `points`; app tự chấm và tổng hợp theo `skillIds`.
+
+## 8. Quyền VIP ở mỗi cấp
+
+| Cấp | Trường | Ai kiểm tra |
+|---|---|---|
+| Bài học | `access` của mục bài học trong `catalog.json` | App (khoá ô bài học) + máy chủ (403 khi tải) |
+| Đề thi | `access` của đề (và của mục đề trong catalog) | App + máy chủ |
+| Bài Toán | `access` của bài | App ẩn bài VIP khỏi lượt luyện tập của tài khoản thường |
+| Lời giải | `solution.access` | App hiện đáp án cuối, khoá các bước chi tiết |
+
+Bài toán VIP nằm trong một bài học miễn phí vẫn được tải về cùng file bài học (máy chủ không cắt bớt),
+app chỉ ẩn đi. Nếu cần giữ kín hẳn, hãy đặt bài đó vào một bài học hoặc đề VIP riêng.
