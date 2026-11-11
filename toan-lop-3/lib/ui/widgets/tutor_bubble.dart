@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../app_theme.dart';
-import 'bee_mascot.dart';
+import 'game_widgets.dart';
 
 enum TutorMood { happy, thinking, neutral }
 
@@ -15,6 +15,8 @@ class TutorBubble extends StatelessWidget {
     this.color = Colors.white,
     this.textColor = AppColors.ink,
     this.extra,
+    this.outfit,
+    this.companion,
   });
 
   final String text;
@@ -26,12 +28,16 @@ class TutorBubble extends StatelessWidget {
   final Color textColor;
   final Widget? extra;
 
+  /// Trang phục cô Ong và thú cưng đi cùng (Phase 3).
+  final String? outfit;
+  final String? companion;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        BeeMascot(size: 60, happy: mood != TutorMood.thinking),
+        TutorAvatar(size: 60, happy: mood != TutorMood.thinking, outfit: outfit, companion: companion),
         const SizedBox(width: 6),
         Expanded(
           child: Container(

@@ -192,6 +192,23 @@ class ParentScreen extends StatelessWidget {
               _Card(
                 children: [
                   const Text('Cài đặt', style: h),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.visibility_rounded),
+                    title: const Text('Nhắc bé nghỉ mắt'),
+                    subtitle: const Text('Sau một khoảng thời gian dùng app liên tục'),
+                    trailing: DropdownButton<int>(
+                      key: const ValueKey('break-select'),
+                      value: app.breakMinutes,
+                      items: const [
+                        DropdownMenuItem(value: 0, child: Text('Tắt')),
+                        DropdownMenuItem(value: 20, child: Text('20 phút')),
+                        DropdownMenuItem(value: 30, child: Text('30 phút')),
+                        DropdownMenuItem(value: 45, child: Text('45 phút')),
+                      ],
+                      onChanged: (v) => app.setBreakMinutes(v ?? 30),
+                    ),
+                  ),
                   SwitchListTile(
                     key: const ValueKey('voice-toggle'),
                     contentPadding: EdgeInsets.zero,

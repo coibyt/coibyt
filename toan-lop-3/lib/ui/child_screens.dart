@@ -6,6 +6,9 @@ import '../services/tutor_voice.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
 import 'badges_screen.dart';
+import 'shop_screen.dart';
+import 'widgets/game_widgets.dart';
+import '../logic/economy.dart';
 import 'exam_screens.dart';
 import 'parent/parent_screens.dart';
 import 'quiz_screen.dart';
@@ -182,6 +185,12 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (_) => ExamListScreen(book: book),
       ),
       HomeTile(
+        label: 'Cửa hàng',
+        icon: Icons.storefront_rounded,
+        color: const Color(0xFFFF6FB5),
+        builder: (_) => const ShopScreen(),
+      ),
+      HomeTile(
         label: 'Huy hiệu',
         icon: Icons.military_tech_rounded,
         color: const Color(0xFF8E5CF7),
@@ -199,8 +208,6 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Row(
                   children: [
-                    const BeeMascot(size: 96),
-                    const SizedBox(width: 8),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,32 +233,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(height: 8),
                 TutorBubble(
                   key: const ValueKey('home-tutor'),
+                  outfit: app.progress.outfit,
+                  companion: app.progress.companion,
                   text: _brain.greeting(app.progress.childName),
                   mood: TutorMood.happy,
                   onSpeak: () => AppTutorVoice.instance.speak(_brain.greeting(app.progress.childName)),
                 ),
                 const SizedBox(height: 12),
-                Row(
-                  children: [
-                    Expanded(
-                      child: _StatChip(
-                        icon: Icons.local_fire_department_rounded,
-                        color: AppColors.tryAgain,
-                        value: '${app.streak}',
-                        label: 'ngày liên tiếp',
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: _StatChip(
-                        icon: Icons.stars_rounded,
-                        color: AppColors.honey,
-                        value: '${app.progress.totalPoints}',
-                        label: 'điểm',
-                      ),
-                    ),
-                  ],
-                ),
+                _DailyCard(app: app),
                 const SizedBox(height: 16),
                 for (final t in tiles)
                   Padding(
@@ -267,31 +256,57 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _StatChip extends StatelessWidget {
-  const _StatChip({required this.icon, required this.color, required this.value, required this.label});
+/// Thẻ "hôm nay": ngọn lửa chuỗi ngày, tim, vàng, điểm.
+class _DailyCard extends StatelessWidget {
+  const _DailyCard({required this.app});
 
-  final IconData icon;
-  final Color color;
-  final String value;
-  final String label;
+  final AppState app;
 
   @override
   Widget build(BuildContext context) {
+    final p = app.progress;
+    final streak = app.streak;
+    final active = p.activeOn(app.now());
+    final hint = active
+        ? 'Hôm nay con đã học rồi, lửa đang cháy!'
+        : streak > 0
+        ? 'Học một bài hôm nay để giữ lửa nhé!'
+        : 'Học một bài hôm nay để nhóm lửa nào!';
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(18)),
+      key: const ValueKey('daily-card'),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22)),
       child: Row(
         children: [
-          Icon(icon, color: color, size: 36),
-          const SizedBox(width: 8),
-          Flexible(
+          StreakFlame(streak: streak, activeToday: active),
+          const SizedBox(width: 10),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(value, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
-                Text(label, style: const TextStyle(fontSize: 15, color: Colors.black54)),
+                Text(
+                  '$streak ngày liên tiếp',
+                  key: const ValueKey('streak-text'),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                ),
+                Text(hint, style: const TextStyle(fontSize: 15, color: Colors.black54)),
+                if (freezeAvailableThisWeek(p, app.now()) && streak > 0)
+                  const Text(
+                    '🧊 Tuần này còn 1 lượt giữ lửa nếu con lỡ nghỉ 1 ngày',
+                    style: TextStyle(fontSize: 13, color: AppColors.sky),
+                  ),
               ],
             ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              HeartsBar(hearts: p.hearts, size: 18),
+              const SizedBox(height: 4),
+              CoinChip(coins: p.coins),
+              const SizedBox(height: 4),
+              Text('⭐ ${p.totalPoints}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+            ],
           ),
         ],
       ),

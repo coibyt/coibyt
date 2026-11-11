@@ -12,10 +12,12 @@ import '../models/exam.dart';
 import '../models/problem.dart';
 import '../services/sound_service.dart';
 import 'app_theme.dart';
-import 'child_screens.dart' show LessonScreen;
 import 'quiz_screen.dart' show RewardBanner;
 import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
+import 'widgets/game_widgets.dart';
+import '../logic/economy.dart';
+import 'child_screens.dart' show ChapterListScreen, LessonScreen;
 import 'widgets/solution_view.dart';
 
 /// Thứ tự nhóm đề trên màn "Luyện thi".
@@ -193,7 +195,11 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _exam ??= AppScope.read(context).content.loadExam(widget.examRef.src);
+    if (_exam == null) {
+      final app = AppScope.read(context);
+      _exam = app.content.loadExam(widget.examRef.src);
+      WidgetsBinding.instance.addPostFrameCallback((_) => app.refreshHearts());
+    }
   }
 
   void _start(Exam exam, {ExamDraft? draft}) {
@@ -252,8 +258,13 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
                   const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
                   const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
                   const _InfoLine(icon: Icons.analytics_rounded, text: 'Nộp bài xong có bảng điểm chi tiết.'),
-                  const SizedBox(height: 20),
-                  if (validDraft != null) ...[
+                  const _InfoLine(icon: Icons.favorite_rounded, text: 'Mỗi câu sai mất 1 trái tim. Ôn bài để hồi tim.'),
+                  const SizedBox(height: 8),
+                  Center(child: HeartsBar(hearts: app.progress.hearts, size: 30)),
+                  const SizedBox(height: 16),
+                  if (validDraft == null && !app.canStartExam)
+                    _NoHeartsCard(app: app)
+                  else if (validDraft != null) ...[
                     BigButton(
                       key: const ValueKey('btn-exam-resume'),
                       label: 'Làm tiếp (còn ${formatClock(exam.durationMinutes * 60 - validDraft.elapsedSeconds)})',
@@ -283,6 +294,46 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+/// Hết tim: không vào phòng thi được, nhưng luôn có đường học tiếp để hồi tim.
+class _NoHeartsCard extends StatelessWidget {
+  const _NoHeartsCard({required this.app});
+
+  final AppState app;
+
+  @override
+  Widget build(BuildContext context) {
+    final wait = nextHeartIn(app.progress, app.now());
+    final book = app.book;
+    return Container(
+      key: const ValueKey('no-hearts'),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(color: const Color(0xFFFFE3E8), borderRadius: BorderRadius.circular(20)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Text('Hết tim rồi! 💔', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 4),
+          Text(
+            'Con ôn một bài luyện tập (đúng từ 6/10 câu) để hồi ${Economy.heartsPerGoodPractice} tim'
+            '${wait == null ? '' : ', hoặc đợi ${wait.inMinutes + 1} phút để có thêm 1 tim'}.',
+            style: const TextStyle(fontSize: 18),
+          ),
+          const SizedBox(height: 12),
+          if (book != null)
+            BigButton(
+              key: const ValueKey('btn-review-for-hearts'),
+              label: 'Ôn bài để hồi tim',
+              icon: Icons.auto_stories_rounded,
+              color: AppColors.sky,
+              onPressed: () =>
+                  Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ChapterListScreen(book: book))),
+            ),
+        ],
       ),
     );
   }

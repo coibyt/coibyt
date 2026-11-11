@@ -500,6 +500,8 @@ class _FeedbackAndActions extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: TutorBubble(
                     key: const ValueKey('feedback-message'),
+                    outfit: AppScope.maybeOf(context)?.progress.outfit,
+                    companion: AppScope.maybeOf(context)?.progress.companion,
                     text: message,
                     mood: mood,
                     textColor: fg,
@@ -665,6 +667,21 @@ class RewardBanner extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: AppColors.good),
                 ),
+              if (r.coins > 0 || r.shards > 0 || r.heartsChange != 0)
+                Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Wrap(
+                    key: const ValueKey('reward-economy'),
+                    alignment: WrapAlignment.center,
+                    spacing: 14,
+                    children: [
+                      if (r.coins > 0) Text('🪙 +${r.coins}', style: _rewardStyle),
+                      if (r.shards > 0) Text('🧩 +${r.shards} mảnh ghép', style: _rewardStyle),
+                      if (r.heartsChange > 0) Text('❤️ +${r.heartsChange} tim', style: _rewardStyle),
+                      if (r.heartsChange < 0) Text('💔 ${r.heartsChange} tim', style: _rewardStyle),
+                    ],
+                  ),
+                ),
               for (final id in r.newBadgeIds)
                 Container(
                   margin: const EdgeInsets.only(top: 8),
@@ -695,3 +712,5 @@ class RewardBanner extends StatelessWidget {
     );
   }
 }
+
+const _rewardStyle = TextStyle(fontSize: 19, fontWeight: FontWeight.w700);

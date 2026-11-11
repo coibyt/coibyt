@@ -94,11 +94,25 @@ class Progress {
     List<ExamRecord>? exams,
     Map<String, DateTime>? badges,
     this.updatedAt,
+    this.hearts = 5,
+    this.heartsAt,
+    this.coins = 0,
+    this.shards = 0,
+    Map<String, int>? pets,
+    Set<String>? outfits,
+    this.outfit,
+    this.companion,
+    Set<String>? freezeDays,
+    Map<String, int>? pointsByDay,
   }) : lessons = lessons ?? {},
        skills = skills ?? {},
        activeDays = activeDays ?? {},
        exams = exams ?? [],
-       badges = badges ?? {};
+       badges = badges ?? {},
+       pets = pets ?? {},
+       outfits = outfits ?? {},
+       freezeDays = freezeDays ?? {},
+       pointsByDay = pointsByDay ?? {};
 
   static const version = 1;
 
@@ -120,6 +134,18 @@ class Progress {
       for (final e in (j['badges'] as Map? ?? const {}).entries) e.key as String: DateTime.parse(e.value as String),
     },
     updatedAt: j['updatedAt'] == null ? null : DateTime.tryParse(j['updatedAt'] as String),
+    hearts: j['hearts'] as int? ?? 5,
+    heartsAt: j['heartsAt'] == null ? null : DateTime.tryParse(j['heartsAt'] as String),
+    coins: j['coins'] as int? ?? 0,
+    shards: j['shards'] as int? ?? 0,
+    pets: {for (final e in (j['pets'] as Map? ?? const {}).entries) e.key as String: (e.value as num).toInt()},
+    outfits: {...(j['outfits'] as List? ?? const []).cast<String>()},
+    outfit: j['outfit'] as String?,
+    companion: j['companion'] as String?,
+    freezeDays: {...(j['freezeDays'] as List? ?? const []).cast<String>()},
+    pointsByDay: {
+      for (final e in (j['pointsByDay'] as Map? ?? const {}).entries) e.key as String: (e.value as num).toInt(),
+    },
   );
 
   String childName;
@@ -136,29 +162,65 @@ class Progress {
   final Map<String, DateTime> badges;
   DateTime? updatedAt;
 
+  // ---- Phase 3: trò chơi hoá (chỉ kiếm bằng cách học, không bán bằng tiền thật) ----
+
+  /// Năng lượng (0–5) cho phòng thi.
+  int hearts;
+
+  /// Mốc tính hồi tim theo thời gian.
+  DateTime? heartsAt;
+
+  /// Đồng vàng.
+  int coins;
+
+  /// Mảnh ghép (đổi lấy thú cưng tự chọn).
+  int shards;
+
+  /// Thú cưng đã có: mã → số lần nhận.
+  final Map<String, int> pets;
+
+  /// Trang phục cô Ong đã mua; [outfit] = đang mặc.
+  final Set<String> outfits;
+  String? outfit;
+
+  /// Thú cưng đang đi cùng bé.
+  String? companion;
+
+  /// Ngày được "giữ lửa" (nghỉ nhưng không mất chuỗi), tối đa 1 ngày/tuần.
+  final Set<String> freezeDays;
+
+  /// Điểm kiếm được theo ngày (cho bảng xếp hạng tuần/tháng).
+  final Map<String, int> pointsByDay;
+
   /// Chuỗi ngày học liên tiếp tính đến hôm nay (hoặc hôm qua nếu hôm nay chưa học).
+  /// Ngày được giữ lửa không làm đứt chuỗi nhưng không cộng thêm.
   int streak(DateTime now) {
+    bool kept(DateTime d) => activeDays.contains(dayKey(d)) || freezeDays.contains(dayKey(d));
     var day = DateTime(now.year, now.month, now.day);
-    if (!activeDays.contains(dayKey(day))) {
-      day = day.subtract(const Duration(days: 1));
-      if (!activeDays.contains(dayKey(day))) return 0;
+    if (!kept(day)) {
+      day = DateTime(day.year, day.month, day.day - 1);
+      if (!kept(day)) return 0;
     }
     var count = 0;
-    while (activeDays.contains(dayKey(day))) {
-      count++;
+    while (kept(day)) {
+      if (activeDays.contains(dayKey(day))) count++;
       day = DateTime(day.year, day.month, day.day - 1);
     }
     return count;
   }
 
+  /// Hôm nay đã học chưa.
+  bool activeOn(DateTime now) => activeDays.contains(dayKey(now));
+
   /// Chuỗi dài nhất từng đạt.
   int get bestStreak {
-    final days = activeDays.map(DateTime.parse).toList()..sort();
+    final days = {...activeDays, ...freezeDays}.map(DateTime.parse).toList()..sort();
     var best = 0;
     var run = 0;
     DateTime? prev;
     for (final d in days) {
-      run = (prev != null && DateTime(prev.year, prev.month, prev.day + 1) == d) ? run + 1 : 1;
+      if (prev == null || DateTime(prev.year, prev.month, prev.day + 1) != d) run = 0;
+      if (activeDays.contains(dayKey(d))) run++;
       if (run > best) best = run;
       prev = d;
     }
@@ -204,6 +266,14 @@ class Progress {
     for (final e in [...newer.exams, ...older.exams]) {
       exams.putIfAbsent('${e.examId}@${e.at.millisecondsSinceEpoch}', () => e);
     }
+    final pets = <String, int>{...a.pets};
+    for (final e in b.pets.entries) {
+      if ((pets[e.key] ?? 0) < e.value) pets[e.key] = e.value;
+    }
+    final pointsByDay = <String, int>{...a.pointsByDay};
+    for (final e in b.pointsByDay.entries) {
+      if ((pointsByDay[e.key] ?? 0) < e.value) pointsByDay[e.key] = e.value;
+    }
     final badges = <String, DateTime>{...a.badges};
     for (final e in b.badges.entries) {
       final cur = badges[e.key];
@@ -219,6 +289,17 @@ class Progress {
       exams: exams.values.toList()..sort((x, y) => x.at.compareTo(y.at)),
       badges: badges,
       updatedAt: aNewer ? a.updatedAt : (b.updatedAt ?? a.updatedAt),
+      // Số dư (tim, vàng, mảnh ghép) và lựa chọn: lấy của máy mới hơn.
+      hearts: newer.hearts,
+      heartsAt: newer.heartsAt,
+      coins: newer.coins,
+      shards: newer.shards,
+      outfit: newer.outfit,
+      companion: newer.companion,
+      pets: pets,
+      outfits: {...a.outfits, ...b.outfits},
+      freezeDays: {...a.freezeDays, ...b.freezeDays},
+      pointsByDay: pointsByDay,
     );
   }
 
@@ -233,5 +314,15 @@ class Progress {
     'exams': [for (final e in exams) e.toJson()],
     'badges': {for (final e in badges.entries) e.key: e.value.toIso8601String()},
     if (updatedAt != null) 'updatedAt': updatedAt!.toIso8601String(),
+    'hearts': hearts,
+    if (heartsAt != null) 'heartsAt': heartsAt!.toIso8601String(),
+    'coins': coins,
+    'shards': shards,
+    'pets': pets,
+    'outfits': (outfits.toList()..sort()),
+    'outfit': ?outfit,
+    'companion': ?companion,
+    'freezeDays': (freezeDays.toList()..sort()),
+    'pointsByDay': pointsByDay,
   };
 }

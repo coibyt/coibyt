@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
 import 'logic/badges.dart';
+import 'logic/economy.dart';
 import 'logic/exam_session.dart';
 import 'logic/quiz_session.dart';
 import 'models/content.dart';
@@ -14,10 +16,23 @@ import 'services/sync_service.dart';
 
 /// Kết quả ghi nhận sau một lượt luyện tập / thi.
 class RewardOutcome {
-  const RewardOutcome({required this.pointsEarned, this.newBadgeIds = const []});
+  const RewardOutcome({
+    required this.pointsEarned,
+    this.newBadgeIds = const [],
+    this.coins = 0,
+    this.shards = 0,
+    this.heartsChange = 0,
+  });
 
   final int pointsEarned;
   final List<String> newBadgeIds;
+
+  /// Đồng vàng, mảnh ghép nhận được.
+  final int coins;
+  final int shards;
+
+  /// Tim thay đổi (âm = mất khi thi, dương = hồi khi ôn bài).
+  final int heartsChange;
 }
 
 /// Trạng thái chung của app (mục lục, tiến độ, VIP). Dùng qua [AppScope].
@@ -29,6 +44,7 @@ class AppState extends ChangeNotifier {
   static const vipUntilKey = 'vip.until';
   static const voiceKey = 'settings.voice';
   static const greetedKey = 'tutor.greeted';
+  static const breakKey = 'settings.breakMinutes';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -48,6 +64,56 @@ class AppState extends ChangeNotifier {
     progress = raw == null ? Progress() : Progress.fromJson(jsonDecode(raw) as Map<String, dynamic>);
     _vip = store.get(vipKey) == 'true';
     _vipUntil = DateTime.tryParse(store.get(vipUntilKey) ?? '');
+    regenHearts(progress, now());
+    if (applyStreakFreeze(progress, now())) await _save();
+  }
+
+  // ---- Trò chơi hoá ----
+
+  /// Cập nhật tim hồi theo thời gian (gọi khi mở phòng thi / trang chủ).
+  void refreshHearts() {
+    final before = progress.hearts;
+    regenHearts(progress, now());
+    if (progress.hearts != before) notifyListeners();
+  }
+
+  bool get canStartExam => progress.hearts > 0;
+
+  /// Quay thẻ thú cưng (ném [NotEnoughCoins] nếu thiếu vàng).
+  Future<SpinResult> spinPet(Random random) async {
+    final r = spin(progress, random);
+    await _save();
+    return r;
+  }
+
+  Future<bool> choosePet(String petId) async {
+    final ok = choosePetWithShards(progress, petId);
+    if (ok) await _save();
+    return ok;
+  }
+
+  Future<bool> buyTutorOutfit(String id) async {
+    final ok = buyOutfit(progress, id);
+    if (ok) await _save();
+    return ok;
+  }
+
+  Future<void> wearOutfit(String? id) async {
+    if (id != null && !progress.outfits.contains(id)) return;
+    progress.outfit = id;
+    await _save();
+  }
+
+  Future<void> setCompanion(String? petId) async {
+    if (petId != null && (progress.pets[petId] ?? 0) == 0) return;
+    progress.companion = petId;
+    await _save();
+  }
+
+  void _addDayPoints(int points) {
+    if (points <= 0) return;
+    final k = dayKey(now());
+    progress.pointsByDay[k] = (progress.pointsByDay[k] ?? 0) + points;
   }
 
   /// Cô Ong tự đọc to lời thoại (mặc định bật; phụ huynh tắt được).
@@ -55,6 +121,14 @@ class AppState extends ChangeNotifier {
 
   Future<void> setVoiceEnabled(bool value) async {
     await store.put(voiceKey, '$value');
+    notifyListeners();
+  }
+
+  /// Nhắc bé nghỉ mắt sau bấy nhiêu phút dùng app liên tục (0 = tắt). Mặc định 30.
+  int get breakMinutes => int.tryParse(store.get(breakKey) ?? '') ?? 30;
+
+  Future<void> setBreakMinutes(int minutes) async {
+    await store.put(breakKey, '$minutes');
     notifyListeners();
   }
 
@@ -176,11 +250,16 @@ class AppState extends ChangeNotifier {
       ..bestPoints = session.totalPoints > lp.bestPoints ? session.totalPoints : lp.bestPoints
       ..bestStars = session.stars > lp.bestStars ? session.stars : lp.bestStars;
     progress.totalPoints += earned;
+    _addDayPoints(earned);
+    final coins = coinsForPractice(earned);
+    progress.coins += coins;
+    regenHearts(progress, now());
+    final hearts = restoreHeartsForPractice(progress, correct: session.correctCount, total: session.problems.length);
     _addSkillStats(session.skillStats());
     _markActive();
     final badges = _awardBadges();
     await _save();
-    return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
+    return RewardOutcome(pointsEarned: earned, newBadgeIds: badges, coins: coins, heartsChange: hearts);
   }
 
   static String _draftKey(String examId) => 'exam.draft.$examId';
@@ -242,11 +321,18 @@ class AppState extends ChangeNotifier {
       ),
     );
     progress.totalPoints += earned;
+    _addDayPoints(earned);
+    final (coins, shards) = examRewards(score: score, pointsEarned: earned, improved: best == null || score > best);
+    progress
+      ..coins += coins
+      ..shards += shards;
+    regenHearts(progress, now());
+    final lost = loseHeartsForExam(progress, result.items.length - result.correctCount, now());
     _addSkillStats(result.skillStats());
     _markActive();
     final badges = _awardBadges();
     await _save();
-    return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
+    return RewardOutcome(pointsEarned: earned, newBadgeIds: badges, coins: coins, shards: shards, heartsChange: -lost);
   }
 
   /// Trao huy hiệu mới (nếu đủ điều kiện) sau mỗi lần ghi nhận.
@@ -270,6 +356,9 @@ class AppScope extends InheritedNotifier<AppState> {
   const AppScope({super.key, required AppState state, required super.child}) : super(notifier: state);
 
   static AppState of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<AppScope>()!.notifier!;
+
+  /// null nếu không có AppScope (vd màn hình được test riêng).
+  static AppState? maybeOf(BuildContext context) => context.dependOnInheritedWidgetOfExactType<AppScope>()?.notifier;
 
   static AppState read(BuildContext context) => context.getInheritedWidgetOfExactType<AppScope>()!.notifier!;
 }

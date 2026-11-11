@@ -11,6 +11,7 @@ import 'services/sound_service.dart';
 import 'services/sync_service.dart';
 import 'services/tutor_voice.dart';
 import 'ui/app_theme.dart';
+import 'ui/break_reminder.dart';
 import 'ui/child_screens.dart';
 import 'ui/widgets/bee_mascot.dart';
 
@@ -32,6 +33,7 @@ class OngVangApp extends StatefulWidget {
 }
 
 class _OngVangAppState extends State<OngVangApp> {
+  final _navigatorKey = GlobalKey<NavigatorState>();
   late final Future<AppState> _state = (widget.stateFactory ?? _defaultState)();
 
   static Future<AppState> _defaultState() async {
@@ -60,22 +62,35 @@ class _OngVangAppState extends State<OngVangApp> {
       future: _state,
       builder: (context, snap) {
         final state = snap.data;
-        final Widget home;
-        if (snap.hasError) {
-          home = Scaffold(body: Center(child: Text('Không mở được app: ${snap.error}')));
-        } else if (state == null) {
-          home = const Scaffold(body: Center(child: BeeMascot(size: 140)));
-        } else {
-          home = const RootScreen();
+        if (state == null) {
+          // Màn chờ / lỗi dùng một MaterialApp RIÊNG (không có navigatorKey). Lý do: nếu
+          // dùng chung MaterialApp có GlobalKey, Navigator được giữ lại và màn chờ
+          // không bao giờ được thay bằng trang chủ.
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: buildAppTheme(),
+            home: Scaffold(
+              body: Center(
+                child: snap.hasError ? Text('Không mở được app: ${snap.error}') : const BeeMascot(size: 140),
+              ),
+            ),
+          );
         }
-        final app = MaterialApp(
-          title: 'Ong Vàng Toán 3',
-          debugShowCheckedModeBanner: false,
-          theme: buildAppTheme(),
-          home: home,
-        );
         // AppScope bọc NGOÀI MaterialApp để mọi màn hình (kể cả màn được push) đều thấy.
-        return state == null ? app : AppScope(state: state, child: app);
+        return AppScope(
+          state: state,
+          child: BreakReminder(
+            app: state,
+            navigatorKey: _navigatorKey,
+            child: MaterialApp(
+              title: 'Ong Vàng Toán 3',
+              navigatorKey: _navigatorKey,
+              debugShowCheckedModeBanner: false,
+              theme: buildAppTheme(),
+              home: const RootScreen(),
+            ),
+          ),
+        );
       },
     );
   }
