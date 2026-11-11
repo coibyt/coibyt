@@ -85,6 +85,27 @@ void main() {
     expect(missing, isEmpty, reason: 'Thiếu giọng (${missing.length}):\n${missing.take(20).join('\n')}');
   });
 
+  test('video lời giải: cô có giọng ghi âm cho mọi bước giải của mọi bài tập', () {
+    final lib = VoiceLibrary.fromJson(
+      jsonDecode(File('assets/voice/manifest.json').readAsStringSync()) as Map<String, dynamic>,
+    );
+    final lines = <String>{TutorLines.solutionIntro, TutorLines.solutionDone};
+    for (final f in Directory('assets/content/lessons').listSync().whereType<File>()) {
+      if (!f.path.endsWith('.json')) continue;
+      final l = loadLessonFromDisk(f.uri.pathSegments.last.replaceAll('.json', ''));
+      for (final p in l.problems) {
+        for (final s in buildDemoScript(p.solution.steps, maxQuizzes: 0)) {
+          lines.addAll(s.say);
+        }
+      }
+    }
+    final missing = [
+      for (final l in lines)
+        if (lib.lookup(l) == null) l,
+    ];
+    expect(missing, isEmpty, reason: 'Thiếu giọng (${missing.length}):\n${missing.take(10).join('\n')}');
+  });
+
   testWidgets('màn xem cô giáo: đủ tư thế, nút nói thử', (tester) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.5;

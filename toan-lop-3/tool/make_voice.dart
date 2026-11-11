@@ -93,8 +93,8 @@ List<String> showQuestionLines() {
 }
 
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
-/// Thu cả lời giải từng bài tập (nhiều câu): bật bằng cờ --solutions.
-var withSolutions = false;
+/// Thu cả lời giải từng bài tập (mặc định bật; --no-solutions để bỏ qua).
+var withSolutions = true;
 
 List<String> teacherLines() {
   final lines = <String>{...TutorLines.all(), ...boardFixedLines(), ...ExamLines.fixed()};
@@ -237,7 +237,7 @@ Future<int> shrink(List<int> audio, File dest) async {
 
 Future<void> main(List<String> args) async {
   final countOnly = args.contains('--count');
-  withSolutions = args.contains('--solutions');
+  withSolutions = !args.contains('--no-solutions');
   final limitIdx = args.indexOf('--limit');
   final limit = limitIdx >= 0 ? int.parse(args[limitIdx + 1]) : null;
 
