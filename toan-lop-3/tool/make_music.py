@@ -29,6 +29,13 @@ JOBS = {
                    "sparkling glockenspiel, exciting and joyful, big finish, no vocals", 0, 9, 1.5),
     "show_lock": ("Original short suspense drum roll with rising strings for a quiz show final answer moment, "
                   "dramatic but kid-friendly, building tension, no vocals", 0, 6, 0.5),
+    "exam_bg": ("Original calm instrumental background music for children concentrating on a school math test: gentle "
+                "soft piano, warm pads, light pizzicato strings and a soft steady pulse, peaceful, focused, encouraging, "
+                "loopable, 80 BPM, no drums, no vocals", 6, 70, 3),
+    "exam_start": ("Original short bright school bell chime and soft glockenspiel arpeggio signalling the start of a test, "
+                   "friendly and clear, no vocals", 0, 5, 1),
+    "exam_end": ("Original short gentle completion chime for a children's test ending: soft bells and harp glissando, "
+                 "warm and reassuring, no vocals", 0, 6, 1.5),
     "show_win": ("Original short triumphant victory jingle for a children's quiz show: happy orchestral fanfare, "
                  "cymbal crash, sparkling bells, celebration, no vocals", 0, 8, 1.5),
 }

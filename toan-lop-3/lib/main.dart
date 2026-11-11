@@ -7,6 +7,7 @@ import 'config.dart';
 import 'services/api_client.dart';
 import 'services/content_repository.dart';
 import 'services/kv_store.dart';
+import 'services/exam_music.dart';
 import 'services/show_music.dart';
 import 'services/sound_service.dart';
 import 'services/sync_service.dart';
@@ -24,6 +25,7 @@ Future<void> main() async {
   AppSound.instance = AudioSoundService();
   AppTutorVoice.instance = TtsTutorVoice();
   ShowMusic.instance = AudioShowMusic();
+  ExamMusic.instance = AudioExamMusic();
   runApp(const OngVangApp());
 }
 

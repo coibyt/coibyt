@@ -20,6 +20,10 @@ import '../logic/economy.dart';
 import 'child_screens.dart' show ChapterListScreen, LessonScreen;
 import 'widgets/solution_view.dart';
 import '../tutor/teacher_intro.dart';
+import '../tutor/teacher_controller.dart';
+import '../tutor/teacher_avatar.dart';
+import '../logic/exam_lines.dart';
+import '../services/exam_music.dart';
 import '../logic/tutor.dart';
 import '../models/calendar.dart';
 import '../tutor/teacher_assets.dart';
@@ -507,6 +511,30 @@ class ExamIntroScreen extends StatefulWidget {
 
 class _ExamIntroScreenState extends State<ExamIntroScreen> {
   Future<Exam>? _exam;
+  final _teacher = TeacherController(voiceEnabled: false);
+  bool _introStarted = false;
+  bool _leaving = false;
+
+  @override
+  void dispose() {
+    _leaving = true;
+    _teacher.dispose();
+    super.dispose();
+  }
+
+  /// Cô dặn dò từng câu một (khung thoại gọn, bé vẫn thấy thông tin đề phía dưới).
+  void _speakIntro(Exam exam) {
+    if (_introStarted) return;
+    _introStarted = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
+      _teacher.voiceEnabled = AppScope.read(context).voiceEnabled;
+      for (final line in ExamLines.intro(exam)) {
+        if (!mounted || _leaving) return;
+        await _teacher.say([line], mood: line == ExamLines.ready ? TeacherMood.clap : TeacherMood.idle);
+      }
+    });
+  }
 
   @override
   void didChangeDependencies() {
@@ -519,6 +547,8 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
   }
 
   void _start(Exam exam, {ExamDraft? draft}) {
+    _leaving = true;
+    _teacher.clear();
     Navigator.of(context).pushReplacement(
       MaterialPageRoute<void>(
         builder: (_) => ExamRunScreen(exam: exam, draft: draft),
@@ -530,98 +560,115 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
   Widget build(BuildContext context) {
     final app = AppScope.of(context);
     return Scaffold(
-      appBar: AppBar(backgroundColor: AppColors.cream, title: const Text('Phòng thi')),
-      body: FutureBuilder<Exam>(
-        future: _exam,
-        builder: (context, snap) {
-          if (snap.hasError) return Center(child: Text('${snap.error}'));
-          if (!snap.hasData) return const Center(child: CircularProgressIndicator());
-          final exam = snap.data!;
-          final draft = app.examDraft(exam.id);
-          final validDraft = draft != null && draft.contentRev == exam.contentRev ? draft : null;
-          return Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 560),
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Center(
-                      child: GameIcon(
-                        examArt(widget.examRef),
-                        size: 120,
-                        fallback: Icon(Icons.assignment_rounded, size: 72, color: _typeColor(exam.examType)),
-                      ),
-                    ),
-                    Text(
-                      exam.examType.displayName,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700),
-                    ),
-                    Text(
-                      exam.title,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
-                    ),
-                    if (exam.description != null)
-                      Padding(
-                        padding: const EdgeInsets.only(top: 6),
-                        child: Text(
-                          exam.description!,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(fontSize: 17, color: Colors.black54),
-                        ),
-                      ),
-                    const SizedBox(height: 16),
-                    _InfoLine(
-                      icon: Icons.timer_rounded,
-                      text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm',
-                    ),
-                    const _InfoLine(icon: Icons.visibility_off_rounded, text: 'Trong giờ thi không xem được đáp án.'),
-                    const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
-                    const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
-                    const _InfoLine(icon: Icons.analytics_rounded, text: 'Nộp bài xong có bảng điểm chi tiết.'),
-                    const _InfoLine(
-                      icon: Icons.favorite_rounded,
-                      text: 'Mỗi câu sai mất 1 trái tim. Ôn bài để hồi tim.',
-                    ),
-                    const SizedBox(height: 8),
-                    Center(child: HeartsBar(hearts: app.progress.hearts, size: 30)),
-                    const SizedBox(height: 16),
-                    if (validDraft == null && !app.canStartExam)
-                      _NoHeartsCard(app: app)
-                    else if (validDraft != null) ...[
-                      BigButton(
-                        key: const ValueKey('btn-exam-resume'),
-                        label: 'Làm tiếp (còn ${formatClock(exam.durationMinutes * 60 - validDraft.elapsedSeconds)})',
-                        icon: Icons.play_arrow_rounded,
-                        onPressed: () => _start(exam, draft: validDraft),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF1E4D38),
+        foregroundColor: Colors.white,
+        title: const Text('Phòng thi'),
+      ),
+      body: ScreenBackground(
+        name: 'exam_room',
+        veil: 0.78,
+        child: FutureBuilder<Exam>(
+          future: _exam,
+          builder: (context, snap) {
+            if (snap.hasError) return Center(child: Text('${snap.error}'));
+            if (!snap.hasData) return const Center(child: CircularProgressIndicator());
+            final exam = snap.data!;
+            _speakIntro(exam);
+            final draft = app.examDraft(exam.id);
+            final validDraft = draft != null && draft.contentRev == exam.contentRev ? draft : null;
+            return Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 560),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // Cô coi thi tự đọc quy chế thi khi bé vào phòng.
+                      TeacherIntro(
+                        key: const ValueKey('exam-proctor'),
+                        lines: const [],
+                        controller: _teacher,
+                        avatarHeight: 110,
                       ),
                       const SizedBox(height: 12),
-                      BigButton(
-                        key: const ValueKey('btn-exam-restart'),
-                        label: 'Làm lại từ đầu',
-                        color: AppColors.sky,
-                        outlined: true,
-                        onPressed: () async {
-                          await app.clearExamDraft(exam.id);
-                          if (mounted) _start(exam);
-                        },
+                      Center(
+                        child: GameIcon(
+                          examArt(widget.examRef),
+                          size: 96,
+                          fallback: Icon(Icons.assignment_rounded, size: 72, color: _typeColor(exam.examType)),
+                        ),
                       ),
-                    ] else
-                      BigButton(
-                        key: const ValueKey('btn-exam-start'),
-                        label: 'Bắt đầu làm bài',
-                        icon: Icons.play_arrow_rounded,
-                        onPressed: () => _start(exam),
+                      Text(
+                        exam.examType.displayName,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700),
                       ),
-                  ],
+                      Text(
+                        exam.title,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+                      ),
+                      if (exam.description != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: 6),
+                          child: Text(
+                            exam.description!,
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(fontSize: 17, color: Colors.black54),
+                          ),
+                        ),
+                      const SizedBox(height: 16),
+                      _InfoLine(
+                        icon: Icons.timer_rounded,
+                        text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm',
+                      ),
+                      const _InfoLine(icon: Icons.visibility_off_rounded, text: 'Trong giờ thi không xem được đáp án.'),
+                      const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
+                      const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
+                      const _InfoLine(icon: Icons.analytics_rounded, text: 'Nộp bài xong có bảng điểm chi tiết.'),
+                      const _InfoLine(
+                        icon: Icons.favorite_rounded,
+                        text: 'Mỗi câu sai mất 1 trái tim. Ôn bài để hồi tim.',
+                      ),
+                      const SizedBox(height: 8),
+                      Center(child: HeartsBar(hearts: app.progress.hearts, size: 30)),
+                      const SizedBox(height: 16),
+                      if (validDraft == null && !app.canStartExam)
+                        _NoHeartsCard(app: app)
+                      else if (validDraft != null) ...[
+                        BigButton(
+                          key: const ValueKey('btn-exam-resume'),
+                          label: 'Làm tiếp (còn ${formatClock(exam.durationMinutes * 60 - validDraft.elapsedSeconds)})',
+                          icon: Icons.play_arrow_rounded,
+                          onPressed: () => _start(exam, draft: validDraft),
+                        ),
+                        const SizedBox(height: 12),
+                        BigButton(
+                          key: const ValueKey('btn-exam-restart'),
+                          label: 'Làm lại từ đầu',
+                          color: AppColors.sky,
+                          outlined: true,
+                          onPressed: () async {
+                            await app.clearExamDraft(exam.id);
+                            if (mounted) _start(exam);
+                          },
+                        ),
+                      ] else
+                        BigButton(
+                          key: const ValueKey('btn-exam-start'),
+                          label: 'Bắt đầu làm bài',
+                          icon: Icons.play_arrow_rounded,
+                          onPressed: () => _start(exam),
+                        ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
@@ -691,7 +738,7 @@ class _InfoLine extends StatelessWidget {
 // ===========================================================================
 
 class ExamRunScreen extends StatefulWidget {
-  const ExamRunScreen({super.key, required this.exam, this.draft, this.sound, this.random});
+  const ExamRunScreen({super.key, required this.exam, this.draft, this.sound, this.random, this.music});
 
   final Exam exam;
 
@@ -701,6 +748,9 @@ class ExamRunScreen extends StatefulWidget {
   /// null = dùng [AppSound.instance].
   final SoundService? sound;
   final Random? random;
+
+  /// null = dùng [ExamMusic.instance].
+  final ExamMusic? music;
 
   @override
   State<ExamRunScreen> createState() => _ExamRunScreenState();
@@ -718,11 +768,67 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
   String? _warning;
 
   SoundService get _sound => widget.sound ?? AppSound.instance;
+  ExamMusic get _music => widget.music ?? ExamMusic.instance;
+
+  // ---- Cô coi thi: đọc đề, đọc đáp án, nhắc giờ ----
+  final _teacher = TeacherController(voiceEnabled: false);
+  int _readFor = -1;
+  int _readToken = 0;
+  String? _readingChoice;
+  int _idle = 0;
+  final Set<int> _encouraged = {};
+  bool _allDoneSaid = false;
+  bool _muted = false;
 
   @override
   void initState() {
     super.initState();
     _timer = Timer.periodic(const Duration(seconds: 1), (_) => _onTick());
+    _teacher.addListener(_onTeacher);
+    _session.addListener(_onSession);
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted) return;
+      _teacher.voiceEnabled = AppScope.read(context).voiceEnabled;
+      // Chuông vào giờ, cô bấm giờ, nhạc nền nhẹ, rồi cô đọc câu đầu tiên.
+      unawaited(_music.chime('start'));
+      unawaited(_music.play());
+      await _teacher.say([widget.draft == null ? ExamLines.start : ExamLines.resume], mood: TeacherMood.clap);
+      if (mounted && _readFor < 0) _readCurrent();
+    });
+  }
+
+  /// Cô nói thì nhạc nhỏ lại.
+  void _onTeacher() => _music.duck(_teacher.speaking);
+
+  void _onSession() {
+    if (_readFor >= 0 && _session.current != _readFor) _readCurrent();
+  }
+
+  /// Cô đọc câu đang làm: số câu, điểm, câu lệnh, đề; trắc nghiệm thì đọc lần lượt từng đáp án (đáp án sáng lên).
+  void _readCurrent() {
+    final i = _session.current;
+    _readFor = i;
+    _idle = 0;
+    final token = ++_readToken;
+    final exam = widget.exam;
+    if (_readingChoice != null) setState(() => _readingChoice = null);
+    () async {
+      await _teacher.say(ExamLines.questionLines(exam, i), mood: TeacherMood.point);
+      for (final (id, line) in ExamLines.choiceLines(exam, exam.items[i].problem)) {
+        if (!mounted || token != _readToken) return;
+        setState(() => _readingChoice = id);
+        await _teacher.say([line]);
+      }
+      if (mounted && token == _readToken) setState(() => _readingChoice = null);
+    }();
+  }
+
+  /// Bé đã chọn đáp án: cô thôi đọc các đáp án còn lại.
+  void _stopReadingChoices() {
+    if (_readingChoice == null) return;
+    _readToken++;
+    _teacher.clear();
+    setState(() => _readingChoice = null);
   }
 
   void _onTick() {
@@ -735,8 +841,25 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
       if (left <= mark && !_warned.contains(mark) && _session.durationSeconds > mark) {
         _warned.add(mark);
         _sound.tap();
-        setState(() => _warning = mark == 300 ? 'Còn 5 phút! Con kiểm tra lại bài nhé.' : 'Còn 1 phút!');
+        _readToken++;
+        _teacher.say([mark == 300 ? ExamLines.fiveMinutes : ExamLines.oneMinute], mood: TeacherMood.think);
+        setState(() {
+          _readingChoice = null;
+          _warning = mark == 300 ? 'Còn 5 phút! Con kiểm tra lại bài nhé.' : 'Còn 1 phút!';
+        });
       }
+    }
+    // Bé làm xong hết: cô nhắc xem lại rồi nộp; bé ngồi lâu ở một câu chưa làm: cô động viên.
+    if (!_teacher.speaking) {
+      final cur = _session.current;
+      if (!_allDoneSaid && _session.answeredCount == _session.items.length) {
+        _allDoneSaid = true;
+        _teacher.say(const [ExamLines.allDone], mood: TeacherMood.clap);
+      } else if (!_session.isAnswered(cur) && ++_idle >= 40 && _encouraged.add(cur)) {
+        _teacher.say([ExamLines.encourage[(_encouraged.length - 1) % ExamLines.encourage.length]]);
+      }
+    } else {
+      _idle = 0;
     }
     if (_session.elapsedSeconds % 5 == 0) _saveDraft();
   }
@@ -749,6 +872,11 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
   @override
   void dispose() {
     _timer?.cancel();
+    _readToken++;
+    _session.removeListener(_onSession);
+    _teacher.removeListener(_onTeacher);
+    _teacher.dispose();
+    _music.stop();
     _session.dispose();
     super.dispose();
   }
@@ -759,6 +887,10 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
     _timer?.cancel();
     final result = _session.submit(timedOut: timedOut);
     _sound.finish();
+    _readToken++;
+    unawaited(_music.stop());
+    unawaited(_music.chime('end'));
+    _teacher.clear(); // cô thu bài, chấm và đọc điểm ở bảng điểm
     final app = AppScope.read(context);
     final previous = app.lastExamScore(result.exam.id);
     final report = ReportCard.build(result, app.catalog, previousScore: previous);
@@ -818,6 +950,9 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
     );
     if (ok == true) {
       _timer?.cancel();
+      _readToken++;
+      _teacher.clear();
+      _music.stop();
       _saveDraft();
       navigator.pop();
     }
@@ -839,199 +974,227 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
             if (!didPop) _exit();
           },
           child: Scaffold(
-            body: SafeArea(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(4, 4, 12, 0),
-                    child: Row(
-                      children: [
-                        IconButton(
-                          iconSize: 32,
-                          tooltip: 'Tạm dừng',
-                          onPressed: _exit,
-                          icon: const Icon(Icons.pause_circle_outline_rounded),
-                        ),
-                        Expanded(
-                          child: Text(
-                            'Câu ${i + 1}/${_session.items.length}',
-                            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
-                          ),
-                        ),
-                        Container(
-                          key: const ValueKey('exam-timer'),
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: hurry ? AppColors.tryAgainSoft : AppColors.skySoft,
-                            borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: hurry ? AppColors.tryAgain : Colors.transparent, width: 2),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(Icons.timer_rounded, color: hurry ? AppColors.tryAgain : AppColors.sky),
-                              const SizedBox(width: 4),
-                              Text(
-                                formatClock(remaining),
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w700,
-                                  color: hurry ? AppColors.tryAgain : AppColors.ink,
-                                  fontFeatures: const [FontFeature.tabularFigures()],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  if (_warning != null)
-                    Container(
-                      key: const ValueKey('exam-warning'),
-                      width: double.infinity,
-                      margin: const EdgeInsets.fromLTRB(12, 6, 12, 0),
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                      decoration: BoxDecoration(color: AppColors.tryAgainSoft, borderRadius: BorderRadius.circular(14)),
+            body: ScreenBackground(
+              name: 'exam_room',
+              veil: 0.72,
+              child: SafeArea(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(4, 4, 12, 0),
                       child: Row(
                         children: [
-                          const Icon(Icons.alarm_rounded, color: AppColors.tryAgain),
-                          const SizedBox(width: 8),
+                          IconButton(
+                            iconSize: 32,
+                            tooltip: 'Tạm dừng',
+                            onPressed: _exit,
+                            icon: const Icon(Icons.pause_circle_outline_rounded),
+                          ),
                           Expanded(
-                            child: Text(_warning!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            child: Text(
+                              'Câu ${i + 1}/${_session.items.length}',
+                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                            ),
                           ),
                           IconButton(
-                            tooltip: 'Ẩn',
-                            onPressed: () => setState(() => _warning = null),
-                            icon: const Icon(Icons.close_rounded),
+                            key: const ValueKey('exam-music'),
+                            tooltip: _muted ? 'Bật nhạc' : 'Tắt nhạc',
+                            onPressed: () {
+                              setState(() => _muted = !_muted);
+                              _music.mute(_muted);
+                            },
+                            icon: Icon(
+                              _muted ? Icons.music_off_rounded : Icons.music_note_rounded,
+                              color: _muted ? Colors.black38 : const Color(0xFF8E5CF7),
+                            ),
+                          ),
+                          Container(
+                            key: const ValueKey('exam-timer'),
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: hurry ? AppColors.tryAgainSoft : AppColors.skySoft,
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(color: hurry ? AppColors.tryAgain : Colors.transparent, width: 2),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(Icons.timer_rounded, color: hurry ? AppColors.tryAgain : AppColors.sky),
+                                const SizedBox(width: 4),
+                                Text(
+                                  formatClock(remaining),
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700,
+                                    color: hurry ? AppColors.tryAgain : AppColors.ink,
+                                    fontFeatures: const [FontFeature.tabularFigures()],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                  SizedBox(
-                    height: 56,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                      children: [
-                        for (var k = 0; k < _session.items.length; k++)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 6),
-                            child: InkWell(
-                              key: ValueKey('qnav-$k'),
-                              borderRadius: BorderRadius.circular(22),
-                              onTap: () => _session.goTo(k),
-                              child: CircleAvatar(
-                                radius: 22,
-                                backgroundColor: k == i
-                                    ? AppColors.sky
-                                    : (_session.isAnswered(k) ? AppColors.goodSoft : Colors.white),
-                                child: Text(
-                                  '${k + 1}',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    color: k == i ? Colors.white : AppColors.ink,
+                    if (_warning != null)
+                      Container(
+                        key: const ValueKey('exam-warning'),
+                        width: double.infinity,
+                        margin: const EdgeInsets.fromLTRB(12, 6, 12, 0),
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: AppColors.tryAgainSoft,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.alarm_rounded, color: AppColors.tryAgain),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(_warning!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                            ),
+                            IconButton(
+                              tooltip: 'Ẩn',
+                              onPressed: () => setState(() => _warning = null),
+                              icon: const Icon(Icons.close_rounded),
+                            ),
+                          ],
+                        ),
+                      ),
+                    SizedBox(
+                      height: 56,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                        children: [
+                          for (var k = 0; k < _session.items.length; k++)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6),
+                              child: InkWell(
+                                key: ValueKey('qnav-$k'),
+                                borderRadius: BorderRadius.circular(22),
+                                onTap: () => _session.goTo(k),
+                                child: CircleAvatar(
+                                  radius: 22,
+                                  backgroundColor: k == i
+                                      ? AppColors.sky
+                                      : (_session.isAnswered(k) ? AppColors.goodSoft : Colors.white),
+                                  child: Text(
+                                    '${k + 1}',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w700,
+                                      color: k == i ? Colors.white : AppColors.ink,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsets.all(16),
-                      child: Center(
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 640),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(18),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(AppSizes.radius),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      '${item.problem.displayInstruction} (${formatPoints(item.points)} điểm)',
-                                      style: const TextStyle(
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w700,
-                                        color: AppColors.sky,
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(16),
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 640),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(18),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(AppSizes.radius),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${item.problem.displayInstruction} (${formatPoints(item.points)} điểm)',
+                                        style: const TextStyle(
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.w700,
+                                          color: AppColors.sky,
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      item.problem.prompt.text,
-                                      style: const TextStyle(
-                                        fontSize: AppSizes.promptFont,
-                                        fontWeight: FontWeight.w700,
-                                        height: 1.35,
+                                      const SizedBox(height: 8),
+                                      Text(
+                                        item.problem.prompt.text,
+                                        style: const TextStyle(
+                                          fontSize: AppSizes.promptFont,
+                                          fontWeight: FontWeight.w700,
+                                          height: 1.35,
+                                        ),
                                       ),
+                                    ],
+                                  ),
+                                ),
+                                const SizedBox(height: 16),
+                                KeyedSubtree(
+                                  key: ValueKey('exam-q-$i'),
+                                  child: buildAnswerView(
+                                    problem: item.problem,
+                                    state: AnswerViewState(
+                                      enabled: true,
+                                      check: null,
+                                      showCorrect: false,
+                                      readingChoiceId: _readingChoice,
                                     ),
-                                  ],
+                                    onChanged: (a) {
+                                      _stopReadingChoices();
+                                      _session.setAnswer(i, a);
+                                      _saveDraft();
+                                    },
+                                    initial: _session.answerOf(i),
+                                    random: widget.random,
+                                    // Thứ tự cố định theo đề: cô đọc "Đáp án A…" đúng như trên màn hình.
+                                    choiceOrder: ExamLines.choiceOrder(widget.exam, item.problem),
+                                  ),
                                 ),
-                              ),
-                              const SizedBox(height: 16),
-                              KeyedSubtree(
-                                key: ValueKey('exam-q-$i'),
-                                child: buildAnswerView(
-                                  problem: item.problem,
-                                  state: const AnswerViewState(enabled: true, check: null, showCorrect: false),
-                                  onChanged: (a) {
-                                    _session.setAnswer(i, a);
-                                    _saveDraft();
-                                  },
-                                  initial: _session.answerOf(i),
-                                  random: widget.random,
-                                ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: BigButton(
-                            key: const ValueKey('btn-prev'),
-                            label: 'Câu trước',
-                            color: AppColors.sky,
-                            outlined: true,
-                            onPressed: i == 0 ? null : () => _session.goTo(i - 1),
+                    _ProctorBar(teacher: _teacher, onReplay: _readCurrent),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 4, 16, 16),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: BigButton(
+                              key: const ValueKey('btn-prev'),
+                              label: 'Câu trước',
+                              color: AppColors.sky,
+                              outlined: true,
+                              onPressed: i == 0 ? null : () => _session.goTo(i - 1),
+                            ),
                           ),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: isLast
-                              ? BigButton(
-                                  key: const ValueKey('btn-submit'),
-                                  label: 'Nộp bài',
-                                  icon: Icons.send_rounded,
-                                  color: AppColors.tryAgain,
-                                  onPressed: _confirmSubmit,
-                                )
-                              : BigButton(
-                                  key: const ValueKey('btn-next-q'),
-                                  label: 'Câu sau',
-                                  icon: Icons.arrow_forward_rounded,
-                                  color: AppColors.sky,
-                                  onPressed: () => _session.goTo(i + 1),
-                                ),
-                        ),
-                      ],
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: isLast
+                                ? BigButton(
+                                    key: const ValueKey('btn-submit'),
+                                    label: 'Nộp bài',
+                                    icon: Icons.send_rounded,
+                                    color: AppColors.tryAgain,
+                                    onPressed: _confirmSubmit,
+                                  )
+                                : BigButton(
+                                    key: const ValueKey('btn-next-q'),
+                                    label: 'Câu sau',
+                                    icon: Icons.arrow_forward_rounded,
+                                    color: AppColors.sky,
+                                    onPressed: () => _session.goTo(i + 1),
+                                  ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -1039,6 +1202,66 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
       },
     );
   }
+}
+
+/// Cô coi thi ngồi ở bàn giáo viên: miệng nói khi đọc đề; bấm "Đọc lại" để nghe lại câu đang làm.
+class _ProctorBar extends StatelessWidget {
+  const _ProctorBar({required this.teacher, required this.onReplay});
+
+  final TeacherController teacher;
+  final VoidCallback onReplay;
+
+  @override
+  Widget build(BuildContext context) => ListenableBuilder(
+    listenable: teacher,
+    builder: (context, _) => Container(
+      key: const ValueKey('exam-proctor-bar'),
+      margin: const EdgeInsets.fromLTRB(12, 4, 12, 4),
+      padding: const EdgeInsets.fromLTRB(6, 4, 6, 4),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.92),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(color: const Color(0xFFFFD66B), width: 2),
+        boxShadow: const [BoxShadow(color: Color(0x1A000000), blurRadius: 10, offset: Offset(0, 3))],
+      ),
+      child: Row(
+        children: [
+          TeacherAvatar(height: 66, mood: teacher.mood, mouthOpen: teacher.mouthOpen),
+          const SizedBox(width: 6),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text(
+                  'Cô Mai coi thi',
+                  style: TextStyle(fontSize: 13, color: Colors.black45, fontWeight: FontWeight.w700),
+                ),
+                Text(
+                  teacher.speaking ? teacher.text : 'Cô đang coi thi. Con làm bài thật cẩn thận nhé!',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, height: 1.25),
+                ),
+              ],
+            ),
+          ),
+          if (teacher.speaking)
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 6),
+              child: Icon(Icons.graphic_eq_rounded, color: AppColors.sky, size: 28),
+            )
+          else
+            TextButton.icon(
+              key: const ValueKey('exam-read-again'),
+              onPressed: onReplay,
+              icon: const Icon(Icons.replay_rounded),
+              label: const Text('Đọc lại', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
+            ),
+        ],
+      ),
+    ),
+  );
 }
 
 /// "1", "1,5", "0,25"
@@ -1077,167 +1300,183 @@ class ReportCardScreen extends StatelessWidget {
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 640),
-          child: ListView(
+          // Dựng hết (không lười) → mọi thẻ có ngay, cô đọc điểm ở trên cùng.
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
-            children: [
-              if (result.timedOut)
-                const Text(
-                  'Hết giờ! Bài đã được nộp tự động.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 18, color: AppColors.tryAgain),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                // Cô chấm xong, tự đọc điểm và nhận xét.
+                TeacherIntro(
+                  key: const ValueKey('report-teacher'),
+                  lines: [
+                    result.timedOut ? ExamLines.timeUp : ExamLines.submitted,
+                    ExamLines.score(score),
+                    ExamLines.comment(score),
+                  ],
+                  mood: score >= 7 ? TeacherMood.clap : TeacherMood.idle,
+                  avatarHeight: 100,
                 ),
-              _Card(
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: 110,
-                        height: 110,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: score >= 5 ? AppColors.goodSoft : AppColors.tryAgainSoft,
-                          border: Border.all(color: score >= 5 ? AppColors.good : AppColors.tryAgain, width: 6),
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              '$score',
-                              key: const ValueKey('exam-score'),
-                              style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w700, height: 1),
-                            ),
-                            const Text('điểm', style: TextStyle(fontSize: 16)),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
-                            Text(
-                              result.exam.examType.displayName,
-                              style: TextStyle(fontSize: 16, color: _typeColor(result.exam.examType)),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              'Đúng ${result.correctCount}/${result.items.length} câu',
-                              style: const TextStyle(fontSize: 18),
-                            ),
-                            Text(
-                              'Thời gian: ${formatClock(result.usedSeconds)} / ${result.exam.durationMinutes}:00',
-                              style: const TextStyle(fontSize: 16, color: Colors.black54),
-                            ),
-                            if (change != null)
-                              Text(
-                                change > 0
-                                    ? 'Tăng $change điểm so với lần trước!'
-                                    : change == 0
-                                    ? 'Bằng điểm lần trước.'
-                                    : 'Thấp hơn lần trước ${-change} điểm, cố lên nhé!',
-                                key: const ValueKey('score-change'),
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w700,
-                                  color: change >= 0 ? AppColors.good : AppColors.tryAgain,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    ],
+                const SizedBox(height: 10),
+                if (result.timedOut)
+                  const Text(
+                    'Hết giờ! Bài đã được nộp tự động.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18, color: AppColors.tryAgain),
                   ),
-                  RewardBanner(reward: reward),
-                ],
-              ),
-              _Card(
-                color: AppColors.honeySoft,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text('💬', style: TextStyle(fontSize: 32)),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          report.message,
-                          key: const ValueKey('report-message'),
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, height: 1.35),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              _Card(
-                children: [
-                  const Text('Theo từng phần kiến thức', style: h),
-                  const SizedBox(height: 8),
-                  for (final t in report.topics) _TopicBar(topic: t),
-                ],
-              ),
-              if (report.suggestedLessons.isNotEmpty)
                 _Card(
                   children: [
-                    const Text('Ôn ngay', style: h),
-                    const SizedBox(height: 6),
-                    for (final l in report.suggestedLessons)
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
-                        child: OutlinedButton.icon(
-                          key: ValueKey('review-lesson-${l.id}'),
-                          style: OutlinedButton.styleFrom(
-                            minimumSize: const Size.fromHeight(52),
-                            alignment: Alignment.centerLeft,
-                            side: const BorderSide(color: AppColors.sky, width: 2),
+                    Row(
+                      children: [
+                        Container(
+                          width: 110,
+                          height: 110,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: score >= 5 ? AppColors.goodSoft : AppColors.tryAgainSoft,
+                            border: Border.all(color: score >= 5 ? AppColors.good : AppColors.tryAgain, width: 6),
                           ),
-                          onPressed: app.canOpen(l.access)
-                              ? () => Navigator.of(
-                                  context,
-                                ).push(MaterialPageRoute<void>(builder: (_) => LessonScreen(lessonRef: l)))
-                              : null,
-                          icon: const Icon(Icons.auto_stories_rounded),
-                          label: Text(l.title, style: const TextStyle(fontSize: 17)),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                '$score',
+                                key: const ValueKey('exam-score'),
+                                style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w700, height: 1),
+                              ),
+                              const Text('điểm', style: TextStyle(fontSize: 16)),
+                            ],
+                          ),
                         ),
-                      ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
+                              Text(
+                                result.exam.examType.displayName,
+                                style: TextStyle(fontSize: 16, color: _typeColor(result.exam.examType)),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                'Đúng ${result.correctCount}/${result.items.length} câu',
+                                style: const TextStyle(fontSize: 18),
+                              ),
+                              Text(
+                                'Thời gian: ${formatClock(result.usedSeconds)} / ${result.exam.durationMinutes}:00',
+                                style: const TextStyle(fontSize: 16, color: Colors.black54),
+                              ),
+                              if (change != null)
+                                Text(
+                                  change > 0
+                                      ? 'Tăng $change điểm so với lần trước!'
+                                      : change == 0
+                                      ? 'Bằng điểm lần trước.'
+                                      : 'Thấp hơn lần trước ${-change} điểm, cố lên nhé!',
+                                  key: const ValueKey('score-change'),
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700,
+                                    color: change >= 0 ? AppColors.good : AppColors.tryAgain,
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    RewardBanner(reward: reward),
                   ],
                 ),
-              _Card(
-                children: [
-                  const Text('Bảng đúng / sai', style: h),
-                  const Text(
-                    'Chạm vào từng câu để xem lời giải.',
-                    style: TextStyle(fontSize: 15, color: Colors.black54),
-                  ),
-                  const SizedBox(height: 10),
-                  Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
+                _Card(
+                  color: AppColors.honeySoft,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('💬', style: TextStyle(fontSize: 32)),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: Text(
+                            report.message,
+                            key: const ValueKey('report-message'),
+                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, height: 1.35),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                _Card(
+                  children: [
+                    const Text('Theo từng phần kiến thức', style: h),
+                    const SizedBox(height: 8),
+                    for (final t in report.topics) _TopicBar(topic: t),
+                  ],
+                ),
+                if (report.suggestedLessons.isNotEmpty)
+                  _Card(
                     children: [
-                      for (final (k, r) in result.items.indexed)
-                        _AnswerCell(index: k, item: r, onTap: () => _showSolution(context, r, app)),
+                      const Text('Ôn ngay', style: h),
+                      const SizedBox(height: 6),
+                      for (final l in report.suggestedLessons)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 8),
+                          child: OutlinedButton.icon(
+                            key: ValueKey('review-lesson-${l.id}'),
+                            style: OutlinedButton.styleFrom(
+                              minimumSize: const Size.fromHeight(52),
+                              alignment: Alignment.centerLeft,
+                              side: const BorderSide(color: AppColors.sky, width: 2),
+                            ),
+                            onPressed: app.canOpen(l.access)
+                                ? () => Navigator.of(
+                                    context,
+                                  ).push(MaterialPageRoute<void>(builder: (_) => LessonScreen(lessonRef: l)))
+                                : null,
+                            icon: const Icon(Icons.auto_stories_rounded),
+                            label: Text(l.title, style: const TextStyle(fontSize: 17)),
+                          ),
+                        ),
                     ],
                   ),
-                  const SizedBox(height: 8),
-                  const Wrap(
-                    spacing: 12,
-                    children: [
-                      _Legend(color: AppColors.good, text: 'Đúng'),
-                      _Legend(color: AppColors.honey, text: 'Đúng một phần'),
-                      _Legend(color: AppColors.tryAgain, text: 'Sai / chưa làm'),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 4),
-              BigButton(
-                label: 'Về trang chính',
-                icon: Icons.home_rounded,
-                onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
-              ),
-            ],
+                _Card(
+                  children: [
+                    const Text('Bảng đúng / sai', style: h),
+                    const Text(
+                      'Chạm vào từng câu để xem lời giải.',
+                      style: TextStyle(fontSize: 15, color: Colors.black54),
+                    ),
+                    const SizedBox(height: 10),
+                    Wrap(
+                      spacing: 8,
+                      runSpacing: 8,
+                      children: [
+                        for (final (k, r) in result.items.indexed)
+                          _AnswerCell(index: k, item: r, onTap: () => _showSolution(context, r, app)),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    const Wrap(
+                      spacing: 12,
+                      children: [
+                        _Legend(color: AppColors.good, text: 'Đúng'),
+                        _Legend(color: AppColors.honey, text: 'Đúng một phần'),
+                        _Legend(color: AppColors.tryAgain, text: 'Sai / chưa làm'),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                BigButton(
+                  label: 'Về trang chính',
+                  icon: Icons.home_rounded,
+                  onPressed: () => Navigator.of(context).popUntil((r) => r.isFirst),
+                ),
+              ],
+            ),
           ),
         ),
       ),

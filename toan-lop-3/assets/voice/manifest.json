@@ -914,6 +914,12 @@
       "spoken": "một trăm hai mươi nhân năm bằng sáu trăm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "127 × 4 = ?": {
+      "file": "assets/voice/127-4-3a8119-trang.mp3",
+      "ms": 2880,
+      "spoken": "một trăm hai mươi bảy nhân bốn bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "129.360 l": {
       "file": "assets/voice/129-360-l-306704-trang.mp3",
       "ms": 2544,
@@ -1488,6 +1494,12 @@
       "file": "assets/voice/18-to-9cef3d-trang.mp3",
       "ms": 1176,
       "spoken": "mười tám tờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "18 × 4 = ?": {
+      "file": "assets/voice/18-4-8d2049-trang.mp3",
+      "ms": 1992,
+      "spoken": "mười tám nhân bốn bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "182 l": {
@@ -2498,6 +2510,12 @@
       "spoken": "hai mươi bảy nhân ba bằng tám mươi mốt",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "27 × 3 = ?": {
+      "file": "assets/voice/27-3-f0c67d-trang.mp3",
+      "ms": 2160,
+      "spoken": "hai mươi bảy nhân ba bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "27.000 l": {
       "file": "assets/voice/27-000-l-591a3b-trang.mp3",
       "ms": 1248,
@@ -2676,6 +2694,12 @@
       "file": "assets/voice/29-cm-f4e35d-trang.mp3",
       "ms": 1632,
       "spoken": "hai mươi chín xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "29 × 3 = ?. 48 : 4 = ?": {
+      "file": "assets/voice/29-3-48-4-8c9d9d-trang.mp3",
+      "ms": 4944,
+      "spoken": "hai mươi chín nhân ba bằng bao nhiêu?. bốn mươi tám chia bốn bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "29.224 × 2 = ?": {
@@ -3488,6 +3512,12 @@
       "spoken": "ba trăm năm mươi ba",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "356 + 278 = ?": {
+      "file": "assets/voice/356-278-96066c-trang.mp3",
+      "ms": 3576,
+      "spoken": "ba trăm năm mươi sáu cộng hai trăm bảy mươi tám bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "36": {
       "file": "assets/voice/36-89f054-trang.mp3",
       "ms": 1152,
@@ -3546,6 +3576,12 @@
       "file": "assets/voice/37-c-fa121b-trang.mp3",
       "ms": 1512,
       "spoken": "ba mươi bảy độ C",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "37 × 2 = ?": {
+      "file": "assets/voice/37-2-8ce80b-trang.mp3",
+      "ms": 2328,
+      "spoken": "ba mươi bảy nhân hai bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "37 × 8 - 130 = 296 - 130 = 166": {
@@ -4544,6 +4580,12 @@
       "spoken": "năm bao bên trái là năm chục nghìn: năm mươi nghìn đồng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "5 bạn gấp được ? ngôi sao.": {
+      "file": "assets/voice/5-ban-gap-duoc-ngoi-sao-2ab4ee-trang.mp3",
+      "ms": 2568,
+      "spoken": "năm bạn gấp được ? ngôi sao.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "5 cm": {
       "file": "assets/voice/5-cm-2c92de-trang.mp3",
       "ms": 1272,
@@ -5396,6 +5438,12 @@
       "spoken": "sáu trăm mười bảy",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "618 : 6 = ?": {
+      "file": "assets/voice/618-6-aad3fd-trang.mp3",
+      "ms": 2568,
+      "spoken": "sáu trăm mười tám chia sáu bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "62 cái": {
       "file": "assets/voice/62-cai-9fcedf-trang.mp3",
       "ms": 1344,
@@ -6048,6 +6096,12 @@
       "file": "assets/voice/70-929-24-222-95-151-b1c003-trang.mp3",
       "ms": 7248,
       "spoken": "bảy mươi nghìn chín trăm hai mươi chín cộng hai mươi tư nghìn hai trăm hai mươi hai bằng chín mươi lăm nghìn một trăm năm mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "702 - 465 = ?": {
+      "file": "assets/voice/702-465-2c1461-trang.mp3",
+      "ms": 3504,
+      "spoken": "bảy trăm linh hai trừ bốn trăm sáu mươi lăm bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "702 g": {
@@ -6734,6 +6788,12 @@
       "spoken": "tám mươi tư nghìn",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "85 : 5 = ?": {
+      "file": "assets/voice/85-5-c593f2-trang.mp3",
+      "ms": 2424,
+      "spoken": "tám mươi lăm chia năm bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "85.000 đồng": {
       "file": "assets/voice/85-000-dong-40f77b-trang.mp3",
       "ms": 1344,
@@ -6756,6 +6816,12 @@
       "file": "assets/voice/86-245-l-7af4bf-trang.mp3",
       "ms": 2400,
       "spoken": "tám mươi sáu nghìn hai trăm bốn mươi lăm lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "864 : 4 = ?": {
+      "file": "assets/voice/864-4-441e1b-trang.mp3",
+      "ms": 2712,
+      "spoken": "tám trăm sáu mươi tư chia bốn bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "87 kg": {
@@ -7268,6 +7334,12 @@
       "spoken": "? + hai nghìn bảy trăm linh chín trừ ba nghìn ba trăm bốn mươi tư bằng bốn nghìn ba trăm mười lăm ? + hai nghìn bảy trăm linh chín trừ ba nghìn ba trăm bốn mươi tư bằng bốn nghìn ba trăm mười lăm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "? + 245 = 600": {
+      "file": "assets/voice/245-600-43ae3f-trang.mp3",
+      "ms": 2400,
+      "spoken": "? + hai trăm bốn mươi lăm bằng sáu trăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "? + 26 = 67": {
       "file": "assets/voice/26-67-2bad66-trang.mp3",
       "ms": 2112,
@@ -7352,6 +7424,12 @@
       "spoken": "? : bốn cộng hai mươi tư nghìn sáu trăm ba mươi lăm bằng hai mươi chín nghìn hai trăm hai mươi bảy ? : bốn cộng hai mươi tư nghìn sáu trăm ba mươi lăm bằng hai mươi chín nghìn hai trăm hai mươi bảy",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "? : 5 = 102": {
+      "file": "assets/voice/5-102-09d86a-trang.mp3",
+      "ms": 1896,
+      "spoken": "? : năm bằng một trăm linh hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "? × 2 - 6 = 10": {
       "file": "assets/voice/2-6-10-1eeaf6-trang.mp3",
       "ms": 1848,
@@ -7380,6 +7458,12 @@
       "file": "assets/voice/4-96-9f682a-trang.mp3",
       "ms": 2112,
       "spoken": "? × bốn bằng chín mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "? × 5 = 75": {
+      "file": "assets/voice/5-75-8cc707-trang.mp3",
+      "ms": 1752,
+      "spoken": "? × năm bằng bảy mươi lăm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "? × 6 = 18": {
@@ -7674,6 +7758,30 @@
       "file": "assets/voice/ba-dua-co-ban-hang-to-100-000-dong-5daaa3-trang.mp3",
       "ms": 2568,
       "spoken": "Bà đưa cô bán hàng tờ một trăm nghìn đồng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bài có 10 câu, con làm trong 35 phút, tổng điểm là 10 điểm.": {
+      "file": "assets/voice/bai-co-10-cau-con-lam-trong-35-phut-tong-147de2-trang.mp3",
+      "ms": 5040,
+      "spoken": "Bài có mười câu, con làm trong ba mươi lăm phút, tổng điểm là mười điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bài có 10 câu, con làm trong 40 phút, tổng điểm là 10 điểm.": {
+      "file": "assets/voice/bai-co-10-cau-con-lam-trong-40-phut-tong-496699-trang.mp3",
+      "ms": 4632,
+      "spoken": "Bài có mười câu, con làm trong bốn mươi phút, tổng điểm là mười điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bài có 5 câu, con làm trong 15 phút, tổng điểm là 10 điểm.": {
+      "file": "assets/voice/bai-co-5-cau-con-lam-trong-15-phut-tong-5a2459-trang.mp3",
+      "ms": 4344,
+      "spoken": "Bài có năm câu, con làm trong mười lăm phút, tổng điểm là mười điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bài có 6 câu, con làm trong 35 phút, tổng điểm là 10 điểm.": {
+      "file": "assets/voice/bai-co-6-cau-con-lam-trong-35-phut-tong-6afa73-trang.mp3",
+      "ms": 4872,
+      "spoken": "Bài có sáu câu, con làm trong ba mươi lăm phút, tổng điểm là mười điểm.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bài học: Biểu thức số. Tính giá trị của biểu thức số. Con xem video bài giảng của cô trước, rồi mình luyện tập nhé!": {
@@ -9746,6 +9854,12 @@
       "spoken": "Chuối không có trong giỏ, nên không thể bốc được chuối.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Chào con! Hôm nay cô Mai coi thi cho con. Con ngồi ngay ngắn và nghe cô dặn dò nhé.": {
+      "file": "assets/voice/chao-con-hom-nay-co-mai-coi-thi-cho-con-4b268e-trang.mp3",
+      "ms": 5640,
+      "spoken": "Chào con! Hôm nay cô Mai coi thi cho con. Con ngồi ngay ngắn và nghe cô dặn dò nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.": {
       "file": "assets/voice/chao-mung-con-den-cua-hang-dung-vang-de-c62c15-trang.mp3",
       "ms": 3960,
@@ -9834,6 +9948,12 @@
       "file": "assets/voice/cham-vao-mot-phep-tinh-roi-cham-vao-ket-02917b-trang.mp3",
       "ms": 3744,
       "spoken": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Chạm vào một phép tính, rồi chạm vào kết quả đúng.": {
+      "file": "assets/voice/cham-vao-mot-phep-tinh-roi-cham-vao-ket-41e313-trang.mp3",
+      "ms": 3216,
+      "spoken": "Chạm vào một phép tính, rồi chạm vào kết quả đúng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chắc chắn là luôn xảy ra, không thể là không bao giờ xảy ra, có thể là lúc xảy ra lúc không.": {
@@ -10076,10 +10196,22 @@
       "spoken": "Con cố gắng lắm rồi! Mình cùng nhớ nhé:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Con cố gắng thêm nhé! Mình cùng xem lại các câu sai.": {
+      "file": "assets/voice/con-co-gang-them-nhe-minh-cung-xem-lai-c-2df06c-trang.mp3",
+      "ms": 3528,
+      "spoken": "Con cố gắng thêm nhé! Mình cùng xem lại các câu sai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Con cộng giá trị của các tờ tiền lại với nhau nhé.": {
       "file": "assets/voice/con-cong-gia-tri-cua-cac-to-tien-lai-voi-7220bf-trang.mp3",
       "ms": 2928,
       "spoken": "Con cộng giá trị của các tờ tiền lại với nhau nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con cứ bình tĩnh suy nghĩ nhé, cô tin con làm được!": {
+      "file": "assets/voice/con-cu-binh-tinh-suy-nghi-nhe-co-tin-con-f5224c-trang.mp3",
+      "ms": 3480,
+      "spoken": "Con cứ bình tĩnh suy nghĩ nhé, cô tin con làm được!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con cứ bình tĩnh, tính ra nháp trước rồi điền đáp án nhé.": {
@@ -10140,6 +10272,12 @@
       "file": "assets/voice/con-lam-nhanh-qua-50e73b-trang.mp3",
       "ms": 1224,
       "spoken": "Con làm nhanh quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con làm tiếp bài đang dở nhé. Cô bấm giờ tiếp đây!": {
+      "file": "assets/voice/con-lam-tiep-bai-dang-do-nhe-co-bam-gio-bc323e-trang.mp3",
+      "ms": 3576,
+      "spoken": "Con làm tiếp bài đang dở nhé. Cô bấm giờ tiếp đây!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con làm xong rồi thì bấm Kiểm tra nhé!": {
@@ -10454,6 +10592,12 @@
       "spoken": "Con nhớ phần vừa rồi chưa? Giờ cô xoá bảng và giảng tiếp nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Con nộp bài rồi! Cô chấm bài ngay đây.": {
+      "file": "assets/voice/con-nop-bai-roi-co-cham-bai-ngay-day-ac4c86-trang.mp3",
+      "ms": 2616,
+      "spoken": "Con nộp bài rồi! Cô chấm bài ngay đây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.": {
       "file": "assets/voice/con-so-sanh-cac-so-roi-xep-lan-luot-tu-b-7624fa-trang.mp3",
       "ms": 3744,
@@ -10628,6 +10772,12 @@
       "spoken": "Con đã hiểu bài chưa nào? Con chọn giúp cô nhé!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Con đã làm hết các câu rồi! Con xem lại bài một lượt, rồi bấm Nộp bài nhé.": {
+      "file": "assets/voice/con-da-lam-het-cac-cau-roi-con-xem-lai-b-040761-trang.mp3",
+      "ms": 4920,
+      "spoken": "Con đã làm hết các câu rồi! Con xem lại bài một lượt, rồi bấm Nộp bài nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Con đã làm được một nửa rồi, cố lên nào!": {
       "file": "assets/voice/con-da-lam-duoc-mot-nua-roi-co-len-nao-bdd6e1-trang.mp3",
       "ms": 3072,
@@ -10662,6 +10812,72 @@
       "file": "assets/voice/con-duong-thu-nhat-dai-788-m-con-duong-t-3db83b-trang.mp3",
       "ms": 9480,
       "spoken": "Con đường thứ nhất dài bảy trăm tám mươi tám mét, con đường thứ hai ngắn hơn con đường thứ nhất bốn trăm chín mươi tư mét. Hỏi con đường thứ hai dài bao nhiêu mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 0 điểm.": {
+      "file": "assets/voice/con-duoc-0-diem-db0a98-trang.mp3",
+      "ms": 1296,
+      "spoken": "Con được không điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 1 điểm.": {
+      "file": "assets/voice/con-duoc-1-diem-c1c7ae-trang.mp3",
+      "ms": 1128,
+      "spoken": "Con được một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 10 điểm.": {
+      "file": "assets/voice/con-duoc-10-diem-1f8061-trang.mp3",
+      "ms": 1368,
+      "spoken": "Con được mười điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 2 điểm.": {
+      "file": "assets/voice/con-duoc-2-diem-a24d2c-trang.mp3",
+      "ms": 1248,
+      "spoken": "Con được hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 3 điểm.": {
+      "file": "assets/voice/con-duoc-3-diem-13c1e2-trang.mp3",
+      "ms": 1224,
+      "spoken": "Con được ba điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 4 điểm.": {
+      "file": "assets/voice/con-duoc-4-diem-c2cfdd-trang.mp3",
+      "ms": 1224,
+      "spoken": "Con được bốn điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 5 điểm.": {
+      "file": "assets/voice/con-duoc-5-diem-aaf59e-trang.mp3",
+      "ms": 1200,
+      "spoken": "Con được năm điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 6 điểm.": {
+      "file": "assets/voice/con-duoc-6-diem-ca2476-trang.mp3",
+      "ms": 1248,
+      "spoken": "Con được sáu điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 7 điểm.": {
+      "file": "assets/voice/con-duoc-7-diem-2c78d7-trang.mp3",
+      "ms": 1272,
+      "spoken": "Con được bảy điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 8 điểm.": {
+      "file": "assets/voice/con-duoc-8-diem-7f0f8e-trang.mp3",
+      "ms": 1248,
+      "spoken": "Con được tám điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con được 9 điểm.": {
+      "file": "assets/voice/con-duoc-9-diem-3d969d-trang.mp3",
+      "ms": 1320,
+      "spoken": "Con được chín điểm.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đạt hạng Hạt mầm chăm chỉ. Mình học từng bước một, con sẽ lớn nhanh lắm!": {
@@ -10740,6 +10956,12 @@
       "file": "assets/voice/con-doc-lai-bang-nhan-hoac-dem-them-deu-b76b1f-trang.mp3",
       "ms": 4104,
       "spoken": "Con đọc lại bảng nhân hoặc đếm thêm đều để tìm kết quả nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Con đọc lại đề thật chậm, gạch chân điều đề hỏi nhé.": {
+      "file": "assets/voice/con-doc-lai-de-that-cham-gach-chan-dieu-a81a18-trang.mp3",
+      "ms": 3360,
+      "spoken": "Con đọc lại đề thật chậm, gạch chân điều đề hỏi nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Con đọc số liệu ở từng dòng rồi so sánh hoặc tính nhé.": {
@@ -10844,6 +11066,132 @@
       "spoken": "Cân đĩa thăng bằng. Một đĩa cân đặt quả xoài, đĩa cân kia đặt các quả cân: năm mươi gam, hai mươi gam, hai trăm gam. Hỏi quả xoài nặng bao nhiêu gam?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Câu 1, 1 phẩy 5 điểm.": {
+      "file": "assets/voice/cau-1-1-phay-5-diem-9e607b-trang.mp3",
+      "ms": 2136,
+      "spoken": "Câu một, một phẩy năm điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 1, 1 điểm.": {
+      "file": "assets/voice/cau-1-1-diem-0da926-trang.mp3",
+      "ms": 1776,
+      "spoken": "Câu một, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 1, 2 điểm.": {
+      "file": "assets/voice/cau-1-2-diem-e2076a-trang.mp3",
+      "ms": 1776,
+      "spoken": "Câu một, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 10, 1 điểm.": {
+      "file": "assets/voice/cau-10-1-diem-ba0bcb-trang.mp3",
+      "ms": 1920,
+      "spoken": "Câu mười, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 2, 1 phẩy 5 điểm.": {
+      "file": "assets/voice/cau-2-1-phay-5-diem-09cbe8-trang.mp3",
+      "ms": 2208,
+      "spoken": "Câu hai, một phẩy năm điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 2, 1 điểm.": {
+      "file": "assets/voice/cau-2-1-diem-7baf3c-trang.mp3",
+      "ms": 1824,
+      "spoken": "Câu hai, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 2, 2 điểm.": {
+      "file": "assets/voice/cau-2-2-diem-7c42aa-trang.mp3",
+      "ms": 1824,
+      "spoken": "Câu hai, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 3, 1 phẩy 5 điểm.": {
+      "file": "assets/voice/cau-3-1-phay-5-diem-0f08df-trang.mp3",
+      "ms": 2136,
+      "spoken": "Câu ba, một phẩy năm điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 3, 1 điểm.": {
+      "file": "assets/voice/cau-3-1-diem-5918b4-trang.mp3",
+      "ms": 1872,
+      "spoken": "Câu ba, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 3, 2 điểm.": {
+      "file": "assets/voice/cau-3-2-diem-f08f77-trang.mp3",
+      "ms": 1968,
+      "spoken": "Câu ba, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 4, 1 phẩy 5 điểm.": {
+      "file": "assets/voice/cau-4-1-phay-5-diem-3c147e-trang.mp3",
+      "ms": 2232,
+      "spoken": "Câu bốn, một phẩy năm điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 4, 1 điểm.": {
+      "file": "assets/voice/cau-4-1-diem-486723-trang.mp3",
+      "ms": 2064,
+      "spoken": "Câu bốn, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 4, 2 điểm.": {
+      "file": "assets/voice/cau-4-2-diem-ea3960-trang.mp3",
+      "ms": 1800,
+      "spoken": "Câu bốn, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 5, 1 điểm.": {
+      "file": "assets/voice/cau-5-1-diem-983c1d-trang.mp3",
+      "ms": 1944,
+      "spoken": "Câu năm, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 5, 2 điểm.": {
+      "file": "assets/voice/cau-5-2-diem-f3eb80-trang.mp3",
+      "ms": 2064,
+      "spoken": "Câu năm, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 6, 1 điểm.": {
+      "file": "assets/voice/cau-6-1-diem-52c99a-trang.mp3",
+      "ms": 1968,
+      "spoken": "Câu sáu, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 6, 2 điểm.": {
+      "file": "assets/voice/cau-6-2-diem-3f35df-trang.mp3",
+      "ms": 1728,
+      "spoken": "Câu sáu, hai điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 7, 1 điểm.": {
+      "file": "assets/voice/cau-7-1-diem-3f4d13-trang.mp3",
+      "ms": 1752,
+      "spoken": "Câu bảy, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 8, 1 điểm.": {
+      "file": "assets/voice/cau-8-1-diem-c09f51-trang.mp3",
+      "ms": 1944,
+      "spoken": "Câu tám, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu 9, 1 điểm.": {
+      "file": "assets/voice/cau-9-1-diem-417563-trang.mp3",
+      "ms": 1824,
+      "spoken": "Câu chín, một điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Câu nào khó, con cứ làm câu khác trước, rồi quay lại sau.": {
+      "file": "assets/voice/cau-nao-kho-con-cu-lam-cau-khac-truoc-ro-1ce92d-trang.mp3",
+      "ms": 4248,
+      "spoken": "Câu nào khó, con cứ làm câu khác trước, rồi quay lại sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Cây cầu nào dài nhất? Cầu Sông Hồng: dài 2.840 m Cầu Sông Mã: dài 2.940 m Cầu Sông Lam: dài 2.240 m": {
       "file": "assets/voice/cay-cau-nao-dai-nhat-cau-song-hong-dai-2-7ade74-trang.mp3",
       "ms": 11904,
@@ -10860,6 +11208,18 @@
       "file": "assets/voice/cay-cau-nao-dai-nhat-cau-song-hong-dai-5-15916f-trang.mp3",
       "ms": 12264,
       "spoken": "Cây cầu nào dài nhất? Cầu Sông Hồng: dài năm mươi ba nghìn ba trăm bốn mươi tám mét Cầu Sông Mã: dài năm mươi mốt nghìn ba trăm tám mươi tám mét Cầu Sông Lam: dài năm mươi lăm nghìn ba trăm tám mươi tám mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Còn 1 phút! Con bình tĩnh, nhanh tay lên nào.": {
+      "file": "assets/voice/con-1-phut-con-binh-tinh-nhanh-tay-len-n-1c2d0c-trang.mp3",
+      "ms": 3600,
+      "spoken": "Còn một phút! Con bình tĩnh, nhanh tay lên nào.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Còn 5 phút nữa thôi! Con kiểm tra lại bài nhé.": {
+      "file": "assets/voice/con-5-phut-nua-thoi-con-kiem-tra-lai-bai-155bc7-trang.mp3",
+      "ms": 3144,
+      "spoken": "Còn năm phút nữa thôi! Con kiểm tra lại bài nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Còn 5.000 - 2.750 = 2.250 m nữa là tới trường.": {
@@ -11024,6 +11384,12 @@
       "spoken": "Có ba trăm linh bốn ki-lô-gam đường chia đều vào tám túi. Hỏi mỗi túi có bao nhiêu ki-lô-gam đường?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Có 32 bông hoa cắm đều vào 4 lọ. Hỏi mỗi lọ có bao nhiêu bông hoa?": {
+      "file": "assets/voice/co-32-bong-hoa-cam-deu-vao-4-lo-hoi-moi-56f65a-trang.mp3",
+      "ms": 5256,
+      "spoken": "Có ba mươi hai bông hoa cắm đều vào bốn lọ. Hỏi mỗi lọ có bao nhiêu bông hoa?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Có 32 kg gạo, đóng mỗi bao 8 kg thì được 32 : 8 = 4 bao.": {
       "file": "assets/voice/co-32-kg-gao-dong-moi-bao-8-kg-thi-duoc-66a9df-trang.mp3",
       "ms": 6864,
@@ -11108,6 +11474,12 @@
       "spoken": "Có tám mươi mốt bông hoa chia đều vào chín bó. Hỏi mỗi bó có bao nhiêu bông hoa?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Có 96 quyển vở chia đều cho 8 nhóm. Hỏi mỗi nhóm được bao nhiêu quyển vở?": {
+      "file": "assets/voice/co-96-quyen-vo-chia-deu-cho-8-nhom-hoi-m-33d2e3-trang.mp3",
+      "ms": 5304,
+      "spoken": "Có chín mươi sáu quyển vở chia đều cho tám nhóm. Hỏi mỗi nhóm được bao nhiêu quyển vở?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Có bao nhiêu số có 3 chữ số mà tổng các chữ số của số đó bằng 5?": {
       "file": "assets/voice/co-bao-nhieu-so-co-3-chu-so-ma-tong-cac-a2de5b-trang.mp3",
       "ms": 4296,
@@ -11184,6 +11556,12 @@
       "file": "assets/voice/co-ban-hang-tra-lai-100-000-50-000-50-00-e790f8-trang.mp3",
       "ms": 5208,
       "spoken": "Cô bán hàng trả lại: một trăm nghìn trừ năm mươi nghìn bằng năm mươi nghìn đồng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Cô bấm giờ nhé. Bắt đầu làm bài!": {
+      "file": "assets/voice/co-bam-gio-nhe-bat-dau-lam-bai-9b04fd-trang.mp3",
+      "ms": 2472,
+      "spoken": "Cô bấm giờ nhé. Bắt đầu làm bài!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cô bắt đầu giảng nhé! Con nhìn bảng và nghe cô nói nhé.": {
@@ -12782,6 +13160,12 @@
       "spoken": "Hình tròn tâm N, điểm M nằm trên đường tròn. Đoạn thẳng NM là gì của hình tròn?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Hình tròn tâm O có bán kính 3 cm. Đường kính của hình tròn đó dài:": {
+      "file": "assets/voice/hinh-tron-tam-o-co-ban-kinh-3-cm-duong-k-38f951-trang.mp3",
+      "ms": 5376,
+      "spoken": "Hình tròn tâm O có bán kính ba xăng-ti-mét. Đường kính của hình tròn đó dài:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Hình tròn tâm Q. Đoạn thẳng AB đi qua tâm Q, hai điểm A và B nằm trên đường tròn. Đoạn thẳng AB là gì của hình tròn?": {
       "file": "assets/voice/hinh-tron-tam-q-doan-thang-ab-di-qua-tam-4f07d7-trang.mp3",
       "ms": 8832,
@@ -13070,6 +13454,12 @@
       "spoken": "Hải Phòng",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Hết giờ rồi! Cô thu bài nhé.": {
+      "file": "assets/voice/het-gio-roi-co-thu-bai-nhe-c5958f-trang.mp3",
+      "ms": 2424,
+      "spoken": "Hết giờ rồi! Cô thu bài nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Hộp bút giá 28.500 đồng.": {
       "file": "assets/voice/hop-but-gia-28-500-dong-27501e-trang.mp3",
       "ms": 2640,
@@ -13166,6 +13556,12 @@
       "spoken": "Khi làm tròn đến hàng trăm, một số được làm tròn thành hai nghìn. Tìm số lớn nhất và số bé nhất có thể có.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Khi nào sẵn sàng, con bấm nút Bắt đầu làm bài. Chúc con làm bài thật tốt!": {
+      "file": "assets/voice/khi-nao-san-sang-con-bam-nut-bat-dau-lam-fa07cf-trang.mp3",
+      "ms": 5208,
+      "spoken": "Khi nào sẵn sàng, con bấm nút Bắt đầu làm bài. Chúc con làm bài thật tốt!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kho A có 6 xe hàng, mỗi xe chở 1.182 kg. Kho B có 2 xe hàng, mỗi xe chở 2.401 kg. Hỏi kho A nhiều hơn kho B bao nhiêu ki-lô-gam hàng?": {
       "file": "assets/voice/kho-a-co-6-xe-hang-moi-xe-cho-1-182-kg-k-b018c8-trang.mp3",
       "ms": 13848,
@@ -13254,6 +13650,12 @@
       "file": "assets/voice/khong-sao-ca-minh-cung-xem-cach-lam-nhe-62620b-trang.mp3",
       "ms": 3024,
       "spoken": "Không sao cả! Mình cùng xem cách làm nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Không sao đâu con! Mình cùng ôn lại bài, lần sau con sẽ làm tốt hơn.": {
+      "file": "assets/voice/khong-sao-dau-con-minh-cung-on-lai-bai-l-d35c1d-trang.mp3",
+      "ms": 5064,
+      "spoken": "Không sao đâu con! Mình cùng ôn lại bài, lần sau con sẽ làm tốt hơn.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Không sao đâu! Mình cùng xem tranh minh hoạ nhé.": {
@@ -13484,6 +13886,12 @@
       "spoken": "Kéo các bước vào đúng thứ tự để vẽ hình chữ nhật ABCD có chiều dài bốn xăng-ti-mét, chiều rộng hai xăng-ti-mét.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kéo các phép tính vào ô theo thứ tự kết quả từ bé đến lớn.": {
+      "file": "assets/voice/keo-cac-phep-tinh-vao-o-theo-thu-tu-ket-16d3b8-trang.mp3",
+      "ms": 4104,
+      "spoken": "Kéo các phép tính vào ô theo thứ tự kết quả từ bé đến lớn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kéo các số La Mã II, XX, XVI, XI vào ô trống theo thứ tự từ bé đến lớn.": {
       "file": "assets/voice/keo-cac-so-la-ma-ii-xx-xvi-xi-vao-o-tron-09091d-trang.mp3",
       "ms": 6384,
@@ -13536,6 +13944,12 @@
       "file": "assets/voice/keo-cac-so-do-dien-tich-vao-o-trong-theo-560f20-trang.mp3",
       "ms": 12360,
       "spoken": "Kéo các số đo diện tích vào ô trống theo thứ tự từ bé đến lớn: tám mươi tám xăng-ti-mét², bảy mươi ba xăng-ti-mét², mười sáu xăng-ti-mét², bốn mươi tám xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo các số đo vào ô theo thứ tự từ nhẹ đến nặng.": {
+      "file": "assets/voice/keo-cac-so-do-vao-o-theo-thu-tu-tu-nhe-d-4b3c6c-trang.mp3",
+      "ms": 3504,
+      "spoken": "Kéo các số đo vào ô theo thứ tự từ nhẹ đến nặng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 1 kg, 3.580 g, 3.100 g, 4.610 g.": {
@@ -13592,10 +14006,22 @@
       "spoken": "Kéo diện tích đúng vào mỗi ô trống.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kéo dấu +, -, ×, : thích hợp vào ô trống.": {
+      "file": "assets/voice/keo-dau-thich-hop-vao-o-trong-9382f1-trang.mp3",
+      "ms": 2880,
+      "spoken": "Kéo dấu +, -, ×, : thích hợp vào ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kéo dấu >, <, = vào ô trống.": {
       "file": "assets/voice/keo-dau-vao-o-trong-ffe286-trang.mp3",
       "ms": 2208,
       "spoken": "Kéo dấu >, <, bằng vào ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo dấu phép tính.": {
+      "file": "assets/voice/keo-dau-phep-tinh-e5ac93-trang.mp3",
+      "ms": 1224,
+      "spoken": "Kéo dấu phép tính.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần.": {
@@ -13682,16 +14108,40 @@
       "spoken": "Kết quả của XIX - XII, viết bằng chữ số La Mã, là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kết quả của phép chia 63 : 3 là:": {
+      "file": "assets/voice/ket-qua-cua-phep-chia-63-3-la-6ac4b3-trang.mp3",
+      "ms": 3312,
+      "spoken": "Kết quả của phép chia sáu mươi ba chia ba là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kết quả của phép chia 96 : 3 là:": {
       "file": "assets/voice/ket-qua-cua-phep-chia-96-3-la-81ccad-trang.mp3",
       "ms": 3000,
       "spoken": "Kết quả của phép chia chín mươi sáu chia ba là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kết quả của phép nhân 213 × 3 là:": {
+      "file": "assets/voice/ket-qua-cua-phep-nhan-213-3-la-e39480-trang.mp3",
+      "ms": 3240,
+      "spoken": "Kết quả của phép nhân hai trăm mười ba nhân ba là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kết quả của phép nhân 31 × 3 là:": {
+      "file": "assets/voice/ket-qua-cua-phep-nhan-31-3-la-743cf9-trang.mp3",
+      "ms": 2760,
+      "spoken": "Kết quả của phép nhân ba mươi mốt nhân ba là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kết quả của phép nhân 32 × 3 là:": {
       "file": "assets/voice/ket-qua-cua-phep-nhan-32-3-la-c70219-trang.mp3",
       "ms": 2712,
       "spoken": "Kết quả của phép nhân ba mươi hai nhân ba là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kết quả của phép nhân 43 × 2 là:": {
+      "file": "assets/voice/ket-qua-cua-phep-nhan-43-2-la-a85916-trang.mp3",
+      "ms": 2688,
+      "spoken": "Kết quả của phép nhân bốn mươi ba nhân hai là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kết quả của phép tính 147 × 3 là:": {
@@ -13878,6 +14328,12 @@
       "file": "assets/voice/ky-luc-moi-con-gioi-qua-bb4729-trang.mp3",
       "ms": 2304,
       "spoken": "Kỷ lục mới! Con giỏi quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Lan có 48 nhãn vở, Lan chia đều cho 4 bạn. Mỗi bạn đã dùng 5 nhãn vở. Hỏi mỗi bạn còn lại bao nhiêu nhãn vở?": {
+      "file": "assets/voice/lan-co-48-nhan-vo-lan-chia-deu-cho-4-ban-065d97-trang.mp3",
+      "ms": 8760,
+      "spoken": "Lan có bốn mươi tám nhãn vở, Lan chia đều cho bốn bạn. Mỗi bạn đã dùng năm nhãn vở. Hỏi mỗi bạn còn lại bao nhiêu nhãn vở?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Lan có 7 quyển truyện, Hùng có nhiều hơn Lan 7 quyển truyện. Hỏi số truyện của Hùng gấp mấy lần số truyện của Lan?": {
@@ -14160,6 +14616,12 @@
       "file": "assets/voice/lam-tron-den-hang-tram-nhin-hang-chuc-la-dd7d84-trang.mp3",
       "ms": 5784,
       "spoken": "Làm tròn đến hàng trăm: nhìn hàng chục là bảy, lớn hơn năm nên làm tròn lên.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Làm tốt lắm! Con xem lại những câu sai để lần sau được điểm cao hơn nhé.": {
+      "file": "assets/voice/lam-tot-lam-con-xem-lai-nhung-cau-sai-de-b8c9ef-trang.mp3",
+      "ms": 4704,
+      "spoken": "Làm tốt lắm! Con xem lại những câu sai để lần sau được điểm cao hơn nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tốt lắm! Cố thêm chút nữa là được ba sao nhé!": {
@@ -15284,6 +15746,12 @@
       "spoken": "Mỗi bó hoa có ba bông hồng và hai bông cúc: ba cộng hai bông.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi bạn gấp được 18 ngôi sao. Hỏi 5 bạn gấp được bao nhiêu ngôi sao?": {
+      "file": "assets/voice/moi-ban-gap-duoc-18-ngoi-sao-hoi-5-ban-g-156249-trang.mp3",
+      "ms": 4632,
+      "spoken": "Mỗi bạn gấp được mười tám ngôi sao. Hỏi năm bạn gấp được bao nhiêu ngôi sao?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi bể chứa 43.120 l nước. Hỏi 2 bể như thế chứa được bao nhiêu lít nước?": {
       "file": "assets/voice/moi-be-chua-43-120-l-nuoc-hoi-2-be-nhu-t-7f5fe1-trang.mp3",
       "ms": 6120,
@@ -15318,6 +15786,12 @@
       "file": "assets/voice/moi-cai-but-bi-gia-8-000-dong-hoi-mua-5-a4a180-trang.mp3",
       "ms": 5232,
       "spoken": "Mỗi cái bút bi giá tám nghìn đồng. Hỏi mua năm cái bút bi như thế hết bao nhiêu tiền?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mỗi câu sai sẽ mất một trái tim, nên con làm cẩn thận nhé.": {
+      "file": "assets/voice/moi-cau-sai-se-mat-mot-trai-tim-nen-con-8b7528-trang.mp3",
+      "ms": 3912,
+      "spoken": "Mỗi câu sai sẽ mất một trái tim, nên con làm cẩn thận nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi cây dài 1 m, tức là 10 dm hay 100 cm.": {
@@ -15680,6 +16154,12 @@
       "spoken": "Mỗi thùng có một trăm hai mươi lăm quyển vở.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi thùng có 14 chai nước. Hỏi 6 thùng như thế có bao nhiêu chai nước?": {
+      "file": "assets/voice/moi-thung-co-14-chai-nuoc-hoi-6-thung-nh-dd20fe-trang.mp3",
+      "ms": 4632,
+      "spoken": "Mỗi thùng có mười bốn chai nước. Hỏi sáu thùng như thế có bao nhiêu chai nước?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi thùng có 5 l nước mắm. Hỏi 5 thùng như thế có tất cả bao nhiêu lít nước mắm?": {
       "file": "assets/voice/moi-thung-co-5-l-nuoc-mam-hoi-5-thung-nh-c6b8a2-trang.mp3",
       "ms": 5664,
@@ -15966,6 +16446,18 @@
       "file": "assets/voice/mot-cuon-ruy-bang-dai-2-m-72-cm-chi-hoa-5a7ef3-trang.mp3",
       "ms": 12288,
       "spoken": "Một cuộn ruy băng dài hai mét bảy mươi hai xăng-ti-mét. Chị Hoa cắt đi tám mươi ba xăng-ti-mét để buộc hộp quà, phần còn lại cắt thành chín đoạn dài bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Một cửa hàng có 4 thùng nước mắm, mỗi thùng có 125 l. Cửa hàng đã bán 280 l. Hỏi cửa hàng còn lại bao nhiêu lít nước mắm?": {
+      "file": "assets/voice/mot-cua-hang-co-4-thung-nuoc-mam-moi-thu-8cd026-trang.mp3",
+      "ms": 10320,
+      "spoken": "Một cửa hàng có bốn thùng nước mắm, mỗi thùng có một trăm hai mươi lăm lít. Cửa hàng đã bán hai trăm tám mươi lít. Hỏi cửa hàng còn lại bao nhiêu lít nước mắm?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Một cửa hàng có 5 hộp bút, mỗi hộp có 12 cái. Cửa hàng đã bán 27 cái bút. Hỏi cửa hàng còn lại bao nhiêu cái bút?": {
+      "file": "assets/voice/mot-cua-hang-co-5-hop-but-moi-hop-co-12-c0e610-trang.mp3",
+      "ms": 8232,
+      "spoken": "Một cửa hàng có năm hộp bút, mỗi hộp có mười hai cái. Cửa hàng đã bán hai mươi bảy cái bút. Hỏi cửa hàng còn lại bao nhiêu cái bút?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một cửa hàng có 72 kg gạo. Cửa hàng đã bán 2 bao gạo, mỗi bao nặng 24 kg. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?": {
@@ -16262,6 +16754,12 @@
       "spoken": "Một quả dưa hấu nặng khoảng:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Một số nhân với 3 rồi cộng thêm 8 thì được 50. Số đó là:": {
+      "file": "assets/voice/mot-so-nhan-voi-3-roi-cong-them-8-thi-du-018c3d-trang.mp3",
+      "ms": 5016,
+      "spoken": "Một số nhân với ba rồi cộng thêm tám thì được năm mươi. Số đó là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Một sợi dây dài 1 m. Bạn An cắt ra 5 đoạn, mỗi đoạn dài 6 cm. Hỏi sợi dây còn lại dài bao nhiêu xăng-ti-mét?": {
       "file": "assets/voice/mot-soi-day-dai-1-m-ban-an-cat-ra-5-doan-e0b550-trang.mp3",
       "ms": 8256,
@@ -16290,6 +16788,12 @@
       "file": "assets/voice/mot-soi-day-dai-72-m-nguoi-ta-cat-di-1-6-8900ac-trang.mp3",
       "ms": 8328,
       "spoken": "Một sợi dây dài bảy mươi hai mét. Người ta cắt đi một/sáu sợi dây. Hỏi sợi dây còn lại dài bao nhiêu mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Một sợi dây dài 84 cm được cắt thành 4 đoạn bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?": {
+      "file": "assets/voice/mot-soi-day-dai-84-cm-duoc-cat-thanh-4-d-bfb3bc-trang.mp3",
+      "ms": 7272,
+      "spoken": "Một sợi dây dài tám mươi tư xăng-ti-mét được cắt thành bốn đoạn bằng nhau. Hỏi mỗi đoạn dài bao nhiêu xăng-ti-mét?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một sự kiện có thể chắc chắn xảy ra, có thể xảy ra hoặc không thể xảy ra.": {
@@ -16646,6 +17150,12 @@
       "spoken": "Nhiệt độ lúc chín giờ sáng của một số thành phố: Đà Nẵng: mười bảy độ C Hà Nội: mười tám độ C Đà Lạt: mười bốn độ C Sa Pa: mười sáu độ C Thành phố nào lạnh nhất?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Nhiệt độ nào phù hợp với một ngày hè nóng bức?": {
+      "file": "assets/voice/nhiet-do-nao-phu-hop-voi-mot-ngay-he-non-6e81bd-trang.mp3",
+      "ms": 2592,
+      "spoken": "Nhiệt độ nào phù hợp với một ngày hè nóng bức?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Nho: 2 bạn Xoài: 6 bạn Cam: ? bạn": {
       "file": "assets/voice/nho-2-ban-xoai-6-ban-cam-ban-cd0714-trang.mp3",
       "ms": 3672,
@@ -16940,6 +17450,18 @@
       "spoken": "Nối hai cách nói cùng giờ.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Nối hai phép tính bằng nhau.": {
+      "file": "assets/voice/noi-hai-phep-tinh-bang-nhau-954d55-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nối hai phép tính bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối hai phép tính có cùng kết quả.": {
+      "file": "assets/voice/noi-hai-phep-tinh-co-cung-ket-qua-57acae-trang.mp3",
+      "ms": 2328,
+      "spoken": "Nối hai phép tính có cùng kết quả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Nối hai số đo bằng nhau.": {
       "file": "assets/voice/noi-hai-so-do-bang-nhau-e2971c-trang.mp3",
       "ms": 1800,
@@ -17112,6 +17634,12 @@
       "file": "assets/voice/noi-moi-so-do-dien-tich-voi-cach-doc-dun-229048-trang.mp3",
       "ms": 2568,
       "spoken": "Nối mỗi số đo diện tích với cách đọc đúng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi số đo với số đo bằng nó.": {
+      "file": "assets/voice/noi-moi-so-do-voi-so-do-bang-no-366c58-trang.mp3",
+      "ms": 2328,
+      "spoken": "Nối mỗi số đo với số đo bằng nó.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nối mỗi số đo ở cột trái với số đo bằng nó ở cột phải.": {
@@ -23846,6 +24374,18 @@
       "spoken": "Phương án C: đường kính.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Phần 1. Trắc nghiệm": {
+      "file": "assets/voice/phan-1-trac-nghiem-27f9ac-trang.mp3",
+      "ms": 2304,
+      "spoken": "Phần một. Trắc nghiệm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Phần 2. Tự luận": {
+      "file": "assets/voice/phan-2-tu-luan-a00a5b-trang.mp3",
+      "ms": 2016,
+      "spoken": "Phần hai. Tự luận",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Quãng đường từ nhà Lan đến chợ dài 9.375 m. Lan đã đi được 8.014 m. Hỏi Lan còn phải đi bao nhiêu mét nữa?": {
       "file": "assets/voice/quang-duong-tu-nha-lan-den-cho-dai-9-375-08c779-trang.mp3",
       "ms": 9648,
@@ -24560,6 +25100,12 @@
       "spoken": "Số gồm ba chục nghìn, chín nghìn, không trăm, không chục và năm đơn vị viết là: Số gồm ba chục nghìn, chín nghìn, không trăm, không chục và năm đơn vị viết là ?.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Số gồm 6 trăm, 0 chục và 8 đơn vị viết là:": {
+      "file": "assets/voice/so-gom-6-tram-0-chuc-va-8-don-vi-viet-la-a2cc5a-trang.mp3",
+      "ms": 3672,
+      "spoken": "Số gồm sáu trăm, không chục và tám đơn vị viết là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Số gồm 7 chục nghìn, 5 nghìn, 0 trăm, 6 chục và 5 đơn vị viết là ?.": {
       "file": "assets/voice/so-gom-7-chuc-nghin-5-nghin-0-tram-6-chu-71b50a-trang.mp3",
       "ms": 5784,
@@ -24740,6 +25286,12 @@
       "spoken": "Số lớn nhất mà khi làm tròn đến hàng chục nghìn được sáu mươi nghìn là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Số lớn nhất trong các số 507, 570, 705, 750 là:": {
+      "file": "assets/voice/so-lon-nhat-trong-cac-so-507-570-705-750-cf8a59-trang.mp3",
+      "ms": 6888,
+      "spoken": "Số lớn nhất trong các số năm trăm linh bảy, năm trăm bảy mươi, bảy trăm linh năm, bảy trăm năm mươi là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Số lớn nhất trong các số 617, 666, 667, 637 là:": {
       "file": "assets/voice/so-lon-nhat-trong-cac-so-617-666-667-637-84f750-trang.mp3",
       "ms": 7848,
@@ -24792,6 +25344,12 @@
       "file": "assets/voice/so-nao-nhan-voi-4-thi-duoc-96-6c3474-trang.mp3",
       "ms": 2688,
       "spoken": "Số nào nhân với bốn thì được chín mươi sáu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Số nào nhân với 5 thì được 75?": {
+      "file": "assets/voice/so-nao-nhan-voi-5-thi-duoc-75-92d33d-trang.mp3",
+      "ms": 2832,
+      "spoken": "Số nào nhân với năm thì được bảy mươi lăm?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số nước ở bình thứ hai là:": {
@@ -25008,6 +25566,12 @@
       "file": "assets/voice/so-thich-hop-thay-cho-dau-la-4-2-615-16-8d7dbb-trang.mp3",
       "ms": 6912,
       "spoken": "Số thích hợp thay cho dấu ? là: ? × bốn trừ hai nghìn sáu trăm mười lăm bằng mười sáu nghìn sáu trăm mười bảy",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Số thích hợp điền vào chỗ chấm: 4 cm = ... mm": {
+      "file": "assets/voice/so-thich-hop-dien-vao-cho-cham-4-cm-mm-363a18-trang.mp3",
+      "ms": 5040,
+      "spoken": "Số thích hợp điền vào chỗ chấm: bốn xăng-ti-mét bằng ... mm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số thùng là: 12.630 : 6 = 2.105 thùng.": {
@@ -25326,6 +25890,12 @@
       "file": "assets/voice/thung-thu-nhat-co-20-l-nuoc-mam-thung-th-14d769-trang.mp3",
       "ms": 10776,
       "spoken": "Thùng thứ nhất có hai mươi lít nước mắm, thùng thứ hai có nhiều hơn thùng thứ nhất bảy lít. Hỏi cả hai thùng có bao nhiêu lít nước mắm? Cả hai thùng có ? l nước mắm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Thùng thứ nhất có 245 l dầu. Thùng thứ hai có ít hơn thùng thứ nhất 118 l dầu. Hỏi cả hai thùng có bao nhiêu lít dầu?": {
+      "file": "assets/voice/thung-thu-nhat-co-245-l-dau-thung-thu-ha-f60279-trang.mp3",
+      "ms": 9312,
+      "spoken": "Thùng thứ nhất có hai trăm bốn mươi lăm lít dầu. Thùng thứ hai có ít hơn thùng thứ nhất một trăm mười tám lít dầu. Hỏi cả hai thùng có bao nhiêu lít dầu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thùng thứ nhất có 32 l nước, thùng thứ hai có nhiều hơn thùng thứ nhất 14 l nước. Kéo số thích hợp vào ô trống để hoàn thành bài giải.": {
@@ -25710,6 +26280,12 @@
       "file": "assets/voice/trong-gio-co-4-qua-le-tat-ca-7-000-40-4-ef663c-trang.mp3",
       "ms": 7008,
       "spoken": "Trong giỏ có bốn quả lẻ. Tất cả: bảy nghìn cộng bốn mươi cộng bốn bằng bảy nghìn không trăm bốn mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Trong giờ thi, cô sẽ đọc đề và các đáp án cho con nghe. Con suy nghĩ thật kỹ rồi mới chọn nhé.": {
+      "file": "assets/voice/trong-gio-thi-co-se-doc-de-va-cac-dap-an-eb2d08-trang.mp3",
+      "ms": 6312,
+      "spoken": "Trong giờ thi, cô sẽ đọc đề và các đáp án cho con nghe. Con suy nghĩ thật kỹ rồi mới chọn nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trong hộp có 1 quả bóng tím. Không nhìn vào hộp, lấy ra 1 quả bóng. Khả năng “lấy được quả bóng trắng” là:": {
@@ -26282,6 +26858,12 @@
       "spoken": "Tìm số lớn nhất và số bé nhất có năm chữ số.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Tìm số thích hợp điền vào ô trống.": {
+      "file": "assets/voice/tim-so-thich-hop-dien-vao-o-trong-96842d-trang.mp3",
+      "ms": 2160,
+      "spoken": "Tìm số thích hợp điền vào ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Tìm số thích hợp.": {
       "file": "assets/voice/tim-so-thich-hop-3b4c74-trang.mp3",
       "ms": 1128,
@@ -26352,6 +26934,12 @@
       "file": "assets/voice/tinh-khoang-thoi-gian-dem-so-phut-den-gi-30b6cb-trang.mp3",
       "ms": 7080,
       "spoken": "Tính khoảng thời gian: đếm số phút đến giờ đúng tiếp theo, rồi đếm tiếp phần còn lại. một giờ bằng sáu mươi phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Tính kết quả hai phép tính sau.": {
+      "file": "assets/voice/tinh-ket-qua-hai-phep-tinh-sau-6f8a7c-trang.mp3",
+      "ms": 2208,
+      "spoken": "Tính kết quả hai phép tính sau.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tính kết quả từng phép tính rồi so sánh.": {
@@ -27758,6 +28346,12 @@
       "spoken": "Xuất sắc! Con đạt hạng Ngôi sao Toán học!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Xuất sắc! Cô rất tự hào về con.": {
+      "file": "assets/voice/xuat-sac-co-rat-tu-hao-ve-con-378233-trang.mp3",
+      "ms": 2640,
+      "spoken": "Xuất sắc! Cô rất tự hào về con.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Xếp theo số liệu từ bé đến lớn.": {
       "file": "assets/voice/xep-theo-so-lieu-tu-be-den-lon-74c97b-trang.mp3",
       "ms": 2256,
@@ -27776,10 +28370,22 @@
       "spoken": "Xếp theo thứ tự từ sớm đến muộn.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Xếp từ bé đến lớn.": {
+      "file": "assets/voice/xep-tu-be-den-lon-0e0a76-trang.mp3",
+      "ms": 1656,
+      "spoken": "Xếp từ bé đến lớn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Xếp từ bé đến lớn: tìm số bé nhất trước. Rẻ nhất là quả bóng!": {
       "file": "assets/voice/xep-tu-be-den-lon-tim-so-be-nhat-truoc-r-127984-trang.mp3",
       "ms": 5064,
       "spoken": "Xếp từ bé đến lớn: tìm số bé nhất trước. Rẻ nhất là quả bóng!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Xếp từ nhẹ đến nặng.": {
+      "file": "assets/voice/xep-tu-nhe-den-nang-b0a910-trang.mp3",
+      "ms": 1440,
+      "spoken": "Xếp từ nhẹ đến nặng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Xếp được 4 khay: 26 : 6 = 4 (dư 2).": {
@@ -34730,6 +35336,12 @@
       "spoken": "Đoạn thẳng AB dài mười hai xăng-ti-mét. M là trung điểm của đoạn thẳng AB, N là trung điểm của đoạn thẳng MB. Tính độ dài đoạn thẳng AN. AN bằng bao nhiêu? cm.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Đoạn thẳng AB dài 8 cm. M là trung điểm của đoạn thẳng AB. Đoạn thẳng AM dài bao nhiêu xăng-ti-mét?": {
+      "file": "assets/voice/doan-thang-ab-dai-8-cm-m-la-trung-diem-c-379b77-trang.mp3",
+      "ms": 7416,
+      "spoken": "Đoạn thẳng AB dài tám xăng-ti-mét. M là trung điểm của đoạn thẳng AB. Đoạn thẳng AM dài bao nhiêu xăng-ti-mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Đoạn thẳng AB dài 92 cm. M là trung điểm của đoạn thẳng AB, N là trung điểm của đoạn thẳng MB. Tính độ dài đoạn thẳng AN.": {
       "file": "assets/voice/doan-thang-ab-dai-92-cm-m-la-trung-diem-d2385b-trang.mp3",
       "ms": 10296,
@@ -34764,6 +35376,2526 @@
       "file": "assets/voice/da-nang-f68a42-trang.mp3",
       "ms": 792,
       "spoken": "Đà Nẵng",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 1.114.": {
+      "file": "assets/voice/dap-an-a-1-114-523f6d-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án A: một nghìn một trăm mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 1.149.": {
+      "file": "assets/voice/dap-an-a-1-149-98ff99-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án A: một nghìn một trăm bốn mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 1.340.": {
+      "file": "assets/voice/dap-an-a-1-340-bd972e-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án A: một nghìn ba trăm bốn mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 1.410.": {
+      "file": "assets/voice/dap-an-a-1-410-c744bf-trang.mp3",
+      "ms": 2712,
+      "spoken": "Đáp án A: một nghìn bốn trăm mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 10 giờ 5 phút.": {
+      "file": "assets/voice/dap-an-a-10-gio-5-phut-5a66cf-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án A: mười giờ năm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 100 °C.": {
+      "file": "assets/voice/dap-an-a-100-c-c622a3-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án A: một trăm độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 11.": {
+      "file": "assets/voice/dap-an-a-11-034e0b-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án A: mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 12 cm².": {
+      "file": "assets/voice/dap-an-a-12-cm-249322-trang.mp3",
+      "ms": 2640,
+      "spoken": "Đáp án A: mười hai xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 12.274.": {
+      "file": "assets/voice/dap-an-a-12-274-426c67-trang.mp3",
+      "ms": 3504,
+      "spoken": "Đáp án A: mười hai nghìn hai trăm bảy mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 13.293.": {
+      "file": "assets/voice/dap-an-a-13-293-30a3cd-trang.mp3",
+      "ms": 3552,
+      "spoken": "Đáp án A: mười ba nghìn hai trăm chín mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 13.304.": {
+      "file": "assets/voice/dap-an-a-13-304-4a0a05-trang.mp3",
+      "ms": 3024,
+      "spoken": "Đáp án A: mười ba nghìn ba trăm linh bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 14.": {
+      "file": "assets/voice/dap-an-a-14-855a11-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án A: mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 15 ml.": {
+      "file": "assets/voice/dap-an-a-15-ml-310103-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án A: mười lăm mi-li-lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 150 l.": {
+      "file": "assets/voice/dap-an-a-150-l-5f152a-trang.mp3",
+      "ms": 2496,
+      "spoken": "Đáp án A: một trăm năm mươi lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 16.698.": {
+      "file": "assets/voice/dap-an-a-16-698-ec6579-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án A: mười sáu nghìn sáu trăm chín mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 19.": {
+      "file": "assets/voice/dap-an-a-19-2361c5-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án A: mười chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 2 mm.": {
+      "file": "assets/voice/dap-an-a-2-mm-821205-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án A: hai mi-li-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 2.": {
+      "file": "assets/voice/dap-an-a-2-896f05-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án A: hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 2.376.": {
+      "file": "assets/voice/dap-an-a-2-376-76d6f3-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án A: hai nghìn ba trăm bảy mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 23.": {
+      "file": "assets/voice/dap-an-a-23-71e558-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án A: hai mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 23.035.": {
+      "file": "assets/voice/dap-an-a-23-035-2b9e54-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án A: hai mươi ba nghìn không trăm ba mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 24 : 6.": {
+      "file": "assets/voice/dap-an-a-24-6-379c5e-trang.mp3",
+      "ms": 3024,
+      "spoken": "Đáp án A: hai mươi tư chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 26.": {
+      "file": "assets/voice/dap-an-a-26-8fd8bb-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án A: hai mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 3 cm.": {
+      "file": "assets/voice/dap-an-a-3-cm-b4b286-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án A: ba xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 3 giờ 55 phút.": {
+      "file": "assets/voice/dap-an-a-3-gio-55-phut-a0af40-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án A: ba giờ năm mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 3.": {
+      "file": "assets/voice/dap-an-a-3-ab7179-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án A: ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 3.831.": {
+      "file": "assets/voice/dap-an-a-3-831-0e1328-trang.mp3",
+      "ms": 3336,
+      "spoken": "Đáp án A: ba nghìn tám trăm ba mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 33 : 6.": {
+      "file": "assets/voice/dap-an-a-33-6-1b10ab-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án A: ba mươi ba chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 35.": {
+      "file": "assets/voice/dap-an-a-35-5c8662-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án A: ba mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 36.": {
+      "file": "assets/voice/dap-an-a-36-fe8e1d-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án A: ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 4 lần.": {
+      "file": "assets/voice/dap-an-a-4-lan-a3edaf-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án A: bốn lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 4.": {
+      "file": "assets/voice/dap-an-a-4-09744b-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án A: bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 43.": {
+      "file": "assets/voice/dap-an-a-43-cc5ae4-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án A: bốn mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 436.": {
+      "file": "assets/voice/dap-an-a-436-ea516c-trang.mp3",
+      "ms": 2880,
+      "spoken": "Đáp án A: bốn trăm ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 444.": {
+      "file": "assets/voice/dap-an-a-444-0e1157-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án A: bốn trăm bốn mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 449.": {
+      "file": "assets/voice/dap-an-a-449-6ff61b-trang.mp3",
+      "ms": 2616,
+      "spoken": "Đáp án A: bốn trăm bốn mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 45.532.": {
+      "file": "assets/voice/dap-an-a-45-532-dfe37b-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án A: bốn mươi lăm nghìn năm trăm ba mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 5 giờ 35 phút.": {
+      "file": "assets/voice/dap-an-a-5-gio-35-phut-152fc8-trang.mp3",
+      "ms": 2880,
+      "spoken": "Đáp án A: năm giờ ba mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 5.": {
+      "file": "assets/voice/dap-an-a-5-2b76bf-trang.mp3",
+      "ms": 1728,
+      "spoken": "Đáp án A: năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 5.612.": {
+      "file": "assets/voice/dap-an-a-5-612-23318f-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án A: năm nghìn sáu trăm mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 51.046.": {
+      "file": "assets/voice/dap-an-a-51-046-47e00c-trang.mp3",
+      "ms": 3528,
+      "spoken": "Đáp án A: năm mươi mốt nghìn không trăm bốn mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 54 m.": {
+      "file": "assets/voice/dap-an-a-54-m-2310fa-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án A: năm mươi tư mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 56.": {
+      "file": "assets/voice/dap-an-a-56-38dc67-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án A: năm mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 6.000 + 900 + 30 + 4.": {
+      "file": "assets/voice/dap-an-a-6-000-900-30-4-1213aa-trang.mp3",
+      "ms": 4008,
+      "spoken": "Đáp án A: sáu nghìn cộng chín trăm cộng ba mươi cộng bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 60.": {
+      "file": "assets/voice/dap-an-a-60-a33307-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án A: sáu mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 60.467.": {
+      "file": "assets/voice/dap-an-a-60-467-04b834-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án A: sáu mươi nghìn bốn trăm sáu mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 608.": {
+      "file": "assets/voice/dap-an-a-608-5f8ad8-trang.mp3",
+      "ms": 2616,
+      "spoken": "Đáp án A: sáu trăm linh tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 639.": {
+      "file": "assets/voice/dap-an-a-639-f2f150-trang.mp3",
+      "ms": 2616,
+      "spoken": "Đáp án A: sáu trăm ba mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 64 chai.": {
+      "file": "assets/voice/dap-an-a-64-chai-9b0d09-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án A: sáu mươi tư chai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 65.799.": {
+      "file": "assets/voice/dap-an-a-65-799-1613ee-trang.mp3",
+      "ms": 3768,
+      "spoken": "Đáp án A: sáu mươi lăm nghìn bảy trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 66.": {
+      "file": "assets/voice/dap-an-a-66-23384e-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án A: sáu mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 7 giờ 5 phút.": {
+      "file": "assets/voice/dap-an-a-7-gio-5-phut-68171a-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án A: bảy giờ năm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 7 giờ.": {
+      "file": "assets/voice/dap-an-a-7-gio-6e6b37-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án A: bảy giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 7.": {
+      "file": "assets/voice/dap-an-a-7-8b7bd4-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án A: bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 7.071.": {
+      "file": "assets/voice/dap-an-a-7-071-51bddf-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án A: bảy nghìn không trăm bảy mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 7.641.": {
+      "file": "assets/voice/dap-an-a-7-641-c917b2-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án A: bảy nghìn sáu trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 72 bông.": {
+      "file": "assets/voice/dap-an-a-72-bong-4d740d-trang.mp3",
+      "ms": 2592,
+      "spoken": "Đáp án A: bảy mươi hai bông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 75.000.": {
+      "file": "assets/voice/dap-an-a-75-000-6be72c-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án A: bảy mươi lăm nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 750.": {
+      "file": "assets/voice/dap-an-a-750-aff46c-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án A: bảy trăm năm mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8 cm.": {
+      "file": "assets/voice/dap-an-a-8-cm-bcdcbe-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án A: tám xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8 cm².": {
+      "file": "assets/voice/dap-an-a-8-cm-8d554b-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án A: tám xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8.": {
+      "file": "assets/voice/dap-an-a-8-a97e42-trang.mp3",
+      "ms": 1872,
+      "spoken": "Đáp án A: tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8.328.": {
+      "file": "assets/voice/dap-an-a-8-328-d66a83-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án A: tám nghìn ba trăm hai mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8.331.": {
+      "file": "assets/voice/dap-an-a-8-331-8884ee-trang.mp3",
+      "ms": 3240,
+      "spoken": "Đáp án A: tám nghìn ba trăm ba mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 8.561.": {
+      "file": "assets/voice/dap-an-a-8-561-6de4b3-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án A: tám nghìn năm trăm sáu mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 80.808.": {
+      "file": "assets/voice/dap-an-a-80-808-ad859a-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án A: tám mươi nghìn tám trăm linh tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 80.818.": {
+      "file": "assets/voice/dap-an-a-80-818-1d5a1c-trang.mp3",
+      "ms": 3168,
+      "spoken": "Đáp án A: tám mươi nghìn tám trăm mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 81.422.": {
+      "file": "assets/voice/dap-an-a-81-422-d4d0d2-trang.mp3",
+      "ms": 3816,
+      "spoken": "Đáp án A: tám mươi mốt nghìn bốn trăm hai mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 82 m.": {
+      "file": "assets/voice/dap-an-a-82-m-c99ae5-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án A: tám mươi hai mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 83.200.": {
+      "file": "assets/voice/dap-an-a-83-200-2b656f-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án A: tám mươi ba nghìn hai trăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 86.": {
+      "file": "assets/voice/dap-an-a-86-7dadda-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án A: tám mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 9 giờ 5 phút.": {
+      "file": "assets/voice/dap-an-a-9-gio-5-phut-a33565-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án A: chín giờ năm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 9 giờ.": {
+      "file": "assets/voice/dap-an-a-9-gio-aa3cd0-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án A: chín giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 9.": {
+      "file": "assets/voice/dap-an-a-9-8b8051-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án A: chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 90.000.": {
+      "file": "assets/voice/dap-an-a-90-000-68a3c2-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án A: chín mươi nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 93.": {
+      "file": "assets/voice/dap-an-a-93-ea2f5d-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án A: chín mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 95.": {
+      "file": "assets/voice/dap-an-a-95-8a3dd0-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án A: chín mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 99.": {
+      "file": "assets/voice/dap-an-a-99-0a2085-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án A: chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: 990.": {
+      "file": "assets/voice/dap-an-a-990-d705a9-trang.mp3",
+      "ms": 2688,
+      "spoken": "Đáp án A: chín trăm chín mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: <.": {
+      "file": "assets/voice/dap-an-a-0987d3-trang.mp3",
+      "ms": 1248,
+      "spoken": "Đáp án A: <.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: =.": {
+      "file": "assets/voice/dap-an-a-2b8a47-trang.mp3",
+      "ms": 1920,
+      "spoken": "Đáp án A: bằng .",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: >.": {
+      "file": "assets/voice/dap-an-a-898d1a-trang.mp3",
+      "ms": 1080,
+      "spoken": "Đáp án A: >.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Hình tròn.": {
+      "file": "assets/voice/dap-an-a-hinh-tron-16ff47-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án A: Hình tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Hình vuông.": {
+      "file": "assets/voice/dap-an-a-hinh-vuong-e856b3-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án A: Hình vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Hải Phòng.": {
+      "file": "assets/voice/dap-an-a-hai-phong-eaf702-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án A: Hải Phòng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: III.": {
+      "file": "assets/voice/dap-an-a-iii-41ac5f-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án A: III.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Khối hộp chữ nhật nhiều hơn.": {
+      "file": "assets/voice/dap-an-a-khoi-hop-chu-nhat-nhieu-hon-3fc474-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án A: Khối hộp chữ nhật nhiều hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Lớp 3D.": {
+      "file": "assets/voice/dap-an-a-lop-3d-e79c88-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án A: Lớp ba D.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: N không phải trung điểm của MH.": {
+      "file": "assets/voice/dap-an-a-n-khong-phai-trung-diem-cua-mh-4b0763-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đáp án A: N không phải trung điểm của MH.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Tháng 3.": {
+      "file": "assets/voice/dap-an-a-thang-3-09d232-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án A: Tháng ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Tháng 5.": {
+      "file": "assets/voice/dap-an-a-thang-5-09d6af-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án A: Tháng năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: XV.": {
+      "file": "assets/voice/dap-an-a-xv-d48063-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án A: XV.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: ba mươi sáu nghìn không trăm linh hai.": {
+      "file": "assets/voice/dap-an-a-ba-muoi-sau-nghin-khong-tram-li-170205-trang.mp3",
+      "ms": 3456,
+      "spoken": "Đáp án A: ba mươi sáu nghìn không trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: bảy mươi sáu nghìn tám trăm linh một.": {
+      "file": "assets/voice/dap-an-a-bay-muoi-sau-nghin-tam-tram-lin-42f55c-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án A: bảy mươi sáu nghìn tám trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: cân đĩa.": {
+      "file": "assets/voice/dap-an-a-can-dia-4505de-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án A: cân đĩa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: có thể.": {
+      "file": "assets/voice/dap-an-a-co-the-552745-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án A: có thể.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: hai mươi ba độ C.": {
+      "file": "assets/voice/dap-an-a-hai-muoi-ba-do-c-24ef20-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án A: hai mươi ba độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: hình tam giác.": {
+      "file": "assets/voice/dap-an-a-hinh-tam-giac-65efc9-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án A: hình tam giác.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: thước dây.": {
+      "file": "assets/voice/dap-an-a-thuoc-day-639be1-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án A: thước dây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: tâm.": {
+      "file": "assets/voice/dap-an-a-tam-965ac2-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án A: tâm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Điểm A.": {
+      "file": "assets/voice/dap-an-a-diem-a-24dff8-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án A: Điểm A.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Điểm E.": {
+      "file": "assets/voice/dap-an-a-diem-e-c4d666-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án A: Điểm E.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Điểm I.": {
+      "file": "assets/voice/dap-an-a-diem-i-24cc70-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án A: Điểm I.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Điểm P.": {
+      "file": "assets/voice/dap-an-a-diem-p-a70a12-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án A: Điểm P.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án A: Đà Lạt.": {
+      "file": "assets/voice/dap-an-a-da-lat-449207-trang.mp3",
+      "ms": 1800,
+      "spoken": "Đáp án A: Đà Lạt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 1 l.": {
+      "file": "assets/voice/dap-an-b-1-l-b9d89f-trang.mp3",
+      "ms": 1872,
+      "spoken": "Đáp án B: một lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 1.014.": {
+      "file": "assets/voice/dap-an-b-1-014-814eed-trang.mp3",
+      "ms": 2688,
+      "spoken": "Đáp án B: một nghìn không trăm mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 1.041.": {
+      "file": "assets/voice/dap-an-b-1-041-c7fb91-trang.mp3",
+      "ms": 2760,
+      "spoken": "Đáp án B: một nghìn không trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 10 cm².": {
+      "file": "assets/voice/dap-an-b-10-cm-ce2cfc-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án B: mười xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 10 giờ.": {
+      "file": "assets/voice/dap-an-b-10-gio-45eb94-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án B: mười giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 11 : 6.": {
+      "file": "assets/voice/dap-an-b-11-6-7938c8-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án B: mười một chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 11 giờ.": {
+      "file": "assets/voice/dap-an-b-11-gio-9f908a-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án B: mười một giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 11.": {
+      "file": "assets/voice/dap-an-b-11-d8f9fb-trang.mp3",
+      "ms": 1920,
+      "spoken": "Đáp án B: mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 12.": {
+      "file": "assets/voice/dap-an-b-12-f6fc69-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án B: mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 12.265.": {
+      "file": "assets/voice/dap-an-b-12-265-d3964f-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án B: mười hai nghìn hai trăm sáu mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 13.": {
+      "file": "assets/voice/dap-an-b-13-58ff42-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án B: mười ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 13.295.": {
+      "file": "assets/voice/dap-an-b-13-295-b6e182-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án B: mười ba nghìn hai trăm chín mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 13.304.": {
+      "file": "assets/voice/dap-an-b-13-304-39c0f6-trang.mp3",
+      "ms": 3120,
+      "spoken": "Đáp án B: mười ba nghìn ba trăm linh bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 14.": {
+      "file": "assets/voice/dap-an-b-14-56edf5-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án B: mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 15 ml.": {
+      "file": "assets/voice/dap-an-b-15-ml-0ac74a-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án B: mười lăm mi-li-lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 16 m.": {
+      "file": "assets/voice/dap-an-b-16-m-3fc348-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án B: mười sáu mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 16.": {
+      "file": "assets/voice/dap-an-b-16-56f273-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án B: mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 16.398.": {
+      "file": "assets/voice/dap-an-b-16-398-3097c8-trang.mp3",
+      "ms": 3432,
+      "spoken": "Đáp án B: mười sáu nghìn ba trăm chín mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 17 °C.": {
+      "file": "assets/voice/dap-an-b-17-c-761ae8-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án B: mười bảy độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 184.": {
+      "file": "assets/voice/dap-an-b-184-a03426-trang.mp3",
+      "ms": 2976,
+      "spoken": "Đáp án B: một trăm tám mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 2 cm.": {
+      "file": "assets/voice/dap-an-b-2-cm-d6d1e9-trang.mp3",
+      "ms": 2472,
+      "spoken": "Đáp án B: hai xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 2.": {
+      "file": "assets/voice/dap-an-b-2-895f03-trang.mp3",
+      "ms": 1800,
+      "spoken": "Đáp án B: hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 2.375.": {
+      "file": "assets/voice/dap-an-b-2-375-58bba3-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án B: hai nghìn ba trăm bảy mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 23.015.": {
+      "file": "assets/voice/dap-an-b-23-015-da74f9-trang.mp3",
+      "ms": 3024,
+      "spoken": "Đáp án B: hai mươi ba nghìn không trăm mười lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 25.": {
+      "file": "assets/voice/dap-an-b-25-bd9f49-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án B: hai mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 28 m.": {
+      "file": "assets/voice/dap-an-b-28-m-118268-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án B: hai mươi tám mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 283.": {
+      "file": "assets/voice/dap-an-b-283-1d756e-trang.mp3",
+      "ms": 2616,
+      "spoken": "Đáp án B: hai trăm tám mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 3 giờ 11 phút.": {
+      "file": "assets/voice/dap-an-b-3-gio-11-phut-3b0977-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án B: ba giờ mười một phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 3.": {
+      "file": "assets/voice/dap-an-b-3-a75cf4-trang.mp3",
+      "ms": 1848,
+      "spoken": "Đáp án B: ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 3.841.": {
+      "file": "assets/voice/dap-an-b-3-841-ffe0b4-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án B: ba nghìn tám trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 32 : 6.": {
+      "file": "assets/voice/dap-an-b-32-6-1db086-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án B: ba mươi hai chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 321.": {
+      "file": "assets/voice/dap-an-b-321-212705-trang.mp3",
+      "ms": 2664,
+      "spoken": "Đáp án B: ba trăm hai mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 33.": {
+      "file": "assets/voice/dap-an-b-33-d311c6-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án B: ba mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 34.": {
+      "file": "assets/voice/dap-an-b-34-d11e8f-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án B: ba mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 35.": {
+      "file": "assets/voice/dap-an-b-35-b3209f-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án B: ba mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 4.": {
+      "file": "assets/voice/dap-an-b-4-a9502b-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án B: bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 400.": {
+      "file": "assets/voice/dap-an-b-400-1e1818-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án B: bốn trăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 42.": {
+      "file": "assets/voice/dap-an-b-42-31ef96-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án B: bốn mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 441.": {
+      "file": "assets/voice/dap-an-b-441-709eb0-trang.mp3",
+      "ms": 2592,
+      "spoken": "Đáp án B: bốn trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 448.": {
+      "file": "assets/voice/dap-an-b-448-d2b511-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án B: bốn trăm bốn mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 45.": {
+      "file": "assets/voice/dap-an-b-45-affb95-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án B: bốn mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 46.448.": {
+      "file": "assets/voice/dap-an-b-46-448-9d1d5b-trang.mp3",
+      "ms": 3384,
+      "spoken": "Đáp án B: bốn mươi sáu nghìn bốn trăm bốn mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 461.": {
+      "file": "assets/voice/dap-an-b-461-f6819e-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án B: bốn trăm sáu mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 48.": {
+      "file": "assets/voice/dap-an-b-48-b20864-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án B: bốn mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 5 giờ 50 phút.": {
+      "file": "assets/voice/dap-an-b-5-gio-50-phut-422441-trang.mp3",
+      "ms": 2640,
+      "spoken": "Đáp án B: năm giờ năm mươi phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 5 lần.": {
+      "file": "assets/voice/dap-an-b-5-lan-3829c2-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án B: năm lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 5 °C.": {
+      "file": "assets/voice/dap-an-b-5-c-61c8e1-trang.mp3",
+      "ms": 1896,
+      "spoken": "Đáp án B: năm độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 5.": {
+      "file": "assets/voice/dap-an-b-5-874db7-trang.mp3",
+      "ms": 1824,
+      "spoken": "Đáp án B: năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 5.602.": {
+      "file": "assets/voice/dap-an-b-5-602-2beaea-trang.mp3",
+      "ms": 3120,
+      "spoken": "Đáp án B: năm nghìn sáu trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 50.936.": {
+      "file": "assets/voice/dap-an-b-50-936-69a6de-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án B: năm mươi nghìn chín trăm ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 6 cm.": {
+      "file": "assets/voice/dap-an-b-6-cm-162211-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án B: sáu xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 6 cm².": {
+      "file": "assets/voice/dap-an-b-6-cm-1fe782-trang.mp3",
+      "ms": 2712,
+      "spoken": "Đáp án B: sáu xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 6.": {
+      "file": "assets/voice/dap-an-b-6-295572-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án B: sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 60.476.": {
+      "file": "assets/voice/dap-an-b-60-476-c4a4a2-trang.mp3",
+      "ms": 3384,
+      "spoken": "Đáp án B: sáu mươi nghìn bốn trăm bảy mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 63.": {
+      "file": "assets/voice/dap-an-b-63-8a62e0-trang.mp3",
+      "ms": 2592,
+      "spoken": "Đáp án B: sáu mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 68.199.": {
+      "file": "assets/voice/dap-an-b-68-199-3dc42f-trang.mp3",
+      "ms": 3432,
+      "spoken": "Đáp án B: sáu mươi tám nghìn một trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 68.799.": {
+      "file": "assets/voice/dap-an-b-68-799-e31e75-trang.mp3",
+      "ms": 3384,
+      "spoken": "Đáp án B: sáu mươi tám nghìn bảy trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 69.": {
+      "file": "assets/voice/dap-an-b-69-ea49e0-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án B: sáu mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 693.": {
+      "file": "assets/voice/dap-an-b-693-7857de-trang.mp3",
+      "ms": 2664,
+      "spoken": "Đáp án B: sáu trăm chín mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 7 giờ 25 phút.": {
+      "file": "assets/voice/dap-an-b-7-gio-25-phut-0ebba8-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án B: bảy giờ hai mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 7 giờ 5 phút.": {
+      "file": "assets/voice/dap-an-b-7-gio-5-phut-cbf77e-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án B: bảy giờ năm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 7.": {
+      "file": "assets/voice/dap-an-b-7-0752fe-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án B: bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 7.000 + 40 + 3.": {
+      "file": "assets/voice/dap-an-b-7-000-40-3-404ec8-trang.mp3",
+      "ms": 3528,
+      "spoken": "Đáp án B: bảy nghìn cộng bốn mươi cộng ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 7.078.": {
+      "file": "assets/voice/dap-an-b-7-078-7a9647-trang.mp3",
+      "ms": 3384,
+      "spoken": "Đáp án B: bảy nghìn không trăm bảy mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 705.": {
+      "file": "assets/voice/dap-an-b-705-4fc256-trang.mp3",
+      "ms": 2352,
+      "spoken": "Đáp án B: bảy trăm linh năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 74.000.": {
+      "file": "assets/voice/dap-an-b-74-000-6b59d0-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án B: bảy mươi tư nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8 bông.": {
+      "file": "assets/voice/dap-an-b-8-bong-2a2b95-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án B: tám bông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8 giờ 5 phút.": {
+      "file": "assets/voice/dap-an-b-8-gio-5-phut-1bf44a-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án B: tám giờ năm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8.": {
+      "file": "assets/voice/dap-an-b-8-a96e40-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án B: tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8.328.": {
+      "file": "assets/voice/dap-an-b-8-328-bfe071-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án B: tám nghìn ba trăm hai mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8.338.": {
+      "file": "assets/voice/dap-an-b-8-338-8e4fb3-trang.mp3",
+      "ms": 3072,
+      "spoken": "Đáp án B: tám nghìn ba trăm ba mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8.563.": {
+      "file": "assets/voice/dap-an-b-8-563-9b3cf7-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án B: tám nghìn năm trăm sáu mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 8.761.": {
+      "file": "assets/voice/dap-an-b-8-761-3a361a-trang.mp3",
+      "ms": 2976,
+      "spoken": "Đáp án B: tám nghìn bảy trăm sáu mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 80.000.": {
+      "file": "assets/voice/dap-an-b-80-000-04ee95-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án B: tám mươi nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 80.422.": {
+      "file": "assets/voice/dap-an-b-80-422-b3cd8e-trang.mp3",
+      "ms": 3456,
+      "spoken": "Đáp án B: tám mươi nghìn bốn trăm hai mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 80.828.": {
+      "file": "assets/voice/dap-an-b-80-828-72f296-trang.mp3",
+      "ms": 3168,
+      "spoken": "Đáp án B: tám mươi nghìn tám trăm hai mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 806.": {
+      "file": "assets/voice/dap-an-b-806-12223e-trang.mp3",
+      "ms": 2664,
+      "spoken": "Đáp án B: tám trăm linh sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 81.218.": {
+      "file": "assets/voice/dap-an-b-81-218-c123c5-trang.mp3",
+      "ms": 3480,
+      "spoken": "Đáp án B: tám mươi mốt nghìn hai trăm mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 83.000.": {
+      "file": "assets/voice/dap-an-b-83-000-4d65d0-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án B: tám mươi ba nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 86 chai.": {
+      "file": "assets/voice/dap-an-b-86-chai-485818-trang.mp3",
+      "ms": 2592,
+      "spoken": "Đáp án B: tám mươi sáu chai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 9 cm.": {
+      "file": "assets/voice/dap-an-b-9-cm-5ead39-trang.mp3",
+      "ms": 2760,
+      "spoken": "Đáp án B: chín xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 9 giờ.": {
+      "file": "assets/voice/dap-an-b-9-gio-9da88e-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án B: chín giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 9.": {
+      "file": "assets/voice/dap-an-b-9-876bcc-trang.mp3",
+      "ms": 1752,
+      "spoken": "Đáp án B: chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 919.": {
+      "file": "assets/voice/dap-an-b-919-dfa1d6-trang.mp3",
+      "ms": 2472,
+      "spoken": "Đáp án B: chín trăm mười chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 96.": {
+      "file": "assets/voice/dap-an-b-96-dec6c0-trang.mp3",
+      "ms": 2472,
+      "spoken": "Đáp án B: chín mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: 97.": {
+      "file": "assets/voice/dap-an-b-97-40c999-trang.mp3",
+      "ms": 2352,
+      "spoken": "Đáp án B: chín mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: <.": {
+      "file": "assets/voice/dap-an-b-09644a-trang.mp3",
+      "ms": 984,
+      "spoken": "Đáp án B: <.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: =.": {
+      "file": "assets/voice/dap-an-b-a76171-trang.mp3",
+      "ms": 1896,
+      "spoken": "Đáp án B: bằng .",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: >.": {
+      "file": "assets/voice/dap-an-b-2968fa-trang.mp3",
+      "ms": 1008,
+      "spoken": "Đáp án B: >.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Hình chữ nhật.": {
+      "file": "assets/voice/dap-an-b-hinh-chu-nhat-81bd0c-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án B: Hình chữ nhật.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Hình tam giác.": {
+      "file": "assets/voice/dap-an-b-hinh-tam-giac-c151db-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án B: Hình tam giác.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Khối lập phương nhiều hơn.": {
+      "file": "assets/voice/dap-an-b-khoi-lap-phuong-nhieu-hon-009301-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án B: Khối lập phương nhiều hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Lớp 3B.": {
+      "file": "assets/voice/dap-an-b-lop-3b-88e16d-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án B: Lớp ba B.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: N là trung điểm của MH.": {
+      "file": "assets/voice/dap-an-b-n-la-trung-diem-cua-mh-1c17f6-trang.mp3",
+      "ms": 3432,
+      "spoken": "Đáp án B: N là trung điểm của MH.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Sa Pa.": {
+      "file": "assets/voice/dap-an-b-sa-pa-c7c8c9-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án B: Sa Pa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Tháng 11.": {
+      "file": "assets/voice/dap-an-b-thang-11-5b076a-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án B: Tháng mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Tháng 9.": {
+      "file": "assets/voice/dap-an-b-thang-9-cf1e4a-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án B: Tháng chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: V.": {
+      "file": "assets/voice/dap-an-b-v-a86726-trang.mp3",
+      "ms": 1944,
+      "spoken": "Đáp án B: V.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: XVII.": {
+      "file": "assets/voice/dap-an-b-xvii-b30b9b-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án B: XVII.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: bảy mươi tám nghìn bảy trăm linh một.": {
+      "file": "assets/voice/dap-an-b-bay-muoi-tam-nghin-bay-tram-lin-25aa43-trang.mp3",
+      "ms": 3072,
+      "spoken": "Đáp án B: bảy mươi tám nghìn bảy trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: bảy mươi tám nghìn sáu trăm linh một.": {
+      "file": "assets/voice/dap-an-b-bay-muoi-tam-nghin-sau-tram-lin-13fc60-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án B: bảy mươi tám nghìn sáu trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: chắc chắn.": {
+      "file": "assets/voice/dap-an-b-chac-chan-7b60c5-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án B: chắc chắn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: com-pa.": {
+      "file": "assets/voice/dap-an-b-com-pa-6f3130-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án B: com-pa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: góc vuông.": {
+      "file": "assets/voice/dap-an-b-goc-vuong-f58c92-trang.mp3",
+      "ms": 1920,
+      "spoken": "Đáp án B: góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: hai mươi hai độ.": {
+      "file": "assets/voice/dap-an-b-hai-muoi-hai-do-8b5de2-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án B: hai mươi hai độ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: hình tứ giác không có góc vuông.": {
+      "file": "assets/voice/dap-an-b-hinh-tu-giac-khong-co-goc-vuong-e8051f-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án B: hình tứ giác không có góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: hình vuông.": {
+      "file": "assets/voice/dap-an-b-hinh-vuong-2ad093-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án B: hình vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: không thể.": {
+      "file": "assets/voice/dap-an-b-khong-the-0d8525-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án B: không thể.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: sáu mươi ba nghìn không trăm linh hai.": {
+      "file": "assets/voice/dap-an-b-sau-muoi-ba-nghin-khong-tram-li-e0e6ad-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án B: sáu mươi ba nghìn không trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: thước dây.": {
+      "file": "assets/voice/dap-an-b-thuoc-day-c8a07b-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án B: thước dây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Điểm A.": {
+      "file": "assets/voice/dap-an-b-diem-a-b87f59-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án B: Điểm A.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Điểm G.": {
+      "file": "assets/voice/dap-an-b-diem-g-387a13-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án B: Điểm G.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Điểm I.": {
+      "file": "assets/voice/dap-an-b-diem-i-386b08-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án B: Điểm I.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án B: Đà Nẵng.": {
+      "file": "assets/voice/dap-an-b-da-nang-17810d-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án B: Đà Nẵng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 1.114.": {
+      "file": "assets/voice/dap-an-c-1-114-00e34b-trang.mp3",
+      "ms": 2688,
+      "spoken": "Đáp án C: một nghìn một trăm mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 1.410.": {
+      "file": "assets/voice/dap-an-c-1-410-8d4e8f-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án C: một nghìn bốn trăm mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 10 bông.": {
+      "file": "assets/voice/dap-an-c-10-bong-8a0154-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án C: mười bông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 10 giờ 25 phút.": {
+      "file": "assets/voice/dap-an-c-10-gio-25-phut-d2f74f-trang.mp3",
+      "ms": 2760,
+      "spoken": "Đáp án C: mười giờ hai mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 10.": {
+      "file": "assets/voice/dap-an-c-10-00cb70-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án C: mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 11 giờ 15 phút.": {
+      "file": "assets/voice/dap-an-c-11-gio-15-phut-0ccbc0-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án C: mười một giờ mười lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 12 cm².": {
+      "file": "assets/voice/dap-an-c-12-cm-721b4f-trang.mp3",
+      "ms": 2712,
+      "spoken": "Đáp án C: mười hai xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 12.264.": {
+      "file": "assets/voice/dap-an-c-12-264-f6e73b-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án C: mười hai nghìn hai trăm sáu mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 13.293.": {
+      "file": "assets/voice/dap-an-c-13-293-ab2572-trang.mp3",
+      "ms": 3432,
+      "spoken": "Đáp án C: mười ba nghìn hai trăm chín mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 13.295.": {
+      "file": "assets/voice/dap-an-c-13-295-cb2a21-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án C: mười ba nghìn hai trăm chín mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 15 l.": {
+      "file": "assets/voice/dap-an-c-15-l-b1e437-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án C: mười lăm lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 15 °C.": {
+      "file": "assets/voice/dap-an-c-15-c-4089de-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án C: mười lăm độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 150 l.": {
+      "file": "assets/voice/dap-an-c-150-l-539b47-trang.mp3",
+      "ms": 2616,
+      "spoken": "Đáp án C: một trăm năm mươi lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 16.": {
+      "file": "assets/voice/dap-an-c-16-00c6f3-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án C: mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 16.678.": {
+      "file": "assets/voice/dap-an-c-16-678-041224-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đáp án C: mười sáu nghìn sáu trăm bảy mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 194.": {
+      "file": "assets/voice/dap-an-c-194-4eef55-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án C: một trăm chín mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 2 km.": {
+      "file": "assets/voice/dap-an-c-2-km-117b83-trang.mp3",
+      "ms": 2472,
+      "spoken": "Đáp án C: hai ki-lô-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 2.": {
+      "file": "assets/voice/dap-an-c-2-b135fd-trang.mp3",
+      "ms": 1800,
+      "spoken": "Đáp án C: hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 2.386.": {
+      "file": "assets/voice/dap-an-c-2-386-8b4786-trang.mp3",
+      "ms": 3000,
+      "spoken": "Đáp án C: hai nghìn ba trăm tám mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 22.925.": {
+      "file": "assets/voice/dap-an-c-22-925-1f243a-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án C: hai mươi hai nghìn chín trăm hai mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 23.": {
+      "file": "assets/voice/dap-an-c-23-39cfe3-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án C: hai mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 24 : 6.": {
+      "file": "assets/voice/dap-an-c-24-6-789913-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án C: hai mươi tư chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 24.": {
+      "file": "assets/voice/dap-an-c-24-37be97-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án C: hai mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 26 m.": {
+      "file": "assets/voice/dap-an-c-26-m-d568ee-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án C: hai mươi sáu mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 282.": {
+      "file": "assets/voice/dap-an-c-282-1f43f0-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án C: hai trăm tám mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 3.": {
+      "file": "assets/voice/dap-an-c-3-1338d6-trang.mp3",
+      "ms": 1896,
+      "spoken": "Đáp án C: ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 31.": {
+      "file": "assets/voice/dap-an-c-31-259a9b-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án C: ba mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 33 : 6.": {
+      "file": "assets/voice/dap-an-c-33-6-054329-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án C: ba mươi ba chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 36.": {
+      "file": "assets/voice/dap-an-c-36-278dd2-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án C: ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 37 °C.": {
+      "file": "assets/voice/dap-an-c-37-c-291817-trang.mp3",
+      "ms": 2472,
+      "spoken": "Đáp án C: ba mươi bảy độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 39.": {
+      "file": "assets/voice/dap-an-c-39-45ae55-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án C: ba mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 4.171.": {
+      "file": "assets/voice/dap-an-c-4-171-3ecaca-trang.mp3",
+      "ms": 2808,
+      "spoken": "Đáp án C: bốn nghìn một trăm bảy mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 4.490.": {
+      "file": "assets/voice/dap-an-c-4-490-2f93be-trang.mp3",
+      "ms": 2904,
+      "spoken": "Đáp án C: bốn nghìn bốn trăm chín mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 40.": {
+      "file": "assets/voice/dap-an-c-40-7ee8e2-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án C: bốn mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 45.642.": {
+      "file": "assets/voice/dap-an-c-45-642-1420f7-trang.mp3",
+      "ms": 3768,
+      "spoken": "Đáp án C: bốn mươi lăm nghìn sáu trăm bốn mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 451.": {
+      "file": "assets/voice/dap-an-c-451-f37d90-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án C: bốn trăm năm mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 481.": {
+      "file": "assets/voice/dap-an-c-481-b59feb-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án C: bốn trăm tám mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 5.": {
+      "file": "assets/voice/dap-an-c-5-933390-trang.mp3",
+      "ms": 1728,
+      "spoken": "Đáp án C: năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 507.": {
+      "file": "assets/voice/dap-an-c-507-3b54e5-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án C: năm trăm linh bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 51.044.": {
+      "file": "assets/voice/dap-an-c-51-044-ad1359-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án C: năm mươi mốt nghìn không trăm bốn mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 56.": {
+      "file": "assets/voice/dap-an-c-56-ed3f88-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án C: năm mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 6 lần.": {
+      "file": "assets/voice/dap-an-c-6-lan-ff9c26-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án C: sáu lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 6.": {
+      "file": "assets/voice/dap-an-c-6-112c07-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án C: sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 6.118.": {
+      "file": "assets/voice/dap-an-c-6-118-483522-trang.mp3",
+      "ms": 2760,
+      "spoken": "Đáp án C: sáu nghìn một trăm mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 6.502.": {
+      "file": "assets/voice/dap-an-c-6-502-760f8c-trang.mp3",
+      "ms": 2880,
+      "spoken": "Đáp án C: sáu nghìn năm trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 60.": {
+      "file": "assets/voice/dap-an-c-60-847ce7-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án C: sáu mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 636.": {
+      "file": "assets/voice/dap-an-c-636-d590bf-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án C: sáu trăm ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 64 cm.": {
+      "file": "assets/voice/dap-an-c-64-cm-567add-trang.mp3",
+      "ms": 2904,
+      "spoken": "Đáp án C: sáu mươi tư xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 66.407.": {
+      "file": "assets/voice/dap-an-c-66-407-cc0dc0-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án C: sáu mươi sáu nghìn bốn trăm linh bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 68.199.": {
+      "file": "assets/voice/dap-an-c-68-199-cd755b-trang.mp3",
+      "ms": 3552,
+      "spoken": "Đáp án C: sáu mươi tám nghìn một trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 680.": {
+      "file": "assets/voice/dap-an-c-680-04aa51-trang.mp3",
+      "ms": 2688,
+      "spoken": "Đáp án C: sáu trăm tám mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 69.": {
+      "file": "assets/voice/dap-an-c-69-866ba1-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án C: sáu mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 69.799.": {
+      "file": "assets/voice/dap-an-c-69-799-b03e87-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đáp án C: sáu mươi chín nghìn bảy trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 7 giờ.": {
+      "file": "assets/voice/dap-an-c-7-gio-6d8094-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án C: bảy giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 7.": {
+      "file": "assets/voice/dap-an-c-7-332e7b-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án C: bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 7.000 + 30 + 4.": {
+      "file": "assets/voice/dap-an-c-7-000-30-4-074f06-trang.mp3",
+      "ms": 3168,
+      "spoken": "Đáp án C: bảy nghìn cộng ba mươi cộng bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 7.077.": {
+      "file": "assets/voice/dap-an-c-7-077-271acc-trang.mp3",
+      "ms": 2880,
+      "spoken": "Đáp án C: bảy nghìn không trăm bảy mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 74 m.": {
+      "file": "assets/voice/dap-an-c-74-m-9caf30-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án C: bảy mươi tư mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 76.000.": {
+      "file": "assets/voice/dap-an-c-76-000-ca27b7-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án C: bảy mươi sáu nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8 giờ 25 phút.": {
+      "file": "assets/voice/dap-an-c-8-gio-25-phut-576ac3-trang.mp3",
+      "ms": 2736,
+      "spoken": "Đáp án C: tám giờ hai mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8 giờ 55 phút.": {
+      "file": "assets/voice/dap-an-c-8-gio-55-phut-58d77c-trang.mp3",
+      "ms": 2664,
+      "spoken": "Đáp án C: tám giờ năm mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8 giờ.": {
+      "file": "assets/voice/dap-an-c-8-gio-3ef7e2-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án C: tám giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8.": {
+      "file": "assets/voice/dap-an-c-8-11278a-trang.mp3",
+      "ms": 1752,
+      "spoken": "Đáp án C: tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8.562.": {
+      "file": "assets/voice/dap-an-c-8-562-8b022b-trang.mp3",
+      "ms": 3096,
+      "spoken": "Đáp án C: tám nghìn năm trăm sáu mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 8.851.": {
+      "file": "assets/voice/dap-an-c-8-851-4b4424-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án C: tám nghìn tám trăm năm mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 80.": {
+      "file": "assets/voice/dap-an-c-80-4b4dbd-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án C: tám mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 80.010.": {
+      "file": "assets/voice/dap-an-c-80-010-c5fd61-trang.mp3",
+      "ms": 2904,
+      "spoken": "Đáp án C: tám mươi nghìn không trăm mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 80.808.": {
+      "file": "assets/voice/dap-an-c-80-808-824ff0-trang.mp3",
+      "ms": 3072,
+      "spoken": "Đáp án C: tám mươi nghìn tám trăm linh tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 80.828.": {
+      "file": "assets/voice/dap-an-c-80-828-7cbbeb-trang.mp3",
+      "ms": 3408,
+      "spoken": "Đáp án C: tám mươi nghìn tám trăm hai mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 81.432.": {
+      "file": "assets/voice/dap-an-c-81-432-43deb6-trang.mp3",
+      "ms": 3696,
+      "spoken": "Đáp án C: tám mươi mốt nghìn bốn trăm ba mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 84 chai.": {
+      "file": "assets/voice/dap-an-c-84-chai-b4304d-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án C: tám mươi tư chai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 84.": {
+      "file": "assets/voice/dap-an-c-84-2b5818-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án C: tám mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 84.000.": {
+      "file": "assets/voice/dap-an-c-84-000-1ca0b2-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án C: tám mươi tư nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 9 cm.": {
+      "file": "assets/voice/dap-an-c-9-cm-b47276-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án C: chín xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 9 cm².": {
+      "file": "assets/voice/dap-an-c-9-cm-58856e-trang.mp3",
+      "ms": 2904,
+      "spoken": "Đáp án C: chín xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 9.": {
+      "file": "assets/voice/dap-an-c-9-3329fe-trang.mp3",
+      "ms": 1944,
+      "spoken": "Đáp án C: chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 909.": {
+      "file": "assets/voice/dap-an-c-909-ee735d-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án C: chín trăm linh chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 960.": {
+      "file": "assets/voice/dap-an-c-960-775b2a-trang.mp3",
+      "ms": 2568,
+      "spoken": "Đáp án C: chín trăm sáu mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: 99.": {
+      "file": "assets/voice/dap-an-c-99-17f6e7-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án C: chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: <.": {
+      "file": "assets/voice/dap-an-c-311d2f-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án C: <.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: =.": {
+      "file": "assets/voice/dap-an-c-932008-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án C: bằng .",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: >.": {
+      "file": "assets/voice/dap-an-c-3118b2-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án C: >.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Bằng nhau.": {
+      "file": "assets/voice/dap-an-c-bang-nhau-eceb8d-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án C: Bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Hà Nội.": {
+      "file": "assets/voice/dap-an-c-ha-noi-879e7d-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án C: Hà Nội.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Hình chữ nhật.": {
+      "file": "assets/voice/dap-an-c-hinh-chu-nhat-acb0e4-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án C: Hình chữ nhật.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Hình tam giác.": {
+      "file": "assets/voice/dap-an-c-hinh-tam-giac-2c103d-trang.mp3",
+      "ms": 2256,
+      "spoken": "Đáp án C: Hình tam giác.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: IV.": {
+      "file": "assets/voice/dap-an-c-iv-759051-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án C: IV.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: IX.": {
+      "file": "assets/voice/dap-an-c-ix-f5a91f-trang.mp3",
+      "ms": 1776,
+      "spoken": "Đáp án C: IX.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Lớp 3C.": {
+      "file": "assets/voice/dap-an-c-lop-3c-89d60e-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đáp án C: Lớp ba C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Sa Pa.": {
+      "file": "assets/voice/dap-an-c-sa-pa-3fc7d7-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án C: Sa Pa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Tháng 7.": {
+      "file": "assets/voice/dap-an-c-thang-7-81c585-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án C: Tháng bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Tháng 9.": {
+      "file": "assets/voice/dap-an-c-thang-9-81e817-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án C: Tháng chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: ba mươi sáu nghìn không trăm hai mươi.": {
+      "file": "assets/voice/dap-an-c-ba-muoi-sau-nghin-khong-tram-ha-63a911-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án C: ba mươi sáu nghìn không trăm hai mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: chắc chắn.": {
+      "file": "assets/voice/dap-an-c-chac-chan-dc52b0-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án C: chắc chắn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: cân đĩa.": {
+      "file": "assets/voice/dap-an-c-can-dia-7326bb-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án C: cân đĩa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: hai mươi hai xăng-ti-mét.": {
+      "file": "assets/voice/dap-an-c-hai-muoi-hai-xang-ti-met-ed2b31-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án C: hai mươi hai xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: hình tròn.": {
+      "file": "assets/voice/dap-an-c-hinh-tron-197473-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án C: hình tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: hình vuông.": {
+      "file": "assets/voice/dap-an-c-hinh-vuong-044954-trang.mp3",
+      "ms": 2592,
+      "spoken": "Đáp án C: hình vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: không thể.": {
+      "file": "assets/voice/dap-an-c-khong-the-6084bd-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án C: không thể.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: tám mươi bảy nghìn sáu trăm linh một.": {
+      "file": "assets/voice/dap-an-c-tam-muoi-bay-nghin-sau-tram-lin-b15386-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án C: tám mươi bảy nghìn sáu trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: ê ke.": {
+      "file": "assets/voice/dap-an-c-e-ke-67e9a6-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án C: ê ke.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Điểm E.": {
+      "file": "assets/voice/dap-an-c-diem-e-325ed3-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án C: Điểm E.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: Điểm P.": {
+      "file": "assets/voice/dap-an-c-diem-p-347f29-trang.mp3",
+      "ms": 1944,
+      "spoken": "Đáp án C: Điểm P.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án C: đường kính.": {
+      "file": "assets/voice/dap-an-c-duong-kinh-180d5f-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án C: đường kính.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 0 °C.": {
+      "file": "assets/voice/dap-an-d-0-c-863587-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án D: không độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 1 cm.": {
+      "file": "assets/voice/dap-an-d-1-cm-5c1a34-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án D: một xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 1 l.": {
+      "file": "assets/voice/dap-an-d-1-l-4ca186-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án D: một lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 1.": {
+      "file": "assets/voice/dap-an-d-1-3b5b4e-trang.mp3",
+      "ms": 1896,
+      "spoken": "Đáp án D: một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 1.014.": {
+      "file": "assets/voice/dap-an-d-1-014-f83345-trang.mp3",
+      "ms": 2808,
+      "spoken": "Đáp án D: một nghìn không trăm mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 1.041.": {
+      "file": "assets/voice/dap-an-d-1-041-3edfea-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án D: một nghìn không trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 10 giờ.": {
+      "file": "assets/voice/dap-an-d-10-gio-561664-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án D: mười giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 10.": {
+      "file": "assets/voice/dap-an-d-10-569014-trang.mp3",
+      "ms": 1944,
+      "spoken": "Đáp án D: mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 11 : 6.": {
+      "file": "assets/voice/dap-an-d-11-6-4f2a14-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án D: mười một chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 11 giờ 25 phút.": {
+      "file": "assets/voice/dap-an-d-11-gio-25-phut-b8968e-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án D: mười một giờ hai mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 11.": {
+      "file": "assets/voice/dap-an-d-11-389223-trang.mp3",
+      "ms": 1776,
+      "spoken": "Đáp án D: mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 12 lần.": {
+      "file": "assets/voice/dap-an-d-12-lan-b734fe-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đáp án D: mười hai lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 12.": {
+      "file": "assets/voice/dap-an-d-12-b68a9b-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án D: mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 12.263.": {
+      "file": "assets/voice/dap-an-d-12-263-80555a-trang.mp3",
+      "ms": 3096,
+      "spoken": "Đáp án D: mười hai nghìn hai trăm sáu mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 13.": {
+      "file": "assets/voice/dap-an-d-13-d88d0f-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án D: mười ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 13.294.": {
+      "file": "assets/voice/dap-an-d-13-294-be5873-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án D: mười ba nghìn hai trăm chín mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 14 cm².": {
+      "file": "assets/voice/dap-an-d-14-cm-69b900-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án D: mười bốn xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 14.": {
+      "file": "assets/voice/dap-an-d-14-b6861e-trang.mp3",
+      "ms": 2064,
+      "spoken": "Đáp án D: mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 15 l.": {
+      "file": "assets/voice/dap-an-d-15-l-333ff3-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án D: mười lăm lít.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 15.": {
+      "file": "assets/voice/dap-an-d-15-d88892-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án D: mười lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 16.": {
+      "file": "assets/voice/dap-an-d-16-3680d7-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án D: mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 16.338.": {
+      "file": "assets/voice/dap-an-d-16-338-cd8ed9-trang.mp3",
+      "ms": 3504,
+      "spoken": "Đáp án D: mười sáu nghìn ba trăm ba mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 18.": {
+      "file": "assets/voice/dap-an-d-18-36a369-trang.mp3",
+      "ms": 2352,
+      "spoken": "Đáp án D: mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 2 m.": {
+      "file": "assets/voice/dap-an-d-2-m-b24b84-trang.mp3",
+      "ms": 2016,
+      "spoken": "Đáp án D: hai mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 2.377.": {
+      "file": "assets/voice/dap-an-d-2-377-8990f8-trang.mp3",
+      "ms": 3120,
+      "spoken": "Đáp án D: hai nghìn ba trăm bảy mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 20 chai.": {
+      "file": "assets/voice/dap-an-d-20-chai-7a16eb-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án D: hai mươi chai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 204.": {
+      "file": "assets/voice/dap-an-d-204-e3935a-trang.mp3",
+      "ms": 2544,
+      "spoken": "Đáp án D: hai trăm linh bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 21.": {
+      "file": "assets/voice/dap-an-d-21-69f5c2-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án D: hai mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 216.": {
+      "file": "assets/voice/dap-an-d-216-f3a60a-trang.mp3",
+      "ms": 2376,
+      "spoken": "Đáp án D: hai trăm mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 23.025.": {
+      "file": "assets/voice/dap-an-d-23-025-805fe1-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đáp án D: hai mươi ba nghìn không trăm hai mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 24 m.": {
+      "file": "assets/voice/dap-an-d-24-m-ca7d27-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án D: hai mươi tư mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 25.": {
+      "file": "assets/voice/dap-an-d-25-4a001d-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án D: hai mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 281.": {
+      "file": "assets/voice/dap-an-d-281-681da4-trang.mp3",
+      "ms": 2664,
+      "spoken": "Đáp án D: hai trăm tám mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 3.821.": {
+      "file": "assets/voice/dap-an-d-3-821-023a39-trang.mp3",
+      "ms": 3264,
+      "spoken": "Đáp án D: ba nghìn tám trăm hai mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 32 : 6.": {
+      "file": "assets/voice/dap-an-d-32-6-1a2d6d-trang.mp3",
+      "ms": 2952,
+      "spoken": "Đáp án D: ba mươi hai chia sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 34.": {
+      "file": "assets/voice/dap-an-d-34-dc2ddd-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án D: ba mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 35 °C.": {
+      "file": "assets/voice/dap-an-d-35-c-0aab75-trang.mp3",
+      "ms": 2808,
+      "spoken": "Đáp án D: ba mươi lăm độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 35.": {
+      "file": "assets/voice/dap-an-d-35-fe3051-trang.mp3",
+      "ms": 1992,
+      "spoken": "Đáp án D: ba mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 4 giờ 55 phút.": {
+      "file": "assets/voice/dap-an-d-4-gio-55-phut-30d110-trang.mp3",
+      "ms": 3096,
+      "spoken": "Đáp án D: bốn giờ năm mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 4.": {
+      "file": "assets/voice/dap-an-d-4-bd6754-trang.mp3",
+      "ms": 1800,
+      "spoken": "Đáp án D: bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 40.": {
+      "file": "assets/voice/dap-an-d-40-f872d4-trang.mp3",
+      "ms": 2040,
+      "spoken": "Đáp án D: bốn mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 441.": {
+      "file": "assets/voice/dap-an-d-441-b4231a-trang.mp3",
+      "ms": 2688,
+      "spoken": "Đáp án D: bốn trăm bốn mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 45.632.": {
+      "file": "assets/voice/dap-an-d-45-632-303702-trang.mp3",
+      "ms": 3432,
+      "spoken": "Đáp án D: bốn mươi lăm nghìn sáu trăm ba mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 450.": {
+      "file": "assets/voice/dap-an-d-450-678e41-trang.mp3",
+      "ms": 2520,
+      "spoken": "Đáp án D: bốn trăm năm mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 471.": {
+      "file": "assets/voice/dap-an-d-471-42bf17-trang.mp3",
+      "ms": 2640,
+      "spoken": "Đáp án D: bốn trăm bảy mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 5 giờ 35 phút.": {
+      "file": "assets/voice/dap-an-d-5-gio-35-phut-07c710-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án D: năm giờ ba mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 5.702.": {
+      "file": "assets/voice/dap-an-d-5-702-ccc36f-trang.mp3",
+      "ms": 3024,
+      "spoken": "Đáp án D: năm nghìn bảy trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 51.036.": {
+      "file": "assets/voice/dap-an-d-51-036-d51c72-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án D: năm mươi mốt nghìn không trăm ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 570.": {
+      "file": "assets/voice/dap-an-d-570-936d7b-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án D: năm trăm bảy mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 6 cm².": {
+      "file": "assets/voice/dap-an-d-6-cm-821d68-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án D: sáu xăng-ti-mét².",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 6.": {
+      "file": "assets/voice/dap-an-d-6-9d62a4-trang.mp3",
+      "ms": 1944,
+      "spoken": "Đáp án D: sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 61.467.": {
+      "file": "assets/voice/dap-an-d-61-467-de36ac-trang.mp3",
+      "ms": 3600,
+      "spoken": "Đáp án D: sáu mươi mốt nghìn bốn trăm sáu mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 63 cm.": {
+      "file": "assets/voice/dap-an-d-63-cm-363dff-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án D: sáu mươi ba xăng-ti-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 64 m.": {
+      "file": "assets/voice/dap-an-d-64-m-f1a8b3-trang.mp3",
+      "ms": 2328,
+      "spoken": "Đáp án D: sáu mươi tư mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 66.": {
+      "file": "assets/voice/dap-an-d-66-9f841f-trang.mp3",
+      "ms": 2712,
+      "spoken": "Đáp án D: sáu mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 68.": {
+      "file": "assets/voice/dap-an-d-68-9f7fa1-trang.mp3",
+      "ms": 2448,
+      "spoken": "Đáp án D: sáu mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 68.799.": {
+      "file": "assets/voice/dap-an-d-68-799-014e99-trang.mp3",
+      "ms": 3480,
+      "spoken": "Đáp án D: sáu mươi tám nghìn bảy trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 69.": {
+      "file": "assets/voice/dap-an-d-69-7d7d2d-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án D: sáu mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 69.799.": {
+      "file": "assets/voice/dap-an-d-69-799-5ec647-trang.mp3",
+      "ms": 3456,
+      "spoken": "Đáp án D: sáu mươi chín nghìn bảy trăm chín mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 7 giờ 25 phút.": {
+      "file": "assets/voice/dap-an-d-7-gio-25-phut-a08499-trang.mp3",
+      "ms": 2832,
+      "spoken": "Đáp án D: bảy giờ hai mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 7.": {
+      "file": "assets/voice/dap-an-d-7-3b5fcb-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án D: bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 7.000 + 40 + 4.": {
+      "file": "assets/voice/dap-an-d-7-000-40-4-47c4db-trang.mp3",
+      "ms": 3456,
+      "spoken": "Đáp án D: bảy nghìn cộng bốn mươi cộng bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 7.051.": {
+      "file": "assets/voice/dap-an-d-7-051-ddc4b2-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đáp án D: bảy nghìn không trăm năm mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 74.800.": {
+      "file": "assets/voice/dap-an-d-74-800-d19e93-trang.mp3",
+      "ms": 2856,
+      "spoken": "Đáp án D: bảy mươi tư nghìn tám trăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8 giờ.": {
+      "file": "assets/voice/dap-an-d-8-gio-e22838-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án D: tám giờ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8.": {
+      "file": "assets/voice/dap-an-d-8-9d71ae-trang.mp3",
+      "ms": 1896,
+      "spoken": "Đáp án D: tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8.331.": {
+      "file": "assets/voice/dap-an-d-8-331-f1da81-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án D: tám nghìn ba trăm ba mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8.338.": {
+      "file": "assets/voice/dap-an-d-8-338-f3c93b-trang.mp3",
+      "ms": 3120,
+      "spoken": "Đáp án D: tám nghìn ba trăm ba mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8.572.": {
+      "file": "assets/voice/dap-an-d-8-572-e13812-trang.mp3",
+      "ms": 3336,
+      "spoken": "Đáp án D: tám nghìn năm trăm bảy mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 8.751.": {
+      "file": "assets/voice/dap-an-d-8-751-3977a9-trang.mp3",
+      "ms": 2976,
+      "spoken": "Đáp án D: tám nghìn bảy trăm năm mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 80.818.": {
+      "file": "assets/voice/dap-an-d-80-818-0f9c7f-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án D: tám mươi nghìn tám trăm mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 81.218.": {
+      "file": "assets/voice/dap-an-d-81-218-9c652b-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đáp án D: tám mươi mốt nghìn hai trăm mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 81.424.": {
+      "file": "assets/voice/dap-an-d-81-424-ee4d59-trang.mp3",
+      "ms": 3600,
+      "spoken": "Đáp án D: tám mươi mốt nghìn bốn trăm hai mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 83.000.": {
+      "file": "assets/voice/dap-an-d-83-000-8fea51-trang.mp3",
+      "ms": 2904,
+      "spoken": "Đáp án D: tám mươi ba nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 83.100.": {
+      "file": "assets/voice/dap-an-d-83-100-4ef0ec-trang.mp3",
+      "ms": 2880,
+      "spoken": "Đáp án D: tám mươi ba nghìn một trăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 9 bông.": {
+      "file": "assets/voice/dap-an-d-9-bong-661021-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án D: chín bông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 9 giờ 55 phút.": {
+      "file": "assets/voice/dap-an-d-9-gio-55-phut-fe3a9a-trang.mp3",
+      "ms": 2712,
+      "spoken": "Đáp án D: chín giờ năm mươi lăm phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 910.": {
+      "file": "assets/voice/dap-an-d-910-a25189-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án D: chín trăm mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: 96.": {
+      "file": "assets/voice/dap-an-d-96-9d6770-trang.mp3",
+      "ms": 2400,
+      "spoken": "Đáp án D: chín mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Hà Nội.": {
+      "file": "assets/voice/dap-an-d-ha-noi-bff732-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án D: Hà Nội.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Hình tròn.": {
+      "file": "assets/voice/dap-an-d-hinh-tron-d3c37a-trang.mp3",
+      "ms": 2136,
+      "spoken": "Đáp án D: Hình tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Hình vuông.": {
+      "file": "assets/voice/dap-an-d-hinh-vuong-853db0-trang.mp3",
+      "ms": 2160,
+      "spoken": "Đáp án D: Hình vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: II.": {
+      "file": "assets/voice/dap-an-d-ii-c705b1-trang.mp3",
+      "ms": 1872,
+      "spoken": "Đáp án D: II.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Lớp 3A.": {
+      "file": "assets/voice/dap-an-d-lop-3a-bc71ac-trang.mp3",
+      "ms": 2232,
+      "spoken": "Đáp án D: Lớp ba A.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Nha Trang.": {
+      "file": "assets/voice/dap-an-d-nha-trang-6cd140-trang.mp3",
+      "ms": 2208,
+      "spoken": "Đáp án D: Nha Trang.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Tháng 4.": {
+      "file": "assets/voice/dap-an-d-thang-4-b5a719-trang.mp3",
+      "ms": 1920,
+      "spoken": "Đáp án D: Tháng bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: Tháng 5.": {
+      "file": "assets/voice/dap-an-d-thang-5-17a9f2-trang.mp3",
+      "ms": 2184,
+      "spoken": "Đáp án D: Tháng năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: XVI.": {
+      "file": "assets/voice/dap-an-d-xvi-4115fc-trang.mp3",
+      "ms": 2304,
+      "spoken": "Đáp án D: XVI.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: ba mươi nghìn sáu trăm linh hai.": {
+      "file": "assets/voice/dap-an-d-ba-muoi-nghin-sau-tram-linh-hai-0ac629-trang.mp3",
+      "ms": 3168,
+      "spoken": "Đáp án D: ba mươi nghìn sáu trăm linh hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: bán kính.": {
+      "file": "assets/voice/dap-an-d-ban-kinh-9dcf7e-trang.mp3",
+      "ms": 2352,
+      "spoken": "Đáp án D: bán kính.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: bảy mươi tám nghìn bảy trăm linh một.": {
+      "file": "assets/voice/dap-an-d-bay-muoi-tam-nghin-bay-tram-lin-9cde9f-trang.mp3",
+      "ms": 3192,
+      "spoken": "Đáp án D: bảy mươi tám nghìn bảy trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: bảy mươi tám nghìn sáu trăm linh một.": {
+      "file": "assets/voice/dap-an-d-bay-muoi-tam-nghin-sau-tram-lin-9e7b53-trang.mp3",
+      "ms": 3048,
+      "spoken": "Đáp án D: bảy mươi tám nghìn sáu trăm linh một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: com-pa.": {
+      "file": "assets/voice/dap-an-d-com-pa-73289d-trang.mp3",
+      "ms": 2112,
+      "spoken": "Đáp án D: com-pa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: hai mươi hai độ C.": {
+      "file": "assets/voice/dap-an-d-hai-muoi-hai-do-c-0fc736-trang.mp3",
+      "ms": 3888,
+      "spoken": "Đáp án D: hai mươi hai độ C.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: hình tròn.": {
+      "file": "assets/voice/dap-an-d-hinh-tron-a7796c-trang.mp3",
+      "ms": 2280,
+      "spoken": "Đáp án D: hình tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: hình tứ giác không có góc vuông.": {
+      "file": "assets/voice/dap-an-d-hinh-tu-giac-khong-co-goc-vuong-d32572-trang.mp3",
+      "ms": 3288,
+      "spoken": "Đáp án D: hình tứ giác không có góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đáp án D: ê ke.": {
+      "file": "assets/voice/dap-an-d-e-ke-77a55f-trang.mp3",
+      "ms": 2088,
+      "spoken": "Đáp án D: ê ke.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đáp án đúng là (15 + 36) × 6 - 4 nhé!": {
@@ -36398,6 +39530,396 @@
       "spoken": "Đây là ba cây thước mét đặt nối nhau dưới bảng lớp.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Đây là bài Cuối học kì 1: Đề cuối học kì 1 — Đề số 1.": {
+      "file": "assets/voice/day-la-bai-cuoi-hoc-ki-1-de-cuoi-hoc-ki-36c5c2-trang.mp3",
+      "ms": 4560,
+      "spoken": "Đây là bài Cuối học kì một: Đề cuối học kì một — Đề số một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Cuối học kì 1: Đề cuối học kì 1 — Đề số 2.": {
+      "file": "assets/voice/day-la-bai-cuoi-hoc-ki-1-de-cuoi-hoc-ki-94be07-trang.mp3",
+      "ms": 4968,
+      "spoken": "Đây là bài Cuối học kì một: Đề cuối học kì một — Đề số hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Cuối học kì 1: Đề cuối học kì 1 — Đề số 3.": {
+      "file": "assets/voice/day-la-bai-cuoi-hoc-ki-1-de-cuoi-hoc-ki-b6c07b-trang.mp3",
+      "ms": 4584,
+      "spoken": "Đây là bài Cuối học kì một: Đề cuối học kì một — Đề số ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Cuối học kì 2: Đề cuối học kì 2 — Đề số 1.": {
+      "file": "assets/voice/day-la-bai-cuoi-hoc-ki-2-de-cuoi-hoc-ki-6eb92f-trang.mp3",
+      "ms": 5352,
+      "spoken": "Đây là bài Cuối học kì hai: Đề cuối học kì hai — Đề số một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Cuối học kì 2: Đề cuối học kì 2 — Đề số 2.": {
+      "file": "assets/voice/day-la-bai-cuoi-hoc-ki-2-de-cuoi-hoc-ki-0cb1d9-trang.mp3",
+      "ms": 5280,
+      "spoken": "Đây là bài Cuối học kì hai: Đề cuối học kì hai — Đề số hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Giữa học kì 1: Đề giữa học kì 1 — Đề số 1.": {
+      "file": "assets/voice/day-la-bai-giua-hoc-ki-1-de-giua-hoc-ki-6a83e9-trang.mp3",
+      "ms": 4776,
+      "spoken": "Đây là bài Giữa học kì một: Đề giữa học kì một — Đề số một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Giữa học kì 1: Đề giữa học kì 1 — Đề số 2.": {
+      "file": "assets/voice/day-la-bai-giua-hoc-ki-1-de-giua-hoc-ki-e87c60-trang.mp3",
+      "ms": 5088,
+      "spoken": "Đây là bài Giữa học kì một: Đề giữa học kì một — Đề số hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Giữa học kì 1: Đề giữa học kì 1 — Đề số 3.": {
+      "file": "assets/voice/day-la-bai-giua-hoc-ki-1-de-giua-hoc-ki-4a7f39-trang.mp3",
+      "ms": 4944,
+      "spoken": "Đây là bài Giữa học kì một: Đề giữa học kì một — Đề số ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Giữa học kì 2: Đề giữa học kì 2 — Đề số 1.": {
+      "file": "assets/voice/day-la-bai-giua-hoc-ki-2-de-giua-hoc-ki-237e11-trang.mp3",
+      "ms": 4824,
+      "spoken": "Đây là bài Giữa học kì hai: Đề giữa học kì hai — Đề số một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Giữa học kì 2: Đề giữa học kì 2 — Đề số 2.": {
+      "file": "assets/voice/day-la-bai-giua-hoc-ki-2-de-giua-hoc-ki-a17689-trang.mp3",
+      "ms": 4728,
+      "spoken": "Đây là bài Giữa học kì hai: Đề giữa học kì hai — Đề số hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra 1 tiết — Chủ đề 4.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-1-ti-aa5174-trang.mp3",
+      "ms": 4224,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra một tiết — Chủ đề bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 1.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-7e84e9-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 10.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-705dc9-trang.mp3",
+      "ms": 3384,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 11.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-4e5b55-trang.mp3",
+      "ms": 3696,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 12.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-d05850-trang.mp3",
+      "ms": 3672,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 13.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-ee5641-trang.mp3",
+      "ms": 3768,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 14.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-d053d3-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 15.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-6e50fa-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 16.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-504e8c-trang.mp3",
+      "ms": 3936,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 2.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-9c8756-trang.mp3",
+      "ms": 3408,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 3.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-7e8966-trang.mp3",
+      "ms": 3360,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 4.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-7c7819-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 5.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-9e7a8e-trang.mp3",
+      "ms": 3480,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 6.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-fc7d60-trang.mp3",
+      "ms": 3552,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 7.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-fe7fa2-trang.mp3",
+      "ms": 3312,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 8.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-1c6e88-trang.mp3",
+      "ms": 3408,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 1 tiết: Kiểm tra chủ đề 9.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-1-tiet-kiem-tra-chu-fe7097-trang.mp3",
+      "ms": 3480,
+      "spoken": "Đây là bài Kiểm tra một tiết: Kiểm tra chủ đề chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra 15 phút — Phép nhân.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-15-12cc87-trang.mp3",
+      "ms": 5568,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra mười lăm phút — Phép nhân.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 1.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-9cfd3c-trang.mp3",
+      "ms": 3768,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 10.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-81bfa1-trang.mp3",
+      "ms": 4008,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 11.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-1fbcc8-trang.mp3",
+      "ms": 4008,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 12.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-a1c451-trang.mp3",
+      "ms": 4032,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 13.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-7fc1dc-trang.mp3",
+      "ms": 3960,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 14.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-01b5dd-trang.mp3",
+      "ms": 4152,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 15.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-9fb304-trang.mp3",
+      "ms": 4032,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 16.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-01ba5a-trang.mp3",
+      "ms": 4416,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 17.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-1fb84b-trang.mp3",
+      "ms": 4008,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 18.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-81d329-trang.mp3",
+      "ms": 4320,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 19.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-9fd119-trang.mp3",
+      "ms": 3984,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần mười chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 2.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-1af5b4-trang.mp3",
+      "ms": 3936,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 20.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-d90ba7-trang.mp3",
+      "ms": 4488,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 21.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-bb0db6-trang.mp3",
+      "ms": 4104,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 22.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-d91024-trang.mp3",
+      "ms": 4344,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 23.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-3b12fd-trang.mp3",
+      "ms": 4392,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 24.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-3901b0-trang.mp3",
+      "ms": 4296,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 25.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-5b0424-trang.mp3",
+      "ms": 4224,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 26.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-39062e-trang.mp3",
+      "ms": 4464,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 27.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-bb0939-trang.mp3",
+      "ms": 4200,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 28.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-58f755-trang.mp3",
+      "ms": 4080,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 29.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-bafa2e-trang.mp3",
+      "ms": 4320,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần hai mươi chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 3.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-3cf828-trang.mp3",
+      "ms": 4296,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 30.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-47a2f4-trang.mp3",
+      "ms": 4104,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 31.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-25a07f-trang.mp3",
+      "ms": 4272,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi mốt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 32.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-c79dad-trang.mp3",
+      "ms": 4272,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 33.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-a59b39-trang.mp3",
+      "ms": 4296,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 34.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-c79930-trang.mp3",
+      "ms": 4536,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 35.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-459624-trang.mp3",
+      "ms": 4392,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi lăm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 36.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-2793b7-trang.mp3",
+      "ms": 4296,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần ba mươi sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 4.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-1af137-trang.mp3",
+      "ms": 3624,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 5.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-3cf3ab-trang.mp3",
+      "ms": 3720,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 6.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-9aebf0-trang.mp3",
+      "ms": 3984,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần sáu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 7.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-bcee64-trang.mp3",
+      "ms": 3672,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần bảy.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 8.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-9b0e82-trang.mp3",
+      "ms": 3936,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Kiểm tra 15 phút: Kiểm tra cuối tuần 9.": {
+      "file": "assets/voice/day-la-bai-kiem-tra-15-phut-kiem-tra-cuo-bd10f6-trang.mp3",
+      "ms": 3864,
+      "spoken": "Đây là bài Kiểm tra mười lăm phút: Kiểm tra cuối tuần chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là bài Ôn tập: Đề nâng cao Chủ đề 4.": {
+      "file": "assets/voice/day-la-bai-on-tap-de-nang-cao-chu-de-4-b58d0e-trang.mp3",
+      "ms": 3120,
+      "spoken": "Đây là bài Ôn tập: Đề nâng cao Chủ đề bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Đây là bánh xe đạp, có dạng hình tròn.": {
       "file": "assets/voice/day-la-banh-xe-dap-co-dang-hinh-tron-a24fd1-trang.mp3",
       "ms": 2856,
@@ -37560,6 +41082,12 @@
       "file": "assets/voice/dong-ho-chi-may-gio-1dcce8-trang.mp3",
       "ms": 1608,
       "spoken": "Đồng hồ chỉ mấy giờ?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đồng hồ ở góc trên màn hình. Hết giờ, bài sẽ tự nộp.": {
+      "file": "assets/voice/dong-ho-o-goc-tren-man-hinh-het-gio-bai-60c8e6-trang.mp3",
+      "ms": 4152,
+      "spoken": "Đồng hồ ở góc trên màn hình. Hết giờ, bài sẽ tự nộp.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đổ cả 4 hộp vào bình: 250 + 250 + 250 + 250 = 1.000 ml.": {

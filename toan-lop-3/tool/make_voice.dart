@@ -22,6 +22,8 @@ import 'package:toan_lop_3/models/content.dart';
 import 'package:toan_lop_3/logic/demo_script.dart';
 import 'package:toan_lop_3/logic/real_examples.dart';
 import 'package:toan_lop_3/logic/board_script.dart';
+import 'package:toan_lop_3/logic/exam_lines.dart';
+import 'package:toan_lop_3/models/exam.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
 const api = 'https://api.11max.id.vn';
@@ -92,7 +94,12 @@ List<String> showQuestionLines() {
 
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
 List<String> teacherLines() {
-  final lines = <String>{...TutorLines.all(), ...boardFixedLines()};
+  final lines = <String>{...TutorLines.all(), ...boardFixedLines(), ...ExamLines.fixed()};
+  // Phòng thi: cô coi thi dặn dò, đọc từng câu và từng đáp án của mọi đề.
+  for (final f in Directory('assets/content/exams').listSync().whereType<File>()) {
+    if (!f.path.endsWith('.json')) continue;
+    lines.addAll(ExamLines.all(Exam.fromJson(jsonDecode(f.readAsStringSync()))));
+  }
   // Lời cô giới thiệu từng bài học trong mục lục.
   final catalog = Catalog.fromJson(jsonDecode(File('assets/content/catalog.json').readAsStringSync()));
   for (final b in catalog.books) {
