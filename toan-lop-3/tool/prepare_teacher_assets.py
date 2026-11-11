@@ -109,8 +109,27 @@ def item(src: pathlib.Path, key: str, dest: pathlib.Path, size: int) -> None:
     save_webp(im, dest)
 
 
+def trim_bars(im: Image.Image) -> Image.Image:
+    """Cắt viền đen (letterbox) mà ảnh AI đôi khi tự thêm."""
+    g = im.convert("L")
+    w, h = g.size
+    px = g.load()
+
+    def dark_row(y):
+        return sum(px[x, y] for x in range(0, w, 4)) / len(range(0, w, 4)) < 14
+
+    def dark_col(x):
+        return sum(px[x, y] for y in range(0, h, 4)) / len(range(0, h, 4)) < 14
+
+    top = next((y for y in range(h) if not dark_row(y)), 0)
+    bottom = next((y for y in range(h - 1, -1, -1) if not dark_row(y)), h - 1) + 1
+    left = next((x for x in range(w) if not dark_col(x)), 0)
+    right = next((x for x in range(w - 1, -1, -1) if not dark_col(x)), w - 1) + 1
+    return im.crop((left, top, right, bottom)) if (right - left) > w // 2 and (bottom - top) > h // 2 else im
+
+
 def background(src: pathlib.Path, dest: pathlib.Path, width: int = BG_WIDTH) -> None:
-    im = Image.open(src).convert("RGB")
+    im = trim_bars(Image.open(src).convert("RGB"))
     im = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
     save_webp(im, dest, quality=78)
 
@@ -123,7 +142,8 @@ def auto() -> None:
     for name, m in meta.items():
         src = RAW / f"{name}.png"
         if m["group"] == "ui":
-            item(src, m["key"], ROOT / "assets" / "ui" / f"{name}.webp", SIZES["ui"])
+            stem = {"exam_1tiet": "exam1tiet"}.get(name, name)  # khớp tên UiAsset.exam1tiet
+            item(src, m["key"], ROOT / "assets" / "ui" / f"{stem}.webp", SIZES["ui"])
         elif m["group"] == "pets":
             item(src, m["key"], ROOT / "assets" / "pets" / f"{name.removeprefix('pet_')}.webp", SIZES["pets"])
         elif m["group"] == "bg":

@@ -132,7 +132,7 @@ EXAM_ICONS = {
     "exam_ontap": "A stack of three colourful books with a glowing purple bookmark and a small star",
 }
 for n, desc in EXAM_ICONS.items():
-    JOBS[n] = dict(group="ui", aspect="1:1", prompt=obj(desc))
+    JOBS[n] = dict(group="ui", aspect="1:1", prompt=obj(desc))  # exam_1tiet → đổi tên file thành exam1tiet.webp
 JOBS["bg_exam"] = dict(group="bg", aspect="9:16", prompt=(
     "A soft calm background illustration for a children's exam practice screen: a bright airy school hall with tall "
     "windows and warm morning light, very faint pastel pennant garlands near the top, light lavender and cream "
@@ -160,9 +160,9 @@ CHAPTERS = {
 }
 for n, desc in CHAPTERS.items():
     JOBS[f"chapter_{n}"] = dict(group="chapters", aspect="4:3", prompt=(
-        f"A rich, beautiful illustration for a children's math lesson chapter card: {desc}. Wide composition with "
-        f"the main subject in the right two-thirds, soft and calm on the left side. No characters' faces close-up, "
-        f"no people. {STYLE} {CLEAN}"))
+        f"A rich, beautiful illustration for a children's math lesson chapter card: {desc}. One single seamless "
+        f"full-bleed scene filling the entire frame edge to edge, no borders, no black bars, no letterbox, no split "
+        f"panels, no frames. No people. {STYLE} {CLEAN}"))
 
 for pid, (desc, bg) in PETS.items():
     JOBS[f"pet_{pid}"] = dict(group="pets", aspect="1:1", prompt=pet(desc, bg), key="green" if bg == GREEN else "magenta")
