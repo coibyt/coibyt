@@ -179,14 +179,20 @@ void main() {
   group('Trong bài luyện tập', () {
     final lesson = loadLessonFromDisk('kntt3.c4.nhan-2cs-1cs');
 
-    Future<void> pumpQuiz(WidgetTester tester, TutorVoice voice) async {
+    Future<void> pumpQuiz(WidgetTester tester, TutorVoice voice, {bool readAloud = false}) async {
       tester.view.physicalSize = const Size(1080, 2340);
       tester.view.devicePixelRatio = 2.5;
       addTearDown(tester.view.reset);
       await tester.pumpWidget(
         MaterialApp(
           theme: buildAppTheme(),
-          home: QuizScreen(lesson: lesson, sound: const SilentSoundService(), random: Random(7), voice: voice),
+          home: QuizScreen(
+            lesson: lesson,
+            sound: const SilentSoundService(),
+            random: Random(7),
+            voice: voice,
+            readAloud: readAloud,
+          ),
         ),
       );
       await tester.pump();
@@ -232,6 +238,20 @@ void main() {
       await tester.pump(const Duration(seconds: 2));
       expect(voice.spoken, hasLength(1));
       expect(TutorLines.idleNudge, contains(voice.spoken.single));
+      await tester.pump(const Duration(seconds: 6));
+    });
+
+    testWidgets('câu mới hiện ra: cô tự đọc đề (số đọc thành chữ), không cần bấm loa', (tester) async {
+      final voice = AudibleVoice();
+      await pumpQuiz(tester, voice, readAloud: true);
+      await tester.pump(const Duration(seconds: 3));
+      expect(voice.spoken, ['Tính.', 'hai mươi mốt nhân ba bằng bao nhiêu?']);
+      // Cô đọc xong mới bắt đầu tính thời gian bé ngồi im.
+      await tester.pump(const Duration(seconds: 20));
+      expect(voice.spoken, hasLength(2));
+      await tester.pump(const Duration(seconds: 12));
+      expect(voice.spoken, hasLength(3));
+      expect(TutorLines.idleNudge, contains(voice.spoken.last));
       await tester.pump(const Duration(seconds: 6));
     });
 

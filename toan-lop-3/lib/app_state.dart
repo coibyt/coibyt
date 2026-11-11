@@ -7,6 +7,7 @@ import 'logic/badges.dart';
 import 'logic/economy.dart';
 import 'logic/exam_session.dart';
 import 'logic/leaderboard.dart';
+import 'logic/missions.dart';
 import 'logic/quiz_session.dart';
 import 'models/content.dart';
 import 'models/problem.dart';
@@ -48,6 +49,7 @@ class AppState extends ChangeNotifier {
   static const breakKey = 'settings.breakMinutes';
   static const nicknameKey = 'lb.nickname';
   static const optInKey = 'lb.optIn';
+  static const missionsKey = 'missions.daily';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -81,6 +83,49 @@ class AppState extends ChangeNotifier {
   }
 
   bool get canStartExam => progress.hearts > 0;
+
+  // ---- Nhiệm vụ hằng ngày ----
+
+  DailyMissions? _missions;
+
+  /// Nhiệm vụ của hôm nay (sang ngày mới tự làm lại).
+  DailyMissions get missions {
+    final today = dayKey(now());
+    if (_missions?.day == today) return _missions!;
+    DailyMissions? saved;
+    try {
+      final raw = store.get(missionsKey);
+      if (raw != null) saved = DailyMissions.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } on Object {
+      saved = null;
+    }
+    return _missions = saved?.day == today ? saved! : DailyMissions(day: today);
+  }
+
+  Future<void> _saveMissions() => store.put(missionsKey, jsonEncode(missions.toJson()));
+
+  /// Nhận vàng của một nhiệm vụ đã xong.
+  Future<int> claimMission(String id) async {
+    final coins = missions.claim(id);
+    if (coins == 0) return 0;
+    progress.coins += coins;
+    await _saveMissions();
+    await _save();
+    return coins;
+  }
+
+  /// Mở rương báu khi đã nhận đủ 3 nhiệm vụ → (vàng, mảnh ghép); (0, 0) nếu chưa được mở.
+  Future<(int, int)> openMissionChest() async {
+    final m = missions;
+    if (!m.chestReady) return (0, 0);
+    m.chestOpened = true;
+    progress
+      ..coins += Missions.chestCoins
+      ..shards += Missions.chestShards;
+    await _saveMissions();
+    await _save();
+    return (Missions.chestCoins, Missions.chestShards);
+  }
 
   /// Quay thẻ thú cưng (ném [NotEnoughCoins] nếu thiếu vàng).
   Future<SpinResult> spinPet(Random random) async {
@@ -315,6 +360,8 @@ class AppState extends ChangeNotifier {
     final hearts = restoreHeartsForPractice(progress, correct: session.correctCount, total: session.problems.length);
     _addSkillStats(session.skillStats());
     _markActive();
+    missions.record(correct: session.correctCount, stars: session.stars);
+    await _saveMissions();
     final badges = _awardBadges();
     await _save();
     return RewardOutcome(pointsEarned: earned, newBadgeIds: badges, coins: coins, heartsChange: hearts);
@@ -388,6 +435,8 @@ class AppState extends ChangeNotifier {
     final lost = loseHeartsForExam(progress, result.items.length - result.correctCount, now());
     _addSkillStats(result.skillStats());
     _markActive();
+    missions.record(correct: result.correctCount, isLesson: false);
+    await _saveMissions();
     final badges = _awardBadges();
     await _save();
     return RewardOutcome(pointsEarned: earned, newBadgeIds: badges, coins: coins, shards: shards, heartsChange: -lost);

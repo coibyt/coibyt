@@ -42,6 +42,8 @@ flutter:
     # Cô giáo ảo: ảnh Kie.ai (tuỳ chọn), vật phẩm, giọng 11max
     - assets/tutor/
     - assets/ui/
+    - assets/pets/
+    - assets/bg/
     - assets/voice/
 
   fonts:

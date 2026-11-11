@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 
 import '../../logic/economy.dart';
 import '../app_theme.dart';
+import '../../tutor/teacher_assets.dart';
 import 'bee_mascot.dart';
+import 'game_art.dart';
 
 /// Ngọn lửa chuỗi ngày: lớn dần theo số ngày, lập loè; xám khi chưa có chuỗi.
 class StreakFlame extends StatefulWidget {
@@ -73,7 +75,11 @@ class _StreakFlameState extends State<StreakFlame> with SingleTickerProviderStat
               : null,
           child: Opacity(
             opacity: lit ? 1 : 0.3,
-            child: Text('🔥', style: TextStyle(fontSize: size)),
+            child: GameIcon(
+              UiAsset.flame,
+              size: size * 1.15,
+              fallback: Text('🔥', style: TextStyle(fontSize: size)),
+            ),
           ),
         ),
       ),
@@ -96,10 +102,13 @@ class HeartsBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           for (var i = 0; i < Economy.maxHearts; i++)
-            Icon(
-              i < hearts ? Icons.favorite_rounded : Icons.favorite_border_rounded,
-              color: i < hearts ? const Color(0xFFFF4D6D) : Colors.black26,
-              size: size,
+            Opacity(
+              opacity: i < hearts ? 1 : 0.22,
+              child: GameIcon(
+                UiAsset.heart,
+                size: size * 1.1,
+                fallback: Icon(Icons.favorite_rounded, color: const Color(0xFFFF4D6D), size: size),
+              ),
             ),
         ],
       ),
@@ -138,12 +147,7 @@ class TutorAvatar extends StatelessWidget {
               left: size * left,
               child: Text(o.emoji, style: TextStyle(fontSize: size * scale)),
             ),
-          if (pet != null)
-            Positioned(
-              right: 0,
-              bottom: 0,
-              child: Text(pet.emoji, style: TextStyle(fontSize: max(16, size * 0.38))),
-            ),
+          if (pet != null) Positioned(right: 0, bottom: 0, child: PetImage(pet.id, size: max(22, size * 0.45))),
         ],
       ),
     );
@@ -160,6 +164,13 @@ class CoinChip extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
     decoration: BoxDecoration(color: AppColors.honeySoft, borderRadius: BorderRadius.circular(14)),
-    child: Text('🪙 $coins', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        GameIcon(UiAsset.coin, size: 24, fallback: const Text('🪙', style: TextStyle(fontSize: 18))),
+        const SizedBox(width: 4),
+        Text('$coins', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+      ],
+    ),
   );
 }

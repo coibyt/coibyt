@@ -82,6 +82,11 @@
       "ms": 1368,
       "spoken": "Con chỉ cần nhập số thôi nhé!"
     },
+    "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!": {
+      "file": "assets/voice/con-co-nhiem-vu-da-hoan-thanh-bam-nhan-v-a5cb43.mp3",
+      "ms": 2040,
+      "spoken": "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!"
+    },
     "Con cần cô gợi ý không? Bấm nút Gợi ý nhé!": {
       "file": "assets/voice/con-can-co-goi-y-khong-bam-nut-goi-y-nhe-08b168.mp3",
       "ms": 1992,
@@ -216,6 +221,11 @@
       "file": "assets/voice/nhan-hang-don-vi-truoc-3-2-4674ab.mp3",
       "ms": 2472,
       "spoken": "Nhân hàng đơn vị trước: ba nhân hai bằng bao nhiêu?"
+    },
+    "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!": {
+      "file": "assets/voice/oa-ruong-bau-mo-roi-con-gioi-qua-xong-he-fa0456.mp3",
+      "ms": 3288,
+      "spoken": "Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!"
     },
     "Siêu quá! Một chuỗi câu đúng dài luôn!": {
       "file": "assets/voice/sieu-qua-mot-chuoi-cau-dung-dai-luon-2a2466.mp3",

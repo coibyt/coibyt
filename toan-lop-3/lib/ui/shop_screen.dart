@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../logic/economy.dart';
 import 'app_theme.dart';
+import 'widgets/game_art.dart';
+import '../tutor/teacher_assets.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_widgets.dart';
 
@@ -86,7 +88,7 @@ class _SpinTabState extends State<_SpinTab> {
               duration: const Duration(milliseconds: 500),
               curve: Curves.elasticOut,
               builder: (context, v, child) => Transform.scale(scale: v, child: child),
-              child: Text(r.pet.emoji, style: const TextStyle(fontSize: 90)),
+              child: PetImage(r.pet.id, size: 170),
             ),
             Text(r.pet.name, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
             Text(r.pet.rarity.label, style: TextStyle(fontSize: 18, color: _rarityColor(r.pet.rarity))),
@@ -110,7 +112,11 @@ class _SpinTabState extends State<_SpinTab> {
           child: AnimatedRotation(
             turns: _spinning ? 2 : 0,
             duration: const Duration(milliseconds: 700),
-            child: const Text('🎁', style: TextStyle(fontSize: 100)),
+            child: GameIcon(
+              UiAsset.chestClosed,
+              size: 150,
+              fallback: const Text('🎁', style: TextStyle(fontSize: 100)),
+            ),
           ),
         ),
         const SizedBox(height: 8),
@@ -213,7 +219,8 @@ class _ShardBox extends StatelessWidget {
                 for (final pet in missing)
                   ActionChip(
                     key: ValueKey('choose-${pet.id}'),
-                    label: Text('${pet.emoji} ${pet.name}', style: const TextStyle(fontSize: 16)),
+                    avatar: PetImage(pet.id, size: 28),
+                    label: Text(pet.name, style: const TextStyle(fontSize: 16)),
                     onPressed: () => app.choosePet(pet.id),
                   ),
               ],
@@ -292,7 +299,7 @@ class _CollectionTab extends StatelessWidget {
           children: [
             for (final pet in allPets)
               _PetCard(
-                emoji: pet.emoji,
+                petId: pet.id,
                 name: (p.pets[pet.id] ?? 0) > 0 ? pet.name : '???',
                 rarity: pet.rarity,
                 owned: (p.pets[pet.id] ?? 0) > 0,
@@ -310,7 +317,7 @@ class _CollectionTab extends StatelessWidget {
 class _PetCard extends StatelessWidget {
   const _PetCard({
     super.key,
-    required this.emoji,
+    required this.petId,
     required this.name,
     required this.rarity,
     required this.owned,
@@ -318,7 +325,7 @@ class _PetCard extends StatelessWidget {
     required this.onTap,
   });
 
-  final String emoji;
+  final String petId;
   final String name;
   final Rarity rarity;
   final bool owned;
@@ -334,18 +341,23 @@ class _PetCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         onTap: onTap,
         child: Container(
-          width: 100,
-          height: 120,
+          width: 108,
+          height: 138,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(18),
+            gradient: owned
+                ? LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.white, _rarityColor(rarity).withValues(alpha: 0.18)],
+                  )
+                : null,
             border: Border.all(color: selected ? AppColors.sky : _rarityColor(rarity), width: selected ? 4 : 2),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              owned
-                  ? Text(emoji, style: const TextStyle(fontSize: 46))
-                  : const Icon(Icons.help_outline_rounded, size: 46, color: Colors.black26),
+              PetImage(petId, size: 70, silhouette: !owned),
               Text(
                 name,
                 textAlign: TextAlign.center,

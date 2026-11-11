@@ -133,7 +133,13 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         theme: buildAppTheme(),
-        home: QuizScreen(lesson: lessons.first, sound: const SilentSoundService(), random: Random(7), voice: voice),
+        home: QuizScreen(
+          lesson: lessons.first,
+          sound: const SilentSoundService(),
+          random: Random(7),
+          voice: voice,
+          readAloud: false,
+        ),
       ),
     );
     await tester.pumpAndSettle();

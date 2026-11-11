@@ -32,8 +32,27 @@ enum TeacherPose {
   };
 }
 
-/// Vật phẩm giao diện tạo bằng Kie.ai (tuỳ chọn; thiếu thì app tự vẽ).
-enum UiAsset { coin, star, chalkboard, ruler, button }
+/// Vật phẩm giao diện tạo bằng Kie.ai (tuỳ chọn; thiếu thì app tự vẽ / dùng biểu tượng).
+enum UiAsset {
+  coin,
+  star,
+  heart,
+  flame,
+  chalkboard,
+  chestClosed,
+  chestOpen,
+  tileLesson,
+  tileExam,
+  tileRank,
+  tileShop,
+  tileBadge,
+  tileMission,
+  ruler,
+  button;
+
+  /// Tên file: chestClosed → chest_closed
+  String get fileStem => name.replaceAllMapped(RegExp('[A-Z]'), (m) => '_${m[0]!.toLowerCase()}');
+}
 
 /// Tự nhận ảnh có trong gói app. Thiếu ảnh nào thì dùng hình vẽ sẵn bằng code.
 class TeacherAssets {
@@ -67,7 +86,13 @@ class TeacherAssets {
   /// Đường dẫn ảnh của một khung (null = chưa có, dùng hình vẽ).
   String? pose(TeacherPose p) => _first('${tutorDir}teacher_${p.fileStem}');
 
-  String? ui(UiAsset a) => _first('$uiDir${a.name}');
+  String? ui(UiAsset a) => _first('$uiDir${a.fileStem}');
+
+  /// Ảnh thú cưng (`assets/pets/<id>.webp`).
+  String? pet(String id) => _first('assets/pets/$id');
+
+  /// Hình nền (`assets/bg/<name>.webp`), vd 'home', 'lesson'.
+  String? background(String name) => _first('assets/bg/$name');
 
   /// Đủ bộ ảnh tối thiểu để dùng ảnh thật thay hình vẽ.
   bool get hasTeacherImages => pose(TeacherPose.idle) != null;
@@ -76,7 +101,7 @@ class TeacherAssets {
   Future<void> precache(BuildContext context) async {
     for (final p in TeacherPose.values) {
       final path = pose(p);
-      if (path != null) await precacheImage(AssetImage(path), context);
+      if (path != null && context.mounted) await precacheImage(AssetImage(path), context);
     }
   }
 }

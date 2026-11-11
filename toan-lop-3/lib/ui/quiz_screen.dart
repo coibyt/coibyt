@@ -16,6 +16,8 @@ import '../services/tutor_voice.dart';
 import 'app_theme.dart';
 import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
+import 'widgets/game_art.dart';
+import '../tutor/teacher_assets.dart';
 import 'widgets/solution_view.dart';
 import '../tutor/column_hint.dart';
 import '../tutor/reward_burst.dart';
@@ -42,6 +44,7 @@ class QuizScreen extends StatefulWidget {
     this.onFinished,
     this.voice,
     this.voiceOn = true,
+    this.readAloud = true,
   }) : assert(lessonAsset != null || lesson != null);
 
   /// Đường dẫn asset của bài học (vd assets/content/lessons/x.json).
@@ -62,6 +65,9 @@ class QuizScreen extends StatefulWidget {
   /// Giọng cô Ong (null = [AppTutorVoice.instance]); [voiceOn] = tự đọc lời thoại.
   final TutorVoice? voice;
   final bool voiceOn;
+
+  /// Cô tự đọc đề mỗi khi sang câu mới.
+  final bool readAloud;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -106,6 +112,7 @@ class _QuizScreenState extends State<QuizScreen> {
           sound: widget.sound ?? AppSound.instance,
           voice: widget.voice ?? AppTutorVoice.instance,
           voiceOn: widget.voiceOn,
+          readAloud: widget.readAloud,
           random: widget.random,
           onFinished: widget.onFinished,
         );
@@ -121,6 +128,7 @@ class _QuizBody extends StatefulWidget {
     required this.sound,
     required this.voice,
     required this.voiceOn,
+    required this.readAloud,
     this.random,
     this.onFinished,
   });
@@ -130,6 +138,7 @@ class _QuizBody extends StatefulWidget {
   final SoundService sound;
   final TutorVoice voice;
   final bool voiceOn;
+  final bool readAloud;
   final Random? random;
   final QuizFinished? onFinished;
 
@@ -165,9 +174,24 @@ class _QuizBodyState extends State<_QuizBody> {
     _watch = Timer.periodic(const Duration(seconds: 1), (_) => _watchTick());
   }
 
+  /// Cô giáo tự đọc đề khi câu mới hiện ra (không cần bấm loa).
+  void _readProblem() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || !widget.readAloud || _session.isFinished || _session.problems.isEmpty) return;
+      final p = _session.current;
+      final text = (p.prompt.speak ?? p.prompt.text).trim();
+      final instruction = p.displayInstruction.trim();
+      _teacher.say([if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction, text]);
+    });
+  }
+
   /// Bé ngồi im lâu: cô hỏi có cần gợi ý không; làm xong mà chưa bấm: nhắc bấm Kiểm tra.
   void _watchTick() {
-    if (!mounted || _session.isFinished || _session.phase != QuestionPhase.answering || _teacher.speaking) return;
+    if (_teacher.speaking) {
+      _idleSeconds = 0; // tính thời gian ngồi im từ lúc cô nói xong
+      return;
+    }
+    if (!mounted || _session.isFinished || _session.phase != QuestionPhase.answering) return;
     _idleSeconds++;
     if (_answerComplete && !_pressCheckSaid && _idleSeconds >= 8) {
       _pressCheckSaid = true;
@@ -197,6 +221,7 @@ class _QuizBodyState extends State<_QuizBody> {
     _finishReported = false;
     _reward = null;
     _attemptKey++;
+    _readProblem();
   }
 
   @override
@@ -245,6 +270,7 @@ class _QuizBodyState extends State<_QuizBody> {
       _answer = null;
       _attemptKey++;
     });
+    _readProblem();
     if (_session.isFinished && !_finishReported) {
       _finishReported = true;
       widget.sound.finish();
@@ -353,63 +379,67 @@ class _QuizBodyState extends State<_QuizBody> {
       showCorrect: phase == QuestionPhase.revealed,
     );
     return Scaffold(
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Column(
-              children: [
-                _TopBar(
-                  combo: _session.combo,
-                  current: _session.index + 1,
-                  total: _session.problems.length,
-                  onClose: () => Navigator.of(context).maybePop(),
-                  onTheory: _openTheory,
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-                    child: Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 640),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            _PromptCard(problem: problem),
-                            if (showColumnHint) ...[
-                              const SizedBox(height: 12),
-                              ColumnHintCard(key: ValueKey('hint-${problem.id}'), focus: focus),
+      body: ScreenBackground(
+        name: 'lesson',
+        veil: 0.15,
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  _TopBar(
+                    combo: _session.combo,
+                    current: _session.index + 1,
+                    total: _session.problems.length,
+                    onClose: () => Navigator.of(context).maybePop(),
+                    onTheory: _openTheory,
+                  ),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+                      child: Center(
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 640),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              _PromptCard(problem: problem),
+                              if (showColumnHint) ...[
+                                const SizedBox(height: 12),
+                                ColumnHintCard(key: ValueKey('hint-${problem.id}'), focus: focus),
+                              ],
+                              const SizedBox(height: 16),
+                              KeyedSubtree(
+                                key: ValueKey('${problem.id}#$_attemptKey'),
+                                child: _answerArea(problem, viewState),
+                              ),
                             ],
-                            const SizedBox(height: 16),
-                            KeyedSubtree(
-                              key: ValueKey('${problem.id}#$_attemptKey'),
-                              child: _answerArea(problem, viewState),
-                            ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                _FeedbackAndActions(
-                  session: _session,
-                  teacher: _teacher,
-                  onCheck: _check,
-                  onRetry: () {
-                    _idleSeconds = 0;
-                    setState(_session.retry);
-                  },
-                  onSolution: _openSolution,
-                  onHint: () {
-                    _idleSeconds = 0;
-                    setState(_session.requestHint);
-                    _teacher.say(_session.messageParts, mood: TeacherMood.think);
-                  },
-                  onNext: _next,
-                ),
-              ],
-            ),
-            Positioned.fill(child: RewardBurst(trigger: _burst)),
-          ],
+                  _FeedbackAndActions(
+                    session: _session,
+                    teacher: _teacher,
+                    onCheck: _check,
+                    onRetry: () {
+                      _idleSeconds = 0;
+                      setState(_session.retry);
+                    },
+                    onSolution: _openSolution,
+                    onHint: () {
+                      _idleSeconds = 0;
+                      setState(_session.requestHint);
+                      _teacher.say(_session.messageParts, mood: TeacherMood.think);
+                    },
+                    onNext: _next,
+                  ),
+                ],
+              ),
+              Positioned.fill(child: RewardBurst(trigger: _burst)),
+            ],
+          ),
         ),
       ),
     );
@@ -463,7 +493,13 @@ class _TopBar extends StatelessWidget {
               margin: const EdgeInsets.only(right: 8),
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(color: AppColors.tryAgainSoft, borderRadius: BorderRadius.circular(12)),
-              child: Text('🔥 $combo', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GameIcon(UiAsset.flame, size: 22, fallback: const Text('🔥', style: TextStyle(fontSize: 18))),
+                  Text('$combo', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+                ],
+              ),
             ),
           Text('$current/$total', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
           const SizedBox(width: 4),
@@ -484,44 +520,95 @@ class _PromptCard extends StatelessWidget {
 
   final Problem problem;
 
+  static const _chalk = Color(0xFFF8F6EA);
+
   @override
   Widget build(BuildContext context) {
+    // Bảng đen: khung gỗ sồi, mặt bảng xanh thẫm, chữ phấn trắng.
     return Container(
-      padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(AppSizes.radius),
-        boxShadow: const [BoxShadow(color: Color(0x14000000), blurRadius: 10, offset: Offset(0, 4))],
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFFD9A863), Color(0xFFB27A3C), Color(0xFF8E5A26)],
+        ),
+        boxShadow: const [BoxShadow(color: Color(0x40000000), blurRadius: 14, offset: Offset(0, 6))],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Flexible(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                  decoration: BoxDecoration(color: AppColors.honeySoft, borderRadius: BorderRadius.circular(12)),
-                  child: Text(
-                    problem.displayInstruction,
-                    style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+      padding: const EdgeInsets.all(9),
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(18, 14, 18, 18),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(AppSizes.radius - 6),
+          gradient: const RadialGradient(
+            center: Alignment(-0.4, -0.6),
+            radius: 1.4,
+            colors: [Color(0xFF2F6B4F), Color(0xFF1E4D38), Color(0xFF173D2C)],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    decoration: BoxDecoration(color: const Color(0xFFFFD66B), borderRadius: BorderRadius.circular(12)),
+                    child: Text(
+                      problem.displayInstruction,
+                      style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: Color(0xFF3B2A00)),
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                for (var i = 0; i < problem.level; i++)
+                  const Icon(Icons.star_rounded, color: Color(0xFFFFD66B), size: 22),
+              ],
+            ),
+            const SizedBox(height: 12),
+            Text(
+              problem.prompt.text,
+              style: const TextStyle(
+                fontSize: AppSizes.promptFont,
+                fontWeight: FontWeight.w700,
+                height: 1.35,
+                color: _chalk,
+                shadows: [Shadow(color: Color(0x55FFFFFF), blurRadius: 2)],
+              ),
+            ),
+            if (problem.prompt.image != null) ...[
+              const SizedBox(height: 12),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(14),
+                child: ColoredBox(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: BlockView(block: ImageBlock(problem.prompt.image!)),
                   ),
                 ),
               ),
-              const SizedBox(width: 8),
-              for (var i = 0; i < problem.level; i++) const Icon(Icons.star_rounded, color: AppColors.honey, size: 20),
             ],
-          ),
-          const SizedBox(height: 12),
-          Text(
-            problem.prompt.text,
-            style: const TextStyle(fontSize: AppSizes.promptFont, fontWeight: FontWeight.w700, height: 1.35),
-          ),
-          if (problem.prompt.image != null) ...[
-            const SizedBox(height: 12),
-            BlockView(block: ImageBlock(problem.prompt.image!)),
+            // Khay phấn
+            const SizedBox(height: 8),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (final w in const [26.0, 18.0])
+                    Container(
+                      width: w,
+                      height: 7,
+                      margin: const EdgeInsets.only(left: 6),
+                      decoration: BoxDecoration(color: _chalk, borderRadius: BorderRadius.circular(4)),
+                    ),
+                ],
+              ),
+            ),
           ],
-        ],
+        ),
       ),
     );
   }

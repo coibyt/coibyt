@@ -12,6 +12,9 @@ const kTeacherName = 'Cô Mai';
 abstract final class TutorLines {
   static const greeting = 'Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm 10 môn Toán nhé!';
 
+  static const missionReady = 'Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!';
+  static const chestOpened = 'Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!';
+
   static const praise = ['Xuất sắc!', 'Chính xác!', 'Giỏi quá!', 'Tuyệt vời!', 'Đúng rồi, con làm tốt lắm!'];
   static const praiseFast = ['Con làm nhanh quá!', 'Nhanh mà chính xác, giỏi lắm!'];
   static const praiseCombo = ['Xuất sắc! Con làm đúng liền mấy câu rồi!', 'Con đang rất phong độ, cứ thế nhé!'];
@@ -71,6 +74,8 @@ abstract final class TutorLines {
   /// Tất cả câu cố định (để ghi âm trước).
   static List<String> all() => {
     greeting,
+    missionReady,
+    chestOpened,
     ...praise,
     ...praiseFast,
     ...praiseCombo,

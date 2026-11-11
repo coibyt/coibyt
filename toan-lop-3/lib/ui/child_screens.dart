@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
@@ -9,6 +11,9 @@ import 'shop_screen.dart';
 import 'leaderboard_screen.dart';
 import 'widgets/game_widgets.dart';
 import '../logic/economy.dart';
+import '../logic/missions.dart';
+import 'widgets/game_art.dart';
+import '../tutor/teacher_avatar.dart';
 import 'exam_screens.dart';
 import 'parent/parent_screens.dart';
 import 'quiz_screen.dart';
@@ -131,14 +136,25 @@ class _BookCard extends StatelessWidget {
 // Trang chủ của bé
 // ===========================================================================
 
-/// Một ô lớn trên trang chủ (Phase 3/4 thêm "Thi thử", "Huy hiệu").
+/// Một ô lớn trên trang chủ.
 class HomeTile {
-  const HomeTile({required this.label, required this.icon, required this.color, required this.builder});
+  const HomeTile({
+    required this.label,
+    required this.icon,
+    required this.color,
+    required this.builder,
+    this.art,
+    this.subtitle,
+  });
 
   final String label;
   final IconData icon;
   final Color color;
   final WidgetBuilder builder;
+
+  /// Ảnh 3D (Kie.ai) thay cho [icon] nếu có.
+  final UiAsset? art;
+  final String? subtitle;
 }
 
 class HomeScreen extends StatefulWidget {
@@ -156,16 +172,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Cô giáo chào bằng giọng nói 1 lần mỗi ngày (các lần sau chỉ hiện chữ).
-    // Trình duyệt có thể chặn phát tiếng khi bé chưa chạm màn hình — bé bấm loa để nghe.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       // Nạp sẵn mọi khung hình cô giáo để khi nói (đổi khung) không bị nháy.
       TeacherAssets.instance.precache(context);
       final app = AppScope.read(context);
-      _teacher.voiceEnabled = !app.greetedToday && app.voiceEnabled;
-      _teacher.say(const [TutorLines.greeting]);
+      app.refreshHearts();
+      // Mở app là cô chào bằng giọng nói ngay (không cần bấm loa).
       _teacher.voiceEnabled = app.voiceEnabled;
+      _teacher.say([TutorLines.greeting, if (app.missions.claimable > 0) TutorLines.missionReady]);
       if (!app.greetedToday) app.markGreeted();
     });
   }
@@ -178,87 +193,97 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final extraTiles = widget.extraTiles;
     final app = AppScope.of(context);
     final book = app.book!;
     final tiles = [
       HomeTile(
         label: 'Học bài',
+        subtitle: 'Bài giảng & luyện tập',
         icon: Icons.auto_stories_rounded,
         color: AppColors.sky,
+        art: UiAsset.tileLesson,
         builder: (_) => ChapterListScreen(book: book),
       ),
       HomeTile(
         label: 'Luyện thi',
+        subtitle: 'Đề giữa kì, cuối kì',
         icon: Icons.assignment_rounded,
         color: AppColors.tryAgain,
+        art: UiAsset.tileExam,
         builder: (_) => ExamListScreen(book: book),
       ),
       HomeTile(
         label: 'Bảng xếp hạng',
+        subtitle: 'Thi đua cả tuần',
         icon: Icons.leaderboard_rounded,
         color: AppColors.good,
+        art: UiAsset.tileRank,
         builder: (_) => const LeaderboardScreen(),
       ),
       HomeTile(
         label: 'Cửa hàng',
+        subtitle: 'Thú cưng & trang phục',
         icon: Icons.storefront_rounded,
         color: const Color(0xFFFF6FB5),
+        art: UiAsset.tileShop,
         builder: (_) => const ShopScreen(),
       ),
       HomeTile(
         label: 'Huy hiệu',
+        subtitle: 'Bộ sưu tập thành tích',
         icon: Icons.military_tech_rounded,
-        color: const Color(0xFF8E5CF7),
+        color: AppColors.vip,
+        art: UiAsset.tileBadge,
         builder: (_) => const BadgesScreen(),
       ),
-      ...extraTiles,
+      ...widget.extraTiles,
     ];
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 640),
-            child: ListView(
-              padding: const EdgeInsets.all(16),
-              children: [
-                Row(
+      body: ScreenBackground(
+        name: 'home',
+        child: SafeArea(
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 680),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 24),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Chào ${app.progress.childName}!',
-                            key: const ValueKey('home-greeting'),
-                            style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
-                          ),
-                          Text(book.series.displayName, style: const TextStyle(fontSize: 18, color: Colors.black54)),
-                        ],
-                      ),
+                    _HomeTopBar(app: app),
+                    const SizedBox(height: 12),
+                    _GlassCard(
+                      padding: const EdgeInsets.fromLTRB(8, 8, 12, 12),
+                      child: TeacherHud(key: const ValueKey('home-tutor'), controller: _teacher, avatarHeight: 170),
                     ),
-                    IconButton(
-                      key: const ValueKey('btn-parent'),
-                      iconSize: 34,
-                      tooltip: 'Dành cho bố mẹ',
-                      icon: const Icon(Icons.lock_person_rounded, color: Colors.black54),
-                      onPressed: () => openParentArea(context),
+                    const SizedBox(height: 12),
+                    _DailyCard(app: app),
+                    const SizedBox(height: 12),
+                    _MissionsCard(app: app, teacher: _teacher),
+                    const SizedBox(height: 12),
+                    RankCard(rank: app.rank),
+                    const SizedBox(height: 16),
+                    LayoutBuilder(
+                      builder: (context, c) {
+                        final cols = c.maxWidth >= 420 ? 2 : 1;
+                        const gap = 12.0;
+                        final w = (c.maxWidth - gap * (cols - 1)) / cols;
+                        return Wrap(
+                          spacing: gap,
+                          runSpacing: gap,
+                          children: [
+                            for (final t in tiles)
+                              SizedBox(
+                                width: w,
+                                child: _BigTile(tile: t),
+                              ),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                TeacherHud(key: const ValueKey('home-tutor'), controller: _teacher, avatarHeight: 130),
-                const SizedBox(height: 12),
-                _DailyCard(app: app),
-                const SizedBox(height: 12),
-                RankCard(rank: app.rank),
-                const SizedBox(height: 16),
-                for (final t in tiles)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 14),
-                    child: _BigTile(tile: t),
-                  ),
-              ],
+              ),
             ),
           ),
         ),
@@ -267,7 +292,112 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-/// Thẻ "hôm nay": ngọn lửa chuỗi ngày, tim, vàng, điểm.
+/// Thẻ kính mờ trắng bo tròn, dùng chung cho trang chủ.
+class _GlassCard extends StatelessWidget {
+  const _GlassCard({required this.child, this.padding = const EdgeInsets.all(14), super.key});
+
+  final Widget child;
+  final EdgeInsets padding;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: padding,
+    decoration: BoxDecoration(
+      color: Colors.white.withValues(alpha: 0.86),
+      borderRadius: BorderRadius.circular(24),
+      border: Border.all(color: Colors.white, width: 2),
+      boxShadow: const [BoxShadow(color: Color(0x1A3A2A80), blurRadius: 18, offset: Offset(0, 6))],
+    ),
+    child: child,
+  );
+}
+
+/// Thanh trên cùng: lời chào, vàng, điểm, nút phụ huynh.
+class _HomeTopBar extends StatelessWidget {
+  const _HomeTopBar({required this.app});
+
+  final AppState app;
+
+  @override
+  Widget build(BuildContext context) {
+    final p = app.progress;
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Chào ${p.childName}!',
+                key: const ValueKey('home-greeting'),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF2B2160),
+                  shadows: [Shadow(color: Colors.white, blurRadius: 8)],
+                ),
+              ),
+              Text(
+                app.book!.series.displayName,
+                style: const TextStyle(fontSize: 16, color: Color(0xFF4A3F86), fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+        ),
+        _Pill(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GameIcon(UiAsset.coin, size: 26, fallback: const Text('🪙', style: TextStyle(fontSize: 18))),
+              const SizedBox(width: 4),
+              Text('${p.coins}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+            ],
+          ),
+        ),
+        const SizedBox(width: 6),
+        _Pill(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GameIcon(UiAsset.star, size: 24, fallback: const Text('⭐', style: TextStyle(fontSize: 18))),
+              const SizedBox(width: 4),
+              Text('${p.totalPoints}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+            ],
+          ),
+        ),
+        IconButton(
+          key: const ValueKey('btn-parent'),
+          iconSize: 30,
+          tooltip: 'Dành cho bố mẹ',
+          icon: const Icon(Icons.lock_person_rounded, color: Color(0xFF4A3F86)),
+          onPressed: () => openParentArea(context),
+        ),
+      ],
+    );
+  }
+}
+
+class _Pill extends StatelessWidget {
+  const _Pill({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+    decoration: BoxDecoration(
+      color: Colors.white.withValues(alpha: 0.92),
+      borderRadius: BorderRadius.circular(30),
+      border: Border.all(color: const Color(0xFFFFD66B), width: 2),
+      boxShadow: const [BoxShadow(color: Color(0x22000000), blurRadius: 6, offset: Offset(0, 2))],
+    ),
+    child: child,
+  );
+}
+
+/// Thẻ "hôm nay": ngọn lửa chuỗi ngày, tim.
 class _DailyCard extends StatelessWidget {
   const _DailyCard({required this.app});
 
@@ -283,10 +413,8 @@ class _DailyCard extends StatelessWidget {
         : streak > 0
         ? 'Học một bài hôm nay để giữ lửa nhé!'
         : 'Học một bài hôm nay để nhóm lửa nào!';
-    return Container(
+    return _GlassCard(
       key: const ValueKey('daily-card'),
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(22)),
       child: Row(
         children: [
           StreakFlame(streak: streak, activeToday: active),
@@ -298,7 +426,7 @@ class _DailyCard extends StatelessWidget {
                 Text(
                   '$streak ngày liên tiếp',
                   key: const ValueKey('streak-text'),
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w800),
                 ),
                 Text(hint, style: const TextStyle(fontSize: 15, color: Colors.black54)),
                 if (freezeAvailableThisWeek(p, app.now()) && streak > 0)
@@ -309,18 +437,238 @@ class _DailyCard extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+          HeartsBar(hearts: p.hearts, size: 18),
+        ],
+      ),
+    );
+  }
+}
+
+/// Nhiệm vụ hằng ngày: 3 nhiệm vụ + rương báu.
+class _MissionsCard extends StatelessWidget {
+  const _MissionsCard({required this.app, required this.teacher});
+
+  final AppState app;
+  final TeacherController teacher;
+
+  Future<void> _openChest(BuildContext context) async {
+    final (coins, shards) = await app.openMissionChest();
+    if (coins == 0 || !context.mounted) return;
+    teacher.say(const [TutorLines.chestOpened], mood: TeacherMood.clap);
+    await showDialog<void>(
+      context: context,
+      builder: (_) => AlertDialog(
+        backgroundColor: const Color(0xFFFFFBF0),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            GameIcon(UiAsset.chestOpen, size: 170, fallback: const Text('🎁', style: TextStyle(fontSize: 90))),
+            const Text('Rương báu đã mở!', style: TextStyle(fontSize: 26, fontWeight: FontWeight.w800)),
+            const SizedBox(height: 8),
+            Text('+$coins vàng  •  +$shards mảnh ghép', style: const TextStyle(fontSize: 20)),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('Tuyệt vời!', style: TextStyle(fontSize: 20)),
+          ),
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final m = app.missions;
+    final done = Missions.all.where(m.isClaimed).length;
+    return _GlassCard(
+      key: const ValueKey('missions-card'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              HeartsBar(hearts: p.hearts, size: 18),
-              const SizedBox(height: 4),
-              CoinChip(coins: p.coins),
-              const SizedBox(height: 4),
-              Text('⭐ ${p.totalPoints}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+              GameIcon(UiAsset.tileMission, size: 34, fallback: const Icon(Icons.flag_rounded, color: AppColors.sky)),
+              const SizedBox(width: 8),
+              const Expanded(
+                child: Text('Nhiệm vụ hôm nay', style: TextStyle(fontSize: 21, fontWeight: FontWeight.w800)),
+              ),
+              Text('$done/${Missions.all.length}', style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+            ],
+          ),
+          const SizedBox(height: 6),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Column(
+                  children: [for (final def in Missions.all) _MissionRow(app: app, def: def)],
+                ),
+              ),
+              const SizedBox(width: 6),
+              Semantics(
+                button: true,
+                label: m.chestReady ? 'Mở rương báu' : 'Rương báu',
+                child: GestureDetector(
+                  key: const ValueKey('mission-chest'),
+                  onTap: m.chestReady ? () => _openChest(context) : null,
+                  child: _ChestView(ready: m.chestReady, opened: m.chestOpened),
+                ),
+              ),
             ],
           ),
         ],
       ),
+    );
+  }
+}
+
+class _MissionRow extends StatelessWidget {
+  const _MissionRow({required this.app, required this.def});
+
+  final AppState app;
+  final MissionDef def;
+
+  @override
+  Widget build(BuildContext context) {
+    final m = app.missions;
+    final got = m.progressOf(def);
+    final done = m.isDone(def);
+    final claimed = m.isClaimed(def);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  def.title,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    decoration: claimed ? TextDecoration.lineThrough : null,
+                    color: claimed ? Colors.black38 : AppColors.ink,
+                  ),
+                ),
+                const SizedBox(height: 3),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: LinearProgressIndicator(
+                    value: got / def.goal,
+                    minHeight: 9,
+                    color: done ? AppColors.good : AppColors.honey,
+                    backgroundColor: const Color(0xFFEDE7FF),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(width: 8),
+          SizedBox(
+            width: 84,
+            child: claimed
+                ? const Icon(Icons.check_circle_rounded, color: AppColors.good, size: 30)
+                : FilledButton(
+                    key: ValueKey('mission-${def.id}'),
+                    style: FilledButton.styleFrom(
+                      backgroundColor: done ? const Color(0xFFFFB800) : const Color(0xFFE7E3F3),
+                      foregroundColor: done ? const Color(0xFF4A2A00) : Colors.black45,
+                      padding: const EdgeInsets.symmetric(horizontal: 6),
+                      minimumSize: const Size(84, 36),
+                    ),
+                    onPressed: done ? () => app.claimMission(def.id) : null,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('+${def.coins}', style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800)),
+                        GameIcon(UiAsset.coin, size: 20, fallback: const Text('🪙')),
+                      ],
+                    ),
+                  ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Rương: đóng (mờ khi chưa đủ nhiệm vụ), rung nhẹ khi mở được, mở khi đã nhận.
+class _ChestView extends StatefulWidget {
+  const _ChestView({required this.ready, required this.opened});
+
+  final bool ready;
+  final bool opened;
+
+  @override
+  State<_ChestView> createState() => _ChestViewState();
+}
+
+class _ChestViewState extends State<_ChestView> with SingleTickerProviderStateMixin {
+  late final _wiggle = AnimationController(vsync: this, duration: const Duration(milliseconds: 900));
+
+  @override
+  void initState() {
+    super.initState();
+    _sync();
+  }
+
+  @override
+  void didUpdateWidget(_ChestView old) {
+    super.didUpdateWidget(old);
+    _sync();
+  }
+
+  void _sync() {
+    final motion = TeacherAvatar.motionEnabled;
+    if (widget.ready && motion) {
+      _wiggle.repeat(count: 30);
+    } else {
+      _wiggle.stop();
+    }
+  }
+
+  @override
+  void dispose() {
+    _wiggle.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final img = GameIcon(
+      widget.opened ? UiAsset.chestOpen : UiAsset.chestClosed,
+      size: 92,
+      fallback: Text(widget.opened ? '🎉' : '🎁', style: const TextStyle(fontSize: 54)),
+    );
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        AnimatedBuilder(
+          animation: _wiggle,
+          builder: (_, child) {
+            final t = _wiggle.value;
+            final angle = widget.ready ? 0.08 * sin(t * pi * 4) * (t < 0.5 ? 1 : 0) : 0.0;
+            return Transform.rotate(angle: angle, child: child);
+          },
+          child: Opacity(opacity: widget.ready || widget.opened ? 1 : 0.55, child: img),
+        ),
+        Text(
+          widget.opened
+              ? 'Đã mở'
+              : widget.ready
+              ? 'Chạm mở!'
+              : '+${Missions.chestCoins} vàng',
+          style: TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w800,
+            color: widget.ready ? const Color(0xFFE07A00) : Colors.black45,
+          ),
+        ),
+      ],
     );
   }
 }
@@ -332,34 +680,81 @@ class _BigTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: tile.color,
-      borderRadius: BorderRadius.circular(26),
-      elevation: 3,
-      child: InkWell(
-        key: ValueKey('tile-${tile.label}'),
+    final c = tile.color;
+    final light = Color.lerp(c, Colors.white, 0.28)!;
+    final dark = Color.lerp(c, Colors.black, 0.18)!;
+    return Container(
+      height: 132,
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(26),
-        onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: tile.builder)),
-        child: SizedBox(
-          height: 110,
-          child: Row(
+        gradient: LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [light, c, dark]),
+        border: Border.all(color: Colors.white.withValues(alpha: 0.7), width: 2),
+        boxShadow: [BoxShadow(color: c.withValues(alpha: 0.45), blurRadius: 14, offset: const Offset(0, 6))],
+      ),
+      child: Material(
+        type: MaterialType.transparency,
+        child: InkWell(
+          key: ValueKey('tile-${tile.label}'),
+          borderRadius: BorderRadius.circular(26),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: tile.builder)),
+          child: Stack(
             children: [
-              const SizedBox(width: 24),
-              Icon(tile.icon, size: 60, color: Colors.white),
-              const SizedBox(width: 20),
-              Expanded(
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    tile.label,
-                    maxLines: 1,
-                    style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w700, color: Colors.white),
+              // Vệt bóng kính phía trên
+              Positioned(
+                left: 10,
+                right: 10,
+                top: 6,
+                height: 40,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.white.withValues(alpha: 0.35), Colors.white.withValues(alpha: 0)],
+                    ),
                   ),
                 ),
               ),
-              const Icon(Icons.chevron_right_rounded, size: 48, color: Colors.white),
-              const SizedBox(width: 12),
+              Row(
+                children: [
+                  const SizedBox(width: 10),
+                  tile.art == null
+                      ? SizedBox(width: 100, child: Icon(tile.icon, size: 62, color: Colors.white))
+                      : GameIcon(tile.art!, size: 104, fallback: Icon(tile.icon, size: 62, color: Colors.white)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            tile.label,
+                            maxLines: 1,
+                            style: const TextStyle(
+                              fontSize: 27,
+                              fontWeight: FontWeight.w800,
+                              color: Colors.white,
+                              shadows: [Shadow(color: Color(0x55000000), blurRadius: 4, offset: Offset(0, 2))],
+                            ),
+                          ),
+                        ),
+                        if (tile.subtitle != null)
+                          Text(
+                            tile.subtitle!,
+                            maxLines: 2,
+                            style: TextStyle(fontSize: 14, color: Colors.white.withValues(alpha: 0.92)),
+                          ),
+                      ],
+                    ),
+                  ),
+                  const Icon(Icons.chevron_right_rounded, size: 36, color: Colors.white),
+                  const SizedBox(width: 6),
+                ],
+              ),
             ],
           ),
         ),

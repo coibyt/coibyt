@@ -46,3 +46,6 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Ảnh gốc Kie.ai (chỉ đưa ảnh đã xử lý vào assets/)
+.art-raw/
