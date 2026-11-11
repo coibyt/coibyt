@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:toan_lop_3/app_state.dart';
+import 'package:toan_lop_3/logic/spoken_vi.dart';
 import 'package:toan_lop_3/logic/tips.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/services/content_repository.dart';
@@ -57,6 +61,36 @@ void main() {
     expect(scenes.where((s) => s.tip != null), hasLength(tips.length));
   });
 
+  test('ví dụ trong cuộc sống: mọi bài có 2 tranh, lời cô ngắn; kịch bản chỉ vào tranh đầu bài và trước mẹo', () {
+    final all = parseRealExamples(
+      jsonDecode(File(realExamplesPath).readAsStringSync()) as Map<String, dynamic>,
+    );
+    for (final c in loadCatalogFromDisk().books.first.chapters) {
+      for (final l in c.lessons) {
+        final ex = all[l.id];
+        expect(ex, hasLength(2), reason: l.id);
+        for (final e in ex!) {
+          expect(e.lines.length, inInclusiveRange(3, 4), reason: e.title);
+          for (final (say, _) in e.lines) {
+            expect(say.length, lessThanOrEqualTo(140), reason: say);
+          }
+          expect(e.lines.last.$2, PointAt.all);
+        }
+      }
+    }
+    final lesson = loadLessonFromDisk('kntt3.c4.nhan-2cs-1cs');
+    final ex = all[lesson.id]!;
+    final tips = tipsForLesson(lesson.title);
+    final scenes = buildDemoScript(lesson.theory.blocks, intro: const ['Chào'], tips: tips, examples: ex);
+    expect(scenes[1].example, 0);
+    expect(scenes[1].say, [TutorLines.exampleLead, ex[0].lines[0].$1]);
+    expect(scenes.where((s) => s.example == 0), hasLength(ex[0].lines.length));
+    final firstTip = scenes.indexWhere((s) => s.tip != null);
+    final lastEx1 = scenes.lastIndexWhere((s) => s.example == 1);
+    expect(lastEx1, lessThan(firstTip));
+    expect(scenes[lastEx1 - ex[1].lines.length + 1].say.first, TutorLines.exampleMore);
+  });
+
   testWidgets('Lớp học của cô: mở ra cô tự giảng, làm mẫu từng bước, đọc mẹo; xem hết được', (tester) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.5;
@@ -92,6 +126,13 @@ void main() {
     // Cô tự nói ngay (không bấm loa).
     await tester.pump(const Duration(seconds: 1));
     expect(voice.spoken, isNotEmpty);
+    // Ví dụ trong cuộc sống: tranh hiện ngay đầu bài, cô chỉ que vào tranh trong lúc giảng.
+    expect(find.byKey(const ValueKey('real-example-0')), findsOneWidget);
+    for (var i = 0; i < 40 && find.byKey(const ValueKey('example-pointer')).evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 500));
+    }
+    expect(find.byKey(const ValueKey('example-pointer')), findsOneWidget);
+    expect(voice.spoken, contains(spokenVietnamese(TutorLines.exampleLead)));
     // Cô làm mẫu tới bước đặt tính đầu tiên.
     for (var i = 0; i < 120 && !voice.spoken.contains(TutorLines.demoColumn); i++) {
       await tester.pump(const Duration(milliseconds: 500));

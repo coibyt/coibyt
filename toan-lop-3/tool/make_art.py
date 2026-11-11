@@ -279,6 +279,21 @@ for _c in _catalog["books"][0]["chapters"]:
                 f"One seamless full-bleed scene filling the entire frame, no borders, no people's faces close-up, "
                 f"no text, no letters, no numbers. {STYLE} {CLEAN}"))
 
+# ---- Que chỉ của cô + tranh ví dụ trong cuộc sống (assets/content/examples.json) ----
+JOBS["pointer"] = dict(group="ui", aspect="1:1", prompt=obj(
+    "A teacher's elegant golden pointer stick lying diagonally, its tip with a small glowing yellow star at the "
+    "TOP-LEFT corner and its rounded wooden handle with a coral ribbon at the BOTTOM-RIGHT corner, slim and long"))
+_ex_file = ROOT / "assets" / "content" / "examples.json"
+if _ex_file.exists():
+    for _id, _list in json.loads(_ex_file.read_text()).items():
+        for _n, _x in enumerate(_list):
+            JOBS[f"example_{_id}-{_n + 1}"] = dict(group="examples", aspect="4:3", prompt=(
+                "A bright, warm, realistic and detailed illustration of an everyday scene in Vietnam, used as a "
+                f"real-life example in a children's math lesson: {_x['prompt']} "
+                "Clear composition with the important objects large, well lit and clearly separated, easy to count, "
+                "full-bleed scene filling the whole frame, no close-up faces. "
+                f"{STYLE} {CLEAN}"))
+
 # ---- Logo & màn mở đầu ----
 JOBS["logo_emblem"] = dict(group="ui", aspect="1:1", prompt=obj(
     "A premium 3D game logo emblem for a children's math app: a cute chubby golden honey bee mascot with big "

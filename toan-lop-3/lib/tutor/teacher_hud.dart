@@ -47,6 +47,12 @@ class TeacherHud extends StatelessWidget {
                 duration: reduceMotion || !TeacherAvatar.motionEnabled
                     ? Duration.zero
                     : const Duration(milliseconds: 380),
+                // Bong bóng cũ tắt nhanh, xếp sát đáy → không lộ chữ cũ dưới bong bóng mới.
+                reverseDuration: reduceMotion || !TeacherAvatar.motionEnabled
+                    ? Duration.zero
+                    : const Duration(milliseconds: 90),
+                layoutBuilder: (current, previous) =>
+                    Stack(alignment: Alignment.bottomLeft, children: [...previous, ?current]),
                 switchInCurve: Curves.easeOutBack,
                 switchOutCurve: Curves.easeIn,
                 transitionBuilder: (child, anim) => FadeTransition(

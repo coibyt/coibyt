@@ -14,6 +14,7 @@ import 'app_theme.dart';
 import 'quiz_screen.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_art.dart';
+import 'widgets/real_example_view.dart';
 import 'widgets/solution_view.dart';
 import 'widgets/step_solver.dart';
 import 'widgets/visual_aid.dart';
@@ -505,6 +506,8 @@ class TeacherClassScreen extends StatefulWidget {
 
 class _TeacherClassScreenState extends State<TeacherClassScreen> {
   Future<Lesson>? _lesson;
+  List<RealExample> _examples = const [];
+  final _exampleKeys = <int, GlobalKey>{};
   final _teacher = TeacherController(voiceEnabled: false);
   DemoPlayer? _player;
   List<Tip> _tips = const [];
@@ -515,7 +518,14 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _lesson ??= AppScope.read(context).content.loadLesson(widget.lessonRef.src);
+    _lesson ??= () async {
+      final (lesson, examples) = await (
+        AppScope.read(context).content.loadLesson(widget.lessonRef.src),
+        RealExamples.load(),
+      ).wait;
+      _examples = examples[lesson.id] ?? const [];
+      return lesson;
+    }();
   }
 
   @override
@@ -537,6 +547,7 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
         intro: const [TutorLines.classStart], // lời giới thiệu bài đã nói ở màn bài học → không lặp
         tips: _tips,
         outro: const [TutorLines.classDone],
+        examples: _examples,
       ),
     )..addListener(_follow);
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -551,13 +562,31 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
     if (!mounted) return;
     setState(() {});
     final p = _player!;
-    final target = p.current?.tip != null ? -1 : p.activeBlock;
+    final ex = p.current?.example;
+    // Khối: 0..n; mẹo: -1; ví dụ e: -100 - e.
+    final target = ex != null ? -100 - ex : (p.current?.tip != null ? -1 : p.activeBlock);
     if (target == null || target == _scrolledTo) return;
     _scrolledTo = target;
-    final ctx = (target == -1 ? _tipsKey : _blockKeys[target])?.currentContext;
+    final key = ex != null ? _exampleKeys[ex] : (target == -1 ? _tipsKey : _blockKeys[target]);
+    final ctx = key?.currentContext;
     if (ctx != null && ctx.mounted) {
       Scrollable.ensureVisible(ctx, alignment: 0.15, duration: const Duration(milliseconds: 450));
     }
+  }
+
+  /// Tranh ví dụ [e]: cô đang giảng thì tô sáng, phóng to và chỉ vào đúng chỗ.
+  Widget _example(int e, DemoPlayer p) {
+    final active = p.current?.example == e;
+    return KeyedSubtree(
+      key: _exampleKeys.putIfAbsent(e, GlobalKey.new),
+      child: RealExampleView(
+        key: ValueKey('real-example-$e'),
+        example: _examples[e],
+        active: active,
+        pointAt: active ? p.current?.pointAt : null,
+        reached: p.exampleReached(e),
+      ),
+    );
   }
 
   /// Thứ tự chủ đề từ mã bài "kntt3.c4.xxx" (để lấy ảnh bìa khi bài chưa có tranh riêng).
@@ -615,13 +644,17 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
                               ),
                             ),
                             const SizedBox(height: 10),
-                            LessonIllustration(lessonId: lesson.id, chapterOrder: _chapterOrder(lesson)),
+                            if (_examples.isEmpty)
+                              LessonIllustration(lessonId: lesson.id, chapterOrder: _chapterOrder(lesson))
+                            else
+                              _example(0, p),
                             const SizedBox(height: 14),
                             for (final (i, b) in blocks.indexed)
                               KeyedSubtree(
                                 key: _blockKeys.putIfAbsent(i, GlobalKey.new),
                                 child: DemoBlockView(block: b, index: i, player: p),
                               ),
+                            for (var e = 1; e < _examples.length; e++) _example(e, p),
                             if (_tips.isNotEmpty) ...[
                               const SizedBox(height: 6),
                               Row(

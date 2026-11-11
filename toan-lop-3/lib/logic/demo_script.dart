@@ -5,6 +5,7 @@ import 'dart:math';
 
 import '../models/blocks.dart';
 import '../models/problem.dart';
+import 'real_examples.dart';
 import 'review_game.dart';
 import 'visual_story.dart';
 import 'show_lines.dart' show stableSeed;
@@ -142,7 +143,15 @@ class DemoScene {
     this.check = false,
     this.summary = false,
     this.mood = DemoMood.point,
+    this.example,
+    this.pointAt,
   });
+
+  /// Ví dụ trong cuộc sống đang giảng (chỉ số trong danh sách ví dụ của bài).
+  final int? example;
+
+  /// Chỗ cô chỉ trên tranh ví dụ.
+  final PointAt? pointAt;
 
   /// Câu kiểm tra hiểu bài cuối giờ.
   final bool check;
@@ -175,8 +184,17 @@ List<DemoScene> buildDemoScript(
   List<Problem> problems = const [],
   int maxQuizzes = 3,
   bool checks = false,
+  List<RealExample> examples = const [],
 }) {
   final scenes = <DemoScene>[if (intro.isNotEmpty) DemoScene(say: intro, mood: DemoMood.idle)];
+  // Ví dụ trong cuộc sống: cô chỉ vào từng chỗ trên tranh và giảng.
+  void example(int e, String lead) {
+    for (final (k, (say, at)) in examples[e].lines.indexed) {
+      scenes.add(DemoScene(say: [if (k == 0) lead, say], example: e, pointAt: at));
+    }
+  }
+
+  if (examples.isNotEmpty) example(0, TutorLines.exampleLead);
   var quizzes = 0;
   DemoScene? ask(DemoQuiz? q, int block, {int? step}) {
     if (q == null || quizzes >= maxQuizzes) return null;
@@ -248,6 +266,9 @@ List<DemoScene> buildDemoScript(
       quizzes++;
       scenes.add(DemoScene(say: [TutorLines.quizLead, q.question, ...q.optionLines], quiz: q, mood: DemoMood.idle));
     }
+  }
+  for (var e = 1; e < examples.length; e++) {
+    example(e, TutorLines.exampleMore);
   }
   for (final (k, t) in tips.indexed) {
     scenes.add(DemoScene(say: [TutorLines.tipLead[t.kind]!, t.text], tip: k, mood: DemoMood.idle));

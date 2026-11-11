@@ -55,6 +55,8 @@ abstract final class TutorLines {
   static const understandAgain = 'Được rồi, cô giảng lại từ đầu cho con nhé!';
   static const checkPassed = 'Con trả lời đúng hết! Con đã hiểu bài rồi đấy!';
   static const checkTried = 'Con đã cố gắng rất tốt! Mình luyện tập thêm để nhớ bài lâu hơn nhé!';
+  static const exampleLead = 'Trước hết, con xem bức tranh trong cuộc sống này nhé. Cô chỉ cho con xem.';
+  static const exampleMore = 'Thêm một ví dụ trong cuộc sống nữa nhé, con nhìn chỗ cô chỉ.';
   static const bridgeEquation = 'Cô ghi phép tính lên bảng, con nhìn kỹ nhé!';
   static const bridgeStep = 'Cô viết kết quả vào phép tính, mình làm tiếp bước sau nhé!';
   static const bridgeLesson = 'Con vừa dùng đúng kiến thức của bài hôm nay đấy! Mình cùng nhớ lại nhé.';
@@ -186,6 +188,8 @@ abstract final class TutorLines {
     checkPassed,
     checkTried,
     bridgeEquation,
+    exampleLead,
+    exampleMore,
     bridgeStep,
     bridgeLesson,
     ...tipLead.values,

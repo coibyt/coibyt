@@ -20,6 +20,7 @@ import 'package:toan_lop_3/logic/spoken_vi.dart';
 import 'package:toan_lop_3/logic/tutor.dart';
 import 'package:toan_lop_3/models/content.dart';
 import 'package:toan_lop_3/logic/demo_script.dart';
+import 'package:toan_lop_3/logic/real_examples.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
 const api = 'https://api.11max.id.vn';
@@ -97,6 +98,17 @@ List<String> teacherLines() {
     for (final c in b.chapters) {
       for (final l in [...c.lessons, ...c.advancedLessons]) {
         lines.add(TutorLines.lessonIntro(l.title));
+      }
+    }
+  }
+  // Ví dụ trong cuộc sống: cô chỉ vào tranh và giảng.
+  final ex = File(realExamplesPath);
+  if (ex.existsSync()) {
+    for (final list in parseRealExamples(jsonDecode(ex.readAsStringSync()) as Map<String, dynamic>).values) {
+      for (final e in list) {
+        for (final (say, _) in e.lines) {
+          lines.add(say);
+        }
       }
     }
   }

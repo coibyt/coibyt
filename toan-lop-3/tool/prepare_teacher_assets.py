@@ -153,6 +153,8 @@ def auto() -> None:
             background(src, ROOT / "assets" / "bg" / f"{name.removeprefix('bg_')}.webp")
         elif m["group"] == "illus":
             background(src, ROOT / "assets" / "illus" / f"{name.removeprefix('illus_')}.webp", width=640)
+        elif m["group"] == "examples":
+            background(src, ROOT / "assets" / "examples" / f"{name.removeprefix('example_')}.webp", width=720)
         elif m["group"] == "chapters":
             background(src, ROOT / "assets" / "chapters" / f"{name.removeprefix('chapter_')}.webp", width=640)
 

@@ -47,6 +47,7 @@ flutter:
     - assets/chapters/
     - assets/host/
     - assets/illus/
+    - assets/examples/
     - assets/voice/
 
   fonts:

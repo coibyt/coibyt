@@ -1,0 +1,3682 @@
+{
+ "kntt3.c1.on-tap-cac-so-den-1000": [
+  {
+   "title": "Bút chì: 2 hộp trăm và 9 cây lẻ là 209",
+   "prompt": "A wooden classroom table seen from the front. LEFT: exactly 2 large closed cardboard boxes of pencils, identical. CENTER: an empty clear space on the table. RIGHT: exactly 9 loose yellow pencils lying side by side. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi hộp to bên trái đựng 100 cây bút chì. 2 hộp là 200 cây.",
+     "at": "left"
+    },
+    {
+     "say": "Ở giữa không có bó chục nào, nên hàng chục là 0.",
+     "at": "center"
+    },
+    {
+     "say": "Bên phải có 9 cây bút chì lẻ, đó là 9 đơn vị.",
+     "at": "right"
+    },
+    {
+     "say": "2 trăm, 0 chục, 9 đơn vị là 209, đọc là hai trăm linh chín.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Thùng trứng: so sánh từ hàng trăm",
+   "prompt": "A Vietnamese market egg stall. LEFT: exactly 3 large closed cardboard egg crates stacked neatly. RIGHT: exactly 2 large closed cardboard egg crates and next to them exactly 6 small closed paper egg cartons stacked in a neat pile. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi thùng to có 100 quả trứng, mỗi hộp nhỏ có 10 quả.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái có 3 thùng, tức là 300 quả trứng.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải có 2 thùng và 6 hộp nhỏ, tức là 260 quả trứng.",
+     "at": "right"
+    },
+    {
+     "say": "So sánh từ hàng trăm: 3 trăm lớn hơn 2 trăm, nên 300 > 260.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.on-tap-phep-cong-phep-tru-pham-vi-1000": [
+  {
+   "title": "Cửa hàng vở: cộng thẳng cột 234 + 145",
+   "prompt": "Inside a small Vietnamese stationery shop, a wooden counter. LEFT: exactly 2 closed cardboard boxes, exactly 3 tied stacks of notebooks and exactly 4 single notebooks. RIGHT: exactly 1 closed cardboard box, exactly 4 tied stacks of notebooks and exactly 5 single notebooks. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi thùng có 100 quyển vở, mỗi chồng buộc dây có 10 quyển.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái: 2 thùng, 3 chồng, 4 quyển lẻ, là 234 quyển.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải: 1 thùng, 4 chồng, 5 quyển lẻ, là 145 quyển.",
+     "at": "right"
+    },
+    {
+     "say": "234 + 145 = 379. Con đặt thẳng cột và cộng từ hàng đơn vị nhé.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mua bút màu: trừ rồi thử lại bằng phép cộng",
+   "prompt": "A Vietnamese stationery shop. LEFT: on the shelf remain exactly 1 closed box of colored pencils, exactly 2 rubber-banded bundles of colored pencils and exactly 6 loose colored pencils. RIGHT: a child seen from behind carrying a shopping basket holding exactly 1 closed box of colored pencils and exactly 3 rubber-banded bundles. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi hộp có 100 cây bút màu, mỗi bó có 10 cây. Lúc đầu cửa hàng có 256 cây.",
+     "at": "all"
+    },
+    {
+     "say": "Bạn nhỏ mua 1 hộp và 3 bó, tức là 130 cây bút màu.",
+     "at": "right"
+    },
+    {
+     "say": "Trên kệ còn 1 hộp, 2 bó, 6 cây lẻ: 256 - 130 = 126 cây.",
+     "at": "left"
+    },
+    {
+     "say": "Trừ thẳng cột từ hàng đơn vị, rồi thử lại: 126 + 130 = 256.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.tim-thanh-phan-phep-cong-phep-tru": [
+  {
+   "title": "Túi bóng: tìm số hạng chưa biết",
+   "prompt": "A Vietnamese school yard in the morning. LEFT: a closed blue cloth drawstring bag on the ground, its contents hidden. RIGHT: exactly 5 small red balls lying on the ground in a row. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có tất cả 8 quả bóng. Một số quả nằm ngoài, một số quả giấu trong túi.",
+     "at": "all"
+    },
+    {
+     "say": "Bên phải có 5 quả bóng ở ngoài.",
+     "at": "right"
+    },
+    {
+     "say": "Trong túi có mấy quả? ? + 5 = 8, ta lấy 8 - 5 = 3 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Rổ cam: tìm số bị trừ",
+   "prompt": "A Vietnamese home kitchen. LEFT: a small bamboo basket held out to an elderly grandmother seen from the side, the basket holding exactly 4 oranges. RIGHT: a larger bamboo basket on the table holding exactly 6 oranges. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ có một rổ cam, mẹ biếu bà một ít. Lúc đầu mẹ có mấy quả?",
+     "at": "all"
+    },
+    {
+     "say": "Mẹ đã biếu bà 4 quả cam, đây là số trừ.",
+     "at": "left"
+    },
+    {
+     "say": "Trong rổ còn 6 quả, đây là hiệu. ? - 4 = 6, ta tính 6 + 4 = 10.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ. Lúc đầu có 10 quả.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.on-tap-bang-nhan-2-5-bang-chia-2-5": [
+  {
+   "title": "Dép ở cửa: mỗi đôi có 2 chiếc",
+   "prompt": "The front doorstep of a Vietnamese house, tiled floor. CENTER: exactly 5 pairs of children's sandals lined up neatly side by side, each pair clearly together, in different colors. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trước cửa nhà có mấy đôi dép xếp ngay ngắn.",
+     "at": "all"
+    },
+    {
+     "say": "Có 5 đôi dép, mỗi đôi có 2 chiếc. 2 × 5 = 10 chiếc dép.",
+     "at": "center"
+    },
+    {
+     "say": "Có 10 chiếc dép, xếp mỗi đôi 2 chiếc thì được 10 : 2 = 5 đôi.",
+     "at": "center"
+    },
+    {
+     "say": "Bảng chia 2 là phép tính ngược của bảng nhân 2.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Chuối ở chợ: mỗi nải 5 quả",
+   "prompt": "A Vietnamese market fruit stall on a wooden table. From LEFT to RIGHT: exactly 4 small bunches of ripe yellow bananas in a row, each bunch has exactly 5 bananas. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là sạp chuối ở chợ, có 4 nải chuối nhỏ.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi nải có 5 quả chuối. Đếm thêm 5: 5, 10, 15, 20.",
+     "at": "left"
+    },
+    {
+     "say": "4 nải: 5 × 4 = 20 quả. Chia 20 quả thành nải 5 quả: 20 : 5 = 4 nải.",
+     "at": "all"
+    },
+    {
+     "say": "Bảng nhân 5: thêm một lần thì tích tăng thêm 5.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.bang-nhan-3-bang-chia-3": [
+  {
+   "title": "Xe ba bánh: mỗi xe có 3 bánh",
+   "prompt": "A school yard playground. LEFT, CENTER-LEFT, CENTER-RIGHT and RIGHT: exactly 4 children's tricycles parked in a row, each tricycle clearly showing exactly 3 wheels, side view, no riders. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Sân trường có 4 chiếc xe đạp ba bánh.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi xe có 3 bánh. Đếm thêm 3: 3, 6, 9, 12.",
+     "at": "left"
+    },
+    {
+     "say": "4 xe có 3 × 4 = 12 bánh xe. Và 12 : 3 = 4 xe.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng nhân 3: mỗi lần thêm một xe thì thêm 3 bánh.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đĩa quýt ngày Tết: 9 quả chia 3 đĩa",
+   "prompt": "A Vietnamese Tết altar table with red cloth and yellow apricot blossoms behind. LEFT: one plate with exactly 3 mandarins with leaves. CENTER: one plate with exactly 3 mandarins. RIGHT: one plate with exactly 3 mandarins. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ngày Tết, mẹ bày 9 quả quýt lên 3 đĩa đều nhau.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi đĩa có 3 quả. 3 đĩa có 3 × 3 = 9 quả.",
+     "at": "left"
+    },
+    {
+     "say": "9 quả chia đều 3 đĩa thì mỗi đĩa được 9 : 3 = 3 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng chia 3 là phép tính ngược của bảng nhân 3.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.bang-nhan-4-bang-chia-4": [
+  {
+   "title": "Hộp bánh trung thu: mỗi hộp 4 cái",
+   "prompt": "A Mid-Autumn festival table with a paper star lantern. Exactly 6 open square gift boxes in two rows: LEFT 2 boxes, CENTER 2 boxes, RIGHT 2 boxes. Each box holds exactly 4 round mooncakes arranged 2 by 2. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trung thu, mẹ mua 6 hộp bánh, mỗi hộp có 4 cái bánh.",
+     "at": "all"
+    },
+    {
+     "say": "Đếm thêm 4: 4, 8, 12, 16, 20, 24.",
+     "at": "left"
+    },
+    {
+     "say": "6 hộp có 4 × 6 = 24 cái bánh. 24 cái xếp mỗi hộp 4 thì 24 : 4 = 6 hộp.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng chia 4 là phép tính ngược của bảng nhân 4.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Ô tô đồ chơi: mỗi xe có 4 bánh",
+   "prompt": "A child's bedroom floor. LEFT: one red toy car. CENTER: one blue toy car. RIGHT: one green toy car. Each car seen from a three-quarter angle so all exactly 4 wheels are visible. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Nam có 3 chiếc ô tô đồ chơi.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi ô tô có 4 bánh xe.",
+     "at": "left"
+    },
+    {
+     "say": "3 xe có 4 × 3 = 12 bánh. Có 12 bánh, mỗi xe 4 bánh thì 12 : 4 = 3 xe.",
+     "at": "right"
+    },
+    {
+     "say": "Nhớ nhé: thêm một xe thì tích tăng thêm 4.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.on-tap-hinh-hoc-va-do-luong": [
+  {
+   "title": "Thước mét ở bảng: 3 m = 300 cm",
+   "prompt": "A Vietnamese classroom with a long green blackboard. CENTER: exactly 3 identical one-meter wooden measuring sticks laid end to end along the chalk ledge under the board, small tick marks but no numbers. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là 3 cây thước mét đặt nối nhau dưới bảng lớp.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi cây dài 1 m, tức là 10 dm hay 100 cm.",
+     "at": "center"
+    },
+    {
+     "say": "3 cây dài 3 m. Đổi ra xăng-ti-mét: 3 × 100 = 300, vậy 3 m = 300 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Nhớ nhé: 1 m = 10 dm, 1 dm = 10 cm, 1 m = 100 cm.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Cân đường và bình nước: kg và lít",
+   "prompt": "A Vietnamese kitchen counter. LEFT: a traditional two-pan balance scale, perfectly level, with a bag of white sugar on one pan and one plain metal weight on the other pan. RIGHT: a clear plastic one-liter jug filled with water next to a glass. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trên bàn bếp có một cái cân đĩa và một bình nước.",
+     "at": "all"
+    },
+    {
+     "say": "Túi đường nặng bằng quả cân 1 kg, vậy túi đường nặng 1 kg.",
+     "at": "left"
+    },
+    {
+     "say": "Bình này chứa được 1 l nước. Đo nước, đo dầu, ta dùng lít.",
+     "at": "right"
+    },
+    {
+     "say": "Đo khối lượng dùng ki-lô-gam (kg), đo dung tích dùng lít (l).",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c1.luyen-tap-chung": [
+  {
+   "title": "Gom giấy vụn: 365 + 157 rồi thử lại",
+   "prompt": "A Vietnamese primary school yard during a waste-paper collection day. LEFT: a big pile of tied bundles of old newspapers. RIGHT: a smaller pile of tied bundles of old notebooks. Children seen from behind carrying bundles. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Hai lớp đang gom giấy vụn để làm kế hoạch nhỏ.",
+     "at": "all"
+    },
+    {
+     "say": "Lớp 3A gom được 365 kg giấy.",
+     "at": "left"
+    },
+    {
+     "say": "Lớp 3B gom được 157 kg. Cả hai lớp: 365 + 157 = 522 kg.",
+     "at": "right"
+    },
+    {
+     "say": "Làm xong, con thử lại bằng phép tính ngược: 522 - 157 = 365.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Khay bánh bao: một phép nhân, hai phép chia",
+   "prompt": "A Vietnamese school canteen table. Exactly 4 metal trays in a row from LEFT to RIGHT, each tray holding exactly 5 white steamed buns. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Nhà bếp có 4 khay bánh bao, mỗi khay có 5 cái.",
+     "at": "all"
+    },
+    {
+     "say": "Đếm thêm 5 từng khay: 5, 10, 15, 20. Vậy 5 × 4 = 20 cái.",
+     "at": "left"
+    },
+    {
+     "say": "Từ đó: 20 : 5 = 4 khay và 20 : 4 = 5 cái mỗi khay.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng nhân và bảng chia là hai phép tính ngược nhau.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.bang-nhan-6-bang-chia-6": [
+  {
+   "title": "Vỉ trứng: mỗi vỉ có 6 quả",
+   "prompt": "A Vietnamese kitchen table. LEFT: one egg carton with exactly 6 eggs in 2 rows of 3. CENTER: one egg carton with exactly 6 eggs. RIGHT: one egg carton with exactly 6 eggs. All cartons open. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ mua 3 vỉ trứng, mỗi vỉ có 6 quả.",
+     "at": "all"
+    },
+    {
+     "say": "Đếm thêm 6: 6, 12, 18.",
+     "at": "left"
+    },
+    {
+     "say": "3 vỉ có 6 × 3 = 18 quả. Có 18 quả, xếp vỉ 6 quả thì 18 : 6 = 3 vỉ.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng chia 6 là phép tính ngược của bảng nhân 6.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Lốc sữa chua: mỗi lốc 6 hộp",
+   "prompt": "An open refrigerator door in a Vietnamese home. CENTER shelf: exactly 4 packs of small yogurt cups in a row, each pack with exactly 6 cups arranged 2 by 3, plain white cups with no labels. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trong tủ lạnh có 4 lốc sữa chua.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi lốc có 6 hộp. 4 lốc có 6 × 4 = 24 hộp.",
+     "at": "center"
+    },
+    {
+     "say": "Có 24 hộp chia thành lốc 6 hộp thì 24 : 6 = 4 lốc.",
+     "at": "center"
+    },
+    {
+     "say": "Bảng nhân 6: thêm một lốc thì tích tăng thêm 6.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.bang-nhan-7-bang-chia-7": [
+  {
+   "title": "Kệ dép: 7 đôi là 14 chiếc",
+   "prompt": "A wooden shoe rack at the entrance of a Vietnamese home. LEFT side of the rack: exactly 4 pairs of sandals. RIGHT side of the rack: exactly 3 pairs of sandals. Each pair clearly together. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Kệ dép nhà bạn Lan có 7 đôi dép.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái 4 đôi, bên phải 3 đôi, cả thảy 7 đôi, mỗi đôi 2 chiếc.",
+     "at": "left"
+    },
+    {
+     "say": "7 đôi có 7 × 2 = 14 chiếc. Có 14 chiếc chia 7 đôi thì 14 : 7 = 2 chiếc.",
+     "at": "right"
+    },
+    {
+     "say": "Từ 7 × 2 = 14 ta có 14 : 7 = 2. Bảng chia 7 ngược với bảng nhân 7.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Dâu tây chia cho 7 bạn",
+   "prompt": "A picnic mat on the grass in a park. LEFT: exactly 4 small plates in a row. RIGHT: exactly 3 small plates in a row. Each of the 7 plates holds exactly 3 red strawberries. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô chia dâu tây cho 7 bạn, mỗi bạn một đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái 4 đĩa, bên phải 3 đĩa, mỗi đĩa có 3 quả.",
+     "at": "left"
+    },
+    {
+     "say": "7 đĩa có 7 × 3 = 21 quả. 21 quả chia đều 7 bạn: 21 : 7 = 3 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Đếm thêm 7 để nhớ bảng: 7, 14, 21, 28, 35...",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.bang-nhan-8-bang-chia-8": [
+  {
+   "title": "Hộp bánh: mỗi hộp 8 cái",
+   "prompt": "A bakery counter. LEFT: one open box. CENTER: one open box. RIGHT: one open box. Each box holds exactly 8 small round cakes arranged in exactly 2 rows of 4. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô bán bánh có 3 hộp bánh.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi hộp có 2 hàng, mỗi hàng 4 cái, vậy mỗi hộp có 8 cái bánh.",
+     "at": "left"
+    },
+    {
+     "say": "3 hộp có 8 × 3 = 24 cái. 24 cái xếp hộp 8 cái thì 24 : 8 = 3 hộp.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng chia 8 là phép tính ngược của bảng nhân 8.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bao gạo: mỗi bao nặng 8 kg",
+   "prompt": "A Vietnamese rice shop at a market. CENTER: exactly 4 identical small white rice sacks standing in a row on the floor, tied at the top. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cửa hàng gạo có 4 bao gạo nhỏ giống nhau.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi bao nặng 8 kg. 4 bao nặng 8 × 4 = 32 kg.",
+     "at": "center"
+    },
+    {
+     "say": "Có 32 kg gạo, đóng mỗi bao 8 kg thì được 32 : 8 = 4 bao.",
+     "at": "center"
+    },
+    {
+     "say": "Đếm thêm 8 để nhớ bảng: 8, 16, 24, 32, 40...",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.bang-nhan-9-bang-chia-9": [
+  {
+   "title": "Hộp kẹo Tết: mỗi hộp 9 viên",
+   "prompt": "A Vietnamese Tết table with red tablecloth and peach blossoms. From LEFT to RIGHT: exactly 4 identical closed round red candy boxes in a row. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ngày Tết, nhà bạn Minh có 4 hộp kẹo.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi hộp có 9 viên kẹo. Đếm thêm 9: 9, 18, 27, 36.",
+     "at": "left"
+    },
+    {
+     "say": "4 hộp có 9 × 4 = 36 viên. 36 viên chia hộp 9 viên: 36 : 9 = 4 hộp.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng chia 9 là phép tính ngược của bảng nhân 9.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "18 quả cam chia vào 9 đĩa",
+   "prompt": "A long table set for a class party. LEFT: exactly 5 small plates in a row. RIGHT: exactly 4 small plates in a row. Each of the 9 plates holds exactly 2 oranges. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lớp có 18 quả cam, cô chia đều vào 9 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái 5 đĩa, bên phải 4 đĩa, cả thảy 9 đĩa.",
+     "at": "left"
+    },
+    {
+     "say": "Mỗi đĩa có 2 quả: 18 : 9 = 2. Thử lại: 9 × 2 = 18.",
+     "at": "right"
+    },
+    {
+     "say": "Bảng nhân 9: thêm một lần thì tích tăng thêm 9.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.tim-thanh-phan-phep-nhan-phep-chia": [
+  {
+   "title": "Đĩa xoài: tìm thừa số chưa biết",
+   "prompt": "A Vietnamese fruit stall. Exactly 6 plates in two rows: LEFT 2 plates, CENTER 2 plates, RIGHT 2 plates. Each plate holds exactly 5 small green mangoes. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô bán hàng có 30 quả xoài, bày mỗi đĩa 5 quả. Có mấy đĩa?",
+     "at": "all"
+    },
+    {
+     "say": "Ta viết ? × 5 = 30. Thừa số chưa biết là số đĩa.",
+     "at": "left"
+    },
+    {
+     "say": "Lấy tích chia cho thừa số đã biết: 30 : 5 = 6. Đúng là 6 đĩa!",
+     "at": "right"
+    },
+    {
+     "say": "Muốn tìm thừa số chưa biết, ta lấy tích chia cho thừa số đã biết.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Ba bát kẹo: tìm số bị chia",
+   "prompt": "A Vietnamese living room low table. LEFT: one small bowl with exactly 4 wrapped candies. CENTER: one small bowl with exactly 4 wrapped candies. RIGHT: one small bowl with exactly 4 wrapped candies. An empty paper candy bag lies behind the bowls. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ chia hết túi kẹo đều vào 3 bát. Túi kẹo lúc đầu có mấy viên?",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi bát có 4 viên. Ta viết ? : 3 = 4.",
+     "at": "left"
+    },
+    {
+     "say": "Lấy thương nhân với số chia: 4 × 3 = 12. Túi có 12 viên kẹo.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn tìm số bị chia, ta lấy thương nhân với số chia.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.mot-phan-may": [
+  {
+   "title": "Bánh chưng cắt 4: mỗi miếng là 1/4",
+   "prompt": "A Vietnamese Tết table. CENTER: one square green bánh chưng sticky rice cake cut into exactly 4 equal square pieces by two straight cuts through the middle. One piece is slightly pulled apart toward the RIGHT. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ngày Tết, bà cắt chiếc bánh chưng thành 4 phần bằng nhau.",
+     "at": "all"
+    },
+    {
+     "say": "Chiếc bánh được chia thành 4 phần bằng nhau.",
+     "at": "center"
+    },
+    {
+     "say": "Miếng bánh tách ra này là một phần tư chiếc bánh, viết là 1/4.",
+     "at": "right"
+    },
+    {
+     "say": "Chia thành 4 phần bằng nhau, mỗi phần là 1/4. Đọc là một phần tư.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "10 quả cam chia 5 đĩa: 1/5 là 2 quả",
+   "prompt": "A kitchen table. From LEFT to RIGHT: exactly 5 small plates in a row, each plate holding exactly 2 oranges. The plate in the CENTER has a small red ribbon next to it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ có 10 quả cam, chia đều vào 5 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Một đĩa là 1/5 số cam. Đĩa này có 2 quả.",
+     "at": "center"
+    },
+    {
+     "say": "Muốn tìm 1/5 của 10, ta lấy 10 : 5 = 2 quả.",
+     "at": "center"
+    },
+    {
+     "say": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c2.luyen-tap-chung": [
+  {
+   "title": "7 hộp bút màu: một phép nhân, hai phép chia",
+   "prompt": "A classroom teacher's desk. LEFT: exactly 4 identical closed boxes of colored pencils in a row. RIGHT: exactly 3 identical closed boxes of colored pencils in a row. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có 7 hộp bút màu, mỗi hộp có 8 cây bút.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái 4 hộp, bên phải 3 hộp, cả thảy 7 hộp: 8 × 7 = 56 cây.",
+     "at": "left"
+    },
+    {
+     "say": "Từ đó: 56 : 7 = 8 cây mỗi hộp và 56 : 8 = 7 hộp.",
+     "at": "right"
+    },
+    {
+     "say": "Từ một phép nhân, ta viết được hai phép chia.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Biếu bà 1/3 số bánh",
+   "prompt": "A Vietnamese home table. LEFT: one plate with exactly 4 small cakes, an elderly grandmother's hands reaching for it. CENTER: one plate with exactly 4 small cakes. RIGHT: one plate with exactly 4 small cakes. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ có 12 cái bánh, chia đều thành 3 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Mẹ biếu bà 1 đĩa, tức là 1/3 số bánh.",
+     "at": "left"
+    },
+    {
+     "say": "1/3 của 12 là 12 : 3 = 4. Bà được 4 cái bánh.",
+     "at": "left"
+    },
+    {
+     "say": "Tìm 1/3 của một số, ta lấy số đó chia cho 3.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.diem-o-giua-trung-diem": [
+  {
+   "title": "Bập bênh: trục ở trung điểm",
+   "prompt": "A Vietnamese school playground. A long wooden seesaw seen from the side, perfectly level. LEFT: the left end seat. CENTER: the metal pivot holding the plank exactly in the middle. RIGHT: the right end seat. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là cái bập bênh ở sân trường.",
+     "at": "all"
+    },
+    {
+     "say": "Trục bập bênh nằm ở chính giữa tấm ván.",
+     "at": "center"
+    },
+    {
+     "say": "Tấm ván dài 4 m, nên từ trục ra mỗi đầu dài 4 : 2 = 2 m.",
+     "at": "left"
+    },
+    {
+     "say": "Trung điểm nằm giữa hai đầu và chia đoạn thẳng thành hai phần bằng nhau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Dây kéo co: dải vải đỏ ở trung điểm",
+   "prompt": "A school yard tug-of-war rope stretched straight on the ground. LEFT: the left end of the rope. CENTER: a red ribbon tied exactly at the middle of the rope above a white chalk line. RIGHT: the right end of the rope. Children seen from behind waiting at both ends. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là sợi dây kéo co, chuẩn bị cho trò chơi.",
+     "at": "all"
+    },
+    {
+     "say": "Dải vải đỏ buộc ở trung điểm M của sợi dây.",
+     "at": "center"
+    },
+    {
+     "say": "Dây dài 8 m, nên AM = MB = 8 : 2 = 4 m.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn tìm trung điểm, con đo độ dài đoạn thẳng rồi chia đôi.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.hinh-tron-tam-ban-kinh-duong-kinh": [
+  {
+   "title": "Bánh xe đạp: nan hoa là bán kính",
+   "prompt": "A child's bicycle parked in a Vietnamese alley, side view, with the front wheel large and clear. CENTER: the round hub in the middle of the front wheel. RIGHT: the straight spokes going from the hub to the rim. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là bánh xe đạp, có dạng hình tròn.",
+     "at": "all"
+    },
+    {
+     "say": "Trục ở giữa bánh xe giống như tâm O của hình tròn.",
+     "at": "center"
+    },
+    {
+     "say": "Nan hoa nối tâm với vành xe là bán kính. Bán kính 30 cm thì đường kính 30 × 2 = 60 cm.",
+     "at": "right"
+    },
+    {
+     "say": "Đường kính dài gấp 2 lần bán kính.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bánh trung thu cắt đôi qua tâm",
+   "prompt": "A Mid-Autumn festival plate. CENTER: one large round mooncake cut into two equal halves by one straight cut passing exactly through its center. LEFT: a small knife. RIGHT: a paper lantern. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ cắt đôi chiếc bánh trung thu tròn.",
+     "at": "all"
+    },
+    {
+     "say": "Vết cắt đi qua tâm bánh, nối hai điểm trên mép bánh, đó là đường kính.",
+     "at": "center"
+    },
+    {
+     "say": "Bánh có bán kính 5 cm thì đường kính dài 5 × 2 = 10 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Tâm là trung điểm của đường kính; đường kính gấp đôi bán kính.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.goc-goc-vuong-goc-khong-vuong": [
+  {
+   "title": "Đồng hồ lúc 3 giờ: góc vuông",
+   "prompt": "A classroom wall. CENTER: a large round wall clock with a plain white face and NO digits, only short tick marks, the short hour hand pointing exactly right toward the three o'clock position and the long minute hand pointing straight up. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là chiếc đồng hồ treo tường lúc 3 giờ.",
+     "at": "all"
+    },
+    {
+     "say": "Kim giờ và kim phút chung một đỉnh ở giữa mặt đồng hồ.",
+     "at": "center"
+    },
+    {
+     "say": "Lúc 3 giờ, hai kim tạo thành một góc vuông.",
+     "at": "center"
+    },
+    {
+     "say": "Góc được tạo bởi hai cạnh chung một đỉnh.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Ê ke kiểm tra góc vở và góc kéo",
+   "prompt": "A student's desk seen from above. LEFT: a closed notebook with a plastic set square fitted exactly into its corner. RIGHT: a pair of children's scissors half open, forming a narrow angle. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trên bàn có quyển vở, cái ê ke và cái kéo.",
+     "at": "all"
+    },
+    {
+     "say": "Đặt ê ke vào góc vở, khít hoàn toàn: góc vở là góc vuông.",
+     "at": "left"
+    },
+    {
+     "say": "Cái kéo hé mở tạo thành góc nhọn, không khít ê ke: góc không vuông.",
+     "at": "right"
+    },
+    {
+     "say": "Dùng ê ke để kiểm tra góc vuông và góc không vuông.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.hinh-tam-giac-tu-giac-chu-nhat-vuong": [
+  {
+   "title": "Bánh chưng hình vuông, hộp quà hình chữ nhật",
+   "prompt": "A Vietnamese Tết table with red cloth. LEFT: one square green bánh chưng wrapped in leaves and tied with bamboo strings, seen from the top. RIGHT: one long rectangular red gift box, seen from the top. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bàn ngày Tết có bánh chưng và hộp quà.",
+     "at": "all"
+    },
+    {
+     "say": "Mặt bánh chưng là hình vuông: 4 góc vuông và 4 cạnh bằng nhau.",
+     "at": "left"
+    },
+    {
+     "say": "Mặt hộp quà là hình chữ nhật: dài 9 cm thì cạnh đối diện cũng 9 cm.",
+     "at": "right"
+    },
+    {
+     "say": "Hình chữ nhật có 4 góc vuông, hai cạnh dài bằng nhau, hai cạnh ngắn bằng nhau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Cờ tam giác và diều tứ giác",
+   "prompt": "A Vietnamese school yard on a festival day under a blue sky. LEFT: a string of exactly 5 colorful triangular bunting flags. RIGHT: a diamond-shaped paper kite flying, its frame clearly showing 4 straight sides. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Sân trường đang có hội, có cờ và có diều.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi lá cờ là hình tam giác: 3 cạnh, 3 đỉnh.",
+     "at": "left"
+    },
+    {
+     "say": "Con diều là hình tứ giác: 4 cạnh, 4 đỉnh.",
+     "at": "right"
+    },
+    {
+     "say": "Tam giác có 3 cạnh, 3 đỉnh; tứ giác có 4 cạnh, 4 đỉnh.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.thuc-hanh-ve-goc-vuong-duong-tron": [
+  {
+   "title": "Vẽ đường tròn bằng com-pa",
+   "prompt": "A student's desk seen from above with a white sheet of paper. LEFT: a plain ruler with tick marks but no numbers. CENTER: a compass with its needle point in the middle of a freshly drawn circle. RIGHT: a plastic set square. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là bộ dụng cụ vẽ hình của con: thước, com-pa và ê ke.",
+     "at": "all"
+    },
+    {
+     "say": "Dùng thước để mở com-pa rộng đúng 4 cm.",
+     "at": "left"
+    },
+    {
+     "say": "Đặt đầu nhọn vào tâm rồi quay một vòng, ta được đường tròn bán kính 4 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Com-pa vẽ đường tròn, ê ke vẽ góc vuông, thước vẽ đoạn thẳng.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bố vẽ bồn hoa tròn bằng cọc và dây",
+   "prompt": "A Vietnamese home garden with bare soil. CENTER: a wooden stake pushed into the ground. A father seen from behind holds a taut string tied to the stake and draws a big circle line in the soil with a stick at the RIGHT end of the string. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bố muốn làm một bồn hoa hình tròn.",
+     "at": "all"
+    },
+    {
+     "say": "Cái cọc cắm ở giữa là tâm của hình tròn.",
+     "at": "center"
+    },
+    {
+     "say": "Sợi dây dài 1 m là bán kính. Bố kéo căng dây và đi một vòng.",
+     "at": "right"
+    },
+    {
+     "say": "Giống com-pa: giữ tâm cố định, giữ bán kính không đổi, quay một vòng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.khoi-lap-phuong-khoi-hop-chu-nhat": [
+  {
+   "title": "Xúc xắc và hộp sữa",
+   "prompt": "A table top. LEFT: one large white die with round black dots (pips) only, no digits. RIGHT: one small rectangular carton of fresh milk with plain blue-and-white design and no text. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trên bàn có một con xúc xắc và một hộp sữa.",
+     "at": "all"
+    },
+    {
+     "say": "Con xúc xắc là khối lập phương, các mặt đều là hình vuông.",
+     "at": "left"
+    },
+    {
+     "say": "Hộp sữa là khối hộp chữ nhật.",
+     "at": "right"
+    },
+    {
+     "say": "Cả hai khối đều có 6 mặt, 12 cạnh và 8 đỉnh.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Khối gỗ đồ chơi và viên gạch",
+   "prompt": "A construction corner in a Vietnamese yard. LEFT: one wooden toy cube block painted yellow. RIGHT: one red clay building brick. Both resting on a wooden plank. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là khối gỗ đồ chơi và viên gạch xây nhà.",
+     "at": "all"
+    },
+    {
+     "say": "Khối gỗ là khối lập phương: 6 mặt đều là hình vuông bằng nhau.",
+     "at": "left"
+    },
+    {
+     "say": "Viên gạch là khối hộp chữ nhật: cũng có 6 mặt, 12 cạnh, 8 đỉnh.",
+     "at": "right"
+    },
+    {
+     "say": "Khối lập phương và khối hộp chữ nhật đều có 6 mặt, 12 cạnh, 8 đỉnh.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c3.luyen-tap-chung": [
+  {
+   "title": "Mâm cơm tròn: đường kính gấp đôi bán kính",
+   "prompt": "A Vietnamese family dinner seen from above. CENTER: a round wooden low dining table with a small bowl of soup placed exactly at its center. A pair of chopsticks laid from the center bowl to the RIGHT edge of the table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là mâm cơm tròn của gia đình.",
+     "at": "all"
+    },
+    {
+     "say": "Bát canh ở chính giữa mâm, giống như tâm hình tròn.",
+     "at": "center"
+    },
+    {
+     "say": "Từ tâm ra mép mâm là bán kính, dài 50 cm. Đường kính dài 50 × 2 = 100 cm.",
+     "at": "right"
+    },
+    {
+     "say": "Đường kính gấp đôi bán kính.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Cửa sổ vuông và thanh gỗ ở giữa",
+   "prompt": "A Vietnamese classroom wall. CENTER: a square wooden window with one vertical wooden bar exactly in the middle, splitting it into two equal halves. LEFT: a big plastic set square held against the window's bottom left corner. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là ô cửa sổ hình vuông của lớp học.",
+     "at": "all"
+    },
+    {
+     "say": "Ê ke khít với góc cửa sổ: đó là góc vuông. Hình vuông có 4 góc vuông.",
+     "at": "left"
+    },
+    {
+     "say": "Thanh gỗ ở trung điểm cạnh 80 cm, chia thành hai phần 80 : 2 = 40 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Trung điểm chia đôi đoạn thẳng; hình vuông có 4 góc vuông.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.nhan-2cs-1cs": [
+  {
+   "title": "Ba túi que tính: 23 × 3",
+   "prompt": "A classroom desk. LEFT: one open pouch with exactly 2 rubber-banded bundles of counting sticks and exactly 3 loose sticks. CENTER: an identical pouch with exactly 2 bundles and 3 loose sticks. RIGHT: an identical pouch with exactly 2 bundles and 3 loose sticks. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi túi có 2 bó, mỗi bó 10 que, và 3 que lẻ: 23 que tính.",
+     "at": "all"
+    },
+    {
+     "say": "Nhân hàng đơn vị trước: 3 que × 3 túi = 9 que lẻ.",
+     "at": "left"
+    },
+    {
+     "say": "Rồi nhân hàng chục: 2 bó × 3 = 6 bó, tức là 60 que.",
+     "at": "right"
+    },
+    {
+     "say": "23 × 3 = 69. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Ba bao gạo: 25 × 3 có nhớ",
+   "prompt": "A Vietnamese rice shop. LEFT, CENTER and RIGHT: exactly 3 identical medium white rice sacks standing on the floor in a row, a shop cart beside them. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cửa hàng có 3 bao gạo, mỗi bao nặng 25 kg.",
+     "at": "all"
+    },
+    {
+     "say": "Ta tính 25 × 3. Hàng đơn vị: 5 × 3 = 15, viết 5 nhớ 1.",
+     "at": "left"
+    },
+    {
+     "say": "Hàng chục: 2 × 3 = 6, thêm 1 nhớ là 7. Vậy 25 × 3 = 75 kg.",
+     "at": "right"
+    },
+    {
+     "say": "Đừng quên cộng thêm số nhớ vào lượt nhân tiếp theo nhé!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.gap-mot-so-len-mot-so-lan": [
+  {
+   "title": "Bi của Nam gấp 4 lần bi của Hà",
+   "prompt": "A Vietnamese school yard, children's hands only. LEFT: exactly 3 glass marbles in a group on the ground. RIGHT: exactly 4 small separate groups of marbles, each group with exactly 3 glass marbles. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Hai bạn đang chơi bắn bi ở sân trường.",
+     "at": "all"
+    },
+    {
+     "say": "Bạn Hà có 3 viên bi.",
+     "at": "left"
+    },
+    {
+     "say": "Bạn Nam có số bi gấp 4 lần: 4 nhóm, mỗi nhóm 3 viên. 3 × 4 = 12 viên.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn gấp một số lên nhiều lần, ta lấy số đó nhân với số lần.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Thêm 3 khác với gấp 3 lần",
+   "prompt": "A kitchen table with three wooden trays. LEFT tray: exactly 2 mangoes. CENTER tray: exactly 5 mangoes. RIGHT tray: exactly 6 mangoes arranged in 3 pairs. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Khay bên trái có 2 quả xoài.",
+     "at": "left"
+    },
+    {
+     "say": "Thêm 3 quả vào 2 quả: 2 + 3 = 5 quả.",
+     "at": "center"
+    },
+    {
+     "say": "Gấp 2 quả lên 3 lần: 3 cặp, mỗi cặp 2 quả, 2 × 3 = 6 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Đừng nhầm: gấp lên 3 lần là nhân 3, còn thêm 3 là cộng 3.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.phep-chia-het-phep-chia-co-du": [
+  {
+   "title": "14 viên kẹo, mỗi túi 5 viên: dư 4",
+   "prompt": "A table top. LEFT: one small clear bag with exactly 5 wrapped candies. CENTER: one small clear bag with exactly 5 wrapped candies. RIGHT: exactly 4 loose wrapped candies outside any bag. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có 14 viên kẹo, cho vào túi, mỗi túi 5 viên.",
+     "at": "all"
+    },
+    {
+     "say": "Được 2 túi đầy, mỗi túi 5 viên.",
+     "at": "left"
+    },
+    {
+     "say": "Còn thừa 4 viên, chưa đủ một túi. 14 : 5 = 2 (dư 4).",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại: 2 × 5 + 4 = 14. Số dư luôn bé hơn số chia.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "12 quả cam chia 3 đĩa: chia hết",
+   "prompt": "A family table. LEFT: one plate with exactly 4 oranges. CENTER: one plate with exactly 4 oranges. RIGHT: one plate with exactly 4 oranges. Nothing left over on the table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ chia 12 quả cam đều vào 3 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi đĩa được 4 quả: 12 : 3 = 4.",
+     "at": "left"
+    },
+    {
+     "say": "Không thừa quả nào, số dư bằng 0. Đây là phép chia hết.",
+     "at": "right"
+    },
+    {
+     "say": "Số dư bằng 0 là chia hết; số dư khác 0 là chia có dư.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.chia-2cs-1cs": [
+  {
+   "title": "68 que tính chia 2 bạn",
+   "prompt": "Two children's desks seen from above. LEFT desk: exactly 3 rubber-banded bundles of counting sticks and exactly 4 loose sticks. RIGHT desk: exactly 3 rubber-banded bundles of counting sticks and exactly 4 loose sticks. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có 68 que tính: 6 bó chục và 8 que lẻ, chia đều cho 2 bạn.",
+     "at": "all"
+    },
+    {
+     "say": "Chia hàng chục trước: 6 bó : 2 = 3 bó cho mỗi bạn.",
+     "at": "left"
+    },
+    {
+     "say": "Hạ hàng đơn vị: 8 que : 2 = 4 que. Mỗi bạn được 34 que.",
+     "at": "right"
+    },
+    {
+     "say": "68 : 2 = 34. Thử lại: 34 × 2 = 68. Chia từ trái sang phải nhé.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "96 quyển vở chia đều 3 tổ",
+   "prompt": "A Vietnamese classroom. LEFT, CENTER and RIGHT: exactly 3 desks, each desk holding one identical neat stack of new notebooks. Students seen from behind. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lớp có 96 quyển vở, cô chia đều cho 3 tổ.",
+     "at": "all"
+    },
+    {
+     "say": "Chia hàng chục: 9 : 3 = 3, viết 3.",
+     "at": "left"
+    },
+    {
+     "say": "Hạ 6, chia 6 : 3 = 2, viết 2. Mỗi tổ được 32 quyển.",
+     "at": "right"
+    },
+    {
+     "say": "96 : 3 = 32. Thử lại bằng phép nhân: 32 × 3 = 96.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.giam-mot-so-di-mot-so-lan": [
+  {
+   "title": "Bao gạo 40 kg, túi nhỏ giảm 5 lần",
+   "prompt": "A Vietnamese rice shop floor. LEFT: one big heavy white rice sack. RIGHT: one small rice bag, much smaller, on a little stool. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bao gạo to bên trái nặng 40 kg.",
+     "at": "left"
+    },
+    {
+     "say": "Túi nhỏ bên phải nhẹ hơn, cân nặng giảm đi 5 lần.",
+     "at": "right"
+    },
+    {
+     "say": "Giảm 40 đi 5 lần: 40 : 5 = 8. Túi nhỏ nặng 8 kg.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn giảm một số đi nhiều lần, ta lấy số đó chia cho số lần.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bớt 2 khác với giảm 2 lần",
+   "prompt": "A table with three bamboo baskets. LEFT basket: exactly 6 apples. CENTER basket: exactly 4 apples. RIGHT basket: exactly 3 apples. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Rổ bên trái có 6 quả táo.",
+     "at": "left"
+    },
+    {
+     "say": "Bớt 2 quả: 6 - 2 = 4 quả.",
+     "at": "center"
+    },
+    {
+     "say": "Giảm 6 đi 2 lần: 6 : 2 = 3 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Đừng nhầm: giảm đi 2 lần là chia 2, còn bớt 2 là trừ 2.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.bai-toan-giai-bang-hai-buoc-tinh": [
+  {
+   "title": "Hai giỏ cam: tìm giỏ thứ hai trước",
+   "prompt": "A wooden market table in a Vietnamese market. On the LEFT, a small woven bamboo basket holding exactly 6 oranges. On the RIGHT, an identical bamboo basket holding exactly 9 oranges. The two baskets are clearly separated with empty space between them in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ở chợ có hai giỏ cam. Giỏ bên phải nhiều hơn giỏ bên trái 3 quả.",
+     "at": "all"
+    },
+    {
+     "say": "Giỏ bên trái có 6 quả cam. Giỏ bên phải chưa biết có mấy quả.",
+     "at": "left"
+    },
+    {
+     "say": "Bước 1: tìm giỏ bên phải: 6 + 3 = 9 quả cam.",
+     "at": "right"
+    },
+    {
+     "say": "Bước 2: cả hai giỏ có 6 + 9 = 15 quả. Tìm số chưa biết trước, rồi mới trả lời câu hỏi!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hai lọ hoa: lọ thứ hai gấp đôi",
+   "prompt": "A classroom windowsill with sunlight. On the LEFT, a small glass vase holding exactly 4 red roses. On the RIGHT, a similar glass vase holding exactly 8 yellow daisies. Clear empty space between the two vases in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lọ hoa bên trái có 4 bông hồng.",
+     "at": "left"
+    },
+    {
+     "say": "Lọ bên phải có số hoa gấp 2 lần. Bước 1: 4 × 2 = 8 bông cúc.",
+     "at": "right"
+    },
+    {
+     "say": "Bước 2: cả hai lọ có 4 + 8 = 12 bông hoa.",
+     "at": "all"
+    },
+    {
+     "say": "Bài toán hai bước: bước 1 tìm số chưa biết, bước 2 dùng số đó để trả lời.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c4.luyen-tap-chung": [
+  {
+   "title": "Chia kẹo có dư: số dư bé hơn số chia",
+   "prompt": "A kitchen table seen from above. In the CENTER, exactly 3 small round white plates in a row, each plate holding exactly 4 wrapped candies. On the RIGHT, exactly 2 wrapped candies lying alone on the table, not on any plate. LEFT side of the table is empty wood. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có 14 viên kẹo, chia đều vào 3 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi đĩa được 4 viên. 3 đĩa có 3 × 4 = 12 viên.",
+     "at": "center"
+    },
+    {
+     "say": "Còn thừa 2 viên, đó là số dư: 14 : 3 = 4 (dư 2).",
+     "at": "right"
+    },
+    {
+     "say": "Số dư luôn bé hơn số chia: 2 bé hơn 3.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Khay trứng: gấp lên và giảm đi 3 lần",
+   "prompt": "A Vietnamese kitchen counter. On the LEFT, one small paper egg tray holding exactly 4 brown eggs. On the RIGHT, exactly 3 identical small paper egg trays side by side, each holding exactly 4 brown eggs. Empty counter space in the CENTER between the two groups. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái có 1 khay, khay có 4 quả trứng.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải có 3 khay như thế. Gấp 4 lên 3 lần: 4 × 3 = 12 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Ngược lại, giảm 12 đi 3 lần: 12 : 3 = 4 quả.",
+     "at": "all"
+    },
+    {
+     "say": "Gấp lên mấy lần thì làm phép nhân, giảm đi mấy lần thì làm phép chia.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c5.mi-li-met": [
+  {
+   "title": "Thước kẻ: mỗi vạch nhỏ là 1 mm",
+   "prompt": "Top-down view of a school desk. A long clear plastic ruler lies horizontally across the picture, showing fine evenly spaced tick marks only, with no printed numbers. On the LEFT end of the ruler sits a small pink rectangular eraser lined up with the start of the ruler. The CENTER of the ruler is shown clearly with its tiny tick marks. An exercise book is on the RIGHT. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô đặt cục tẩy lên thước kẻ để đo.",
+     "at": "all"
+    },
+    {
+     "say": "Khoảng cách giữa hai vạch nhỏ liền nhau trên thước dài 1 mm.",
+     "at": "center"
+    },
+    {
+     "say": "Cục tẩy dài 3 cm, đổi ra mi-li-mét: 3 × 10 = 30 mm.",
+     "at": "left"
+    },
+    {
+     "say": "1 cm = 10 mm. Muốn đổi xăng-ti-mét ra mi-li-mét, ta nhân với 10.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hạt gạo nhỏ đo bằng mi-li-mét",
+   "prompt": "A wooden kitchen table. On the LEFT, a single grain of white rice lying next to the edge of a ruler that shows only tick marks, no numbers. In the CENTER, a small bowl of uncooked rice. On the RIGHT, one new yellow wooden pencil lying beside the ruler. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Hạt gạo bé xíu bên trái chỉ dài khoảng 6 mm, chưa tới 1 cm.",
+     "at": "left"
+    },
+    {
+     "say": "Vật nhỏ như hạt gạo, con đo bằng mi-li-mét mới chính xác.",
+     "at": "center"
+    },
+    {
+     "say": "Chiếc bút chì dài 15 cm, tức là 15 × 10 = 150 mm.",
+     "at": "right"
+    },
+    {
+     "say": "1 cm = 10 mm; 1 m = 1.000 mm. Mi-li-mét là đơn vị đo độ dài rất nhỏ.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c5.gam": [
+  {
+   "title": "Cân đĩa: 2 quả cân 500 g bằng 1 kg",
+   "prompt": "A traditional two-pan balance scale on a market counter, perfectly level. On the LEFT pan, one paper bag of white sugar. On the RIGHT pan, exactly 2 identical plain round metal weights with no markings. The balance pointer in the CENTER points straight up. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đĩa cân bên trái có một túi đường.",
+     "at": "left"
+    },
+    {
+     "say": "Đĩa bên phải có 2 quả cân, mỗi quả 500 g. 500 g + 500 g = 1.000 g.",
+     "at": "right"
+    },
+    {
+     "say": "Kim cân chỉ thẳng ở giữa, cân thăng bằng, nên túi đường nặng 1.000 g, tức là 1 kg.",
+     "at": "center"
+    },
+    {
+     "say": "Gam là đơn vị đo khối lượng: 1 kg = 1.000 g.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Quả trứng nhẹ, quả dưa hấu nặng",
+   "prompt": "A Vietnamese kitchen counter with three items spread apart. On the LEFT, one single brown chicken egg. In the CENTER, one small plain pack of dried noodles without any printing. On the RIGHT, one big round green watermelon. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Quả trứng gà bên trái rất nhẹ, chỉ khoảng 50 g.",
+     "at": "left"
+    },
+    {
+     "say": "Gói mì ở giữa nặng khoảng 75 g.",
+     "at": "center"
+    },
+    {
+     "say": "Quả dưa hấu bên phải nặng khoảng 3 kg, tức là 3 × 1.000 = 3.000 g.",
+     "at": "right"
+    },
+    {
+     "say": "Vật nhẹ ta cân bằng gam, vật nặng cân bằng ki-lô-gam. 1 kg = 1.000 g.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c5.mi-li-lit": [
+  {
+   "title": "Thìa canh và chai nước 1 lít",
+   "prompt": "A kitchen table. On the LEFT, one metal soup spoon filled with water. In the CENTER, a clear glass measuring jug with plain marking lines and no numbers, half full of water. On the RIGHT, one clear plastic water bottle of one litre, full, with no label. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thìa canh bên trái chứa được khoảng 15 ml nước, rất ít.",
+     "at": "left"
+    },
+    {
+     "say": "Ca đong ở giữa có các vạch để đo nước theo mi-li-lít.",
+     "at": "center"
+    },
+    {
+     "say": "Chai nước bên phải chứa 1 l, tức là 1.000 ml.",
+     "at": "right"
+    },
+    {
+     "say": "Mi-li-lít là đơn vị đo dung tích nhỏ: 1 l = 1.000 ml.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "4 hộp sữa 250 ml đầy 1 bình 1 lít",
+   "prompt": "A breakfast table. On the LEFT, exactly 4 small plain white milk cartons standing in a row, no printing. On the RIGHT, one clear glass jug completely full of milk. Empty table space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái có 4 hộp sữa nhỏ, mỗi hộp 250 ml.",
+     "at": "left"
+    },
+    {
+     "say": "Đổ cả 4 hộp vào bình: 250 + 250 + 250 + 250 = 1.000 ml.",
+     "at": "all"
+    },
+    {
+     "say": "Bình bên phải đầy sữa: 1.000 ml, đúng bằng 1 l.",
+     "at": "right"
+    },
+    {
+     "say": "Nhớ nhé: 1 l = 1.000 ml.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c5.nhiet-do-don-vi-do-nhiet-do": [
+  {
+   "title": "Nước đá lạnh, nước sôi nóng",
+   "prompt": "A Vietnamese kitchen. On the LEFT, a clear glass of water full of melting ice cubes. In the CENTER, a simple wall thermometer, a glass tube with red liquid and tick marks but no numbers. On the RIGHT, a metal kettle on a gas stove with steam rising as the water boils. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cốc nước đá bên trái đang tan, lạnh khoảng 0 °C.",
+     "at": "left"
+    },
+    {
+     "say": "Ở giữa là nhiệt kế. Phòng bếp hôm nay khoảng 28 °C, đọc là hai mươi tám độ C.",
+     "at": "center"
+    },
+    {
+     "say": "Ấm nước đang sôi bên phải rất nóng, khoảng 100 °C. Con đừng chạm vào nhé!",
+     "at": "right"
+    },
+    {
+     "say": "Nhiệt độ cho biết nóng hay lạnh, đo bằng nhiệt kế, đơn vị là độ C, viết °C.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mùa đông lạnh, mùa hè nóng",
+   "prompt": "A split scene. On the LEFT, children seen from behind walking to school on a cold winter morning, wearing thick coats, scarves and woolly hats, misty grey sky. On the RIGHT, children seen from a distance playing on a sunny beach in summer, wearing T-shirts and sun hats, bright sun. In the CENTER, a tall glass outdoor thermometer with red liquid and tick marks but no numbers. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái là ngày mùa đông, trời lạnh khoảng 10 °C, các bạn mặc áo ấm.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải là ngày hè, trời nóng khoảng 35 °C, các bạn mặc áo cộc.",
+     "at": "right"
+    },
+    {
+     "say": "Nhiệt kế ở giữa: cột đỏ lên cao là nóng, xuống thấp là lạnh. 35 °C nóng hơn 10 °C.",
+     "at": "center"
+    },
+    {
+     "say": "Số độ C càng lớn thì càng nóng, càng bé thì càng lạnh.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c5.luyen-tap-chung": [
+  {
+   "title": "So sánh 1 kg và 800 g: đổi về gam",
+   "prompt": "A two-pan balance scale on a shop counter, tipped clearly to one side. On the LEFT pan, one cloth bag of rice, and the LEFT pan is lower. On the RIGHT pan, one smaller paper bag of sugar, and the RIGHT pan is higher. The balance pointer in the CENTER leans toward the left. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Túi gạo bên trái nặng 1 kg.",
+     "at": "left"
+    },
+    {
+     "say": "Túi đường bên phải nặng 800 g.",
+     "at": "right"
+    },
+    {
+     "say": "Đổi về cùng đơn vị: 1 kg = 1.000 g. Mà 1.000 g > 800 g, nên đĩa túi gạo trĩu xuống.",
+     "at": "left"
+    },
+    {
+     "say": "Muốn so sánh hai số đo khác đơn vị, con đổi về cùng một đơn vị nhé.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Chai 2 l và 3 chai 500 ml",
+   "prompt": "A picnic mat in a school yard. On the LEFT, one big clear two-litre water bottle, full, no label. On the RIGHT, exactly 3 small clear water bottles of half a litre each, full, no labels. Empty space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Chai lớn bên trái có 2 l nước, đổi ra là 2.000 ml.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải có 3 chai nhỏ, mỗi chai 500 ml: 500 × 3 = 1.500 ml.",
+     "at": "right"
+    },
+    {
+     "say": "2.000 ml > 1.500 ml, vậy chai lớn có nhiều nước hơn.",
+     "at": "all"
+    },
+    {
+     "say": "1 l = 1.000 ml; 1 kg = 1.000 g; 1 cm = 10 mm. Đổi cùng đơn vị rồi mới so sánh.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.nhan-3cs-1cs": [
+  {
+   "title": "3 thùng vở, mỗi thùng 125 quyển",
+   "prompt": "A school storage room. Exactly 3 identical closed brown cardboard boxes in a row on the floor: one box on the LEFT, one in the CENTER, one on the RIGHT. A few exercise books are stacked on top of the LEFT box to show what is inside. No writing on the boxes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi thùng có 125 quyển vở.",
+     "at": "left"
+    },
+    {
+     "say": "Có 3 thùng như nhau, ta làm phép nhân 125 × 3.",
+     "at": "all"
+    },
+    {
+     "say": "5 × 3 = 15, viết 5 nhớ 1; 2 × 3 = 6, thêm 1 là 7; 1 × 3 = 3.",
+     "at": "center"
+    },
+    {
+     "say": "Vậy 125 × 3 = 375 quyển. Nhân từ phải sang trái, đừng quên cộng số nhớ!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đường đến trường: đi và về là 2 lần",
+   "prompt": "A sunny Vietnamese village road seen from the side. On the LEFT, a small house with a tiled roof and a gate. On the RIGHT, a primary school building with a flag pole and trees. In the CENTER, a child seen from behind riding a small bicycle along the road between the house and the school. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Từ nhà bạn Nam bên trái đến trường bên phải dài 236 m.",
+     "at": "left"
+    },
+    {
+     "say": "Bạn đạp xe đi rồi lại về, là 2 lần quãng đường: 236 × 2.",
+     "at": "center"
+    },
+    {
+     "say": "6 × 2 = 12, viết 2 nhớ 1; 3 × 2 = 6, thêm 1 là 7; 2 × 2 = 4. Được 472 m.",
+     "at": "right"
+    },
+    {
+     "say": "Đặt tính rồi nhân lần lượt từ phải sang trái, nhớ cộng số nhớ của lượt trước.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.chia-3cs-1cs": [
+  {
+   "title": "126 quả trứng xếp đều vào 6 hộp",
+   "prompt": "A farm kitchen table with exactly 6 identical closed pale cardboard egg boxes arranged in two rows of 3: the boxes stretch from LEFT to RIGHT. In the CENTER front, one box is open showing eggs inside. No writing on the boxes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bác nông dân có 126 quả trứng, xếp đều vào 6 hộp.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi hộp có 126 : 6. Lấy 12 : 6 = 2, viết 2; hạ 6, 6 : 6 = 1, viết 1.",
+     "at": "center"
+    },
+    {
+     "say": "Vậy mỗi hộp có 21 quả. Thử lại: 21 × 6 = 126, đúng rồi!",
+     "at": "right"
+    },
+    {
+     "say": "Chia từ trái sang phải: mỗi lượt chia, nhân rồi trừ, sau đó hạ chữ số tiếp theo.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "3 nhóm quét đường: 618 : 3",
+   "prompt": "A long village road lined with trees on a sunny morning. Exactly 3 small groups of children, seen from behind or from a distance, each group holding brooms: one group on the LEFT, one in the CENTER, one on the RIGHT, equally spaced along the road. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Con đường dài 618 m, chia đều cho 3 nhóm quét dọn.",
+     "at": "all"
+    },
+    {
+     "say": "Tính 618 : 3. Lấy 6 : 3 = 2, viết 2.",
+     "at": "left"
+    },
+    {
+     "say": "Hạ 1, 1 bé hơn 3 nên viết 0. Hạ 8 được 18, 18 : 3 = 6. Vậy mỗi nhóm quét 206 m.",
+     "at": "center"
+    },
+    {
+     "say": "Lượt nào bé hơn số chia thì viết 0 ở thương. Thử lại: 206 × 3 = 618.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.bieu-thuc-so": [
+  {
+   "title": "Đĩa cam: nhân trước, cộng sau",
+   "prompt": "A family dining table. On the LEFT, exactly 2 white plates side by side, each plate holding exactly 5 oranges. On the RIGHT, exactly 3 oranges lying loose on the table, not on a plate. Empty space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái có 2 đĩa, mỗi đĩa 5 quả cam: 2 × 5.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải có thêm 3 quả lẻ. Cả bàn có 2 × 5 + 3 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Nhân trước: 2 × 5 = 10. Cộng sau: 10 + 3 = 13 quả cam.",
+     "at": "all"
+    },
+    {
+     "say": "Biểu thức có cả cộng, trừ, nhân, chia thì nhân, chia trước; cộng, trừ sau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Rổ bánh mì: tính từ trái sang phải",
+   "prompt": "A small Vietnamese bread stall on a street corner. In the CENTER, a woven basket holding exactly 7 baguettes. On the LEFT, a customer seen from behind holding a paper bag with exactly 5 baguettes sticking out. On the RIGHT, a baker seen from the side carrying a tray with exactly 3 fresh baguettes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lúc đầu rổ bánh có 12 chiếc bánh mì.",
+     "at": "center"
+    },
+    {
+     "say": "Cô khách bên trái mua 5 chiếc: 12 - 5 = 7. Trong rổ còn 7 chiếc.",
+     "at": "left"
+    },
+    {
+     "say": "Chú bên phải mang thêm 3 chiếc: 7 + 3 = 10 chiếc.",
+     "at": "right"
+    },
+    {
+     "say": "Chỉ có cộng, trừ thì tính từ trái sang phải: 12 - 5 + 3 = 10.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.tinh-gia-tri-bieu-thuc-so-tiep-theo": [
+  {
+   "title": "4 hộp bút: tính trong ngoặc trước",
+   "prompt": "Top-down view of a classroom desk. Exactly 4 open pencil boxes in a row from LEFT to RIGHT. Each box holds exactly 3 red pencils and exactly 2 blue pencils. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi hộp có 3 bút đỏ và 2 bút xanh, tức là 3 + 2 chiếc.",
+     "at": "left"
+    },
+    {
+     "say": "Có 4 hộp như vậy, ta viết: (3 + 2) × 4.",
+     "at": "all"
+    },
+    {
+     "say": "Tính trong ngoặc trước: 3 + 2 = 5. Rồi 5 × 4 = 20 chiếc bút.",
+     "at": "center"
+    },
+    {
+     "say": "Biểu thức có dấu ngoặc thì tính trong ngoặc trước.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "12 cái bánh: (12 - 4) : 2",
+   "prompt": "A Vietnamese family table at Mid-Autumn festival. On the LEFT, a small plate with exactly 4 round mooncakes in front of grandmother, seen from the side. In the CENTER, a plate with exactly 4 round mooncakes. On the RIGHT, another plate with exactly 4 round mooncakes. All mooncakes plain, no patterns or writing. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Nhà có 12 cái bánh. Bà lấy 4 cái, số còn lại chia đều cho 2 bạn.",
+     "at": "all"
+    },
+    {
+     "say": "Đĩa của bà có 4 cái. Tính trong ngoặc trước: 12 - 4 = 8 cái.",
+     "at": "left"
+    },
+    {
+     "say": "Chia đều cho 2 bạn: 8 : 2 = 4 cái. Vậy (12 - 4) : 2 = 4.",
+     "at": "right"
+    },
+    {
+     "say": "Có ngoặc thì tính trong ngoặc trước. Dấu ngoặc làm thay đổi thứ tự tính!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.so-sanh-so-lon-gap-may-lan-so-be": [
+  {
+   "title": "12 quả cam gấp 3 lần 4 quả xoài",
+   "prompt": "A fruit stall at a Vietnamese market. On the LEFT, a small bamboo basket with exactly 4 yellow mangoes. On the RIGHT, a wide flat bamboo tray with exactly 12 oranges arranged neatly in 2 rows of 6. Empty space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Giỏ bên trái có 4 quả xoài.",
+     "at": "left"
+    },
+    {
+     "say": "Mẹt bên phải có 12 quả cam. 12 gấp mấy lần 4? Ta lấy 12 : 4 = 3.",
+     "at": "right"
+    },
+    {
+     "say": "Số cam gấp 3 lần số xoài. Còn cam hơn xoài 12 - 4 = 8 quả.",
+     "at": "all"
+    },
+    {
+     "say": "“Gấp mấy lần” thì làm phép chia; “hơn bao nhiêu” thì làm phép trừ.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "20 con vịt gấp 4 lần 5 con gà",
+   "prompt": "A Vietnamese farmyard next to a pond. On the LEFT, on the grass, exactly 5 brown hens. On the RIGHT, in the pond, exactly 20 white ducks swimming in 4 small separate groups of 5 ducks each. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trên sân bên trái có 5 con gà.",
+     "at": "left"
+    },
+    {
+     "say": "Dưới ao bên phải có 20 con vịt, chia thành 4 nhóm, mỗi nhóm 5 con.",
+     "at": "right"
+    },
+    {
+     "say": "Số vịt gấp mấy lần số gà? 20 : 5 = 4. Vậy số vịt gấp 4 lần số gà.",
+     "at": "all"
+    },
+    {
+     "say": "Muốn biết số lớn gấp mấy lần số bé, ta lấy số lớn chia cho số bé.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c6.luyen-tap-chung": [
+  {
+   "title": "5 lọ sao giấy: 120 × 5",
+   "prompt": "A classroom shelf with exactly 5 identical clear glass jars in a row from LEFT to RIGHT, each jar filled with colorful folded paper stars. No labels on the jars. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cả lớp gấp sao giấy bỏ vào 5 lọ, mỗi lọ 120 ngôi sao.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi lọ 120 ngôi sao, 5 lọ ta tính 120 × 5.",
+     "at": "left"
+    },
+    {
+     "say": "0 × 5 = 0; 2 × 5 = 10, viết 0 nhớ 1; 1 × 5 = 5, thêm 1 là 6. Được 600.",
+     "at": "center"
+    },
+    {
+     "say": "Cả lớp gấp được 600 ngôi sao. Nhân từ phải sang trái, nhớ cộng số nhớ!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Túi cam chia vào 2 giỏ: tính từ trái sang phải",
+   "prompt": "A kitchen floor next to a table. On the LEFT, exactly 5 small red mesh bags in a row, each bag holding exactly 4 oranges. In the CENTER and on the RIGHT, exactly 2 empty woven baskets waiting to be filled. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái có 5 túi cam, mỗi túi 4 quả: 5 × 4 = 20 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Mẹ chia đều số cam vào 2 giỏ bên phải: 20 : 2 = 10 quả mỗi giỏ.",
+     "at": "right"
+    },
+    {
+     "say": "Ta viết gộp: 5 × 4 : 2 = 20 : 2 = 10.",
+     "at": "all"
+    },
+    {
+     "say": "Biểu thức chỉ có nhân, chia thì tính lần lượt từ trái sang phải.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c7.on-tap-phep-nhan-phep-chia": [
+  {
+   "title": "160 cái bánh xếp đều vào 8 hộp",
+   "prompt": "A bakery table with exactly 8 identical closed white cake boxes tied with red ribbon, arranged in two rows of 4 from LEFT to RIGHT. No writing on the boxes. A baker's hands rest near the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Tiệm bánh có 160 cái bánh, xếp đều vào 8 hộp.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi hộp có 160 : 8. Lấy 16 : 8 = 2, viết 2; hạ 0, 0 : 8 = 0, viết 0. Được 20.",
+     "at": "center"
+    },
+    {
+     "say": "Thử lại bằng phép nhân: 20 × 8 = 160. Đúng rồi!",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại phép chia: lấy thương nhân với số chia, phải được số bị chia.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "26 quả trứng: 4 khay và 2 quả dư",
+   "prompt": "A kitchen counter. From the LEFT to the CENTER, exactly 4 small paper egg trays, each tray holding exactly 6 eggs. On the RIGHT, a small bowl holding exactly 2 eggs. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ có 26 quả trứng, xếp vào khay, mỗi khay 6 quả.",
+     "at": "all"
+    },
+    {
+     "say": "Xếp được 4 khay: 26 : 6 = 4 (dư 2).",
+     "at": "left"
+    },
+    {
+     "say": "2 quả trong bát bên phải là số dư, 2 bé hơn 6.",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại: 4 × 6 + 2 = 26. Thương nhân số chia rồi cộng số dư bằng số bị chia.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c7.on-tap-bieu-thuc-so": [
+  {
+   "title": "Rổ xoài: nhân trước, cộng sau",
+   "prompt": "A Vietnamese market stall. From the LEFT to the CENTER, exactly 3 bamboo baskets in a row, each basket holding exactly 6 mangoes. On the RIGHT, a plastic shopping bag on the table holding exactly 5 mangoes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Có 3 rổ xoài, mỗi rổ 6 quả: 3 × 6.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải còn 1 túi có 5 quả. Tất cả là 3 × 6 + 5.",
+     "at": "right"
+    },
+    {
+     "say": "Nhân trước: 3 × 6 = 18. Cộng sau: 18 + 5 = 23 quả xoài.",
+     "at": "all"
+    },
+    {
+     "say": "Thứ tự tính: trong ngoặc trước; nhân, chia trước; cộng, trừ sau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "4 bó hoa: (3 + 2) × 4",
+   "prompt": "A flower shop table. Exactly 4 small bouquets lying in a row from LEFT to RIGHT. Each bouquet has exactly 3 red roses and exactly 2 yellow daisies, wrapped in plain paper. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi bó hoa có 3 bông hồng và 2 bông cúc: 3 + 2 bông.",
+     "at": "left"
+    },
+    {
+     "say": "Có 4 bó như vậy, ta viết (3 + 2) × 4.",
+     "at": "all"
+    },
+    {
+     "say": "Trong ngoặc trước: 3 + 2 = 5. Rồi 5 × 4 = 20 bông hoa.",
+     "at": "center"
+    },
+    {
+     "say": "Có ngoặc thì tính trong ngoặc trước. Cùng loại phép tính thì tính từ trái sang phải.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c7.on-tap-hinh-hoc-va-do-luong": [
+  {
+   "title": "Bánh xe đạp: nan hoa là bán kính",
+   "prompt": "Side view of a child's bicycle parked in a school yard. The front wheel is on the LEFT and shown large and clear, with a visible center hub and straight spokes going from the hub to the rim. The back wheel is on the RIGHT. Plain background. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bánh xe đạp có dạng hình tròn. Cái trục ở chính giữa là tâm.",
+     "at": "left"
+    },
+    {
+     "say": "Mỗi nan hoa đi từ tâm ra vành bánh, đó là một bán kính.",
+     "at": "left"
+    },
+    {
+     "say": "Bán kính dài 30 cm thì đường kính dài 30 × 2 = 60 cm.",
+     "at": "left"
+    },
+    {
+     "say": "Đường kính = bán kính × 2.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Túi bột, chai nước và thước kẻ",
+   "prompt": "A kitchen table with three items spaced apart. On the LEFT, one plain paper bag of flour with no printing. In the CENTER, one clear plastic one-litre water bottle without label. On the RIGHT, a ruler with only tick marks and no numbers, lying next to a small eraser. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Túi bột bên trái nặng 1 kg, tức là 1.000 g.",
+     "at": "left"
+    },
+    {
+     "say": "Chai nước ở giữa chứa 1 l, tức là 1.000 ml.",
+     "at": "center"
+    },
+    {
+     "say": "Trên thước kẻ bên phải, 1 cm chia thành 10 khoảng nhỏ: 1 cm = 10 mm.",
+     "at": "right"
+    },
+    {
+     "say": "Nhớ nhé: 1 kg = 1.000 g; 1 l = 1.000 ml; 1 cm = 10 mm.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c7.on-tap-chung": [
+  {
+   "title": "12 quả cam chia 3 đĩa: một phần ba",
+   "prompt": "A wooden table. Exactly 3 identical white plates spaced evenly: one on the LEFT, one in the CENTER, one on the RIGHT. Each plate holds exactly 4 oranges. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô có 12 quả cam, chia đều vào 3 đĩa.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi đĩa có 12 : 3 = 4 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Lấy 1 đĩa, như đĩa bên phải, là lấy một phần ba số cam: 4 quả.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn tìm một phần mấy của một số, ta lấy số đó chia cho số phần bằng nhau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Thư viện: 822 quyển, mượn 613 quyển",
+   "prompt": "A bright primary school library. On the LEFT, tall wooden bookshelves with books. On the RIGHT, a wooden book trolley loaded with books that children have borrowed, and children seen from behind carrying books away. In the CENTER, a librarian's desk. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thư viện có 822 quyển sách. Các bạn đã mượn 613 quyển.",
+     "at": "all"
+    },
+    {
+     "say": "Xe sách bên phải là sách đã mượn. Số sách còn lại: 822 - 613.",
+     "at": "right"
+    },
+    {
+     "say": "2 không trừ được 3, lấy 12 - 3 = 9, nhớ 1; 1 thêm 1 là 2, 2 - 2 = 0; 8 - 6 = 2.",
+     "at": "left"
+    },
+    {
+     "say": "Trên giá còn 209 quyển. Đặt tính thẳng cột, trừ từ phải sang trái.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c8.cac-so-co-bon-chu-so-so-10000": [
+  {
+   "title": "Khối nghìn, trăm, chục, đơn vị: 2.345",
+   "prompt": "A classroom table with wooden place-value blocks. On the LEFT, exactly 2 large wooden cubes. In the CENTER, exactly 3 flat square wooden plates. On the RIGHT, exactly 4 long wooden rods and next to them exactly 5 tiny wooden cubes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái có 2 khối lớn, mỗi khối là 1.000: 2 nghìn.",
+     "at": "left"
+    },
+    {
+     "say": "Ở giữa có 3 tấm, mỗi tấm là 100: 3 trăm.",
+     "at": "center"
+    },
+    {
+     "say": "Bên phải có 4 thanh chục và 5 khối nhỏ: 4 chục, 5 đơn vị.",
+     "at": "right"
+    },
+    {
+     "say": "Ta có số 2.345, đọc là hai nghìn ba trăm bốn mươi lăm. Đọc từ hàng nghìn đến hàng đơn vị.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "5 thùng nghìn và 5 quyển lẻ: 5.005",
+   "prompt": "A school storage room. On the LEFT, exactly 5 large closed brown cardboard boxes stacked neatly. On the RIGHT, exactly 5 single exercise books lying side by side on a small table. Nothing in the CENTER. No writing on the boxes. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi thùng lớn có 1.000 quyển vở. 5 thùng là 5.000 quyển.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải có 5 quyển lẻ.",
+     "at": "right"
+    },
+    {
+     "say": "Tất cả: 5.000 + 5 = 5.005, đọc là năm nghìn không trăm linh năm.",
+     "at": "all"
+    },
+    {
+     "say": "Không có trăm thì đọc “không trăm”; không có chục thì đọc “linh”.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c8.so-sanh-cac-so-pham-vi-10000": [
+  {
+   "title": "Trường lớn và trường nhỏ: so số chữ số",
+   "prompt": "Two primary schools seen from outside on a sunny day. On the LEFT, a large school building with many floors and a wide yard full of tiny distant children. On the RIGHT, a smaller school building with one floor and a small yard with a few distant children. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trường bên trái có 1.245 học sinh, số này có 4 chữ số.",
+     "at": "left"
+    },
+    {
+     "say": "Trường bên phải có 986 học sinh, số này có 3 chữ số.",
+     "at": "right"
+    },
+    {
+     "say": "Số có nhiều chữ số hơn thì lớn hơn: 1.245 > 986.",
+     "at": "all"
+    },
+    {
+     "say": "Muốn so sánh, trước hết con đếm xem mỗi số có mấy chữ số nhé.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hai quầy bánh trung thu: so từng hàng",
+   "prompt": "A street during Mid-Autumn festival with colorful lanterns hanging above. On the LEFT, a mooncake stall with stacks of plain boxes. On the RIGHT, another similar mooncake stall. Shoppers seen from a distance. No signs or writing. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Quầy bên trái bán được 5.297 cái bánh.",
+     "at": "left"
+    },
+    {
+     "say": "Quầy bên phải bán được 5.317 cái bánh. Hai số đều có 4 chữ số.",
+     "at": "right"
+    },
+    {
+     "say": "Hàng nghìn: 5 = 5. Hàng trăm: 2 < 3. Vậy 5.297 < 5.317.",
+     "at": "all"
+    },
+    {
+     "say": "Cùng số chữ số thì so từng hàng, bắt đầu từ hàng cao nhất.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c8.lam-quen-voi-chu-so-la-ma": [
+  {
+   "title": "Bàn tay làm số La Mã: I, V, X",
+   "prompt": "A plain light background with three child's hands, no faces. On the LEFT, one hand with only the index finger raised straight up, like a single vertical stroke. In the CENTER, one open hand with the thumb and fingers spread apart so the thumb and index finger make a V shape. On the RIGHT, two hands crossed at the wrists forming an X shape. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Một ngón tay giơ thẳng giống chữ I. Trong số La Mã, I là 1.",
+     "at": "left"
+    },
+    {
+     "say": "Ngón cái và ngón trỏ xòe ra thành hình chữ V. V là 5.",
+     "at": "center"
+    },
+    {
+     "say": "Hai bàn tay bắt chéo thành hình chữ X. X là 10.",
+     "at": "right"
+    },
+    {
+     "say": "Nhớ nhé: I là 1, V là 5, X là 10.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Que kem xếp VI và IV",
+   "prompt": "Top-down view of a wooden table with plain wooden ice-cream sticks. On the LEFT, two sticks touching at their bottom ends to form a V shape, with one single upright stick placed just to the right of the V. On the RIGHT, one single upright stick placed just to the left of another V shape made of two sticks. Empty space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bên trái: que I đứng bên phải V, ta cộng thêm: VI = 5 + 1 = 6.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải: que I đứng bên trái V, ta trừ đi: IV = 5 - 1 = 4.",
+     "at": "right"
+    },
+    {
+     "say": "Tương tự: IX = 10 - 1 = 9, còn XI = 10 + 1 = 11.",
+     "at": "all"
+    },
+    {
+     "say": "Chữ số nhỏ đứng bên phải thì cộng thêm, đứng bên trái thì trừ đi.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c8.lam-tron-so-den-hang-chuc-hang-tram": [
+  {
+   "title": "Đo chiều cao 132 cm: khoảng 130 cm",
+   "prompt": "A classroom corner. On the LEFT, a child seen from the side standing straight against a colorful height chart on the wall, the chart has only colored stripes and tick marks with no numbers. In the CENTER, a teacher's hand placing a flat book on top of the child's head to mark the height. On the RIGHT, a window with plants. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Nam đo chiều cao được 132 cm.",
+     "at": "left"
+    },
+    {
+     "say": "Làm tròn đến hàng chục: nhìn hàng đơn vị là 2, bé hơn 5 nên làm tròn xuống.",
+     "at": "center"
+    },
+    {
+     "say": "Vậy 132 cm làm tròn thành 130 cm. Bạn Nam cao khoảng 130 cm.",
+     "at": "all"
+    },
+    {
+     "say": "Chữ số bên phải bé hơn 5 thì làm tròn xuống, từ 5 trở lên thì làm tròn lên.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Sân vận động: khoảng 1.900 người",
+   "prompt": "A town football stadium seen from far away on a sunny afternoon. On the LEFT, the stands filled with a crowd of tiny distant spectators. In the CENTER, the green football field. On the RIGHT, more stands with tiny distant spectators waving small flags with no symbols. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trận bóng hôm nay có 1.870 người đến xem.",
+     "at": "all"
+    },
+    {
+     "say": "Làm tròn đến hàng trăm: nhìn hàng chục là 7, lớn hơn 5 nên làm tròn lên.",
+     "at": "left"
+    },
+    {
+     "say": "1.870 làm tròn đến hàng trăm được 1.900. Ta nói: có khoảng 1.900 người.",
+     "at": "right"
+    },
+    {
+     "say": "Làm tròn số giúp ta nói gần đúng một số cho dễ nhớ.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c8.luyen-tap-chung": [
+  {
+   "title": "Trang trại trứng: 7.044 quả",
+   "prompt": "An egg farm storeroom. On the LEFT, exactly 7 large closed cardboard crates stacked in two rows of 4 and 3. In the CENTER, exactly 4 small closed paper egg cartons. On the RIGHT, exactly 4 loose brown eggs in a small basket. No writing anywhere. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi thùng lớn có 1.000 quả trứng. 7 thùng là 7.000 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Mỗi hộp nhỏ có 10 quả. 4 hộp là 40 quả.",
+     "at": "center"
+    },
+    {
+     "say": "Trong giỏ có 4 quả lẻ. Tất cả: 7.000 + 40 + 4 = 7.044.",
+     "at": "right"
+    },
+    {
+     "say": "7.044 đọc là bảy nghìn không trăm bốn mươi tư. Hàng trăm không có thì viết 0.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hai xe chở dưa hấu: xe nào nặng hơn?",
+   "prompt": "A busy Vietnamese market road. On the LEFT, a small truck loaded high with green watermelons. On the RIGHT, another similar small truck loaded with green watermelons. No writing on the trucks. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Xe bên trái chở 3.850 kg dưa hấu.",
+     "at": "left"
+    },
+    {
+     "say": "Xe bên phải chở 3.580 kg dưa hấu.",
+     "at": "right"
+    },
+    {
+     "say": "Hàng nghìn: 3 = 3. Hàng trăm: 8 > 5. Vậy 3.850 > 3.580, xe bên trái chở nặng hơn.",
+     "at": "all"
+    },
+    {
+     "say": "So sánh số có bốn chữ số: so từng hàng, bắt đầu từ hàng nghìn.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c9.chu-vi-tam-giac-tu-giac-chu-nhat-vuong": [
+  {
+   "title": "Hàng rào quanh luống rau hình chữ nhật",
+   "prompt": "A home vegetable garden in the Vietnamese countryside, seen from slightly above. In the CENTER, one long rectangular vegetable bed with green leafy vegetables, its long side running horizontally across the picture. A low bamboo fence goes all the way around the bed. On the RIGHT, the short side of the bed is clearly visible. A father seen from behind stands on the LEFT holding a bundle of bamboo. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bố làm hàng rào tre bao quanh luống rau hình chữ nhật.",
+     "at": "all"
+    },
+    {
+     "say": "Cạnh dài của luống dài 6 m.",
+     "at": "center"
+    },
+    {
+     "say": "Cạnh ngắn bên phải rộng 2 m. Chu vi: (6 + 2) × 2 = 16 m. Hàng rào dài 16 m.",
+     "at": "right"
+    },
+    {
+     "say": "Chu vi hình chữ nhật = (chiều dài + chiều rộng) × 2, cùng một đơn vị đo.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Lá cờ tam giác và khăn tay hình vuông",
+   "prompt": "A classroom table. On the LEFT, one small triangular paper flag on a stick, its edges outlined with a red ribbon. On the RIGHT, one square white handkerchief laid flat, with blue lace sewn all around its four edges. Empty space in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lá cờ tam giác có ba cạnh 15 cm, 20 cm, 20 cm. Chu vi: 15 + 20 + 20 = 55 cm.",
+     "at": "left"
+    },
+    {
+     "say": "Chiếc khăn vuông có cạnh 20 cm. Viền ren quanh khăn dài 20 × 4 = 80 cm.",
+     "at": "right"
+    },
+    {
+     "say": "Chu vi là tổng độ dài các cạnh của hình.",
+     "at": "all"
+    },
+    {
+     "say": "Chu vi hình vuông = cạnh × 4.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c9.dien-tich-cua-mot-hinh-xang-ti-met-vuong": [
+  {
+   "title": "Thanh sô-cô-la: 10 ô vuông 1 cm²",
+   "prompt": "Top-down view of a plain white plate on a table. In the CENTER, one plain chocolate bar divided into small equal squares: exactly 2 rows with exactly 5 squares in each row. No wrapper, no logo. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thanh sô-cô-la có 2 hàng, mỗi hàng 5 ô vuông nhỏ.",
+     "at": "center"
+    },
+    {
+     "say": "Mỗi ô vuông có cạnh 1 cm, diện tích là 1 xăng-ti-mét vuông, viết 1 cm².",
+     "at": "left"
+    },
+    {
+     "say": "Cả thanh có 5 × 2 = 10 ô. Diện tích thanh sô-cô-la là 10 cm².",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích là độ lớn phần mặt phẳng mà hình chiếm. Đơn vị cm² đọc là xăng-ti-mét vuông.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hai miếng dán trên giấy ô li vuông",
+   "prompt": "Top-down view of a sheet of squared grid paper on a desk. On the LEFT, a green rectangular sticker covering exactly 6 grid squares, 2 rows of 3. On the RIGHT, a red square sticker covering exactly 4 grid squares, 2 rows of 2. Empty grid in the CENTER. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi ô vuông trên tờ giấy là 1 cm².",
+     "at": "all"
+    },
+    {
+     "say": "Miếng dán xanh bên trái phủ 2 hàng, mỗi hàng 3 ô: 3 × 2 = 6 cm².",
+     "at": "left"
+    },
+    {
+     "say": "Miếng dán đỏ bên phải phủ 2 × 2 = 4 ô, là 4 cm². 6 cm² > 4 cm².",
+     "at": "right"
+    },
+    {
+     "say": "Hình nào phủ nhiều ô vuông hơn thì có diện tích lớn hơn.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c9.dien-tich-hinh-chu-nhat-hinh-vuong": [
+  {
+   "title": "Bức ảnh hình chữ nhật dài 9 cm, rộng 6 cm",
+   "prompt": "A wooden desk. In the CENTER, one rectangular family photo printed on paper, showing a small house and trees, placed horizontally, its long bottom edge clearly visible. The short right edge of the photo is on the RIGHT side of the composition. A ruler with only tick marks and no numbers lies on the LEFT. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bức ảnh hình chữ nhật có chiều dài 9 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Chiều rộng ở cạnh bên phải là 6 cm.",
+     "at": "right"
+    },
+    {
+     "say": "Diện tích = dài × rộng = 9 × 6 = 54 cm². Còn chu vi là (9 + 6) × 2 = 30 cm.",
+     "at": "all"
+    },
+    {
+     "say": "Chu vi đo bằng cm, diện tích đo bằng cm². Đừng nhầm nhé!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Viên gạch men hình vuông cạnh 10 cm",
+   "prompt": "A bathroom wall covered with small square blue ceramic tiles. In the CENTER, one single tile is highlighted in bright yellow among the blue ones. On the LEFT, a child's hand pointing at the yellow tile. On the RIGHT, more blue tiles. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Viên gạch màu vàng ở giữa hình vuông, cạnh 10 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích viên gạch: cạnh × cạnh = 10 × 10 = 100 cm².",
+     "at": "left"
+    },
+    {
+     "say": "Chu vi viên gạch: 10 × 4 = 40 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích hình vuông = cạnh × cạnh; diện tích hình chữ nhật = dài × rộng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c9.luyen-tap-chung": [
+  {
+   "title": "Tờ giấy nhớ hình vuông cạnh 7 cm",
+   "prompt": "A tidy desk. In the CENTER, one square yellow sticky note stuck on the desk surface, blank. On the LEFT, a pencil pointing along the bottom edge of the note. On the RIGHT, a pencil case. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Tờ giấy nhớ hình vuông có cạnh 7 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Chu vi: 7 × 4 = 28 cm, là đường viền quanh tờ giấy.",
+     "at": "left"
+    },
+    {
+     "say": "Diện tích: 7 × 7 = 49 cm², là phần mặt giấy.",
+     "at": "center"
+    },
+    {
+     "say": "Hình vuông: chu vi = cạnh × 4; diện tích = cạnh × cạnh.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Thẻ thư viện dài 8 cm, rộng 5 cm",
+   "prompt": "A library desk. In the CENTER, one blank light-blue rectangular library card lying horizontally, with no writing. On the RIGHT, a stack of picture books. On the LEFT, a small plant pot. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thẻ thư viện hình chữ nhật dài 8 cm, rộng 5 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Chu vi: (8 + 5) × 2 = 26 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích: 8 × 5 = 40 cm².",
+     "at": "center"
+    },
+    {
+     "say": "Chu vi hình chữ nhật = (dài + rộng) × 2; diện tích = dài × rộng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c10.phep-cong-pham-vi-10000": [
+  {
+   "title": "Hai bồn nước trên mái nhà",
+   "prompt": "A Vietnamese house rooftop under a blue sky. On the LEFT, one smaller stainless steel water tank lying on its side on a metal stand. On the RIGHT, one bigger stainless steel water tank lying on its side on a metal stand. No writing on the tanks. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bồn nhỏ bên trái chứa 1.250 l nước.",
+     "at": "left"
+    },
+    {
+     "say": "Bồn lớn bên phải chứa 2.340 l nước. Cả hai bồn: 1.250 + 2.340.",
+     "at": "right"
+    },
+    {
+     "say": "0 + 0 = 0; 5 + 4 = 9; 2 + 3 = 5; 1 + 2 = 3. Được 3.590 l nước.",
+     "at": "all"
+    },
+    {
+     "say": "Đặt tính cho các chữ số cùng hàng thẳng cột, cộng từ phải sang trái.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Kế hoạch nhỏ: gom chai nhựa",
+   "prompt": "A primary school yard. On the LEFT, exactly 3 large bulging net bags full of empty plastic bottles. On the RIGHT, exactly 3 more large bulging net bags full of empty plastic bottles. In the CENTER, children seen from behind carrying one more bag. No writing. Bright, warm, realistic illustration for children, uncluttered background. No text, no letters, no digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Khối lớp 3 gom được 1.475 chai nhựa. Khối lớp 4 gom được 1.368 chai.",
+     "at": "left"
+    },
+    {
+     "say": "Tính 1.475 + 1.368: 5 + 8 = 13, viết 3 nhớ 1; 7 + 6 = 13, thêm 1 là 14, viết 4 nhớ 1.",
+     "at": "center"
+    },
+    {
+     "say": "4 + 3 = 7, thêm 1 là 8; 1 + 1 = 2. Cả hai khối gom được 2.843 chai.",
+     "at": "right"
+    },
+    {
+     "say": "Hàng nào cộng được từ 10 trở lên thì viết chữ số hàng đơn vị và nhớ 1 sang hàng bên trái.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c10.phep-tru-pham-vi-10000": [
+  {
+   "title": "Đi chợ mua chuối: tính tiền trả lại",
+   "prompt": "A busy Vietnamese wet market fruit stall. LEFT: a mother seen from the side handing one paper banknote across the stall. CENTER: exactly one large bunch of yellow bananas on the wooden counter. RIGHT: the fruit seller holding a few banknotes to give back as change. Banknotes shown plain with no readable printing. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ đi chợ mua chuối, mẹ đưa cô bán hàng một tờ 10.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Nải chuối này giá 6.500 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Cô trả lại mẹ: 10.000 - 6.500 = 3.500 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Trừ từ phải sang trái. Thử lại: 3.500 + 6.500 = 10.000, đúng rồi!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đạp xe đến trường: quãng đường còn lại",
+   "prompt": "A sunny Vietnamese countryside road between green rice fields. LEFT: a child in school uniform riding a bicycle, seen from the side. CENTER: a small white roadside milestone with a red top, completely blank. RIGHT: in the distance at the end of the road, a primary school building with a yellow wall and a flag pole. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Nam đạp xe đến trường, cả quãng đường dài 5.000 m.",
+     "at": "left"
+    },
+    {
+     "say": "Đến cột mốc này, Nam đã đi được 2.750 m.",
+     "at": "center"
+    },
+    {
+     "say": "Còn 5.000 - 2.750 = 2.250 m nữa là tới trường.",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại: lấy hiệu cộng số trừ, 2.250 + 2.750 = 5.000, bằng số bị trừ!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c10.nhan-4cs-1cs": [
+  {
+   "title": "3 xe chở gạch như nhau",
+   "prompt": "A Vietnamese building site on a sunny day. Exactly 3 identical small blue trucks parked in a row: one truck on the LEFT, one in the CENTER, one on the RIGHT, each truck bed loaded with the same neat stack of red bricks. A half-built house in the background. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ở công trường có đúng 3 chiếc xe tải chở gạch giống hệt nhau.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi xe chở 1.250 viên gạch, xe này cũng vậy.",
+     "at": "left"
+    },
+    {
+     "say": "3 xe chở được 1.250 × 3 = 3.750 viên gạch.",
+     "at": "right"
+    },
+    {
+     "say": "Nhân từ phải sang trái, nhân xong mỗi hàng nhớ cộng thêm số nhớ nhé!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "4 thửa ruộng lúa thu hoạch như nhau",
+   "prompt": "Vietnamese rice fields at harvest time. Exactly 4 rectangular golden rice paddies side by side, stretching from the LEFT to the CENTER of the picture, separated by small earth dikes. RIGHT: a farmer in a conical hat standing next to a wooden cart loaded with rice sacks. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bác nông dân có 4 thửa ruộng lúa chín vàng như nhau.",
+     "at": "left"
+    },
+    {
+     "say": "Mỗi thửa ruộng thu được 2.105 kg thóc.",
+     "at": "center"
+    },
+    {
+     "say": "Cả 4 thửa thu được 2.105 × 4 = 8.420 kg thóc.",
+     "at": "right"
+    },
+    {
+     "say": "Lấy số có một chữ số nhân lần lượt với từng chữ số, từ hàng đơn vị sang trái.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c10.chia-4cs-1cs": [
+  {
+   "title": "Xếp sách đều vào 4 tủ",
+   "prompt": "A bright Vietnamese primary school library. LEFT: a librarian pushing a wooden trolley piled high with books. CENTER and RIGHT: exactly 4 identical empty-ish wooden bookcases standing in a row, waiting to be filled. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô thủ thư có 1.248 quyển sách mới trên xe đẩy.",
+     "at": "left"
+    },
+    {
+     "say": "Cô xếp đều vào 4 tủ: 1.248 : 4 = 312 quyển mỗi tủ.",
+     "at": "right"
+    },
+    {
+     "say": "Lượt đầu 1 bé hơn 4, ta lấy 12 : 4 = 3, rồi hạ 4, hạ 8 xuống chia tiếp.",
+     "at": "center"
+    },
+    {
+     "say": "Chia từ trái sang phải. Thử lại: 312 × 4 = 1.248, đúng rồi!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Chia đường vào 3 hũ",
+   "prompt": "A clean Vietnamese home kitchen counter. LEFT: one large clear plastic bag full of white sugar. CENTER: a mother's hands holding a scoop. RIGHT: exactly 3 identical glass jars with lids, each half filled with sugar. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ có một túi đường to nặng 3.210 g.",
+     "at": "left"
+    },
+    {
+     "say": "Mẹ chia đều vào 3 hũ: 3.210 : 3 = 1.070 g mỗi hũ.",
+     "at": "right"
+    },
+    {
+     "say": "Hạ 2 xuống, 2 bé hơn 3 nên viết 0 ở thương rồi hạ tiếp số 1.",
+     "at": "center"
+    },
+    {
+     "say": "Lượt nào bé hơn số chia thì viết 0 ở thương. Thử lại: 1.070 × 3 = 3.210.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c10.luyen-tap-chung": [
+  {
+   "title": "Trứng chia đều lên 4 xe: ước lượng",
+   "prompt": "A Vietnamese poultry farm yard. LEFT: many stacked trays of brown eggs. RIGHT: exactly 4 identical small delivery tricycles with cargo boxes parked in a row, ready to be loaded. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trang trại có 8.548 quả trứng cần chở đi bán.",
+     "at": "left"
+    },
+    {
+     "say": "Chia đều lên 4 xe: 8.548 : 4 = 2.137 quả mỗi xe.",
+     "at": "right"
+    },
+    {
+     "say": "Ước lượng: 8.000 : 4 = 2.000, gần với 2.137 nên kết quả hợp lý.",
+     "at": "all"
+    },
+    {
+     "say": "Làm xong, con luôn ước lượng xem kết quả có hợp lý không nhé!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mua 3 quyển vở, tính tiền trả lại",
+   "prompt": "A small Vietnamese stationery shop counter. LEFT: exactly 3 identical notebooks lying side by side on the counter. CENTER: the shopkeeper behind the counter. RIGHT: a girl in school uniform, seen from behind, holding out one plain banknote with no readable printing. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Lan mua 3 quyển vở, mỗi quyển giá 2.500 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "3 quyển vở giá: 2.500 × 3 = 7.500 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Lan đưa 10.000 đồng, được trả lại 10.000 - 7.500 = 2.500 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Bài toán hai bước: tính tiền mua trước, rồi tính tiền trả lại sau.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c11.cac-so-co-nam-chu-so-so-100000": [
+  {
+   "title": "Kho bút: chục nghìn, nghìn, trăm, chục, đơn vị",
+   "prompt": "A tidy warehouse of a pen factory. LEFT: exactly 2 large shrink-wrapped pallets of boxes. CENTER: exactly 3 medium cardboard cartons and exactly 4 small boxes in a row. RIGHT: exactly 5 small packs of pens tied with rubber bands and exactly 6 single loose ballpoint pens on a table. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Kho bút có 2 pa-lét to, mỗi pa-lét 10.000 cây: là 2 chục nghìn.",
+     "at": "left"
+    },
+    {
+     "say": "Ở giữa có 3 thùng 1.000 cây và 4 hộp 100 cây: 3 nghìn, 4 trăm.",
+     "at": "center"
+    },
+    {
+     "say": "Bên phải có 5 gói 10 cây và 6 cây lẻ: 5 chục, 6 đơn vị.",
+     "at": "right"
+    },
+    {
+     "say": "Vậy có 23.456 cây, đọc là hai mươi ba nghìn bốn trăm năm mươi sáu.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "10 bao lì xì: 100.000 đồng",
+   "prompt": "A cozy Vietnamese living room at Tết, with peach blossoms in a vase in the background. On a low wooden table: exactly 10 identical red lucky-money envelopes, arranged as a group of 5 envelopes on the LEFT and a group of 5 envelopes on the RIGHT. Envelopes have no writing. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ngày Tết, bạn Minh được 10 bao lì xì, mỗi bao có 10.000 đồng.",
+     "at": "all"
+    },
+    {
+     "say": "5 bao bên trái là 5 chục nghìn: 50.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Thêm 5 bao bên phải nữa là 10 chục nghìn: 100.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "10 chục nghìn là 100.000, đọc là một trăm nghìn, số có sáu chữ số.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c11.so-sanh-cac-so-pham-vi-100000": [
+  {
+   "title": "Hai hiệu sách: ai bán được nhiều hơn?",
+   "prompt": "A Vietnamese town street with two small bookshops side by side. LEFT: a bookshop with a green awning and shelves full of books. RIGHT: a bookshop with a red awning and shelves full of books. CENTER: a child standing on the pavement between them, looking at both. Shop signs blank. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Năm nay, hiệu sách mái xanh bán được 12.540 quyển sách.",
+     "at": "left"
+    },
+    {
+     "say": "Hiệu sách mái đỏ bán được 12.450 quyển sách.",
+     "at": "right"
+    },
+    {
+     "say": "Cùng 5 chữ số, hàng chục nghìn, hàng nghìn bằng nhau; hàng trăm 5 > 4.",
+     "at": "center"
+    },
+    {
+     "say": "Vậy 12.540 > 12.450. So sánh từng hàng, bắt đầu từ hàng cao nhất!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Xe máy và ô tô: số nào nhiều chữ số hơn",
+   "prompt": "A Vietnamese family garage yard. LEFT: a red scooter motorbike parked on its stand. RIGHT: a small white family car. CENTER: a father wiping the car with a cloth, seen from behind. No visible dashboards or numbers. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Chiếc xe máy của mẹ đã đi được 9.850 km.",
+     "at": "left"
+    },
+    {
+     "say": "Chiếc ô tô của bố đã đi được 15.200 km.",
+     "at": "right"
+    },
+    {
+     "say": "15.200 có 5 chữ số, 9.850 chỉ có 4 chữ số, nên 15.200 > 9.850.",
+     "at": "center"
+    },
+    {
+     "say": "Số nào có nhiều chữ số hơn thì lớn hơn.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c11.lam-tron-so-den-hang-nghin-hang-chuc-nghin": [
+  {
+   "title": "Sân vận động: khoảng 34.000 khán giả",
+   "prompt": "A big football stadium in Vietnam seen from high above, at a wide distance. LEFT: stands packed with tiny spectators waving red flags. CENTER: the green football pitch with tiny players. RIGHT: more packed stands. No readable scoreboard. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trận bóng hôm nay có 34.280 khán giả ngồi trên khán đài.",
+     "at": "left"
+    },
+    {
+     "say": "Làm tròn đến hàng nghìn, ta nhìn chữ số hàng trăm là 2.",
+     "at": "center"
+    },
+    {
+     "say": "2 bé hơn 5 nên làm tròn xuống: được khoảng 34.000 người.",
+     "at": "right"
+    },
+    {
+     "say": "Bé hơn 5 thì làm tròn xuống, từ 5 trở lên thì làm tròn lên.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Vườn cam: khoảng 50.000 quả",
+   "prompt": "A large Vietnamese orange orchard at harvest. LEFT: rows of orange trees full of ripe oranges. CENTER: farmers picking oranges into baskets. RIGHT: a big stack of plastic crates filled with oranges next to a small truck. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Vườn cam nhà bác Tư mùa này thu hoạch được 47.600 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Làm tròn đến hàng chục nghìn, ta nhìn chữ số hàng nghìn là 7.",
+     "at": "center"
+    },
+    {
+     "say": "7 lớn hơn 5 nên làm tròn lên: khoảng 50.000 quả cam.",
+     "at": "right"
+    },
+    {
+     "say": "Làm tròn đến hàng nào, ta nhìn chữ số ở hàng ngay bên phải hàng đó.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c11.luyen-tap-chung": [
+  {
+   "title": "Kho vở: 53.021 quyển",
+   "prompt": "A neat warehouse storing school notebooks. LEFT: exactly 5 large shrink-wrapped pallets of notebook cartons. CENTER: exactly 3 medium cardboard cartons and an empty space on the floor. RIGHT: exactly 2 small bundles of notebooks tied with string and exactly 1 single loose notebook. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Kho có 5 pa-lét, mỗi pa-lét 10.000 quyển vở: là 50.000 quyển.",
+     "at": "left"
+    },
+    {
+     "say": "Ở giữa có 3 thùng 1.000 quyển là 3.000; không có hộp trăm nào.",
+     "at": "center"
+    },
+    {
+     "say": "Bên phải có 2 xấp 10 quyển và 1 quyển lẻ: 20 và 1.",
+     "at": "right"
+    },
+    {
+     "say": "53.021 = 50.000 + 3.000 + 20 + 1, đọc là năm mươi ba nghìn không trăm hai mươi mốt.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Hai trang trại thanh long",
+   "prompt": "Two dragon fruit farms in southern Vietnam separated by a dirt path in the CENTER. LEFT: a farm with many rows of green dragon fruit plants on concrete posts, with pink fruits. RIGHT: a similar farm with rows of dragon fruit plants. Blue sky. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trang trại bên trái có 18.750 cây thanh long.",
+     "at": "left"
+    },
+    {
+     "say": "Trang trại bên phải có 18.570 cây thanh long.",
+     "at": "right"
+    },
+    {
+     "say": "Hàng chục nghìn, hàng nghìn bằng nhau; hàng trăm 7 > 5, nên 18.750 > 18.570.",
+     "at": "center"
+    },
+    {
+     "say": "Làm tròn đến hàng nghìn, hai trang trại đều có khoảng 19.000 cây.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c12.phep-cong-pham-vi-100000": [
+  {
+   "title": "Thư viện nhận thêm sách mới",
+   "prompt": "A large Vietnamese public library. LEFT: tall wooden shelves full of books. CENTER: a librarian carrying an open cardboard box of books. RIGHT: a small delivery truck at the door with more cardboard boxes of new books. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thư viện có 45.260 quyển sách trên các giá.",
+     "at": "left"
+    },
+    {
+     "say": "Xe chở đến thêm 12.380 quyển sách mới.",
+     "at": "right"
+    },
+    {
+     "say": "Cộng từ hàng đơn vị: 0 + 0 = 0, 6 + 8 = 14, viết 4 nhớ 1 sang hàng trăm.",
+     "at": "center"
+    },
+    {
+     "say": "45.260 + 12.380 = 57.640 quyển. Nhớ đặt các chữ số cùng hàng thẳng cột!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mua cặp sách và hộp bút",
+   "prompt": "A Vietnamese school supplies shop before the new school year. LEFT: one blue children's school backpack on the counter. CENTER: a cashier at the counter. RIGHT: one pink pencil case on the counter. No price tags. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Chiếc cặp sách này giá 65.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Hộp bút giá 28.500 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Mua cả hai: 65.000 + 28.500 = 93.500 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Cộng lần lượt từ phải sang trái; hàng nào được 10 trở lên thì nhớ 1 sang trái.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c12.phep-tru-pham-vi-100000": [
+  {
+   "title": "Mua hoa quả, tính tiền trả lại",
+   "prompt": "A Vietnamese fruit market stall. LEFT: one big watermelon and one small basket of mangoes on the counter. CENTER: a grandmother handing one plain banknote with no readable printing to the seller. RIGHT: the seller holding a few banknotes as change. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bà mua dưa hấu và giỏ xoài, hết 63.500 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Bà đưa cô bán hàng tờ 100.000 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Tiền trả lại: 100.000 - 63.500 = 36.500 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại: 36.500 + 63.500 = 100.000. Hiệu cộng số trừ bằng số bị trừ!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Kho gạch: số gạch còn lại",
+   "prompt": "A Vietnamese brick yard. LEFT: a very large pile of neatly stacked red bricks. CENTER: workers loading bricks onto a truck. RIGHT: a smaller remaining pile of stacked red bricks. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lúc sáng, kho có 74.600 viên gạch.",
+     "at": "left"
+    },
+    {
+     "say": "Xe đã chở đi 28.350 viên gạch.",
+     "at": "center"
+    },
+    {
+     "say": "Kho còn lại: 74.600 - 28.350 = 46.250 viên gạch.",
+     "at": "right"
+    },
+    {
+     "say": "Chữ số trên bé hơn thì lấy thêm 10 để trừ và nhớ 1 sang hàng bên trái.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c12.luyen-tap-chung": [
+  {
+   "title": "Cô bán rau: ước lượng tiền bán",
+   "prompt": "A morning Vietnamese vegetable market. LEFT: a stall with bundles of green vegetables and a woman seller in a conical hat. CENTER: a cloth money pouch on the stall. RIGHT: the same stall in the afternoon light with fewer vegetables left. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Buổi sáng cô bán rau thu được 48.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Buổi chiều cô thu thêm 37.500 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Cả ngày: 48.000 + 37.500 = 85.500 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Ước lượng: 50.000 + 40.000 = 90.000, gần 85.500 nên kết quả hợp lý.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đi chợ: tiền còn lại sau hai món",
+   "prompt": "A Vietnamese market. LEFT: a small sack of rice on a scale-free counter. CENTER: a father holding an open wallet. RIGHT: a piece of pork wrapped in a banana leaf on a butcher's counter. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bố mang 90.000 đồng đi chợ.",
+     "at": "center"
+    },
+    {
+     "say": "Bố mua gạo hết 35.000 đồng: 90.000 - 35.000 = 55.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Bố mua thịt hết 42.000 đồng: 55.000 - 42.000 = 13.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Bài toán hai bước: tính lần lượt từng bước, bố còn 13.000 đồng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c13.xem-dong-ho-thang-nam": [
+  {
+   "title": "Đồng hồ chỉ 9 giờ kém 20 phút",
+   "prompt": "A Vietnamese family kitchen on a weekend morning. LEFT: a breakfast table with bowls of noodle soup. CENTER: a large round wall clock with a white face showing only 12 tick marks and no digits; the long minute hand points exactly at the 8 o'clock tick position, the short hour hand is two-thirds of the way from the 8 o'clock tick to the 9 o'clock tick. RIGHT: a window with morning sunlight. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Sáng chủ nhật, cả nhà ăn phở, đồng hồ treo tường chỉ giờ.",
+     "at": "all"
+    },
+    {
+     "say": "Kim ngắn đã qua số 8, gần tới số 9. Kim dài chỉ số 8: 8 × 5 = 40 phút.",
+     "at": "center"
+    },
+    {
+     "say": "Vậy là 8 giờ 40 phút. Còn 60 - 40 = 20 phút nữa là 9 giờ: 9 giờ kém 20.",
+     "at": "center"
+    },
+    {
+     "say": "Kim ngắn chỉ giờ, kim dài chỉ phút; mỗi số trên mặt đồng hồ ứng với 5 phút.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đếm ngày của tháng trên nắm tay",
+   "prompt": "Two children's fists placed side by side on a classroom desk, palms down, knuckles facing up and clearly visible. The LEFT fist is the left hand, the RIGHT fist is the right hand, the two index-finger knuckles touch in the CENTER. Soft daylight, simple background. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Khớp ngón út tay trái là tháng 1. Khớp nhô lên là tháng có 31 ngày.",
+     "at": "left"
+    },
+    {
+     "say": "Chỗ lõm giữa hai khớp là tháng ít ngày: tháng 2 có 28 hoặc 29 ngày, tháng 4 có 30 ngày.",
+     "at": "left"
+    },
+    {
+     "say": "Hai khớp ngón trỏ ở giữa là tháng 7 và tháng 8, đều có 31 ngày.",
+     "at": "center"
+    },
+    {
+     "say": "Một năm có 12 tháng; tháng 4, 6, 9, 11 có 30 ngày.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c13.thuc-hanh-xem-dong-ho-xem-lich": [
+  {
+   "title": "Tờ lịch: các ngày thứ Hai cách nhau 7 ngày",
+   "prompt": "A classroom wall with a large paper monthly calendar: a plain grid of blank squares, 7 columns and 5 rows, with no digits or words. In the second column from the LEFT, exactly 4 squares in that column are circled with a red marker, one under another. A teacher's pointer stick rests below it. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đây là tờ lịch tháng; mỗi hàng ngang là 1 tuần có 7 ngày.",
+     "at": "all"
+    },
+    {
+     "say": "Cột này là thứ Hai. Ô khoanh đỏ đầu tiên là ngày 3.",
+     "at": "left"
+    },
+    {
+     "say": "Ô ngay bên dưới là ngày 3 + 7 = 10, rồi đến 17 và 24, đều là thứ Hai.",
+     "at": "left"
+    },
+    {
+     "say": "Các ngày cùng thứ trong một tháng cách nhau 7 ngày.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Từ nhà đến trường mất 15 phút",
+   "prompt": "A morning scene split naturally by a street. LEFT: the door of a Vietnamese house with a round wall clock on the wall beside it, no digits, only 12 tick marks; long hand pointing straight down at the 6 o'clock tick, short hand halfway between the 6 and 7 o'clock ticks. A child with a backpack leaving the house. RIGHT: a school gate with a round clock above it, no digits, only 12 tick marks; long hand pointing at the 9 o'clock tick, short hand three-quarters of the way from the 6 to the 7 o'clock tick. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Hoa ra khỏi nhà, kim dài chỉ số 6: lúc đó là 6 giờ 30 phút.",
+     "at": "left"
+    },
+    {
+     "say": "Đến cổng trường, kim dài chỉ số 9: bây giờ là 6 giờ 45 phút.",
+     "at": "right"
+    },
+    {
+     "say": "Kim dài đi qua 3 số: 5 + 5 + 5 = 15 phút.",
+     "at": "right"
+    },
+    {
+     "say": "Mỗi số kim phút đi qua là thêm 5 phút. Hoa đi đến trường mất 15 phút.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c13.tien-viet-nam": [
+  {
+   "title": "Đếm tiền trong lợn đất",
+   "prompt": "A child's study desk at home. CENTER back: a cracked-open clay piggy bank. LEFT: exactly 2 identical banknotes lying flat side by side. RIGHT: exactly 1 smaller banknote of a different color lying flat. Banknotes shown with soft, unreadable printing and no visible numbers. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Nam đập lợn đất, xếp tiền thành hai nhóm trên bàn.",
+     "at": "all"
+    },
+    {
+     "say": "Bên trái là 2 tờ 20.000 đồng: 20.000 × 2 = 40.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Bên phải là 1 tờ 5.000 đồng: 40.000 + 5.000 = 45.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Muốn biết có bao nhiêu tiền, ta cộng giá trị các tờ tiền lại.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mua diều: tiền trả lại",
+   "prompt": "A Vietnamese village street in summer. LEFT: a street vendor's bamboo rack hung with colorful paper kites, one big butterfly kite in front. CENTER: a boy seen from behind handing over one plain banknote. RIGHT: the vendor counting a few banknotes as change. Banknotes have no readable printing. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Chiếc diều bướm này giá 35.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Bạn Tí đưa cho chú bán diều tờ 50.000 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Chú trả lại: 50.000 - 35.000 = 15.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Tiền trả lại = tiền đưa - giá tiền món hàng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c13.luyen-tap-chung": [
+  {
+   "title": "Kim dài quay 1 vòng là 60 phút",
+   "prompt": "A Vietnamese child at a study desk in the evening doing homework, seen from the side. CENTER: a round desk clock with no digits, only 12 tick marks, long hand pointing straight up at the 12 o'clock tick, short hand pointing at the 7 o'clock tick. LEFT: a desk lamp. RIGHT: open notebooks and pencils. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Bình ngồi vào bàn học bài buổi tối.",
+     "at": "left"
+    },
+    {
+     "say": "Kim dài chỉ số 12, kim ngắn chỉ số 7: bây giờ là 7 giờ đúng.",
+     "at": "center"
+    },
+    {
+     "say": "Kim dài quay đúng 1 vòng, qua 12 số: 12 × 5 = 60 phút, là 8 giờ.",
+     "at": "center"
+    },
+    {
+     "say": "Nhớ nhé: 1 giờ = 60 phút.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mỗi ngày bỏ lợn 1.000 đồng",
+   "prompt": "A child's bedroom. LEFT: a pink clay piggy bank on a shelf. CENTER: a girl seen from behind dropping one plain banknote with no readable printing into a slot. RIGHT: a paper wall calendar showing a grid of blank squares, with exactly 7 squares in the top row crossed out with a red marker. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi ngày, bạn Mai bỏ 1 tờ 1.000 đồng vào lợn đất.",
+     "at": "center"
+    },
+    {
+     "say": "Mai gạch 7 ô trên tờ lịch, đúng 7 ngày, là 1 tuần.",
+     "at": "right"
+    },
+    {
+     "say": "1 tuần Mai để dành được 1.000 × 7 = 7.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "1 tuần có 7 ngày, 1 năm có 12 tháng, 1 giờ có 60 phút.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c14.nhan-5cs-1cs": [
+  {
+   "title": "3 kho thóc như nhau",
+   "prompt": "A Vietnamese rural cooperative yard. Exactly 3 identical small warehouses with corrugated roofs in a row: one on the LEFT, one in the CENTER, one on the RIGHT, each with open doors showing stacked rice sacks inside. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Hợp tác xã có 3 kho thóc, mỗi kho chứa 23.415 kg thóc.",
+     "at": "left"
+    },
+    {
+     "say": "3 kho chứa: 23.415 × 3 = 70.245 kg thóc.",
+     "at": "center"
+    },
+    {
+     "say": "Từ phải: 5 × 3 = 15 viết 5 nhớ 1; 1 × 3 = 3, thêm 1 là 4...",
+     "at": "right"
+    },
+    {
+     "say": "Nhân từ phải sang trái, đừng quên cộng thêm số nhớ của lượt trước!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Mua 2 hộp bánh trung thu",
+   "prompt": "A Vietnamese Mid-Autumn Festival shop. LEFT: exactly 2 identical red mooncake gift boxes on a table, each open showing one round mooncake. CENTER: a mother picking them up. RIGHT: colorful star-shaped paper lanterns hanging. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi hộp bánh trung thu giá 32.500 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Mẹ mua 2 hộp: 32.500 × 2 = 65.000 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Hàng trăm: 5 × 2 = 10, viết 0 nhớ 1; hàng nghìn: 2 × 2 = 4, thêm 1 là 5.",
+     "at": "center"
+    },
+    {
+     "say": "Nhân lần lượt từng hàng từ phải sang trái, có nhớ thì cộng vào hàng sau.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c14.chia-5cs-1cs": [
+  {
+   "title": "Chia trứng đều lên 4 xe",
+   "prompt": "A Vietnamese egg farm loading area. LEFT: tall stacks of egg trays full of brown eggs. CENTER and RIGHT: exactly 4 identical small white delivery vans parked side by side with back doors open. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Trang trại có 24.360 quả trứng.",
+     "at": "left"
+    },
+    {
+     "say": "Chia đều lên 4 xe: 24.360 : 4 = 6.090 quả mỗi xe.",
+     "at": "right"
+    },
+    {
+     "say": "24 : 4 = 6; hạ 3, 3 bé hơn 4 nên viết 0; hạ 6 được 36 : 4 = 9; hạ 0.",
+     "at": "center"
+    },
+    {
+     "say": "Lượt nào bé hơn số chia thì viết 0 ở thương rồi hạ tiếp. Thử lại bằng phép nhân.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đường đua chia 3 chặng bằng nhau",
+   "prompt": "A long winding countryside road in Vietnam for a children's bicycle race. Three tall flag poles with plain colored flags mark the road: a blue flag on the LEFT, a yellow flag in the CENTER, a red flag on the RIGHT at the finish. Small cyclists riding along the road. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Đường đua xe đạp dài 18.540 m, chia thành 3 chặng bằng nhau.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi chặng dài: 18.540 : 3 = 6.180 m.",
+     "at": "left"
+    },
+    {
+     "say": "Đến cờ vàng là đi được 2 chặng: 6.180 × 2 = 12.360 m.",
+     "at": "center"
+    },
+    {
+     "say": "Thử lại: 6.180 × 3 = 18.540. Chia từ trái sang phải nhé!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c14.luyen-tap-chung": [
+  {
+   "title": "Mua vé khu vui chơi cho cả nhà",
+   "prompt": "A Vietnamese amusement park entrance. LEFT: a family of exactly 4 people seen from behind, standing in line. CENTER: a colorful ferris wheel in the background. RIGHT: a ticket booth window with a cashier. No text on signs. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cả nhà có 4 người, mỗi vé vào khu vui chơi giá 15.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "4 vé giá: 15.000 × 4 = 60.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Bố đưa 100.000 đồng, được trả lại 100.000 - 60.000 = 40.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Đọc kĩ đề, làm từng bước: tính tiền vé trước, tính tiền trả lại sau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đóng chai nước vào thùng",
+   "prompt": "A clean bottled water factory. LEFT: many clear water bottles moving on a conveyor belt. CENTER: one open cardboard carton holding exactly 6 water bottles. RIGHT: a tall stack of closed cardboard cartons. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Nhà máy có 12.630 chai nước cần đóng thùng.",
+     "at": "left"
+    },
+    {
+     "say": "Mỗi thùng có 6 chai, như thùng này.",
+     "at": "center"
+    },
+    {
+     "say": "Số thùng là: 12.630 : 6 = 2.105 thùng.",
+     "at": "right"
+    },
+    {
+     "say": "Ước lượng: 12.000 : 6 = 2.000, gần 2.105 nên kết quả hợp lý.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c15.thu-thap-phan-loai-ghi-chep-so-lieu": [
+  {
+   "title": "Phân loại hoa quả thành từng nhóm",
+   "prompt": "A Vietnamese classroom table covered with a checked cloth. LEFT: exactly 4 oranges grouped together. CENTER: exactly 3 single bananas grouped together. RIGHT: exactly 2 yellow mangoes grouped together. An empty woven basket behind them. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Cô xếp hoa quả các bạn mang đến thành ba nhóm: cam, chuối, xoài.",
+     "at": "all"
+    },
+    {
+     "say": "Nhóm cam bên trái có 4 quả, nhóm chuối ở giữa có 3 quả.",
+     "at": "left"
+    },
+    {
+     "say": "Nhóm xoài bên phải có 2 quả. Ghi lại: cam 4, chuối 3, xoài 2.",
+     "at": "right"
+    },
+    {
+     "say": "Phân loại theo nhóm, đếm từng nhóm rồi ghi lại, gạch nhóm đã đếm để không sót.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Đếm màu áo các bạn ở sân trường",
+   "prompt": "A Vietnamese school yard with a big tree, seen from a distance. Children seen from behind, standing in three small groups: LEFT exactly 3 children wearing blue T-shirts, CENTER exactly 2 children wearing red T-shirts, RIGHT exactly 1 child wearing a yellow T-shirt. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bạn Minh quan sát màu áo các bạn đang chơi ở sân trường.",
+     "at": "all"
+    },
+    {
+     "say": "Áo xanh: 1, 2, 3. Có 3 bạn mặc áo xanh.",
+     "at": "left"
+    },
+    {
+     "say": "Có 2 bạn áo đỏ ở giữa và 1 bạn áo vàng bên phải.",
+     "at": "right"
+    },
+    {
+     "say": "Thu thập số liệu: quan sát, đếm, rồi ghi lại: xanh 3, đỏ 2, vàng 1.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c15.bang-so-lieu-thong-ke": [
+  {
+   "title": "Hai lớp trồng cây trong vườn trường",
+   "prompt": "A Vietnamese school garden on a sunny day. LEFT: exactly 5 young saplings newly planted in a row with small watering cans nearby. RIGHT: exactly 6 young saplings newly planted in a row. A narrow path in the CENTER separates the two plots. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lớp 3A và lớp 3B ra vườn trường trồng cây.",
+     "at": "all"
+    },
+    {
+     "say": "Lớp 3A trồng được 5 cây, cô ghi số 5 ngay dưới tên lớp 3A.",
+     "at": "left"
+    },
+    {
+     "say": "Lớp 3B trồng được 6 cây, cô ghi số 6 ngay dưới tên lớp 3B.",
+     "at": "right"
+    },
+    {
+     "say": "Đọc bảng: tên ở hàng trên, số liệu ở ngay dưới. 3B nhiều hơn 6 - 5 = 1 cây.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Sạp quả: lập bảng số lượng",
+   "prompt": "A Vietnamese fruit stall at the market. LEFT: exactly 3 whole watermelons. CENTER: exactly 5 pineapples. RIGHT: exactly 2 bunches of bananas. Wooden counter, no signs or tags. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Sạp quả của cô Hà còn dưa hấu, dứa và chuối. Mình lập bảng số liệu nhé.",
+     "at": "all"
+    },
+    {
+     "say": "Dưa hấu có 3 quả, ta ghi 3 ở ô dưới chữ dưa hấu.",
+     "at": "left"
+    },
+    {
+     "say": "Dứa có 5 quả, nhiều nhất; chuối bên phải có 2 nải, ít nhất.",
+     "at": "center"
+    },
+    {
+     "say": "Bảng có tên ở hàng trên, số liệu ở ngay dưới, nhìn là so sánh được ngay!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c15.kha-nang-xay-ra-cua-mot-su-kien": [
+  {
+   "title": "Lọ toàn bóng đỏ: chắc chắn, không thể",
+   "prompt": "A classroom desk. LEFT: a clear glass jar containing exactly 5 red balls and nothing else. CENTER: a child's hand reaching toward the jar. RIGHT: one green ball lying on a separate shelf, far from the jar. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lọ thủy tinh này có 5 quả bóng, quả nào cũng màu đỏ.",
+     "at": "left"
+    },
+    {
+     "say": "Bạn nhắm mắt lấy 1 quả: chắc chắn được bóng đỏ.",
+     "at": "center"
+    },
+    {
+     "say": "Bóng xanh không ở trong lọ, nên không thể lấy được bóng xanh.",
+     "at": "right"
+    },
+    {
+     "say": "Chỉ có một loại thì chắc chắn; loại không có trong lọ thì không thể.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bịt mắt bốc quả: có thể cam, có thể táo",
+   "prompt": "A Vietnamese school fair game. LEFT: a child with a cloth blindfold reaching out a hand. CENTER: a woven basket holding exactly 3 oranges and exactly 2 red apples. RIGHT: one bunch of bananas on a separate table, outside the basket. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Giỏ có 3 quả cam và 2 quả táo.",
+     "at": "center"
+    },
+    {
+     "say": "Bạn bịt mắt bốc 1 quả: có thể được cam, cũng có thể được táo.",
+     "at": "left"
+    },
+    {
+     "say": "Chuối không có trong giỏ, nên không thể bốc được chuối.",
+     "at": "right"
+    },
+    {
+     "say": "Ba từ cần nhớ: chắc chắn, có thể, không thể.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c15.luyen-tap-chung": [
+  {
+   "title": "Đếm xe ở cổng trường",
+   "prompt": "The front gate of a Vietnamese primary school in the morning. LEFT: exactly 4 bicycles parked in a row. CENTER: exactly 3 motorbikes parked. RIGHT: exactly 1 small car. No license plates visible. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Các bạn đếm xe ở cổng trường: có 4 xe đạp.",
+     "at": "left"
+    },
+    {
+     "say": "Có 3 xe máy ở giữa, và 1 ô tô bên phải.",
+     "at": "center"
+    },
+    {
+     "say": "Lập bảng: xe đạp 4, xe máy 3, ô tô 1. Xe đạp nhiều hơn ô tô 4 - 1 = 3 chiếc.",
+     "at": "right"
+    },
+    {
+     "say": "Thu thập, phân loại, ghi vào bảng rồi đọc số liệu để so sánh.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Vòng quay may mắn hai màu",
+   "prompt": "A Vietnamese school festival booth. LEFT: a child ready to spin. CENTER: a big round spinning prize wheel divided into exactly 4 equal sections, 2 blue and 2 yellow, alternating, with a pointer arrow at the top. RIGHT: a table with small prize toys. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Vòng quay này chỉ có ô màu xanh và ô màu vàng.",
+     "at": "center"
+    },
+    {
+     "say": "Bạn quay: mũi tên có thể dừng ở ô xanh, cũng có thể dừng ở ô vàng.",
+     "at": "left"
+    },
+    {
+     "say": "Không có ô đỏ nên không thể dừng ở ô đỏ. Chắc chắn dừng ở ô xanh hoặc vàng.",
+     "at": "center"
+    },
+    {
+     "say": "Chắc chắn, có thể, không thể: nhìn kĩ có những gì rồi mới nói nhé!",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c16.on-tap-cac-so-pham-vi-100000": [
+  {
+   "title": "Cửa hàng đồ chơi: xếp giá từ bé đến lớn",
+   "prompt": "A Vietnamese toy shop shelf. LEFT: one red-and-white football. CENTER: one doll in a pink dress. RIGHT: one blue toy car. No price tags or text. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Quả bóng giá 45.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Búp bê giá 54.000 đồng, còn ô tô đồ chơi giá 48.500 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "So sánh hàng chục nghìn trước: 45.000 < 48.500 < 54.000.",
+     "at": "right"
+    },
+    {
+     "say": "Xếp từ bé đến lớn: tìm số bé nhất trước. Rẻ nhất là quả bóng!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Ngày hội chạy bộ: làm tròn số người",
+   "prompt": "A Vietnamese city road during a fun run, seen from high above at a distance. LEFT: a big plain inflatable starting arch. CENTER: a long stream of tiny runners in colorful shirts. RIGHT: a plain finish-line arch with balloons. No text on banners. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Ngày hội chạy bộ của thành phố có 50.503 người tham gia.",
+     "at": "all"
+    },
+    {
+     "say": "50.503 = 50.000 + 500 + 3, đọc là năm mươi nghìn năm trăm linh ba.",
+     "at": "center"
+    },
+    {
+     "say": "Làm tròn đến hàng nghìn: chữ số hàng trăm là 5, nên được 51.000.",
+     "at": "left"
+    },
+    {
+     "say": "Làm tròn đến hàng chục nghìn: hàng nghìn là 0, bé hơn 5, nên khoảng 50.000 người.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c16.on-tap-bon-phep-tinh": [
+  {
+   "title": "Mua sữa và bánh: nhân trước, cộng sau",
+   "prompt": "A Vietnamese convenience store counter. LEFT: exactly 3 identical small cartons of milk in a row. CENTER: a child at the counter. RIGHT: exactly 1 pack of cookies. No labels or price tags. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mỗi hộp sữa giá 8.000 đồng, bạn mua 3 hộp.",
+     "at": "left"
+    },
+    {
+     "say": "Gói bánh giá 12.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "8.000 × 3 + 12.000 = 24.000 + 12.000 = 36.000 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Trong biểu thức, nhân chia trước, cộng trừ sau.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "6 chậu hoa tặng thầy cô",
+   "prompt": "A Vietnamese classroom decorated for Teachers' Day. On a long table: exactly 6 identical small pots of flowers, a group of 3 pots on the LEFT and a group of 3 pots on the RIGHT. CENTER: a gift ribbon and a small envelope with no writing. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Lớp mua 6 chậu hoa như nhau tặng thầy cô, hết 90.000 đồng.",
+     "at": "all"
+    },
+    {
+     "say": "Mỗi chậu giá: 90.000 : 6 = 15.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Thử lại bằng phép nhân: 15.000 × 6 = 90.000, đúng rồi!",
+     "at": "right"
+    },
+    {
+     "say": "Phép chia thử lại bằng phép nhân, phép trừ thử lại bằng phép cộng.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c16.on-tap-hinh-hoc-va-do-luong": [
+  {
+   "title": "Rào luống rau: chu vi hình chữ nhật",
+   "prompt": "A Vietnamese home vegetable garden. CENTER: one rectangular vegetable bed with green lettuce, its long side facing the viewer, fully enclosed by a low bamboo fence. RIGHT: the short side of the bed clearly visible. LEFT: a father holding a bundle of bamboo sticks. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bố làm hàng rào tre quanh luống rau hình chữ nhật.",
+     "at": "left"
+    },
+    {
+     "say": "Cạnh dài phía trước dài 6 m.",
+     "at": "center"
+    },
+    {
+     "say": "Cạnh ngắn bên phải dài 4 m.",
+     "at": "right"
+    },
+    {
+     "say": "Chu vi = (6 + 4) × 2 = 20 m. Bố cần 20 m hàng rào.",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Thanh sô-cô-la: diện tích bằng số ô vuông",
+   "prompt": "A plain rectangular chocolate bar lying flat in the CENTER of a wooden table, divided into exactly 4 rows of 6 equal square pieces, long side horizontal. LEFT: a plastic school ruler with only tick marks and no digits. RIGHT: a small glass of milk. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Thanh sô-cô-la hình chữ nhật chia thành các ô vuông cạnh 1 cm.",
+     "at": "all"
+    },
+    {
+     "say": "Hàng trên cùng có 6 ô: chiều dài 6 cm. Mỗi cột có 4 ô: chiều rộng 4 cm.",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích = 6 × 4 = 24 cm², đúng bằng 24 ô vuông 1 cm².",
+     "at": "center"
+    },
+    {
+     "say": "Diện tích hình chữ nhật = dài × rộng; chu vi = (dài + rộng) × 2.",
+     "at": "all"
+    }
+   ]
+  }
+ ],
+ "kntt3.c16.on-tap-chung": [
+  {
+   "title": "Mua cam: tính tiền và tiền trả lại",
+   "prompt": "A Vietnamese market fruit stall. LEFT: a round dial weighing scale with no numbers on the dial, holding a pile of oranges. CENTER: a mother seen from behind holding one plain banknote with no readable printing. RIGHT: the fruit seller putting oranges into a bag. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Mẹ mua 2 kg cam, mỗi ki-lô-gam giá 25.000 đồng.",
+     "at": "left"
+    },
+    {
+     "say": "Tiền cam: 25.000 × 2 = 50.000 đồng. Mẹ đưa 100.000 đồng.",
+     "at": "center"
+    },
+    {
+     "say": "Cô bán hàng trả lại: 100.000 - 50.000 = 50.000 đồng.",
+     "at": "right"
+    },
+    {
+     "say": "Con đã biết nhân, trừ và tính tiền khi đi chợ rồi đấy, giỏi lắm!",
+     "at": "all"
+    }
+   ]
+  },
+  {
+   "title": "Bình nước 2 l rót đều ra 4 cốc",
+   "prompt": "A Vietnamese family dining table. LEFT: one large clear jug full of orange juice. CENTER: a child's hands pouring. RIGHT: exactly 4 identical clear glasses in a row, each filled to the same level with orange juice. Warm, bright, realistic children's-book illustration style, Vietnamese setting, no close-up faces. Absolutely no text, letters, digits or numbers anywhere in the image.",
+   "lines": [
+    {
+     "say": "Bình nước cam này có 2 l, tức là 2.000 ml.",
+     "at": "left"
+    },
+    {
+     "say": "Rót đều ra 4 cốc: 2.000 : 4 = 500 ml mỗi cốc.",
+     "at": "right"
+    },
+    {
+     "say": "Thử lại: 500 × 4 = 2.000 ml, đúng bằng 2 l.",
+     "at": "right"
+    },
+    {
+     "say": "Nhớ nhé: 1 l = 1.000 ml. Cố lên, con đã học xong Toán lớp 3!",
+     "at": "all"
+    }
+   ]
+  }
+ ]
+}

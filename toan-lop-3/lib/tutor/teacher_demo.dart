@@ -10,6 +10,7 @@ import 'teacher_avatar.dart';
 import 'teacher_controller.dart';
 
 export '../logic/demo_script.dart';
+export '../logic/real_examples.dart';
 export '../logic/visual_story.dart';
 
 TeacherMood _mood(DemoMood m) => switch (m) {
@@ -137,6 +138,16 @@ class DemoPlayer extends ChangeNotifier {
       if (scenes[i].tip != null) n = scenes[i].tip! + 1;
     }
     return n;
+  }
+
+  /// Ví dụ [e] đã được giảng tới chưa.
+  bool exampleReached(int e) {
+    if (_done) return true;
+    for (var i = 0; i <= _index && i < scenes.length; i++) {
+      final x = scenes[i].example;
+      if (x != null && x >= e) return true;
+    }
+    return false;
   }
 
   /// Khối [block] đã được giảng tới chưa (khối chưa tới thì làm mờ).
