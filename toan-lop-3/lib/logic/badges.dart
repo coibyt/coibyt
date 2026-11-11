@@ -10,8 +10,7 @@ class BadgeContext {
   final DateTime now;
 
   int get lessonsPlayed => progress.lessons.values.fold(0, (s, l) => s + l.plays);
-  int get bestExamScore =>
-      progress.exams.fold(0, (best, e) => e.score.round() > best ? e.score.round() : best);
+  int get bestExamScore => progress.exams.fold(0, (best, e) => e.score.round() > best ? e.score.round() : best);
 }
 
 /// Một huy hiệu (tên tự đặt, không lấy từ app khác).
@@ -62,9 +61,7 @@ final List<BadgeDef> allBadges = [
     emoji: '📘',
     earned: (c) => c.catalog.books.any(
       (b) => b.chapters.any(
-        (ch) =>
-            ch.lessons.isNotEmpty &&
-            ch.lessons.every((l) => (c.progress.lessons[l.id]?.bestStars ?? 0) >= 1),
+        (ch) => ch.lessons.isNotEmpty && ch.lessons.every((l) => (c.progress.lessons[l.id]?.bestStars ?? 0) >= 1),
       ),
     ),
   ),

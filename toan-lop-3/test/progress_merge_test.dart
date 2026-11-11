@@ -10,7 +10,9 @@ void main() {
       lessons: {'a': LessonProgress(bestStars: 3, bestPoints: 90, plays: 2, lastPlayed: DateTime.utc(2026, 11, 1))},
       skills: {'s1': SkillProgress(correct: 5, total: 8)},
       activeDays: {'2026-11-01'},
-      exams: [ExamRecord(examId: 'e', score: 8, correct: 8, total: 10, usedSeconds: 600, at: DateTime.utc(2026, 11, 1))],
+      exams: [
+        ExamRecord(examId: 'e', score: 8, correct: 8, total: 10, usedSeconds: 600, at: DateTime.utc(2026, 11, 1)),
+      ],
       badges: {'first_lesson': DateTime.utc(2026, 11, 1)},
       updatedAt: DateTime.utc(2026, 11, 1, 10),
     );

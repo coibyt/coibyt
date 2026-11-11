@@ -18,11 +18,11 @@ class Account {
   const Account({required this.id, required this.email, required this.isVip, this.vipUntil});
 
   factory Account.fromJson(Map<String, dynamic> j) => Account(
-        id: '${j['id']}',
-        email: j['email'] as String,
-        isVip: j['isVip'] as bool? ?? false,
-        vipUntil: j['vipUntil'] == null ? null : DateTime.tryParse(j['vipUntil'] as String),
-      );
+    id: '${j['id']}',
+    email: j['email'] as String,
+    isVip: j['isVip'] as bool? ?? false,
+    vipUntil: j['vipUntil'] == null ? null : DateTime.tryParse(j['vipUntil'] as String),
+  );
 
   final String id;
   final String email;
@@ -56,11 +56,11 @@ class ApiClient {
   Uri _u(String path) => Uri.parse('${baseUrl.replaceAll(RegExp(r'/+$'), '')}$path');
 
   Map<String, String> _headers({Map<String, String>? extra}) => {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        if (token != null) 'Authorization': 'Bearer $token',
-        ...?extra,
-      };
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    if (token != null) 'Authorization': 'Bearer $token',
+    ...?extra,
+  };
 
   Never _fail(http.Response r) {
     var code = 'http_${r.statusCode}';
@@ -118,11 +118,13 @@ class ApiClient {
 
   /// Gửi tiến độ; máy chủ gộp và trả về bản đã gộp.
   Future<Map<String, dynamic>> putProgress(String childId, Map<String, dynamic> progress) async {
-    final j = _json(await _http.put(
-      _u('/v1/children/$childId/progress'),
-      headers: _headers(),
-      body: jsonEncode({'progress': progress}),
-    ));
+    final j = _json(
+      await _http.put(
+        _u('/v1/children/$childId/progress'),
+        headers: _headers(),
+        body: jsonEncode({'progress': progress}),
+      ),
+    );
     return j['progress'] as Map<String, dynamic>;
   }
 
@@ -141,16 +143,14 @@ class ApiClient {
   }
 
   /// Gửi biên lai mua hàng để máy chủ xác minh với App Store / Google Play.
-  Future<Account> verifyPurchase({
-    required String platform,
-    required String productId,
-    required String receipt,
-  }) async {
-    final j = _json(await _http.post(
-      _u('/v1/iap/verify'),
-      headers: _headers(),
-      body: jsonEncode({'platform': platform, 'productId': productId, 'receipt': receipt}),
-    ));
+  Future<Account> verifyPurchase({required String platform, required String productId, required String receipt}) async {
+    final j = _json(
+      await _http.post(
+        _u('/v1/iap/verify'),
+        headers: _headers(),
+        body: jsonEncode({'platform': platform, 'productId': productId, 'receipt': receipt}),
+      ),
+    );
     return Account.fromJson(j['account'] as Map<String, dynamic>);
   }
 }

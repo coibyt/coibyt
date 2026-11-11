@@ -20,11 +20,11 @@ enum ExamType {
 
   /// Khoảng thời gian hợp lệ (phút) theo loại đề.
   (int, int) get durationRange => switch (this) {
-        ExamType.kt15p => (15, 15),
-        ExamType.kt1Tiet => (35, 45),
-        ExamType.giuaHk1 || ExamType.cuoiHk1 || ExamType.giuaHk2 || ExamType.cuoiHk2 => (35, 60),
-        ExamType.chuDe || ExamType.onTap => (5, 90),
-      };
+    ExamType.kt15p => (15, 15),
+    ExamType.kt1Tiet => (35, 45),
+    ExamType.giuaHk1 || ExamType.cuoiHk1 || ExamType.giuaHk2 || ExamType.cuoiHk2 => (35, 60),
+    ExamType.chuDe || ExamType.onTap => (5, 90),
+  };
   static ExamType fromJsonName(String s) => values.firstWhere((t) => t.jsonName == s);
 }
 
@@ -41,14 +41,14 @@ class ExamRef {
   });
 
   factory ExamRef.fromJson(JsonReader r) => ExamRef(
-        term: r.optInteger('term', min: 1, max: 2),
-        id: r.string('id'),
-        title: r.string('title'),
-        src: r.string('src'),
-        access: Access.values.byName(r.oneOf('access', {'free', 'vip'})),
-        examType: ExamType.fromJsonName(r.oneOf('examType', ExamType.names)),
-        durationMinutes: r.integer('durationMinutes', min: 5, max: 90),
-      );
+    term: r.optInteger('term', min: 1, max: 2),
+    id: r.string('id'),
+    title: r.string('title'),
+    src: r.string('src'),
+    access: Access.values.byName(r.oneOf('access', {'free', 'vip'})),
+    examType: ExamType.fromJsonName(r.oneOf('examType', ExamType.names)),
+    durationMinutes: r.integer('durationMinutes', min: 5, max: 90),
+  );
 
   final String id;
   final String title;
@@ -110,17 +110,13 @@ class Exam {
         'sections',
         (s) => ExamSection(
           title: s.string('title'),
-          items: s.objects(
-            'items',
-            (i) {
-              final pts = i.json['points'];
-              if (pts is! num || pts <= 0 || (pts * 4) != (pts * 4).roundToDouble()) {
-                throw ContentFormatException('${i.path}.points', 'phải > 0 và là bội của 0,25');
-              }
-              return ExamItem(points: pts.toDouble(), problem: Problem.fromJson(i.object('problem')));
-            },
-            minItems: 1,
-          ),
+          items: s.objects('items', (i) {
+            final pts = i.json['points'];
+            if (pts is! num || pts <= 0 || (pts * 4) != (pts * 4).roundToDouble()) {
+              throw ContentFormatException('${i.path}.points', 'phải > 0 và là bội của 0,25');
+            }
+            return ExamItem(points: pts.toDouble(), problem: Problem.fromJson(i.object('problem')));
+          }, minItems: 1),
         ),
         minItems: 1,
       ),

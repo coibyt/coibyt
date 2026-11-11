@@ -8,15 +8,15 @@ const _digit = TextStyle(fontSize: 30, fontWeight: FontWeight.w700, height: 1.2)
 const _carryStyle = TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: AppColors.tryAgain);
 
 Widget _digitCell(String c, {Color color = AppColors.ink, Color? bg, bool underline = false}) => Container(
-      width: _cell,
-      height: 42,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: bg,
-        border: underline ? const Border(bottom: BorderSide(color: AppColors.ink, width: 2.5)) : null,
-      ),
-      child: Text(c, style: _digit.copyWith(color: color)),
-    );
+  width: _cell,
+  height: 42,
+  alignment: Alignment.center,
+  decoration: BoxDecoration(
+    color: bg,
+    border: underline ? const Border(bottom: BorderSide(color: AppColors.ink, width: 2.5)) : null,
+  ),
+  child: Text(c, style: _digit.copyWith(color: color)),
+);
 
 /// Nút điều khiển bước: Lùi · Bước tiếp · Xem hết.
 class _StepControls extends StatelessWidget {
@@ -108,7 +108,10 @@ class _Narration extends StatelessWidget {
                 CircleAvatar(
                   radius: 14,
                   backgroundColor: i == shown - 1 ? AppColors.sky : Colors.black26,
-                  child: Text('${i + 1}', style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700)),
+                  child: Text(
+                    '${i + 1}',
+                    style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700),
+                  ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
@@ -137,14 +140,14 @@ class _Frame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: AppColors.skySoft, width: 3),
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
-      );
+    padding: const EdgeInsets.all(14),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+      border: Border.all(color: AppColors.skySoft, width: 3),
+    ),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
+  );
 }
 
 /// Mixin quản lý bước hiện tại.
@@ -153,12 +156,12 @@ mixin _Stepping<T extends StatefulWidget> on State<T> {
   int get totalSteps;
 
   Widget controls() => _StepControls(
-        step: step,
-        total: totalSteps,
-        onBack: () => setState(() => step--),
-        onNext: () => setState(() => step++),
-        onAll: () => setState(() => step = totalSteps),
-      );
+    step: step,
+    total: totalSteps,
+    onBack: () => setState(() => step--),
+    onNext: () => setState(() => step++),
+    onAll: () => setState(() => step = totalSteps),
+  );
 }
 
 // ===========================================================================
@@ -214,17 +217,17 @@ class _ColumnStepperState extends State<ColumnStepper> with _Stepping {
     List<String> aligned(String s) => [...List.filled(width - s.length, ''), ...s.split('')];
 
     Widget row(List<String> cells, {Color color = AppColors.ink, bool underline = false}) => Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            for (var c = 0; c < width; c++)
-              _digitCell(
-                cells[c],
-                color: color,
-                bg: highlight.contains(c) ? AppColors.honeySoft : null,
-                underline: underline,
-              ),
-          ],
-        );
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        for (var c = 0; c < width; c++)
+          _digitCell(
+            cells[c],
+            color: color,
+            bg: highlight.contains(c) ? AppColors.honeySoft : null,
+            underline: underline,
+          ),
+      ],
+    );
 
     final carryRow = Row(
       mainAxisSize: MainAxisSize.min,
@@ -238,43 +241,43 @@ class _ColumnStepperState extends State<ColumnStepper> with _Stepping {
       ],
     );
 
-    return _Frame(children: [
-      const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
-      const SizedBox(height: 6),
-      Center(
-        child: Semantics(
-          label: '${b.operands.join(' ${b.operation.symbol} ')} bằng ${b.result}',
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              // Số nhớ (nhỏ, màu cam): cộng/nhân ghi trên đầu cột; trừ ghi cạnh số trừ
-              // (vì "nhớ 1" được cộng vào chữ số của số trừ ở hàng kế tiếp).
-              if (b.operation != ColumnOperation.subtract) carryRow,
-              for (final (i, o) in b.operands.indexed) ...[
-                if (i == 1 && b.operation == ColumnOperation.subtract) carryRow,
-                row(
-                  [
+    return _Frame(
+      children: [
+        const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+        const SizedBox(height: 6),
+        Center(
+          child: Semantics(
+            label: '${b.operands.join(' ${b.operation.symbol} ')} bằng ${b.result}',
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                // Số nhớ (nhỏ, màu cam): cộng/nhân ghi trên đầu cột; trừ ghi cạnh số trừ
+                // (vì "nhớ 1" được cộng vào chữ số của số trừ ở hàng kế tiếp).
+                if (b.operation != ColumnOperation.subtract) carryRow,
+                for (final (i, o) in b.operands.indexed) ...[
+                  if (i == 1 && b.operation == ColumnOperation.subtract) carryRow,
+                  row([
                     if (i == 1) b.operation.symbol else '',
                     ...aligned(o).skip(1),
-                  ],
-                  underline: i == b.operands.length - 1,
-                ),
+                  ], underline: i == b.operands.length - 1),
+                ],
+                row(resultCells, color: AppColors.good),
               ],
-              row(resultCells, color: AppColors.good),
-            ],
+            ),
           ),
         ),
-      ),
-      const SizedBox(height: 8),
-      _Narration(
-        lines: [for (final s in b.digitSteps) s.text],
-        shown: step,
-        intro: 'Viết các số thẳng cột: hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục. '
-            'Tính từ phải sang trái.',
-      ),
-      const SizedBox(height: 6),
-      controls(),
-    ]);
+        const SizedBox(height: 8),
+        _Narration(
+          lines: [for (final s in b.digitSteps) s.text],
+          shown: step,
+          intro:
+              'Viết các số thẳng cột: hàng đơn vị thẳng hàng đơn vị, hàng chục thẳng hàng chục. '
+              'Tính từ phải sang trái.',
+        ),
+        const SizedBox(height: 6),
+        controls(),
+      ],
+    );
   }
 }
 
@@ -321,15 +324,23 @@ class _DivisionStepperState extends State<DivisionStepper> with _Stepping {
       return cells;
     }
 
-    Widget row(List<String> cells, {bool underline = false, Set<int> hl = const {}, Color color = AppColors.ink}) => Row(
+    Widget row(List<String> cells, {bool underline = false, Set<int> hl = const {}, Color color = AppColors.ink}) =>
+        Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             for (var c = 0; c < width; c++)
-              _digitCell(cells[c], underline: underline && cells[c].isNotEmpty, bg: hl.contains(c) ? AppColors.honeySoft : null, color: color),
+              _digitCell(
+                cells[c],
+                underline: underline && cells[c].isNotEmpty,
+                bg: hl.contains(c) ? AppColors.honeySoft : null,
+                color: color,
+              ),
           ],
         );
 
-    final leftRows = <Widget>[row(b.dividend.split(''), hl: step == 0 ? const {} : {endCol(step - 1)})];
+    final leftRows = <Widget>[
+      row(b.dividend.split(''), hl: step == 0 ? const {} : {endCol(step - 1)}),
+    ];
     for (var i = 0; i < step; i++) {
       leftRows.add(row(placed(steps[i].product, endCol(i)), underline: true));
       if (i + 1 < totalSteps) {
@@ -340,47 +351,49 @@ class _DivisionStepperState extends State<DivisionStepper> with _Stepping {
     }
     final quotientShown = [for (var i = 0; i < step; i++) '${steps[i].quotientDigit}'];
 
-    return _Frame(children: [
-      const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
-      const SizedBox(height: 6),
-      Center(
-        child: Semantics(
-          label: '${b.dividend} chia ${b.divisor} được ${b.quotient}${b.remainder > 0 ? ', dư ${b.remainder}' : ''}',
-          child: IntrinsicHeight(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: leftRows),
-                Container(width: 3, color: AppColors.ink, margin: const EdgeInsets.only(left: 4)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(children: [const SizedBox(width: 6), _digitCell(b.divisor)]),
-                    Container(height: 3, width: _cell * (b.quotient.length + 1), color: AppColors.ink),
-                    Row(
-                      children: [
-                        const SizedBox(width: 6),
-                        for (final d in quotientShown) _digitCell(d, color: AppColors.good),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+    return _Frame(
+      children: [
+        const Text('Đặt tính rồi tính:', style: TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+        const SizedBox(height: 6),
+        Center(
+          child: Semantics(
+            label: '${b.dividend} chia ${b.divisor} được ${b.quotient}${b.remainder > 0 ? ', dư ${b.remainder}' : ''}',
+            child: IntrinsicHeight(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: leftRows),
+                  Container(width: 3, color: AppColors.ink, margin: const EdgeInsets.only(left: 4)),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(children: [const SizedBox(width: 6), _digitCell(b.divisor)]),
+                      Container(height: 3, width: _cell * (b.quotient.length + 1), color: AppColors.ink),
+                      Row(
+                        children: [
+                          const SizedBox(width: 6),
+                          for (final d in quotientShown) _digitCell(d, color: AppColors.good),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
-      const SizedBox(height: 8),
-      _Narration(
-        lines: [for (final s in steps) s.text],
-        shown: step,
-        intro: 'Viết số bị chia bên trái, số chia bên phải. Chia lần lượt từ trái sang phải.',
-      ),
-      if (step == totalSteps && b.remainder > 0)
-        Text('Số dư: ${b.remainder}', style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
-      const SizedBox(height: 6),
-      controls(),
-    ]);
+        const SizedBox(height: 8),
+        _Narration(
+          lines: [for (final s in steps) s.text],
+          shown: step,
+          intro: 'Viết số bị chia bên trái, số chia bên phải. Chia lần lượt từ trái sang phải.',
+        ),
+        if (step == totalSteps && b.remainder > 0)
+          Text('Số dư: ${b.remainder}', style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700)),
+        const SizedBox(height: 6),
+        controls(),
+      ],
+    );
   }
 }

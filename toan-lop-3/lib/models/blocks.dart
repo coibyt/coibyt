@@ -4,11 +4,8 @@ import 'json_reader.dart';
 class ContentImage {
   const ContentImage({required this.src, required this.alt, this.aspectRatio});
 
-  factory ContentImage.fromJson(JsonReader r) => ContentImage(
-        src: r.string('src'),
-        alt: r.string('alt'),
-        aspectRatio: r.optDouble('aspectRatio'),
-      );
+  factory ContentImage.fromJson(JsonReader r) =>
+      ContentImage(src: r.string('src'), alt: r.string('alt'), aspectRatio: r.optDouble('aspectRatio'));
 
   final String src;
   final String alt;
@@ -19,14 +16,7 @@ class ContentImage {
 sealed class ContentBlock {
   const ContentBlock();
 
-  static const kinds = {
-    'text',
-    'equation',
-    'column_arithmetic',
-    'long_division',
-    'word_problem',
-    'image',
-  };
+  static const kinds = {'text', 'equation', 'column_arithmetic', 'long_division', 'word_problem', 'image'};
 
   factory ContentBlock.fromJson(JsonReader r) {
     final kind = r.oneOf('kind', kinds);
@@ -47,11 +37,11 @@ class TextBlock extends ContentBlock {
   const TextBlock(this.text, {this.style = TextBlockStyle.normal});
 
   factory TextBlock.fromJson(JsonReader r) => TextBlock(
-        r.string('text'),
-        style: r.has('style')
-            ? TextBlockStyle.values.byName(r.oneOf('style', {'normal', 'rule', 'tip'}))
-            : TextBlockStyle.normal,
-      );
+    r.string('text'),
+    style: r.has('style')
+        ? TextBlockStyle.values.byName(r.oneOf('style', {'normal', 'rule', 'tip'}))
+        : TextBlockStyle.normal,
+  );
 
   final String text;
   final TextBlockStyle style;
@@ -68,20 +58,15 @@ enum ColumnOperation { add, subtract, multiply }
 
 extension ColumnOperationSymbol on ColumnOperation {
   String get symbol => switch (this) {
-        ColumnOperation.add => '+',
-        ColumnOperation.subtract => '-',
-        ColumnOperation.multiply => '×',
-      };
+    ColumnOperation.add => '+',
+    ColumnOperation.subtract => '-',
+    ColumnOperation.multiply => '×',
+  };
 }
 
 /// Một lượt tính trong phép "đặt tính rồi tính".
 class DigitStep {
-  const DigitStep({
-    required this.place,
-    required this.text,
-    required this.write,
-    this.carry = 0,
-  });
+  const DigitStep({required this.place, required this.text, required this.write, this.carry = 0});
 
   factory DigitStep.fromJson(JsonReader r) {
     final write = r.string('write');
@@ -136,8 +121,7 @@ class ColumnArithmeticBlock extends ContentBlock {
       }
     }
     return ColumnArithmeticBlock(
-      operation: ColumnOperation.values
-          .byName(r.oneOf('operation', {'add', 'subtract', 'multiply'})),
+      operation: ColumnOperation.values.byName(r.oneOf('operation', {'add', 'subtract', 'multiply'})),
       operands: operandsRaw,
       result: _readDigitString(r, 'result'),
       digitSteps: r.objects('digitSteps', DigitStep.fromJson, minItems: 1),
@@ -161,12 +145,12 @@ class DivisionStep {
   });
 
   factory DivisionStep.fromJson(JsonReader r) => DivisionStep(
-        text: r.string('text'),
-        partialDividend: r.integer('partialDividend', min: 0),
-        quotientDigit: r.integer('quotientDigit', min: 0, max: 9),
-        product: r.integer('product', min: 0),
-        remainder: r.integer('remainder', min: 0),
-      );
+    text: r.string('text'),
+    partialDividend: r.integer('partialDividend', min: 0),
+    quotientDigit: r.integer('quotientDigit', min: 0, max: 9),
+    product: r.integer('product', min: 0),
+    remainder: r.integer('remainder', min: 0),
+  );
 
   final String text;
   final int partialDividend;
@@ -224,10 +208,7 @@ class WordProblemBlock extends ContentBlock {
     return WordProblemBlock(
       lines: r.objects(
         'lines',
-        (l) => WordProblemLine(
-          explanation: l.string('explanation'),
-          equation: l.string('equation'),
-        ),
+        (l) => WordProblemLine(explanation: l.string('explanation'), equation: l.string('equation')),
         minItems: 1,
       ),
       answer: answer,

@@ -27,7 +27,10 @@ class AccountSection extends StatelessWidget {
               '(Khi có máy chủ, build với --dart-define=API_BASE_URL=... để bật đăng nhập và đồng bộ.)',
             )
           else
-            ListenableBuilder(listenable: sync, builder: (context, _) => _SyncBody(sync: sync)),
+            ListenableBuilder(
+              listenable: sync,
+              builder: (context, _) => _SyncBody(sync: sync),
+            ),
         ]),
         _box([
           const Text('Gói VIP', style: h),
@@ -35,8 +38,8 @@ class AccountSection extends StatelessWidget {
           Text(
             app.isVip
                 ? (app.vipUntil != null && app.vipUntil!.isAfter(app.now())
-                    ? 'Đang dùng VIP đến ${_d(app.vipUntil!)}.'
-                    : 'Đang bật VIP thử.')
+                      ? 'Đang dùng VIP đến ${_d(app.vipUntil!)}.'
+                      : 'Đang bật VIP thử.')
                 : 'VIP mở: lời giải chi tiết từng bước cho mọi bài, bài và đề nâng cao.',
           ),
           const SizedBox(height: 8),
@@ -44,9 +47,8 @@ class AccountSection extends StatelessWidget {
             FilledButton.icon(
               key: const ValueKey('btn-upgrade'),
               style: FilledButton.styleFrom(backgroundColor: AppColors.vip, minimumSize: const Size.fromHeight(52)),
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute<void>(builder: (_) => VipPurchaseScreen(sync: sync)),
-              ),
+              onPressed: () =>
+                  Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => VipPurchaseScreen(sync: sync))),
               icon: const Icon(Icons.workspace_premium_rounded),
               label: const Text('Nâng cấp VIP', style: TextStyle(fontSize: 18)),
             ),
@@ -58,16 +60,16 @@ class AccountSection extends StatelessWidget {
   static String _d(DateTime t) => '${t.day}/${t.month}/${t.year}';
 
   static Widget _box(List<Widget> children) => Padding(
-        padding: const EdgeInsets.only(bottom: 14),
-        child: Material(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
-          ),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 14),
+    child: Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(18),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
+      ),
+    ),
+  );
 }
 
 class _SyncBody extends StatelessWidget {
@@ -84,16 +86,19 @@ class _SyncBody extends StatelessWidget {
           const Text('Đăng nhập để lưu tiến độ lên máy chủ, học trên nhiều máy và dùng VIP đã mua.'),
           if (sync.lastError != null) Text(sync.lastError!, style: const TextStyle(color: AppColors.tryAgain)),
           const SizedBox(height: 8),
-          Wrap(spacing: 8, children: [
-            FilledButton(
-              onPressed: sync.busy ? null : () => _authDialog(context, register: false),
-              child: const Text('Đăng nhập'),
-            ),
-            OutlinedButton(
-              onPressed: sync.busy ? null : () => _authDialog(context, register: true),
-              child: const Text('Tạo tài khoản'),
-            ),
-          ]),
+          Wrap(
+            spacing: 8,
+            children: [
+              FilledButton(
+                onPressed: sync.busy ? null : () => _authDialog(context, register: false),
+                child: const Text('Đăng nhập'),
+              ),
+              OutlinedButton(
+                onPressed: sync.busy ? null : () => _authDialog(context, register: true),
+                child: const Text('Tạo tài khoản'),
+              ),
+            ],
+          ),
         ],
       );
     }
@@ -102,19 +107,26 @@ class _SyncBody extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Tài khoản: ${sync.email ?? ''}'),
-        Text(last == null ? 'Chưa đồng bộ lần nào.' : 'Đồng bộ lần cuối: ${last.hour}:${last.minute.toString().padLeft(2, '0')} ${last.day}/${last.month}'),
+        Text(
+          last == null
+              ? 'Chưa đồng bộ lần nào.'
+              : 'Đồng bộ lần cuối: ${last.hour}:${last.minute.toString().padLeft(2, '0')} ${last.day}/${last.month}',
+        ),
         if (sync.lastError != null) Text(sync.lastError!, style: const TextStyle(color: AppColors.tryAgain)),
         const SizedBox(height: 8),
-        Wrap(spacing: 8, children: [
-          FilledButton.icon(
-            onPressed: sync.busy ? null : sync.syncNow,
-            icon: sync.busy
-                ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
-                : const Icon(Icons.sync_rounded),
-            label: const Text('Đồng bộ ngay'),
-          ),
-          TextButton(onPressed: sync.busy ? null : sync.signOut, child: const Text('Đăng xuất')),
-        ]),
+        Wrap(
+          spacing: 8,
+          children: [
+            FilledButton.icon(
+              onPressed: sync.busy ? null : sync.syncNow,
+              icon: sync.busy
+                  ? const SizedBox(width: 16, height: 16, child: CircularProgressIndicator(strokeWidth: 2))
+                  : const Icon(Icons.sync_rounded),
+              label: const Text('Đồng bộ ngay'),
+            ),
+            TextButton(onPressed: sync.busy ? null : sync.signOut, child: const Text('Đăng xuất')),
+          ],
+        ),
       ],
     );
   }
@@ -129,8 +141,16 @@ class _SyncBody extends StatelessWidget {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            TextField(controller: email, keyboardType: TextInputType.emailAddress, decoration: const InputDecoration(labelText: 'Email')),
-            TextField(controller: pass, obscureText: true, decoration: const InputDecoration(labelText: 'Mật khẩu (ít nhất 8 ký tự)')),
+            TextField(
+              controller: email,
+              keyboardType: TextInputType.emailAddress,
+              decoration: const InputDecoration(labelText: 'Email'),
+            ),
+            TextField(
+              controller: pass,
+              obscureText: true,
+              decoration: const InputDecoration(labelText: 'Mật khẩu (ít nhất 8 ký tự)'),
+            ),
           ],
         ),
         actions: [
@@ -204,7 +224,10 @@ class _VipPurchaseScreenState extends State<VipPurchaseScreen> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 10),
                       child: FilledButton(
-                        style: FilledButton.styleFrom(backgroundColor: AppColors.vip, minimumSize: const Size.fromHeight(56)),
+                        style: FilledButton.styleFrom(
+                          backgroundColor: AppColors.vip,
+                          minimumSize: const Size.fromHeight(56),
+                        ),
                         onPressed: () => p.buy(prod),
                         child: Text('${prod.title} — ${prod.price}', style: const TextStyle(fontSize: 18)),
                       ),

@@ -25,24 +25,18 @@ final _digitsOnly = RegExp(r'^[0-9]+$');
 final _viThousands = RegExp(r'^[0-9]{1,3}(\.[0-9]{3})+$');
 
 /// Chuẩn hoá Unicode NFC, bỏ khoảng trắng thừa.
-String normalizeText(String input) =>
-    unorm.nfc(input).trim().replaceAll(_whitespace, ' ');
+String normalizeText(String input) => unorm.nfc(input).trim().replaceAll(_whitespace, ' ');
 
 /// Đọc số theo luật trong schema:
 /// NFC → trim → bỏ đơn vị cuối (nếu có) → bỏ khoảng trắng giữa chữ số
 /// → bỏ dấu chấm phân nhóm nghìn kiểu Việt Nam → số nguyên ≥ 0.
-ParsedNumber parseNumberInput(
-  String input, {
-  List<String> units = const [],
-  bool allowLeadingZeros = true,
-}) {
+ParsedNumber parseNumberInput(String input, {List<String> units = const [], bool allowLeadingZeros = true}) {
   var s = normalizeText(input).toLowerCase();
   if (s.isEmpty) return const EmptyInput();
 
   // Bỏ đơn vị ở cuối, ưu tiên đơn vị dài trước ("ki-lô-gam" trước "kg").
-  final sortedUnits = [
-    for (final u in units) normalizeText(u).toLowerCase(),
-  ]..sort((a, b) => b.length.compareTo(a.length));
+  final sortedUnits = [for (final u in units) normalizeText(u).toLowerCase()]
+    ..sort((a, b) => b.length.compareTo(a.length));
   for (final u in sortedUnits) {
     if (u.isNotEmpty && s.endsWith(u)) {
       s = s.substring(0, s.length - u.length).trim();
@@ -78,12 +72,7 @@ String stripDiacritics(String input) {
 }
 
 /// So sánh câu trả lời dạng chữ.
-bool textMatches(
-  String input,
-  String expected, {
-  required bool ignoreCase,
-  required bool ignoreDiacritics,
-}) {
+bool textMatches(String input, String expected, {required bool ignoreCase, required bool ignoreDiacritics}) {
   var a = normalizeText(input);
   var b = normalizeText(expected);
   if (ignoreDiacritics) {

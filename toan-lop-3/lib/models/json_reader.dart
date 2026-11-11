@@ -39,10 +39,7 @@ class JsonReader {
     }
     final value = json[key];
     if (value is! T) {
-      throw ContentFormatException(
-        _p(key),
-        'kiểu phải là $T nhưng lại là ${value.runtimeType}',
-      );
+      throw ContentFormatException(_p(key), 'kiểu phải là $T nhưng lại là ${value.runtimeType}');
     }
     return value;
   }
@@ -51,10 +48,7 @@ class JsonReader {
     final value = json[key];
     if (value == null) return null;
     if (value is! T) {
-      throw ContentFormatException(
-        _p(key),
-        'kiểu phải là $T nhưng lại là ${value.runtimeType}',
-      );
+      throw ContentFormatException(_p(key), 'kiểu phải là $T nhưng lại là ${value.runtimeType}');
     }
     return value;
   }
@@ -93,8 +87,7 @@ class JsonReader {
     return i;
   }
 
-  bool boolean(String key, {required bool defaultValue}) =>
-      _opt<bool>(key) ?? defaultValue;
+  bool boolean(String key, {required bool defaultValue}) => _opt<bool>(key) ?? defaultValue;
 
   double? optDouble(String key) => _opt<num>(key)?.toDouble();
 
@@ -102,16 +95,12 @@ class JsonReader {
   String oneOf(String key, Set<String> allowed) {
     final s = string(key);
     if (!allowed.contains(s)) {
-      throw ContentFormatException(
-        _p(key),
-        '"$s" không hợp lệ, chỉ nhận: ${allowed.join(', ')}',
-      );
+      throw ContentFormatException(_p(key), '"$s" không hợp lệ, chỉ nhận: ${allowed.join(', ')}');
     }
     return s;
   }
 
-  JsonReader object(String key) =>
-      JsonReader(_req<Map<String, dynamic>>(key), _p(key));
+  JsonReader object(String key) => JsonReader(_req<Map<String, dynamic>>(key), _p(key));
 
   JsonReader? optObject(String key) {
     final m = _opt<Map<String, dynamic>>(key);
@@ -119,50 +108,30 @@ class JsonReader {
   }
 
   /// Danh sách object, mỗi phần tử được chuyển bằng [convert].
-  List<T> objects<T>(
-    String key,
-    T Function(JsonReader r) convert, {
-    int minItems = 0,
-    bool optional = false,
-  }) {
-    final List<dynamic> list = optional
-        ? (_opt<List<dynamic>>(key) ?? const [])
-        : _req<List<dynamic>>(key);
+  List<T> objects<T>(String key, T Function(JsonReader r) convert, {int minItems = 0, bool optional = false}) {
+    final List<dynamic> list = optional ? (_opt<List<dynamic>>(key) ?? const []) : _req<List<dynamic>>(key);
     if (list.length < minItems) {
       throw ContentFormatException(_p(key), 'cần ít nhất $minItems phần tử');
     }
-    return [
-      for (var i = 0; i < list.length; i++)
-        convert(JsonReader.root(list[i], '${_p(key)}[$i]')),
-    ];
+    return [for (var i = 0; i < list.length; i++) convert(JsonReader.root(list[i], '${_p(key)}[$i]'))];
   }
 
   List<String> strings(String key, {int minItems = 0, bool optional = false}) {
-    final List<dynamic> list = optional
-        ? (_opt<List<dynamic>>(key) ?? const [])
-        : _req<List<dynamic>>(key);
+    final List<dynamic> list = optional ? (_opt<List<dynamic>>(key) ?? const []) : _req<List<dynamic>>(key);
     if (list.length < minItems) {
       throw ContentFormatException(_p(key), 'cần ít nhất $minItems phần tử');
     }
     return [
       for (var i = 0; i < list.length; i++)
-        if (list[i] is String)
-          list[i] as String
-        else
-          throw ContentFormatException('${_p(key)}[$i]', 'phải là chuỗi'),
+        if (list[i] is String) list[i] as String else throw ContentFormatException('${_p(key)}[$i]', 'phải là chuỗi'),
     ];
   }
 
   List<int> integers(String key, {bool optional = false}) {
-    final List<dynamic> list = optional
-        ? (_opt<List<dynamic>>(key) ?? const [])
-        : _req<List<dynamic>>(key);
+    final List<dynamic> list = optional ? (_opt<List<dynamic>>(key) ?? const []) : _req<List<dynamic>>(key);
     return [
       for (var i = 0; i < list.length; i++)
-        if (list[i] is int)
-          list[i] as int
-        else
-          throw ContentFormatException('${_p(key)}[$i]', 'phải là số nguyên'),
+        if (list[i] is int) list[i] as int else throw ContentFormatException('${_p(key)}[$i]', 'phải là số nguyên'),
     ];
   }
 

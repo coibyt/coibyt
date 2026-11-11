@@ -32,13 +32,15 @@ void main() {
       return s;
     }))!;
 
-    await tester.pumpWidget(AppScope(
-      state: app,
-      child: MaterialApp(
-        theme: buildAppTheme(),
-        home: ExamRunScreen(exam: exam, sound: const SilentSoundService(), random: Random(3)),
+    await tester.pumpWidget(
+      AppScope(
+        state: app,
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: ExamRunScreen(exam: exam, sound: const SilentSoundService(), random: Random(3)),
+        ),
       ),
-    ));
+    );
     await tester.pump();
     expect(find.text('35:00'), findsOneWidget);
     await tester.pump(const Duration(seconds: 3));
@@ -50,10 +52,14 @@ void main() {
     expect(find.text('Câu 2/10'), findsOneWidget);
     await tapKey(tester, 'btn-prev');
     // Câu trả lời vẫn được giữ: lựa chọn B đang được chọn
-    final tile = tester.widget<Semantics>(find.descendant(
-      of: find.byKey(const ValueKey('choice-b')),
-      matching: find.byWidgetPredicate((w) => w is Semantics && (w.properties.selected ?? false)),
-    ).first);
+    final tile = tester.widget<Semantics>(
+      find
+          .descendant(
+            of: find.byKey(const ValueKey('choice-b')),
+            matching: find.byWidgetPredicate((w) => w is Semantics && (w.properties.selected ?? false)),
+          )
+          .first,
+    );
     expect(tile.properties.selected, isTrue);
 
     // Nhảy tới câu 4 (điền số 18 × 4 = 72)
@@ -93,25 +99,29 @@ void main() {
       await s.init();
       return s;
     }))!;
-    await tester.pumpWidget(AppScope(
-      state: app,
-      child: MaterialApp(
-        theme: buildAppTheme(),
-        home: Builder(
-          builder: (context) => Scaffold(
-            body: Center(
-              child: TextButton(
-                key: const ValueKey('open'),
-                onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
-                  builder: (_) => ExamRunScreen(exam: exam, sound: const SilentSoundService(), random: Random(1)),
-                )),
-                child: const Text('mở'),
+    await tester.pumpWidget(
+      AppScope(
+        state: app,
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: Builder(
+            builder: (context) => Scaffold(
+              body: Center(
+                child: TextButton(
+                  key: const ValueKey('open'),
+                  onPressed: () => Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (_) => ExamRunScreen(exam: exam, sound: const SilentSoundService(), random: Random(1)),
+                    ),
+                  ),
+                  child: const Text('mở'),
+                ),
               ),
             ),
           ),
         ),
       ),
-    ));
+    );
     await tapKey(tester, 'open');
     expect(find.text('15:00'), findsOneWidget);
     await tapKey(tester, 'choice-b');
@@ -125,13 +135,15 @@ void main() {
     expect(draft.elapsedSeconds, inInclusiveRange(10, 12));
 
     // Vào lại bằng bài dở
-    await tester.pumpWidget(AppScope(
-      state: app,
-      child: MaterialApp(
-        theme: buildAppTheme(),
-        home: ExamRunScreen(exam: exam, draft: draft, sound: const SilentSoundService(), random: Random(1)),
+    await tester.pumpWidget(
+      AppScope(
+        state: app,
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: ExamRunScreen(exam: exam, draft: draft, sound: const SilentSoundService(), random: Random(1)),
+        ),
       ),
-    ));
+    );
     await tester.pump();
     expect(find.text(formatClock(15 * 60 - draft.elapsedSeconds)), findsOneWidget);
     expect(find.byKey(const ValueKey('qnav-0')), findsOneWidget);
@@ -147,10 +159,15 @@ void main() {
       await s.init();
       return s;
     }))!;
-    await tester.pumpWidget(AppScope(
-      state: app,
-      child: MaterialApp(theme: buildAppTheme(), home: ExamRunScreen(exam: exam, sound: const SilentSoundService())),
-    ));
+    await tester.pumpWidget(
+      AppScope(
+        state: app,
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: ExamRunScreen(exam: exam, sound: const SilentSoundService()),
+        ),
+      ),
+    );
     await tester.pump(const Duration(minutes: 10, seconds: 1));
     expect(find.text('Còn 5 phút! Con kiểm tra lại bài nhé.'), findsOneWidget);
     await tester.pump(const Duration(minutes: 4));
@@ -170,10 +187,15 @@ void main() {
       await s.init();
       return s;
     }))!;
-    await tester.pumpWidget(AppScope(
-      state: app,
-      child: MaterialApp(theme: buildAppTheme(), home: ExamRunScreen(exam: exam, sound: const SilentSoundService())),
-    ));
+    await tester.pumpWidget(
+      AppScope(
+        state: app,
+        child: MaterialApp(
+          theme: buildAppTheme(),
+          home: ExamRunScreen(exam: exam, sound: const SilentSoundService()),
+        ),
+      ),
+    );
     await tester.pump(const Duration(minutes: 35));
     await tester.pumpAndSettle();
     expect(find.text('Hết giờ! Bài đã được nộp tự động.'), findsOneWidget);

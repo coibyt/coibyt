@@ -22,15 +22,13 @@ class RewardOutcome {
 
 /// Trạng thái chung của app (mục lục, tiến độ, VIP). Dùng qua [AppScope].
 class AppState extends ChangeNotifier {
-  AppState({
-    required this.content,
-    required this.store,
-    DateTime Function()? clock,
-  }) : now = clock ?? DateTime.now;
+  AppState({required this.content, required this.store, DateTime Function()? clock}) : now = clock ?? DateTime.now;
 
   static const progressKey = 'progress.v1';
   static const vipKey = 'vip.dev';
   static const vipUntilKey = 'vip.until';
+  static const voiceKey = 'settings.voice';
+  static const greetedKey = 'tutor.greeted';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -51,6 +49,19 @@ class AppState extends ChangeNotifier {
     _vip = store.get(vipKey) == 'true';
     _vipUntil = DateTime.tryParse(store.get(vipUntilKey) ?? '');
   }
+
+  /// Cô Ong tự đọc to lời thoại (mặc định bật; phụ huynh tắt được).
+  bool get voiceEnabled => store.get(voiceKey) != 'false';
+
+  Future<void> setVoiceEnabled(bool value) async {
+    await store.put(voiceKey, '$value');
+    notifyListeners();
+  }
+
+  /// Hôm nay cô Ong đã chào chưa (chỉ tự đọc lời chào 1 lần/ngày).
+  bool get greetedToday => store.get(greetedKey) == dayKey(now());
+
+  Future<void> markGreeted() => store.put(greetedKey, dayKey(now()));
 
   /// VIP thật (từ máy chủ, sau khi mua) hoặc VIP thử (bản thử nghiệm).
   bool get isVip => _vip || (_vipUntil?.isAfter(now()) ?? false);
@@ -158,8 +169,7 @@ class AppState extends ChangeNotifier {
     final first = lp.plays == 0;
     final earned = first
         ? session.totalPoints
-        : (session.totalPoints > lp.bestPoints ? session.totalPoints - lp.bestPoints : 0) +
-            session.correctCount;
+        : (session.totalPoints > lp.bestPoints ? session.totalPoints - lp.bestPoints : 0) + session.correctCount;
     lp
       ..plays += 1
       ..lastPlayed = now()
@@ -220,15 +230,17 @@ class AppState extends ChangeNotifier {
     final best = bestExamScore(result.exam.id);
     final score = result.roundedScore;
     final earned = best == null ? score * 5 : (score > best ? (score - best) * 5 : 0) + 2;
-    progress.exams.add(ExamRecord(
-      examId: result.exam.id,
-      score: result.rawScore,
-      correct: result.correctCount,
-      total: result.items.length,
-      usedSeconds: result.usedSeconds,
-      at: now(),
-      weakSkillIds: [for (final w in result.weakSkills()) w.skillId],
-    ));
+    progress.exams.add(
+      ExamRecord(
+        examId: result.exam.id,
+        score: result.rawScore,
+        correct: result.correctCount,
+        total: result.items.length,
+        usedSeconds: result.usedSeconds,
+        at: now(),
+        weakSkillIds: [for (final w in result.weakSkills()) w.skillId],
+      ),
+    );
     progress.totalPoints += earned;
     _addSkillStats(result.skillStats());
     _markActive();
@@ -238,8 +250,7 @@ class AppState extends ChangeNotifier {
   }
 
   /// Trao huy hiệu mới (nếu đủ điều kiện) sau mỗi lần ghi nhận.
-  List<String> _awardBadges() =>
-      awardBadges(BadgeContext(progress: progress, catalog: catalog, now: now()));
+  List<String> _awardBadges() => awardBadges(BadgeContext(progress: progress, catalog: catalog, now: now()));
 
   /// Kỹ năng yếu tích luỹ (tỉ lệ đúng < 60%, có ít nhất 2 lượt).
   List<(Skill, SkillProgress)> weakSkills({double threshold = 0.6, int minTotal = 2}) {
@@ -258,9 +269,7 @@ class AppState extends ChangeNotifier {
 class AppScope extends InheritedNotifier<AppState> {
   const AppScope({super.key, required AppState state, required super.child}) : super(notifier: state);
 
-  static AppState of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<AppScope>()!.notifier!;
+  static AppState of(BuildContext context) => context.dependOnInheritedWidgetOfExactType<AppScope>()!.notifier!;
 
-  static AppState read(BuildContext context) =>
-      context.getInheritedWidgetOfExactType<AppScope>()!.notifier!;
+  static AppState read(BuildContext context) => context.getInheritedWidgetOfExactType<AppScope>()!.notifier!;
 }

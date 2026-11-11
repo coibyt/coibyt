@@ -16,10 +16,7 @@ void main() {
 
   group('Lời nhận xét', () {
     test('vừa có phần tốt vừa có phần cần ôn (đúng mẫu yêu cầu)', () {
-      final msg = buildFeedback(
-        [topic('phép nhân', 0, 3), topic('phép cộng, phép trừ', 3, 3)],
-        allCorrect: false,
-      );
+      final msg = buildFeedback([topic('phép nhân', 0, 3), topic('phép cộng, phép trừ', 3, 3)], allCorrect: false);
       expect(msg, 'Con đang làm rất tốt phép cộng, phép trừ, nhưng cần ôn lại phép nhân nhé.');
     });
 

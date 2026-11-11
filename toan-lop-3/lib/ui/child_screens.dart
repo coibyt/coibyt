@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../app_state.dart';
+import '../logic/tutor.dart';
+import '../services/tutor_voice.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
 import 'badges_screen.dart';
@@ -10,6 +12,7 @@ import 'quiz_screen.dart';
 import 'widgets/bee_mascot.dart';
 import 'widgets/big_button.dart';
 import 'widgets/solution_view.dart';
+import 'widgets/tutor_bubble.dart';
 
 /// Chuyển màn hình (gom một chỗ cho dễ đổi hiệu ứng sau này).
 Future<T?> pushScreen<T>(BuildContext context, Widget screen) =>
@@ -133,13 +136,36 @@ class HomeTile {
   final WidgetBuilder builder;
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key, this.extraTiles = const []});
 
   final List<HomeTile> extraTiles;
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final _brain = TutorBrain();
+
+  @override
+  void initState() {
+    super.initState();
+    // Cô Ong chào 1 lần mỗi ngày. Trình duyệt có thể chặn đọc khi bé chưa chạm
+    // màn hình — khi đó bé bấm loa trong khung thoại để nghe.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      final app = AppScope.read(context);
+      if (!app.greetedToday && app.voiceEnabled) {
+        AppTutorVoice.instance.speak(_brain.greeting(app.progress.childName));
+        app.markGreeted();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final extraTiles = widget.extraTiles;
     final app = AppScope.of(context);
     final book = app.book!;
     final tiles = [
@@ -196,6 +222,13 @@ class HomeScreen extends StatelessWidget {
                       onPressed: () => openParentArea(context),
                     ),
                   ],
+                ),
+                const SizedBox(height: 8),
+                TutorBubble(
+                  key: const ValueKey('home-tutor'),
+                  text: _brain.greeting(app.progress.childName),
+                  mood: TutorMood.happy,
+                  onSpeak: () => AppTutorVoice.instance.speak(_brain.greeting(app.progress.childName)),
                 ),
                 const SizedBox(height: 12),
                 Row(
@@ -513,6 +546,7 @@ class LessonScreen extends StatelessWidget {
                     isVip: app.isVip,
                     repository: app.content,
                     onFinished: app.recordQuiz,
+                    voiceOn: app.voiceEnabled,
                   ),
                 ),
               ),
@@ -558,7 +592,12 @@ class TheoryScreen extends StatelessWidget {
                     icon: Icons.edit_rounded,
                     onPressed: () => Navigator.of(context).pushReplacement(
                       MaterialPageRoute<void>(
-                        builder: (_) => QuizScreen(lesson: lesson, isVip: app.isVip, onFinished: app.recordQuiz),
+                        builder: (_) => QuizScreen(
+                          lesson: lesson,
+                          isVip: app.isVip,
+                          onFinished: app.recordQuiz,
+                          voiceOn: app.voiceEnabled,
+                        ),
                       ),
                     ),
                   ),

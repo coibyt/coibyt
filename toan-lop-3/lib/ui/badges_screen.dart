@@ -13,10 +13,7 @@ class BadgesScreen extends StatelessWidget {
     final app = AppScope.of(context);
     final got = app.progress.badges;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Huy hiệu (${got.length}/${allBadges.length})'),
-        backgroundColor: AppColors.cream,
-      ),
+      appBar: AppBar(title: Text('Huy hiệu (${got.length}/${allBadges.length})'), backgroundColor: AppColors.cream),
       body: GridView.extent(
         maxCrossAxisExtent: 200,
         padding: const EdgeInsets.all(16),
@@ -31,10 +28,7 @@ class BadgesScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: got.containsKey(b.id) ? Colors.white : Colors.black.withValues(alpha: 0.04),
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: got.containsKey(b.id) ? AppColors.honey : Colors.black12,
-                  width: 3,
-                ),
+                border: Border.all(color: got.containsKey(b.id) ? AppColors.honey : Colors.black12, width: 3),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -52,10 +46,7 @@ class BadgesScreen extends StatelessWidget {
                   Text(
                     got.containsKey(b.id) ? 'Đã nhận!' : b.description,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: got.containsKey(b.id) ? AppColors.good : Colors.black54,
-                    ),
+                    style: TextStyle(fontSize: 15, color: got.containsKey(b.id) ? AppColors.good : Colors.black54),
                   ),
                 ],
               ),

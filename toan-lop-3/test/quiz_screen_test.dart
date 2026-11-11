@@ -13,10 +13,12 @@ Future<void> pumpQuiz(WidgetTester tester, Lesson lesson, {bool vip = false}) as
   tester.view.physicalSize = const Size(1080, 2340);
   tester.view.devicePixelRatio = 2.5;
   addTearDown(tester.view.reset);
-  await tester.pumpWidget(MaterialApp(
-    theme: buildAppTheme(),
-    home: QuizScreen(lesson: lesson, isVip: vip, sound: const SilentSoundService(), random: Random(7)),
-  ));
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: buildAppTheme(),
+      home: QuizScreen(lesson: lesson, isVip: vip, sound: const SilentSoundService(), random: Random(7)),
+    ),
+  );
   await tester.pumpAndSettle();
 }
 
@@ -24,6 +26,12 @@ Future<void> tapKey(WidgetTester tester, String key) async {
   await tester.ensureVisible(find.byKey(ValueKey(key)));
   await tester.tap(find.byKey(ValueKey(key)));
   await tester.pumpAndSettle();
+}
+
+/// Cô Ong không cho xem lời giải ngay: xin gợi ý trước (nếu còn ở bước trả lời).
+Future<void> openSolution(WidgetTester tester) async {
+  if (find.byKey(const ValueKey('btn-hint')).evaluate().isNotEmpty) await tapKey(tester, 'btn-hint');
+  await tapKey(tester, 'btn-solution');
 }
 
 void main() {
@@ -51,7 +59,9 @@ void main() {
     await tapKey(tester, 'numpad-6');
     await tapKey(tester, 'btn-check');
     expect(find.byKey(const ValueKey('btn-retry')), findsOneWidget);
-    expect(find.textContaining('Gợi ý:'), findsOneWidget);
+    // Cô Ong gợi ý (không nói đáp án 63)
+    expect(find.textContaining('Lấy 3 nhân hàng đơn vị trước'), findsOneWidget);
+    expect(find.textContaining('63'), findsNothing);
 
     await tapKey(tester, 'btn-retry');
     await tapKey(tester, 'numpad-⌫');
@@ -64,7 +74,8 @@ void main() {
 
   testWidgets('Trắc nghiệm: sai 2 lần → tự mở lời giải từng bước (đặt tính)', (tester) async {
     await pumpQuiz(tester, lesson);
-    await tapKey(tester, 'btn-solution'); // bỏ qua bài 1 bằng cách xem lời giải
+    expect(find.byKey(const ValueKey('btn-solution')), findsNothing, reason: 'chưa xin gợi ý thì chưa có lời giải');
+    await openSolution(tester); // bỏ qua bài 1 bằng cách xem lời giải
     expect(find.text('Lời giải'), findsOneWidget);
     // Lời giải hiện từng bước: bấm "Bắt đầu" để thấy bước 1.
     expect(find.text('3 nhân 1 bằng 3, viết 3.'), findsNothing);
@@ -92,13 +103,13 @@ void main() {
   testWidgets('Lời giải VIP bị khoá với tài khoản thường', (tester) async {
     await pumpQuiz(tester, lesson);
     for (var i = 0; i < 9; i++) {
-      await tapKey(tester, 'btn-solution');
+      await openSolution(tester);
       await tester.tap(find.byTooltip('Đóng'));
       await tester.pumpAndSettle();
       await tapKey(tester, 'btn-next');
     }
     expect(find.text('10/10'), findsOneWidget);
-    await tapKey(tester, 'btn-solution');
+    await openSolution(tester);
     expect(find.textContaining('dành cho tài khoản VIP'), findsOneWidget);
     expect(find.text('Đáp án: 39 kg gạo'), findsOneWidget);
     await tester.tap(find.byTooltip('Đóng'));
@@ -111,7 +122,7 @@ void main() {
   testWidgets('Kéo thả bằng chạm và Nối hoạt động', (tester) async {
     await pumpQuiz(tester, lesson);
     for (var i = 0; i < 5; i++) {
-      await tapKey(tester, 'btn-solution');
+      await openSolution(tester);
       await tester.tap(find.byTooltip('Đóng'));
       await tester.pumpAndSettle();
       await tapKey(tester, 'btn-next');
@@ -137,7 +148,7 @@ void main() {
   testWidgets('Kéo thả bằng thao tác kéo thật', (tester) async {
     await pumpQuiz(tester, lesson);
     for (var i = 0; i < 5; i++) {
-      await tapKey(tester, 'btn-solution');
+      await openSolution(tester);
       await tester.tap(find.byTooltip('Đóng'));
       await tester.pumpAndSettle();
       await tapKey(tester, 'btn-next');
@@ -151,9 +162,6 @@ void main() {
     await tester.pump();
     await gesture.up();
     await tester.pumpAndSettle();
-    expect(
-      find.descendant(of: slot, matching: find.text('48')),
-      findsOneWidget,
-    );
+    expect(find.descendant(of: slot, matching: find.text('48')), findsOneWidget);
   });
 }

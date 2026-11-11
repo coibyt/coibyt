@@ -9,11 +9,7 @@ import 'number_pad.dart';
 
 /// Tham số chung cho mọi khu vực trả lời.
 class AnswerViewState {
-  const AnswerViewState({
-    required this.enabled,
-    required this.check,
-    required this.showCorrect,
-  });
+  const AnswerViewState({required this.enabled, required this.check, required this.showCorrect});
 
   /// Bé còn được thay đổi câu trả lời không.
   final bool enabled;
@@ -26,17 +22,13 @@ class AnswerViewState {
 }
 
 Color _partColor(bool? ok) => switch (ok) {
-      true => AppColors.good,
-      false => AppColors.tryAgain,
-      null => Colors.transparent,
-    };
+  true => AppColors.good,
+  false => AppColors.tryAgain,
+  null => Colors.transparent,
+};
 
-TextStyle _bigText(BuildContext context, {Color? color}) => TextStyle(
-      fontSize: AppSizes.promptFont,
-      fontWeight: FontWeight.w700,
-      color: color ?? AppColors.ink,
-      height: 1.3,
-    );
+TextStyle _bigText(BuildContext context, {Color? color}) =>
+    TextStyle(fontSize: AppSizes.promptFont, fontWeight: FontWeight.w700, color: color ?? AppColors.ink, height: 1.3);
 
 // ===========================================================================
 // Trắc nghiệm
@@ -189,13 +181,7 @@ class _ChoiceTile extends StatelessWidget {
 // ===========================================================================
 
 class FillBlankView extends StatefulWidget {
-  const FillBlankView({
-    super.key,
-    required this.body,
-    required this.state,
-    required this.onChanged,
-    this.initial,
-  });
+  const FillBlankView({super.key, required this.body, required this.state, required this.onChanged, this.initial});
 
   final FillBlankBody body;
   final AnswerViewState state;
@@ -263,10 +249,7 @@ class _FillBlankViewState extends State<FillBlankView> {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(AppSizes.radius),
-          ),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppSizes.radius)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -373,13 +356,7 @@ class _FillBlankViewState extends State<FillBlankView> {
 // ===========================================================================
 
 class DragDropView extends StatefulWidget {
-  const DragDropView({
-    super.key,
-    required this.body,
-    required this.state,
-    required this.onChanged,
-    this.initial,
-  });
+  const DragDropView({super.key, required this.body, required this.state, required this.onChanged, this.initial});
 
   final DragDropBody body;
   final AnswerViewState state;
@@ -432,10 +409,7 @@ class _DragDropViewState extends State<DragDropView> {
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(AppSizes.radius),
-          ),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(AppSizes.radius)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -461,9 +435,7 @@ class _DragDropViewState extends State<DragDropView> {
           spacing: 12,
           runSpacing: 12,
           alignment: WrapAlignment.center,
-          children: [
-            for (final token in widget.body.tokens) _token(context, token, s),
-          ],
+          children: [for (final token in widget.body.tokens) _token(context, token, s)],
         ),
       ],
     );
@@ -497,7 +469,9 @@ class _DragDropViewState extends State<DragDropView> {
                         : (ok == true ? AppColors.goodSoft : (ok == false ? AppColors.tryAgainSoft : AppColors.cream)),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: ok != null ? _partColor(ok) : (hovering || _selectedToken != null ? AppColors.sky : Colors.black26),
+                      color: ok != null
+                          ? _partColor(ok)
+                          : (hovering || _selectedToken != null ? AppColors.sky : Colors.black26),
                       width: ok != null || hovering ? 4 : 2,
                     ),
                   ),
@@ -510,8 +484,10 @@ class _DragDropViewState extends State<DragDropView> {
             },
           ),
           if (s.showCorrect && ok != true)
-            Text('Đáp án: $correctText',
-                style: const TextStyle(fontSize: 16, color: AppColors.good, fontWeight: FontWeight.w700)),
+            Text(
+              'Đáp án: $correctText',
+              style: const TextStyle(fontSize: 16, color: AppColors.good, fontWeight: FontWeight.w700),
+            ),
         ],
       ),
     );
@@ -521,19 +497,19 @@ class _DragDropViewState extends State<DragDropView> {
     final used = !widget.body.reuseTokens && _usedTokens.contains(token.id);
     final selected = _selectedToken == token.id;
     Widget chip({bool ghost = false}) => Material(
-          color: ghost ? Colors.black12 : (selected ? AppColors.sky : AppColors.honey),
-          elevation: ghost ? 0 : 3,
-          borderRadius: BorderRadius.circular(16),
-          child: Container(
-            width: 88,
-            height: 64,
-            alignment: Alignment.center,
-            child: Text(
-              token.text,
-              style: _bigText(context, color: ghost ? Colors.black38 : (selected ? Colors.white : AppColors.ink)),
-            ),
-          ),
-        );
+      color: ghost ? Colors.black12 : (selected ? AppColors.sky : AppColors.honey),
+      elevation: ghost ? 0 : 3,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        width: 88,
+        height: 64,
+        alignment: Alignment.center,
+        child: Text(
+          token.text,
+          style: _bigText(context, color: ghost ? Colors.black38 : (selected ? Colors.white : AppColors.ink)),
+        ),
+      ),
+    );
     if (used || !s.enabled) {
       return KeyedSubtree(key: ValueKey('token-${token.id}'), child: chip(ghost: true));
     }
@@ -542,10 +518,7 @@ class _DragDropViewState extends State<DragDropView> {
       data: token.id,
       feedback: chip(),
       childWhenDragging: chip(ghost: true),
-      child: GestureDetector(
-        onTap: () => setState(() => _selectedToken = selected ? null : token.id),
-        child: chip(),
-      ),
+      child: GestureDetector(onTap: () => setState(() => _selectedToken = selected ? null : token.id), child: chip()),
     );
   }
 }
@@ -694,7 +667,10 @@ class _MatchingViewState extends State<MatchingView> {
               children: [
                 Text(text, textAlign: TextAlign.center, style: _bigText(context)),
                 if (note != null)
-                  Text(note, style: const TextStyle(fontSize: 17, color: AppColors.good, fontWeight: FontWeight.w700)),
+                  Text(
+                    note,
+                    style: const TextStyle(fontSize: 17, color: AppColors.good, fontWeight: FontWeight.w700),
+                  ),
               ],
             ),
           ),
@@ -714,12 +690,30 @@ Widget buildAnswerView({
 }) {
   return switch (problem.body) {
     final MultipleChoiceBody b => MultipleChoiceView(
-        body: b, state: state, onChanged: onChanged, random: random, initial: initial is ChoiceAnswer ? initial : null),
-    final FillBlankBody b =>
-      FillBlankView(body: b, state: state, onChanged: onChanged, initial: initial is BlankAnswer ? initial : null),
-    final DragDropBody b =>
-      DragDropView(body: b, state: state, onChanged: onChanged, initial: initial is DragDropAnswer ? initial : null),
+      body: b,
+      state: state,
+      onChanged: onChanged,
+      random: random,
+      initial: initial is ChoiceAnswer ? initial : null,
+    ),
+    final FillBlankBody b => FillBlankView(
+      body: b,
+      state: state,
+      onChanged: onChanged,
+      initial: initial is BlankAnswer ? initial : null,
+    ),
+    final DragDropBody b => DragDropView(
+      body: b,
+      state: state,
+      onChanged: onChanged,
+      initial: initial is DragDropAnswer ? initial : null,
+    ),
     final MatchingBody b => MatchingView(
-        body: b, state: state, onChanged: onChanged, random: random, initial: initial is MatchingAnswer ? initial : null),
+      body: b,
+      state: state,
+      onChanged: onChanged,
+      random: random,
+      initial: initial is MatchingAnswer ? initial : null,
+    ),
   };
 }

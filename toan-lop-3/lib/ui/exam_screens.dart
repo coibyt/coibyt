@@ -31,20 +31,20 @@ const _typeOrder = [
 ];
 
 Color _typeColor(ExamType t) => switch (t) {
-      ExamType.kt15p => AppColors.good,
-      ExamType.kt1Tiet => AppColors.sky,
-      ExamType.giuaHk1 || ExamType.giuaHk2 => AppColors.tryAgain,
-      ExamType.cuoiHk1 || ExamType.cuoiHk2 => const Color(0xFFE5484D),
-      ExamType.chuDe || ExamType.onTap => AppColors.vip,
-    };
+  ExamType.kt15p => AppColors.good,
+  ExamType.kt1Tiet => AppColors.sky,
+  ExamType.giuaHk1 || ExamType.giuaHk2 => AppColors.tryAgain,
+  ExamType.cuoiHk1 || ExamType.cuoiHk2 => const Color(0xFFE5484D),
+  ExamType.chuDe || ExamType.onTap => AppColors.vip,
+};
 
 IconData _typeIcon(ExamType t) => switch (t) {
-      ExamType.kt15p => Icons.bolt_rounded,
-      ExamType.kt1Tiet => Icons.assignment_rounded,
-      ExamType.giuaHk1 || ExamType.giuaHk2 => Icons.flag_rounded,
-      ExamType.cuoiHk1 || ExamType.cuoiHk2 => Icons.emoji_events_rounded,
-      ExamType.chuDe || ExamType.onTap => Icons.workspace_premium_rounded,
-    };
+  ExamType.kt15p => Icons.bolt_rounded,
+  ExamType.kt1Tiet => Icons.assignment_rounded,
+  ExamType.giuaHk1 || ExamType.giuaHk2 => Icons.flag_rounded,
+  ExamType.cuoiHk1 || ExamType.cuoiHk2 => Icons.emoji_events_rounded,
+  ExamType.chuDe || ExamType.onTap => Icons.workspace_premium_rounded,
+};
 
 // ===========================================================================
 // Danh sách đề, nhóm theo loại
@@ -80,8 +80,7 @@ class ExamListScreen extends StatelessWidget {
                             children: [
                               Icon(_typeIcon(type), color: _typeColor(type), size: 26),
                               const SizedBox(width: 8),
-                              Text(type.displayName,
-                                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                              Text(type.displayName, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
                             ],
                           ),
                         ),
@@ -116,9 +115,11 @@ class _ExamTile extends StatelessWidget {
           key: ValueKey('exam-${e.id}'),
           borderRadius: BorderRadius.circular(22),
           onTap: locked
-              ? () => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              ? () => ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
                     content: Text('Đề này dành cho VIP. Con nhờ bố mẹ mở khoá nhé!', style: TextStyle(fontSize: 18)),
-                  ))
+                  ),
+                )
               : () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ExamIntroScreen(examRef: e))),
           child: Padding(
             padding: const EdgeInsets.all(16),
@@ -134,8 +135,10 @@ class _ExamTile extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text('${e.durationMinutes}',
-                          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: _typeColor(e.examType))),
+                      Text(
+                        '${e.durationMinutes}',
+                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: _typeColor(e.examType)),
+                      ),
                       Text('phút', style: TextStyle(fontSize: 13, color: _typeColor(e.examType))),
                     ],
                   ),
@@ -147,11 +150,15 @@ class _ExamTile extends StatelessWidget {
                     children: [
                       Text(e.title, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
                       if (draft != null)
-                        const Text('Đang làm dở — chạm để làm tiếp',
-                            style: TextStyle(fontSize: 16, color: AppColors.tryAgain, fontWeight: FontWeight.w700))
+                        const Text(
+                          'Đang làm dở — chạm để làm tiếp',
+                          style: TextStyle(fontSize: 16, color: AppColors.tryAgain, fontWeight: FontWeight.w700),
+                        )
                       else if (best != null)
-                        Text('Điểm cao nhất: $best',
-                            style: const TextStyle(fontSize: 16, color: AppColors.good, fontWeight: FontWeight.w700))
+                        Text(
+                          'Điểm cao nhất: $best',
+                          style: const TextStyle(fontSize: 16, color: AppColors.good, fontWeight: FontWeight.w700),
+                        )
                       else
                         const Text('Chưa làm', style: TextStyle(fontSize: 16, color: Colors.black54)),
                     ],
@@ -190,9 +197,11 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
   }
 
   void _start(Exam exam, {ExamDraft? draft}) {
-    Navigator.of(context).pushReplacement(MaterialPageRoute<void>(
-      builder: (_) => ExamRunScreen(exam: exam, draft: draft),
-    ));
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+        builder: (_) => ExamRunScreen(exam: exam, draft: draft),
+      ),
+    );
   }
 
   @override
@@ -215,20 +224,30 @@ class _ExamIntroScreenState extends State<ExamIntroScreen> {
                 padding: const EdgeInsets.all(20),
                 children: [
                   Icon(_typeIcon(exam.examType), size: 72, color: _typeColor(exam.examType)),
-                  Text(exam.examType.displayName,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700)),
-                  Text(exam.title,
-                      textAlign: TextAlign.center, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
+                  Text(
+                    exam.examType.displayName,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 18, color: _typeColor(exam.examType), fontWeight: FontWeight.w700),
+                  ),
+                  Text(
+                    exam.title,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700),
+                  ),
                   if (exam.description != null)
                     Padding(
                       padding: const EdgeInsets.only(top: 6),
-                      child: Text(exam.description!,
-                          textAlign: TextAlign.center, style: const TextStyle(fontSize: 17, color: Colors.black54)),
+                      child: Text(
+                        exam.description!,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontSize: 17, color: Colors.black54),
+                      ),
                     ),
                   const SizedBox(height: 16),
                   _InfoLine(
-                      icon: Icons.timer_rounded, text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm'),
+                    icon: Icons.timer_rounded,
+                    text: '${exam.durationMinutes} phút · ${exam.items.length} câu · 10 điểm',
+                  ),
                   const _InfoLine(icon: Icons.visibility_off_rounded, text: 'Trong giờ thi không xem được đáp án.'),
                   const _InfoLine(icon: Icons.alarm_rounded, text: 'Đồng hồ ở góc trên. Hết giờ bài tự nộp.'),
                   const _InfoLine(icon: Icons.save_rounded, text: 'Lỡ thoát ra thì bài vẫn được lưu để làm tiếp.'),
@@ -277,15 +296,15 @@ class _InfoLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5),
-        child: Row(
-          children: [
-            Icon(icon, size: 28, color: AppColors.sky),
-            const SizedBox(width: 12),
-            Expanded(child: Text(text, style: const TextStyle(fontSize: 19))),
-          ],
-        ),
-      );
+    padding: const EdgeInsets.symmetric(vertical: 5),
+    child: Row(
+      children: [
+        Icon(icon, size: 28, color: AppColors.sky),
+        const SizedBox(width: 12),
+        Expanded(child: Text(text, style: const TextStyle(fontSize: 19))),
+      ],
+    ),
+  );
 }
 
 // ===========================================================================
@@ -309,8 +328,9 @@ class ExamRunScreen extends StatefulWidget {
 }
 
 class _ExamRunScreenState extends State<ExamRunScreen> {
-  late final ExamSession _session =
-      widget.draft == null ? ExamSession(widget.exam) : ExamSession.resume(widget.exam, widget.draft!);
+  late final ExamSession _session = widget.draft == null
+      ? ExamSession(widget.exam)
+      : ExamSession.resume(widget.exam, widget.draft!);
   Timer? _timer;
   bool _finishing = false;
 
@@ -366,7 +386,9 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
     final reward = app.recordExam(result);
     if (!mounted) return;
     await Navigator.of(context).pushReplacement(
-      MaterialPageRoute<void>(builder: (_) => ReportCardScreen(report: report, reward: reward)),
+      MaterialPageRoute<void>(
+        builder: (_) => ReportCardScreen(report: report, reward: reward),
+      ),
     );
   }
 
@@ -384,8 +406,9 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
         ),
         actions: [
           TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: const Text('Làm tiếp', style: TextStyle(fontSize: 18))),
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Làm tiếp', style: TextStyle(fontSize: 18)),
+          ),
           FilledButton(
             key: const ValueKey('btn-confirm-submit'),
             onPressed: () => Navigator.pop(context, true),
@@ -407,9 +430,10 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
         actions: [
           TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('Làm tiếp')),
           TextButton(
-              key: const ValueKey('btn-exam-pause'),
-              onPressed: () => Navigator.pop(context, true),
-              child: const Text('Tạm dừng')),
+            key: const ValueKey('btn-exam-pause'),
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Tạm dừng'),
+          ),
         ],
       ),
     );
@@ -450,8 +474,10 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
                           icon: const Icon(Icons.pause_circle_outline_rounded),
                         ),
                         Expanded(
-                          child: Text('Câu ${i + 1}/${_session.items.length}',
-                              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                          child: Text(
+                            'Câu ${i + 1}/${_session.items.length}',
+                            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                          ),
                         ),
                         Container(
                           key: const ValueKey('exam-timer'),
@@ -492,7 +518,8 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
                           const Icon(Icons.alarm_rounded, color: AppColors.tryAgain),
                           const SizedBox(width: 8),
                           Expanded(
-                              child: Text(_warning!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),
+                            child: Text(_warning!, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                          ),
                           IconButton(
                             tooltip: 'Ẩn',
                             onPressed: () => setState(() => _warning = null),
@@ -516,8 +543,9 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
                               onTap: () => _session.goTo(k),
                               child: CircleAvatar(
                                 radius: 22,
-                                backgroundColor:
-                                    k == i ? AppColors.sky : (_session.isAnswered(k) ? AppColors.goodSoft : Colors.white),
+                                backgroundColor: k == i
+                                    ? AppColors.sky
+                                    : (_session.isAnswered(k) ? AppColors.goodSoft : Colors.white),
                                 child: Text(
                                   '${k + 1}',
                                   style: TextStyle(
@@ -544,19 +572,29 @@ class _ExamRunScreenState extends State<ExamRunScreen> {
                               Container(
                                 padding: const EdgeInsets.all(18),
                                 decoration: BoxDecoration(
-                                    color: Colors.white, borderRadius: BorderRadius.circular(AppSizes.radius)),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(AppSizes.radius),
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       '${item.problem.displayInstruction} (${formatPoints(item.points)} điểm)',
                                       style: const TextStyle(
-                                          fontSize: 19, fontWeight: FontWeight.w700, color: AppColors.sky),
+                                        fontSize: 19,
+                                        fontWeight: FontWeight.w700,
+                                        color: AppColors.sky,
+                                      ),
                                     ),
                                     const SizedBox(height: 8),
-                                    Text(item.problem.prompt.text,
-                                        style: const TextStyle(
-                                            fontSize: AppSizes.promptFont, fontWeight: FontWeight.w700, height: 1.35)),
+                                    Text(
+                                      item.problem.prompt.text,
+                                      style: const TextStyle(
+                                        fontSize: AppSizes.promptFont,
+                                        fontWeight: FontWeight.w700,
+                                        height: 1.35,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -645,14 +683,18 @@ class ReportCardScreen extends StatelessWidget {
     final title = score >= 9
         ? 'Xuất sắc!'
         : score >= 7
-            ? 'Làm tốt lắm!'
-            : score >= 5
-                ? 'Cố gắng thêm nhé!'
-                : 'Mình cùng ôn lại nhé!';
+        ? 'Làm tốt lắm!'
+        : score >= 5
+        ? 'Cố gắng thêm nhé!'
+        : 'Mình cùng ôn lại nhé!';
     final change = report.scoreChange;
     const h = TextStyle(fontSize: 21, fontWeight: FontWeight.w700);
     return Scaffold(
-      appBar: AppBar(title: const Text('Bảng điểm'), backgroundColor: AppColors.cream, automaticallyImplyLeading: false),
+      appBar: AppBar(
+        title: const Text('Bảng điểm'),
+        backgroundColor: AppColors.cream,
+        automaticallyImplyLeading: false,
+      ),
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 640),
@@ -660,128 +702,156 @@ class ReportCardScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             children: [
               if (result.timedOut)
-                const Text('Hết giờ! Bài đã được nộp tự động.',
-                    textAlign: TextAlign.center, style: TextStyle(fontSize: 18, color: AppColors.tryAgain)),
-              _Card(children: [
-                Row(
-                  children: [
-                    Container(
-                      width: 110,
-                      height: 110,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: score >= 5 ? AppColors.goodSoft : AppColors.tryAgainSoft,
-                        border: Border.all(color: score >= 5 ? AppColors.good : AppColors.tryAgain, width: 6),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text('$score',
-                              key: const ValueKey('exam-score'),
-                              style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w700, height: 1)),
-                          const Text('điểm', style: TextStyle(fontSize: 16)),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
-                          Text(result.exam.examType.displayName,
-                              style: TextStyle(fontSize: 16, color: _typeColor(result.exam.examType))),
-                          const SizedBox(height: 4),
-                          Text('Đúng ${result.correctCount}/${result.items.length} câu',
-                              style: const TextStyle(fontSize: 18)),
-                          Text('Thời gian: ${formatClock(result.usedSeconds)} / ${result.exam.durationMinutes}:00',
-                              style: const TextStyle(fontSize: 16, color: Colors.black54)),
-                          if (change != null)
-                            Text(
-                              change > 0
-                                  ? 'Tăng $change điểm so với lần trước!'
-                                  : change == 0
-                                      ? 'Bằng điểm lần trước.'
-                                      : 'Thấp hơn lần trước ${-change} điểm, cố lên nhé!',
-                              key: const ValueKey('score-change'),
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w700,
-                                color: change >= 0 ? AppColors.good : AppColors.tryAgain,
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ],
+                const Text(
+                  'Hết giờ! Bài đã được nộp tự động.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 18, color: AppColors.tryAgain),
                 ),
-                RewardBanner(reward: reward),
-              ]),
-              _Card(color: AppColors.honeySoft, children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('💬', style: TextStyle(fontSize: 32)),
-                    const SizedBox(width: 10),
-                    Expanded(
-                      child: Text(report.message,
-                          key: const ValueKey('report-message'),
-                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, height: 1.35)),
-                    ),
-                  ],
-                ),
-              ]),
-              _Card(children: [
-                const Text('Theo từng phần kiến thức', style: h),
-                const SizedBox(height: 8),
-                for (final t in report.topics) _TopicBar(topic: t),
-              ]),
-              if (report.suggestedLessons.isNotEmpty)
-                _Card(children: [
-                  const Text('Ôn ngay', style: h),
-                  const SizedBox(height: 6),
-                  for (final l in report.suggestedLessons)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: OutlinedButton.icon(
-                        key: ValueKey('review-lesson-${l.id}'),
-                        style: OutlinedButton.styleFrom(
-                          minimumSize: const Size.fromHeight(52),
-                          alignment: Alignment.centerLeft,
-                          side: const BorderSide(color: AppColors.sky, width: 2),
+              _Card(
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        width: 110,
+                        height: 110,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: score >= 5 ? AppColors.goodSoft : AppColors.tryAgainSoft,
+                          border: Border.all(color: score >= 5 ? AppColors.good : AppColors.tryAgain, width: 6),
                         ),
-                        onPressed: app.canOpen(l.access)
-                            ? () => Navigator.of(context)
-                                .push(MaterialPageRoute<void>(builder: (_) => LessonScreen(lessonRef: l)))
-                            : null,
-                        icon: const Icon(Icons.auto_stories_rounded),
-                        label: Text(l.title, style: const TextStyle(fontSize: 17)),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              '$score',
+                              key: const ValueKey('exam-score'),
+                              style: const TextStyle(fontSize: 52, fontWeight: FontWeight.w700, height: 1),
+                            ),
+                            const Text('điểm', style: TextStyle(fontSize: 16)),
+                          ],
+                        ),
                       ),
-                    ),
-                ]),
-              _Card(children: [
-                const Text('Bảng đúng / sai', style: h),
-                const Text('Chạm vào từng câu để xem lời giải.', style: TextStyle(fontSize: 15, color: Colors.black54)),
-                const SizedBox(height: 10),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700)),
+                            Text(
+                              result.exam.examType.displayName,
+                              style: TextStyle(fontSize: 16, color: _typeColor(result.exam.examType)),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              'Đúng ${result.correctCount}/${result.items.length} câu',
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                            Text(
+                              'Thời gian: ${formatClock(result.usedSeconds)} / ${result.exam.durationMinutes}:00',
+                              style: const TextStyle(fontSize: 16, color: Colors.black54),
+                            ),
+                            if (change != null)
+                              Text(
+                                change > 0
+                                    ? 'Tăng $change điểm so với lần trước!'
+                                    : change == 0
+                                    ? 'Bằng điểm lần trước.'
+                                    : 'Thấp hơn lần trước ${-change} điểm, cố lên nhé!',
+                                key: const ValueKey('score-change'),
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700,
+                                  color: change >= 0 ? AppColors.good : AppColors.tryAgain,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  RewardBanner(reward: reward),
+                ],
+              ),
+              _Card(
+                color: AppColors.honeySoft,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('💬', style: TextStyle(fontSize: 32)),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          report.message,
+                          key: const ValueKey('report-message'),
+                          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700, height: 1.35),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              _Card(
+                children: [
+                  const Text('Theo từng phần kiến thức', style: h),
+                  const SizedBox(height: 8),
+                  for (final t in report.topics) _TopicBar(topic: t),
+                ],
+              ),
+              if (report.suggestedLessons.isNotEmpty)
+                _Card(
                   children: [
-                    for (final (k, r) in result.items.indexed)
-                      _AnswerCell(index: k, item: r, onTap: () => _showSolution(context, r, app)),
+                    const Text('Ôn ngay', style: h),
+                    const SizedBox(height: 6),
+                    for (final l in report.suggestedLessons)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: OutlinedButton.icon(
+                          key: ValueKey('review-lesson-${l.id}'),
+                          style: OutlinedButton.styleFrom(
+                            minimumSize: const Size.fromHeight(52),
+                            alignment: Alignment.centerLeft,
+                            side: const BorderSide(color: AppColors.sky, width: 2),
+                          ),
+                          onPressed: app.canOpen(l.access)
+                              ? () => Navigator.of(
+                                  context,
+                                ).push(MaterialPageRoute<void>(builder: (_) => LessonScreen(lessonRef: l)))
+                              : null,
+                          icon: const Icon(Icons.auto_stories_rounded),
+                          label: Text(l.title, style: const TextStyle(fontSize: 17)),
+                        ),
+                      ),
                   ],
                 ),
-                const SizedBox(height: 8),
-                const Wrap(
-                  spacing: 12,
-                  children: [
-                    _Legend(color: AppColors.good, text: 'Đúng'),
-                    _Legend(color: AppColors.honey, text: 'Đúng một phần'),
-                    _Legend(color: AppColors.tryAgain, text: 'Sai / chưa làm'),
-                  ],
-                ),
-              ]),
+              _Card(
+                children: [
+                  const Text('Bảng đúng / sai', style: h),
+                  const Text(
+                    'Chạm vào từng câu để xem lời giải.',
+                    style: TextStyle(fontSize: 15, color: Colors.black54),
+                  ),
+                  const SizedBox(height: 10),
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 8,
+                    children: [
+                      for (final (k, r) in result.items.indexed)
+                        _AnswerCell(index: k, item: r, onTap: () => _showSolution(context, r, app)),
+                    ],
+                  ),
+                  const SizedBox(height: 8),
+                  const Wrap(
+                    spacing: 12,
+                    children: [
+                      _Legend(color: AppColors.good, text: 'Đúng'),
+                      _Legend(color: AppColors.honey, text: 'Đúng một phần'),
+                      _Legend(color: AppColors.tryAgain, text: 'Sai / chưa làm'),
+                    ],
+                  ),
+                ],
+              ),
               const SizedBox(height: 4),
               BigButton(
                 label: 'Về trang chính',
@@ -810,8 +880,9 @@ class ReportCardScreen extends StatelessWidget {
           children: [
             Text(problem.prompt.text, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
             Text(
-                '${formatPoints(r.earned)}/${formatPoints(r.item.points)} điểm${r.answer == null ? ' · con chưa làm câu này' : ''}',
-                style: const TextStyle(fontSize: 17, color: Colors.black54)),
+              '${formatPoints(r.earned)}/${formatPoints(r.item.points)} điểm${r.answer == null ? ' · con chưa làm câu này' : ''}',
+              style: const TextStyle(fontSize: 17, color: Colors.black54),
+            ),
             const SizedBox(height: 12),
             IgnorePointer(
               child: buildAnswerView(
@@ -842,11 +913,11 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        margin: const EdgeInsets.only(bottom: 14),
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
-      );
+    margin: const EdgeInsets.only(bottom: 14),
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(20)),
+    child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: children),
+  );
 }
 
 class _TopicBar extends StatelessWidget {
@@ -866,16 +937,25 @@ class _TopicBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              Expanded(child: Text(name, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700))),
+              Expanded(
+                child: Text(name, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+              ),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                decoration:
-                    BoxDecoration(color: color.withValues(alpha: 0.15), borderRadius: BorderRadius.circular(10)),
-                child: Text(label, style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: color)),
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.15),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  label,
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700, color: color),
+                ),
               ),
               const SizedBox(width: 8),
-              Text('${topic.correct}/${topic.total}',
-                  style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
+              Text(
+                '${topic.correct}/${topic.total}',
+                style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700),
+              ),
             ],
           ),
           const SizedBox(height: 4),
@@ -929,7 +1009,10 @@ class _AnswerCell extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text('${index + 1}', style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700)),
-                  Text(icon, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: color)),
+                  Text(
+                    icon,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: color),
+                  ),
                 ],
               ),
             ),
@@ -948,11 +1031,15 @@ class _Legend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Container(width: 14, height: 14, decoration: BoxDecoration(color: color, shape: BoxShape.circle)),
-          const SizedBox(width: 4),
-          Text(text, style: const TextStyle(fontSize: 14)),
-        ],
-      );
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Container(
+        width: 14,
+        height: 14,
+        decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+      ),
+      const SizedBox(width: 4),
+      Text(text, style: const TextStyle(fontSize: 14)),
+    ],
+  );
 }

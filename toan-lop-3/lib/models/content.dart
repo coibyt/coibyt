@@ -13,8 +13,7 @@ enum BookSeries {
   final String jsonName;
   final String displayName;
 
-  static BookSeries fromJsonName(String s) =>
-      values.firstWhere((v) => v.jsonName == s);
+  static BookSeries fromJsonName(String s) => values.firstWhere((v) => v.jsonName == s);
 }
 
 class Skill {
@@ -55,13 +54,7 @@ class LessonRef {
 }
 
 class Chapter {
-  const Chapter({
-    required this.id,
-    required this.order,
-    required this.title,
-    required this.lessons,
-    this.volume,
-  });
+  const Chapter({required this.id, required this.order, required this.title, required this.lessons, this.volume});
 
   final String id;
   final int order;
@@ -90,12 +83,7 @@ class Book {
 
 /// Mục lục: Bộ sách → Chủ đề → Bài học, kèm danh sách kỹ năng.
 class Catalog {
-  const Catalog({
-    required this.schemaVersion,
-    required this.contentRev,
-    required this.skills,
-    required this.books,
-  });
+  const Catalog({required this.schemaVersion, required this.contentRev, required this.skills, required this.books});
 
   factory Catalog.fromJson(Object? json) {
     final r = JsonReader.root(json);
@@ -116,43 +104,37 @@ class Catalog {
         ),
         minItems: 1,
       ),
-      books: r.objects(
-        'books',
-        (b) {
-          if (b.integer('grade') != 3) {
-            throw ContentFormatException('${b.path}.grade', 'app này chỉ dành cho lớp 3');
-          }
-          return Book(
-            id: b.string('id'),
-            series: BookSeries.fromJsonName(
-              b.oneOf('series', {for (final s in BookSeries.values) s.jsonName}),
-            ),
-            title: b.string('title'),
-            chapters: b.objects(
-              'chapters',
-              (c) => Chapter(
-                id: c.string('id'),
-                order: c.integer('order', min: 1),
-                volume: c.optInteger('volume', min: 1, max: 2),
-                title: c.string('title'),
-                lessons: c.objects(
-                  'lessons',
-                  (l) => LessonRef(
-                    id: l.string('id'),
-                    order: l.integer('order', min: 1),
-                    title: l.string('title'),
-                    src: l.string('src'),
-                    access: Access.values.byName(l.oneOf('access', {'free', 'vip'})),
-                    skillIds: l.strings('skillIds', optional: true),
-                  ),
+      books: r.objects('books', (b) {
+        if (b.integer('grade') != 3) {
+          throw ContentFormatException('${b.path}.grade', 'app này chỉ dành cho lớp 3');
+        }
+        return Book(
+          id: b.string('id'),
+          series: BookSeries.fromJsonName(b.oneOf('series', {for (final s in BookSeries.values) s.jsonName})),
+          title: b.string('title'),
+          chapters: b.objects(
+            'chapters',
+            (c) => Chapter(
+              id: c.string('id'),
+              order: c.integer('order', min: 1),
+              volume: c.optInteger('volume', min: 1, max: 2),
+              title: c.string('title'),
+              lessons: c.objects(
+                'lessons',
+                (l) => LessonRef(
+                  id: l.string('id'),
+                  order: l.integer('order', min: 1),
+                  title: l.string('title'),
+                  src: l.string('src'),
+                  access: Access.values.byName(l.oneOf('access', {'free', 'vip'})),
+                  skillIds: l.strings('skillIds', optional: true),
                 ),
               ),
             ),
-            exams: b.objects('exams', ExamRef.fromJson, optional: true),
-          );
-        },
-        minItems: 1,
-      ),
+          ),
+          exams: b.objects('exams', ExamRef.fromJson, optional: true),
+        );
+      }, minItems: 1),
     );
   }
 
@@ -165,11 +147,11 @@ class Catalog {
 
   /// Các bài học luyện một kỹ năng (theo thứ tự trong sách).
   List<LessonRef> lessonsForSkill(String skillId) => [
-        for (final b in books)
-          for (final c in b.chapters)
-            for (final l in c.lessons)
-              if (l.skillIds.contains(skillId)) l,
-      ];
+    for (final b in books)
+      for (final c in b.chapters)
+        for (final l in c.lessons)
+          if (l.skillIds.contains(skillId)) l,
+  ];
 }
 
 class Theory {

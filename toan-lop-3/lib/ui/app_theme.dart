@@ -37,11 +37,7 @@ ThemeData buildAppTheme() {
   final base = ThemeData(
     useMaterial3: true,
     fontFamily: 'Andika',
-    colorScheme: ColorScheme.fromSeed(
-      seedColor: AppColors.honey,
-      primary: AppColors.sky,
-      surface: AppColors.cream,
-    ),
+    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.honey, primary: AppColors.sky, surface: AppColors.cream),
     scaffoldBackgroundColor: AppColors.cream,
   );
   // Lưu ý: apply(fontFamily) phải đứng SAU copyWith, nếu không các kiểu chữ

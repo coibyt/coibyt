@@ -12,15 +12,11 @@ import 'helpers.dart';
 
 /// Đáp án "chuẩn" dựng từ chính nội dung — phải được chấm ĐÚNG.
 UserAnswer correctAnswerOf(Problem p) => switch (p.body) {
-      MultipleChoiceBody(:final correctChoiceIds) => ChoiceAnswer(correctChoiceIds),
-      FillBlankBody(:final blanks) => BlankAnswer({
-          for (final b in blanks) b.id: b.answer.displayAnswer,
-        }),
-      DragDropBody(:final slots) => DragDropAnswer({
-          for (final s in slots) s.id: s.accept.first,
-        }),
-      MatchingBody(:final pairs) => MatchingAnswer(pairs),
-    };
+  MultipleChoiceBody(:final correctChoiceIds) => ChoiceAnswer(correctChoiceIds),
+  FillBlankBody(:final blanks) => BlankAnswer({for (final b in blanks) b.id: b.answer.displayAnswer}),
+  DragDropBody(:final slots) => DragDropAnswer({for (final s in slots) s.id: s.accept.first}),
+  MatchingBody(:final pairs) => MatchingAnswer(pairs),
+};
 
 void main() {
   final catalog = loadCatalogFromDisk();

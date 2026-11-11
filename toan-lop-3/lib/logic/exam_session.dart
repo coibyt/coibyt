@@ -7,12 +7,7 @@ import 'quiz_session.dart' show SkillStat;
 
 /// Kết quả chấm một câu trong đề.
 class ExamItemResult {
-  const ExamItemResult({
-    required this.item,
-    required this.answer,
-    required this.check,
-    required this.earned,
-  });
+  const ExamItemResult({required this.item, required this.answer, required this.check, required this.earned});
 
   final ExamItem item;
   final UserAnswer? answer;
@@ -25,12 +20,7 @@ class ExamItemResult {
 
 /// Kết quả cả đề.
 class ExamResult {
-  const ExamResult({
-    required this.exam,
-    required this.items,
-    required this.usedSeconds,
-    required this.timedOut,
-  });
+  const ExamResult({required this.exam, required this.items, required this.usedSeconds, required this.timedOut});
 
   final Exam exam;
   final List<ExamItemResult> items;
@@ -63,17 +53,16 @@ class ExamResult {
 
   /// Kỹ năng làm đúng dưới [threshold] — "chủ đề cần ôn".
   List<SkillStat> weakSkills({double threshold = 0.6}) =>
-      skillStats().values.where((s) => s.ratio < threshold).toList()
-        ..sort((a, b) => a.ratio.compareTo(b.ratio));
+      skillStats().values.where((s) => s.ratio < threshold).toList()..sort((a, b) => a.ratio.compareTo(b.ratio));
 }
 
 /// Số phần của một câu (ô trống, ô thả, mục nối) để chấm điểm từng phần.
 int partCount(Problem p) => switch (p.body) {
-      MultipleChoiceBody() => 1,
-      FillBlankBody(:final blanks) => blanks.length,
-      DragDropBody(:final slots) => slots.length,
-      MatchingBody(:final pairs) => pairs.length,
-    };
+  MultipleChoiceBody() => 1,
+  FillBlankBody(:final blanks) => blanks.length,
+  DragDropBody(:final slots) => slots.length,
+  MatchingBody(:final pairs) => pairs.length,
+};
 
 /// Chấm một câu trong đề: trắc nghiệm đúng/sai cả câu; dạng khác có điểm từng
 /// phần, làm tròn XUỐNG tới 0,25 điểm.
@@ -89,19 +78,25 @@ int partCount(Problem p) => switch (p.body) {
 
 /// Bài thi làm dở (lưu để bé thoát ra rồi làm tiếp).
 class ExamDraft {
-  const ExamDraft({required this.examId, required this.contentRev, required this.elapsedSeconds, required this.current, required this.answers});
+  const ExamDraft({
+    required this.examId,
+    required this.contentRev,
+    required this.elapsedSeconds,
+    required this.current,
+    required this.answers,
+  });
 
   factory ExamDraft.fromJson(Map<String, dynamic> j) => ExamDraft(
-        examId: j['examId'] as String,
-        contentRev: j['contentRev'] as int? ?? 1,
-        elapsedSeconds: j['elapsed'] as int? ?? 0,
-        current: j['current'] as int? ?? 0,
-        answers: {
-          for (final e in ((j['answers'] as Map?) ?? const {}).entries)
-            if (int.tryParse('${e.key}') != null && UserAnswer.fromJson(e.value) != null)
-              int.parse('${e.key}'): UserAnswer.fromJson(e.value)!,
-        },
-      );
+    examId: j['examId'] as String,
+    contentRev: j['contentRev'] as int? ?? 1,
+    elapsedSeconds: j['elapsed'] as int? ?? 0,
+    current: j['current'] as int? ?? 0,
+    answers: {
+      for (final e in ((j['answers'] as Map?) ?? const {}).entries)
+        if (int.tryParse('${e.key}') != null && UserAnswer.fromJson(e.value) != null)
+          int.parse('${e.key}'): UserAnswer.fromJson(e.value)!,
+    },
+  );
 
   final String examId;
   final int contentRev;
@@ -110,12 +105,12 @@ class ExamDraft {
   final Map<int, UserAnswer> answers;
 
   Map<String, dynamic> toJson() => {
-        'examId': examId,
-        'contentRev': contentRev,
-        'elapsed': elapsedSeconds,
-        'current': current,
-        'answers': {for (final e in answers.entries) '${e.key}': e.value.toJson()},
-      };
+    'examId': examId,
+    'contentRev': contentRev,
+    'elapsed': elapsedSeconds,
+    'current': current,
+    'answers': {for (final e in answers.entries) '${e.key}': e.value.toJson()},
+  };
 }
 
 /// Phiên làm đề: lưu câu trả lời, đếm giờ, nộp bài, chấm.
@@ -135,12 +130,12 @@ class ExamSession extends ChangeNotifier {
   }
 
   ExamDraft toDraft() => ExamDraft(
-        examId: exam.id,
-        contentRev: exam.contentRev,
-        elapsedSeconds: _elapsed,
-        current: _current,
-        answers: {..._answers},
-      );
+    examId: exam.id,
+    contentRev: exam.contentRev,
+    elapsedSeconds: _elapsed,
+    current: _current,
+    answers: {..._answers},
+  );
 
   final Exam exam;
   final List<ExamItem> items;

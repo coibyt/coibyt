@@ -82,7 +82,11 @@ class _BeePainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = s * 0.022
       ..strokeCap = StrokeCap.round;
-    final mouthRect = Rect.fromCenter(center: Offset(face.dx + s * 0.015, face.dy + s * 0.03), width: s * 0.12, height: s * 0.08);
+    final mouthRect = Rect.fromCenter(
+      center: Offset(face.dx + s * 0.015, face.dy + s * 0.03),
+      width: s * 0.12,
+      height: s * 0.08,
+    );
     canvas.drawArc(mouthRect, happy ? 0.2 : pi + 0.2, pi - 0.4, false, mouth);
     // Má hồng
     final blush = Paint()..color = const Color(0x66FF6FB5);

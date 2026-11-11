@@ -41,8 +41,13 @@ class ReportCard {
         }
       }
     }
-    return ReportCard._(result, list, buildFeedback(list, allCorrect: result.correctCount == result.items.length),
-        lessons.values.take(3).toList(), previousScore);
+    return ReportCard._(
+      result,
+      list,
+      buildFeedback(list, allCorrect: result.correctCount == result.items.length),
+      lessons.values.take(3).toList(),
+      previousScore,
+    );
   }
 
   final ExamResult result;
@@ -57,8 +62,14 @@ class ReportCard {
   final List<LessonRef> suggestedLessons;
   final int? previousScore;
 
-  List<ReportTopic> get weakTopics => [for (final t in topics) if (t.weak) t];
-  List<ReportTopic> get strongTopics => [for (final t in topics) if (t.strong) t];
+  List<ReportTopic> get weakTopics => [
+    for (final t in topics)
+      if (t.weak) t,
+  ];
+  List<ReportTopic> get strongTopics => [
+    for (final t in topics)
+      if (t.strong) t,
+  ];
 
   /// Chênh lệch với lần trước (null nếu lần đầu).
   int? get scoreChange => previousScore == null ? null : result.roundedScore - previousScore!;
@@ -74,10 +85,19 @@ String joinVi(List<String> items) {
 /// Lời nhận xét kiểu cô giáo: khen phần làm tốt, chỉ ra phần cần ôn.
 String buildFeedback(List<ReportTopic> topics, {required bool allCorrect}) {
   if (topics.isEmpty) return 'Con đã hoàn thành bài thi. Cùng xem lại từng câu nhé!';
-  if (allCorrect) return 'Con làm đúng hết tất cả các câu! Con đang làm rất tốt ${joinVi([for (final t in topics.take(3)) t.name])}. Tuyệt vời!';
+  if (allCorrect) {
+    final names = joinVi([for (final t in topics.take(3)) t.name]);
+    return 'Con làm đúng hết tất cả các câu! Con đang làm rất tốt $names. Tuyệt vời!';
+  }
   // Phần tốt: đúng nhiều nhất trước; phần yếu: sai nhiều nhất trước.
-  final strong = [for (final t in topics.reversed) if (t.strong) t.name].take(2).toList();
-  final weak = [for (final t in topics) if (t.weak) t.name].take(3).toList();
+  final strong = [
+    for (final t in topics.reversed)
+      if (t.strong) t.name,
+  ].take(2).toList();
+  final weak = [
+    for (final t in topics)
+      if (t.weak) t.name,
+  ].take(3).toList();
   if (strong.isNotEmpty && weak.isNotEmpty) {
     return 'Con đang làm rất tốt ${joinVi(strong)}, nhưng cần ôn lại ${joinVi(weak)} nhé.';
   }
@@ -85,7 +105,10 @@ String buildFeedback(List<ReportTopic> topics, {required bool allCorrect}) {
     return 'Con cần ôn lại ${joinVi(weak)} nhé. Mình luyện thêm một chút là sẽ tiến bộ ngay!';
   }
   if (strong.isNotEmpty) {
-    final middle = [for (final t in topics) if (!t.strong) t.name].take(2).toList();
+    final middle = [
+      for (final t in topics)
+        if (!t.strong) t.name,
+    ].take(2).toList();
     return middle.isEmpty
         ? 'Con làm tốt ${joinVi(strong)}. Cẩn thận thêm chút nữa là được điểm 10 nhé!'
         : 'Con làm tốt ${joinVi(strong)}. Luyện thêm ${joinVi(middle)} để chắc điểm cao nhé!';

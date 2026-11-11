@@ -19,17 +19,17 @@ class FakeServer {
   final requests = <String>[];
 
   http.Response _j(Object body, [int status = 200]) => http.Response.bytes(
-        utf8.encode(jsonEncode(body)),
-        status,
-        headers: {'content-type': 'application/json; charset=utf-8'},
-      );
+    utf8.encode(jsonEncode(body)),
+    status,
+    headers: {'content-type': 'application/json; charset=utf-8'},
+  );
 
   Map<String, dynamic> get account => {
-        'id': 1,
-        'email': 'bo.me@example.com',
-        'isVip': vip,
-        'vipUntil': vip ? '2027-01-01T00:00:00.000Z' : null,
-      };
+    'id': 1,
+    'email': 'bo.me@example.com',
+    'isVip': vip,
+    'vipUntil': vip ? '2027-01-01T00:00:00.000Z' : null,
+  };
 
   late final client = MockClient((req) async {
     requests.add('${req.method} ${req.url.path}');
@@ -37,7 +37,9 @@ class FakeServer {
     switch ((req.method, req.url.path)) {
       case ('POST', '/v1/auth/login'):
         final b = jsonDecode(req.body) as Map;
-        if (b['password'] != 'matkhau123') return _j({'error': 'invalid_credentials', 'message': 'Sai email hoặc mật khẩu'}, 401);
+        if (b['password'] != 'matkhau123') {
+          return _j({'error': 'invalid_credentials', 'message': 'Sai email hoặc mật khẩu'}, 401);
+        }
         return _j({'token': 'tok-1', 'account': account});
       case ('GET', '/v1/me'):
         return authed ? _j({'account': account}) : _j({'error': 'unauthorized', 'message': 'Hết phiên'}, 401);
@@ -47,9 +49,7 @@ class FakeServer {
         return _j({'id': 7, 'name': (jsonDecode(req.body) as Map)['name']}, 201);
       case ('PUT', '/v1/children/7/progress'):
         final incoming = Progress.fromJson((jsonDecode(req.body) as Map)['progress'] as Map<String, dynamic>);
-        final merged = storedProgress == null
-            ? incoming
-            : Progress.merge(Progress.fromJson(storedProgress!), incoming);
+        final merged = storedProgress == null ? incoming : Progress.merge(Progress.fromJson(storedProgress!), incoming);
         storedProgress = merged.toJson();
         return _j({'progress': storedProgress, 'updatedAt': merged.updatedAt?.toIso8601String()});
       case ('GET', '/v1/catalog'):
@@ -58,7 +58,9 @@ class FakeServer {
         return _j(c);
       case ('POST', '/v1/iap/verify'):
         final b = jsonDecode(req.body) as Map;
-        if (!(b['receipt'] as String).startsWith('TEST-')) return _j({'error': 'iap_not_configured', 'message': 'Chưa cấu hình'}, 501);
+        if (!(b['receipt'] as String).startsWith('TEST-')) {
+          return _j({'error': 'iap_not_configured', 'message': 'Chưa cấu hình'}, 501);
+        }
         vip = true;
         return _j({'account': account});
     }
@@ -83,9 +85,16 @@ void main() {
     final server = FakeServer();
     final store = MemoryStore();
     final cache = MemoryStore();
-    final app = AppState(content: ContentRepository(cache: cache), store: store);
+    final app = AppState(
+      content: ContentRepository(cache: cache),
+      store: store,
+    );
     await app.init();
-    final sync = SyncService(api: ApiClient(baseUrl: 'https://api.example.test/', client: server.client), store: store, app: app);
+    final sync = SyncService(
+      api: ApiClient(baseUrl: 'https://api.example.test/', client: server.client),
+      store: store,
+      app: app,
+    );
     app.sync = sync;
     return (app, sync, server, cache);
   }
@@ -134,10 +143,16 @@ void main() {
     final (app, sync, server, cache) = await setup();
     await sync.signIn('bo.me@example.com', 'matkhau123');
     expect(app.isVip, isFalse);
-    expect(await sync.verifyPurchase(platform: 'android', productId: 'vn.ongvang.toan3.vip_month', receipt: 'that-receipt'), isFalse);
+    expect(
+      await sync.verifyPurchase(platform: 'android', productId: 'vn.ongvang.toan3.vip_month', receipt: 'that-receipt'),
+      isFalse,
+    );
     expect(sync.lastError, 'Chưa cấu hình');
     expect(app.isVip, isFalse);
-    expect(await sync.verifyPurchase(platform: 'android', productId: 'vn.ongvang.toan3.vip_month', receipt: 'TEST-1'), isTrue);
+    expect(
+      await sync.verifyPurchase(platform: 'android', productId: 'vn.ongvang.toan3.vip_month', receipt: 'TEST-1'),
+      isTrue,
+    );
     expect(app.isVip, isTrue);
     expect(app.vipUntil, DateTime.utc(2027));
     // Có VIP → đồng bộ lại tải được đề nâng cao

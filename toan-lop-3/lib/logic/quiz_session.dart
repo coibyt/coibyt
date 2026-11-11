@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import '../models/content.dart';
 import '../models/problem.dart';
 import 'answer_checker.dart';
+import 'tutor.dart';
 
 /// Trạng thái của bài đang làm.
 enum QuestionPhase {
@@ -54,18 +55,19 @@ class QuizSession extends ChangeNotifier {
     required this.isVip,
     this.maxAttempts = 2,
     Random? random,
-  })  : lessonId = lesson.id,
-        lessonTitle = lesson.title,
-        problems = [
-          for (final p in lesson.problems)
-            if (p.access == Access.free || isVip) p,
-        ],
-        lockedVipCount =
-            isVip ? 0 : lesson.problems.where((p) => p.access == Access.vip).length,
-        _random = random ?? Random() {
-    _results = [
-      for (final p in problems) ProblemResult(problemId: p.id, skillIds: p.skillIds),
-    ];
+    TutorBrain? tutor,
+    DateTime Function()? clock,
+  }) : lessonId = lesson.id,
+       lessonTitle = lesson.title,
+       problems = [
+         for (final p in lesson.problems)
+           if (p.access == Access.free || isVip) p,
+       ],
+       lockedVipCount = isVip ? 0 : lesson.problems.where((p) => p.access == Access.vip).length,
+       tutor = tutor ?? TutorBrain(random: random),
+       _now = clock ?? DateTime.now {
+    _startedAt = _now();
+    _results = [for (final p in problems) ProblemResult(problemId: p.id, skillIds: p.skillIds)];
   }
 
   final String lessonId;
@@ -76,7 +78,16 @@ class QuizSession extends ChangeNotifier {
 
   /// Số bài VIP bị ẩn với tài khoản miễn phí.
   final int lockedVipCount;
-  final Random _random;
+
+  /// Gia sư ảo: nói lời khen, gợi ý.
+  final TutorBrain tutor;
+  final DateTime Function() _now;
+  late DateTime _startedAt;
+
+  /// Số câu đúng ngay lần đầu liên tiếp.
+  int combo = 0;
+  int bestCombo = 0;
+  bool _hintShown = false;
 
   late final List<ProblemResult> _results;
   int _index = 0;
@@ -96,6 +107,21 @@ class QuizSession extends ChangeNotifier {
   List<ProblemResult> get results => List.unmodifiable(_results);
 
   bool get canAnswer => _phase == QuestionPhase.answering;
+
+  /// Đã xem gợi ý cho câu này chưa.
+  bool get hintShown => _hintShown;
+
+  /// Cô Ong không giải hộ ngay: chỉ cho xem lời giải sau khi bé đã xin gợi ý
+  /// hoặc đã thử trả lời.
+  bool get canViewSolution => _phase != QuestionPhase.answering || _hintShown || currentResult.attempts > 0;
+
+  /// Bé bấm "Gợi ý": cô Ong gợi ý (không nói đáp án).
+  void requestHint() {
+    if (isFinished || !canAnswer) return;
+    _hintShown = true;
+    _message = tutor.hint(current);
+    notifyListeners();
+  }
 
   /// Lời giải chi tiết có bị khoá với tài khoản này không.
   bool solutionLocked(Problem p) => p.solution.access == Access.vip && !isVip;
@@ -117,16 +143,22 @@ class QuizSession extends ChangeNotifier {
         currentResult
           ..attempts += 1
           ..correct = true;
+        final firstTry = currentResult.attempts == 1;
+        combo = firstTry ? combo + 1 : 0;
+        if (combo > bestCombo) bestCombo = combo;
+        final fast = firstTry && _now().difference(_startedAt).inSeconds < 15;
         _phase = QuestionPhase.correct;
-        _message = problem.feedbackCorrect ?? _pick(_praise);
+        _message = problem.feedbackCorrect ?? tutor.praise(combo: combo, fast: fast, firstTry: firstTry);
       case CheckStatus.incorrect:
         currentResult.attempts += 1;
+        combo = 0;
         if (currentResult.attempts >= maxAttempts) {
           _phase = QuestionPhase.revealed;
-          _message = 'Không sao cả! Mình cùng xem cách làm nhé.';
+          _message = tutor.afterReveal();
         } else {
           _phase = QuestionPhase.incorrect;
-          _message = problem.feedbackIncorrect ?? _pick(_encourage);
+          _hintShown = true;
+          _message = problem.feedbackIncorrect ?? tutor.afterWrong(problem);
         }
     }
     notifyListeners();
@@ -146,6 +178,7 @@ class QuizSession extends ChangeNotifier {
     if (isFinished) return;
     currentResult.viewedSolution = true;
     if (_phase == QuestionPhase.answering || _phase == QuestionPhase.incorrect) {
+      combo = 0;
       _phase = QuestionPhase.revealed;
       _message = null;
     }
@@ -162,6 +195,8 @@ class QuizSession extends ChangeNotifier {
     _phase = QuestionPhase.answering;
     _lastCheck = null;
     _message = null;
+    _hintShown = false;
+    _startedAt = _now();
     notifyListeners();
   }
 
@@ -194,22 +229,5 @@ class QuizSession extends ChangeNotifier {
 
   /// Kỹ năng có tỉ lệ đúng dưới [threshold].
   List<SkillStat> weakSkills({double threshold = 0.6}) =>
-      skillStats().values.where((s) => s.ratio < threshold).toList()
-        ..sort((a, b) => a.ratio.compareTo(b.ratio));
-
-  String _pick(List<String> list) => list[_random.nextInt(list.length)];
-
-  static const _praise = [
-    'Giỏi quá!',
-    'Chính xác!',
-    'Tuyệt vời!',
-    'Đúng rồi, con làm tốt lắm!',
-    'Xuất sắc!',
-  ];
-
-  static const _encourage = [
-    'Gần đúng rồi, con thử lại nhé!',
-    'Chưa đúng rồi. Mình thử lại nào!',
-    'Không sao, con thử lần nữa nhé!',
-  ];
+      skillStats().values.where((s) => s.ratio < threshold).toList()..sort((a, b) => a.ratio.compareTo(b.ratio));
 }

@@ -10,7 +10,12 @@ Future<void> pump(WidgetTester tester, Widget w) async {
   tester.view.physicalSize = const Size(1080, 2340);
   tester.view.devicePixelRatio = 2.5;
   addTearDown(tester.view.reset);
-  await tester.pumpWidget(MaterialApp(theme: buildAppTheme(), home: Scaffold(body: SingleChildScrollView(child: w))));
+  await tester.pumpWidget(
+    MaterialApp(
+      theme: buildAppTheme(),
+      home: Scaffold(body: SingleChildScrollView(child: w)),
+    ),
+  );
 }
 
 void main() {

@@ -15,8 +15,7 @@ class InvalidContentException implements Exception {
   final List<ContentIssue> issues;
 
   @override
-  String toString() =>
-      'Nội dung "$source" có ${issues.length} lỗi:\n${issues.join('\n')}';
+  String toString() => 'Nội dung "$source" có ${issues.length} lỗi:\n${issues.join('\n')}';
 }
 
 /// Nạp nội dung đóng gói sẵn trong app (offline).
@@ -40,8 +39,7 @@ class ContentRepository {
   /// Xoá bộ nhớ tạm sau khi tải nội dung mới.
   void invalidate() => _catalog = null;
 
-  Future<String> _read(String path) async =>
-      cache?.get(cacheKey(path)) ?? await _bundle.loadString(path);
+  Future<String> _read(String path) async => cache?.get(cacheKey(path)) ?? await _bundle.loadString(path);
 
   Future<Catalog> loadCatalog() async {
     if (_catalog != null) return _catalog!;
@@ -66,10 +64,7 @@ class ContentRepository {
     final catalog = await loadCatalog();
     final json = jsonDecode(await _read(assetPath));
     final lesson = Lesson.fromJson(json);
-    final issues = validateLesson(
-      lesson,
-      knownSkillIds: catalog.skills.map((s) => s.id).toSet(),
-    );
+    final issues = validateLesson(lesson, knownSkillIds: catalog.skills.map((s) => s.id).toSet());
     if (issues.isNotEmpty) throw InvalidContentException(assetPath, issues);
     return lesson;
   }
@@ -78,10 +73,7 @@ class ContentRepository {
   Future<Exam> loadExam(String assetPath) async {
     final catalog = await loadCatalog();
     final exam = Exam.fromJson(jsonDecode(await _read(assetPath)));
-    final issues = validateExam(
-      exam,
-      knownSkillIds: catalog.skills.map((s) => s.id).toSet(),
-    );
+    final issues = validateExam(exam, knownSkillIds: catalog.skills.map((s) => s.id).toSet());
     if (issues.isNotEmpty) throw InvalidContentException(assetPath, issues);
     return exam;
   }

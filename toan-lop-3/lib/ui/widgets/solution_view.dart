@@ -22,10 +22,7 @@ class SolutionPanel extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: AppColors.goodSoft,
-            borderRadius: BorderRadius.circular(AppSizes.radius),
-          ),
+          decoration: BoxDecoration(color: AppColors.goodSoft, borderRadius: BorderRadius.circular(AppSizes.radius)),
           child: Row(
             children: [
               const Icon(Icons.check_circle, color: AppColors.good, size: 32),
@@ -92,19 +89,16 @@ class BlockView extends StatelessWidget {
     return switch (block) {
       TextBlock(:final text, :final style) => _TextBlockView(text: text, style: style),
       EquationBlock(:final text) => Text(
-          text,
-          style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: AppColors.sky),
-        ),
+        text,
+        style: const TextStyle(fontSize: 26, fontWeight: FontWeight.w700, color: AppColors.sky),
+      ),
       final ColumnArithmeticBlock b => ColumnStepper(block: b),
       final LongDivisionBlock b => DivisionStepper(block: b),
       final WordProblemBlock b => WordProblemView(block: b),
       ImageBlock(:final image) => Semantics(
-          label: image.alt,
-          child: Image.asset(
-            image.src,
-            errorBuilder: (_, _, _) => Text('[Ảnh: ${image.alt}]'),
-          ),
-        ),
+        label: image.alt,
+        child: Image.asset(image.src, errorBuilder: (_, _, _) => Text('[Ảnh: ${image.alt}]')),
+      ),
     };
   }
 }
@@ -134,7 +128,9 @@ class _TextBlockView extends StatelessWidget {
             children: [
               const Icon(Icons.star_rounded, color: AppColors.tryAgain, size: 30),
               const SizedBox(width: 8),
-              Expanded(child: Text(text, style: textStyle.copyWith(fontWeight: FontWeight.w700))),
+              Expanded(
+                child: Text(text, style: textStyle.copyWith(fontWeight: FontWeight.w700)),
+              ),
             ],
           ),
         );

@@ -5,12 +5,7 @@ import '../app_theme.dart';
 /// Bàn phím số to, thay bàn phím hệ thống: bé không bị bàn phím che đề,
 /// không gõ nhầm chữ, phím ≥ 64dp.
 class NumberPad extends StatelessWidget {
-  const NumberPad({
-    super.key,
-    required this.onDigit,
-    required this.onBackspace,
-    this.enabled = true,
-  });
+  const NumberPad({super.key, required this.onDigit, required this.onBackspace, this.enabled = true});
 
   final ValueChanged<String> onDigit;
   final VoidCallback onBackspace;
@@ -62,8 +57,12 @@ class NumberPad extends StatelessWidget {
           onTap: !enabled ? null : (isBack ? onBackspace : () => onDigit(key)),
           child: Center(
             child: isBack
-                ? Icon(Icons.backspace_outlined,
-                    size: 30, semanticLabel: 'Xoá', color: enabled ? AppColors.ink : Colors.black26)
+                ? Icon(
+                    Icons.backspace_outlined,
+                    size: 30,
+                    semanticLabel: 'Xoá',
+                    color: enabled ? AppColors.ink : Colors.black26,
+                  )
                 : Text(
                     key,
                     style: TextStyle(

@@ -72,10 +72,12 @@ List<ContentIssue> validateExam(Exam exam, {Set<String>? knownSkillIds}) {
   _unique(issues, r'$.sections[*].items[*].problem', ids);
   final (minMin, maxMin) = exam.examType.durationRange;
   if (exam.durationMinutes < minMin || exam.durationMinutes > maxMin) {
-    issues.add(ContentIssue(
-      r'$.durationMinutes',
-      '${exam.examType.displayName} phải dài $minMin–$maxMin phút, đang là ${exam.durationMinutes}',
-    ));
+    issues.add(
+      ContentIssue(
+        r'$.durationMinutes',
+        '${exam.examType.displayName} phải dài $minMin–$maxMin phút, đang là ${exam.durationMinutes}',
+      ),
+    );
   }
   if ((exam.totalPoints - 10).abs() > 1e-9) {
     issues.add(ContentIssue(r'$.sections', 'tổng điểm phải là 10, đang là ${exam.totalPoints}'));
@@ -90,12 +92,7 @@ void _unique(List<ContentIssue> issues, String path, List<String> ids) {
   }
 }
 
-void _validateProblem(
-  List<ContentIssue> issues,
-  String path,
-  Problem p,
-  Set<String>? knownSkillIds,
-) {
+void _validateProblem(List<ContentIssue> issues, String path, Problem p, Set<String>? knownSkillIds) {
   void issue(String sub, String message) => issues.add(ContentIssue('$path$sub', message));
 
   if (knownSkillIds != null) {
@@ -128,8 +125,7 @@ void _validateProblem(
       }
       for (final (i, b) in blanks.indexed) {
         final rule = b.answer;
-        if (rule is NumberAnswerRule && b.maxLength != null &&
-            '${rule.value}'.length > b.maxLength!) {
+        if (rule is NumberAnswerRule && b.maxLength != null && '${rule.value}'.length > b.maxLength!) {
           issue('.blanks[$i].maxLength', 'ô quá hẹp cho đáp án ${rule.value}');
         }
       }
@@ -286,8 +282,7 @@ List<String> checkColumnArithmetic(ColumnArithmeticBlock b) {
 }
 
 String _placeName(int p) =>
-    const ['đơn vị', 'chục', 'trăm', 'nghìn', 'chục nghìn', 'trăm nghìn'].elementAtOrNull(p) ??
-    '10^$p';
+    const ['đơn vị', 'chục', 'trăm', 'nghìn', 'chục nghìn', 'trăm nghìn'].elementAtOrNull(p) ?? '10^$p';
 
 /// Kiểm tra phép chia đặt tính: thương, số dư và từng lượt chia.
 List<String> checkLongDivision(LongDivisionBlock b) {

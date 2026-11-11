@@ -34,10 +34,13 @@ class PurchaseService extends ChangeNotifier {
       notifyListeners();
       return false;
     }
-    _sub ??= iap.purchaseStream.listen(_onPurchases, onError: (Object e) {
-      message = 'Lỗi mua hàng: $e';
-      notifyListeners();
-    });
+    _sub ??= iap.purchaseStream.listen(
+      _onPurchases,
+      onError: (Object e) {
+        message = 'Lỗi mua hàng: $e';
+        notifyListeners();
+      },
+    );
     final resp = await iap.queryProductDetails(productIds);
     products = resp.productDetails..sort((a, b) => a.rawPrice.compareTo(b.rawPrice));
     if (resp.notFoundIDs.isNotEmpty) {

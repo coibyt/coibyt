@@ -3,8 +3,7 @@ import 'json_reader.dart';
 
 enum Access { free, vip }
 
-Access _readAccess(JsonReader r, String key) =>
-    Access.values.byName(r.oneOf(key, {'free', 'vip'}));
+Access _readAccess(JsonReader r, String key) => Access.values.byName(r.oneOf(key, {'free', 'vip'}));
 
 enum ProblemType {
   multipleChoice('multiple_choice'),
@@ -16,16 +15,15 @@ enum ProblemType {
 
   final String jsonName;
 
-  static ProblemType fromJsonName(String name) =>
-      values.firstWhere((t) => t.jsonName == name);
+  static ProblemType fromJsonName(String name) => values.firstWhere((t) => t.jsonName == name);
 
   /// Câu lệnh mặc định (ngắn) nếu bài không ghi `instruction`.
   String get defaultInstruction => switch (this) {
-        ProblemType.multipleChoice => 'Chọn đáp án đúng.',
-        ProblemType.fillBlank => 'Điền số thích hợp.',
-        ProblemType.dragDrop => 'Kéo số vào ô trống.',
-        ProblemType.matching => 'Nối cho đúng.',
-      };
+    ProblemType.multipleChoice => 'Chọn đáp án đúng.',
+    ProblemType.fillBlank => 'Điền số thích hợp.',
+    ProblemType.dragDrop => 'Kéo số vào ô trống.',
+    ProblemType.matching => 'Nối cho đúng.',
+  };
 }
 
 /// Đề bài: chữ + (tuỳ chọn) công thức LaTeX, ảnh, câu đọc to.
@@ -33,11 +31,11 @@ class PromptContent {
   const PromptContent({required this.text, this.math, this.image, this.speak});
 
   factory PromptContent.fromJson(JsonReader r) => PromptContent(
-        text: r.string('text'),
-        math: r.optString('math'),
-        image: r.has('image') ? ContentImage.fromJson(r.object('image')) : null,
-        speak: r.optString('speak'),
-      );
+    text: r.string('text'),
+    math: r.optString('math'),
+    image: r.has('image') ? ContentImage.fromJson(r.object('image')) : null,
+    speak: r.optString('speak'),
+  );
 
   final String text;
   final String? math;
@@ -115,11 +113,7 @@ class NumberAnswerRule extends AnswerRule {
 }
 
 class TextAnswerRule extends AnswerRule {
-  const TextAnswerRule({
-    required this.values,
-    this.ignoreCase = true,
-    this.ignoreDiacritics = false,
-  });
+  const TextAnswerRule({required this.values, this.ignoreCase = true, this.ignoreDiacritics = false});
 
   final List<String> values;
   final bool ignoreCase;
@@ -168,8 +162,7 @@ List<List<TemplatePart>> parseTemplate(String template) {
 }
 
 /// Danh sách mã ô trống theo thứ tự xuất hiện trong mẫu.
-List<String> templateSlotIds(String template) =>
-    [for (final m in _slotPattern.allMatches(template)) m.group(1)!];
+List<String> templateSlotIds(String template) => [for (final m in _slotPattern.allMatches(template)) m.group(1)!];
 
 // ---------------------------------------------------------------------------
 // Phần riêng của từng dạng bài
@@ -226,12 +219,7 @@ class DropSlot {
 }
 
 class DragDropBody extends ProblemBody {
-  const DragDropBody({
-    required this.template,
-    required this.tokens,
-    required this.slots,
-    this.reuseTokens = false,
-  });
+  const DragDropBody({required this.template, required this.tokens, required this.slots, this.reuseTokens = false});
 
   final String template;
   final List<OptionItem> tokens;
@@ -245,12 +233,7 @@ class DragDropBody extends ProblemBody {
 }
 
 class MatchingBody extends ProblemBody {
-  const MatchingBody({
-    required this.left,
-    required this.right,
-    required this.pairs,
-    this.shuffleRight = true,
-  });
+  const MatchingBody({required this.left, required this.right, required this.pairs, this.shuffleRight = true});
 
   final List<OptionItem> left;
   final List<OptionItem> right;
@@ -268,19 +251,14 @@ class MatchingBody extends ProblemBody {
 // ---------------------------------------------------------------------------
 
 class Solution {
-  const Solution({
-    required this.access,
-    required this.answerText,
-    required this.steps,
-    this.hint,
-  });
+  const Solution({required this.access, required this.answerText, required this.steps, this.hint});
 
   factory Solution.fromJson(JsonReader r) => Solution(
-        access: _readAccess(r, 'access'),
-        answerText: r.string('answerText'),
-        hint: r.optString('hint'),
-        steps: r.objects('steps', ContentBlock.fromJson, minItems: 1),
-      );
+    access: _readAccess(r, 'access'),
+    answerText: r.string('answerText'),
+    hint: r.optString('hint'),
+    steps: r.objects('steps', ContentBlock.fromJson, minItems: 1),
+  );
 
   /// vip = các bước chi tiết chỉ mở cho VIP (đáp án cuối luôn hiện).
   final Access access;
@@ -311,17 +289,11 @@ class Problem {
   });
 
   factory Problem.fromJson(JsonReader r) {
-    final typeName = r.oneOf(
-      'type',
-      {for (final t in ProblemType.values) t.jsonName},
-    );
+    final typeName = r.oneOf('type', {for (final t in ProblemType.values) t.jsonName});
     final type = ProblemType.fromJsonName(typeName);
     final instruction = r.optString('instruction');
     if (instruction != null && instruction.length > 40) {
-      throw ContentFormatException(
-        '${r.path}.instruction',
-        'câu lệnh cho bé phải ngắn (≤ 40 ký tự)',
-      );
+      throw ContentFormatException('${r.path}.instruction', 'câu lệnh cho bé phải ngắn (≤ 40 ký tự)');
     }
     final level = r.integer('level', min: 1, max: 3);
     final feedback = r.optObject('feedback');
@@ -340,59 +312,49 @@ class Problem {
       feedbackIncorrect: feedback?.optString('incorrect'),
       body: switch (type) {
         ProblemType.multipleChoice => MultipleChoiceBody(
-            choices: r.objects('choices', OptionItem.fromJson, minItems: 2),
-            correctChoiceIds: r.strings('correctChoiceIds', minItems: 1).toSet(),
-            multiSelect: r.boolean('multiSelect', defaultValue: false),
-            shuffleChoices: r.boolean('shuffleChoices', defaultValue: true),
-          ),
+          choices: r.objects('choices', OptionItem.fromJson, minItems: 2),
+          correctChoiceIds: r.strings('correctChoiceIds', minItems: 1).toSet(),
+          multiSelect: r.boolean('multiSelect', defaultValue: false),
+          shuffleChoices: r.boolean('shuffleChoices', defaultValue: true),
+        ),
         ProblemType.fillBlank => FillBlankBody(
-            template: r.string('template'),
-            blanks: r.objects(
-              'blanks',
-              (b) => Blank(
-                id: b.string('id'),
-                answer: AnswerRule.fromJson(b.object('answer')),
-                maxLength: b.optInteger('maxLength', min: 1, max: 7),
-              ),
-              minItems: 1,
+          template: r.string('template'),
+          blanks: r.objects(
+            'blanks',
+            (b) => Blank(
+              id: b.string('id'),
+              answer: AnswerRule.fromJson(b.object('answer')),
+              maxLength: b.optInteger('maxLength', min: 1, max: 7),
             ),
+            minItems: 1,
           ),
+        ),
         ProblemType.dragDrop => DragDropBody(
-            template: r.string('template'),
-            tokens: r.objects('tokens', OptionItem.fromJson, minItems: 1),
-            slots: r.objects(
-              'slots',
-              (s) => DropSlot(
-                id: s.string('id'),
-                accept: s.strings('accept', minItems: 1).toSet(),
-              ),
-              minItems: 1,
-            ),
-            reuseTokens: r.boolean('reuseTokens', defaultValue: false),
+          template: r.string('template'),
+          tokens: r.objects('tokens', OptionItem.fromJson, minItems: 1),
+          slots: r.objects(
+            'slots',
+            (s) => DropSlot(id: s.string('id'), accept: s.strings('accept', minItems: 1).toSet()),
+            minItems: 1,
           ),
+          reuseTokens: r.boolean('reuseTokens', defaultValue: false),
+        ),
         ProblemType.matching => MatchingBody(
-            left: r.objects('left', OptionItem.fromJson, minItems: 2),
-            right: r.objects('right', OptionItem.fromJson, minItems: 2),
-            pairs: _readPairs(r),
-            shuffleRight: r.boolean('shuffleRight', defaultValue: true),
-          ),
+          left: r.objects('left', OptionItem.fromJson, minItems: 2),
+          right: r.objects('right', OptionItem.fromJson, minItems: 2),
+          pairs: _readPairs(r),
+          shuffleRight: r.boolean('shuffleRight', defaultValue: true),
+        ),
       },
     );
   }
 
   static Map<String, String> _readPairs(JsonReader r) {
     final pairs = <String, String>{};
-    final list = r.objects(
-      'pairs',
-      (p) => MapEntry(p.string('left'), p.string('right')),
-      minItems: 2,
-    );
+    final list = r.objects('pairs', (p) => MapEntry(p.string('left'), p.string('right')), minItems: 2);
     for (var i = 0; i < list.length; i++) {
       if (pairs.containsKey(list[i].key)) {
-        throw ContentFormatException(
-          '${r.path}.pairs[$i].left',
-          '"${list[i].key}" bị nối hai lần',
-        );
+        throw ContentFormatException('${r.path}.pairs[$i].left', '"${list[i].key}" bị nối hai lần');
       }
       pairs[list[i].key] = list[i].value;
     }

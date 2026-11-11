@@ -11,10 +11,12 @@ import '../models/content.dart';
 import '../models/problem.dart';
 import '../services/content_repository.dart';
 import '../services/sound_service.dart';
+import '../services/tutor_voice.dart';
 import 'app_theme.dart';
 import 'widgets/answer_views.dart';
 import 'widgets/big_button.dart';
 import 'widgets/solution_view.dart';
+import 'widgets/tutor_bubble.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
 typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
@@ -31,6 +33,8 @@ class QuizScreen extends StatefulWidget {
     this.sound,
     this.random,
     this.onFinished,
+    this.voice,
+    this.voiceOn = true,
   }) : assert(lessonAsset != null || lesson != null);
 
   /// Đường dẫn asset của bài học (vd assets/content/lessons/x.json).
@@ -40,12 +44,17 @@ class QuizScreen extends StatefulWidget {
   final Lesson? lesson;
   final bool isVip;
   final ContentRepository? repository;
+
   /// null = dùng [AppSound.instance].
   final SoundService? sound;
 
   /// Cố định thứ tự xáo trộn (dùng trong test).
   final Random? random;
   final QuizFinished? onFinished;
+
+  /// Giọng cô Ong (null = [AppTutorVoice.instance]); [voiceOn] = tự đọc lời thoại.
+  final TutorVoice? voice;
+  final bool voiceOn;
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -88,6 +97,8 @@ class _QuizScreenState extends State<QuizScreen> {
           lesson: snap.data!,
           isVip: widget.isVip,
           sound: widget.sound ?? AppSound.instance,
+          voice: widget.voice ?? AppTutorVoice.instance,
+          voiceOn: widget.voiceOn,
           random: widget.random,
           onFinished: widget.onFinished,
         );
@@ -101,6 +112,8 @@ class _QuizBody extends StatefulWidget {
     required this.lesson,
     required this.isVip,
     required this.sound,
+    required this.voice,
+    required this.voiceOn,
     this.random,
     this.onFinished,
   });
@@ -108,6 +121,8 @@ class _QuizBody extends StatefulWidget {
   final Lesson lesson;
   final bool isVip;
   final SoundService sound;
+  final TutorVoice voice;
+  final bool voiceOn;
   final Random? random;
   final QuizFinished? onFinished;
 
@@ -146,6 +161,7 @@ class _QuizBodyState extends State<_QuizBody> {
     final problem = _session.current;
     final answer = _answer ?? _emptyAnswer(problem);
     final result = _session.submit(answer);
+    _say(_session.message);
     if (result.status == CheckStatus.correct) {
       widget.sound.correct();
     } else if (result.status == CheckStatus.incorrect) {
@@ -155,12 +171,19 @@ class _QuizBodyState extends State<_QuizBody> {
     setState(() {});
   }
 
+  /// Cô Ong đọc to (nếu bật giọng đọc). [force] = bé bấm loa.
+  void _say(String? text, {bool force = false}) {
+    if (text == null) return;
+    if (!force && !widget.voiceOn) return;
+    widget.voice.speak(text);
+  }
+
   UserAnswer _emptyAnswer(Problem p) => switch (p.body) {
-        MultipleChoiceBody() => const ChoiceAnswer({}),
-        FillBlankBody() => const BlankAnswer({}),
-        DragDropBody() => const DragDropAnswer({}),
-        MatchingBody() => const MatchingAnswer({}),
-      };
+    MultipleChoiceBody() => const ChoiceAnswer({}),
+    FillBlankBody() => const BlankAnswer({}),
+    DragDropBody() => const DragDropAnswer({}),
+    MatchingBody() => const MatchingAnswer({}),
+  };
 
   void _next() {
     widget.sound.tap();
@@ -184,9 +207,7 @@ class _QuizBodyState extends State<_QuizBody> {
       context: context,
       isScrollControlled: true,
       backgroundColor: AppColors.cream,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
-      ),
+      shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
       builder: (context) => DraggableScrollableSheet(
         expand: false,
         initialChildSize: 0.75,
@@ -205,7 +226,9 @@ class _QuizBodyState extends State<_QuizBody> {
             const SizedBox(height: 12),
             Row(
               children: [
-                const Expanded(child: Text('Lời giải', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700))),
+                const Expanded(
+                  child: Text('Lời giải', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w700)),
+                ),
                 IconButton(
                   iconSize: 36,
                   tooltip: 'Đóng',
@@ -238,7 +261,10 @@ class _QuizBodyState extends State<_QuizBody> {
             Text(theory.title ?? 'Nhớ nhanh', style: const TextStyle(fontSize: 28, fontWeight: FontWeight.w700)),
             const SizedBox(height: 12),
             for (final b in theory.blocks)
-              Padding(padding: const EdgeInsets.only(bottom: 14), child: BlockView(block: b)),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 14),
+                child: BlockView(block: b),
+              ),
           ],
         ),
       ),
@@ -273,6 +299,7 @@ class _QuizBodyState extends State<_QuizBody> {
         child: Column(
           children: [
             _TopBar(
+              combo: _session.combo,
               current: _session.index + 1,
               total: _session.problems.length,
               onClose: () => Navigator.of(context).maybePop(),
@@ -304,6 +331,11 @@ class _QuizBodyState extends State<_QuizBody> {
               onCheck: _check,
               onRetry: () => setState(_session.retry),
               onSolution: _openSolution,
+              onHint: () {
+                setState(_session.requestHint);
+                _say(_session.message);
+              },
+              onSpeak: () => _say(_session.message, force: true),
               onNext: _next,
             ),
           ],
@@ -312,22 +344,20 @@ class _QuizBodyState extends State<_QuizBody> {
     );
   }
 
-  Widget _answerArea(Problem problem, AnswerViewState s) => buildAnswerView(
-        problem: problem,
-        state: s,
-        onChanged: (a) => _answer = a,
-        random: widget.random,
-      );
+  Widget _answerArea(Problem problem, AnswerViewState s) =>
+      buildAnswerView(problem: problem, state: s, onChanged: (a) => _answer = a, random: widget.random);
 }
 
 class _TopBar extends StatelessWidget {
   const _TopBar({
+    required this.combo,
     required this.current,
     required this.total,
     required this.onClose,
     required this.onTheory,
   });
 
+  final int combo;
   final int current;
   final int total;
   final VoidCallback onClose;
@@ -339,12 +369,7 @@ class _TopBar extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(4, 4, 8, 4),
       child: Row(
         children: [
-          IconButton(
-            iconSize: 34,
-            tooltip: 'Thoát',
-            onPressed: onClose,
-            icon: const Icon(Icons.close_rounded),
-          ),
+          IconButton(iconSize: 34, tooltip: 'Thoát', onPressed: onClose, icon: const Icon(Icons.close_rounded)),
           Expanded(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
@@ -357,6 +382,14 @@ class _TopBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
+          if (combo >= 2)
+            Container(
+              key: const ValueKey('combo-badge'),
+              margin: const EdgeInsets.only(right: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+              decoration: BoxDecoration(color: AppColors.tryAgainSoft, borderRadius: BorderRadius.circular(12)),
+              child: Text('🔥 $combo', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+            ),
           Text('$current/$total', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
           const SizedBox(width: 4),
           IconButton(
@@ -401,8 +434,7 @@ class _PromptCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              for (var i = 0; i < problem.level; i++)
-                const Icon(Icons.star_rounded, color: AppColors.honey, size: 20),
+              for (var i = 0; i < problem.level; i++) const Icon(Icons.star_rounded, color: AppColors.honey, size: 20),
             ],
           ),
           const SizedBox(height: 12),
@@ -426,6 +458,8 @@ class _FeedbackAndActions extends StatelessWidget {
     required this.onCheck,
     required this.onRetry,
     required this.onSolution,
+    required this.onHint,
+    required this.onSpeak,
     required this.onNext,
   });
 
@@ -433,19 +467,20 @@ class _FeedbackAndActions extends StatelessWidget {
   final VoidCallback onCheck;
   final VoidCallback onRetry;
   final VoidCallback onSolution;
+  final VoidCallback onHint;
+  final VoidCallback onSpeak;
   final VoidCallback onNext;
 
   @override
   Widget build(BuildContext context) {
     final phase = session.phase;
     final message = session.message;
-    final (Color bg, Color fg, IconData icon) = switch (phase) {
-      QuestionPhase.correct => (AppColors.goodSoft, AppColors.good, Icons.emoji_events_rounded),
-      QuestionPhase.incorrect => (AppColors.tryAgainSoft, AppColors.tryAgain, Icons.refresh_rounded),
-      QuestionPhase.revealed => (AppColors.skySoft, AppColors.sky, Icons.lightbulb_rounded),
-      QuestionPhase.answering => (AppColors.honeySoft, AppColors.ink, Icons.info_outline_rounded),
+    final (Color bg, Color fg, TutorMood mood) = switch (phase) {
+      QuestionPhase.correct => (AppColors.goodSoft, AppColors.good, TutorMood.happy),
+      QuestionPhase.incorrect => (AppColors.tryAgainSoft, AppColors.ink, TutorMood.thinking),
+      QuestionPhase.revealed => (AppColors.skySoft, AppColors.ink, TutorMood.neutral),
+      QuestionPhase.answering => (AppColors.honeySoft, AppColors.ink, TutorMood.thinking),
     };
-    final hint = session.current.solution.hint;
     final isLast = session.index == session.problems.length - 1;
     return Container(
       padding: const EdgeInsets.fromLTRB(16, 10, 16, 16),
@@ -463,65 +498,64 @@ class _FeedbackAndActions extends StatelessWidget {
               if (message != null)
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: Row(
-                    children: [
-                      Icon(icon, color: fg, size: 36),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              message,
-                              key: const ValueKey('feedback-message'),
-                              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700, color: fg),
-                            ),
-                            if (phase == QuestionPhase.incorrect && hint != null)
-                              Text('Gợi ý: $hint', style: const TextStyle(fontSize: 18)),
-                            if (phase == QuestionPhase.revealed)
-                              Text(
-                                'Đáp án: ${session.current.solution.answerText}',
-                                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
-                              ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  child: TutorBubble(
+                    key: const ValueKey('feedback-message'),
+                    text: message,
+                    mood: mood,
+                    textColor: fg,
+                    onSpeak: onSpeak,
+                    extra: phase == QuestionPhase.revealed
+                        ? Text(
+                            'Đáp án: ${session.current.solution.answerText}',
+                            style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w700),
+                          )
+                        : null,
                   ),
                 ),
               Row(
                 children: [
                   Expanded(
-                    child: BigButton(
-                      key: const ValueKey('btn-solution'),
-                      label: 'Xem lời giải',
-                      color: AppColors.sky,
-                      outlined: true,
-                      onPressed: onSolution,
-                    ),
+                    // Cô Ong không giải hộ ngay: lúc đầu chỉ có "Gợi ý"; xin gợi ý
+                    // hoặc trả lời rồi mới được "Xem lời giải".
+                    child: session.canViewSolution
+                        ? BigButton(
+                            key: const ValueKey('btn-solution'),
+                            label: 'Xem lời giải',
+                            color: AppColors.sky,
+                            outlined: true,
+                            onPressed: onSolution,
+                          )
+                        : BigButton(
+                            key: const ValueKey('btn-hint'),
+                            label: 'Gợi ý',
+                            icon: Icons.lightbulb_rounded,
+                            color: AppColors.tryAgain,
+                            outlined: true,
+                            onPressed: onHint,
+                          ),
                   ),
                   const SizedBox(width: 12),
                   Expanded(
                     child: switch (phase) {
                       QuestionPhase.answering => BigButton(
-                          key: const ValueKey('btn-check'),
-                          label: 'Kiểm tra',
-                          icon: Icons.check_rounded,
-                          onPressed: onCheck,
-                        ),
+                        key: const ValueKey('btn-check'),
+                        label: 'Kiểm tra',
+                        icon: Icons.check_rounded,
+                        onPressed: onCheck,
+                      ),
                       QuestionPhase.incorrect => BigButton(
-                          key: const ValueKey('btn-retry'),
-                          label: 'Thử lại',
-                          icon: Icons.refresh_rounded,
-                          color: AppColors.tryAgain,
-                          onPressed: onRetry,
-                        ),
+                        key: const ValueKey('btn-retry'),
+                        label: 'Thử lại',
+                        icon: Icons.refresh_rounded,
+                        color: AppColors.tryAgain,
+                        onPressed: onRetry,
+                      ),
                       _ => BigButton(
-                          key: const ValueKey('btn-next'),
-                          label: isLast ? 'Xong' : 'Tiếp tục',
-                          icon: Icons.arrow_forward_rounded,
-                          onPressed: onNext,
-                        ),
+                        key: const ValueKey('btn-next'),
+                        label: isLast ? 'Xong' : 'Tiếp tục',
+                        icon: Icons.arrow_forward_rounded,
+                        onPressed: onNext,
+                      ),
                     },
                   ),
                 ],
@@ -536,13 +570,7 @@ class _FeedbackAndActions extends StatelessWidget {
 
 /// Màn tổng kết cuối bài cho bé: sao, điểm, lời khen.
 class QuizSummary extends StatelessWidget {
-  const QuizSummary({
-    super.key,
-    required this.session,
-    required this.onRestart,
-    required this.onExit,
-    this.reward,
-  });
+  const QuizSummary({super.key, required this.session, required this.onRestart, required this.onExit, this.reward});
 
   final QuizSession session;
   final Future<RewardOutcome?>? reward;
@@ -572,18 +600,16 @@ class QuizSummary extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       for (var i = 0; i < 3; i++)
-                        Icon(
-                          Icons.star_rounded,
-                          size: 72,
-                          color: i < stars ? AppColors.honey : Colors.black12,
-                        ),
+                        Icon(Icons.star_rounded, size: 72, color: i < stars ? AppColors.honey : Colors.black12),
                     ],
                   ),
                   const SizedBox(height: 8),
-                  Text(title,
-                      key: const ValueKey('summary-title'),
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w700)),
+                  Text(
+                    title,
+                    key: const ValueKey('summary-title'),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w700),
+                  ),
                   const SizedBox(height: 12),
                   Text(
                     'Con làm đúng ${session.correctCount}/${session.problems.length} bài\n'

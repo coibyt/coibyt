@@ -7,11 +7,11 @@ sealed class UserAnswer {
 
   /// Lưu được (bài thi làm dở).
   Map<String, dynamic> toJson() => switch (this) {
-        ChoiceAnswer(:final selectedIds) => {'t': 'choice', 'v': selectedIds.toList()},
-        BlankAnswer(:final values) => {'t': 'blank', 'v': values},
-        DragDropAnswer(:final placements) => {'t': 'drag', 'v': placements},
-        MatchingAnswer(:final pairs) => {'t': 'match', 'v': pairs},
-      };
+    ChoiceAnswer(:final selectedIds) => {'t': 'choice', 'v': selectedIds.toList()},
+    BlankAnswer(:final values) => {'t': 'blank', 'v': values},
+    DragDropAnswer(:final placements) => {'t': 'drag', 'v': placements},
+    MatchingAnswer(:final pairs) => {'t': 'match', 'v': pairs},
+  };
 
   static UserAnswer? fromJson(Object? json) {
     if (json is! Map) return null;
@@ -78,8 +78,7 @@ class CheckResult {
   bool get isCorrect => status == CheckStatus.correct;
 
   /// Có tính là một lượt trả lời hay không.
-  bool get countsAsAttempt =>
-      status == CheckStatus.correct || status == CheckStatus.incorrect;
+  bool get countsAsAttempt => status == CheckStatus.correct || status == CheckStatus.incorrect;
 }
 
 /// Chấm một câu trả lời. Hàm thuần (không phụ thuộc UI) để dễ kiểm thử.
@@ -89,17 +88,14 @@ CheckResult checkAnswer(Problem problem, UserAnswer answer) {
     (final FillBlankBody b, final BlankAnswer a) => _checkBlanks(b, a),
     (final DragDropBody b, final DragDropAnswer a) => _checkDragDrop(b, a),
     (final MatchingBody b, final MatchingAnswer a) => _checkMatching(b, a),
-    _ => throw ArgumentError(
-        'Câu trả lời ${answer.runtimeType} không khớp dạng bài ${problem.type.jsonName}',
-      ),
+    _ => throw ArgumentError('Câu trả lời ${answer.runtimeType} không khớp dạng bài ${problem.type.jsonName}'),
   };
 }
 
 CheckResult _checkChoice(MultipleChoiceBody body, ChoiceAnswer answer) {
   if (answer.selectedIds.isEmpty) return const CheckResult(CheckStatus.incomplete);
   final selected = answer.selectedIds;
-  final ok = selected.length == body.correctChoiceIds.length &&
-      selected.containsAll(body.correctChoiceIds);
+  final ok = selected.length == body.correctChoiceIds.length && selected.containsAll(body.correctChoiceIds);
   return CheckResult(
     ok ? CheckStatus.correct : CheckStatus.incorrect,
     partCorrect: {for (final id in selected) id: body.correctChoiceIds.contains(id)},
@@ -116,19 +112,13 @@ bool? checkBlankValue(AnswerRule rule, String input) {
         allowLeadingZeros: rule.allowLeadingZeros,
       );
       return switch (parsed) {
-        ValidNumber(:final value) =>
-          value == rule.value || rule.alsoAccept.contains(value),
+        ValidNumber(:final value) => value == rule.value || rule.alsoAccept.contains(value),
         _ => null,
       };
     case TextAnswerRule():
       if (normalizeText(input).isEmpty) return null;
       return rule.values.any(
-        (v) => textMatches(
-          input,
-          v,
-          ignoreCase: rule.ignoreCase,
-          ignoreDiacritics: rule.ignoreDiacritics,
-        ),
+        (v) => textMatches(input, v, ignoreCase: rule.ignoreCase, ignoreDiacritics: rule.ignoreDiacritics),
       );
   }
 }
@@ -153,10 +143,7 @@ CheckResult _checkBlanks(FillBlankBody body, BlankAnswer answer) {
   if (anyEmpty) return CheckResult(CheckStatus.incomplete, partCorrect: parts);
   if (anyInvalid) return CheckResult(CheckStatus.invalidFormat, partCorrect: parts);
   final allOk = parts.values.every((v) => v);
-  return CheckResult(
-    allOk ? CheckStatus.correct : CheckStatus.incorrect,
-    partCorrect: parts,
-  );
+  return CheckResult(allOk ? CheckStatus.correct : CheckStatus.incorrect, partCorrect: parts);
 }
 
 CheckResult _checkDragDrop(DragDropBody body, DragDropAnswer answer) {
@@ -175,10 +162,7 @@ CheckResult _checkDragDrop(DragDropBody body, DragDropAnswer answer) {
       return CheckResult(CheckStatus.incorrect, partCorrect: parts);
     }
   }
-  return CheckResult(
-    parts.values.every((v) => v) ? CheckStatus.correct : CheckStatus.incorrect,
-    partCorrect: parts,
-  );
+  return CheckResult(parts.values.every((v) => v) ? CheckStatus.correct : CheckStatus.incorrect, partCorrect: parts);
 }
 
 CheckResult _checkMatching(MatchingBody body, MatchingAnswer answer) {
@@ -190,8 +174,5 @@ CheckResult _checkMatching(MatchingBody body, MatchingAnswer answer) {
     }
     parts[entry.key] = chosen == entry.value;
   }
-  return CheckResult(
-    parts.values.every((v) => v) ? CheckStatus.correct : CheckStatus.incorrect,
-    partCorrect: parts,
-  );
+  return CheckResult(parts.values.every((v) => v) ? CheckStatus.correct : CheckStatus.incorrect, partCorrect: parts);
 }

@@ -8,11 +8,11 @@ class LessonProgress {
   LessonProgress({this.bestStars = 0, this.bestPoints = 0, this.plays = 0, this.lastPlayed});
 
   factory LessonProgress.fromJson(Map<String, dynamic> j) => LessonProgress(
-        bestStars: j['bestStars'] as int? ?? 0,
-        bestPoints: j['bestPoints'] as int? ?? 0,
-        plays: j['plays'] as int? ?? 0,
-        lastPlayed: j['lastPlayed'] == null ? null : DateTime.tryParse(j['lastPlayed'] as String),
-      );
+    bestStars: j['bestStars'] as int? ?? 0,
+    bestPoints: j['bestPoints'] as int? ?? 0,
+    plays: j['plays'] as int? ?? 0,
+    lastPlayed: j['lastPlayed'] == null ? null : DateTime.tryParse(j['lastPlayed'] as String),
+  );
 
   int bestStars;
   int bestPoints;
@@ -20,11 +20,11 @@ class LessonProgress {
   DateTime? lastPlayed;
 
   Map<String, dynamic> toJson() => {
-        'bestStars': bestStars,
-        'bestPoints': bestPoints,
-        'plays': plays,
-        if (lastPlayed != null) 'lastPlayed': lastPlayed!.toIso8601String(),
-      };
+    'bestStars': bestStars,
+    'bestPoints': bestPoints,
+    'plays': plays,
+    if (lastPlayed != null) 'lastPlayed': lastPlayed!.toIso8601String(),
+  };
 }
 
 class SkillProgress {
@@ -53,14 +53,14 @@ class ExamRecord {
   });
 
   factory ExamRecord.fromJson(Map<String, dynamic> j) => ExamRecord(
-        examId: j['examId'] as String,
-        score: (j['score'] as num).toDouble(),
-        correct: j['correct'] as int,
-        total: j['total'] as int,
-        usedSeconds: j['usedSeconds'] as int,
-        at: DateTime.parse(j['at'] as String),
-        weakSkillIds: [...(j['weakSkillIds'] as List? ?? const []).cast<String>()],
-      );
+    examId: j['examId'] as String,
+    score: (j['score'] as num).toDouble(),
+    correct: j['correct'] as int,
+    total: j['total'] as int,
+    usedSeconds: j['usedSeconds'] as int,
+    at: DateTime.parse(j['at'] as String),
+    weakSkillIds: [...(j['weakSkillIds'] as List? ?? const []).cast<String>()],
+  );
 
   final String examId;
 
@@ -73,14 +73,14 @@ class ExamRecord {
   final List<String> weakSkillIds;
 
   Map<String, dynamic> toJson() => {
-        'examId': examId,
-        'score': score,
-        'correct': correct,
-        'total': total,
-        'usedSeconds': usedSeconds,
-        'at': at.toIso8601String(),
-        'weakSkillIds': weakSkillIds,
-      };
+    'examId': examId,
+    'score': score,
+    'correct': correct,
+    'total': total,
+    'usedSeconds': usedSeconds,
+    'at': at.toIso8601String(),
+    'weakSkillIds': weakSkillIds,
+  };
 }
 
 class Progress {
@@ -94,37 +94,33 @@ class Progress {
     List<ExamRecord>? exams,
     Map<String, DateTime>? badges,
     this.updatedAt,
-  })  : lessons = lessons ?? {},
-        skills = skills ?? {},
-        activeDays = activeDays ?? {},
-        exams = exams ?? [],
-        badges = badges ?? {};
+  }) : lessons = lessons ?? {},
+       skills = skills ?? {},
+       activeDays = activeDays ?? {},
+       exams = exams ?? [],
+       badges = badges ?? {};
 
   static const version = 1;
 
   factory Progress.fromJson(Map<String, dynamic> j) => Progress(
-        childName: j['childName'] as String? ?? 'Bé',
-        bookId: j['bookId'] as String?,
-        totalPoints: j['totalPoints'] as int? ?? 0,
-        lessons: {
-          for (final e in (j['lessons'] as Map? ?? const {}).entries)
-            e.key as String: LessonProgress.fromJson((e.value as Map).cast<String, dynamic>()),
-        },
-        skills: {
-          for (final e in (j['skills'] as Map? ?? const {}).entries)
-            e.key as String: SkillProgress.fromJson((e.value as Map).cast<String, dynamic>()),
-        },
-        activeDays: {...(j['activeDays'] as List? ?? const []).cast<String>()},
-        exams: [
-          for (final e in (j['exams'] as List? ?? const []))
-            ExamRecord.fromJson((e as Map).cast<String, dynamic>()),
-        ],
-        badges: {
-          for (final e in (j['badges'] as Map? ?? const {}).entries)
-            e.key as String: DateTime.parse(e.value as String),
-        },
-        updatedAt: j['updatedAt'] == null ? null : DateTime.tryParse(j['updatedAt'] as String),
-      );
+    childName: j['childName'] as String? ?? 'Bé',
+    bookId: j['bookId'] as String?,
+    totalPoints: j['totalPoints'] as int? ?? 0,
+    lessons: {
+      for (final e in (j['lessons'] as Map? ?? const {}).entries)
+        e.key as String: LessonProgress.fromJson((e.value as Map).cast<String, dynamic>()),
+    },
+    skills: {
+      for (final e in (j['skills'] as Map? ?? const {}).entries)
+        e.key as String: SkillProgress.fromJson((e.value as Map).cast<String, dynamic>()),
+    },
+    activeDays: {...(j['activeDays'] as List? ?? const []).cast<String>()},
+    exams: [for (final e in (j['exams'] as List? ?? const [])) ExamRecord.fromJson((e as Map).cast<String, dynamic>())],
+    badges: {
+      for (final e in (j['badges'] as Map? ?? const {}).entries) e.key as String: DateTime.parse(e.value as String),
+    },
+    updatedAt: j['updatedAt'] == null ? null : DateTime.tryParse(j['updatedAt'] as String),
+  );
 
   String childName;
   String? bookId;
@@ -198,8 +194,8 @@ class Progress {
       final pick = x == null
           ? y!
           : y == null
-              ? x
-              : (x.total != y.total ? (x.total > y.total ? x : y) : (x.correct >= y.correct ? x : y));
+          ? x
+          : (x.total != y.total ? (x.total > y.total ? x : y) : (x.correct >= y.correct ? x : y));
       skills[id] = SkillProgress(correct: pick.correct, total: pick.total);
     }
     // Trùng (examId, at) — so đến mili-giây như server — thì giữ bản của bên mới hơn.
@@ -227,15 +223,15 @@ class Progress {
   }
 
   Map<String, dynamic> toJson() => {
-        'v': version,
-        'childName': childName,
-        'bookId': ?bookId,
-        'totalPoints': totalPoints,
-        'lessons': {for (final e in lessons.entries) e.key: e.value.toJson()},
-        'skills': {for (final e in skills.entries) e.key: e.value.toJson()},
-        'activeDays': (activeDays.toList()..sort()),
-        'exams': [for (final e in exams) e.toJson()],
-        'badges': {for (final e in badges.entries) e.key: e.value.toIso8601String()},
-        if (updatedAt != null) 'updatedAt': updatedAt!.toIso8601String(),
-      };
+    'v': version,
+    'childName': childName,
+    'bookId': ?bookId,
+    'totalPoints': totalPoints,
+    'lessons': {for (final e in lessons.entries) e.key: e.value.toJson()},
+    'skills': {for (final e in skills.entries) e.key: e.value.toJson()},
+    'activeDays': (activeDays.toList()..sort()),
+    'exams': [for (final e in exams) e.toJson()],
+    'badges': {for (final e in badges.entries) e.key: e.value.toIso8601String()},
+    if (updatedAt != null) 'updatedAt': updatedAt!.toIso8601String(),
+  };
 }

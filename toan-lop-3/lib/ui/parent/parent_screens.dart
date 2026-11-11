@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 import '../../app_state.dart';
+import '../../services/tutor_voice.dart';
 import '../app_theme.dart';
 import '../child_screens.dart';
 import '../widgets/number_pad.dart';
@@ -71,7 +72,11 @@ class _ParentGateDialogState extends State<ParentGateDialog> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Nhập kết quả: $_a × $_b', key: const ValueKey('gate-question'), style: const TextStyle(fontSize: 24)),
+              Text(
+                'Nhập kết quả: $_a × $_b',
+                key: const ValueKey('gate-question'),
+                style: const TextStyle(fontSize: 24),
+              ),
               const SizedBox(height: 8),
               Container(
                 height: 56,
@@ -88,9 +93,8 @@ class _ParentGateDialogState extends State<ParentGateDialog> {
               const SizedBox(height: 8),
               NumberPad(
                 onDigit: (d) => setState(() => _input = _input.length < 4 ? _input + d : _input),
-                onBackspace: () => setState(
-                  () => _input = _input.isEmpty ? '' : _input.substring(0, _input.length - 1),
-                ),
+                onBackspace: () =>
+                    setState(() => _input = _input.isEmpty ? '' : _input.substring(0, _input.length - 1)),
               ),
             ],
           ),
@@ -131,67 +135,97 @@ class ParentScreen extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              _Card(children: [
-                const Text('Tổng quan', style: h),
-                const SizedBox(height: 8),
-                _row('Tên của bé', app.progress.childName),
-                _row('Bộ sách', book?.series.displayName ?? '—'),
-                _row('Tổng điểm', '${app.progress.totalPoints}'),
-                _row('Chuỗi ngày học', '${app.streak} (dài nhất ${app.progress.bestStreak})'),
-                _row('Số ngày đã học', '${app.progress.activeDays.length}'),
-                _row('Gói', app.isVip ? 'VIP' : 'Miễn phí'),
-              ]),
-              _Card(children: [
-                const Text('Kỹ năng cần luyện thêm', style: h),
-                const SizedBox(height: 8),
-                if (weak.isEmpty)
-                  const Text('Chưa có kỹ năng nào dưới 60% câu đúng. Tốt lắm!')
-                else
-                  for (final (skill, p) in weak)
-                    _row(skill.name, '${p.correct}/${p.total} đúng (${(p.ratio * 100).round()}%)',
-                        color: AppColors.tryAgain),
-              ]),
-              _Card(children: [
-                const Text('Các bài đã học', style: h),
-                const SizedBox(height: 8),
-                if (app.progress.lessons.isEmpty) const Text('Bé chưa làm bài nào.'),
-                for (final e in app.progress.lessons.entries)
-                  _row(lessonTitles[e.key] ?? e.key, '${'★' * e.value.bestStars}${'☆' * (3 - e.value.bestStars)} · ${e.value.plays} lần'),
-              ]),
-              _Card(children: [
-                const Text('Lịch sử thi thử', style: h),
-                const SizedBox(height: 8),
-                if (app.progress.exams.isEmpty) const Text('Bé chưa làm đề nào.'),
-                for (final r in app.progress.exams.reversed.take(10))
-                  _row(
-                    '${examTitles[r.examId] ?? r.examId}\n${_date(r.at)}'
-                        '${r.weakSkillIds.isEmpty ? '' : '\nCần ôn: ${r.weakSkillIds.map((id) => app.skillsById[id]?.name ?? id).join('; ')}'}',
-                    '${r.score.round()} điểm (${r.correct}/${r.total})',
-                    color: r.score >= 5 ? AppColors.good : AppColors.tryAgain,
-                  ),
-              ]),
+              _Card(
+                children: [
+                  const Text('Tổng quan', style: h),
+                  const SizedBox(height: 8),
+                  _row('Tên của bé', app.progress.childName),
+                  _row('Bộ sách', book?.series.displayName ?? '—'),
+                  _row('Tổng điểm', '${app.progress.totalPoints}'),
+                  _row('Chuỗi ngày học', '${app.streak} (dài nhất ${app.progress.bestStreak})'),
+                  _row('Số ngày đã học', '${app.progress.activeDays.length}'),
+                  _row('Gói', app.isVip ? 'VIP' : 'Miễn phí'),
+                ],
+              ),
+              _Card(
+                children: [
+                  const Text('Kỹ năng cần luyện thêm', style: h),
+                  const SizedBox(height: 8),
+                  if (weak.isEmpty)
+                    const Text('Chưa có kỹ năng nào dưới 60% câu đúng. Tốt lắm!')
+                  else
+                    for (final (skill, p) in weak)
+                      _row(
+                        skill.name,
+                        '${p.correct}/${p.total} đúng (${(p.ratio * 100).round()}%)',
+                        color: AppColors.tryAgain,
+                      ),
+                ],
+              ),
+              _Card(
+                children: [
+                  const Text('Các bài đã học', style: h),
+                  const SizedBox(height: 8),
+                  if (app.progress.lessons.isEmpty) const Text('Bé chưa làm bài nào.'),
+                  for (final e in app.progress.lessons.entries)
+                    _row(
+                      lessonTitles[e.key] ?? e.key,
+                      '${'★' * e.value.bestStars}${'☆' * (3 - e.value.bestStars)} · ${e.value.plays} lần',
+                    ),
+                ],
+              ),
+              _Card(
+                children: [
+                  const Text('Lịch sử thi thử', style: h),
+                  const SizedBox(height: 8),
+                  if (app.progress.exams.isEmpty) const Text('Bé chưa làm đề nào.'),
+                  for (final r in app.progress.exams.reversed.take(10))
+                    _row(
+                      '${examTitles[r.examId] ?? r.examId}\n${_date(r.at)}'
+                          '${r.weakSkillIds.isEmpty ? '' : '\nCần ôn: ${r.weakSkillIds.map((id) => app.skillsById[id]?.name ?? id).join('; ')}'}',
+                      '${r.score.round()} điểm (${r.correct}/${r.total})',
+                      color: r.score >= 5 ? AppColors.good : AppColors.tryAgain,
+                    ),
+                ],
+              ),
               const AccountSection(),
-              _Card(children: [
-                const Text('Cài đặt', style: h),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.badge_rounded),
-                  title: const Text('Đổi tên của bé'),
-                  onTap: () => _editName(context, app),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.menu_book_rounded),
-                  title: const Text('Đổi bộ sách'),
-                  onTap: () => pushScreen<void>(context, const BookPickerScreen(popOnPick: true)),
-                ),
-                ListTile(
-                  contentPadding: EdgeInsets.zero,
-                  leading: const Icon(Icons.delete_outline_rounded, color: AppColors.tryAgain),
-                  title: const Text('Xoá toàn bộ tiến độ'),
-                  onTap: () => _confirmReset(context, app),
-                ),
-              ]),
+              _Card(
+                children: [
+                  const Text('Cài đặt', style: h),
+                  SwitchListTile(
+                    key: const ValueKey('voice-toggle'),
+                    contentPadding: EdgeInsets.zero,
+                    value: app.voiceEnabled,
+                    onChanged: app.setVoiceEnabled,
+                    secondary: const Icon(Icons.record_voice_over_rounded),
+                    title: const Text('Cô Ong tự đọc to lời thoại'),
+                    subtitle: Text(
+                      AppTutorVoice.instance.hasVietnamese == false
+                          ? 'Máy này chưa có giọng đọc tiếng Việt: cô Ong chỉ hiện chữ. '
+                                '(Android: Cài đặt → Chuyển văn bản thành giọng nói → cài tiếng Việt.)'
+                          : 'Tắt nếu bé học ở nơi cần yên tĩnh.',
+                    ),
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.badge_rounded),
+                    title: const Text('Đổi tên của bé'),
+                    onTap: () => _editName(context, app),
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.menu_book_rounded),
+                    title: const Text('Đổi bộ sách'),
+                    onTap: () => pushScreen<void>(context, const BookPickerScreen(popOnPick: true)),
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.delete_outline_rounded, color: AppColors.tryAgain),
+                    title: const Text('Xoá toàn bộ tiến độ'),
+                    onTap: () => _confirmReset(context, app),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -203,22 +237,22 @@ class ParentScreen extends StatelessWidget {
       '${t.day.toString().padLeft(2, '0')}/${t.month.toString().padLeft(2, '0')}/${t.year}';
 
   static Widget _row(String label, String value, {Color? color}) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(child: Text(label, style: const TextStyle(fontSize: 17))),
-            const SizedBox(width: 12),
-            Flexible(
-              child: Text(
-                value,
-                textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: color),
-              ),
-            ),
-          ],
+    padding: const EdgeInsets.symmetric(vertical: 4),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(child: Text(label, style: const TextStyle(fontSize: 17))),
+        const SizedBox(width: 12),
+        Flexible(
+          child: Text(
+            value,
+            textAlign: TextAlign.right,
+            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: color),
+          ),
         ),
-      );
+      ],
+    ),
+  );
 
   Future<void> _editName(BuildContext context, AppState app) async {
     final controller = TextEditingController(text: app.progress.childName);
@@ -260,14 +294,14 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.only(bottom: 14),
-        child: Material(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
-          ),
-        ),
-      );
+    padding: const EdgeInsets.only(bottom: 14),
+    child: Material(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(18),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: children),
+      ),
+    ),
+  );
 }

@@ -19,6 +19,8 @@ dependencies:
   hive_ce_flutter: ^2.5.0
   # Âm thanh phản hồi đúng/sai (Android, iOS, web).
   audioplayers: ^6.8.1
+  # Giọng đọc của gia sư ảo (Web Speech API trên web, giọng hệ thống trên điện thoại).
+  flutter_tts: ^4.2.5
   # Gọi API máy chủ (đồng bộ tiến độ, tải đề, xác minh VIP).
   http: ^1.6.0
   # Mua VIP trong app (App Store / Google Play).

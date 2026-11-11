@@ -9,6 +9,7 @@ import 'services/content_repository.dart';
 import 'services/kv_store.dart';
 import 'services/sound_service.dart';
 import 'services/sync_service.dart';
+import 'services/tutor_voice.dart';
 import 'ui/app_theme.dart';
 import 'ui/child_screens.dart';
 import 'ui/widgets/bee_mascot.dart';
@@ -16,6 +17,7 @@ import 'ui/widgets/bee_mascot.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppSound.instance = AudioSoundService();
+  AppTutorVoice.instance = TtsTutorVoice();
   runApp(const OngVangApp());
 }
 
@@ -40,7 +42,11 @@ class _OngVangAppState extends State<OngVangApp> {
     );
     await state.init();
     if (AppConfig.hasApi) {
-      final sync = SyncService(api: ApiClient(baseUrl: AppConfig.apiBaseUrl), store: store, app: state)..restore();
+      final sync = SyncService(
+        api: ApiClient(baseUrl: AppConfig.apiBaseUrl),
+        store: store,
+        app: state,
+      )..restore();
       state.sync = sync;
       // Đồng bộ nền khi mở app; lỗi mạng không chặn bé học offline.
       unawaited(sync.syncNow());
