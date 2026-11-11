@@ -1670,6 +1670,12 @@
       "spoken": "hai nhân tám bằng mười sáu, viết sáu nhớ một.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "2 trăm, 0 chục, 9 đơn vị là 209, đọc là hai trăm linh chín.": {
+      "file": "assets/voice/2-tram-0-chuc-9-don-vi-la-209-doc-la-hai-4e8d35-trang.mp3",
+      "ms": 5928,
+      "spoken": "hai trăm, không chục, chín đơn vị là hai trăm linh chín, đọc là hai trăm linh chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "2 viên": {
       "file": "assets/voice/2-vien-8af94d-trang.mp3",
       "ms": 744,
@@ -2106,6 +2112,12 @@
       "file": "assets/voice/230-32-2-82397f-trang.mp3",
       "ms": 3264,
       "spoken": "hai trăm ba mươi trừ ba mươi hai nhân hai bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "234 + 145 = 379. Con đặt thẳng cột và cộng từ hàng đơn vị nhé.": {
+      "file": "assets/voice/234-145-379-con-dat-thang-cot-va-cong-tu-8aa40e-trang.mp3",
+      "ms": 7512,
+      "spoken": "hai trăm ba mươi tư cộng một trăm bốn mươi lăm bằng ba trăm bảy mươi chín. Con đặt thẳng cột và cộng từ hàng đơn vị nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "24": {
@@ -2796,6 +2808,12 @@
       "file": "assets/voice/3-vien-3a2aa6-trang.mp3",
       "ms": 792,
       "spoken": "ba viên",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "3 xe có 4 × 3 = 12 bánh. Có 12 bánh, mỗi xe 4 bánh thì 12 : 4 = 3 xe.": {
+      "file": "assets/voice/3-xe-co-4-3-12-banh-co-12-banh-moi-xe-4-0cd720-trang.mp3",
+      "ms": 7560,
+      "spoken": "ba xe có bốn nhân ba bằng mười hai bánh. Có mười hai bánh, mỗi xe bốn bánh thì mười hai chia bốn bằng ba xe.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3 °C": {
@@ -3638,6 +3656,12 @@
       "spoken": "bốn mét",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "4 nải: 5 × 4 = 20 quả. Chia 20 quả thành nải 5 quả: 20 : 5 = 4 nải.": {
+      "file": "assets/voice/4-nai-5-4-20-qua-chia-20-qua-thanh-nai-5-117df2-trang.mp3",
+      "ms": 9024,
+      "spoken": "bốn nải: năm nhân bốn bằng hai mươi quả. Chia hai mươi quả thành nải năm quả: hai mươi chia năm bằng bốn nải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "4 viên": {
       "file": "assets/voice/4-vien-2514d7-trang.mp3",
       "ms": 912,
@@ -3648,6 +3672,12 @@
       "file": "assets/voice/4-xe-cho-duoc-so-hang-la-0004dd-trang.mp3",
       "ms": 2136,
       "spoken": "bốn xe chở được số hàng là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "4 xe có 3 × 4 = 12 bánh xe. Và 12 : 3 = 4 xe.": {
+      "file": "assets/voice/4-xe-co-3-4-12-banh-xe-va-12-3-4-xe-54debc-trang.mp3",
+      "ms": 5448,
+      "spoken": "bốn xe có ba nhân bốn bằng mười hai bánh xe. Và mười hai chia ba bằng bốn xe.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "4 °C": {
@@ -4968,6 +4998,12 @@
       "file": "assets/voice/6-gio-5856e3-trang.mp3",
       "ms": 1008,
       "spoken": "sáu giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "6 hộp có 4 × 6 = 24 cái bánh. 24 cái xếp mỗi hộp 4 thì 24 : 4 = 6 hộp.": {
+      "file": "assets/voice/6-hop-co-4-6-24-cai-banh-24-cai-xep-moi-fbdeb3-trang.mp3",
+      "ms": 7200,
+      "spoken": "sáu hộp có bốn nhân sáu bằng hai mươi tư cái bánh. hai mươi tư cái xếp mỗi hộp bốn thì hai mươi tư chia bốn bằng sáu hộp.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "6 kho có ? kg gạo.": {
@@ -6632,6 +6668,12 @@
       "spoken": "chín mét bằng bao nhiêu? mm. bảy mươi mi-li-mét bằng bao nhiêu? cm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "9 quả chia đều 3 đĩa thì mỗi đĩa được 9 : 3 = 3 quả.": {
+      "file": "assets/voice/9-qua-chia-deu-3-dia-thi-moi-dia-duoc-9-2cd764-trang.mp3",
+      "ms": 4584,
+      "spoken": "chín quả chia đều ba đĩa thì mỗi đĩa được chín chia ba bằng ba quả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "9 rổ": {
       "file": "assets/voice/9-ro-73efad-trang.mp3",
       "ms": 816,
@@ -8066,6 +8108,42 @@
       "spoken": "Bên kia có tám chiếc bánh.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bên phải có 2 thùng và 6 hộp nhỏ, tức là 260 quả trứng.": {
+      "file": "assets/voice/ben-phai-co-2-thung-va-6-hop-nho-tuc-la-69a431-trang.mp3",
+      "ms": 5064,
+      "spoken": "Bên phải có hai thùng và sáu hộp nhỏ, tức là hai trăm sáu mươi quả trứng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bên phải có 5 quả bóng ở ngoài.": {
+      "file": "assets/voice/ben-phai-co-5-qua-bong-o-ngoai-a0cf51-trang.mp3",
+      "ms": 2088,
+      "spoken": "Bên phải có năm quả bóng ở ngoài.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bên phải có 9 cây bút chì lẻ, đó là 9 đơn vị.": {
+      "file": "assets/voice/ben-phai-co-9-cay-but-chi-le-do-la-9-don-6d8c2c-trang.mp3",
+      "ms": 3624,
+      "spoken": "Bên phải có chín cây bút chì lẻ, đó là chín đơn vị.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bên phải: 1 thùng, 4 chồng, 5 quyển lẻ, là 145 quyển.": {
+      "file": "assets/voice/ben-phai-1-thung-4-chong-5-quyen-le-la-1-2029da-trang.mp3",
+      "ms": 6648,
+      "spoken": "Bên phải: một thùng, bốn chồng, năm quyển lẻ, là một trăm bốn mươi lăm quyển.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bên trái có 3 thùng, tức là 300 quả trứng.": {
+      "file": "assets/voice/ben-trai-co-3-thung-tuc-la-300-qua-trung-9f4147-trang.mp3",
+      "ms": 3264,
+      "spoken": "Bên trái có ba thùng, tức là ba trăm quả trứng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bên trái: 2 thùng, 3 chồng, 4 quyển lẻ, là 234 quyển.": {
+      "file": "assets/voice/ben-trai-2-thung-3-chong-4-quyen-le-la-2-6133e8-trang.mp3",
+      "ms": 6024,
+      "spoken": "Bên trái: hai thùng, ba chồng, bốn quyển lẻ, là hai trăm ba mươi tư quyển.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bình thứ nhất có 1 l 200 ml nước. Bình thứ hai có ít hơn bình thứ nhất 235 ml nước. Hỏi cả hai bình có bao nhiêu mi-li-lít nước?": {
       "file": "assets/voice/binh-thu-nhat-co-1-l-200-ml-nuoc-binh-th-ab7cd6-trang.mp3",
       "ms": 10176,
@@ -8336,6 +8414,12 @@
       "spoken": "Bạn Minh vẽ một hình chữ nhật có chiều dài mười bốn xăng-ti-mét, chiều rộng ngắn hơn chiều dài tám xăng-ti-mét. Hỏi chiều rộng hình chữ nhật dài bao nhiêu xăng-ti-mét?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bạn Nam có 3 chiếc ô tô đồ chơi.": {
+      "file": "assets/voice/ban-nam-co-3-chiec-o-to-do-choi-e766db-trang.mp3",
+      "ms": 2304,
+      "spoken": "Bạn Nam có ba chiếc ô tô đồ chơi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bạn Nam dùng que tính xếp được 3 hình tam giác và 6 hình tứ giác rời nhau, mỗi cạnh là một que tính. Hỏi Nam đã dùng bao nhiêu que tính?": {
       "file": "assets/voice/ban-nam-dung-que-tinh-xep-duoc-3-hinh-ta-19ba37-trang.mp3",
       "ms": 9096,
@@ -8378,6 +8462,30 @@
       "spoken": "Bạn Ngọc nghĩ ra một số. Lấy số đó nhân với tám rồi cộng thêm hai mươi mốt thì được sáu mươi mốt. Hỏi bạn Ngọc đã nghĩ ra số nào?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bạn nhỏ mua 1 hộp và 3 bó, tức là 130 cây bút màu.": {
+      "file": "assets/voice/ban-nho-mua-1-hop-va-3-bo-tuc-la-130-cay-31a878-trang.mp3",
+      "ms": 4536,
+      "spoken": "Bạn nhỏ mua một hộp và ba bó, tức là một trăm ba mươi cây bút màu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bảng chia 2 là phép tính ngược của bảng nhân 2.": {
+      "file": "assets/voice/bang-chia-2-la-phep-tinh-nguoc-cua-bang-3d410d-trang.mp3",
+      "ms": 3144,
+      "spoken": "Bảng chia hai là phép tính ngược của bảng nhân hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bảng chia 3 là phép tính ngược của bảng nhân 3.": {
+      "file": "assets/voice/bang-chia-3-la-phep-tinh-nguoc-cua-bang-ebea39-trang.mp3",
+      "ms": 3120,
+      "spoken": "Bảng chia ba là phép tính ngược của bảng nhân ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bảng chia 4 là phép tính ngược của bảng nhân 4.": {
+      "file": "assets/voice/bang-chia-4-la-phep-tinh-nguoc-cua-bang-1b9f44-trang.mp3",
+      "ms": 2808,
+      "spoken": "Bảng chia bốn là phép tính ngược của bảng nhân bốn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bảng nhân 2: 2 × 1 = 2; 2 × 2 = 4; 2 × 3 = 6; 2 × 4 = 8; 2 × 5 = 10; 2 × 6 = 12; 2 × 7 = 14; 2 × 8 = 16; 2 × 9 = 18; 2 × 10 = 20.": {
       "file": "assets/voice/bang-nhan-2-2-1-2-2-2-4-2-3-6-2-4-8-2-5-0a5348-trang.mp3",
       "ms": 19752,
@@ -8390,6 +8498,12 @@
       "spoken": "Bảng nhân ba chia ba nhân một bằng ba; ba nhân hai bằng sáu; ba nhân ba bằng chín; ba nhân bốn bằng mười hai; ba nhân năm bằng mười lăm; ba nhân sáu bằng mười tám; ba nhân bảy bằng hai mươi mốt; ba nhân tám bằng hai mươi tư; ba nhân chín bằng hai mươi bảy; ba nhân mười bằng ba mươi.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bảng nhân 3: mỗi lần thêm một xe thì thêm 3 bánh.": {
+      "file": "assets/voice/bang-nhan-3-moi-lan-them-mot-xe-thi-them-9b72dd-trang.mp3",
+      "ms": 3744,
+      "spoken": "Bảng nhân ba: mỗi lần thêm một xe thì thêm ba bánh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bảng nhân 4: 4 × 1 = 4; 4 × 2 = 8; 4 × 3 = 12; 4 × 4 = 16; 4 × 5 = 20; 4 × 6 = 24; 4 × 7 = 28; 4 × 8 = 32; 4 × 9 = 36; 4 × 10 = 40.": {
       "file": "assets/voice/bang-nhan-4-4-1-4-4-2-8-4-3-12-4-4-16-4-0535a9-trang.mp3",
       "ms": 21360,
@@ -8400,6 +8514,12 @@
       "file": "assets/voice/bang-nhan-5-5-1-5-5-2-10-5-3-15-5-4-20-5-81adab-trang.mp3",
       "ms": 20712,
       "spoken": "Bảng nhân năm chia năm nhân một bằng năm; năm nhân hai bằng mười; năm nhân ba bằng mười lăm; năm nhân bốn bằng hai mươi; năm nhân năm bằng hai mươi lăm; năm nhân sáu bằng ba mươi; năm nhân bảy bằng ba mươi lăm; năm nhân tám bằng bốn mươi; năm nhân chín bằng bốn mươi lăm; năm nhân mười bằng năm mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bảng nhân 5: thêm một lần thì tích tăng thêm 5.": {
+      "file": "assets/voice/bang-nhan-5-them-mot-lan-thi-tich-tang-t-acf16b-trang.mp3",
+      "ms": 3720,
+      "spoken": "Bảng nhân năm: thêm một lần thì tích tăng thêm năm.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bảng nhân 6: 6 × 1 = 6; 6 × 2 = 12; 6 × 3 = 18; 6 × 4 = 24; 6 × 5 = 30; 6 × 6 = 36; 6 × 7 = 42; 6 × 8 = 48; 6 × 9 = 54; 6 × 10 = 60.": {
@@ -9752,6 +9872,12 @@
       "spoken": "Có một nghìn năm trăm sáu mươi chín quyển sách chia đều cho ba thư viện. Sau đó mỗi thư viện được tặng thêm bốn trăm linh năm quyển. Hỏi lúc này mỗi thư viện có bao nhiêu quyển sách?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Có 10 chiếc dép, xếp mỗi đôi 2 chiếc thì được 10 : 2 = 5 đôi.": {
+      "file": "assets/voice/co-10-chiec-dep-xep-moi-doi-2-chiec-thi-0c856c-trang.mp3",
+      "ms": 4800,
+      "spoken": "Có mười chiếc dép, xếp mỗi đôi hai chiếc thì được mười chia hai bằng năm đôi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Có 18 m vải chia đều vào 6 cuộn. Hỏi mỗi cuộn có bao nhiêu mét vải?": {
       "file": "assets/voice/co-18-m-vai-chia-deu-vao-6-cuon-hoi-moi-742fb3-trang.mp3",
       "ms": 5232,
@@ -9860,6 +9986,12 @@
       "spoken": "Có năm xe chở hàng như nhau chở được tất cả ba mươi hai nghìn hai trăm sáu mươi ki-lô-gam hàng. Hỏi tám xe như thế chở được bao nhiêu ki-lô-gam hàng? tám xe chở được ? kg hàng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Có 5 đôi dép, mỗi đôi có 2 chiếc. 2 × 5 = 10 chiếc dép.": {
+      "file": "assets/voice/co-5-doi-dep-moi-doi-co-2-chiec-2-5-10-c-210355-trang.mp3",
+      "ms": 4728,
+      "spoken": "Có năm đôi dép, mỗi đôi có hai chiếc. hai nhân năm bằng mười chiếc dép.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Có 75 quả cam xếp đều vào 5 giỏ. Hỏi mỗi giỏ có bao nhiêu quả cam?": {
       "file": "assets/voice/co-75-qua-cam-xep-deu-vao-5-gio-hoi-moi-f3c5ad-trang.mp3",
       "ms": 5400,
@@ -9954,6 +10086,12 @@
       "file": "assets/voice/co-bot-di-6-bong-hoa-co-gach-di-day-d5f78f-trang.mp3",
       "ms": 2832,
       "spoken": "Cô bớt đi sáu bông hoa, cô gạch đi đây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Cô có tất cả 8 quả bóng. Một số quả nằm ngoài, một số quả giấu trong túi.": {
+      "file": "assets/voice/co-co-tat-ca-8-qua-bong-mot-so-qua-nam-n-069977-trang.mp3",
+      "ms": 5520,
+      "spoken": "Cô có tất cả tám quả bóng. Một số quả nằm ngoài, một số quả giấu trong túi.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cô ghi phép tính lên bảng, con nhìn kỹ nhé!": {
@@ -12416,6 +12554,12 @@
       "spoken": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ. Lúc đầu có 10 quả.": {
+      "file": "assets/voice/muon-tim-so-bi-tru-ta-lay-hieu-cong-voi-0b8776-trang.mp3",
+      "ms": 5232,
+      "spoken": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ. Lúc đầu có mười quả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Muốn tìm số chia, ta lấy số bị chia chia cho thương.": {
       "file": "assets/voice/muon-tim-so-chia-ta-lay-so-bi-chia-chia-10b559-trang.mp3",
       "ms": 3720,
@@ -12650,6 +12794,12 @@
       "spoken": "Mẹ có năm mươi nghìn đồng. Mẹ mua bốn hộp sữa chua, mỗi hộp giá bảy nghìn đồng. Hỏi mẹ còn lại bao nhiêu tiền?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mẹ có một rổ cam, mẹ biếu bà một ít. Lúc đầu mẹ có mấy quả?": {
+      "file": "assets/voice/me-co-mot-ro-cam-me-bieu-ba-mot-it-luc-d-be2a7c-trang.mp3",
+      "ms": 4392,
+      "spoken": "Mẹ có một rổ cam, mẹ biếu bà một ít. Lúc đầu mẹ có mấy quả?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mẹ hơn con số tuổi là:": {
       "file": "assets/voice/me-hon-con-so-tuoi-la-c13dd1-trang.mp3",
       "ms": 1704,
@@ -12740,6 +12890,12 @@
       "spoken": "Mẹ xếp hai mươi tư cái bánh vào các hộp, mỗi hộp tám cái. Hỏi mẹ xếp được bao nhiêu hộp bánh?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mẹ đã biếu bà 4 quả cam, đây là số trừ.": {
+      "file": "assets/voice/me-da-bieu-ba-4-qua-cam-day-la-so-tru-9841a4-trang.mp3",
+      "ms": 3096,
+      "spoken": "Mẹ đã biếu bà bốn quả cam, đây là số trừ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mẹo bảng nhân 9: cộng hai chữ số của tích luôn được 9. Ví dụ 9 × 4 = 36, và 3 + 6 = 9.": {
       "file": "assets/voice/meo-bang-nhan-9-cong-hai-chu-so-cua-tich-074192-trang.mp3",
       "ms": 8664,
@@ -12810,6 +12966,12 @@
       "file": "assets/voice/moi-goi-keo-nang-89-g-hoi-8-goi-keo-nhu-69c83d-trang.mp3",
       "ms": 5160,
       "spoken": "Mỗi gói kẹo nặng tám mươi chín gam. Hỏi tám gói kẹo như thế nặng bao nhiêu gam?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mỗi hộp có 100 cây bút màu, mỗi bó có 10 cây. Lúc đầu cửa hàng có 256 cây.": {
+      "file": "assets/voice/moi-hop-co-100-cay-but-mau-moi-bo-co-10-f7a1e4-trang.mp3",
+      "ms": 6768,
+      "spoken": "Mỗi hộp có một trăm cây bút màu, mỗi bó có mười cây. Lúc đầu cửa hàng có hai trăm năm mươi sáu cây.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi hộp có 2 cái bánh. Mẹ mua 27 hộp bánh, mẹ biếu bà 18 cái, số bánh còn lại mẹ chia đều cho 9 bạn nhỏ. Hỏi mỗi bạn được mấy cái bánh?": {
@@ -12894,6 +13056,12 @@
       "file": "assets/voice/moi-hop-co-9-cai-banh-me-mua-9-hop-banh-70695e-trang.mp3",
       "ms": 10416,
       "spoken": "Mỗi hộp có chín cái bánh. Mẹ mua chín hộp bánh, mẹ biếu bà sáu mươi lăm cái, số bánh còn lại mẹ chia đều cho tám bạn nhỏ. Hỏi mỗi bạn được mấy cái bánh?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mỗi hộp to bên trái đựng 100 cây bút chì. 2 hộp là 200 cây.": {
+      "file": "assets/voice/moi-hop-to-ben-trai-dung-100-cay-but-chi-0fb902-trang.mp3",
+      "ms": 5280,
+      "spoken": "Mỗi hộp to bên trái đựng một trăm cây bút chì. hai hộp là hai trăm cây.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi hộp được 2 viên kẹo.": {
@@ -13010,6 +13178,12 @@
       "spoken": "Mỗi năm ai cũng thêm một tuổi, nên hai người luôn hơn kém nhau một số tuổi không đổi.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi nải có 5 quả chuối. Đếm thêm 5: 5, 10, 15, 20.": {
+      "file": "assets/voice/moi-nai-co-5-qua-chuoi-dem-them-5-5-10-1-d6fe3a-trang.mp3",
+      "ms": 6168,
+      "spoken": "Mỗi nải có năm quả chuối. Đếm thêm năm chia năm, mười, mười lăm, hai mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi tháng một cửa hàng bán được 13.405 quyển vở. Hỏi trong 4 tháng cửa hàng đó bán được bao nhiêu quyển vở?": {
       "file": "assets/voice/moi-thang-mot-cua-hang-ban-duoc-13-405-q-7bd450-trang.mp3",
       "ms": 7728,
@@ -13028,10 +13202,22 @@
       "spoken": "Mỗi tháng một cửa hàng bán được bốn trăm bảy mươi bảy quyển vở. Hỏi trong hai tháng cửa hàng đó bán được bao nhiêu quyển vở?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi thùng có 100 quyển vở, mỗi chồng buộc dây có 10 quyển.": {
+      "file": "assets/voice/moi-thung-co-100-quyen-vo-moi-chong-buoc-c4e23e-trang.mp3",
+      "ms": 4056,
+      "spoken": "Mỗi thùng có một trăm quyển vở, mỗi chồng buộc dây có mười quyển.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi thùng có 5 l nước mắm. Hỏi 5 thùng như thế có tất cả bao nhiêu lít nước mắm?": {
       "file": "assets/voice/moi-thung-co-5-l-nuoc-mam-hoi-5-thung-nh-c6b8a2-trang.mp3",
       "ms": 5664,
       "spoken": "Mỗi thùng có năm lít nước mắm. Hỏi năm thùng như thế có tất cả bao nhiêu lít nước mắm?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mỗi thùng to có 100 quả trứng, mỗi hộp nhỏ có 10 quả.": {
+      "file": "assets/voice/moi-thung-to-co-100-qua-trung-moi-hop-nh-c7b2cb-trang.mp3",
+      "ms": 4200,
+      "spoken": "Mỗi thùng to có một trăm quả trứng, mỗi hộp nhỏ có mười quả.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi túi có 3 kg đường. Hỏi 7 túi như thế có tất cả bao nhiêu ki-lô-gam đường?": {
@@ -13052,16 +13238,34 @@
       "spoken": "Mỗi xe chở được số hàng là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi xe có 3 bánh. Đếm thêm 3: 3, 6, 9, 12.": {
+      "file": "assets/voice/moi-xe-co-3-banh-dem-them-3-3-6-9-12-42a06d-trang.mp3",
+      "ms": 6096,
+      "spoken": "Mỗi xe có ba bánh. Đếm thêm ba chia ba, sáu, chín, mười hai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi xe tải chở 1.537 kg xi măng. Hỏi 6 xe tải như thế chở được bao nhiêu ki-lô-gam xi măng?": {
       "file": "assets/voice/moi-xe-tai-cho-1-537-kg-xi-mang-hoi-6-xe-e01cba-trang.mp3",
       "ms": 7368,
       "spoken": "Mỗi xe tải chở một nghìn năm trăm ba mươi bảy ki-lô-gam xi măng. Hỏi sáu xe tải như thế chở được bao nhiêu ki-lô-gam xi măng?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Mỗi ô tô có 4 bánh xe.": {
+      "file": "assets/voice/moi-o-to-co-4-banh-xe-8542f7-trang.mp3",
+      "ms": 1944,
+      "spoken": "Mỗi ô tô có bốn bánh xe.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Mỗi đoạn dây dài 15 cm. Hỏi 3 đoạn dây như thế dài bao nhiêu xăng-ti-mét?": {
       "file": "assets/voice/moi-doan-day-dai-15-cm-hoi-3-doan-day-nh-e524ae-trang.mp3",
       "ms": 5712,
       "spoken": "Mỗi đoạn dây dài mười lăm xăng-ti-mét. Hỏi ba đoạn dây như thế dài bao nhiêu xăng-ti-mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mỗi đĩa có 3 quả. 3 đĩa có 3 × 3 = 9 quả.": {
+      "file": "assets/voice/moi-dia-co-3-qua-3-dia-co-3-3-9-qua-b34edb-trang.mp3",
+      "ms": 4416,
+      "spoken": "Mỗi đĩa có ba quả. ba đĩa có ba nhân ba bằng chín quả.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi đĩa được 4 chiếc bánh.": {
@@ -13734,6 +13938,12 @@
       "file": "assets/voice/ngay-6-cua-mot-thang-la-chu-nhat-hoi-nga-71ca9a-trang.mp3",
       "ms": 5136,
       "spoken": "Ngày sáu của một tháng là Chủ nhật. Hỏi ngày hai mươi ba của tháng đó là thứ mấy?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Ngày Tết, mẹ bày 9 quả quýt lên 3 đĩa đều nhau.": {
+      "file": "assets/voice/ngay-tet-me-bay-9-qua-quyt-len-3-dia-deu-cbfe27-trang.mp3",
+      "ms": 3816,
+      "spoken": "Ngày Tết, mẹ bày chín quả quýt lên ba đĩa đều nhau.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Người ta chia đều 53.352 quyển sách cho 8 thư viện. Hỏi mỗi thư viện nhận được bao nhiêu quyển sách?": {
@@ -20948,10 +21158,22 @@
       "spoken": "So sánh số cạnh của khối lập phương và khối hộp chữ nhật.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "So sánh từ hàng trăm: 3 trăm lớn hơn 2 trăm, nên 300 > 260.": {
+      "file": "assets/voice/so-sanh-tu-hang-tram-3-tram-lon-hon-2-tr-bf3f06-trang.mp3",
+      "ms": 6120,
+      "spoken": "So sánh từ hàng trăm: ba trăm lớn hơn hai trăm, nên ba trăm > hai trăm sáu mươi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "So sánh: 10 + 2 × 3 = 16, còn (10 + 2) × 3 = 36. Dấu ngoặc làm thay đổi thứ tự tính.": {
       "file": "assets/voice/so-sanh-10-2-3-16-con-10-2-3-36-dau-ngoa-04041d-trang.mp3",
       "ms": 8496,
       "spoken": "So sánh: mười cộng hai nhân ba bằng mười sáu, còn (mười cộng hai) × ba bằng ba mươi sáu. Dấu ngoặc làm thay đổi thứ tự tính.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Sân trường có 4 chiếc xe đạp ba bánh.": {
+      "file": "assets/voice/san-truong-co-4-chiec-xe-dap-ba-banh-ba682c-trang.mp3",
+      "ms": 2424,
+      "spoken": "Sân trường có bốn chiếc xe đạp ba bánh.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Sân vận động có 2.456 khán giả đến xem bóng đá. Làm tròn số đó đến hàng trăm thì có khoảng bao nhiêu khán giả?": {
@@ -22100,6 +22322,12 @@
       "spoken": "Thêm một lần thừa số thì tích tăng thêm đúng bằng thừa số kia, bớt một lần thì tích giảm đi bằng ấy.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Thêm một ví dụ trong cuộc sống nữa nhé, con nhìn chỗ cô chỉ.": {
+      "file": "assets/voice/them-mot-vi-du-trong-cuoc-song-nua-nhe-c-92ae8f-trang.mp3",
+      "ms": 3936,
+      "spoken": "Thêm một ví dụ trong cuộc sống nữa nhé, con nhìn chỗ cô chỉ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Thùng thứ nhất có 100 l nước. Thùng thứ hai có nhiều hơn thùng thứ nhất 73 l. Thùng thứ ba có ít hơn thùng thứ hai 30 l. Hỏi cả ba thùng có bao nhiêu lít nước?": {
       "file": "assets/voice/thung-thu-nhat-co-100-l-nuoc-thung-thu-h-e4c51b-trang.mp3",
       "ms": 11184,
@@ -22490,6 +22718,12 @@
       "spoken": "Trong phép chia có dư, số dư luôn bé hơn số chia nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Trong rổ còn 6 quả, đây là hiệu. ? - 4 = 6, ta tính 6 + 4 = 10.": {
+      "file": "assets/voice/trong-ro-con-6-qua-day-la-hieu-4-6-ta-ti-2797c0-trang.mp3",
+      "ms": 6528,
+      "spoken": "Trong rổ còn sáu quả, đây là hiệu. ? - bốn bằng sáu, ta tính sáu cộng bốn bằng mười.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Trong tháng 3 năm 2027, thứ Tư đầu tiên là ngày 3. Các thứ Tư tiếp theo là những ngày nào?": {
       "file": "assets/voice/trong-thang-3-nam-2027-thu-tu-dau-tien-l-380287-trang.mp3",
       "ms": 7152,
@@ -22508,10 +22742,22 @@
       "spoken": "Trong túi có bốn tấm thẻ ghi các số một, bốn, năm, sáu. Không nhìn vào túi, rút ra một tấm thẻ. Khả năng “rút được thẻ ghi số tám” là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Trong túi có mấy quả? ? + 5 = 8, ta lấy 8 - 5 = 3 quả.": {
+      "file": "assets/voice/trong-tui-co-may-qua-5-8-ta-lay-8-5-3-qu-0629f9-trang.mp3",
+      "ms": 4704,
+      "spoken": "Trong túi có mấy quả? ? + năm bằng tám, ta lấy tám trừ năm bằng ba quả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Trong túi có rất nhiều viên bi gồm 2 màu: đỏ, xanh. Không nhìn vào túi, phải lấy ra ít nhất bao nhiêu viên bi để chắc chắn có 2 viên bi cùng màu?": {
       "file": "assets/voice/trong-tui-co-rat-nhieu-vien-bi-gom-2-mau-2e1e18-trang.mp3",
       "ms": 10896,
       "spoken": "Trong túi có rất nhiều viên bi gồm hai màu: đỏ, xanh. Không nhìn vào túi, phải lấy ra ít nhất bao nhiêu viên bi để chắc chắn có hai viên bi cùng màu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Trung thu, mẹ mua 6 hộp bánh, mỗi hộp có 4 cái bánh.": {
+      "file": "assets/voice/trung-thu-me-mua-6-hop-banh-moi-hop-co-4-c326e7-trang.mp3",
+      "ms": 3936,
+      "spoken": "Trung thu, mẹ mua sáu hộp bánh, mỗi hộp có bốn cái bánh.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trung điểm chia đoạn thẳng thành hai phần dài bằng nhau.": {
@@ -22544,6 +22790,12 @@
       "spoken": "Trên giấy kẻ ô vuông, mỗi ô vuông có cạnh một xăng-ti-mét. Bạn Lan vẽ hình chữ nhật có chiều dài năm xăng-ti-mét, chiều rộng ba xăng-ti-mét.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Trên kệ còn 1 hộp, 2 bó, 6 cây lẻ: 256 - 130 = 126 cây.": {
+      "file": "assets/voice/tren-ke-con-1-hop-2-bo-6-cay-le-256-130-8cc849-trang.mp3",
+      "ms": 8496,
+      "spoken": "Trên kệ còn một hộp, hai bó, sáu cây lẻ: hai trăm năm mươi sáu trừ một trăm ba mươi bằng một trăm hai mươi sáu cây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Trên thước kẻ, khoảng cách giữa hai vạch nhỏ liền nhau là 1 mm.": {
       "file": "assets/voice/tren-thuoc-ke-khoang-cach-giua-hai-vach-3d7b7f-trang.mp3",
       "ms": 4272,
@@ -22560,6 +22812,18 @@
       "file": "assets/voice/tro-choi-bong-bay-bat-dau-con-cham-vao-q-0071eb-trang.mp3",
       "ms": 5256,
       "spoken": "Trò chơi bóng bay bắt đầu! Con chạm vào quả bóng có đáp án đúng trước khi bóng bay mất nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Trước cửa nhà có mấy đôi dép xếp ngay ngắn.": {
+      "file": "assets/voice/truoc-cua-nha-co-may-doi-dep-xep-ngay-ng-a7304c-trang.mp3",
+      "ms": 2544,
+      "spoken": "Trước cửa nhà có mấy đôi dép xếp ngay ngắn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Trước hết, con xem bức tranh trong cuộc sống này nhé. Cô chỉ cho con xem.": {
+      "file": "assets/voice/truoc-het-con-xem-buc-tranh-trong-cuoc-s-751453-trang.mp3",
+      "ms": 4536,
+      "spoken": "Trước hết, con xem bức tranh trong cuộc sống này nhé. Cô chỉ cho con xem.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trước khi học, con làm bài kiểm tra năng lực cùng cô nhé! Chạm vào ô Kiểm tra năng lực.": {
@@ -22590,6 +22854,12 @@
       "file": "assets/voice/trang-5-ban-xanh-6-ban-vang-ban-d1ee45-trang.mp3",
       "ms": 3864,
       "spoken": "Trắng: năm bạn Xanh: sáu bạn Vàng: ? bạn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Trừ thẳng cột từ hàng đơn vị, rồi thử lại: 126 + 130 = 256.": {
+      "file": "assets/voice/tru-thang-cot-tu-hang-don-vi-roi-thu-lai-075482-trang.mp3",
+      "ms": 7416,
+      "spoken": "Trừ thẳng cột từ hàng đơn vị, rồi thử lại: một trăm hai mươi sáu cộng một trăm ba mươi bằng hai trăm năm mươi sáu.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trừ từ hàng đơn vị trước. Không trừ được thì mượn một chục nhé!": {
@@ -32618,6 +32888,12 @@
       "spoken": "Đáp án đúng là Điểm I nhé!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Đây là 3 cây thước mét đặt nối nhau dưới bảng lớp.": {
+      "file": "assets/voice/day-la-3-cay-thuoc-met-dat-noi-nhau-duoi-1471f9-trang.mp3",
+      "ms": 2784,
+      "spoken": "Đây là ba cây thước mét đặt nối nhau dưới bảng lớp.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!": {
       "file": "assets/voice/day-la-bo-suu-tap-huy-hieu-cua-con-co-ga-ad226e-trang.mp3",
       "ms": 4344,
@@ -32634,6 +32910,12 @@
       "file": "assets/voice/day-la-phong-luyen-thi-con-lam-de-nhu-th-2e3f95-trang.mp3",
       "ms": 3984,
       "spoken": "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đây là sạp chuối ở chợ, có 4 nải chuối nhỏ.": {
+      "file": "assets/voice/day-la-sap-chuoi-o-cho-co-4-nai-chuoi-nh-15540a-trang.mp3",
+      "ms": 3144,
+      "spoken": "Đây là sạp chuối ở chợ, có bốn nải chuối nhỏ.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đã bán (hay đã dùng) 1/3 thì còn lại 2 phần như thế. Con vẽ sơ đồ, tìm giá trị một phần rồi mới tìm cả số.": {
@@ -32808,6 +33090,12 @@
       "file": "assets/voice/dem-them-4-de-nho-bang-4-8-12-16-20-56f987-trang.mp3",
       "ms": 6240,
       "spoken": "Đếm thêm bốn để nhớ bảng: bốn, tám, mười hai, mười sáu, hai mươi, …",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đếm thêm 4: 4, 8, 12, 16, 20, 24.": {
+      "file": "assets/voice/dem-them-4-4-8-12-16-20-24-639bba-trang.mp3",
+      "ms": 6264,
+      "spoken": "Đếm thêm bốn chia bốn, tám, mười hai, mười sáu, hai mươi, hai mươi tư.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đếm thêm 5 rồi điền số còn thiếu:": {
@@ -33696,6 +33984,12 @@
       "file": "assets/voice/uoc-luong-truoc-lam-tron-so-roi-nhan-nha-a3c97c-trang.mp3",
       "ms": 5256,
       "spoken": "Ước lượng trước: làm tròn số rồi nhân nhẩm, để biết kết quả khoảng bao nhiêu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Ở giữa không có bó chục nào, nên hàng chục là 0.": {
+      "file": "assets/voice/o-giua-khong-co-bo-chuc-nao-nen-hang-chu-d7a327-trang.mp3",
+      "ms": 3264,
+      "spoken": "Ở giữa không có bó chục nào, nên hàng chục là không.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "“Gấp mấy lần” thì làm phép chia; “hơn bao nhiêu” thì làm phép trừ.": {
