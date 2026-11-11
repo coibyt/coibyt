@@ -8,6 +8,18 @@
       "spoken": "(mười hai cộng bảy) × hai bằng ba mươi tám",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "(15 + 36) × (6 - 4)": {
+      "file": "assets/voice/15-36-6-4-975419-trang.mp3",
+      "ms": 2544,
+      "spoken": "(mười lăm cộng ba mươi sáu) × (sáu trừ bốn)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "(15 + 36) × 6 - 4": {
+      "file": "assets/voice/15-36-6-4-e0a1af-trang.mp3",
+      "ms": 2832,
+      "spoken": "(mười lăm cộng ba mươi sáu) × sáu trừ bốn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "(20 + 6) × 2 = 52 (cm)": {
       "file": "assets/voice/20-6-2-52-cm-56c0f4-trang.mp3",
       "ms": 3024,
@@ -152,10 +164,22 @@
       "spoken": "một nghìn ba trăm trừ một trăm ba mươi bằng một nghìn một trăm bảy mươi ( mi-li-lít)",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "1.337 × 5 = ?": {
+      "file": "assets/voice/1-337-5-5d18c7-trang.mp3",
+      "ms": 3408,
+      "spoken": "một nghìn ba trăm ba mươi bảy nhân năm bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "1.505 + 7.?51 = 9.356": {
       "file": "assets/voice/1-505-7-51-9-356-70e402-trang.mp3",
       "ms": 5952,
       "spoken": "một nghìn năm trăm linh năm cộng bảy.?năm mươi mốt bằng chín nghìn ba trăm năm mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "1.5?5 + 7.?51 = ?.356": {
+      "file": "assets/voice/1-5-5-7-51-356-eb3938-trang.mp3",
+      "ms": 6888,
+      "spoken": "một.năm?năm cộng bảy.?năm mươi mốt bằng bao nhiêu?.ba trăm năm mươi sáu",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "1.624 × 5 = ?": {
@@ -194,6 +218,18 @@
       "spoken": "mười chia năm bằng hai",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "10 cm": {
+      "file": "assets/voice/10-cm-6e7b61-trang.mp3",
+      "ms": 1224,
+      "spoken": "mười xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "10 giờ": {
+      "file": "assets/voice/10-gio-023430-trang.mp3",
+      "ms": 936,
+      "spoken": "mười giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "10.000 × 2 + 5.000 = 25.000": {
       "file": "assets/voice/10-000-2-5-000-25-000-8ed8ca-trang.mp3",
       "ms": 3504,
@@ -201,10 +237,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "10.112 × 3 = ?": {
-      "file": "assets/voice/10-112-3-4910ad-lily.mp3",
-      "ms": 2856,
+      "file": "assets/voice/10-112-3-4910ad-trang.mp3",
+      "ms": 2664,
       "spoken": "mười nghìn một trăm mười hai nhân ba bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "10.112 × 3 = ? 10.112 × 3 = ?": {
       "file": "assets/voice/10-112-3-10-112-3-c780b6-trang.mp3",
@@ -213,10 +249,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "10.643 × 7 = ?": {
-      "file": "assets/voice/10-643-7-540e75-lily.mp3",
-      "ms": 3288,
+      "file": "assets/voice/10-643-7-540e75-trang.mp3",
+      "ms": 3168,
       "spoken": "mười nghìn sáu trăm bốn mươi ba nhân bảy bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "10.643 × 7 = ? 10.643 × 7 = ?": {
       "file": "assets/voice/10-643-7-10-643-7-6f3bb8-trang.mp3",
@@ -235,6 +271,18 @@
       "ms": 3288,
       "spoken": "một trăm linh chín ... một trăm linh chín.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "11": {
+      "file": "assets/voice/11-1ceb2b-trang.mp3",
+      "ms": 648,
+      "spoken": "mười một",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "11 cm": {
+      "file": "assets/voice/11-cm-0d416f-trang.mp3",
+      "ms": 1392,
+      "spoken": "mười một xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "12": {
       "file": "assets/voice/12-1deb2d-trang.mp3",
@@ -278,6 +326,18 @@
       "spoken": "mười hai chia năm được hai, viết hai. hai nhân năm bằng mười; mười hai trừ mười bằng hai.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "12 cm": {
+      "file": "assets/voice/12-cm-8d1cd7-trang.mp3",
+      "ms": 1392,
+      "spoken": "mười hai xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "12 giờ": {
+      "file": "assets/voice/12-gio-96b2f0-trang.mp3",
+      "ms": 1152,
+      "spoken": "mười hai giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "12 × 5 = 60 (cm)": {
       "file": "assets/voice/12-5-60-cm-17ffc7-trang.mp3",
       "ms": 2832,
@@ -290,10 +350,22 @@
       "spoken": "mười hai nghìn sáu trăm ba mươi lăm chia năm bằng hai nghìn năm trăm hai mươi bảy",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "12.697 × 2": {
+      "file": "assets/voice/12-697-2-c62d92-trang.mp3",
+      "ms": 2640,
+      "spoken": "mười hai nghìn sáu trăm chín mươi bảy nhân hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "120 × 5 = 600": {
       "file": "assets/voice/120-5-600-b2d14b-trang.mp3",
       "ms": 2688,
       "spoken": "một trăm hai mươi nhân năm bằng sáu trăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "129.360 l": {
+      "file": "assets/voice/129-360-l-306704-trang.mp3",
+      "ms": 2544,
+      "spoken": "một trăm hai mươi chín nghìn ba trăm sáu mươi lít",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "13 giờ là 1 giờ chiều, 20 giờ là 8 giờ tối.": {
@@ -306,6 +378,12 @@
       "file": "assets/voice/133-49-84-cm-b2e4bb-trang.mp3",
       "ms": 4248,
       "spoken": "một trăm ba mươi ba trừ bốn mươi chín bằng tám mươi tư ( xăng-ti-mét²)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "136 l": {
+      "file": "assets/voice/136-l-a15038-trang.mp3",
+      "ms": 1440,
+      "spoken": "một trăm ba mươi sáu lít",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "14": {
@@ -338,6 +416,18 @@
       "spoken": "mười bốn nghìn không trăm bảy mươi nhân bốn bằng bao nhiêu? mười bốn nghìn không trăm bảy mươi nhân bốn bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "14.599 × 4": {
+      "file": "assets/voice/14-599-4-d1218c-trang.mp3",
+      "ms": 2688,
+      "spoken": "mười bốn nghìn năm trăm chín mươi chín nhân bốn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "140": {
+      "file": "assets/voice/140-6f2953-trang.mp3",
+      "ms": 1368,
+      "spoken": "một trăm bốn mươi",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "142 × 4 = ? 142 × 4 = ?": {
       "file": "assets/voice/142-4-142-4-6471ee-trang.mp3",
       "ms": 5424,
@@ -350,10 +440,22 @@
       "spoken": "mười lăm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "15 + 36 × (6 - 4)": {
+      "file": "assets/voice/15-36-6-4-29bb3b-trang.mp3",
+      "ms": 2400,
+      "spoken": "mười lăm cộng ba mươi sáu × (sáu trừ bốn)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "15 : 3 × 5 = ? 15 : 3 × 5 = ?": {
       "file": "assets/voice/15-3-5-15-3-5-4bbf64-trang.mp3",
       "ms": 5328,
       "spoken": "mười lăm chia ba nhân năm bằng bao nhiêu? mười lăm chia ba nhân năm bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "15 × 5": {
+      "file": "assets/voice/15-5-8ee2ed-trang.mp3",
+      "ms": 1320,
+      "spoken": "mười lăm nhân năm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "15 × 6 = ? 15 × 6 = ?": {
@@ -399,15 +501,21 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "16 × 5 = ?": {
-      "file": "assets/voice/16-5-c4060a-lily.mp3",
-      "ms": 2160,
+      "file": "assets/voice/16-5-c4060a-trang.mp3",
+      "ms": 2064,
       "spoken": "mười sáu nhân năm bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "160 : 8 = 20": {
       "file": "assets/voice/160-8-20-35b705-trang.mp3",
       "ms": 2904,
       "spoken": "một trăm sáu mươi chia tám bằng hai mươi",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "164 cm²": {
+      "file": "assets/voice/164-cm-dd9a3b-trang.mp3",
+      "ms": 2400,
+      "spoken": "một trăm sáu mươi tư xăng-ti-mét²",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "17 + 22 = 39 (tuổi)": {
@@ -420,6 +528,12 @@
       "file": "assets/voice/17-9-153-cm-fd707c-trang.mp3",
       "ms": 3216,
       "spoken": "mười bảy nhân chín bằng một trăm năm mươi ba ( xăng-ti-mét²)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "17.180 × 4": {
+      "file": "assets/voice/17-180-4-cff3b8-trang.mp3",
+      "ms": 2448,
+      "spoken": "mười bảy nghìn một trăm tám mươi nhân bốn",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "17.892 : 2 = 8.946 (cây)": {
@@ -445,6 +559,12 @@
       "ms": 5568,
       "spoken": "mười tám; ?; ba mươi sáu; bốn mươi lăm; năm mươi tư; sáu mươi ba.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "19 × 4": {
+      "file": "assets/voice/19-4-a51a2c-trang.mp3",
+      "ms": 1344,
+      "spoken": "mười chín nhân bốn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "19 × 7 = 133 (cm²)": {
       "file": "assets/voice/19-7-133-cm-ea5dec-trang.mp3",
@@ -536,6 +656,12 @@
       "spoken": "hai nhân ? bằng mười tám hai nhân ? bằng mười tám",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "2.014 + 681 - 1.298": {
+      "file": "assets/voice/2-014-681-1-298-0183a4-trang.mp3",
+      "ms": 5064,
+      "spoken": "hai nghìn không trăm mười bốn cộng sáu trăm tám mươi mốt trừ một nghìn hai trăm chín mươi tám",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "2.097 - 1.606 = 491 (m)": {
       "file": "assets/voice/2-097-1-606-491-m-9239dd-trang.mp3",
       "ms": 5568,
@@ -546,6 +672,12 @@
       "file": "assets/voice/2-097-3-699-m-785f81-trang.mp3",
       "ms": 4128,
       "spoken": "hai nghìn không trăm chín mươi bảy chia ba bằng sáu trăm chín mươi chín ( mét)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "2.129 + 2.776 = ?": {
+      "file": "assets/voice/2-129-2-776-7c4ba8-trang.mp3",
+      "ms": 4296,
+      "spoken": "hai nghìn một trăm hai mươi chín cộng hai nghìn bảy trăm bảy mươi sáu bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "2.129 + 2.776 = ? 2.129 + 2.776 = ?": {
@@ -572,6 +704,30 @@
       "spoken": "hai nghìn hai trăm sáu mươi ... hai nghìn tám trăm sáu mươi",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "2.375": {
+      "file": "assets/voice/2-375-8ae4aa-trang.mp3",
+      "ms": 1896,
+      "spoken": "hai nghìn ba trăm bảy mươi lăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "2.376": {
+      "file": "assets/voice/2-376-89e4a9-trang.mp3",
+      "ms": 1800,
+      "spoken": "hai nghìn ba trăm bảy mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "2.377": {
+      "file": "assets/voice/2-377-88e4a7-trang.mp3",
+      "ms": 1920,
+      "spoken": "hai nghìn ba trăm bảy mươi bảy",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "2.386": {
+      "file": "assets/voice/2-386-980513-trang.mp3",
+      "ms": 2040,
+      "spoken": "hai nghìn ba trăm tám mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "2.586 ... 2.786": {
       "file": "assets/voice/2-586-2-786-149441-trang.mp3",
       "ms": 3984,
@@ -596,6 +752,12 @@
       "spoken": "hai mươi nghìn hai trăm hai mươi tư bằng hai mươi nghìn cộng hai trăm cộng hai mươi cộng bốn",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "20.831": {
+      "file": "assets/voice/20-831-641544-trang.mp3",
+      "ms": 2136,
+      "spoken": "hai mươi nghìn tám trăm ba mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "200 mm = 2 dm.": {
       "file": "assets/voice/200-mm-2-dm-47e19e-lily.mp3",
       "ms": 2448,
@@ -606,6 +768,12 @@
       "file": "assets/voice/209-200-9-144c42-trang.mp3",
       "ms": 2784,
       "spoken": "hai trăm linh chín bằng hai trăm cộng chín",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "209 cm²": {
+      "file": "assets/voice/209-cm-a41628-trang.mp3",
+      "ms": 1728,
+      "spoken": "hai trăm linh chín xăng-ti-mét²",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "21": {
@@ -627,15 +795,27 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "21 × 3 = ?": {
-      "file": "assets/voice/21-3-0c9940-lily.mp3",
-      "ms": 2352,
+      "file": "assets/voice/21-3-0c9940-trang.mp3",
+      "ms": 2376,
       "spoken": "hai mươi mốt nhân ba bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "21 × 3 = ? 21 × 3 = ?": {
       "file": "assets/voice/21-3-21-3-9b1372-trang.mp3",
       "ms": 4224,
       "spoken": "hai mươi mốt nhân ba bằng bao nhiêu? hai mươi mốt nhân ba bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "218 cm²": {
+      "file": "assets/voice/218-cm-a74dfc-trang.mp3",
+      "ms": 2304,
+      "spoken": "hai trăm mười tám xăng-ti-mét²",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "22 l": {
+      "file": "assets/voice/22-l-74234f-trang.mp3",
+      "ms": 984,
+      "spoken": "hai mươi hai lít",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "24": {
@@ -704,10 +884,28 @@
       "spoken": "hai mươi lăm mi-li-lít × ba bằng bao nhiêu? ml.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "26 l": {
+      "file": "assets/voice/26-l-c126c4-trang.mp3",
+      "ms": 984,
+      "spoken": "hai mươi sáu lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "26 × 3": {
+      "file": "assets/voice/26-3-7b0f0d-trang.mp3",
+      "ms": 1536,
+      "spoken": "hai mươi sáu nhân ba",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "26 × 3 = 78": {
       "file": "assets/voice/26-3-78-5ba891-trang.mp3",
       "ms": 2736,
       "spoken": "hai mươi sáu nhân ba bằng bảy mươi tám",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "264 + 392 - 81 × 3 = ?": {
+      "file": "assets/voice/264-392-81-3-19936d-trang.mp3",
+      "ms": 5352,
+      "spoken": "hai trăm sáu mươi tư cộng ba trăm chín mươi hai trừ tám mươi mốt nhân ba bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "27": {
@@ -720,6 +918,12 @@
       "file": "assets/voice/27-9-3-l-0cafc0-trang.mp3",
       "ms": 2280,
       "spoken": "hai mươi bảy chia chín bằng ba ( lít)",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "27 cái": {
+      "file": "assets/voice/27-cai-48be44-trang.mp3",
+      "ms": 1344,
+      "spoken": "hai mươi bảy cái",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "27 × 3 = 81": {
@@ -903,10 +1107,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "3 đoạn dây dài ? cm.": {
-      "file": "assets/voice/3-doan-day-dai-cm-a0ea96-lily.mp3",
-      "ms": 2424,
+      "file": "assets/voice/3-doan-day-dai-cm-a0ea96-trang.mp3",
+      "ms": 2400,
       "spoken": "ba đoạn dây dài ? cm.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "3 đoạn dây, mỗi đoạn 15 cm: ta làm phép nhân 15 × 3.": {
       "file": "assets/voice/3-doan-day-moi-doan-15-cm-ta-lam-phep-nh-96d2c5-trang.mp3",
@@ -950,6 +1154,24 @@
       "spoken": "ba nghìn tám trăm hai mươi chia bốn bằng chín trăm năm mươi lăm (chiếc)",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "3.821": {
+      "file": "assets/voice/3-821-7e5cd4-trang.mp3",
+      "ms": 1824,
+      "spoken": "ba nghìn tám trăm hai mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "3.831": {
+      "file": "assets/voice/3-831-025fe3-trang.mp3",
+      "ms": 1872,
+      "spoken": "ba nghìn tám trăm ba mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "3.841": {
+      "file": "assets/voice/3-841-fa4e8d-trang.mp3",
+      "ms": 1872,
+      "spoken": "ba nghìn tám trăm bốn mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "3.856 - 41? = 3.438": {
       "file": "assets/voice/3-856-41-3-438-f5e2dd-trang.mp3",
       "ms": 5472,
@@ -972,6 +1194,24 @@
       "file": "assets/voice/30-5-6-07498c-trang.mp3",
       "ms": 1920,
       "spoken": "ba mươi chia năm bằng sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "30.931": {
+      "file": "assets/voice/30-931-b7dd66-trang.mp3",
+      "ms": 1872,
+      "spoken": "ba mươi nghìn chín trăm ba mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "30.941": {
+      "file": "assets/voice/30-941-bfeebb-trang.mp3",
+      "ms": 2016,
+      "spoken": "ba mươi nghìn chín trăm bốn mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "31.031": {
+      "file": "assets/voice/31-031-482424-trang.mp3",
+      "ms": 2016,
+      "spoken": "ba mươi mốt nghìn không trăm ba mươi mốt",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "316 + 281 - 13 = 597 - 13 = 584": {
@@ -1040,6 +1280,12 @@
       "spoken": "ba mươi lăm cộng ba mươi chín nhân sáu ... (ba mươi lăm cộng ba mươi chín) × sáu.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "35.196 quyển": {
+      "file": "assets/voice/35-196-quyen-94a168-trang.mp3",
+      "ms": 2568,
+      "spoken": "ba mươi lăm nghìn một trăm chín mươi sáu quyển",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "35.608 - ? = 21.768 - 17.585 35.608 - ? = 21.768 - 17.585": {
       "file": "assets/voice/35-608-21-768-17-585-35-608-21-768-17-58-1f0a86-trang.mp3",
       "ms": 14424,
@@ -1100,6 +1346,18 @@
       "spoken": "ba trăm bảy mươi bảy cộng năm trăm hai mươi bảy bằng bao nhiêu? ba trăm bảy mươi bảy cộng năm trăm hai mươi bảy bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "38 l": {
+      "file": "assets/voice/38-l-c2d3ef-trang.mp3",
+      "ms": 912,
+      "spoken": "ba mươi tám lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "38 × 2": {
+      "file": "assets/voice/38-2-8016fb-trang.mp3",
+      "ms": 1752,
+      "spoken": "ba mươi tám nhân hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "38.263 - 21.112 = ?": {
       "file": "assets/voice/38-263-21-112-63b29a-lily.mp3",
       "ms": 5544,
@@ -1110,6 +1368,12 @@
       "file": "assets/voice/38-263-21-112-38-263-21-112-10637e-trang.mp3",
       "ms": 10704,
       "spoken": "ba mươi tám nghìn hai trăm sáu mươi ba trừ hai mươi mốt nghìn một trăm mười hai bằng bao nhiêu? ba mươi tám nghìn hai trăm sáu mươi ba trừ hai mươi mốt nghìn một trăm mười hai bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "38.310 × 2": {
+      "file": "assets/voice/38-310-2-76f2f3-trang.mp3",
+      "ms": 2496,
+      "spoken": "ba mươi tám nghìn ba trăm mười nhân hai",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "380 + 426 = ? 380 + 426 = ?": {
@@ -1190,6 +1454,12 @@
       "spoken": "bốn cộng bảy bằng mười một, viết một nhớ một.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "4 giờ": {
+      "file": "assets/voice/4-gio-a9e24e-trang.mp3",
+      "ms": 912,
+      "spoken": "bốn giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "4 xe chở được số hàng là:": {
       "file": "assets/voice/4-xe-cho-duoc-so-hang-la-0004dd-trang.mp3",
       "ms": 2136,
@@ -1237,6 +1507,12 @@
       "ms": 2976,
       "spoken": "bốn nghìn một trăm mi-li-lít ... bốn lít.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "4.171": {
+      "file": "assets/voice/4-171-a96bfb-trang.mp3",
+      "ms": 1656,
+      "spoken": "bốn nghìn một trăm bảy mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "4.213 × 2 = ?": {
       "file": "assets/voice/4-213-2-832658-lily.mp3",
@@ -1310,6 +1586,12 @@
       "spoken": "bốn mươi chia tám bằng năm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "40 cm": {
+      "file": "assets/voice/40-cm-827e71-trang.mp3",
+      "ms": 1320,
+      "spoken": "bốn mươi xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "40.443 - 22.551 = 17.892 (cây)": {
       "file": "assets/voice/40-443-22-551-17-892-cay-e09fc9-trang.mp3",
       "ms": 7560,
@@ -1327,6 +1609,12 @@
       "ms": 4944,
       "spoken": "bốn mươi hai nghìn hai trăm ba mươi mốt trừ ? bằng mười lăm nghìn ba trăm mười hai.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "43.122 l": {
+      "file": "assets/voice/43-122-l-4a8be5-trang.mp3",
+      "ms": 2184,
+      "spoken": "bốn mươi ba nghìn một trăm hai mươi hai lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "43.632 : 4 = ?": {
       "file": "assets/voice/43-632-4-edba89-lily.mp3",
@@ -1352,10 +1640,22 @@
       "spoken": "bốn mươi tư trừ ba mươi bảy bằng bảy (cây)",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "44.000 con": {
+      "file": "assets/voice/44-000-con-78dfd2-trang.mp3",
+      "ms": 1680,
+      "spoken": "bốn mươi tư nghìn con",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "44.027 ... 45.027": {
       "file": "assets/voice/44-027-45-027-6354d7-trang.mp3",
       "ms": 4416,
       "spoken": "bốn mươi tư nghìn không trăm hai mươi bảy ... bốn mươi lăm nghìn không trăm hai mươi bảy",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "44.675 con": {
+      "file": "assets/voice/44-675-con-d1bdca-trang.mp3",
+      "ms": 2544,
+      "spoken": "bốn mươi tư nghìn sáu trăm bảy mươi lăm con",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "45 : 9 = 5.": {
@@ -1370,10 +1670,22 @@
       "spoken": "bốn mươi lăm chia chín bằng bao nhiêu?",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "45.000 con": {
+      "file": "assets/voice/45-000-con-ebf83b-trang.mp3",
+      "ms": 1584,
+      "spoken": "bốn mươi lăm nghìn con",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "45.646 × 2 = 91.292": {
       "file": "assets/voice/45-646-2-91-292-8aea9a-trang.mp3",
       "ms": 5592,
       "spoken": "bốn mươi lăm nghìn sáu trăm bốn mươi sáu nhân hai bằng chín mươi mốt nghìn hai trăm chín mươi hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "46.000 con": {
+      "file": "assets/voice/46-000-con-aeafa9-trang.mp3",
+      "ms": 1632,
+      "spoken": "bốn mươi sáu nghìn con",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "475 - 171 + 128 = ? 475 - 171 + 128 = ?": {
@@ -1460,6 +1772,12 @@
       "spoken": "năm cộng bảy bằng mười hai, viết hai nhớ một.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "5 giờ": {
+      "file": "assets/voice/5-gio-6a67be-trang.mp3",
+      "ms": 816,
+      "spoken": "năm giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "5 không trừ được 6, lấy 15 trừ 6 bằng 9, viết 9 nhớ 1.": {
       "file": "assets/voice/5-khong-tru-duoc-6-lay-15-tru-6-bang-9-v-e03725-trang.mp3",
       "ms": 5160,
@@ -1520,6 +1838,24 @@
       "spoken": "năm nghìn không trăm linh năm bằng năm nghìn cộng năm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "5.169; 5.144; 5.119; ?; ?; 5.044; 5.019": {
+      "file": "assets/voice/5-169-5-144-5-119-5-044-5-019-f6625b-trang.mp3",
+      "ms": 11016,
+      "spoken": "năm nghìn một trăm sáu mươi chín; năm nghìn một trăm bốn mươi tư; năm nghìn một trăm mười chín; ?; ?; năm nghìn không trăm bốn mươi tư; năm nghìn không trăm mười chín",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "5.375 - 3.238 - 1.966": {
+      "file": "assets/voice/5-375-3-238-1-966-8288dd-trang.mp3",
+      "ms": 6024,
+      "spoken": "năm nghìn ba trăm bảy mươi lăm trừ ba nghìn hai trăm ba mươi tám trừ một nghìn chín trăm sáu mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "5.526 - 1.640 - 3.363": {
+      "file": "assets/voice/5-526-1-640-3-363-5e3617-trang.mp3",
+      "ms": 6480,
+      "spoken": "năm nghìn năm trăm hai mươi sáu trừ một nghìn sáu trăm bốn mươi trừ ba nghìn ba trăm sáu mươi ba",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "5.600 - 50 = 5.550": {
       "file": "assets/voice/5-600-50-5-550-4ff9b5-trang.mp3",
       "ms": 4008,
@@ -1527,10 +1863,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "50.481 + 32.876 = ?": {
-      "file": "assets/voice/50-481-32-876-fccd56-lily.mp3",
-      "ms": 5712,
+      "file": "assets/voice/50-481-32-876-fccd56-trang.mp3",
+      "ms": 5088,
       "spoken": "năm mươi nghìn bốn trăm tám mươi mốt cộng ba mươi hai nghìn tám trăm bảy mươi sáu bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "50.481 + 32.876 = ? 50.481 + 32.876 = ?": {
       "file": "assets/voice/50-481-32-876-50-481-32-876-ae7928-trang.mp3",
@@ -1610,6 +1946,24 @@
       "spoken": "năm mươi sáu nghìn không trăm tám mươi tư cộng mười ba nghìn hai trăm sáu mươi bảy bằng bao nhiêu? năm mươi sáu nghìn không trăm tám mươi tư cộng mười ba nghìn hai trăm sáu mươi bảy bằng bao nhiêu?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "57.429 quyển": {
+      "file": "assets/voice/57-429-quyen-5e3f64-trang.mp3",
+      "ms": 2472,
+      "spoken": "năm mươi bảy nghìn bốn trăm hai mươi chín quyển",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "57.434 quyển": {
+      "file": "assets/voice/57-434-quyen-9cf9ec-trang.mp3",
+      "ms": 2544,
+      "spoken": "năm mươi bảy nghìn bốn trăm ba mươi tư quyển",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "57.444 quyển": {
+      "file": "assets/voice/57-444-quyen-b3e204-trang.mp3",
+      "ms": 2544,
+      "spoken": "năm mươi bảy nghìn bốn trăm bốn mươi tư quyển",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "59 mm + 14 mm = ?": {
       "file": "assets/voice/59-mm-14-mm-b509ef-lily.mp3",
       "ms": 3576,
@@ -1670,6 +2024,12 @@
       "spoken": "sáu cộng năm bằng mười một, thêm một bằng mười hai, viết hai nhớ một.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "6 giờ": {
+      "file": "assets/voice/6-gio-5856e3-trang.mp3",
+      "ms": 1008,
+      "spoken": "sáu giờ",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "6 trừ 5 bằng 1, viết 1.": {
       "file": "assets/voice/6-tru-5-bang-1-viet-1-0ac460-trang.mp3",
       "ms": 2400,
@@ -1718,6 +2078,12 @@
       "spoken": "sáu nghìn gam ... sáu ki-lô-gam",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "6.551 - 3.593 - 1.980": {
+      "file": "assets/voice/6-551-3-593-1-980-efa9bd-trang.mp3",
+      "ms": 5760,
+      "spoken": "sáu nghìn năm trăm năm mươi mốt trừ ba nghìn năm trăm chín mươi ba trừ một nghìn chín trăm tám mươi",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "6.933 - 5.004 = 1.929": {
       "file": "assets/voice/6-933-5-004-1-929-e75573-trang.mp3",
       "ms": 5736,
@@ -1748,10 +2114,22 @@
       "spoken": "sáu mươi trừ năm mươi lăm bằng năm (phút)",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "61": {
+      "file": "assets/voice/61-14e8e0-trang.mp3",
+      "ms": 960,
+      "spoken": "sáu mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "61.844 ... 61.844": {
       "file": "assets/voice/61-844-61-844-686839-trang.mp3",
       "ms": 4992,
       "spoken": "sáu mươi mốt nghìn tám trăm bốn mươi tư ... sáu mươi mốt nghìn tám trăm bốn mươi tư",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "62 cái": {
+      "file": "assets/voice/62-cai-9fcedf-trang.mp3",
+      "ms": 1344,
+      "spoken": "sáu mươi hai cái",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "628 + 186 = 814": {
@@ -1776,6 +2154,12 @@
       "file": "assets/voice/63-427-10-641-63-427-10-641-474869-trang.mp3",
       "ms": 9264,
       "spoken": "sáu mươi ba nghìn bốn trăm hai mươi bảy trừ mười nghìn sáu trăm bốn mươi mốt bằng bao nhiêu? sáu mươi ba nghìn bốn trăm hai mươi bảy trừ mười nghìn sáu trăm bốn mươi mốt bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "66": {
+      "file": "assets/voice/66-1be8eb-trang.mp3",
+      "ms": 1176,
+      "spoken": "sáu mươi sáu",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "66 + ? = 364 66 + ? = 364": {
@@ -1818,6 +2202,12 @@
       "file": "assets/voice/682-248-434-7cf079-trang.mp3",
       "ms": 4944,
       "spoken": "sáu trăm tám mươi hai trừ hai trăm bốn mươi tám bằng bốn trăm ba mươi tư",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "69": {
+      "file": "assets/voice/69-0ce8d4-trang.mp3",
+      "ms": 1056,
+      "spoken": "sáu mươi chín",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "69 - ? × 7 = 27": {
@@ -1866,6 +2256,12 @@
       "file": "assets/voice/7-cong-2-bang-9-viet-9-7892a3-trang.mp3",
       "ms": 2592,
       "spoken": "bảy cộng hai bằng chín, viết chín.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "7 giờ": {
+      "file": "assets/voice/7-gio-a1a818-trang.mp3",
+      "ms": 912,
+      "spoken": "bảy giờ",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "7 l = ? ml.": {
@@ -1958,6 +2354,12 @@
       "spoken": "bảy trăm linh chín mi-li-lít + hai trăm tám mươi chín mi-li-lít bằng bao nhiêu? ml.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "71": {
+      "file": "assets/voice/71-90e5d2-trang.mp3",
+      "ms": 912,
+      "spoken": "bảy mươi mốt",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "71.496 : 9 = 7.944 (kg)": {
       "file": "assets/voice/71-496-9-7-944-kg-e9dd69-trang.mp3",
       "ms": 5832,
@@ -1975,6 +2377,12 @@
       "ms": 2592,
       "spoken": "bảy mươi hai chia bốn bằng bao nhiêu?",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "72 cái": {
+      "file": "assets/voice/72-cai-3e3c90-trang.mp3",
+      "ms": 1368,
+      "spoken": "bảy mươi hai cái",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "74.606 - 58.865 = 15.741": {
       "file": "assets/voice/74-606-58-865-15-741-03d25b-trang.mp3",
@@ -2108,16 +2516,52 @@
       "spoken": "tám nghìn năm trăm bốn mươi tám chia bốn bằng hai nghìn một trăm ba mươi bảy",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "80.000": {
+      "file": "assets/voice/80-000-3a40a1-trang.mp3",
+      "ms": 1032,
+      "spoken": "tám mươi nghìn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "80.010": {
+      "file": "assets/voice/80-010-b43d90-trang.mp3",
+      "ms": 1680,
+      "spoken": "tám mươi nghìn không trăm mười",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "80.331 + 19.210 = ?": {
-      "file": "assets/voice/80-331-19-210-a30bc2-lily.mp3",
-      "ms": 4920,
+      "file": "assets/voice/80-331-19-210-a30bc2-trang.mp3",
+      "ms": 4152,
       "spoken": "tám mươi nghìn ba trăm ba mươi mốt cộng mười chín nghìn hai trăm mười bằng bao nhiêu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "80.331 + 19.210 = ? 80.331 + 19.210 = ?": {
       "file": "assets/voice/80-331-19-210-80-331-19-210-6485ab-trang.mp3",
       "ms": 9576,
       "spoken": "tám mươi nghìn ba trăm ba mươi mốt cộng mười chín nghìn hai trăm mười bằng bao nhiêu? tám mươi nghìn ba trăm ba mươi mốt cộng mười chín nghìn hai trăm mười bằng bao nhiêu?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "80.422": {
+      "file": "assets/voice/80-422-e7d676-trang.mp3",
+      "ms": 2232,
+      "spoken": "tám mươi nghìn bốn trăm hai mươi hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "81.422": {
+      "file": "assets/voice/81-422-7c1200-trang.mp3",
+      "ms": 2400,
+      "spoken": "tám mươi mốt nghìn bốn trăm hai mươi hai",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "81.424": {
+      "file": "assets/voice/81-424-7a11fd-trang.mp3",
+      "ms": 2304,
+      "spoken": "tám mươi mốt nghìn bốn trăm hai mươi tư",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "81.432": {
+      "file": "assets/voice/81-432-86144e-trang.mp3",
+      "ms": 2496,
+      "spoken": "tám mươi mốt nghìn bốn trăm ba mươi hai",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "81.605 - 11.816 = 69.789": {
@@ -2126,10 +2570,34 @@
       "spoken": "tám mươi mốt nghìn sáu trăm linh năm trừ mười một nghìn tám trăm mười sáu bằng sáu mươi chín nghìn bảy trăm tám mươi chín",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "82 cái": {
+      "file": "assets/voice/82-cai-24c1b6-trang.mp3",
+      "ms": 1392,
+      "spoken": "tám mươi hai cái",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "822 - 613 = 209": {
       "file": "assets/voice/822-613-209-8800a9-trang.mp3",
       "ms": 4344,
       "spoken": "tám trăm hai mươi hai trừ sáu trăm mười ba bằng hai trăm linh chín",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "83.000": {
+      "file": "assets/voice/83-000-05c223-trang.mp3",
+      "ms": 1248,
+      "spoken": "tám mươi ba nghìn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "83.100": {
+      "file": "assets/voice/83-100-8596be-trang.mp3",
+      "ms": 1824,
+      "spoken": "tám mươi ba nghìn một trăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "83.200": {
+      "file": "assets/voice/83-200-a8e272-trang.mp3",
+      "ms": 1824,
+      "spoken": "tám mươi ba nghìn hai trăm",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "84 : 2 = ?": {
@@ -2137,6 +2605,30 @@
       "ms": 2616,
       "spoken": "tám mươi tư chia hai bằng bao nhiêu?",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "84 cm²": {
+      "file": "assets/voice/84-cm-acdb5a-trang.mp3",
+      "ms": 1512,
+      "spoken": "tám mươi tư xăng-ti-mét²",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "84.000": {
+      "file": "assets/voice/84-000-5e4125-trang.mp3",
+      "ms": 1344,
+      "spoken": "tám mươi tư nghìn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "86.240 l": {
+      "file": "assets/voice/86-240-l-364162-trang.mp3",
+      "ms": 2136,
+      "spoken": "tám mươi sáu nghìn hai trăm bốn mươi lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "86.245 l": {
+      "file": "assets/voice/86-245-l-7af4bf-trang.mp3",
+      "ms": 2400,
+      "spoken": "tám mươi sáu nghìn hai trăm bốn mươi lăm lít",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "88.971 - 42.432 = 46.539": {
       "file": "assets/voice/88-971-42-432-46-539-9cb054-trang.mp3",
@@ -2172,6 +2664,12 @@
       "file": "assets/voice/9-cong-2-bang-11-viet-1-nho-1-5ff2ef-trang.mp3",
       "ms": 2928,
       "spoken": "chín cộng hai bằng mười một, viết một nhớ một.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "9 giờ": {
+      "file": "assets/voice/9-gio-7ada19-trang.mp3",
+      "ms": 864,
+      "spoken": "chín giờ",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "9 giờ kém 5 phút còn gọi là:": {
@@ -2252,6 +2750,12 @@
       "spoken": "chín nghìn tám trăm bảy mươi trừ bảy nghìn không trăm tám mươi chín bằng hai nghìn bảy trăm tám mươi mốt",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "90.000": {
+      "file": "assets/voice/90-000-16180b-trang.mp3",
+      "ms": 960,
+      "spoken": "chín mươi nghìn",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "92 cm² - 25 cm² = ? 92 cm² - 25 cm² = ? cm²": {
       "file": "assets/voice/92-cm-25-cm-92-cm-25-cm-cm-fe0bc6-trang.mp3",
       "ms": 10440,
@@ -2276,6 +2780,12 @@
       "spoken": "chín mươi lăm mi-li-mét - bảy mươi chín mi-li-mét bằng bao nhiêu? mm.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "96": {
+      "file": "assets/voice/96-09fe95-trang.mp3",
+      "ms": 1008,
+      "spoken": "chín mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "97 × 3 = 291": {
       "file": "assets/voice/97-3-291-85fe0a-trang.mp3",
       "ms": 2736,
@@ -2288,11 +2798,29 @@
       "spoken": "chín mươi bảy nghìn hai trăm mười trừ mười nghìn hai trăm bảy mươi chín bằng tám mươi sáu nghìn chín trăm ba mươi mốt",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "99": {
+      "file": "assets/voice/99-14fea6-trang.mp3",
+      "ms": 912,
+      "spoken": "chín mươi chín",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "? + 1.484 = 4.436": {
+      "file": "assets/voice/1-484-4-436-236c60-trang.mp3",
+      "ms": 3984,
+      "spoken": "? + một nghìn bốn trăm tám mươi tư bằng bốn nghìn bốn trăm ba mươi sáu",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "? + 2.693 = 4.893.": {
       "file": "assets/voice/2-693-4-893-9e554a-lily.mp3",
       "ms": 4488,
       "spoken": "? + hai nghìn sáu trăm chín mươi ba bằng bốn nghìn tám trăm chín mươi ba.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "? + 2.709 - 3.344 = 4.315": {
+      "file": "assets/voice/2-709-3-344-4-315-0d6c73-trang.mp3",
+      "ms": 5424,
+      "spoken": "? + hai nghìn bảy trăm linh chín trừ ba nghìn ba trăm bốn mươi tư bằng bốn nghìn ba trăm mười lăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "? + 2.709 - 3.344 = 4.315 ? + 2.709 - 3.344 = 4.315": {
       "file": "assets/voice/2-709-3-344-4-315-2-709-3-344-4-315-a4229a-trang.mp3",
@@ -2304,6 +2832,12 @@
       "file": "assets/voice/26-67-26-67-be3060-trang.mp3",
       "ms": 4416,
       "spoken": "? + hai mươi sáu bằng sáu mươi bảy ? + hai mươi sáu bằng sáu mươi bảy",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "? + 44.034 = 85.464": {
+      "file": "assets/voice/44-034-85-464-c9f713-trang.mp3",
+      "ms": 4944,
+      "spoken": "? + bốn mươi tư nghìn không trăm ba mươi tư bằng tám mươi lăm nghìn bốn trăm sáu mươi tư",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "? + 44.034 = 85.464.": {
@@ -3278,6 +3812,12 @@
       "spoken": "Bạn Hoa có hai khối hộp chữ nhật. Hỏi tất cả các khối đó có bao nhiêu cạnh? Có ? cạnh.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bạn Hoa cắt được 2 tấm bìa hình vuông và 3 tấm bìa hình chữ nhật. Hỏi tất cả các tấm bìa đó có bao nhiêu góc vuông?": {
+      "file": "assets/voice/ban-hoa-cat-duoc-2-tam-bia-hinh-vuong-va-7c1fc2-trang.mp3",
+      "ms": 7344,
+      "spoken": "Bạn Hoa cắt được hai tấm bìa hình vuông và ba tấm bìa hình chữ nhật. Hỏi tất cả các tấm bìa đó có bao nhiêu góc vuông?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bạn Hà ghi lại các xe đi qua cổng trường trong 5 phút:": {
       "file": "assets/voice/ban-ha-ghi-lai-cac-xe-di-qua-cong-truong-29c521-lily.mp3",
       "ms": 3168,
@@ -3414,6 +3954,12 @@
       "file": "assets/voice/bat-dau-nao-con-doc-ky-de-roi-tra-loi-nh-d22a13-trang.mp3",
       "ms": 3432,
       "spoken": "Bắt đầu nào! Con đọc kỹ đề rồi trả lời nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Bể A có 152 l nước, bể B có 16 l nước. Phải đổ thêm vào bể B bao nhiêu lít nước để số nước ở bể A gấp 4 lần số nước ở bể B?": {
+      "file": "assets/voice/be-a-co-152-l-nuoc-be-b-co-16-l-nuoc-pha-f0cadd-trang.mp3",
+      "ms": 11064,
+      "spoken": "Bể A có một trăm năm mươi hai lít nước, bể B có mười sáu lít nước. Phải đổ thêm vào bể B bao nhiêu lít nước để số nước ở bể A gấp bốn lần số nước ở bể B?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Bố có 1 tờ 5.000 đồng và 1 tờ 1.000 đồng. Hỏi bố có tất cả bao nhiêu tiền? Bố có tất cả ? đồng.": {
@@ -3704,6 +4250,12 @@
       "spoken": "Chương trình đã kết thúc! Cùng xem bảng năng lực của con nào!",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó.": {
+      "file": "assets/voice/cham-vao-mot-phep-tinh-roi-cham-vao-ket-02917b-trang.mp3",
+      "ms": 3744,
+      "spoken": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Chắc chưa? Chắc chắn chưa nào?": {
       "file": "assets/voice/chac-chua-chac-chan-chua-nao-30b6aa-lily.mp3",
       "ms": 2352,
@@ -3738,6 +4290,12 @@
       "file": "assets/voice/chon-dau-thich-hop-de-dien-vao-cho-cham-346435-trang.mp3",
       "ms": 9384,
       "spoken": "Chọn dấu thích hợp để điền vào chỗ chấm: một/hai của hai mươi … một/năm của bốn mươi lăm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Chọn đáp án đúng.": {
+      "file": "assets/voice/chon-dap-an-dung-3812f0-trang.mp3",
+      "ms": 1128,
+      "spoken": "Chọn đáp án đúng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chữ I là một, V là năm, X là mười.": {
@@ -4544,6 +5102,12 @@
       "spoken": "Các số làm tròn đến hàng trăm được cùng một số tròn trăm nằm liền nhau: bé nhất là số tròn trăm đó bớt năm mươi, lớn nhất là số tròn trăm đó thêm bốn mươi chín.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Các đáp án là:": {
+      "file": "assets/voice/cac-dap-an-la-410f56-trang.mp3",
+      "ms": 1320,
+      "spoken": "Các đáp án là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Câu hỏi số ba!": {
       "file": "assets/voice/cau-hoi-so-ba-5cf332-lily.mp3",
       "ms": 1128,
@@ -4681,6 +5245,12 @@
       "ms": 2016,
       "spoken": "Còn lại ? cái bánh.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "Có 1.569 quyển sách chia đều cho 3 thư viện. Sau đó mỗi thư viện được tặng thêm 405 quyển. Hỏi lúc này mỗi thư viện có bao nhiêu quyển sách?": {
+      "file": "assets/voice/co-1-569-quyen-sach-chia-deu-cho-3-thu-v-9c4816-trang.mp3",
+      "ms": 10368,
+      "spoken": "Có một nghìn năm trăm sáu mươi chín quyển sách chia đều cho ba thư viện. Sau đó mỗi thư viện được tặng thêm bốn trăm linh năm quyển. Hỏi lúc này mỗi thư viện có bao nhiêu quyển sách?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Có 18 m vải chia đều vào 6 cuộn. Hỏi mỗi cuộn có bao nhiêu mét vải?": {
       "file": "assets/voice/co-18-m-vai-chia-deu-vao-6-cuon-hoi-moi-742fb3-lily.mp3",
@@ -5126,6 +5696,12 @@
       "spoken": "Giá trị của một phần là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Giải bài toán.": {
+      "file": "assets/voice/giai-bai-toan-1057c7-trang.mp3",
+      "ms": 1176,
+      "spoken": "Giải bài toán.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Giảm 42 đi 7 lần được bao nhiêu? Giảm 42 đi 7 lần được ?.": {
       "file": "assets/voice/giam-42-di-7-lan-duoc-bao-nhieu-giam-42-217f5f-trang.mp3",
       "ms": 4440,
@@ -5348,6 +5924,18 @@
       "spoken": "Hình chữ nhật có hai cạnh dài bằng nhau và hai cạnh ngắn bằng nhau; hình vuông có bốn cạnh bằng nhau. Ghép các hình vuông bằng nhau thành một hàng ta được hình chữ nhật.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Hình chữ nhật dài 10 cm, rộng 8 cm": {
+      "file": "assets/voice/hinh-chu-nhat-dai-10-cm-rong-8-cm-a029c0-trang.mp3",
+      "ms": 3696,
+      "spoken": "Hình chữ nhật dài mười xăng-ti-mét, rộng tám xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Hình nào có chu vi lớn nhất?": {
+      "file": "assets/voice/hinh-nao-co-chu-vi-lon-nhat-8c286d-trang.mp3",
+      "ms": 1680,
+      "spoken": "Hình nào có chu vi lớn nhất?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Hình nào dưới đây có 3 cạnh?": {
       "file": "assets/voice/hinh-nao-duoi-day-co-3-canh-a67ac6-trang.mp3",
       "ms": 1944,
@@ -5384,6 +5972,12 @@
       "spoken": "Hình tam giác có ba cạnh, ba đỉnh; hình tứ giác có bốn cạnh, bốn đỉnh. Hình chữ nhật có bốn góc vuông, hai cạnh dài bằng nhau, hai cạnh ngắn bằng nhau; hình vuông có bốn góc vuông và bốn cạnh bằng nhau.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Hình tam giác có ba cạnh đều dài 9 cm": {
+      "file": "assets/voice/hinh-tam-giac-co-ba-canh-deu-dai-9-cm-425814-trang.mp3",
+      "ms": 3360,
+      "spoken": "Hình tam giác có ba cạnh đều dài chín xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Hình tròn có tâm O. Đoạn thẳng nối tâm với một điểm trên đường tròn là bán kính; đoạn thẳng đi qua tâm, nối hai điểm trên đường tròn là đường kính.": {
       "file": "assets/voice/hinh-tron-co-tam-o-doan-thang-noi-tam-vo-90ac08-trang.mp3",
       "ms": 9696,
@@ -5412,6 +6006,12 @@
       "file": "assets/voice/hinh-tron-tam-n-diem-m-nam-tren-duong-tr-7fd625-trang.mp3",
       "ms": 5928,
       "spoken": "Hình tròn tâm N, điểm M nằm trên đường tròn. Đoạn thẳng NM là gì của hình tròn?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Hình tứ giác HOKQ có góc đỉnh H và góc đỉnh O là góc vuông, các góc còn lại không phải góc vuông.": {
+      "file": "assets/voice/hinh-tu-giac-hokq-co-goc-dinh-h-va-goc-d-4bd19a-trang.mp3",
+      "ms": 5952,
+      "spoken": "Hình tứ giác HOKQ có góc đỉnh H và góc đỉnh O là góc vuông, các góc còn lại không phải góc vuông.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình tứ giác OENA có độ dài các cạnh là 15 cm, 21 cm, 16 cm và 15 cm. Tính chu vi hình tứ giác đó.": {
@@ -5496,6 +6096,18 @@
       "file": "assets/voice/hinh-vuong-co-goc-vuong-hinh-chu-nhat-co-436e72-trang.mp3",
       "ms": 4464,
       "spoken": "Hình vuông có ? góc vuông. Hình chữ nhật có bốn góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Hình vuông cạnh 11 cm": {
+      "file": "assets/voice/hinh-vuong-canh-11-cm-975ba7-trang.mp3",
+      "ms": 2112,
+      "spoken": "Hình vuông cạnh mười một xăng-ti-mét",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Hình vuông cạnh 2 dm 6 cm": {
+      "file": "assets/voice/hinh-vuong-canh-2-dm-6-cm-f8d35c-trang.mp3",
+      "ms": 2592,
+      "spoken": "Hình vuông cạnh hai dm sáu xăng-ti-mét",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Hình vuông và hình chữ nhật đều có 4 góc vuông.": {
@@ -5624,11 +6236,29 @@
       "spoken": "Hộp có bóng đỏ và bóng xanh. Lấy một quả: có thể được bóng đỏ, có thể được bóng xanh.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "II": {
+      "file": "assets/voice/ii-63e8ff-trang.mp3",
+      "ms": 504,
+      "spoken": "II",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "II = 2.": {
       "file": "assets/voice/ii-2-d287c3-lily.mp3",
       "ms": 1056,
       "spoken": "II bằng hai.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "III": {
+      "file": "assets/voice/iii-e5ca65-trang.mp3",
+      "ms": 504,
+      "spoken": "III",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "IV": {
+      "file": "assets/voice/iv-68e907-trang.mp3",
+      "ms": 768,
+      "spoken": "IV",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Khi bài toán có nhiều bước, con tính lần lượt từng bước; kết quả của bước trước là số đã biết của bước sau.": {
       "file": "assets/voice/khi-bai-toan-co-nhieu-buoc-con-tinh-lan-bbfbd0-trang.mp3",
@@ -5660,6 +6290,12 @@
       "spoken": "Khi làm tròn đến hàng nghìn, một số được làm tròn thành mười sáu nghìn. Tìm số lớn nhất và số bé nhất có thể có. Số lớn nhất là mười sáu nghìn bốn trăm chín mươi chín. Số bé nhất là ?.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kho thứ nhất có 2.339 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 726 kg. Kho thứ ba có ít hơn kho thứ hai 743 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?": {
+      "file": "assets/voice/kho-thu-nhat-co-2-339-kg-thoc-kho-thu-ha-7e2d77-trang.mp3",
+      "ms": 15456,
+      "spoken": "Kho thứ nhất có hai nghìn ba trăm ba mươi chín ki-lô-gam thóc. Kho thứ hai có nhiều hơn kho thứ nhất bảy trăm hai mươi sáu ki-lô-gam. Kho thứ ba có ít hơn kho thứ hai bảy trăm bốn mươi ba ki-lô-gam. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kho thứ nhất có 2.820 kg gạo, kho thứ hai có nhiều hơn kho thứ nhất 723 kg gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?": {
       "file": "assets/voice/kho-thu-nhat-co-2-820-kg-gao-kho-thu-hai-538912-lily.mp3",
       "ms": 11568,
@@ -5667,10 +6303,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Kho thứ nhất có 26.889 kg gạo, kho thứ hai có nhiều hơn kho thứ nhất 5.183 kg gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?": {
-      "file": "assets/voice/kho-thu-nhat-co-26-889-kg-gao-kho-thu-ha-b1f16f-lily.mp3",
-      "ms": 12384,
+      "file": "assets/voice/kho-thu-nhat-co-26-889-kg-gao-kho-thu-ha-b1f16f-trang.mp3",
+      "ms": 12096,
       "spoken": "Kho thứ nhất có hai mươi sáu nghìn tám trăm tám mươi chín ki-lô-gam gạo, kho thứ hai có nhiều hơn kho thứ nhất năm nghìn một trăm tám mươi ba ki-lô-gam gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kho thứ nhất có 31.144 bao xi măng, kho thứ hai có 14.072 bao xi măng. Phải chuyển bao nhiêu bao xi măng từ kho thứ nhất sang kho thứ hai để số bao xi măng ở hai kho bằng nhau? Phải chuyển ? bao xi măng.": {
       "file": "assets/voice/kho-thu-nhat-co-31-144-bao-xi-mang-kho-t-a4bdc0-trang.mp3",
@@ -5816,6 +6452,54 @@
       "spoken": "Kim ngắn chỉ giờ, kim dài chỉ phút; một giờ có sáu mươi phút nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Kéo các số La Mã II, XX, XVI, XI vào ô trống theo thứ tự từ bé đến lớn.": {
+      "file": "assets/voice/keo-cac-so-la-ma-ii-xx-xvi-xi-vao-o-tron-09091d-trang.mp3",
+      "ms": 6384,
+      "spoken": "Kéo các số La Mã II, XX, XVI, XI vào ô trống theo thứ tự từ bé đến lớn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo dấu >, <, = vào ô trống.": {
+      "file": "assets/voice/keo-dau-vao-o-trong-ffe286-trang.mp3",
+      "ms": 2208,
+      "spoken": "Kéo dấu >, <, bằng vào ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo dấu thích hợp (>, <, =) vào mỗi ô trống. Một dấu có thể dùng nhiều lần.": {
+      "file": "assets/voice/keo-dau-thich-hop-vao-moi-o-trong-mot-da-b7f1a8-trang.mp3",
+      "ms": 5112,
+      "spoken": "Kéo dấu thích hợp (>, <, bằng ) vào mỗi ô trống. Một dấu có thể dùng nhiều lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo số làm tròn đúng vào mỗi ô trống.": {
+      "file": "assets/voice/keo-so-lam-tron-dung-vao-moi-o-trong-e2fa4f-trang.mp3",
+      "ms": 2472,
+      "spoken": "Kéo số làm tròn đúng vào mỗi ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo số vào ô trống.": {
+      "file": "assets/voice/keo-so-vao-o-trong-10081f-trang.mp3",
+      "ms": 1608,
+      "spoken": "Kéo số vào ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo thẻ số thích hợp vào mỗi ô trống.": {
+      "file": "assets/voice/keo-the-so-thich-hop-vao-moi-o-trong-241b60-trang.mp3",
+      "ms": 2304,
+      "spoken": "Kéo thẻ số thích hợp vào mỗi ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo thẻ số đúng vào mỗi ô trống.": {
+      "file": "assets/voice/keo-the-so-dung-vao-moi-o-trong-064af9-trang.mp3",
+      "ms": 2184,
+      "spoken": "Kéo thẻ số đúng vào mỗi ô trống.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần.": {
+      "file": "assets/voice/keo-the-so-dung-vao-moi-o-trong-mot-the-f1c232-trang.mp3",
+      "ms": 4632,
+      "spoken": "Kéo thẻ số đúng vào mỗi ô trống. Một thẻ có thể dùng nhiều lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Kết quả của XIX - XII, viết bằng chữ số La Mã, là:": {
       "file": "assets/voice/ket-qua-cua-xix-xii-viet-bang-chu-so-la-1a147c-trang.mp3",
       "ms": 4296,
@@ -5859,16 +6543,16 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Kết quả của phép tính 25.040 + 5.891 là:": {
-      "file": "assets/voice/ket-qua-cua-phep-tinh-25-040-5-891-la-c84c94-lily.mp3",
-      "ms": 6048,
+      "file": "assets/voice/ket-qua-cua-phep-tinh-25-040-5-891-la-c84c94-trang.mp3",
+      "ms": 5472,
       "spoken": "Kết quả của phép tính hai mươi lăm nghìn không trăm bốn mươi cộng năm nghìn tám trăm chín mươi mốt là:",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kết quả của phép tính 40.711 × 2 là:": {
-      "file": "assets/voice/ket-qua-cua-phep-tinh-40-711-2-la-ef444e-lily.mp3",
-      "ms": 3840,
+      "file": "assets/voice/ket-qua-cua-phep-tinh-40-711-2-la-ef444e-trang.mp3",
+      "ms": 3768,
       "spoken": "Kết quả của phép tính bốn mươi nghìn bảy trăm mười một nhân hai là:",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kết quả của phép tính 48 : 6 là:": {
       "file": "assets/voice/ket-qua-cua-phep-tinh-48-6-la-bc0a73-lily.mp3",
@@ -5892,6 +6576,12 @@
       "file": "assets/voice/ket-qua-cua-phep-tinh-67-061-21-429-la-31b892-trang.mp3",
       "ms": 6120,
       "spoken": "Kết quả của phép tính sáu mươi bảy nghìn không trăm sáu mươi mốt trừ hai mươi mốt nghìn bốn trăm hai mươi chín là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Kết quả của phép tính 7.128 : 3 là:": {
+      "file": "assets/voice/ket-qua-cua-phep-tinh-7-128-3-la-4f2c6f-trang.mp3",
+      "ms": 3552,
+      "spoken": "Kết quả của phép tính bảy nghìn một trăm hai mươi tám chia ba là:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Kết quả của phép tính 7.778 + 973 là:": {
@@ -5955,16 +6645,16 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 2.035 đến hàng nghìn ta được số ?.": {
-      "file": "assets/voice/lam-tron-so-2-035-den-hang-nghin-ta-duoc-ee3524-lily.mp3",
-      "ms": 4056,
+      "file": "assets/voice/lam-tron-so-2-035-den-hang-nghin-ta-duoc-ee3524-trang.mp3",
+      "ms": 4104,
       "spoken": "Làm tròn số hai nghìn không trăm ba mươi lăm đến hàng nghìn ta được số ?.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 2.035 đến hàng nghìn.": {
-      "file": "assets/voice/lam-tron-so-2-035-den-hang-nghin-1ec711-lily.mp3",
-      "ms": 3432,
+      "file": "assets/voice/lam-tron-so-2-035-den-hang-nghin-1ec711-trang.mp3",
+      "ms": 3360,
       "spoken": "Làm tròn số hai nghìn không trăm ba mươi lăm đến hàng nghìn.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 2.035 đến hàng nghìn. Làm tròn số 2.035 đến hàng nghìn ta được số ?.": {
       "file": "assets/voice/lam-tron-so-2-035-den-hang-nghin-lam-tro-1372df-trang.mp3",
@@ -5973,16 +6663,16 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 24.701 đến hàng nghìn ta được số ?.": {
-      "file": "assets/voice/lam-tron-so-24-701-den-hang-nghin-ta-duo-80da6c-lily.mp3",
-      "ms": 4464,
+      "file": "assets/voice/lam-tron-so-24-701-den-hang-nghin-ta-duo-80da6c-trang.mp3",
+      "ms": 4200,
       "spoken": "Làm tròn số hai mươi tư nghìn bảy trăm linh một đến hàng nghìn ta được số ?.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 24.701 đến hàng nghìn.": {
-      "file": "assets/voice/lam-tron-so-24-701-den-hang-nghin-c486fa-lily.mp3",
-      "ms": 3840,
+      "file": "assets/voice/lam-tron-so-24-701-den-hang-nghin-c486fa-trang.mp3",
+      "ms": 3624,
       "spoken": "Làm tròn số hai mươi tư nghìn bảy trăm linh một đến hàng nghìn.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 24.701 đến hàng nghìn. Làm tròn số 24.701 đến hàng nghìn ta được số ?.": {
       "file": "assets/voice/lam-tron-so-24-701-den-hang-nghin-lam-tr-1c0c90-trang.mp3",
@@ -6021,16 +6711,16 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 73.100 đến hàng chục nghìn ta được số ?.": {
-      "file": "assets/voice/lam-tron-so-73-100-den-hang-chuc-nghin-t-c2f988-lily.mp3",
-      "ms": 4464,
+      "file": "assets/voice/lam-tron-so-73-100-den-hang-chuc-nghin-t-c2f988-trang.mp3",
+      "ms": 4368,
       "spoken": "Làm tròn số bảy mươi ba nghìn một trăm đến hàng chục nghìn ta được số ?.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 73.100 đến hàng chục nghìn.": {
-      "file": "assets/voice/lam-tron-so-73-100-den-hang-chuc-nghin-c9f066-lily.mp3",
-      "ms": 3696,
+      "file": "assets/voice/lam-tron-so-73-100-den-hang-chuc-nghin-c9f066-trang.mp3",
+      "ms": 3576,
       "spoken": "Làm tròn số bảy mươi ba nghìn một trăm đến hàng chục nghìn.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 73.100 đến hàng chục nghìn. Làm tròn số 73.100 đến hàng chục nghìn ta được số ?.": {
       "file": "assets/voice/lam-tron-so-73-100-den-hang-chuc-nghin-l-d4cd37-trang.mp3",
@@ -6039,16 +6729,16 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 82.988 đến hàng chục nghìn ta được số:": {
-      "file": "assets/voice/lam-tron-so-82-988-den-hang-chuc-nghin-t-bf9b08-lily.mp3",
-      "ms": 5520,
+      "file": "assets/voice/lam-tron-so-82-988-den-hang-chuc-nghin-t-bf9b08-trang.mp3",
+      "ms": 5184,
       "spoken": "Làm tròn số tám mươi hai nghìn chín trăm tám mươi tám đến hàng chục nghìn ta được số:",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 83.172 đến hàng nghìn ta được số:": {
-      "file": "assets/voice/lam-tron-so-83-172-den-hang-nghin-ta-duo-8d712f-lily.mp3",
-      "ms": 4776,
+      "file": "assets/voice/lam-tron-so-83-172-den-hang-nghin-ta-duo-8d712f-trang.mp3",
+      "ms": 4848,
       "spoken": "Làm tròn số tám mươi ba nghìn một trăm bảy mươi hai đến hàng nghìn ta được số:",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Làm tròn số 97.275 đến hàng nghìn. Làm tròn số 97.275 đến hàng nghìn ta được số ?.": {
       "file": "assets/voice/lam-tron-so-97-275-den-hang-nghin-lam-tr-585a5d-trang.mp3",
@@ -6110,6 +6800,12 @@
       "spoken": "Lúc không may nhất, ta lấy ra hết số bi không phải màu đỏ:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?": {
+      "file": "assets/voice/luc-may-gio-dung-thi-kim-gio-va-kim-phut-e55d05-trang.mp3",
+      "ms": 4128,
+      "spoken": "Lúc mấy giờ đúng thì kim giờ và kim phút tạo thành một góc vuông?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Lúc đó là ? giờ 25 phút.": {
       "file": "assets/voice/luc-do-la-gio-25-phut-79c8b7-lily.mp3",
       "ms": 2688,
@@ -6141,10 +6837,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Lớp 3A có 4 tổ, mỗi tổ trồng được 13 cây. Lớp 3B trồng được 38 cây. Hỏi cả hai lớp trồng được bao nhiêu cây?": {
-      "file": "assets/voice/lop-3a-co-4-to-moi-to-trong-duoc-13-cay-7fdc5b-lily.mp3",
-      "ms": 9624,
+      "file": "assets/voice/lop-3a-co-4-to-moi-to-trong-duoc-13-cay-7fdc5b-trang.mp3",
+      "ms": 8520,
       "spoken": "Lớp ba A có bốn tổ, mỗi tổ trồng được mười ba cây. Lớp ba B trồng được ba mươi tám cây. Hỏi cả hai lớp trồng được bao nhiêu cây?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Lớp 3A: 28 kg.": {
       "file": "assets/voice/lop-3a-28-kg-ac19da-lily.mp3",
@@ -6252,6 +6948,12 @@
       "file": "assets/voice/mi-li-met-mm-la-don-vi-do-do-dai-rat-nho-4ce790-trang.mp3",
       "ms": 8424,
       "spoken": "Mi-li-mét ( mi-li-mét) là đơn vị đo độ dài rất nhỏ. một xăng-ti-mét bằng mười mi-li-mét; một mét bằng một nghìn mi-li-mét.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Minh có 5 bông hoa. Hoa có nhiều hơn Minh 40 bông hoa. Hỏi số hoa của Hoa gấp mấy lần số hoa của Minh?": {
+      "file": "assets/voice/minh-co-5-bong-hoa-hoa-co-nhieu-hon-minh-77b6a9-trang.mp3",
+      "ms": 7128,
+      "spoken": "Minh có năm bông hoa. Hoa có nhiều hơn Minh bốn mươi bông hoa. Hỏi số hoa của Hoa gấp mấy lần số hoa của Minh?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Minh có 5 bông hoa. Hoa có nhiều hơn Minh 40 bông hoa. Hỏi số hoa của Hoa gấp mấy lần số hoa của Minh? Gấp ? lần.": {
@@ -6555,10 +7257,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mặt đồng hồ ghi số La Mã. Kim phút chỉ vào số XII, kim giờ chỉ vào số V. Đồng hồ chỉ mấy giờ?": {
-      "file": "assets/voice/mat-dong-ho-ghi-so-la-ma-kim-phut-chi-va-1c4c85-lily.mp3",
-      "ms": 8256,
+      "file": "assets/voice/mat-dong-ho-ghi-so-la-ma-kim-phut-chi-va-1c4c85-trang.mp3",
+      "ms": 7680,
       "spoken": "Mặt đồng hồ ghi số La Mã. Kim phút chỉ vào số XII, kim giờ chỉ vào số V. Đồng hồ chỉ mấy giờ?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mặt đồng hồ thường ghi số La Mã từ I đến XII.": {
       "file": "assets/voice/mat-dong-ho-thuong-ghi-so-la-ma-tu-i-den-61b94b-trang.mp3",
@@ -6645,10 +7347,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi bể chứa 43.120 l nước. Hỏi 2 bể như thế chứa được bao nhiêu lít nước?": {
-      "file": "assets/voice/moi-be-chua-43-120-l-nuoc-hoi-2-be-nhu-t-7f5fe1-lily.mp3",
-      "ms": 6432,
+      "file": "assets/voice/moi-be-chua-43-120-l-nuoc-hoi-2-be-nhu-t-7f5fe1-trang.mp3",
+      "ms": 6120,
       "spoken": "Mỗi bể chứa bốn mươi ba nghìn một trăm hai mươi lít nước. Hỏi hai bể như thế chứa được bao nhiêu lít nước?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi can có 9 l dầu. Hỏi 3 can như thế có tất cả bao nhiêu lít dầu?": {
       "file": "assets/voice/moi-can-co-9-l-dau-hoi-3-can-nhu-the-co-f00db5-lily.mp3",
@@ -6681,10 +7383,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi hộp có 24 cái bút chì màu. Hỏi 3 hộp như thế có tất cả bao nhiêu cái bút chì màu?": {
-      "file": "assets/voice/moi-hop-co-24-cai-but-chi-mau-hoi-3-hop-9db70a-lily.mp3",
-      "ms": 6576,
+      "file": "assets/voice/moi-hop-co-24-cai-but-chi-mau-hoi-3-hop-9db70a-trang.mp3",
+      "ms": 6024,
       "spoken": "Mỗi hộp có hai mươi tư cái bút chì màu. Hỏi ba hộp như thế có tất cả bao nhiêu cái bút chì màu?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi hộp có 3 cái bánh. Mẹ mua 5 hộp bánh, cả nhà đã ăn 4 cái bánh. Hỏi còn lại bao nhiêu cái bánh?": {
       "file": "assets/voice/moi-hop-co-3-cai-banh-me-mua-5-hop-banh-aa1f5f-lily.mp3",
@@ -6789,10 +7491,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi tháng một cửa hàng bán được 13.405 quyển vở. Hỏi trong 4 tháng cửa hàng đó bán được bao nhiêu quyển vở?": {
-      "file": "assets/voice/moi-thang-mot-cua-hang-ban-duoc-13-405-q-7bd450-lily.mp3",
-      "ms": 8328,
+      "file": "assets/voice/moi-thang-mot-cua-hang-ban-duoc-13-405-q-7bd450-trang.mp3",
+      "ms": 7728,
       "spoken": "Mỗi tháng một cửa hàng bán được mười ba nghìn bốn trăm linh năm quyển vở. Hỏi trong bốn tháng cửa hàng đó bán được bao nhiêu quyển vở?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi tháng một cửa hàng bán được 3.843 quyển vở. Hỏi trong 2 tháng cửa hàng đó bán được bao nhiêu quyển vở?": {
       "file": "assets/voice/moi-thang-mot-cua-hang-ban-duoc-3-843-qu-aa859f-lily.mp3",
@@ -6837,10 +7539,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Mỗi đoạn dây dài 15 cm. Hỏi 3 đoạn dây như thế dài bao nhiêu xăng-ti-mét?": {
-      "file": "assets/voice/moi-doan-day-dai-15-cm-hoi-3-doan-day-nh-e524ae-lily.mp3",
-      "ms": 6072,
+      "file": "assets/voice/moi-doan-day-dai-15-cm-hoi-3-doan-day-nh-e524ae-trang.mp3",
+      "ms": 5712,
       "spoken": "Mỗi đoạn dây dài mười lăm xăng-ti-mét. Hỏi ba đoạn dây như thế dài bao nhiêu xăng-ti-mét?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mỗi đĩa được 4 chiếc bánh.": {
       "file": "assets/voice/moi-dia-duoc-4-chiec-banh-6b845b-trang.mp3",
@@ -6903,10 +7605,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một cửa hàng có 93 kg gạo. Cửa hàng đã bán 2 bao gạo, mỗi bao 27 kg. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?": {
-      "file": "assets/voice/mot-cua-hang-co-93-kg-gao-cua-hang-da-ba-d3d0b9-lily.mp3",
-      "ms": 10704,
+      "file": "assets/voice/mot-cua-hang-co-93-kg-gao-cua-hang-da-ba-d3d0b9-trang.mp3",
+      "ms": 10248,
       "spoken": "Một cửa hàng có chín mươi ba ki-lô-gam gạo. Cửa hàng đã bán hai bao gạo, mỗi bao hai mươi bảy ki-lô-gam. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một góc có hai cạnh là EG và EP. Đỉnh của góc là điểm nào?": {
       "file": "assets/voice/mot-goc-co-hai-canh-la-eg-va-ep-dinh-cua-6c8065-trang.mp3",
@@ -6914,10 +7616,22 @@
       "spoken": "Một góc có hai cạnh là EG và EP. Đỉnh của góc là điểm nào?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Một hình chữ nhật có chiều dài 10 cm, chiều rộng 7 cm. Ghép thêm một hình vuông cạnh 7 cm vào chiều rộng của hình chữ nhật để được một hình chữ nhật mới. Tính chu vi hình chữ nhật mới.": {
+      "file": "assets/voice/mot-hinh-chu-nhat-co-chieu-dai-10-cm-chi-240cfd-trang.mp3",
+      "ms": 13392,
+      "spoken": "Một hình chữ nhật có chiều dài mười xăng-ti-mét, chiều rộng bảy xăng-ti-mét. Ghép thêm một hình vuông cạnh bảy xăng-ti-mét vào chiều rộng của hình chữ nhật để được một hình chữ nhật mới. Tính chu vi hình chữ nhật mới.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Một hình chữ nhật có chiều dài 10 cm, chiều rộng 7 cm. Ghép thêm một hình vuông cạnh 7 cm vào chiều rộng của hình chữ nhật để được một hình chữ nhật mới. Tính chu vi hình chữ nhật mới. Chu vi hình chữ nhật mới là ? cm.": {
       "file": "assets/voice/mot-hinh-chu-nhat-co-chieu-dai-10-cm-chi-6f3ab2-trang.mp3",
       "ms": 15336,
       "spoken": "Một hình chữ nhật có chiều dài mười xăng-ti-mét, chiều rộng bảy xăng-ti-mét. Ghép thêm một hình vuông cạnh bảy xăng-ti-mét vào chiều rộng của hình chữ nhật để được một hình chữ nhật mới. Tính chu vi hình chữ nhật mới. Chu vi hình chữ nhật mới là ? cm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Một hình chữ nhật có chu vi 44 cm, chiều dài hơn chiều rộng 14 cm. Tính chiều dài hình chữ nhật đó.": {
+      "file": "assets/voice/mot-hinh-chu-nhat-co-chu-vi-44-cm-chieu-2f09d0-trang.mp3",
+      "ms": 7824,
+      "spoken": "Một hình chữ nhật có chu vi bốn mươi tư xăng-ti-mét, chiều dài hơn chiều rộng mười bốn xăng-ti-mét. Tính chiều dài hình chữ nhật đó.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một hình chữ nhật có chu vi 44 cm, chiều dài hơn chiều rộng 14 cm. Tính chiều dài hình chữ nhật đó. Chiều dài là ? cm.": {
@@ -6930,6 +7644,12 @@
       "file": "assets/voice/mot-hinh-chu-nhat-co-chu-vi-50-cm-chieu-7e54d0-trang.mp3",
       "ms": 7968,
       "spoken": "Một hình chữ nhật có chu vi năm mươi xăng-ti-mét, chiều dài hơn chiều rộng mười chín xăng-ti-mét. Tính diện tích hình chữ nhật đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Một hình chữ nhật có chu vi 68 cm, chiều dài hơn chiều rộng 20 cm. Tính diện tích hình chữ nhật đó.": {
+      "file": "assets/voice/mot-hinh-chu-nhat-co-chu-vi-68-cm-chieu-283418-trang.mp3",
+      "ms": 8016,
+      "spoken": "Một hình chữ nhật có chu vi sáu mươi tám xăng-ti-mét, chiều dài hơn chiều rộng hai mươi xăng-ti-mét. Tính diện tích hình chữ nhật đó.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một hình chữ nhật có chu vi 68 cm, chiều dài hơn chiều rộng 20 cm. Tính diện tích hình chữ nhật đó. Diện tích là ? cm².": {
@@ -6992,6 +7712,12 @@
       "spoken": "Một miếng bìa gồm một hình chữ nhật dài mười lăm xăng-ti-mét, rộng bảy xăng-ti-mét và một hình vuông cạnh tám xăng-ti-mét ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa. Diện tích miếng bìa là ? cm².",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Một miếng bìa gồm một hình chữ nhật dài 16 cm, rộng 8 cm và một hình vuông cạnh 9 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa.": {
+      "file": "assets/voice/mot-mieng-bia-gom-mot-hinh-chu-nhat-dai-c0f383-trang.mp3",
+      "ms": 11280,
+      "spoken": "Một miếng bìa gồm một hình chữ nhật dài mười sáu xăng-ti-mét, rộng tám xăng-ti-mét và một hình vuông cạnh chín xăng-ti-mét ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Một miếng bìa gồm một hình chữ nhật dài 21 cm, rộng 7 cm và một hình vuông cạnh 4 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa. Diện tích miếng bìa là ? cm².": {
       "file": "assets/voice/mot-mieng-bia-gom-mot-hinh-chu-nhat-dai-4223c1-trang.mp3",
       "ms": 13776,
@@ -7004,11 +7730,23 @@
       "spoken": "Một mảnh vườn hình chữ nhật có chiều dài mười bảy mét, chiều rộng mười ba mét. Người ta rào xung quanh mảnh vườn. Hỏi hàng rào dài bao nhiêu mét?",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Một mảnh vườn hình chữ nhật có chiều dài 35 m, chiều rộng 18 m. Người ta rào xung quanh mảnh vườn, chừa lại một lối vào rộng 4 m. Hỏi hàng rào dài bao nhiêu mét?": {
+      "file": "assets/voice/mot-manh-vuon-hinh-chu-nhat-co-chieu-dai-1efbfd-trang.mp3",
+      "ms": 10848,
+      "spoken": "Một mảnh vườn hình chữ nhật có chiều dài ba mươi lăm mét, chiều rộng mười tám mét. Người ta rào xung quanh mảnh vườn, chừa lại một lối vào rộng bốn mét. Hỏi hàng rào dài bao nhiêu mét?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Một nhà máy có 4 xưởng, mỗi xưởng làm được 69 chiếc bút. Nhà máy còn nhập thêm 111 chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?": {
       "file": "assets/voice/mot-nha-may-co-4-xuong-moi-xuong-lam-duo-58a966-lily.mp3",
       "ms": 11376,
       "spoken": "Một nhà máy có bốn xưởng, mỗi xưởng làm được sáu mươi chín chiếc bút. Nhà máy còn nhập thêm một trăm mười một chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "Một nhà máy may được 8.307 chiếc áo trong 9 ngày, số áo may được mỗi ngày như nhau. Hỏi mỗi ngày nhà máy may được bao nhiêu chiếc áo?": {
+      "file": "assets/voice/mot-nha-may-may-duoc-8-307-chiec-ao-tron-15b953-trang.mp3",
+      "ms": 9552,
+      "spoken": "Một nhà máy may được tám nghìn ba trăm linh bảy chiếc áo trong chín ngày, số áo may được mỗi ngày như nhau. Hỏi mỗi ngày nhà máy may được bao nhiêu chiếc áo?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một phần hai là một nửa. Một phần tư là một nửa của một nửa.": {
       "file": "assets/voice/mot-phan-hai-la-mot-nua-mot-phan-tu-la-m-ec01b7-trang.mp3",
@@ -7047,10 +7785,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một trang trại nuôi 44.675 con gà. Làm tròn số đó đến hàng nghìn thì trang trại nuôi khoảng bao nhiêu con gà?": {
-      "file": "assets/voice/mot-trang-trai-nuoi-44-675-con-ga-lam-tr-5b4202-lily.mp3",
-      "ms": 8784,
+      "file": "assets/voice/mot-trang-trai-nuoi-44-675-con-ga-lam-tr-5b4202-trang.mp3",
+      "ms": 8760,
       "spoken": "Một trang trại nuôi bốn mươi tư nghìn sáu trăm bảy mươi lăm con gà. Làm tròn số đó đến hàng nghìn thì trang trại nuôi khoảng bao nhiêu con gà?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Một tuần có bảy ngày, con đếm thêm từng tuần trên lịch nhé.": {
       "file": "assets/voice/mot-tuan-co-bay-ngay-con-dem-them-tung-t-f1a77d-trang.mp3",
@@ -7244,6 +7982,12 @@
       "spoken": "Năm câu đúng liên tiếp! Không ai cản nổi con nữa rồi!",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Năm nay con 5 tuổi, mẹ hơn con 20 tuổi. Hỏi năm nay tuổi mẹ gấp mấy lần tuổi con?": {
+      "file": "assets/voice/nam-nay-con-5-tuoi-me-hon-con-20-tuoi-ho-b50e2e-trang.mp3",
+      "ms": 6288,
+      "spoken": "Năm nay con năm tuổi, mẹ hơn con hai mươi tuổi. Hỏi năm nay tuổi mẹ gấp mấy lần tuổi con?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Năm nay con 9 tuổi, tuổi mẹ gấp 5 lần tuổi con. Hỏi 4 năm nữa, tổng số tuổi của hai mẹ con là bao nhiêu?": {
       "file": "assets/voice/nam-nay-con-9-tuoi-tuoi-me-gap-5-lan-tuo-0ab80f-trang.mp3",
       "ms": 8208,
@@ -7284,6 +8028,60 @@
       "file": "assets/voice/nam-tay-lai-dem-cac-dot-ngon-tay-thang-o-c88bf4-trang.mp3",
       "ms": 5376,
       "spoken": "Nắm tay lại đếm các đốt ngón tay: tháng ở đốt nhô lên có ba mươi mốt ngày.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối cho đúng.": {
+      "file": "assets/voice/noi-cho-dung-0894c1-trang.mp3",
+      "ms": 1008,
+      "spoken": "Nối cho đúng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối hình với chu vi.": {
+      "file": "assets/voice/noi-hinh-voi-chu-vi-3ebf6c-trang.mp3",
+      "ms": 1560,
+      "spoken": "Nối hình với chu vi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi cặp số đo với câu trả lời đúng: số đo thứ nhất gấp mấy lần số đo thứ hai?": {
+      "file": "assets/voice/noi-moi-cap-so-do-voi-cau-tra-loi-dung-s-038586-trang.mp3",
+      "ms": 5424,
+      "spoken": "Nối mỗi cặp số đo với câu trả lời đúng: số đo thứ nhất gấp mấy lần số đo thứ hai?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi hình với chu vi của nó (đổi về xăng-ti-mét).": {
+      "file": "assets/voice/noi-moi-hinh-voi-chu-vi-cua-no-doi-ve-xa-a0bc3b-trang.mp3",
+      "ms": 3192,
+      "spoken": "Nối mỗi hình với chu vi của nó (đổi về xăng-ti-mét).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi hình với số góc vuông của hình đó.": {
+      "file": "assets/voice/noi-moi-hinh-voi-so-goc-vuong-cua-hinh-d-43fb5e-trang.mp3",
+      "ms": 2448,
+      "spoken": "Nối mỗi hình với số góc vuông của hình đó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi phép tính với số thích hợp thay cho dấu ?.": {
+      "file": "assets/voice/noi-moi-phep-tinh-voi-so-thich-hop-thay-2667a3-trang.mp3",
+      "ms": 2976,
+      "spoken": "Nối mỗi phép tính với số thích hợp thay cho dấu ?.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi số La Mã với số có giá trị bằng nó.": {
+      "file": "assets/voice/noi-moi-so-la-ma-voi-so-co-gia-tri-bang-17f3d0-trang.mp3",
+      "ms": 3120,
+      "spoken": "Nối mỗi số La Mã với số có giá trị bằng nó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối mỗi số với số làm tròn của nó.": {
+      "file": "assets/voice/noi-moi-so-voi-so-lam-tron-cua-no-086701-trang.mp3",
+      "ms": 2568,
+      "spoken": "Nối mỗi số với số làm tròn của nó.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nối phép tính với kết quả.": {
+      "file": "assets/voice/noi-phep-tinh-voi-ket-qua-f09494-trang.mp3",
+      "ms": 1896,
+      "spoken": "Nối phép tính với kết quả.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Nửa chu vi (chiều dài cộng chiều rộng) là:": {
@@ -7359,10 +8157,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phép tính nào có kết quả lớn nhất?": {
-      "file": "assets/voice/phep-tinh-nao-co-ket-qua-lon-nhat-3cf348-lily.mp3",
-      "ms": 2064,
+      "file": "assets/voice/phep-tinh-nao-co-ket-qua-lon-nhat-3cf348-trang.mp3",
+      "ms": 1944,
       "spoken": "Phép tính nào có kết quả lớn nhất?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Phương án A: (15 + 36) × (6 - 4).": {
       "file": "assets/voice/phuong-an-a-15-36-6-4-bff36e-trang.mp3",
@@ -13293,10 +14091,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Sân vận động có 44.068 khán giả đến xem bóng đá. Làm tròn số đó đến hàng chục nghìn thì có khoảng bao nhiêu khán giả?": {
-      "file": "assets/voice/san-van-dong-co-44-068-khan-gia-den-xem-e86a36-lily.mp3",
-      "ms": 9792,
+      "file": "assets/voice/san-van-dong-co-44-068-khan-gia-den-xem-e86a36-trang.mp3",
+      "ms": 8496,
       "spoken": "Sân vận động có bốn mươi tư nghìn không trăm sáu mươi tám khán giả đến xem bóng đá. Làm tròn số đó đến hàng chục nghìn thì có khoảng bao nhiêu khán giả?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số 108 gồm 1 trăm, ? chục và 8 đơn vị.": {
       "file": "assets/voice/so-108-gom-1-tram-chuc-va-8-don-vi-3bf113-lily.mp3",
@@ -13515,10 +14313,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số La Mã nào có giá trị lớn nhất?": {
-      "file": "assets/voice/so-la-ma-nao-co-gia-tri-lon-nhat-e15402-lily.mp3",
+      "file": "assets/voice/so-la-ma-nao-co-gia-tri-lon-nhat-e15402-trang.mp3",
       "ms": 2208,
       "spoken": "Số La Mã nào có giá trị lớn nhất?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Số bánh còn lại là:": {
       "file": "assets/voice/so-banh-con-lai-la-fb6018-trang.mp3",
@@ -13898,6 +14696,12 @@
       "spoken": "Số thích hợp thay cho dấu ? là:",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Số thích hợp thay cho dấu ? là: (? + 79) × 4 = 560": {
+      "file": "assets/voice/so-thich-hop-thay-cho-dau-la-79-4-560-dac2fa-trang.mp3",
+      "ms": 5088,
+      "spoken": "Số thích hợp thay cho dấu ? là: (? + bảy mươi chín) × bốn bằng năm trăm sáu mươi",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Số thích hợp thay cho dấu ? là: 1.983 - ? × 3 = 1.038": {
       "file": "assets/voice/so-thich-hop-thay-cho-dau-la-1-983-3-1-0-6eba84-trang.mp3",
       "ms": 6696,
@@ -14025,10 +14829,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tháng trước cửa hàng bán được 46.315 quyển vở. Tháng này bán được nhiều hơn tháng trước 11.119 quyển vở. Hỏi tháng này cửa hàng bán được bao nhiêu quyển vở?": {
-      "file": "assets/voice/thang-truoc-cua-hang-ban-duoc-46-315-quy-f98eed-lily.mp3",
-      "ms": 12504,
+      "file": "assets/voice/thang-truoc-cua-hang-ban-duoc-46-315-quy-f98eed-trang.mp3",
+      "ms": 11568,
       "spoken": "Tháng trước cửa hàng bán được bốn mươi sáu nghìn ba trăm mười lăm quyển vở. Tháng này bán được nhiều hơn tháng trước mười một nghìn một trăm mười chín quyển vở. Hỏi tháng này cửa hàng bán được bao nhiêu quyển vở?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thân nhiệt của người khỏe mạnh khoảng:": {
       "file": "assets/voice/than-nhiet-cua-nguoi-khoe-manh-khoang-dd1f46-trang.mp3",
@@ -14061,16 +14865,16 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thư viện có 13.546 quyển truyện, số sách giáo khoa gấp 2 lần số truyện. Hỏi thư viện có tất cả bao nhiêu quyển truyện và sách giáo khoa?": {
-      "file": "assets/voice/thu-vien-co-13-546-quyen-truyen-so-sach-fa6343-lily.mp3",
-      "ms": 9984,
+      "file": "assets/voice/thu-vien-co-13-546-quyen-truyen-so-sach-fa6343-trang.mp3",
+      "ms": 10104,
       "spoken": "Thư viện có mười ba nghìn năm trăm bốn mươi sáu quyển truyện, số sách giáo khoa gấp hai lần số truyện. Hỏi thư viện có tất cả bao nhiêu quyển truyện và sách giáo khoa?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thư viện có 46.846 quyển truyện và 40.855 quyển sách khoa học. Hỏi thư viện có tất cả bao nhiêu quyển sách?": {
-      "file": "assets/voice/thu-vien-co-46-846-quyen-truyen-va-40-85-8984f8-lily.mp3",
-      "ms": 9888,
+      "file": "assets/voice/thu-vien-co-46-846-quyen-truyen-va-40-85-8984f8-trang.mp3",
+      "ms": 9816,
       "spoken": "Thư viện có bốn mươi sáu nghìn tám trăm bốn mươi sáu quyển truyện và bốn mươi nghìn tám trăm năm mươi lăm quyển sách khoa học. Hỏi thư viện có tất cả bao nhiêu quyển sách?",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Thư viện có 510 quyển truyện, số sách giáo khoa gấp 5 lần số truyện. Hỏi thư viện có tất cả bao nhiêu quyển truyện và sách giáo khoa?": {
       "file": "assets/voice/thu-vien-co-510-quyen-truyen-so-sach-gia-0213df-lily.mp3",
@@ -14169,10 +14973,10 @@
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
     "Trong 4 tháng cửa hàng bán được ? quyển vở.": {
-      "file": "assets/voice/trong-4-thang-cua-hang-ban-duoc-quyen-vo-be325c-lily.mp3",
-      "ms": 3216,
+      "file": "assets/voice/trong-4-thang-cua-hang-ban-duoc-quyen-vo-be325c-trang.mp3",
+      "ms": 3048,
       "spoken": "Trong bốn tháng cửa hàng bán được ? quyển vở.",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Trong 8 ngày nhà máy may được ? chiếc áo.": {
       "file": "assets/voice/trong-8-ngay-nha-may-may-duoc-chiec-ao-aa6daa-lily.mp3",
@@ -14474,6 +15278,12 @@
       "spoken": "Tìm ?:",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:": {
+      "file": "assets/voice/tim-chu-so-thich-hop-thay-cho-moi-o-tron-cbd5be-trang.mp3",
+      "ms": 3840,
+      "spoken": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau: 1.505 + 7.?51 = 9.356": {
       "file": "assets/voice/tim-chu-so-thich-hop-thay-cho-moi-o-tron-fb366e-trang.mp3",
       "ms": 10680,
@@ -14528,6 +15338,12 @@
       "spoken": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau: ?chín nghìn năm trăm bốn mươi tư trừ bảy nghìn sáu trăm bảy mươi bằng mười một nghìn tám trăm bảy mươi tư",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Tìm quy luật rồi viết số thích hợp vào ô trống:": {
+      "file": "assets/voice/tim-quy-luat-roi-viet-so-thich-hop-vao-o-7a6055-trang.mp3",
+      "ms": 2760,
+      "spoken": "Tìm quy luật rồi viết số thích hợp vào ô trống:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Tìm số gạo đã bán trước (2 bao), rồi lấy 93 kg trừ đi.": {
       "file": "assets/voice/tim-so-gao-da-ban-truoc-2-bao-roi-lay-93-42a547-trang.mp3",
       "ms": 4752,
@@ -14570,6 +15386,12 @@
       "spoken": "Tìm số lớn nhất và số bé nhất có năm chữ số.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Tìm số thích hợp.": {
+      "file": "assets/voice/tim-so-thich-hop-3b4c74-trang.mp3",
+      "ms": 1128,
+      "spoken": "Tìm số thích hợp.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Tìm xong, con thay số vào phép tính để thử lại nhé.": {
       "file": "assets/voice/tim-xong-con-thay-so-vao-phep-tinh-de-th-e89544-trang.mp3",
       "ms": 3408,
@@ -14580,6 +15402,18 @@
       "file": "assets/voice/tim-xong-con-thay-so-vao-phep-tinh-de-th-adca77-trang.mp3",
       "ms": 4320,
       "spoken": "Tìm xong, con thay số vào phép tính để thử lại xem có đúng không nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Tính giá trị biểu thức.": {
+      "file": "assets/voice/tinh-gia-tri-bieu-thuc-1a2b11-trang.mp3",
+      "ms": 1272,
+      "spoken": "Tính giá trị biểu thức.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Tính giá trị của biểu thức: 264 + 392 - 81 × 3": {
+      "file": "assets/voice/tinh-gia-tri-cua-bieu-thuc-264-392-81-3-658fc8-trang.mp3",
+      "ms": 6072,
+      "spoken": "Tính giá trị của biểu thức: hai trăm sáu mươi tư cộng ba trăm chín mươi hai trừ tám mươi mốt nhân ba",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tính giá trị của biểu thức: 264 + 392 - 81 × 3 264 + 392 - 81 × 3 = ?": {
@@ -14598,6 +15432,12 @@
       "file": "assets/voice/tinh-ket-qua-tung-phep-tinh-roi-so-sanh-eb7b08-trang.mp3",
       "ms": 2640,
       "spoken": "Tính kết quả từng phép tính rồi so sánh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Tính.": {
+      "file": "assets/voice/tinh-24b711-trang.mp3",
+      "ms": 432,
+      "spoken": "Tính.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Tổ Ba và Tổ Bốn được:": {
@@ -14684,6 +15524,12 @@
       "spoken": "Từ đỉnh A của hình tam giác ABC, kẻ ba đoạn thẳng xuống cạnh BC (chia hình thành bốn hình tam giác nhỏ). Hỏi trên hình có tất cả bao nhiêu hình tam giác?",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "V": {
+      "file": "assets/voice/v-d30c0e-trang.mp3",
+      "ms": 672,
+      "spoken": "V",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "V = ?": {
       "file": "assets/voice/v-49a0d3-lily.mp3",
       "ms": 1848,
@@ -14709,10 +15555,10 @@
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Viết các số La Mã sau bằng chữ số thường:": {
-      "file": "assets/voice/viet-cac-so-la-ma-sau-bang-chu-so-thuong-6e0362-lily.mp3",
-      "ms": 2832,
+      "file": "assets/voice/viet-cac-so-la-ma-sau-bang-chu-so-thuong-6e0362-trang.mp3",
+      "ms": 2952,
       "spoken": "Viết các số La Mã sau bằng chữ số thường:",
-      "voice": "WFDoCi084FlAxSbpBEfC"
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Viết các số La Mã sau bằng chữ số thường: V = ? II = 2 XVI = 16": {
       "file": "assets/voice/viet-cac-so-la-ma-sau-bang-chu-so-thuong-064207-trang.mp3",
@@ -14754,6 +15600,12 @@
       "file": "assets/voice/viet-so-thich-hop-vao-cho-trong-9-m-9000-1ea359-trang.mp3",
       "ms": 6168,
       "spoken": "Viết số thích hợp vào chỗ trống: chín mét bằng chín nghìn mi-li-mét bảy mươi mi-li-mét bằng bao nhiêu? cm",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Viết số thích hợp.": {
+      "file": "assets/voice/viet-so-thich-hop-efbb45-trang.mp3",
+      "ms": 1080,
+      "spoken": "Viết số thích hợp.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Vàng: ? bạn.": {
@@ -15632,11 +16484,35 @@
       "spoken": "Xưởng còn phải may ? chiếc áo.",
       "voice": "WFDoCi084FlAxSbpBEfC"
     },
+    "Xếp theo thứ tự từ bé đến lớn.": {
+      "file": "assets/voice/xep-theo-thu-tu-tu-be-den-lon-28278d-trang.mp3",
+      "ms": 2256,
+      "spoken": "Xếp theo thứ tự từ bé đến lớn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "com-pa": {
+      "file": "assets/voice/com-pa-8f73ab-trang.mp3",
+      "ms": 744,
+      "spoken": "com-pa",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "cân đĩa": {
+      "file": "assets/voice/can-dia-4a8f9e-trang.mp3",
+      "ms": 816,
+      "spoken": "cân đĩa",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "mèo, mèo, chó, thỏ, thỏ, thỏ, thỏ, chó, thỏ, thỏ, mèo, thỏ, thỏ.": {
       "file": "assets/voice/meo-meo-cho-tho-tho-tho-tho-cho-tho-tho-e2ba55-lily.mp3",
       "ms": 9624,
       "spoken": "mèo, mèo, chó, thỏ, thỏ, thỏ, thỏ, chó, thỏ, thỏ, mèo, thỏ, thỏ.",
       "voice": "WFDoCi084FlAxSbpBEfC"
+    },
+    "thước dây": {
+      "file": "assets/voice/thuoc-day-cc32f9-trang.mp3",
+      "ms": 816,
+      "spoken": "thước dây",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "xanh, vàng, trắng, vàng, vàng, vàng, xanh, xanh, xanh, vàng, xanh, trắng, trắng, vàng, xanh, trắng, vàng, trắng.": {
       "file": "assets/voice/xanh-vang-trang-vang-vang-vang-xanh-xanh-07d154-lily.mp3",
@@ -15786,6 +16662,42 @@
       "file": "assets/voice/on-tap-hoc-ki-1-so-den-1-000-bon-phep-ti-386859-trang.mp3",
       "ms": 9360,
       "spoken": "Ôn tập học kì một: số đến một nghìn, bốn phép tính, biểu thức, gấp – giảm số lần, một phần mấy, hình học và đo lường.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "ê ke": {
+      "file": "assets/voice/e-ke-cdbef1-trang.mp3",
+      "ms": 936,
+      "spoken": "ê ke",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Điền chữ số thích hợp.": {
+      "file": "assets/voice/dien-chu-so-thich-hop-c1b62e-trang.mp3",
+      "ms": 1656,
+      "spoken": "Điền chữ số thích hợp.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Điền số thích hợp.": {
+      "file": "assets/voice/dien-so-thich-hop-a95ebc-trang.mp3",
+      "ms": 1248,
+      "spoken": "Điền số thích hợp.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Điểm E": {
+      "file": "assets/voice/diem-e-96cbf5-trang.mp3",
+      "ms": 864,
+      "spoken": "Điểm E",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Điểm G": {
+      "file": "assets/voice/diem-g-98cbf8-trang.mp3",
+      "ms": 960,
+      "spoken": "Điểm G",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Điểm P": {
+      "file": "assets/voice/diem-p-89cbe0-trang.mp3",
+      "ms": 840,
+      "spoken": "Điểm P",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đo cả đoạn thẳng rồi chia đôi là tìm được trung điểm.": {
@@ -21644,6 +22556,12 @@
       "spoken": "Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Đặt tính rồi tính.": {
+      "file": "assets/voice/dat-tinh-roi-tinh-9b1bf2-trang.mp3",
+      "ms": 1368,
+      "spoken": "Đặt tính rồi tính.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.": {
       "file": "assets/voice/dat-tinh-sao-cho-cac-chu-so-cung-hang-th-b35ea6-trang.mp3",
       "ms": 7368,
@@ -21672,6 +22590,12 @@
       "file": "assets/voice/dat-tinh-thang-cot-nhan-tu-phai-sang-tra-f2d429-trang.mp3",
       "ms": 5952,
       "spoken": "Đặt tính thẳng cột. Nhân từ phải sang trái: hàng đơn vị trước, hàng chục sau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đếm số góc vuông của mỗi hình.": {
+      "file": "assets/voice/dem-so-goc-vuong-cua-moi-hinh-79d6b8-trang.mp3",
+      "ms": 1968,
+      "spoken": "Đếm số góc vuông của mỗi hình.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đếm thêm 3 rồi điền số còn thiếu:": {
