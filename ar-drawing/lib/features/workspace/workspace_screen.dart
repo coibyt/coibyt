@@ -19,6 +19,7 @@ import '../game/goals.dart';
 import '../../core/game_art.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_demo.dart';
+import '../lessons/lesson_finish.dart';
 import '../lessons/widgets/demo_view.dart';
 import '../teacher/teacher_script.dart';
 import '../lessons/lesson_progress_store.dart';
@@ -94,6 +95,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
   final TeacherController _teacher = TeacherController();
   LessonProgress? _progress;
   bool _greeted = false;
+  bool _celebrated = false;
 
   // Lumi shows each step on screen before the learner traces it on paper.
   LessonDemo? _demo;
@@ -189,6 +191,21 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
 
   void _onStepChanged() {
     setState(() {});
+    if (_progress!.step.kind == StepKind.done && !_celebrated) {
+      _celebrated = true;
+      Future<void>.delayed(const Duration(milliseconds: 1800), () async {
+        final LessonProgress? p = _progress;
+        if (!mounted || p == null) return;
+        _teacher.say(const <TeacherLine>[TeacherLine(id: 'lesson_complete_3', mood: 'cheer')]);
+        // On paper we cannot measure: finishing every step earns three stars.
+        await finishLesson(
+          context,
+          lesson: p.lesson,
+          stars: 3,
+          reopen: (Lesson l) => WorkspaceScreen(lesson: l),
+        );
+      });
+    }
     final TeacherLine? intro = _beginDemo();
     _teacher.say(intro != null ? <TeacherLine>[intro] : _progress!.step.lines);
     _recordProgress();

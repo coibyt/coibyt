@@ -307,6 +307,13 @@ class GameStore extends ChangeNotifier {
     _questBonusClaimed = false;
   }
 
+  /// Coins for finishing a lesson (and other learning rewards).
+  Future<void> addCoins(int value) async {
+    if (value <= 0) return;
+    coins += value;
+    await _changed();
+  }
+
   /// Counts an event for quests and achievements.
   Future<void> track(GameEvent e, [int n = 1]) async {
     if (n <= 0) return;

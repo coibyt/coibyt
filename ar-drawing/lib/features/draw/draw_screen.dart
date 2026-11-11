@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'dart:math' as math;
+import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
@@ -8,7 +11,9 @@ import '../game/goals.dart';
 import '../../core/app_theme.dart';
 import '../../core/game_art.dart';
 import '../lessons/lesson.dart';
+import '../lessons/learning_path.dart';
 import '../lessons/lesson_demo.dart';
+import '../lessons/lesson_finish.dart';
 import '../lessons/widgets/demo_view.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
@@ -18,6 +23,7 @@ import '../teacher/teacher_script.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/widgets/teacher_overlay.dart';
 import 'drawing_controller.dart';
+import 'stroke.dart';
 import 'onboarding_tour.dart';
 import 'widgets/draw_toolbar.dart';
 import 'widgets/drawing_canvas.dart';
@@ -70,6 +76,10 @@ class _DrawScreenState extends State<DrawScreen> {
   double _coverage = 0;
   bool _saidHalf = false, _saidReady = false;
   Size _canvasSize = Size.zero;
+
+  /// Best coverage reached in each step, for the lesson's stars.
+  final Map<int, double> _stepBest = <int, double>{};
+  bool _celebrated = false;
 
   @override
   void initState() {
@@ -165,6 +175,8 @@ class _DrawScreenState extends State<DrawScreen> {
       canvasWidth: _canvasSize.width,
     );
     if ((c - _coverage).abs() >= 0.01) setState(() => _coverage = c);
+    final int idx = _progress!.index;
+    if (c > (_stepBest[idx] ?? 0)) _stepBest[idx] = c;
     if (c >= 0.85 && !_saidReady) {
       _saidReady = _saidHalf = true;
       _teacher.say(const <TeacherLine>[TeacherLine(id: 'step_ready', mood: 'cheer')]);
@@ -248,12 +260,55 @@ class _DrawScreenState extends State<DrawScreen> {
     _coach?.modelColors = _stepColors(p.step);
     // Praise real work when moving on, then explain the new step.
     _prepareStep();
+    if (p.step.kind == StepKind.done && !_celebrated) {
+      _celebrated = true;
+      Future<void>.delayed(const Duration(milliseconds: 1800), _celebrate);
+    }
     final TeacherLine? intro = _beginDemo();
     _teacher.say(<TeacherLine>[
       if (forward && drewSomething && p.step.kind != StepKind.done) _praise.next(),
       if (intro != null) intro else ...p.step.lines,
     ]);
     _recordProgress();
+  }
+
+  /// The last step: stars from how much of each step was coloured, the
+  /// drawing goes to the gallery, then the celebration.
+  Future<void> _celebrate() async {
+    final LessonProgress? p = _progress;
+    if (!mounted || p == null) return;
+    final List<double> cover = <double>[
+      for (int i = 0; i < p.lesson.steps.length; i++)
+        if (p.lesson.steps[i].kind != StepKind.done) _stepBest[i] ?? 0,
+    ];
+    final bool drew = _drawing.strokes.any((Stroke s) => s.tool == DrawTool.brush);
+    final int stars = drew ? starsFor(cover) : 1;
+    _teacher.say(<TeacherLine>[TeacherLine(id: 'lesson_complete_$stars', mood: 'cheer')]);
+    final Uint8List? png = drew ? await _snapshot() : null;
+    if (!mounted) return;
+    await finishLesson(
+      context,
+      lesson: p.lesson,
+      stars: stars,
+      drawing: png,
+      reopen: (Lesson l) => DrawScreen(lesson: l),
+    );
+  }
+
+  /// The learner's drawing on paper, small, for the gallery.
+  Future<Uint8List?> _snapshot() async {
+    final Size size = _canvasSize;
+    if (size.isEmpty) return null;
+    final double scale = 320 / math.max(size.width, size.height);
+    final int w = (size.width * scale).round(), h = (size.height * scale).round();
+    final ui.PictureRecorder rec = ui.PictureRecorder();
+    final Canvas canvas = Canvas(rec);
+    canvas.drawRect(Rect.fromLTWH(0, 0, w.toDouble(), h.toDouble()), Paint()..color = paper);
+    canvas.drawPicture(_drawing.recordStrokes(w.toDouble(), Size(w.toDouble(), h.toDouble())));
+    final ui.Image img = await rec.endRecording().toImage(w, h);
+    final ByteData? bytes = await img.toByteData(format: ui.ImageByteFormat.png);
+    img.dispose();
+    return bytes?.buffer.asUint8List();
   }
 
   void _recordProgress() {

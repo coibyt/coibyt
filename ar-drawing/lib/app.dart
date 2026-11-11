@@ -5,11 +5,15 @@ import 'core/app_theme.dart';
 import 'core/i18n/app_language.dart';
 import 'core/i18n/language_controller.dart';
 import 'features/home/home_screen.dart';
+import 'features/home/start_screen.dart';
+import 'features/teacher/voiceover_service.dart';
 import 'features/exams/exam.dart';
 import 'features/exams/exam_record_store.dart';
 import 'features/game/game_store.dart';
 import 'features/leaderboard/leaderboard_client.dart';
 import 'features/leaderboard/player_profile.dart';
+import 'features/lessons/gallery_store.dart';
+import 'features/lessons/lesson_finish.dart';
 import 'features/lessons/lesson.dart';
 import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
@@ -27,8 +31,11 @@ class TraceLightApp extends StatelessWidget {
     this.game,
     this.profile,
     this.leaderboard,
+    this.gallery,
     this.home,
   });
+
+  final GalleryStore? gallery;
 
   final GameStore? game;
   final PlayerProfile? profile;
@@ -62,18 +69,34 @@ class TraceLightApp extends StatelessWidget {
                 profile: profile ?? PlayerProfile(id: 'local0000000', token: 'local000000000000'),
                 child: LeaderboardScope(
                   client: leaderboard ?? LeaderboardClient(),
-                  child: ListenableBuilder(
-                    listenable: language,
-                    builder: (BuildContext context, _) => MaterialApp(
-                      title: language.translations.tr('app.name'),
-                      debugShowCheckedModeBanner: false,
-                      theme: AppTheme.dark(),
-                      locale: language.language.locale,
-                      supportedLocales: <Locale>[
-                        for (final AppLanguage l in AppLanguage.values) l.locale,
-                      ],
-                      localizationsDelegates: GlobalMaterialLocalizations.delegates,
-                      home: home ?? HomeScreen(lessons: lessons.lessons, exams: exams.exams),
+                  child: GalleryScope(
+                    store: gallery ?? GalleryStore(),
+                    child: LessonCatalogScope(
+                      lessons: lessons.lessons,
+                      child: ListenableBuilder(
+                        listenable: language,
+                        builder: (BuildContext context, _) => Listener(
+                          // Any tap unlocks sound in the browser (see VoiceoverService).
+                          behavior: HitTestBehavior.translucent,
+                          onPointerDown: (_) => VoiceoverService.noteUserGesture(),
+                          child: MaterialApp(
+                            title: language.translations.tr('app.name'),
+                            debugShowCheckedModeBanner: false,
+                            theme: AppTheme.dark(),
+                            locale: language.language.locale,
+                            supportedLocales: <Locale>[
+                              for (final AppLanguage l in AppLanguage.values) l.locale,
+                            ],
+                            localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                            home:
+                                home ??
+                                StartScreen(
+                                  next: () =>
+                                      HomeScreen(lessons: lessons.lessons, exams: exams.exams),
+                                ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

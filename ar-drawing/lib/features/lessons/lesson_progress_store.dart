@@ -7,9 +7,15 @@ import 'lesson.dart';
 
 /// Remembers how far the learner got in each lesson (on this device).
 class LessonProgressStore extends ChangeNotifier {
-  LessonProgressStore([Map<String, int>? reached]) : _reached = reached ?? <String, int>{};
+  LessonProgressStore([Map<String, int>? reached, Map<String, int>? stars])
+    : _reached = reached ?? <String, int>{},
+      _stars = stars ?? <String, int>{};
 
   static const String _key = 'lesson_progress';
+  static const String _starsKey = 'lesson_stars';
+
+  /// Lesson id → best stars (1..3) earned when finishing it.
+  final Map<String, int> _stars;
 
   /// Lesson id → highest step index reached.
   final Map<String, int> _reached;
@@ -17,13 +23,16 @@ class LessonProgressStore extends ChangeNotifier {
   static Future<LessonProgressStore> load() async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      final String? raw = prefs.getString(_key);
-      if (raw != null) {
+      Map<String, int> read(String key) {
+        final String? raw = prefs.getString(key);
+        if (raw == null) return <String, int>{};
         final Map<String, Object?> json = jsonDecode(raw) as Map<String, Object?>;
-        return LessonProgressStore(<String, int>{
+        return <String, int>{
           for (final MapEntry<String, Object?> e in json.entries) e.key: (e.value! as num).toInt(),
-        });
+        };
       }
+
+      return LessonProgressStore(read(_key), read(_starsKey));
     } on Object catch (e) {
       debugPrint('Could not read lesson progress: $e');
     }
@@ -50,6 +59,35 @@ class LessonProgressStore extends ChangeNotifier {
     } on Object catch (e) {
       debugPrint('Could not save lesson progress: $e');
     }
+  }
+
+  /// Best stars for [lesson] (0 = not finished yet).
+  int stars(Lesson lesson) => _stars[lesson.id] ?? (isDone(lesson) ? 1 : 0);
+
+  int totalStars(List<Lesson> lessons) => lessons.fold<int>(0, (int a, Lesson l) => a + stars(l));
+
+  int doneCount(List<Lesson> lessons) => lessons.where(isDone).length;
+
+  bool hasStars(Lesson lesson) => _stars.containsKey(lesson.id);
+
+  /// Lessons finished with stars (since stars exist).
+  int get starredCount => _stars.length;
+
+  /// Saves the stars of a finished lesson; returns how many are new (0 when
+  /// the learner did not beat their best).
+  Future<int> recordStars(Lesson lesson, int value) async {
+    final int v = value.clamp(1, 3);
+    final int before = _stars[lesson.id] ?? 0;
+    if (v <= before) return 0;
+    _stars[lesson.id] = v;
+    notifyListeners();
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setString(_starsKey, jsonEncode(_stars));
+    } on Object catch (e) {
+      debugPrint('Could not save lesson stars: $e');
+    }
+    return v - before;
   }
 
   /// Overall progress over [lessons], 0..1.

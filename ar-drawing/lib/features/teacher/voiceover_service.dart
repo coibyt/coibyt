@@ -46,6 +46,12 @@ class VoiceoverService extends ChangeNotifier {
       _player = player;
 
   static const String manifestAsset = 'assets/audio/teacher/manifest.json';
+
+  /// Counts taps anywhere in the app. Browsers allow sound only after the
+  /// first one, so a line that was blocked is spoken again right then.
+  static final ValueNotifier<int> userGestures = ValueNotifier<int>(0);
+
+  static void noteUserGesture() => userGestures.value++;
   static const String _mutedKey = 'teacher_muted';
 
   final Map<String, Map<String, int>> _manifest;

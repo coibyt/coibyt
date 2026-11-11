@@ -42,6 +42,15 @@ const List<TeacherLine> twoLines = <TeacherLine>[
   TeacherLine(id: 'home_welcome_3', mood: 'point'),
 ];
 
+/// Lumi's pose image, or one of its talking / blinking frames.
+Finder lumiShows(String mood) => find.byWidgetPredicate(
+  (Widget w) =>
+      w is Image &&
+      w.image is AssetImage &&
+      RegExp('(lumi_$mood\\.png|/${mood}_(talk|blink)\\.png)\$')
+          .hasMatch((w.image as AssetImage).assetName),
+);
+
 void main() {
   setUp(() => SharedPreferences.setMockInitialValues(<String, Object>{}));
 
@@ -133,7 +142,7 @@ void main() {
     await tester.pump();
     expect(find.byKey(const Key('teacherDialog')), findsOneWidget);
     expect(voice.played, <String>['vi:home_welcome_1']);
-    expect(find.image(const AssetImage('assets/teacher/lumi_wave.png')), findsOneWidget);
+    expect(lumiShows('wave'), findsOneWidget);
 
     // Voice lasts 2 s: text is still typing at 1 s, complete by 2 s.
     await tester.pump(const Duration(seconds: 1));
@@ -149,7 +158,7 @@ void main() {
     await tester.pump();
     expect(voice.played.last, 'vi:home_welcome_3');
     await tester.pump(const Duration(milliseconds: 400));
-    expect(find.image(const AssetImage('assets/teacher/lumi_point.png')), findsOneWidget);
+    expect(lumiShows('point'), findsOneWidget);
     expect(find.text('Xong'), findsOneWidget, reason: 'last line offers "Done"');
   });
 

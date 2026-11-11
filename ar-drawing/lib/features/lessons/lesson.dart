@@ -24,7 +24,9 @@ enum LessonTopic {
   portrait(Icons.face),
   landscape(Icons.landscape),
   vehicles(Icons.directions_car),
-  masters(Icons.museum);
+  masters(Icons.museum),
+  food(Icons.icecream),
+  fantasy(Icons.auto_awesome);
 
   const LessonTopic(this.icon);
 

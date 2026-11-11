@@ -8,6 +8,7 @@ import 'features/exams/exam_record_store.dart';
 import 'features/game/game_store.dart';
 import 'features/leaderboard/leaderboard_client.dart';
 import 'features/leaderboard/player_profile.dart';
+import 'features/lessons/gallery_store.dart';
 import 'features/lessons/lesson.dart';
 import 'features/lessons/lesson_progress_store.dart';
 import 'features/teacher/teacher_scope.dart';
@@ -30,6 +31,7 @@ Future<void> main() async {
     ExamRecordStore examRecords,
     GameStore game,
     PlayerProfile profile,
+    GalleryStore gallery,
   ) = await (
     LanguageController.load(),
     TeacherServices.load(),
@@ -39,6 +41,7 @@ Future<void> main() async {
     ExamRecordStore.load(),
     GameStore.load(),
     PlayerProfile.load(),
+    GalleryStore.load(),
   ).wait;
 
   runApp(
@@ -52,6 +55,7 @@ Future<void> main() async {
       game: game,
       profile: profile,
       leaderboard: LeaderboardClient(),
+      gallery: gallery,
     ),
   );
 }

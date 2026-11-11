@@ -20,7 +20,7 @@ void main() {
   }
 
   Future<void> pumpHome(WidgetTester tester, {PhotoPicker? picker}) async {
-    tester.view.physicalSize = const Size(1080, 3600);
+    tester.view.physicalSize = const Size(1080, 9000);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     opened = null;
@@ -111,7 +111,7 @@ void main() {
 
   testWidgets('lesson cards open the colouring lesson', (WidgetTester tester) async {
     await pumpHome(tester);
-    expect(find.text('Colouring lessons'), findsOneWidget);
+    expect(find.text('Colouring path'), findsOneWidget);
     await tester.tap(find.byKey(const Key('lesson-sphere')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('mode-screen')));
@@ -130,6 +130,6 @@ void main() {
     });
     await tester.pumpAndSettle();
     expect(find.text('Tranh mẫu'), findsOneWidget);
-    expect(find.text('Bài học tô màu'), findsOneWidget);
+    expect(find.text('Lộ trình học tô màu'), findsOneWidget);
   });
 }

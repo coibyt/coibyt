@@ -30,11 +30,16 @@ void main() {
   testWidgets('academy filters by level and topic, shows progress and opens lessons', (
     WidgetTester tester,
   ) async {
-    tester.view.physicalSize = const Size(1080, 4200);
+    tester.view.physicalSize = const Size(1080, 12000);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     final LessonProgressStore store = LessonProgressStore();
     await store.record(lessons.first, 4); // sphere done
+    // Open every level: two lessons done in basic and in intermediate.
+    for (final String id in <String>['cube', 'fox', 'cat']) {
+      final Lesson l = lessons.firstWhere((Lesson x) => x.id == id);
+      await store.record(l, l.steps.length - 1);
+    }
     Lesson? opened;
     DrawMode? mode;
     await tester.pumpWidget(
@@ -53,9 +58,12 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
+    expect(find.byKey(const Key('node-sphere')), findsOneWidget, reason: 'the path comes first');
+    await tester.tap(find.byKey(const Key('tabLibrary')));
+    await tester.pumpAndSettle();
 
     expect(find.byKey(const Key('academyOverall')), findsOneWidget);
-    expect(find.text('Completed'), findsOneWidget);
+    expect(find.text('Completed'), findsWidgets);
     expect(
       tester.widget<LinearProgressIndicator>(find.byKey(const Key('progress-sphere'))).value,
       1,
@@ -89,5 +97,36 @@ void main() {
     await tester.pumpAndSettle();
     expect(opened!.id, 'pearl_earring');
     expect(mode, DrawMode.camera);
+  });
+
+  testWidgets('learning path: levels open step by step', (WidgetTester tester) async {
+    tester.view.physicalSize = const Size(1080, 12000);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.reset);
+    final LessonProgressStore store = LessonProgressStore();
+    bool opened = false;
+    await tester.pumpWidget(
+      testApp(
+        LessonProgressScope(
+          store: store,
+          child: AcademyScreen(
+            lessons: lessons,
+            lessonBuilder: (Lesson l, DrawMode m) {
+              opened = true;
+              return const Scaffold(body: Text('lesson'));
+            },
+          ),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('levelHeader-basic')), findsOneWidget);
+    await tester.tap(find.byKey(const Key('node-fox')));
+    // Lumi explains (she keeps floating: pump frames instead of settling).
+    for (int i = 0; i < 5; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    expect(find.byKey(const Key('lockedSnack')), findsOneWidget, reason: 'intermediate is locked');
+    expect(opened, isFalse);
   });
 }

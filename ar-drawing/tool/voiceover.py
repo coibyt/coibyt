@@ -24,7 +24,7 @@ KEY = os.environ.get("ELEVEN_MAX_API_KEY", "")
 
 def curl(*args):
     headers = ["-H", f"xi-api-key: {KEY}"] if KEY else []
-    return subprocess.run(["curl", "-sS", "--retry", "3", *headers, *args],
+    return subprocess.run(["curl", "-sS", *headers, *args],
                           capture_output=True, text=True, check=True).stdout
 
 
@@ -37,12 +37,27 @@ def main():
     for lid in todo:
         body = json.dumps({"text": lines[lid], "model_id": MODEL, "language_code": "vi",
                            "voice_settings": {"stability": 0.5, "speed": 1.0}})
-        tasks[lid] = json.loads(curl("-X", "POST", f"{API}/v1/text-to-speech/{VOICE}",
-                                     "-H", "Content-Type: application/json", "-d", body))["id"]
+        # Many lines at once can hit the rate limit: retry gently.
+        for attempt in range(6):
+            raw = curl("-X", "POST", f"{API}/v1/text-to-speech/{VOICE}",
+                       "-H", "Content-Type: application/json", "-d", body)
+            try:
+                reply, _ = json.JSONDecoder().raw_decode(raw.strip())
+            except ValueError:
+                reply = {}
+            if "id" in reply:
+                tasks[lid] = reply["id"]
+                break
+            print("retry", lid, raw[:120], flush=True)
+            time.sleep(5 * (attempt + 1))
+        time.sleep(0.5)
     while tasks:
         time.sleep(4)
         for lid, tid in list(tasks.items()):
-            d = json.loads(curl(f"{API}/v1/history/{tid}"))
+            try:
+                d, _ = json.JSONDecoder().raw_decode(curl(f"{API}/v1/history/{tid}").strip())
+            except ValueError:
+                continue
             if d["status"] == "completed":
                 raw = f"{OUT}/{lid}.raw.mp3"
                 curl("-o", raw, d["result"]["audio_url"])

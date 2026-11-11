@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../../core/i18n/app_language.dart';
 import '../../../core/i18n/language_controller.dart';
 import '../../game/game_store.dart';
+import '../lumi_frames.dart';
 import '../teacher_controller.dart';
 import '../teacher_scope.dart';
 import '../teacher_script.dart';
@@ -20,6 +21,13 @@ const Map<String, String> kLumiPoses = <String, String>{
   'cheer': 'assets/teacher/lumi_cheer.png',
   'paint': 'assets/teacher/lumi_paint.png',
 };
+
+/// Extra frame of a pose ('talk' = mouth open, 'blink' = eyes closed), or
+/// null when that frame was not drawn.
+String? lumiFrame(String mood, LumiOutfit outfit, String kind) {
+  final String id = '${outfit.name}/${mood}_$kind';
+  return kLumiFrames.contains(id) ? 'assets/teacher/frames/$id.png' : null;
+}
 
 String lumiPose(String mood, [LumiOutfit outfit = LumiOutfit.classic]) {
   final String key = kLumiPoses.containsKey(mood) ? mood : 'happy';
@@ -83,6 +91,7 @@ class _TeacherOverlayState extends State<TeacherOverlay> {
   void initState() {
     super.initState();
     _teacher.addListener(_onTeacherChanged);
+    VoiceoverService.userGestures.addListener(_onUserGesture);
   }
 
   @override
@@ -109,8 +118,18 @@ class _TeacherOverlayState extends State<TeacherOverlay> {
     }
   }
 
+  /// The first tap anywhere unlocks sound: say the current line aloud.
+  void _onUserGesture() {
+    if (!mounted || !_voiceBlocked || !_teacher.isOpen || _typingDone) return;
+    // Let the browser register the gesture before asking for sound.
+    Future<void>.delayed(const Duration(milliseconds: 30), () {
+      if (mounted && _voiceBlocked && _teacher.isOpen) unawaited(_startLine());
+    });
+  }
+
   @override
   void dispose() {
+    VoiceoverService.userGestures.removeListener(_onUserGesture);
     _teacher.removeListener(_onTeacherChanged);
     _advance?.cancel();
     unawaited(_voice?.stop());
@@ -417,21 +436,96 @@ class _LumiAvatarState extends State<_LumiAvatar> with SingleTickerProviderState
     vsync: this,
     duration: const Duration(milliseconds: 2400),
   )..repeat();
+  final math.Random _random = math.Random();
+  Timer? _mouth, _blink;
+  bool _mouthOpen = false, _eyesClosed = false;
+  String? _precached;
+
+  @override
+  void initState() {
+    super.initState();
+    _scheduleBlink();
+    if (widget.talking) _talk();
+  }
+
+  @override
+  void didUpdateWidget(_LumiAvatar old) {
+    super.didUpdateWidget(old);
+    if (widget.talking && !old.talking) _talk();
+    if (!widget.talking && old.talking) {
+      _mouth?.cancel();
+      setState(() => _mouthOpen = false);
+    }
+  }
+
+  /// Mouth flaps at an irregular, speech-like rhythm while Lumi talks.
+  void _talk() {
+    _mouth?.cancel();
+    _mouth = Timer(Duration(milliseconds: 90 + _random.nextInt(110)), () {
+      if (!mounted) return;
+      if (!widget.talking) {
+        setState(() => _mouthOpen = false);
+        return;
+      }
+      setState(() => _mouthOpen = !_mouthOpen || _random.nextInt(5) == 0);
+      _talk();
+    });
+  }
+
+  /// A natural blink every few seconds.
+  void _scheduleBlink() {
+    _blink?.cancel();
+    _blink = Timer(Duration(milliseconds: 2200 + _random.nextInt(3200)), () {
+      if (!mounted) return;
+      setState(() => _eyesClosed = true);
+      _blink = Timer(const Duration(milliseconds: 140), () {
+        if (!mounted) return;
+        setState(() => _eyesClosed = false);
+        _scheduleBlink();
+      });
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _precacheFrames();
+  }
+
+  void _precacheFrames() {
+    final LumiOutfit outfit = GameScope.maybeOf(context)?.outfit ?? LumiOutfit.classic;
+    final String key = '${outfit.name}/${widget.mood}';
+    if (_precached == key) return;
+    _precached = key;
+    for (final String kind in <String>['talk', 'blink']) {
+      final String? f = lumiFrame(widget.mood, outfit, kind);
+      if (f != null) unawaited(precacheImage(AssetImage(f), context));
+    }
+  }
 
   @override
   void dispose() {
+    _mouth?.cancel();
+    _blink?.cancel();
     _float.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final LumiOutfit outfit = GameScope.maybeOf(context)?.outfit ?? LumiOutfit.classic;
+    _precacheFrames();
+    final String pose = lumiPose(widget.mood, outfit);
+    final String frame =
+        (_eyesClosed ? lumiFrame(widget.mood, outfit, 'blink') : null) ??
+        (_mouthOpen && widget.talking ? lumiFrame(widget.mood, outfit, 'talk') : null) ??
+        pose;
     return AnimatedBuilder(
       animation: _float,
       builder: (BuildContext context, Widget? child) {
         final double t = _float.value * 2 * math.pi;
         final double dy = math.sin(t) * 3;
-        final double talk = widget.talking ? 1 + 0.025 * math.sin(t * 6).abs() : 1;
+        final double talk = widget.talking ? 1 + 0.015 * math.sin(t * 6).abs() : 1;
         return Transform.translate(
           offset: Offset(0, dy),
           child: Transform.scale(scale: talk, alignment: Alignment.bottomCenter, child: child),
@@ -449,11 +543,13 @@ class _LumiAvatarState extends State<_LumiAvatar> with SingleTickerProviderState
               child: child,
             ),
           ),
+          // Keyed by pose: a new pose cross-fades, mouth / eye frames swap instantly.
           child: Image.asset(
-            lumiPose(widget.mood, GameScope.maybeOf(context)?.outfit ?? LumiOutfit.classic),
-            key: ValueKey<String>('${widget.mood}-${GameScope.maybeOf(context)?.outfit.name}'),
+            frame,
+            key: ValueKey<String>('${widget.mood}-${outfit.name}'),
             height: widget.height,
             fit: BoxFit.contain,
+            gaplessPlayback: true,
             filterQuality: FilterQuality.medium,
           ),
         ),

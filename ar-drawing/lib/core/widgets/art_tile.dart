@@ -14,7 +14,13 @@ class ArtTile extends StatelessWidget {
     required this.onTap,
     this.badge,
     this.alert = false,
+    this.locked = false,
+    this.onLocked,
   });
+
+  /// Learning comes first: the tile is shown dimmed with a padlock.
+  final bool locked;
+  final VoidCallback? onLocked;
 
   final String art;
   final String title;
@@ -45,7 +51,7 @@ class ArtTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(24),
         ),
         child: InkWell(
-          onTap: onTap,
+          onTap: locked ? onLocked : onTap,
           child: Stack(
             children: <Widget>[
               // soft light from the top-left corner
@@ -91,7 +97,23 @@ class ArtTile extends StatelessWidget {
                   ],
                 ),
               ),
-              if (badge != null || alert)
+              if (locked)
+                Positioned.fill(
+                  child: Container(
+                    key: const Key('tileLocked'),
+                    color: const Color(0x9914122E),
+                    alignment: Alignment.center,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: const BoxDecoration(
+                        color: Color(0xCC2F2B66),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.lock_rounded, color: Color(0xFFFFD27A), size: 26),
+                    ),
+                  ),
+                ),
+              if (!locked && (badge != null || alert))
                 Positioned(
                   left: 12,
                   top: 12,

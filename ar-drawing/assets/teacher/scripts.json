@@ -126,5 +126,21 @@
       "id": "quests_intro_2",
       "mood": "point"
     }
+  ],
+  "path_intro": [
+    {
+      "id": "path_intro_1",
+      "mood": "wave"
+    },
+    {
+      "id": "path_intro_2",
+      "mood": "point"
+    }
+  ],
+  "gallery_intro": [
+    {
+      "id": "gallery_intro",
+      "mood": "happy"
+    }
   ]
 }

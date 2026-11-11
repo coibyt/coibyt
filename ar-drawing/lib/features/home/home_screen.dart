@@ -21,7 +21,11 @@ import '../game/quests_screen.dart';
 import '../game/game_store.dart';
 import '../game/shop_screen.dart';
 import '../leaderboard/leaderboard_screen.dart';
+import '../lessons/gallery_screen.dart';
+import '../lessons/learning_path.dart';
 import '../lessons/lesson.dart';
+import '../lessons/widgets/lesson_card.dart';
+import '../teacher/teacher_script.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../sketch/sketch_screen.dart';
 import '../teacher/teacher_controller.dart';
@@ -115,6 +119,51 @@ class _HomeScreenState extends State<HomeScreen> {
         .push(MaterialPageRoute<void>(builder: (_) => ExamsScreen(exams: widget.exams)));
   }
 
+  bool? _gamesWereOpen;
+
+  /// The first finished lesson opens the games: Lumi celebrates once.
+  void _celebrateUnlock(bool open) {
+    final bool? before = _gamesWereOpen;
+    _gamesWereOpen = open;
+    if (before == false && open) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          _teacher.say(const <TeacherLine>[TeacherLine(id: 'games_unlocked', mood: 'cheer')]);
+        }
+      });
+    }
+  }
+
+  void _gamesLocked() {
+    _teacher.say(const <TeacherLine>[TeacherLine(id: 'games_locked', mood: 'point')]);
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(
+        SnackBar(
+          key: const Key('gamesLockedSnack'),
+          backgroundColor: AppTheme.cardHigh,
+          content: Row(
+            children: <Widget>[
+              const Icon(Icons.lock_rounded, color: AppTheme.gold),
+              const SizedBox(width: 10),
+              Expanded(
+                child: Text(
+                  context.tr('path.gamesLocked'),
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+  }
+
+  void _openGallery() {
+    _teacher.close();
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => GalleryScreen(lessons: widget.lessons)));
+  }
+
   void _openQuests(int tab) {
     _teacher.close();
     Navigator.of(context)
@@ -205,6 +254,10 @@ class _HomeScreenState extends State<HomeScreen> {
         : widget.templates.where((DrawingTemplate t) => t.category == _category).toList();
     final ThemeData theme = Theme.of(context);
     final GameStore? game = GameScope.maybeOf(context);
+    final LessonProgressStore? lessonStore = LessonProgressScope.maybeOf(context);
+    final Lesson? next = nextLesson(widget.lessons, lessonStore);
+    final bool gamesOpen = widget.lessons.isEmpty || gamesUnlocked(lessonStore, widget.lessons);
+    _celebrateUnlock(gamesOpen);
 
     return Scaffold(
       backgroundColor: AppTheme.ink,
@@ -222,6 +275,113 @@ class _HomeScreenState extends State<HomeScreen> {
                     onCoins: _openShop,
                   ),
                 ),
+                if (widget.lessons.isNotEmpty) ...<Widget>[
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 18, 8, 0),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  context.tr('path.sectionTitle'),
+                                  style: theme.textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  context.tr('path.sectionHint'),
+                                  style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
+                                ),
+                              ],
+                            ),
+                          ),
+                          TextButton(
+                            key: const Key('seeAllLessons'),
+                            onPressed: _openAcademy,
+                            child: Text(context.tr('academy.seeAll')),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SliverToBoxAdapter(
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(16, 10, 16, 0),
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 6,
+                        children: <Widget>[
+                          _StatChip(
+                            icon: Icons.check_circle_rounded,
+                            color: const Color(0xFF7CF0B4),
+                            text: context.tr(
+                              'path.lessonsDone',
+                              args: <String, Object?>{
+                                'done': lessonStore?.doneCount(widget.lessons) ?? 0,
+                                'total': widget.lessons.length,
+                              },
+                            ),
+                          ),
+                          _StatChip(
+                            icon: Icons.star_rounded,
+                            color: const Color(0xFFFFD24A),
+                            text:
+                                '${lessonStore?.totalStars(widget.lessons) ?? 0}/${widget.lessons.length * 3}',
+                          ),
+                          _StatChip(
+                            key: const Key('galleryButton'),
+                            icon: Icons.photo_library_rounded,
+                            color: const Color(0xFFE07AD8),
+                            text: context.tr('path.gallery'),
+                            onTap: _openGallery,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  if (next != null)
+                    SliverToBoxAdapter(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+                        child: NextLessonHero(
+                          lesson: next,
+                          progress: lessonStore,
+                          unlockHint: !gamesOpen,
+                          onTap: () => _openLesson(next),
+                        ),
+                      ),
+                    ),
+                  SliverToBoxAdapter(
+                    child: SizedBox(
+                      height: 252,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        padding: const EdgeInsets.fromLTRB(16, 10, 16, 6),
+                        itemCount: widget.lessons.length,
+                        separatorBuilder: (_, _) => const SizedBox(width: 12),
+                        itemBuilder: (BuildContext context, int i) => LessonCard(
+                          width: 166,
+                          lesson: widget.lessons[i],
+                          progress: lessonStore,
+                          locked: !lessonUnlocked(widget.lessons[i], lessonStore, widget.lessons),
+                          onTap: () => openIfUnlocked(
+                            context,
+                            widget.lessons[i],
+                            widget.lessons,
+                            _openLesson,
+                            onLocked: () => _teacher.say(const <TeacherLine>[
+                              TeacherLine(id: 'level_locked', mood: 'point'),
+                            ]),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
@@ -249,6 +409,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       if (widget.exams.isNotEmpty)
                         ArtTile(
                           key: const Key('examHallCard'),
+                          locked: !gamesOpen,
+                          onLocked: _gamesLocked,
                           art: GameArt.tile('exam'),
                           title: context.tr('exam.hallCard'),
                           subtitle: context.tr('exam.hallCardHint'),
@@ -258,6 +420,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       if (game != null) ...<Widget>[
                         ArtTile(
                           key: const Key('questsCard'),
+                          locked: !gamesOpen,
+                          onLocked: _gamesLocked,
                           art: GameArt.tile('quests'),
                           title: context.tr('quest.title'),
                           subtitle: context.tr('quest.card'),
@@ -269,6 +433,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ArtTile(
                           key: const Key('badgesCard'),
+                          locked: !gamesOpen,
+                          onLocked: _gamesLocked,
                           art: GameArt.tile('badges'),
                           title: context.tr('badge.title'),
                           subtitle: context.tr(
@@ -284,6 +450,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ArtTile(
                           key: const Key('shopCard'),
+                          locked: !gamesOpen,
+                          onLocked: _gamesLocked,
                           art: GameArt.tile('shop'),
                           title: context.tr('shop.title'),
                           subtitle: context.tr('shop.card'),
@@ -293,6 +461,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ArtTile(
                           key: const Key('leaderboardCard'),
+                          locked: !gamesOpen,
+                          onLocked: _gamesLocked,
                           art: GameArt.tile('board'),
                           title: context.tr('board.title'),
                           subtitle: context.tr('board.card'),
@@ -303,54 +473,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ]),
                   ),
                 ),
-                if (widget.lessons.isNotEmpty) ...<Widget>[
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 12, 8, 0),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Text(
-                              context.tr('lesson.section'),
-                              style: theme.textTheme.titleLarge,
-                            ),
-                          ),
-                          TextButton(
-                            key: const Key('seeAllLessons'),
-                            onPressed: _openAcademy,
-                            child: Text(context.tr('academy.seeAll')),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
-                      child: Text(
-                        context.tr('lesson.sectionHint'),
-                        style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
-                      ),
-                    ),
-                  ),
-                  SliverToBoxAdapter(
-                    child: SizedBox(
-                      height: 236,
-                      child: ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        itemCount: widget.lessons.length,
-                        separatorBuilder: (_, _) => const SizedBox(width: 12),
-                        itemBuilder: (BuildContext context, int i) => CourseCard(
-                          width: 160,
-                          lesson: widget.lessons[i],
-                          progress: LessonProgressScope.maybeOf(context),
-                          onTap: () => _openLesson(widget.lessons[i]),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 8),
@@ -765,6 +887,49 @@ class _HomeHeader extends StatelessWidget {
           ),
           Positioned(left: 16, right: 16, bottom: 12, child: GameStatusBar(onCoins: onCoins)),
         ],
+      ),
+    );
+  }
+}
+
+/// Small stat pill in the lessons section (lessons done, stars, gallery).
+class _StatChip extends StatelessWidget {
+  const _StatChip({
+    super.key,
+    required this.icon,
+    required this.color,
+    required this.text,
+    this.onTap,
+  });
+
+  final IconData icon;
+  final Color color;
+  final String text;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: AppTheme.card,
+      shape: const StadiumBorder(side: BorderSide(color: AppTheme.line)),
+      child: InkWell(
+        customBorder: const StadiumBorder(),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 6, 12, 6),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Icon(icon, size: 18, color: color),
+              const SizedBox(width: 6),
+              Text(text, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13)),
+              if (onTap != null) ...<Widget>[
+                const SizedBox(width: 2),
+                const Icon(Icons.chevron_right, size: 16, color: Colors.white54),
+              ],
+            ],
+          ),
+        ),
       ),
     );
   }

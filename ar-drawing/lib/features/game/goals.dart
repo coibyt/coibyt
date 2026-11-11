@@ -25,6 +25,9 @@ enum GameEvent {
 
   /// A drawing shared to the Hall of Fame.
   artShared,
+
+  /// A colouring lesson finished.
+  lessonDone,
 }
 
 /// A daily quest: do [target] × [event] today for [coins].
@@ -67,6 +70,7 @@ const List<List<QuestDef>> kQuestGroups = <List<QuestDef>>[
   <QuestDef>[
     QuestDef('steps3', GameEvent.lessonStep, 3, 15),
     QuestDef('drill1', GameEvent.drill, 1, 10),
+    QuestDef('lesson1', GameEvent.lessonDone, 1, 20),
   ],
   <QuestDef>[
     QuestDef('exam1', GameEvent.exam, 1, 15),

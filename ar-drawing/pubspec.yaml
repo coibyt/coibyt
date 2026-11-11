@@ -87,6 +87,10 @@ flutter:
     - assets/teacher/outfits/flower/
     - assets/teacher/outfits/witch/
     - assets/teacher/outfits/star/
+    - assets/teacher/frames/classic/
+    - assets/teacher/frames/flower/
+    - assets/teacher/frames/star/
+    - assets/teacher/frames/witch/
     - assets/audio/teacher/
     - assets/audio/teacher/vi/
     - assets/lessons/
@@ -112,6 +116,34 @@ flutter:
     - assets/lessons/starry_night/
     - assets/lessons/pearl_earring/
     - assets/lessons/scooter/
+    - assets/lessons/strawberry/
+    - assets/lessons/ladybug/
+    - assets/lessons/watermelon/
+    - assets/lessons/goldfish/
+    - assets/lessons/mushroom/
+    - assets/lessons/ice_cream/
+    - assets/lessons/owl/
+    - assets/lessons/panda/
+    - assets/lessons/sunflower/
+    - assets/lessons/teapot/
+    - assets/lessons/unicorn/
+    - assets/lessons/toddler/
+    - assets/lessons/schoolgirl/
+    - assets/lessons/balloon/
+    - assets/lessons/rice_terraces/
+    - assets/lessons/beach_sunset/
+    - assets/lessons/village_house/
+    - assets/lessons/lighthouse/
+    - assets/lessons/sailboat/
+    - assets/lessons/portrait_boy/
+    - assets/lessons/young_woman/
+    - assets/lessons/man_glasses/
+    - assets/lessons/grandma/
+    - assets/lessons/grandpa/
+    - assets/lessons/city_street/
+    - assets/lessons/karst_bay/
+    - assets/lessons/dragon/
+    - assets/lessons/castle/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
