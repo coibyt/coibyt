@@ -227,6 +227,58 @@ JOBS["bg_show"] = dict(group="bg", aspect="9:16", prompt=(
     "shiny reflective floor, elegant and dramatic yet friendly, no people, no text, no logos, no screens with "
     "writing, plenty of dark calm space in the middle. " + STYLE + " " + CLEAN))
 
+# ---- Tranh minh hoạ từng bài (bài ôn tập / luyện tập chung dùng ảnh bìa chủ đề) ----
+LESSON_SCENES = [
+    (["bảng nhân", "bảng chia"], "neat equal groups of shiny red strawberries in identical little baskets lined up in rows on a picnic cloth"),
+    (["tìm thành phần"], "a mysterious closed gift box with a big magnifying glass and a few colourful building blocks beside it"),
+    (["một phần mấy"], "a round pizza cut into equal slices and a chocolate bar broken into equal pieces on a table"),
+    (["trung điểm", "điểm ở giữa"], "a wooden rope bridge across a stream with a small red flag exactly in the middle of the bridge"),
+    (["hình tròn", "đường tròn"], "a compass drawing a perfect circle on paper, next to round things like a plate, a wheel and an orange"),
+    (["góc"], "a wooden ruler, a set square and an open notebook, the corner of the notebook glowing softly"),
+    (["tam giác", "tứ giác"], "colourful paper cut-out shapes of triangles, squares and rectangles floating above a craft table"),
+    (["khối lập phương", "khối hộp"], "stacked toy cubes, a big dice and wrapped gift boxes in a playroom"),
+    (["gấp một số", "lớn gấp"], "a small tower of toy blocks next to a much taller tower built from the same blocks"),
+    (["giảm một số"], "a big bunch of balloons next to a much smaller bunch of the same balloons"),
+    (["chia hết", "có dư"], "cupcakes being placed into identical boxes with one cupcake left over on the table"),
+    (["hai bước"], "a magnifying glass over an open notebook with drawings of fruit baskets and arrows, solving a puzzle"),
+    (["mi-li-mét"], "a ruler measuring a tiny ladybug and a sharpened pencil tip, close-up, macro style"),
+    (["gam"], "a kitchen scale weighing a bunch of grapes, next to a bag of flour and a feather"),
+    (["mi-li-lít"], "measuring cups and a bottle of orange juice pouring into a glass"),
+    (["nhiệt độ"], "a big friendly thermometer between a snowy winter scene on one side and a sunny beach on the other"),
+    (["biểu thức"], "magical floating plus, minus, multiply and divide symbols and round brackets made of glowing coloured glass"),
+    (["so sánh"], "a cute balance scale on a meadow with two different piles of colourful blocks, one side lower"),
+    (["la mã"], "ancient marble columns and a stone clock tower without readable markings, sunny Mediterranean sky"),
+    (["làm tròn"], "a ball rolling down a gentle grassy hill towards the nearest of two little flags"),
+    (["chu vi"], "a tiny cheerful ant walking along the wooden fence around a rectangular flower garden"),
+    (["diện tích"], "a floor being covered with colourful square tiles, some tiles still in a stack"),
+    (["đồng hồ", "tháng", "xem lịch"], "a cute alarm clock and a colourful wall calendar on a desk, no readable text"),
+    (["tiền việt nam"], "a pink piggy bank with coins and folded colourful paper money on a little shop counter, no readable text"),
+    (["thu thập", "bảng số liệu", "thống kê"], "a colourful bar chart made of stacked toy blocks next to tally sticks and a clipboard"),
+    (["khả năng xảy ra"], "a colourful spinner wheel, a glass jar of coloured marbles and a coin on a game table"),
+    (["phép cộng", "cộng, phép trừ"], "two baskets of apples being poured together into one big basket at a sunny fruit market"),
+    (["phép trừ"], "a plate of cookies with a few cookies being carried away by a happy puppy"),
+    (["nhân số"], "rows of identical boxes of crayons stacked neatly on a classroom shelf"),
+    (["chia số"], "a pile of colourful marbles being shared equally into identical cups"),
+    (["các số", "số 10 000", "số 100 000"], "colourful place-value blocks: big cubes, flat squares, long rods and small unit cubes on a wooden table"),
+]
+def _lesson_scene(title):
+    t = title.lower()
+    for keys, scene in LESSON_SCENES:
+        if any(k in t for k in keys):
+            return scene
+    return None
+_catalog = json.loads((ROOT / "assets" / "content" / "catalog.json").read_text())
+for _c in _catalog["books"][0]["chapters"]:
+    for _l in _c["lessons"]:
+        if "ôn tập" in _l["title"].lower() or "luyện tập chung" in _l["title"].lower():
+            continue
+        _scene = _lesson_scene(_l["title"])
+        if _scene:
+            JOBS["illus_" + _l["id"]] = dict(group="illus", aspect="4:3", prompt=(
+                f"A bright, charming picture-book illustration for a children's math lesson: {_scene}. "
+                f"One seamless full-bleed scene filling the entire frame, no borders, no people's faces close-up, "
+                f"no text, no letters, no numbers. {STYLE} {CLEAN}"))
+
 # ---- ảnh bìa 16 chủ đề (4:3, tranh đầy đủ, không xoá nền) ----
 CHAPTERS = {
     1: "a cheerful review adventure: a winding path of stepping stones through a sunny meadow, each stone a different pastel colour, a small backpack and pencils resting beside the path",

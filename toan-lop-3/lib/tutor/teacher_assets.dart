@@ -128,6 +128,9 @@ class TeacherAssets {
   /// Huy hiệu hạng năng lực 1–4 (`assets/ui/ab_rank_<n>.webp`).
   String? abilityRank(int n) => _first('${uiDir}ab_rank_$n');
 
+  /// Tranh minh hoạ của một bài (`assets/illus/<lessonId>.webp`); null = chưa có.
+  String? lessonIllustration(String lessonId) => _first('assets/illus/$lessonId');
+
   /// Ảnh bìa chủ đề thứ [order] (`assets/chapters/<order>.webp`).
   String? chapter(int order) => _first('assets/chapters/$order');
 

@@ -151,6 +151,8 @@ def auto() -> None:
             item(src, m["key"], ROOT / "assets" / "pets" / f"{name.removeprefix('pet_')}.webp", SIZES["pets"])
         elif m["group"] == "bg":
             background(src, ROOT / "assets" / "bg" / f"{name.removeprefix('bg_')}.webp")
+        elif m["group"] == "illus":
+            background(src, ROOT / "assets" / "illus" / f"{name.removeprefix('illus_')}.webp", width=640)
         elif m["group"] == "chapters":
             background(src, ROOT / "assets" / "chapters" / f"{name.removeprefix('chapter_')}.webp", width=640)
 

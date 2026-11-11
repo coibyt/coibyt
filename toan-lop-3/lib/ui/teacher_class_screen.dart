@@ -209,6 +209,56 @@ class _ChalkEquation extends StatelessWidget {
   );
 }
 
+/// Tranh minh hoạ đầu bài (Kie.ai); bài chưa có tranh riêng dùng ảnh bìa chủ đề.
+class LessonIllustration extends StatelessWidget {
+  const LessonIllustration({super.key, required this.lessonId, this.chapterOrder, this.height = 190});
+
+  final String lessonId;
+  final int? chapterOrder;
+  final double height;
+
+  @override
+  Widget build(BuildContext context) {
+    final a = TeacherAssets.instance;
+    final path = a.lessonIllustration(lessonId) ?? (chapterOrder == null ? null : a.chapter(chapterOrder!));
+    if (path == null) return const SizedBox.shrink();
+    return ClipRRect(
+      key: const ValueKey('lesson-illustration'),
+      borderRadius: BorderRadius.circular(22),
+      child: Stack(
+        children: [
+          Image.asset(
+            path,
+            height: height,
+            width: double.infinity,
+            fit: BoxFit.cover,
+            errorBuilder: (_, _, _) => const SizedBox.shrink(),
+          ),
+          Positioned(
+            left: 10,
+            bottom: 10,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
+              decoration: BoxDecoration(color: const Color(0xCC1E4D38), borderRadius: BorderRadius.circular(12)),
+              child: const Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.image_rounded, color: Colors.white, size: 16),
+                  SizedBox(width: 4),
+                  Text(
+                    'Tranh minh hoạ',
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /// Che kết quả của phép tính mẫu: "6 × 8 = 48" → "6 × 8 = ?".
 String hideResult(String text) => text.replaceFirst(RegExp(r'=\s*[\d.]+\s*$'), '= ?');
 
@@ -460,6 +510,9 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
     }
   }
 
+  /// Thứ tự chủ đề từ mã bài "kntt3.c4.xxx" (để lấy ảnh bìa khi bài chưa có tranh riêng).
+  int? _chapterOrder(Lesson lesson) => int.tryParse(RegExp(r'\.c(\d+)\.').firstMatch(lesson.id)?[1] ?? '');
+
   void _practice(Lesson lesson) {
     final app = AppScope.read(context);
     Navigator.of(context).pushReplacement(
@@ -511,6 +564,8 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
                                 shadows: [Shadow(color: Colors.white, blurRadius: 8)],
                               ),
                             ),
+                            const SizedBox(height: 10),
+                            LessonIllustration(lessonId: lesson.id, chapterOrder: _chapterOrder(lesson)),
                             const SizedBox(height: 14),
                             for (final (i, b) in blocks.indexed)
                               KeyedSubtree(

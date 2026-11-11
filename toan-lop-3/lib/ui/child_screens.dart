@@ -1246,6 +1246,12 @@ class LessonScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 Center(child: _StarsRow(stars: lp?.bestStars ?? 0, size: 44)),
+                const SizedBox(height: 10),
+                LessonIllustration(
+                  lessonId: lessonRef.id,
+                  chapterOrder: int.tryParse(RegExp(r'\.c(\d+)\.').firstMatch(lessonRef.id)?[1] ?? ''),
+                  height: 170,
+                ),
                 const SizedBox(height: 16),
                 TeacherIntro(
                   key: const ValueKey('lesson-intro'),

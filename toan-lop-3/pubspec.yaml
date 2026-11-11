@@ -46,6 +46,7 @@ flutter:
     - assets/bg/
     - assets/chapters/
     - assets/host/
+    - assets/illus/
     - assets/voice/
 
   fonts:
