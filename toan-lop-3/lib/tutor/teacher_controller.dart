@@ -41,6 +41,18 @@ class TeacherController extends ChangeNotifier {
   /// Toàn bộ câu thoại hiện tại và số ký tự đã hiện (hiệu ứng gõ chữ).
   String get text => _text;
   int get visibleChars => _visible;
+
+  /// Câu cô đang đọc (trong các câu của lần nói hiện tại) và số ký tự đã hiện của câu đó — để làm phụ đề gọn.
+  (String, int) get currentPart {
+    var start = 0;
+    for (final (i, p) in _parts.indexed) {
+      final end = start + p.length;
+      if (_visible <= end || i == _parts.length - 1) return (p, (_visible - start).clamp(0, p.length));
+      start = end + 1;
+    }
+    return ('', 0);
+  }
+
   bool get typing => _visible < _text.length;
 
   /// Tăng mỗi lần có câu thoại mới (để khung thoại trượt lên lại).

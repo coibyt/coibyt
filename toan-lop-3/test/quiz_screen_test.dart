@@ -61,6 +61,10 @@ void main() {
     await tapKey(tester, 'btn-check');
     expect(find.byKey(const ValueKey('btn-retry')), findsOneWidget);
     // Cô giáo gợi ý đúng câu chủ dự án yêu cầu (không nói đáp án 63) và cột đơn vị nháy sáng
+    // Phụ đề gọn: chữ chạy dần theo giọng cô.
+    for (var i = 0; i < 60 && find.text(TutorLines.wrongColumn).evaluate().isEmpty; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
     expect(find.text(TutorLines.wrongColumn, findRichText: true), findsOneWidget);
     expect(find.byKey(const ValueKey('column-hint')), findsOneWidget);
     expect(find.textContaining('63'), findsNothing);

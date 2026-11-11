@@ -15,7 +15,12 @@ class TeacherHud extends StatelessWidget {
     this.bubbleColor = Colors.white,
     this.textColor = AppColors.ink,
     this.footer,
+    this.maxTextHeight,
   });
+
+  /// Phụ đề gọn: chỉ hiện câu cô đang đọc, khung cao tối đa [maxTextHeight] (dòng mới nhất luôn hiện).
+  /// Dùng ở màn có đề bài trên màn hình (luyện tập…) để khung thoại không che bảng và ô trả lời.
+  final double? maxTextHeight;
 
   final TeacherController controller;
   final double avatarHeight;
@@ -69,6 +74,7 @@ class TeacherHud extends StatelessWidget {
                         color: bubbleColor,
                         textColor: textColor,
                         footer: footer,
+                        maxTextHeight: maxTextHeight,
                       )
                     : SizedBox(key: const ValueKey('no-bubble'), height: avatarHeight * 0.3),
               ),
@@ -81,7 +87,16 @@ class TeacherHud extends StatelessWidget {
 }
 
 class _Bubble extends StatelessWidget {
-  const _Bubble({super.key, required this.controller, required this.color, required this.textColor, this.footer});
+  const _Bubble({
+    super.key,
+    required this.controller,
+    required this.color,
+    required this.textColor,
+    this.footer,
+    this.maxTextHeight,
+  });
+
+  final double? maxTextHeight;
 
   final TeacherController controller;
   final Color color;
@@ -124,25 +139,52 @@ class _Bubble extends StatelessWidget {
                     kTeacherName,
                     style: TextStyle(fontSize: 14, color: Colors.black45, fontWeight: FontWeight.w700),
                   ),
-                  // Chữ chưa hiện vẫn chiếm chỗ (trong suốt) để khung không nhảy kích thước.
-                  Semantics(
-                    label: text,
-                    child: ExcludeSemantics(
-                      child: RichText(
-                        key: const ValueKey('tutor-text'),
-                        text: TextSpan(
-                          style: style,
-                          children: [
-                            TextSpan(text: text.substring(0, shown)),
-                            TextSpan(
-                              text: text.substring(shown),
-                              style: const TextStyle(color: Colors.transparent),
-                            ),
-                          ],
+                  if (maxTextHeight != null)
+                    ShaderMask(
+                      // Dòng cũ cuộn lên trên thì mờ dần (không bị cắt ngang thô).
+                      shaderCallback: (r) => const LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [Color(0x00000000), Color(0xFF000000)],
+                        stops: [0, 0.22],
+                      ).createShader(r),
+                      blendMode: BlendMode.dstIn,
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: maxTextHeight!),
+                        child: SingleChildScrollView(
+                          reverse: true, // dòng đang đọc luôn ở trong khung
+                          child: Text(
+                            () {
+                              final (part, n) = controller.currentPart;
+                              return part.substring(0, n);
+                            }(),
+                            key: const ValueKey('tutor-text'),
+                            style: style.copyWith(fontSize: 18),
+                            semanticsLabel: controller.currentPart.$1,
+                          ),
+                        ),
+                      ),
+                    )
+                  else
+                    // Chữ chưa hiện vẫn chiếm chỗ (trong suốt) để khung không nhảy kích thước.
+                    Semantics(
+                      label: text,
+                      child: ExcludeSemantics(
+                        child: RichText(
+                          key: const ValueKey('tutor-text'),
+                          text: TextSpan(
+                            style: style,
+                            children: [
+                              TextSpan(text: text.substring(0, shown)),
+                              TextSpan(
+                                text: text.substring(shown),
+                                style: const TextStyle(color: Colors.transparent),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
                   ?footer,
                 ],
               ),

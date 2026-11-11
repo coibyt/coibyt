@@ -705,7 +705,12 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          TeacherHud(key: const ValueKey('class-teacher'), controller: _teacher, avatarHeight: 110),
+                          TeacherHud(
+                            key: const ValueKey('class-teacher'),
+                            controller: _teacher,
+                            avatarHeight: 110,
+                            maxTextHeight: 100,
+                          ),
                           QuizPanel(player: p),
                           if (p.done && p.quizScore.$3 > 0) _QuizScoreChip(score: p.quizScore),
                           DemoControls(player: p),

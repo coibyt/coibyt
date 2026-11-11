@@ -758,6 +758,7 @@ class _FeedbackAndActions extends StatelessWidget {
                 key: const ValueKey('feedback-message'),
                 controller: teacher,
                 avatarHeight: 92,
+                maxTextHeight: 78, // phụ đề gọn ~3 dòng: không che bảng và ô trả lời
                 textColor: fg,
                 footer: phase == QuestionPhase.revealed
                     ? Text(

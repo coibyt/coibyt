@@ -188,7 +188,12 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              TeacherHud(key: const ValueKey('board-teacher'), controller: _teacher, avatarHeight: 96),
+                              TeacherHud(
+                                key: const ValueKey('board-teacher'),
+                                controller: _teacher,
+                                avatarHeight: 96,
+                                maxTextHeight: 100,
+                              ),
                               QuizPanel(player: p),
                               DemoControls(player: p),
                               if (p.done) ...[
