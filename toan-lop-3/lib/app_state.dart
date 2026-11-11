@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'logic/badges.dart';
 import 'logic/economy.dart';
 import 'logic/exam_session.dart';
+import 'logic/leaderboard.dart';
 import 'logic/quiz_session.dart';
 import 'models/content.dart';
 import 'models/problem.dart';
@@ -45,6 +46,8 @@ class AppState extends ChangeNotifier {
   static const voiceKey = 'settings.voice';
   static const greetedKey = 'tutor.greeted';
   static const breakKey = 'settings.breakMinutes';
+  static const nicknameKey = 'lb.nickname';
+  static const optInKey = 'lb.optIn';
 
   final ContentRepository content;
   final KeyValueStore store;
@@ -122,6 +125,61 @@ class AppState extends ChangeNotifier {
   Future<void> setVoiceEnabled(bool value) async {
     await store.put(voiceKey, '$value');
     notifyListeners();
+  }
+
+  /// Cho dịch vụ khác báo giao diện cập nhật.
+  void notifyListenersPublic() => notifyListeners();
+
+  // ---- Bảng xếp hạng ----
+
+  /// Biệt danh trên bảng xếp hạng (máy chủ cấp; offline thì app tự tạo một lần).
+  String get nickname {
+    final saved = store.get(nicknameKey);
+    if (saved != null) return saved;
+    final n = generateNickname(Random());
+    store.put(nicknameKey, n);
+    return n;
+  }
+
+  bool get leaderboardOptIn => store.get(optInKey) != 'false';
+
+  /// Danh hiệu theo tổng điểm.
+  RankInfo get rank => rankFor(progress.totalPoints);
+
+  Future<void> setLeaderboardOptIn(bool value) async {
+    await store.put(optInKey, '$value');
+    await sync?.updateLeaderboard(optIn: value);
+    notifyListeners();
+  }
+
+  Future<void> regenerateNickname() async {
+    final remote = sync;
+    if (remote != null && remote.signedIn) {
+      await remote.updateLeaderboard(regenerateNickname: true);
+    } else {
+      await store.put(nicknameKey, generateNickname(Random()));
+    }
+    notifyListeners();
+  }
+
+  /// Bảng xếp hạng: thật (đã đăng nhập máy chủ) hoặc bảng thử với bạn mẫu.
+  Future<LeaderboardData> loadLeaderboard(LeaderboardPeriod period) async {
+    final remote = sync;
+    if (remote != null && remote.signedIn) {
+      try {
+        await remote.syncNow(); // gửi điểm mới nhất trước khi xem hạng
+        return await remote.fetchLeaderboard(period);
+      } on Object catch (e) {
+        debugPrint('Không tải được bảng xếp hạng: $e');
+      }
+    }
+    return demoLeaderboard(
+      period: period,
+      now: now(),
+      myNickname: nickname,
+      myPoints: periodPoints(progress, period, now()),
+      optedIn: leaderboardOptIn,
+    );
   }
 
   /// Nhắc bé nghỉ mắt sau bấy nhiêu phút dùng app liên tục (0 = tắt). Mặc định 30.

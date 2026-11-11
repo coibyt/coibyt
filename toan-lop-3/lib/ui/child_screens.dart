@@ -7,6 +7,7 @@ import '../models/content.dart';
 import 'app_theme.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
+import 'leaderboard_screen.dart';
 import 'widgets/game_widgets.dart';
 import '../logic/economy.dart';
 import 'exam_screens.dart';
@@ -185,6 +186,12 @@ class _HomeScreenState extends State<HomeScreen> {
         builder: (_) => ExamListScreen(book: book),
       ),
       HomeTile(
+        label: 'Bảng xếp hạng',
+        icon: Icons.leaderboard_rounded,
+        color: AppColors.good,
+        builder: (_) => const LeaderboardScreen(),
+      ),
+      HomeTile(
         label: 'Cửa hàng',
         icon: Icons.storefront_rounded,
         color: const Color(0xFFFF6FB5),
@@ -241,6 +248,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 12),
                 _DailyCard(app: app),
+                const SizedBox(height: 12),
+                RankCard(rank: app.rank),
                 const SizedBox(height: 16),
                 for (final t in tiles)
                   Padding(
@@ -337,9 +346,14 @@ class _BigTile extends StatelessWidget {
               Icon(tile.icon, size: 60, color: Colors.white),
               const SizedBox(width: 20),
               Expanded(
-                child: Text(
-                  tile.label,
-                  style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w700, color: Colors.white),
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    tile.label,
+                    maxLines: 1,
+                    style: const TextStyle(fontSize: 32, fontWeight: FontWeight.w700, color: Colors.white),
+                  ),
                 ),
               ),
               const Icon(Icons.chevron_right_rounded, size: 48, color: Colors.white),

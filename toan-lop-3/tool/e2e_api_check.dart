@@ -48,6 +48,35 @@ Future<void> main(List<String> args) async {
   } on ApiException catch (e) {
     _ok('đăng xuất', e.status == 401);
   }
+  // ---- Bảng xếp hạng (Phase 4) ----
+  final today = DateTime.now().toUtc().add(const Duration(hours: 7)); // giờ Việt Nam
+  final day = '${today.year.toString().padLeft(4, '0')}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+  Future<(ApiClient, ChildProfile)> kid(String name, int points) async {
+    final c = ApiClient(baseUrl: api.baseUrl);
+    await c.register('lb-${DateTime.now().microsecondsSinceEpoch}@example.com', 'matkhau-thu-nghiem');
+    final k = await c.createChild(name);
+    await c.putProgress(k.id, {'v': 1, 'childName': name, 'pointsByDay': {day: points}, 'updatedAt': today.toIso8601String()});
+    return (c, k);
+  }
+  final (apiA, kidA) = await kid('Nguyễn Văn An', 300);
+  final (apiB, kidB) = await kid('Trần Thị Bình', 120);
+  _ok('biệt danh do máy chủ tạo', kidA.nickname != null && kidA.nickname != 'Nguyễn Văn An');
+  final lbB = await apiB.leaderboard('week', kidB.id);
+  final meB = lbB['me'] as Map<String, dynamic>;
+  final above = meB['above'] as Map<String, dynamic>?;
+  _ok('hạng của bé B có, đứng sau người hơn điểm', meB['rank'] != null && above != null && (above['points'] as int) >= 120);
+  _ok('số điểm cần để vượt bạn ngay trên', meB['gapToAbove'] == (above!['points'] as int) - 120 + 1);
+  final raw = lbB.toString();
+  _ok('không lộ tên thật / email', !raw.contains('Nguyễn Văn An') && !raw.contains('Trần Thị Bình') && !raw.contains('@'));
+  final lbA = await apiA.leaderboard('week', kidA.id);
+  _ok('bé A xếp trên bé B', ((lbA['me'] as Map)['rank'] as int) < (meB['rank'] as int));
+  await apiA.patchChild(kidA.id, leaderboardOptIn: false);
+  final lbA2 = await apiA.leaderboard('week', kidA.id);
+  _ok('tắt tham gia thì không còn trong bảng', (lbA2['me'] as Map)['rank'] == null && (lbA2['me'] as Map)['optedIn'] == false);
+  final capped = await kid('Bé Cày Điểm', 999999);
+  final lbC = await capped.$1.leaderboard('week', capped.$2.id);
+  _ok('mỗi ngày tính tối đa 1000 điểm', (lbC['me'] as Map)['points'] == 1000);
+
   stdout.writeln('XONG: mọi bước đều khớp.');
 }
 

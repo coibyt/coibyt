@@ -191,6 +191,33 @@ class ParentScreen extends StatelessWidget {
               const AccountSection(),
               _Card(
                 children: [
+                  const Text('Bảng xếp hạng', style: h),
+                  const SizedBox(height: 4),
+                  const Text(
+                    'Bảng xếp hạng chỉ hiện biệt danh ngẫu nhiên, không bao giờ hiện tên thật của bé.',
+                    style: TextStyle(fontSize: 15, color: Colors.black54),
+                  ),
+                  SwitchListTile(
+                    key: const ValueKey('lb-optin'),
+                    contentPadding: EdgeInsets.zero,
+                    value: app.leaderboardOptIn,
+                    onChanged: app.setLeaderboardOptIn,
+                    title: const Text('Cho bé tham gia bảng xếp hạng'),
+                  ),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.pets_rounded),
+                    title: Text('Biệt danh: ${app.nickname}', key: const ValueKey('lb-nickname')),
+                    trailing: TextButton(
+                      key: const ValueKey('lb-regenerate'),
+                      onPressed: app.regenerateNickname,
+                      child: const Text('Đổi'),
+                    ),
+                  ),
+                ],
+              ),
+              _Card(
+                children: [
                   const Text('Cài đặt', style: h),
                   ListTile(
                     contentPadding: EdgeInsets.zero,

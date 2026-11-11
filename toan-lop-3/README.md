@@ -12,16 +12,24 @@ App học Toán lớp 3 cho bé 8–9 tuổi: lý thuyết, luyện tập, đề
 | [`docs/KIEN-TRUC.md`](docs/KIEN-TRUC.md) | Kiến trúc, UX cho bé, việc đã làm / chưa làm, việc cần chủ dự án làm |
 | [`server/README.md`](server/README.md) | Chạy backend, CMS soạn đề, API |
 
-## Đã có gì (4 phase)
+## Đã có gì
 
-1. **Bộ máy câu hỏi**: 4 dạng bài (trắc nghiệm, điền số bằng bàn phím số to, kéo thả, nối), chấm ngay,
-   âm thanh đúng/sai, thử lại 1 lần kèm gợi ý, "Xem lời giải". Nội dung JSON có schema, app **tự kiểm tra toán**.
-2. **Mục lục & điều hướng**: chọn bộ sách → chủ đề → bài học (Nhớ nhanh + Luyện tập), trang chủ của bé,
-   khu phụ huynh có cổng phụ huynh, lưu tiến độ offline (Hive).
-3. **Lời giải từng chữ số & thi thử**: đặt tính / chia đặt tính hiện từng bước (chữ số, số nhớ, thương, số hạ),
-   đề kiểm tra có đồng hồ, tự nộp khi hết giờ, chấm điểm từng phần, báo cáo "con cần ôn thêm".
-4. **Điểm, huy hiệu, chuỗi ngày**; tài khoản phụ huynh + đồng bộ nhiều máy; tải đề/bài mới từ máy chủ;
-   mua VIP (App Store / Google Play, máy chủ xác minh); CMS nhập đề có kiểm tra toán.
+**Đợt 1 (nền tảng):** 4 dạng bài (trắc nghiệm, điền số bằng bàn phím số to, kéo thả, nối), chấm ngay,
+lời giải từng chữ số, mục lục Bộ sách → Chủ đề → Bài học, khu phụ huynh, tài khoản + đồng bộ, VIP, CMS.
+
+**Đợt 2 (luyện thi, gia sư ảo, trò chơi hoá, xếp hạng):**
+
+1. **Luyện thi**: 4 loại đề — kiểm tra 15 phút, 1 tiết, giữa kì, cuối kì. Phòng thi có đồng hồ góc trên,
+   cảnh báo còn 5 phút / 1 phút, không xem được đáp án, tạm dừng làm tiếp. **Bảng điểm phân tích**: điểm,
+   so với lần trước, lời nhận xét ("Con đang làm rất tốt phép cộng, phép trừ, nhưng cần ôn lại phép nhân nhé."),
+   thanh từng phần kiến thức, "Ôn ngay" trỏ đúng bài học, lưới đúng/sai xem lời giải.
+2. **Gia sư ảo "Cô Ong"**: chào bằng giọng nói tiếng Việt, gợi ý khéo khi sai (không bao giờ nói đáp án),
+   chỉ cho xem lời giải sau khi bé đã xin gợi ý hoặc đã thử; khen khi đúng liên tiếp / làm nhanh.
+3. **Trò chơi hoá có trách nhiệm**: 5 trái tim (chỉ trong phòng thi; hồi theo giờ hoặc bằng cách ôn bài),
+   ngọn lửa chuỗi ngày lớn dần (có lượt giữ lửa mỗi tuần), đồng vàng & mảnh ghép, quay thẻ thú cưng
+   **công khai tỉ lệ**, trang phục cho cô Ong, nhắc nghỉ mắt.
+4. **Bảng xếp hạng** tuần/tháng (top 50), danh hiệu Tập sự → Học giả → Thần đồng, "thêm X điểm để vượt bạn
+   ngay trên"; chỉ hiện **biệt danh ngẫu nhiên** (vd "Mèo Thông Minh 99"), phụ huynh tắt được.
 
 ## Chạy thử trên laptop Windows 10 (4 GB RAM)
 
@@ -141,7 +149,7 @@ lib/logic/                   Chấm bài, chuẩn hoá số, tự kiểm tra to�
 lib/services/                Nạp nội dung, lưu offline (Hive), âm thanh, API, đồng bộ, mua VIP
 lib/ui/                      Màn hình bé, khu phụ huynh, lời giải từng bước
 web/                         Trang khởi động web, icon (tool/make_icons.py)
-test/                        Unit test + widget test (75 test)
+test/                        Unit test + widget test (118 test)
 tool/                        Kiểm tra nội dung, tạo âm thanh/icon, chép bản web sang Babelisa, kiểm tra API
-server/                      Backend Node.js + PostgreSQL + CMS (62 test)
+server/                      Backend Node.js + PostgreSQL + CMS + bảng xếp hạng (91 test)
 ```

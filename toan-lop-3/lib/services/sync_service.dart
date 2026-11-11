@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 import '../app_state.dart';
+import '../logic/leaderboard.dart';
 import '../models/progress.dart';
 import 'api_client.dart';
 import 'content_repository.dart';
@@ -59,6 +60,7 @@ class SyncService extends ChangeNotifier {
       final kids = await api.children();
       final child = kids.isNotEmpty ? kids.first : await api.createChild(app.progress.childName);
       await store.put(childKey, child.id);
+      await _rememberChild(child);
       return true;
     });
     if (ok == true) await syncNow();
@@ -127,6 +129,29 @@ class SyncService extends ChangeNotifier {
     }
     await app.reloadCatalog();
     return updated;
+  }
+
+  Future<void> _rememberChild(ChildProfile c) async {
+    if (c.nickname != null) await store.put(AppState.nicknameKey, c.nickname!);
+    await store.put(AppState.optInKey, '${c.leaderboardOptIn}');
+    app.notifyListenersPublic();
+  }
+
+  /// Bảng xếp hạng thật từ máy chủ (ném lỗi nếu chưa đăng nhập / mất mạng).
+  Future<LeaderboardData> fetchLeaderboard(LeaderboardPeriod period) async {
+    final id = childId;
+    if (!signedIn || id == null) throw StateError('Chưa đăng nhập');
+    return LeaderboardData.fromJson(await api.leaderboard(period.name, id));
+  }
+
+  Future<bool> updateLeaderboard({bool? optIn, bool regenerateNickname = false}) async {
+    final id = childId;
+    if (!signedIn || id == null) return false;
+    final ok = await _run(() async {
+      await _rememberChild(await api.patchChild(id, leaderboardOptIn: optIn, regenerateNickname: regenerateNickname));
+      return true;
+    });
+    return ok == true;
   }
 
   /// Gửi biên lai mua VIP lên máy chủ để xác minh.

@@ -31,10 +31,21 @@ class Account {
 }
 
 class ChildProfile {
-  const ChildProfile({required this.id, required this.name});
+  const ChildProfile({required this.id, required this.name, this.nickname, this.leaderboardOptIn = true});
+
+  factory ChildProfile.fromJson(Map<String, dynamic> j) => ChildProfile(
+    id: '${j['id']}',
+    name: j['name'] as String,
+    nickname: j['nickname'] as String?,
+    leaderboardOptIn: j['leaderboardOptIn'] as bool? ?? true,
+  );
 
   final String id;
   final String name;
+
+  /// Biệt danh ngẫu nhiên do máy chủ tạo (hiện trên bảng xếp hạng thay cho tên thật).
+  final String? nickname;
+  final bool leaderboardOptIn;
 }
 
 /// Tài liệu nội dung tải về (bài học / đề).
@@ -100,15 +111,12 @@ class ApiClient {
 
   Future<List<ChildProfile>> children() async {
     final j = _json(await _http.get(_u('/v1/children'), headers: _headers()));
-    return [
-      for (final c in (j['children'] as List).cast<Map<String, dynamic>>())
-        ChildProfile(id: '${c['id']}', name: c['name'] as String),
-    ];
+    return [for (final c in (j['children'] as List).cast<Map<String, dynamic>>()) ChildProfile.fromJson(c)];
   }
 
   Future<ChildProfile> createChild(String name) async {
     final j = _json(await _http.post(_u('/v1/children'), headers: _headers(), body: jsonEncode({'name': name})));
-    return ChildProfile(id: '${j['id']}', name: j['name'] as String);
+    return ChildProfile.fromJson(j);
   }
 
   Future<Map<String, dynamic>?> getProgress(String childId) async {
@@ -140,6 +148,26 @@ class ApiClient {
     if (r.statusCode == 304) return null;
     final j = _json(r);
     return RemoteDocument(rev: j['rev'] as int, body: j['body'] as Map<String, dynamic>);
+  }
+
+  /// Bảng xếp hạng tuần/tháng (chỉ biệt danh, không có tên thật).
+  Future<Map<String, dynamic>> leaderboard(String period, String childId) async => _json(
+    await _http.get(
+      _u('/v1/leaderboard?period=$period&childId=${Uri.encodeQueryComponent(childId)}'),
+      headers: _headers(),
+    ),
+  );
+
+  /// Bật/tắt tham gia bảng xếp hạng, hoặc xin biệt danh khác.
+  Future<ChildProfile> patchChild(String childId, {bool? leaderboardOptIn, bool regenerateNickname = false}) async {
+    final j = _json(
+      await _http.patch(
+        _u('/v1/children/$childId'),
+        headers: _headers(),
+        body: jsonEncode({'leaderboardOptIn': ?leaderboardOptIn, if (regenerateNickname) 'regenerateNickname': true}),
+      ),
+    );
+    return ChildProfile.fromJson(j);
   }
 
   /// Gửi biên lai mua hàng để máy chủ xác minh với App Store / Google Play.
