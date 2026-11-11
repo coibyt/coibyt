@@ -34,6 +34,13 @@ abstract final class TutorLines {
   static const demoColumn = 'Cô làm mẫu nhé! Mình đặt tính thẳng cột, rồi tính từ phải sang trái.';
   static const demoDivision = 'Cô làm mẫu phép chia nhé! Mình chia lần lượt từ trái sang phải.';
   static const classDone = 'Con đã nắm được bài rồi! Mình bắt đầu luyện tập nhé!';
+  static const quizLead = 'Cô hỏi con một câu nhé!';
+  static const quizRight = [
+    'Đúng rồi! Con giỏi lắm!',
+    'Chính xác! Mình học tiếp nhé!',
+    'Tuyệt vời, con hiểu bài rồi đấy!',
+  ];
+  static const quizWrong = 'Chưa đúng rồi, không sao đâu!';
   static const solutionIntro = 'Con xem cô làm mẫu bài này nhé!';
   static const tipLead = {
     TipKind.secret: 'Bí quyết của cô nè!',
@@ -146,6 +153,9 @@ abstract final class TutorLines {
     demoDivision,
     classDone,
     solutionIntro,
+    quizLead,
+    ...quizRight,
+    quizWrong,
     ...tipLead.values,
     ...allTipTexts(),
     gameIntro,

@@ -16,6 +16,7 @@ import 'widgets/big_button.dart';
 import 'widgets/game_art.dart';
 import 'widgets/solution_view.dart';
 import 'widgets/step_solver.dart';
+import 'widgets/visual_aid.dart';
 
 /// Màu, ảnh của thẻ mẹo.
 Color tipColor(TipKind k) => switch (k) {
@@ -88,7 +89,14 @@ class DemoBlockView extends StatelessWidget {
       final ColumnArithmeticBlock b => ColumnStepper(block: b, driver: player.drivers[index]),
       final LongDivisionBlock b => DivisionStepper(block: b, driver: player.drivers[index]),
       TextBlock(:final text, :final style) => _TextCard(text: text, style: style),
-      EquationBlock(:final text) => _ChalkEquation(text: text),
+      EquationBlock(:final text) => Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Cô đang hỏi phép tính này: che kết quả cho bé tự tính.
+          _ChalkEquation(text: player.quizPendingFor(index) ? hideResult(text) : text),
+          if (reached && !player.quizPendingFor(index)) ?VisualAid.forEquation(text),
+        ],
+      ),
       _ => BlockView(block: block),
     };
     return AnimatedOpacity(
@@ -199,6 +207,140 @@ class _ChalkEquation extends StatelessWidget {
       ),
     ),
   );
+}
+
+/// Che kết quả của phép tính mẫu: "6 × 8 = 48" → "6 × 8 = ?".
+String hideResult(String text) => text.replaceFirst(RegExp(r'=\s*[\d.]+\s*$'), '= ?');
+
+/// Câu cô hỏi nhanh: 3 lựa chọn to, dễ chạm; chọn xong tô xanh/đỏ.
+class QuizPanel extends StatelessWidget {
+  const QuizPanel({super.key, required this.player});
+
+  final DemoPlayer player;
+
+  static const _colors = [Color(0xFF3A86FF), Color(0xFFFF6FB5), Color(0xFF2EB872)];
+
+  @override
+  Widget build(BuildContext context) {
+    final q = player.current!.quiz!;
+    final picked = player.answerOf(player.index);
+    return Container(
+      key: const ValueKey('class-quiz'),
+      margin: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        gradient: const LinearGradient(colors: [Color(0xFFFFF4D6), Color(0xFFFFE9F2)]),
+        border: Border.all(color: const Color(0xFFFFB800), width: 2),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              const Icon(Icons.quiz_rounded, color: Color(0xFFE07A00)),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  q.question,
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Color(0xFF4A2A00)),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              for (var i = 0; i < q.choices.length; i++) ...[
+                if (i > 0) const SizedBox(width: 8),
+                Expanded(child: _choice(i, q, picked)),
+              ],
+            ],
+          ),
+          if (picked == null && player.waitingAnswer)
+            const Padding(
+              padding: EdgeInsets.only(top: 6),
+              child: Text(
+                'Con chạm vào đáp án đúng nhé!',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14, color: Colors.black54, fontWeight: FontWeight.w600),
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Widget _choice(int i, DemoQuiz q, int? picked) {
+    final answered = picked != null;
+    final isRight = i == q.correct;
+    final Color bg = !answered
+        ? _colors[i % 3]
+        : isRight
+        ? AppColors.good
+        : (i == picked ? const Color(0xFFE5484D) : Colors.black26);
+    return Material(
+      color: bg,
+      borderRadius: BorderRadius.circular(16),
+      elevation: answered ? 0 : 3,
+      child: InkWell(
+        key: ValueKey('class-quiz-$i'),
+        borderRadius: BorderRadius.circular(16),
+        onTap: answered || !player.waitingAnswer ? null : () => player.answer(i),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (answered && isRight) const Icon(Icons.check_circle_rounded, color: Colors.white, size: 22),
+              if (answered && !isRight && i == picked) const Icon(Icons.cancel_rounded, color: Colors.white, size: 22),
+              Flexible(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    q.choices[i],
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _QuizScoreChip extends StatelessWidget {
+  const _QuizScoreChip({required this.score});
+
+  final (int, int, int) score;
+
+  @override
+  Widget build(BuildContext context) {
+    final (right, _, total) = score;
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 6),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          for (var i = 0; i < total; i++)
+            Opacity(
+              opacity: i < right ? 1 : 0.25,
+              child: GameIcon(UiAsset.star, size: 24, fallback: const Icon(Icons.star_rounded, color: AppColors.honey)),
+            ),
+          const SizedBox(width: 6),
+          Flexible(
+            child: Text(
+              'Con trả lời đúng $right/$total câu cô hỏi',
+              key: const ValueKey('class-quiz-score'),
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 /// Thanh điều khiển: nghe lại · tạm dừng/tiếp tục · xem hết, kèm tiến độ.
@@ -426,6 +568,8 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           TeacherHud(key: const ValueKey('class-teacher'), controller: _teacher, avatarHeight: 110),
+                          if (p.current?.quiz != null) QuizPanel(player: p),
+                          if (p.done && p.quizScore.$3 > 0) _QuizScoreChip(score: p.quizScore),
                           DemoControls(player: p),
                           const SizedBox(height: 6),
                           BigButton(
@@ -470,7 +614,7 @@ class _SolutionDemoState extends State<SolutionDemo> {
   late final DemoPlayer _player = DemoPlayer(
     blocks: _blocks,
     teacher: _teacher,
-    scenes: buildDemoScript(_blocks, intro: const [TutorLines.solutionIntro]),
+    scenes: buildDemoScript(_blocks, intro: const [TutorLines.solutionIntro], maxQuizzes: 0),
   )..addListener(_changed);
 
   void _changed() {

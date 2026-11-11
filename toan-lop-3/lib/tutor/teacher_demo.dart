@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 
 import '../logic/demo_script.dart';
+import '../logic/tutor.dart';
 import '../models/blocks.dart';
 import 'teacher_avatar.dart';
 import 'teacher_controller.dart';
@@ -38,6 +39,41 @@ class DemoPlayer extends ChangeNotifier {
   static const gap = Duration(milliseconds: 450);
 
   int _index = -1;
+
+  /// Câu hỏi nhanh: cảnh → đáp án bé đã chọn.
+  final _answered = <int, int>{};
+  Completer<int>? _waiting;
+
+  /// Đang chờ bé trả lời câu hỏi của cảnh hiện tại.
+  bool get waitingAnswer => _waiting != null;
+
+  /// Đáp án bé đã chọn cho cảnh [scene] (null = chưa trả lời).
+  int? answerOf(int scene) => _answered[scene];
+
+  /// (đúng, đã trả lời, tổng số câu hỏi).
+  (int, int, int) get quizScore {
+    var right = 0;
+    for (final e in _answered.entries) {
+      if (scenes[e.key].quiz?.correct == e.value) right++;
+    }
+    return (right, _answered.length, scenes.where((s) => s.quiz != null).length);
+  }
+
+  /// Khối [block] có câu hỏi nhanh chưa trả lời (→ che kết quả của phép tính mẫu).
+  bool quizPendingFor(int block) {
+    if (_done) return false;
+    for (final (i, s) in scenes.indexed) {
+      if (s.quiz != null && s.block == block && !_answered.containsKey(i)) return true;
+    }
+    return false;
+  }
+
+  /// Bé chọn đáp án [choice] cho câu cô đang hỏi.
+  void answer(int choice) {
+    final w = _waiting;
+    if (w != null && !w.isCompleted) w.complete(choice);
+  }
+
   bool _playing = false;
   bool _done = false;
   int _token = 0;
@@ -90,6 +126,23 @@ class DemoPlayer extends ChangeNotifier {
       notifyListeners();
       await teacher.say(s.say, mood: _mood(s.mood));
       if (token != _token || _disposed) return;
+      final q = s.quiz;
+      if (q != null && !_answered.containsKey(i)) {
+        // Cô hỏi xong: chờ bé chạm chọn đáp án.
+        _waiting = Completer<int>();
+        notifyListeners();
+        final pick = await _waiting!.future;
+        _waiting = null;
+        if (token != _token || _disposed) return;
+        _answered[i] = pick;
+        final ok = pick == q.correct;
+        notifyListeners();
+        await teacher.say(
+          ok ? [TutorLines.quizRight[i % TutorLines.quizRight.length]] : [TutorLines.quizWrong, q.reveal],
+          mood: ok ? TeacherMood.clap : TeacherMood.think,
+        );
+        if (token != _token || _disposed) return;
+      }
       await Future<void>.delayed(gap);
     }
     if (token != _token || _disposed) return;
@@ -98,9 +151,16 @@ class DemoPlayer extends ChangeNotifier {
     notifyListeners();
   }
 
+  void _cancelWait() {
+    final w = _waiting;
+    _waiting = null;
+    if (w != null && !w.isCompleted) w.complete(-1);
+  }
+
   void pause() {
     if (!_playing) return;
     _token++;
+    _cancelWait();
     _playing = false;
     teacher.clear();
     notifyListeners();
@@ -108,6 +168,8 @@ class DemoPlayer extends ChangeNotifier {
 
   void restart() {
     _token++;
+    _cancelWait();
+    _answered.clear();
     teacher.clear();
     for (final d in drivers.values) {
       d.value = 0;
@@ -121,6 +183,7 @@ class DemoPlayer extends ChangeNotifier {
   /// Xem hết ngay: hiện toàn bộ các bước, không nói nữa.
   void skipToEnd() {
     _token++;
+    _cancelWait();
     teacher.clear();
     for (final e in drivers.entries) {
       e.value.value = _totals[e.key] ?? 0;
@@ -134,6 +197,7 @@ class DemoPlayer extends ChangeNotifier {
   void dispose() {
     _disposed = true;
     _token++;
+    _cancelWait();
     for (final d in drivers.values) {
       d.dispose();
     }
