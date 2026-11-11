@@ -173,6 +173,35 @@ class AppState extends ChangeNotifier {
     return RewardOutcome(pointsEarned: earned, newBadgeIds: badges);
   }
 
+  static String _draftKey(String examId) => 'exam.draft.$examId';
+
+  /// Bài thi đang làm dở của một đề (null nếu không có).
+  ExamDraft? examDraft(String examId) {
+    final raw = store.get(_draftKey(examId));
+    if (raw == null) return null;
+    try {
+      return ExamDraft.fromJson(jsonDecode(raw) as Map<String, dynamic>);
+    } on Object {
+      return null;
+    }
+  }
+
+  Future<void> saveExamDraft(ExamSession session) =>
+      store.put(_draftKey(session.exam.id), jsonEncode(session.toDraft().toJson()));
+
+  Future<void> clearExamDraft(String examId) async {
+    await store.delete(_draftKey(examId));
+    notifyListeners();
+  }
+
+  /// Điểm (làm tròn) của lần làm gần nhất, null nếu chưa làm.
+  int? lastExamScore(String examId) {
+    for (final r in progress.exams.reversed) {
+      if (r.examId == examId) return r.score.round();
+    }
+    return null;
+  }
+
   /// Điểm cao nhất (làm tròn) của một đề, null nếu chưa làm.
   int? bestExamScore(String examId) {
     int? best;
@@ -187,6 +216,7 @@ class AppState extends ChangeNotifier {
   /// Ghi nhận một lần làm đề. Điểm thưởng: lần đầu = điểm đề × 5;
   /// làm lại = phần điểm vượt kỷ lục × 5 + 2 điểm chăm chỉ.
   Future<RewardOutcome> recordExam(ExamResult result) async {
+    await store.delete(_draftKey(result.exam.id));
     final best = bestExamScore(result.exam.id);
     final score = result.roundedScore;
     final earned = best == null ? score * 5 : (score > best ? (score - best) * 5 : 0) + 2;

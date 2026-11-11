@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { describe, test } from 'node:test';
-import { mergeProgress, progressShapeError } from '../src/merge.js';
+import { isDayKey, mergeProgress, pointsByDayError, progressShapeError } from '../src/merge.js';
 
 const deviceA = {
   v: 1,
@@ -136,5 +136,68 @@ describe('progressShapeError', () => {
     assert.match(progressShapeError([]), /object/);
     assert.match(progressShapeError({ lessons: [] }), /lessons/);
     assert.match(progressShapeError({ updatedAt: 'hôm qua' }), /updatedAt/);
+  });
+});
+
+describe('pointsByDay', () => {
+  test('hợp các ngày, mỗi ngày lấy lớn hơn; khoá sắp xếp', () => {
+    const r = mergeProgress(
+      { pointsByDay: { '2026-11-10': 50, '2026-11-09': 10 }, updatedAt: '2026-11-10T00:00:00Z' },
+      { pointsByDay: { '2026-11-10': 30, '2026-11-11': 70 }, updatedAt: '2026-11-11T00:00:00Z' },
+    );
+    assert.deepEqual(r.pointsByDay, { '2026-11-09': 10, '2026-11-10': 50, '2026-11-11': 70 });
+    assert.deepEqual(Object.keys(r.pointsByDay), ['2026-11-09', '2026-11-10', '2026-11-11']);
+  });
+
+  test('bỏ giá trị không phải số nguyên ≥ 0 và khoá ngày sai định dạng', () => {
+    const r = mergeProgress(
+      { pointsByDay: { '2026-11-10': -5, '2026-11-11': 2.5, '2026-11-12': '40', '2026-11-13': null, '2026-11-14': 0 } },
+      { pointsByDay: { '2026-02-30': 10, '2026-1-05': 10, 'hôm nay': 10, '2026-11-10x': 10, '2026-11-15': 15 } },
+    );
+    assert.deepEqual(r.pointsByDay, { '2026-11-14': 0, '2026-11-15': 15 });
+    // giá trị hỏng một bên không che giá trị đúng của bên kia
+    assert.deepEqual(mergeProgress({ pointsByDay: { '2026-11-10': 'x' } }, { pointsByDay: { '2026-11-10': 4 } }).pointsByDay, {
+      '2026-11-10': 4,
+    });
+  });
+
+  test('chỉ một bên có / không bên nào có', () => {
+    assert.deepEqual(mergeProgress({ totalPoints: 1 }, { pointsByDay: { '2026-11-10': 3 } }).pointsByDay, { '2026-11-10': 3 });
+    assert.deepEqual(mergeProgress({ pointsByDay: { '2026-11-10': 3 } }, null).pointsByDay, { '2026-11-10': 3 });
+    assert.equal(Object.hasOwn(mergeProgress({ totalPoints: 1 }, { totalPoints: 2 }), 'pointsByDay'), false);
+  });
+
+  test('đối xứng và idempotent; không bị coi là khoá lạ', () => {
+    const a = { pointsByDay: { '2026-11-10': 5, '2026-11-12': 9 }, updatedAt: '2026-11-12T00:00:00Z' };
+    const b = { pointsByDay: { '2026-11-10': 8 }, updatedAt: '2026-11-13T00:00:00Z' };
+    const m = mergeProgress(a, b);
+    assert.deepEqual(m.pointsByDay, { '2026-11-10': 8, '2026-11-12': 9 }); // không lấy nguyên bản của bên mới hơn
+    assert.deepEqual(mergeProgress(b, a), m);
+    assert.deepEqual(mergeProgress(m, m), m);
+  });
+
+  test('khoá lạ mới của app (coins, hearts, pets) vẫn lấy của bên mới hơn', () => {
+    const r = mergeProgress(
+      { coins: 5, pets: ['mèo'], updatedAt: '2026-11-10T00:00:00Z' },
+      { coins: 3, hearts: 2, updatedAt: '2026-11-11T00:00:00Z' },
+    );
+    assert.equal(r.coins, 3);
+    assert.equal(r.hearts, 2);
+    assert.equal(r.pets, undefined);
+  });
+
+  test('isDayKey', () => {
+    assert.equal(isDayKey('2026-11-10'), true);
+    assert.equal(isDayKey('2028-02-29'), true);
+    assert.equal(isDayKey('2026-02-29'), false);
+    assert.equal(isDayKey('2026-13-01'), false);
+    assert.equal(isDayKey('20261110'), false);
+    assert.equal(isDayKey(20261110), false);
+  });
+
+  test('pointsByDayError: có mặt thì phải là object', () => {
+    assert.equal(pointsByDayError({}), null);
+    assert.equal(pointsByDayError({ pointsByDay: {} }), null);
+    for (const bad of [[], 'x', 1, null, true]) assert.match(pointsByDayError({ pointsByDay: bad }), /pointsByDay/);
   });
 });

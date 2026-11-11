@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { after, before, describe, test } from 'node:test';
 import request from 'supertest';
+import { isValidNickname } from '../src/nickname.js';
 import { bearer, freshDb, makeApp, register } from './helpers.js';
 
 describe('children + progress', () => {
@@ -20,8 +21,10 @@ describe('children + progress', () => {
     const empty = await request(app).get('/v1/children').set(bearer(alice.token)).expect(200);
     assert.deepEqual(empty.body, { children: [] });
     const c1 = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: ' Na ' }).expect(201);
-    assert.deepEqual(Object.keys(c1.body).sort(), ['id', 'name']);
+    assert.deepEqual(Object.keys(c1.body).sort(), ['id', 'leaderboardOptIn', 'name', 'nickname']);
     assert.equal(c1.body.name, 'Na');
+    assert.ok(isValidNickname(c1.body.nickname), c1.body.nickname);
+    assert.equal(c1.body.leaderboardOptIn, true);
     const c2 = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: 'Tí' }).expect(201);
     const list = await request(app).get('/v1/children').set(bearer(alice.token)).expect(200);
     assert.deepEqual(list.body.children, [c1.body, c2.body]);
@@ -118,5 +121,81 @@ describe('children + progress', () => {
     assert.equal(r.body.error, 'invalid_progress');
     await request(app).put(url).set(bearer(alice.token)).send({ progress: { lessons: [] } }).expect(400);
     await request(app).put(url).set(bearer(alice.token)).send({}).expect(400);
+  });
+
+  test('pointsByDay không phải object → 422 invalid_progress', async () => {
+    const c = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: 'P' }).expect(201);
+    const url = `/v1/children/${c.body.id}/progress`;
+    for (const bad of [[], 'abc', 5, null]) {
+      const r = await request(app).put(url).set(bearer(alice.token)).send({ progress: { pointsByDay: bad } }).expect(422);
+      assert.equal(r.body.error, 'invalid_progress');
+    }
+    const ok = await request(app)
+      .put(url)
+      .set(bearer(alice.token))
+      .send({ progress: { pointsByDay: { '2026-11-10': 30, '2026-11-11': -5, sai: 9 } } })
+      .expect(200);
+    assert.deepEqual(ok.body.progress.pointsByDay, { '2026-11-10': 30 });
+  });
+
+  test('PATCH: tắt/bật bảng xếp hạng và đổi biệt danh', async () => {
+    const c = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: 'Mi' }).expect(201);
+    const url = `/v1/children/${c.body.id}`;
+    const off = await request(app).patch(url).set(bearer(alice.token)).send({ leaderboardOptIn: false }).expect(200);
+    assert.deepEqual(off.body, { ...c.body, leaderboardOptIn: false });
+
+    // Đổi biệt danh: biệt danh mới hợp lệ; thử vài lần để chắc chắn có lúc khác biệt danh cũ.
+    let changed = false;
+    for (let i = 0; i < 5 && !changed; i++) {
+      const r = await request(app).patch(url).set(bearer(alice.token)).send({ regenerateNickname: true }).expect(200);
+      assert.ok(isValidNickname(r.body.nickname));
+      assert.equal(r.body.leaderboardOptIn, false);
+      assert.equal(r.body.name, 'Mi');
+      changed = r.body.nickname !== c.body.nickname;
+    }
+    assert.ok(changed);
+
+    const on = await request(app).patch(url).set(bearer(alice.token)).send({ leaderboardOptIn: true }).expect(200);
+    assert.equal(on.body.leaderboardOptIn, true);
+    const list = await request(app).get('/v1/children').set(bearer(alice.token)).expect(200);
+    assert.deepEqual(
+      list.body.children.find((x) => x.id === c.body.id),
+      on.body,
+    );
+  });
+
+  test('PATCH: chỉ đổi được 2 trường, sai kiểu → 400', async () => {
+    const c = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: 'Ti' }).expect(201);
+    const url = `/v1/children/${c.body.id}`;
+    for (const body of [
+      {},
+      { nickname: 'Tên Thật Của Bé' },
+      { name: 'Khác' },
+      { leaderboardOptIn: 'false' },
+      { regenerateNickname: false },
+      { leaderboardOptIn: true, nickname: 'x' },
+    ]) {
+      const r = await request(app).patch(url).set(bearer(alice.token)).send(body).expect(400);
+      assert.equal(r.body.error, 'invalid_patch');
+    }
+    const list = await request(app).get('/v1/children').set(bearer(alice.token)).expect(200);
+    assert.deepEqual(
+      list.body.children.find((x) => x.id === c.body.id),
+      c.body,
+    );
+  });
+
+  test('PATCH hồ sơ của tài khoản khác → 404', async () => {
+    const c = await request(app).post('/v1/children').set(bearer(alice.token)).send({ name: 'Bo' }).expect(201);
+    const r = await request(app)
+      .patch(`/v1/children/${c.body.id}`)
+      .set(bearer(bob.token))
+      .send({ leaderboardOptIn: false })
+      .expect(404);
+    assert.equal(r.body.error, 'not_found');
+    await request(app).patch('/v1/children/khong-phai-uuid').set(bearer(alice.token)).send({ leaderboardOptIn: false }).expect(404);
+    await request(app).patch(`/v1/children/${c.body.id}`).send({ leaderboardOptIn: false }).expect(401);
+    const list = await request(app).get('/v1/children').set(bearer(alice.token)).expect(200);
+    assert.equal(list.body.children.find((x) => x.id === c.body.id).leaderboardOptIn, true);
   });
 });

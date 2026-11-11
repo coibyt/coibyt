@@ -17,6 +17,11 @@ export function isPlaceholder(value) {
   return typeof value !== 'string' || value.trim() === '' || value.includes('<<') || value.includes('>>');
 }
 
+// Bảng xếp hạng: mỗi ngày tính tối đa LEADERBOARD_DAILY_CAP điểm (chống gian lận / bản tiến độ bị sửa),
+// chỉ trả LEADERBOARD_TOP_N bé đứng đầu.
+export const LEADERBOARD_DAILY_CAP = 1000;
+export const LEADERBOARD_TOP_N = 50;
+
 function bool(v) {
   return /^(1|true|yes|on)$/i.test(String(v ?? '').trim());
 }
@@ -41,6 +46,8 @@ export function loadConfig(env = process.env) {
     trustProxy: bool(env.TRUST_PROXY),
     schemaPath: env.SCHEMA_PATH || path.join(REPO_DIR, 'schema', 'toan3-content.v1.schema.json'),
     contentDir: env.CONTENT_DIR || path.join(REPO_DIR, 'assets', 'content'),
+    leaderboardDailyCap: LEADERBOARD_DAILY_CAP,
+    leaderboardTopN: LEADERBOARD_TOP_N,
   };
   assertSafeConfig(config);
   return config;

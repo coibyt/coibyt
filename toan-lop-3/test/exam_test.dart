@@ -92,11 +92,11 @@ void main() {
   test('đồng hồ: hết giờ tự nộp, không nhận thêm câu trả lời', () {
     final exam = loadExamFromDisk('kntt3.c4.de-1');
     final s = ExamSession(exam);
-    expect(s.remainingSeconds, 30 * 60);
+    expect(s.remainingSeconds, 35 * 60);
     expect(s.tick(60), isFalse);
-    expect(s.remainingSeconds, 29 * 60);
-    expect(formatClock(s.remainingSeconds), '29:00');
-    expect(s.tick(29 * 60), isTrue);
+    expect(s.remainingSeconds, 34 * 60);
+    expect(formatClock(s.remainingSeconds), '34:00');
+    expect(s.tick(34 * 60), isTrue);
     expect(s.isSubmitted, isTrue);
     expect(s.result!.timedOut, isTrue);
     s.setAnswer(0, const ChoiceAnswer({'b'}));

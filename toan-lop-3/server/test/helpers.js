@@ -41,8 +41,9 @@ export function testConfig(overrides = {}) {
   };
 }
 
-export function makeApp(db, overrides = {}) {
-  return createApp({ db, config: testConfig(overrides), validator: getValidator() });
+/** @param {{ clock?: () => Date }} [extra] */
+export function makeApp(db, overrides = {}, extra = {}) {
+  return createApp({ db, config: testConfig(overrides), validator: getValidator(), ...extra });
 }
 
 let counter = 0;

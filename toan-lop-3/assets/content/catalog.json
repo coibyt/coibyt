@@ -1,16 +1,110 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "kind": "catalog",
-  "contentRev": 1,
+  "contentRev": 2,
   "skills": [
-    { "id": "nhan.2cs_1cs.khong_nho", "name": "Nhân số có hai chữ số với số có một chữ số (không nhớ)", "strand": "so_va_phep_tinh" },
-    { "id": "nhan.2cs_1cs.co_nho", "name": "Nhân số có hai chữ số với số có một chữ số (có nhớ)", "strand": "so_va_phep_tinh" },
-    { "id": "chia.2cs_1cs", "name": "Chia số có hai chữ số cho số có một chữ số", "strand": "so_va_phep_tinh" },
-    { "id": "cong_tru.pham_vi_100", "name": "Cộng, trừ có nhớ trong phạm vi 100", "strand": "so_va_phep_tinh" },
-    { "id": "tim_thanh_phan.thua_so", "name": "Tìm thừa số chưa biết", "strand": "so_va_phep_tinh" },
-    { "id": "so_sanh.ket_qua", "name": "So sánh kết quả các phép tính", "strand": "so_va_phep_tinh" },
-    { "id": "giai_toan.mot_phep_tinh", "name": "Giải toán có lời văn (một phép tính)", "strand": "so_va_phep_tinh" },
-    { "id": "giai_toan.hai_phep_tinh", "name": "Giải toán có lời văn (hai phép tính)", "strand": "so_va_phep_tinh" }
+    {
+      "id": "nhan.2cs_1cs.khong_nho",
+      "name": "Nhân số có hai chữ số với số có một chữ số (không nhớ)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép nhân"
+    },
+    {
+      "id": "nhan.2cs_1cs.co_nho",
+      "name": "Nhân số có hai chữ số với số có một chữ số (có nhớ)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép nhân"
+    },
+    {
+      "id": "chia.2cs_1cs",
+      "name": "Chia số có hai chữ số cho số có một chữ số",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép chia"
+    },
+    {
+      "id": "cong_tru.pham_vi_100",
+      "name": "Cộng, trừ có nhớ trong phạm vi 100",
+      "strand": "so_va_phep_tinh",
+      "kidName": "phép cộng, phép trừ"
+    },
+    {
+      "id": "tim_thanh_phan.thua_so",
+      "name": "Tìm thừa số chưa biết",
+      "strand": "so_va_phep_tinh",
+      "kidName": "tìm thành phần chưa biết"
+    },
+    {
+      "id": "so_sanh.ket_qua",
+      "name": "So sánh kết quả các phép tính",
+      "strand": "so_va_phep_tinh",
+      "kidName": "so sánh số"
+    },
+    {
+      "id": "giai_toan.mot_phep_tinh",
+      "name": "Giải toán có lời văn (một phép tính)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "giải toán có lời văn"
+    },
+    {
+      "id": "giai_toan.hai_phep_tinh",
+      "name": "Giải toán có lời văn (hai phép tính)",
+      "strand": "so_va_phep_tinh",
+      "kidName": "giải toán có lời văn"
+    },
+    {
+      "id": "so.pham_vi_1000",
+      "name": "Đọc, viết, so sánh các số trong phạm vi 1000",
+      "kidName": "so sánh số",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "cong_tru.pham_vi_1000",
+      "name": "Cộng, trừ có nhớ trong phạm vi 1000",
+      "kidName": "phép cộng, phép trừ",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "bang_nhan_chia",
+      "name": "Bảng nhân, bảng chia (từ 2 đến 9)",
+      "kidName": "bảng nhân, bảng chia",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "nhan.3cs_1cs",
+      "name": "Nhân số có ba chữ số với số có một chữ số",
+      "kidName": "phép nhân",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "chia.3cs_1cs",
+      "name": "Chia số có ba chữ số cho số có một chữ số",
+      "kidName": "phép chia",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "tim_thanh_phan.so_hang",
+      "name": "Tìm số hạng chưa biết",
+      "kidName": "tìm thành phần chưa biết",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "tim_thanh_phan.so_bi_chia",
+      "name": "Tìm số bị chia chưa biết",
+      "kidName": "tìm thành phần chưa biết",
+      "strand": "so_va_phep_tinh"
+    },
+    {
+      "id": "hinh_hoc.hinh_phang",
+      "name": "Hình phẳng: trung điểm, hình tròn (tâm, bán kính, đường kính)",
+      "kidName": "hình học",
+      "strand": "hinh_hoc_va_do_luong"
+    },
+    {
+      "id": "do_luong.don_vi",
+      "name": "Đơn vị đo: mi-li-mét, gam, mi-li-lít, nhiệt độ",
+      "kidName": "đơn vị đo",
+      "strand": "hinh_hoc_va_do_luong"
+    }
   ],
   "books": [
     {
@@ -30,26 +124,68 @@
               "order": 1,
               "title": "Nhân số có hai chữ số với số có một chữ số",
               "src": "assets/content/lessons/kntt3.c4.nhan-2cs-1cs.json",
-              "access": "free"
+              "access": "free",
+              "skillIds": [
+                "nhan.2cs_1cs.khong_nho",
+                "nhan.2cs_1cs.co_nho",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh",
+                "so_sanh.ket_qua",
+                "cong_tru.pham_vi_100"
+              ]
             },
             {
               "id": "kntt3.c4.chia-2cs-1cs",
               "order": 2,
               "title": "Chia số có hai chữ số cho số có một chữ số",
               "src": "assets/content/lessons/kntt3.c4.chia-2cs-1cs.json",
-              "access": "free"
+              "access": "free",
+              "skillIds": [
+                "chia.2cs_1cs",
+                "tim_thanh_phan.thua_so",
+                "giai_toan.mot_phep_tinh",
+                "giai_toan.hai_phep_tinh"
+              ]
             }
           ]
         }
       ],
       "exams": [
         {
+          "id": "kntt3.c4.kt15-nhan",
+          "title": "Kiểm tra 15 phút — Phép nhân",
+          "src": "assets/content/exams/kntt3.c4.kt15-nhan.json",
+          "access": "free",
+          "examType": "kt_15p",
+          "durationMinutes": 15,
+          "term": 1
+        },
+        {
           "id": "kntt3.c4.de-1",
-          "title": "Kiểm tra Chủ đề 4 — Đề số 1",
+          "title": "Kiểm tra 1 tiết — Chủ đề 4",
           "src": "assets/content/exams/kntt3.c4.de-1.json",
           "access": "free",
-          "examType": "chu_de",
-          "durationMinutes": 30
+          "examType": "kt_1_tiet",
+          "durationMinutes": 35,
+          "term": 1
+        },
+        {
+          "id": "kntt3.giua-hk1.de-1",
+          "title": "Đề giữa học kì 1 — Đề số 1",
+          "src": "assets/content/exams/kntt3.giua-hk1.de-1.json",
+          "access": "free",
+          "examType": "giua_hk1",
+          "durationMinutes": 40,
+          "term": 1
+        },
+        {
+          "id": "kntt3.cuoi-hk1.de-1",
+          "title": "Đề cuối học kì 1 — Đề số 1",
+          "src": "assets/content/exams/kntt3.cuoi-hk1.de-1.json",
+          "access": "free",
+          "examType": "cuoi_hk1",
+          "durationMinutes": 40,
+          "term": 1
         },
         {
           "id": "kntt3.c4.nang-cao-1",
@@ -57,7 +193,8 @@
           "src": "assets/content/exams/kntt3.c4.nang-cao-1.json",
           "access": "vip",
           "examType": "on_tap",
-          "durationMinutes": 35
+          "durationMinutes": 35,
+          "term": 1
         }
       ]
     },

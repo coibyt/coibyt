@@ -8,6 +8,7 @@ import { authRoutes } from './routes/auth.js';
 import { childrenRoutes } from './routes/children.js';
 import { contentRoutes } from './routes/content.js';
 import { iapRoutes } from './routes/iap.js';
+import { leaderboardRoutes } from './routes/leaderboard.js';
 import { createValidator } from './validate.js';
 
 const API_CSP = "default-src 'none'; frame-ancestors 'none'";
@@ -44,7 +45,7 @@ function cors(origins) {
       res.set({
         'Access-Control-Allow-Origin': origin,
         'Access-Control-Allow-Headers': 'Authorization, Content-Type, If-None-Match',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
         'Access-Control-Expose-Headers': 'ETag',
         'Access-Control-Max-Age': '600',
       });
@@ -58,12 +59,14 @@ function cors(origins) {
 }
 
 /**
- * @param {{ db: import('pg').Pool, config: ReturnType<import('./config.js').loadConfig>, validator?: object }} deps
+ * @param {{ db: import('pg').Pool, config: ReturnType<import('./config.js').loadConfig>, validator?: object,
+ *           clock?: () => Date }} deps
+ *   clock: CHỈ test truyền vào (để cố định "bây giờ" cho bảng xếp hạng); không có tham số query nào đổi được.
  */
-export function createApp({ db, config, validator }) {
+export function createApp({ db, config, validator, clock = () => new Date() }) {
   assertSafeConfig(config);
   validator ??= createValidator(config.schemaPath);
-  const deps = { db, config, validator };
+  const deps = { db, config, validator, clock };
 
   const app = express();
   app.disable('x-powered-by');
@@ -84,6 +87,7 @@ export function createApp({ db, config, validator }) {
   const v1 = express.Router();
   v1.use(authRoutes(deps));
   v1.use(childrenRoutes(deps));
+  v1.use(leaderboardRoutes(deps));
   v1.use(contentRoutes(deps));
   v1.use(iapRoutes(deps));
   v1.use(adminRoutes(deps));

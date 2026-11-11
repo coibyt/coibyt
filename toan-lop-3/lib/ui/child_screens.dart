@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
         builder: (_) => ChapterListScreen(book: book),
       ),
       HomeTile(
-        label: 'Thi thử',
+        label: 'Luyện thi',
         icon: Icons.assignment_rounded,
         color: AppColors.tryAgain,
         builder: (_) => ExamListScreen(book: book),

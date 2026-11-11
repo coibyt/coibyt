@@ -2,6 +2,8 @@ import 'json_reader.dart';
 import 'problem.dart';
 
 enum ExamType {
+  kt15p('kt_15p', 'Kiểm tra 15 phút'),
+  kt1Tiet('kt_1_tiet', 'Kiểm tra 1 tiết'),
   chuDe('chu_de', 'Kiểm tra chủ đề'),
   giuaHk1('giua_hk1', 'Giữa học kì 1'),
   cuoiHk1('cuoi_hk1', 'Cuối học kì 1'),
@@ -15,6 +17,14 @@ enum ExamType {
   final String displayName;
 
   static Set<String> get names => {for (final t in values) t.jsonName};
+
+  /// Khoảng thời gian hợp lệ (phút) theo loại đề.
+  (int, int) get durationRange => switch (this) {
+        ExamType.kt15p => (15, 15),
+        ExamType.kt1Tiet => (35, 45),
+        ExamType.giuaHk1 || ExamType.cuoiHk1 || ExamType.giuaHk2 || ExamType.cuoiHk2 => (35, 60),
+        ExamType.chuDe || ExamType.onTap => (5, 90),
+      };
   static ExamType fromJsonName(String s) => values.firstWhere((t) => t.jsonName == s);
 }
 
@@ -27,9 +37,11 @@ class ExamRef {
     required this.access,
     required this.examType,
     required this.durationMinutes,
+    this.term,
   });
 
   factory ExamRef.fromJson(JsonReader r) => ExamRef(
+        term: r.optInteger('term', min: 1, max: 2),
         id: r.string('id'),
         title: r.string('title'),
         src: r.string('src'),
@@ -44,6 +56,7 @@ class ExamRef {
   final Access access;
   final ExamType examType;
   final int durationMinutes;
+  final int? term;
 }
 
 class ExamItem {
@@ -72,6 +85,8 @@ class Exam {
     required this.contentRev,
     required this.sections,
     this.chapterIds = const [],
+    this.term,
+    this.description,
   });
 
   factory Exam.fromJson(Object? json) {
@@ -84,6 +99,8 @@ class Exam {
       id: r.string('id'),
       bookId: r.string('bookId'),
       chapterIds: r.strings('chapterIds', optional: true),
+      term: r.optInteger('term', min: 1, max: 2),
+      description: r.optString('description'),
       title: r.string('title'),
       examType: ExamType.fromJsonName(r.oneOf('examType', ExamType.names)),
       durationMinutes: r.integer('durationMinutes', min: 5, max: 90),
@@ -119,6 +136,10 @@ class Exam {
   final Access access;
   final int contentRev;
   final List<ExamSection> sections;
+  final int? term;
+
+  /// Một câu: đề ôn những gì.
+  final String? description;
 
   List<ExamItem> get items => [for (final s in sections) ...s.items];
 

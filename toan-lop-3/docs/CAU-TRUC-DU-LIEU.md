@@ -1,4 +1,4 @@
-# Cấu trúc dữ liệu "Bài Toán" — schema v1.0.0
+# Cấu trúc dữ liệu "Bài Toán" — schema v1.2.0
 
 File chuẩn: [`schema/toan3-content.v1.schema.json`](../schema/toan3-content.v1.schema.json)
 (JSON Schema draft 2020-12). Bài mẫu: [`assets/content/lessons/`](../assets/content/lessons/).
@@ -99,9 +99,29 @@ Kiểm tra cấu trúc bằng schema: `python tool/validate_content.py`.
 - Tên/số thứ tự chủ đề trong `catalog.json` ("Chủ đề 4 — Phép nhân, phép chia trong phạm vi 100", Tập 1) theo hiểu biết của mình về bộ Kết nối tri thức — **cần đối chiếu lại với sách thật**.
 - Ký hiệu: nhân `×`, chia `:`, trừ `-` (đúng cách viết ở tiểu học Việt Nam).
 
-## 7. Đề kiểm tra (`kind: "exam"`, thêm ở schema 1.1.0)
+## 7. Đề kiểm tra (`kind: "exam"`, từ schema 1.1.0; loại đề mới ở 1.2.0)
 
-Xem mục đề thi trong schema: `durationMinutes`, các phần (`sections`) chứa Bài Toán kèm `points`; app tự chấm và tổng hợp theo `skillIds`.
+| `examType` | Loại đề | Thời gian (app kiểm tra) |
+|---|---|---|
+| `kt_15p` | Kiểm tra 15 phút | đúng 15 phút |
+| `kt_1_tiet` | Kiểm tra 1 tiết | 35–45 phút |
+| `giua_hk1`, `giua_hk2` | Thi giữa học kì | 35–60 phút |
+| `cuoi_hk1`, `cuoi_hk2` | Thi cuối học kì | 35–60 phút |
+| `chu_de`, `on_tap` | Theo chủ đề / ôn tập, nâng cao | 5–90 phút |
+
+Mỗi đề: `title`, `description` (một câu: ôn những gì), `term` (học kì), `durationMinutes`, `access`,
+`sections[]` → `items[]` gồm `points` (bội của 0,25) và một Bài Toán. **Tổng điểm phải bằng 10.**
+
+Chấm: trắc nghiệm đúng/sai cả câu; điền số, kéo thả, nối được điểm theo tỉ lệ phần đúng (làm tròn xuống
+0,25). Điểm hiển thị cho bé là số nguyên.
+
+**Bảng điểm phân tích** dùng `skillIds` của từng câu, gộp theo `kidName` của kỹ năng trong catalog
+(vd "phép nhân" gộp nhân có nhớ/không nhớ/số có ba chữ số) để ra lời nhận xét: "Con đang làm rất tốt
+phép cộng, phép trừ, nhưng cần ôn lại phép nhân nhé." Phần "Ôn ngay" lấy các bài học có `skillIds`
+trùng kỹ năng yếu (khai báo ở mục bài học trong catalog).
+
+Đề mẫu hiện có (tự soạn, cần thầy cô đối chiếu phạm vi kiến thức với SGK): 15 phút (phép nhân),
+1 tiết (Chủ đề 4), giữa học kì 1, cuối học kì 1, đề nâng cao (VIP).
 
 ## 8. Quyền VIP ở mỗi cấp
 

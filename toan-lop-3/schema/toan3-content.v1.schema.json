@@ -944,6 +944,12 @@
                   "thong_ke_xac_suat"
                 ],
                 "description": "Mạch kiến thức."
+              },
+              "kidName": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 40,
+                "description": "Từ 1.2.0: tên ngắn cho bé, dùng trong lời nhận xét, vd 'phép nhân'. Nhiều kỹ năng có thể chung một kidName."
               }
             },
             "additionalProperties": false
@@ -1038,6 +1044,14 @@
                           },
                           "access": {
                             "$ref": "#/$defs/access"
+                          },
+                          "skillIds": {
+                            "type": "array",
+                            "uniqueItems": true,
+                            "items": {
+                              "$ref": "#/$defs/skillId"
+                            },
+                            "description": "Từ 1.2.0: kỹ năng bài học luyện — để bảng điểm gợi ý 'ôn ngay' đúng bài."
                           }
                         },
                         "additionalProperties": false
@@ -1077,11 +1091,13 @@
                     },
                     "examType": {
                       "enum": [
-                        "chu_de",
+                        "kt_15p",
+                        "kt_1_tiet",
                         "giua_hk1",
                         "cuoi_hk1",
                         "giua_hk2",
                         "cuoi_hk2",
+                        "chu_de",
                         "on_tap"
                       ]
                     },
@@ -1089,6 +1105,12 @@
                       "type": "integer",
                       "minimum": 5,
                       "maximum": 90
+                    },
+                    "term": {
+                      "enum": [
+                        1,
+                        2
+                      ]
                     }
                   },
                   "additionalProperties": false
@@ -1143,14 +1165,16 @@
         },
         "examType": {
           "enum": [
-            "chu_de",
+            "kt_15p",
+            "kt_1_tiet",
             "giua_hk1",
             "cuoi_hk1",
             "giua_hk2",
             "cuoi_hk2",
+            "chu_de",
             "on_tap"
           ],
-          "description": "chu_de = kiểm tra theo chủ đề; giua/cuoi_hk = giữa/cuối học kì."
+          "description": "kt_15p = kiểm tra 15 phút; kt_1_tiet = kiểm tra 1 tiết (35–45 phút); giua/cuoi_hk = giữa/cuối học kì; chu_de = kiểm tra theo chủ đề; on_tap = ôn tập/nâng cao. (kt_15p, kt_1_tiet từ 1.2.0)"
         },
         "durationMinutes": {
           "type": "integer",
@@ -1205,10 +1229,23 @@
             },
             "additionalProperties": false
           }
+        },
+        "term": {
+          "enum": [
+            1,
+            2
+          ],
+          "description": "Học kì 1 hay 2 (từ 1.2.0)."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "description": "Một câu ngắn: đề ôn những gì (từ 1.2.0)."
         }
       },
       "additionalProperties": false,
-      "$comment": "Chấm: trắc nghiệm đúng/sai cả câu; điền số, kéo thả, nối được điểm theo tỉ lệ phần đúng (làm tròn xuống 0,25). Điểm hiển thị cho bé làm tròn thành số nguyên."
+      "$comment": "Chấm: trắc nghiệm đúng/sai cả câu; điền số, kéo thả, nối được điểm theo tỉ lệ phần đúng (làm tròn xuống 0,25). Điểm hiển thị cho bé làm tròn thành số nguyên. Thời gian theo loại đề (app kiểm tra): kt_15p = 15 phút; kt_1_tiet = 35–45; giữa/cuối kì = 35–60."
     }
   }
 }

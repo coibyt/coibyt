@@ -18,13 +18,18 @@ enum BookSeries {
 }
 
 class Skill {
-  const Skill({required this.id, required this.name, this.strand});
+  const Skill({required this.id, required this.name, this.strand, this.kidName});
 
   final String id;
 
   /// Tên cho phụ huynh đọc trong báo cáo.
   final String name;
   final String? strand;
+
+  /// Tên ngắn cho bé ("phép nhân"), dùng trong lời nhận xét. Mặc định = [name].
+  final String? kidName;
+
+  String get shortName => kidName ?? name;
 }
 
 class LessonRef {
@@ -34,6 +39,7 @@ class LessonRef {
     required this.title,
     required this.src,
     required this.access,
+    this.skillIds = const [],
   });
 
   final String id;
@@ -43,6 +49,9 @@ class LessonRef {
   /// Đường dẫn asset của file bài học.
   final String src;
   final Access access;
+
+  /// Kỹ năng bài học luyện (để gợi ý "ôn ngay").
+  final List<String> skillIds;
 }
 
 class Chapter {
@@ -103,6 +112,7 @@ class Catalog {
           id: s.string('id'),
           name: s.string('name'),
           strand: s.optString('strand'),
+          kidName: s.optString('kidName'),
         ),
         minItems: 1,
       ),
@@ -133,6 +143,7 @@ class Catalog {
                     title: l.string('title'),
                     src: l.string('src'),
                     access: Access.values.byName(l.oneOf('access', {'free', 'vip'})),
+                    skillIds: l.strings('skillIds', optional: true),
                   ),
                 ),
               ),
@@ -151,6 +162,14 @@ class Catalog {
   final List<Book> books;
 
   Map<String, Skill> get skillsById => {for (final s in skills) s.id: s};
+
+  /// Các bài học luyện một kỹ năng (theo thứ tự trong sách).
+  List<LessonRef> lessonsForSkill(String skillId) => [
+        for (final b in books)
+          for (final c in b.chapters)
+            for (final l in c.lessons)
+              if (l.skillIds.contains(skillId)) l,
+      ];
 }
 
 class Theory {

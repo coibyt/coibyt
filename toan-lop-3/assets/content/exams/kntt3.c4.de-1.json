@@ -1,14 +1,18 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "kind": "exam",
   "id": "kntt3.c4.de-1",
   "bookId": "kntt3",
-  "chapterIds": ["kntt3.c4"],
-  "title": "Kiểm tra Chủ đề 4 — Đề số 1",
-  "examType": "chu_de",
-  "durationMinutes": 30,
+  "chapterIds": [
+    "kntt3.c4"
+  ],
+  "title": "Kiểm tra 1 tiết — Chủ đề 4",
+  "description": "Nhân, chia số có hai chữ số với (cho) số có một chữ số; giải toán có lời văn.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
   "access": "free",
-  "contentRev": 1,
+  "contentRev": 2,
   "sections": [
     {
       "title": "Phần 1. Trắc nghiệm",
@@ -20,17 +24,35 @@
             "rev": 1,
             "type": "multiple_choice",
             "instruction": "Chọn đáp án đúng.",
-            "prompt": { "text": "Kết quả của phép nhân 43 × 2 là:" },
+            "prompt": {
+              "text": "Kết quả của phép nhân 43 × 2 là:"
+            },
             "level": 1,
-            "skillIds": ["nhan.2cs_1cs.khong_nho"],
+            "skillIds": [
+              "nhan.2cs_1cs.khong_nho"
+            ],
             "access": "free",
             "choices": [
-              { "id": "a", "text": "45" },
-              { "id": "b", "text": "86" },
-              { "id": "c", "text": "68" },
-              { "id": "d", "text": "84" }
+              {
+                "id": "a",
+                "text": "45"
+              },
+              {
+                "id": "b",
+                "text": "86"
+              },
+              {
+                "id": "c",
+                "text": "68"
+              },
+              {
+                "id": "d",
+                "text": "84"
+              }
             ],
-            "correctChoiceIds": ["b"],
+            "correctChoiceIds": [
+              "b"
+            ],
             "solution": {
               "access": "free",
               "answerText": "86",
@@ -38,11 +60,22 @@
                 {
                   "kind": "column_arithmetic",
                   "operation": "multiply",
-                  "operands": ["43", "2"],
+                  "operands": [
+                    "43",
+                    "2"
+                  ],
                   "result": "86",
                   "digitSteps": [
-                    { "place": 0, "text": "2 nhân 3 bằng 6, viết 6.", "write": "6" },
-                    { "place": 1, "text": "2 nhân 4 bằng 8, viết 8.", "write": "8" }
+                    {
+                      "place": 0,
+                      "text": "2 nhân 3 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 nhân 4 bằng 8, viết 8.",
+                      "write": "8"
+                    }
                   ]
                 }
               ]
@@ -56,17 +89,35 @@
             "rev": 1,
             "type": "multiple_choice",
             "instruction": "Chọn đáp án đúng.",
-            "prompt": { "text": "Kết quả của phép chia 63 : 3 là:" },
+            "prompt": {
+              "text": "Kết quả của phép chia 63 : 3 là:"
+            },
             "level": 1,
-            "skillIds": ["chia.2cs_1cs"],
+            "skillIds": [
+              "chia.2cs_1cs"
+            ],
             "access": "free",
             "choices": [
-              { "id": "a", "text": "21" },
-              { "id": "b", "text": "12" },
-              { "id": "c", "text": "23" },
-              { "id": "d", "text": "31" }
+              {
+                "id": "a",
+                "text": "21"
+              },
+              {
+                "id": "b",
+                "text": "12"
+              },
+              {
+                "id": "c",
+                "text": "23"
+              },
+              {
+                "id": "d",
+                "text": "31"
+              }
             ],
-            "correctChoiceIds": ["a"],
+            "correctChoiceIds": [
+              "a"
+            ],
             "solution": {
               "access": "free",
               "answerText": "21",
@@ -78,8 +129,20 @@
                   "quotient": "21",
                   "remainder": 0,
                   "digitSteps": [
-                    { "text": "6 chia 3 được 2, viết 2. 2 nhân 3 bằng 6; 6 trừ 6 bằng 0.", "partialDividend": 6, "quotientDigit": 2, "product": 6, "remainder": 0 },
-                    { "text": "Hạ 3; 3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.", "partialDividend": 3, "quotientDigit": 1, "product": 3, "remainder": 0 }
+                    {
+                      "text": "6 chia 3 được 2, viết 2. 2 nhân 3 bằng 6; 6 trừ 6 bằng 0.",
+                      "partialDividend": 6,
+                      "quotientDigit": 2,
+                      "product": 6,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 3; 3 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 3 trừ 3 bằng 0.",
+                      "partialDividend": 3,
+                      "quotientDigit": 1,
+                      "product": 3,
+                      "remainder": 0
+                    }
                   ]
                 }
               ]
@@ -93,34 +156,70 @@
             "rev": 1,
             "type": "multiple_choice",
             "instruction": "Chọn đáp án đúng.",
-            "prompt": { "text": "Mỗi thùng có 14 chai nước. Hỏi 6 thùng như thế có bao nhiêu chai nước?" },
+            "prompt": {
+              "text": "Mỗi thùng có 14 chai nước. Hỏi 6 thùng như thế có bao nhiêu chai nước?"
+            },
             "level": 2,
-            "skillIds": ["nhan.2cs_1cs.co_nho", "giai_toan.mot_phep_tinh"],
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho",
+              "giai_toan.mot_phep_tinh"
+            ],
             "access": "free",
             "choices": [
-              { "id": "a", "text": "20 chai" },
-              { "id": "b", "text": "84 chai" },
-              { "id": "c", "text": "64 chai" },
-              { "id": "d", "text": "86 chai" }
+              {
+                "id": "a",
+                "text": "20 chai"
+              },
+              {
+                "id": "b",
+                "text": "84 chai"
+              },
+              {
+                "id": "c",
+                "text": "64 chai"
+              },
+              {
+                "id": "d",
+                "text": "86 chai"
+              }
             ],
-            "correctChoiceIds": ["b"],
+            "correctChoiceIds": [
+              "b"
+            ],
             "solution": {
               "access": "free",
               "answerText": "84 chai nước",
               "steps": [
                 {
                   "kind": "word_problem",
-                  "lines": [{ "explanation": "Số chai nước của 6 thùng là:", "equation": "14 × 6 = 84 (chai)" }],
+                  "lines": [
+                    {
+                      "explanation": "Số chai nước của 6 thùng là:",
+                      "equation": "14 × 6 = 84 (chai)"
+                    }
+                  ],
                   "answer": "Đáp số: 84 chai nước."
                 },
                 {
                   "kind": "column_arithmetic",
                   "operation": "multiply",
-                  "operands": ["14", "6"],
+                  "operands": [
+                    "14",
+                    "6"
+                  ],
                   "result": "84",
                   "digitSteps": [
-                    { "place": 0, "text": "6 nhân 4 bằng 24, viết 4 nhớ 2.", "write": "4", "carry": 2 },
-                    { "place": 1, "text": "6 nhân 1 bằng 6, thêm 2 bằng 8, viết 8.", "write": "8" }
+                    {
+                      "place": 0,
+                      "text": "6 nhân 4 bằng 24, viết 4 nhớ 2.",
+                      "write": "4",
+                      "carry": 2
+                    },
+                    {
+                      "place": 1,
+                      "text": "6 nhân 1 bằng 6, thêm 2 bằng 8, viết 8.",
+                      "write": "8"
+                    }
                   ]
                 }
               ]
@@ -139,12 +238,25 @@
             "rev": 1,
             "type": "fill_blank",
             "instruction": "Đặt tính rồi tính.",
-            "prompt": { "text": "18 × 4 = ?" },
+            "prompt": {
+              "text": "18 × 4 = ?"
+            },
             "level": 2,
-            "skillIds": ["nhan.2cs_1cs.co_nho"],
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho"
+            ],
             "access": "free",
             "template": "18 × 4 = {{b1}}",
-            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 72 }, "maxLength": 3 }],
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 72
+                },
+                "maxLength": 3
+              }
+            ],
             "solution": {
               "access": "free",
               "answerText": "72",
@@ -152,11 +264,23 @@
                 {
                   "kind": "column_arithmetic",
                   "operation": "multiply",
-                  "operands": ["18", "4"],
+                  "operands": [
+                    "18",
+                    "4"
+                  ],
                   "result": "72",
                   "digitSteps": [
-                    { "place": 0, "text": "4 nhân 8 bằng 32, viết 2 nhớ 3.", "write": "2", "carry": 3 },
-                    { "place": 1, "text": "4 nhân 1 bằng 4, thêm 3 bằng 7, viết 7.", "write": "7" }
+                    {
+                      "place": 0,
+                      "text": "4 nhân 8 bằng 32, viết 2 nhớ 3.",
+                      "write": "2",
+                      "carry": 3
+                    },
+                    {
+                      "place": 1,
+                      "text": "4 nhân 1 bằng 4, thêm 3 bằng 7, viết 7.",
+                      "write": "7"
+                    }
                   ]
                 }
               ]
@@ -170,12 +294,25 @@
             "rev": 1,
             "type": "fill_blank",
             "instruction": "Đặt tính rồi tính.",
-            "prompt": { "text": "85 : 5 = ?" },
+            "prompt": {
+              "text": "85 : 5 = ?"
+            },
             "level": 2,
-            "skillIds": ["chia.2cs_1cs"],
+            "skillIds": [
+              "chia.2cs_1cs"
+            ],
             "access": "free",
             "template": "85 : 5 = {{b1}}",
-            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 17 }, "maxLength": 3 }],
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 17
+                },
+                "maxLength": 3
+              }
+            ],
             "solution": {
               "access": "free",
               "answerText": "17",
@@ -187,8 +324,20 @@
                   "quotient": "17",
                   "remainder": 0,
                   "digitSteps": [
-                    { "text": "8 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 8 trừ 5 bằng 3.", "partialDividend": 8, "quotientDigit": 1, "product": 5, "remainder": 3 },
-                    { "text": "Hạ 5, được 35; 35 chia 5 được 7, viết 7. 7 nhân 5 bằng 35; 35 trừ 35 bằng 0.", "partialDividend": 35, "quotientDigit": 7, "product": 35, "remainder": 0 }
+                    {
+                      "text": "8 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 8 trừ 5 bằng 3.",
+                      "partialDividend": 8,
+                      "quotientDigit": 1,
+                      "product": 5,
+                      "remainder": 3
+                    },
+                    {
+                      "text": "Hạ 5, được 35; 35 chia 5 được 7, viết 7. 7 nhân 5 bằng 35; 35 trừ 35 bằng 0.",
+                      "partialDividend": 35,
+                      "quotientDigit": 7,
+                      "product": 35,
+                      "remainder": 0
+                    }
                   ]
                 }
               ]
@@ -202,14 +351,33 @@
             "rev": 1,
             "type": "fill_blank",
             "instruction": "Tính.",
-            "prompt": { "text": "Tính kết quả hai phép tính sau." },
+            "prompt": {
+              "text": "Tính kết quả hai phép tính sau."
+            },
             "level": 2,
-            "skillIds": ["nhan.2cs_1cs.co_nho", "chia.2cs_1cs"],
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho",
+              "chia.2cs_1cs"
+            ],
             "access": "free",
             "template": "29 × 3 = {{b1}}\n48 : 4 = {{b2}}",
             "blanks": [
-              { "id": "b1", "answer": { "kind": "number", "value": 87 }, "maxLength": 3 },
-              { "id": "b2", "answer": { "kind": "number", "value": 12 }, "maxLength": 3 }
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 87
+                },
+                "maxLength": 3
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 12
+                },
+                "maxLength": 3
+              }
             ],
             "solution": {
               "access": "free",
@@ -218,11 +386,23 @@
                 {
                   "kind": "column_arithmetic",
                   "operation": "multiply",
-                  "operands": ["29", "3"],
+                  "operands": [
+                    "29",
+                    "3"
+                  ],
                   "result": "87",
                   "digitSteps": [
-                    { "place": 0, "text": "3 nhân 9 bằng 27, viết 7 nhớ 2.", "write": "7", "carry": 2 },
-                    { "place": 1, "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.", "write": "8" }
+                    {
+                      "place": 0,
+                      "text": "3 nhân 9 bằng 27, viết 7 nhớ 2.",
+                      "write": "7",
+                      "carry": 2
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+                      "write": "8"
+                    }
                   ]
                 },
                 {
@@ -232,8 +412,20 @@
                   "quotient": "12",
                   "remainder": 0,
                   "digitSteps": [
-                    { "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.", "partialDividend": 4, "quotientDigit": 1, "product": 4, "remainder": 0 },
-                    { "text": "Hạ 8; 8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.", "partialDividend": 8, "quotientDigit": 2, "product": 8, "remainder": 0 }
+                    {
+                      "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.",
+                      "partialDividend": 4,
+                      "quotientDigit": 1,
+                      "product": 4,
+                      "remainder": 0
+                    },
+                    {
+                      "text": "Hạ 8; 8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.",
+                      "partialDividend": 8,
+                      "quotientDigit": 2,
+                      "product": 8,
+                      "remainder": 0
+                    }
                   ]
                 }
               ]
@@ -247,30 +439,75 @@
             "rev": 1,
             "type": "drag_drop",
             "instruction": "Xếp từ bé đến lớn.",
-            "prompt": { "text": "Kéo các phép tính vào ô theo thứ tự kết quả từ bé đến lớn." },
+            "prompt": {
+              "text": "Kéo các phép tính vào ô theo thứ tự kết quả từ bé đến lớn."
+            },
             "level": 3,
-            "skillIds": ["so_sanh.ket_qua", "nhan.2cs_1cs.co_nho", "chia.2cs_1cs"],
+            "skillIds": [
+              "so_sanh.ket_qua",
+              "nhan.2cs_1cs.co_nho",
+              "chia.2cs_1cs"
+            ],
             "access": "free",
             "template": "{{s1}} < {{s2}} < {{s3}}",
             "tokens": [
-              { "id": "t1", "text": "15 × 4" },
-              { "id": "t2", "text": "92 : 2" },
-              { "id": "t3", "text": "21 × 3" }
+              {
+                "id": "t1",
+                "text": "15 × 4"
+              },
+              {
+                "id": "t2",
+                "text": "92 : 2"
+              },
+              {
+                "id": "t3",
+                "text": "21 × 3"
+              }
             ],
             "slots": [
-              { "id": "s1", "accept": ["t2"] },
-              { "id": "s2", "accept": ["t1"] },
-              { "id": "s3", "accept": ["t3"] }
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
             ],
             "solution": {
               "access": "free",
               "answerText": "92 : 2 < 15 × 4 < 21 × 3",
               "steps": [
-                { "kind": "text", "text": "Tính kết quả từng phép tính:" },
-                { "kind": "equation", "text": "92 : 2 = 46" },
-                { "kind": "equation", "text": "15 × 4 = 60" },
-                { "kind": "equation", "text": "21 × 3 = 63" },
-                { "kind": "text", "text": "Vì 46 < 60 < 63 nên thứ tự là: 92 : 2; 15 × 4; 21 × 3." }
+                {
+                  "kind": "text",
+                  "text": "Tính kết quả từng phép tính:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "92 : 2 = 46"
+                },
+                {
+                  "kind": "equation",
+                  "text": "15 × 4 = 60"
+                },
+                {
+                  "kind": "equation",
+                  "text": "21 × 3 = 63"
+                },
+                {
+                  "kind": "text",
+                  "text": "Vì 46 < 60 < 63 nên thứ tự là: 92 : 2; 15 × 4; 21 × 3."
+                }
               ]
             }
           }
@@ -282,37 +519,93 @@
             "rev": 1,
             "type": "matching",
             "instruction": "Nối phép tính với kết quả.",
-            "prompt": { "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng." },
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng."
+            },
             "level": 2,
-            "skillIds": ["nhan.2cs_1cs.co_nho", "chia.2cs_1cs"],
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho",
+              "chia.2cs_1cs"
+            ],
             "access": "free",
             "left": [
-              { "id": "l1", "text": "16 × 3" },
-              { "id": "l2", "text": "24 × 4" },
-              { "id": "l3", "text": "77 : 7" },
-              { "id": "l4", "text": "50 : 5" }
+              {
+                "id": "l1",
+                "text": "16 × 3"
+              },
+              {
+                "id": "l2",
+                "text": "24 × 4"
+              },
+              {
+                "id": "l3",
+                "text": "77 : 7"
+              },
+              {
+                "id": "l4",
+                "text": "50 : 5"
+              }
             ],
             "right": [
-              { "id": "r1", "text": "96" },
-              { "id": "r2", "text": "10" },
-              { "id": "r3", "text": "48" },
-              { "id": "r4", "text": "14" },
-              { "id": "r5", "text": "11" }
+              {
+                "id": "r1",
+                "text": "96"
+              },
+              {
+                "id": "r2",
+                "text": "10"
+              },
+              {
+                "id": "r3",
+                "text": "48"
+              },
+              {
+                "id": "r4",
+                "text": "14"
+              },
+              {
+                "id": "r5",
+                "text": "11"
+              }
             ],
             "pairs": [
-              { "left": "l1", "right": "r3" },
-              { "left": "l2", "right": "r1" },
-              { "left": "l3", "right": "r5" },
-              { "left": "l4", "right": "r2" }
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
             ],
             "solution": {
               "access": "free",
               "answerText": "16 × 3 = 48; 24 × 4 = 96; 77 : 7 = 11; 50 : 5 = 10",
               "steps": [
-                { "kind": "equation", "text": "16 × 3 = 48" },
-                { "kind": "equation", "text": "24 × 4 = 96" },
-                { "kind": "equation", "text": "77 : 7 = 11" },
-                { "kind": "equation", "text": "50 : 5 = 10" }
+                {
+                  "kind": "equation",
+                  "text": "16 × 3 = 48"
+                },
+                {
+                  "kind": "equation",
+                  "text": "24 × 4 = 96"
+                },
+                {
+                  "kind": "equation",
+                  "text": "77 : 7 = 11"
+                },
+                {
+                  "kind": "equation",
+                  "text": "50 : 5 = 10"
+                }
               ]
             }
           }
@@ -324,19 +617,39 @@
             "rev": 1,
             "type": "fill_blank",
             "instruction": "Giải bài toán.",
-            "prompt": { "text": "Có 96 quyển vở chia đều cho 8 nhóm. Hỏi mỗi nhóm được bao nhiêu quyển vở?" },
+            "prompt": {
+              "text": "Có 96 quyển vở chia đều cho 8 nhóm. Hỏi mỗi nhóm được bao nhiêu quyển vở?"
+            },
             "level": 2,
-            "skillIds": ["chia.2cs_1cs", "giai_toan.mot_phep_tinh"],
+            "skillIds": [
+              "chia.2cs_1cs",
+              "giai_toan.mot_phep_tinh"
+            ],
             "access": "free",
             "template": "Mỗi nhóm được {{b1}} quyển vở.",
-            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 12, "unit": "quyển" }, "maxLength": 3 }],
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 12,
+                  "unit": "quyển"
+                },
+                "maxLength": 3
+              }
+            ],
             "solution": {
               "access": "free",
               "answerText": "12 quyển vở",
               "steps": [
                 {
                   "kind": "word_problem",
-                  "lines": [{ "explanation": "Số quyển vở mỗi nhóm được là:", "equation": "96 : 8 = 12 (quyển)" }],
+                  "lines": [
+                    {
+                      "explanation": "Số quyển vở mỗi nhóm được là:",
+                      "equation": "96 : 8 = 12 (quyển)"
+                    }
+                  ],
                   "answer": "Đáp số: 12 quyển vở."
                 },
                 {
@@ -346,8 +659,20 @@
                   "quotient": "12",
                   "remainder": 0,
                   "digitSteps": [
-                    { "text": "9 chia 8 được 1, viết 1. 1 nhân 8 bằng 8; 9 trừ 8 bằng 1.", "partialDividend": 9, "quotientDigit": 1, "product": 8, "remainder": 1 },
-                    { "text": "Hạ 6, được 16; 16 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 16 trừ 16 bằng 0.", "partialDividend": 16, "quotientDigit": 2, "product": 16, "remainder": 0 }
+                    {
+                      "text": "9 chia 8 được 1, viết 1. 1 nhân 8 bằng 8; 9 trừ 8 bằng 1.",
+                      "partialDividend": 9,
+                      "quotientDigit": 1,
+                      "product": 8,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 6, được 16; 16 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 16 trừ 16 bằng 0.",
+                      "partialDividend": 16,
+                      "quotientDigit": 2,
+                      "product": 16,
+                      "remainder": 0
+                    }
                   ]
                 }
               ]
@@ -361,12 +686,28 @@
             "rev": 1,
             "type": "fill_blank",
             "instruction": "Giải bài toán.",
-            "prompt": { "text": "Một cửa hàng có 5 hộp bút, mỗi hộp có 12 cái. Cửa hàng đã bán 27 cái bút. Hỏi cửa hàng còn lại bao nhiêu cái bút?" },
+            "prompt": {
+              "text": "Một cửa hàng có 5 hộp bút, mỗi hộp có 12 cái. Cửa hàng đã bán 27 cái bút. Hỏi cửa hàng còn lại bao nhiêu cái bút?"
+            },
             "level": 3,
-            "skillIds": ["giai_toan.hai_phep_tinh", "nhan.2cs_1cs.khong_nho", "cong_tru.pham_vi_100"],
+            "skillIds": [
+              "giai_toan.hai_phep_tinh",
+              "nhan.2cs_1cs.khong_nho",
+              "cong_tru.pham_vi_100"
+            ],
             "access": "free",
             "template": "Cửa hàng còn lại {{b1}} cái bút.",
-            "blanks": [{ "id": "b1", "answer": { "kind": "number", "value": 33, "unit": "cái" }, "maxLength": 3 }],
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 33,
+                  "unit": "cái"
+                },
+                "maxLength": 3
+              }
+            ],
             "solution": {
               "access": "free",
               "answerText": "33 cái bút",
@@ -374,29 +715,59 @@
                 {
                   "kind": "word_problem",
                   "lines": [
-                    { "explanation": "Số bút cửa hàng có lúc đầu là:", "equation": "12 × 5 = 60 (cái)" },
-                    { "explanation": "Số bút cửa hàng còn lại là:", "equation": "60 - 27 = 33 (cái)" }
+                    {
+                      "explanation": "Số bút cửa hàng có lúc đầu là:",
+                      "equation": "12 × 5 = 60 (cái)"
+                    },
+                    {
+                      "explanation": "Số bút cửa hàng còn lại là:",
+                      "equation": "60 - 27 = 33 (cái)"
+                    }
                   ],
                   "answer": "Đáp số: 33 cái bút."
                 },
                 {
                   "kind": "column_arithmetic",
                   "operation": "multiply",
-                  "operands": ["12", "5"],
+                  "operands": [
+                    "12",
+                    "5"
+                  ],
                   "result": "60",
                   "digitSteps": [
-                    { "place": 0, "text": "5 nhân 2 bằng 10, viết 0 nhớ 1.", "write": "0", "carry": 1 },
-                    { "place": 1, "text": "5 nhân 1 bằng 5, thêm 1 bằng 6, viết 6.", "write": "6" }
+                    {
+                      "place": 0,
+                      "text": "5 nhân 2 bằng 10, viết 0 nhớ 1.",
+                      "write": "0",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "5 nhân 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                      "write": "6"
+                    }
                   ]
                 },
                 {
                   "kind": "column_arithmetic",
                   "operation": "subtract",
-                  "operands": ["60", "27"],
+                  "operands": [
+                    "60",
+                    "27"
+                  ],
                   "result": "33",
                   "digitSteps": [
-                    { "place": 0, "text": "0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.", "write": "3", "carry": 1 },
-                    { "place": 1, "text": "2 thêm 1 bằng 3; 6 trừ 3 bằng 3, viết 3.", "write": "3" }
+                    {
+                      "place": 0,
+                      "text": "0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.",
+                      "write": "3",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 thêm 1 bằng 3; 6 trừ 3 bằng 3, viết 3.",
+                      "write": "3"
+                    }
                   ]
                 }
               ]

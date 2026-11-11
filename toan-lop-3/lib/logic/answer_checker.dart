@@ -4,6 +4,30 @@ import 'normalizers.dart';
 /// Câu trả lời của bé, theo từng dạng bài.
 sealed class UserAnswer {
   const UserAnswer();
+
+  /// Lưu được (bài thi làm dở).
+  Map<String, dynamic> toJson() => switch (this) {
+        ChoiceAnswer(:final selectedIds) => {'t': 'choice', 'v': selectedIds.toList()},
+        BlankAnswer(:final values) => {'t': 'blank', 'v': values},
+        DragDropAnswer(:final placements) => {'t': 'drag', 'v': placements},
+        MatchingAnswer(:final pairs) => {'t': 'match', 'v': pairs},
+      };
+
+  static UserAnswer? fromJson(Object? json) {
+    if (json is! Map) return null;
+    final v = json['v'];
+    try {
+      return switch (json['t']) {
+        'choice' => ChoiceAnswer({...(v as List).cast<String>()}),
+        'blank' => BlankAnswer((v as Map).cast<String, String>()),
+        'drag' => DragDropAnswer((v as Map).cast<String, String?>()),
+        'match' => MatchingAnswer((v as Map).cast<String, String>()),
+        _ => null,
+      };
+    } on Object {
+      return null;
+    }
+  }
 }
 
 class ChoiceAnswer extends UserAnswer {

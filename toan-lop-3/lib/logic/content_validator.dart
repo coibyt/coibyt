@@ -28,6 +28,16 @@ List<ContentIssue> validateCatalog(Catalog catalog) {
     }
   }
   _unique(issues, r'$.books[*].chapters[*].lessons', lessonIds);
+  final skillIds = {for (final s in catalog.skills) s.id};
+  for (final b in catalog.books) {
+    for (final c in b.chapters) {
+      for (final l in c.lessons) {
+        for (final s in l.skillIds) {
+          if (!skillIds.contains(s)) issues.add(ContentIssue('lesson ${l.id}', 'kỹ năng "$s" chưa khai báo'));
+        }
+      }
+    }
+  }
   _unique(issues, r'$.books[*].exams', [
     for (final b in catalog.books)
       for (final e in b.exams) e.id,
@@ -60,6 +70,13 @@ List<ContentIssue> validateExam(Exam exam, {Set<String>? knownSkillIds}) {
     }
   }
   _unique(issues, r'$.sections[*].items[*].problem', ids);
+  final (minMin, maxMin) = exam.examType.durationRange;
+  if (exam.durationMinutes < minMin || exam.durationMinutes > maxMin) {
+    issues.add(ContentIssue(
+      r'$.durationMinutes',
+      '${exam.examType.displayName} phải dài $minMin–$maxMin phút, đang là ${exam.durationMinutes}',
+    ));
+  }
   if ((exam.totalPoints - 10).abs() > 1e-9) {
     issues.add(ContentIssue(r'$.sections', 'tổng điểm phải là 10, đang là ${exam.totalPoints}'));
   }

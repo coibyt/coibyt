@@ -9,6 +9,9 @@
 //                        "…00.000Z" và "…00Z" là một; khi trùng giữ bản của bên mới hơn —
 //                        sắp xếp theo at
 //   badges               hợp, mỗi mã giữ ngày SỚM nhất
+//   pointsByDay          hợp các ngày ("YYYY-MM-DD", giờ VN), mỗi ngày lấy LỚN hơn; bỏ giá trị không
+//                        phải số nguyên ≥ 0 và khoá ngày sai định dạng; chỉ có trong kết quả khi
+//                        ít nhất một bên có pointsByDay là object
 //   childName, bookId    lấy từ bên có updatedAt mới hơn (thiếu updatedAt = cũ nhất;
 //                        bằng nhau → bên thứ hai "incoming"); bên mới hơn không có thì bỏ trống
 //   updatedAt            muộn hơn
@@ -27,6 +30,7 @@ const KNOWN_KEYS = new Set([
   'activeDays',
   'exams',
   'badges',
+  'pointsByDay',
   'updatedAt',
 ]);
 
@@ -91,6 +95,30 @@ function mergeMap(a, b, fn) {
   return out;
 }
 
+const DAY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+/** "YYYY-MM-DD" là một ngày dương lịch có thật (vd không nhận 2026-02-30). */
+export function isDayKey(s) {
+  const m = typeof s === 'string' ? DAY_RE.exec(s) : null;
+  if (!m) return false;
+  const d = new Date(Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])));
+  return d.getUTCFullYear() === Number(m[1]) && d.getUTCMonth() === Number(m[2]) - 1 && d.getUTCDate() === Number(m[3]);
+}
+
+const isPoints = (v) => Number.isSafeInteger(v) && v >= 0;
+
+/** pointsByDay: hợp các ngày, mỗi ngày lấy max; bỏ khoá/giá trị không hợp lệ. Khoá sắp xếp tăng dần. */
+function mergePointsByDay(a, b) {
+  const out = {};
+  for (const src of [obj(a), obj(b)]) {
+    for (const [day, pts] of Object.entries(src)) {
+      if (!isDayKey(day) || !isPoints(pts)) continue;
+      out[day] = Math.max(out[day] ?? 0, pts);
+    }
+  }
+  return Object.fromEntries(Object.entries(out).sort(([x], [y]) => (x < y ? -1 : x > y ? 1 : 0)));
+}
+
 function examKey(e) {
   const t = timeOf(e?.at);
   return `${e?.examId}\u0000${t === -Infinity ? String(e?.at) : t}`;
@@ -140,6 +168,7 @@ export function mergeProgress(stored, incoming) {
   out.activeDays = [...new Set([...arr(a.activeDays), ...arr(b.activeDays)].filter((d) => typeof d === 'string'))].sort();
   out.exams = mergeExams(newer.exams, older.exams);
   out.badges = mergeMap(a.badges, b.badges, earlier);
+  if (isObj(a.pointsByDay) || isObj(b.pointsByDay)) out.pointsByDay = mergePointsByDay(a.pointsByDay, b.pointsByDay);
 
   const updatedAt = later(a.updatedAt, b.updatedAt);
   if (updatedAt !== undefined) out.updatedAt = updatedAt;
@@ -165,6 +194,19 @@ export function progressShapeError(p) {
   ];
   for (const [key, ok] of checks) {
     if (p[key] !== undefined && p[key] !== null && !ok(p[key])) return `Trường "${key}" sai kiểu dữ liệu.`;
+  }
+  return null;
+}
+
+/**
+ * pointsByDay (tuỳ chọn): nếu có mặt thì phải là object (kể cả null cũng bị từ chối).
+ * Giá trị/ngày lẻ bên trong không làm hỏng request — mergeProgress tự bỏ qua.
+ * API trả 422 invalid_progress khi hàm này báo lỗi.
+ * @returns {string|null}
+ */
+export function pointsByDayError(p) {
+  if (isObj(p) && Object.hasOwn(p, 'pointsByDay') && !isObj(p.pointsByDay)) {
+    return 'Trường "pointsByDay" phải là object { "YYYY-MM-DD": số điểm }.';
   }
   return null;
 }

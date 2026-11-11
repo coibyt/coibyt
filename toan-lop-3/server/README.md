@@ -146,10 +146,12 @@ Mọi dữ liệu là JSON. Lỗi luôn có dạng `{ "error": "<mã>", "message
 | `POST /v1/auth/login` `{email, password}` | 200 `{ token, account }` / 401 `invalid_credentials` |
 | `POST /v1/auth/logout` | 204, xoá phiên hiện tại |
 | `GET /v1/me` | `{ account }` với `account = { id, email, vipUntil: ISO\|null, isVip }` |
-| `GET /v1/children` | `{ children: [{id, name}] }` |
-| `POST /v1/children` `{name}` | 201 `{ id, name }` (tên 1–40 ký tự) |
+| `GET /v1/children` | `{ children: [{id, name, nickname, leaderboardOptIn}] }` |
+| `POST /v1/children` `{name}` | 201 `{ id, name, nickname, leaderboardOptIn }` (tên 1–40 ký tự; biệt danh do server sinh) |
+| `PATCH /v1/children/:id` `{leaderboardOptIn?, regenerateNickname?}` | 200 `{ id, name, nickname, leaderboardOptIn }` — xem mục 4b |
 | `GET /v1/children/:id/progress` | `{ progress: object\|null, updatedAt: ISO\|null }`; bé không thuộc tài khoản → 404 |
-| `PUT /v1/children/:id/progress` `{progress}` | Server **gộp** với bản đã lưu, trả `{ progress: <bản gộp>, updatedAt }` |
+| `PUT /v1/children/:id/progress` `{progress}` | Server **gộp** với bản đã lưu, trả `{ progress: <bản gộp>, updatedAt }`. Sai kiểu → 400 `invalid_progress`; riêng `pointsByDay` có mặt mà không phải object → 422 `invalid_progress` |
+| `GET /v1/leaderboard?period=week\|month&childId=<id>` | Bảng xếp hạng theo biệt danh — xem mục 4b |
 | `GET /v1/catalog` | Nội dung catalog đang phát hành (có `ETag`) |
 | `GET /v1/content/lessons/:id`, `GET /v1/content/exams/:id` | `{ rev, body }`; VIP mà chưa đăng nhập bằng tài khoản VIP còn hạn → 403 `vip_required`; chưa xuất bản/không có → 404 |
 | `POST /v1/iap/verify` `{platform, productId, receipt}` | Cần đăng nhập. Trả `{ account }` |
@@ -186,6 +188,40 @@ Ghi chú:
 
 ---
 
+## 4b. Bảng xếp hạng (an toàn cho trẻ em)
+
+**Biệt danh (bảo vệ quyền riêng tư của bé).** Bảng xếp hạng **không bao giờ** hiện tên thật của bé, email
+phụ huynh hay id của bé khác — chỉ hiện biệt danh. Biệt danh do **server sinh ngẫu nhiên** (crypto), người
+dùng không tự gõ được (không có chữ tự do → không lộ thông tin cá nhân, không có từ xấu). Dạng
+`<Con vật> <Tính từ tích cực> <số 10–99>`, ví dụ “Mèo Thông Minh 99”, “Gấu Chăm Chỉ 12”. Danh sách từ nằm ở
+`src/nickname.js` (migration `002_leaderboard.sql` gán biệt danh cho các bé đã có từ trước, cùng danh sách).
+
+- `PATCH /v1/children/:id` (chỉ phụ huynh của bé, không phải → 404). Body chỉ nhận:
+  `leaderboardOptIn: true|false` (bật/tắt tham gia bảng xếp hạng, mặc định bật) và
+  `regenerateNickname: true` (xin biệt danh ngẫu nhiên khác). Trường khác / sai kiểu / body rỗng → 400 `invalid_patch`.
+- `GET /v1/leaderboard?period=week|month&childId=<id>` (cần đăng nhập; `childId` phải là bé của tài khoản,
+  thiếu/sai/của người khác → 404; `period` mặc định `week`, giá trị khác → 400 `invalid_period`).
+  - Tính theo **giờ Việt Nam (UTC+7)**: tuần = thứ Hai 00:00 → thứ Hai tuần sau; tháng = ngày 1 → ngày 1 tháng sau.
+    `start` tính vào, `end` không tính vào.
+  - Điểm của bé = tổng theo từng ngày trong kỳ của `min(progress.pointsByDay[ngày], 1000)`.
+    **Mỗi ngày tính tối đa 1000 điểm** (`LEADERBOARD_DAILY_CAP` trong `src/config.js`) để chống gian lận.
+  - Chỉ xếp hạng bé **đang bật** bảng xếp hạng và có điểm > 0. Thứ tự: điểm giảm dần; bằng điểm → bé tạo hồ sơ
+    trước đứng trên (rồi theo id). Hạng là số thứ tự 1, 2, 3… (không có hạng đồng hạng). Chỉ trả **top 50**.
+  - Phản hồi:
+    ```json
+    { "period": "week", "start": "2026-11-09", "end": "2026-11-16",
+      "entries": [ { "rank": 1, "nickname": "Mèo Thông Minh 99", "points": 420, "isMe": false } ],
+      "me": { "rank": 7, "points": 180, "nickname": "Gấu Chăm Chỉ 12", "optedIn": true,
+              "above": { "rank": 6, "nickname": "Thỏ Nhanh Nhẹn 47", "points": 195 }, "gapToAbove": 16 } }
+    ```
+    `gapToAbove` = số điểm cần thêm để vượt hẳn bạn ngay phía trên (`above.points − me.points + 1`).
+    Bé hạng 1 → `above` và `gapToAbove` là `null`. Bé 0 điểm hoặc đã tắt bảng xếp hạng → `me.rank = null`,
+    `me.points` vẫn là điểm của bé (bé tắt thì `optedIn: false`), `above`/`gapToAbove` là `null`.
+  - Hiện tại điểm được tính trực tiếp từ bảng `progress` mỗi lần gọi (đủ cho vài nghìn bé). Khi đông hơn: tách
+    `pointsByDay` ra bảng điểm theo ngày + index, và cache kết quả vài phút (ghi chú trong `src/leaderboard.js`).
+
+---
+
 ## 5. Quy tắc gộp tiến độ (`src/merge.js` — app Dart cài đặt giống hệt)
 
 | Trường | Quy tắc |
@@ -196,6 +232,7 @@ Ghi chú:
 | `activeDays` | hợp hai bên, sắp xếp tăng dần |
 | `exams` | hợp, bỏ trùng theo (`examId`, `at`) — `at` so theo **thời điểm** (`…00.000Z` = `…00Z`), trùng thì giữ bản của bên mới hơn; sắp xếp theo `at` |
 | `badges` | hợp, mỗi mã giữ ngày **sớm nhất** |
+| `pointsByDay` | `{ "YYYY-MM-DD": điểm }` (ngày theo giờ VN): hợp các ngày, mỗi ngày lấy **lớn hơn**; bỏ giá trị không phải số nguyên ≥ 0 và khoá ngày sai định dạng. Chỉ có trong kết quả khi ít nhất một bên có |
 | `childName`, `bookId` | từ bên có `updatedAt` mới hơn (thiếu `updatedAt` = cũ nhất; bằng nhau → bên thứ hai, tức bản app vừa gửi). Bên mới hơn không có `bookId` thì kết quả không có `bookId` |
 | `updatedAt` | muộn hơn |
 | `v` | `1` |
@@ -241,11 +278,13 @@ server/
   .env.example            mẫu cấu hình (sao chép thành .env)
   docker-compose.yml      PostgreSQL 16 cho máy cá nhân (tuỳ chọn)
   migrations/001_init.sql lược đồ CSDL (áp dụng theo thứ tự, ghi vào bảng schema_migrations)
-  src/app.js              dựng ứng dụng Express — createApp({ db, config })
+  migrations/002_leaderboard.sql  biệt danh + tuỳ chọn bảng xếp hạng của bé
+  src/app.js              dựng ứng dụng Express — createApp({ db, config, clock? })
   src/server.js           điểm khởi động
   src/config.js, db.js, auth.js, http.js, content.js, migrate.js, seed.js
   src/validate.js         ajv + kiểm tra toán;  src/expression.js  bộ tính biểu thức
   src/merge.js            gộp tiến độ (hàm thuần)
+  src/nickname.js         sinh biệt danh;  src/leaderboard.js  tính bảng xếp hạng
   src/iap.js              mua VIP
   src/routes/*.js         các nhóm API
   scripts/migrate.js, scripts/seed.js

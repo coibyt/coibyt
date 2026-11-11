@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "1.2.0",
+  "kind": "exam",
+  "id": "kntt3.c4.kt15-nhan",
+  "bookId": "kntt3",
+  "chapterIds": [
+    "kntt3.c4"
+  ],
+  "title": "Kiểm tra 15 phút — Phép nhân",
+  "description": "Nhân số có hai chữ số với số có một chữ số.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Bài kiểm tra 15 phút",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.kt15-nhan.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép nhân 31 × 3 là:"
+            },
+            "level": 1,
+            "skillIds": [
+              "nhan.2cs_1cs.khong_nho"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "34"
+              },
+              {
+                "id": "b",
+                "text": "93"
+              },
+              {
+                "id": "c",
+                "text": "39"
+              },
+              {
+                "id": "d",
+                "text": "63"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "93",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "31",
+                    "3"
+                  ],
+                  "result": "93",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 1 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 3 bằng 9, viết 9.",
+                      "write": "9"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.kt15-nhan.q02",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "27 × 3 = ?"
+            },
+            "level": 2,
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho"
+            ],
+            "access": "free",
+            "template": "27 × 3 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 81
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "81",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "27",
+                    "3"
+                  ],
+                  "result": "81",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 nhân 7 bằng 21, viết 1 nhớ 2.",
+                      "write": "1",
+                      "carry": 2
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+                      "write": "8"
+                    }
+                  ]
+                }
+              ],
+              "hint": "3 × 7 = 21: viết 1, nhớ 2 sang hàng chục."
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.kt15-nhan.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "37 × 2 = ?"
+            },
+            "level": 2,
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho"
+            ],
+            "access": "free",
+            "template": "37 × 2 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 74
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "74",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "37",
+                    "2"
+                  ],
+                  "result": "74",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "2 nhân 7 bằng 14, viết 4 nhớ 1.",
+                      "write": "4",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "2 nhân 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                      "write": "7"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.kt15-nhan.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng."
+            },
+            "level": 2,
+            "skillIds": [
+              "nhan.2cs_1cs.khong_nho",
+              "nhan.2cs_1cs.co_nho"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "12 × 6"
+              },
+              {
+                "id": "l2",
+                "text": "19 × 5"
+              },
+              {
+                "id": "l3",
+                "text": "33 × 3"
+              },
+              {
+                "id": "l4",
+                "text": "28 × 2"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "56"
+              },
+              {
+                "id": "r2",
+                "text": "72"
+              },
+              {
+                "id": "r3",
+                "text": "59"
+              },
+              {
+                "id": "r4",
+                "text": "99"
+              },
+              {
+                "id": "r5",
+                "text": "95"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "12 × 6 = 72; 19 × 5 = 95; 33 × 3 = 99; 28 × 2 = 56",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "12 × 6 = 72"
+                },
+                {
+                  "kind": "equation",
+                  "text": "19 × 5 = 95"
+                },
+                {
+                  "kind": "equation",
+                  "text": "33 × 3 = 99"
+                },
+                {
+                  "kind": "equation",
+                  "text": "28 × 2 = 56"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt3.c4.kt15-nhan.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Mỗi bạn gấp được 18 ngôi sao. Hỏi 5 bạn gấp được bao nhiêu ngôi sao?"
+            },
+            "level": 2,
+            "skillIds": [
+              "nhan.2cs_1cs.co_nho",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "5 bạn gấp được {{b1}} ngôi sao.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 90,
+                  "unit": "ngôi sao"
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "90 ngôi sao",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số ngôi sao 5 bạn gấp được là:",
+                      "equation": "18 × 5 = 90 (ngôi sao)"
+                    }
+                  ],
+                  "answer": "Đáp số: 90 ngôi sao."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "18",
+                    "5"
+                  ],
+                  "result": "90",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "5 nhân 8 bằng 40, viết 0 nhớ 4.",
+                      "write": "0",
+                      "carry": 4
+                    },
+                    {
+                      "place": 1,
+                      "text": "5 nhân 1 bằng 5, thêm 4 bằng 9, viết 9.",
+                      "write": "9"
+                    }
+                  ]
+                }
+              ],
+              "hint": "Có 5 bạn, mỗi bạn 18 ngôi sao: ta làm phép nhân."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
