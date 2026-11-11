@@ -25,8 +25,8 @@ const model = 'eleven_flash_v2_5';
 /// Giọng cô Mai: "Trang" — nữ trẻ miền Nam, nhẹ nhàng (chủ dự án chọn trên 11max).
 const teacherVoice = 'HAAKLJlaJeGl18MKHYeg';
 
-/// Giọng MC gameshow: "Sarah" (khác giọng cô Mai để bé phân biệt hai nhân vật).
-const hostVoice = 'EXAVITQu4vr4xnSDxMaL';
+/// Giọng MC gameshow: "Saigon Lily" — nữ trẻ miền Nam, tươi sáng (chủ dự án chọn trên 11max).
+const hostVoice = 'WFDoCi084FlAxSbpBEfC';
 
 /// Số câu thu cùng lúc.
 const workers = 4;
@@ -201,7 +201,7 @@ Future<void> main(List<String> args) async {
   void saveManifest() {
     final sorted = Map.fromEntries(lines.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
     manifest['lines'] = sorted;
-    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Sarah ($hostVoice) · $model';
+    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Saigon Lily ($hostVoice) · $model';
     manifestFile.writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(manifest)}\n');
   }
 
