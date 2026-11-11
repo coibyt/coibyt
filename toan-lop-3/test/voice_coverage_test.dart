@@ -44,7 +44,8 @@ void main() {
     final lib = VoiceLibrary.fromJson(
       jsonDecode(File('assets/voice/manifest.json').readAsStringSync()) as Map<String, dynamic>,
     );
-    final lines = <String>{...ShowLines.all()};
+    final mc = <String>{...ShowLines.all()};
+    final lines = <String>{};
     final catalog = loadCatalogFromDisk();
     for (final c in catalog.books.first.chapters) {
       if (AbilityDomain.ofChapter(c.order) != null) {
@@ -53,9 +54,9 @@ void main() {
             if (p.access != Access.free) continue;
             final q = showQuestion(p);
             if (q == null) continue;
-            lines.addAll(promptSentences(q.prompt));
+            mc.addAll(promptSentences(q.prompt));
             for (var k = 0; k < q.choices.length; k++) {
-              lines.add(answerLine(k, q.choices[k]));
+              mc.add(answerLine(k, q.choices[k]));
             }
           }
         }
@@ -74,7 +75,10 @@ void main() {
         }
       }
     }
+    // MC có file giọng riêng (khoá "mc:<câu>"), không mượn giọng cô.
     final missing = [
+      for (final l in mc)
+        if (lib.lookup('mc:$l') == null) 'MC: $l',
       for (final l in lines)
         if (lib.lookup(l) == null) l,
     ];

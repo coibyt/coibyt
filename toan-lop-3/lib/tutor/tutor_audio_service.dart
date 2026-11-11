@@ -54,12 +54,18 @@ class Utterance {
 /// Phát giọng cô giáo: ưu tiên file ghi âm 11max; câu chưa có file thì dùng giọng
 /// đọc của máy (nếu có tiếng Việt), không có nữa thì chỉ hiện chữ.
 class TutorAudioService {
-  TutorAudioService({VoiceLibrary? library, TutorVoice? fallback, AudioPlayer? player})
+  TutorAudioService({VoiceLibrary? library, TutorVoice? fallback, AudioPlayer? player, this.speaker = ''})
     : _library = library,
       _fallback = fallback,
       _player = player;
 
   static TutorAudioService instance = TutorAudioService();
+
+  /// Người nói: '' = cô Mai, 'mc' = MC gameshow. Câu của MC tra trong danh mục với khoá "mc:`câu`"
+  /// (cùng một câu, MC và cô có hai file giọng khác nhau); không có thì dùng bản của cô.
+  final String speaker;
+
+  VoiceClip? _clip(String part) => (speaker.isEmpty ? null : library.lookup('$speaker:$part')) ?? library.lookup(part);
 
   final VoiceLibrary? _library;
   final TutorVoice? _fallback;
@@ -78,7 +84,7 @@ class TutorAudioService {
   Duration durationOf(List<String> parts) {
     var ms = 0;
     for (final p in parts) {
-      ms += library.lookup(p)?.durationMs ?? estimate(p).inMilliseconds;
+      ms += _clip(p)?.durationMs ?? estimate(p).inMilliseconds;
     }
     return Duration(milliseconds: ms);
   }
@@ -99,7 +105,7 @@ class TutorAudioService {
   Future<void> _run(Utterance u, List<String> parts) async {
     for (final part in parts) {
       if (u._cancelled) break;
-      final clip = library.lookup(part);
+      final clip = _clip(part);
       if (clip != null) {
         final ok = await _playClip(u, clip);
         if (!ok) await u._wait(Duration(milliseconds: clip.durationMs));
@@ -115,7 +121,8 @@ class TutorAudioService {
 
   Future<bool> _playClip(Utterance u, VoiceClip clip) async {
     try {
-      final player = _player ??= AudioPlayer(playerId: 'teacher-voice')..setReleaseMode(ReleaseMode.stop);
+      final player = _player ??= AudioPlayer(playerId: speaker.isEmpty ? 'teacher-voice' : '$speaker-voice')
+        ..setReleaseMode(ReleaseMode.stop);
       final finished = Completer<void>();
       await _completeSub?.cancel();
       _completeSub = player.onPlayerComplete.listen((_) {

@@ -14,6 +14,7 @@ import '../tutor/host_avatar.dart';
 import '../tutor/reward_burst.dart';
 import '../tutor/teacher_avatar.dart';
 import '../tutor/teacher_controller.dart';
+import '../tutor/tutor_audio_service.dart';
 import 'ability_screens.dart';
 import 'widgets/game_art.dart';
 
@@ -57,7 +58,8 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
   late final Random _random = widget.random ?? Random();
   late final SoundService _sound = widget.sound ?? AppSound.instance;
   late final ShowMusic _music = widget.music ?? ShowMusic.instance;
-  final _host = TeacherController(voiceEnabled: false);
+  final _hostAudio = TutorAudioService(speaker: 'mc');
+  late final _host = TeacherController(audio: _hostAudio, voiceEnabled: false);
   final _teacher = TeacherController(voiceEnabled: false);
   late final AnimationController _clock =
       AnimationController(
@@ -215,6 +217,7 @@ class _QuizShowScreenState extends State<QuizShowScreen> with TickerProviderStat
     _clock.dispose();
     _flash.dispose();
     _host.dispose();
+    _hostAudio.dispose();
     _teacher.dispose();
     _music.stopAll();
     super.dispose();

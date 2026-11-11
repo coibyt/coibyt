@@ -55,10 +55,13 @@ String slug(String t) {
   return '$short-${h.toRadixString(16).padLeft(8, '0').substring(0, 6)}';
 }
 
+/// Khoá danh mục → câu thật: câu của MC có tiền tố "mc:" (MC và cô có thể nói cùng một câu bằng hai giọng).
+String bare(String key) => key.startsWith('mc:') ? key.substring(3) : key;
+
 /// Mọi câu cần thu: (câu, giọng). Cô giáo: câu cố định, gợi ý, phần làm mẫu; MC: lời dẫn gameshow.
 List<(String, String)> allLines() => [
   for (final l in teacherLines()) (l, teacherVoice),
-  for (final l in {...ShowLines.all(), ...showQuestionLines()}) (voiceKey(l), hostVoice),
+  for (final l in {...ShowLines.all(), ...showQuestionLines()}) ('mc:${voiceKey(l)}', hostVoice),
 ];
 
 /// MC đọc trọn đề và 4 đáp án của mọi câu gameshow có thể ra (cùng cách chọn bài và thứ tự đáp án như app).
@@ -220,7 +223,7 @@ Future<void> main(List<String> args) async {
     final e = lines[l] as Map<String, dynamic>?;
     if (e == null || !File(e['file'] as String).existsSync() || e['voice'] != voice) return false;
     if (!(e['file'] as String).endsWith(voice == hostVoice ? '-lily.mp3' : '-trang.mp3')) return false;
-    return e['spoken'] == spokenVietnamese(l);
+    return e['spoken'] == spokenVietnamese(bare(l));
   }
 
   final all = allLines();
@@ -228,13 +231,13 @@ Future<void> main(List<String> args) async {
     for (final (l, v) in all)
       if (!upToDate(l, v)) (l, v),
   ];
-  final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(l.$1).length);
+  final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(bare(l.$1)).length);
   print(
     'Tổng ${all.length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.',
   );
   if (countOnly) {
     for (final (l, _) in missing.take(20)) {
-      print('  - ${spokenVietnamese(l)}');
+      print('  - ${spokenVietnamese(bare(l))}');
     }
     return;
   }
@@ -254,8 +257,8 @@ Future<void> main(List<String> args) async {
     while (queue.isNotEmpty) {
       final (text, voice) = queue.removeAt(0);
       // Tên file có tên giọng → đổi giọng thì đổi đường dẫn, trình duyệt không phát lại bản cũ trong bộ nhớ đệm.
-      final file = '$outDir/${slug(text)}-${voice == hostVoice ? 'lily' : 'trang'}.mp3';
-      final spoken = spokenVietnamese(text);
+      final file = '$outDir/${slug(bare(text))}-${voice == hostVoice ? 'lily' : 'trang'}.mp3';
+      final spoken = spokenVietnamese(bare(text));
       try {
         final audio = await tts(client, key, spoken, voice);
         final ms = await shrink(audio, File(file));
