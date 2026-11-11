@@ -16,7 +16,11 @@ import '../timelapse/timelapse_result_screen.dart';
 import '../timelapse/video_encoder.dart';
 import '../game/game_store.dart';
 import '../game/goals.dart';
+import '../../core/game_art.dart';
 import '../lessons/lesson.dart';
+import '../lessons/lesson_demo.dart';
+import '../lessons/widgets/demo_view.dart';
+import '../teacher/teacher_script.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
 import '../teacher/teacher_controller.dart';
@@ -91,6 +95,11 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
   LessonProgress? _progress;
   bool _greeted = false;
 
+  // Lumi shows each step on screen before the learner traces it on paper.
+  LessonDemo? _demo;
+  int? _demoIndex;
+  final Set<int> _demoed = <int>{};
+
   TimelapseRecorder? _recorder;
   ui.Image? _overlayForVideo;
   ImageProvider? _overlayForVideoSource;
@@ -108,8 +117,39 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     final Lesson? lesson = widget.lesson;
-    if (lesson != null) _progress = LessonProgress(lesson)..addListener(_onStepChanged);
+    if (lesson != null) {
+      _progress = LessonProgress(lesson)..addListener(_onStepChanged);
+      unawaited(
+        LessonDemo.load(lesson).then((LessonDemo? d) {
+          if (mounted) setState(() => _demo = d);
+        }),
+      );
+    }
     unawaited(_startCamera());
+  }
+
+  DemoStep? get _currentDemo {
+    final LessonProgress? p = _progress;
+    return p == null ? null : _demo?.forStep(p.step);
+  }
+
+  /// Starts the demonstration of the current step (first time, or [again]).
+  TeacherLine? _beginDemo({bool again = false}) {
+    final LessonProgress? p = _progress;
+    if (p == null || _currentDemo == null) return null;
+    if (!again && _demoed.contains(p.index)) return null;
+    _demoed.add(p.index);
+    setState(() => _demoIndex = p.index);
+    return TeacherLine(id: 'demo_intro_${p.step.kind.name}', mood: 'paint');
+  }
+
+  void _onDemoFinished() {
+    if (!mounted) return;
+    setState(() => _demoIndex = null);
+    _teacher.say(<TeacherLine>[
+      const TeacherLine(id: 'demo_your_turn', mood: 'point'),
+      ...?_progress?.step.lines,
+    ]);
   }
 
   /// The picture shown now: the lesson step's layer, or the given picture.
@@ -124,7 +164,8 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     _greeted = true;
     final LessonProgress? progress = _progress;
     if (progress != null) {
-      _teacher.say(progress.step.lines);
+      final TeacherLine? intro = _beginDemo();
+      _teacher.say(intro != null ? <TeacherLine>[intro] : progress.step.lines);
       _recordProgress();
     } else {
       _teacher.introduce(TeacherScope.maybeOf(context), 'workspace_intro');
@@ -142,7 +183,8 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
 
   void _onStepChanged() {
     setState(() {});
-    _teacher.say(_progress!.step.lines);
+    final TeacherLine? intro = _beginDemo();
+    _teacher.say(intro != null ? <TeacherLine>[intro] : _progress!.step.lines);
     _recordProgress();
     // Keep the time-lapse in step with the screen.
     if (_recorder != null) unawaited(_updateVideoOverlay());
@@ -495,6 +537,26 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
               onTap: _locked ? () => _toast(context.tr('workspace.lockedHint')) : null,
             ),
             TraceOverlay(image: _overlayImage, opacity: _opacity, transform: _transform),
+            if (_progress != null && _demoIndex != null && _currentDemo != null)
+              Positioned.fill(
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 64, 12, 230),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(24),
+                      child: DemoView(
+                        key: ValueKey<int>(_demoIndex!),
+                        step: _currentDemo!,
+                        target: _progress!.step.overlay,
+                        previous: _progress!.index > 0 && _progress!.step.kind != StepKind.outline
+                            ? _progress!.lesson.steps[_progress!.index - 1].overlay
+                            : null,
+                        onFinished: _onDemoFinished,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             Positioned(
               top: 0,
               left: 0,
@@ -548,6 +610,18 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
                     const SizedBox(height: 8),
                     Row(
                       children: <Widget>[
+                        if (_currentDemo != null && _demoIndex == null) ...<Widget>[
+                          IconButton.filledTonal(
+                            key: const Key('replayDemo'),
+                            tooltip: context.tr('lesson.demo.watch'),
+                            onPressed: () {
+                              final TeacherLine? intro = _beginDemo(again: true);
+                              if (intro != null) _teacher.say(<TeacherLine>[intro]);
+                            },
+                            icon: const ArtImage(GameArt.magicBrush, size: 28),
+                          ),
+                          const SizedBox(width: 8),
+                        ],
                         Expanded(
                           child: OpacityControl(
                             value: _opacity,

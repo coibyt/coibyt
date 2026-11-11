@@ -8,6 +8,8 @@ abstract final class GameArt {
   static const String flame = 'assets/game/items/flame.png';
   static const String giftClosed = 'assets/game/items/gift_closed.png';
   static const String giftOpen = 'assets/game/items/gift_open.png';
+  static const String magicBrush = 'assets/game/items/magic_brush.png';
+  static const String demoBoard = 'assets/game/items/demo_board.png';
 
   static String tile(String id) => 'assets/game/tiles/$id.png';
   static String brush(String effect) => 'assets/game/items/brush_$effect.png';

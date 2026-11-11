@@ -247,7 +247,14 @@
       "quests_intro_1": "Mỗi ngày có ba nhiệm vụ nhỏ. Làm xong thì nhận xu, đủ cả ba còn được mở rương thưởng nữa!",
       "quests_intro_2": "Còn đây là bộ sưu tập huy hiệu. Cố gắng mở khoá hết nhé!",
       "quest_done": "Nhiệm vụ hoàn thành! Nhận thưởng thôi nào.",
-      "badge_unlocked": "Bạn vừa mở khoá một huy hiệu mới. Tuyệt quá!"
+      "badge_unlocked": "Bạn vừa mở khoá một huy hiệu mới. Tuyệt quá!",
+      "demo_intro_outline": "Xem mình làm mẫu trước nhé! Mình đi nét nhẹ tay theo viền, từng đoạn một, từ trên xuống dưới.",
+      "demo_intro_base": "Giờ xem mình tô lớp màu nền. Đưa bút đều tay qua lại, phủ kín từng mảng lớn trước.",
+      "demo_intro_shadow": "Bây giờ mình tô phần tối. Chỗ khuất ánh sáng thì tô đậm hơn, đi theo dáng của vật.",
+      "demo_intro_highlight": "Cuối cùng là điểm sáng. Mình chỉ chạm nhẹ vài nét ở chỗ ánh sáng chiếu vào thôi.",
+      "demo_your_turn": "Xong rồi! Đến lượt bạn nhé. Hãy làm theo đúng thứ tự như mình vừa vẽ.",
+      "step_half": "Được một nửa rồi, cố lên nào!",
+      "step_ready": "Tuyệt vời, bước này gần xong rồi! Bấm mũi tên để sang bước tiếp theo nhé."
     }
   },
   "lesson": {
@@ -287,6 +294,13 @@
     "credit": {
       "starry_night": "Theo tranh «Đêm đầy sao» (1889) của Vincent van Gogh, tác phẩm thuộc phạm vi công cộng.",
       "pearl_earring": "Theo tranh «Thiếu nữ đeo hoa tai ngọc trai» (khoảng 1665) của Johannes Vermeer, tác phẩm thuộc phạm vi công cộng."
+    },
+    "demo": {
+      "watch": "Xem Lumi vẽ mẫu",
+      "skip": "Bỏ qua",
+      "playing": "Lumi đang vẽ mẫu…",
+      "yourTurn": "Đến lượt bạn!",
+      "coverage": "Đã xong {percent}%"
     }
   },
   "pencil": {

@@ -5,7 +5,11 @@ import 'package:flutter/material.dart';
 import '../../core/i18n/language_controller.dart';
 import '../game/game_store.dart';
 import '../game/goals.dart';
+import '../../core/app_theme.dart';
+import '../../core/game_art.dart';
 import '../lessons/lesson.dart';
+import '../lessons/lesson_demo.dart';
+import '../lessons/widgets/demo_view.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
 import '../teacher/hint_coach.dart';
@@ -56,6 +60,17 @@ class _DrawScreenState extends State<DrawScreen> {
   bool _showTemplate = true;
   double _templateOpacity = 0.35;
 
+  // Lumi's demonstration ("watch me first"), then the learner's turn.
+  LessonDemo? _demo;
+  int? _demoIndex;
+  final Set<int> _demoed = <int>{};
+  bool _waitingDemo = false;
+  List<Offset> _samples = const <Offset>[];
+  double _sampleBrush = 0;
+  double _coverage = 0;
+  bool _saidHalf = false, _saidReady = false;
+  Size _canvasSize = Size.zero;
+
   @override
   void initState() {
     super.initState();
@@ -69,7 +84,90 @@ class _DrawScreenState extends State<DrawScreen> {
       );
     }
     _drawing.addListener(_onInk);
+    if (lesson != null) unawaited(_loadDemo(lesson));
     WidgetsBinding.instance.addPostFrameCallback((_) => _start());
+  }
+
+  Future<void> _loadDemo(Lesson lesson) async {
+    final LessonDemo? demo = await LessonDemo.load(lesson);
+    if (!mounted) return;
+    if (demo == null) {
+      if (_waitingDemo) {
+        _waitingDemo = false;
+        _teacher.say(_progress!.step.lines);
+      }
+      return;
+    }
+    setState(() => _demo = demo);
+    _prepareStep();
+    if (_waitingDemo) {
+      _waitingDemo = false;
+      final TeacherLine? intro = _beginDemo();
+      _teacher.say(intro != null ? <TeacherLine>[intro] : _progress!.step.lines);
+    }
+  }
+
+  DemoStep? get _currentDemo {
+    final LessonProgress? p = _progress;
+    return p == null ? null : _demo?.forStep(p.step);
+  }
+
+  /// Starts the demonstration of the current step if Lumi has not shown it
+  /// yet (or [again]). Returns her introduction line.
+  TeacherLine? _beginDemo({bool again = false}) {
+    final LessonProgress? p = _progress;
+    if (p == null || _tour != null || _currentDemo == null) return null;
+    if (!again && _demoed.contains(p.index)) return null;
+    _demoed.add(p.index);
+    setState(() => _demoIndex = p.index);
+    return TeacherLine(id: 'demo_intro_${p.step.kind.name}', mood: 'paint');
+  }
+
+  void _replayDemo() {
+    final TeacherLine? intro = _beginDemo(again: true);
+    if (intro != null) _teacher.say(<TeacherLine>[intro]);
+  }
+
+  void _onDemoFinished() {
+    if (!mounted) return;
+    final LessonProgress? p = _progress;
+    setState(() => _demoIndex = null);
+    _teacher.say(<TeacherLine>[
+      const TeacherLine(id: 'demo_your_turn', mood: 'point'),
+      ...?p?.step.lines,
+    ]);
+  }
+
+  /// Checkpoints of the new step, to follow the learner's progress.
+  void _prepareStep() {
+    final DemoStep? d = _currentDemo;
+    _samples = d?.samples() ?? const <Offset>[];
+    _sampleBrush = d == null || d.strokes.isEmpty
+        ? 0
+        : d.strokes.map((DemoStroke s) => s.width).reduce((double a, double b) => a + b) /
+              d.strokes.length;
+    _coverage = 0;
+    _saidHalf = _saidReady = false;
+  }
+
+  void _measure() {
+    final DemoStep? d = _currentDemo;
+    if (d == null || _samples.isEmpty || _canvasSize.isEmpty || _demoIndex != null) return;
+    final double c = stepCoverage(
+      samples: _samples,
+      demoBrush: _sampleBrush,
+      picture: pictureRect(_canvasSize, d.aspect),
+      strokes: _drawing.strokes.skip(_strokesAtStep).toList(),
+      canvasWidth: _canvasSize.width,
+    );
+    if ((c - _coverage).abs() >= 0.01) setState(() => _coverage = c);
+    if (c >= 0.85 && !_saidReady) {
+      _saidReady = _saidHalf = true;
+      _teacher.say(const <TeacherLine>[TeacherLine(id: 'step_ready', mood: 'cheer')]);
+    } else if (c >= 0.5 && !_saidHalf) {
+      _saidHalf = true;
+      _teacher.say(const <TeacherLine>[TeacherLine(id: 'step_half', mood: 'happy')]);
+    }
   }
 
   /// Drawing counts as today's creative activity (daily streak).
@@ -79,6 +177,7 @@ class _DrawScreenState extends State<DrawScreen> {
     if (!game.activeToday && _drawing.strokes.isNotEmpty) unawaited(game.recordActivity());
     final int n = _drawing.strokes.length;
     if (n > _inked) unawaited(game.track(GameEvent.stroke, n - _inked));
+    if (n != _inked) _measure();
     _inked = n;
   }
 
@@ -95,7 +194,18 @@ class _DrawScreenState extends State<DrawScreen> {
     }
     final LessonProgress? progress = _progress;
     if (progress != null) {
-      _teacher.say(progress.step.lines);
+      if (_demo == null) {
+        // Wait a moment for the demonstration to load (tiny JSON asset).
+        _waitingDemo = true;
+        Future<void>.delayed(const Duration(milliseconds: 1500), () {
+          if (!mounted || !_waitingDemo) return;
+          _waitingDemo = false;
+          _teacher.say(progress.step.lines);
+        });
+      } else {
+        final TeacherLine? intro = _beginDemo();
+        _teacher.say(intro != null ? <TeacherLine>[intro] : progress.step.lines);
+      }
       _recordProgress();
     } else {
       _teacher.introduce(services, 'draw_intro');
@@ -133,9 +243,11 @@ class _DrawScreenState extends State<DrawScreen> {
     if (forward) unawaited(GameScope.read(context)?.track(GameEvent.lessonStep));
     _coach?.modelColors = _stepColors(p.step);
     // Praise real work when moving on, then explain the new step.
+    _prepareStep();
+    final TeacherLine? intro = _beginDemo();
     _teacher.say(<TeacherLine>[
       if (forward && drewSomething && p.step.kind != StepKind.done) _praise.next(),
-      ...p.step.lines,
+      if (intro != null) intro else ...p.step.lines,
     ]);
     _recordProgress();
   }
@@ -315,41 +427,120 @@ class _DrawScreenState extends State<DrawScreen> {
           body: Column(
             children: <Widget>[
               Expanded(
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: <Widget>[
-                    // Paper.
-                    const ColoredBox(color: paper),
-                    // Layer 1: the picture to trace, faded.
-                    if (background != null && _showTemplate)
-                      IgnorePointer(
-                        child: Padding(
-                          padding: const EdgeInsets.all(16),
-                          child: Image(
-                            key: const Key('templateLayer'),
-                            image: background,
-                            fit: BoxFit.contain,
-                            opacity: AlwaysStoppedAnimation<double>(_templateOpacity),
-                            gaplessPlayback: true,
+                child: LayoutBuilder(
+                  builder: (BuildContext context, BoxConstraints box) {
+                    _canvasSize = box.biggest;
+                    return Stack(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        // Paper.
+                        const ColoredBox(color: paper),
+                        // Layer 1: the picture to trace, faded.
+                        if (background != null && _showTemplate)
+                          IgnorePointer(
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Image(
+                                key: const Key('templateLayer'),
+                                image: background,
+                                fit: BoxFit.contain,
+                                opacity: AlwaysStoppedAnimation<double>(_templateOpacity),
+                                gaplessPlayback: true,
+                              ),
+                            ),
+                          ),
+                        // Layer 2: the learner's drawing.
+                        DrawingCanvas(key: _keys.canvas, controller: _drawing),
+                        // Learner's turn: replay the demo, see how much is done.
+                        if (progress != null && _currentDemo != null && _demoIndex == null)
+                          Positioned(
+                            top: 8,
+                            left: 8,
+                            right: 8,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Flexible(
+                                  child: _GlassChip(
+                                    key: const Key('replayDemo'),
+                                    onTap: _replayDemo,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: <Widget>[
+                                        const ArtImage(GameArt.magicBrush, size: 26),
+                                        const SizedBox(width: 6),
+                                        Flexible(
+                                          child: Text(
+                                            context.tr('lesson.demo.watch'),
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 8),
+                                _GlassChip(
+                                  key: const Key('stepCoverage'),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      SizedBox(
+                                        width: 20,
+                                        height: 20,
+                                        child: CircularProgressIndicator(
+                                          value: _coverage,
+                                          strokeWidth: 3,
+                                          backgroundColor: const Color(0x33FFFFFF),
+                                          color: _coverage >= 0.85 ? AppTheme.teal : AppTheme.lamp,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        context.tr(
+                                          'lesson.demo.coverage',
+                                          args: <String, Object?>{
+                                            'percent': (_coverage * 100).round(),
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        // Lumi draws the step first.
+                        if (progress != null && _demoIndex != null && _currentDemo != null)
+                          Positioned.fill(
+                            child: DemoView(
+                              key: ValueKey<int>(_demoIndex!),
+                              step: _currentDemo!,
+                              target: progress.step.overlay,
+                              previous: progress.index > 0 && progress.step.kind != StepKind.outline
+                                  ? progress.lesson.steps[progress.index - 1].overlay
+                                  : null,
+                              paper: paper,
+                              onFinished: _onDemoFinished,
+                            ),
+                          ),
+                        // Lumi and the tour spotlight.
+                        Positioned(
+                          key: const Key('drawTeacher'),
+                          left: 0,
+                          right: 0,
+                          bottom: 8,
+                          child: TeacherOverlay(
+                            controller: _teacher,
+                            inline: true,
+                            collapsedAlignment: Alignment.bottomRight,
+                            autoAdvance: _tour == null ? const Duration(seconds: 2) : null,
                           ),
                         ),
-                      ),
-                    // Layer 2: the learner's drawing.
-                    DrawingCanvas(key: _keys.canvas, controller: _drawing),
-                    // Lumi and the tour spotlight.
-                    Positioned(
-                      key: const Key('drawTeacher'),
-                      left: 0,
-                      right: 0,
-                      bottom: 8,
-                      child: TeacherOverlay(
-                        controller: _teacher,
-                        inline: true,
-                        collapsedAlignment: Alignment.bottomRight,
-                        autoAdvance: _tour == null ? const Duration(seconds: 2) : null,
-                      ),
-                    ),
-                  ],
+                      ],
+                    );
+                  },
                 ),
               ),
               if (progress != null)
@@ -372,6 +563,34 @@ class _DrawScreenState extends State<DrawScreen> {
         // Tour highlight above everything (toolbar, app bar), never blocking.
         if (tour != null) Positioned.fill(child: TourSpotlight(tour: tour)),
       ],
+    );
+  }
+}
+
+/// Small dark pill floating over the drawing sheet.
+class _GlassChip extends StatelessWidget {
+  const _GlassChip({super.key, required this.child, this.onTap});
+
+  final Widget child;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: const Color(0xE6242150),
+      shape: const StadiumBorder(),
+      elevation: 2,
+      child: InkWell(
+        customBorder: const StadiumBorder(),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8, 5, 14, 5),
+          child: DefaultTextStyle.merge(
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w800, fontSize: 13),
+            child: child,
+          ),
+        ),
+      ),
     );
   }
 }

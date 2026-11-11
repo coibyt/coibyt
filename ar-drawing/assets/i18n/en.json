@@ -247,7 +247,14 @@
       "quests_intro_1": "Every day there are three small quests. Finish one for coins, finish all three to open a reward chest!",
       "quests_intro_2": "And here is your badge collection. Try to unlock them all!",
       "quest_done": "Quest complete! Let's collect the reward.",
-      "badge_unlocked": "You just unlocked a new badge. Amazing!"
+      "badge_unlocked": "You just unlocked a new badge. Amazing!",
+      "demo_intro_outline": "Watch me do it first! I follow the outline lightly, one section at a time, from top to bottom.",
+      "demo_intro_base": "Now watch me lay the base colour. Move the pencil back and forth evenly, big areas first.",
+      "demo_intro_shadow": "Now the shadows. Where the light can't reach, press a little harder and follow the shape.",
+      "demo_intro_highlight": "Last come the highlights. Just a few light touches where the light hits.",
+      "demo_your_turn": "Done! Now it's your turn. Follow the same order I just used.",
+      "step_half": "Halfway there, keep going!",
+      "step_ready": "Wonderful, this step is nearly done! Tap the arrow for the next step."
     }
   },
   "lesson": {
@@ -287,6 +294,13 @@
     "credit": {
       "starry_night": "After “The Starry Night” (1889) by Vincent van Gogh, a public-domain work.",
       "pearl_earring": "After “Girl with a Pearl Earring” (c. 1665) by Johannes Vermeer, a public-domain work."
+    },
+    "demo": {
+      "watch": "Watch Lumi's demo",
+      "skip": "Skip",
+      "playing": "Lumi is demonstrating…",
+      "yourTurn": "Your turn!",
+      "coverage": "{percent}% done"
     }
   },
   "pencil": {

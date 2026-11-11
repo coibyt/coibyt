@@ -99,14 +99,25 @@ void main() {
       expect(find.text('Bước 2/5 · Màu nền'), findsOneWidget);
       expect(find.text('Đỏ'), findsOneWidget);
       expect(find.text('Xanh lá đậm'), findsOneWidget);
-      await tester.pump(const Duration(milliseconds: 6500));
+      // Lumi may first demonstrate the step; skipping it goes to the explanation.
+      if (find.byKey(const Key('skipDemo')).evaluate().isNotEmpty) {
+        await tester.tap(find.byKey(const Key('skipDemo')));
+        await tester.pump();
+      }
+      // After "your turn", Lumi reads the step's instructions.
+      for (int i = 0; i < 40; i++) {
+        if (find.textContaining('đỏ cho quả táo', findRichText: true).evaluate().isNotEmpty) break;
+        await tester.pump(const Duration(milliseconds: 500));
+      }
       expect(
         find.textContaining('đỏ cho quả táo', findRichText: true),
         findsOneWidget,
         reason: 'Lumi reads the step instructions',
       );
       // While drawing, Lumi steps aside by herself so the picture is clear.
-      await tester.pump(const Duration(seconds: 3));
+      for (int i = 0; i < 30 && find.byKey(const Key('teacherDialog')).evaluate().isNotEmpty; i++) {
+        await tester.pump(const Duration(milliseconds: 500));
+      }
       expect(find.byKey(const Key('teacherDialog')), findsNothing);
       expect(find.byKey(const Key('teacherAvatar')), findsOneWidget);
 
@@ -120,7 +131,10 @@ void main() {
       expect(overlay(), 'assets/lessons/apple/2_base.png');
 
       // Let Lumi finish and step aside so her idle animation stops.
-      for (int i = 0; i < 12; i++) {
+      if (find.byKey(const Key('skipDemo')).evaluate().isNotEmpty) {
+        await tester.tap(find.byKey(const Key('skipDemo')));
+      }
+      for (int i = 0; i < 40; i++) {
         await tester.pump(const Duration(seconds: 1));
       }
       expect(find.byKey(const Key('teacherDialog')), findsNothing);

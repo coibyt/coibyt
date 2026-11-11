@@ -18,6 +18,7 @@ const Map<String, String> kLumiPoses = <String, String>{
   'happy': 'assets/teacher/lumi_happy.png',
   'point': 'assets/teacher/lumi_point.png',
   'cheer': 'assets/teacher/lumi_cheer.png',
+  'paint': 'assets/teacher/lumi_paint.png',
 };
 
 String lumiPose(String mood, [LumiOutfit outfit = LumiOutfit.classic]) {
