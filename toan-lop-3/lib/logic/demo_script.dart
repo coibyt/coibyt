@@ -145,7 +145,15 @@ class DemoScene {
     this.mood = DemoMood.point,
     this.example,
     this.pointAt,
+    this.erase = false,
+    this.draw = false,
   });
+
+  /// Video bài giảng: cô xoá bảng (lau sạch phần vừa giảng).
+  final bool erase;
+
+  /// Video bài giảng: cô vẽ hình của bài lên bảng.
+  final bool draw;
 
   /// Ví dụ trong cuộc sống đang giảng (chỉ số trong danh sách ví dụ của bài).
   final int? example;

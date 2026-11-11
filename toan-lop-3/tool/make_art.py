@@ -283,6 +283,12 @@ for _c in _catalog["books"][0]["chapters"]:
 JOBS["pointer"] = dict(group="ui", aspect="1:1", prompt=obj(
     "A teacher's elegant golden pointer stick lying diagonally, its tip with a small glowing yellow star at the "
     "TOP-LEFT corner and its rounded wooden handle with a coral ribbon at the BOTTOM-RIGHT corner, slim and long"))
+JOBS["chalk_pen"] = dict(group="ui", aspect="1:1", prompt=obj(
+    "A teacher's elegant chalk pen: a slim golden metal chalk holder with a small coral ribbon, holding a white chalk "
+    "stick, lying diagonally with the white chalk TIP at the BOTTOM-LEFT corner and the golden end at the TOP-RIGHT corner"))
+JOBS["eraser"] = dict(group="ui", aspect="3:2", prompt=obj(
+    "A classic blackboard eraser seen from the side: a warm polished wooden handle block on top and a thick soft grey "
+    "felt pad underneath dusted with white chalk powder, a few chalk dust puffs"))
 _ex_file = ROOT / "assets" / "content" / "examples.json"
 if _ex_file.exists():
     for _id, _list in json.loads(_ex_file.read_text()).items():

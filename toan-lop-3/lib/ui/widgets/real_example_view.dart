@@ -13,7 +13,9 @@ class RealExamples {
 
   static Future<Map<String, List<RealExample>>> load([AssetBundle? bundle]) => _cache ??= () async {
     try {
-      final raw = await (bundle ?? rootBundle).loadString(realExamplesPath);
+      // load + utf8.decode (loadString tách luồng riêng với tệp > 50 KB → chậm hơn, và treo trong kiểm thử).
+      final data = await (bundle ?? rootBundle).load(realExamplesPath);
+      final raw = utf8.decode(data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
       return parseRealExamples(jsonDecode(raw) as Map<String, dynamic>);
     } on Object {
       return <String, List<RealExample>>{};

@@ -6,6 +6,7 @@ import '../app_state.dart';
 import '../logic/tutor.dart';
 import '../models/content.dart';
 import 'app_theme.dart';
+import 'board_lesson_screen.dart';
 import 'ability_screens.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
@@ -1259,6 +1260,14 @@ class LessonScreen extends StatelessWidget {
                   avatarHeight: 120,
                 ),
                 const SizedBox(height: 20),
+                BigButton(
+                  key: const ValueKey('btn-board'),
+                  label: 'Video bài giảng',
+                  icon: Icons.smart_display_rounded,
+                  color: const Color(0xFF1E4D38),
+                  onPressed: () => pushScreen<void>(context, BoardLessonScreen(lessonRef: lessonRef)),
+                ),
+                const SizedBox(height: 16),
                 BigButton(
                   key: const ValueKey('btn-theory'),
                   label: 'Nhớ nhanh',
