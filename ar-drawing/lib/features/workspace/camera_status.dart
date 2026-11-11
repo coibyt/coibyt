@@ -27,10 +27,16 @@ enum CameraStatus {
 /// - `CameraAccessDenied`: user denied the prompt.
 /// - `CameraAccessDeniedWithoutPrompt`: iOS, denied earlier, no prompt shown.
 /// - `CameraAccessRestricted`: iOS parental controls / MDM.
+/// - `NotAllowedError`, `NotFoundError`, `cameraNotFound`: browser (web).
 CameraStatus statusForCameraError(CameraException error) {
   switch (error.code) {
     case 'CameraAccessDenied':
+    case 'NotAllowedError':
+    case 'SecurityError':
       return CameraStatus.permissionDenied;
+    case 'NotFoundError':
+    case 'cameraNotFound':
+      return CameraStatus.noCamera;
     case 'CameraAccessDeniedWithoutPrompt':
     case 'CameraAccessRestricted':
       return CameraStatus.permissionBlocked;

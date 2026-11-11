@@ -10,11 +10,20 @@
          sound (time-lapse is silent), so remove it to avoid an unnecessary
          microphone permission on the store listing. -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
+    <!-- Saving the time-lapse video to the gallery on Android 10 and older
+         (gal plugin). Newer Android needs no permission for this. The camera
+         plugin declares the same permission with maxSdkVersion 28, so ours
+         replaces that value. Picking photos uses the system Photo Picker and
+         needs no permission. -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"
+        tools:replace="android:maxSdkVersion" />
 
     <application
         android:label="TraceLight"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -37,6 +37,13 @@ dependencies:
   camera: ^0.12.2
   wakelock_plus: ^1.8.2
   app_settings: ^9.0.1
+  image: ^4.12.0
+  image_picker: ^1.2.4
+  flutter_quick_video_encoder: ^1.7.2
+  gal: ^2.3.3
+  video_player: ^2.14.1
+  share_plus: ^13.3.1
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +69,13 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
+    - assets/branding/
+    - assets/templates/animals/
+    - assets/templates/anime/
+    - assets/templates/chibi/
+    - assets/templates/cars/
+    - assets/templates/flowers/
+    - assets/templates/food/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

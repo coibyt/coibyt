@@ -28,6 +28,10 @@
 	<string>TraceLight shows your paper through the camera so you can trace the picture on it.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>TraceLight does not record sound. This text is required because the camera library can access the microphone.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Choose a photo to turn into lines you can trace.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save your drawing time-lapse videos to Photos.</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

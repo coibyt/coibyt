@@ -26,6 +26,13 @@ class FakeCameraPlatform extends CameraPlatform {
 
   int createCount = 0;
   int disposeCount = 0;
+  final List<FlashMode> flashModes = <FlashMode>[];
+
+  /// When true, `setFlashMode` throws like on a phone without a torch.
+  bool torchUnsupported = false;
+
+  /// Frames pushed by tests into the image stream.
+  final StreamController<CameraImageData> frames = StreamController<CameraImageData>.broadcast();
 
   final StreamController<CameraErrorEvent> _errors = StreamController<CameraErrorEvent>.broadcast();
 
@@ -77,6 +84,21 @@ class FakeCameraPlatform extends CameraPlatform {
 
   @override
   Widget buildPreview(int cameraId) => const SizedBox.expand(key: Key('fakePreview'));
+
+  @override
+  Future<void> setFlashMode(int cameraId, FlashMode mode) async {
+    if (torchUnsupported) throw CameraException('torchModeNotSupported', 'no torch');
+    flashModes.add(mode);
+  }
+
+  @override
+  bool supportsImageStreaming() => true;
+
+  @override
+  Stream<CameraImageData> onStreamedFrameAvailable(
+    int cameraId, {
+    CameraImageStreamOptions? options,
+  }) => frames.stream;
 
   @override
   Future<void> dispose(int cameraId) async {

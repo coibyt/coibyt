@@ -21,3 +21,14 @@ Prompt đầy đủ đã dùng:
 
 > Trước khi phát hành thương mại, hãy đọc điều khoản sử dụng của kie.ai và của
 > model đã dùng để chắc chắn được phép dùng hình cho mục đích thương mại.
+
+## Thư viện mẫu (Phase 4)
+
+24 hình nét vẽ trong `assets/templates/<chủ đề>/` được tạo bằng kie.ai (`google/nano-banana`, 11/2026).
+Câu lệnh tạo ảnh có dạng: "Clean black-and-white line art for a tracing / drawing practice app: <mô tả>.
+Bold uniform black outlines only, … no text, no logos … Pure white background …". Các nhân vật đều là
+nhân vật gốc ("an original anime girl…"), xe không có thương hiệu ("generic … no brand, no logo").
+Hình `animals/fox_cub.png` và `chibi/hoodie_girl.png` là hai hình mẫu của Phase 1.
+
+Xử lý sau khi tạo ảnh: nền giấy chuyển thành trong suốt (theo độ tối của điểm ảnh), hình có nét quá mảnh
+được làm đậm 1 px, xoá chấm bẩn rời, cắt sát hình.
