@@ -4,7 +4,7 @@
   python3 tool/gen_exams.py
 
 Tạo trong assets/content/exams/:
-  * 35 đề "Kiểm tra cuối tuần" (15 phút, 5 câu × 2 điểm) — bài tập của đúng các bài học trong tuần đó;
+  * mỗi tuần học một đề "Kiểm tra cuối tuần" (15 phút, 5 câu × 2 điểm) — bài tập của đúng các bài học trong tuần đó;
   * 16 đề "Kiểm tra chủ đề" (35 phút, 10 câu) — một đề cho mỗi chủ đề, đặt vào tuần học xong chủ đề;
   * đề Giữa / Cuối học kì 1 và 2 (40 phút, 10 câu; đề số 2 dành cho VIP).
 Rồi ghi mục lục đề vào catalog.json và gắn mỗi đề vào một tuần trong calendar.json (mục "exams").
@@ -15,10 +15,11 @@ Không đụng tới các đề viết tay có sẵn.
 """
 import copy
 import json
+import os
 import pathlib
 import random
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
+ROOT = pathlib.Path(os.environ.get("TOAN3_ROOT") or pathlib.Path(__file__).resolve().parent.parent)
 CONTENT = ROOT / "assets" / "content"
 EXAMS = CONTENT / "exams"
 PREFIX = "kntt3.gen."  # mã đề do tool này sinh (để chạy lại thì thay thế, không nhân đôi)
@@ -61,6 +62,11 @@ def pick(rng, pool, n, *, prefer_levels=None):
                     chosen.append(p)
     chosen.sort(key=lambda p: (p["type"] not in CHOICE_TYPES, p["level"]))
     return chosen
+
+
+def short(desc: str, fallback: str) -> str:
+    """Mô tả đề tối đa 160 ký tự (giới hạn của schema)."""
+    return desc if len(desc) <= 160 else fallback
 
 
 def build_exam(exam_id, title, desc, etype, term, minutes, access, chapter_ids, problems, points_each):
@@ -140,7 +146,7 @@ def main():
             build_exam(
                 f"{PREFIX}tuan-{wk:02d}",
                 f"Kiểm tra cuối tuần {wk}",
-                "Ôn lại bài của tuần: " + "; ".join(titles) + ".",
+                short("Ôn lại bài của tuần: " + "; ".join(titles) + ".", f"Ôn lại {len(titles)} bài học của tuần {wk}."),
                 "kt_15p", w["term"], 15, "free", chap_ids, chosen, 2,
             ),
             wk,
@@ -158,18 +164,29 @@ def main():
             build_exam(
                 f"{PREFIX}chu-de-{c['order']:02d}",
                 f"Kiểm tra chủ đề {c['order']}",
-                c["title"] + ".",
+                short(c["title"] + ".", f"Chủ đề {c['order']}."),
                 "kt_1_tiet", term, 35, "free", [c["id"]], chosen, 1,
             ),
             last_week_of_chapter.get(c["id"], 35),
         )
 
     # 3) Giữa kì, cuối kì: phủ các chủ đề đã học đến tuần đó
+    # Tuần thi: giữa kì = tuần giữa học kì (hoặc tuần của đề viết tay cùng loại nếu lịch đã có), cuối kì = tuần cuối.
+    term_weeks = {t: sorted(w for w, x in weeks.items() if x["term"] == t) for t in (1, 2)}
+    handmade = {e["examType"]: e["id"] for e in book["exams"] if not e["id"].startswith(PREFIX)}
+    cal_week = {e["examId"]: e["week"] for e in calendar.get("exams", [])}
+
+    def week_for(etype, term, mid):
+        if etype in handmade and handmade[etype] in cal_week:
+            return cal_week[handmade[etype]]
+        ws = term_weeks[term]
+        return ws[(len(ws) - 1) // 2] if mid else ws[-1]
+
     big = [
-        ("giua-hk1", "giua_hk1", "Đề giữa học kì 1", 1, 9),
-        ("cuoi-hk1", "cuoi_hk1", "Đề cuối học kì 1", 1, 18),
-        ("giua-hk2", "giua_hk2", "Đề giữa học kì 2", 2, 27),
-        ("cuoi-hk2", "cuoi_hk2", "Đề cuối học kì 2", 2, 35),
+        ("giua-hk1", "giua_hk1", "Đề giữa học kì 1", 1, week_for("giua_hk1", 1, True)),
+        ("cuoi-hk1", "cuoi_hk1", "Đề cuối học kì 1", 1, week_for("cuoi_hk1", 1, False)),
+        ("giua-hk2", "giua_hk2", "Đề giữa học kì 2", 2, week_for("giua_hk2", 2, True)),
+        ("cuoi-hk2", "cuoi_hk2", "Đề cuối học kì 2", 2, week_for("cuoi_hk2", 2, False)),
     ]
     for slug, etype, title, term, wk in big:
         lessons = [
@@ -189,7 +206,10 @@ def main():
                 build_exam(
                     f"{PREFIX}{slug}-de-{n}",
                     f"{title} — Đề số {number}",
-                    "Ôn tập các chủ đề: " + "; ".join(dict.fromkeys(lesson_chapter[l]["title"] for l in lessons)) + ".",
+                    short(
+                        "Ôn tập các chủ đề: " + "; ".join(dict.fromkeys(lesson_chapter[l]["title"] for l in lessons)) + ".",
+                        "Ôn tập chủ đề " + ", ".join(str(int(c.rsplit("c", 1)[1])) for c in chap_ids) + ".",
+                    ),
                     etype, term, 40, "free" if n == 1 else "vip", chap_ids, chosen, 1,
                 ),
                 wk,
