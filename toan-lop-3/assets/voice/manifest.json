@@ -52,6 +52,11 @@
       "ms": 2928,
       "spoken": "Chia đều thành các phần bằng nhau, con thử làm phép chia nhé!"
     },
+    "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.": {
+      "file": "assets/voice/chao-mung-con-den-cua-hang-dung-vang-de-c62c15.mp3",
+      "ms": 3168,
+      "spoken": "Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào."
+    },
     "Chào mừng con! Hôm nay chúng ta cùng chinh phục điểm 10 môn Toán nhé!": {
       "file": "assets/voice/chao-mung-con-hom-nay-chung-ta-cung-chin-80055d.mp3",
       "ms": 3144,
@@ -81,6 +86,11 @@
       "file": "assets/voice/con-chi-can-nhap-so-thoi-nhe-123b7e.mp3",
       "ms": 1368,
       "spoken": "Con chỉ cần nhập số thôi nhé!"
+    },
+    "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy.": {
+      "file": "assets/voice/con-chon-chu-de-muon-hoc-nhe-bai-nao-co-b51d28.mp3",
+      "ms": 3744,
+      "spoken": "Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy."
     },
     "Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!": {
       "file": "assets/voice/con-co-nhiem-vu-da-hoan-thanh-bam-nhan-v-a5cb43.mp3",
@@ -157,10 +167,20 @@
       "ms": 2064,
       "spoken": "Con đọc kỹ đề và tính cẩn thận từng bước nhé."
     },
+    "Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.": {
+      "file": "assets/voice/con-doc-phan-nho-nhanh-cung-co-nhe-roi-m-55a58f.mp3",
+      "ms": 3000,
+      "spoken": "Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập."
+    },
     "Có từ \"gấp\", con nghĩ tới phép nhân nhé!": {
       "file": "assets/voice/co-tu-gap-con-nghi-toi-phep-nhan-nhe-6e2bc7.mp3",
       "ms": 2232,
       "spoken": "Có từ \"gấp\", con nghĩ tới phép nhân nhé!"
+    },
+    "Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.": {
+      "file": "assets/voice/cung-xem-bang-xep-hang-nhe-hoc-deu-moi-n-452041.mp3",
+      "ms": 3048,
+      "spoken": "Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào."
     },
     "Cố lên nào! Mình luyện lại bài này nhé!": {
       "file": "assets/voice/co-len-nao-minh-luyen-lai-bai-nay-nhe-ea0028.mp3",
@@ -266,6 +286,21 @@
       "file": "assets/voice/xuat-sac-con-duoc-ba-sao-a41b80.mp3",
       "ms": 1632,
       "spoken": "Xuất sắc! Con được ba sao!"
+    },
+    "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!": {
+      "file": "assets/voice/day-la-bo-suu-tap-huy-hieu-cua-con-co-ga-ad226e.mp3",
+      "ms": 3072,
+      "spoken": "Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!"
+    },
+    "Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!": {
+      "file": "assets/voice/day-la-lich-hoc-ca-nam-con-cham-vao-mot-27c6b6.mp3",
+      "ms": 3312,
+      "spoken": "Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!"
+    },
+    "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!": {
+      "file": "assets/voice/day-la-phong-luyen-thi-con-lam-de-nhu-th-2e3f95.mp3",
+      "ms": 3864,
+      "spoken": "Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!"
     },
     "Đúng rồi! Con sửa giỏi lắm!": {
       "file": "assets/voice/dung-roi-con-sua-gioi-lam-f713c7.mp3",

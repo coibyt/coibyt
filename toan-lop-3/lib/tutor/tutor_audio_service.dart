@@ -143,6 +143,9 @@ class TutorAudioService {
     _player = null;
   }
 
+  /// [u] có phải câu đang nói không.
+  bool isCurrent(Utterance u) => identical(_current, u);
+
   /// Dừng câu đang nói.
   void stop() {
     final u = _current;

@@ -15,6 +15,15 @@ abstract final class TutorLines {
   static const missionReady = 'Con có nhiệm vụ đã hoàn thành, bấm nhận vàng nhé!';
   static const chestOpened = 'Oa! Rương báu mở rồi! Con giỏi quá, xong hết nhiệm vụ hôm nay!';
 
+  // Cô tự nói khi bé mở từng màn hình.
+  static const screenChapters = 'Con chọn chủ đề muốn học nhé! Bài nào có sao vàng là con đã học rồi đấy.';
+  static const screenCalendar = 'Đây là lịch học cả năm. Con chạm vào một ngày để học bài của ngày đó nhé!';
+  static const screenExams = 'Đây là phòng luyện thi. Con làm đề như thi thật, cô chấm điểm ngay nhé!';
+  static const screenShop = 'Chào mừng con đến cửa hàng! Dùng vàng để quay thẻ thú cưng nào.';
+  static const screenRank = 'Cùng xem bảng xếp hạng nhé! Học đều mỗi ngày để leo hạng nào.';
+  static const screenBadges = 'Đây là bộ sưu tập huy hiệu của con. Cố gắng sưu tầm thật nhiều nhé!';
+  static const screenTheory = 'Con đọc phần Nhớ nhanh cùng cô nhé, rồi mình luyện tập.';
+
   static const praise = ['Xuất sắc!', 'Chính xác!', 'Giỏi quá!', 'Tuyệt vời!', 'Đúng rồi, con làm tốt lắm!'];
   static const praiseFast = ['Con làm nhanh quá!', 'Nhanh mà chính xác, giỏi lắm!'];
   static const praiseCombo = ['Xuất sắc! Con làm đúng liền mấy câu rồi!', 'Con đang rất phong độ, cứ thế nhé!'];
@@ -76,6 +85,13 @@ abstract final class TutorLines {
     greeting,
     missionReady,
     chestOpened,
+    screenChapters,
+    screenCalendar,
+    screenExams,
+    screenShop,
+    screenRank,
+    screenBadges,
+    screenTheory,
     ...praise,
     ...praiseFast,
     ...praiseCombo,

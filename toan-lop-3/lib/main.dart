@@ -15,6 +15,7 @@ import 'tutor/voice_library.dart';
 import 'ui/app_theme.dart';
 import 'ui/break_reminder.dart';
 import 'ui/child_screens.dart';
+import 'ui/start_gate.dart';
 import 'ui/widgets/bee_mascot.dart';
 
 Future<void> main() async {
@@ -92,7 +93,7 @@ class _OngVangAppState extends State<OngVangApp> {
               navigatorKey: _navigatorKey,
               debugShowCheckedModeBanner: false,
               theme: buildAppTheme(),
-              home: const RootScreen(),
+              home: const StartGate(child: RootScreen()),
             ),
           ),
         );

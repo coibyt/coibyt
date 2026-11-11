@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../logic/leaderboard.dart';
 import 'app_theme.dart';
+import '../tutor/teacher_intro.dart';
+import '../logic/tutor.dart';
 
 /// Thẻ danh hiệu: Tập sự → Học giả → Thần đồng (mỗi bậc I–III).
 class RankCard extends StatelessWidget {
@@ -76,10 +78,20 @@ class LeaderboardScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: const TabBarView(
+        body: const Column(
           children: [
-            _Board(period: LeaderboardPeriod.week),
-            _Board(period: LeaderboardPeriod.month),
+            Padding(
+              padding: EdgeInsets.fromLTRB(12, 10, 12, 0),
+              child: TeacherIntro(key: ValueKey('rank-intro'), lines: [TutorLines.screenRank], avatarHeight: 90),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  _Board(period: LeaderboardPeriod.week),
+                  _Board(period: LeaderboardPeriod.month),
+                ],
+              ),
+            ),
           ],
         ),
       ),

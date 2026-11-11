@@ -19,6 +19,8 @@ import 'widgets/game_widgets.dart';
 import '../logic/economy.dart';
 import 'child_screens.dart' show ChapterListScreen, LessonScreen;
 import 'widgets/solution_view.dart';
+import '../tutor/teacher_intro.dart';
+import '../logic/tutor.dart';
 
 /// Thứ tự nhóm đề trên màn "Luyện thi".
 const _typeOrder = [
@@ -74,6 +76,8 @@ class ExamListScreen extends StatelessWidget {
                 child: ListView(
                   padding: const EdgeInsets.all(16),
                   children: [
+                    const TeacherIntro(key: ValueKey('exams-intro'), lines: [TutorLines.screenExams], avatarHeight: 96),
+                    const SizedBox(height: 8),
                     for (final type in _typeOrder)
                       if (groups[type] != null) ...[
                         Padding(

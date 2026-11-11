@@ -153,8 +153,10 @@ class TeacherController extends ChangeNotifier {
 
   @override
   void dispose() {
+    // Chỉ dừng giọng nếu cô CỦA MÀN NÀY đang nói (màn mới mở có thể đã bắt đầu nói rồi).
+    final u = _utterance;
     _stopTimers();
-    _audio.stop();
+    if (u != null && _audio.isCurrent(u)) _audio.stop();
     super.dispose();
   }
 }

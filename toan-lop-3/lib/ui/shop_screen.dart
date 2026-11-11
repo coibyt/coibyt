@@ -9,6 +9,8 @@ import 'widgets/game_art.dart';
 import '../tutor/teacher_assets.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_widgets.dart';
+import '../tutor/teacher_intro.dart';
+import '../logic/tutor.dart';
 
 /// Cửa hàng: quay thẻ thú cưng, trang phục cô Ong, bộ sưu tập.
 /// Chỉ dùng đồng vàng kiếm được khi học — không có mua bằng tiền thật ở đây.
@@ -43,11 +45,21 @@ class ShopScreen extends StatelessWidget {
             ],
           ),
         ),
-        body: TabBarView(
+        body: Column(
           children: [
-            _SpinTab(random: random ?? Random()),
-            const _OutfitTab(),
-            const _CollectionTab(),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(12, 10, 12, 0),
+              child: TeacherIntro(key: ValueKey('shop-intro'), lines: [TutorLines.screenShop], avatarHeight: 90),
+            ),
+            Expanded(
+              child: TabBarView(
+                children: [
+                  _SpinTab(random: random ?? Random()),
+                  const _OutfitTab(),
+                  const _CollectionTab(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
