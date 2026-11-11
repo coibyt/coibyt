@@ -219,6 +219,7 @@ Future<void> main(List<String> args) async {
   bool upToDate(String l, String voice) {
     final e = lines[l] as Map<String, dynamic>?;
     if (e == null || !File(e['file'] as String).existsSync() || e['voice'] != voice) return false;
+    if (!(e['file'] as String).endsWith(voice == hostVoice ? '-lily.mp3' : '-trang.mp3')) return false;
     return e['spoken'] == spokenVietnamese(l);
   }
 
@@ -252,7 +253,8 @@ Future<void> main(List<String> args) async {
   Future<void> worker() async {
     while (queue.isNotEmpty) {
       final (text, voice) = queue.removeAt(0);
-      final file = '$outDir/${slug(text)}.mp3';
+      // Tên file có tên giọng → đổi giọng thì đổi đường dẫn, trình duyệt không phát lại bản cũ trong bộ nhớ đệm.
+      final file = '$outDir/${slug(text)}-${voice == hostVoice ? 'lily' : 'trang'}.mp3';
       final spoken = spokenVietnamese(text);
       try {
         final audio = await tts(client, key, spoken, voice);
