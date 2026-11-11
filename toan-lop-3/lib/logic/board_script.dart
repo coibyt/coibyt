@@ -196,6 +196,9 @@ BoardScript buildBoardScript(
   List<Problem> problems = const [],
   List<RealExample> examples = const [],
   List<String> outro = const [TutorLines.classDone],
+  List<String> intro = const [boardStart],
+  bool checks = true,
+  int maxQuizzes = 3,
 }) {
   // 1) Chia khối thành từng bảng.
   final diagram = boardDiagramFor(lessonId);
@@ -235,12 +238,13 @@ BoardScript buildBoardScript(
   // 2) Kịch bản cô giảng (dùng chung với "Nhớ nhanh"), thêm cảnh vẽ hình và xoá bảng.
   final base = buildDemoScript(
     blocks,
-    intro: const [boardStart],
+    intro: intro,
     tips: tips,
     outro: outro,
     problems: problems,
     examples: examples,
-    checks: true,
+    checks: checks,
+    maxQuizzes: maxQuizzes,
   );
   // Ví dụ trong cuộc sống: bảng dùng xen sau phần lý thuyết → đưa ví dụ 0 ra sau các khối.
   final ex0 = [

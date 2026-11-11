@@ -33,19 +33,13 @@ class BoardLessonScreen extends StatefulWidget {
   State<BoardLessonScreen> createState() => _BoardLessonScreenState();
 }
 
-class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTickerProviderStateMixin {
+class _BoardLessonScreenState extends State<BoardLessonScreen> {
   Future<Lesson>? _lesson;
   List<RealExample> _examples = const [];
   final _teacher = TeacherController(voiceEnabled: false);
-  late final AnimationController _erase = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 2200),
-  );
   BoardScript? _script;
   DemoPlayer? _player;
   List<Tip> _tips = const [];
-  List<ContentBlock> _blocks = const [];
-  int? _erasingScene;
 
   @override
   void didChangeDependencies() {
@@ -65,13 +59,12 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
     _player?.removeListener(_changed);
     _player?.dispose();
     _teacher.dispose();
-    _erase.dispose();
     super.dispose();
   }
 
   void _start(Lesson lesson) {
     _tips = tipsForLesson(lesson.title);
-    final blocks = _blocks = lesson.theory.blocks;
+    final blocks = lesson.theory.blocks;
     _script = buildBoardScript(
       blocks,
       lessonId: lesson.id,
@@ -88,24 +81,7 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
   }
 
   void _changed() {
-    if (!mounted) return;
-    final p = _player!;
-    final s = p.current;
-    if (s != null && s.erase && p.playing) {
-      if (_erasingScene != p.index) {
-        _erasingScene = p.index;
-        final motion = TeacherAvatar.motionEnabled && !(MediaQuery.maybeDisableAnimationsOf(context) ?? false);
-        if (motion) {
-          _erase.forward(from: 0);
-        } else {
-          _erase.value = 1;
-        }
-      }
-    } else if (_erasingScene != null) {
-      _erasingScene = null;
-      _erase.value = 0;
-    }
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   void _practice(Lesson lesson) {
@@ -116,25 +92,6 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
             QuizScreen(lesson: lesson, isVip: app.isVip, onFinished: app.recordQuiz, voiceOn: app.voiceEnabled),
       ),
     );
-  }
-
-  /// Phần bảng đang hiện (-1 = mới có đầu bài).
-  int get _section {
-    final p = _player!;
-    final sc = _script!;
-    if (p.done) return sc.sections.length - 1;
-    if (p.index < 0) return -1;
-    return sc.sectionOf[p.index];
-  }
-
-  /// Hình của phần [s] đã được vẽ chưa (cô tới cảnh vẽ hình).
-  bool _drawn(int s) {
-    final p = _player!;
-    if (p.done) return true;
-    for (var i = 0; i <= p.index && i < _script!.scenes.length; i++) {
-      if (_script!.scenes[i].draw && _script!.sectionOf[i] == s) return true;
-    }
-    return false;
   }
 
   @override
@@ -167,7 +124,19 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
                         constraints: const BoxConstraints(maxWidth: 760),
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(10, 10, 10, 4),
-                          child: ChalkBoardFrame(key: const ValueKey('chalk-board'), child: _board(lesson, p)),
+                          child: ChalkBoardFrame(
+                            key: const ValueKey('chalk-board'),
+                            child: ChalkLessonBoard(
+                              player: p,
+                              script: _script!,
+                              blocks: lesson.theory.blocks,
+                              title: lesson.title,
+                              subject: 'Toán',
+                              date: boardDate(DateTime.now()),
+                              tips: _tips,
+                              examples: _examples,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -220,8 +189,104 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
       ),
     );
   }
+}
 
-  Widget _board(Lesson lesson, DemoPlayer p) {
+/// Mặt bảng của video bài giảng: đầu bảng giữ suốt giờ, phần thân viết / vẽ theo cảnh cô đang giảng,
+/// hết phần thì giẻ lau xoá bảng. Dùng cho video bài giảng và video lời giải bài tập.
+class ChalkLessonBoard extends StatefulWidget {
+  const ChalkLessonBoard({
+    super.key,
+    required this.player,
+    required this.script,
+    required this.blocks,
+    required this.title,
+    this.subject,
+    this.date,
+    this.tips = const [],
+    this.examples = const [],
+  });
+
+  final DemoPlayer player;
+  final BoardScript script;
+  final List<ContentBlock> blocks;
+  final String title;
+  final String? subject;
+  final String? date;
+  final List<Tip> tips;
+  final List<RealExample> examples;
+
+  @override
+  State<ChalkLessonBoard> createState() => _ChalkLessonBoardState();
+}
+
+class _ChalkLessonBoardState extends State<ChalkLessonBoard> with SingleTickerProviderStateMixin {
+  late final AnimationController _erase = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 2200),
+  );
+  int? _erasingScene;
+
+  DemoPlayer get _p => widget.player;
+  BoardScript get _script => widget.script;
+  List<ContentBlock> get _blocks => widget.blocks;
+  List<Tip> get _tips => widget.tips;
+  List<RealExample> get _examples => widget.examples;
+
+  @override
+  void initState() {
+    super.initState();
+    _p.addListener(_changed);
+  }
+
+  @override
+  void dispose() {
+    _p.removeListener(_changed);
+    _erase.dispose();
+    super.dispose();
+  }
+
+  void _changed() {
+    if (!mounted) return;
+    final p = _p;
+    final s = p.current;
+    if (s != null && s.erase && p.playing) {
+      if (_erasingScene != p.index) {
+        _erasingScene = p.index;
+        final motion = TeacherAvatar.motionEnabled && !(MediaQuery.maybeDisableAnimationsOf(context) ?? false);
+        if (motion) {
+          _erase.forward(from: 0);
+        } else {
+          _erase.value = 1;
+        }
+      }
+    } else if (_erasingScene != null) {
+      _erasingScene = null;
+      _erase.value = 0;
+    }
+    setState(() {});
+  }
+
+  /// Phần bảng đang hiện (-1 = mới có đầu bài).
+  int get _section {
+    final p = _p;
+    if (p.done) return _script.sections.length - 1;
+    if (p.index < 0) return -1;
+    return _script.sectionOf[p.index];
+  }
+
+  /// Hình của phần [s] đã được vẽ chưa (cô tới cảnh vẽ hình).
+  bool _drawn(int s) {
+    final p = _p;
+    if (p.done) return true;
+    for (var i = 0; i <= p.index && i < _script.scenes.length; i++) {
+      if (_script.scenes[i].draw && _script.sectionOf[i] == s) return true;
+    }
+    return false;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final p = _p;
     final writing = p.playing;
     final s = _section;
     return Padding(
@@ -230,28 +295,30 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Đầu bảng: ngày, môn, tên bài — giữ suốt giờ học.
+          if (widget.date != null)
+            ChalkText(
+              widget.date!,
+              key: const ValueKey('board-date'),
+              style: Chalk.style(size: 14),
+              animate: writing,
+              align: TextAlign.center,
+              charsPerSecond: 22,
+            ),
+          if (widget.subject != null)
+            ChalkText(
+              widget.subject!,
+              key: const ValueKey('board-subject'),
+              style: Chalk.style(size: 18, color: Chalk.pink).copyWith(decoration: TextDecoration.underline),
+              animate: writing,
+              delay: Duration(milliseconds: widget.date == null ? 0 : 1500),
+              align: TextAlign.center,
+            ),
           ChalkText(
-            boardDate(DateTime.now()),
-            key: const ValueKey('board-date'),
-            style: Chalk.style(size: 14),
-            animate: writing,
-            align: TextAlign.center,
-            charsPerSecond: 22,
-          ),
-          ChalkText(
-            'Toán',
-            key: const ValueKey('board-subject'),
-            style: Chalk.style(size: 18, color: Chalk.pink).copyWith(decoration: TextDecoration.underline),
-            animate: writing,
-            delay: const Duration(milliseconds: 1500),
-            align: TextAlign.center,
-          ),
-          ChalkText(
-            lesson.title,
+            widget.title,
             key: const ValueKey('board-title'),
             style: Chalk.style(size: 19, color: Chalk.yellow),
             animate: writing,
-            delay: const Duration(milliseconds: 1900),
+            delay: Duration(milliseconds: widget.date == null ? 500 : 1900),
             align: TextAlign.center,
             charsPerSecond: 20,
           ),
@@ -286,7 +353,7 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
   }
 
   Widget _sectionView(int s, DemoPlayer p, bool writing) {
-    final sec = _script!.sections[s];
+    final sec = _script.sections[s];
     if (sec.example != null) {
       final e = sec.example!;
       final active = p.current?.example == e;
@@ -379,6 +446,7 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> with SingleTicker
         final pending = p.quizPendingFor(i);
         final objects = pending ? null : chalkObjects(text);
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             ChalkText(
               pending ? hideResult(text) : text,

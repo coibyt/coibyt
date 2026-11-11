@@ -13,6 +13,9 @@ import '../tutor/teacher_hud.dart';
 import 'app_theme.dart';
 import 'quiz_screen.dart';
 import 'widgets/big_button.dart';
+import 'board_lesson_screen.dart' show ChalkLessonBoard;
+import '../logic/board_script.dart';
+import 'widgets/chalk.dart' show ChalkBoardFrame;
 import 'widgets/game_art.dart';
 import 'widgets/real_example_view.dart';
 import 'widgets/solution_view.dart';
@@ -754,11 +757,17 @@ class SolutionDemo extends StatefulWidget {
 class _SolutionDemoState extends State<SolutionDemo> {
   late final TeacherController _teacher = TeacherController(voiceEnabled: widget.voiceOn);
   late final List<ContentBlock> _blocks = widget.problem.solution.steps;
-  late final DemoPlayer _player = DemoPlayer(
-    blocks: _blocks,
-    teacher: _teacher,
-    scenes: buildDemoScript(_blocks, intro: const [TutorLines.solutionIntro], maxQuizzes: 0),
-  )..addListener(_changed);
+  // Video lời giải: cô viết từng bước lên bảng phấn, vẽ đồ vật, thuyết minh; dài thì lau bảng rồi viết tiếp.
+  late final BoardScript _script = buildBoardScript(
+    _blocks,
+    lessonId: '',
+    intro: const [TutorLines.solutionIntro],
+    outro: const [TutorLines.solutionDone],
+    checks: false,
+    maxQuizzes: 0,
+  );
+  late final DemoPlayer _player = DemoPlayer(blocks: _blocks, teacher: _teacher, scenes: _script.scenes)
+    ..addListener(_changed);
 
   void _changed() {
     if (mounted) setState(() {});
@@ -781,14 +790,28 @@ class _SolutionDemoState extends State<SolutionDemo> {
   }
 
   @override
-  Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: [
-      TeacherHud(controller: _teacher, avatarHeight: 92),
-      DemoControls(player: _player),
-      const SizedBox(height: 10),
-      for (final (i, b) in _blocks.indexed)
-        DemoBlockView(key: ValueKey('solution-step-$i'), block: b, index: i, player: _player),
-    ],
-  );
+  Widget build(BuildContext context) {
+    final prompt = widget.problem.prompt.text.trim();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SizedBox(
+          height: 340,
+          child: ChalkBoardFrame(
+            key: const ValueKey('solution-board'),
+            child: ChalkLessonBoard(
+              player: _player,
+              script: _script,
+              blocks: _blocks,
+              subject: 'Lời giải',
+              title: prompt.length <= 90 ? prompt : 'Bài giải',
+            ),
+          ),
+        ),
+        const SizedBox(height: 8),
+        TeacherHud(controller: _teacher, avatarHeight: 84, maxTextHeight: 78),
+        DemoControls(player: _player),
+      ],
+    );
+  }
 }

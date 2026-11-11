@@ -93,6 +93,9 @@ List<String> showQuestionLines() {
 }
 
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
+/// Thu cả lời giải từng bài tập (nhiều câu): bật bằng cờ --solutions.
+var withSolutions = false;
+
 List<String> teacherLines() {
   final lines = <String>{...TutorLines.all(), ...boardFixedLines(), ...ExamLines.fixed()};
   // Phòng thi: cô coi thi dặn dò, đọc từng câu và từng đáp án của mọi đề.
@@ -126,6 +129,12 @@ List<String> teacherLines() {
     final lesson = Lesson.fromJson(jsonDecode(f.readAsStringSync()));
     for (final p in lesson.problems) {
       lines.add(brain.hint(p));
+      // Video lời giải: cô đọc từng bước làm mẫu trên bảng.
+      if (withSolutions) {
+        for (final sc in buildDemoScript(p.solution.steps, maxQuizzes: 0)) {
+          lines.addAll(sc.say);
+        }
+      }
       // Luyện tập: cô đọc câu lệnh, đề, mẫu điền số và từng đáp án trắc nghiệm.
       lines.addAll([p.displayInstruction, p.prompt.text.trim()]);
       final body = p.body;
@@ -228,6 +237,7 @@ Future<int> shrink(List<int> audio, File dest) async {
 
 Future<void> main(List<String> args) async {
   final countOnly = args.contains('--count');
+  withSolutions = args.contains('--solutions');
   final limitIdx = args.indexOf('--limit');
   final limit = limitIdx >= 0 ? int.parse(args[limitIdx + 1]) : null;
 

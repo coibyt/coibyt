@@ -65,6 +65,11 @@ class TutorAudioService {
   /// (cùng một câu, MC và cô có hai file giọng khác nhau); không có thì dùng bản của cô.
   final String speaker;
 
+  /// Mỗi dịch vụ một máy phát riêng: hai màn (luyện tập + lời giải) dùng chung mã máy phát thì trên web
+  /// lệnh phát bị treo 30 giây → cô đứng im ở câu đầu.
+  static int _seq = 0;
+  late final String _playerId = '${speaker.isEmpty ? 'teacher' : speaker}-voice-${_seq++}';
+
   VoiceClip? _clip(String part) => (speaker.isEmpty ? null : library.lookup('$speaker:$part')) ?? library.lookup(part);
 
   final VoiceLibrary? _library;
@@ -121,8 +126,7 @@ class TutorAudioService {
 
   Future<bool> _playClip(Utterance u, VoiceClip clip) async {
     try {
-      final player = _player ??= AudioPlayer(playerId: speaker.isEmpty ? 'teacher-voice' : '$speaker-voice')
-        ..setReleaseMode(ReleaseMode.stop);
+      final player = _player ??= AudioPlayer(playerId: _playerId)..setReleaseMode(ReleaseMode.stop);
       final finished = Completer<void>();
       await _completeSub?.cancel();
       _completeSub = player.onPlayerComplete.listen((_) {

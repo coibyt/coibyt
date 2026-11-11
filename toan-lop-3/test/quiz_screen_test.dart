@@ -7,6 +7,7 @@ import 'package:toan_lop_3/models/content.dart';
 import 'package:toan_lop_3/services/sound_service.dart';
 import 'package:toan_lop_3/ui/app_theme.dart';
 import 'package:toan_lop_3/ui/quiz_screen.dart';
+import 'package:toan_lop_3/ui/widgets/chalk.dart';
 
 import 'helpers.dart';
 
@@ -101,9 +102,11 @@ void main() {
     await tapKey(tester, 'btn-check');
 
     expect(find.text('Lời giải'), findsOneWidget);
-    expect(find.text('Đặt tính rồi tính:'), findsOneWidget);
-    await tapKey(tester, 'demo-skip'); // "Xem hết": hiện mọi bước ngay
-    expect(find.text('3 nhân 3 bằng 9, viết 9.'), findsOneWidget);
+    // Video lời giải: cô viết từng bước lên bảng phấn.
+    expect(find.byKey(const ValueKey('solution-board')), findsOneWidget);
+    await tapKey(tester, 'demo-skip'); // "Xem hết": bảng hiện đủ phép đặt tính và kết quả
+    expect(find.byType(ChalkColumn), findsOneWidget);
+    expect(find.text('9'), findsWidgets, reason: 'chữ số kết quả 96 đã viết lên bảng');
     expect(find.text('Đáp án: 96'), findsWidgets);
   });
 
