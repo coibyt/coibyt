@@ -1,0 +1,55 @@
+{
+  "lessons": [
+    {
+      "id": "apple",
+      "difficulty": "easy",
+      "light": "topLeft",
+      "steps": [
+        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
+          "lines": ["lesson_apple_outline", "lesson_light_topleft"] },
+        { "kind": "base", "overlay": "2_base", "palette": ["red", "darkgreen", "brown"], "mood": "point",
+          "lines": ["lesson_apple_base"] },
+        { "kind": "shadow", "overlay": "3_shadow", "palette": ["crimson", "darkgreen"], "mood": "point",
+          "lines": ["lesson_apple_shadow"] },
+        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
+          "lines": ["lesson_apple_highlight"] },
+        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
+          "lines": ["lesson_apple_done"] }
+      ]
+    },
+    {
+      "id": "fox",
+      "difficulty": "medium",
+      "light": "topLeft",
+      "steps": [
+        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
+          "lines": ["lesson_fox_outline", "lesson_light_topleft"] },
+        { "kind": "base", "overlay": "2_base", "palette": ["orange", "cream", "tan", "darkbrown"], "mood": "point",
+          "lines": ["lesson_fox_base"] },
+        { "kind": "shadow", "overlay": "3_shadow", "palette": ["rust", "brown"], "mood": "point",
+          "lines": ["lesson_fox_shadow"] },
+        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
+          "lines": ["lesson_fox_highlight"] },
+        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
+          "lines": ["lesson_fox_done"] }
+      ]
+    },
+    {
+      "id": "cupcake",
+      "difficulty": "medium",
+      "light": "topLeft",
+      "steps": [
+        { "kind": "outline", "overlay": "1_outline", "palette": ["graphite"], "mood": "wave",
+          "lines": ["lesson_cupcake_outline", "lesson_light_topleft"] },
+        { "kind": "base", "overlay": "2_base", "palette": ["pink", "red", "turquoise", "tan"], "mood": "point",
+          "lines": ["lesson_cupcake_base"] },
+        { "kind": "shadow", "overlay": "3_shadow", "palette": ["magenta", "crimson", "turquoise", "brown"], "mood": "point",
+          "lines": ["lesson_cupcake_shadow"] },
+        { "kind": "highlight", "overlay": "4_final", "palette": ["white"], "mood": "happy",
+          "lines": ["lesson_cupcake_highlight"] },
+        { "kind": "done", "overlay": "4_final", "palette": [], "mood": "cheer",
+          "lines": ["lesson_cupcake_done"] }
+      ]
+    }
+  ]
+}

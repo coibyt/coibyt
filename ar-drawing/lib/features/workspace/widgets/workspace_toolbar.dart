@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/app_strings.dart';
+import '../../../core/i18n/language_controller.dart';
 import '../../timelapse/timelapse_recorder.dart';
 
 /// Top bar of the workspace: back, recording badge, reset, flashlight, lock.
@@ -40,7 +40,7 @@ class WorkspaceToolbar extends StatelessWidget {
             _RoundButton(
               key: const Key('backButton'),
               icon: Icons.arrow_back,
-              tooltip: AppStrings.back,
+              tooltip: context.tr('workspace.back'),
               onPressed: onBack!,
             ),
           const Spacer(),
@@ -55,7 +55,7 @@ class WorkspaceToolbar extends StatelessWidget {
             _RoundButton(
               key: const Key('resetButton'),
               icon: Icons.center_focus_strong,
-              tooltip: AppStrings.resetPosition,
+              tooltip: context.tr('workspace.resetPosition'),
               onPressed: onReset,
             ),
             const SizedBox(width: 8),
@@ -63,7 +63,7 @@ class WorkspaceToolbar extends StatelessWidget {
           _RoundButton(
             key: const Key('torchButton'),
             icon: torchOn ? Icons.flashlight_on : Icons.flashlight_off,
-            tooltip: torchOn ? AppStrings.flashOff : AppStrings.flashOn,
+            tooltip: torchOn ? context.tr('workspace.flashOff') : context.tr('workspace.flashOn'),
             active: torchOn,
             onPressed: onTorch,
           ),
@@ -71,7 +71,7 @@ class WorkspaceToolbar extends StatelessWidget {
           _RoundButton(
             key: const Key('lockButton'),
             icon: locked ? Icons.lock : Icons.lock_open,
-            tooltip: locked ? AppStrings.unlock : AppStrings.lock,
+            tooltip: locked ? context.tr('workspace.unlock') : context.tr('workspace.lock'),
             active: locked,
             activeColor: colors.primary,
             onPressed: onLock,

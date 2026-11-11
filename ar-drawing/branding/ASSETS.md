@@ -32,3 +32,12 @@ Hình `animals/fox_cub.png` và `chibi/hoodie_girl.png` là hai hình mẫu củ
 
 Xử lý sau khi tạo ảnh: nền giấy chuyển thành trong suốt (theo độ tối của điểm ảnh), hình có nét quá mảnh
 được làm đậm 1 px, xoá chấm bẩn rời, cắt sát hình.
+
+## Giáo viên ảo Lumi & bài học tô màu
+
+| File | Công cụ | Ghi chú |
+|---|---|---|
+| `assets/teacher/lumi_wave.png` | kie.ai `google/nano-banana` | Nhân vật gốc "Lumi – tinh linh họa sĩ": mũ nồi xanh ngọc, tóc mật ong, áo chấm màu, cầm cọ. Tách nền trắng thành trong suốt |
+| `assets/teacher/lumi_point.png`, `lumi_cheer.png`, `lumi_happy.png` | kie.ai `google/nano-banana-edit` | Sửa từ ảnh Lumi gốc để giữ đúng nhân vật, chỉ đổi tư thế (chỉ tay / reo vui / khích lệ) |
+| `assets/lessons/<bài>/1_outline … 4_final.png` | kie.ai `google/nano-banana` + `tool/lesson_layers.py` | Một tranh cel-shading cho mỗi bài (táo, cáo, cupcake), tách tự động thành 4 lớp khớp nhau: viền → màu nền → bóng tối → điểm sáng |
+| `assets/audio/teacher/vi/*.mp3` | 11max API (ElevenLabs `eleven_v3`, giọng "Chi") + `tool/voiceover.py` | 25 câu thoại tiếng Việt. Giọng được chọn vì bộ chép lời (speech-to-text) nhận đúng 100% câu mẫu, hơn 2 giọng khác |

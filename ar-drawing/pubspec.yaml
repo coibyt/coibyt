@@ -44,6 +44,10 @@ dependencies:
   video_player: ^2.14.1
   share_plus: ^13.3.1
   path_provider: ^2.1.6
+  shared_preferences: ^2.5.6
+  just_audio: ^0.10.6
+  flutter_localizations:
+    sdk: flutter
 
 dev_dependencies:
   flutter_test:
@@ -76,6 +80,14 @@ flutter:
     - assets/templates/cars/
     - assets/templates/flowers/
     - assets/templates/food/
+    - assets/i18n/
+    - assets/teacher/
+    - assets/audio/teacher/
+    - assets/audio/teacher/vi/
+    - assets/lessons/
+    - assets/lessons/apple/
+    - assets/lessons/fox/
+    - assets/lessons/cupcake/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

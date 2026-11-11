@@ -5,7 +5,7 @@ import 'package:gal/gal.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../core/app_strings.dart';
+import '../../core/i18n/language_controller.dart';
 import 'timelapse_recorder.dart';
 
 /// Plays the finished time-lapse in a loop, with Save and Share actions.
@@ -53,15 +53,18 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
   Future<void> _save() async {
     setState(() => _saving = true);
     final ScaffoldMessengerState messenger = ScaffoldMessenger.of(context);
+    final String album = context.tr('app.name');
+    final String savedText = context.tr('timelapse.savedToGallery');
+    final String failedText = context.tr('timelapse.saveFailed');
     try {
       if (!await Gal.hasAccess(toAlbum: true)) {
         await Gal.requestAccess(toAlbum: true);
       }
-      await Gal.putVideo(widget.result.path, album: AppStrings.appName);
+      await Gal.putVideo(widget.result.path, album: album);
       if (mounted) setState(() => _saved = true);
-      messenger.showSnackBar(const SnackBar(content: Text(AppStrings.savedToGallery)));
+      messenger.showSnackBar(SnackBar(content: Text(savedText)));
     } on GalException catch (e) {
-      messenger.showSnackBar(SnackBar(content: Text('${AppStrings.saveFailed} (${e.type.name})')));
+      messenger.showSnackBar(SnackBar(content: Text('$failedText (${e.type.name})')));
     } finally {
       if (mounted) setState(() => _saving = false);
     }
@@ -69,7 +72,10 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
 
   Future<void> _share() async {
     await SharePlus.instance.share(
-      ShareParams(files: <XFile>[XFile(widget.result.path)], text: AppStrings.shareText),
+      ShareParams(
+        files: <XFile>[XFile(widget.result.path)],
+        text: context.tr('timelapse.shareText'),
+      ),
     );
   }
 
@@ -79,7 +85,7 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
     final Duration rec = widget.result.recorded;
     final String minutes = '${rec.inMinutes}:${(rec.inSeconds % 60).toString().padLeft(2, '0')}';
     return Scaffold(
-      appBar: AppBar(title: const Text(AppStrings.timelapseTitle)),
+      appBar: AppBar(title: Text(context.tr('timelapse.title'))),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -101,7 +107,7 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
               child: Text(
-                '${AppStrings.drawingTime} $minutes · ${widget.result.frameCount} ${AppStrings.frames}',
+                '${context.tr('timelapse.drawingTime')} $minutes · ${widget.result.frameCount} ${context.tr('timelapse.frames')}',
                 style: TextStyle(color: colors.onSurfaceVariant),
               ),
             ),
@@ -113,7 +119,11 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
                     child: FilledButton.icon(
                       onPressed: _saving || _saved ? null : _save,
                       icon: Icon(_saved ? Icons.check : Icons.download),
-                      label: Text(_saved ? AppStrings.saved : AppStrings.saveToGallery),
+                      label: Text(
+                        _saved
+                            ? context.tr('timelapse.saved')
+                            : context.tr('timelapse.saveToGallery'),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -121,7 +131,7 @@ class _TimelapseResultScreenState extends State<TimelapseResultScreen> {
                     child: OutlinedButton.icon(
                       onPressed: _share,
                       icon: const Icon(Icons.share),
-                      label: const Text(AppStrings.share),
+                      label: Text(context.tr('timelapse.share')),
                     ),
                   ),
                 ],

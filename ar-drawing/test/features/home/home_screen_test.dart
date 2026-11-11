@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tracelight/app.dart';
 import 'package:tracelight/features/home/home_screen.dart';
+import 'package:tracelight/features/lessons/lesson.dart';
 import 'package:tracelight/features/sketch/sketch_screen.dart';
 import 'package:tracelight/features/templates/template_catalog.dart';
 
+import '../../test_app.dart';
 import '../../test_images.dart';
 
 void main() {
   ImageProvider? opened;
+  Lesson? openedLesson;
 
   Widget fakeWorkspace(ImageProvider image) {
     opened = image;
@@ -16,13 +18,21 @@ void main() {
   }
 
   Future<void> pumpHome(WidgetTester tester, {PhotoPicker? picker}) async {
-    tester.view.physicalSize = const Size(1080, 2340);
+    tester.view.physicalSize = const Size(1080, 3600);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.reset);
     opened = null;
     await tester.pumpWidget(
-      TraceLightApp(
-        home: HomeScreen(workspaceBuilder: fakeWorkspace, pickPhoto: picker ?? () async => null),
+      testApp(
+        HomeScreen(
+          workspaceBuilder: fakeWorkspace,
+          pickPhoto: picker ?? () async => null,
+          lessons: loadLessons().lessons,
+          lessonBuilder: (Lesson lesson) {
+            openedLesson = lesson;
+            return const Scaffold(body: Text('lesson'));
+          },
+        ),
       ),
     );
     await tester.pumpAndSettle();
@@ -34,7 +44,7 @@ void main() {
     for (final TemplateCategory c in TemplateCategory.values) {
       await tester.dragUntilVisible(
         find.byKey(Key('category-${c.name}')),
-        find.byType(ListView),
+        find.byType(ListView).last,
         const Offset(-80, 0),
       );
       expect(find.byKey(Key('category-${c.name}')), findsOneWidget);
@@ -46,7 +56,7 @@ void main() {
     await pumpHome(tester);
     await tester.dragUntilVisible(
       find.byKey(const Key('category-cars')),
-      find.byType(ListView),
+      find.byType(ListView).last,
       const Offset(-80, 0),
     );
     await tester.ensureVisible(find.byKey(const Key('category-cars')));
@@ -87,5 +97,26 @@ void main() {
     await tester.tap(find.byKey(const Key('howItWorks')));
     await tester.pumpAndSettle();
     expect(find.text('Got it'), findsOneWidget);
+  });
+
+  testWidgets('lesson cards open the colouring lesson', (WidgetTester tester) async {
+    await pumpHome(tester);
+    expect(find.text('Colouring lessons'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('lesson-apple')));
+    await tester.pumpAndSettle();
+    expect(find.text('lesson'), findsOneWidget);
+    expect(openedLesson!.id, 'apple');
+  });
+
+  testWidgets('language button switches the whole interface', (WidgetTester tester) async {
+    await pumpHome(tester);
+    expect(find.text('Templates'), findsOneWidget);
+    await tester.runAsync(() async {
+      await tester.tap(find.byKey(const Key('languageButton')));
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+    });
+    await tester.pumpAndSettle();
+    expect(find.text('Tranh mẫu'), findsOneWidget);
+    expect(find.text('Bài học tô màu'), findsOneWidget);
   });
 }

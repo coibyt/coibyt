@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/app_strings.dart';
+import '../../../core/i18n/language_controller.dart';
 
 /// Bottom panel with the overlay opacity slider and a % read-out.
 class OpacityControl extends StatelessWidget {
@@ -22,7 +22,11 @@ class OpacityControl extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 6, 16, 6),
         child: Row(
           children: <Widget>[
-            Icon(Icons.opacity, color: colors.primary, semanticLabel: AppStrings.opacity),
+            Icon(
+              Icons.opacity,
+              color: colors.primary,
+              semanticLabel: context.tr('workspace.opacity'),
+            ),
             Expanded(
               child: Slider(
                 key: const Key('opacitySlider'),

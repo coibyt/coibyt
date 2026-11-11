@@ -9,11 +9,16 @@ import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
-import '../../core/app_strings.dart';
+import '../../core/i18n/language_controller.dart';
 import '../timelapse/timelapse_composer.dart';
 import '../timelapse/timelapse_recorder.dart';
 import '../timelapse/timelapse_result_screen.dart';
 import '../timelapse/video_encoder.dart';
+import '../lessons/lesson.dart';
+import '../lessons/widgets/lesson_panel.dart';
+import '../teacher/teacher_controller.dart';
+import '../teacher/teacher_scope.dart';
+import '../teacher/widgets/teacher_overlay.dart';
 import 'camera_status.dart';
 import 'overlay_transform.dart';
 import 'widgets/camera_feed.dart';
@@ -45,14 +50,20 @@ TimelapseRecorder _defaultRecorder() => TimelapseRecorder(
 class WorkspaceScreen extends StatefulWidget {
   const WorkspaceScreen({
     super.key,
-    required this.overlayImage,
+    this.overlayImage,
+    this.lesson,
     this.initialOpacity = 0.5,
     RecorderBuilder? recorderBuilder,
     bool enableTimelapse = !kIsWeb,
-  }) : recorderBuilder = enableTimelapse ? (recorderBuilder ?? _defaultRecorder) : null;
+  }) : assert(overlayImage != null || lesson != null, 'Give a picture or a lesson'),
+       recorderBuilder = enableTimelapse ? (recorderBuilder ?? _defaultRecorder) : null;
 
   /// The picture to trace (template asset, processed photo, ...).
-  final ImageProvider overlayImage;
+  final ImageProvider? overlayImage;
+
+  /// A colouring lesson: the overlay changes with each step and Lumi
+  /// explains what to do.
+  final Lesson? lesson;
   final double initialOpacity;
   final RecorderBuilder? recorderBuilder;
 
@@ -73,8 +84,13 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
   bool _showHint = true;
   Timer? _hintTimer;
 
+  final TeacherController _teacher = TeacherController();
+  LessonProgress? _progress;
+  bool _greeted = false;
+
   TimelapseRecorder? _recorder;
   ui.Image? _overlayForVideo;
+  ImageProvider? _overlayForVideoSource;
   Size _workspaceSize = Size.zero;
   TimelapseResult? _pendingResult;
 
@@ -88,13 +104,56 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    final Lesson? lesson = widget.lesson;
+    if (lesson != null) _progress = LessonProgress(lesson)..addListener(_onStepChanged);
     unawaited(_startCamera());
+  }
+
+  /// The picture shown now: the lesson step's layer, or the given picture.
+  ImageProvider get _overlayImage {
+    final LessonProgress? progress = _progress;
+    return progress != null ? AssetImage(progress.step.overlay) : widget.overlayImage!;
+  }
+
+  /// Lumi speaks once the camera is up (not over the permission prompt).
+  void _greetOnce() {
+    if (_greeted) return;
+    _greeted = true;
+    final LessonProgress? progress = _progress;
+    if (progress != null) {
+      _teacher.say(progress.step.lines);
+    } else {
+      _teacher.introduce(TeacherScope.maybeOf(context), 'workspace_intro');
+    }
+  }
+
+  void _onStepChanged() {
+    setState(() {});
+    _teacher.say(_progress!.step.lines);
+    // Keep the time-lapse in step with the screen.
+    if (_recorder != null) unawaited(_updateVideoOverlay());
+  }
+
+  Future<void> _updateVideoOverlay() async {
+    final ImageProvider source = _overlayImage;
+    if (source == _overlayForVideoSource && _overlayForVideo != null) return;
+    final ui.Image image = await resolveImage(source);
+    if (!mounted) {
+      image.dispose();
+      return;
+    }
+    final ui.Image? old = _overlayForVideo;
+    _overlayForVideo = image;
+    _overlayForVideoSource = source;
+    old?.dispose();
   }
 
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     _hintTimer?.cancel();
+    _teacher.dispose();
+    _progress?.dispose();
     _generation++;
     final CameraController? controller = _controller;
     _controller = null;
@@ -183,6 +242,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
 
       _controller = controller;
       _finishStart(generation, CameraStatus.ready);
+      _greetOnce();
       _hintTimer ??= Timer(const Duration(seconds: 6), () {
         if (mounted && _showHint) setState(() => _showHint = false);
       });
@@ -260,7 +320,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     if (ok) {
       setState(() => _torch = wanted);
     } else {
-      _toast(AppStrings.flashUnavailable);
+      _toast(context.tr('workspace.flashUnavailable'));
     }
   }
 
@@ -294,7 +354,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     final RecorderBuilder? build = widget.recorderBuilder;
     if (controller == null || build == null) return;
     try {
-      _overlayForVideo ??= await resolveImage(widget.overlayImage);
+      await _updateVideoOverlay();
       final TimelapseRecorder recorder = build();
       setState(() => _recorder = recorder);
       await recorder.start(
@@ -311,7 +371,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
       final TimelapseRecorder? failed = _recorder;
       if (mounted) setState(() => _recorder = null);
       failed?.dispose();
-      if (mounted) _toast(AppStrings.recordingFailed);
+      if (mounted) _toast(context.tr('timelapse.failed'));
     }
   }
 
@@ -333,7 +393,7 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
     final TimelapseResult? result = await _finishRecording();
     if (!mounted) return;
     if (result == null) {
-      _toast(AppStrings.tooShort);
+      _toast(context.tr('timelapse.tooShort'));
       return;
     }
     await _openResult(result);
@@ -362,35 +422,37 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
         CameraStatus.permissionDenied => CameraMessageView(
           key: const Key('permissionDenied'),
           icon: Icons.no_photography_outlined,
-          title: AppStrings.permissionTitle,
-          message: kIsWeb ? AppStrings.webPermissionBody : AppStrings.permissionBody,
-          primaryLabel: AppStrings.tryAgain,
+          title: context.tr('camera.permissionTitle'),
+          message: kIsWeb
+              ? context.tr('camera.webPermissionBody')
+              : context.tr('camera.permissionBody'),
+          primaryLabel: context.tr('camera.tryAgain'),
           onPrimary: _startCamera,
-          secondaryLabel: kIsWeb ? null : AppStrings.openSettings,
+          secondaryLabel: kIsWeb ? null : context.tr('camera.openSettings'),
           onSecondary: kIsWeb ? null : _openSettings,
         ),
         CameraStatus.permissionBlocked => CameraMessageView(
           key: const Key('permissionBlocked'),
           icon: Icons.no_photography_outlined,
-          title: AppStrings.permissionTitle,
-          message: AppStrings.permissionBlockedBody,
-          primaryLabel: AppStrings.openSettings,
+          title: context.tr('camera.permissionTitle'),
+          message: context.tr('camera.permissionBlockedBody'),
+          primaryLabel: context.tr('camera.openSettings'),
           onPrimary: _openSettings,
-          secondaryLabel: AppStrings.tryAgain,
+          secondaryLabel: context.tr('camera.tryAgain'),
           onSecondary: _startCamera,
         ),
-        CameraStatus.noCamera => const CameraMessageView(
-          key: Key('noCamera'),
+        CameraStatus.noCamera => CameraMessageView(
+          key: const Key('noCamera'),
           icon: Icons.videocam_off_outlined,
-          title: AppStrings.noCameraTitle,
-          message: AppStrings.noCameraBody,
+          title: context.tr('camera.noCameraTitle'),
+          message: context.tr('camera.noCameraBody'),
         ),
         CameraStatus.error => CameraMessageView(
           key: const Key('cameraError'),
           icon: Icons.error_outline,
-          title: AppStrings.cameraErrorTitle,
-          message: AppStrings.cameraErrorBody,
-          primaryLabel: AppStrings.tryAgain,
+          title: context.tr('camera.errorTitle'),
+          message: context.tr('camera.errorBody'),
+          primaryLabel: context.tr('camera.tryAgain'),
           onPrimary: _startCamera,
         ),
       },
@@ -416,9 +478,9 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
               onDoubleTap: _locked
                   ? null
                   : () => setState(() => _transform = OverlayTransform.identity),
-              onTap: _locked ? () => _toast(AppStrings.lockedHint) : null,
+              onTap: _locked ? () => _toast(context.tr('workspace.lockedHint')) : null,
             ),
-            TraceOverlay(image: widget.overlayImage, opacity: _opacity, transform: _transform),
+            TraceOverlay(image: _overlayImage, opacity: _opacity, transform: _transform),
             Positioned(
               top: 0,
               left: 0,
@@ -438,32 +500,55 @@ class _WorkspaceScreenState extends State<WorkspaceScreen> with WidgetsBindingOb
             ),
             if (_showHint && !_locked)
               const Positioned(
+                key: Key('gestureHint'),
                 left: 24,
                 right: 24,
                 top: 120,
                 child: IgnorePointer(child: _GestureHint()),
               ),
+            // Keyed: the hint above comes and goes, and must not make Flutter
+            // rebuild these controls (Lumi would restart mid-sentence).
             Positioned(
+              key: const Key('bottomControls'),
               left: 16,
               right: 16,
               bottom: 0,
               child: SafeArea(
                 minimum: const EdgeInsets.only(bottom: 16),
-                child: Row(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Expanded(
-                      child: OpacityControl(
-                        value: _opacity,
-                        onChanged: (double v) => setState(() => _opacity = v),
-                      ),
+                    TeacherOverlay(
+                      controller: _teacher,
+                      inline: true,
+                      collapsedAlignment: Alignment.centerLeft,
+                      autoAdvance: const Duration(seconds: 2),
                     ),
-                    if (widget.recorderBuilder != null) ...<Widget>[
-                      const SizedBox(width: 12),
-                      _RecordButton(
-                        recording: recorder != null,
-                        onPressed: recorder != null ? _stopRecording : _startRecording,
+                    if (_progress != null) ...<Widget>[
+                      const SizedBox(height: 8),
+                      LessonPanel(
+                        progress: _progress!,
+                        onFinish: () => Navigator.of(context).maybePop(),
                       ),
                     ],
+                    const SizedBox(height: 8),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: OpacityControl(
+                            value: _opacity,
+                            onChanged: (double v) => setState(() => _opacity = v),
+                          ),
+                        ),
+                        if (widget.recorderBuilder != null) ...<Widget>[
+                          const SizedBox(width: 12),
+                          _RecordButton(
+                            recording: recorder != null,
+                            onPressed: recorder != null ? _stopRecording : _startRecording,
+                          ),
+                        ],
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -494,7 +579,7 @@ class _RecordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Tooltip(
-      message: recording ? AppStrings.stopRecording : AppStrings.startRecording,
+      message: recording ? context.tr('timelapse.stop') : context.tr('timelapse.start'),
       child: Material(
         key: const Key('recordButton'),
         color: Theme.of(context).colorScheme.surface.withValues(alpha: 0.78),
@@ -534,12 +619,12 @@ class _GestureHint extends StatelessWidget {
           color: Colors.black.withValues(alpha: 0.55),
           borderRadius: BorderRadius.circular(20),
         ),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           child: Text(
-            AppStrings.gestureHint,
+            context.tr('workspace.gestureHint'),
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 13),
+            style: const TextStyle(color: Colors.white, fontSize: 13),
           ),
         ),
       ),
@@ -552,13 +637,16 @@ class _StartingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          CircularProgressIndicator(),
-          SizedBox(height: 16),
-          Text(AppStrings.startingCamera, style: TextStyle(color: Colors.white70)),
+          const CircularProgressIndicator(),
+          const SizedBox(height: 16),
+          Text(
+            context.tr('workspace.startingCamera'),
+            style: const TextStyle(color: Colors.white70),
+          ),
         ],
       ),
     );

@@ -3,7 +3,10 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 
-import '../../core/app_strings.dart';
+import '../../core/i18n/language_controller.dart';
+import '../teacher/teacher_controller.dart';
+import '../teacher/teacher_scope.dart';
+import '../teacher/widgets/teacher_overlay.dart';
 import '../workspace/workspace_screen.dart';
 import 'sketch_filter.dart';
 
@@ -29,11 +32,21 @@ class _SketchScreenState extends State<SketchScreen> {
   bool _busy = false;
   bool _failed = false;
   int _job = 0;
+  final TeacherController _teacher = TeacherController();
 
   @override
   void initState() {
     super.initState();
     unawaited(_render());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _teacher.introduce(TeacherScope.maybeOf(context), 'sketch_intro');
+    });
+  }
+
+  @override
+  void dispose() {
+    _teacher.dispose();
+    super.dispose();
   }
 
   Future<void> _render() async {
@@ -64,6 +77,7 @@ class _SketchScreenState extends State<SketchScreen> {
   void _trace() {
     final Uint8List? bytes = _result;
     if (bytes == null) return;
+    _teacher.close();
     final ImageProvider image = MemoryImage(bytes);
     Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -77,7 +91,7 @@ class _SketchScreenState extends State<SketchScreen> {
   Widget build(BuildContext context) {
     final ColorScheme colors = Theme.of(context).colorScheme;
     return Scaffold(
-      appBar: AppBar(title: const Text(AppStrings.makeItTraceable)),
+      appBar: AppBar(title: Text(context.tr('sketch.title'))),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -103,27 +117,28 @@ class _SketchScreenState extends State<SketchScreen> {
                           ),
                         ),
                       if (_failed)
-                        const Center(
+                        Center(
                           child: Padding(
                             padding: EdgeInsets.all(24),
                             child: Text(
-                              AppStrings.imageUnreadable,
+                              context.tr('sketch.imageUnreadable'),
                               textAlign: TextAlign.center,
                               style: TextStyle(color: Colors.black87),
                             ),
                           ),
                         ),
+                      Positioned.fill(child: TeacherOverlay(controller: _teacher, bottom: 8)),
                       if (_busy)
                         ColoredBox(
                           color: Colors.white.withValues(alpha: 0.6),
-                          child: const Center(
+                          child: Center(
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 CircularProgressIndicator(),
                                 SizedBox(height: 12),
                                 Text(
-                                  AppStrings.processing,
+                                  context.tr('sketch.processing'),
                                   style: TextStyle(color: Colors.black87),
                                 ),
                               ],
@@ -138,20 +153,20 @@ class _SketchScreenState extends State<SketchScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: SegmentedButton<SketchStyle>(
-                segments: const <ButtonSegment<SketchStyle>>[
+                segments: <ButtonSegment<SketchStyle>>[
                   ButtonSegment<SketchStyle>(
                     value: SketchStyle.lineArt,
-                    label: Text(AppStrings.lineArt),
+                    label: Text(context.tr('sketch.lineArt')),
                     icon: Icon(Icons.gesture),
                   ),
                   ButtonSegment<SketchStyle>(
                     value: SketchStyle.pencil,
-                    label: Text(AppStrings.pencil),
+                    label: Text(context.tr('sketch.pencil')),
                     icon: Icon(Icons.edit),
                   ),
                   ButtonSegment<SketchStyle>(
                     value: SketchStyle.original,
-                    label: Text(AppStrings.original),
+                    label: Text(context.tr('sketch.original')),
                     icon: Icon(Icons.photo),
                   ),
                 ],
@@ -169,7 +184,10 @@ class _SketchScreenState extends State<SketchScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                 child: Row(
                   children: <Widget>[
-                    Text(AppStrings.detail, style: TextStyle(color: colors.onSurfaceVariant)),
+                    Text(
+                      context.tr('sketch.detail'),
+                      style: TextStyle(color: colors.onSurfaceVariant),
+                    ),
                     Expanded(
                       child: Slider(
                         key: const Key('detailSlider'),
@@ -195,7 +213,7 @@ class _SketchScreenState extends State<SketchScreen> {
                   key: const Key('startTracing'),
                   onPressed: _result != null && !_busy ? _trace : null,
                   icon: const Icon(Icons.camera_alt),
-                  label: const Text(AppStrings.startTracing),
+                  label: Text(context.tr('sketch.startTracing')),
                 ),
               ),
             ),

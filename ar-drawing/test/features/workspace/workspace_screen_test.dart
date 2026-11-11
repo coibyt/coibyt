@@ -2,7 +2,6 @@ import 'package:camera_platform_interface/camera_platform_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:tracelight/core/app_theme.dart';
 import 'package:tracelight/features/timelapse/timelapse_recorder.dart';
 import 'package:tracelight/features/timelapse/timelapse_result_screen.dart';
 import 'package:tracelight/features/timelapse/video_encoder.dart';
@@ -11,6 +10,7 @@ import 'package:tracelight/features/workspace/widgets/opacity_control.dart';
 import 'package:tracelight/features/workspace/widgets/trace_overlay.dart';
 import 'package:tracelight/features/workspace/workspace_screen.dart';
 
+import '../../test_app.dart';
 import '../../test_images.dart';
 import 'fake_camera_platform.dart';
 
@@ -61,9 +61,8 @@ void main() {
 
   Future<void> pumpWorkspace(WidgetTester tester, {RecorderBuilder? recorder}) async {
     await tester.pumpWidget(
-      MaterialApp(
-        theme: AppTheme.dark(),
-        home: WorkspaceScreen(
+      testApp(
+        WorkspaceScreen(
           overlayImage: overlay,
           recorderBuilder: recorder,
           enableTimelapse: recorder != null,

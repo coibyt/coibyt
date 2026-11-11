@@ -15,7 +15,24 @@ lên giấy.
 | 2 | Kéo / chụm zoom / xoay ảnh (2 ngón), khóa ảnh, đèn flash, căn giữa lại; bộ lọc biến ảnh màu thành nét (Canny) hoặc bút chì | ✅ |
 | 3 | Quay time-lapse (camera + ảnh mẫu) ra MP4, lưu vào thư viện ảnh, chia sẻ; chọn ảnh từ thư viện máy | ✅ (chỉ bản app; bản web ẩn nút quay) |
 | 4 | Màn hình chính, 24 mẫu gốc trong 6 chủ đề (Động vật, Anime, Chibi, Xe, Hoa, Đồ ăn cute), độ khó, nhãn PRO | ✅ |
-| sau | Quảng cáo + mua trong app (mở khóa PRO, bỏ quảng cáo), tạo nét vẽ bằng AI từ câu mô tả, tiếng Việt | chưa làm |
+| GV-1 | Đa ngôn ngữ (JSON, tiếng Việt mặc định + English), giáo viên ảo Lumi (khung thoại gõ chữ), giọng đọc tiếng Việt | ✅ |
+| GV-2 | Bài học tô màu theo lớp: viền → màu nền → bóng tối → điểm sáng, nút Lùi lại / Tiếp theo (3 bài: táo, cáo, cupcake) | ✅ |
+| GV-3 | Bảng bút màu ngoài đời cho từng bước, hướng ánh sáng, Lumi đổi tư thế (vẫy tay, chỉ tay, khích lệ, reo vui) | ✅ |
+| sau | Quảng cáo + mua trong app (mở khóa PRO, bỏ quảng cáo), tạo nét vẽ bằng AI từ câu mô tả | chưa làm |
+
+### Giáo viên ảo Lumi & đa ngôn ngữ
+
+- **Chữ trong app:** `assets/i18n/vi.json` và `en.json`, lồng theo màn hình (`home.templates`, `lesson.kind.shadow`…).
+  Sửa chữ chỉ cần sửa JSON. Hai file phải có đủ khoá như nhau, có test kiểm tra.
+  Trong code: `context.tr('home.templates')`. Nút **VI/EN** ở màn hình chính đổi ngôn ngữ, app nhớ lựa chọn.
+- **Lời thoại Lumi:** chữ ở `teacher.lines.<id>` trong file ngôn ngữ. Kịch bản (câu nào, tư thế nào) ở
+  `assets/teacher/scripts.json`. Lời chào ở mỗi màn hình chỉ tự phát lần đầu; sau đó Lumi thu nhỏ thành avatar, chạm để nghe lại.
+- **Giọng đọc:** `assets/audio/teacher/vi/<id>.mp3` cùng `manifest.json` (độ dài từng câu, để chữ gõ khớp giọng).
+  Thu âm lại bằng `ELEVEN_MAX_API_KEY=... python3 tool/voiceover.py <id>`. Câu không có file âm thanh vẫn hiện chữ bình thường.
+  Trên web, nếu trình duyệt chặn âm thanh khi chưa chạm, Lumi hiện "Chạm để nghe".
+- **Bài học:** `assets/lessons/lessons.json` (bước, lớp tranh, bảng bút màu, tư thế, câu thoại).
+  Lớp tranh tạo bằng `tool/lesson_layers.py` từ một tranh cel-shading.
+  Khi đang vẽ, Lumi tự chuyển câu và thu nhỏ sau khi nói xong, để không che tranh.
 
 ### Bản web thử nghiệm
 
@@ -42,11 +59,13 @@ ar-drawing/
 │   ├── main.dart                    # khởi động, khóa màn hình dọc
 │   ├── app.dart                     # MaterialApp, màn hình đầu tiên
 │   ├── core/
-│   │   ├── app_assets.dart          # đường dẫn ảnh mẫu
-│   │   ├── app_strings.dart         # toàn bộ chữ hiển thị (sau này dịch đa ngôn ngữ)
+│   │   ├── app_assets.dart          # đường dẫn ảnh dùng chung
+│   │   ├── i18n/                    # đa ngôn ngữ: đọc assets/i18n/*.json, context.tr(...)
 │   │   └── app_theme.dart           # màu sắc riêng: nền mực + vàng "đèn bàn"
 │   └── features/
-│       ├── home/home_screen.dart    # màn hình chính: ảnh của bạn, chủ đề, lưới mẫu
+│       ├── home/home_screen.dart    # màn hình chính: ảnh của bạn, bài học, chủ đề, lưới mẫu, VI/EN
+│       ├── teacher/                 # giáo viên ảo Lumi: kịch bản, giọng đọc, khung thoại gõ chữ, tư thế
+│       ├── lessons/                 # bài học tô màu theo lớp, bảng bút màu, điều hướng bước
 │       ├── templates/template_catalog.dart  # danh sách 24 mẫu, chủ đề, độ khó, PRO
 │       ├── sketch/
 │       │   ├── sketch_filter.dart   # biến ảnh thành nét (Canny) / bút chì — Dart thuần, chạy nền
