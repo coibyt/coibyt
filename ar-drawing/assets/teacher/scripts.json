@@ -116,5 +116,15 @@
       "id": "leaderboard_intro_2",
       "mood": "point"
     }
+  ],
+  "quests_intro": [
+    {
+      "id": "quests_intro_1",
+      "mood": "cheer"
+    },
+    {
+      "id": "quests_intro_2",
+      "mood": "point"
+    }
   ]
 }

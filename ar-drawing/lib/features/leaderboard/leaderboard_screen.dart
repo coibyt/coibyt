@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../core/app_theme.dart';
+import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
 import '../exams/exam_record_store.dart';
 import '../teacher/teacher_controller.dart';
@@ -61,7 +62,7 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
                 key: const Key('editProfile'),
                 tooltip: context.tr('board.profile'),
                 onPressed: () => showProfileSheet(context, profile),
-                icon: Text(profile.emoji, style: const TextStyle(fontSize: 22)),
+                icon: ArtImage(GameArt.avatar(profile.avatar), size: 34),
               ),
           ],
           bottom: TabBar(
@@ -112,12 +113,13 @@ class _RankCard extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(16, 12, 16, 4),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(colors: <Color>[Color(0xFF3B2A5C), Color(0xFF232838)]),
-        borderRadius: BorderRadius.circular(18),
+        gradient: const LinearGradient(colors: <Color>[Color(0xFF4A2B8C), Color(0xFF242150)]),
+        borderRadius: BorderRadius.circular(24),
+        border: Border.all(color: const Color(0x44FFD27A)),
       ),
       child: Row(
         children: <Widget>[
-          Text(<String>['🖍️', '🎨', '👑'][rank.index], style: const TextStyle(fontSize: 34)),
+          ArtImage(GameArt.rank(rank.name), size: 72),
           const SizedBox(width: 12),
           Expanded(
             child: Column(
@@ -198,7 +200,11 @@ class _BoardListState extends State<_BoardList> {
           );
         }
         if (board.rows.isEmpty) {
-          return _Message(icon: Icons.emoji_events_outlined, text: context.tr('board.empty'));
+          return _Message(
+            icon: Icons.emoji_events_outlined,
+            text: context.tr('board.empty'),
+            art: GameArt.tile('board'),
+          );
         }
         final bool meShown = board.rows.any((BoardRow r) => r.me);
         return ListView(
@@ -231,7 +237,7 @@ class _Row extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 6),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: row.me ? const Color(0x33FFB547) : const Color(0xFF232838),
+        color: row.me ? const Color(0x33FFB547) : AppTheme.card,
         borderRadius: BorderRadius.circular(14),
       ),
       child: Row(
@@ -243,7 +249,7 @@ class _Row extends StatelessWidget {
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w800),
             ),
           ),
-          Text(kAvatars[row.avatar] ?? '🦊', style: const TextStyle(fontSize: 22)),
+          ArtImage(GameArt.avatar(row.avatar), size: 40),
           const SizedBox(width: 10),
           Expanded(
             child: Column(
@@ -294,7 +300,11 @@ class _HallGridState extends State<_HallGrid> {
         final List<HallItem>? items = snap.data;
         if (items == null) return _Message(icon: Icons.wifi_off, text: context.tr('board.offline'));
         if (items.isEmpty) {
-          return _Message(icon: Icons.museum_outlined, text: context.tr('board.hallEmpty'));
+          return _Message(
+            icon: Icons.museum_outlined,
+            text: context.tr('board.hallEmpty'),
+            art: GameArt.badge('hall'),
+          );
         }
         return GridView.builder(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 140),
@@ -337,15 +347,23 @@ class _HallGridState extends State<_HallGrid> {
                     Container(
                       color: Colors.white,
                       padding: const EdgeInsets.fromLTRB(8, 5, 8, 6),
-                      child: Text(
-                        '${kAvatars[it.avatar] ?? '🦊'} ${it.name} · ${it.score.toStringAsFixed(1)}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: AppTheme.ink,
-                          fontWeight: FontWeight.w800,
-                          fontSize: 12.5,
-                        ),
+                      child: Row(
+                        children: <Widget>[
+                          ArtImage(GameArt.avatar(it.avatar), size: 22),
+                          const SizedBox(width: 4),
+                          Expanded(
+                            child: Text(
+                              '${it.name} · ${it.score.toStringAsFixed(1)}',
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                color: AppTheme.ink,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 12.5,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -360,9 +378,12 @@ class _HallGridState extends State<_HallGrid> {
 }
 
 class _Message extends StatelessWidget {
-  const _Message({required this.icon, required this.text, this.onRetry});
+  const _Message({required this.icon, required this.text, this.onRetry, this.art});
 
   final IconData icon;
+
+  /// Illustration shown instead of the icon.
+  final String? art;
   final String text;
   final VoidCallback? onRetry;
 
@@ -374,7 +395,10 @@ class _Message extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            Icon(icon, size: 48, color: Colors.white38),
+            if (art != null)
+              ArtImage(art!, size: 140)
+            else
+              Icon(icon, size: 48, color: Colors.white38),
             const SizedBox(height: 10),
             Text(
               text,
@@ -428,7 +452,7 @@ Future<void> showProfileSheet(BuildContext context, PlayerProfile profile) {
                 for (final MapEntry<String, String> a in kAvatars.entries)
                   ChoiceChip(
                     key: Key('avatar-${a.key}'),
-                    label: Text(a.value, style: const TextStyle(fontSize: 20)),
+                    label: ArtImage(GameArt.avatar(a.key), size: 34),
                     selected: avatar == a.key,
                     onSelected: (_) => set(() => avatar = a.key),
                   ),

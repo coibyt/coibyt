@@ -10,6 +10,7 @@ import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_script.dart';
 import '../teacher/widgets/teacher_overlay.dart';
 import 'game_store.dart';
+import 'goals.dart';
 
 /// Basic strokes the drill asks for, as paths in a unit box.
 enum DrillShape { line, circle, wave }
@@ -103,6 +104,7 @@ class _DrillScreenState extends State<DrillScreen> {
       final GameStore? game = GameScope.maybeOf(context);
       await game?.earnBrush();
       await game?.recordActivity();
+      await game?.track(GameEvent.drill);
       setState(() => _done = true);
       _teacher.say(const <TeacherLine>[TeacherLine(id: 'drill_pass', mood: 'cheer')]);
     } else {

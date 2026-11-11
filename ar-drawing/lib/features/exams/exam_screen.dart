@@ -14,6 +14,7 @@ import '../draw/widgets/draw_toolbar.dart';
 import '../draw/widgets/drawing_canvas.dart';
 import '../timelapse/timelapse_composer.dart' show resolveImage;
 import '../game/game_store.dart';
+import '../game/goals.dart';
 import '../leaderboard/leaderboard_client.dart';
 import '../leaderboard/leaderboard_screen.dart' show lifetimePoints;
 import '../leaderboard/player_profile.dart';
@@ -68,10 +69,15 @@ class _ExamScreenState extends State<ExamScreen> {
 
   void _onInk() {
     final GameStore? game = GameScope.read(context);
-    if (game != null && !game.activeToday && _drawing.strokes.isNotEmpty) {
-      unawaited(game.recordActivity());
-    }
+    if (game == null || _drawing.isDrawing) return;
+    if (!game.activeToday && _drawing.strokes.isNotEmpty) unawaited(game.recordActivity());
+    final int n = _drawing.strokes.length;
+    if (n > _inked) unawaited(game.track(GameEvent.stroke, n - _inked));
+    _inked = n;
   }
+
+  /// Strokes already counted for quests and badges.
+  int _inked = 0;
 
   @override
   void initState() {
@@ -233,7 +239,7 @@ class _ExamScreenState extends State<ExamScreen> {
     widget.onGraded?.call(widget.exam, score, drawing);
     // Leaderboard only with a nickname; Hall of Fame only with consent.
     if (profile != null && profile.joined && board != null && score.total > 0) {
-      unawaited(_publish(board, profile, score, drawing));
+      unawaited(_publish(board, profile, score, drawing, game));
     }
     if (!mounted) return;
     await Navigator.of(context).pushReplacement(
@@ -255,12 +261,19 @@ class _ExamScreenState extends State<ExamScreen> {
     PlayerProfile profile,
     ExamScore score,
     ui.Image drawing,
+    GameStore? game,
   ) async {
     final Map<String, Object?>? ok = await board.submitScore(profile, widget.exam.id, score.total);
     if (ok == null || !profile.shareArt || !score.passed) return;
     final ByteData? png = await drawing.toByteData(format: ui.ImageByteFormat.png);
     if (png == null) return;
-    await board.uploadArt(profile, widget.exam.id, score.total, png.buffer.asUint8List());
+    final bool shared = await board.uploadArt(
+      profile,
+      widget.exam.id,
+      score.total,
+      png.buffer.asUint8List(),
+    );
+    if (shared) await game?.track(GameEvent.artShared);
   }
 
   Future<void> _leave() async {

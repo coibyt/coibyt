@@ -91,6 +91,13 @@ flutter:
     - assets/audio/teacher/vi/
     - assets/lessons/
     - assets/exams/
+    - assets/game/
+    - assets/game/items/
+    - assets/game/tiles/
+    - assets/game/ranks/
+    - assets/game/avatars/
+    - assets/game/exams/
+    - assets/game/badges/
     - assets/lessons/apple/
     - assets/lessons/fox/
     - assets/lessons/cupcake/

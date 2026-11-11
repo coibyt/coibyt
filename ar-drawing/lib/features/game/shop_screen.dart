@@ -3,9 +3,9 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../core/app_theme.dart';
+import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
 import '../draw/stroke.dart';
-import '../draw/widgets/draw_toolbar.dart' show effectIcon;
 import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/teacher_script.dart';
@@ -72,7 +72,13 @@ class _ShopScreenState extends State<ShopScreen> with SingleTickerProviderStateM
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            _PrizeArt(prize: r.prize, size: 96),
+            Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                const Opacity(opacity: 0.55, child: ArtImage(GameArt.giftOpen, size: 170)),
+                _PrizeArt(prize: r.prize, size: 110),
+              ],
+            ),
             const SizedBox(height: 8),
             Text(
               context.tr(r.prize.nameKey),
@@ -125,7 +131,22 @@ class _ShopScreenState extends State<ShopScreen> with SingleTickerProviderStateM
                       child: child,
                     ),
                   ),
-                  child: const Text('🎁', key: Key('giftBox'), style: TextStyle(fontSize: 96)),
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      Container(
+                        width: 200,
+                        height: 200,
+                        decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          gradient: RadialGradient(
+                            colors: <Color>[Color(0x66FFD27A), Color(0x00FFD27A)],
+                          ),
+                        ),
+                      ),
+                      const ArtImage(GameArt.giftClosed, key: Key('giftBox'), size: 170),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 12),
@@ -180,7 +201,7 @@ class _ShopScreenState extends State<ShopScreen> with SingleTickerProviderStateM
                     if (game.brushesOwned.contains(e))
                       ChoiceChip(
                         key: Key('use-${e.name}'),
-                        avatar: Icon(effectIcon(e), size: 18),
+                        avatar: ArtImage(GameArt.brush(e.name), size: 24),
                         label: Text(context.tr('shop.effect.${e.name}')),
                         selected: game.brushEffect == e,
                         onSelected: (_) => game.useBrushEffect(e),
@@ -205,7 +226,7 @@ class _ShopScreenState extends State<ShopScreen> with SingleTickerProviderStateM
                             margin: const EdgeInsets.only(right: 8),
                             padding: const EdgeInsets.all(6),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF232838),
+                              color: AppTheme.card,
                               borderRadius: BorderRadius.circular(14),
                               border: Border.all(
                                 color: game.outfit == o
@@ -251,11 +272,7 @@ class _PrizeArt extends StatelessWidget {
     if (o != null) {
       return SizedBox(width: size, height: size, child: Image.asset(lumiPose('cheer', o)));
     }
-    return SizedBox(
-      width: size,
-      height: size,
-      child: Icon(effectIcon(prize.brush!), size: size * 0.7, color: const Color(0xFFFFB547)),
-    );
+    return ArtImage(GameArt.brush(prize.brush!.name), size: size);
   }
 }
 
@@ -274,7 +291,14 @@ class CoinBadge extends StatelessWidget {
         color: const Color(0x33FFB547),
         borderRadius: BorderRadius.circular(14),
       ),
-      child: Text('🪙 $coins', style: const TextStyle(fontWeight: FontWeight.w800)),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          const ArtImage(GameArt.coin, size: 22),
+          const SizedBox(width: 5),
+          Text('$coins', style: const TextStyle(fontWeight: FontWeight.w800)),
+        ],
+      ),
     );
   }
 }

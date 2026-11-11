@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/game_art.dart';
 import '../../../core/i18n/language_controller.dart';
 import '../../game/game_store.dart';
 import '../drawing_controller.dart';
@@ -69,7 +70,7 @@ class DrawToolbar extends StatelessWidget {
                           key: const Key('effectButton'),
                           tooltip: context.tr('shop.brushes'),
                           initialValue: game.brushEffect,
-                          icon: Icon(effectIcon(game.brushEffect), color: const Color(0xFFFFB547)),
+                          icon: ArtImage(GameArt.brush(game.brushEffect.name), size: 30),
                           onSelected: (BrushEffect e) {
                             controller.effect = e;
                             controller.tool = DrawTool.brush;
@@ -81,7 +82,7 @@ class DrawToolbar extends StatelessWidget {
                                 PopupMenuItem<BrushEffect>(
                                   value: e,
                                   child: ListTile(
-                                    leading: Icon(effectIcon(e)),
+                                    leading: ArtImage(GameArt.brush(e.name), size: 32),
                                     title: Text(context.tr('shop.effect.${e.name}')),
                                   ),
                                 ),

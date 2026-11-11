@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
 import '../game/energy_sheet.dart';
 import '../game/game_store.dart';
@@ -142,7 +143,7 @@ class _ExamResultScreenState extends State<ExamResultScreen> {
                       if ((widget.reward?.coins ?? 0) > 0)
                         Chip(
                           key: const Key('coinsEarned'),
-                          avatar: const Text('🪙'),
+                          avatar: const ArtImage(GameArt.coin, size: 22),
                           label: Text(
                             context.tr(
                               'game.coinsEarned',
@@ -159,7 +160,7 @@ class _ExamResultScreenState extends State<ExamResultScreen> {
                       if (widget.rankUp)
                         Chip(
                           key: const Key('rankUpChip'),
-                          avatar: const Text('🏅'),
+                          avatar: ArtImage(GameArt.badge('excellent'), size: 22),
                           label: Text(context.tr('board.rankUp')),
                         ),
                     ],

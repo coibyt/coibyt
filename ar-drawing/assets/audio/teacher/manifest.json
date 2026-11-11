@@ -2,6 +2,7 @@
   "vi": {
     "academy_intro_1": 7628,
     "academy_intro_2": 9509,
+    "badge_unlocked": 2926,
     "draw_intro_1": 6818,
     "drill_intro": 4963,
     "drill_pass": 2325,
@@ -103,6 +104,9 @@
     "praise_2": 1384,
     "praise_3": 1698,
     "praise_4": 2038,
+    "quest_done": 3004,
+    "quests_intro_1": 5460,
+    "quests_intro_2": 3213,
     "rank_up": 2664,
     "result_average": 3370,
     "result_excellent": 2743,

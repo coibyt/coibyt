@@ -243,7 +243,11 @@
       "gacha_dupe": "You already have this one, so here are some coins back.",
       "leaderboard_intro_1": "This is the leaderboard of young artists this week and this month.",
       "leaderboard_intro_2": "Only your nickname and chosen animal are shown. Please don't use your real name.",
-      "rank_up": "Congratulations! You've reached a new title!"
+      "rank_up": "Congratulations! You've reached a new title!",
+      "quests_intro_1": "Every day there are three small quests. Finish one for coins, finish all three to open a reward chest!",
+      "quests_intro_2": "And here is your badge collection. Try to unlock them all!",
+      "quest_done": "Quest complete! Let's collect the reward.",
+      "badge_unlocked": "You just unlocked a new badge. Amazing!"
     }
   },
   "lesson": {
@@ -542,5 +546,74 @@
     "hallEmpty": "The hall is empty. Ace an exam to get your drawing here!",
     "offline": "Can't reach the server. Try again later.",
     "hallTab": "Hall of Fame"
+  },
+  "quest": {
+    "title": "Daily quests",
+    "card": "3 new quests every day",
+    "tabQuests": "Quests",
+    "tabBadges": "Badges",
+    "strokes30": "Draw 30 strokes",
+    "strokes80": "Draw 80 strokes",
+    "steps3": "Finish 3 lesson steps",
+    "drill1": "Do the stroke drill once",
+    "exam1": "Take 1 exam",
+    "pass1": "Pass 1 exam (5 or more)",
+    "claim": "Get {coins} coins",
+    "claimed": "Collected",
+    "go": "Go",
+    "bonus": "Today's reward chest",
+    "bonusHint": "Finish all 3 quests: +{coins} coins and 1 energy brush",
+    "bonusClaim": "Open chest",
+    "resets": "New quests in {time}",
+    "doneCount": "{done}/{total} today"
+  },
+  "badge": {
+    "title": "Badges",
+    "card": "{done}/{total} badges",
+    "claim": "Get {coins} coins",
+    "claimed": "Collected",
+    "locked": "Locked",
+    "progress": "{value}/{target}",
+    "newReward": "Rewards waiting!",
+    "first_stroke": {
+      "title": "First stroke",
+      "hint": "Draw your very first stroke"
+    },
+    "first_exam": {
+      "title": "Young candidate",
+      "hint": "Hand in your first exam"
+    },
+    "excellent": {
+      "title": "Excellent mark",
+      "hint": "Score 8 or more in an exam"
+    },
+    "streak3": {
+      "title": "Hard worker",
+      "hint": "Draw 3 days in a row"
+    },
+    "streak7": {
+      "title": "Steady flame",
+      "hint": "Draw 7 days in a row"
+    },
+    "lessons": {
+      "title": "Keen student",
+      "hint": "Finish 20 lesson steps"
+    },
+    "drill": {
+      "title": "Steady hand",
+      "hint": "Do the stroke drill 5 times"
+    },
+    "lucky": {
+      "title": "Lucky one",
+      "hint": "Open your first mystery box"
+    },
+    "collector": {
+      "title": "Brush collector",
+      "hint": "Own all 4 brushes"
+    },
+    "hall": {
+      "title": "Hall of Famer",
+      "hint": "Get a drawing into the Hall of Fame"
+    }
   }
 }

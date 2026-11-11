@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/app_theme.dart';
+import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
 import '../game/energy_sheet.dart';
 import '../game/game_store.dart';
@@ -113,7 +114,7 @@ class _ExamsScreenState extends State<ExamsScreen> {
             TextButton.icon(
               key: const Key('hallBrushes'),
               onPressed: () => showEnergySheet(context),
-              icon: const Icon(Icons.brush, color: Color(0xFFFF9F43)),
+              icon: const ArtImage(GameArt.energy, size: 28),
               label: Text(
                 '${game.brushes}/${GameStore.maxBrushes}',
                 style: const TextStyle(color: Colors.white),
@@ -135,6 +136,11 @@ class _ExamsScreenState extends State<ExamsScreen> {
                   padding: const EdgeInsets.fromLTRB(4, 20, 4, 8),
                   child: Row(
                     children: <Widget>[
+                      ArtImage(
+                        GameArt.examType(type == ExamType.finalExam ? 'final' : type.name),
+                        size: 44,
+                      ),
+                      const SizedBox(width: 10),
                       Expanded(
                         child: Text(context.tr(type.labelKey), style: theme.textTheme.titleLarge),
                       ),
@@ -191,10 +197,13 @@ class _ExamCard extends StatelessWidget {
         : const Color(0xFFE53935);
     return Material(
       key: Key('exam-${exam.id}'),
-      color: const Color(0xFF232838),
-      borderRadius: BorderRadius.circular(16),
+      color: AppTheme.card,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+        side: const BorderSide(color: AppTheme.line),
+      ),
       child: InkWell(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(10),

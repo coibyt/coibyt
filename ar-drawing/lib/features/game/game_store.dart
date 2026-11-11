@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../draw/stroke.dart';
 import '../exams/exam.dart';
 import '../exams/exam_scoring.dart';
+import 'goals.dart';
 
 /// Lumi's outfits (shop prizes). `classic` is the default teal beret.
 enum LumiOutfit { classic, flower, witch, star }
@@ -71,7 +72,19 @@ class GameStore extends ChangeNotifier {
     Set<LumiOutfit>? outfitsOwned,
     this.brushEffect = BrushEffect.normal,
     this.outfit = LumiOutfit.classic,
+    Map<GameEvent, int>? stats,
+    String? questDay,
+    Map<GameEvent, int>? today,
+    Set<String>? questsClaimed,
+    bool questBonusClaimed = false,
+    Set<String>? badgesClaimed,
   }) : _brushes = brushes,
+       stats = stats ?? <GameEvent, int>{},
+       _questDay = questDay,
+       _today = today ?? <GameEvent, int>{},
+       _questsClaimed = questsClaimed ?? <String>{},
+       _questBonusClaimed = questBonusClaimed,
+       badgesClaimed = badgesClaimed ?? <String>{},
        _brushClock = brushClock,
        _lastActiveDay = lastActiveDay,
        activeDays = activeDays ?? <String>{},
@@ -212,6 +225,9 @@ class GameStore extends ChangeNotifier {
       await _changed();
     }
     await recordActivity();
+    await track(GameEvent.exam);
+    if (score.passed) await track(GameEvent.examPassed);
+    if (score.total >= 8) await track(GameEvent.excellent);
     return ExamReward(coins: earned, lostBrush: !score.passed);
   }
 
@@ -241,6 +257,9 @@ class GameStore extends ChangeNotifier {
     } else {
       outfitsOwned.add(prize.outfit!);
     }
+    _rollDay();
+    stats[GameEvent.box] = (stats[GameEvent.box] ?? 0) + 1;
+    _today[GameEvent.box] = (_today[GameEvent.box] ?? 0) + 1;
     await _changed();
     return GachaResult(prize, duplicate: dupe, refund: dupe ? duplicateRefund : 0);
   }
@@ -257,6 +276,112 @@ class GameStore extends ChangeNotifier {
     await _changed();
   }
 
+  // ------------------------------------------------ quests & achievements
+
+  /// Lifetime counts of everything the learner did.
+  final Map<GameEvent, int> stats;
+  String? _questDay;
+  Map<GameEvent, int> _today;
+  final Set<String> _questsClaimed;
+  bool _questBonusClaimed;
+
+  /// Today's collected quests (cleared when a new day starts).
+  Set<String> get questsClaimed {
+    _rollDay();
+    return _questsClaimed;
+  }
+
+  bool get questBonusClaimed {
+    _rollDay();
+    return _questBonusClaimed;
+  }
+
+  final Set<String> badgesClaimed;
+
+  void _rollDay() {
+    final String day = dayKey(clock.now());
+    if (_questDay == day) return;
+    _questDay = day;
+    _today = <GameEvent, int>{};
+    _questsClaimed.clear();
+    _questBonusClaimed = false;
+  }
+
+  /// Counts an event for quests and achievements.
+  Future<void> track(GameEvent e, [int n = 1]) async {
+    if (n <= 0) return;
+    _rollDay();
+    stats[e] = (stats[e] ?? 0) + n;
+    _today[e] = (_today[e] ?? 0) + n;
+    await _changed();
+  }
+
+  List<QuestDef> get todaysQuests {
+    _rollDay();
+    return questsFor(_questDay!);
+  }
+
+  int questProgress(QuestDef q) {
+    _rollDay();
+    return (_today[q.event] ?? 0).clamp(0, q.target);
+  }
+
+  bool questDone(QuestDef q) => questProgress(q) >= q.target;
+
+  /// Collects a finished quest's coins. False when not finished or claimed.
+  Future<bool> claimQuest(QuestDef q) async {
+    if (!questDone(q) || questsClaimed.contains(q.id)) return false;
+    questsClaimed.add(q.id);
+    coins += q.coins;
+    await _changed();
+    return true;
+  }
+
+  bool get questBonusReady =>
+      !questBonusClaimed && todaysQuests.every((QuestDef q) => questsClaimed.contains(q.id));
+
+  /// All three quests done: bonus coins and an energy brush.
+  Future<bool> claimQuestBonus() async {
+    if (!questBonusReady) return false;
+    _questBonusClaimed = true;
+    coins += kQuestBonusCoins;
+    _regen();
+    if (_brushes < maxBrushes) {
+      _brushes++;
+      if (_brushes >= maxBrushes) _brushClock = null;
+    }
+    await _changed();
+    return true;
+  }
+
+  int badgeProgress(AchievementDef a) {
+    final int v = switch (a.id) {
+      'streak3' || 'streak7' => math.max(bestStreak, liveStreak),
+      'collector' => brushesOwned.length,
+      _ => stats[a.event] ?? 0,
+    };
+    return v.clamp(0, a.target);
+  }
+
+  bool badgeUnlocked(AchievementDef a) => badgeProgress(a) >= a.target;
+
+  Future<bool> claimBadge(AchievementDef a) async {
+    if (!badgeUnlocked(a) || badgesClaimed.contains(a.id)) return false;
+    badgesClaimed.add(a.id);
+    coins += a.coins;
+    await _changed();
+    return true;
+  }
+
+  /// Rewards waiting to be collected (badge on the home tiles).
+  int get questsToClaim =>
+      todaysQuests.where((QuestDef q) => questDone(q) && !questsClaimed.contains(q.id)).length +
+      (questBonusReady ? 1 : 0);
+
+  int get badgesToClaim => kAchievements
+      .where((AchievementDef a) => badgeUnlocked(a) && !badgesClaimed.contains(a.id))
+      .length;
+
   // -------------------------------------------------------- persistence
 
   Map<String, Object?> toJson() => <String, Object?>{
@@ -271,11 +396,27 @@ class GameStore extends ChangeNotifier {
     'outfitsOwned': outfitsOwned.map((LumiOutfit o) => o.name).toList(),
     'brushEffect': brushEffect.name,
     'outfit': outfit.name,
+    'stats': <String, int>{
+      for (final MapEntry<GameEvent, int> e in stats.entries) e.key.name: e.value,
+    },
+    'questDay': _questDay,
+    'today': <String, int>{
+      for (final MapEntry<GameEvent, int> e in _today.entries) e.key.name: e.value,
+    },
+    'questsClaimed': _questsClaimed.toList(),
+    'questBonus': _questBonusClaimed,
+    'badges': badgesClaimed.toList(),
   };
 
   factory GameStore.fromJson(Map<String, Object?> j) {
     T pick<T extends Enum>(List<T> values, Object? name, T fallback) =>
         values.firstWhere((T v) => v.name == name, orElse: () => fallback);
+    Map<GameEvent, int> counts(Object? raw) => <GameEvent, int>{
+      if (raw is Map<String, Object?>)
+        for (final MapEntry<String, Object?> e in raw.entries)
+          for (final GameEvent ev in GameEvent.values)
+            if (ev.name == e.key && e.value is num) ev: (e.value! as num).toInt(),
+    };
     return GameStore(
       brushes: ((j['brushes'] as num?) ?? maxBrushes).toInt().clamp(0, maxBrushes),
       brushClock: j['brushClock'] == null
@@ -300,6 +441,16 @@ class GameStore extends ChangeNotifier {
       },
       brushEffect: pick(BrushEffect.values, j['brushEffect'], BrushEffect.normal),
       outfit: pick(LumiOutfit.values, j['outfit'], LumiOutfit.classic),
+      stats: counts(j['stats']),
+      questDay: j['questDay'] as String?,
+      today: counts(j['today']),
+      questsClaimed: <String>{
+        for (final Object? q in (j['questsClaimed'] as List<Object?>?) ?? <Object?>[]) q! as String,
+      },
+      questBonusClaimed: j['questBonus'] == true,
+      badgesClaimed: <String>{
+        for (final Object? b in (j['badges'] as List<Object?>?) ?? <Object?>[]) b! as String,
+      },
     );
   }
 

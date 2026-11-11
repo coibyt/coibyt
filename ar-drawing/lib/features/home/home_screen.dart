@@ -13,7 +13,11 @@ import '../draw/draw_mode_sheet.dart';
 import '../draw/draw_screen.dart';
 import '../exams/exam.dart';
 import '../exams/exams_screen.dart';
+import '../../core/game_art.dart';
+import '../../core/widgets/art_tile.dart';
 import '../game/game_status_bar.dart';
+import '../game/goals.dart';
+import '../game/quests_screen.dart';
 import '../game/game_store.dart';
 import '../game/shop_screen.dart';
 import '../leaderboard/leaderboard_screen.dart';
@@ -111,6 +115,12 @@ class _HomeScreenState extends State<HomeScreen> {
         .push(MaterialPageRoute<void>(builder: (_) => ExamsScreen(exams: widget.exams)));
   }
 
+  void _openQuests(int tab) {
+    _teacher.close();
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => QuestsScreen(initialTab: tab)));
+  }
+
   void _openShop() {
     _teacher.close();
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => const ShopScreen()));
@@ -194,6 +204,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ? widget.templates
         : widget.templates.where((DrawingTemplate t) => t.category == _category).toList();
     final ThemeData theme = Theme.of(context);
+    final GameStore? game = GameScope.maybeOf(context);
 
     return Scaffold(
       backgroundColor: AppTheme.ink,
@@ -204,114 +215,94 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CustomScrollView(
               slivers: <Widget>[
                 SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(20, 16, 12, 8),
-                    child: Row(
-                      children: <Widget>[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset(AppAssets.logo, width: 44, height: 44),
-                        ),
-                        const SizedBox(width: 12),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                context.tr('app.name'),
-                                style: theme.textTheme.headlineSmall?.copyWith(
-                                  fontWeight: FontWeight.w800,
-                                ),
-                              ),
-                              Text(
-                                context.tr('app.tagline'),
-                                style: theme.textTheme.bodySmall?.copyWith(color: Colors.white70),
-                              ),
-                            ],
-                          ),
-                        ),
-                        TextButton.icon(
-                          key: const Key('languageButton'),
-                          onPressed: _toggleLanguage,
-                          style: TextButton.styleFrom(foregroundColor: Colors.white70),
-                          icon: const Icon(Icons.translate, size: 18),
-                          label: Text(
-                            context.language == AppLanguage.vi ? 'VI' : 'EN',
-                            style: const TextStyle(fontWeight: FontWeight.w800),
-                          ),
-                        ),
-                        IconButton(
-                          key: const Key('howItWorks'),
-                          tooltip: context.tr('home.howItWorks'),
-                          onPressed: _showHowItWorks,
-                          icon: const Icon(Icons.help_outline),
-                        ),
-                      ],
-                    ),
+                  child: _HomeHeader(
+                    language: context.language == AppLanguage.vi ? 'VI' : 'EN',
+                    onLanguage: _toggleLanguage,
+                    onHelp: _showHowItWorks,
+                    onCoins: _openShop,
                   ),
                 ),
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                    child: GameStatusBar(onCoins: _openShop),
-                  ),
-                ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                    padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
                     child: _OwnPhotoCard(onTap: _traceOwnPhoto),
                   ),
                 ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                    child: _BlankCanvasCard(onTap: _openBlankCanvas),
+                SliverPadding(
+                  padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
+                  sliver: SliverGrid(
+                    gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 260,
+                      mainAxisSpacing: 12,
+                      crossAxisSpacing: 12,
+                      childAspectRatio: 1.1,
+                    ),
+                    delegate: SliverChildListDelegate(<Widget>[
+                      ArtTile(
+                        key: const Key('blankCanvasCard'),
+                        art: GameArt.tile('blank'),
+                        title: context.tr('home.blankCanvas'),
+                        subtitle: context.tr('home.blankCanvasHint'),
+                        colors: const <Color>[Color(0xFF0E5A73), Color(0xFF1597B8)],
+                        onTap: _openBlankCanvas,
+                      ),
+                      if (widget.exams.isNotEmpty)
+                        ArtTile(
+                          key: const Key('examHallCard'),
+                          art: GameArt.tile('exam'),
+                          title: context.tr('exam.hallCard'),
+                          subtitle: context.tr('exam.hallCardHint'),
+                          colors: const <Color>[Color(0xFF3E2483), Color(0xFF7B45D1)],
+                          onTap: _openExamHall,
+                        ),
+                      if (game != null) ...<Widget>[
+                        ArtTile(
+                          key: const Key('questsCard'),
+                          art: GameArt.tile('quests'),
+                          title: context.tr('quest.title'),
+                          subtitle: context.tr('quest.card'),
+                          colors: const <Color>[Color(0xFF0B6B5E), Color(0xFF1DB39B)],
+                          badge:
+                              '${game.todaysQuests.where(game.questDone).length}/${game.todaysQuests.length}',
+                          alert: game.questsToClaim > 0,
+                          onTap: () => _openQuests(0),
+                        ),
+                        ArtTile(
+                          key: const Key('badgesCard'),
+                          art: GameArt.tile('badges'),
+                          title: context.tr('badge.title'),
+                          subtitle: context.tr(
+                            'badge.card',
+                            args: <String, Object?>{
+                              'done': kAchievements.where(game.badgeUnlocked).length,
+                              'total': kAchievements.length,
+                            },
+                          ),
+                          colors: const <Color>[Color(0xFF8A3A0E), Color(0xFFE08A1E)],
+                          alert: game.badgesToClaim > 0,
+                          onTap: () => _openQuests(1),
+                        ),
+                        ArtTile(
+                          key: const Key('shopCard'),
+                          art: GameArt.tile('shop'),
+                          title: context.tr('shop.title'),
+                          subtitle: context.tr('shop.card'),
+                          colors: const <Color>[Color(0xFF7A1B7E), Color(0xFFD23C82)],
+                          alert: game.coins >= GameStore.boxPrice,
+                          onTap: _openShop,
+                        ),
+                        ArtTile(
+                          key: const Key('leaderboardCard'),
+                          art: GameArt.tile('board'),
+                          title: context.tr('board.title'),
+                          subtitle: context.tr('board.card'),
+                          colors: const <Color>[Color(0xFF1C3384), Color(0xFF3F74E0)],
+                          onTap: _openLeaderboard,
+                        ),
+                      ],
+                    ]),
                   ),
                 ),
-                if (widget.exams.isNotEmpty)
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                      child: HomeTile(
-                        key: const Key('examHallCard'),
-                        icon: Icons.assignment,
-                        title: context.tr('exam.hallCard'),
-                        subtitle: context.tr('exam.hallCardHint'),
-                        onTap: _openExamHall,
-                      ),
-                    ),
-                  ),
-                if (GameScope.maybeOf(context) != null)
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 8),
-                      child: Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: HomeTile(
-                              key: const Key('shopCard'),
-                              icon: Icons.card_giftcard,
-                              title: context.tr('shop.title'),
-                              subtitle: context.tr('shop.card'),
-                              onTap: _openShop,
-                              trailing: const SizedBox.shrink(),
-                            ),
-                          ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: HomeTile(
-                              key: const Key('leaderboardCard'),
-                              icon: Icons.emoji_events,
-                              title: context.tr('board.title'),
-                              subtitle: context.tr('board.card'),
-                              onTap: _openLeaderboard,
-                              trailing: const SizedBox.shrink(),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
                 if (widget.lessons.isNotEmpty) ...<Widget>[
                   SliverToBoxAdapter(
                     child: Padding(
@@ -444,11 +435,7 @@ class _OwnPhotoCard extends StatelessWidget {
             padding: EdgeInsets.all(18),
             child: Row(
               children: <Widget>[
-                CircleAvatar(
-                  radius: 26,
-                  backgroundColor: Color(0x33000000),
-                  child: Icon(Icons.add_photo_alternate, color: Colors.white, size: 28),
-                ),
+                ArtImage(GameArt.tile('photo'), size: 72),
                 SizedBox(width: 16),
                 Expanded(
                   child: Column(
@@ -619,54 +606,6 @@ class _DifficultyDots extends StatelessWidget {
   }
 }
 
-class _BlankCanvasCard extends StatelessWidget {
-  const _BlankCanvasCard({required this.onTap});
-
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      key: const Key('blankCanvasCard'),
-      color: const Color(0xFF232838),
-      borderRadius: BorderRadius.circular(18),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(18),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
-          child: Row(
-            children: <Widget>[
-              const CircleAvatar(
-                radius: 20,
-                backgroundColor: Color(0xFFFFF8EC),
-                child: Icon(Icons.draw, color: Color(0xFFB0661B)),
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      context.tr('home.blankCanvas'),
-                      style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 16),
-                    ),
-                    Text(
-                      context.tr('home.blankCanvasHint'),
-                      style: const TextStyle(color: Colors.white70, fontSize: 13),
-                    ),
-                  ],
-                ),
-              ),
-              const Icon(Icons.chevron_right),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 /// Compact dark tile for a home destination.
 class HomeTile extends StatelessWidget {
   const HomeTile({
@@ -687,7 +626,7 @@ class HomeTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: const Color(0xFF232838),
+      color: AppTheme.card,
       borderRadius: BorderRadius.circular(18),
       child: InkWell(
         borderRadius: BorderRadius.circular(18),
@@ -715,6 +654,117 @@ class HomeTile extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// Banner of a cosy night-time art studio with the app name, language and
+/// help buttons, and the game status row (streak, energy, coins).
+class _HomeHeader extends StatelessWidget {
+  const _HomeHeader({
+    required this.language,
+    required this.onLanguage,
+    required this.onHelp,
+    required this.onCoins,
+  });
+
+  final String language;
+  final VoidCallback onLanguage;
+  final VoidCallback onHelp;
+  final VoidCallback onCoins;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return SizedBox(
+      height: 220,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(28)),
+            child: Image.asset(
+              GameArt.banner,
+              fit: BoxFit.cover,
+              alignment: const Alignment(0, -0.2),
+              errorBuilder: (_, _, _) => const ColoredBox(color: AppTheme.card),
+            ),
+          ),
+          const DecoratedBox(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(28)),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[Color(0x9914122E), Color(0x2214122E), Color(0xF014122E)],
+                stops: <double>[0, 0.45, 1],
+              ),
+            ),
+          ),
+          Positioned(
+            left: 16,
+            right: 8,
+            top: 12,
+            child: Row(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: const <BoxShadow>[
+                      BoxShadow(color: Color(0x66000000), blurRadius: 10),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(14),
+                    child: Image.asset(AppAssets.logo, width: 46, height: 46),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        context.tr('app.name'),
+                        style: theme.textTheme.headlineSmall?.copyWith(
+                          color: Colors.white,
+                          shadows: const <Shadow>[Shadow(color: Color(0x99000000), blurRadius: 8)],
+                        ),
+                      ),
+                      Text(
+                        context.tr('app.tagline'),
+                        maxLines: 2,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: Colors.white,
+                          shadows: const <Shadow>[Shadow(color: Color(0x99000000), blurRadius: 6)],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                TextButton.icon(
+                  key: const Key('languageButton'),
+                  onPressed: onLanguage,
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: const Color(0x55000000),
+                  ),
+                  icon: const Icon(Icons.translate, size: 18),
+                  label: Text(language, style: const TextStyle(fontWeight: FontWeight.w800)),
+                ),
+                IconButton(
+                  key: const Key('howItWorks'),
+                  tooltip: context.tr('home.howItWorks'),
+                  onPressed: onHelp,
+                  color: Colors.white,
+                  icon: const Icon(Icons.help_outline),
+                ),
+              ],
+            ),
+          ),
+          Positioned(left: 16, right: 16, bottom: 12, child: GameStatusBar(onCoins: onCoins)),
+        ],
       ),
     );
   }

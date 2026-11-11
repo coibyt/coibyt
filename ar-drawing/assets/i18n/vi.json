@@ -243,7 +243,11 @@
       "gacha_dupe": "Trùng quà rồi, mình hoàn lại cho bạn một ít xu nhé.",
       "leaderboard_intro_1": "Đây là bảng xếp hạng các họa sĩ nhí trong tuần và trong tháng.",
       "leaderboard_intro_2": "Chỉ biệt danh và con vật bạn chọn được hiện lên thôi. Đừng dùng tên thật nhé.",
-      "rank_up": "Chúc mừng! Bạn vừa lên một danh hiệu mới!"
+      "rank_up": "Chúc mừng! Bạn vừa lên một danh hiệu mới!",
+      "quests_intro_1": "Mỗi ngày có ba nhiệm vụ nhỏ. Làm xong thì nhận xu, đủ cả ba còn được mở rương thưởng nữa!",
+      "quests_intro_2": "Còn đây là bộ sưu tập huy hiệu. Cố gắng mở khoá hết nhé!",
+      "quest_done": "Nhiệm vụ hoàn thành! Nhận thưởng thôi nào.",
+      "badge_unlocked": "Bạn vừa mở khoá một huy hiệu mới. Tuyệt quá!"
     }
   },
   "lesson": {
@@ -477,7 +481,7 @@
     "streakTitle": "Chuỗi {days} ngày vẽ liên tiếp",
     "streakRules": "Mỗi ngày vẽ ít nhất một nét (học bài, vẽ tự do hay thi) để giữ chuỗi. Ngày thứ 3 được thưởng 10 xu, cứ mỗi 7 ngày được thưởng 30 xu.",
     "bestStreak": "Kỷ lục: {days} ngày",
-    "streakShort": "ngày liên tiếp",
+    "streakShort": "ngày vẽ",
     "energyShort": "năng lượng",
     "streakToday": "Hôm nay bạn đã vẽ rồi ✓",
     "streakNotYet": "Hôm nay chưa vẽ: vẽ một nét để giữ chuỗi nhé!"
@@ -542,5 +546,74 @@
     "hallEmpty": "Đại sảnh còn trống. Thi thật tốt để tranh của bạn xuất hiện ở đây!",
     "offline": "Không kết nối được máy chủ. Thử lại sau nhé.",
     "hallTab": "Vinh danh"
+  },
+  "quest": {
+    "title": "Nhiệm vụ hằng ngày",
+    "card": "3 nhiệm vụ mới mỗi ngày",
+    "tabQuests": "Nhiệm vụ",
+    "tabBadges": "Huy hiệu",
+    "strokes30": "Vẽ 30 nét",
+    "strokes80": "Vẽ 80 nét",
+    "steps3": "Hoàn thành 3 bước bài học",
+    "drill1": "Luyện nét cơ bản 1 lần",
+    "exam1": "Làm 1 bài thi",
+    "pass1": "Thi đạt 1 bài (từ 5 điểm)",
+    "claim": "Nhận {coins} xu",
+    "claimed": "Đã nhận",
+    "go": "Làm ngay",
+    "bonus": "Rương thưởng hôm nay",
+    "bonusHint": "Xong cả 3 nhiệm vụ: +{coins} xu và 1 cọ năng lượng",
+    "bonusClaim": "Mở rương",
+    "resets": "Nhiệm vụ mới sau {time}",
+    "doneCount": "{done}/{total} hôm nay"
+  },
+  "badge": {
+    "title": "Huy hiệu",
+    "card": "{done}/{total} huy hiệu",
+    "claim": "Nhận {coins} xu",
+    "claimed": "Đã nhận",
+    "locked": "Chưa mở khoá",
+    "progress": "{value}/{target}",
+    "newReward": "Có quà chờ nhận!",
+    "first_stroke": {
+      "title": "Nét vẽ đầu tiên",
+      "hint": "Vẽ nét đầu tiên của bạn"
+    },
+    "first_exam": {
+      "title": "Thí sinh nhí",
+      "hint": "Nộp bài thi đầu tiên"
+    },
+    "excellent": {
+      "title": "Điểm xuất sắc",
+      "hint": "Đạt từ 8 điểm trong một bài thi"
+    },
+    "streak3": {
+      "title": "Chăm chỉ",
+      "hint": "Vẽ 3 ngày liên tiếp"
+    },
+    "streak7": {
+      "title": "Ngọn lửa bền bỉ",
+      "hint": "Vẽ 7 ngày liên tiếp"
+    },
+    "lessons": {
+      "title": "Học trò siêng năng",
+      "hint": "Hoàn thành 20 bước bài học"
+    },
+    "drill": {
+      "title": "Tay vẽ vững vàng",
+      "hint": "Luyện nét cơ bản 5 lần"
+    },
+    "lucky": {
+      "title": "Người may mắn",
+      "hint": "Mở hộp quà bí ẩn đầu tiên"
+    },
+    "collector": {
+      "title": "Nhà sưu tầm cọ",
+      "hint": "Sở hữu đủ 4 loại cọ"
+    },
+    "hall": {
+      "title": "Tranh vinh danh",
+      "hint": "Đưa một bức tranh lên Vinh danh"
+    }
   }
 }

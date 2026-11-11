@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
 import 'drill_screen.dart';
 import 'game_store.dart';
@@ -13,6 +14,7 @@ Future<void> showEnergySheet(BuildContext context) {
   return showModalBottomSheet<void>(
     context: context,
     showDragHandle: true,
+    isScrollControlled: true,
     // Keep the game state reachable whichever navigator hosts the sheet.
     builder: (BuildContext context) =>
         game == null ? const _EnergySheet() : GameScope(store: game, child: const _EnergySheet()),
@@ -51,56 +53,54 @@ class _EnergySheetState extends State<_EnergySheet> {
     String fmt(Duration d) =>
         '${d.inMinutes.toString().padLeft(2, '0')}:${(d.inSeconds % 60).toString().padLeft(2, '0')}';
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(context.tr('game.energyTitle'), style: Theme.of(context).textTheme.titleLarge),
-            const SizedBox(height: 10),
-            Row(
-              key: const Key('energyBrushes'),
-              children: <Widget>[
-                for (int i = 0; i < GameStore.maxBrushes; i++)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 6),
-                    child: Icon(
-                      Icons.brush,
-                      size: 30,
-                      color: i < game.brushes ? const Color(0xFFFF9F43) : Colors.white24,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(context.tr('game.energyTitle'), style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 10),
+              Row(
+                key: const Key('energyBrushes'),
+                children: <Widget>[
+                  for (int i = 0; i < GameStore.maxBrushes; i++)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 6),
+                      child: ArtImage(GameArt.energy, size: 50, locked: i >= game.brushes),
                     ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Text(context.tr('game.energyRules')),
+              if (next != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    context.tr('game.nextBrush', args: <String, Object?>{'time': fmt(next)}),
+                    key: const Key('nextBrush'),
+                    style: const TextStyle(fontWeight: FontWeight.w700),
                   ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Text(context.tr('game.energyRules')),
-            if (next != null)
-              Padding(
-                padding: const EdgeInsets.only(top: 8),
-                child: Text(
-                  context.tr('game.nextBrush', args: <String, Object?>{'time': fmt(next)}),
-                  key: const Key('nextBrush'),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                ),
+              const SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.icon(
+                  key: const Key('startDrill'),
+                  onPressed: game.brushes >= GameStore.maxBrushes
+                      ? null
+                      : () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context)
+                              .push(MaterialPageRoute<void>(builder: (_) => const DrillScreen()));
+                        },
+                  icon: const Icon(Icons.gesture),
+                  label: Text(context.tr('game.drillButton')),
                 ),
               ),
-            const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                key: const Key('startDrill'),
-                onPressed: game.brushes >= GameStore.maxBrushes
-                    ? null
-                    : () {
-                        Navigator.of(context).pop();
-                        Navigator.of(context)
-                            .push(MaterialPageRoute<void>(builder: (_) => const DrillScreen()));
-                      },
-                icon: const Icon(Icons.gesture),
-                label: Text(context.tr('game.drillButton')),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

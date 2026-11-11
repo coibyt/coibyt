@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/i18n/language_controller.dart';
 import '../game/game_store.dart';
+import '../game/goals.dart';
 import '../lessons/lesson.dart';
 import '../lessons/lesson_progress_store.dart';
 import '../lessons/widgets/lesson_panel.dart';
@@ -74,10 +75,15 @@ class _DrawScreenState extends State<DrawScreen> {
   /// Drawing counts as today's creative activity (daily streak).
   void _onInk() {
     final GameStore? game = GameScope.read(context);
-    if (game != null && !game.activeToday && _drawing.strokes.isNotEmpty) {
-      unawaited(game.recordActivity());
-    }
+    if (game == null || _drawing.isDrawing) return;
+    if (!game.activeToday && _drawing.strokes.isNotEmpty) unawaited(game.recordActivity());
+    final int n = _drawing.strokes.length;
+    if (n > _inked) unawaited(game.track(GameEvent.stroke, n - _inked));
+    _inked = n;
   }
+
+  /// Strokes already counted for quests and badges.
+  int _inked = 0;
 
   void _start() {
     if (!mounted) return;
@@ -124,6 +130,7 @@ class _DrawScreenState extends State<DrawScreen> {
     final bool drewSomething = _drawing.strokes.length > _strokesAtStep;
     _lastStep = p.index;
     _strokesAtStep = _drawing.strokes.length;
+    if (forward) unawaited(GameScope.read(context)?.track(GameEvent.lessonStep));
     _coach?.modelColors = _stepColors(p.step);
     // Praise real work when moving on, then explain the new step.
     _teacher.say(<TeacherLine>[

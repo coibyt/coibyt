@@ -5,6 +5,7 @@ import 'package:tracelight/core/i18n/app_language.dart';
 import 'package:tracelight/core/i18n/translations.dart';
 import 'package:tracelight/features/draw/stroke.dart';
 import 'package:tracelight/features/game/game_store.dart';
+import 'package:tracelight/features/game/goals.dart';
 import 'package:tracelight/features/leaderboard/player_profile.dart';
 import 'package:tracelight/features/lessons/lesson.dart';
 import 'package:tracelight/features/templates/template_catalog.dart';
@@ -86,6 +87,9 @@ void main() {
       for (final BrushEffect e in BrushEffect.values) 'shop.effect.${e.name}',
       for (final ArtistRank r in ArtistRank.values) r.labelKey,
       for (final LumiOutfit o in LumiOutfit.values) 'shop.outfit.${o.name}',
+      for (final List<QuestDef> g in kQuestGroups)
+        for (final QuestDef q in g) q.titleKey,
+      for (final AchievementDef a in kAchievements) ...<String>[a.titleKey, a.hintKey],
       for (final String t in <String>['sketch', 'draw_color', 'color_shade'])
         'teacher.lines.exam_start_$t',
       for (final String g in <String>['excellent', 'good', 'average', 'fail'])
