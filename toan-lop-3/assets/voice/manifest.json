@@ -46376,10 +46376,490 @@
       "spoken": "có thể",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "en:1.337 × 5 = ?": {
+      "file": "assets/voice/1-337-5-5d18c7-jess.mp3",
+      "ms": 1704,
+      "spoken": "1.337 × 5 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:1.337 × 5 = ___": {
+      "file": "assets/voice/1-337-5-897468-jess.mp3",
+      "ms": 2232,
+      "spoken": "1.337 × 5 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:1.5___5 + 7.___51 = ___.356": {
+      "file": "assets/voice/1-5-5-7-51-356-bbd628-jess.mp3",
+      "ms": 4560,
+      "spoken": "1.5___5 + 7.___51 = ___.356",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:10.112 × 3 = ?": {
+      "file": "assets/voice/10-112-3-4910ad-jess.mp3",
+      "ms": 1800,
+      "spoken": "10.112 × 3 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:10.112 × 3 = ___": {
+      "file": "assets/voice/10-112-3-7bc645-jess.mp3",
+      "ms": 2496,
+      "spoken": "10.112 × 3 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:10.643 × 7 = ?": {
+      "file": "assets/voice/10-643-7-540e75-jess.mp3",
+      "ms": 2184,
+      "spoken": "10.643 × 7 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:10.643 × 7 = ___": {
+      "file": "assets/voice/10-643-7-d2eebd-jess.mp3",
+      "ms": 2904,
+      "spoken": "10.643 × 7 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:14.070 × 4 = ?": {
+      "file": "assets/voice/14-070-4-2b68af-jess.mp3",
+      "ms": 2304,
+      "spoken": "14.070 × 4 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:14.070 × 4 = ___": {
+      "file": "assets/voice/14-070-4-0bfbce-jess.mp3",
+      "ms": 1656,
+      "spoken": "14.070 × 4 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:16 × 5 = ?": {
+      "file": "assets/voice/16-5-c4060a-jess.mp3",
+      "ms": 1488,
+      "spoken": "16 × 5 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:16 × 5 = ___": {
+      "file": "assets/voice/16-5-d1bdaf-jess.mp3",
+      "ms": 2496,
+      "spoken": "16 × 5 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:161 + 328 : 8 = ___": {
+      "file": "assets/voice/161-328-8-010cc7-jess.mp3",
+      "ms": 4272,
+      "spoken": "161 + 328 : 8 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:2 cm = ___ mm 200 mm = ___ dm": {
+      "file": "assets/voice/2-cm-mm-200-mm-dm-0d22a4-jess.mp3",
+      "ms": 3600,
+      "spoken": "2 cm = ___ mm 200 mm = ___ dm",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:2.129 + 2.776 = ___": {
+      "file": "assets/voice/2-129-2-776-e3f36f-jess.mp3",
+      "ms": 3936,
+      "spoken": "2.129 + 2.776 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:21 × 3 = ?": {
+      "file": "assets/voice/21-3-0c9940-jess.mp3",
+      "ms": 1656,
+      "spoken": "21 × 3 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:21 × 3 = ___": {
+      "file": "assets/voice/21-3-e9c6e8-jess.mp3",
+      "ms": 2472,
+      "spoken": "21 × 3 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:25 : 5 × 3 = ?": {
+      "file": "assets/voice/25-5-3-95c19c-jess.mp3",
+      "ms": 1848,
+      "spoken": "25 : 5 × 3 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:25 : 5 × 3 = ___": {
+      "file": "assets/voice/25-5-3-25380a-jess.mp3",
+      "ms": 2160,
+      "spoken": "25 : 5 × 3 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:264 + 392 - 81 × 3 = ___": {
+      "file": "assets/voice/264-392-81-3-10347f-jess.mp3",
+      "ms": 4896,
+      "spoken": "264 + 392 - 81 × 3 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:29 : 5 = ? (remainder ?)": {
+      "file": "assets/voice/29-5-remainder-f0f5b8-jess.mp3",
+      "ms": 1848,
+      "spoken": "29 : 5 = ? (remainder ?)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:29 : 5 = ___ (remainder ___)": {
+      "file": "assets/voice/29-5-remainder-5c335d-jess.mp3",
+      "ms": 2712,
+      "spoken": "29 : 5 = ___ (remainder ___)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:29.224 × 2 = ?": {
+      "file": "assets/voice/29-224-2-67842e-jess.mp3",
+      "ms": 2904,
+      "spoken": "29.224 × 2 = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:29.224 × 2 = ___": {
+      "file": "assets/voice/29-224-2-92fd93-jess.mp3",
+      "ms": 2832,
+      "spoken": "29.224 × 2 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:3 pieces of string are ___ cm long.": {
+      "file": "assets/voice/3-pieces-of-string-are-cm-long-f16e82-jess.mp3",
+      "ms": 2712,
+      "spoken": "3 pieces of string are ___ cm long.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:3.___56 - 41___ = ___.438": {
+      "file": "assets/voice/3-56-41-438-905d0a-jess.mp3",
+      "ms": 4248,
+      "spoken": "3.___56 - 41___ = ___.438",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:373 + 24 - 56 = ___": {
+      "file": "assets/voice/373-24-56-730af8-jess.mp3",
+      "ms": 3912,
+      "spoken": "373 + 24 - 56 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:40.000; 41.000; 42.000; 43.000; ___; ___": {
+      "file": "assets/voice/40-000-41-000-42-000-43-000-9b9ed7-jess.mp3",
+      "ms": 7464,
+      "spoken": "40.000; 41.000; 42.000; 43.000; ___; ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:43.536 books are shared equally among 4 libraries. Then each library gets 1.935 more books as a gift. How many books does each library have now?": {
+      "file": "assets/voice/43-536-books-are-shared-equally-among-4-d2aa72-jess.mp3",
+      "ms": 13032,
+      "spoken": "43.536 books are shared equally among 4 libraries. Then each library gets 1.935 more books as a gift. How many books does each library have now?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:44.068 people come to the stadium to watch a football match. Round this number to the nearest ten thousand. About how many people are there?": {
+      "file": "assets/voice/44-068-people-come-to-the-stadium-to-wat-06849a-jess.mp3",
+      "ms": 11040,
+      "spoken": "44.068 people come to the stadium to watch a football match. Round this number to the nearest ten thousand. About how many people are there?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:5 storehouses have ___ kg of rice.": {
+      "file": "assets/voice/5-storehouses-have-kg-of-rice-3cead1-jess.mp3",
+      "ms": 2808,
+      "spoken": "5 storehouses have ___ kg of rice.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:5.169; 5.144; 5.119; ___; ___; 5.044; 5.019": {
+      "file": "assets/voice/5-169-5-144-5-119-5-044-5-019-eff755-jess.mp3",
+      "ms": 7944,
+      "spoken": "5.169; 5.144; 5.119; ___; ___; 5.044; 5.019",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:50.481 + 32.876 = ___": {
+      "file": "assets/voice/50-481-32-876-0039a9-jess.mp3",
+      "ms": 5856,
+      "spoken": "50.481 + 32.876 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:55.351 people come to the stadium to watch a football match. Round this number to the nearest ten thousand. About how many people are there?": {
+      "file": "assets/voice/55-351-people-come-to-the-stadium-to-wat-26e2a6-jess.mp3",
+      "ms": 9792,
+      "spoken": "55.351 people come to the stadium to watch a football match. Round this number to the nearest ten thousand. About how many people are there?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:59 mm + 14 mm = ?": {
+      "file": "assets/voice/59-mm-14-mm-b509ef-jess.mp3",
+      "ms": 2472,
+      "spoken": "59 mm + 14 mm = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:59 mm + 14 mm = ___ mm": {
+      "file": "assets/voice/59-mm-14-mm-mm-add590-jess.mp3",
+      "ms": 3264,
+      "spoken": "59 mm + 14 mm = ___ mm",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:6 cm ... 55 mm": {
+      "file": "assets/voice/6-cm-55-mm-e5e2a1-jess.mp3",
+      "ms": 2064,
+      "spoken": "6 cm ... 55 mm",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:7.6___6 × 7 = 53.___9___": {
+      "file": "assets/voice/7-6-6-7-53-9-029099-jess.mp3",
+      "ms": 4656,
+      "spoken": "7.6___6 × 7 = 53.___9___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:80.331 + 19.210 = ___": {
+      "file": "assets/voice/80-331-19-210-c27b86-jess.mp3",
+      "ms": 4200,
+      "spoken": "80.331 + 19.210 = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:92 cm² - 25 cm² = ?": {
+      "file": "assets/voice/92-cm-25-cm-fd2024-jess.mp3",
+      "ms": 2832,
+      "spoken": "92 cm² - 25 cm² = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:92 cm² - 25 cm² = ___ cm²": {
+      "file": "assets/voice/92-cm-25-cm-cm-705ca4-jess.mp3",
+      "ms": 5280,
+      "spoken": "92 cm² - 25 cm² = ___ cm²",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:95 : 3 = ? (remainder ?)": {
+      "file": "assets/voice/95-3-remainder-dd2243-jess.mp3",
+      "ms": 2184,
+      "spoken": "95 : 3 = ? (remainder ?)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:95 : 3 = ___ (remainder ___)": {
+      "file": "assets/voice/95-3-remainder-9df581-jess.mp3",
+      "ms": 3000,
+      "spoken": "95 : 3 = ___ (remainder ___)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A factory makes 8.307 shirts in 9 days. It makes the same number of shirts each day. How many shirts does the factory make each day?": {
+      "file": "assets/voice/a-factory-makes-8-307-shirts-in-9-days-i-a8d806-jess.mp3",
+      "ms": 9288,
+      "spoken": "A factory makes 8.307 shirts in 9 days. It makes the same number of shirts each day. How many shirts does the factory make each day?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A factory sews 51.834 shirts in 6 days. It sews the same number of shirts each day. How many shirts does the factory sew each day?": {
+      "file": "assets/voice/a-factory-sews-51-834-shirts-in-6-days-i-5ba258-jess.mp3",
+      "ms": 10104,
+      "spoken": "A factory sews 51.834 shirts in 6 days. It sews the same number of shirts each day. How many shirts does the factory sew each day?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A farm has 44.675 chickens. Round this number to the nearest thousand. About how many chickens does the farm have?": {
+      "file": "assets/voice/a-farm-has-44-675-chickens-round-this-nu-1f9555-jess.mp3",
+      "ms": 8376,
+      "spoken": "A farm has 44.675 chickens. Round this number to the nearest thousand. About how many chickens does the farm have?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A library has 13.546 storybooks. It has 2 times as many textbooks as storybooks. How many storybooks and textbooks does the library have altogether?": {
+      "file": "assets/voice/a-library-has-13-546-storybooks-it-has-2-91cf5a-jess.mp3",
+      "ms": 10536,
+      "spoken": "A library has 13.546 storybooks. It has 2 times as many textbooks as storybooks. How many storybooks and textbooks does the library have altogether?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A library has 46.846 storybooks and 40.855 science books. How many books does the library have in total?": {
+      "file": "assets/voice/a-library-has-46-846-storybooks-and-40-8-de12d1-jess.mp3",
+      "ms": 9792,
+      "spoken": "A library has 46.846 storybooks and 40.855 science books. How many books does the library have in total?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A piece of card is made of a rectangle 16 cm long and 8 cm wide and a square with a side of 9 cm, put side by side (not on top of each other). Find the area of the piece of card.": {
+      "file": "assets/voice/a-piece-of-card-is-made-of-a-rectangle-1-d7f22f-jess.mp3",
+      "ms": 13176,
+      "spoken": "A piece of card is made of a rectangle 16 cm long and 8 cm wide and a square with a side of 9 cm, put side by side (not on top of each other). Find the area of the piece of card.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangle has a length of 10 cm and a width of 7 cm. We put a square with a side of 7 cm next to the width of the rectangle to make a new rectangle. Find the perimeter of the new rectangle.": {
+      "file": "assets/voice/a-rectangle-has-a-length-of-10-cm-and-a-0a224e-jess.mp3",
+      "ms": 12552,
+      "spoken": "A rectangle has a length of 10 cm and a width of 7 cm. We put a square with a side of 7 cm next to the width of the rectangle to make a new rectangle. Find the perimeter of the new rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangle has a length of 11 cm and a width of 3 cm. Find the perimeter and the area of the rectangle.": {
+      "file": "assets/voice/a-rectangle-has-a-length-of-11-cm-and-a-f9e2bb-jess.mp3",
+      "ms": 7488,
+      "spoken": "A rectangle has a length of 11 cm and a width of 3 cm. Find the perimeter and the area of the rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangle has a perimeter of 44 cm. Its length is 14 cm more than its width. Find the length of the rectangle.": {
+      "file": "assets/voice/a-rectangle-has-a-perimeter-of-44-cm-its-72a4b9-jess.mp3",
+      "ms": 9312,
+      "spoken": "A rectangle has a perimeter of 44 cm. Its length is 14 cm more than its width. Find the length of the rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangle has a perimeter of 68 cm. Its length is 20 cm more than its width. Find the area of the rectangle.": {
+      "file": "assets/voice/a-rectangle-has-a-perimeter-of-68-cm-its-1f5952-jess.mp3",
+      "ms": 9048,
+      "spoken": "A rectangle has a perimeter of 68 cm. Its length is 20 cm more than its width. Find the area of the rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangle of card has a length of 16 cm and a width of 3 cm. Find the area of the card.": {
+      "file": "assets/voice/a-rectangle-of-card-has-a-length-of-16-c-e1b98a-jess.mp3",
+      "ms": 5976,
+      "spoken": "A rectangle of card has a length of 16 cm and a width of 3 cm. Find the area of the card.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangular garden has a length of 17 m and a width of 13 m. People put a fence around the garden. How many metres long is the fence?": {
+      "file": "assets/voice/a-rectangular-garden-has-a-length-of-17-331c45-jess.mp3",
+      "ms": 9384,
+      "spoken": "A rectangular garden has a length of 17 m and a width of 13 m. People put a fence around the garden. How many metres long is the fence?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A rectangular garden has a length of 35 m and a width of 18 m. People put a fence around the garden and leave a gate 4 m wide. How many metres long is the fence?": {
+      "file": "assets/voice/a-rectangular-garden-has-a-length-of-35-3d7d82-jess.mp3",
+      "ms": 10896,
+      "spoken": "A rectangular garden has a length of 35 m and a width of 18 m. People put a fence around the garden and leave a gate 4 m wide. How many metres long is the fence?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A shop has 93 kg of rice. The shop sells 2 bags of rice, and each bag has 27 kg. How many kilograms of rice does the shop have left?": {
+      "file": "assets/voice/a-shop-has-93-kg-of-rice-the-shop-sells-e84caf-jess.mp3",
+      "ms": 9888,
+      "spoken": "A shop has 93 kg of rice. The shop sells 2 bags of rice, and each bag has 27 kg. How many kilograms of rice does the shop have left?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A shop sells 13.405 notebooks each month. How many notebooks does the shop sell in 4 months?": {
+      "file": "assets/voice/a-shop-sells-13-405-notebooks-each-month-02804e-jess.mp3",
+      "ms": 7200,
+      "spoken": "A shop sells 13.405 notebooks each month. How many notebooks does the shop sell in 4 months?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A square has ___ right angles. A rectangle has ___ right angles.": {
+      "file": "assets/voice/a-square-has-right-angles-a-rectangle-ha-008d7f-jess.mp3",
+      "ms": 4296,
+      "spoken": "A square has ___ right angles. A rectangle has ___ right angles.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A square has a perimeter of 28 cm. How many centimetres long is each side of the square?": {
+      "file": "assets/voice/a-square-has-a-perimeter-of-28-cm-how-ma-cab4f3-jess.mp3",
+      "ms": 4776,
+      "spoken": "A square has a perimeter of 28 cm. How many centimetres long is each side of the square?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A square has a perimeter of 96 cm. How many centimetres long is each side of the square?": {
+      "file": "assets/voice/a-square-has-a-perimeter-of-96-cm-how-ma-25adb7-jess.mp3",
+      "ms": 4992,
+      "spoken": "A square has a perimeter of 96 cm. How many centimetres long is each side of the square?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A square has the same perimeter as a rectangle with a length of 17 cm and a width of 3 cm. Find the side length of the square.": {
+      "file": "assets/voice/a-square-has-the-same-perimeter-as-a-rec-043290-jess.mp3",
+      "ms": 8040,
+      "spoken": "A square has the same perimeter as a rectangle with a length of 17 cm and a width of 3 cm. Find the side length of the square.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A square photo frame has a side of 29 cm. Mai sticks ribbon all around the frame. How many centimetres of ribbon does Mai need?": {
+      "file": "assets/voice/a-square-photo-frame-has-a-side-of-29-cm-5e344b-jess.mp3",
+      "ms": 8376,
+      "spoken": "A square photo frame has a side of 29 cm. Mai sticks ribbon all around the frame. How many centimetres of ribbon does Mai need?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:A workshop makes 399 shirts each day. After 5 days, the workshop gives 1.269 shirts to a shop. It shares the other shirts equally among 3 other shops. How many shirts does each of those shops get?": {
+      "file": "assets/voice/a-workshop-makes-399-shirts-each-day-aft-bce70d-jess.mp3",
+      "ms": 14112,
+      "spoken": "A workshop makes 399 shirts each day. After 5 days, the workshop gives 1.269 shirts to a shop. It shares the other shirts equally among 3 other shops. How many shirts does each of those shops get?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Addition up to 10 000": {
+      "file": "assets/voice/addition-up-to-10-000-a224fa-jess.mp3",
+      "ms": 1776,
+      "spoken": "Addition up to 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Addition within 100 000": {
+      "file": "assets/voice/addition-within-100-000-5f0bed-jess.mp3",
+      "ms": 2088,
+      "spoken": "Addition within 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:All three tanks have ___ l of water.": {
+      "file": "assets/voice/all-three-tanks-have-l-of-water-9dec48-jess.mp3",
+      "ms": 2088,
+      "spoken": "All three tanks have ___ l of water.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:An angle has two sides, EG and EP. Which point is the vertex of the angle?": {
+      "file": "assets/voice/an-angle-has-two-sides-eg-and-ep-which-p-386bcb-jess.mp3",
+      "ms": 4584,
+      "spoken": "An angle has two sides, EG and EP. Which point is the vertex of the angle?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:An has a rectangle of card, 6 cm long and 5 cm wide. An cuts out a square with a side of 2 cm. What is the area of the card that is left, in square centimetres?": {
+      "file": "assets/voice/an-has-a-rectangle-of-card-6-cm-long-and-10dbb3-jess.mp3",
+      "ms": 12432,
+      "spoken": "An has a rectangle of card, 6 cm long and 5 cm wide. An cuts out a square with a side of 2 cm. What is the area of the card that is left, in square centimetres?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Angles, right angles and angles that are not right angles": {
       "file": "assets/voice/angles-right-angles-and-angles-that-are-173e27-jess.mp3",
       "ms": 3120,
       "spoken": "Angles, right angles and angles that are not right angles",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Area of Rectangles and Squares": {
+      "file": "assets/voice/area-of-rectangles-and-squares-c3a45e-jess.mp3",
+      "ms": 2016,
+      "spoken": "Area of Rectangles and Squares",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Area of a Shape. Square Centimetres": {
+      "file": "assets/voice/area-of-a-shape-square-centimetres-401bfd-jess.mp3",
+      "ms": 3216,
+      "spoken": "Area of a Shape. Square Centimetres",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:At what o'clock time do the hour hand and the minute hand make a right angle?": {
+      "file": "assets/voice/at-what-o-clock-time-do-the-hour-hand-an-490144-jess.mp3",
+      "ms": 3720,
+      "spoken": "At what o'clock time do the hour hand and the minute hand make a right angle?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Both warehouses have ___ kg of rice.": {
+      "file": "assets/voice/both-warehouses-have-kg-of-rice-3435fc-jess.mp3",
+      "ms": 2448,
+      "spoken": "Both warehouses have ___ kg of rice.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Calculate, then write the answer as a normal number.": {
+      "file": "assets/voice/calculate-then-write-the-answer-as-a-nor-24a8b3-jess.mp3",
+      "ms": 2760,
+      "spoken": "Calculate, then write the answer as a normal number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Calculate.": {
+      "file": "assets/voice/calculate-7b083c-jess.mp3",
+      "ms": 792,
+      "spoken": "Calculate.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 19: Expressions, Geometry and Measurement": {
+      "file": "assets/voice/challenge-week-19-expressions-geometry-a-ff4a68-jess.mp3",
+      "ms": 3312,
+      "spoken": "Challenge Week 19: Expressions, Geometry and Measurement",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 20: Numbers up to 10 000 and Comparing": {
+      "file": "assets/voice/challenge-week-20-numbers-up-to-10-000-a-8587f5-jess.mp3",
+      "ms": 3672,
+      "spoken": "Challenge Week 20: Numbers up to 10 000 and Comparing",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 21: Roman Numerals and Rounding": {
+      "file": "assets/voice/challenge-week-21-roman-numerals-and-rou-c90379-jess.mp3",
+      "ms": 3480,
+      "spoken": "Challenge Week 21: Roman Numerals and Rounding",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 22: Numbers up to 10 000 and Perimeter": {
+      "file": "assets/voice/challenge-week-22-numbers-up-to-10-000-a-3d0c88-jess.mp3",
+      "ms": 3840,
+      "spoken": "Challenge Week 22: Numbers up to 10 000 and Perimeter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 23: Perimeter and Area of Rectangles and Squares": {
+      "file": "assets/voice/challenge-week-23-perimeter-and-area-of-733370-jess.mp3",
+      "ms": 4320,
+      "spoken": "Challenge Week 23: Perimeter and Area of Rectangles and Squares",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge Week 24: Area and Addition up to 10 000": {
+      "file": "assets/voice/challenge-week-24-area-and-addition-up-t-e4ec87-jess.mp3",
+      "ms": 3888,
+      "spoken": "Challenge Week 24: Area and Addition up to 10 000",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Challenge week 10: Times as many, division with a remainder": {
@@ -46406,16 +46886,118 @@
       "spoken": "Challenge week 13: Multiplication, division, millimetres and grams",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Challenge week 14: Millilitres, temperature and changing units": {
+      "file": "assets/voice/challenge-week-14-millilitres-temperatur-e7e44e-jess.mp3",
+      "ms": 3384,
+      "spoken": "Challenge week 14: Millilitres, temperature and changing units",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 15: Multiplying and dividing three-digit numbers": {
+      "file": "assets/voice/challenge-week-15-multiplying-and-dividi-685840-jess.mp3",
+      "ms": 4056,
+      "spoken": "Challenge week 15: Multiplying and dividing three-digit numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 16: Dividing three-digit numbers and number expressions": {
+      "file": "assets/voice/challenge-week-16-dividing-three-digit-n-54e1e9-jess.mp3",
+      "ms": 4416,
+      "spoken": "Challenge week 16: Dividing three-digit numbers and number expressions",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 17: Number expressions and 'how many times' comparisons": {
+      "file": "assets/voice/challenge-week-17-number-expressions-and-bbe804-jess.mp3",
+      "ms": 4872,
+      "spoken": "Challenge week 17: Number expressions and 'how many times' comparisons",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 18: Review of multiplication, division and expressions": {
+      "file": "assets/voice/challenge-week-18-review-of-multiplicati-0b9ef5-jess.mp3",
+      "ms": 5064,
+      "spoken": "Challenge week 18: Review of multiplication, division and expressions",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Challenge week 1: Numbers to 1000, adding, subtracting and missing numbers": {
       "file": "assets/voice/challenge-week-1-numbers-to-1000-adding-537732-jess.mp3",
       "ms": 5472,
       "spoken": "Challenge week 1: Numbers to 1000, adding, subtracting and missing numbers",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Challenge week 25: Subtraction and multiplication within 10 000": {
+      "file": "assets/voice/challenge-week-25-subtraction-and-multip-cf5ab5-jess.mp3",
+      "ms": 4584,
+      "spoken": "Challenge week 25: Subtraction and multiplication within 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 26: Division and the four operations within 10 000": {
+      "file": "assets/voice/challenge-week-26-division-and-the-four-8df95f-jess.mp3",
+      "ms": 4848,
+      "spoken": "Challenge week 26: Division and the four operations within 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 27: Numbers to 100 000 and comparing numbers": {
+      "file": "assets/voice/challenge-week-27-numbers-to-100-000-and-0cad09-jess.mp3",
+      "ms": 4392,
+      "spoken": "Challenge week 27: Numbers to 100 000 and comparing numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 28: Rounding numbers and addition within 100 000": {
+      "file": "assets/voice/challenge-week-28-rounding-numbers-and-a-603a93-jess.mp3",
+      "ms": 4512,
+      "spoken": "Challenge week 28: Rounding numbers and addition within 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 29: Addition and subtraction within 100 000": {
+      "file": "assets/voice/challenge-week-29-addition-and-subtracti-d61743-jess.mp3",
+      "ms": 3816,
+      "spoken": "Challenge week 29: Addition and subtraction within 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Challenge week 2: Missing numbers, multiplication tables 2, 3, 5": {
       "file": "assets/voice/challenge-week-2-missing-numbers-multipl-39039f-jess.mp3",
       "ms": 6024,
       "spoken": "Challenge week 2: Missing numbers, multiplication tables 2, 3, 5",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 30: Reading the clock, months and years": {
+      "file": "assets/voice/challenge-week-30-reading-the-clock-mont-4453af-jess.mp3",
+      "ms": 3960,
+      "spoken": "Challenge week 30: Reading the clock, months and years",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 31: Vietnamese money and multiplying five-digit numbers": {
+      "file": "assets/voice/challenge-week-31-vietnamese-money-and-m-1fb5c2-jess.mp3",
+      "ms": 4608,
+      "spoken": "Challenge week 31: Vietnamese money and multiplying five-digit numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 32: Multiplication and division up to 100 000": {
+      "file": "assets/voice/challenge-week-32-multiplication-and-div-2b2abd-jess.mp3",
+      "ms": 4272,
+      "spoken": "Challenge week 32: Multiplication and division up to 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 33: Calculations and data tables": {
+      "file": "assets/voice/challenge-week-33-calculations-and-data-c4a55f-jess.mp3",
+      "ms": 3480,
+      "spoken": "Challenge week 33: Calculations and data tables",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 34: Data, possibility and numbers": {
+      "file": "assets/voice/challenge-week-34-data-possibility-and-n-2528a3-jess.mp3",
+      "ms": 3720,
+      "spoken": "Challenge week 34: Data, possibility and numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 35: Review of numbers and the four operations": {
+      "file": "assets/voice/challenge-week-35-review-of-numbers-and-d8961c-jess.mp3",
+      "ms": 3984,
+      "spoken": "Challenge week 35: Review of numbers and the four operations",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 36: Review of shapes, measurement and more": {
+      "file": "assets/voice/challenge-week-36-review-of-shapes-measu-eef192-jess.mp3",
+      "ms": 3816,
+      "spoken": "Challenge week 36: Review of shapes, measurement and more",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Challenge week 3: Multiplication table 4, shapes and measurement": {
@@ -46460,10 +47042,64 @@
       "spoken": "Challenge week 9: 3D shapes and multiplying two-digit numbers",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Choose the correct answer.": {
+      "file": "assets/voice/choose-the-correct-answer-a4f762-jess.mp3",
+      "ms": 1176,
+      "spoken": "Choose the correct answer.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Choose the correct sign.": {
+      "file": "assets/voice/choose-the-correct-sign-5ba3f5-jess.mp3",
+      "ms": 1152,
+      "spoken": "Choose the correct sign.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Choose the correct way to read it.": {
+      "file": "assets/voice/choose-the-correct-way-to-read-it-883d62-jess.mp3",
+      "ms": 1440,
+      "spoken": "Choose the correct way to read it.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Choose the right measurement.": {
+      "file": "assets/voice/choose-the-right-measurement-5ebf9f-jess.mp3",
+      "ms": 1200,
+      "spoken": "Choose the right measurement.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Circles. The centre, radius and diameter of a circle": {
       "file": "assets/voice/circles-the-centre-radius-and-diameter-o-7fab52-jess.mp3",
       "ms": 3480,
       "spoken": "Circles. The centre, radius and diameter of a circle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Class 3A has 4 groups. Each group plants 13 trees. Class 3B plants 38 trees. How many trees do the two classes plant in all?": {
+      "file": "assets/voice/class-3a-has-4-groups-each-group-plants-9a4ea7-jess.mp3",
+      "ms": 9576,
+      "spoken": "Class 3A has 4 groups. Each group plants 13 trees. Class 3B plants 38 trees. How many trees do the two classes plant in all?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Class 3D has 57 pupils. 5 pupils sit at each desk. What is the smallest number of desks we need so that every pupil has a seat?": {
+      "file": "assets/voice/class-3d-has-57-pupils-5-pupils-sit-at-e-c7247e-jess.mp3",
+      "ms": 8400,
+      "spoken": "Class 3D has 57 pupils. 5 pupils sit at each desk. What is the smallest number of desks we need so that every pupil has a seat?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Collecting, sorting and recording data": {
+      "file": "assets/voice/collecting-sorting-and-recording-data-527131-jess.mp3",
+      "ms": 2184,
+      "spoken": "Collecting, sorting and recording data",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Comparing Numbers up to 10 000": {
+      "file": "assets/voice/comparing-numbers-up-to-10-000-02efc8-jess.mp3",
+      "ms": 1968,
+      "spoken": "Comparing Numbers up to 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Comparing numbers within 100 000": {
+      "file": "assets/voice/comparing-numbers-within-100-000-4038d1-jess.mp3",
+      "ms": 2016,
+      "spoken": "Comparing numbers within 100 000",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Correct!": {
@@ -46472,10 +47108,34 @@
       "spoken": "Correct!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Count the right angles in each shape.": {
+      "file": "assets/voice/count-the-right-angles-in-each-shape-96220e-jess.mp3",
+      "ms": 1704,
+      "spoken": "Count the right angles in each shape.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Cubes and cuboids": {
       "file": "assets/voice/cubes-and-cuboids-07ea6c-jess.mp3",
       "ms": 1296,
       "spoken": "Cubes and cuboids",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Data tables": {
+      "file": "assets/voice/data-tables-784247-jess.mp3",
+      "ms": 912,
+      "spoken": "Data tables",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Dividing a five-digit number by a one-digit number": {
+      "file": "assets/voice/dividing-a-five-digit-number-by-a-one-di-02944d-jess.mp3",
+      "ms": 2664,
+      "spoken": "Dividing a five-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Dividing a four-digit number by a one-digit number": {
+      "file": "assets/voice/dividing-a-four-digit-number-by-a-one-di-710c1a-jess.mp3",
+      "ms": 2568,
+      "spoken": "Dividing a four-digit number by a one-digit number",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Dividing a number by a number": {
@@ -46484,10 +47144,196 @@
       "spoken": "Dividing a number by a number",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Dividing a three-digit number by a one-digit number": {
+      "file": "assets/voice/dividing-a-three-digit-number-by-a-one-d-ecaa13-jess.mp3",
+      "ms": 2520,
+      "spoken": "Dividing a three-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Dividing a two-digit number by a one-digit number": {
       "file": "assets/voice/dividing-a-two-digit-number-by-a-one-dig-640428-jess.mp3",
       "ms": 2664,
       "spoken": "Dividing a two-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag >, <, = into the boxes.": {
+      "file": "assets/voice/drag-into-the-boxes-0cff4f-jess.mp3",
+      "ms": 1920,
+      "spoken": "Drag >, <, = into the boxes.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the Roman numerals II, XX, XVI, XI into the boxes in order from smallest to greatest.": {
+      "file": "assets/voice/drag-the-roman-numerals-ii-xx-xvi-xi-int-dd6f19-jess.mp3",
+      "ms": 6000,
+      "spoken": "Drag the Roman numerals II, XX, XVI, XI into the boxes in order from smallest to greatest.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct area into each box.": {
+      "file": "assets/voice/drag-the-correct-area-into-each-box-fa5d0b-jess.mp3",
+      "ms": 2040,
+      "spoken": "Drag the correct area into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct number card into each box.": {
+      "file": "assets/voice/drag-the-correct-number-card-into-each-b-7533ca-jess.mp3",
+      "ms": 2184,
+      "spoken": "Drag the correct number card into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct number cards into the boxes.": {
+      "file": "assets/voice/drag-the-correct-number-cards-into-the-b-5e6f16-jess.mp3",
+      "ms": 2280,
+      "spoken": "Drag the correct number cards into the boxes.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct number cards into the boxes. You can use a card more than once.": {
+      "file": "assets/voice/drag-the-correct-number-cards-into-the-b-d33cd2-jess.mp3",
+      "ms": 3912,
+      "spoken": "Drag the correct number cards into the boxes. You can use a card more than once.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct perimeter into each box.": {
+      "file": "assets/voice/drag-the-correct-perimeter-into-each-box-098cc6-jess.mp3",
+      "ms": 2256,
+      "spoken": "Drag the correct perimeter into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct rounded number into each box.": {
+      "file": "assets/voice/drag-the-correct-rounded-number-into-eac-6f65d9-jess.mp3",
+      "ms": 2424,
+      "spoken": "Drag the correct rounded number into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct sign (>, <, =) into each box. You can use a sign more than once.": {
+      "file": "assets/voice/drag-the-correct-sign-into-each-box-you-023994-jess.mp3",
+      "ms": 5400,
+      "spoken": "Drag the correct sign (>, <, =) into each box. You can use a sign more than once.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the correct value after each expression.": {
+      "file": "assets/voice/drag-the-correct-value-after-each-expres-c120ec-jess.mp3",
+      "ms": 2424,
+      "spoken": "Drag the correct value after each expression.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the measurements into the boxes in order from smallest to largest: 2 cm, 44 mm, 5 cm, 3 cm.": {
+      "file": "assets/voice/drag-the-measurements-into-the-boxes-in-e2b7ca-jess.mp3",
+      "ms": 9408,
+      "spoken": "Drag the measurements into the boxes in order from smallest to largest: 2 cm, 44 mm, 5 cm, 3 cm.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the numbers into the boxes in order from smallest to biggest: 99.725, 97.725, 97.222, 96.725.": {
+      "file": "assets/voice/drag-the-numbers-into-the-boxes-in-order-c84f6a-jess.mp3",
+      "ms": 14040,
+      "spoken": "Drag the numbers into the boxes in order from smallest to biggest: 99.725, 97.725, 97.222, 96.725.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the numbers into the boxes.": {
+      "file": "assets/voice/drag-the-numbers-into-the-boxes-cadb67-jess.mp3",
+      "ms": 1704,
+      "spoken": "Drag the numbers into the boxes.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the right number card into each box.": {
+      "file": "assets/voice/drag-the-right-number-card-into-each-box-b6a83f-jess.mp3",
+      "ms": 2112,
+      "spoken": "Drag the right number card into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Drag the signs >, <, = into the boxes.": {
+      "file": "assets/voice/drag-the-signs-into-the-boxes-a1ea46-jess.mp3",
+      "ms": 2280,
+      "spoken": "Drag the signs >, <, = into the boxes.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each box has 24 coloured pencils. How many coloured pencils are there in 3 boxes like this?": {
+      "file": "assets/voice/each-box-has-24-coloured-pencils-how-man-1efce9-jess.mp3",
+      "ms": 5160,
+      "spoken": "Each box has 24 coloured pencils. How many coloured pencils are there in 3 boxes like this?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each library has ___ books.": {
+      "file": "assets/voice/each-library-has-books-9e2246-jess.mp3",
+      "ms": 1728,
+      "spoken": "Each library has ___ books.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each piece of string is 15 cm long. How many centimetres long are 3 pieces like this?": {
+      "file": "assets/voice/each-piece-of-string-is-15-cm-long-how-m-c572ed-jess.mp3",
+      "ms": 5088,
+      "spoken": "Each piece of string is 15 cm long. How many centimetres long are 3 pieces like this?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each shop gets ___ shirts.": {
+      "file": "assets/voice/each-shop-gets-shirts-cf62f7-jess.mp3",
+      "ms": 1776,
+      "spoken": "Each shop gets ___ shirts.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each side of the square is ___ cm long.": {
+      "file": "assets/voice/each-side-of-the-square-is-cm-long-8e0d3e-jess.mp3",
+      "ms": 2472,
+      "spoken": "Each side of the square is ___ cm long.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each storehouse has 38 kg of sticky rice and 40 kg of plain rice. How many kilograms of rice are there in 5 storehouses like this?": {
+      "file": "assets/voice/each-storehouse-has-38-kg-of-sticky-rice-f5b481-jess.mp3",
+      "ms": 8760,
+      "spoken": "Each storehouse has 38 kg of sticky rice and 40 kg of plain rice. How many kilograms of rice are there in 5 storehouses like this?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Each tank holds 43.120 l of water. How many litres of water do 2 tanks like this hold?": {
+      "file": "assets/voice/each-tank-holds-43-120-l-of-water-how-ma-8ea13f-jess.mp3",
+      "ms": 6000,
+      "spoken": "Each tank holds 43.120 l of water. How many litres of water do 2 tanks like this hold?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eight thousand five hundred and sixty-two.": {
+      "file": "assets/voice/eight-thousand-five-hundred-and-sixty-tw-6aebc3-jess.mp3",
+      "ms": 2088,
+      "spoken": "Eight thousand five hundred and sixty-two.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighteen centimetres.": {
+      "file": "assets/voice/eighteen-centimetres-6059d8-jess.mp3",
+      "ms": 1248,
+      "spoken": "Eighteen centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty thousand.": {
+      "file": "assets/voice/eighty-thousand-11a428-jess.mp3",
+      "ms": 1008,
+      "spoken": "Eighty thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty-four centimetres.": {
+      "file": "assets/voice/eighty-four-centimetres-f2c216-jess.mp3",
+      "ms": 1296,
+      "spoken": "Eighty-four centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty-one thousand four hundred and twenty-two.": {
+      "file": "assets/voice/eighty-one-thousand-four-hundred-and-twe-341f35-jess.mp3",
+      "ms": 2376,
+      "spoken": "Eighty-one thousand four hundred and twenty-two.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty-three thousand three hundred and fifty-seven.": {
+      "file": "assets/voice/eighty-three-thousand-three-hundred-and-ccd094-jess.mp3",
+      "ms": 2568,
+      "spoken": "Eighty-three thousand three hundred and fifty-seven.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty-three thousand.": {
+      "file": "assets/voice/eighty-three-thousand-8d74e0-jess.mp3",
+      "ms": 1104,
+      "spoken": "Eighty-three thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Eighty.": {
+      "file": "assets/voice/eighty-feda3c-jess.mp3",
+      "ms": 576,
+      "spoken": "Eighty.",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Exact division and division with a remainder": {
@@ -46502,6 +47348,78 @@
       "spoken": "Excellent!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Fifteen.": {
+      "file": "assets/voice/fifteen-aaed23-jess.mp3",
+      "ms": 696,
+      "spoken": "Fifteen.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Fifty-eight thousand four hundred and forty-eight.": {
+      "file": "assets/voice/fifty-eight-thousand-four-hundred-and-fo-04ba9c-jess.mp3",
+      "ms": 2400,
+      "spoken": "Fifty-eight thousand four hundred and forty-eight.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Fifty-six thousand two hundred and eighty.": {
+      "file": "assets/voice/fifty-six-thousand-two-hundred-and-eight-a54757-jess.mp3",
+      "ms": 1992,
+      "spoken": "Fifty-six thousand two hundred and eighty.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Fill in the missing digit.": {
+      "file": "assets/voice/fill-in-the-missing-digit-acbbb4-jess.mp3",
+      "ms": 1224,
+      "spoken": "Fill in the missing digit.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Fill in the missing number.": {
+      "file": "assets/voice/fill-in-the-missing-number-e4bfd5-jess.mp3",
+      "ms": 1128,
+      "spoken": "Fill in the missing number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the area.": {
+      "file": "assets/voice/find-the-area-4e1979-jess.mp3",
+      "ms": 888,
+      "spoken": "Find the area.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the missing digit for each box in this calculation:": {
+      "file": "assets/voice/find-the-missing-digit-for-each-box-in-t-d46388-jess.mp3",
+      "ms": 2808,
+      "spoken": "Find the missing digit for each box in this calculation:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the missing number.": {
+      "file": "assets/voice/find-the-missing-number-c9e3ff-jess.mp3",
+      "ms": 1032,
+      "spoken": "Find the missing number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the pattern, then write the missing numbers in the boxes:": {
+      "file": "assets/voice/find-the-pattern-then-write-the-missing-4bd000-jess.mp3",
+      "ms": 2904,
+      "spoken": "Find the pattern, then write the missing numbers in the boxes:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the perimeter.": {
+      "file": "assets/voice/find-the-perimeter-ca3c2c-jess.mp3",
+      "ms": 984,
+      "spoken": "Find the perimeter.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the value of the expression.": {
+      "file": "assets/voice/find-the-value-of-the-expression-965945-jess.mp3",
+      "ms": 1632,
+      "spoken": "Find the value of the expression.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Find the value of the expression: 264 + 392 - 81 × 3": {
+      "file": "assets/voice/find-the-value-of-the-expression-264-392-a5bc43-jess.mp3",
+      "ms": 6384,
+      "spoken": "Find the value of the expression: 264 + 392 - 81 × 3",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Finding missing numbers in addition and subtraction": {
       "file": "assets/voice/finding-missing-numbers-in-addition-and-474e0a-jess.mp3",
       "ms": 2472,
@@ -46512,6 +47430,90 @@
       "file": "assets/voice/finding-missing-numbers-in-multiplicatio-c52ad3-jess.mp3",
       "ms": 2856,
       "spoken": "Finding missing numbers in multiplication and division",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Finding the value of an expression (continued)": {
+      "file": "assets/voice/finding-the-value-of-an-expression-conti-11db5f-jess.mp3",
+      "ms": 2328,
+      "spoken": "Finding the value of an expression (continued)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Five-digit numbers. The number 100 000": {
+      "file": "assets/voice/five-digit-numbers-the-number-100-000-3f4a5e-jess.mp3",
+      "ms": 3408,
+      "spoken": "Five-digit numbers. The number 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Forty-eight centimetres.": {
+      "file": "assets/voice/forty-eight-centimetres-be9ef8-jess.mp3",
+      "ms": 1296,
+      "spoken": "Forty-eight centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Forty-eight square centimetres.": {
+      "file": "assets/voice/forty-eight-square-centimetres-f557ef-jess.mp3",
+      "ms": 1584,
+      "spoken": "Forty-eight square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Forty-five centimetres.": {
+      "file": "assets/voice/forty-five-centimetres-ecfa8e-jess.mp3",
+      "ms": 1296,
+      "spoken": "Forty-five centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Forty-five thousand.": {
+      "file": "assets/voice/forty-five-thousand-6ff39b-jess.mp3",
+      "ms": 1152,
+      "spoken": "Forty-five thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Forty-one thousand four hundred and thirty.": {
+      "file": "assets/voice/forty-one-thousand-four-hundred-and-thir-7632a6-jess.mp3",
+      "ms": 2040,
+      "spoken": "Forty-one thousand four hundred and thirty.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Four hundred and thirteen.": {
+      "file": "assets/voice/four-hundred-and-thirteen-855a3d-jess.mp3",
+      "ms": 1224,
+      "spoken": "Four hundred and thirteen.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Four thousand nine hundred and fifty.": {
+      "file": "assets/voice/four-thousand-nine-hundred-and-fifty-f06795-jess.mp3",
+      "ms": 1968,
+      "spoken": "Four thousand nine hundred and fifty.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Four thousand nine hundred and five.": {
+      "file": "assets/voice/four-thousand-nine-hundred-and-five-07edba-jess.mp3",
+      "ms": 1824,
+      "spoken": "Four thousand nine hundred and five.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Four-Digit Numbers. The Number 10 000": {
+      "file": "assets/voice/four-digit-numbers-the-number-10-000-d163c6-jess.mp3",
+      "ms": 3264,
+      "spoken": "Four-Digit Numbers. The Number 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:General Review": {
+      "file": "assets/voice/general-review-191041-jess.mp3",
+      "ms": 1032,
+      "spoken": "General Review",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:General review": {
+      "file": "assets/voice/general-review-8b62cc-jess.mp3",
+      "ms": 1032,
+      "spoken": "General review",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Getting to Know Roman Numerals": {
+      "file": "assets/voice/getting-to-know-roman-numerals-a4a378-jess.mp3",
+      "ms": 1608,
+      "spoken": "Getting to Know Roman Numerals",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Grams": {
@@ -46526,6 +47528,36 @@
       "spoken": "Great job!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Hoa cuts out 2 square cards and 3 rectangle cards. How many right angles do all the cards have?": {
+      "file": "assets/voice/hoa-cuts-out-2-square-cards-and-3-rectan-f26b13-jess.mp3",
+      "ms": 5520,
+      "spoken": "Hoa cuts out 2 square cards and 3 rectangle cards. How many right angles do all the cards have?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:How many times as big? Comparing a bigger number with a smaller number": {
+      "file": "assets/voice/how-many-times-as-big-comparing-a-bigger-92eca4-jess.mp3",
+      "ms": 3864,
+      "spoken": "How many times as big? Comparing a bigger number with a smaller number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:In 4 months, the shop sells ___ notebooks.": {
+      "file": "assets/voice/in-4-months-the-shop-sells-notebooks-c458e5-jess.mp3",
+      "ms": 2496,
+      "spoken": "In 4 months, the shop sells ___ notebooks.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:In a division with a remainder, the divisor is 5, the quotient is 6 and the remainder is 4. Find the dividend.": {
+      "file": "assets/voice/in-a-division-with-a-remainder-the-divis-5151d7-jess.mp3",
+      "ms": 6936,
+      "spoken": "In a division with a remainder, the divisor is 5, the quotient is 6 and the remainder is 4. Find the dividend.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Last month, a shop sold 46.315 notebooks. This month, it sells 11.119 more notebooks than last month. How many notebooks does the shop sell this month?": {
+      "file": "assets/voice/last-month-a-shop-sold-46-315-notebooks-62769c-jess.mp3",
+      "ms": 12528,
+      "spoken": "Last month, a shop sold 46.315 notebooks. This month, it sells 11.119 more notebooks than last month. How many notebooks does the shop sell this month?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Let's learn maths in English!": {
       "file": "assets/voice/let-s-learn-maths-in-english-7b1d7d-jess.mp3",
       "ms": 1464,
@@ -46538,6 +47570,138 @@
       "spoken": "Listen and repeat.",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Mai needs ___ cm of ribbon.": {
+      "file": "assets/voice/mai-needs-cm-of-ribbon-4ed255-jess.mp3",
+      "ms": 1608,
+      "spoken": "Mai needs ___ cm of ribbon.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match correctly.": {
+      "file": "assets/voice/match-correctly-68d5f3-jess.mp3",
+      "ms": 960,
+      "spoken": "Match correctly.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each Roman numeral with the number of the same value.": {
+      "file": "assets/voice/match-each-roman-numeral-with-the-number-c330a8-jess.mp3",
+      "ms": 3000,
+      "spoken": "Match each Roman numeral with the number of the same value.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each calculation with its answer.": {
+      "file": "assets/voice/match-each-calculation-with-its-answer-0d27f5-jess.mp3",
+      "ms": 2112,
+      "spoken": "Match each calculation with its answer.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each calculation with the number that goes in place of ?.": {
+      "file": "assets/voice/match-each-calculation-with-the-number-t-bfdd83-jess.mp3",
+      "ms": 2976,
+      "spoken": "Match each calculation with the number that goes in place of ?.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each calculation with the number that replaces the ?.": {
+      "file": "assets/voice/match-each-calculation-with-the-number-t-2af37b-jess.mp3",
+      "ms": 2760,
+      "spoken": "Match each calculation with the number that replaces the ?.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each division with its remainder.": {
+      "file": "assets/voice/match-each-division-with-its-remainder-c64490-jess.mp3",
+      "ms": 1824,
+      "spoken": "Match each division with its remainder.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each expression with its value.": {
+      "file": "assets/voice/match-each-expression-with-its-value-a83687-jess.mp3",
+      "ms": 1920,
+      "spoken": "Match each expression with its value.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each measurement on the left with the equal measurement on the right.": {
+      "file": "assets/voice/match-each-measurement-on-the-left-with-30771b-jess.mp3",
+      "ms": 3336,
+      "spoken": "Match each measurement on the left with the equal measurement on the right.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each number with its rounded number.": {
+      "file": "assets/voice/match-each-number-with-its-rounded-numbe-f7e91b-jess.mp3",
+      "ms": 1992,
+      "spoken": "Match each number with its rounded number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each pair of measurements with the correct answer: the first measurement is how many times the second one?": {
+      "file": "assets/voice/match-each-pair-of-measurements-with-the-b793f4-jess.mp3",
+      "ms": 5520,
+      "spoken": "Match each pair of measurements with the correct answer: the first measurement is how many times the second one?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each pair of numbers with the correct sign >, < or =.": {
+      "file": "assets/voice/match-each-pair-of-numbers-with-the-corr-4ae9b7-jess.mp3",
+      "ms": 3072,
+      "spoken": "Match each pair of numbers with the correct sign >, < or =.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each shape with its number of right angles.": {
+      "file": "assets/voice/match-each-shape-with-its-number-of-righ-70c06d-jess.mp3",
+      "ms": 2328,
+      "spoken": "Match each shape with its number of right angles.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each shape with its perimeter (change to centimetres).": {
+      "file": "assets/voice/match-each-shape-with-its-perimeter-chan-c0757d-jess.mp3",
+      "ms": 3168,
+      "spoken": "Match each shape with its perimeter (change to centimetres).",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match each shape with its perimeter.": {
+      "file": "assets/voice/match-each-shape-with-its-perimeter-309620-jess.mp3",
+      "ms": 1920,
+      "spoken": "Match each shape with its perimeter.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the calculation with its answer.": {
+      "file": "assets/voice/match-the-calculation-with-its-answer-3d6c9a-jess.mp3",
+      "ms": 1872,
+      "spoken": "Match the calculation with its answer.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the calculations with the answers.": {
+      "file": "assets/voice/match-the-calculations-with-the-answers-37e875-jess.mp3",
+      "ms": 2112,
+      "spoken": "Match the calculations with the answers.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the divisions with the remainders.": {
+      "file": "assets/voice/match-the-divisions-with-the-remainders-b7f691-jess.mp3",
+      "ms": 1848,
+      "spoken": "Match the divisions with the remainders.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the equal measurements.": {
+      "file": "assets/voice/match-the-equal-measurements-cf496e-jess.mp3",
+      "ms": 1464,
+      "spoken": "Match the equal measurements.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the expression with its value.": {
+      "file": "assets/voice/match-the-expression-with-its-value-8029cc-jess.mp3",
+      "ms": 1896,
+      "spoken": "Match the expression with its value.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match the pairs.": {
+      "file": "assets/voice/match-the-pairs-b7bf25-jess.mp3",
+      "ms": 984,
+      "spoken": "Match the pairs.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Match with the correct sign.": {
+      "file": "assets/voice/match-with-the-correct-sign-641f02-jess.mp3",
+      "ms": 1368,
+      "spoken": "Match with the correct sign.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Millilitres": {
       "file": "assets/voice/millilitres-f537cc-jess.mp3",
       "ms": 1032,
@@ -46548,6 +47712,12 @@
       "file": "assets/voice/millimetres-f52f36-jess.mp3",
       "ms": 960,
       "spoken": "Millimetres",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Minh has 5 flowers. Hoa has 40 more flowers than Minh. How many times as many flowers as Minh does Hoa have?": {
+      "file": "assets/voice/minh-has-5-flowers-hoa-has-40-more-flowe-399a89-jess.mp3",
+      "ms": 7032,
+      "spoken": "Minh has 5 flowers. Hoa has 40 more flowers than Minh. How many times as many flowers as Minh does Hoa have?",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Mixed practice": {
@@ -46592,10 +47762,106 @@
       "spoken": "Multiplication table 9, division table 9",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Multiplying a Four-Digit Number by a One-Digit Number": {
+      "file": "assets/voice/multiplying-a-four-digit-number-by-a-one-ae0793-jess.mp3",
+      "ms": 2736,
+      "spoken": "Multiplying a Four-Digit Number by a One-Digit Number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplying a five-digit number by a one-digit number": {
+      "file": "assets/voice/multiplying-a-five-digit-number-by-a-one-820ddd-jess.mp3",
+      "ms": 2856,
+      "spoken": "Multiplying a five-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplying a three-digit number by a one-digit number": {
+      "file": "assets/voice/multiplying-a-three-digit-number-by-a-on-b30bec-jess.mp3",
+      "ms": 2664,
+      "spoken": "Multiplying a three-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Multiplying a two-digit number by a one-digit number": {
       "file": "assets/voice/multiplying-a-two-digit-number-by-a-one-68b42c-jess.mp3",
       "ms": 2664,
       "spoken": "Multiplying a two-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Mum buys 7 bags of sweets. Each bag has 13 sweets. She also buys 35 cakes. How many sweets and cakes does Mum buy in total?": {
+      "file": "assets/voice/mum-buys-7-bags-of-sweets-each-bag-has-1-a9597f-jess.mp3",
+      "ms": 8880,
+      "spoken": "Mum buys 7 bags of sweets. Each bag has 13 sweets. She also buys 35 cakes. How many sweets and cakes does Mum buy in total?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Mum buys ___ sweets and cakes in total.": {
+      "file": "assets/voice/mum-buys-sweets-and-cakes-in-total-dcca74-jess.mp3",
+      "ms": 2304,
+      "spoken": "Mum buys ___ sweets and cakes in total.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Mum's age is ___ times the child's age.": {
+      "file": "assets/voice/mum-s-age-is-times-the-child-s-age-594bae-jess.mp3",
+      "ms": 2376,
+      "spoken": "Mum's age is ___ times the child's age.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Nine.": {
+      "file": "assets/voice/nine-ff3cf0-jess.mp3",
+      "ms": 528,
+      "spoken": "Nine.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Ninety-four centimetres.": {
+      "file": "assets/voice/ninety-four-centimetres-f37705-jess.mp3",
+      "ms": 1440,
+      "spoken": "Ninety-four centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Ninety-nine thousand five hundred and forty-one.": {
+      "file": "assets/voice/ninety-nine-thousand-five-hundred-and-fo-1f595e-jess.mp3",
+      "ms": 2472,
+      "spoken": "Ninety-nine thousand five hundred and forty-one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Ninety-seven thousand.": {
+      "file": "assets/voice/ninety-seven-thousand-99bef1-jess.mp3",
+      "ms": 1296,
+      "spoken": "Ninety-seven thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Ninety-six.": {
+      "file": "assets/voice/ninety-six-6adda1-jess.mp3",
+      "ms": 936,
+      "spoken": "Ninety-six.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Number expressions. Finding the value of an expression": {
+      "file": "assets/voice/number-expressions-finding-the-value-of-2fbd19-jess.mp3",
+      "ms": 3264,
+      "spoken": "Number expressions. Finding the value of an expression",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:One hundred and eighty-nine square centimetres.": {
+      "file": "assets/voice/one-hundred-and-eighty-nine-square-centi-fd238c-jess.mp3",
+      "ms": 2472,
+      "spoken": "One hundred and eighty-nine square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:One hundred and ninety-four.": {
+      "file": "assets/voice/one-hundred-and-ninety-four-bdd473-jess.mp3",
+      "ms": 1392,
+      "spoken": "One hundred and ninety-four.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:One hundred and sixteen centimetres.": {
+      "file": "assets/voice/one-hundred-and-sixteen-centimetres-145c86-jess.mp3",
+      "ms": 1872,
+      "spoken": "One hundred and sixteen centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:One hundred and two metres.": {
+      "file": "assets/voice/one-hundred-and-two-metres-f61387-jess.mp3",
+      "ms": 1464,
+      "spoken": "One hundred and two metres.",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:One part of a whole (1/2, 1/3, 1/4 …)": {
@@ -46604,10 +47870,88 @@
       "spoken": "One part of a whole (1/2, 1/3, 1/4 …)",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Perimeter of Triangles, Quadrilaterals, Rectangles and Squares": {
+      "file": "assets/voice/perimeter-of-triangles-quadrilaterals-re-d8fa14-jess.mp3",
+      "ms": 3792,
+      "spoken": "Perimeter of Triangles, Quadrilaterals, Rectangles and Squares",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Practice": {
+      "file": "assets/voice/practice-ec65ee-jess.mp3",
+      "ms": 744,
+      "spoken": "Practice",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Practice drawing right angles, circles, squares and rectangles": {
       "file": "assets/voice/practice-drawing-right-angles-circles-sq-34f150-jess.mp3",
       "ms": 3168,
       "spoken": "Practice drawing right angles, circles, squares and rectangles",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Practice: reading the clock and the calendar": {
+      "file": "assets/voice/practice-reading-the-clock-and-the-calen-5b8598-jess.mp3",
+      "ms": 2448,
+      "spoken": "Practice: reading the clock and the calendar",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Put brackets in the expression 15 + 36 × 6 - 4 so that its value is 302. Which way is correct?": {
+      "file": "assets/voice/put-brackets-in-the-expression-15-36-6-4-26e759-jess.mp3",
+      "ms": 9144,
+      "spoken": "Put brackets in the expression 15 + 36 × 6 - 4 so that its value is 302. Which way is correct?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Put the numbers in order from smallest to biggest.": {
+      "file": "assets/voice/put-the-numbers-in-order-from-smallest-t-62376e-jess.mp3",
+      "ms": 2496,
+      "spoken": "Put the numbers in order from smallest to biggest.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Put them in order from smallest to greatest.": {
+      "file": "assets/voice/put-them-in-order-from-smallest-to-great-26ccbd-jess.mp3",
+      "ms": 2160,
+      "spoken": "Put them in order from smallest to greatest.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Put them in order from smallest to largest.": {
+      "file": "assets/voice/put-them-in-order-from-smallest-to-large-6ba450-jess.mp3",
+      "ms": 2160,
+      "spoken": "Put them in order from smallest to largest.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Quadrilateral HOKQ has right angles at vertex H and vertex O. The other angles are not right angles.": {
+      "file": "assets/voice/quadrilateral-hokq-has-right-angles-at-v-275623-jess.mp3",
+      "ms": 9000,
+      "spoken": "Quadrilateral HOKQ has right angles at vertex H and vertex O. The other angles are not right angles.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Quadrilateral OENA has sides of 15 cm, 21 cm, 16 cm and 15 cm. Find the perimeter of the quadrilateral.": {
+      "file": "assets/voice/quadrilateral-oena-has-sides-of-15-cm-21-fba387-jess.mp3",
+      "ms": 10944,
+      "spoken": "Quadrilateral OENA has sides of 15 cm, 21 cm, 16 cm and 15 cm. Find the perimeter of the quadrilateral.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Reading the clock. Months and years": {
+      "file": "assets/voice/reading-the-clock-months-and-years-fe35f4-jess.mp3",
+      "ms": 1968,
+      "spoken": "Reading the clock. Months and years",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rectangle KHOG has a length of 27 cm and a width of 15 cm. Find the perimeter of the rectangle.": {
+      "file": "assets/voice/rectangle-khog-has-a-length-of-27-cm-and-b337cc-jess.mp3",
+      "ms": 7992,
+      "spoken": "Rectangle KHOG has a length of 27 cm and a width of 15 cm. Find the perimeter of the rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rectangle PDHQ has a length of 37 cm and a width of 10 cm. Find the perimeter of the rectangle.": {
+      "file": "assets/voice/rectangle-pdhq-has-a-length-of-37-cm-and-51ed57-jess.mp3",
+      "ms": 6456,
+      "spoken": "Rectangle PDHQ has a length of 37 cm and a width of 10 cm. Find the perimeter of the rectangle.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: Geometry and Measurement": {
+      "file": "assets/voice/review-geometry-and-measurement-1a6637-jess.mp3",
+      "ms": 2112,
+      "spoken": "Review: Geometry and Measurement",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Review: addition and subtraction within 1000": {
@@ -46616,10 +47960,28 @@
       "spoken": "Review: addition and subtraction within 1000",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Review: addition, subtraction, multiplication and division": {
+      "file": "assets/voice/review-addition-subtraction-multiplicati-9d54dc-jess.mp3",
+      "ms": 3552,
+      "spoken": "Review: addition, subtraction, multiplication and division",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: multiplication and division within 100 and 1000": {
+      "file": "assets/voice/review-multiplication-and-division-withi-973aca-jess.mp3",
+      "ms": 4056,
+      "spoken": "Review: multiplication and division within 100 and 1000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Review: multiplication tables 2, 5 and division tables 2, 5": {
       "file": "assets/voice/review-multiplication-tables-2-5-and-div-868b73-jess.mp3",
       "ms": 5208,
       "spoken": "Review: multiplication tables 2, 5 and division tables 2, 5",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: number expressions": {
+      "file": "assets/voice/review-number-expressions-13e458-jess.mp3",
+      "ms": 1920,
+      "spoken": "Review: number expressions",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Review: numbers to 1000": {
@@ -46628,10 +47990,214 @@
       "spoken": "Review: numbers to 1000",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Review: numbers up to 100 000": {
+      "file": "assets/voice/review-numbers-up-to-100-000-2a5783-jess.mp3",
+      "ms": 2112,
+      "spoken": "Review: numbers up to 100 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Review: shapes and measurement": {
       "file": "assets/voice/review-shapes-and-measurement-2e431c-jess.mp3",
       "ms": 1992,
       "spoken": "Review: shapes and measurement",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Roman numerals": {
+      "file": "assets/voice/roman-numerals-baf680-jess.mp3",
+      "ms": 1080,
+      "spoken": "Roman numerals",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Round 2.035 to the nearest thousand.": {
+      "file": "assets/voice/round-2-035-to-the-nearest-thousand-114451-jess.mp3",
+      "ms": 2856,
+      "spoken": "Round 2.035 to the nearest thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Round 24.701 to the nearest thousand.": {
+      "file": "assets/voice/round-24-701-to-the-nearest-thousand-9a4818-jess.mp3",
+      "ms": 2304,
+      "spoken": "Round 24.701 to the nearest thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Round 73.100 to the nearest ten thousand.": {
+      "file": "assets/voice/round-73-100-to-the-nearest-ten-thousand-5e978f-jess.mp3",
+      "ms": 2640,
+      "spoken": "Round 73.100 to the nearest ten thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Round 97.275 to the nearest thousand.": {
+      "file": "assets/voice/round-97-275-to-the-nearest-thousand-899f2f-jess.mp3",
+      "ms": 2184,
+      "spoken": "Round 97.275 to the nearest thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 2.035 to the nearest thousand gives ___.": {
+      "file": "assets/voice/rounding-2-035-to-the-nearest-thousand-g-719494-jess.mp3",
+      "ms": 3816,
+      "spoken": "Rounding 2.035 to the nearest thousand gives ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 24.701 to the nearest thousand gives ___.": {
+      "file": "assets/voice/rounding-24-701-to-the-nearest-thousand-c41576-jess.mp3",
+      "ms": 3552,
+      "spoken": "Rounding 24.701 to the nearest thousand gives ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 73.100 to the nearest ten thousand gives ___.": {
+      "file": "assets/voice/rounding-73-100-to-the-nearest-ten-thous-20acc6-jess.mp3",
+      "ms": 3912,
+      "spoken": "Rounding 73.100 to the nearest ten thousand gives ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 82.988 to the nearest ten thousand gives:": {
+      "file": "assets/voice/rounding-82-988-to-the-nearest-ten-thous-c8c735-jess.mp3",
+      "ms": 3048,
+      "spoken": "Rounding 82.988 to the nearest ten thousand gives:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 83.172 to the nearest thousand gives:": {
+      "file": "assets/voice/rounding-83-172-to-the-nearest-thousand-86dc39-jess.mp3",
+      "ms": 3360,
+      "spoken": "Rounding 83.172 to the nearest thousand gives:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding 97.275 to the nearest thousand gives ___.": {
+      "file": "assets/voice/rounding-97-275-to-the-nearest-thousand-a2ba28-jess.mp3",
+      "ms": 3096,
+      "spoken": "Rounding 97.275 to the nearest thousand gives ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding Numbers to Tens and Hundreds": {
+      "file": "assets/voice/rounding-numbers-to-tens-and-hundreds-d6b4dd-jess.mp3",
+      "ms": 2256,
+      "spoken": "Rounding Numbers to Tens and Hundreds",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Rounding numbers to the nearest thousand and ten thousand": {
+      "file": "assets/voice/rounding-numbers-to-the-nearest-thousand-0ef6ea-jess.mp3",
+      "ms": 2760,
+      "spoken": "Rounding numbers to the nearest thousand and ten thousand",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seven centimetres.": {
+      "file": "assets/voice/seven-centimetres-a6b0d0-jess.mp3",
+      "ms": 1104,
+      "spoken": "Seven centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seven.": {
+      "file": "assets/voice/seven-d45d4f-jess.mp3",
+      "ms": 672,
+      "spoken": "Seven.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seventy thousand.": {
+      "file": "assets/voice/seventy-thousand-92b6cf-jess.mp3",
+      "ms": 1032,
+      "spoken": "Seventy thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seventy-five thousand and sixty-five.": {
+      "file": "assets/voice/seventy-five-thousand-and-sixty-five-12096c-jess.mp3",
+      "ms": 2040,
+      "spoken": "Seventy-five thousand and sixty-five.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seventy-four thousand five hundred and one.": {
+      "file": "assets/voice/seventy-four-thousand-five-hundred-and-o-96b04e-jess.mp3",
+      "ms": 2208,
+      "spoken": "Seventy-four thousand five hundred and one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Seventy-three millimetres.": {
+      "file": "assets/voice/seventy-three-millimetres-e114bb-jess.mp3",
+      "ms": 1440,
+      "spoken": "Seventy-three millimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Six thousand six hundred and eighty-five.": {
+      "file": "assets/voice/six-thousand-six-hundred-and-eighty-five-54619c-jess.mp3",
+      "ms": 2232,
+      "spoken": "Six thousand six hundred and eighty-five.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty metres.": {
+      "file": "assets/voice/sixty-metres-230430-jess.mp3",
+      "ms": 984,
+      "spoken": "Sixty metres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-eight centimetres.": {
+      "file": "assets/voice/sixty-eight-centimetres-219cc5-jess.mp3",
+      "ms": 1344,
+      "spoken": "Sixty-eight centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-four square centimetres.": {
+      "file": "assets/voice/sixty-four-square-centimetres-5e458b-jess.mp3",
+      "ms": 1608,
+      "spoken": "Sixty-four square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-one.": {
+      "file": "assets/voice/sixty-one-b1fd1c-jess.mp3",
+      "ms": 888,
+      "spoken": "Sixty-one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-seven centimetres.": {
+      "file": "assets/voice/sixty-seven-centimetres-6109e6-jess.mp3",
+      "ms": 1536,
+      "spoken": "Sixty-seven centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-seven square centimetres.": {
+      "file": "assets/voice/sixty-seven-square-centimetres-24db99-jess.mp3",
+      "ms": 1896,
+      "spoken": "Sixty-seven square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Sixty-three.": {
+      "file": "assets/voice/sixty-three-349e53-jess.mp3",
+      "ms": 840,
+      "spoken": "Sixty-three.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Solve the problem.": {
+      "file": "assets/voice/solve-the-problem-165afb-jess.mp3",
+      "ms": 1032,
+      "spoken": "Solve the problem.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Square IMCD has a side of 17 cm. The perimeter of the square is:": {
+      "file": "assets/voice/square-imcd-has-a-side-of-17-cm-the-peri-a03d08-jess.mp3",
+      "ms": 5112,
+      "spoken": "Square IMCD has a side of 17 cm. The perimeter of the square is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Square MQIP has a side of 8 cm. Find the area of the square.": {
+      "file": "assets/voice/square-mqip-has-a-side-of-8-cm-find-the-031241-jess.mp3",
+      "ms": 4056,
+      "spoken": "Square MQIP has a side of 8 cm. Find the area of the square.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Start with the number 641. Do each line in order (the next line uses the answer of the line above). Drag the correct number card into each box.": {
+      "file": "assets/voice/start-with-the-number-641-do-each-line-i-f9ac83-jess.mp3",
+      "ms": 9144,
+      "spoken": "Start with the number 641. Do each line in order (the next line uses the answer of the line above). Drag the correct number card into each box.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Subtraction up to 10 000": {
+      "file": "assets/voice/subtraction-up-to-10-000-ac6832-jess.mp3",
+      "ms": 1536,
+      "spoken": "Subtraction up to 10 000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Subtraction within 100 000": {
+      "file": "assets/voice/subtraction-within-100-000-975519-jess.mp3",
+      "ms": 2112,
+      "spoken": "Subtraction within 100 000",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Super!": {
@@ -46640,10 +48206,196 @@
       "spoken": "Super!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Tank A has 152 l of water. Tank B has 16 l of water. How many litres of water must we pour into tank B so that tank A has 4 times as much water as tank B?": {
+      "file": "assets/voice/tank-a-has-152-l-of-water-tank-b-has-16-cd3e0c-jess.mp3",
+      "ms": 12120,
+      "spoken": "Tank A has 152 l of water. Tank B has 16 l of water. How many litres of water must we pour into tank B so that tank A has 4 times as much water as tank B?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Tap a calculation, then tap its correct answer.": {
+      "file": "assets/voice/tap-a-calculation-then-tap-its-correct-a-d1580c-jess.mp3",
+      "ms": 2808,
+      "spoken": "Tap a calculation, then tap its correct answer.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Temperature. Units of temperature": {
       "file": "assets/voice/temperature-units-of-temperature-a44370-jess.mp3",
       "ms": 1944,
       "spoken": "Temperature. Units of temperature",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Ten centimetres.": {
+      "file": "assets/voice/ten-centimetres-cbe53b-jess.mp3",
+      "ms": 1032,
+      "spoken": "Ten centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 25.040 + 5.891 is:": {
+      "file": "assets/voice/the-answer-to-25-040-5-891-is-641329-jess.mp3",
+      "ms": 3792,
+      "spoken": "The answer to 25.040 + 5.891 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 25.686 : 3 is:": {
+      "file": "assets/voice/the-answer-to-25-686-3-is-dfb646-jess.mp3",
+      "ms": 3600,
+      "spoken": "The answer to 25.686 : 3 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 40.711 × 2 is:": {
+      "file": "assets/voice/the-answer-to-40-711-2-is-739e88-jess.mp3",
+      "ms": 2352,
+      "spoken": "The answer to 40.711 × 2 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 7.128 : 3 is:": {
+      "file": "assets/voice/the-answer-to-7-128-3-is-0421d4-jess.mp3",
+      "ms": 2784,
+      "spoken": "The answer to 7.128 : 3 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 79.764 : 6 is:": {
+      "file": "assets/voice/the-answer-to-79-764-6-is-90d6bf-jess.mp3",
+      "ms": 3456,
+      "spoken": "The answer to 79.764 : 6 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The answer to 8.313 - 4.482 is:": {
+      "file": "assets/voice/the-answer-to-8-313-4-482-is-ec6ba1-jess.mp3",
+      "ms": 3072,
+      "spoken": "The answer to 8.313 - 4.482 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The area is ___ cm².": {
+      "file": "assets/voice/the-area-is-cm-18a569-jess.mp3",
+      "ms": 2040,
+      "spoken": "The area is ___ cm².",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The classroom door is about this tall:": {
+      "file": "assets/voice/the-classroom-door-is-about-this-tall-53925c-jess.mp3",
+      "ms": 1752,
+      "spoken": "The classroom door is about this tall:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The clock face has Roman numerals. The minute hand points to XII. The hour hand points to V. What time is it on the clock?": {
+      "file": "assets/voice/the-clock-face-has-roman-numerals-the-mi-75cb0d-jess.mp3",
+      "ms": 7416,
+      "spoken": "The clock face has Roman numerals. The minute hand points to XII. The hour hand points to V. What time is it on the clock?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The dividend is ___.": {
+      "file": "assets/voice/the-dividend-is-46f441-jess.mp3",
+      "ms": 1296,
+      "spoken": "The dividend is ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The factory makes ___ shirts each day.": {
+      "file": "assets/voice/the-factory-makes-shirts-each-day-dc549a-jess.mp3",
+      "ms": 1896,
+      "spoken": "The factory makes ___ shirts each day.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The factory sews ___ shirts each day.": {
+      "file": "assets/voice/the-factory-sews-shirts-each-day-3a5128-jess.mp3",
+      "ms": 2040,
+      "spoken": "The factory sews ___ shirts each day.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The fence is ___ m long.": {
+      "file": "assets/voice/the-fence-is-m-long-6c05ae-jess.mp3",
+      "ms": 1416,
+      "spoken": "The fence is ___ m long.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The first store has 2.339 kg of rice. The second store has 726 kg more than the first store. The third store has 743 kg less than the second store. How many kilograms of rice do the three stores have in all?": {
+      "file": "assets/voice/the-first-store-has-2-339-kg-of-rice-the-1ab6f9-jess.mp3",
+      "ms": 16200,
+      "spoken": "The first store has 2.339 kg of rice. The second store has 726 kg more than the first store. The third store has 743 kg less than the second store. How many kilograms of rice do the three stores have in all?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The first tank has 1.825 l of water. The second tank has 890 l more than the first tank. The third tank has 1.567 l less than the second tank. How many litres of water are there in all three tanks?": {
+      "file": "assets/voice/the-first-tank-has-1-825-l-of-water-the-c32c88-jess.mp3",
+      "ms": 16896,
+      "spoken": "The first tank has 1.825 l of water. The second tank has 890 l more than the first tank. The third tank has 1.567 l less than the second tank. How many litres of water are there in all three tanks?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The first warehouse has 26.889 kg of rice. The second warehouse has 5.183 kg more rice than the first warehouse. How many kilograms of rice do both warehouses have?": {
+      "file": "assets/voice/the-first-warehouse-has-26-889-kg-of-ric-dc07d1-jess.mp3",
+      "ms": 14976,
+      "spoken": "The first warehouse has 26.889 kg of rice. The second warehouse has 5.183 kg more rice than the first warehouse. How many kilograms of rice do both warehouses have?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The length is ___ cm.": {
+      "file": "assets/voice/the-length-is-cm-c1fd6b-jess.mp3",
+      "ms": 1752,
+      "spoken": "The length is ___ cm.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The library has ___ books altogether.": {
+      "file": "assets/voice/the-library-has-books-altogether-e14987-jess.mp3",
+      "ms": 1872,
+      "spoken": "The library has ___ books altogether.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The library has ___ books.": {
+      "file": "assets/voice/the-library-has-books-c85546-jess.mp3",
+      "ms": 1704,
+      "spoken": "The library has ___ books.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number 3 in Roman numerals is:": {
+      "file": "assets/voice/the-number-3-in-roman-numerals-is-d26b61-jess.mp3",
+      "ms": 2136,
+      "spoken": "The number 3 in Roman numerals is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number 36.002 is read as:": {
+      "file": "assets/voice/the-number-36-002-is-read-as-66c4d2-jess.mp3",
+      "ms": 2280,
+      "spoken": "The number 36.002 is read as:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number that goes in place of ? is: (? + 79) × 4 = 560": {
+      "file": "assets/voice/the-number-that-goes-in-place-of-is-79-4-d21493-jess.mp3",
+      "ms": 5160,
+      "spoken": "The number that goes in place of ? is: (? + 79) × 4 = 560",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number that replaces the ? is: 1.983 - ? × 3 = 1.038": {
+      "file": "assets/voice/the-number-that-replaces-the-is-1-983-3-273edf-jess.mp3",
+      "ms": 6192,
+      "spoken": "The number that replaces the ? is: 1.983 - ? × 3 = 1.038",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number with 7 ten thousands, 5 thousands, 0 hundreds, 6 tens and 5 ones is written as ___.": {
+      "file": "assets/voice/the-number-with-7-ten-thousands-5-thousa-271975-jess.mp3",
+      "ms": 6312,
+      "spoken": "The number with 7 ten thousands, 5 thousands, 0 hundreds, 6 tens and 5 ones is written as ___.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The number with 7 ten thousands, 5 thousands, 0 hundreds, 6 tens and 5 ones is written as:": {
+      "file": "assets/voice/the-number-with-7-ten-thousands-5-thousa-1e7d54-jess.mp3",
+      "ms": 6240,
+      "spoken": "The number with 7 ten thousands, 5 thousands, 0 hundreds, 6 tens and 5 ones is written as:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The perimeter is ___ cm.": {
+      "file": "assets/voice/the-perimeter-is-cm-b000cc-jess.mp3",
+      "ms": 1728,
+      "spoken": "The perimeter is ___ cm.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The perimeter is ___ cm. The area is ___ cm².": {
+      "file": "assets/voice/the-perimeter-is-cm-the-area-is-cm-a6db28-jess.mp3",
+      "ms": 3672,
+      "spoken": "The perimeter is ___ cm. The area is ___ cm².",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The perimeter of the new rectangle is ___ cm.": {
+      "file": "assets/voice/the-perimeter-of-the-new-rectangle-is-cm-855a0d-jess.mp3",
+      "ms": 2640,
+      "spoken": "The perimeter of the new rectangle is ___ cm.",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:The point in the middle. The midpoint of a line segment": {
@@ -46652,10 +48404,136 @@
       "spoken": "The point in the middle. The midpoint of a line segment",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:The possibility of an event": {
+      "file": "assets/voice/the-possibility-of-an-event-cd228d-jess.mp3",
+      "ms": 1416,
+      "spoken": "The possibility of an event",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The quadrilateral has ___ right angles and ___ angles that are not right angles.": {
+      "file": "assets/voice/the-quadrilateral-has-right-angles-and-a-e10a97-jess.mp3",
+      "ms": 4320,
+      "spoken": "The quadrilateral has ___ right angles and ___ angles that are not right angles.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The result of the multiplication 32 × 3 is:": {
+      "file": "assets/voice/the-result-of-the-multiplication-32-3-is-b60d3b-jess.mp3",
+      "ms": 3000,
+      "spoken": "The result of the multiplication 32 × 3 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The shop has ___ kg of rice left.": {
+      "file": "assets/voice/the-shop-has-kg-of-rice-left-fcf761-jess.mp3",
+      "ms": 1992,
+      "spoken": "The shop has ___ kg of rice left.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The three stores have ___ kg of rice in all.": {
+      "file": "assets/voice/the-three-stores-have-kg-of-rice-in-all-9efdb1-jess.mp3",
+      "ms": 2304,
+      "spoken": "The three stores have ___ kg of rice in all.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The two classes plant ___ trees.": {
+      "file": "assets/voice/the-two-classes-plant-trees-597cc9-jess.mp3",
+      "ms": 1800,
+      "spoken": "The two classes plant ___ trees.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The value of the Roman numeral IX is:": {
+      "file": "assets/voice/the-value-of-the-roman-numeral-ix-is-c7c750-jess.mp3",
+      "ms": 2136,
+      "spoken": "The value of the Roman numeral IX is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The value of the expression 382 - 47 × 4 is:": {
+      "file": "assets/voice/the-value-of-the-expression-382-47-4-is-5bddda-jess.mp3",
+      "ms": 3432,
+      "spoken": "The value of the expression 382 - 47 × 4 is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:There are 1.569 books. They are shared equally among 3 libraries. Then each library gets 405 more books. How many books does each library have now?": {
+      "file": "assets/voice/there-are-1-569-books-they-are-shared-eq-385ae8-jess.mp3",
+      "ms": 10944,
+      "spoken": "There are 1.569 books. They are shared equally among 3 libraries. Then each library gets 405 more books. How many books does each library have now?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:There are 25 oranges. We put 4 oranges on each plate. What is the greatest number of plates we can fill, and how many oranges are left over?": {
+      "file": "assets/voice/there-are-25-oranges-we-put-4-oranges-on-2cf915-jess.mp3",
+      "ms": 8616,
+      "spoken": "There are 25 oranges. We put 4 oranges on each plate. What is the greatest number of plates we can fill, and how many oranges are left over?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:There are ___ right angles in all.": {
+      "file": "assets/voice/there-are-right-angles-in-all-cae78f-jess.mp3",
+      "ms": 1488,
+      "spoken": "There are ___ right angles in all.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:There are about ___ people.": {
+      "file": "assets/voice/there-are-about-people-ea040b-jess.mp3",
+      "ms": 1488,
+      "spoken": "There are about ___ people.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Thirteen thousand two hundred and ninety-four.": {
+      "file": "assets/voice/thirteen-thousand-two-hundred-and-ninety-5beb6e-jess.mp3",
+      "ms": 1872,
+      "spoken": "Thirteen thousand two hundred and ninety-four.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Thirty thousand nine hundred and thirty-one.": {
+      "file": "assets/voice/thirty-thousand-nine-hundred-and-thirty-04ff6a-jess.mp3",
+      "ms": 2064,
+      "spoken": "Thirty thousand nine hundred and thirty-one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Thirty thousand three hundred and thirty-six.": {
+      "file": "assets/voice/thirty-thousand-three-hundred-and-thirty-40777b-jess.mp3",
+      "ms": 2184,
+      "spoken": "Thirty thousand three hundred and thirty-six.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Thirty-four.": {
+      "file": "assets/voice/thirty-four-d7a8d7-jess.mp3",
+      "ms": 696,
+      "spoken": "Thirty-four.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:This year the child is 5 years old. Mum is 20 years older than the child. This year, Mum's age is how many times the child's age?": {
+      "file": "assets/voice/this-year-the-child-is-5-years-old-mum-i-635720-jess.mp3",
+      "ms": 8040,
+      "spoken": "This year the child is 5 years old. Mum is 20 years older than the child. This year, Mum's age is how many times the child's age?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Three hundred and fifteen.": {
+      "file": "assets/voice/three-hundred-and-fifteen-c25981-jess.mp3",
+      "ms": 1272,
+      "spoken": "Three hundred and fifteen.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Three hundred and forty-one.": {
+      "file": "assets/voice/three-hundred-and-forty-one-577a52-jess.mp3",
+      "ms": 1248,
+      "spoken": "Three hundred and forty-one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Three thousand eight hundred and thirty-one.": {
+      "file": "assets/voice/three-thousand-eight-hundred-and-thirty-2a530b-jess.mp3",
+      "ms": 1896,
+      "spoken": "Three thousand eight hundred and thirty-one.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Times as many: multiplying a number": {
       "file": "assets/voice/times-as-many-multiplying-a-number-8c1b6e-jess.mp3",
       "ms": 2112,
       "spoken": "Times as many: multiplying a number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Triangle APK has sides of 16 cm, 7 cm and 22 cm. Find the perimeter of the triangle.": {
+      "file": "assets/voice/triangle-apk-has-sides-of-16-cm-7-cm-and-92bde9-jess.mp3",
+      "ms": 6912,
+      "spoken": "Triangle APK has sides of 16 cm, 7 cm and 22 cm. Find the perimeter of the triangle.",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:Triangles and quadrilaterals. Rectangles and squares": {
@@ -46670,16 +48548,238 @@
       "spoken": "Try again!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:Twelve.": {
+      "file": "assets/voice/twelve-4d5d48-jess.mp3",
+      "ms": 624,
+      "spoken": "Twelve.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Twenty-five thousand.": {
+      "file": "assets/voice/twenty-five-thousand-aa4eb2-jess.mp3",
+      "ms": 1224,
+      "spoken": "Twenty-five thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Twenty-four centimetres.": {
+      "file": "assets/voice/twenty-four-centimetres-339a76-jess.mp3",
+      "ms": 1296,
+      "spoken": "Twenty-four centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Twenty-six square centimetres.": {
+      "file": "assets/voice/twenty-six-square-centimetres-01d02a-jess.mp3",
+      "ms": 1608,
+      "spoken": "Twenty-six square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two hundred and nine square centimetres.": {
+      "file": "assets/voice/two-hundred-and-nine-square-centimetres-66b198-jess.mp3",
+      "ms": 1992,
+      "spoken": "Two hundred and nine square centimetres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two hundred and two.": {
+      "file": "assets/voice/two-hundred-and-two-1866a3-jess.mp3",
+      "ms": 1128,
+      "spoken": "Two hundred and two.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two metres.": {
+      "file": "assets/voice/two-metres-63515e-jess.mp3",
+      "ms": 816,
+      "spoken": "Two metres.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two thousand nine hundred and fifty-two.": {
+      "file": "assets/voice/two-thousand-nine-hundred-and-fifty-two-0cdbb5-jess.mp3",
+      "ms": 1848,
+      "spoken": "Two thousand nine hundred and fifty-two.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two thousand three hundred and seventy-six.": {
+      "file": "assets/voice/two-thousand-three-hundred-and-seventy-s-1df6fd-jess.mp3",
+      "ms": 2112,
+      "spoken": "Two thousand three hundred and seventy-six.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Two thousand.": {
+      "file": "assets/voice/two-thousand-50c418-jess.mp3",
+      "ms": 816,
+      "spoken": "Two thousand.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:V = ___ II = ___ XVI = ___": {
+      "file": "assets/voice/v-ii-xvi-4fc987-jess.mp3",
+      "ms": 2304,
+      "spoken": "V = ___ II = ___ XVI = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:VII + V = ?": {
+      "file": "assets/voice/vii-v-589a77-jess.mp3",
+      "ms": 1464,
+      "spoken": "VII + V = ?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:VII + V = ___": {
+      "file": "assets/voice/vii-v-e74baf-jess.mp3",
+      "ms": 1512,
+      "spoken": "VII + V = ___",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Vietnamese money": {
+      "file": "assets/voice/vietnamese-money-5c1b4e-jess.mp3",
+      "ms": 1080,
+      "spoken": "Vietnamese money",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Warehouse A has 6 trucks. Each truck carries 1.182 kg. Warehouse B has 2 trucks. Each truck carries 2.401 kg. How many more kilograms of goods does warehouse A have than warehouse B?": {
+      "file": "assets/voice/warehouse-a-has-6-trucks-each-truck-carr-b7e51b-jess.mp3",
+      "ms": 17160,
+      "spoken": "Warehouse A has 6 trucks. Each truck carries 1.182 kg. Warehouse B has 2 trucks. Each truck carries 2.401 kg. How many more kilograms of goods does warehouse A have than warehouse B?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:We can fill ___ plates at most, with ___ oranges left over.": {
+      "file": "assets/voice/we-can-fill-plates-at-most-with-oranges-728916-jess.mp3",
+      "ms": 2760,
+      "spoken": "We can fill ___ plates at most, with ___ oranges left over.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Well done!": {
       "file": "assets/voice/well-done-6b3efd-jess.mp3",
       "ms": 744,
       "spoken": "Well done!",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:When we divide by 8, the biggest possible remainder is:": {
+      "file": "assets/voice/when-we-divide-by-8-the-biggest-possible-4d67bb-jess.mp3",
+      "ms": 2808,
+      "spoken": "When we divide by 8, the biggest possible remainder is:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which Roman numeral has the greatest value?": {
+      "file": "assets/voice/which-roman-numeral-has-the-greatest-val-82b4ca-jess.mp3",
+      "ms": 2040,
+      "spoken": "Which Roman numeral has the greatest value?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which bridge is the longest? Sông Hồng Bridge: 36.363 m long Sông Mã Bridge: 39.163 m long Sông Lam Bridge: 32.163 m long": {
+      "file": "assets/voice/which-bridge-is-the-longest-song-hong-br-ae5ce2-jess.mp3",
+      "ms": 14256,
+      "spoken": "Which bridge is the longest? Sông Hồng Bridge: 36.363 m long Sông Mã Bridge: 39.163 m long Sông Lam Bridge: 32.163 m long",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which calculation has the biggest answer?": {
+      "file": "assets/voice/which-calculation-has-the-biggest-answer-438f31-jess.mp3",
+      "ms": 2064,
+      "spoken": "Which calculation has the biggest answer?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which calculation has the greatest answer?": {
+      "file": "assets/voice/which-calculation-has-the-greatest-answe-4894d1-jess.mp3",
+      "ms": 2112,
+      "spoken": "Which calculation has the greatest answer?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which division below divides exactly?": {
+      "file": "assets/voice/which-division-below-divides-exactly-e520a6-jess.mp3",
+      "ms": 1872,
+      "spoken": "Which division below divides exactly?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which expression has the greatest value?": {
+      "file": "assets/voice/which-expression-has-the-greatest-value-c5323d-jess.mp3",
+      "ms": 1896,
+      "spoken": "Which expression has the greatest value?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which expression has the largest value?": {
+      "file": "assets/voice/which-expression-has-the-largest-value-e146ac-jess.mp3",
+      "ms": 2040,
+      "spoken": "Which expression has the largest value?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which shape has the greatest perimeter?": {
+      "file": "assets/voice/which-shape-has-the-greatest-perimeter-3ec0ba-jess.mp3",
+      "ms": 1656,
+      "spoken": "Which shape has the greatest perimeter?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Which tool do we use to check if an angle is a right angle?": {
+      "file": "assets/voice/which-tool-do-we-use-to-check-if-an-angl-64500e-jess.mp3",
+      "ms": 2736,
+      "spoken": "Which tool do we use to check if an angle is a right angle?",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:Word problems with two steps": {
       "file": "assets/voice/word-problems-with-two-steps-457081-jess.mp3",
       "ms": 1488,
       "spoken": "Word problems with two steps",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write the correct number.": {
+      "file": "assets/voice/write-the-correct-number-74f2c8-jess.mp3",
+      "ms": 1104,
+      "spoken": "Write the correct number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write the correct numbers in the gaps:": {
+      "file": "assets/voice/write-the-correct-numbers-in-the-gaps-37a4db-jess.mp3",
+      "ms": 1824,
+      "spoken": "Write the correct numbers in the gaps:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write the missing number in the blank:": {
+      "file": "assets/voice/write-the-missing-number-in-the-blank-cf5037-jess.mp3",
+      "ms": 1536,
+      "spoken": "Write the missing number in the blank:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write the missing number.": {
+      "file": "assets/voice/write-the-missing-number-fd6f76-jess.mp3",
+      "ms": 1056,
+      "spoken": "Write the missing number.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write the numbers in columns, then calculate.": {
+      "file": "assets/voice/write-the-numbers-in-columns-then-calcul-093206-jess.mp3",
+      "ms": 2112,
+      "spoken": "Write the numbers in columns, then calculate.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Write these Roman numerals as normal numbers:": {
+      "file": "assets/voice/write-these-roman-numerals-as-normal-num-0b589e-jess.mp3",
+      "ms": 2232,
+      "spoken": "Write these Roman numerals as normal numbers:",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:___ + 1.484 = 4.436": {
+      "file": "assets/voice/1-484-4-436-8b8bde-jess.mp3",
+      "ms": 4992,
+      "spoken": "___ + 1.484 = 4.436",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:___ + 2.709 - 3.344 = 4.315": {
+      "file": "assets/voice/2-709-3-344-4-315-1ab329-jess.mp3",
+      "ms": 6000,
+      "spoken": "___ + 2.709 - 3.344 = 4.315",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:___ + 44.034 = 85.464": {
+      "file": "assets/voice/44-034-85-464-4ede40-jess.mp3",
+      "ms": 5448,
+      "spoken": "___ + 44.034 = 85.464",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:___ times.": {
+      "file": "assets/voice/times-6b08c8-jess.mp3",
+      "ms": 1056,
+      "spoken": "___ times.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:about": {
+      "file": "assets/voice/about-b32392-jess.mp3",
+      "ms": 552,
+      "spoken": "about",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:add": {
@@ -46724,6 +48824,12 @@
       "spoken": "apple",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:area": {
+      "file": "assets/voice/area-9b0f21-jess.mp3",
+      "ms": 648,
+      "spoken": "area",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:at least": {
       "file": "assets/voice/at-least-4b6429-jess.mp3",
       "ms": 696,
@@ -46734,6 +48840,18 @@
       "file": "assets/voice/bag-63b75f-jess.mp3",
       "ms": 432,
       "spoken": "bag",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:ball": {
+      "file": "assets/voice/ball-348f13-jess.mp3",
+      "ms": 528,
+      "spoken": "ball",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:banknote": {
+      "file": "assets/voice/banknote-6b5269-jess.mp3",
+      "ms": 768,
+      "spoken": "banknote",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:basket": {
@@ -46754,10 +48872,46 @@
       "spoken": "bicycle",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:bigger": {
+      "file": "assets/voice/bigger-82eef0-jess.mp3",
+      "ms": 456,
+      "spoken": "bigger",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:bigger number": {
+      "file": "assets/voice/bigger-number-b607ed-jess.mp3",
+      "ms": 696,
+      "spoken": "bigger number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:biggest": {
+      "file": "assets/voice/biggest-f922ea-jess.mp3",
+      "ms": 696,
+      "spoken": "biggest",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:birthday": {
+      "file": "assets/voice/birthday-efeb5a-jess.mp3",
+      "ms": 744,
+      "spoken": "birthday",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:boat": {
       "file": "assets/voice/boat-dcb746-jess.mp3",
       "ms": 480,
       "spoken": "boat",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:boiling": {
+      "file": "assets/voice/boiling-e86bf6-jess.mp3",
+      "ms": 696,
+      "spoken": "boiling",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:book": {
+      "file": "assets/voice/book-c1948a-jess.mp3",
+      "ms": 456,
+      "spoken": "book",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:both": {
@@ -46772,16 +48926,40 @@
       "spoken": "box",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:brackets": {
+      "file": "assets/voice/brackets-74a2e5-jess.mp3",
+      "ms": 672,
+      "spoken": "brackets",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:brick": {
       "file": "assets/voice/brick-0cd947-jess.mp3",
       "ms": 288,
       "spoken": "brick",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:bridge": {
+      "file": "assets/voice/bridge-eab806-jess.mp3",
+      "ms": 528,
+      "spoken": "bridge",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:broken line": {
       "file": "assets/voice/broken-line-3d73d8-jess.mp3",
       "ms": 840,
       "spoken": "broken line",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:bus": {
+      "file": "assets/voice/bus-5fd56d-jess.mp3",
+      "ms": 624,
+      "spoken": "bus",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:buy": {
+      "file": "assets/voice/buy-65d577-jess.mp3",
+      "ms": 480,
+      "spoken": "buy",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:calculate": {
@@ -46796,10 +48974,28 @@
       "spoken": "calculate in your head",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:calendar": {
+      "file": "assets/voice/calendar-a4810d-jess.mp3",
+      "ms": 624,
+      "spoken": "calendar",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:capacity": {
       "file": "assets/voice/capacity-6a18cf-jess.mp3",
       "ms": 864,
       "spoken": "capacity",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:carry": {
+      "file": "assets/voice/carry-7013d6-jess.mp3",
+      "ms": 576,
+      "spoken": "carry",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:cement": {
+      "file": "assets/voice/cement-019b5e-jess.mp3",
+      "ms": 792,
+      "spoken": "cement",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:centimetre": {
@@ -46814,16 +49010,52 @@
       "spoken": "centre",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:certain": {
+      "file": "assets/voice/certain-3f55c8-jess.mp3",
+      "ms": 624,
+      "spoken": "certain",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:chalk": {
       "file": "assets/voice/chalk-3dadb0-jess.mp3",
       "ms": 552,
       "spoken": "chalk",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:change": {
+      "file": "assets/voice/change-729d01-jess.mp3",
+      "ms": 720,
+      "spoken": "change",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:chapter": {
+      "file": "assets/voice/chapter-29f4e8-jess.mp3",
+      "ms": 1008,
+      "spoken": "chapter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:check": {
+      "file": "assets/voice/check-b3711c-jess.mp3",
+      "ms": 432,
+      "spoken": "check",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:chicken": {
+      "file": "assets/voice/chicken-f161ff-jess.mp3",
+      "ms": 528,
+      "spoken": "chicken",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:circle": {
       "file": "assets/voice/circle-282170-jess.mp3",
       "ms": 720,
       "spoken": "circle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:class": {
+      "file": "assets/voice/class-ab3e0b-jess.mp3",
+      "ms": 648,
+      "spoken": "class",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:clock": {
@@ -46844,6 +49076,12 @@
       "spoken": "cold",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:collect": {
+      "file": "assets/voice/collect-8efe6e-jess.mp3",
+      "ms": 624,
+      "spoken": "collect",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:column": {
       "file": "assets/voice/column-f5f8d2-jess.mp3",
       "ms": 624,
@@ -46860,6 +49098,12 @@
       "file": "assets/voice/corner-244a21-jess.mp3",
       "ms": 576,
       "spoken": "corner",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:count": {
+      "file": "assets/voice/count-39b1dd-jess.mp3",
+      "ms": 360,
+      "spoken": "count",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:count on": {
@@ -46880,6 +49124,30 @@
       "spoken": "cuboid",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:cut": {
+      "file": "assets/voice/cut-f6562d-jess.mp3",
+      "ms": 408,
+      "spoken": "cut",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:data": {
+      "file": "assets/voice/data-d872e2-jess.mp3",
+      "ms": 528,
+      "spoken": "data",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:data table": {
+      "file": "assets/voice/data-table-79db45-jess.mp3",
+      "ms": 864,
+      "spoken": "data table",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:day": {
+      "file": "assets/voice/day-e44f21-jess.mp3",
+      "ms": 408,
+      "spoken": "day",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:degrees Celsius": {
       "file": "assets/voice/degrees-celsius-32c9dc-jess.mp3",
       "ms": 1248,
@@ -46890,6 +49158,12 @@
       "file": "assets/voice/diameter-d96f5c-jess.mp3",
       "ms": 744,
       "spoken": "diameter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:dice": {
+      "file": "assets/voice/dice-5b37c0-jess.mp3",
+      "ms": 528,
+      "spoken": "dice",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:difference": {
@@ -46940,6 +49214,12 @@
       "spoken": "divisor",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:dong": {
+      "file": "assets/voice/dong-24f37d-jess.mp3",
+      "ms": 528,
+      "spoken": "dong",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:double": {
       "file": "assets/voice/double-a0eb0f-jess.mp3",
       "ms": 504,
@@ -46976,6 +49256,18 @@
       "spoken": "equally",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:estimate": {
+      "file": "assets/voice/estimate-9a7026-jess.mp3",
+      "ms": 696,
+      "spoken": "estimate",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:event": {
+      "file": "assets/voice/event-fe30d0-jess.mp3",
+      "ms": 480,
+      "spoken": "event",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:expression": {
       "file": "assets/voice/expression-cf15af-jess.mp3",
       "ms": 816,
@@ -46994,10 +49286,52 @@
       "spoken": "factor",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:factory": {
+      "file": "assets/voice/factory-959ce8-jess.mp3",
+      "ms": 696,
+      "spoken": "factory",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:fence": {
+      "file": "assets/voice/fence-bc8146-jess.mp3",
+      "ms": 576,
+      "spoken": "fence",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:fever": {
+      "file": "assets/voice/fever-809e3f-jess.mp3",
+      "ms": 576,
+      "spoken": "fever",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:first": {
+      "file": "assets/voice/first-4881d8-jess.mp3",
+      "ms": 576,
+      "spoken": "first",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:flower": {
+      "file": "assets/voice/flower-d1df80-jess.mp3",
+      "ms": 552,
+      "spoken": "flower",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:glass": {
       "file": "assets/voice/glass-f203a9-jess.mp3",
       "ms": 624,
       "spoken": "glass",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:go down": {
+      "file": "assets/voice/go-down-704673-jess.mp3",
+      "ms": 552,
+      "spoken": "go down",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:go up": {
+      "file": "assets/voice/go-up-081695-jess.mp3",
+      "ms": 384,
+      "spoken": "go up",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:gram": {
@@ -47018,6 +49352,12 @@
       "spoken": "greatest",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:group": {
+      "file": "assets/voice/group-5fb91e-jess.mp3",
+      "ms": 432,
+      "spoken": "group",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:half": {
       "file": "assets/voice/half-d6bec8-jess.mp3",
       "ms": 552,
@@ -47036,10 +49376,28 @@
       "spoken": "hot",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:hour": {
+      "file": "assets/voice/hour-b6032c-jess.mp3",
+      "ms": 528,
+      "spoken": "hour",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:hundreds": {
       "file": "assets/voice/hundreds-d91e88-jess.mp3",
       "ms": 744,
       "spoken": "hundreds",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:ice": {
+      "file": "assets/voice/ice-72e0f8-jess.mp3",
+      "ms": 552,
+      "spoken": "ice",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:impossible": {
+      "file": "assets/voice/impossible-45dbd4-jess.mp3",
+      "ms": 840,
+      "spoken": "impossible",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:in all": {
@@ -47066,10 +49424,22 @@
       "spoken": "kilometre",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:largest": {
+      "file": "assets/voice/largest-1fc17d-jess.mp3",
+      "ms": 768,
+      "spoken": "largest",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:left": {
       "file": "assets/voice/left-124aec-jess.mp3",
       "ms": 624,
       "spoken": "left",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:left to right": {
+      "file": "assets/voice/left-to-right-d9f24f-jess.mp3",
+      "ms": 744,
+      "spoken": "left to right",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:length": {
@@ -47082,6 +49452,12 @@
       "file": "assets/voice/less-than-05c6c8-jess.mp3",
       "ms": 672,
       "spoken": "less than",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:library": {
+      "file": "assets/voice/library-90f6fb-jess.mp3",
+      "ms": 720,
+      "spoken": "library",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:line segment": {
@@ -47144,16 +49520,40 @@
       "spoken": "minuend",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:minute": {
+      "file": "assets/voice/minute-38e70f-jess.mp3",
+      "ms": 528,
+      "spoken": "minute",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:missing number": {
       "file": "assets/voice/missing-number-0caa84-jess.mp3",
       "ms": 792,
       "spoken": "missing number",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:money": {
+      "file": "assets/voice/money-e150c9-jess.mp3",
+      "ms": 528,
+      "spoken": "money",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:month": {
+      "file": "assets/voice/month-d67a06-jess.mp3",
+      "ms": 504,
+      "spoken": "month",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:more than": {
       "file": "assets/voice/more-than-340224-jess.mp3",
       "ms": 600,
       "spoken": "more than",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:move": {
+      "file": "assets/voice/move-184b00-jess.mp3",
+      "ms": 456,
+      "spoken": "move",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:multiplication": {
@@ -47172,6 +49572,18 @@
       "file": "assets/voice/multiply-ff9424-jess.mp3",
       "ms": 744,
       "spoken": "multiply",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:name": {
+      "file": "assets/voice/name-8d39bd-jess.mp3",
+      "ms": 528,
+      "spoken": "name",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:notebook": {
+      "file": "assets/voice/notebook-4dec63-jess.mp3",
+      "ms": 672,
+      "spoken": "notebook",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:number": {
@@ -47204,6 +49616,18 @@
       "spoken": "ones",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:orange": {
+      "file": "assets/voice/orange-45b473-jess.mp3",
+      "ms": 720,
+      "spoken": "orange",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:order": {
+      "file": "assets/voice/order-732c10-jess.mp3",
+      "ms": 576,
+      "spoken": "order",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:part": {
       "file": "assets/voice/part-7c7836-jess.mp3",
       "ms": 504,
@@ -47222,6 +49646,12 @@
       "spoken": "pencil",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:perimeter": {
+      "file": "assets/voice/perimeter-33f8b4-jess.mp3",
+      "ms": 720,
+      "spoken": "perimeter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:plate": {
       "file": "assets/voice/plate-c90114-jess.mp3",
       "ms": 480,
@@ -47232,6 +49662,24 @@
       "file": "assets/voice/point-18ae6c-jess.mp3",
       "ms": 528,
       "spoken": "point",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:possibility": {
+      "file": "assets/voice/possibility-4bcecd-jess.mp3",
+      "ms": 864,
+      "spoken": "possibility",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:possible": {
+      "file": "assets/voice/possible-13fe35-jess.mp3",
+      "ms": 672,
+      "spoken": "possible",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:price": {
+      "file": "assets/voice/price-0b4445-jess.mp3",
+      "ms": 600,
+      "spoken": "price",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:problem": {
@@ -47270,6 +49718,12 @@
       "spoken": "radius",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:record": {
+      "file": "assets/voice/record-593058-jess.mp3",
+      "ms": 576,
+      "spoken": "record",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:rectangle": {
       "file": "assets/voice/rectangle-f27004-jess.mp3",
       "ms": 840,
@@ -47282,6 +49736,18 @@
       "spoken": "remainder",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:result": {
+      "file": "assets/voice/result-0a3776-jess.mp3",
+      "ms": 696,
+      "spoken": "result",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:rice": {
+      "file": "assets/voice/rice-0552c2-jess.mp3",
+      "ms": 624,
+      "spoken": "rice",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:right angle": {
       "file": "assets/voice/right-angle-3c7df6-jess.mp3",
       "ms": 720,
@@ -47292,6 +49758,24 @@
       "file": "assets/voice/rope-4044a2-jess.mp3",
       "ms": 504,
       "spoken": "rope",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:round": {
+      "file": "assets/voice/round-4f0be2-jess.mp3",
+      "ms": 528,
+      "spoken": "round",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:round down": {
+      "file": "assets/voice/round-down-bed973-jess.mp3",
+      "ms": 720,
+      "spoken": "round down",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:round up": {
+      "file": "assets/voice/round-up-88f39a-jess.mp3",
+      "ms": 552,
+      "spoken": "round up",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:row": {
@@ -47324,6 +49808,12 @@
       "spoken": "set square",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:shape": {
+      "file": "assets/voice/shape-9dc3d9-jess.mp3",
+      "ms": 504,
+      "spoken": "shape",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:share equally": {
       "file": "assets/voice/share-equally-74e4c3-jess.mp3",
       "ms": 912,
@@ -47334,6 +49824,18 @@
       "file": "assets/voice/shelf-07e1ec-jess.mp3",
       "ms": 696,
       "spoken": "shelf",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:shirt": {
+      "file": "assets/voice/shirt-43e365-jess.mp3",
+      "ms": 552,
+      "spoken": "shirt",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:shop": {
+      "file": "assets/voice/shop-a847e0-jess.mp3",
+      "ms": 624,
+      "spoken": "shop",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:short": {
@@ -47354,16 +49856,52 @@
       "spoken": "sign",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:smaller": {
+      "file": "assets/voice/smaller-0d5161-jess.mp3",
+      "ms": 600,
+      "spoken": "smaller",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:smaller number": {
+      "file": "assets/voice/smaller-number-426faf-jess.mp3",
+      "ms": 864,
+      "spoken": "smaller number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:smallest": {
       "file": "assets/voice/smallest-4019e7-jess.mp3",
       "ms": 840,
       "spoken": "smallest",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:smallest to largest": {
+      "file": "assets/voice/smallest-to-largest-d410a5-jess.mp3",
+      "ms": 1536,
+      "spoken": "smallest to largest",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:sort": {
+      "file": "assets/voice/sort-042bc8-jess.mp3",
+      "ms": 576,
+      "spoken": "sort",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:square": {
       "file": "assets/voice/square-b4b612-jess.mp3",
       "ms": 552,
       "spoken": "square",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:square centimetre": {
+      "file": "assets/voice/square-centimetre-88027a-jess.mp3",
+      "ms": 1152,
+      "spoken": "square centimetre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:stadium": {
+      "file": "assets/voice/stadium-dae3b2-jess.mp3",
+      "ms": 816,
+      "spoken": "stadium",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:star": {
@@ -47432,10 +49970,28 @@
       "spoken": "temperature",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:ten thousands": {
+      "file": "assets/voice/ten-thousands-630232-jess.mp3",
+      "ms": 1032,
+      "spoken": "ten thousands",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:tens": {
       "file": "assets/voice/tens-b11359-jess.mp3",
       "ms": 648,
       "spoken": "tens",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:the least": {
+      "file": "assets/voice/the-least-c8bc4e-jess.mp3",
+      "ms": 624,
+      "spoken": "the least",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:the most": {
+      "file": "assets/voice/the-most-b07471-jess.mp3",
+      "ms": 648,
+      "spoken": "the most",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:thermometer": {
@@ -47450,16 +50006,46 @@
       "spoken": "third",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:thousands": {
+      "file": "assets/voice/thousands-59530a-jess.mp3",
+      "ms": 768,
+      "spoken": "thousands",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:times as many": {
       "file": "assets/voice/times-as-many-8324ea-jess.mp3",
       "ms": 912,
       "spoken": "times as many",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
+    "en:total": {
+      "file": "assets/voice/total-04d092-jess.mp3",
+      "ms": 504,
+      "spoken": "total",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:train": {
+      "file": "assets/voice/train-78556c-jess.mp3",
+      "ms": 480,
+      "spoken": "train",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:tree": {
+      "file": "assets/voice/tree-6d8b34-jess.mp3",
+      "ms": 504,
+      "spoken": "tree",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
     "en:triangle": {
       "file": "assets/voice/triangle-050250-jess.mp3",
       "ms": 888,
       "spoken": "triangle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:unit": {
+      "file": "assets/voice/unit-e8b51a-jess.mp3",
+      "ms": 456,
+      "spoken": "unit",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:value": {
@@ -47484,6 +50070,12 @@
       "file": "assets/voice/water-49c69a-jess.mp3",
       "ms": 528,
       "spoken": "water",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:week": {
+      "file": "assets/voice/week-d5c696-jess.mp3",
+      "ms": 528,
+      "spoken": "week",
       "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "en:weight": {
