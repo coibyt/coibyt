@@ -942,13 +942,17 @@ body.in-hub #lisaPop, body.in-hub #lisaAva{visibility:hidden}
 .etopics label{margin:3px 0 !important; font-weight:700 !important}
 #enGate input{font:inherit; font-size:22px; width:110px; padding:6px 10px; border-radius:12px; border:2px solid #d9cdf7; margin-right:8px}
 .ennote{font-weight:800}
-.enquiz{position:fixed; inset:0; z-index:95; display:grid; place-items:center; padding:16px; background:rgba(15,30,60,.55)}
+.enquiz{position:fixed; inset:0; z-index:96; display:grid; place-items:center; padding:16px; background:rgba(15,30,60,.55)}
 .enquiz[hidden]{display:none}
 .enquiz-card{position:relative; width:min(460px,100%); padding:16px 14px 14px; border-radius:28px; background:linear-gradient(180deg,#fffdf6,#e9f8ff); box-shadow:0 0 0 4px #ffd166, 0 18px 40px rgba(0,0,0,.35); animation:mbub .4s var(--spring)}
 #enQuizLisa{position:absolute; left:-6px; top:-70px; width:96px; filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
 .enquiz-q{position:relative; text-align:center; padding:4px 44px 10px 70px}
 .enquiz-q small{display:block; font-weight:900; color:#c99a1e} .enquiz-q b{font-size:24px; color:#c9184a}
 .enquiz-cards{display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+.enstage.three{grid-template-columns:repeat(3,minmax(0,min(29vw,20vh))) !important}
+.ecard.show{animation:eshow .6s ease 2}
+@keyframes eshow{50%{transform:scale(1.08)}}
+.enq b{letter-spacing:.5px}
 .enpane[hidden]{display:none !important}
 .enstage:not(.balloon):not(.read):not(.say){grid-template-columns:repeat(2,minmax(0,min(38vw,19vh))); justify-content:center; gap:10px}
 .enmain:has(#enLesson:not([hidden])) .entutor img{width:68px}
@@ -959,6 +963,7 @@ body.in-hub #lisaPop, body.in-hub #lisaAva{visibility:hidden}
 .ennote{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
 .ennote .pill{margin:0}
 @media (min-width:700px){ .enstage:not(.balloon):not(.read):not(.say){grid-template-columns:repeat(4,minmax(0,min(20vw,24vh)))} .enquiz-cards .ecard{max-height:24vh} }
+body.scr-englishIsland #lisaPop, body:has(#enQuiz:not([hidden])) #lisaPop{display:none !important}   /* the island / quiz card has its own Lisa */
 /* hub: energy price on play buttons */
 .hbtn .cost{display:inline-block; margin-left:5px; padding:1px 6px; border-radius:999px; font-size:11.5px; background:rgba(255,255,255,.25)}
 </style>
@@ -1251,14 +1256,14 @@ body.in-hub #lisaPop, body.in-hub #lisaAva{visibility:hidden}
   <div class="ss-top">
     <button class="btn" id="enBack" style="--c:#ffc8dd" aria-label="Về sảnh"><span class="ico" data-icon="home">🏠</span></button>
     <h2>🌴 Đảo tiếng Anh</h2>
-    <span class="energy" id="enEnergy" title="Năng lượng để chơi">⚡ <b>5</b></span>
+    <span class="energy" id="enEnergy" title="Sao tiếng Anh">⭐ <b>5</b></span>
   </div>
   <div class="enmain">
     <div class="fx" id="enFx"></div>
     <div class="entutor"><img id="enLisa" alt="Cô Lisa" draggable="false"><p id="enSay" aria-live="polite"></p></div>
     <div class="enpane" id="enLoading"><div class="pv-spin"></div></div>
     <div class="enpane" id="enMenu" hidden>
-      <button class="enbig" id="enLearnAll">▶ Học ngay <small>trả lời đúng mỗi câu được +1 ⚡</small></button>
+      <button class="enbig" id="enLearnAll">▶ Học ngay <small>trả lời đúng mỗi câu được +1 ⭐</small></button>
       <div class="etopics-grid" id="enTopics"></div>
       <div class="enrow"><button class="enlink" id="enBookBtn">📒 Sổ từ vựng</button><span class="enlearned" id="enLearned"></span><button class="enlink" id="enSetBtn">⚙️ Bố mẹ cài đặt</button></div>
     </div>
@@ -1283,14 +1288,14 @@ body.in-hub #lisaPop, body.in-hub #lisaAva{visibility:hidden}
       <h3>⚙️ Cài đặt học tiếng Anh <small>(dành cho bố mẹ)</small></h3>
       <div id="enGate"><p>Bố mẹ trả lời giúp: <b id="enGateQ"></b></p><input id="enGateA" type="number" inputmode="numeric" aria-label="Đáp án"><button class="pill" id="enGateOk" style="--c:#7b5cff">Mở</button></div>
       <form id="enSet" hidden onsubmit="return false">
-        <label><input type="checkbox" name="gate"> Học tiếng Anh để có năng lượng chơi</label>
-        <label>Mỗi lần vào phòng chơi tốn <select name="cost"><option value="1">1 ⚡</option><option value="2">2 ⚡</option><option value="3">3 ⚡</option></select></label>
-        <label>Câu đố bất ngờ khi đang chơi <select name="quiz"><option value="0">Tắt</option><option value="3">mỗi 3 phút</option><option value="5">mỗi 5 phút</option><option value="8">mỗi 8 phút</option></select></label>
-        <label>Số câu mỗi bài học <select name="count"><option value="5">5 câu</option><option value="8">8 câu</option><option value="10">10 câu</option></select></label>
-        <label>Trình độ <select name="level"><option value="pre">Mầm non (3–5 tuổi): nghe & chọn hình</option><option value="kid">Tiểu học (6–10 tuổi): thêm đọc chữ</option></select></label>
+        <label>Trước mỗi lần vào chơi hỏi <select name="ask"><option value="0">không hỏi (nên dùng)</option><option value="1">1 câu</option><option value="2">2 câu</option></select></label>
+        <label>Cho bé chơi tự do trước <select name="warm"><option value="0">không chờ</option><option value="5">5 phút</option><option value="10">10 phút</option><option value="20">20 phút</option></select> rồi mới hỏi câu đầu tiên</label>
+        <label>Sau đó hỏi 1 câu <select name="quiz"><option value="0">không hỏi</option><option value="3">mỗi 3 phút</option><option value="5">mỗi 5 phút</option><option value="8">mỗi 8 phút</option><option value="12">mỗi 12 phút</option></select> (đúng hay sai bé đều chơi tiếp)</label>
+        <label>Số câu mỗi bài học <select name="count"><option value="3">3 câu</option><option value="5">5 câu</option><option value="8">8 câu</option></select></label>
+        <label>Trình độ <select name="level"><option value="pre">Mẫu giáo & lớp 1: nghe 1 từ, chọn 1 trong 3 hình</option><option value="kid">Lớp 2 trở lên: 4 hình, thêm đọc chữ và nói</option></select></label>
         <label><input type="checkbox" name="mic"> Cho bé luyện nói qua micro (máy hỗ trợ)</label>
         <div class="etopics"></div>
-        <p class="ennote">Năng lượng hiện có: <b id="enEnergyNow">0</b> ⚡ <button type="button" class="pill" id="enSetPlus" style="--c:#ffd23f">+5 ⚡ thưởng</button> <button type="button" class="pill ghost" id="enSetReset">Xoá tiến độ từ vựng</button></p>
+        <p class="ennote">Sao tiếng Anh: <b id="enEnergyNow">0</b> ⭐ <button type="button" class="pill" id="enSetPlus" style="--c:#ffd23f">+5 ⭐ thưởng</button> <button type="button" class="pill ghost" id="enSetReset">Xoá tiến độ từ vựng</button></p>
         <div class="actions"><button type="button" class="pill" id="enSetSave" style="--c:#22c55e">💾 Lưu</button></div>
       </form>
       <div class="actions"><button class="pill ghost" id="enSetClose">Đóng</button></div>
@@ -5006,10 +5011,10 @@ function setStudio(id, mode) {
    introduces every room out loud (guided tour), a daily pick, progress, streak ---- */
 const FAR_VOICE = new Set();                                       // clips that live in be-tap-ve-voice/
 const HUB_CARDS = [
-  { id: 'english', cover: 'cv_english', title: 'Đảo tiếng Anh', sub: 'Học từ mới qua trò chơi, nạp năng lượng ⚡ để chơi các phòng',
-    learn: ['🔤 Từ vựng', '👂 Nghe', '🗣️ Nói'], tags: ['learn'], badge: 'MỚI',
+  { id: 'english', cover: 'cv_english', title: 'Đảo tiếng Anh', sub: 'Nghe từ tiếng Anh, chọn hình đúng, nhận sao ⭐',
+    learn: ['🔤 Từ vựng', '👂 Nghe', '🎈 Bóng bay'], tags: ['learn'], badge: 'MỚI',
     intro: 'Đảo tiếng Anh là nơi bé học từ mới qua trò chơi. Học càng nhiều, bé càng có nhiều năng lượng để chơi các phòng khác!',
-    play: [['▶ Học & nạp ⚡', () => English.open()]] },
+    play: [['▶ Học tiếng Anh', () => English.open()]] },
   { id: 'paper', cover: 'cv_paper', title: 'Phòng tranh', sub: 'Hơn 30 bức tranh để tô màu và vẽ theo từng bước',
     learn: ['🎨 Màu sắc', '🔤 Tiếng Anh', '✏️ Vẽ theo bước'], tags: ['draw'],
     intro: 'Phòng tranh có hơn ba mươi bức tranh để bé tô màu. Tô xong, bé còn học tên con vật bằng tiếng Anh nữa đó!',
@@ -5073,8 +5078,6 @@ const Hub = (() => {
     return Object.values(m).reduce((a, b) => a + b, 0) + Object.keys(r).length * 3 + Math.min(30, Object.values(st.plays).reduce((a, b) => a + b, 0));
   }
   function pickOfDay() {
-    const E = English.state();
-    if (E.set.gate && English.energy() < E.set.cost) return HUB_CARDS[0];     // no energy: learn first
     if (!Object.keys(st.plays).length) return HUB_CARDS[1];         // first visit: start with the drawing room
     const d = new Date(), seed = d.getFullYear() * 400 + d.getMonth() * 32 + d.getDate();
     const min = Math.min(...HUB_CARDS.map((c) => st.plays[c.id] || 0));
@@ -5156,8 +5159,7 @@ const Hub = (() => {
       const row = document.createElement('div'); row.className = 'hplay';
       c.play.forEach(([label2, fn, tip], k) => {
         const b = document.createElement('button'); b.className = k ? 'hbtn cam' : 'hbtn'; b.textContent = label2;
-        const E = English.state();
-        if (c.id !== 'english' && E.set.gate) b.append(Object.assign(document.createElement('span'), { className: 'cost', textContent: '⚡' + E.set.cost }));
+
         if (tip) { b.title = tip; b.setAttribute('aria-label', tip); }
         b.addEventListener('click', (e) => { e.stopPropagation(); pop(b); go(c, fn, b); });
         row.appendChild(b);
@@ -5169,7 +5171,7 @@ const Hub = (() => {
     });
     const s = $('#hubStats'); s.textContent = '';
     const tried = HUB_CARDS.filter((c) => st.plays[c.id]).length;
-    [['⚡', English.energy(), 'năng lượng'], ['⭐', stars(), 'sao'], ['🧭', `${tried}/${HUB_CARDS.length}`, 'phòng đã khám phá'], ['🔥', streak(), 'ngày liên tiếp']].forEach(([i, v, t]) => {
+    [['🔤', English.energy(), 'sao tiếng Anh'], ['⭐', stars(), 'sao'], ['🧭', `${tried}/${HUB_CARDS.length}`, 'phòng đã khám phá'], ['🔥', streak(), 'ngày liên tiếp']].forEach(([i, v, t]) => {
       const d = document.createElement('div'); d.className = 'hstat'; d.title = t;
       d.append(Object.assign(document.createElement('i'), { textContent: i }), Object.assign(document.createElement('b'), { textContent: v }), Object.assign(document.createElement('small'), { textContent: t }));
       s.appendChild(d);
@@ -5179,7 +5181,7 @@ const Hub = (() => {
   function go(c, fn, from) {
     stopTour();
     if (c.id !== 'english' && !English.pay(() => { played(c.id); fn(); if (c.id === 'paper' && !Tutor.done()) setTimeout(() => Tutor.start(), 300); }, from)) {
-      el.hidden = true; document.body.classList.remove('in-hub'); return;        // out of energy: a short English lesson first
+      el.hidden = true; document.body.classList.remove('in-hub'); return;        // one easy English question, then play
     }
     played(c.id);
     el.hidden = true;
@@ -7662,7 +7664,7 @@ const VTOPICS = [
   ['clothes', '👕 Quần áo', 'Clothes'], ['body', '👀 Cơ thể', 'Body'], ['family', '👨‍👩‍👧 Gia đình', 'Family'], ['weather', '🌦️ Thời tiết', 'Weather'], ['things', '🎒 Đồ vật', 'Things'],
 ];
 const SWATCH = { red: '#ef233c', blue: '#3a6ff7', yellow: '#ffd60a', green: '#2bb673', corange: '#ff8c1a', purple: '#9b5de5', pink: '#ff8fc2', black: '#1d1d1f', white: '#ffffff', brown: '#8b5a2b' };
-const EN_PRAISE = ['Great job!', 'Excellent!', 'Well done!', 'Super!', 'You did it!', 'Amazing!'];
+const EN_PRAISE = ['Good job!', 'Great!', 'Super!', 'Well done!'];
 const EL = {
   hello: 'Chào mừng bé đến Đảo tiếng Anh! Mình vừa chơi vừa học nhé!', pick: 'Bé chọn một chủ đề hoặc bấm Học ngay nhé!',
   listen: 'Bé nghe kỹ rồi chạm vào hình đúng nhé!', read: 'Bé nhìn hình rồi chọn chữ tiếng Anh đúng nhé!', balloon: 'Bóng bay đang bay lên! Bé chạm vào quả bóng đúng nhé!',
@@ -7670,18 +7672,20 @@ const EL = {
   empty: 'Hết năng lượng rồi! Mình học tiếng Anh một chút để nạp năng lượng nhé!', quiz: 'Câu đố nhanh! Bé trả lời đúng để chơi tiếp nhé!', quizOk: 'Giỏi quá! Chơi tiếp thôi!',
   ready: 'Bé đã có đủ năng lượng! Vào phòng chơi thôi!', book: 'Sổ từ vựng của bé đây! Chạm vào hình để nghe đọc nhé!', parents: 'Phần này dành cho bố mẹ nhé!',
   said: 'Bé nói hay quá!', again: 'Bé thử nói lại nhé!',
+  tap: 'Bé chọn hình đúng nhé!', tryLater: 'Chưa đúng rồi, bé cố gắng lần sau nhé!', good: 'Giỏi quá!', gate: 'Trả lời một câu rồi mình chơi nhé!', play: 'Mình vào chơi thôi!',
 };
 for (const t of Object.values(EL)) FAR_VOICE.add(clipKey(t));
 const xKey = (t) => 'x_' + fnv(t);
-for (const t of [...EN_PRAISE, 'Oops! Try again!', 'What is this?', 'Say it with me!', 'Listen!']) FAR_VOICE.add(xKey(t));
+for (const t of [...EN_PRAISE, 'Say it with me!']) FAR_VOICE.add(xKey(t));
 for (const [id] of VOCAB) for (const s of ['en', 'q', 'vi']) FAR_VOICE.add(`e_${id}_${s}`);
 
 const English = (() => {
   const el = $('#englishIsland'), KEY = 'btv.en';
   const DEF = { energy: 5, mastery: {}, lessons: 0, correct: 0,
-    set: { gate: true, cost: 1, quizMin: 5, count: 5, level: 'kid', topics: VTOPICS.map((t) => t[0]), mic: true } };
+    set: { ask: 0, quizMin: 5, warm: 10, count: 3, level: 'pre', topics: VTOPICS.map((t) => t[0]), mic: true }, playSec: 0 };
   let S = DEF;
   try { const o = JSON.parse(localStorage.getItem(KEY) || '{}'); S = { ...DEF, ...o, set: { ...DEF.set, ...(o.set || {}) } }; } catch (_) { /* fresh */ }
+  if (S.v !== 3) { S.v = 3; S.set = { ...S.set, ask: 0, warm: 10, count: 3, level: 'pre' }; delete S.set.gate; delete S.set.cost; }   // play first, learn later
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) { /* private mode */ } };
   let IMG = {}, ready = false, lesson = null, pending = null, sayN = 0, quiz = null;
 
@@ -7725,18 +7729,16 @@ const English = (() => {
     document.querySelectorAll('.energy b').forEach((b) => { b.textContent = S.energy; });
     if (from && S.energy !== old) {
       const r = from.getBoundingClientRect(), f = document.createElement('div');
-      f.className = 'efloat' + (S.energy < old ? ' minus' : ''); f.textContent = (S.energy > old ? '+' : '') + (S.energy - old) + ' ⚡';
+      f.className = 'efloat' + (S.energy < old ? ' minus' : ''); f.textContent = (S.energy > old ? '+' : '') + (S.energy - old) + ' ⭐';
       f.style.left = r.left + r.width / 2 + 'px'; f.style.top = r.top + 'px';
       document.body.appendChild(f); setTimeout(() => f.remove(), 1300);
     }
     stats.energy = S.energy;
   }
   /** Hub asks before a room opens: true = go on now; false = a lesson runs first. */
-  function pay(onReady, from) {
-    if (!S.set.gate) return true;
-    if (S.energy >= S.set.cost) { setEnergy(S.energy - S.set.cost, from); return true; }
-    pending = onReady;
-    open({ auto: true, empty: true });
+  function pay(onReady) {
+    if (!S.set.ask) return true;
+    askBeforePlay(S.set.ask, onReady);
     return false;
   }
 
@@ -7752,14 +7754,16 @@ const English = (() => {
       if (show !== false) box.textContent = text;
       await (prefs.sound ? playVoice(key, text, lang, tok) : wait(500 + text.length * 30));
       if (id !== sayN || (prefs.sound && tok !== Snd.token)) return false;
+      await wait(lang === 'en-US' ? 450 : 150);
     }
     if (id === sayN) img.classList.remove('talk');
     return true;
   }
   const vi = (t) => [t, clipKey(t), 'vi-VN'];
   const en = (t) => [t, xKey(t), 'en-US'];
-  const wq = (w) => [w[4], `e_${w[0]}_q`, 'en-US'];
-  const wen = (w) => [w[1] + '!', `e_${w[0]}_en`, 'en-US'];
+  const wq = (w) => [w[1], `e_${w[0]}_en`, 'en-US'];
+  const wen = (w) => [w[1], `e_${w[0]}_en`, 'en-US'];
+  const twice = (w) => [wq(w), [w[1], `e_${w[0]}_en`, 'en-US', false]];
   const wvi = (w) => [w[2], `e_${w[0]}_vi`, 'vi-VN'];
 
   /* ---------- choosing words: weak words come back more often ---------- */
@@ -7798,6 +7802,7 @@ const English = (() => {
     $('#enLearned').textContent = `📒 Bé đã thuộc ${learned}/${VOCAB.length} từ`;
   }
   async function open(o = {}) {
+    Lisa.hide();
     Screens.open('englishIsland');
     setEnergy(S.energy);
     showPane('enLoading');
@@ -7823,7 +7828,7 @@ const English = (() => {
   function stopLesson() { lesson = null; $('#enStage').textContent = ''; }
   function modeFor(i) {
     const kid = S.set.level === 'kid';
-    const modes = kid ? ['listen', 'balloon', 'listen', 'read', 'balloon'] : ['listen', 'balloon', 'listen', 'balloon'];
+    const modes = kid ? ['listen', 'balloon', 'listen', 'read', 'listen'] : ['listen', 'listen', 'balloon'];
     return modes[i % modes.length];
   }
   function dotsUi() {
@@ -7839,24 +7844,25 @@ const English = (() => {
     const mode = modeFor(lesson.i);
     lesson.mode = mode;
     const stage = $('#enStage'); stage.textContent = ''; stage.className = 'enstage ' + mode;
-    $('#enQ').textContent = mode === 'read' ? 'What is this?' : w[4];
-    $('#enHint').textContent = mode === 'read' ? 'Đây là gì?' : '';
+    $('#enQ').textContent = mode === 'read' ? '?' : w[1];
+    $('#enHint').textContent = mode === 'read' ? 'Đây là gì?' : '👆 Chọn hình đúng';
+    stage.classList.toggle('three', mode === 'listen' && S.set.level !== 'kid');
     if (mode === 'listen') {
-      shuffle([w, ...distractors(w, 3)]).forEach((v) => {
+      shuffle([w, ...distractors(w, S.set.level === 'kid' ? 3 : 2)]).forEach((v) => {
         const c = document.createElement('button'); c.className = 'ecard'; c.append(picOf(v[0]));
         c._w = v[0]; c.addEventListener('click', () => answer(v, c)); stage.appendChild(c);
       });
-      await say([lesson.i === 0 ? vi(EL.listen) : null, wq(w)].filter(Boolean), 'draw');
+      await say([lesson.i === 0 ? vi(EL.tap) : null, ...twice(w)].filter(Boolean), 'draw');
     } else if (mode === 'balloon') {
       const opts = shuffle([w, ...distractors(w, 3)]);
       const cols = ['#ff5d8f', '#ffd166', '#4cc9f0', '#9b5de5', '#2bb673'];
       opts.forEach((v, k) => {
         const b = document.createElement('button'); b.className = 'eballoon';
         b.style.setProperty('--bc', cols[k % cols.length]); b.style.left = (6 + k * 23) + '%';
-        b.style.animationDelay = (-Math.random() * 6) + 's'; b.style.animationDuration = (6.5 + Math.random() * 2.5) + 's';
+        b.style.animationDelay = (-Math.random() * 8) + 's'; b.style.animationDuration = (11 + Math.random() * 3) + 's';
         b._w = v[0]; b.append(picOf(v[0])); b.addEventListener('click', () => answer(v, b, true)); stage.appendChild(b);
       });
-      await say([lesson.i < 2 ? vi(EL.balloon) : null, wq(w)].filter(Boolean), 'happy');
+      await say([lesson.i < 2 ? vi(EL.balloon) : null, ...twice(w)].filter(Boolean), 'happy');
     } else {
       const big = picOf(w[0], 'epic big'); stage.appendChild(big);
       const row = document.createElement('div'); row.className = 'ewords';
@@ -7865,18 +7871,22 @@ const English = (() => {
         b._w = v[0]; b.addEventListener('click', () => answer(v, b)); row.appendChild(b);
       });
       stage.appendChild(row);
-      await say([lesson.i < 4 ? vi(EL.read) : null, en('What is this?')].filter(Boolean), 'draw');
+      await say([lesson.i < 4 ? vi(EL.read) : null].filter(Boolean), 'draw');
     }
   }
   async function answer(v, btn, balloon) {
     if (!lesson || lesson.busy) return;
     const w = lesson.cur;
     if (v[0] !== w[0]) {
-      lesson.tries++; btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake');
+      lesson.busy = true; btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake');
       S.mastery[w[0]] = Math.max(0, (S.mastery[w[0]] || 0) - 1); save();
-      lesson.busy = true;
-      await say([en('Oops! Try again!'), lesson.tries === 1 ? vi(EL.wrong) : null, wq(w)].filter(Boolean), 'draw');
-      lesson.busy = false;
+      const right = [...$('#enStage').children, ...$('#enStage').querySelectorAll('.eword')].find((x) => x._w === w[0]);
+      if (right) right.classList.add('right', 'show');
+      $('#enQ').textContent = w[1]; $('#enHint').textContent = w[2];
+      await say([vi(EL.tryLater), wen(w), wvi(w)], 'happy');
+      if (!lesson) return;
+      lesson.busy = false; lesson.i++;
+      nextRound();
       return;
     }
     lesson.busy = true;
@@ -7888,8 +7898,8 @@ const English = (() => {
     S.mastery[w[0]] = Math.min(3, (S.mastery[w[0]] || 0) + (first ? 1 : 0)); S.correct++; save();
     $('#enQ').textContent = w[1] + '!'; $('#enHint').textContent = w[2];
     const praise = EN_PRAISE[(Math.random() * EN_PRAISE.length) | 0];
-    await say([wen(w), wvi(w), en(praise)], 'happy');
-    if (S.set.mic && canMic() && first && lesson && Math.random() < 0.35) await sayIt(w);
+    await say([en(praise), wen(w), wvi(w)], 'happy');
+    if (S.set.mic && S.set.level === 'kid' && canMic() && first && lesson && Math.random() < 0.3) await sayIt(w);
     if (!lesson) return;
     lesson.busy = false; lesson.i++;
     nextRound();
@@ -7928,15 +7938,15 @@ const English = (() => {
     S.lessons++; setEnergy(S.energy + 2, $('#enEnergy')); l.gained += 2; save();
     showPane('enDone');
     $('#enDoneStars').textContent = '⭐'.repeat(Math.max(1, Math.round(l.ok / l.n * 3))) ;
-    $('#enDoneGain').textContent = `+${l.gained} ⚡ năng lượng`;
+    $('#enDoneGain').textContent = `+${l.gained} ⭐ sao tiếng Anh`;
     const g = $('#enDoneWords'); g.textContent = '';
     l.words.forEach((w) => {
       const b = document.createElement('button'); b.className = 'ewordcard'; b.append(picOf(w[0]), Object.assign(document.createElement('b'), { textContent: w[1] }), Object.assign(document.createElement('small'), { textContent: w[2] }));
       b.addEventListener('click', () => say([wen(w), wvi(w)], 'happy')); g.appendChild(b);
     });
-    $('#enGo').hidden = !pending;
+    $('#enGo').hidden = true;
     celebrationFx(); claps(3);
-    await say([vi(EL.done), pending ? vi(EL.ready) : null].filter(Boolean), 'dance');
+    await say([vi(EL.done)], 'dance');
     stats.english = 'done';
   }
   $('#enGo').addEventListener('click', (e) => {
@@ -7980,8 +7990,8 @@ const English = (() => {
   function fillSettings() {
     const f = $('#enSet'); f.hidden = false;
     const s = S.set;
-    f.querySelector('[name=gate]').checked = s.gate;
-    f.querySelector('[name=cost]').value = s.cost;
+    f.querySelector('[name=ask]').value = s.ask;
+    f.querySelector('[name=warm]').value = s.warm || 0;
     f.querySelector('[name=quiz]').value = s.quizMin;
     f.querySelector('[name=count]').value = s.count;
     f.querySelector('[name=level]').value = s.level;
@@ -7996,7 +8006,7 @@ const English = (() => {
   $('#enSetSave').addEventListener('click', () => {
     const f = $('#enSet');
     const topics = [...f.querySelectorAll('.etopics input:checked')].map((c) => c.value);
-    S.set = { gate: f.querySelector('[name=gate]').checked, cost: +f.querySelector('[name=cost]').value, quizMin: +f.querySelector('[name=quiz]').value,
+    S.set = { ask: +f.querySelector('[name=ask]').value, warm: +f.querySelector('[name=warm]').value, quizMin: +f.querySelector('[name=quiz]').value,
       count: +f.querySelector('[name=count]').value, level: f.querySelector('[name=level]').value, mic: f.querySelector('[name=mic]').checked,
       topics: topics.length ? topics : DEF.set.topics };
     save(); $('#enSettings').hidden = true; if (!el.hidden && !lesson) buildMenu();
@@ -8014,43 +8024,66 @@ const English = (() => {
     const board = !room && $('#studioMenu').hidden && !document.querySelector('.modal:not([hidden]), #splash:not([hidden])');
     const playing = (room && room !== 'englishIsland' && room !== 'showcase') || (board && !trace.open);
     if (!playing) return;
-    active++;
-    if (active >= S.set.quizMin * 60) { active = 0; popQuiz(); }
+    active++; S.playSec = (S.playSec || 0) + 1;
+    if (S.playSec % 15 === 0) save();
+    if (S.playSec < (S.set.warm || 0) * 60) { active = 0; return; }       // let them play and love the game first
+    if (active >= S.set.quizMin * 60) { active = 0; popQuiz(EL.quiz).then(() => { $('#enQuiz').hidden = true; }); }
   }, 1000);
-  async function popQuiz() {
-    try { await init(); } catch (_) { return; }
-    const w = pickWord(S.set.topics, []);
-    quiz = { w, tries: 0 };
-    const box = $('#enQuiz'), g = $('#enQuizCards'); g.textContent = '';
-    $('#enQuizQ').textContent = w[4];
-    shuffle([w, ...distractors(w, 2)]).forEach((v) => {
-      const c = document.createElement('button'); c.className = 'ecard'; c.append(picOf(v[0])); c._w = v[0];
-      c.addEventListener('click', async () => {
-        if (!quiz || quiz.busy) return;
-        if (v[0] !== w[0]) { quiz.tries++; c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); quiz.busy = true; await qsay([en('Oops! Try again!'), wq(w)]); if (quiz) quiz.busy = false; return; }
-        quiz.busy = true; c.classList.add('right'); chime();
-        if (!quiz.tries) { setEnergy(S.energy + 1, c); S.mastery[w[0]] = Math.min(3, (S.mastery[w[0]] || 0) + 1); save(); }
-        await qsay([wen(w), wvi(w), vi(EL.quizOk)]);
-        box.hidden = true; quiz = null;
-      });
-      g.appendChild(c);
-    });
-    box.hidden = false;
-    stats.popQuiz = w[0];
-    await qsay([vi(EL.quiz), wq(w)]);
+  /** n quick questions in the pop-up card, then `after()` – right or wrong, the child plays. */
+  async function askBeforePlay(n, after) {
+    pendingAfter = true;
+    for (let k = 0; k < n; k++) await popQuiz(k === 0 ? EL.gate : null);
+    await qsay([vi(EL.play)]);
+    pendingAfter = false;
+    $('#enQuiz').hidden = true;
+    if (after) after();
   }
+  function popQuiz(intro = EL.quiz) {
+    return new Promise(async (resolve) => {
+      try { await init(); } catch (_) { $('#enQuiz').hidden = true; return resolve(); }
+      const w = pickWord(S.set.topics, []);
+      quiz = { w };
+      const box = $('#enQuiz'), g = $('#enQuizCards'); g.textContent = '';
+      $('#enQuizQ').textContent = w[1];
+      shuffle([w, ...distractors(w, 2)]).forEach((v) => {
+        const c = document.createElement('button'); c.className = 'ecard'; c.append(picOf(v[0])); c._w = v[0];
+        c.addEventListener('click', async () => {
+          if (!quiz || quiz.busy) return;
+          quiz.busy = true;
+          if (v[0] === w[0]) {
+            c.classList.add('right'); chime(); setEnergy(S.energy + 1, c);
+            S.mastery[w[0]] = Math.min(3, (S.mastery[w[0]] || 0) + 1); save();
+            await qsay([en(EN_PRAISE[(Math.random() * EN_PRAISE.length) | 0]), wen(w), wvi(w)]);
+          } else {
+            c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake');
+            const r = [...g.children].find((x) => x._w === w[0]); if (r) r.classList.add('right');
+            await qsay([vi(EL.tryLater), wen(w), wvi(w)]);
+          }
+          quiz = null;
+          if (!pendingAfter) box.hidden = true;
+          resolve();
+        });
+        g.appendChild(c);
+      });
+      box.hidden = false;
+      stats.popQuiz = w[0];
+      await qsay([intro ? vi(intro) : null, ...twice(w)].filter(Boolean));
+    });
+  }
+  let pendingAfter = false;
   async function qsay(parts) {
     const im = $('#enQuizLisa'); if (ASSETS && ASSETS.lisa) im.src = ASSETS.lisa.happy || ASSETS.lisa.wave;
     im.classList.add('talk');
     if (prefs.sound) stopVoice();
     const tok = Snd.token;
-    for (const [t, k, lang] of parts) { await (prefs.sound ? playVoice(k, t, lang, tok) : wait(600)); if (prefs.sound && tok !== Snd.token) break; }
+    for (const [t, k, lang] of parts) { await (prefs.sound ? playVoice(k, t, lang, tok) : wait(600)); if (prefs.sound && tok !== Snd.token) break; await wait(lang === 'en-US' ? 450 : 150); }
     im.classList.remove('talk');
   }
   $('#enQuizRepeat').addEventListener('click', () => { if (quiz) qsay([wq(quiz.w)]); });
+  EL.quiz = 'Câu đố nhanh! Bé trả lời đúng để chơi tiếp nhé!';
 
   return { open, close, pay, energy: () => S.energy, state: () => S, popQuiz, start, mastered: () => VOCAB.filter((v) => (S.mastery[v[0]] || 0) >= 2).length,
-    setEnergy, answerRight: () => { if (lesson && lesson.cur) { const b = [...document.querySelectorAll('#enStage .ecard, #enStage .eballoon, #enStage .eword')].find((x) => x._w === lesson.cur[0]); return b; } } };
+    playSec: (n) => { if (n != null) { S.playSec = n; save(); } return S.playSec; }, setEnergy, answerRight: () => { if (lesson && lesson.cur) { const b = [...document.querySelectorAll('#enStage .ecard, #enStage .eballoon, #enStage .eword')].find((x) => x._w === lesson.cur[0]); return b; } } };
 })();
 
 /* =====================================================================
