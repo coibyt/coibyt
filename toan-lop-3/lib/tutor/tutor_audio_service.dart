@@ -61,6 +61,9 @@ class TutorAudioService {
 
   static TutorAudioService instance = TutorAudioService();
 
+  /// Giọng tiếng Anh (chế độ Toán + Tiếng Anh): file ghi âm khoá `en:<câu>`, chưa có thì giọng tiếng Anh của máy.
+  static TutorAudioService english = TutorAudioService(speaker: 'en');
+
   /// Người nói: '' = cô Mai, 'mc' = MC gameshow. Câu của MC tra trong danh mục với khoá "mc:`câu`"
   /// (cùng một câu, MC và cô có hai file giọng khác nhau); không có thì dùng bản của cô.
   final String speaker;
@@ -79,7 +82,7 @@ class TutorAudioService {
   StreamSubscription<void>? _completeSub;
 
   VoiceLibrary get library => _library ?? VoiceLibrary.instance;
-  TutorVoice get fallback => _fallback ?? AppTutorVoice.instance;
+  TutorVoice get fallback => _fallback ?? (speaker == 'en' ? AppTutorVoice.english : AppTutorVoice.instance);
 
   /// Tốc độ đọc ước lượng khi không có file (ký tự / giây) — giọng đọc trẻ em chậm.
   static const charsPerSecond = 14.0;
@@ -115,7 +118,8 @@ class TutorAudioService {
         final ok = await _playClip(u, clip);
         if (!ok) await u._wait(Duration(milliseconds: clip.durationMs));
       } else {
-        final spoke = await fallback.speak(spokenVietnamese(part));
+        // Tiếng Anh: đọc nguyên văn bằng giọng tiếng Anh của máy; tiếng Việt: đổi số, ký hiệu thành chữ.
+        final spoke = await fallback.speak(speaker == 'en' ? part : spokenVietnamese(part));
         u._audible.value = spoke;
         await u._wait(estimate(part));
         u._audible.value = false;

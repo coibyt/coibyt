@@ -24,6 +24,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   AppSound.instance = AudioSoundService();
   AppTutorVoice.instance = TtsTutorVoice();
+  AppTutorVoice.english = TtsTutorVoice(language: 'en-US');
   ShowMusic.instance = AudioShowMusic();
   ExamMusic.instance = AudioExamMusic();
   runApp(const OngVangApp());

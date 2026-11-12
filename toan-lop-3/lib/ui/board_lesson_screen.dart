@@ -16,6 +16,7 @@ import 'widgets/big_button.dart';
 import 'widgets/chalk.dart';
 import 'widgets/game_art.dart';
 import 'widgets/real_example_view.dart';
+import '../services/english_content.dart';
 
 const _weekdays = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ nhật'];
 
@@ -36,6 +37,7 @@ class BoardLessonScreen extends StatefulWidget {
 class _BoardLessonScreenState extends State<BoardLessonScreen> {
   Future<Lesson>? _lesson;
   List<RealExample> _examples = const [];
+  LessonEnglish? _english;
   final _teacher = TeacherController(voiceEnabled: false);
   BoardScript? _script;
   DemoPlayer? _player;
@@ -45,11 +47,14 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _lesson ??= () async {
-      final (lesson, examples) = await (
-        AppScope.read(context).content.loadLesson(widget.lessonRef.src),
+      final app = AppScope.read(context);
+      final (lesson, examples, english) = await (
+        app.content.loadLesson(widget.lessonRef.src),
         RealExamples.load(),
+        app.bilingual ? EnglishContent.of(widget.lessonRef.id) : Future<LessonEnglish?>.value(),
       ).wait;
       _examples = examples[lesson.id] ?? const [];
+      _english = english;
       return lesson;
     }();
   }
@@ -135,6 +140,7 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> {
                               date: boardDate(DateTime.now()),
                               tips: _tips,
                               examples: _examples,
+                              english: _english?.title,
                             ),
                           ),
                         ),
@@ -204,7 +210,11 @@ class ChalkLessonBoard extends StatefulWidget {
     this.date,
     this.tips = const [],
     this.examples = const [],
+    this.english,
   });
+
+  /// Toán + Tiếng Anh: tên bài bằng tiếng Anh viết dưới tên bài.
+  final String? english;
 
   final DemoPlayer player;
   final BoardScript script;
@@ -322,6 +332,16 @@ class _ChalkLessonBoardState extends State<ChalkLessonBoard> with SingleTickerPr
             align: TextAlign.center,
             charsPerSecond: 20,
           ),
+          if (widget.english != null && widget.english!.isNotEmpty)
+            ChalkText(
+              widget.english!,
+              key: const ValueKey('board-title-en'),
+              style: Chalk.style(size: 16, color: Chalk.blue).copyWith(fontStyle: FontStyle.italic),
+              animate: writing,
+              delay: Duration(milliseconds: widget.date == null ? 1500 : 3600),
+              align: TextAlign.center,
+              charsPerSecond: 22,
+            ),
           Container(
             height: 1.5,
             margin: const EdgeInsets.symmetric(vertical: 6),

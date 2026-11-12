@@ -23,6 +23,7 @@ import 'package:toan_lop_3/logic/demo_script.dart';
 import 'package:toan_lop_3/logic/real_examples.dart';
 import 'package:toan_lop_3/logic/board_script.dart';
 import 'package:toan_lop_3/logic/exam_lines.dart';
+import 'package:toan_lop_3/logic/bilingual.dart';
 import 'package:toan_lop_3/models/exam.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
@@ -34,6 +35,19 @@ const teacherVoice = 'HAAKLJlaJeGl18MKHYeg';
 
 /// Giọng MC gameshow: "Saigon Lily" — nữ trẻ miền Nam, tươi sáng (chủ dự án chọn trên 11max).
 const hostVoice = 'WFDoCi084FlAxSbpBEfC';
+
+/// Giọng tiếng Anh (chế độ Toán + Tiếng Anh): Jessica — nữ trẻ, giọng Mỹ, rõ ràng cho bé.
+const englishVoice = 'cgSgspJ2msm6clMCkdW9';
+
+/// Đuôi tên file theo giọng (đổi giọng → đổi đường dẫn, trình duyệt không phát bản cũ).
+String voiceTag(String voice) => switch (voice) {
+  hostVoice => 'lily',
+  englishVoice => 'jess',
+  _ => 'trang',
+};
+
+/// Câu đọc thật sự: tiếng Việt đổi số / ký hiệu thành chữ; tiếng Anh giữ nguyên.
+String spokenFor(String key) => key.startsWith('en:') ? bare(key) : spokenVietnamese(bare(key));
 
 /// Số câu thu cùng lúc.
 const workers = 4;
@@ -60,12 +74,13 @@ String slug(String t) {
 }
 
 /// Khoá danh mục → câu thật: câu của MC có tiền tố "mc:" (MC và cô có thể nói cùng một câu bằng hai giọng).
-String bare(String key) => key.startsWith('mc:') ? key.substring(3) : key;
+String bare(String key) => key.startsWith('mc:') || key.startsWith('en:') ? key.substring(3) : key;
 
 /// Mọi câu cần thu: (câu, giọng). Cô giáo: câu cố định, gợi ý, phần làm mẫu; MC: lời dẫn gameshow.
 List<(String, String)> allLines() => [
   for (final l in teacherLines()) (l, teacherVoice),
   for (final l in {...ShowLines.all(), ...showQuestionLines()}) ('mc:${voiceKey(l)}', hostVoice),
+  for (final l in englishLines()) ('en:${voiceKey(l)}', englishVoice),
 ];
 
 /// MC đọc trọn đề và 4 đáp án của mọi câu gameshow có thể ra (cùng cách chọn bài và thứ tự đáp án như app).
@@ -92,12 +107,45 @@ List<String> showQuestionLines() {
   return [for (final l in out) voiceKey(l)];
 }
 
+/// Câu tiếng Anh (giọng bản ngữ): câu cố định, tên bài, từ vựng, câu lệnh / đề / mẫu điền số,
+/// và đáp án đọc bằng tiếng Anh của mọi bài tập.
+List<String> englishLines() {
+  final f = File(englishPath);
+  if (!f.existsSync()) return const [];
+  final en = parseEnglish(jsonDecode(f.readAsStringSync()) as Map<String, dynamic>);
+  final out = <String>{...BilingualLines.en()};
+  for (final e in en.values) {
+    if (e.title.isNotEmpty) out.add(e.title);
+    for (final v in e.vocab) {
+      out.add(v.en);
+    }
+  }
+  for (final file in Directory('assets/content/lessons').listSync().whereType<File>()) {
+    if (!file.path.endsWith('.json')) continue;
+    final lesson = Lesson.fromJson(jsonDecode(file.readAsStringSync()));
+    final e = en[lesson.id];
+    for (final p in lesson.problems) {
+      if (e != null) {
+        out.addAll([
+          ?e.of(p.displayInstruction),
+          ?e.of(p.prompt.text.trim()),
+          if (p.body case FillBlankBody(:final template)) ?englishTemplate(e.of(template)),
+        ]);
+      }
+      // Khen + đáp án tiếng Anh: đọc thành 2 câu riêng.
+      final a = answerInEnglish(p.solution.answerText);
+      if (a != null) out.add(a);
+    }
+  }
+  return [for (final l in out) voiceKey(l)];
+}
+
 /// Mọi câu cô giáo nói: câu cố định + gợi ý của từng bài luyện tập.
 /// Thu cả lời giải từng bài tập (mặc định bật; --no-solutions để bỏ qua).
 var withSolutions = true;
 
 List<String> teacherLines() {
-  final lines = <String>{...TutorLines.all(), ...boardFixedLines(), ...ExamLines.fixed()};
+  final lines = <String>{...TutorLines.all(), ...boardFixedLines(), ...ExamLines.fixed(), ...BilingualLines.vi()};
   // Phòng thi: cô coi thi dặn dò, đọc từng câu và từng đáp án của mọi đề.
   for (final f in Directory('assets/content/exams').listSync().whereType<File>()) {
     if (!f.path.endsWith('.json')) continue;
@@ -163,7 +211,7 @@ Future<List<int>> tts(http.Client c, String key, String text, String voiceId) as
   final body = jsonEncode({
     'text': text,
     'model_id': model,
-    'language_code': 'vi',
+    'language_code': voiceId == englishVoice ? 'en' : 'vi',
     'output_format': 'mp3_22050_32',
     'voice_settings': {'stability': 0.55, 'similarity_boost': 0.75, 'speed': 0.92},
   });
@@ -252,8 +300,8 @@ Future<void> main(List<String> args) async {
   bool upToDate(String l, String voice) {
     final e = lines[l] as Map<String, dynamic>?;
     if (e == null || !File(e['file'] as String).existsSync() || e['voice'] != voice) return false;
-    if (!(e['file'] as String).endsWith(voice == hostVoice ? '-lily.mp3' : '-trang.mp3')) return false;
-    return e['spoken'] == spokenVietnamese(bare(l));
+    if (!(e['file'] as String).endsWith('-${voiceTag(voice)}.mp3')) return false;
+    return e['spoken'] == spokenFor(l);
   }
 
   final all = allLines();
@@ -261,13 +309,13 @@ Future<void> main(List<String> args) async {
     for (final (l, v) in all)
       if (!upToDate(l, v)) (l, v),
   ];
-  final chars = missing.fold<int>(0, (s, l) => s + spokenVietnamese(bare(l.$1)).length);
+  final chars = missing.fold<int>(0, (s, l) => s + spokenFor(l.$1).length);
   print(
     'Tổng ${all.length} câu, thiếu ${missing.length} câu, $chars ký tự ≈ ${(chars * creditsPerChar).round()} credit.',
   );
   if (countOnly) {
     for (final (l, _) in missing.take(20)) {
-      print('  - ${spokenVietnamese(bare(l))}');
+      print('  - ${spokenFor(l)}');
     }
     return;
   }
@@ -278,7 +326,7 @@ Future<void> main(List<String> args) async {
   void saveManifest() {
     final sorted = Map.fromEntries(lines.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
     manifest['lines'] = sorted;
-    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Saigon Lily ($hostVoice) · $model';
+    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Saigon Lily ($hostVoice) · Tiếng Anh: Jessica ($englishVoice) · $model';
     manifestFile.writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(manifest)}\n');
   }
 
@@ -287,8 +335,8 @@ Future<void> main(List<String> args) async {
     while (queue.isNotEmpty) {
       final (text, voice) = queue.removeAt(0);
       // Tên file có tên giọng → đổi giọng thì đổi đường dẫn, trình duyệt không phát lại bản cũ trong bộ nhớ đệm.
-      final file = '$outDir/${slug(bare(text))}-${voice == hostVoice ? 'lily' : 'trang'}.mp3';
-      final spoken = spokenVietnamese(bare(text));
+      final file = '$outDir/${slug(bare(text))}-${voiceTag(voice)}.mp3';
+      final spoken = spokenFor(text);
       try {
         final audio = await tts(client, key, spoken, voice);
         final ms = await shrink(audio, File(file));

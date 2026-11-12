@@ -12,6 +12,9 @@ class TeacherController extends ChangeNotifier {
 
   final TutorAudioService _audio;
 
+  /// Dịch vụ đang phát câu hiện tại (giọng Việt mặc định, hoặc giọng tiếng Anh khi [say] có `via`).
+  late TutorAudioService _active = _audio;
+
   /// Cho phép phát tiếng (phụ huynh tắt được). Tắt thì vẫn chạy chữ.
   bool voiceEnabled;
 
@@ -67,6 +70,7 @@ class TeacherController extends ChangeNotifier {
     TeacherMood mood = TeacherMood.idle,
     Duration holdMood = const Duration(seconds: 2),
     bool forceVoice = false,
+    TutorAudioService? via,
   }) {
     final clean = [
       for (final p in parts)
@@ -84,7 +88,10 @@ class TeacherController extends ChangeNotifier {
     notifyListeners();
 
     final audibleNow = voiceEnabled || forceVoice;
-    final u = _audio.speak(clean, voice: audibleNow);
+    final audio = via ?? _audio;
+    if (!identical(audio, _active)) _active.stop();
+    _active = audio;
+    final u = audio.speak(clean, voice: audibleNow);
     _utterance = u;
     // Có tiếng: chữ chạy hết đúng lúc giọng đọc xong; không tiếng: chạy nhanh hơn.
     final totalMs = audibleNow ? u.estimated.inMilliseconds : (_text.length / silentCharsPerSecond * 1000).round();
@@ -127,7 +134,7 @@ class TeacherController extends ChangeNotifier {
 
   /// Nói lại câu vừa rồi (bé bấm loa).
   void replay() {
-    if (_parts.isNotEmpty) say(_parts, mood: _mood, forceVoice: true);
+    if (_parts.isNotEmpty) say(_parts, mood: _mood, forceVoice: true, via: _active);
   }
 
   /// Bé chạm khung thoại: hiện hết chữ ngay (giọng vẫn đọc tiếp).
@@ -148,7 +155,7 @@ class TeacherController extends ChangeNotifier {
   /// Ẩn khung thoại, dừng nói.
   void clear() {
     _stopTimers();
-    _audio.stop();
+    _active.stop();
     _text = '';
     _parts = const [];
     _visible = 0;
@@ -170,7 +177,7 @@ class TeacherController extends ChangeNotifier {
     // Chỉ dừng giọng nếu cô CỦA MÀN NÀY đang nói (màn mới mở có thể đã bắt đầu nói rồi).
     final u = _utterance;
     _stopTimers();
-    if (u != null && _audio.isCurrent(u)) _audio.stop();
+    if (u != null && _active.isCurrent(u)) _active.stop();
     super.dispose();
   }
 }

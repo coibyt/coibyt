@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "voice": "Cô Mai: Trang (HAAKLJlaJeGl18MKHYeg) · MC: Saigon Lily (WFDoCi084FlAxSbpBEfC) · eleven_flash_v2_5",
+  "voice": "Cô Mai: Trang (HAAKLJlaJeGl18MKHYeg) · MC: Saigon Lily (WFDoCi084FlAxSbpBEfC) · Tiếng Anh: Jessica (cgSgspJ2msm6clMCkdW9) · eleven_flash_v2_5",
   "lines": {
     "(1.367 + 2.673) : 8 = 4.040 : 8 = 505": {
       "file": "assets/voice/1-367-2-673-8-4-040-8-505-bebb79-trang.mp3",
@@ -21680,6 +21680,12 @@
       "spoken": "Bát canh ở chính giữa mâm, giống như tâm hình tròn.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Bây giờ con nghe câu hỏi bằng tiếng Anh nhé!": {
+      "file": "assets/voice/bay-gio-con-nghe-cau-hoi-bang-tieng-anh-bcc648-trang.mp3",
+      "ms": 2328,
+      "spoken": "Bây giờ con nghe câu hỏi bằng tiếng Anh nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Bây giờ con thử lại nhé, cô chỉ để lại hai đáp án thôi!": {
       "file": "assets/voice/bay-gio-con-thu-lai-nhe-co-chi-de-lai-ha-21606b-trang.mp3",
       "ms": 3456,
@@ -23198,6 +23204,12 @@
       "spoken": "Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Chưa đúng rồi, con nghe lại nhé.": {
+      "file": "assets/voice/chua-dung-roi-con-nghe-lai-nhe-be0942-trang.mp3",
+      "ms": 2304,
+      "spoken": "Chưa đúng rồi, con nghe lại nhé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Chưa đúng rồi, không sao đâu!": {
       "file": "assets/voice/chua-dung-roi-khong-sao-dau-b844ea-trang.mp3",
       "ms": 2280,
@@ -24272,6 +24284,12 @@
       "spoken": "Con đã hiểu bài chưa nào? Con chọn giúp cô nhé!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Con đã học xong từ mới của bài này. Tuyệt vời!": {
+      "file": "assets/voice/con-da-hoc-xong-tu-moi-cua-bai-nay-tuyet-c61c51-trang.mp3",
+      "ms": 3504,
+      "spoken": "Con đã học xong từ mới của bài này. Tuyệt vời!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Con đã làm hết các câu rồi! Con xem lại bài một lượt, rồi bấm Nộp bài nhé.": {
       "file": "assets/voice/con-da-lam-het-cac-cau-roi-con-xem-lai-b-040761-trang.mp3",
       "ms": 4920,
@@ -25344,6 +25362,12 @@
       "file": "assets/voice/co-to-mau-1-phan-phan-to-mau-la-mot-phan-250af6-trang.mp3",
       "ms": 4224,
       "spoken": "Cô tô màu một phần. Phần tô màu là một phần tư hình tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Cô tắt tiếng Anh, mình học Toán bằng tiếng Việt nhé.": {
+      "file": "assets/voice/co-tat-tieng-anh-minh-hoc-toan-bang-tien-d769ea-trang.mp3",
+      "ms": 2976,
+      "spoken": "Cô tắt tiếng Anh, mình học Toán bằng tiếng Việt nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Cô viết ba chữ số La Mã cơ bản: I là 1, V là 5, X là 10.": {
@@ -30570,6 +30594,12 @@
       "file": "assets/voice/muon-chac-chan-lay-duoc-vien-bi-mau-can-c63d43-trang.mp3",
       "ms": 6888,
       "spoken": "Muốn “chắc chắn” lấy được viên bi màu cần lấy, con nghĩ đến lúc không may nhất: lấy hết các viên bi màu khác trước.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Mình cùng học từ mới tiếng Anh của bài này nhé!": {
+      "file": "assets/voice/minh-cung-hoc-tu-moi-tieng-anh-cua-bai-n-dab256-trang.mp3",
+      "ms": 2544,
+      "spoken": "Mình cùng học từ mới tiếng Anh của bài này nhé!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Mình cùng làm bài kiểm tra năng lực nhé! Có mười lăm câu thuộc năm mảng kiến thức. Con cứ bình tĩnh, sai cũng không sao đâu!": {
@@ -44630,6 +44660,12 @@
       "spoken": "Từ các chữ số tám, chín, không, ba, sáu, hãy lập số lớn nhất và số bé nhất có bốn chữ số khác nhau. Số lớn nhất là chín nghìn tám trăm sáu mươi ba. Số bé nhất là ?.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Từ giờ cô dạy Toán kèm tiếng Anh cho con nhé!": {
+      "file": "assets/voice/tu-gio-co-day-toan-kem-tieng-anh-cho-con-e3c2f2-trang.mp3",
+      "ms": 2664,
+      "spoken": "Từ giờ cô dạy Toán kèm tiếng Anh cho con nhé!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Từ một phép nhân, ta viết được hai phép chia.": {
       "file": "assets/voice/tu-mot-phep-nhan-ta-viet-duoc-hai-phep-c-bd534c-trang.mp3",
       "ms": 2880,
@@ -44670,6 +44706,12 @@
       "file": "assets/voice/tu-phai-5-3-15-viet-5-nho-1-1-3-3-them-1-b2aa21-trang.mp3",
       "ms": 6912,
       "spoken": "Từ phải: năm nhân ba bằng mười lăm viết năm nhớ một; một nhân ba bằng ba, thêm một là bốn...",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ tiếng Anh này nghĩa là gì nhỉ? Con chọn đi!": {
+      "file": "assets/voice/tu-tieng-anh-nay-nghia-la-gi-nhi-con-cho-cbcaea-trang.mp3",
+      "ms": 3264,
+      "spoken": "Từ tiếng Anh này nghĩa là gì nhỉ? Con chọn đi!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Từ tâm ra mép mâm là bán kính, dài 50 cm. Đường kính dài 50 × 2 = 100 cm.": {
@@ -46333,6 +46375,1134 @@
       "ms": 864,
       "spoken": "có thể",
       "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Angles, right angles and angles that are not right angles": {
+      "file": "assets/voice/angles-right-angles-and-angles-that-are-173e27-jess.mp3",
+      "ms": 3120,
+      "spoken": "Angles, right angles and angles that are not right angles",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 10: Times as many, division with a remainder": {
+      "file": "assets/voice/challenge-week-10-times-as-many-division-3d6b22-jess.mp3",
+      "ms": 3456,
+      "spoken": "Challenge week 10: Times as many, division with a remainder",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 11: Dividing two-digit numbers, dividing a number": {
+      "file": "assets/voice/challenge-week-11-dividing-two-digit-num-d3c42d-jess.mp3",
+      "ms": 3288,
+      "spoken": "Challenge week 11: Dividing two-digit numbers, dividing a number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 12: Dividing a number and multi-step problems": {
+      "file": "assets/voice/challenge-week-12-dividing-a-number-and-9fc242-jess.mp3",
+      "ms": 3816,
+      "spoken": "Challenge week 12: Dividing a number and multi-step problems",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 13: Multiplication, division, millimetres and grams": {
+      "file": "assets/voice/challenge-week-13-multiplication-divisio-4f501f-jess.mp3",
+      "ms": 4416,
+      "spoken": "Challenge week 13: Multiplication, division, millimetres and grams",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 1: Numbers to 1000, adding, subtracting and missing numbers": {
+      "file": "assets/voice/challenge-week-1-numbers-to-1000-adding-537732-jess.mp3",
+      "ms": 5472,
+      "spoken": "Challenge week 1: Numbers to 1000, adding, subtracting and missing numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 2: Missing numbers, multiplication tables 2, 3, 5": {
+      "file": "assets/voice/challenge-week-2-missing-numbers-multipl-39039f-jess.mp3",
+      "ms": 6024,
+      "spoken": "Challenge week 2: Missing numbers, multiplication tables 2, 3, 5",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 3: Multiplication table 4, shapes and measurement": {
+      "file": "assets/voice/challenge-week-3-multiplication-table-4-495609-jess.mp3",
+      "ms": 4296,
+      "spoken": "Challenge week 3: Multiplication table 4, shapes and measurement",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 4: Multiplication and division tables 6, 7": {
+      "file": "assets/voice/challenge-week-4-multiplication-and-divi-97a2e4-jess.mp3",
+      "ms": 5904,
+      "spoken": "Challenge week 4: Multiplication and division tables 6, 7",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 5: Multiplication tables 8, 9 and missing numbers": {
+      "file": "assets/voice/challenge-week-5-multiplication-tables-8-7a3dfa-jess.mp3",
+      "ms": 4848,
+      "spoken": "Challenge week 5: Multiplication tables 8, 9 and missing numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 6: Missing numbers and parts of a number": {
+      "file": "assets/voice/challenge-week-6-missing-numbers-and-par-429ff3-jess.mp3",
+      "ms": 2784,
+      "spoken": "Challenge week 6: Missing numbers and parts of a number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 7: Midpoints, circles and angles": {
+      "file": "assets/voice/challenge-week-7-midpoints-circles-and-a-28175e-jess.mp3",
+      "ms": 3624,
+      "spoken": "Challenge week 7: Midpoints, circles and angles",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 8: Right angles, rectangles and squares": {
+      "file": "assets/voice/challenge-week-8-right-angles-rectangles-a1a66d-jess.mp3",
+      "ms": 3600,
+      "spoken": "Challenge week 8: Right angles, rectangles and squares",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Challenge week 9: 3D shapes and multiplying two-digit numbers": {
+      "file": "assets/voice/challenge-week-9-3d-shapes-and-multiplyi-f06695-jess.mp3",
+      "ms": 3864,
+      "spoken": "Challenge week 9: 3D shapes and multiplying two-digit numbers",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Circles. The centre, radius and diameter of a circle": {
+      "file": "assets/voice/circles-the-centre-radius-and-diameter-o-7fab52-jess.mp3",
+      "ms": 3480,
+      "spoken": "Circles. The centre, radius and diameter of a circle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Correct!": {
+      "file": "assets/voice/correct-eb5de8-jess.mp3",
+      "ms": 720,
+      "spoken": "Correct!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Cubes and cuboids": {
+      "file": "assets/voice/cubes-and-cuboids-07ea6c-jess.mp3",
+      "ms": 1296,
+      "spoken": "Cubes and cuboids",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Dividing a number by a number": {
+      "file": "assets/voice/dividing-a-number-by-a-number-f38d6d-jess.mp3",
+      "ms": 1560,
+      "spoken": "Dividing a number by a number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Dividing a two-digit number by a one-digit number": {
+      "file": "assets/voice/dividing-a-two-digit-number-by-a-one-dig-640428-jess.mp3",
+      "ms": 2664,
+      "spoken": "Dividing a two-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Exact division and division with a remainder": {
+      "file": "assets/voice/exact-division-and-division-with-a-remai-b3a0d6-jess.mp3",
+      "ms": 2328,
+      "spoken": "Exact division and division with a remainder",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Excellent!": {
+      "file": "assets/voice/excellent-1bd635-jess.mp3",
+      "ms": 888,
+      "spoken": "Excellent!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Finding missing numbers in addition and subtraction": {
+      "file": "assets/voice/finding-missing-numbers-in-addition-and-474e0a-jess.mp3",
+      "ms": 2472,
+      "spoken": "Finding missing numbers in addition and subtraction",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Finding missing numbers in multiplication and division": {
+      "file": "assets/voice/finding-missing-numbers-in-multiplicatio-c52ad3-jess.mp3",
+      "ms": 2856,
+      "spoken": "Finding missing numbers in multiplication and division",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Grams": {
+      "file": "assets/voice/grams-581319-jess.mp3",
+      "ms": 720,
+      "spoken": "Grams",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Great job!": {
+      "file": "assets/voice/great-job-97c462-jess.mp3",
+      "ms": 720,
+      "spoken": "Great job!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Let's learn maths in English!": {
+      "file": "assets/voice/let-s-learn-maths-in-english-7b1d7d-jess.mp3",
+      "ms": 1464,
+      "spoken": "Let's learn maths in English!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Listen and repeat.": {
+      "file": "assets/voice/listen-and-repeat-936d63-jess.mp3",
+      "ms": 1104,
+      "spoken": "Listen and repeat.",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Millilitres": {
+      "file": "assets/voice/millilitres-f537cc-jess.mp3",
+      "ms": 1032,
+      "spoken": "Millilitres",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Millimetres": {
+      "file": "assets/voice/millimetres-f52f36-jess.mp3",
+      "ms": 960,
+      "spoken": "Millimetres",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Mixed practice": {
+      "file": "assets/voice/mixed-practice-e98aaf-jess.mp3",
+      "ms": 984,
+      "spoken": "Mixed practice",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 3, division table 3": {
+      "file": "assets/voice/multiplication-table-3-division-table-3-9ac971-jess.mp3",
+      "ms": 3000,
+      "spoken": "Multiplication table 3, division table 3",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 4, division table 4": {
+      "file": "assets/voice/multiplication-table-4-division-table-4-40334c-jess.mp3",
+      "ms": 3216,
+      "spoken": "Multiplication table 4, division table 4",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 6, division table 6": {
+      "file": "assets/voice/multiplication-table-6-division-table-6-766123-jess.mp3",
+      "ms": 3168,
+      "spoken": "Multiplication table 6, division table 6",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 7, division table 7": {
+      "file": "assets/voice/multiplication-table-7-division-table-7-341ffb-jess.mp3",
+      "ms": 3456,
+      "spoken": "Multiplication table 7, division table 7",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 8, division table 8": {
+      "file": "assets/voice/multiplication-table-8-division-table-8-4ed479-jess.mp3",
+      "ms": 3264,
+      "spoken": "Multiplication table 8, division table 8",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplication table 9, division table 9": {
+      "file": "assets/voice/multiplication-table-9-division-table-9-2029e0-jess.mp3",
+      "ms": 3120,
+      "spoken": "Multiplication table 9, division table 9",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Multiplying a two-digit number by a one-digit number": {
+      "file": "assets/voice/multiplying-a-two-digit-number-by-a-one-68b42c-jess.mp3",
+      "ms": 2664,
+      "spoken": "Multiplying a two-digit number by a one-digit number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:One part of a whole (1/2, 1/3, 1/4 …)": {
+      "file": "assets/voice/one-part-of-a-whole-1-2-1-3-1-4-498bc5-jess.mp3",
+      "ms": 2400,
+      "spoken": "One part of a whole (1/2, 1/3, 1/4 …)",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Practice drawing right angles, circles, squares and rectangles": {
+      "file": "assets/voice/practice-drawing-right-angles-circles-sq-34f150-jess.mp3",
+      "ms": 3168,
+      "spoken": "Practice drawing right angles, circles, squares and rectangles",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: addition and subtraction within 1000": {
+      "file": "assets/voice/review-addition-and-subtraction-within-1-39744a-jess.mp3",
+      "ms": 3672,
+      "spoken": "Review: addition and subtraction within 1000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: multiplication tables 2, 5 and division tables 2, 5": {
+      "file": "assets/voice/review-multiplication-tables-2-5-and-div-868b73-jess.mp3",
+      "ms": 5208,
+      "spoken": "Review: multiplication tables 2, 5 and division tables 2, 5",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: numbers to 1000": {
+      "file": "assets/voice/review-numbers-to-1000-c10ce8-jess.mp3",
+      "ms": 2112,
+      "spoken": "Review: numbers to 1000",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Review: shapes and measurement": {
+      "file": "assets/voice/review-shapes-and-measurement-2e431c-jess.mp3",
+      "ms": 1992,
+      "spoken": "Review: shapes and measurement",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Super!": {
+      "file": "assets/voice/super-d6708e-jess.mp3",
+      "ms": 648,
+      "spoken": "Super!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Temperature. Units of temperature": {
+      "file": "assets/voice/temperature-units-of-temperature-a44370-jess.mp3",
+      "ms": 1944,
+      "spoken": "Temperature. Units of temperature",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:The point in the middle. The midpoint of a line segment": {
+      "file": "assets/voice/the-point-in-the-middle-the-midpoint-of-3de281-jess.mp3",
+      "ms": 2736,
+      "spoken": "The point in the middle. The midpoint of a line segment",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Times as many: multiplying a number": {
+      "file": "assets/voice/times-as-many-multiplying-a-number-8c1b6e-jess.mp3",
+      "ms": 2112,
+      "spoken": "Times as many: multiplying a number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Triangles and quadrilaterals. Rectangles and squares": {
+      "file": "assets/voice/triangles-and-quadrilaterals-rectangles-d219eb-jess.mp3",
+      "ms": 3768,
+      "spoken": "Triangles and quadrilaterals. Rectangles and squares",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Try again!": {
+      "file": "assets/voice/try-again-307e08-jess.mp3",
+      "ms": 888,
+      "spoken": "Try again!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Well done!": {
+      "file": "assets/voice/well-done-6b3efd-jess.mp3",
+      "ms": 744,
+      "spoken": "Well done!",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:Word problems with two steps": {
+      "file": "assets/voice/word-problems-with-two-steps-457081-jess.mp3",
+      "ms": 1488,
+      "spoken": "Word problems with two steps",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:add": {
+      "file": "assets/voice/add-3b3912-jess.mp3",
+      "ms": 456,
+      "spoken": "add",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:addend": {
+      "file": "assets/voice/addend-326970-jess.mp3",
+      "ms": 552,
+      "spoken": "addend",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:addition": {
+      "file": "assets/voice/addition-2d9401-jess.mp3",
+      "ms": 600,
+      "spoken": "addition",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:age": {
+      "file": "assets/voice/age-2c4149-jess.mp3",
+      "ms": 552,
+      "spoken": "age",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:angle": {
+      "file": "assets/voice/angle-ad5444-jess.mp3",
+      "ms": 600,
+      "spoken": "angle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:answer": {
+      "file": "assets/voice/answer-848019-jess.mp3",
+      "ms": 552,
+      "spoken": "answer",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:apple": {
+      "file": "assets/voice/apple-10bc2a-jess.mp3",
+      "ms": 624,
+      "spoken": "apple",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:at least": {
+      "file": "assets/voice/at-least-4b6429-jess.mp3",
+      "ms": 696,
+      "spoken": "at least",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:bag": {
+      "file": "assets/voice/bag-63b75f-jess.mp3",
+      "ms": 432,
+      "spoken": "bag",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:basket": {
+      "file": "assets/voice/basket-44a590-jess.mp3",
+      "ms": 600,
+      "spoken": "basket",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:between": {
+      "file": "assets/voice/between-a4ee07-jess.mp3",
+      "ms": 672,
+      "spoken": "between",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:bicycle": {
+      "file": "assets/voice/bicycle-d7b8f8-jess.mp3",
+      "ms": 720,
+      "spoken": "bicycle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:boat": {
+      "file": "assets/voice/boat-dcb746-jess.mp3",
+      "ms": 480,
+      "spoken": "boat",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:both": {
+      "file": "assets/voice/both-ea81ee-jess.mp3",
+      "ms": 552,
+      "spoken": "both",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:box": {
+      "file": "assets/voice/box-70c67e-jess.mp3",
+      "ms": 552,
+      "spoken": "box",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:brick": {
+      "file": "assets/voice/brick-0cd947-jess.mp3",
+      "ms": 288,
+      "spoken": "brick",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:broken line": {
+      "file": "assets/voice/broken-line-3d73d8-jess.mp3",
+      "ms": 840,
+      "spoken": "broken line",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:calculate": {
+      "file": "assets/voice/calculate-9b4198-jess.mp3",
+      "ms": 792,
+      "spoken": "calculate",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:calculate in your head": {
+      "file": "assets/voice/calculate-in-your-head-f52a29-jess.mp3",
+      "ms": 1128,
+      "spoken": "calculate in your head",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:capacity": {
+      "file": "assets/voice/capacity-6a18cf-jess.mp3",
+      "ms": 864,
+      "spoken": "capacity",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:centimetre": {
+      "file": "assets/voice/centimetre-2904bb-jess.mp3",
+      "ms": 888,
+      "spoken": "centimetre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:centre": {
+      "file": "assets/voice/centre-e4bb6e-jess.mp3",
+      "ms": 720,
+      "spoken": "centre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:chalk": {
+      "file": "assets/voice/chalk-3dadb0-jess.mp3",
+      "ms": 552,
+      "spoken": "chalk",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:circle": {
+      "file": "assets/voice/circle-282170-jess.mp3",
+      "ms": 720,
+      "spoken": "circle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:clock": {
+      "file": "assets/voice/clock-15a40f-jess.mp3",
+      "ms": 336,
+      "spoken": "clock",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:cloth": {
+      "file": "assets/voice/cloth-0cc8d2-jess.mp3",
+      "ms": 576,
+      "spoken": "cloth",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:cold": {
+      "file": "assets/voice/cold-ea44dd-jess.mp3",
+      "ms": 456,
+      "spoken": "cold",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:column": {
+      "file": "assets/voice/column-f5f8d2-jess.mp3",
+      "ms": 624,
+      "spoken": "column",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:compare": {
+      "file": "assets/voice/compare-be1de3-jess.mp3",
+      "ms": 720,
+      "spoken": "compare",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:corner": {
+      "file": "assets/voice/corner-244a21-jess.mp3",
+      "ms": 576,
+      "spoken": "corner",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:count on": {
+      "file": "assets/voice/count-on-71e867-jess.mp3",
+      "ms": 576,
+      "spoken": "count on",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:cube": {
+      "file": "assets/voice/cube-6b91d1-jess.mp3",
+      "ms": 528,
+      "spoken": "cube",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:cuboid": {
+      "file": "assets/voice/cuboid-055af1-jess.mp3",
+      "ms": 648,
+      "spoken": "cuboid",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:degrees Celsius": {
+      "file": "assets/voice/degrees-celsius-32c9dc-jess.mp3",
+      "ms": 1248,
+      "spoken": "degrees Celsius",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:diameter": {
+      "file": "assets/voice/diameter-d96f5c-jess.mp3",
+      "ms": 744,
+      "spoken": "diameter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:difference": {
+      "file": "assets/voice/difference-ea8f6e-jess.mp3",
+      "ms": 768,
+      "spoken": "difference",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:digit": {
+      "file": "assets/voice/digit-885c8a-jess.mp3",
+      "ms": 504,
+      "spoken": "digit",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:divide": {
+      "file": "assets/voice/divide-615262-jess.mp3",
+      "ms": 672,
+      "spoken": "divide",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:divide by": {
+      "file": "assets/voice/divide-by-b5d78d-jess.mp3",
+      "ms": 864,
+      "spoken": "divide by",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:dividend": {
+      "file": "assets/voice/dividend-89c8c2-jess.mp3",
+      "ms": 672,
+      "spoken": "dividend",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:divides exactly": {
+      "file": "assets/voice/divides-exactly-3512c2-jess.mp3",
+      "ms": 1152,
+      "spoken": "divides exactly",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:division": {
+      "file": "assets/voice/division-d48432-jess.mp3",
+      "ms": 648,
+      "spoken": "division",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:divisor": {
+      "file": "assets/voice/divisor-88c721-jess.mp3",
+      "ms": 816,
+      "spoken": "divisor",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:double": {
+      "file": "assets/voice/double-a0eb0f-jess.mp3",
+      "ms": 504,
+      "spoken": "double",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:draw": {
+      "file": "assets/voice/draw-a88bf4-jess.mp3",
+      "ms": 624,
+      "spoken": "draw",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:edge": {
+      "file": "assets/voice/edge-56f6d8-jess.mp3",
+      "ms": 528,
+      "spoken": "edge",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:equal": {
+      "file": "assets/voice/equal-2f7508-jess.mp3",
+      "ms": 576,
+      "spoken": "equal",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:equal parts": {
+      "file": "assets/voice/equal-parts-e1b305-jess.mp3",
+      "ms": 864,
+      "spoken": "equal parts",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:equally": {
+      "file": "assets/voice/equally-c714f6-jess.mp3",
+      "ms": 720,
+      "spoken": "equally",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:expression": {
+      "file": "assets/voice/expression-cf15af-jess.mp3",
+      "ms": 816,
+      "spoken": "expression",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:face": {
+      "file": "assets/voice/face-116b77-jess.mp3",
+      "ms": 576,
+      "spoken": "face",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:factor": {
+      "file": "assets/voice/factor-5c8ff3-jess.mp3",
+      "ms": 600,
+      "spoken": "factor",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:glass": {
+      "file": "assets/voice/glass-f203a9-jess.mp3",
+      "ms": 624,
+      "spoken": "glass",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:gram": {
+      "file": "assets/voice/gram-a69a94-jess.mp3",
+      "ms": 552,
+      "spoken": "gram",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:greater than": {
+      "file": "assets/voice/greater-than-a1c952-jess.mp3",
+      "ms": 912,
+      "spoken": "greater than",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:greatest": {
+      "file": "assets/voice/greatest-09e871-jess.mp3",
+      "ms": 600,
+      "spoken": "greatest",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:half": {
+      "file": "assets/voice/half-d6bec8-jess.mp3",
+      "ms": 552,
+      "spoken": "half",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:heavy": {
+      "file": "assets/voice/heavy-119f9d-jess.mp3",
+      "ms": 528,
+      "spoken": "heavy",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:hot": {
+      "file": "assets/voice/hot-fec3a7-jess.mp3",
+      "ms": 456,
+      "spoken": "hot",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:hundreds": {
+      "file": "assets/voice/hundreds-d91e88-jess.mp3",
+      "ms": 744,
+      "spoken": "hundreds",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:in all": {
+      "file": "assets/voice/in-all-35741a-jess.mp3",
+      "ms": 672,
+      "spoken": "in all",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:jug": {
+      "file": "assets/voice/jug-eabc3f-jess.mp3",
+      "ms": 624,
+      "spoken": "jug",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:kilogram": {
+      "file": "assets/voice/kilogram-dc824e-jess.mp3",
+      "ms": 744,
+      "spoken": "kilogram",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:kilometre": {
+      "file": "assets/voice/kilometre-004024-jess.mp3",
+      "ms": 912,
+      "spoken": "kilometre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:left": {
+      "file": "assets/voice/left-124aec-jess.mp3",
+      "ms": 624,
+      "spoken": "left",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:length": {
+      "file": "assets/voice/length-83d036-jess.mp3",
+      "ms": 576,
+      "spoken": "length",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:less than": {
+      "file": "assets/voice/less-than-05c6c8-jess.mp3",
+      "ms": 672,
+      "spoken": "less than",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:line segment": {
+      "file": "assets/voice/line-segment-a86e6f-jess.mp3",
+      "ms": 840,
+      "spoken": "line segment",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:litre": {
+      "file": "assets/voice/litre-1deba7-jess.mp3",
+      "ms": 624,
+      "spoken": "litre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:long": {
+      "file": "assets/voice/long-c2ecdf-jess.mp3",
+      "ms": 504,
+      "spoken": "long",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:marble": {
+      "file": "assets/voice/marble-645e7d-jess.mp3",
+      "ms": 672,
+      "spoken": "marble",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:measurement": {
+      "file": "assets/voice/measurement-59aed6-jess.mp3",
+      "ms": 696,
+      "spoken": "measurement",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:metre": {
+      "file": "assets/voice/metre-b085cf-jess.mp3",
+      "ms": 624,
+      "spoken": "metre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:midpoint": {
+      "file": "assets/voice/midpoint-63c949-jess.mp3",
+      "ms": 696,
+      "spoken": "midpoint",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:millilitre": {
+      "file": "assets/voice/millilitre-8d97c8-jess.mp3",
+      "ms": 840,
+      "spoken": "millilitre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:millimetre": {
+      "file": "assets/voice/millimetre-592afb-jess.mp3",
+      "ms": 744,
+      "spoken": "millimetre",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:minuend": {
+      "file": "assets/voice/minuend-4fda66-jess.mp3",
+      "ms": 744,
+      "spoken": "minuend",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:missing number": {
+      "file": "assets/voice/missing-number-0caa84-jess.mp3",
+      "ms": 792,
+      "spoken": "missing number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:more than": {
+      "file": "assets/voice/more-than-340224-jess.mp3",
+      "ms": 600,
+      "spoken": "more than",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:multiplication": {
+      "file": "assets/voice/multiplication-5d6194-jess.mp3",
+      "ms": 1008,
+      "spoken": "multiplication",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:multiplication table": {
+      "file": "assets/voice/multiplication-table-62e334-jess.mp3",
+      "ms": 1296,
+      "spoken": "multiplication table",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:multiply": {
+      "file": "assets/voice/multiply-ff9424-jess.mp3",
+      "ms": 744,
+      "spoken": "multiply",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:number": {
+      "file": "assets/voice/number-1bd670-jess.mp3",
+      "ms": 528,
+      "spoken": "number",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:number after": {
+      "file": "assets/voice/number-after-f8f4ed-jess.mp3",
+      "ms": 792,
+      "spoken": "number after",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:number before": {
+      "file": "assets/voice/number-before-3edec8-jess.mp3",
+      "ms": 864,
+      "spoken": "number before",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:oil": {
+      "file": "assets/voice/oil-c33871-jess.mp3",
+      "ms": 504,
+      "spoken": "oil",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:ones": {
+      "file": "assets/voice/ones-a78d50-jess.mp3",
+      "ms": 528,
+      "spoken": "ones",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:part": {
+      "file": "assets/voice/part-7c7836-jess.mp3",
+      "ms": 504,
+      "spoken": "part",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:pattern": {
+      "file": "assets/voice/pattern-873d01-jess.mp3",
+      "ms": 576,
+      "spoken": "pattern",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:pencil": {
+      "file": "assets/voice/pencil-78627a-jess.mp3",
+      "ms": 600,
+      "spoken": "pencil",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:plate": {
+      "file": "assets/voice/plate-c90114-jess.mp3",
+      "ms": 480,
+      "spoken": "plate",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:point": {
+      "file": "assets/voice/point-18ae6c-jess.mp3",
+      "ms": 528,
+      "spoken": "point",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:problem": {
+      "file": "assets/voice/problem-bdeb87-jess.mp3",
+      "ms": 576,
+      "spoken": "problem",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:product": {
+      "file": "assets/voice/product-e54841-jess.mp3",
+      "ms": 648,
+      "spoken": "product",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:quadrilateral": {
+      "file": "assets/voice/quadrilateral-da0805-jess.mp3",
+      "ms": 984,
+      "spoken": "quadrilateral",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:quarter": {
+      "file": "assets/voice/quarter-59c2ca-jess.mp3",
+      "ms": 528,
+      "spoken": "quarter",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:quotient": {
+      "file": "assets/voice/quotient-de43e0-jess.mp3",
+      "ms": 720,
+      "spoken": "quotient",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:radius": {
+      "file": "assets/voice/radius-0dba4c-jess.mp3",
+      "ms": 768,
+      "spoken": "radius",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:rectangle": {
+      "file": "assets/voice/rectangle-f27004-jess.mp3",
+      "ms": 840,
+      "spoken": "rectangle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:remainder": {
+      "file": "assets/voice/remainder-348d7a-jess.mp3",
+      "ms": 768,
+      "spoken": "remainder",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:right angle": {
+      "file": "assets/voice/right-angle-3c7df6-jess.mp3",
+      "ms": 720,
+      "spoken": "right angle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:rope": {
+      "file": "assets/voice/rope-4044a2-jess.mp3",
+      "ms": 504,
+      "spoken": "rope",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:row": {
+      "file": "assets/voice/row-440e1d-jess.mp3",
+      "ms": 480,
+      "spoken": "row",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:ruler": {
+      "file": "assets/voice/ruler-9dcfbd-jess.mp3",
+      "ms": 624,
+      "spoken": "ruler",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:scale": {
+      "file": "assets/voice/scale-82971c-jess.mp3",
+      "ms": 696,
+      "spoken": "scale",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:sequence": {
+      "file": "assets/voice/sequence-3c43ef-jess.mp3",
+      "ms": 720,
+      "spoken": "sequence",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:set square": {
+      "file": "assets/voice/set-square-0f07ad-jess.mp3",
+      "ms": 960,
+      "spoken": "set square",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:share equally": {
+      "file": "assets/voice/share-equally-74e4c3-jess.mp3",
+      "ms": 912,
+      "spoken": "share equally",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:shelf": {
+      "file": "assets/voice/shelf-07e1ec-jess.mp3",
+      "ms": 696,
+      "spoken": "shelf",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:short": {
+      "file": "assets/voice/short-ba226b-jess.mp3",
+      "ms": 432,
+      "spoken": "short",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:side": {
+      "file": "assets/voice/side-17ba5e-jess.mp3",
+      "ms": 624,
+      "spoken": "side",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:sign": {
+      "file": "assets/voice/sign-0cbc8b-jess.mp3",
+      "ms": 576,
+      "spoken": "sign",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:smallest": {
+      "file": "assets/voice/smallest-4019e7-jess.mp3",
+      "ms": 840,
+      "spoken": "smallest",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:square": {
+      "file": "assets/voice/square-b4b612-jess.mp3",
+      "ms": 552,
+      "spoken": "square",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:star": {
+      "file": "assets/voice/star-d13b2f-jess.mp3",
+      "ms": 576,
+      "spoken": "star",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:step": {
+      "file": "assets/voice/step-c7441a-jess.mp3",
+      "ms": 624,
+      "spoken": "step",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:straight line": {
+      "file": "assets/voice/straight-line-a997e3-jess.mp3",
+      "ms": 816,
+      "spoken": "straight line",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:subtract": {
+      "file": "assets/voice/subtract-42c1a5-jess.mp3",
+      "ms": 744,
+      "spoken": "subtract",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:subtraction": {
+      "file": "assets/voice/subtraction-2b3b35-jess.mp3",
+      "ms": 864,
+      "spoken": "subtraction",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:subtrahend": {
+      "file": "assets/voice/subtrahend-e22a14-jess.mp3",
+      "ms": 840,
+      "spoken": "subtrahend",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:sugar": {
+      "file": "assets/voice/sugar-714305-jess.mp3",
+      "ms": 576,
+      "spoken": "sugar",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:sum": {
+      "file": "assets/voice/sum-dd4e3a-jess.mp3",
+      "ms": 552,
+      "spoken": "sum",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:take away": {
+      "file": "assets/voice/take-away-fde1f9-jess.mp3",
+      "ms": 672,
+      "spoken": "take away",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:tank": {
+      "file": "assets/voice/tank-0c285a-jess.mp3",
+      "ms": 504,
+      "spoken": "tank",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:temperature": {
+      "file": "assets/voice/temperature-e9f2a9-jess.mp3",
+      "ms": 672,
+      "spoken": "temperature",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:tens": {
+      "file": "assets/voice/tens-b11359-jess.mp3",
+      "ms": 648,
+      "spoken": "tens",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:thermometer": {
+      "file": "assets/voice/thermometer-381ba4-jess.mp3",
+      "ms": 696,
+      "spoken": "thermometer",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:third": {
+      "file": "assets/voice/third-69f949-jess.mp3",
+      "ms": 480,
+      "spoken": "third",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:times as many": {
+      "file": "assets/voice/times-as-many-8324ea-jess.mp3",
+      "ms": 912,
+      "spoken": "times as many",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:triangle": {
+      "file": "assets/voice/triangle-050250-jess.mp3",
+      "ms": 888,
+      "spoken": "triangle",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:value": {
+      "file": "assets/voice/value-425ed3-jess.mp3",
+      "ms": 672,
+      "spoken": "value",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:value of the expression": {
+      "file": "assets/voice/value-of-the-expression-3b4af8-jess.mp3",
+      "ms": 1368,
+      "spoken": "value of the expression",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:vertex": {
+      "file": "assets/voice/vertex-945367-jess.mp3",
+      "ms": 888,
+      "spoken": "vertex",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:water": {
+      "file": "assets/voice/water-49c69a-jess.mp3",
+      "ms": 528,
+      "spoken": "water",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:weight": {
+      "file": "assets/voice/weight-50a09e-jess.mp3",
+      "ms": 600,
+      "spoken": "weight",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:width": {
+      "file": "assets/voice/width-95876e-jess.mp3",
+      "ms": 528,
+      "spoken": "width",
+      "voice": "cgSgspJ2msm6clMCkdW9"
+    },
+    "en:year": {
+      "file": "assets/voice/year-ae7f4d-jess.mp3",
+      "ms": 504,
+      "spoken": "year",
+      "voice": "cgSgspJ2msm6clMCkdW9"
     },
     "góc vuông": {
       "file": "assets/voice/goc-vuong-a20043-trang.mp3",
@@ -55736,6 +56906,12 @@
       "spoken": "Đáp án D: ê ke.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Đáp án bằng tiếng Anh là:": {
+      "file": "assets/voice/dap-an-bang-tieng-anh-la-b88f42-trang.mp3",
+      "ms": 1872,
+      "spoken": "Đáp án bằng tiếng Anh là:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Đáp án đúng là (15 + 36) × 6 - 4 nhé!": {
       "file": "assets/voice/dap-an-dung-la-15-36-6-4-nhe-f3de96-trang.mp3",
       "ms": 3672,
@@ -57864,6 +59040,12 @@
       "file": "assets/voice/dung-roi-con-gioi-lam-fdc1ee-trang.mp3",
       "ms": 1944,
       "spoken": "Đúng rồi! Con giỏi lắm!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Đúng rồi! Con giỏi tiếng Anh quá!": {
+      "file": "assets/voice/dung-roi-con-gioi-tieng-anh-qua-bdfde3-trang.mp3",
+      "ms": 2424,
+      "spoken": "Đúng rồi! Con giỏi tiếng Anh quá!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Đúng rồi! Con sửa giỏi lắm!": {

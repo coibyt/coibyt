@@ -9,7 +9,16 @@ import 'number_pad.dart';
 
 /// Tham số chung cho mọi khu vực trả lời.
 class AnswerViewState {
-  const AnswerViewState({required this.enabled, required this.check, required this.showCorrect, this.readingChoiceId});
+  const AnswerViewState({
+    required this.enabled,
+    required this.check,
+    required this.showCorrect,
+    this.readingChoiceId,
+    this.english,
+  });
+
+  /// Toán + Tiếng Anh: bản tiếng Anh của một chữ trên màn hình (đáp án bằng chữ); null = tắt.
+  final String? Function(String vi)? english;
 
   /// Đáp án cô đang đọc (sáng viền vàng).
   final String? readingChoiceId;
@@ -106,6 +115,7 @@ class _MultipleChoiceViewState extends State<MultipleChoiceView> {
               key: ValueKey('choice-${choice.id}'),
               label: String.fromCharCode(65 + i), // A, B, C, D
               text: choice.text,
+              english: s.english?.call(choice.text),
               selected: _selected.contains(choice.id),
               reading: s.readingChoiceId == choice.id,
               resultColor: s.showCorrect && widget.body.correctChoiceIds.contains(choice.id)
@@ -124,6 +134,7 @@ class _ChoiceTile extends StatelessWidget {
     super.key,
     required this.label,
     required this.text,
+    this.english,
     required this.selected,
     required this.onTap,
     this.resultColor,
@@ -132,6 +143,9 @@ class _ChoiceTile extends StatelessWidget {
 
   final String label;
   final String text;
+
+  /// Bản tiếng Anh của đáp án (chế độ Toán + Tiếng Anh).
+  final String? english;
   final bool selected;
 
   /// Cô đang đọc đáp án này.
@@ -183,7 +197,25 @@ class _ChoiceTile extends StatelessWidget {
                         ),
                 ),
                 const SizedBox(width: 16),
-                Expanded(child: Text(text, style: _bigText(context))),
+                Expanded(
+                  child: english == null || english == text
+                      ? Text(text, style: _bigText(context))
+                      : Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(text, style: _bigText(context)),
+                            Text(
+                              english!,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF1D4ED8),
+                              ),
+                            ),
+                          ],
+                        ),
+                ),
                 if (hasResult)
                   Icon(
                     resultColor == AppColors.good ? Icons.check_circle : Icons.refresh_rounded,

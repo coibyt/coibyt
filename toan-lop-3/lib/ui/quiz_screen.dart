@@ -15,6 +15,8 @@ import '../services/sound_service.dart';
 import '../services/tutor_voice.dart';
 import 'app_theme.dart';
 import 'widgets/answer_views.dart';
+import 'widgets/bilingual_widgets.dart';
+import '../services/english_content.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_art.dart';
 import '../tutor/teacher_assets.dart';
@@ -166,6 +168,41 @@ class _QuizBodyState extends State<_QuizBody> {
   /// Lượt bắn tiền vàng / ngôi sao.
   int _burst = 0;
 
+  // ---- Toán + Tiếng Anh ----
+  Future<LessonEnglish?>? _enFuture;
+  LessonEnglish? _en;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final on = AppScope.maybeOf(context)?.bilingual ?? false;
+    if (on && _enFuture == null) {
+      _enFuture = EnglishContent.of(widget.lesson.id)
+        ..then((e) {
+          if (mounted) setState(() => _en = e);
+        });
+    } else if (!on && _enFuture != null) {
+      _enFuture = null;
+      _en = null;
+    }
+  }
+
+  /// Cô đọc câu hỏi bằng tiếng Anh (giọng bản ngữ) sau khi đọc tiếng Việt.
+  Future<void> _readEnglish(int token, Problem p) async {
+    final en = await _enFuture;
+    if (en == null || !mounted || token != _readToken || _answer != null) return;
+    final text = p.prompt.text.trim();
+    final lines = [
+      ?en.of(p.displayInstruction),
+      ?en.of(text),
+      if (p.body case FillBlankBody(:final template)) ?englishTemplate(en.of(template)),
+    ];
+    if (lines.isEmpty) return;
+    await _teacher.say(const [BilingualLines.leadQuestion]);
+    if (!mounted || token != _readToken || _answer != null) return;
+    await _teacher.say(lines, via: TutorAudioService.english, mood: TeacherMood.point);
+  }
+
   /// Theo dõi hành vi của bé: số giây không thao tác, đã nhắc chưa.
   Timer? _watch;
   int _idleSeconds = 0;
@@ -204,7 +241,10 @@ class _QuizBodyState extends State<_QuizBody> {
         ]);
         // Trắc nghiệm: cô đọc lần lượt từng đáp án, đáp án đang đọc sáng lên.
         final body = p.body;
-        if (body is! MultipleChoiceBody) return;
+        if (body is! MultipleChoiceBody) {
+          await _readEnglish(token, p);
+          return;
+        }
         final order = _orderOf(p);
         if (!mounted || token != _readToken || _answer != null) return;
         await _teacher.say(const [TutorLines.readChoices]);
@@ -214,6 +254,7 @@ class _QuizBodyState extends State<_QuizBody> {
           await _teacher.say([body.choices.firstWhere((c) => c.id == id).text]);
         }
         if (mounted && token == _readToken) setState(() => _readingChoice = null);
+        await _readEnglish(token, p);
       }();
     });
   }
@@ -295,7 +336,16 @@ class _QuizBodyState extends State<_QuizBody> {
       QuestionPhase.revealed => TeacherMood.idle,
       _ => TeacherMood.think,
     };
-    _teacher.say(_session.messageParts, mood: mood);
+    final said = _teacher.say(_session.messageParts, mood: mood);
+    if (result.status == CheckStatus.correct && _en != null) {
+      // Toán + Tiếng Anh: khen và đọc đáp án bằng tiếng Anh ("Excellent! Ninety-six.").
+      final answer = answerInEnglish(problem.solution.answerText);
+      final praise = BilingualLines.praise[_burst % BilingualLines.praise.length];
+      said.then((_) {
+        if (!mounted || !identical(_session.current, problem)) return;
+        _teacher.say([praise, ?answer], via: TutorAudioService.english, mood: TeacherMood.clap);
+      });
+    }
     if (result.status == CheckStatus.correct) {
       _burst++;
       widget.sound.correct();
@@ -460,6 +510,7 @@ class _QuizBodyState extends State<_QuizBody> {
       check: phase == QuestionPhase.answering ? null : _session.lastCheck,
       showCorrect: phase == QuestionPhase.revealed,
       readingChoiceId: _readingChoice,
+      english: _en?.of,
     );
     return Scaffold(
       body: ScreenBackground(
@@ -487,7 +538,7 @@ class _QuizBodyState extends State<_QuizBody> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              _PromptCard(problem: problem),
+                              _PromptCard(problem: problem, english: _en),
                               if (showColumnHint) ...[
                                 const SizedBox(height: 12),
                                 ColumnHintCard(key: ValueKey('hint-${problem.id}'), focus: focus),
@@ -612,9 +663,12 @@ class _TopBar extends StatelessWidget {
 }
 
 class _PromptCard extends StatelessWidget {
-  const _PromptCard({required this.problem});
+  const _PromptCard({required this.problem, this.english});
 
   final Problem problem;
+
+  /// Toán + Tiếng Anh: bản tiếng Anh của bài (hiện câu lệnh và đề bằng tiếng Anh dưới đề tiếng Việt).
+  final LessonEnglish? english;
 
   static const _chalk = Color(0xFFF8F6EA);
 
@@ -673,6 +727,21 @@ class _PromptCard extends StatelessWidget {
                 shadows: [Shadow(color: Color(0x55FFFFFF), blurRadius: 2)],
               ),
             ),
+            if (english case final en?) ...[
+              for (final line in {
+                ?en.of(problem.displayInstruction),
+                ?en.of(problem.prompt.text.trim()),
+                if (problem.body case FillBlankBody(:final template)) ?englishTemplate(en.of(template)),
+              })
+                // Phép tính giống hệt bên tiếng Việt thì không hiện lại (cô vẫn đọc bằng tiếng Anh).
+                if (line != problem.prompt.text.trim() && RegExp('[A-Za-z]').hasMatch(line))
+                  EnglishLine(
+                    line,
+                    key: ValueKey('en-$line'),
+                    color: const Color(0xFFB9E2FF),
+                    onSpeak: () => TutorAudioService.english.speak([line]),
+                  ),
+            ],
             if (problem.prompt.image != null) ...[
               const SizedBox(height: 12),
               ClipRRect(

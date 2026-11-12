@@ -15,6 +15,8 @@ import 'widgets/game_widgets.dart';
 import '../logic/economy.dart';
 import '../logic/missions.dart';
 import 'widgets/game_art.dart';
+import 'widgets/bilingual_widgets.dart';
+import '../services/english_content.dart';
 import '../tutor/teacher_avatar.dart';
 import 'exam_screens.dart';
 import 'parent/parent_screens.dart';
@@ -286,6 +288,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 12),
                     AbilityHomeCard(app: app),
+                    const SizedBox(height: 12),
+                    // Học Toán kèm Tiếng Anh: bật / tắt ngay ở trang chủ.
+                    BilingualSwitchCard(app: app, teacher: _teacher),
                     const SizedBox(height: 12),
                     _DailyCard(app: app),
                     const SizedBox(height: 12),
@@ -1296,6 +1301,17 @@ class LessonScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                // Toán + Tiếng Anh: từ vựng tiếng Anh của bài và trò chơi ôn từ.
+                if (app.bilingual)
+                  FutureBuilder<LessonEnglish?>(
+                    future: EnglishContent.of(lessonRef.id),
+                    builder: (context, snap) => snap.data == null
+                        ? const SizedBox.shrink()
+                        : Padding(
+                            padding: const EdgeInsets.only(top: 18),
+                            child: VocabSection(english: snap.data!),
+                          ),
+                  ),
               ],
             ),
           ),

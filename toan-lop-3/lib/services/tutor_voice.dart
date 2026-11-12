@@ -13,10 +13,17 @@ abstract class TutorVoice {
 
 abstract final class AppTutorVoice {
   static TutorVoice instance = SilentTutorVoice();
+
+  /// Giọng đọc tiếng Anh của máy (chế độ Toán + Tiếng Anh, khi câu chưa có file ghi âm).
+  static TutorVoice english = SilentTutorVoice();
 }
 
 /// Web: Web Speech API (speechSynthesis). Điện thoại: giọng đọc của hệ thống.
 class TtsTutorVoice implements TutorVoice {
+  TtsTutorVoice({this.language = 'vi-VN'});
+
+  /// Mã ngôn ngữ giọng đọc (vi-VN, en-US…).
+  final String language;
   final FlutterTts _tts = FlutterTts();
   bool _ready = false;
   bool? _vi;
@@ -27,9 +34,9 @@ class TtsTutorVoice implements TutorVoice {
   Future<void> _init() async {
     if (_ready && _vi == true) return;
     try {
-      final ok = await _tts.isLanguageAvailable('vi-VN');
+      final ok = await _tts.isLanguageAvailable(language);
       _vi = ok == true || ok == 1;
-      if (_vi!) await _tts.setLanguage('vi-VN');
+      if (_vi!) await _tts.setLanguage(language);
       // Đọc chậm cho bé: web 1.0 = bình thường; điện thoại 0.5 = bình thường.
       await _tts.setSpeechRate(kIsWeb ? 0.9 : 0.45);
       await _tts.setPitch(1.1);

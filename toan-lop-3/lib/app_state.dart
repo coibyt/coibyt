@@ -377,6 +377,16 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  static const bilingualKey = 'settings.bilingual';
+
+  /// Học Toán kèm Tiếng Anh: câu hỏi có bản tiếng Anh, cô đọc thêm tiếng Anh, thẻ từ vựng mỗi bài.
+  bool get bilingual => store.get(bilingualKey) == 'true';
+
+  Future<void> setBilingual(bool value) async {
+    await store.put(bilingualKey, '$value');
+    notifyListeners();
+  }
+
   /// Cho dịch vụ khác báo giao diện cập nhật.
   void notifyListenersPublic() => notifyListeners();
 
