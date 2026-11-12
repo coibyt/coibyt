@@ -277,7 +277,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 12),
                     _GlassCard(
                       padding: const EdgeInsets.fromLTRB(8, 8, 12, 12),
-                      child: TeacherHud(key: const ValueKey('home-tutor'), controller: _teacher, avatarHeight: 170),
+                      child: TeacherHud(
+                        key: const ValueKey('home-tutor'),
+                        controller: _teacher,
+                        avatarHeight: 170,
+                        maxTextHeight: 150,
+                      ),
                     ),
                     const SizedBox(height: 12),
                     AbilityHomeCard(app: app),

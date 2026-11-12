@@ -4,6 +4,7 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
+import 'config.dart';
 import 'logic/ability.dart';
 import 'logic/badges.dart';
 import 'logic/economy.dart';
@@ -445,7 +446,7 @@ class AppState extends ChangeNotifier {
   Future<void> markGreeted() => store.put(greetedKey, dayKey(now()));
 
   /// VIP thật (từ máy chủ, sau khi mua) hoặc VIP thử (bản thử nghiệm).
-  bool get isVip => _vip || (_vipUntil?.isAfter(now()) ?? false);
+  bool get isVip => AppConfig.allFree || _vip || (_vipUntil?.isAfter(now()) ?? false);
   bool get isDevVip => _vip;
   DateTime? get vipUntil => _vipUntil;
 

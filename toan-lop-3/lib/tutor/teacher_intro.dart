@@ -13,7 +13,11 @@ class TeacherIntro extends StatefulWidget {
     this.mood = TeacherMood.idle,
     this.avatarHeight = 120,
     this.controller,
+    this.maxTextHeight = 104,
   });
+
+  /// Phụ đề gọn (null = khung đủ chỗ cho cả lời thoại).
+  final double? maxTextHeight;
 
   /// Các câu cô nói khi mở màn hình.
   final List<String> lines;
@@ -55,6 +59,6 @@ class _TeacherIntroState extends State<TeacherIntro> {
       border: Border.all(color: Colors.white, width: 2),
       boxShadow: const [BoxShadow(color: Color(0x1A3A2A80), blurRadius: 16, offset: Offset(0, 5))],
     ),
-    child: TeacherHud(controller: _teacher, avatarHeight: widget.avatarHeight),
+    child: TeacherHud(controller: _teacher, avatarHeight: widget.avatarHeight, maxTextHeight: widget.maxTextHeight),
   );
 }

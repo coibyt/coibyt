@@ -32,27 +32,29 @@ class AccountSection extends StatelessWidget {
               builder: (context, _) => _SyncBody(sync: sync),
             ),
         ]),
-        _box([
-          const Text('Gói VIP', style: h),
-          const SizedBox(height: 6),
-          Text(
-            app.isVip
-                ? (app.vipUntil != null && app.vipUntil!.isAfter(app.now())
-                      ? 'Đang dùng VIP đến ${_d(app.vipUntil!)}.'
-                      : 'Đang bật VIP thử.')
-                : 'VIP mở: lời giải chi tiết từng bước cho mọi bài, bài và đề nâng cao.',
-          ),
-          const SizedBox(height: 8),
-          if (!app.isVip || app.isDevVip)
-            FilledButton.icon(
-              key: const ValueKey('btn-upgrade'),
-              style: FilledButton.styleFrom(backgroundColor: AppColors.vip, minimumSize: const Size.fromHeight(52)),
-              onPressed: () =>
-                  Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => VipPurchaseScreen(sync: sync))),
-              icon: const Icon(Icons.workspace_premium_rounded),
-              label: const Text('Nâng cấp VIP', style: TextStyle(fontSize: 18)),
+        // Bản miễn phí toàn bộ: không có mục mua VIP.
+        if (!AppConfig.allFree)
+          _box([
+            const Text('Gói VIP', style: h),
+            const SizedBox(height: 6),
+            Text(
+              app.isVip
+                  ? (app.vipUntil != null && app.vipUntil!.isAfter(app.now())
+                        ? 'Đang dùng VIP đến ${_d(app.vipUntil!)}.'
+                        : 'Đang bật VIP thử.')
+                  : 'VIP mở: lời giải chi tiết từng bước cho mọi bài, bài và đề nâng cao.',
             ),
-        ]),
+            const SizedBox(height: 8),
+            if (!app.isVip || app.isDevVip)
+              FilledButton.icon(
+                key: const ValueKey('btn-upgrade'),
+                style: FilledButton.styleFrom(backgroundColor: AppColors.vip, minimumSize: const Size.fromHeight(52)),
+                onPressed: () =>
+                    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => VipPurchaseScreen(sync: sync))),
+                icon: const Icon(Icons.workspace_premium_rounded),
+                label: const Text('Nâng cấp VIP', style: TextStyle(fontSize: 18)),
+              ),
+          ]),
       ],
     );
   }

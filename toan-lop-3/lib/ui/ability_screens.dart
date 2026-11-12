@@ -621,7 +621,7 @@ class _AbilityTestScreenState extends State<AbilityTestScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TeacherHud(controller: _teacher, avatarHeight: 96),
+                  TeacherHud(controller: _teacher, avatarHeight: 96, maxTextHeight: 104),
                   const SizedBox(height: 6),
                   BigButton(
                     key: const ValueKey('btn-ability-answer'),

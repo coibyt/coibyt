@@ -288,6 +288,18 @@ JOBS["bg_exam_room"] = dict(group="bg", aspect="9:16", prompt=(
     "desks each with a blank exam sheet, a pencil and an eraser, a big blank green chalkboard on the wall, a round "
     "wall clock, tall windows with soft morning sunlight and green trees outside, a vase of yellow flowers on the "
     "teacher's desk, potted plants, warm cream walls, peaceful focused atmosphere, no people. " + STYLE + " " + CLEAN))
+JOBS["store_banner_bg"] = dict(group="store", aspect="21:9", prompt=(
+    "A bright, joyful, premium banner background for a children's math learning app: a warm sunny classroom with a "
+    "big green chalkboard on the RIGHT side covered with simple chalk doodles of stars and shapes, colourful floating "
+    "3D numbers and math symbols (plus, minus, times, divide) made of glossy candy-like plastic, golden sparkles, "
+    "soft bokeh, cheerful pastel yellow, sky blue and coral palette, the LEFT 45% of the image is calm and softly "
+    "blurred with plenty of empty space for a title, no people, no characters. " + STYLE + " No text, no letters, no watermark."))
+JOBS["store_icon"] = dict(group="store", aspect="1:1", ref="icon_app", prompt=(
+    "Use the reference image. Keep the same cute chubby golden honey bee mascot with the navy graduation cap and "
+    "golden pencil, same art style and colours, but make it a FULL-BLEED square app icon: the warm honey-gold "
+    "honeycomb gradient background fills the ENTIRE canvas edge to edge, no rounded corners, no border, no white "
+    "margin, no frame, no drop shadow around the square. The bee is centered and fills about 70% of the canvas. "
+    "No text, no letters, no watermark."))
 JOBS["chalk_pen"] = dict(group="ui", aspect="1:1", prompt=obj(
     "A teacher's elegant chalk pen: a slim golden metal chalk holder with a small coral ribbon, holding a white chalk "
     "stick, lying diagonally with the white chalk TIP at the BOTTOM-LEFT corner and the golden end at the TOP-RIGHT corner"))

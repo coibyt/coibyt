@@ -358,7 +358,7 @@ class _ReviewGameScreenState extends State<ReviewGameScreen> with SingleTickerPr
                 ),
               ),
               const SizedBox(height: 12),
-              _panel(TeacherHud(controller: _teacher, avatarHeight: 110)),
+              _panel(TeacherHud(controller: _teacher, avatarHeight: 110, maxTextHeight: 104)),
               const SizedBox(height: 14),
               BigButton(
                 key: const ValueKey('btn-game-start'),
@@ -500,7 +500,7 @@ class _ReviewGameScreenState extends State<ReviewGameScreen> with SingleTickerPr
         Container(
           padding: const EdgeInsets.fromLTRB(10, 6, 10, 8),
           color: Colors.white.withValues(alpha: 0.85),
-          child: TeacherHud(controller: _teacher, avatarHeight: 80),
+          child: TeacherHud(controller: _teacher, avatarHeight: 80, maxTextHeight: 78),
         ),
       ],
     );
@@ -651,7 +651,7 @@ class _ReviewGameScreenState extends State<ReviewGameScreen> with SingleTickerPr
                 ),
               ),
               const SizedBox(height: 12),
-              _panel(TeacherHud(controller: _teacher, avatarHeight: 110)),
+              _panel(TeacherHud(controller: _teacher, avatarHeight: 110, maxTextHeight: 104)),
               const SizedBox(height: 14),
               BigButton(
                 key: const ValueKey('btn-game-again'),

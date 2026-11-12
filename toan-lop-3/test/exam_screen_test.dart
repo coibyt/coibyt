@@ -81,7 +81,11 @@ void main() {
     expect(app.progress.exams.single.score, 2);
 
     // Xem lời giải câu 2 (chưa làm)
-    await tester.scrollUntilVisible(find.byKey(const ValueKey('review-1')), 200);
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('review-1')),
+      200,
+      scrollable: find.byType(Scrollable).first, // phụ đề của cô cũng là một vùng cuộn
+    );
     await tester.ensureVisible(find.byKey(const ValueKey('review-1')));
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('review-1')));
