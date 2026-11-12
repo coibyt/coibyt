@@ -28,7 +28,7 @@ void main() {
     }
   });
 
-  testWidgets('Chọn sách → trang chủ → chủ đề → bài → Nhớ nhanh / Luyện tập', (tester) async {
+  testWidgets('Vào thẳng trang chủ → chủ đề → bài → Nhớ nhanh / Luyện tập', (tester) async {
     tester.view.physicalSize = const Size(1080, 2340);
     tester.view.devicePixelRatio = 2.5;
     addTearDown(tester.view.reset);
@@ -37,9 +37,9 @@ void main() {
     await tester.pumpWidget(OngVangApp(stateFactory: () async => state));
     await tester.pumpAndSettle();
 
-    expect(find.text('Con học sách nào?'), findsOneWidget);
-    expect(find.text('Sắp có'), findsOneWidget); // Chân trời sáng tạo chưa có bài
-    await tapKey(tester, 'book-kntt4');
+    // Không còn màn chọn sách: bé vào thẳng trang chủ với bộ Kết nối tri thức.
+    expect(find.text('Con học sách nào?'), findsNothing);
+    expect(state.book?.id, 'kntt4');
     expect(find.byKey(const ValueKey('home-greeting')), findsOneWidget);
 
     await tapKey(tester, 'tile-Học bài');

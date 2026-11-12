@@ -102,7 +102,7 @@ class _OngVangAppState extends State<OngVangApp> {
   }
 }
 
-/// Lần đầu: chọn bộ sách. Sau đó: trang chủ của bé.
+/// Trang chủ của bé (bộ sách tự chọn sẵn; chỉ khi nội dung không có bộ sách nào mới hiện màn chọn sách).
 class RootScreen extends StatelessWidget {
   const RootScreen({super.key});
 

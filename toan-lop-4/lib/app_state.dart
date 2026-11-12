@@ -476,11 +476,15 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Bộ sách đang học. Chưa chọn (hoặc mã cũ không còn) thì tự dùng bộ đầu tiên có bài học
+  /// (Kết nối tri thức) — bé vào thẳng trang chủ, không phải qua màn chọn sách.
   Book? get book {
     final id = progress.bookId;
-    if (id == null) return null;
     for (final b in catalog.books) {
       if (b.id == id) return b;
+    }
+    for (final b in catalog.books) {
+      if (b.chapters.isNotEmpty) return b;
     }
     return null;
   }
