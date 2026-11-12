@@ -1,0 +1,736 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.cuoi-hk1-de-2",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c1",
+    "kntt4.c2",
+    "kntt4.c3",
+    "kntt4.c4",
+    "kntt4.c5",
+    "kntt4.c6",
+    "kntt4.c7"
+  ],
+  "title": "Đề cuối học kì 1 — Đề số 2",
+  "description": "Ôn tập chủ đề 1, 2, 3, 4, 5, 6, 7.",
+  "examType": "cuoi_hk1",
+  "term": 1,
+  "durationMinutes": 40,
+  "access": "vip",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giá trị của chữ số 8 (chữ số thứ 4 tính từ trái) trong số 65.786.690 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lop_trieu",
+              "so.hang_lop"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "80.000"
+              },
+              {
+                "id": "b",
+                "text": "800.000"
+              },
+              {
+                "id": "c",
+                "text": "8"
+              },
+              {
+                "id": "d",
+                "text": "8.000"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "80.000",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Trong số 65.786.690, chữ số 8 ở hàng chục nghìn, nên có giá trị là 80.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Trong hình chữ nhật ABCD, cạnh AB vuông góc với cạnh nào?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "AB"
+              },
+              {
+                "id": "b",
+                "text": "AC"
+              },
+              {
+                "id": "c",
+                "text": "CD"
+              },
+              {
+                "id": "d",
+                "text": "AD và BC"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "AD và BC",
+              "hint": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Đáp án: AD và BC."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc nào lớn nhất?\ngóc A: 20°, góc B: 90°, góc C: 50°, góc D: 45°"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc A"
+              },
+              {
+                "id": "b",
+                "text": "góc B"
+              },
+              {
+                "id": "c",
+                "text": "góc D"
+              },
+              {
+                "id": "d",
+                "text": "góc C"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc B",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh các số đo: 20° < 45° < 50° < 90°."
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc lớn nhất có số đo 90°."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hai số có tổng là 802, hiệu là 180. Hai số đó là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "tong_hieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "492 và 312"
+              },
+              {
+                "id": "b",
+                "text": "622 và 180"
+              },
+              {
+                "id": "c",
+                "text": "671 và 131"
+              },
+              {
+                "id": "d",
+                "text": "491 và 311"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "491 và 311",
+              "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số lớn là:",
+                      "equation": "(802 + 180) : 2 = 491"
+                    },
+                    {
+                      "explanation": "Số bé là:",
+                      "equation": "802 - 491 = 311"
+                    }
+                  ],
+                  "answer": "Đáp số: số lớn 491; số bé 311."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Làm tròn số 4.082.359 đến hàng trăm nghìn ta được số:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "4.080.000"
+              },
+              {
+                "id": "b",
+                "text": "4.100.000"
+              },
+              {
+                "id": "c",
+                "text": "4.000.000"
+              },
+              {
+                "id": "d",
+                "text": "4.200.000"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4.100.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Chữ số hàng chục nghìn của 4.082.359 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 4.082.359 đến hàng trăm nghìn được 4.100.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q06",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối số với cách đọc.",
+            "prompt": {
+              "text": "Nối mỗi số với cách đọc đúng của số đó."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "8.503.623"
+              },
+              {
+                "id": "l2",
+                "text": "4.381.405"
+              },
+              {
+                "id": "l3",
+                "text": "9.405.626"
+              },
+              {
+                "id": "l4",
+                "text": "9.986.300"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba"
+              },
+              {
+                "id": "r2",
+                "text": "tám triệu năm trăm linh sáu nghìn ba trăm hai mươi ba"
+              },
+              {
+                "id": "r3",
+                "text": "bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm"
+              },
+              {
+                "id": "r4",
+                "text": "chín triệu chín trăm tám mươi sáu nghìn ba trăm"
+              },
+              {
+                "id": "r5",
+                "text": "chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.503.623: tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba; 4.381.405: bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm; 9.405.626: chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu; 9.986.300: chín triệu chín trăm tám mươi sáu nghìn ba trăm",
+              "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "8.503.623: tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba."
+                },
+                {
+                  "kind": "text",
+                  "text": "4.381.405: bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm."
+                },
+                {
+                  "kind": "text",
+                  "text": "9.405.626: chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu."
+                },
+                {
+                  "kind": "text",
+                  "text": "9.986.300: chín triệu chín trăm tám mươi sáu nghìn ba trăm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q07",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Cách tính thuận tiện nhất cho 68 + 352 + 32 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tinh_chat.phep_cong"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "(68 + 352) + 32"
+              },
+              {
+                "id": "b",
+                "text": "(68 + 32) + 352"
+              },
+              {
+                "id": "c",
+                "text": "68 + (352 - 32)"
+              },
+              {
+                "id": "d",
+                "text": "(68 - 32) + 352"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "(68 + 32) + 352",
+              "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "68 + 32 = 100 là số tròn, nên cộng hai số này trước."
+                },
+                {
+                  "kind": "equation",
+                  "text": "(68 + 32) + 352 = 452"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q08",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "416.013 - 272.045"
+              },
+              {
+                "id": "l2",
+                "text": "659.752 - 544.031"
+              },
+              {
+                "id": "l3",
+                "text": "854.254 - 30.083"
+              },
+              {
+                "id": "l4",
+                "text": "893.810 - 557.059"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "824.171"
+              },
+              {
+                "id": "r2",
+                "text": "115.721"
+              },
+              {
+                "id": "r3",
+                "text": "143.968"
+              },
+              {
+                "id": "r4",
+                "text": "336.751"
+              },
+              {
+                "id": "r5",
+                "text": "344.849"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "416.013 - 272.045 = 143.968; 659.752 - 544.031 = 115.721; 854.254 - 30.083 = 824.171; 893.810 - 557.059 = 336.751",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "416.013 - 272.045 = 143.968"
+                },
+                {
+                  "kind": "equation",
+                  "text": "659.752 - 544.031 = 115.721"
+                },
+                {
+                  "kind": "equation",
+                  "text": "854.254 - 30.083 = 824.171"
+                },
+                {
+                  "kind": "equation",
+                  "text": "893.810 - 557.059 = 336.751"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q09",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số đo với tên góc."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "25°"
+              },
+              {
+                "id": "l2",
+                "text": "155°"
+              },
+              {
+                "id": "l3",
+                "text": "90°"
+              },
+              {
+                "id": "l4",
+                "text": "180°"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "r2",
+                "text": "góc tù"
+              },
+              {
+                "id": "r3",
+                "text": "góc vuông"
+              },
+              {
+                "id": "r4",
+                "text": "góc nhọn"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "25° → góc nhọn; 155° → góc tù; 90° → góc vuông; 180° → góc bẹt",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "25°: góc nhọn."
+                },
+                {
+                  "kind": "text",
+                  "text": "155°: góc tù."
+                },
+                {
+                  "kind": "text",
+                  "text": "90°: góc vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "180°: góc bẹt."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.cuoi-hk1-de-2.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.pham_vi_100000"
+            ],
+            "access": "free",
+            "template": "70.433 - 4.172 = {{s1}}\n29.119 + 51.763 = {{s2}}\n13.928 + 3.040 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "74.341"
+              },
+              {
+                "id": "t2",
+                "text": "66.261"
+              },
+              {
+                "id": "t3",
+                "text": "16.968"
+              },
+              {
+                "id": "t4",
+                "text": "80.882"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "66.261; 80.882; 16.968",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "70.433 - 4.172 = 66.261"
+                },
+                {
+                  "kind": "equation",
+                  "text": "29.119 + 51.763 = 80.882"
+                },
+                {
+                  "kind": "equation",
+                  "text": "13.928 + 3.040 = 16.968"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 74.341 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

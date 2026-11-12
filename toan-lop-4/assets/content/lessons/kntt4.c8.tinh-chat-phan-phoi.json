@@ -1,0 +1,559 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c8.tinh-chat-phan-phoi",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 5,
+  "title": "Tính chất phân phối của phép nhân đối với phép cộng",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Khi nhân một số với một tổng, ta có thể nhân số đó với từng số hạng của tổng rồi cộng các kết quả với nhau: a × (b + c) = a × b + a × c.",
+        "style": "rule"
+      },
+      {
+        "kind": "equation",
+        "text": "24 × (10 + 3) = 24 × 10 + 24 × 3 = 240 + 72 = 312"
+      },
+      {
+        "kind": "text",
+        "text": "Tách 99 = 100 - 1 hay 101 = 100 + 1 để tính nhanh.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tính bằng hai cách: 92 × (28 + 6)"
+      },
+      "level": 1,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "template": "92 × (28 + 6) = 92 × 28 + 92 × {{b1}} = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 3128
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.128",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "92 × (28 + 6) = 92 × 34 = 3.128"
+          },
+          {
+            "kind": "equation",
+            "text": "92 × (28 + 6) = 92 × 28 + 92 × 6 = 2.576 + 552 = 3.128"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tính bằng hai cách: 45 × (41 + 4)"
+      },
+      "level": 1,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "template": "45 × (41 + 4) = 45 × 41 + 45 × {{b1}} = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2025
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.025",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "45 × (41 + 4) = 45 × 45 = 2.025"
+          },
+          {
+            "kind": "equation",
+            "text": "45 × (41 + 4) = 45 × 41 + 45 × 4 = 1.845 + 180 = 2.025"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào bằng 83 × 101?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "83 + 100 + 1"
+        },
+        {
+          "id": "b",
+          "text": "83 × 100 + 83"
+        },
+        {
+          "id": "c",
+          "text": "83 × 100 + 1"
+        },
+        {
+          "id": "d",
+          "text": "83 × 100 - 83"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "83 × 100 + 83",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "83 × 101 = 83 × (100 + 1) = 83 × 100 + 83 = 8.300 + 83 = 8.383"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "26 × 30 + 26 × 3"
+        },
+        {
+          "id": "l2",
+          "text": "13 × 56 + 13 × 5"
+        },
+        {
+          "id": "l3",
+          "text": "4 × 32 + 4 × 5"
+        },
+        {
+          "id": "l4",
+          "text": "10 × 29 + 10 × 7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "793"
+        },
+        {
+          "id": "r2",
+          "text": "858"
+        },
+        {
+          "id": "r3",
+          "text": "868"
+        },
+        {
+          "id": "r4",
+          "text": "360"
+        },
+        {
+          "id": "r5",
+          "text": "148"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "26 × 30 + 26 × 3 → 858; 13 × 56 + 13 × 5 → 793; 4 × 32 + 4 × 5 → 148; 10 × 29 + 10 × 7 → 360",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "26 × 30 + 26 × 3 = 26 × (30 + 3) = 858"
+          },
+          {
+            "kind": "equation",
+            "text": "13 × 56 + 13 × 5 = 13 × (56 + 5) = 793"
+          },
+          {
+            "kind": "equation",
+            "text": "4 × 32 + 4 × 5 = 4 × (32 + 5) = 148"
+          },
+          {
+            "kind": "equation",
+            "text": "10 × 29 + 10 × 7 = 10 × (29 + 7) = 360"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số vào ô trống: 36 × 11 = 36 × 10 + 36 × □ = □ + □ = □"
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "template": "36 × 11 = 36 × 10 + 36 × {{s1}} = {{s2}} + {{s3}} = {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "360"
+        },
+        {
+          "id": "t2",
+          "text": "11"
+        },
+        {
+          "id": "t3",
+          "text": "36"
+        },
+        {
+          "id": "t4",
+          "text": "396"
+        },
+        {
+          "id": "t5",
+          "text": "1"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t5"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1; 360; 36; 396",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "36 × 11 = 36 × 10 + 36 × 1 = 360 + 36 = 396"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Biểu thức nào bằng 43 × 21?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "43 × 20 + 1"
+        },
+        {
+          "id": "b",
+          "text": "43 × 20 + 43"
+        },
+        {
+          "id": "c",
+          "text": "43 × 20 - 43"
+        },
+        {
+          "id": "d",
+          "text": "43 + 20 + 1"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "43 × 20 + 43",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "43 × 21 = 43 × (20 + 1) = 43 × 20 + 43 = 860 + 43 = 903"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi kho có 66 kg gạo nếp và 56 kg gạo tẻ. Hỏi 5 kho như thế có tất cả bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "5 kho có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 610,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "610 kg gạo",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo có trong mỗi kho là:",
+                "equation": "66 + 56 = 122 (kg)"
+              },
+              {
+                "explanation": "Số gạo có trong 5 kho là:",
+                "equation": "122 × 5 = 610 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 610 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "66",
+              "56"
+            ],
+            "result": "122",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 6 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 5 bằng 11, thêm 1 bằng 12, viết 12.",
+                "write": "12"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "122",
+              "5"
+            ],
+            "result": "610",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 2 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 2 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 nhân 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-phan-phoi.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tính bằng hai cách: 25 × (27 + 5)"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tinh_chat.phan_phoi"
+      ],
+      "access": "free",
+      "template": "25 × (27 + 5) = 25 × 27 + 25 × {{b1}} = {{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 800
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "800",
+        "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "25 × (27 + 5) = 25 × 32 = 800"
+          },
+          {
+            "kind": "equation",
+            "text": "25 × (27 + 5) = 25 × 27 + 25 × 5 = 675 + 125 = 800"
+          }
+        ]
+      }
+    }
+  ]
+}

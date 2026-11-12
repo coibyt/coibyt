@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-03",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c3"
+  ],
+  "title": "Kiểm tra chủ đề 3",
+  "description": "Số có nhiều chữ số.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số bé nhất trong các số 392.448, 392.169, 392.146, 392.148 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "392.169"
+              },
+              {
+                "id": "b",
+                "text": "392.146"
+              },
+              {
+                "id": "c",
+                "text": "392.448"
+              },
+              {
+                "id": "d",
+                "text": "392.148"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "392.146",
+              "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Xếp các số theo thứ tự từ bé đến lớn: 392.146 < 392.148 < 392.169 < 392.448."
+                },
+                {
+                  "kind": "text",
+                  "text": "Vậy số bé nhất là 392.146."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số 420.486 viết thành tổng là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "200.000 + 40.000 + 400 + 80 + 6"
+              },
+              {
+                "id": "b",
+                "text": "400.000 + 20.000 + 400 + 80 + 6"
+              },
+              {
+                "id": "c",
+                "text": "400.000 + 20.000 + 4.000 + 80 + 6"
+              },
+              {
+                "id": "d",
+                "text": "400.000 + 20.000 + 6.000 + 400 + 80"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "400.000 + 20.000 + 400 + 80 + 6",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "420.486 = 400.000 + 20.000 + 400 + 80 + 6"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số lớn nhất trong các số 7.343.503, 7.447.503, 7.543.603, 7.443.503 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "7.443.503"
+              },
+              {
+                "id": "b",
+                "text": "7.447.503"
+              },
+              {
+                "id": "c",
+                "text": "7.343.503"
+              },
+              {
+                "id": "d",
+                "text": "7.543.603"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.543.603",
+              "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Xếp các số theo thứ tự từ bé đến lớn: 7.343.503 < 7.443.503 < 7.447.503 < 7.543.603."
+                },
+                {
+                  "kind": "text",
+                  "text": "Vậy số lớn nhất là 7.543.603."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Giá trị của chữ số 5 (chữ số thứ 1 tính từ trái) trong số 56.112.699 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.hang_lop"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "5"
+              },
+              {
+                "id": "b",
+                "text": "50.000.000"
+              },
+              {
+                "id": "c",
+                "text": "5.000.000"
+              },
+              {
+                "id": "d",
+                "text": "500.000.000"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "50.000.000",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Trong số 56.112.699, chữ số 5 ở hàng chục triệu, nên có giá trị là 50.000.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số với số làm tròn của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "1.661.770 (làm tròn đến hàng trăm nghìn)"
+              },
+              {
+                "id": "l2",
+                "text": "1.609.227 (làm tròn đến hàng chục nghìn)"
+              },
+              {
+                "id": "l3",
+                "text": "1.680.402 (làm tròn đến hàng chục nghìn)"
+              },
+              {
+                "id": "l4",
+                "text": "2.093.018 (làm tròn đến hàng trăm nghìn)"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "1.680.000"
+              },
+              {
+                "id": "r2",
+                "text": "2.100.000"
+              },
+              {
+                "id": "r3",
+                "text": "1.610.000"
+              },
+              {
+                "id": "r4",
+                "text": "1.600.000"
+              },
+              {
+                "id": "r5",
+                "text": "1.700.000"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1.661.770 (làm tròn đến hàng trăm nghìn) → 1.700.000; 1.609.227 (làm tròn đến hàng chục nghìn) → 1.610.000; 1.680.402 (làm tròn đến hàng chục nghìn) → 1.680.000; 2.093.018 (làm tròn đến hàng trăm nghìn) → 2.100.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 1.661.770 đến hàng trăm nghìn được 1.700.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 1.609.227 đến hàng chục nghìn được 1.610.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 1.680.402 đến hàng chục nghìn được 1.680.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 2.093.018 đến hàng trăm nghìn được 2.100.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Làm tròn số 8.196.481 đến hàng trăm nghìn ta được số:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "8.100.000"
+              },
+              {
+                "id": "b",
+                "text": "8.300.000"
+              },
+              {
+                "id": "c",
+                "text": "8.200.000"
+              },
+              {
+                "id": "d",
+                "text": "8.199.998"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.200.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Chữ số hàng chục nghìn của 8.196.481 là 9, lớn hơn hoặc bằng 5 nên làm tròn lên."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 8.196.481 đến hàng trăm nghìn được 8.200.000."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Tìm số lớn nhất và số bé nhất có 9 chữ số."
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "template": "Số lớn nhất có 9 chữ số là {{b1}}.\nSố bé nhất có 9 chữ số là {{b2}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 999999999
+                },
+                "maxLength": 11
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 100000000
+                },
+                "maxLength": 11
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "999.999.999; 100.000.000",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số lớn nhất có 9 chữ số là 999.999.999; số bé nhất có 9 chữ số là 100.000.000."
+                },
+                {
+                  "kind": "equation",
+                  "text": "999.999.999 + 1 = 1.000.000.000"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số thích hợp vào chỗ trống trong dãy số:"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "so.hang_lop"
+            ],
+            "access": "free",
+            "template": "9.600.000; {{s1}}; {{s2}}; 9.630.000; 9.640.000; {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "9.610.000"
+              },
+              {
+                "id": "t2",
+                "text": "9.650.000"
+              },
+              {
+                "id": "t3",
+                "text": "9.611.000"
+              },
+              {
+                "id": "t4",
+                "text": "9.620.000"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "9.610.000; 9.620.000; 9.650.000",
+              "hint": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai số liền nhau hơn kém nhau 10.000 đơn vị: 9.600.000; 9.610.000; 9.620.000; 9.630.000; 9.640.000; 9.650.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo số làm tròn đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "template": "Làm tròn 147.480 đến hàng trăm nghìn: {{s1}}\nLàm tròn 870.755 đến hàng trăm nghìn: {{s2}}\nLàm tròn 284.166 đến hàng chục nghìn: {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "200.000"
+              },
+              {
+                "id": "t2",
+                "text": "100.000"
+              },
+              {
+                "id": "t3",
+                "text": "900.000"
+              },
+              {
+                "id": "t4",
+                "text": "280.000"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "100.000; 900.000; 280.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 147.480 đến hàng trăm nghìn được 100.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 870.755 đến hàng trăm nghìn được 900.000."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 284.166 đến hàng chục nghìn được 280.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-03.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Có bao nhiêu số tự nhiên lớn hơn 1.211 và bé hơn 1.220?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "so.day_so_tu_nhien"
+            ],
+            "access": "free",
+            "template": "Có {{b1}} số tự nhiên.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 8
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8",
+              "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Các số đó là từ 1.212 đến 1.219."
+                },
+                {
+                  "kind": "equation",
+                  "text": "1.220 - 1.211 - 1 = 8"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,826 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-13",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c13"
+  ],
+  "title": "Kiểm tra chủ đề 13",
+  "description": "Ôn tập cuối năm.",
+  "examType": "kt_1_tiet",
+  "term": 2,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số đo với tên góc."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "60°"
+              },
+              {
+                "id": "l2",
+                "text": "90°"
+              },
+              {
+                "id": "l3",
+                "text": "115°"
+              },
+              {
+                "id": "l4",
+                "text": "180°"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "r2",
+                "text": "góc tù"
+              },
+              {
+                "id": "r3",
+                "text": "góc nhọn"
+              },
+              {
+                "id": "r4",
+                "text": "góc vuông"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "60° → góc nhọn; 90° → góc vuông; 115° → góc tù; 180° → góc bẹt",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "60°: góc nhọn."
+                },
+                {
+                  "kind": "text",
+                  "text": "90°: góc vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "115°: góc tù."
+                },
+                {
+                  "kind": "text",
+                  "text": "180°: góc bẹt."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "nhan.2cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "91 × 21"
+              },
+              {
+                "id": "l2",
+                "text": "72 × 61"
+              },
+              {
+                "id": "l3",
+                "text": "13 × 93"
+              },
+              {
+                "id": "l4",
+                "text": "69 × 91"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "4.392"
+              },
+              {
+                "id": "r2",
+                "text": "1.209"
+              },
+              {
+                "id": "r3",
+                "text": "6.279"
+              },
+              {
+                "id": "r4",
+                "text": "690"
+              },
+              {
+                "id": "r5",
+                "text": "1.911"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "91 × 21 = 1.911; 72 × 61 = 4.392; 13 × 93 = 1.209; 69 × 91 = 6.279",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "91 × 21 = 1.911"
+                },
+                {
+                  "kind": "equation",
+                  "text": "72 × 61 = 4.392"
+                },
+                {
+                  "kind": "equation",
+                  "text": "13 × 93 = 1.209"
+                },
+                {
+                  "kind": "equation",
+                  "text": "69 × 91 = 6.279"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối hai phân số bằng nhau."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "phan_so.tinh_chat"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "5/6"
+              },
+              {
+                "id": "l2",
+                "text": "2/7"
+              },
+              {
+                "id": "l3",
+                "text": "3/4"
+              },
+              {
+                "id": "l4",
+                "text": "1/4"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "10/12"
+              },
+              {
+                "id": "r2",
+                "text": "4/14"
+              },
+              {
+                "id": "r3",
+                "text": "3/12"
+              },
+              {
+                "id": "r4",
+                "text": "9/12"
+              },
+              {
+                "id": "r5",
+                "text": "6/13"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5/6 → 10/12; 2/7 → 4/14; 3/4 → 9/12; 1/4 → 3/12",
+              "hint": "Nhân hoặc chia cả tử số và mẫu số với cùng một số tự nhiên khác không thì được phân số bằng phân số đã cho.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "5/6 = 10/12."
+                },
+                {
+                  "kind": "text",
+                  "text": "2/7 = 4/14."
+                },
+                {
+                  "kind": "text",
+                  "text": "3/4 = 9/12."
+                },
+                {
+                  "kind": "text",
+                  "text": "1/4 = 3/12."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Mỗi bạn tung đồng xu 30 lần. Nối số lần mặt sấp với số lần mặt ngửa tương ứng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "xac_suat.so_lan"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Sấp 13 lần"
+              },
+              {
+                "id": "l2",
+                "text": "Sấp 4 lần"
+              },
+              {
+                "id": "l3",
+                "text": "Sấp 12 lần"
+              },
+              {
+                "id": "l4",
+                "text": "Sấp 16 lần"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "26 lần ngửa"
+              },
+              {
+                "id": "r2",
+                "text": "14 lần ngửa"
+              },
+              {
+                "id": "r3",
+                "text": "18 lần ngửa"
+              },
+              {
+                "id": "r4",
+                "text": "17 lần ngửa"
+              },
+              {
+                "id": "r5",
+                "text": "1 lần ngửa"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Sấp 13 lần → 17 lần ngửa; Sấp 4 lần → 26 lần ngửa; Sấp 12 lần → 18 lần ngửa; Sấp 16 lần → 14 lần ngửa",
+              "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "30 - 13 = 17."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 4 = 26."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 12 = 18."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 16 = 14."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "7/9 - 4/9 = ?"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "phan_so.tru"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "11/9"
+              },
+              {
+                "id": "b",
+                "text": "2/3"
+              },
+              {
+                "id": "c",
+                "text": "1/3"
+              },
+              {
+                "id": "d",
+                "text": "3/9"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1/3",
+              "hint": "Trừ hai phân số cùng mẫu số: lấy tử số trừ tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "7/9 - 4/9 = 3/9 = 1/3"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Cách tính thuận tiện nhất cho 25 × 50 × 4 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tinh_chat.phep_nhan"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "(25 + 4) × 50"
+              },
+              {
+                "id": "b",
+                "text": "(25 × 50) × 4"
+              },
+              {
+                "id": "c",
+                "text": "(25 × 4) × 50"
+              },
+              {
+                "id": "d",
+                "text": "25 × (50 + 4)"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "(25 × 4) × 50",
+              "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "25 × 4 = 100 là số tròn nên nhân trước."
+                },
+                {
+                  "kind": "equation",
+                  "text": "(25 × 4) × 50 = 5.000"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 222 kg, 115 kg, 486 kg, 276 kg."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.yen_ta_tan"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "486 kg"
+              },
+              {
+                "id": "t2",
+                "text": "276 kg"
+              },
+              {
+                "id": "t3",
+                "text": "115 kg"
+              },
+              {
+                "id": "t4",
+                "text": "222 kg"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "115 kg < 222 kg < 276 kg < 486 kg",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về ki-lô-gam: 222 kg = 222 kg, 115 kg = 115 kg, 486 kg = 486 kg, 276 kg = 276 kg."
+                },
+                {
+                  "kind": "text",
+                  "text": "115 kg < 222 kg < 276 kg < 486 kg."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 90.091.352, 90.091.354, 94.081.352, 99.091.357."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "90.091.354"
+              },
+              {
+                "id": "t2",
+                "text": "90.091.352"
+              },
+              {
+                "id": "t3",
+                "text": "99.091.357"
+              },
+              {
+                "id": "t4",
+                "text": "94.081.352"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "90.091.352 < 90.091.354 < 94.081.352 < 99.091.357",
+              "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Ta có: 90.091.352 < 90.091.354 < 94.081.352 < 99.091.357."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "template": "(77 + 65 + 50) : {{s1}} = {{s2}} : 3 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "3"
+              },
+              {
+                "id": "t2",
+                "text": "192"
+              },
+              {
+                "id": "t3",
+                "text": "64"
+              },
+              {
+                "id": "t4",
+                "text": "67"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3; 192; 64",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "77 + 65 + 50 = 192"
+                },
+                {
+                  "kind": "equation",
+                  "text": "192 : 3 = 64"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-13.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Xếp các phân số theo thứ tự từ bé đến lớn: 4/9, 2/9, 5/9, 7/9."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "phan_so.so_sanh"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "5/9"
+              },
+              {
+                "id": "t2",
+                "text": "7/9"
+              },
+              {
+                "id": "t3",
+                "text": "4/9"
+              },
+              {
+                "id": "t4",
+                "text": "2/9"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2/9 < 4/9 < 5/9 < 7/9",
+              "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Các phân số cùng mẫu số 9: tử số nào bé hơn thì phân số bé hơn."
+                },
+                {
+                  "kind": "text",
+                  "text": "2/9 < 4/9 < 5/9 < 7/9."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

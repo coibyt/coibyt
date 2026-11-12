@@ -1,0 +1,519 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c3",
+  "order": 3,
+  "title": "Các số trong phạm vi lớp triệu",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Lớp triệu gồm hàng triệu, chục triệu, trăm triệu. 10 triệu là 1 chục triệu; 10 chục triệu là 1 trăm triệu.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 923.508.486 đọc là “chín trăm hai mươi ba triệu năm trăm linh tám nghìn bốn trăm tám mươi sáu”."
+      },
+      {
+        "kind": "text",
+        "text": "Tách số thành từng lớp ba chữ số từ phải sang trái để đọc cho dễ.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số “ba mươi lăm triệu tám trăm linh hai nghìn năm trăm bốn mươi tư” viết là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "53.802.544"
+        },
+        {
+          "id": "b",
+          "text": "35.802.544"
+        },
+        {
+          "id": "c",
+          "text": "35.902.544"
+        },
+        {
+          "id": "d",
+          "text": "35.805.244"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "35.802.544",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“ba mươi lăm triệu tám trăm linh hai nghìn năm trăm bốn mươi tư” viết là 35.802.544."
+          },
+          {
+            "kind": "equation",
+            "text": "35.802.544 = 30.000.000 + 5.000.000 + 800.000 + 2.000 + 500 + 40 + 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn cách đọc đúng.",
+      "prompt": {
+        "text": "Số 208.143.255 đọc là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "hai trăm linh tám triệu một trăm ba mươi tư nghìn hai trăm năm mươi lăm"
+        },
+        {
+          "id": "b",
+          "text": "hai trăm tám mươi triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm"
+        },
+        {
+          "id": "c",
+          "text": "hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm"
+        },
+        {
+          "id": "d",
+          "text": "hai trăm ba mươi tám triệu một trăm bốn mươi nghìn hai trăm năm mươi lăm"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "208.143.255 đọc là: hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Viết số thích hợp.",
+      "prompt": {
+        "text": "Số gồm 4 triệu, 0 trăm nghìn, 5 chục nghìn, 0 nghìn, 0 trăm, 4 chục và 6 đơn vị viết là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số gồm 4 triệu, 0 trăm nghìn, 5 chục nghìn, 0 nghìn, 0 trăm, 4 chục và 6 đơn vị viết là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4050046
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.050.046",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "4.000.000 + 50.000 + 40 + 6 = 4.050.046"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số 805.609.686 gồm các lớp nào? Viết số ở mỗi lớp."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.hang_lop"
+      ],
+      "access": "free",
+      "template": "lớp triệu: {{b1}}\nlớp nghìn: {{b2}}\nlớp đơn vị: {{b3}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 805
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 609
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 686
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "lớp triệu: 805; lớp nghìn: 609; lớp đơn vị: 686",
+        "hint": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "805.609.686: lớp triệu gồm các chữ số 805; lớp nghìn gồm các chữ số 609; lớp đơn vị gồm các chữ số 686."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối số với cách đọc.",
+      "prompt": {
+        "text": "Nối mỗi số với cách đọc đúng của số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "11.345.835"
+        },
+        {
+          "id": "l2",
+          "text": "87.108.118"
+        },
+        {
+          "id": "l3",
+          "text": "95.829.318"
+        },
+        {
+          "id": "l4",
+          "text": "44.117.734"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "mười một triệu ba trăm bốn mươi lăm nghìn ba trăm tám mươi lăm"
+        },
+        {
+          "id": "r2",
+          "text": "mười một triệu ba trăm bốn mươi lăm nghìn tám trăm ba mươi lăm"
+        },
+        {
+          "id": "r3",
+          "text": "bốn mươi tư triệu một trăm mười bảy nghìn bảy trăm ba mươi tư"
+        },
+        {
+          "id": "r4",
+          "text": "chín mươi lăm triệu tám trăm hai mươi chín nghìn ba trăm mười tám"
+        },
+        {
+          "id": "r5",
+          "text": "tám mươi bảy triệu một trăm linh tám nghìn một trăm mười tám"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11.345.835: mười một triệu ba trăm bốn mươi lăm nghìn tám trăm ba mươi lăm; 87.108.118: tám mươi bảy triệu một trăm linh tám nghìn một trăm mười tám; 95.829.318: chín mươi lăm triệu tám trăm hai mươi chín nghìn ba trăm mười tám; 44.117.734: bốn mươi tư triệu một trăm mười bảy nghìn bảy trăm ba mươi tư",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "11.345.835: mười một triệu ba trăm bốn mươi lăm nghìn tám trăm ba mươi lăm."
+          },
+          {
+            "kind": "text",
+            "text": "87.108.118: tám mươi bảy triệu một trăm linh tám nghìn một trăm mười tám."
+          },
+          {
+            "kind": "text",
+            "text": "95.829.318: chín mươi lăm triệu tám trăm hai mươi chín nghìn ba trăm mười tám."
+          },
+          {
+            "kind": "text",
+            "text": "44.117.734: bốn mươi tư triệu một trăm mười bảy nghìn bảy trăm ba mươi tư."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào chỗ trống trong dãy số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "47.000.000; 48.000.000; {{s1}}; 50.000.000; {{s2}}; {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "49.100.000"
+        },
+        {
+          "id": "t2",
+          "text": "52.000.000"
+        },
+        {
+          "id": "t3",
+          "text": "49.000.000"
+        },
+        {
+          "id": "t4",
+          "text": "51.000.000"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "49.000.000; 51.000.000; 52.000.000",
+        "hint": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số liền nhau hơn kém nhau 1.000.000 đơn vị: 47.000.000; 48.000.000; 49.000.000; 50.000.000; 51.000.000; 52.000.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của chữ số 8 (chữ số thứ 4 tính từ trái) trong số 65.786.690 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lop_trieu",
+        "so.hang_lop"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "80.000"
+        },
+        {
+          "id": "b",
+          "text": "800.000"
+        },
+        {
+          "id": "c",
+          "text": "8"
+        },
+        {
+          "id": "d",
+          "text": "8.000"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "80.000",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong số 65.786.690, chữ số 8 ở hàng chục nghìn, nên có giá trị là 80.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số lớn nhất và số bé nhất có 9 chữ số."
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất có 9 chữ số là {{b1}}.\nSố bé nhất có 9 chữ số là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 999999999
+          },
+          "maxLength": 11
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 100000000
+          },
+          "maxLength": 11
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "999.999.999; 100.000.000",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất có 9 chữ số là 999.999.999; số bé nhất có 9 chữ số là 100.000.000."
+          },
+          {
+            "kind": "equation",
+            "text": "999.999.999 + 1 = 1.000.000.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.cac-so-trong-pham-vi-lop-trieu.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Viết số thích hợp.",
+      "prompt": {
+        "text": "Dân số của một tỉnh năm 2025 là một triệu chín trăm bảy mươi sáu nghìn không trăm linh bốn người. Viết số đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số đó viết là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1976004
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "1.976.004",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“một triệu chín trăm bảy mươi sáu nghìn không trăm linh bốn” viết là 1.976.004."
+          }
+        ]
+      }
+    }
+  ]
+}

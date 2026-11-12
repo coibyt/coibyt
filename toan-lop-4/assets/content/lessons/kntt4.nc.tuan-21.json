@@ -1,0 +1,549 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-21",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 2,
+  "title": "Nâng cao tuần 21: Nhân, chia, trung bình cộng",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Số trung bình cộng × số các số = tổng các số. Bài rút về đơn vị: tìm giá trị một phần trước.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Có 93 học sinh đi tham quan. Mỗi xe chở được 26 học sinh. Hỏi cần ít nhất bao nhiêu xe để chở hết số học sinh?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "3 xe chở đầy được:",
+            "equation": "26 × 3 = 78 (học sinh)"
+          },
+          {
+            "explanation": "Số học sinh còn lại là:",
+            "equation": "93 - 78 = 15 (học sinh)"
+          },
+          {
+            "explanation": "Cần thêm một xe cho số học sinh còn lại. Số xe cần ít nhất là:",
+            "equation": "3 + 1 = 4 (xe)"
+          }
+        ],
+        "answer": "Đáp số: 4 xe."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-21.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "nhan.2cs"
+      ],
+      "access": "free",
+      "template": "13 × 91 = {{s1}}\n37 × 94 = {{s2}}\n98 × 89 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3.478"
+        },
+        {
+          "id": "t2",
+          "text": "130"
+        },
+        {
+          "id": "t3",
+          "text": "1.183"
+        },
+        {
+          "id": "t4",
+          "text": "8.722"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.183; 3.478; 8.722",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "13 × 91 = 1.183"
+          },
+          {
+            "kind": "equation",
+            "text": "37 × 94 = 3.478"
+          },
+          {
+            "kind": "equation",
+            "text": "98 × 89 = 8.722"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 130 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với tổng của các số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "5 số có trung bình cộng 13"
+        },
+        {
+          "id": "l2",
+          "text": "5 số có trung bình cộng 30"
+        },
+        {
+          "id": "l3",
+          "text": "2 số có trung bình cộng 55"
+        },
+        {
+          "id": "l4",
+          "text": "5 số có trung bình cộng 29"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "150"
+        },
+        {
+          "id": "r2",
+          "text": "145"
+        },
+        {
+          "id": "r3",
+          "text": "110"
+        },
+        {
+          "id": "r4",
+          "text": "72"
+        },
+        {
+          "id": "r5",
+          "text": "65"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 số có trung bình cộng 13: tổng 65; 5 số có trung bình cộng 30: tổng 150; 2 số có trung bình cộng 55: tổng 110; 5 số có trung bình cộng 29: tổng 145",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "5 số có trung bình cộng 13: tổng là 65."
+          },
+          {
+            "kind": "text",
+            "text": "5 số có trung bình cộng 30: tổng là 150."
+          },
+          {
+            "kind": "text",
+            "text": "2 số có trung bình cộng 55: tổng là 110."
+          },
+          {
+            "kind": "text",
+            "text": "5 số có trung bình cộng 29: tổng là 145."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cách tính thuận tiện nhất cho 25 × 63 × 4 là:"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "(25 + 4) × 63"
+        },
+        {
+          "id": "b",
+          "text": "25 × (63 + 4)"
+        },
+        {
+          "id": "c",
+          "text": "(25 × 4) × 63"
+        },
+        {
+          "id": "d",
+          "text": "(25 × 63) × 4"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(25 × 4) × 63",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "25 × 4 = 100 là số tròn nên nhân trước."
+          },
+          {
+            "kind": "equation",
+            "text": "(25 × 4) × 63 = 6.300"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có 233 học sinh đi tham quan. Mỗi xe chở được 36 học sinh. Hỏi cần ít nhất bao nhiêu xe để chở hết số học sinh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "chia.2cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7 xe"
+        },
+        {
+          "id": "b",
+          "text": "17 xe"
+        },
+        {
+          "id": "c",
+          "text": "8 xe"
+        },
+        {
+          "id": "d",
+          "text": "6 xe"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7 xe",
+        "hint": "Phép chia còn dư thì phần dư vẫn cần thêm một chỗ nữa, con đừng quên nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "233 : 36 = 6 (dư 17)."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "6 xe chở đầy được:",
+                "equation": "36 × 6 = 216 (học sinh)"
+              },
+              {
+                "explanation": "Số học sinh còn lại là:",
+                "equation": "233 - 216 = 17 (học sinh)"
+              },
+              {
+                "explanation": "Cần thêm một xe cho số học sinh còn lại. Số xe cần ít nhất là:",
+                "equation": "6 + 1 = 7 (xe)"
+              }
+            ],
+            "answer": "Đáp số: 7 xe."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trung bình cộng của 4 số là 130. Biết 3 số trong đó là 146, 128, 141. Tìm số còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "105"
+        },
+        {
+          "id": "b",
+          "text": "115"
+        },
+        {
+          "id": "c",
+          "text": "130"
+        },
+        {
+          "id": "d",
+          "text": "138"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "105",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng của các số là:",
+                "equation": "130 × 4 = 520"
+              },
+              {
+                "explanation": "Số còn lại là:",
+                "equation": "520 - 146 - 128 - 141 = 105"
+              }
+            ],
+            "answer": "Đáp số: 105."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Nhà trường mua 34 bộ bàn ghế, mỗi bộ giá 35.000 đồng và 34 bảng tên, mỗi chiếc giá 9.000 đồng. Hỏi nhà trường phải trả tất cả bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "nhan.2cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Phải trả tất cả {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1496000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.496.000 đồng",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tiền mua bàn ghế là:",
+                "equation": "35.000 × 34 = 1.190.000 (đồng)"
+              },
+              {
+                "explanation": "Tiền mua bảng tên là:",
+                "equation": "9.000 × 34 = 306.000 (đồng)"
+              },
+              {
+                "explanation": "Nhà trường phải trả tất cả là:",
+                "equation": "1.190.000 + 306.000 = 1.496.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 1.496.000 đồng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trung bình cộng của 3 số là 91. Biết 2 số trong đó là 74, 111. Tìm số còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Số còn lại là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 88
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "88",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng của các số là:",
+                "equation": "91 × 3 = 273"
+              },
+              {
+                "explanation": "Số còn lại là:",
+                "equation": "273 - 74 - 111 = 88"
+              }
+            ],
+            "answer": "Đáp số: 88."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-21.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "6 xe tải như nhau chở được 31.800 kg hàng. Hỏi 2 xe như thế chở được bao nhiêu ki-lô-gam hàng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "2 xe chở được {{b1}} kg hàng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10600,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "10.600 kg",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một xe chở được là:",
+                "equation": "31.800 : 6 = 5.300 (kg)"
+              },
+              {
+                "explanation": "Số cần tìm (2 xe) là:",
+                "equation": "5.300 × 2 = 10.600 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 10.600 kg."
+          }
+        ]
+      }
+    }
+  ]
+}

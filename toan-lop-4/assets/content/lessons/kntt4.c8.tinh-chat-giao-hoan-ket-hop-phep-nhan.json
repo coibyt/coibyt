@@ -1,0 +1,527 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 3,
+  "title": "Tính chất giao hoán và kết hợp của phép nhân",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Tính chất giao hoán: a × b = b × a. Tính chất kết hợp: (a × b) × c = a × (b × c).",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 25 × 7 × 4 = (25 × 4) × 7 = 100 × 7 = 700."
+      },
+      {
+        "kind": "text",
+        "text": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "template": "12 × 4 = 4 × {{b1}}\n(12 × 4) × 6 = 12 × (4 × {{b2}})",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 12
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 6
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 6",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tính chất giao hoán: a × b = b × a.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Tính chất kết hợp: (a × b) × c = a × (b × c).",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính bằng cách thuận tiện.",
+      "prompt": {
+        "text": "Tính bằng cách thuận tiện: 25 × 90 × 4"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "template": "25 × 90 × 4 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9000
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9.000",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "25 × 90 × 4 = (25 × 4) × 90 = 100 × 90 = 9.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính bằng cách thuận tiện.",
+      "prompt": {
+        "text": "Tính bằng cách thuận tiện: 20 × 90 × 5"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "template": "20 × 90 × 5 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9000
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9.000",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "20 × 90 × 5 = (20 × 5) × 90 = 100 × 90 = 9.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cách tính thuận tiện nhất cho 5 × 3 × 20 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5 × (3 + 20)"
+        },
+        {
+          "id": "b",
+          "text": "(5 × 20) × 3"
+        },
+        {
+          "id": "c",
+          "text": "(5 × 3) × 20"
+        },
+        {
+          "id": "d",
+          "text": "(5 + 20) × 3"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(5 × 20) × 3",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "5 × 20 = 100 là số tròn nên nhân trước."
+          },
+          {
+            "kind": "equation",
+            "text": "(5 × 20) × 3 = 300"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi tích với tích bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "25 × 4"
+        },
+        {
+          "id": "l2",
+          "text": "8 × 125"
+        },
+        {
+          "id": "l3",
+          "text": "(5 × 7) × 2"
+        },
+        {
+          "id": "l4",
+          "text": "50 × 6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "25 × 5"
+        },
+        {
+          "id": "r2",
+          "text": "4 × 25"
+        },
+        {
+          "id": "r3",
+          "text": "125 × 8"
+        },
+        {
+          "id": "r4",
+          "text": "(5 × 2) × 7"
+        },
+        {
+          "id": "r5",
+          "text": "6 × 50"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "25 × 4 → 4 × 25; 8 × 125 → 125 × 8; (5 × 7) × 2 → (5 × 2) × 7; 50 × 6 → 6 × 50",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các thừa số thì tích không đổi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống để tính nhanh 4 × 39 × 25."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "template": "4 × 39 × 25 = ({{s1}} × {{s2}}) × 39 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3.900"
+        },
+        {
+          "id": "t2",
+          "text": "25"
+        },
+        {
+          "id": "t3",
+          "text": "4"
+        },
+        {
+          "id": "t4",
+          "text": "390"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4; 25; 3.900",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "4 × 39 × 25 = (4 × 25) × 39 = 100 × 39 = 3.900"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cách tính thuận tiện nhất cho 250 × 61 × 4 là:"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "(250 × 4) × 61"
+        },
+        {
+          "id": "b",
+          "text": "250 × (61 + 4)"
+        },
+        {
+          "id": "c",
+          "text": "(250 × 61) × 4"
+        },
+        {
+          "id": "d",
+          "text": "(250 + 4) × 61"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(250 × 4) × 61",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "250 × 4 = 1000 là số tròn nên nhân trước."
+          },
+          {
+            "kind": "equation",
+            "text": "(250 × 4) × 61 = 61.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một nhà máy có 6 xưởng, mỗi xưởng làm được 725 chiếc bút. Nhà máy còn nhập thêm 953 chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh",
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "Nhà máy có tất cả {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5303,
+            "unit": "chiếc"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "5.303 chiếc bút",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bút các xưởng làm được là:",
+                "equation": "725 × 6 = 4.350 (chiếc)"
+              },
+              {
+                "explanation": "Số bút nhà máy có tất cả là:",
+                "equation": "4.350 + 953 = 5.303 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 5.303 chiếc bút."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "725",
+              "6"
+            ],
+            "result": "4350",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 5 bằng 30, viết 0 nhớ 3.",
+                "write": "0",
+                "carry": 3
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 2 bằng 12, thêm 3 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 nhân 7 bằng 42, thêm 1 bằng 43, viết 43.",
+                "write": "43"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "4350",
+              "953"
+            ],
+            "result": "5303",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 3 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 5 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 9 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

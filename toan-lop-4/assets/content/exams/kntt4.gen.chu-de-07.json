@@ -1,0 +1,886 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-07",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c7"
+  ],
+  "title": "Kiểm tra chủ đề 7",
+  "description": "Ôn tập học kì 1.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối hai số đo bằng nhau.",
+            "prompt": {
+              "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "do_luong.dien_tich"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "5 dm²"
+              },
+              {
+                "id": "l2",
+                "text": "6 dm²"
+              },
+              {
+                "id": "l3",
+                "text": "6 m²"
+              },
+              {
+                "id": "l4",
+                "text": "4 m²"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "600 cm²"
+              },
+              {
+                "id": "r2",
+                "text": "400 dm²"
+              },
+              {
+                "id": "r3",
+                "text": "20 dm²"
+              },
+              {
+                "id": "r4",
+                "text": "500 cm²"
+              },
+              {
+                "id": "r5",
+                "text": "600 dm²"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5 dm² → 500 cm²; 6 dm² → 600 cm²; 6 m² → 600 dm²; 4 m² → 400 dm²",
+              "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "5 dm² = 500 cm²"
+                },
+                {
+                  "kind": "text",
+                  "text": "6 dm² = 600 cm²"
+                },
+                {
+                  "kind": "text",
+                  "text": "6 m² = 600 dm²"
+                },
+                {
+                  "kind": "text",
+                  "text": "4 m² = 400 dm²"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi giá trị của a với giá trị của biểu thức (a + 5) × 2."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "bieu_thuc_chu"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "a = 50"
+              },
+              {
+                "id": "l2",
+                "text": "a = 10"
+              },
+              {
+                "id": "l3",
+                "text": "a = 58"
+              },
+              {
+                "id": "l4",
+                "text": "a = 39"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "111"
+              },
+              {
+                "id": "r2",
+                "text": "88"
+              },
+              {
+                "id": "r3",
+                "text": "30"
+              },
+              {
+                "id": "r4",
+                "text": "126"
+              },
+              {
+                "id": "r5",
+                "text": "110"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "a = 50 → 110; a = 10 → 30; a = 58 → 126; a = 39 → 88",
+              "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "(50 + 5) × 2 = 110"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(10 + 5) × 2 = 30"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(58 + 5) × 2 = 126"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(39 + 5) × 2 = 88"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối số với cách đọc.",
+            "prompt": {
+              "text": "Nối mỗi số với cách đọc đúng của số đó."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "8.503.623"
+              },
+              {
+                "id": "l2",
+                "text": "4.381.405"
+              },
+              {
+                "id": "l3",
+                "text": "9.405.626"
+              },
+              {
+                "id": "l4",
+                "text": "9.986.300"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba"
+              },
+              {
+                "id": "r2",
+                "text": "tám triệu năm trăm linh sáu nghìn ba trăm hai mươi ba"
+              },
+              {
+                "id": "r3",
+                "text": "bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm"
+              },
+              {
+                "id": "r4",
+                "text": "chín triệu chín trăm tám mươi sáu nghìn ba trăm"
+              },
+              {
+                "id": "r5",
+                "text": "chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8.503.623: tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba; 4.381.405: bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm; 9.405.626: chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu; 9.986.300: chín triệu chín trăm tám mươi sáu nghìn ba trăm",
+              "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "8.503.623: tám triệu năm trăm linh ba nghìn sáu trăm hai mươi ba."
+                },
+                {
+                  "kind": "text",
+                  "text": "4.381.405: bốn triệu ba trăm tám mươi mốt nghìn bốn trăm linh năm."
+                },
+                {
+                  "kind": "text",
+                  "text": "9.405.626: chín triệu bốn trăm linh năm nghìn sáu trăm hai mươi sáu."
+                },
+                {
+                  "kind": "text",
+                  "text": "9.986.300: chín triệu chín trăm tám mươi sáu nghìn ba trăm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số đo với tên góc."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "180°"
+              },
+              {
+                "id": "l2",
+                "text": "175°"
+              },
+              {
+                "id": "l3",
+                "text": "90°"
+              },
+              {
+                "id": "l4",
+                "text": "65°"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "góc tù"
+              },
+              {
+                "id": "r2",
+                "text": "góc vuông"
+              },
+              {
+                "id": "r3",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "r4",
+                "text": "góc nhọn"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "180° → góc bẹt; 175° → góc tù; 90° → góc vuông; 65° → góc nhọn",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "180°: góc bẹt."
+                },
+                {
+                  "kind": "text",
+                  "text": "175°: góc tù."
+                },
+                {
+                  "kind": "text",
+                  "text": "90°: góc vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "65°: góc nhọn."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 354.666 + 631.767 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "986.433"
+              },
+              {
+                "id": "b",
+                "text": "986.443"
+              },
+              {
+                "id": "c",
+                "text": "985.323"
+              },
+              {
+                "id": "d",
+                "text": "987.433"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "986.433",
+              "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "add",
+                  "operands": [
+                    "354666",
+                    "631767"
+                  ],
+                  "result": "986433",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "6 cộng 7 bằng 13, viết 3 nhớ 1.",
+                      "write": "3",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "6 cộng 6 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                      "write": "3",
+                      "carry": 1
+                    },
+                    {
+                      "place": 2,
+                      "text": "6 cộng 7 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                      "write": "4",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                      "write": "6"
+                    },
+                    {
+                      "place": 4,
+                      "text": "5 cộng 3 bằng 8, viết 8.",
+                      "write": "8"
+                    },
+                    {
+                      "place": 5,
+                      "text": "3 cộng 6 bằng 9, viết 9.",
+                      "write": "9"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "354.666 + 631.767 = 986.433"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hai số có tổng là 482, hiệu là 60. Hai số đó là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "tong_hieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "271 và 211"
+              },
+              {
+                "id": "b",
+                "text": "331 và 151"
+              },
+              {
+                "id": "c",
+                "text": "272 và 212"
+              },
+              {
+                "id": "d",
+                "text": "422 và 60"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "271 và 211",
+              "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số lớn là:",
+                      "equation": "(482 + 60) : 2 = 271"
+                    },
+                    {
+                      "explanation": "Số bé là:",
+                      "equation": "482 - 271 = 211"
+                    }
+                  ],
+                  "answer": "Đáp số: số lớn 271; số bé 211."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q07",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Làm tròn số 6.198.643 đến hàng trăm nghìn ta được số:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "6.199.997"
+              },
+              {
+                "id": "b",
+                "text": "6.200.000"
+              },
+              {
+                "id": "c",
+                "text": "6.300.000"
+              },
+              {
+                "id": "d",
+                "text": "6.100.000"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "6.200.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Chữ số hàng chục nghìn của 6.198.643 là 9, lớn hơn hoặc bằng 5 nên làm tròn lên."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 6.198.643 đến hàng trăm nghìn được 6.200.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q08",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi đặc điểm với tên hình."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "hinh_hoc.binh_hanh_thoi"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Hình có bốn cạnh bằng nhau, không có góc vuông"
+              },
+              {
+                "id": "l2",
+                "text": "Hình có hai cặp cạnh đối song song và bằng nhau"
+              },
+              {
+                "id": "l3",
+                "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau"
+              },
+              {
+                "id": "l4",
+                "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "hình tam giác"
+              },
+              {
+                "id": "r2",
+                "text": "hình thoi"
+              },
+              {
+                "id": "r3",
+                "text": "hình chữ nhật"
+              },
+              {
+                "id": "r4",
+                "text": "hình vuông"
+              },
+              {
+                "id": "r5",
+                "text": "hình bình hành"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Hình có bốn cạnh bằng nhau, không có góc vuông → hình thoi; Hình có hai cặp cạnh đối song song và bằng nhau → hình bình hành; Hình có bốn góc vuông, bốn cạnh bằng nhau → hình vuông; Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau → hình chữ nhật",
+              "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn cạnh bằng nhau, không có góc vuông: hình thoi."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có hai cặp cạnh đối song song và bằng nhau: hình bình hành."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau: hình vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau: hình chữ nhật."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 2.810 kg, 2.830 kg, 4.200 kg, 3.360 kg."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.yen_ta_tan"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "2.830 kg"
+              },
+              {
+                "id": "t2",
+                "text": "3.360 kg"
+              },
+              {
+                "id": "t3",
+                "text": "2.810 kg"
+              },
+              {
+                "id": "t4",
+                "text": "4.200 kg"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2.810 kg < 2.830 kg < 3.360 kg < 4.200 kg",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về ki-lô-gam: 2.810 kg = 2.810 kg, 2.830 kg = 2.830 kg, 4.200 kg = 4.200 kg, 3.360 kg = 3.360 kg."
+                },
+                {
+                  "kind": "text",
+                  "text": "2.810 kg < 2.830 kg < 3.360 kg < 4.200 kg."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-07.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "template": "9.807.626 - 3.203.601 = {{s1}}\n3.005.653 - 1.314.031 = {{s2}}\n2.260.841 + 3.301.836 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "6.604.035"
+              },
+              {
+                "id": "t2",
+                "text": "1.691.622"
+              },
+              {
+                "id": "t3",
+                "text": "5.562.677"
+              },
+              {
+                "id": "t4",
+                "text": "6.604.025"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "6.604.025; 1.691.622; 5.562.677",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "9.807.626 - 3.203.601 = 6.604.025"
+                },
+                {
+                  "kind": "equation",
+                  "text": "3.005.653 - 1.314.031 = 1.691.622"
+                },
+                {
+                  "kind": "equation",
+                  "text": "2.260.841 + 3.301.836 = 5.562.677"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 6.604.035 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,484 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c13",
+  "order": 6,
+  "title": "Ôn tập một số yếu tố thống kê và xác suất",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập thống kê và xác suất: dãy số liệu, biểu đồ cột, số lần xuất hiện của một sự kiện.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Chiều cao (cm) của các bạn trong tổ 1: 147, 138, 139, 146, 145.\nDãy số liệu có mấy số? Số thứ 5 là số nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "template": "Dãy số liệu có {{b1}} số.\nSố thứ 5 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 145
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 145",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Dãy có 5 số; số thứ 5 là 145."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số sách các lớp quyên góp”. 4D có bao nhiêu quyển?",
+        "image": {
+          "src": "assets/charts/c13-thong-ke-054473.webp",
+          "alt": "Biểu đồ cột “Số sách các lớp quyên góp”: 4A: 50 quyển, 4B: 35 quyển, 4C: 15 quyển, 4D: 40 quyển.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "template": "4D: {{b1}} quyển.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 40,
+            "unit": "quyển"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "40 quyển",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số sách các lớp quyên góp”: 4A: 50 quyển, 4B: 35 quyển, 4C: 15 quyển, 4D: 40 quyển."
+          },
+          {
+            "kind": "text",
+            "text": "Cột 4D cao đến số 40."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Nam tung một đồng xu 40 lần, thấy mặt sấp xuất hiện 29 lần. Hỏi mặt ngửa xuất hiện bao nhiêu lần?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Mặt ngửa xuất hiện {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11 lần",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "40 - 29 = 11"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số sách các lớp quyên góp”. Kéo tên vào ô trống theo thứ tự từ cột cao nhất đến cột thấp nhất.",
+        "image": {
+          "src": "assets/charts/c13-thong-ke-06587a.webp",
+          "alt": "Biểu đồ cột “Số sách các lớp quyên góp”: 4A: 45 quyển, 4B: 40 quyển, 4C: 50 quyển, 4D: 10 quyển.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "template": "{{s1}} > {{s2}} > {{s3}} > {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4A"
+        },
+        {
+          "id": "t2",
+          "text": "4B"
+        },
+        {
+          "id": "t3",
+          "text": "4D"
+        },
+        {
+          "id": "t4",
+          "text": "4C"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4C > 4A > 4B > 4D",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số sách các lớp quyên góp”: 4A: 45 quyển, 4B: 40 quyển, 4C: 50 quyển, 4D: 10 quyển."
+          },
+          {
+            "kind": "text",
+            "text": "4C (50) > 4A (45) > 4B (40) > 4D (10)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Mỗi bạn tung đồng xu 30 lần. Nối số lần mặt sấp với số lần mặt ngửa tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Sấp 13 lần"
+        },
+        {
+          "id": "l2",
+          "text": "Sấp 4 lần"
+        },
+        {
+          "id": "l3",
+          "text": "Sấp 12 lần"
+        },
+        {
+          "id": "l4",
+          "text": "Sấp 16 lần"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "26 lần ngửa"
+        },
+        {
+          "id": "r2",
+          "text": "14 lần ngửa"
+        },
+        {
+          "id": "r3",
+          "text": "18 lần ngửa"
+        },
+        {
+          "id": "r4",
+          "text": "17 lần ngửa"
+        },
+        {
+          "id": "r5",
+          "text": "1 lần ngửa"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Sấp 13 lần → 17 lần ngửa; Sấp 4 lần → 26 lần ngửa; Sấp 12 lần → 18 lần ngửa; Sấp 16 lần → 14 lần ngửa",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "30 - 13 = 17."
+          },
+          {
+            "kind": "text",
+            "text": "30 - 4 = 26."
+          },
+          {
+            "kind": "text",
+            "text": "30 - 12 = 18."
+          },
+          {
+            "kind": "text",
+            "text": "30 - 16 = 14."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cân nặng (kg) của các bạn trong nhóm:\nLan: 39, Minh: 40, Nam: 42, Thảo: 32, Vy: 33.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Nam"
+        },
+        {
+          "id": "b",
+          "text": "Thảo"
+        },
+        {
+          "id": "c",
+          "text": "Lan"
+        },
+        {
+          "id": "d",
+          "text": "Minh"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Nam",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất trong dãy là 42, của Nam."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số cây các tổ trồng được”. Tất cả có bao nhiêu cây?",
+        "image": {
+          "src": "assets/charts/c13-thong-ke-efd8ea.webp",
+          "alt": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 35 cây, Tổ 2: 45 cây, Tổ 3: 60 cây, Tổ 4: 30 cây.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "60 cây"
+        },
+        {
+          "id": "b",
+          "text": "170 cây"
+        },
+        {
+          "id": "c",
+          "text": "165 cây"
+        },
+        {
+          "id": "d",
+          "text": "175 cây"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "170 cây",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 35 cây, Tổ 2: 45 cây, Tổ 3: 60 cây, Tổ 4: 30 cây."
+          },
+          {
+            "kind": "equation",
+            "text": "35 + 45 + 60 + 30 = 170"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-thong-ke-va-xac-suat.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một vòng quay có ba ô: Gấu, Thỏ, Mèo. Quay 30 lần, kim dừng ở ô Gấu 8 lần, ô Thỏ 7 lần. Hỏi kim dừng ở ô Mèo bao nhiêu lần?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Kim dừng ở ô Mèo {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "15 lần",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số lần kim dừng ở ô Mèo là:",
+                "equation": "30 - 8 - 7 = 15 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 15 lần."
+          }
+        ]
+      }
+    }
+  ]
+}

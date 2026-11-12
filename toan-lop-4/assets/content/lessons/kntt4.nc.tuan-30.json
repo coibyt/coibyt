@@ -1,0 +1,552 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-30",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c11",
+  "order": 2,
+  "title": "Nâng cao tuần 30: Cộng, trừ phân số · Nhân, chia phân số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Tìm phân số của số còn lại: tìm số còn lại trước, rồi mới lấy phân số của nó.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 5/6 số bi trong hộp là 60 viên. Hỏi trong hộp có tất cả bao nhiêu viên bi?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Giá trị của một phần là:",
+            "equation": "60 : 5 = 12 (viên)"
+          },
+          {
+            "explanation": "Số bi trong hộp là:",
+            "equation": "12 × 6 = 72 (viên)"
+          }
+        ],
+        "answer": "Đáp số: 72 viên."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-30.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với kết quả (đã rút gọn)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.nhan",
+        "phan_so.chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "8/9 : 1/2"
+        },
+        {
+          "id": "l2",
+          "text": "4/5 : 1/9"
+        },
+        {
+          "id": "l3",
+          "text": "3/4 : 1/2"
+        },
+        {
+          "id": "l4",
+          "text": "3/4 × 6/7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "169/90"
+        },
+        {
+          "id": "r2",
+          "text": "3/2"
+        },
+        {
+          "id": "r3",
+          "text": "9/14"
+        },
+        {
+          "id": "r4",
+          "text": "36/5"
+        },
+        {
+          "id": "r5",
+          "text": "16/9"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8/9 : 1/2 → 16/9; 4/5 : 1/9 → 36/5; 3/4 : 1/2 → 3/2; 3/4 × 6/7 → 9/14",
+        "hint": "Muốn nhân hai phân số, ta lấy tử số nhân với tử số, mẫu số nhân với mẫu số.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "8/9 : 1/2 = 16/9"
+          },
+          {
+            "kind": "equation",
+            "text": "4/5 : 1/9 = 36/5"
+          },
+          {
+            "kind": "equation",
+            "text": "3/4 : 1/2 = 3/2"
+          },
+          {
+            "kind": "equation",
+            "text": "3/4 × 6/7 = 9/14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "phan_so.cua_mot_so"
+      ],
+      "access": "free",
+      "template": "3/4 của 16 là {{s1}}\n1/3 của 15 là {{s2}}\n4/5 của 30 là {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "5"
+        },
+        {
+          "id": "t2",
+          "text": "24"
+        },
+        {
+          "id": "t3",
+          "text": "14"
+        },
+        {
+          "id": "t4",
+          "text": "12"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 5; 24",
+        "hint": "Muốn tìm phân số của một số, ta lấy số đó nhân với phân số đã cho.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "16 × 3/4 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "15 × 1/3 = 5"
+          },
+          {
+            "kind": "equation",
+            "text": "30 × 4/5 = 24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "2/3 số bi trong hộp là 18 viên. Hỏi trong hộp có tất cả bao nhiêu viên bi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.khai_niem",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Trong hộp có {{b1}} viên bi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 27,
+            "unit": "viên"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "27 viên",
+        "hint": "Biết giá trị của mấy phần, con tìm giá trị của một phần bằng phép chia, rồi nhân với mẫu số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của một phần là:",
+                "equation": "18 : 2 = 9 (viên)"
+              },
+              {
+                "explanation": "Số bi trong hộp là:",
+                "equation": "9 × 3 = 27 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 27 viên."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một cửa hàng có 120 kg gạo. Ngày thứ nhất bán 1/4 số gạo. Ngày thứ hai bán 1/5 số gạo còn lại. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 72,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "72 kg",
+        "hint": "Phân số của số còn lại thì con phải tìm số còn lại trước, rồi mới lấy phân số của nó.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ngày thứ nhất bán:",
+                "equation": "120 : 4 = 30 (kg)"
+              },
+              {
+                "explanation": "Sau ngày thứ nhất còn lại:",
+                "equation": "120 - 30 = 90 (kg)"
+              },
+              {
+                "explanation": "Ngày thứ hai bán:",
+                "equation": "90 : 5 = 18 (kg)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại:",
+                "equation": "90 - 18 = 72 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 72 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một cửa hàng có 55 kg gạo, đã bán 4/5 số gạo đó. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "11 kg",
+        "hint": "Muốn tìm phân số của một số, ta lấy số đó nhân với phân số đã cho.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo đã bán là:",
+                "equation": "55 × 4/5 = 44 (kg)"
+              },
+              {
+                "explanation": "Số gạo còn lại là:",
+                "equation": "55 - 44 = 11 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 11 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một cửa hàng có 480 kg gạo. Ngày thứ nhất bán 1/2 số gạo. Ngày thứ hai bán 1/3 số gạo còn lại. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "240 kg"
+        },
+        {
+          "id": "b",
+          "text": "80 kg"
+        },
+        {
+          "id": "c",
+          "text": "160 kg"
+        },
+        {
+          "id": "d",
+          "text": "150 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "160 kg",
+        "hint": "Phân số của số còn lại thì con phải tìm số còn lại trước, rồi mới lấy phân số của nó.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ngày thứ nhất bán:",
+                "equation": "480 : 2 = 240 (kg)"
+              },
+              {
+                "explanation": "Sau ngày thứ nhất còn lại:",
+                "equation": "480 - 240 = 240 (kg)"
+              },
+              {
+                "explanation": "Ngày thứ hai bán:",
+                "equation": "240 : 3 = 80 (kg)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại:",
+                "equation": "240 - 80 = 160 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 160 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một cửa hàng có 100 kg gạo. Ngày thứ nhất bán 1/4 số gạo. Ngày thứ hai bán 1/5 số gạo còn lại. Hỏi cửa hàng còn lại bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "55 kg"
+        },
+        {
+          "id": "b",
+          "text": "75 kg"
+        },
+        {
+          "id": "c",
+          "text": "60 kg"
+        },
+        {
+          "id": "d",
+          "text": "59 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60 kg",
+        "hint": "Phân số của số còn lại thì con phải tìm số còn lại trước, rồi mới lấy phân số của nó.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ngày thứ nhất bán:",
+                "equation": "100 : 4 = 25 (kg)"
+              },
+              {
+                "explanation": "Sau ngày thứ nhất còn lại:",
+                "equation": "100 - 25 = 75 (kg)"
+              },
+              {
+                "explanation": "Ngày thứ hai bán:",
+                "equation": "75 : 5 = 15 (kg)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại:",
+                "equation": "75 - 15 = 60 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 60 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-30.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm phân số thích hợp.",
+      "prompt": {
+        "text": "? + 1/4 = 19/28"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "phan_so.cong"
+      ],
+      "access": "free",
+      "template": "{{b1}}/{{b2}} + 1/4 = 19/28",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3/7",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết."
+          },
+          {
+            "kind": "equation",
+            "text": "19/28 - 1/4 = 3/7"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c4.giay-the-ki",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c4",
+  "order": 3,
+  "title": "Giây, thế kỉ",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Giây là đơn vị đo thời gian rất ngắn: 1 phút = 60 giây. Thế kỉ là đơn vị đo thời gian rất dài: 1 thế kỉ = 100 năm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Từ năm 1 đến năm 100 là thế kỉ thứ nhất (thế kỉ I); từ năm 101 đến năm 200 là thế kỉ II; …; từ năm 2001 đến năm 2100 là thế kỉ XXI."
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 2 phút = 120 giây."
+      },
+      {
+        "kind": "text",
+        "text": "Người ta dùng chữ số La Mã để ghi tên thế kỉ.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c4.giay-the-ki.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "template": "9 phút = {{b1}} giây\n2 phút 26 giây = {{b2}} giây\n2 thế kỉ = {{b3}} năm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 540,
+            "unit": "giây",
+            "unitAliases": [
+              "s"
+            ]
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 146,
+            "unit": "giây",
+            "unitAliases": [
+              "s"
+            ]
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 200,
+            "unit": "năm"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "540 giây; 146 giây; 200 năm",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 phút = 60 giây; 1 thế kỉ = 100 năm.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 60 = 540"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 60 + 26 = 146"
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 100 = 200"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Năm 2019 thuộc thế kỉ nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "thế kỉ XXIII"
+        },
+        {
+          "id": "b",
+          "text": "thế kỉ XXII"
+        },
+        {
+          "id": "c",
+          "text": "thế kỉ XXI"
+        },
+        {
+          "id": "d",
+          "text": "thế kỉ XX"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "thế kỉ XXI",
+        "hint": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Năm 2019 thuộc thế kỉ XXI (21)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Thời gian em chạy 50 m khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "12 phút"
+        },
+        {
+          "id": "b",
+          "text": "12 giờ"
+        },
+        {
+          "id": "c",
+          "text": "12 ngày"
+        },
+        {
+          "id": "d",
+          "text": "12 giây"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12 giây",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 12 giây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Năm 1946 thuộc thế kỉ nào?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "thế kỉ XX"
+        },
+        {
+          "id": "b",
+          "text": "thế kỉ XIX"
+        },
+        {
+          "id": "c",
+          "text": "thế kỉ XXII"
+        },
+        {
+          "id": "d",
+          "text": "thế kỉ XXI"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "thế kỉ XX",
+        "hint": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Năm 1946 thuộc thế kỉ XX (20)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "2 phút"
+        },
+        {
+          "id": "l2",
+          "text": "6 thế kỉ"
+        },
+        {
+          "id": "l3",
+          "text": "3 thế kỉ"
+        },
+        {
+          "id": "l4",
+          "text": "9 thế kỉ"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "12 giây"
+        },
+        {
+          "id": "r2",
+          "text": "120 giây"
+        },
+        {
+          "id": "r3",
+          "text": "900 năm"
+        },
+        {
+          "id": "r4",
+          "text": "600 năm"
+        },
+        {
+          "id": "r5",
+          "text": "300 năm"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 phút → 120 giây; 6 thế kỉ → 600 năm; 3 thế kỉ → 300 năm; 9 thế kỉ → 900 năm",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "2 phút = 120 giây"
+          },
+          {
+            "kind": "text",
+            "text": "6 thế kỉ = 600 năm"
+          },
+          {
+            "kind": "text",
+            "text": "3 thế kỉ = 300 năm"
+          },
+          {
+            "kind": "text",
+            "text": "9 thế kỉ = 900 năm"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 62 giây, 34 giây, 195 giây, 214 giây."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "34 giây"
+        },
+        {
+          "id": "t2",
+          "text": "62 giây"
+        },
+        {
+          "id": "t3",
+          "text": "195 giây"
+        },
+        {
+          "id": "t4",
+          "text": "214 giây"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "34 giây < 62 giây < 195 giây < 214 giây",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về giây: 62 giây = 62 giây, 34 giây = 34 giây, 195 giây = 195 giây, 214 giây = 214 giây."
+          },
+          {
+            "kind": "text",
+            "text": "34 giây < 62 giây < 195 giây < 214 giây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trong cuộc thi chạy, Bình chạy hết 55 giây, Khôi chạy nhanh hơn Bình 7 giây. Hỏi Khôi chạy hết bao nhiêu giây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.giay_the_ki",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Khôi chạy hết {{b1}} giây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48,
+            "unit": "giây",
+            "unitAliases": [
+              "s"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 giây",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Khôi chạy hết là:",
+                "equation": "55 - 7 = 48 (giây)"
+              }
+            ],
+            "answer": "Đáp số: 48 giây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.giay-the-ki.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong cuộc thi chạy, Minh chạy hết 69 giây, Chi chạy nhanh hơn Minh 7 giây. Hỏi Chi chạy hết bao nhiêu giây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.giay_the_ki",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "63 giây"
+        },
+        {
+          "id": "b",
+          "text": "62 giây"
+        },
+        {
+          "id": "c",
+          "text": "72 giây"
+        },
+        {
+          "id": "d",
+          "text": "52 giây"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "62 giây",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Chi chạy hết là:",
+                "equation": "69 - 7 = 62 (giây)"
+              }
+            ],
+            "answer": "Đáp số: 62 giây."
+          }
+        ]
+      }
+    }
+  ]
+}

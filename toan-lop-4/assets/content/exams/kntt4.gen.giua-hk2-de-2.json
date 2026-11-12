@@ -1,0 +1,757 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.giua-hk2-de-2",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c8",
+    "kntt4.c9",
+    "kntt4.c10"
+  ],
+  "title": "Đề giữa học kì 2 — Đề số 2",
+  "description": "Ôn tập các chủ đề: Phép nhân và phép chia; Làm quen với yếu tố thống kê, xác suất; Phân số.",
+  "examType": "giua_hk2",
+  "term": 2,
+  "durationMinutes": 40,
+  "access": "vip",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Chiều cao (cm) của các bạn trong tổ 1:\nAn: 133, Bình: 134, Chi: 148, Dũng: 140, Hà: 139.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Dũng"
+              },
+              {
+                "id": "b",
+                "text": "Chi"
+              },
+              {
+                "id": "c",
+                "text": "An"
+              },
+              {
+                "id": "d",
+                "text": "Bình"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Chi",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số lớn nhất trong dãy là 148, của Chi."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối hai phân số bằng nhau."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "phan_so.tinh_chat"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "1/4"
+              },
+              {
+                "id": "l2",
+                "text": "3/7"
+              },
+              {
+                "id": "l3",
+                "text": "1/6"
+              },
+              {
+                "id": "l4",
+                "text": "1/2"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "3/6"
+              },
+              {
+                "id": "r2",
+                "text": "4/24"
+              },
+              {
+                "id": "r3",
+                "text": "2/9"
+              },
+              {
+                "id": "r4",
+                "text": "9/21"
+              },
+              {
+                "id": "r5",
+                "text": "4/16"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1/4 → 4/16; 3/7 → 9/21; 1/6 → 4/24; 1/2 → 3/6",
+              "hint": "Nhân hoặc chia cả tử số và mẫu số với cùng một số tự nhiên khác không thì được phân số bằng phân số đã cho.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "1/4 = 4/16."
+                },
+                {
+                  "kind": "text",
+                  "text": "3/7 = 9/21."
+                },
+                {
+                  "kind": "text",
+                  "text": "1/6 = 4/24."
+                },
+                {
+                  "kind": "text",
+                  "text": "1/2 = 3/6."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số trung bình cộng của các số 838, 812, 981, 505 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "785"
+              },
+              {
+                "id": "b",
+                "text": "794"
+              },
+              {
+                "id": "c",
+                "text": "3.136"
+              },
+              {
+                "id": "d",
+                "text": "784"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "784",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "838 + 812 + 981 + 505 = 3.136"
+                },
+                {
+                  "kind": "equation",
+                  "text": "3.136 : 4 = 784"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi biểu thức với giá trị của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 120,
+            "skillIds": [
+              "tinh_chat.phan_phoi"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "26 × 30 + 26 × 3"
+              },
+              {
+                "id": "l2",
+                "text": "13 × 56 + 13 × 5"
+              },
+              {
+                "id": "l3",
+                "text": "4 × 32 + 4 × 5"
+              },
+              {
+                "id": "l4",
+                "text": "10 × 29 + 10 × 7"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "793"
+              },
+              {
+                "id": "r2",
+                "text": "858"
+              },
+              {
+                "id": "r3",
+                "text": "868"
+              },
+              {
+                "id": "r4",
+                "text": "360"
+              },
+              {
+                "id": "r5",
+                "text": "148"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r4"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "26 × 30 + 26 × 3 → 858; 13 × 56 + 13 × 5 → 793; 4 × 32 + 4 × 5 → 148; 10 × 29 + 10 × 7 → 360",
+              "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "26 × 30 + 26 × 3 = 26 × (30 + 3) = 858"
+                },
+                {
+                  "kind": "equation",
+                  "text": "13 × 56 + 13 × 5 = 13 × (56 + 5) = 793"
+                },
+                {
+                  "kind": "equation",
+                  "text": "4 × 32 + 4 × 5 = 4 × (32 + 5) = 148"
+                },
+                {
+                  "kind": "equation",
+                  "text": "10 × 29 + 10 × 7 = 10 × (29 + 7) = 360"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Làm tròn các thừa số đến hàng chục để ước lượng tích 72 × 25."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "uoc_luong"
+            ],
+            "access": "free",
+            "template": "72 × 25 ≈ {{b1}} × {{b2}} = {{b3}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 70
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 30
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b3",
+                "answer": {
+                  "kind": "number",
+                  "value": 2100
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "70 × 30 = 2.100",
+              "hint": "Con làm tròn các số rồi tính nhẩm để ước lượng kết quả nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "72 ≈ 70; 25 ≈ 30."
+                },
+                {
+                  "kind": "equation",
+                  "text": "70 × 30 = 2.100"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q06",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Viết số tự nhiên dưới dạng phân số có mẫu số là 1, và viết số 1 dưới dạng phân số."
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "phan_so.phep_chia"
+            ],
+            "access": "free",
+            "template": "3 = {{b1}}/1\n1 = 7/{{b2}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 3
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 7
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3/1; 7/7",
+              "hint": "Thương của phép chia số tự nhiên cho số tự nhiên khác không có thể viết thành phân số: tử số là số bị chia, mẫu số là số chia.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mọi số tự nhiên đều viết được thành phân số có mẫu số là 1."
+                },
+                {
+                  "kind": "text",
+                  "text": "Phân số có tử số bằng mẫu số thì bằng 1."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "1.814 : 19 = ? (dư ?)"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "chia.2cs",
+              "chia.co_du"
+            ],
+            "access": "free",
+            "template": "1.814 : 19 = {{b1}} (dư {{b2}})",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 95
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 9
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "95 (dư 9)",
+              "hint": "Con làm tròn số chia để ước lượng thương; mỗi lượt chia, nhân, trừ rồi hạ chữ số tiếp theo nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "1814",
+                  "divisor": "19",
+                  "quotient": "95",
+                  "remainder": 9,
+                  "digitSteps": [
+                    {
+                      "text": "181 chia 19 được 9, viết 9. 9 nhân 19 bằng 171; 181 trừ 171 bằng 10.",
+                      "partialDividend": 181,
+                      "quotientDigit": 9,
+                      "product": 171,
+                      "remainder": 10
+                    },
+                    {
+                      "text": "Hạ 4, được 104; 104 chia 19 được 5, viết 5. 5 nhân 19 bằng 95; 104 trừ 95 bằng 9.",
+                      "partialDividend": 104,
+                      "quotientDigit": 5,
+                      "product": 95,
+                      "remainder": 9
+                    }
+                  ]
+                },
+                {
+                  "kind": "text",
+                  "text": "1.814 : 19 = 95 (dư 9)"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "95 × 19 + 9 = 1.814"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số cây các tổ trồng được”. Kéo tên vào ô trống theo thứ tự từ cột cao nhất đến cột thấp nhất.",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-fa43ce.webp",
+                "alt": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 25 cây, Tổ 2: 10 cây, Tổ 3: 15 cây, Tổ 4: 55 cây.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "template": "{{s1}} > {{s2}} > {{s3}} > {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Tổ 2"
+              },
+              {
+                "id": "t2",
+                "text": "Tổ 4"
+              },
+              {
+                "id": "t3",
+                "text": "Tổ 3"
+              },
+              {
+                "id": "t4",
+                "text": "Tổ 1"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Tổ 4 > Tổ 1 > Tổ 3 > Tổ 2",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 25 cây, Tổ 2: 10 cây, Tổ 3: 15 cây, Tổ 4: 55 cây."
+                },
+                {
+                  "kind": "text",
+                  "text": "Tổ 4 (55) > Tổ 1 (25) > Tổ 3 (15) > Tổ 2 (10)."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "chia.1cs"
+            ],
+            "access": "free",
+            "template": "38.901 : 3 = {{s1}}\n51.296 : 8 = {{s2}}\n11.016 : 3 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "12.967"
+              },
+              {
+                "id": "t2",
+                "text": "6.412"
+              },
+              {
+                "id": "t3",
+                "text": "3.672"
+              },
+              {
+                "id": "t4",
+                "text": "12.968"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "12.967; 6.412; 3.672",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "38.901 : 3 = 12.967"
+                },
+                {
+                  "kind": "equation",
+                  "text": "51.296 : 8 = 6.412"
+                },
+                {
+                  "kind": "equation",
+                  "text": "11.016 : 3 = 3.672"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 12.968 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-2.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo phân số thích hợp vào ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "phan_so.khai_niem"
+            ],
+            "access": "free",
+            "template": "Chia thành 7 phần bằng nhau, lấy 5 phần: {{s1}}\nChia thành 5 phần bằng nhau, lấy 2 phần: {{s2}}\nChia thành 6 phần bằng nhau, lấy 1 phần: {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "7/5"
+              },
+              {
+                "id": "t2",
+                "text": "2/5"
+              },
+              {
+                "id": "t3",
+                "text": "5/7"
+              },
+              {
+                "id": "t4",
+                "text": "1/6"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5/7; 2/5; 1/6",
+              "hint": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+                  "style": "rule"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

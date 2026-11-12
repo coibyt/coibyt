@@ -1,0 +1,673 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-15",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c6",
+  "order": 1,
+  "title": "Nâng cao tuần 15: Vuông góc, song song, hình bình hành",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Hình chữ nhật: nửa chu vi = chiều dài + chiều rộng. Hình bình hành, hình thoi có các cặp cạnh đối diện bằng nhau.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một miếng bìa gồm một hình chữ nhật dài 18 cm, rộng 7 cm và một hình vuông cạnh 5 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Diện tích hình chữ nhật là:",
+            "equation": "18 × 7 = 126 (cm²)"
+          },
+          {
+            "explanation": "Diện tích hình vuông là:",
+            "equation": "5 × 5 = 25 (cm²)"
+          },
+          {
+            "explanation": "Diện tích miếng bìa là:",
+            "equation": "126 + 25 = 151 (cm²)"
+          }
+        ],
+        "answer": "Đáp số: 151 cm²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-15.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Hình thoi cạnh 15 cm có chu vi {{s1}} cm.\nHình bình hành có hai cạnh 8 cm và 6 cm có chu vi {{s2}} cm.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "28"
+        },
+        {
+          "id": "t2",
+          "text": "60"
+        },
+        {
+          "id": "t3",
+          "text": "14"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60; 28",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "15 × 4 = 60"
+          },
+          {
+            "kind": "equation",
+            "text": "(8 + 6) × 2 = 28"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi đặc điểm với tên hình."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau"
+        },
+        {
+          "id": "l2",
+          "text": "Hình có bốn cạnh bằng nhau, không có góc vuông"
+        },
+        {
+          "id": "l3",
+          "text": "Hình có hai cặp cạnh đối song song và bằng nhau"
+        },
+        {
+          "id": "l4",
+          "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "hình tam giác"
+        },
+        {
+          "id": "r2",
+          "text": "hình thoi"
+        },
+        {
+          "id": "r3",
+          "text": "hình bình hành"
+        },
+        {
+          "id": "r4",
+          "text": "hình vuông"
+        },
+        {
+          "id": "r5",
+          "text": "hình chữ nhật"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau → hình chữ nhật; Hình có bốn cạnh bằng nhau, không có góc vuông → hình thoi; Hình có hai cặp cạnh đối song song và bằng nhau → hình bình hành; Hình có bốn góc vuông, bốn cạnh bằng nhau → hình vuông",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau: hình chữ nhật."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có bốn cạnh bằng nhau, không có góc vuông: hình thoi."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có hai cặp cạnh đối song song và bằng nhau: hình bình hành."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau: hình vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p03",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Hình chữ nhật ABCD: nối mỗi câu với cạnh đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.vuong_goc_song_song"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Cạnh song song với AB"
+        },
+        {
+          "id": "l2",
+          "text": "Cạnh song song với AD"
+        },
+        {
+          "id": "l3",
+          "text": "Cạnh vuông góc với AB tại A"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "DC"
+        },
+        {
+          "id": "r2",
+          "text": "BC"
+        },
+        {
+          "id": "r3",
+          "text": "AC"
+        },
+        {
+          "id": "r4",
+          "text": "AD"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Cạnh song song với AB → DC; Cạnh song song với AD → BC; Cạnh vuông góc với AB tại A → AD",
+        "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật ABCD: cạnh song song với ab là DC."
+          },
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật ABCD: cạnh song song với ad là BC."
+          },
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật ABCD: cạnh vuông góc với ab tại a là AD."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tổng của hai số là số lớn nhất có ba chữ số, hiệu của chúng là số lớn nhất có hai chữ số. Tìm số lớn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Số lớn là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 549
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "549",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng hai số là 999, hiệu hai số là:",
+                "equation": "99 = 99"
+              },
+              {
+                "explanation": "Số lớn là:",
+                "equation": "(999 + 99) : 2 = 549"
+              }
+            ],
+            "answer": "Đáp số: 549."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một miếng bìa gồm một hình chữ nhật dài 23 cm, rộng 7 cm và một hình vuông cạnh 3 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "170 cm²"
+        },
+        {
+          "id": "b",
+          "text": "72 cm²"
+        },
+        {
+          "id": "c",
+          "text": "173 cm²"
+        },
+        {
+          "id": "d",
+          "text": "70 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "170 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "23 × 7 = 161 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "3 × 3 = 9 (cm²)"
+              },
+              {
+                "explanation": "Diện tích miếng bìa là:",
+                "equation": "161 + 9 = 170 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 170 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "23",
+              "7"
+            ],
+            "result": "161",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 3 bằng 21, viết 1 nhớ 2.",
+                "write": "1",
+                "carry": 2
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 2 bằng 14, thêm 2 bằng 16, viết 16.",
+                "write": "16"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "161",
+              "9"
+            ],
+            "result": "170",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 9 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 2,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 32 cm, chiều dài hơn chiều rộng 6 cm. Tính diện tích hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 55,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "55 cm²",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+                "equation": "32 : 2 = 16 (cm)"
+              },
+              {
+                "explanation": "Hai lần chiều rộng là:",
+                "equation": "16 - 6 = 10 (cm)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "10 : 2 = 5 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "5 + 6 = 11 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "11 × 5 = 55 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 55 cm²."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "32",
+            "divisor": "2",
+            "quotient": "16",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "3 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 3 trừ 2 bằng 1.",
+                "partialDividend": 3,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 2 được 6, viết 6. 6 nhân 2 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 6,
+                "product": 12,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "16",
+              "6"
+            ],
+            "result": "10",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 6 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "11",
+              "5"
+            ],
+            "result": "55",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 1 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hiện nay tổng số tuổi của mẹ và con là 39 tuổi, mẹ hơn con 25 tuổi. Hỏi 8 năm nữa con bao nhiêu tuổi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "8 năm nữa con {{b1}} tuổi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "tuổi"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 tuổi",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tuổi con hiện nay là:",
+                "equation": "(39 - 25) : 2 = 7 (tuổi)"
+              },
+              {
+                "explanation": "8 năm nữa tuổi con là:",
+                "equation": "7 + 8 = 15 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 15 tuổi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-15.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một khung ảnh hình bình hành có chu vi 22 cm, một cạnh dài 6 cm. Tính độ dài cạnh còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cạnh còn lại dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "5 cm",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi hình bình hành là:",
+                "equation": "22 : 2 = 11 (cm)"
+              },
+              {
+                "explanation": "Độ dài cạnh còn lại là:",
+                "equation": "11 - 6 = 5 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 5 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

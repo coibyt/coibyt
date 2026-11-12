@@ -1,0 +1,677 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-14",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c5",
+  "order": 3,
+  "title": "Nâng cao tuần 14: Vuông góc, song song, hình bình hành",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Hình chữ nhật: nửa chu vi = chiều dài + chiều rộng. Hình bình hành, hình thoi có các cặp cạnh đối diện bằng nhau.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một hình chữ nhật có chu vi 22 cm, chiều dài hơn chiều rộng 3 cm. Tính diện tích hình chữ nhật đó."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+            "equation": "22 : 2 = 11 (cm)"
+          },
+          {
+            "explanation": "Hai lần chiều rộng là:",
+            "equation": "11 - 3 = 8 (cm)"
+          },
+          {
+            "explanation": "Chiều rộng hình chữ nhật là:",
+            "equation": "8 : 2 = 4 (cm)"
+          },
+          {
+            "explanation": "Chiều dài hình chữ nhật là:",
+            "equation": "4 + 3 = 7 (cm)"
+          },
+          {
+            "explanation": "Diện tích hình chữ nhật là:",
+            "equation": "7 × 4 = 28 (cm²)"
+          }
+        ],
+        "answer": "Đáp số: 28 cm²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-14.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số vào ô trống để được cách tính thuận tiện."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "template": "458 + 6.118 + 542 = ({{s1}} + {{s2}}) + 6.118",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "458"
+        },
+        {
+          "id": "t2",
+          "text": "542"
+        },
+        {
+          "id": "t3",
+          "text": "6.119"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "458; 542",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(458 + 542) + 6.118 = 7.118"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp tổng – hiệu với số lớn tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tong_hieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Tổng 60, hiệu 14"
+        },
+        {
+          "id": "l2",
+          "text": "Tổng 85, hiệu 19"
+        },
+        {
+          "id": "l3",
+          "text": "Tổng 43, hiệu 19"
+        },
+        {
+          "id": "l4",
+          "text": "Tổng 64, hiệu 18"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "52"
+        },
+        {
+          "id": "r2",
+          "text": "37"
+        },
+        {
+          "id": "r3",
+          "text": "42"
+        },
+        {
+          "id": "r4",
+          "text": "31"
+        },
+        {
+          "id": "r5",
+          "text": "41"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tổng 60, hiệu 14 → 37; Tổng 85, hiệu 19 → 52; Tổng 43, hiệu 19 → 31; Tổng 64, hiệu 18 → 41",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tổng 60, hiệu 14: số lớn là (60 + 14) : 2 = 37."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 85, hiệu 19: số lớn là (85 + 19) : 2 = 52."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 43, hiệu 19: số lớn là (43 + 19) : 2 = 31."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 64, hiệu 18: số lớn là (64 + 18) : 2 = 41."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p03",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Hình thoi cạnh 9 cm có chu vi {{s1}} cm.\nHình bình hành có hai cạnh 14 cm và 6 cm có chu vi {{s2}} cm.",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "20"
+        },
+        {
+          "id": "t2",
+          "text": "36"
+        },
+        {
+          "id": "t3",
+          "text": "40"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36; 40",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "9 × 4 = 36"
+          },
+          {
+            "kind": "equation",
+            "text": "(14 + 6) × 2 = 40"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tổng của hai số là số lớn nhất có ba chữ số, hiệu của chúng là số lớn nhất có ba chữ số mà chữ số hàng trăm là 1. Tìm số lớn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Số lớn là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 599
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "599",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng hai số là 999, hiệu hai số là:",
+                "equation": "199 = 199"
+              },
+              {
+                "explanation": "Số lớn là:",
+                "equation": "(999 + 199) : 2 = 599"
+              }
+            ],
+            "answer": "Đáp số: 599."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một miếng bìa gồm một hình chữ nhật dài 13 cm, rộng 5 cm và một hình vuông cạnh 6 cm ghép sát nhau (không chồng lên nhau). Tính diện tích miếng bìa."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "60 cm²"
+        },
+        {
+          "id": "b",
+          "text": "101 cm²"
+        },
+        {
+          "id": "c",
+          "text": "89 cm²"
+        },
+        {
+          "id": "d",
+          "text": "107 cm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "101 cm²",
+        "hint": "Con chia hình thành các hình chữ nhật nhỏ, tính từng hình rồi cộng hoặc trừ cho hợp lý nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "13 × 5 = 65 (cm²)"
+              },
+              {
+                "explanation": "Diện tích hình vuông là:",
+                "equation": "6 × 6 = 36 (cm²)"
+              },
+              {
+                "explanation": "Diện tích miếng bìa là:",
+                "equation": "65 + 36 = 101 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 101 cm²."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "13",
+              "5"
+            ],
+            "result": "65",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 3 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "65",
+              "36"
+            ],
+            "result": "101",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 6 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 3 bằng 9, thêm 1 bằng 10, viết 10.",
+                "write": "10"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hiện nay tổng số tuổi của mẹ và con là 52 tuổi, mẹ hơn con 28 tuổi. Hỏi 3 năm nữa con bao nhiêu tuổi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "12 tuổi"
+        },
+        {
+          "id": "b",
+          "text": "15 tuổi"
+        },
+        {
+          "id": "c",
+          "text": "43 tuổi"
+        },
+        {
+          "id": "d",
+          "text": "16 tuổi"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 tuổi",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tuổi con hiện nay là:",
+                "equation": "(52 - 28) : 2 = 12 (tuổi)"
+              },
+              {
+                "explanation": "3 năm nữa tuổi con là:",
+                "equation": "12 + 3 = 15 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 15 tuổi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một hình chữ nhật có chu vi 40 cm, chiều dài hơn chiều rộng 14 cm. Tính diện tích hình chữ nhật đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 240,
+      "skillIds": [
+        "hinh_hoc.chu_vi",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích là {{b1}} cm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 51,
+            "unit": "cm²",
+            "unitAliases": [
+              "xăng-ti-mét vuông",
+              "cm2"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "51 cm²",
+        "hint": "Chiều dài cộng chiều rộng thì bằng nửa chu vi hình chữ nhật.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi (chiều dài cộng chiều rộng) là:",
+                "equation": "40 : 2 = 20 (cm)"
+              },
+              {
+                "explanation": "Hai lần chiều rộng là:",
+                "equation": "20 - 14 = 6 (cm)"
+              },
+              {
+                "explanation": "Chiều rộng hình chữ nhật là:",
+                "equation": "6 : 2 = 3 (cm)"
+              },
+              {
+                "explanation": "Chiều dài hình chữ nhật là:",
+                "equation": "3 + 14 = 17 (cm)"
+              },
+              {
+                "explanation": "Diện tích hình chữ nhật là:",
+                "equation": "17 × 3 = 51 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 51 cm²."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "40",
+            "divisor": "2",
+            "quotient": "20",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3",
+              "14"
+            ],
+            "result": "17",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 4 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "17",
+              "3"
+            ],
+            "result": "51",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 7 bằng 21, viết 1 nhớ 2.",
+                "write": "1",
+                "carry": 2
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 1 bằng 3, thêm 2 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-14.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một thửa ruộng thu hoạch được 5.560 kg thóc gồm thóc nếp và thóc tẻ. Số thóc tẻ nhiều hơn thóc nếp 540 kg. Hỏi mỗi loại có bao nhiêu ki-lô-gam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thóc tẻ: {{b1}} kg.\nThóc nếp: {{b2}} kg.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3050,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2510,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3.050 kg; 2.510 kg",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc tẻ là:",
+                "equation": "(5.560 + 540) : 2 = 3.050 (kg)"
+              },
+              {
+                "explanation": "Số thóc nếp là:",
+                "equation": "5.560 - 3.050 = 2.510 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 3.050 kg; 2.510 kg."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,693 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-04",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c4"
+  ],
+  "title": "Kiểm tra chủ đề 4",
+  "description": "Một số đơn vị đo đại lượng.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "790 dm² ... 8 m²"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.dien_tich"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "<"
+              },
+              {
+                "id": "b",
+                "text": ">"
+              },
+              {
+                "id": "c",
+                "text": "="
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "<",
+              "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi 8 m² = 800 dm²."
+                },
+                {
+                  "kind": "text",
+                  "text": "So sánh: 790 dm² < 800 dm²."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "190 cm² ... 2 dm²"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.dien_tich"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "<"
+              },
+              {
+                "id": "b",
+                "text": ">"
+              },
+              {
+                "id": "c",
+                "text": "="
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "<",
+              "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi 2 dm² = 200 cm²."
+                },
+                {
+                  "kind": "text",
+                  "text": "So sánh: 190 cm² < 200 cm²."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "4 tấn ... 4.000 kg"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.yen_ta_tan"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "="
+              },
+              {
+                "id": "b",
+                "text": "<"
+              },
+              {
+                "id": "c",
+                "text": ">"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "=",
+              "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi 4 tấn = 4.000 kg."
+                },
+                {
+                  "kind": "text",
+                  "text": "So sánh: 4.000 kg = 4.000 kg."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối hai số đo bằng nhau.",
+            "prompt": {
+              "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "thoi_gian.giay_the_ki"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "2 phút"
+              },
+              {
+                "id": "l2",
+                "text": "6 thế kỉ"
+              },
+              {
+                "id": "l3",
+                "text": "3 thế kỉ"
+              },
+              {
+                "id": "l4",
+                "text": "9 thế kỉ"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "12 giây"
+              },
+              {
+                "id": "r2",
+                "text": "120 giây"
+              },
+              {
+                "id": "r3",
+                "text": "900 năm"
+              },
+              {
+                "id": "r4",
+                "text": "600 năm"
+              },
+              {
+                "id": "r5",
+                "text": "300 năm"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2 phút → 120 giây; 6 thế kỉ → 600 năm; 3 thế kỉ → 300 năm; 9 thế kỉ → 900 năm",
+              "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "2 phút = 120 giây"
+                },
+                {
+                  "kind": "text",
+                  "text": "6 thế kỉ = 600 năm"
+                },
+                {
+                  "kind": "text",
+                  "text": "3 thế kỉ = 300 năm"
+                },
+                {
+                  "kind": "text",
+                  "text": "9 thế kỉ = 900 năm"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Năm 1946 thuộc thế kỉ nào?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "thoi_gian.giay_the_ki"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "thế kỉ XX"
+              },
+              {
+                "id": "b",
+                "text": "thế kỉ XIX"
+              },
+              {
+                "id": "c",
+                "text": "thế kỉ XXII"
+              },
+              {
+                "id": "d",
+                "text": "thế kỉ XXI"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "thế kỉ XX",
+              "hint": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Thế kỉ hai mươi tính từ năm một nghìn chín trăm linh một đến năm hai nghìn; thế kỉ hai mươi mốt bắt đầu từ năm hai nghìn không trăm linh một.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Năm 1946 thuộc thế kỉ XX (20)."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3 dm², 358 cm², 1 dm², 380 cm²."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.dien_tich"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "358 cm²"
+              },
+              {
+                "id": "t2",
+                "text": "3 dm²"
+              },
+              {
+                "id": "t3",
+                "text": "380 cm²"
+              },
+              {
+                "id": "t4",
+                "text": "1 dm²"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1 dm² < 3 dm² < 358 cm² < 380 cm²",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về xăng-ti-mét vuông: 3 dm² = 300 cm², 358 cm² = 358 cm², 1 dm² = 100 cm², 380 cm² = 380 cm²."
+                },
+                {
+                  "kind": "text",
+                  "text": "1 dm² < 3 dm² < 358 cm² < 380 cm²."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "7 tấn 990 kg = ? kg"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "do_luong.yen_ta_tan"
+            ],
+            "access": "free",
+            "template": "7 tấn 990 kg = {{b1}} kg",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 7990,
+                  "unit": "kg",
+                  "unitAliases": [
+                    "ki-lô-gam"
+                  ]
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.990 kg",
+              "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "1 tấn = 1.000 kg.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "7 × 1.000 + 990 = 7.990"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3 m², 207 dm², 2 m², 4 m²."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.dien_tich"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "207 dm²"
+              },
+              {
+                "id": "t2",
+                "text": "4 m²"
+              },
+              {
+                "id": "t3",
+                "text": "3 m²"
+              },
+              {
+                "id": "t4",
+                "text": "2 m²"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2 m² < 207 dm² < 3 m² < 4 m²",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về đề-xi-mét vuông: 3 m² = 300 dm², 207 dm² = 207 dm², 2 m² = 200 dm², 4 m² = 400 dm²."
+                },
+                {
+                  "kind": "text",
+                  "text": "2 m² < 207 dm² < 3 m² < 4 m²."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3 tạ, 54 kg, 336 kg, 123 kg."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "do_luong.yen_ta_tan"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "54 kg"
+              },
+              {
+                "id": "t2",
+                "text": "3 tạ"
+              },
+              {
+                "id": "t3",
+                "text": "123 kg"
+              },
+              {
+                "id": "t4",
+                "text": "336 kg"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "54 kg < 123 kg < 3 tạ < 336 kg",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về ki-lô-gam: 3 tạ = 300 kg, 54 kg = 54 kg, 336 kg = 336 kg, 123 kg = 123 kg."
+                },
+                {
+                  "kind": "text",
+                  "text": "54 kg < 123 kg < 3 tạ < 336 kg."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-04.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+            "prompt": {
+              "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 62 giây, 34 giây, 195 giây, 214 giây."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "thoi_gian.giay_the_ki"
+            ],
+            "access": "free",
+            "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "34 giây"
+              },
+              {
+                "id": "t2",
+                "text": "62 giây"
+              },
+              {
+                "id": "t3",
+                "text": "195 giây"
+              },
+              {
+                "id": "t4",
+                "text": "214 giây"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "34 giây < 62 giây < 195 giây < 214 giây",
+              "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi về giây: 62 giây = 62 giây, 34 giây = 34 giây, 195 giây = 195 giây, 214 giây = 214 giây."
+                },
+                {
+                  "kind": "text",
+                  "text": "34 giây < 62 giây < 195 giây < 214 giây."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2844 @@
+{
+  "kntt4.c1.on-tap-cac-so-den-100000": [
+    {
+      "title": "Xe chở gạch: đọc số có năm chữ số",
+      "prompt": "A Vietnamese construction site. LEFT: a big truck loaded with neat pallets of red bricks. RIGHT: a worker in a yellow helmet seen from behind checking a clipboard. Sunny day. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Xe tải chở 23.450 viên gạch.",
+          "at": "left"
+        },
+        {
+          "say": "Số 23.450 gồm 2 chục nghìn, 3 nghìn, 4 trăm, 5 chục và 0 đơn vị.",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: hai mươi ba nghìn bốn trăm năm mươi.",
+          "at": "right"
+        },
+        {
+          "say": "Con thấy không, các phép tính giúp mình tính nhanh mọi thứ quanh ta!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "So sánh số vé hai buổi xiếc",
+      "prompt": "A colourful circus tent in Vietnam. LEFT: a long queue of families at a ticket booth in the morning. RIGHT: a shorter queue at the same booth in the evening with lanterns. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Buổi sáng bán được 12.450 vé.",
+          "at": "left"
+        },
+        {
+          "say": "Buổi tối bán được 12.540 vé.",
+          "at": "right"
+        },
+        {
+          "say": "Hàng trăm: 4 < 5, nên 12.450 < 12.540.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000": [
+    {
+      "title": "Hai kho sách: cộng trong phạm vi 100 000",
+      "prompt": "Inside a big library storeroom. LEFT: tall shelves full of blue books. RIGHT: tall shelves full of orange books. A librarian cart in the middle. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Kho bên trái có 35.200 quyển sách xanh.",
+          "at": "left"
+        },
+        {
+          "say": "Kho bên phải có 28.600 quyển sách cam.",
+          "at": "right"
+        },
+        {
+          "say": "Cả hai kho có: 35.200 + 28.600 = 63.800 quyển sách.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xếp táo vào thùng",
+      "prompt": "An orchard packing shed with many identical cardboard boxes of red apples stacked, workers packing. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi thùng có 24 quả táo, có 8 thùng.",
+          "at": "all"
+        },
+        {
+          "say": "Số táo: 24 × 8 = 192 quả.",
+          "at": "all"
+        },
+        {
+          "say": "Chia đều 192 quả cho 4 cửa hàng: 192 : 4 = 48 quả.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c1.so-chan-so-le": [
+    {
+      "title": "Số nhà chẵn, số nhà lẻ",
+      "prompt": "A tidy Vietnamese residential street seen from the middle of the road. LEFT side: a row of colourful town houses. RIGHT side: another row of colourful town houses facing them. Trees and motorbikes. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Dãy nhà bên trái mang số lẻ: 1, 3, 5, 7.",
+          "at": "left"
+        },
+        {
+          "say": "Dãy nhà bên phải mang số chẵn: 2, 4, 6, 8.",
+          "at": "right"
+        },
+        {
+          "say": "Hai nhà liền nhau cùng một bên đường hơn kém nhau 2 số.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xếp đôi giày",
+      "prompt": "A shoe rack at a classroom door. LEFT: neat pairs of children's shoes. RIGHT: one single shoe left alone. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Giày xếp thành từng đôi: số chiếc giày là số chẵn.",
+          "at": "left"
+        },
+        {
+          "say": "Thêm một chiếc lẻ thì số chiếc giày thành số lẻ.",
+          "at": "right"
+        },
+        {
+          "say": "Con thấy không, các phép tính giúp mình tính nhanh mọi thứ quanh ta!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c1.bieu-thuc-chua-chu": [
+    {
+      "title": "Hàng rào hình vuông: chu vi P = a × 4",
+      "prompt": "A square vegetable garden in a Vietnamese backyard surrounded by a low wooden fence, seen from above. LEFT corner: a child holding a measuring tape along one side. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi cạnh vườn dài a mét.",
+          "at": "left"
+        },
+        {
+          "say": "Chu vi vườn là P = a × 4.",
+          "at": "all"
+        },
+        {
+          "say": "Nếu a = 9 thì P = 9 × 4 = 36 mét rào.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Tiền mua vở theo số quyển",
+      "prompt": "A stationery shop shelf with stacks of identical notebooks and a child holding a basket. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi quyển vở giá 7.000 đồng, mua a quyển thì hết 7.000 × a đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Với a = 5 thì 7.000 × 5 = 35.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Con thấy không, các phép tính giúp mình tính nhanh mọi thứ quanh ta!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh": [
+    {
+      "title": "Đi mua đồ dùng học tập: ba bước tính",
+      "prompt": "A Vietnamese stationery shop counter. LEFT: exactly 3 notebooks stacked. RIGHT: exactly 2 pens in a small tray. A child's hand holding a folded banknote in the center. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lan mua 3 quyển vở, mỗi quyển 8.000 đồng: 8.000 × 3 = 24.000 đồng.",
+          "at": "left"
+        },
+        {
+          "say": "Mua 2 chiếc bút, mỗi chiếc 5.000 đồng: 5.000 × 2 = 10.000 đồng.",
+          "at": "right"
+        },
+        {
+          "say": "Lan đưa 50.000 đồng, còn lại: 50.000 - 24.000 - 10.000 = 16.000 đồng.",
+          "at": "center"
+        },
+        {
+          "say": "Con thấy không, các phép tính giúp mình tính nhanh mọi thứ quanh ta!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ba ngày thu hoạch cam",
+      "prompt": "An orange orchard with three piles of harvested oranges in baskets. LEFT: a small pile. CENTER: a medium pile. RIGHT: a big pile. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Ngày đầu hái được 120 kg.",
+          "at": "left"
+        },
+        {
+          "say": "Ngày hai hái hơn ngày đầu 30 kg: 120 + 30 = 150 kg.",
+          "at": "center"
+        },
+        {
+          "say": "Ngày ba hái gấp đôi ngày hai: 150 × 2 = 300 kg.",
+          "at": "right"
+        },
+        {
+          "say": "Cả ba ngày: 120 + 150 + 300 = 570 kg.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c1.luyen-tap-chung": [
+    {
+      "title": "Chợ hoa ngày Tết",
+      "prompt": "A colourful Vietnamese Tet flower market. LEFT: rows of yellow apricot blossom pots. RIGHT: rows of pink peach blossom pots. Festive red lanterns. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chợ có 1.250 chậu mai.",
+          "at": "left"
+        },
+        {
+          "say": "Số chậu đào nhiều hơn số chậu mai 340 chậu: 1.250 + 340 = 1.590 chậu.",
+          "at": "right"
+        },
+        {
+          "say": "Cả hai loại có: 1.250 + 1.590 = 2.840 chậu hoa.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Bể cá cảnh",
+      "prompt": "A pet shop with two big aquariums. LEFT aquarium: many orange goldfish. RIGHT aquarium: many blue fish. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bể trái có 135 con cá vàng.",
+          "at": "left"
+        },
+        {
+          "say": "Bể phải có ít hơn bể trái 28 con: 135 - 28 = 107 con.",
+          "at": "right"
+        },
+        {
+          "say": "Con thấy không, các phép tính giúp mình tính nhanh mọi thứ quanh ta!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c2.do-goc-don-vi-do-goc": [
+    {
+      "title": "Đo góc mở của chiếc quạt",
+      "prompt": "A beautiful paper folding fan opened partly on a desk, with a transparent semicircular protractor placed at its pivot. RIGHT: a pencil and notebook. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cô đặt tâm thước đo góc trùng với đinh của chiếc quạt.",
+          "at": "all"
+        },
+        {
+          "say": "Một nan quạt đi qua vạch 0.",
+          "at": "left"
+        },
+        {
+          "say": "Nan còn lại chỉ vạch 120. Góc mở của quạt là 120 độ.",
+          "at": "right"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Mái nhà và thước đo góc",
+      "prompt": "A wooden roof frame model on a carpentry table with a large protractor measuring the angle at the roof top. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đỉnh mái nhà tạo thành một góc.",
+          "at": "all"
+        },
+        {
+          "say": "Thước đo góc chỉ 90 độ: đỉnh mái là góc vuông.",
+          "at": "all"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c2.goc-nhon-goc-tu-goc-bet": [
+    {
+      "title": "Kéo, quạt và cánh cửa: góc nhọn, góc tù, góc bẹt",
+      "prompt": "A bright classroom craft table. LEFT: a pair of scissors opened slightly. CENTER: a door of a cabinet opened wide. RIGHT: a long ruler lying flat and straight. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lưỡi kéo mở hẹp tạo thành góc nhọn, bé hơn góc vuông.",
+          "at": "left"
+        },
+        {
+          "say": "Cánh tủ mở rộng tạo thành góc tù, lớn hơn góc vuông.",
+          "at": "center"
+        },
+        {
+          "say": "Hai nửa thước thẳng hàng tạo thành góc bẹt, bằng 180 độ.",
+          "at": "right"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ghế xếp và cái kéo",
+      "prompt": "LEFT: a folding beach chair slightly reclined. RIGHT: a laptop opened fully flat on a desk. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lưng ghế ngả ra tạo thành góc tù.",
+          "at": "left"
+        },
+        {
+          "say": "Máy tính mở phẳng tạo thành góc bẹt, bằng 180 độ.",
+          "at": "right"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c2.luyen-tap-chung": [
+    {
+      "title": "Kim đồng hồ tạo thành góc",
+      "prompt": "Three round wall clocks side by side on a pastel wall, each with clear hands and no numbers. LEFT clock: hands at three o'clock position. CENTER clock: hands at six o'clock position. RIGHT clock: hands at one o'clock position. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lúc 3 giờ, hai kim tạo thành góc vuông.",
+          "at": "left"
+        },
+        {
+          "say": "Lúc 6 giờ, hai kim tạo thành góc bẹt.",
+          "at": "center"
+        },
+        {
+          "say": "Lúc 1 giờ, hai kim tạo thành góc nhọn.",
+          "at": "right"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Góc trong lớp học",
+      "prompt": "A classroom corner with a blackboard, an open door and a teacher's set square on the desk. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Góc bảng đen là góc vuông.",
+          "at": "left"
+        },
+        {
+          "say": "Cánh cửa mở hé tạo thành góc nhọn.",
+          "at": "center"
+        },
+        {
+          "say": "Ê ke có một góc vuông và hai góc nhọn.",
+          "at": "right"
+        },
+        {
+          "say": "Nhìn quanh nhà, con sẽ thấy góc nhọn, góc vuông, góc tù ở khắp nơi đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.so-co-sau-chu-so-so-1000000": [
+    {
+      "title": "Sân vận động: một trăm nghìn chỗ ngồi",
+      "prompt": "A huge modern football stadium seen from high above, filled with colourful seats in neat sections, green pitch in the middle. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một sân vận động lớn có thể có khoảng 100.000 chỗ ngồi.",
+          "at": "all"
+        },
+        {
+          "say": "10 sân như thế có 1.000.000 chỗ ngồi, đọc là một triệu.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đếm cây trong rừng",
+      "prompt": "A vast green forest plantation seen from above with neat rows of young trees and a ranger hut. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Khu rừng có 456.789 cây.",
+          "at": "all"
+        },
+        {
+          "say": "Số 456.789 có sáu chữ số, đọc là: bốn trăm năm mươi sáu nghìn bảy trăm tám mươi chín.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.hang-va-lop": [
+    {
+      "title": "Dân số một thành phố: hàng và lớp",
+      "prompt": "A panoramic view of a busy modern Vietnamese city at sunset with many buildings, bridges and a river. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một thành phố có 2.345.678 người.",
+          "at": "all"
+        },
+        {
+          "say": "Lớp triệu là 2, lớp nghìn là 345, lớp đơn vị là 678.",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: hai triệu ba trăm bốn mươi lăm nghìn sáu trăm bảy mươi tám.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Giá một chiếc ô tô",
+      "prompt": "A shiny new family car in a bright showroom in Vietnam. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chiếc ô tô giá 568.000.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Lớp triệu là 568, lớp nghìn là 000, lớp đơn vị là 000.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.cac-so-trong-pham-vi-lop-trieu": [
+    {
+      "title": "Số tiền xây thư viện",
+      "prompt": "A brand-new bright school library building with big windows in a Vietnamese school yard, workers finishing the garden.  Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Xây thư viện hết 850.000.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: tám trăm năm mươi triệu đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đường cao tốc mới",
+      "prompt": "A brand-new highway winding through green hills in Vietnam with a few cars. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đoạn đường mới có 120.000.000 đồng tiền làm đèn chiếu sáng.",
+          "at": "all"
+        },
+        {
+          "say": "120.000.000 đọc là: một trăm hai mươi triệu.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.lam-tron-so-den-hang-tram-nghin": [
+    {
+      "title": "Làm tròn số khán giả",
+      "prompt": "A large outdoor music festival crowd seen from behind the stage at dusk, colourful lights, many people. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lễ hội có 1.468.000 lượt khách.",
+          "at": "all"
+        },
+        {
+          "say": "Chữ số hàng chục nghìn là 6, lớn hơn 5 nên làm tròn lên.",
+          "at": "all"
+        },
+        {
+          "say": "Làm tròn đến hàng trăm nghìn: khoảng 1.500.000 lượt khách.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Làm tròn số cây giống",
+      "prompt": "A huge plant nursery with countless seedling trays under a shade net. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Vườn ươm có 832.150 cây giống.",
+          "at": "all"
+        },
+        {
+          "say": "Chữ số hàng chục nghìn là 3, bé hơn 5 nên làm tròn xuống: khoảng 800.000 cây.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.so-sanh-cac-so-co-nhieu-chu-so": [
+    {
+      "title": "So sánh dân số hai tỉnh",
+      "prompt": "Two Vietnamese provincial landscapes side by side. LEFT: a coastal town with fishing boats. RIGHT: a mountain town with terraced rice fields. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Tỉnh ven biển có 1.230.000 người.",
+          "at": "left"
+        },
+        {
+          "say": "Tỉnh miền núi có 987.000 người.",
+          "at": "right"
+        },
+        {
+          "say": "Số có 7 chữ số lớn hơn số có 6 chữ số, nên tỉnh ven biển đông dân hơn.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hai ngọn núi",
+      "prompt": "Two tall mountains side by side under a blue sky. LEFT: a taller mountain with snow on top. RIGHT: a slightly lower green mountain. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Núi bên trái cao 3.143 m.",
+          "at": "left"
+        },
+        {
+          "say": "Núi bên phải cao 2.819 m.",
+          "at": "right"
+        },
+        {
+          "say": "Hàng nghìn: 3 > 2, nên 3.143 > 2.819.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.lam-quen-voi-day-so-tu-nhien": [
+    {
+      "title": "Bậc thang đánh số",
+      "prompt": "A long outdoor stone staircase climbing a green hill to a temple, with many steps going up into the distance, sunny. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các bậc thang được đánh số 0, 1, 2, 3, … như dãy số tự nhiên.",
+          "at": "all"
+        },
+        {
+          "say": "Bậc sau hơn bậc trước 1 đơn vị, và cứ thế kéo dài mãi.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Số trang sách",
+      "prompt": "An open big storybook on a desk showing page corners, a bookmark and a small lamp. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các trang sách đánh số 1, 2, 3, … liên tiếp.",
+          "at": "all"
+        },
+        {
+          "say": "Sau trang 99 là trang 100: thêm 1 đơn vị.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c3.luyen-tap-chung": [
+    {
+      "title": "Chuyến bay và số khách",
+      "prompt": "A busy Vietnamese airport terminal with large windows, planes outside and travellers with suitcases. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một năm sân bay đón 25.800.000 lượt khách.",
+          "at": "all"
+        },
+        {
+          "say": "Làm tròn đến hàng triệu: khoảng 26.000.000 lượt khách.",
+          "at": "all"
+        },
+        {
+          "say": "Số lớn có ở khắp nơi: số dân, số tiền, số người. Con đọc theo từng lớp nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Số dân hai thành phố",
+      "prompt": "Two modern Vietnamese cities side by side. LEFT: a coastal city with beaches. RIGHT: a city with a big river and bridges. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Thành phố biển có 1.230.000 người.",
+          "at": "left"
+        },
+        {
+          "say": "Thành phố sông có 1.320.000 người.",
+          "at": "right"
+        },
+        {
+          "say": "So sánh hàng trăm nghìn: 2 < 3, thành phố sông đông dân hơn.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c4.yen-ta-tan": [
+    {
+      "title": "Cân lúa ở hợp tác xã",
+      "prompt": "A Vietnamese rice cooperative. LEFT: exactly 5 sacks of rice on a big platform scale. RIGHT: a large truck being loaded with many sacks of rice. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi bao lúa nặng 50 kg, tức là 5 yến.",
+          "at": "left"
+        },
+        {
+          "say": "5 bao nặng 250 kg, bằng 2 tạ 50 kg.",
+          "at": "left"
+        },
+        {
+          "say": "Xe tải chở được 3 tấn, tức là 3.000 kg lúa.",
+          "at": "right"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Bao xi măng trên xe",
+      "prompt": "A small truck loaded with grey cement bags at a construction site, a worker carrying one bag. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi bao xi măng nặng 50 kg, tức là 5 yến.",
+          "at": "all"
+        },
+        {
+          "say": "Xe chở 40 bao: 50 × 40 = 2.000 kg, bằng 2 tấn.",
+          "at": "all"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong": [
+    {
+      "title": "Lát nền phòng học",
+      "prompt": "A sunny classroom floor being covered with large square ceramic tiles, a few tiles stacked in the corner, a measuring tape lying on the floor. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi viên gạch là hình vuông cạnh 5 dm, diện tích 25 dm².",
+          "at": "all"
+        },
+        {
+          "say": "4 viên gạch như thế lát được 100 dm², tức là 1 m².",
+          "at": "all"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Con tem và mặt bàn",
+      "prompt": "LEFT: a tiny postage stamp with a flower picture lying on a desk. RIGHT: the whole wooden desk surface seen from above. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Con tem có diện tích khoảng 6 cm².",
+          "at": "left"
+        },
+        {
+          "say": "Mặt bàn có diện tích khoảng 50 dm².",
+          "at": "right"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c4.giay-the-ki": [
+    {
+      "title": "Chạy 60 mét và cây đa trăm tuổi",
+      "prompt": "LEFT: children running a race on a school track with a teacher holding a stopwatch. RIGHT: a giant ancient banyan tree in a Vietnamese village. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bạn Nam chạy 60 m hết 12 giây.",
+          "at": "left"
+        },
+        {
+          "say": "Cây đa đầu làng đã hơn 100 năm tuổi, tức là hơn một thế kỉ.",
+          "at": "right"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đền cổ và đồng hồ bấm giờ",
+      "prompt": "LEFT: an old Vietnamese communal house with curved roof. RIGHT: a swimmer touching the pool wall while a coach checks a stopwatch. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Ngôi đình được xây năm 1820, thuộc thế kỉ XIX.",
+          "at": "left"
+        },
+        {
+          "say": "Bạn bơi 50 m hết 1 phút 5 giây, tức là 65 giây.",
+          "at": "right"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c4.thuc-hanh-su-dung-don-vi-do-dai-luong": [
+    {
+      "title": "Ước lượng ở siêu thị",
+      "prompt": "A Vietnamese supermarket aisle. LEFT: big sacks of rice stacked. CENTER: watermelons on a scale. RIGHT: a family looking at a floor mat display. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một bao gạo lớn nặng khoảng 5 yến.",
+          "at": "left"
+        },
+        {
+          "say": "Một quả dưa hấu nặng khoảng 4 kg.",
+          "at": "center"
+        },
+        {
+          "say": "Một tấm thảm nhỏ rộng khoảng 2 m².",
+          "at": "right"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Cân hành lý",
+      "prompt": "An airport check-in counter with a suitcase on the luggage scale and a family waiting. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Va li nặng 23 kg.",
+          "at": "all"
+        },
+        {
+          "say": "Cả nhà mang 4 va li như vậy: 23 × 4 = 92 kg, gần 1 tạ.",
+          "at": "all"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c4.luyen-tap-chung": [
+    {
+      "title": "Con voi và chiếc xe tải",
+      "prompt": "A gentle Asian elephant standing beside a small truck at a wildlife sanctuary in Vietnam, green forest background. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chú voi nặng 4 tấn 200 kg, tức là 4.200 kg.",
+          "at": "all"
+        },
+        {
+          "say": "Xe tải nhỏ nặng 2 tấn: voi nặng hơn xe 2.200 kg.",
+          "at": "all"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Sân bóng mini",
+      "prompt": "A small artificial-grass football pitch for children seen from above with goals at both ends. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Sân dài 40 m, rộng 20 m.",
+          "at": "all"
+        },
+        {
+          "say": "Diện tích sân: 40 × 20 = 800 m².",
+          "at": "all"
+        },
+        {
+          "say": "Đổi về cùng một đơn vị rồi mới tính, con nhớ nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so": [
+    {
+      "title": "Hai đợt trồng cây",
+      "prompt": "A green hillside reforestation project. LEFT: rows of young saplings freshly planted. RIGHT: volunteers planting more saplings. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đợt một trồng được 125.430 cây.",
+          "at": "left"
+        },
+        {
+          "say": "Đợt hai trồng được 98.570 cây.",
+          "at": "right"
+        },
+        {
+          "say": "Cả hai đợt: 125.430 + 98.570 = 224.000 cây.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Lượt khách tham quan",
+      "prompt": "A famous Vietnamese bay with limestone islands and tourist boats, sunny day. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Tháng Sáu có 245.600 lượt khách, tháng Bảy có 312.400 lượt khách.",
+          "at": "all"
+        },
+        {
+          "say": "Cả hai tháng: 245.600 + 312.400 = 558.000 lượt khách.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c5.phep-tru-cac-so-co-nhieu-chu-so": [
+    {
+      "title": "Kho gạo xuất hàng",
+      "prompt": "A big rice warehouse. LEFT: huge stacks of rice sacks. RIGHT: trucks driving away loaded with sacks. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Kho có 350.000 kg gạo.",
+          "at": "left"
+        },
+        {
+          "say": "Đã xuất đi 128.500 kg.",
+          "at": "right"
+        },
+        {
+          "say": "Kho còn lại: 350.000 - 128.500 = 221.500 kg gạo.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Quãng đường chuyến tàu",
+      "prompt": "A long passenger train travelling along the coast of Vietnam past beaches and mountains. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đường tàu dài 1.726 km, tàu đã đi 958 km.",
+          "at": "all"
+        },
+        {
+          "say": "Còn phải đi: 1.726 - 958 = 768 km.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c5.tinh-chat-giao-hoan-ket-hop-phep-cong": [
+    {
+      "title": "Gom bi cho nhanh",
+      "prompt": "Three glass bowls of colourful marbles on a wooden table. LEFT bowl: many blue marbles. CENTER bowl: many green marbles. RIGHT bowl: many red marbles. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bát xanh có 125 viên, bát đỏ có 75 viên: gộp hai bát được tròn 200 viên.",
+          "at": "left"
+        },
+        {
+          "say": "Bát xanh lá có 348 viên.",
+          "at": "center"
+        },
+        {
+          "say": "125 + 348 + 75 = (125 + 75) + 348 = 548 viên.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Mua quà sinh nhật",
+      "prompt": "A gift shop counter with three wrapped gifts. LEFT: a small gift. CENTER: a big gift. RIGHT: a medium gift. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Quà thứ nhất 35.000 đồng.",
+          "at": "left"
+        },
+        {
+          "say": "Quà thứ hai 120.000 đồng.",
+          "at": "center"
+        },
+        {
+          "say": "Quà thứ ba 65.000 đồng.",
+          "at": "right"
+        },
+        {
+          "say": "35.000 + 120.000 + 65.000 = (35.000 + 65.000) + 120.000 = 220.000 đồng.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c5.tim-hai-so-biet-tong-va-hieu": [
+    {
+      "title": "Hai lớp quyên góp sách",
+      "prompt": "A school book donation corner. LEFT: a tall stack of books with a blue ribbon. RIGHT: a shorter stack of books with a red ribbon. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai lớp góp được 90 quyển, lớp 4A góp nhiều hơn lớp 4B 10 quyển.",
+          "at": "all"
+        },
+        {
+          "say": "Lớp 4A: (90 + 10) : 2 = 50 quyển.",
+          "at": "left"
+        },
+        {
+          "say": "Lớp 4B: 90 - 50 = 40 quyển.",
+          "at": "right"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Tuổi bố và tuổi con",
+      "prompt": "A father and his son fishing together by a lake at sunset, seen from behind. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Tuổi bố và con cộng lại là 48, bố hơn con 30 tuổi.",
+          "at": "all"
+        },
+        {
+          "say": "Tuổi bố: (48 + 30) : 2 = 39 tuổi.",
+          "at": "left"
+        },
+        {
+          "say": "Tuổi con: 48 - 39 = 9 tuổi.",
+          "at": "right"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c5.luyen-tap-chung": [
+    {
+      "title": "Hai cây cầu",
+      "prompt": "Two long bridges crossing a wide river in Vietnam. LEFT: a longer cable-stayed bridge. RIGHT: a shorter arch bridge. Boats on the river. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cầu dây văng dài 1.420 m.",
+          "at": "left"
+        },
+        {
+          "say": "Cầu vòm ngắn hơn 385 m: 1.420 - 385 = 1.035 m.",
+          "at": "right"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hai trang trại gà",
+      "prompt": "Two chicken farms. LEFT: a large coop with many chickens. RIGHT: a smaller coop with fewer chickens. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai trại có 2.400 con gà, trại trái hơn trại phải 400 con.",
+          "at": "all"
+        },
+        {
+          "say": "Trại trái: (2.400 + 400) : 2 = 1.400 con.",
+          "at": "left"
+        },
+        {
+          "say": "Trại phải: 2.400 - 1.400 = 1.000 con.",
+          "at": "right"
+        },
+        {
+          "say": "Cộng trừ số lớn cũng dễ thôi: đặt thẳng cột và tính từ phải sang trái.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.hai-duong-thang-vuong-goc": [
+    {
+      "title": "Ngã tư vuông góc",
+      "prompt": "A bird's-eye view of a tidy crossroads where two straight streets cross at a perfect right angle, tiny cars, trees and zebra crossings. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai con đường cắt nhau tạo thành bốn góc vuông.",
+          "at": "all"
+        },
+        {
+          "say": "Hai con đường này vuông góc với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Góc tường và sàn nhà",
+      "prompt": "A clean room corner where a wall meets the floor, with a set square placed in the corner. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mép tường và mép sàn vuông góc với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Ê ke đặt vừa khít vào góc: đó là góc vuông.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.thuc-hanh-ve-hai-duong-thang-vuong-goc": [
+    {
+      "title": "Vẽ bằng ê ke",
+      "prompt": "A student's desk with a sheet of paper, a set square aligned with a pencil line and a pencil drawing a second line, close-up. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đặt một cạnh góc vuông của ê ke trùng với đường thẳng đã có.",
+          "at": "left"
+        },
+        {
+          "say": "Vẽ theo cạnh còn lại, ta được đường thẳng vuông góc.",
+          "at": "right"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Kẻ ô bàn cờ",
+      "prompt": "A child drawing a chessboard grid on paper with a ruler and set square. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các đường kẻ ngang vuông góc với các đường kẻ dọc.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi ô bàn cờ có 4 góc vuông.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.hai-duong-thang-song-song": [
+    {
+      "title": "Đường ray tàu hoả",
+      "prompt": "Two straight railway tracks running side by side through green rice fields towards the horizon, a train far away, sunny. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai thanh ray luôn cách đều nhau và không bao giờ cắt nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Hai thanh ray là hình ảnh hai đường thẳng song song.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Vạch kẻ đường",
+      "prompt": "A straight countryside road with two long parallel white lane lines, trees on both sides. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai vạch trắng chạy song song bên nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Kéo dài mãi, hai vạch cũng không gặp nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.thuc-hanh-ve-hai-duong-thang-song-song": [
+    {
+      "title": "Kẻ vở ô li",
+      "prompt": "An open Vietnamese school notebook with neat horizontal ruled lines, a ruler and pencil resting on it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các dòng kẻ trong vở song song với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Con dùng thước và ê ke để kẻ đường song song cho đẹp nhé.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Vẽ thang dây",
+      "prompt": "A child drawing a rope ladder on paper: two long parallel side lines and many short rungs, with a ruler and set square. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai sợi dây thang là hai đường thẳng song song.",
+          "at": "all"
+        },
+        {
+          "say": "Các bậc thang vuông góc với hai sợi dây.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.hinh-binh-hanh-hinh-thoi": [
+    {
+      "title": "Con diều hình thoi",
+      "prompt": "Children flying kites in a park. LEFT: a colourful rhombus-shaped kite. RIGHT: a slanted parallelogram-shaped wooden bench. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Con diều có bốn cạnh bằng nhau, đó là hình thoi.",
+          "at": "left"
+        },
+        {
+          "say": "Mặt ghế có hai cặp cạnh đối song song và bằng nhau, đó là hình bình hành.",
+          "at": "right"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Gạch lát hình thoi",
+      "prompt": "A courtyard floor paved with rhombus-shaped tiles in two colours, a potted plant in the corner. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi viên gạch là hình thoi cạnh 20 cm.",
+          "at": "all"
+        },
+        {
+          "say": "Chu vi một viên: 20 × 4 = 80 cm.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c6.luyen-tap-chung": [
+    {
+      "title": "Cửa sổ và song cửa",
+      "prompt": "A Vietnamese house window with straight vertical iron bars and a horizontal frame, potted flowers on the sill. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các song cửa đứng song song với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Song cửa đứng vuông góc với thanh ngang của khung cửa.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hàng rào vườn rau",
+      "prompt": "A vegetable garden with a fence made of parallel vertical bamboo poles and two horizontal rails. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Các cọc tre song song với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi cọc vuông góc với thanh ngang của hàng rào.",
+          "at": "all"
+        },
+        {
+          "say": "Đường thẳng vuông góc, song song có ở khắp nơi quanh con đấy!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c7.on-tap-cac-so-den-lop-trieu": [
+    {
+      "title": "Doanh thu cửa hàng",
+      "prompt": "A busy modern Vietnamese bookstore with customers and a cashier counter. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một tháng cửa hàng bán được 125.600.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: một trăm hai mươi lăm triệu sáu trăm nghìn đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Diện tích một hồ lớn",
+      "prompt": "A huge calm lake surrounded by mountains in northern Vietnam, a small boat on the water. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hồ rộng khoảng 21.600.000 m².",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: hai mươi mốt triệu sáu trăm nghìn mét vuông.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c7.on-tap-phep-cong-phep-tru": [
+    {
+      "title": "Hai đội thu gom giấy",
+      "prompt": "A school recycling drive. LEFT: a big pile of bundled paper. RIGHT: a smaller pile of bundled paper. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đội A thu được 1.350 kg giấy.",
+          "at": "left"
+        },
+        {
+          "say": "Đội B thu được 980 kg giấy.",
+          "at": "right"
+        },
+        {
+          "say": "Cả hai đội: 1.350 + 980 = 2.330 kg; đội A hơn đội B 370 kg.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Tiết kiệm mua xe đạp",
+      "prompt": "A child putting money into a piggy bank next to a new bicycle in a shop window. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Xe đạp giá 1.850.000 đồng, Nam đã có 1.275.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Nam còn thiếu: 1.850.000 - 1.275.000 = 575.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c7.on-tap-hinh-hoc": [
+    {
+      "title": "Sân trường nhiều hình",
+      "prompt": "A school yard seen from above: a rectangular basketball court, a rhombus-patterned tile path and parallel painted lines on a running track. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Sân bóng rổ là hình chữ nhật, có các cạnh đối song song.",
+          "at": "left"
+        },
+        {
+          "say": "Lối đi lát gạch hình thoi.",
+          "at": "center"
+        },
+        {
+          "say": "Các làn chạy song song với nhau.",
+          "at": "right"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Cánh diều và góc",
+      "prompt": "A rhombus kite flying in the sky, its two crossing sticks clearly visible. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hai thanh tre của diều vuông góc với nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Bốn cạnh diều bằng nhau: diều là hình thoi.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c7.on-tap-do-luong": [
+    {
+      "title": "Hội chợ nông sản",
+      "prompt": "A rural Vietnamese produce fair. LEFT: sacks of rice on a scale. RIGHT: a farmer showing a rectangular vegetable plot. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bác Hai bán được 3 tạ gạo, tức là 300 kg.",
+          "at": "left"
+        },
+        {
+          "say": "Mảnh vườn rộng 50 m², bằng 5.000 dm².",
+          "at": "right"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xe chở dưa hấu",
+      "prompt": "A small truck loaded with watermelons at a farm, a farmer standing beside it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Xe chở 1 tấn 250 kg dưa hấu, tức là 1.250 kg.",
+          "at": "all"
+        },
+        {
+          "say": "Bán mất 7 tạ, còn lại: 1.250 - 700 = 550 kg.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c7.on-tap-chung": [
+    {
+      "title": "Chuyến tham quan cuối kì",
+      "prompt": "Several tour buses parked in front of a museum in Vietnam, pupils in uniforms lining up. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 4 xe, mỗi xe chở 45 bạn: 45 × 4 = 180 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "Vé vào cửa 25.000 đồng mỗi bạn.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hội khoẻ Phù Đổng",
+      "prompt": "A school sports day with children running a relay race and others cheering. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Trường có 486 học sinh, trong đó 162 bạn thi chạy.",
+          "at": "left"
+        },
+        {
+          "say": "Số bạn cổ vũ: 486 - 162 = 324 bạn.",
+          "at": "right"
+        },
+        {
+          "say": "Con đã ôn tập rất tốt, cố lên nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.nhan-voi-so-co-mot-chu-so": [
+    {
+      "title": "Thùng sữa ở siêu thị",
+      "prompt": "A supermarket shelf with exactly 4 large identical plain white cardboard cartons of milk boxes with a simple cow-spot pattern and no writing, neatly stacked. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi thùng có 48 hộp sữa.",
+          "at": "all"
+        },
+        {
+          "say": "4 thùng có: 48 × 4 = 192 hộp sữa.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Vé xem phim",
+      "prompt": "A cinema lobby with a family of five buying tickets at the counter. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi vé giá 75.000 đồng, nhà có 5 người.",
+          "at": "all"
+        },
+        {
+          "say": "Tiền vé: 75.000 × 5 = 375.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.chia-cho-so-co-mot-chu-so": [
+    {
+      "title": "Chia đều sách cho các lớp",
+      "prompt": "A school library table with many new books being sorted into exactly 6 equal piles. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 1.242 quyển sách chia đều cho 6 lớp.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi lớp được: 1.242 : 6 = 207 quyển.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chia đường thành đoạn",
+      "prompt": "A long road under repair with workers in orange vests and cones dividing it into sections. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Con đường dài 2.856 m, chia đều cho 4 đội.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi đội sửa: 2.856 : 4 = 714 m.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.tinh-chat-giao-hoan-ket-hop-phep-nhan": [
+    {
+      "title": "Hộp trứng tính nhanh",
+      "prompt": "A farm shop counter with egg trays stacked in neat piles, each tray full of brown eggs. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 4 chồng, mỗi chồng 25 khay, mỗi khay 30 quả.",
+          "at": "all"
+        },
+        {
+          "say": "Tính nhanh: 25 × 4 × 30 = 100 × 30 = 3.000 quả trứng.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hộp bút chì màu",
+      "prompt": "A shelf with crates holding boxes of colour pencils, crates stacked neatly. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi hộp 12 cây, mỗi thùng 5 hộp, có 2 thùng.",
+          "at": "all"
+        },
+        {
+          "say": "12 × 5 × 2 = 12 × (5 × 2) = 12 × 10 = 120 cây.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.nhan-chia-voi-10-100-1000": [
+    {
+      "title": "Bút chì bó mười, hộp trăm",
+      "prompt": "A stationery warehouse shelf. LEFT: bundles of ten pencils tied with rubber bands. RIGHT: closed boxes each holding many pencils. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi bó 10 bút: 35 bó có 35 × 10 = 350 bút.",
+          "at": "left"
+        },
+        {
+          "say": "Mỗi hộp 100 bút: 12 hộp có 12 × 100 = 1.200 bút.",
+          "at": "right"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đổi tiền lẻ",
+      "prompt": "A bank counter with stacks of coins and banknotes neatly sorted. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 4.500 đồng tiền xu loại 100 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Số đồng xu: 4.500 : 100 = 45 đồng xu.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.tinh-chat-phan-phoi": [
+    {
+      "title": "Mua vở và bút cho cả tổ",
+      "prompt": "A school supplies shop: LEFT a pile of notebooks, RIGHT a pile of pens, a group of children at the counter. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi bạn mua 1 vở giá 9.000 đồng và 1 bút giá 6.000 đồng, tổ có 8 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "8 × (9.000 + 6.000) = 8 × 9.000 + 8 × 6.000 = 120.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Trồng cây hai hàng",
+      "prompt": "A school garden with two rows of young trees, children watering them. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hàng trước 15 cây, hàng sau 15 cây, mỗi cây cần 4 l nước.",
+          "at": "all"
+        },
+        {
+          "say": "4 × (15 + 15) = 4 × 15 + 4 × 15 = 120 l nước.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.nhan-voi-so-co-hai-chu-so": [
+    {
+      "title": "Xe khách đưa học sinh",
+      "prompt": "A row of identical coaches parked in front of a Vietnamese primary school, pupils in uniforms waiting. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi xe có 45 chỗ, có 12 xe.",
+          "at": "all"
+        },
+        {
+          "say": "Số chỗ ngồi: 45 × 12 = 540 chỗ.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ghế trong hội trường",
+      "prompt": "A school auditorium with many neat rows of chairs facing a stage. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hội trường có 24 hàng ghế, mỗi hàng 18 ghế.",
+          "at": "all"
+        },
+        {
+          "say": "Số ghế: 18 × 24 = 432 ghế.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.chia-cho-so-co-hai-chu-so": [
+    {
+      "title": "Xếp trứng vào khay",
+      "prompt": "A farm table with a big basket of eggs and many empty egg trays being filled. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 720 quả trứng, mỗi khay xếp 30 quả.",
+          "at": "all"
+        },
+        {
+          "say": "Xếp được: 720 : 30 = 24 khay.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xếp sách lên kệ",
+      "prompt": "A library with long bookshelves, many books on a trolley ready to be shelved. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 864 quyển sách, mỗi ngăn xếp 36 quyển.",
+          "at": "all"
+        },
+        {
+          "say": "Cần số ngăn: 864 : 36 = 24 ngăn.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.thuc-hanh-uoc-luong-trong-tinh-toan": [
+    {
+      "title": "Ước lượng tiền đi chợ",
+      "prompt": "A Vietnamese market stall with fruit. A shopping basket with exactly 3 bags of oranges. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi túi cam giá 29.000 đồng, mua 3 túi.",
+          "at": "all"
+        },
+        {
+          "say": "Làm tròn 29.000 thành 30.000: khoảng 30.000 × 3 = 90.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ước lượng số người xem",
+      "prompt": "A town square watching an outdoor concert, rows of chairs. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 19 hàng ghế, mỗi hàng 21 ghế.",
+          "at": "all"
+        },
+        {
+          "say": "Ước lượng: 20 × 20 = 400 người; thực tế 19 × 21 = 399 người.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.tim-so-trung-binh-cong": [
+    {
+      "title": "Ba cốc nước cam",
+      "prompt": "Three glasses of orange juice on a kitchen counter. LEFT glass: a little juice. CENTER glass: almost full. RIGHT glass: half full. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cốc trái có 100 ml.",
+          "at": "left"
+        },
+        {
+          "say": "Cốc giữa có 260 ml.",
+          "at": "center"
+        },
+        {
+          "say": "Cốc phải có 180 ml.",
+          "at": "right"
+        },
+        {
+          "say": "Trung bình mỗi cốc: (100 + 260 + 180) : 3 = 180 ml.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Điểm kiểm tra ba môn",
+      "prompt": "A smiling child holding a report card at home with parents, no readable text. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bé được điểm 9, 10 và 8.",
+          "at": "all"
+        },
+        {
+          "say": "Điểm trung bình: (9 + 10 + 8) : 3 = 9.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi": [
+    {
+      "title": "Gói bánh ở tiệm",
+      "prompt": "A bakery shelf with identical packs of cookies; one pack is open showing its cookies. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "4 gói bánh có 48 cái: mỗi gói có 48 : 4 = 12 cái.",
+          "at": "all"
+        },
+        {
+          "say": "7 gói như thế có: 12 × 7 = 84 cái.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xe chở học sinh",
+      "prompt": "Identical school minibuses parked in a row in front of a school. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "3 xe chở được 48 học sinh: mỗi xe 48 : 3 = 16 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "5 xe như thế chở được: 16 × 5 = 80 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c8.luyen-tap-chung": [
+    {
+      "title": "Bể bơi và vé vào cửa",
+      "prompt": "A sunny public swimming pool in Vietnam with children swimming and a ticket booth. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi vé 35.000 đồng, sáng nay bán 24 vé.",
+          "at": "all"
+        },
+        {
+          "say": "Thu được: 35.000 × 24 = 840.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Xưởng làm bánh trung thu",
+      "prompt": "A bakery making mooncakes, trays of mooncakes cooling on racks. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi khay 16 cái bánh, nướng 25 khay: 16 × 25 = 400 cái.",
+          "at": "all"
+        },
+        {
+          "say": "Đóng mỗi hộp 4 cái: 400 : 4 = 100 hộp.",
+          "at": "all"
+        },
+        {
+          "say": "Phép nhân, phép chia giúp mình tính rất nhanh trong cuộc sống.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c9.day-so-lieu-thong-ke": [
+    {
+      "title": "Đo chiều cao cả tổ",
+      "prompt": "A school nurse room with a height measuring board on the wall and five children lined up waiting. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chiều cao các bạn trong tổ (cm): 132, 128, 140, 135, 130.",
+          "at": "all"
+        },
+        {
+          "say": "Bạn cao nhất 140 cm, bạn thấp nhất 128 cm, chênh nhau 12 cm.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Nhiệt độ trong tuần",
+      "prompt": "A weather station board in a school yard with a thermometer and a sunny sky. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Nhiệt độ trưa 5 ngày (°C): 30, 32, 31, 29, 33.",
+          "at": "all"
+        },
+        {
+          "say": "Ngày nóng nhất 33 °C, ngày mát nhất 29 °C.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c9.bieu-do-cot": [
+    {
+      "title": "Biểu đồ cây xanh",
+      "prompt": "Children standing next to a large colourful bar chart board made of stacked wooden blocks of different heights in a school garden. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi cột cho biết số cây một lớp đã trồng.",
+          "at": "all"
+        },
+        {
+          "say": "Cột cao nhất là lớp trồng được nhiều cây nhất.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Biểu đồ trái cây yêu thích",
+      "prompt": "A classroom wall with a bar chart made from paper fruit stickers stacked in columns: apples, bananas, mangoes, grapes, no readable text. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cột xoài cao nhất: nhiều bạn thích xoài nhất.",
+          "at": "all"
+        },
+        {
+          "say": "Cột nho thấp nhất: ít bạn thích nho nhất.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c9.so-lan-xuat-hien-cua-mot-su-kien": [
+    {
+      "title": "Tung đồng xu",
+      "prompt": "Two children sitting at a table tossing a coin, a notebook with tally marks without readable text. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Tung đồng xu 20 lần, mặt sấp xuất hiện 9 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Mặt ngửa xuất hiện: 20 - 9 = 11 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Gieo xúc xắc",
+      "prompt": "Children playing a board game, a big dice rolling on the table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Gieo xúc xắc 30 lần, mặt 6 chấm xuất hiện 5 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Các mặt khác xuất hiện: 30 - 5 = 25 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c9.luyen-tap-chung": [
+    {
+      "title": "Hộp bóng ba màu",
+      "prompt": "A transparent box with red, yellow and blue balls, a child's hand picking one ball. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lấy bóng 30 lần: đỏ 12 lần, vàng 10 lần, xanh 8 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Bóng đỏ xuất hiện nhiều lần nhất.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Số khách mỗi ngày",
+      "prompt": "A small seaside café with tables and customers, a chalkboard without readable text. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Khách 4 ngày: 40, 55, 35, 50 người.",
+          "at": "all"
+        },
+        {
+          "say": "Trung bình mỗi ngày: (40 + 55 + 35 + 50) : 4 = 45 người.",
+          "at": "all"
+        },
+        {
+          "say": "Số liệu giúp mình biết điều gì nhiều nhất, ít nhất đấy con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.khai-niem-phan-so": [
+    {
+      "title": "Chiếc bánh pizza",
+      "prompt": "A round pizza on a wooden table cut into exactly 8 equal slices, exactly 3 slices have been taken away leaving gaps. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chiếc bánh chia thành 8 phần bằng nhau.",
+          "at": "all"
+        },
+        {
+          "say": "Đã ăn 3 phần, tức là 3/8 chiếc bánh.",
+          "at": "all"
+        },
+        {
+          "say": "Còn lại 5 phần, tức là 5/8 chiếc bánh.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ô cửa sổ tô màu",
+      "prompt": "A window with exactly 6 equal glass panes, exactly 2 panes are stained blue and the rest are clear. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cửa sổ có 6 ô bằng nhau, 2 ô màu xanh.",
+          "at": "all"
+        },
+        {
+          "say": "Phần màu xanh là 2/6 cửa sổ.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.phan-so-va-phep-chia-so-tu-nhien": [
+    {
+      "title": "Chia bánh cho các bạn",
+      "prompt": "Exactly 3 round cakes on a table and exactly 4 children's plates around them. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 3 cái bánh chia đều cho 4 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi bạn được: 3 : 4 = 3/4 cái bánh.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chia nước chanh",
+      "prompt": "Exactly 2 jugs of lemonade and exactly 5 glasses on a picnic table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "2 lít nước chanh chia đều vào 5 cốc.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi cốc có: 2 : 5 = 2/5 lít.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.tinh-chat-co-ban-cua-phan-so": [
+    {
+      "title": "Hai thanh sô-cô-la",
+      "prompt": "A kitchen table seen from above with two identical long chocolate bars, one above the other. The TOP bar is snapped into exactly 2 equal halves, the left half pushed slightly away. The BOTTOM bar is snapped into exactly 4 equal pieces, the left two pieces pushed slightly away. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Một nửa thanh trên bằng hai phần tư thanh dưới.",
+          "at": "all"
+        },
+        {
+          "say": "Vậy 1/2 = 2/4: nhân cả tử và mẫu với 2.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Pizza cắt nhỏ hơn",
+      "prompt": "Two identical pizzas. LEFT pizza cut into 4 slices with 1 slice taken. RIGHT pizza cut into 8 slices with 2 slices taken. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lấy 1 trong 4 miếng: 1/4 cái bánh.",
+          "at": "left"
+        },
+        {
+          "say": "Lấy 2 trong 8 miếng: 2/8 cái bánh.",
+          "at": "right"
+        },
+        {
+          "say": "Phần lấy bằng nhau nên 1/4 = 2/8.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.rut-gon-phan-so": [
+    {
+      "title": "Rút gọn miếng bánh",
+      "prompt": "A rectangular cake cut into exactly 12 equal pieces, exactly 8 pieces decorated with strawberries. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 8 trên 12 miếng có dâu: 8/12.",
+          "at": "all"
+        },
+        {
+          "say": "Chia cả tử và mẫu cho 4, ta được 8/12 = 2/3.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hộp bút màu",
+      "prompt": "An open box of exactly 24 colour pencils, exactly 18 of them standing in a cup outside the box. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "18 trên 24 cây bút đã lấy ra: 18/24.",
+          "at": "all"
+        },
+        {
+          "say": "Chia cả tử và mẫu cho 6, ta được 18/24 = 3/4.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.quy-dong-mau-so-cac-phan-so": [
+    {
+      "title": "Hai băng giấy màu",
+      "prompt": "Two equal paper strips on a craft table. TOP strip divided into exactly 3 equal parts. BOTTOM strip divided into exactly 6 equal parts. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Băng trên chia 3 phần, băng dưới chia 6 phần.",
+          "at": "all"
+        },
+        {
+          "say": "Quy đồng với mẫu số chung là 6, ta được 2/3 = 4/6.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Hai chai sữa",
+      "prompt": "Two identical milk bottles. LEFT bottle half full. RIGHT bottle one-third full. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Chai trái có 1/2 chai sữa.",
+          "at": "left"
+        },
+        {
+          "say": "Chai phải có 1/3 chai sữa.",
+          "at": "right"
+        },
+        {
+          "say": "Quy đồng mẫu số 6, ta được 1/2 = 3/6 và 1/3 = 2/6.",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.so-sanh-phan-so": [
+    {
+      "title": "Ai uống nhiều nước hơn",
+      "prompt": "Two identical glasses of water. LEFT glass filled to three quarters. RIGHT glass filled to two thirds. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cốc trái đầy 3/4 cốc.",
+          "at": "left"
+        },
+        {
+          "say": "Cốc phải đầy 2/3 cốc.",
+          "at": "right"
+        },
+        {
+          "say": "Quy đồng: 3/4 = 9/12, 2/3 = 8/12, nên 3/4 > 2/3.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Ai đi xa hơn",
+      "prompt": "Two children walking on a countryside path toward a school, one ahead of the other. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lan đi được 3/5 quãng đường, Hoa đi được 2/5 quãng đường.",
+          "at": "all"
+        },
+        {
+          "say": "Cùng mẫu số, 3 > 2 nên 3/5 > 2/5: Lan đi xa hơn.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c10.luyen-tap-chung": [
+    {
+      "title": "Vườn rau chia luống",
+      "prompt": "A vegetable garden divided into exactly 5 equal rectangular beds, 2 beds with lettuce and 3 beds with cabbage. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Vườn chia 5 luống bằng nhau.",
+          "at": "all"
+        },
+        {
+          "say": "2/5 vườn trồng xà lách.",
+          "at": "left"
+        },
+        {
+          "say": "3/5 vườn trồng bắp cải.",
+          "at": "right"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đàn gà trong sân",
+      "prompt": "A farmyard with exactly 10 chickens: 3 black chickens and 7 white chickens. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 10 con gà, 3 con gà đen.",
+          "at": "all"
+        },
+        {
+          "say": "Gà đen chiếm 3/10 đàn, gà trắng chiếm 7/10 đàn.",
+          "at": "all"
+        },
+        {
+          "say": "Phân số có ở khắp nơi, từ chiếc bánh đến cốc nước của con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c11.phep-cong-phan-so": [
+    {
+      "title": "Hai ngày sơn tường",
+      "prompt": "A wall being painted. The LEFT part painted light blue, the MIDDLE part painted light green, the RIGHT part still white. A ladder and paint buckets. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Ngày đầu sơn được 2/7 bức tường.",
+          "at": "left"
+        },
+        {
+          "say": "Ngày sau sơn được 3/7 bức tường.",
+          "at": "center"
+        },
+        {
+          "say": "Cả hai ngày: 2/7 + 3/7 = 5/7 bức tường.",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Đọc sách hai ngày",
+      "prompt": "A child reading a thick storybook on a sofa, a bookmark in the book. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Ngày đầu đọc 1/4 quyển, ngày sau đọc 1/2 quyển.",
+          "at": "all"
+        },
+        {
+          "say": "Cả hai ngày: 1/4 + 1/2 = 1/4 + 2/4 = 3/4 quyển.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng, trừ phân số: nhớ quy đồng mẫu số khi khác mẫu nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c11.phep-tru-phan-so": [
+    {
+      "title": "Bình nước cam",
+      "prompt": "A glass jug of orange juice three quarters full, a girl pouring some into a glass. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bình có 3/4 lít nước cam.",
+          "at": "all"
+        },
+        {
+          "say": "Rót ra 1/4 lít, còn lại: 3/4 - 1/4 = 2/4 = 1/2 lít.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng, trừ phân số: nhớ quy đồng mẫu số khi khác mẫu nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Bánh còn lại",
+      "prompt": "A round cake on a plate with part of it already eaten, a knife beside it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Còn 5/6 cái bánh, cả nhà ăn thêm 2/6 cái.",
+          "at": "all"
+        },
+        {
+          "say": "Còn lại: 5/6 - 2/6 = 3/6 = 1/2 cái bánh.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng, trừ phân số: nhớ quy đồng mẫu số khi khác mẫu nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c11.luyen-tap-chung": [
+    {
+      "title": "Đoạn đường về nhà",
+      "prompt": "A child walking home along a country road with a bridge in the middle and a house at the end. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Đoạn đầu dài 1/2 km, đoạn sau dài 1/3 km.",
+          "at": "all"
+        },
+        {
+          "say": "Cả quãng đường: 1/2 + 1/3 = 3/6 + 2/6 = 5/6 km.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng, trừ phân số: nhớ quy đồng mẫu số khi khác mẫu nhé!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Tô màu bức tranh",
+      "prompt": "A child painting a big picture on an easel, part of it colored. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Sáng tô được 2/5 bức tranh, chiều tô thêm 1/5 bức tranh.",
+          "at": "all"
+        },
+        {
+          "say": "Cả ngày: 2/5 + 1/5 = 3/5; còn lại 1 - 3/5 = 2/5 bức tranh.",
+          "at": "all"
+        },
+        {
+          "say": "Cộng, trừ phân số: nhớ quy đồng mẫu số khi khác mẫu nhé!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c12.phep-nhan-phan-so": [
+    {
+      "title": "Ruy băng làm nơ",
+      "prompt": "A craft table with exactly 3 equal pieces of red ribbon and finished bows. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi chiếc nơ cần 2/5 m ruy băng.",
+          "at": "all"
+        },
+        {
+          "say": "3 chiếc nơ cần: 2/5 × 3 = 6/5 m.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chạy quanh sân",
+      "prompt": "A school running track with children jogging laps. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi vòng sân dài 3/10 km, bé chạy 2 vòng.",
+          "at": "all"
+        },
+        {
+          "say": "Quãng đường: 3/10 × 2 = 6/10 = 3/5 km.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c12.phep-chia-phan-so": [
+    {
+      "title": "Rót sữa vào cốc nhỏ",
+      "prompt": "A bottle of milk and several small identical glasses being filled on a kitchen table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Có 3/4 lít sữa, rót vào các cốc 1/8 lít.",
+          "at": "all"
+        },
+        {
+          "say": "Số cốc: 3/4 : 1/8 = 3/4 × 8 = 6 cốc.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chia dây ruy băng",
+      "prompt": "A long ribbon on a craft table being cut into equal pieces with scissors. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Sợi ruy băng dài 6/7 m, chia đều làm 3 đoạn.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi đoạn dài: 6/7 : 3 = 2/7 m.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c12.tim-phan-so-cua-mot-so": [
+    {
+      "title": "Rổ cam ở chợ",
+      "prompt": "A market stall with a basket of exactly 15 oranges, exactly 10 of them moved into a bowl on the right. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Rổ có 15 quả cam, bán 2/3 số cam.",
+          "at": "all"
+        },
+        {
+          "say": "Đã bán: 15 × 2/3 = 10 quả.",
+          "at": "right"
+        },
+        {
+          "say": "Còn lại 5 quả.",
+          "at": "left"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Lớp học thích bơi",
+      "prompt": "A class of children at a swimming pool, some in the water and some on the side. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lớp có 30 bạn, 3/5 số bạn biết bơi.",
+          "at": "all"
+        },
+        {
+          "say": "Số bạn biết bơi: 30 × 3/5 = 18 bạn.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c12.luyen-tap-chung": [
+    {
+      "title": "Mảnh vườn trồng hoa",
+      "prompt": "A rectangular flower garden, part of it full of roses and the rest with sunflowers, a gardener with a watering can. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Vườn rộng 60 m², trồng hoa hồng trên 3/4 diện tích.",
+          "at": "all"
+        },
+        {
+          "say": "Diện tích hoa hồng: 60 × 3/4 = 45 m².",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Tiền tiết kiệm",
+      "prompt": "A child counting money from a piggy bank on a table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bé có 120.000 đồng, dùng 1/4 số tiền mua sách.",
+          "at": "all"
+        },
+        {
+          "say": "Tiền mua sách: 120.000 × 1/4 = 30.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Nhân, chia phân số giúp mình chia phần thật công bằng!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-so-tu-nhien": [
+    {
+      "title": "Số dân Việt Nam",
+      "prompt": "A colourful collage-free panoramic landscape of Vietnam: rice terraces, a city skyline and a beach under one sky. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Nước ta có khoảng 100.000.000 người.",
+          "at": "all"
+        },
+        {
+          "say": "Đọc là: một trăm triệu người.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Số chẵn trên áo cầu thủ",
+      "prompt": "Children's football team in matching shirts lining up on a pitch, shirts without readable numbers. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Áo đội đỏ mang số chẵn 2, 4, 6, 8, 10.",
+          "at": "all"
+        },
+        {
+          "say": "Áo đội xanh mang số lẻ 1, 3, 5, 7, 9.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien": [
+    {
+      "title": "Xưởng đóng hộp",
+      "prompt": "A clean factory packing line with cardboard boxes moving on a conveyor belt. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi giờ đóng được 125 hộp, làm 16 giờ.",
+          "at": "all"
+        },
+        {
+          "say": "Số hộp: 125 × 16 = 2.000 hộp.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chuyến xe buýt",
+      "prompt": "A city bus at a stop with passengers getting on and off. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mỗi ngày xe buýt chở 1.250 lượt khách, trong 30 ngày.",
+          "at": "all"
+        },
+        {
+          "say": "Số lượt khách: 1.250 × 30 = 37.500 lượt.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-phan-so": [
+    {
+      "title": "Thanh sô-cô-la chia phần",
+      "prompt": "A chocolate bar with exactly 10 equal pieces, 4 pieces broken off on a plate. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Lấy 4 trong 10 miếng: 4/10 thanh.",
+          "at": "all"
+        },
+        {
+          "say": "Rút gọn: 4/10 = 2/5.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Băng giấy gấp đôi",
+      "prompt": "A paper strip folded into equal parts on a desk, some parts coloured. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Băng giấy chia 8 phần, tô 6 phần: 6/8.",
+          "at": "all"
+        },
+        {
+          "say": "Rút gọn: 6/8 = 3/4 băng giấy.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-phep-tinh-voi-phan-so": [
+    {
+      "title": "Làm bánh cùng mẹ",
+      "prompt": "A mother and child baking in a sunny kitchen, flour and measuring cups on the table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mẹ dùng 1/2 kg bột làm bánh mì và 1/4 kg làm bánh quy.",
+          "at": "all"
+        },
+        {
+          "say": "Tất cả: 1/2 + 1/4 = 3/4 kg bột.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Bình nước của cả tổ",
+      "prompt": "A big water jug and several cups on a classroom table. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Bình có 3/4 lít nước, chia đều vào 3 cốc.",
+          "at": "all"
+        },
+        {
+          "say": "Mỗi cốc: 3/4 : 3 = 1/4 lít.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-hinh-hoc-va-do-luong": [
+    {
+      "title": "Khu vui chơi",
+      "prompt": "A playground seen from above with a rectangular sandpit, a rhombus-shaped flower bed and parallel bench rows. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Hố cát hình chữ nhật dài 6 m, rộng 4 m: diện tích 24 m².",
+          "at": "left"
+        },
+        {
+          "say": "Bồn hoa hình thoi cạnh 3 m: chu vi 12 m.",
+          "at": "center"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Mảnh vườn hình bình hành",
+      "prompt": "A parallelogram-shaped flower garden in a park with a path around it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Vườn có hai cạnh dài 12 m và 8 m.",
+          "at": "all"
+        },
+        {
+          "say": "Chu vi vườn: (12 + 8) × 2 = 40 m.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-thong-ke-va-xac-suat": [
+    {
+      "title": "Bình chọn môn thể thao",
+      "prompt": "A school hall with a big wooden bar chart board of block towers of different heights and children voting. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Biểu đồ cho biết số bạn thích từng môn.",
+          "at": "all"
+        },
+        {
+          "say": "Cột bóng đá cao nhất: nhiều bạn thích nhất.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Vòng quay may mắn",
+      "prompt": "A colourful prize wheel at a school fair with children waiting to spin it. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Quay 40 lần, ô gấu bông xuất hiện 15 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Các ô khác xuất hiện: 40 - 15 = 25 lần.",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ],
+  "kntt4.c13.on-tap-chung": [
+    {
+      "title": "Vượt đích cuối năm",
+      "prompt": "Happy pupils celebrating at the end of the school year in a decorated classroom with confetti and a trophy. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Cả năm con đã học số lớn, phép tính, phân số, hình học và thống kê.",
+          "at": "all"
+        },
+        {
+          "say": "Cô chúc con nghỉ hè thật vui và học giỏi lớp 5!",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    },
+    {
+      "title": "Chuẩn bị lên lớp 5",
+      "prompt": "A child packing a school bag with new books and supplies in a cozy bedroom. Bright, friendly, realistic illustration style. No text, letters, digits or numbers anywhere in the image, no labels or logos on products, no user-interface elements, no buttons, no icons, no frames.",
+      "lines": [
+        {
+          "say": "Mua 5 quyển vở giá 12.000 đồng mỗi quyển: 12.000 × 5 = 60.000 đồng.",
+          "at": "all"
+        },
+        {
+          "say": "Cô tin con sẽ học thật giỏi ở lớp 5!",
+          "at": "all"
+        },
+        {
+          "say": "Con đã học rất nhiều điều trong năm nay. Cô rất tự hào về con!",
+          "at": "all"
+        }
+      ]
+    }
+  ]
+}

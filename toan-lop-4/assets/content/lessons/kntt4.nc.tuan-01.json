@@ -1,0 +1,632 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-01",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c1",
+  "order": 1,
+  "title": "Nâng cao tuần 1: Ôn tập, biểu thức chứa chữ, bài toán ba bước",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bài toán nhiều bước: tóm tắt đề, tìm lần lượt từng số trung gian; con có thể dùng sơ đồ đoạn thẳng để thấy rõ quan hệ giữa các số.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Cửa hàng có 8 hộp bút, mỗi hộp 23 chiếc. Buổi sáng cửa hàng bán được 5 hộp và thêm 11 chiếc lẻ. Hỏi cửa hàng còn lại bao nhiêu chiếc bút?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Cửa hàng có số bút là:",
+            "equation": "23 × 8 = 184 (chiếc)"
+          },
+          {
+            "explanation": "Buổi sáng bán được số bút là:",
+            "equation": "23 × 5 + 11 = 126 (chiếc)"
+          },
+          {
+            "explanation": "Cửa hàng còn lại số bút là:",
+            "equation": "184 - 126 = 58 (chiếc)"
+          }
+        ],
+        "answer": "Đáp số: 58 chiếc bút."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-01.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi giá trị của a với giá trị của biểu thức a × 4."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "a = 29"
+        },
+        {
+          "id": "l2",
+          "text": "a = 52"
+        },
+        {
+          "id": "l3",
+          "text": "a = 14"
+        },
+        {
+          "id": "l4",
+          "text": "a = 53"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "212"
+        },
+        {
+          "id": "r2",
+          "text": "117"
+        },
+        {
+          "id": "r3",
+          "text": "208"
+        },
+        {
+          "id": "r4",
+          "text": "116"
+        },
+        {
+          "id": "r5",
+          "text": "56"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "a = 29 → 116; a = 52 → 208; a = 14 → 56; a = 53 → 212",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "29 × 4 = 116"
+          },
+          {
+            "kind": "equation",
+            "text": "52 × 4 = 208"
+          },
+          {
+            "kind": "equation",
+            "text": "14 × 4 = 56"
+          },
+          {
+            "kind": "equation",
+            "text": "53 × 4 = 212"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Tìm quy luật rồi kéo thẻ số thích hợp vào ô trống:"
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "30.243; 30.218; 30.193; 30.168; {{s1}}; 30.118; {{s2}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "30.093"
+        },
+        {
+          "id": "t2",
+          "text": "30.143"
+        },
+        {
+          "id": "t3",
+          "text": "30.144"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30.143; 30.093",
+        "hint": "Con xem mỗi số hơn, kém hay gấp số đứng trước bao nhiêu, rồi tìm ra quy luật của dãy nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi số kém số đứng trước nó 25 đơn vị.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "30.168 - 25 = 30.143"
+          },
+          {
+            "kind": "equation",
+            "text": "30.118 - 25 = 30.093"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 30.144 là thẻ thừa.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 16.400 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 4.800 l. Bể thứ ba có ít hơn bể thứ hai 5.400 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 53400,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "53.400 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "16.400 + 4.800 = 21.200 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "21.200 - 5.400 = 15.800 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "16.400 + 21.200 + 15.800 = 53.400 (l)"
+              }
+            ],
+            "answer": "Đáp số: 53.400 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "16400",
+              "4800"
+            ],
+            "result": "21200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 8 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "6 cộng 4 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "21200",
+              "5400"
+            ],
+            "result": "15800",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 không trừ được 4, lấy 12 trừ 4 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 thêm 1 bằng 6; 1 không trừ được 6, lấy 11 trừ 6 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "16400",
+              "21200",
+              "15800"
+            ],
+            "result": "53400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 2 cộng 8 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "6 cộng 1 cộng 5 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 cộng 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Cửa hàng có 9 hộp bút, mỗi hộp 13 chiếc. Buổi sáng cửa hàng bán được 3 hộp và thêm 7 chiếc lẻ. Hỏi cửa hàng còn lại bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 71,
+            "unit": "chiếc"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "71 chiếc bút",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cửa hàng có số bút là:",
+                "equation": "13 × 9 = 117 (chiếc)"
+              },
+              {
+                "explanation": "Buổi sáng bán được số bút là:",
+                "equation": "13 × 3 + 7 = 46 (chiếc)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại số bút là:",
+                "equation": "117 - 46 = 71 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 71 chiếc bút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Từ các chữ số 0, 2, 6, 1, 7, hãy lập số lớn nhất và số bé nhất có 5 chữ số khác nhau."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 76210
+          },
+          "maxLength": 6
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 10267
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "76.210; 10.267",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: chọn 5 chữ số lớn nhất, xếp từ lớn đến bé → 76.210."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số đầu là chữ số bé nhất khác 0, các hàng sau xếp các chữ số bé nhất còn lại từ bé đến lớn → 10.267."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Rổ thứ nhất có 140 quả cam, rổ thứ hai có 130 quả cam. Phải chuyển bao nhiêu quả cam từ rổ thứ nhất sang rổ thứ hai để số quả cam ở hai rổ bằng nhau?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Phải chuyển {{b1}} quả cam.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5,
+            "unit": "quả"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5 quả cam",
+        "hint": "Muốn hai phần bằng nhau, con chỉ chuyển một nửa số chênh lệch từ phần nhiều sang phần ít thôi.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Rổ thứ nhất nhiều hơn rổ thứ hai số quả cam là:",
+                "equation": "140 - 130 = 10 (quả)"
+              },
+              {
+                "explanation": "Số quả cam cần chuyển là:",
+                "equation": "10 : 2 = 5 (quả)"
+              }
+            ],
+            "answer": "Đáp số: 5 quả cam."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Dãy phố có các nhà mang số chẵn liên tiếp từ số 12 đến số 86. Hỏi dãy phố đó có bao nhiêu nhà?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.chan_le",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Dãy phố có {{b1}} nhà.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 38,
+            "unit": "nhà"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "38 nhà",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số nhà liền nhau hơn kém nhau 2 đơn vị."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nhà của dãy phố là:",
+                "equation": "(86 - 12) : 2 + 1 = 38 (nhà)"
+              }
+            ],
+            "answer": "Đáp số: 38 nhà."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-01.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chu vi P của hình chữ nhật có chiều dài a, chiều rộng b là P = (a + b) × 2. Tính P với a = 20 cm, b = 7 cm."
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "bieu_thuc_chu",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "54 cm"
+        },
+        {
+          "id": "b",
+          "text": "52 cm"
+        },
+        {
+          "id": "c",
+          "text": "58 cm"
+        },
+        {
+          "id": "d",
+          "text": "27 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "54 cm",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(20 + 7) × 2 = 27 × 2 = 54"
+          },
+          {
+            "kind": "text",
+            "text": "P = 54. Chu vi hình chữ nhật là 54 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

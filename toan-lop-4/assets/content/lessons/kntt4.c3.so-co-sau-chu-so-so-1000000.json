@@ -1,0 +1,553 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c3.so-co-sau-chu-so-so-1000000",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c3",
+  "order": 1,
+  "title": "Số có sáu chữ số. Số 1 000 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Số có sáu chữ số gồm các hàng: trăm nghìn, chục nghìn, nghìn, trăm, chục, đơn vị. 10 trăm nghìn là 1 triệu, viết là 1.000.000.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 680.590 đọc là “sáu trăm tám mươi nghìn năm trăm chín mươi”."
+      },
+      {
+        "kind": "equation",
+        "text": "680.590 = 600.000 + 80.000 + 500 + 90"
+      },
+      {
+        "kind": "text",
+        "text": "Số 1.000.000 có bảy chữ số: chữ số 1 và sáu chữ số 0.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số “năm trăm hai mươi hai nghìn không trăm mười bốn” viết là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "522.041"
+        },
+        {
+          "id": "b",
+          "text": "522.014"
+        },
+        {
+          "id": "c",
+          "text": "520.214"
+        },
+        {
+          "id": "d",
+          "text": "522.410"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "522.014",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“năm trăm hai mươi hai nghìn không trăm mười bốn” viết là 522.014."
+          },
+          {
+            "kind": "equation",
+            "text": "522.014 = 500.000 + 20.000 + 2.000 + 10 + 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn cách đọc đúng.",
+      "prompt": {
+        "text": "Số 901.009 đọc là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "chín trăm linh một nghìn không trăm linh chín"
+        },
+        {
+          "id": "b",
+          "text": "tám trăm chín mươi mốt nghìn không trăm linh chín"
+        },
+        {
+          "id": "c",
+          "text": "chín trăm chín mươi mốt nghìn"
+        },
+        {
+          "id": "d",
+          "text": "chín trăm mười nghìn không trăm linh chín"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "chín trăm linh một nghìn không trăm linh chín",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "901.009 đọc là: chín trăm linh một nghìn không trăm linh chín."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số 349.913 gồm mấy trăm nghìn, mấy chục nghìn, ...?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số 349.913 gồm {{b1}} trăm nghìn, {{b2}} chục nghìn, {{b3}} nghìn, {{b4}} trăm, {{b5}} chục và {{b6}} đơn vị.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b4",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b5",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b6",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 trăm nghìn, 4 chục nghìn, 9 nghìn, 9 trăm, 1 chục, 3 đơn vị",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "349.913 = 300.000 + 40.000 + 9.000 + 900 + 10 + 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "10 triệu = {{b1}} triệu",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10",
+        "hint": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mười trăm nghìn là một triệu: 1.000.000 (có 6 chữ số 0 sau chữ số 1)."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số liền trước và số liền sau của số 440.872."
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số liền trước của 440.872 là {{b1}}.\nSố liền sau của 440.872 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 440871
+          },
+          "maxLength": 7
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 440873
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "440.871; 440.873",
+        "hint": "Số liền sau thì thêm một, số liền trước thì bớt một nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "440.872 - 1 = 440.871"
+          },
+          {
+            "kind": "equation",
+            "text": "440.872 + 1 = 440.873"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối số với cách đọc.",
+      "prompt": {
+        "text": "Nối mỗi số với cách đọc đúng của số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "389.300"
+        },
+        {
+          "id": "l2",
+          "text": "602.615"
+        },
+        {
+          "id": "l3",
+          "text": "774.788"
+        },
+        {
+          "id": "l4",
+          "text": "609.886"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "sáu trăm linh hai nghìn sáu trăm mười lăm"
+        },
+        {
+          "id": "r2",
+          "text": "sáu trăm linh chín nghìn tám trăm tám mươi sáu"
+        },
+        {
+          "id": "r3",
+          "text": "ba trăm tám mươi chín nghìn ba trăm"
+        },
+        {
+          "id": "r4",
+          "text": "ba trăm tám mươi ba nghìn chín trăm"
+        },
+        {
+          "id": "r5",
+          "text": "bảy trăm bảy mươi tư nghìn bảy trăm tám mươi tám"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "389.300: ba trăm tám mươi chín nghìn ba trăm; 602.615: sáu trăm linh hai nghìn sáu trăm mười lăm; 774.788: bảy trăm bảy mươi tư nghìn bảy trăm tám mươi tám; 609.886: sáu trăm linh chín nghìn tám trăm tám mươi sáu",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "389.300: ba trăm tám mươi chín nghìn ba trăm."
+          },
+          {
+            "kind": "text",
+            "text": "602.615: sáu trăm linh hai nghìn sáu trăm mười lăm."
+          },
+          {
+            "kind": "text",
+            "text": "774.788: bảy trăm bảy mươi tư nghìn bảy trăm tám mươi tám."
+          },
+          {
+            "kind": "text",
+            "text": "609.886: sáu trăm linh chín nghìn tám trăm tám mươi sáu."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p07",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào chỗ trống trong dãy số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "400.000; 500.000; {{s1}}; {{s2}}; 800.000; {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "900.000"
+        },
+        {
+          "id": "t2",
+          "text": "610.000"
+        },
+        {
+          "id": "t3",
+          "text": "700.000"
+        },
+        {
+          "id": "t4",
+          "text": "600.000"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "600.000; 700.000; 900.000",
+        "hint": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số liền nhau hơn kém nhau 100.000 đơn vị: 400.000; 500.000; 600.000; 700.000; 800.000; 900.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số 420.486 viết thành tổng là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "200.000 + 40.000 + 400 + 80 + 6"
+        },
+        {
+          "id": "b",
+          "text": "400.000 + 20.000 + 400 + 80 + 6"
+        },
+        {
+          "id": "c",
+          "text": "400.000 + 20.000 + 4.000 + 80 + 6"
+        },
+        {
+          "id": "d",
+          "text": "400.000 + 20.000 + 6.000 + 400 + 80"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "400.000 + 20.000 + 400 + 80 + 6",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "420.486 = 400.000 + 20.000 + 400 + 80 + 6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.so-co-sau-chu-so-so-1000000.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Dùng cả 6 chữ số 7, 8, 2, 6, 0, 4, mỗi chữ số một lần, để viết số có 6 chữ số."
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 876420
+          },
+          "maxLength": 7
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 204678
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "876.420; 204.678",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: xếp các chữ số từ lớn đến bé → 876.420."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số 0 không đứng đầu, nên chữ số đầu là 2 → 204.678."
+          }
+        ]
+      }
+    }
+  ]
+}

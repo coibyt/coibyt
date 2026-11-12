@@ -1,0 +1,739 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-11",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c4",
+  "order": 3,
+  "title": "Nâng cao tuần 11: Cộng, trừ và tổng – hiệu",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Tìm hai số biết tổng và hiệu: số lớn = (tổng + hiệu) : 2, số bé = (tổng - hiệu) : 2. Có khi đề giấu tổng hoặc hiệu trong câu chữ.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một mảnh vườn hình chữ nhật có chu vi 58 m, chiều dài hơn chiều rộng 13 m. Tính diện tích mảnh vườn."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Nửa chu vi là:",
+            "equation": "58 : 2 = 29 (m)"
+          },
+          {
+            "explanation": "Chiều dài là:",
+            "equation": "(29 + 13) : 2 = 21 (m)"
+          },
+          {
+            "explanation": "Chiều rộng là:",
+            "equation": "29 - 21 = 8 (m)"
+          },
+          {
+            "explanation": "Diện tích mảnh vườn là:",
+            "equation": "21 × 8 = 168 (m²)"
+          }
+        ],
+        "answer": "Đáp số: 168 m²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-11.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp tổng – hiệu với số lớn tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tong_hieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Tổng 101, hiệu 25"
+        },
+        {
+          "id": "l2",
+          "text": "Tổng 42, hiệu 14"
+        },
+        {
+          "id": "l3",
+          "text": "Tổng 94, hiệu 20"
+        },
+        {
+          "id": "l4",
+          "text": "Tổng 120, hiệu 22"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "68"
+        },
+        {
+          "id": "r2",
+          "text": "28"
+        },
+        {
+          "id": "r3",
+          "text": "71"
+        },
+        {
+          "id": "r4",
+          "text": "63"
+        },
+        {
+          "id": "r5",
+          "text": "57"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tổng 101, hiệu 25 → 63; Tổng 42, hiệu 14 → 28; Tổng 94, hiệu 20 → 57; Tổng 120, hiệu 22 → 71",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tổng 101, hiệu 25: số lớn là (101 + 25) : 2 = 63."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 42, hiệu 14: số lớn là (42 + 14) : 2 = 28."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 94, hiệu 20: số lớn là (94 + 20) : 2 = 57."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 120, hiệu 22: số lớn là (120 + 22) : 2 = 71."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 4.580 kg, 3.890 kg, 770 kg, 2.330 kg."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "4.580 kg"
+        },
+        {
+          "id": "t2",
+          "text": "3.890 kg"
+        },
+        {
+          "id": "t3",
+          "text": "2.330 kg"
+        },
+        {
+          "id": "t4",
+          "text": "770 kg"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "770 kg < 2.330 kg < 3.890 kg < 4.580 kg",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về ki-lô-gam: 4.580 kg = 4.580 kg, 3.890 kg = 3.890 kg, 770 kg = 770 kg, 2.330 kg = 2.330 kg."
+          },
+          {
+            "kind": "text",
+            "text": "770 kg < 2.330 kg < 3.890 kg < 4.580 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 900 l nước. Thùng to có số nước gấp 4 lần thùng nhỏ. Hỏi thùng to có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thùng to có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 720,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "720 l nước",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nước ở thùng nhỏ là 1 phần thì số nước ở thùng to là 4 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 4 = 5 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số nước ở thùng nhỏ) là:",
+                "equation": "900 : 5 = 180 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng to là:",
+                "equation": "180 × 4 = 720 (l)"
+              }
+            ],
+            "answer": "Đáp số: 720 l nước."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "900",
+            "divisor": "5",
+            "quotient": "180",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "9 chia 5 được 1, viết 1. 1 nhân 5 bằng 5; 9 trừ 5 bằng 4.",
+                "partialDividend": 9,
+                "quotientDigit": 1,
+                "product": 5,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 0, được 40; 40 chia 5 được 8, viết 8. 8 nhân 5 bằng 40; 40 trừ 40 bằng 0.",
+                "partialDividend": 40,
+                "quotientDigit": 8,
+                "product": 40,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 5 được 0, viết 0. 0 nhân 5 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "180",
+              "4"
+            ],
+            "result": "720",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "4 nhân 8 bằng 32, viết 2 nhớ 3.",
+                "write": "2",
+                "carry": 3
+              },
+              {
+                "place": 2,
+                "text": "4 nhân 1 bằng 4, thêm 3 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chu vi 148 m, chiều dài hơn chiều rộng 20 m. Tính diện tích mảnh vườn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "148 m²"
+        },
+        {
+          "id": "b",
+          "text": "1.269 m²"
+        },
+        {
+          "id": "c",
+          "text": "1.316 m²"
+        },
+        {
+          "id": "d",
+          "text": "1.289 m²"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.269 m²",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi là:",
+                "equation": "148 : 2 = 74 (m)"
+              },
+              {
+                "explanation": "Chiều dài là:",
+                "equation": "(74 + 20) : 2 = 47 (m)"
+              },
+              {
+                "explanation": "Chiều rộng là:",
+                "equation": "74 - 47 = 27 (m)"
+              },
+              {
+                "explanation": "Diện tích mảnh vườn là:",
+                "equation": "47 × 27 = 1.269 (m²)"
+              }
+            ],
+            "answer": "Đáp số: 1.269 m²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một xe tải chở được 3 tấn hàng. Trên xe đã có 16 bao gạo, mỗi bao nặng 40 kg. Hỏi xe còn chở thêm được bao nhiêu ki-lô-gam hàng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.yen_ta_tan",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Xe còn chở thêm được {{b1}} kg hàng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2360,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.360 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 3 tấn = 3.000 kg."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo đã có trên xe là:",
+                "equation": "40 × 16 = 640 (kg)"
+              },
+              {
+                "explanation": "Xe còn chở thêm được là:",
+                "equation": "3.000 - 640 = 2.360 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 2.360 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 24.700 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 2.600 kg. Kho thứ ba có ít hơn kho thứ hai 7.400 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba kho có {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 71900,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "71.900 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "24.700 + 2.600 = 27.300 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "27.300 - 7.400 = 19.900 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "24.700 + 27.300 + 19.900 = 71.900 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 71.900 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24700",
+              "2600"
+            ],
+            "result": "27300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "7 cộng 6 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 2 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "27300",
+              "7400"
+            ],
+            "result": "19900",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "7 thêm 1 bằng 8; 7 không trừ được 8, lấy 17 trừ 8 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24700",
+              "27300",
+              "19900"
+            ],
+            "result": "71900",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "7 cộng 3 cộng 9 bằng 19, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 7 cộng 9 bằng 20, thêm 1 bằng 21, viết 1 nhớ 2.",
+                "write": "1",
+                "carry": 2
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 2 cộng 1 bằng 5, thêm 2 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một thửa ruộng thu hoạch được 6.270 kg thóc gồm thóc nếp và thóc tẻ. Số thóc tẻ nhiều hơn thóc nếp 410 kg. Hỏi mỗi loại có bao nhiêu ki-lô-gam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thóc tẻ: {{b1}} kg.\nThóc nếp: {{b2}} kg.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3340,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2930,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.340 kg; 2.930 kg",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc tẻ là:",
+                "equation": "(6.270 + 410) : 2 = 3.340 (kg)"
+              },
+              {
+                "explanation": "Số thóc nếp là:",
+                "equation": "6.270 - 3.340 = 2.930 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 3.340 kg; 2.930 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-11.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Nam đọc thuộc một bài thơ hết 2 phút 17 giây. Hỏi Nam đọc bài thơ hết bao nhiêu giây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "127 giây"
+        },
+        {
+          "id": "b",
+          "text": "138 giây"
+        },
+        {
+          "id": "c",
+          "text": "137 giây"
+        },
+        {
+          "id": "d",
+          "text": "147 giây"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "137 giây",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nam đọc bài thơ hết là:",
+                "equation": "2 × 60 + 17 = 137 (giây)"
+              }
+            ],
+            "answer": "Đáp số: 137 giây."
+          }
+        ]
+      }
+    }
+  ]
+}

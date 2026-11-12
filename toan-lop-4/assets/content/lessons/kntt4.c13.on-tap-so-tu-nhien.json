@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c13.on-tap-so-tu-nhien",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c13",
+  "order": 1,
+  "title": "Ôn tập số tự nhiên",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập số tự nhiên: đọc, viết, hàng và lớp, so sánh, làm tròn, số chẵn, số lẻ.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số “ba trăm linh bảy triệu năm trăm bảy mươi nghìn năm trăm linh ba” viết là:"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "370.570.503"
+        },
+        {
+          "id": "b",
+          "text": "307.750.503"
+        },
+        {
+          "id": "c",
+          "text": "307.570.503"
+        },
+        {
+          "id": "d",
+          "text": "297.570.503"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "307.570.503",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“ba trăm linh bảy triệu năm trăm bảy mươi nghìn năm trăm linh ba” viết là 307.570.503."
+          },
+          {
+            "kind": "equation",
+            "text": "307.570.503 = 300.000.000 + 7.000.000 + 500.000 + 70.000 + 500 + 3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Chữ số thứ 1 tính từ trái của số 12.223.034 là chữ số 1. Giá trị của nó là bao nhiêu?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.hang_lop"
+      ],
+      "access": "free",
+      "template": "Giá trị của chữ số 1 là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 10000000
+          },
+          "maxLength": 10
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10.000.000",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong số 12.223.034, chữ số 1 ở hàng chục triệu, nên có giá trị là 10.000.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số nào dưới đây là số chẵn?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.chan_le"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "61.909"
+        },
+        {
+          "id": "b",
+          "text": "7.186"
+        },
+        {
+          "id": "c",
+          "text": "261"
+        },
+        {
+          "id": "d",
+          "text": "887"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.186",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "7.186 có chữ số tận cùng là 6 nên là số chẵn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 90.091.352, 90.091.354, 94.081.352, 99.091.357."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "90.091.354"
+        },
+        {
+          "id": "t2",
+          "text": "90.091.352"
+        },
+        {
+          "id": "t3",
+          "text": "99.091.357"
+        },
+        {
+          "id": "t4",
+          "text": "94.081.352"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "90.091.352 < 90.091.354 < 94.081.352 < 99.091.357",
+        "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Ta có: 90.091.352 < 90.091.354 < 94.081.352 < 99.091.357."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối số với cách đọc.",
+      "prompt": {
+        "text": "Nối mỗi số với cách đọc đúng của số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "69.742.106"
+        },
+        {
+          "id": "l2",
+          "text": "69.510.316"
+        },
+        {
+          "id": "l3",
+          "text": "36.713.597"
+        },
+        {
+          "id": "l4",
+          "text": "49.459.603"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "sáu mươi chín triệu bảy trăm bốn mươi hai nghìn một trăm linh sáu"
+        },
+        {
+          "id": "r2",
+          "text": "sáu mươi chín triệu năm trăm mười nghìn ba trăm mười sáu"
+        },
+        {
+          "id": "r3",
+          "text": "bốn mươi chín triệu bốn trăm năm mươi chín nghìn sáu trăm linh ba"
+        },
+        {
+          "id": "r4",
+          "text": "sáu mươi chín triệu bảy trăm bốn mươi hai nghìn một trăm sáu mươi"
+        },
+        {
+          "id": "r5",
+          "text": "ba mươi sáu triệu bảy trăm mười ba nghìn năm trăm chín mươi bảy"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "69.742.106: sáu mươi chín triệu bảy trăm bốn mươi hai nghìn một trăm linh sáu; 69.510.316: sáu mươi chín triệu năm trăm mười nghìn ba trăm mười sáu; 36.713.597: ba mươi sáu triệu bảy trăm mười ba nghìn năm trăm chín mươi bảy; 49.459.603: bốn mươi chín triệu bốn trăm năm mươi chín nghìn sáu trăm linh ba",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "69.742.106: sáu mươi chín triệu bảy trăm bốn mươi hai nghìn một trăm linh sáu."
+          },
+          {
+            "kind": "text",
+            "text": "69.510.316: sáu mươi chín triệu năm trăm mười nghìn ba trăm mười sáu."
+          },
+          {
+            "kind": "text",
+            "text": "36.713.597: ba mươi sáu triệu bảy trăm mười ba nghìn năm trăm chín mươi bảy."
+          },
+          {
+            "kind": "text",
+            "text": "49.459.603: bốn mươi chín triệu bốn trăm năm mươi chín nghìn sáu trăm linh ba."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Làm tròn số 96.312.182 đến hàng trăm nghìn ta được số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "96.299.980"
+        },
+        {
+          "id": "b",
+          "text": "96.310.000"
+        },
+        {
+          "id": "c",
+          "text": "96.400.000"
+        },
+        {
+          "id": "d",
+          "text": "96.300.000"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "96.300.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 96.312.182 là 1, bé hơn 5 nên làm tròn xuống."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 96.312.182 đến hàng trăm nghìn được 96.300.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số tự nhiên lớn hơn 43.826 và bé hơn 43.831?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "4"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số đó là từ 43.827 đến 43.830."
+          },
+          {
+            "kind": "equation",
+            "text": "43.831 - 43.826 - 1 = 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Viết số thích hợp.",
+      "prompt": {
+        "text": "Dân số của một tỉnh năm 2025 là bốn trăm linh chín triệu tám trăm bốn mươi hai nghìn bảy trăm năm mươi tám người. Viết số đó."
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số đó viết là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 409842758
+          },
+          "maxLength": 11
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "409.842.758",
+        "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "“bốn trăm linh chín triệu tám trăm bốn mươi hai nghìn bảy trăm năm mươi tám” viết là 409.842.758."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-so-tu-nhien.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Dùng cả 8 chữ số 4, 8, 0, 1, 3, 5, 6, 2, mỗi chữ số một lần, để viết số có 8 chữ số."
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lop_trieu"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 86543210
+          },
+          "maxLength": 10
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 10234568
+          },
+          "maxLength": 10
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "86.543.210; 10.234.568",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: xếp các chữ số từ lớn đến bé → 86.543.210."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số 0 không đứng đầu, nên chữ số đầu là 1 → 10.234.568."
+          }
+        ]
+      }
+    }
+  ]
+}

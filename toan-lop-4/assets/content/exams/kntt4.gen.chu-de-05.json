@@ -1,0 +1,851 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-05",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c5"
+  ],
+  "title": "Kiểm tra chủ đề 5",
+  "description": "Phép cộng và phép trừ.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "866.164 - 183.617"
+              },
+              {
+                "id": "l2",
+                "text": "608.707 - 466.294"
+              },
+              {
+                "id": "l3",
+                "text": "173.057 + 825.266"
+              },
+              {
+                "id": "l4",
+                "text": "672.757 - 193.921"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "142.413"
+              },
+              {
+                "id": "r2",
+                "text": "998.323"
+              },
+              {
+                "id": "r3",
+                "text": "682.547"
+              },
+              {
+                "id": "r4",
+                "text": "521.236"
+              },
+              {
+                "id": "r5",
+                "text": "478.836"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r5"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "866.164 - 183.617 = 682.547; 608.707 - 466.294 = 142.413; 173.057 + 825.266 = 998.323; 672.757 - 193.921 = 478.836",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "866.164 - 183.617 = 682.547"
+                },
+                {
+                  "kind": "equation",
+                  "text": "608.707 - 466.294 = 142.413"
+                },
+                {
+                  "kind": "equation",
+                  "text": "173.057 + 825.266 = 998.323"
+                },
+                {
+                  "kind": "equation",
+                  "text": "672.757 - 193.921 = 478.836"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi biểu thức với giá trị của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "tinh_chat.phep_cong"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "61 + 636 + 39"
+              },
+              {
+                "id": "l2",
+                "text": "185 + 1.612 + 315"
+              },
+              {
+                "id": "l3",
+                "text": "23 + 456 + 77"
+              },
+              {
+                "id": "l4",
+                "text": "342 + 1.390 + 158"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "2.112"
+              },
+              {
+                "id": "r2",
+                "text": "1.890"
+              },
+              {
+                "id": "r3",
+                "text": "736"
+              },
+              {
+                "id": "r4",
+                "text": "556"
+              },
+              {
+                "id": "r5",
+                "text": "836"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "61 + 636 + 39 → 736; 185 + 1.612 + 315 → 2.112; 23 + 456 + 77 → 556; 342 + 1.390 + 158 → 1.890",
+              "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "61 + 636 + 39 = 736"
+                },
+                {
+                  "kind": "equation",
+                  "text": "185 + 1.612 + 315 = 2.112"
+                },
+                {
+                  "kind": "equation",
+                  "text": "23 + 456 + 77 = 556"
+                },
+                {
+                  "kind": "equation",
+                  "text": "342 + 1.390 + 158 = 1.890"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 563.561 - 417.637 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "145.824"
+              },
+              {
+                "id": "b",
+                "text": "145.924"
+              },
+              {
+                "id": "c",
+                "text": "154.136"
+              },
+              {
+                "id": "d",
+                "text": "145.934"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "145.924",
+              "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "563561",
+                    "417637"
+                  ],
+                  "result": "145924",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "1 không trừ được 7, lấy 11 trừ 7 bằng 4, viết 4 nhớ 1.",
+                      "write": "4",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "3 thêm 1 bằng 4; 6 trừ 4 bằng 2, viết 2.",
+                      "write": "2"
+                    },
+                    {
+                      "place": 2,
+                      "text": "5 không trừ được 6, lấy 15 trừ 6 bằng 9, viết 9 nhớ 1.",
+                      "write": "9",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "7 thêm 1 bằng 8; 3 không trừ được 8, lấy 13 trừ 8 bằng 5, viết 5 nhớ 1.",
+                      "write": "5",
+                      "carry": 1
+                    },
+                    {
+                      "place": 4,
+                      "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                      "write": "4"
+                    },
+                    {
+                      "place": 5,
+                      "text": "5 trừ 4 bằng 1, viết 1.",
+                      "write": "1"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "563.561 - 417.637 = 145.924"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hai số có tổng là 254, hiệu là 36. Hai số đó là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "tong_hieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "218 và 36"
+              },
+              {
+                "id": "b",
+                "text": "145 và 109"
+              },
+              {
+                "id": "c",
+                "text": "181 và 73"
+              },
+              {
+                "id": "d",
+                "text": "146 và 110"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "145 và 109",
+              "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số lớn là:",
+                      "equation": "(254 + 36) : 2 = 145"
+                    },
+                    {
+                      "explanation": "Số bé là:",
+                      "equation": "254 - 145 = 109"
+                    }
+                  ],
+                  "answer": "Đáp số: số lớn 145; số bé 109."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Cách tính thuận tiện nhất cho 68 + 352 + 32 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "tinh_chat.phep_cong"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "(68 + 352) + 32"
+              },
+              {
+                "id": "b",
+                "text": "(68 + 32) + 352"
+              },
+              {
+                "id": "c",
+                "text": "68 + (352 - 32)"
+              },
+              {
+                "id": "d",
+                "text": "(68 - 32) + 352"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "(68 + 32) + 352",
+              "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "68 + 32 = 100 là số tròn, nên cộng hai số này trước."
+                },
+                {
+                  "kind": "equation",
+                  "text": "(68 + 32) + 352 = 452"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q06",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Tuổi bố và tuổi con cộng lại là 51 tuổi. Bố hơn con 25 tuổi. Hỏi bố bao nhiêu tuổi, con bao nhiêu tuổi?"
+            },
+            "level": 2,
+            "estimatedSeconds": 150,
+            "skillIds": [
+              "tong_hieu",
+              "giai_toan.hai_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Bố: {{b1}} tuổi.\nCon: {{b2}} tuổi.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 38,
+                  "unit": "tuổi"
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 13,
+                  "unit": "tuổi"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "38 tuổi; 13 tuổi",
+              "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Tuổi bố là:",
+                      "equation": "(51 + 25) : 2 = 38 (tuổi)"
+                    },
+                    {
+                      "explanation": "Tuổi con là:",
+                      "equation": "51 - 38 = 13 (tuổi)"
+                    }
+                  ],
+                  "answer": "Đáp số: 38 tuổi; 13 tuổi."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tìm số thích hợp.",
+            "prompt": {
+              "text": "? + 43.814 = 50.863"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so",
+              "tim_thanh_phan.so_hang"
+            ],
+            "access": "free",
+            "template": "{{b1}} + 43.814 = 50.863",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 7049
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "7.049",
+              "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "50863",
+                    "43814"
+                  ],
+                  "result": "7049",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.",
+                      "write": "9",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                      "write": "4"
+                    },
+                    {
+                      "place": 2,
+                      "text": "8 trừ 8 bằng 0, viết 0.",
+                      "write": "0"
+                    },
+                    {
+                      "place": 3,
+                      "text": "0 không trừ được 3, lấy 10 trừ 3 bằng 7, viết 7 nhớ 1.",
+                      "write": "7",
+                      "carry": 1
+                    },
+                    {
+                      "place": 4,
+                      "text": "4 thêm 1 bằng 5; 5 trừ 5 bằng 0, viết 0.",
+                      "write": "0"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "50.863 - 43.814 = 7.049"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "7.049 + 43.814 = 50.863"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Một tỉnh có 338.774 người, trong đó có 219.241 người sống ở thành thị. Hỏi tỉnh đó có bao nhiêu người sống ở nông thôn?"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so",
+              "giai_toan.mot_phep_tinh"
+            ],
+            "access": "free",
+            "template": "Có {{b1}} người sống ở nông thôn.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 119533,
+                  "unit": "người"
+                },
+                "maxLength": 7
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "119.533 người",
+              "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Số người sống ở nông thôn là:",
+                      "equation": "338.774 - 219.241 = 119.533 (người)"
+                    }
+                  ],
+                  "answer": "Đáp số: 119.533 người."
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "subtract",
+                  "operands": [
+                    "338774",
+                    "219241"
+                  ],
+                  "result": "119533",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "4 trừ 1 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 1,
+                      "text": "7 trừ 4 bằng 3, viết 3.",
+                      "write": "3"
+                    },
+                    {
+                      "place": 2,
+                      "text": "7 trừ 2 bằng 5, viết 5.",
+                      "write": "5"
+                    },
+                    {
+                      "place": 3,
+                      "text": "8 không trừ được 9, lấy 18 trừ 9 bằng 9, viết 9 nhớ 1.",
+                      "write": "9",
+                      "carry": 1
+                    },
+                    {
+                      "place": 4,
+                      "text": "1 thêm 1 bằng 2; 3 trừ 2 bằng 1, viết 1.",
+                      "write": "1"
+                    },
+                    {
+                      "place": 5,
+                      "text": "3 trừ 2 bằng 1, viết 1.",
+                      "write": "1"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tìm số thích hợp.",
+            "prompt": {
+              "text": "? - 45.565 = 19.718"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so",
+              "tim_thanh_phan.so_bi_tru"
+            ],
+            "access": "free",
+            "template": "{{b1}} - 45.565 = 19.718",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 65283
+                },
+                "maxLength": 6
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "65.283",
+              "hint": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số bị trừ, ta lấy hiệu cộng với số trừ.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "add",
+                  "operands": [
+                    "19718",
+                    "45565"
+                  ],
+                  "result": "65283",
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                      "write": "3",
+                      "carry": 1
+                    },
+                    {
+                      "place": 1,
+                      "text": "1 cộng 6 bằng 7, thêm 1 bằng 8, viết 8.",
+                      "write": "8"
+                    },
+                    {
+                      "place": 2,
+                      "text": "7 cộng 5 bằng 12, viết 2 nhớ 1.",
+                      "write": "2",
+                      "carry": 1
+                    },
+                    {
+                      "place": 3,
+                      "text": "9 cộng 5 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                      "write": "5",
+                      "carry": 1
+                    },
+                    {
+                      "place": 4,
+                      "text": "1 cộng 4 bằng 5, thêm 1 bằng 6, viết 6.",
+                      "write": "6"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "19.718 + 45.565 = 65.283"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thử lại:"
+                },
+                {
+                  "kind": "equation",
+                  "text": "65.283 - 45.565 = 19.718"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-05.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "cong_tru.nhieu_chu_so"
+            ],
+            "access": "free",
+            "template": "382.053 + 199.056 = {{s1}}\n272.805 + 82.155 = {{s2}}\n745.315 + 75.414 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "581.109"
+              },
+              {
+                "id": "t2",
+                "text": "471.009"
+              },
+              {
+                "id": "t3",
+                "text": "820.729"
+              },
+              {
+                "id": "t4",
+                "text": "354.960"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "581.109; 354.960; 820.729",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "382.053 + 199.056 = 581.109"
+                },
+                {
+                  "kind": "equation",
+                  "text": "272.805 + 82.155 = 354.960"
+                },
+                {
+                  "kind": "equation",
+                  "text": "745.315 + 75.414 = 820.729"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 471.009 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

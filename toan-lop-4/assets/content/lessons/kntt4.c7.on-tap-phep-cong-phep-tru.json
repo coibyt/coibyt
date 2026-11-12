@@ -1,0 +1,771 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c7.on-tap-phep-cong-phep-tru",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c7",
+  "order": 2,
+  "title": "Ôn tập phép cộng, phép trừ",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập phép cộng, phép trừ các số có nhiều chữ số; tính chất của phép cộng; tìm hai số biết tổng và hiệu.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 9.947.150 - 7.023.612 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "subtract",
+        "operands": [
+          "9947150",
+          "7023612"
+        ],
+        "result": "2923538",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "0 không trừ được 2, lấy 10 trừ 2 bằng 8, viết 8 nhớ 1.",
+            "write": "8",
+            "carry": 1
+          },
+          {
+            "place": 1,
+            "text": "1 thêm 1 bằng 2; 5 trừ 2 bằng 3, viết 3.",
+            "write": "3"
+          },
+          {
+            "place": 2,
+            "text": "1 không trừ được 6, lấy 11 trừ 6 bằng 5, viết 5 nhớ 1.",
+            "write": "5",
+            "carry": 1
+          },
+          {
+            "place": 3,
+            "text": "3 thêm 1 bằng 4; 7 trừ 4 bằng 3, viết 3.",
+            "write": "3"
+          },
+          {
+            "place": 4,
+            "text": "4 trừ 2 bằng 2, viết 2.",
+            "write": "2"
+          },
+          {
+            "place": 5,
+            "text": "9 trừ 0 bằng 9, viết 9.",
+            "write": "9"
+          },
+          {
+            "place": 6,
+            "text": "9 trừ 7 bằng 2, viết 2.",
+            "write": "2"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "9.947.150 - 7.023.612 = 2.923.538"
+      },
+      {
+        "kind": "text",
+        "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "2.901.363 + 239.322 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "2.901.363 + 239.322 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3140685
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.140.685",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "2901363",
+              "239322"
+            ],
+            "result": "3140685",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 2 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 2 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "1 cộng 9 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "0 cộng 3 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 5,
+                "text": "9 cộng 2 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 6,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "2.901.363 + 239.322 = 3.140.685"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "802.053 - 488.097 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "802.053 - 488.097 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 313956
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "313.956",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "802053",
+              "488097"
+            ],
+            "result": "313956",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 không trừ được 7, lấy 13 trừ 7 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 thêm 1 bằng 10; 5 không trừ được 10, lấy 15 trừ 10 bằng 5, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "0 thêm 1 bằng 1; 0 không trừ được 1, lấy 10 trừ 1 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "8 thêm 1 bằng 9; 2 không trừ được 9, lấy 12 trừ 9 bằng 3, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "8 thêm 1 bằng 9; 0 không trừ được 9, lấy 10 trừ 9 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 5,
+                "text": "4 thêm 1 bằng 5; 8 trừ 5 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "802.053 - 488.097 = 313.956"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính bằng cách thuận tiện.",
+      "prompt": {
+        "text": "Tính bằng cách thuận tiện: 112 + 132 + 88"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "template": "112 + 132 + 88 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 332
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "332",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "112 + 132 + 88 = (112 + 88) + 132 = 200 + 132 = 332"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "9.807.626 - 3.203.601 = {{s1}}\n3.005.653 - 1.314.031 = {{s2}}\n2.260.841 + 3.301.836 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "6.604.035"
+        },
+        {
+          "id": "t2",
+          "text": "1.691.622"
+        },
+        {
+          "id": "t3",
+          "text": "5.562.677"
+        },
+        {
+          "id": "t4",
+          "text": "6.604.025"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6.604.025; 1.691.622; 5.562.677",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "9.807.626 - 3.203.601 = 6.604.025"
+          },
+          {
+            "kind": "equation",
+            "text": "3.005.653 - 1.314.031 = 1.691.622"
+          },
+          {
+            "kind": "equation",
+            "text": "2.260.841 + 3.301.836 = 5.562.677"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 6.604.035 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "635 + 739 + 365"
+        },
+        {
+          "id": "l2",
+          "text": "129 + 4.381 + 371"
+        },
+        {
+          "id": "l3",
+          "text": "351 + 378 + 149"
+        },
+        {
+          "id": "l4",
+          "text": "66 + 641 + 34"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "878"
+        },
+        {
+          "id": "r2",
+          "text": "1.839"
+        },
+        {
+          "id": "r3",
+          "text": "4.881"
+        },
+        {
+          "id": "r4",
+          "text": "741"
+        },
+        {
+          "id": "r5",
+          "text": "1.739"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "635 + 739 + 365 → 1.739; 129 + 4.381 + 371 → 4.881; 351 + 378 + 149 → 878; 66 + 641 + 34 → 741",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "635 + 739 + 365 = 1.739"
+          },
+          {
+            "kind": "equation",
+            "text": "129 + 4.381 + 371 = 4.881"
+          },
+          {
+            "kind": "equation",
+            "text": "351 + 378 + 149 = 878"
+          },
+          {
+            "kind": "equation",
+            "text": "66 + 641 + 34 = 741"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 354.666 + 631.767 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "986.433"
+        },
+        {
+          "id": "b",
+          "text": "986.443"
+        },
+        {
+          "id": "c",
+          "text": "985.323"
+        },
+        {
+          "id": "d",
+          "text": "987.433"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "986.433",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "354666",
+              "631767"
+            ],
+            "result": "986433",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 7 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 6 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 7 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 1 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "5 cộng 3 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 5,
+                "text": "3 cộng 6 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "354.666 + 631.767 = 986.433"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tháng Năm một sân bay đón 4.308.830 lượt khách, tháng Sáu đón 1.231.585 lượt khách. Hỏi cả hai tháng sân bay đón bao nhiêu lượt khách?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai tháng đón {{b1}} lượt khách.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5540415,
+            "unit": "lượt khách"
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5.540.415 lượt khách",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số lượt khách cả hai tháng là:",
+                "equation": "4.308.830 + 1.231.585 = 5.540.415 (lượt khách)"
+              }
+            ],
+            "answer": "Đáp số: 5.540.415 lượt khách."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "4308830",
+              "1231585"
+            ],
+            "result": "5540415",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 8 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "8 cộng 5 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "8 cộng 1 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "0 cộng 3 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 5,
+                "text": "3 cộng 2 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 6,
+                "text": "4 cộng 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai lớp 4A và 4B trồng được 57 cây. Lớp 4A trồng được nhiều hơn lớp 4B 17 cây. Hỏi mỗi lớp trồng được bao nhiêu cây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Lớp 4A: {{b1}} cây.\nLớp 4B: {{b2}} cây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 37,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 20,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "37 cây; 20 cây",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Lớp 4A trồng được:",
+                "equation": "(57 + 17) : 2 = 37 (cây)"
+              },
+              {
+                "explanation": "Lớp 4B trồng được:",
+                "equation": "57 - 37 = 20 (cây)"
+              }
+            ],
+            "answer": "Đáp số: 37 cây; 20 cây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c7.on-tap-phep-cong-phep-tru.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Mẹ đưa Lan 100.000 đồng đi mua đồ dùng học tập. Lan mua 5 quyển vở, mỗi quyển giá 6.000 đồng và 4 chiếc bút, mỗi chiếc giá 8.000 đồng. Hỏi Lan còn lại bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "38.100 đồng"
+        },
+        {
+          "id": "b",
+          "text": "37.990 đồng"
+        },
+        {
+          "id": "c",
+          "text": "38.000 đồng"
+        },
+        {
+          "id": "d",
+          "text": "38.010 đồng"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "38.000 đồng",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tiền mua vở là:",
+                "equation": "6.000 × 5 = 30.000 (đồng)"
+              },
+              {
+                "explanation": "Số tiền mua bút là:",
+                "equation": "8.000 × 4 = 32.000 (đồng)"
+              },
+              {
+                "explanation": "Lan còn lại số tiền là:",
+                "equation": "100.000 - 30.000 - 32.000 = 38.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 38.000 đồng."
+          }
+        ]
+      }
+    }
+  ]
+}

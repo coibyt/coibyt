@@ -1,0 +1,538 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c6.luyen-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c6",
+  "order": 6,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: hai đường thẳng vuông góc, song song; hình bình hành, hình thoi.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía."
+      },
+      {
+        "kind": "text",
+        "text": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hai đường thẳng vuông góc với nhau tạo thành mấy góc vuông?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.vuong_goc_song_song"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4 góc vuông"
+        },
+        {
+          "id": "b",
+          "text": "1 góc vuông"
+        },
+        {
+          "id": "c",
+          "text": "2 góc vuông"
+        },
+        {
+          "id": "d",
+          "text": "3 góc vuông"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 góc vuông",
+        "hint": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Đáp án: 4 góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong hình chữ nhật ABCD, cạnh AB song song với cạnh nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.vuong_goc_song_song"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "AC"
+        },
+        {
+          "id": "b",
+          "text": "AD"
+        },
+        {
+          "id": "c",
+          "text": "DC"
+        },
+        {
+          "id": "d",
+          "text": "BC"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "DC",
+        "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Đáp án: DC."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hình thoi MNPQ có cạnh MN = 12 cm. Tính chu vi hình thoi đó."
+      },
+      "level": 1,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "Chu vi là {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 cm",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình thoi có bốn cạnh bằng nhau."
+          },
+          {
+            "kind": "equation",
+            "text": "12 × 4 = 48"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi đặc điểm với tên hình."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau"
+        },
+        {
+          "id": "l2",
+          "text": "Hình có bốn cạnh bằng nhau, không có góc vuông"
+        },
+        {
+          "id": "l3",
+          "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau"
+        },
+        {
+          "id": "l4",
+          "text": "Hình có hai cặp cạnh đối song song và bằng nhau"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "hình thoi"
+        },
+        {
+          "id": "r2",
+          "text": "hình bình hành"
+        },
+        {
+          "id": "r3",
+          "text": "hình chữ nhật"
+        },
+        {
+          "id": "r4",
+          "text": "hình vuông"
+        },
+        {
+          "id": "r5",
+          "text": "hình tam giác"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau → hình chữ nhật; Hình có bốn cạnh bằng nhau, không có góc vuông → hình thoi; Hình có bốn góc vuông, bốn cạnh bằng nhau → hình vuông; Hình có hai cặp cạnh đối song song và bằng nhau → hình bình hành",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau: hình chữ nhật."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có bốn cạnh bằng nhau, không có góc vuông: hình thoi."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau: hình vuông."
+          },
+          {
+            "kind": "text",
+            "text": "Hình có hai cặp cạnh đối song song và bằng nhau: hình bình hành."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Sắp xếp các bước vẽ đường thẳng đi qua điểm E và song song với đường thẳng AB:"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.vuong_goc_song_song"
+      ],
+      "access": "free",
+      "template": "{{s1}}: Vẽ đường thẳng CD vuông góc với AB\n{{s2}}: Vẽ đường thẳng đi qua E vuông góc với CD\n{{s3}}: Ta được đường thẳng song song với AB",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "Bước 2"
+        },
+        {
+          "id": "t2",
+          "text": "Bước 4"
+        },
+        {
+          "id": "t3",
+          "text": "Bước 1"
+        },
+        {
+          "id": "t4",
+          "text": "Bước 3"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Bước 1: Vẽ đường thẳng CD vuông góc với AB; Bước 2: Vẽ đường thẳng đi qua E vuông góc với CD; Bước 3: Ta được đường thẳng song song với AB",
+        "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Bước 1: Vẽ đường thẳng CD vuông góc với AB."
+          },
+          {
+            "kind": "text",
+            "text": "Bước 2: Vẽ đường thẳng đi qua E vuông góc với CD."
+          },
+          {
+            "kind": "text",
+            "text": "Bước 3: Ta được đường thẳng song song với AB."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hình thoi có đặc điểm nào sau đây?"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Hai cạnh bằng nhau"
+        },
+        {
+          "id": "b",
+          "text": "Bốn cạnh bằng nhau"
+        },
+        {
+          "id": "c",
+          "text": "Bốn góc vuông"
+        },
+        {
+          "id": "d",
+          "text": "Có năm cạnh"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Bốn cạnh bằng nhau",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Đáp án: Bốn cạnh bằng nhau."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Hình chữ nhật MNPQ: nối mỗi câu với cạnh đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "hinh_hoc.vuong_goc_song_song"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Cạnh song song với MN"
+        },
+        {
+          "id": "l2",
+          "text": "Cạnh song song với MQ"
+        },
+        {
+          "id": "l3",
+          "text": "Cạnh vuông góc với MN tại M"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "MQ"
+        },
+        {
+          "id": "r2",
+          "text": "MP"
+        },
+        {
+          "id": "r3",
+          "text": "NP"
+        },
+        {
+          "id": "r4",
+          "text": "QP"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Cạnh song song với MN → QP; Cạnh song song với MQ → NP; Cạnh vuông góc với MN tại M → MQ",
+        "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật MNPQ: cạnh song song với mn là QP."
+          },
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật MNPQ: cạnh song song với mq là NP."
+          },
+          {
+            "kind": "text",
+            "text": "Trong hình chữ nhật MNPQ: cạnh vuông góc với mn tại m là MQ."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c6.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một khung ảnh hình bình hành có chu vi 38 cm, một cạnh dài 8 cm. Tính độ dài cạnh còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cạnh còn lại dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 11,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "11 cm",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi hình bình hành là:",
+                "equation": "38 : 2 = 19 (cm)"
+              },
+              {
+                "explanation": "Độ dài cạnh còn lại là:",
+                "equation": "19 - 8 = 11 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 11 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

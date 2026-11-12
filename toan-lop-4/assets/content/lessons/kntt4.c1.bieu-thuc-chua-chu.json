@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c1.bieu-thuc-chua-chu",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c1",
+  "order": 4,
+  "title": "Biểu thức chứa chữ",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Biểu thức chứa chữ là biểu thức có chữ, ví dụ a + b, (a + b) × 2. Mỗi lần thay chữ bằng số ta tính được một giá trị của biểu thức.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: với a = 15, b = 7 thì a + b × 2 = 15 + 7 × 2 = 15 + 14 = 29."
+      },
+      {
+        "kind": "text",
+        "text": "Thay số xong, nhớ làm nhân, chia trước; cộng, trừ sau.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "Tính giá trị của biểu thức a + b + c với a = 73, b = 55, c = 5."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "template": "Với a = 73, b = 55, c = 5 thì a + b + c = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 133
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "133",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Với a = 73, b = 55, c = 5, thay chữ bằng số:"
+          },
+          {
+            "kind": "equation",
+            "text": "73 + 55 + 5 = 133"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "Tính giá trị của biểu thức a - b với a = 81, b = 13."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "template": "Với a = 81, b = 13 thì a - b = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 68
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "68",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Với a = 81, b = 13, thay chữ bằng số:"
+          },
+          {
+            "kind": "equation",
+            "text": "81 - 13 = 68"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức a × b - c với a = 94, b = 7, c = 7 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "651"
+        },
+        {
+          "id": "b",
+          "text": "649"
+        },
+        {
+          "id": "c",
+          "text": "652"
+        },
+        {
+          "id": "d",
+          "text": "661"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "651",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Với a = 94, b = 7, c = 7, thay chữ bằng số:"
+          },
+          {
+            "kind": "equation",
+            "text": "94 × 7 - 7 = 651"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi giá trị của a với giá trị của biểu thức (a + 5) × 2."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "a = 28"
+        },
+        {
+          "id": "l2",
+          "text": "a = 9"
+        },
+        {
+          "id": "l3",
+          "text": "a = 24"
+        },
+        {
+          "id": "l4",
+          "text": "a = 56"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "58"
+        },
+        {
+          "id": "r2",
+          "text": "28"
+        },
+        {
+          "id": "r3",
+          "text": "67"
+        },
+        {
+          "id": "r4",
+          "text": "66"
+        },
+        {
+          "id": "r5",
+          "text": "122"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "a = 28 → 66; a = 9 → 28; a = 24 → 58; a = 56 → 122",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(28 + 5) × 2 = 66"
+          },
+          {
+            "kind": "equation",
+            "text": "(9 + 5) × 2 = 28"
+          },
+          {
+            "kind": "equation",
+            "text": "(24 + 5) × 2 = 58"
+          },
+          {
+            "kind": "equation",
+            "text": "(56 + 5) × 2 = 122"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng của biểu thức vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "template": "a = 62, b = 12: a - b = {{s1}}\na = 59, b = 15: a - b = {{s2}}\na = 73, b = 14: a - b = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "50"
+        },
+        {
+          "id": "t2",
+          "text": "59"
+        },
+        {
+          "id": "t3",
+          "text": "60"
+        },
+        {
+          "id": "t4",
+          "text": "44"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "50; 44; 59",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "62 - 12 = 50"
+          },
+          {
+            "kind": "equation",
+            "text": "59 - 15 = 44"
+          },
+          {
+            "kind": "equation",
+            "text": "73 - 14 = 59"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức (a + b) × 2 với a = 41, b = 36 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "152"
+        },
+        {
+          "id": "b",
+          "text": "154"
+        },
+        {
+          "id": "c",
+          "text": "164"
+        },
+        {
+          "id": "d",
+          "text": "155"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "154",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Với a = 41, b = 36, thay chữ bằng số:"
+          },
+          {
+            "kind": "equation",
+            "text": "(41 + 36) × 2 = 154"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Chu vi P của hình chữ nhật có chiều dài a, chiều rộng b là P = (a + b) × 2. Tính P với a = 17 cm, b = 7 cm."
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "bieu_thuc_chu",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "template": "P = {{b1}} cm",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 cm",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(17 + 7) × 2 = 24 × 2 = 48"
+          },
+          {
+            "kind": "text",
+            "text": "P = 48. Chu vi hình chữ nhật là 48 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.bieu-thuc-chua-chu.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chu vi P của hình vuông có cạnh a được tính theo công thức P = a × 4. Tính chu vi hình vuông có cạnh a = 46 cm."
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "bieu_thuc_chu",
+        "hinh_hoc.chu_vi"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "184 cm"
+        },
+        {
+          "id": "b",
+          "text": "92 cm"
+        },
+        {
+          "id": "c",
+          "text": "182 cm"
+        },
+        {
+          "id": "d",
+          "text": "188 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "184 cm",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "46 × 4 = 184"
+          },
+          {
+            "kind": "text",
+            "text": "P = 184. Chu vi hình vuông là 184 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,717 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-06",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c6"
+  ],
+  "title": "Kiểm tra chủ đề 6",
+  "description": "Đường thẳng vuông góc, đường thẳng song song.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Hình chữ nhật ABCD: nối mỗi câu với cạnh đúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Cạnh song song với AB"
+              },
+              {
+                "id": "l2",
+                "text": "Cạnh song song với AD"
+              },
+              {
+                "id": "l3",
+                "text": "Cạnh vuông góc với AB tại A"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "BC"
+              },
+              {
+                "id": "r2",
+                "text": "DC"
+              },
+              {
+                "id": "r3",
+                "text": "AD"
+              },
+              {
+                "id": "r4",
+                "text": "AC"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Cạnh song song với AB → DC; Cạnh song song với AD → BC; Cạnh vuông góc với AB tại A → AD",
+              "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật ABCD: cạnh song song với ab là DC."
+                },
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật ABCD: cạnh song song với ad là BC."
+                },
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật ABCD: cạnh vuông góc với ab tại a là AD."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Trong hình chữ nhật ABCD, cạnh AB vuông góc với cạnh nào?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "AB"
+              },
+              {
+                "id": "b",
+                "text": "AC"
+              },
+              {
+                "id": "c",
+                "text": "CD"
+              },
+              {
+                "id": "d",
+                "text": "AD và BC"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "AD và BC",
+              "hint": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Đáp án: AD và BC."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Hình chữ nhật MNPQ: nối mỗi câu với cạnh đúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Cạnh song song với MN"
+              },
+              {
+                "id": "l2",
+                "text": "Cạnh song song với MQ"
+              },
+              {
+                "id": "l3",
+                "text": "Cạnh vuông góc với MN tại M"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "MP"
+              },
+              {
+                "id": "r2",
+                "text": "QP"
+              },
+              {
+                "id": "r3",
+                "text": "MQ"
+              },
+              {
+                "id": "r4",
+                "text": "NP"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r4"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Cạnh song song với MN → QP; Cạnh song song với MQ → NP; Cạnh vuông góc với MN tại M → MQ",
+              "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật MNPQ: cạnh song song với mn là QP."
+                },
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật MNPQ: cạnh song song với mq là NP."
+                },
+                {
+                  "kind": "text",
+                  "text": "Trong hình chữ nhật MNPQ: cạnh vuông góc với mn tại m là MQ."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hình thoi có đặc điểm nào sau đây?"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.binh_hanh_thoi"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Hai cạnh bằng nhau"
+              },
+              {
+                "id": "b",
+                "text": "Bốn cạnh bằng nhau"
+              },
+              {
+                "id": "c",
+                "text": "Bốn góc vuông"
+              },
+              {
+                "id": "d",
+                "text": "Có năm cạnh"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bốn cạnh bằng nhau",
+              "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Đáp án: Bốn cạnh bằng nhau."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi đặc điểm với tên hình."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "hinh_hoc.binh_hanh_thoi"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau"
+              },
+              {
+                "id": "l2",
+                "text": "Hình có bốn cạnh bằng nhau, không có góc vuông"
+              },
+              {
+                "id": "l3",
+                "text": "Hình có hai cặp cạnh đối song song và bằng nhau"
+              },
+              {
+                "id": "l4",
+                "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "hình chữ nhật"
+              },
+              {
+                "id": "r2",
+                "text": "hình tam giác"
+              },
+              {
+                "id": "r3",
+                "text": "hình thoi"
+              },
+              {
+                "id": "r4",
+                "text": "hình bình hành"
+              },
+              {
+                "id": "r5",
+                "text": "hình vuông"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r5"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Hình có bốn góc vuông, bốn cạnh bằng nhau → hình vuông; Hình có bốn cạnh bằng nhau, không có góc vuông → hình thoi; Hình có hai cặp cạnh đối song song và bằng nhau → hình bình hành; Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau → hình chữ nhật",
+              "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn góc vuông, bốn cạnh bằng nhau: hình vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn cạnh bằng nhau, không có góc vuông: hình thoi."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có hai cặp cạnh đối song song và bằng nhau: hình bình hành."
+                },
+                {
+                  "kind": "text",
+                  "text": "Hình có bốn góc vuông, hai cặp cạnh đối bằng nhau: hình chữ nhật."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Lúc 11 giờ đúng, kim giờ và kim phút của đồng hồ tạo thành:"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc vuông"
+              },
+              {
+                "id": "b",
+                "text": "góc nhọn"
+              },
+              {
+                "id": "c",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "d",
+                "text": "góc tù"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc nhọn",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mỗi khoảng giữa hai số liền nhau trên mặt đồng hồ ứng với góc 30°."
+                },
+                {
+                  "kind": "equation",
+                  "text": "1 × 30 = 30"
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc 30° là góc nhọn."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số thích hợp vào ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.binh_hanh_thoi",
+              "hinh_hoc.chu_vi"
+            ],
+            "access": "free",
+            "template": "Hình thoi cạnh 3 cm có chu vi {{s1}} cm.\nHình bình hành có hai cạnh 16 cm và 5 cm có chu vi {{s2}} cm.",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "21"
+              },
+              {
+                "id": "t2",
+                "text": "12"
+              },
+              {
+                "id": "t3",
+                "text": "42"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "12; 42",
+              "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "3 × 4 = 12"
+                },
+                {
+                  "kind": "equation",
+                  "text": "(16 + 5) × 2 = 42"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Sắp xếp các bước vẽ đường thẳng đi qua điểm E và vuông góc với đường thẳng AB:"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "template": "{{s1}}: Đặt một cạnh góc vuông của ê ke trùng với AB\n{{s2}}: Dịch ê ke để cạnh còn lại đi qua điểm E\n{{s3}}: Vẽ theo cạnh đó, được đường thẳng vuông góc với AB",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Bước 4"
+              },
+              {
+                "id": "t2",
+                "text": "Bước 2"
+              },
+              {
+                "id": "t3",
+                "text": "Bước 3"
+              },
+              {
+                "id": "t4",
+                "text": "Bước 1"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bước 1: Đặt một cạnh góc vuông của ê ke trùng với AB; Bước 2: Dịch ê ke để cạnh còn lại đi qua điểm E; Bước 3: Vẽ theo cạnh đó, được đường thẳng vuông góc với AB",
+              "hint": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Bước 1: Đặt một cạnh góc vuông của ê ke trùng với AB."
+                },
+                {
+                  "kind": "text",
+                  "text": "Bước 2: Dịch ê ke để cạnh còn lại đi qua điểm E."
+                },
+                {
+                  "kind": "text",
+                  "text": "Bước 3: Vẽ theo cạnh đó, được đường thẳng vuông góc với AB."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Hình vuông có bao nhiêu góc vuông?"
+            },
+            "level": 2,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song",
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "template": "Hình vuông có {{b1}} góc vuông.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 4
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình vuông có 4 góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-06.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Sắp xếp các bước vẽ đường thẳng đi qua điểm E và song song với đường thẳng AB:"
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "template": "{{s1}}: Vẽ đường thẳng CD vuông góc với AB\n{{s2}}: Vẽ đường thẳng đi qua E vuông góc với CD\n{{s3}}: Ta được đường thẳng song song với AB",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Bước 3"
+              },
+              {
+                "id": "t2",
+                "text": "Bước 2"
+              },
+              {
+                "id": "t3",
+                "text": "Bước 1"
+              },
+              {
+                "id": "t4",
+                "text": "Bước 4"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Bước 1: Vẽ đường thẳng CD vuông góc với AB; Bước 2: Vẽ đường thẳng đi qua E vuông góc với CD; Bước 3: Ta được đường thẳng song song với AB",
+              "hint": "Hai đường thẳng song song không bao giờ cắt nhau, dù kéo dài mãi về hai phía.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Bước 1: Vẽ đường thẳng CD vuông góc với AB."
+                },
+                {
+                  "kind": "text",
+                  "text": "Bước 2: Vẽ đường thẳng đi qua E vuông góc với CD."
+                },
+                {
+                  "kind": "text",
+                  "text": "Bước 3: Ta được đường thẳng song song với AB."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

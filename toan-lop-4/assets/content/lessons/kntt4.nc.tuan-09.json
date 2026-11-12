@@ -1,0 +1,742 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-09",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c4",
+  "order": 1,
+  "title": "Nâng cao tuần 9: Yến, tạ, tấn; m², dm², mm²; giây, thế kỉ",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn so sánh hay tính các số đo, con đổi về cùng một đơn vị trước nhé.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một mảnh vườn hình chữ nhật có chiều dài 7 m, chiều rộng 3 m. Hỏi diện tích mảnh vườn bằng bao nhiêu đề-xi-mét vuông?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Diện tích mảnh vườn là:",
+            "equation": "7 × 3 = 21 (m²)"
+          }
+        ],
+        "answer": "Đáp số: 2.100 dm²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-09.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3.310 kg, 660 kg, 5 tấn, 4.400 kg."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "660 kg"
+        },
+        {
+          "id": "t2",
+          "text": "5 tấn"
+        },
+        {
+          "id": "t3",
+          "text": "3.310 kg"
+        },
+        {
+          "id": "t4",
+          "text": "4.400 kg"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "660 kg < 3.310 kg < 4.400 kg < 5 tấn",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về ki-lô-gam: 3.310 kg = 3.310 kg, 660 kg = 660 kg, 5 tấn = 5.000 kg, 4.400 kg = 4.400 kg."
+          },
+          {
+            "kind": "text",
+            "text": "660 kg < 3.310 kg < 4.400 kg < 5 tấn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "6 tạ"
+        },
+        {
+          "id": "l2",
+          "text": "8 tấn"
+        },
+        {
+          "id": "l3",
+          "text": "3 tạ"
+        },
+        {
+          "id": "l4",
+          "text": "2 yến"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "30 yến"
+        },
+        {
+          "id": "r2",
+          "text": "2 kg"
+        },
+        {
+          "id": "r3",
+          "text": "20 kg"
+        },
+        {
+          "id": "r4",
+          "text": "80 tạ"
+        },
+        {
+          "id": "r5",
+          "text": "60 yến"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 tạ → 60 yến; 8 tấn → 80 tạ; 3 tạ → 30 yến; 2 yến → 20 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "6 tạ = 60 yến"
+          },
+          {
+            "kind": "text",
+            "text": "8 tấn = 80 tạ"
+          },
+          {
+            "kind": "text",
+            "text": "3 tạ = 30 yến"
+          },
+          {
+            "kind": "text",
+            "text": "2 yến = 20 kg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 24.200 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 5.800 kg. Kho thứ ba có ít hơn kho thứ hai 10.900 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba kho có {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 73300,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "73.300 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "24.200 + 5.800 = 30.000 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "30.000 - 10.900 = 19.100 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "24.200 + 30.000 + 19.100 = 73.300 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 73.300 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24200",
+              "5800"
+            ],
+            "result": "30000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 8 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 5 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "30000",
+              "10900"
+            ],
+            "result": "19100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 không trừ được 9, lấy 10 trừ 9 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "0 thêm 1 bằng 1; 0 không trừ được 1, lấy 10 trừ 1 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2; 3 trừ 2 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24200",
+              "30000",
+              "19100"
+            ],
+            "result": "73300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 0 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 0 cộng 9 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 3 cộng 1 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai kho có tất cả 1.600 kg gạo. Số gạo ở kho thứ hai gấp 7 lần số gạo ở kho thứ nhất. Hỏi kho thứ hai có bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Kho thứ hai có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1400,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.400 kg gạo",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số gạo ở kho thứ nhất là 1 phần thì số gạo ở kho thứ hai là 7 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 7 = 8 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số gạo ở kho thứ nhất) là:",
+                "equation": "1.600 : 8 = 200 (kg)"
+              },
+              {
+                "explanation": "Số gạo ở kho thứ hai là:",
+                "equation": "200 × 7 = 1.400 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 1.400 kg gạo."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "1600",
+            "divisor": "8",
+            "quotient": "200",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "16 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "200",
+              "7"
+            ],
+            "result": "1400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "7 nhân 2 bằng 14, viết 14.",
+                "write": "14"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Hùng có nhiều hơn bạn Lan 1.020 nhãn vở. Số nhãn vở của Hùng gấp 3 lần số nhãn vở của Lan. Hỏi bạn Lan có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.530 nhãn vở"
+        },
+        {
+          "id": "b",
+          "text": "340 nhãn vở"
+        },
+        {
+          "id": "c",
+          "text": "1.020 nhãn vở"
+        },
+        {
+          "id": "d",
+          "text": "510 nhãn vở"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "510 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Lan là 1 phần thì số nhãn vở của Hùng là 3 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "3 - 1 = 2 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Lan là:",
+                "equation": "1.020 : 2 = 510 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 510 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "1020",
+            "divisor": "2",
+            "quotient": "510",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "10 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 10 trừ 10 bằng 0.",
+                "partialDividend": 10,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 2; 2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong cuộc thi chạy, Quân chạy hết 53 giây, Lan chạy nhanh hơn Quân 5 giây. Hỏi Lan chạy hết bao nhiêu giây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "thoi_gian.giay_the_ki"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "48 giây"
+        },
+        {
+          "id": "b",
+          "text": "49 giây"
+        },
+        {
+          "id": "c",
+          "text": "38 giây"
+        },
+        {
+          "id": "d",
+          "text": "58 giây"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48 giây",
+        "hint": "Nhớ nhé: một phút có sáu mươi giây, một giờ có sáu mươi phút, một thế kỉ có một trăm năm.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Lan chạy hết là:",
+                "equation": "53 - 5 = 48 (giây)"
+              }
+            ],
+            "answer": "Đáp số: 48 giây."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Người ta lát nền một căn phòng bằng 40 viên gạch hình vuông cạnh 50 cm. Hỏi căn phòng có diện tích bao nhiêu đề-xi-mét vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.100 dm²"
+        },
+        {
+          "id": "b",
+          "text": "10.000 dm²"
+        },
+        {
+          "id": "c",
+          "text": "100 dm²"
+        },
+        {
+          "id": "d",
+          "text": "1.000 dm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.000 dm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích một viên gạch là:",
+                "equation": "50 × 50 = 2.500 (cm²)"
+              },
+              {
+                "explanation": "Diện tích căn phòng là:",
+                "equation": "2.500 × 40 = 100.000 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 1.000 dm²."
+          },
+          {
+            "kind": "text",
+            "text": "Đổi 100.000 cm² = 1.000 dm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-09.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chiều dài 8 m, chiều rộng 7 m. Hỏi diện tích mảnh vườn bằng bao nhiêu đề-xi-mét vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích mảnh vườn là {{b1}} dm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5600,
+            "unit": "dm²",
+            "unitAliases": [
+              "đề-xi-mét vuông",
+              "dm2"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "5.600 dm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích mảnh vườn là:",
+                "equation": "8 × 7 = 56 (m²)"
+              }
+            ],
+            "answer": "Đáp số: 5.600 dm²."
+          },
+          {
+            "kind": "text",
+            "text": "Đổi 56 m² = 5.600 dm² (vì 1 m² = 100 dm²)."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,506 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c8.tim-so-trung-binh-cong",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 9,
+  "title": "Tìm số trung bình cộng",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: số trung bình cộng của 36, 42 và 57 là:"
+      },
+      {
+        "kind": "equation",
+        "text": "36 + 42 + 57 = 135"
+      },
+      {
+        "kind": "equation",
+        "text": "135 : 3 = 45"
+      },
+      {
+        "kind": "text",
+        "text": "Số trung bình cộng luôn nằm giữa số bé nhất và số lớn nhất.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số trung bình cộng của các số: 22; 24; 86."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "template": "Số trung bình cộng là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 44
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "44",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "22 + 24 + 86 = 132"
+          },
+          {
+            "kind": "equation",
+            "text": "132 : 3 = 44"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số trung bình cộng của các số: 22; 32."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "template": "Số trung bình cộng là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 27
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "27",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "22 + 32 = 54"
+          },
+          {
+            "kind": "equation",
+            "text": "54 : 2 = 27"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số trung bình cộng của các số 838, 812, 981, 505 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "785"
+        },
+        {
+          "id": "b",
+          "text": "794"
+        },
+        {
+          "id": "c",
+          "text": "3.136"
+        },
+        {
+          "id": "d",
+          "text": "784"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "784",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "838 + 812 + 981 + 505 = 3.136"
+          },
+          {
+            "kind": "equation",
+            "text": "3.136 : 4 = 784"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp số với số trung bình cộng của chúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "22 và 38"
+        },
+        {
+          "id": "l2",
+          "text": "33 và 51"
+        },
+        {
+          "id": "l3",
+          "text": "54 và 58"
+        },
+        {
+          "id": "l4",
+          "text": "50 và 56"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "42"
+        },
+        {
+          "id": "r2",
+          "text": "56"
+        },
+        {
+          "id": "r3",
+          "text": "53"
+        },
+        {
+          "id": "r4",
+          "text": "30"
+        },
+        {
+          "id": "r5",
+          "text": "32"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "22 và 38 → 30; 33 và 51 → 42; 54 và 58 → 56; 50 và 56 → 53",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "(22 + 38) : 2 = 30."
+          },
+          {
+            "kind": "text",
+            "text": "(33 + 51) : 2 = 42."
+          },
+          {
+            "kind": "text",
+            "text": "(54 + 58) : 2 = 56."
+          },
+          {
+            "kind": "text",
+            "text": "(50 + 56) : 2 = 53."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "template": "(33 + 65 + 49) : {{s1}} = {{s2}} : 3 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3"
+        },
+        {
+          "id": "t2",
+          "text": "52"
+        },
+        {
+          "id": "t3",
+          "text": "147"
+        },
+        {
+          "id": "t4",
+          "text": "49"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3; 147; 49",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "33 + 65 + 49 = 147"
+          },
+          {
+            "kind": "equation",
+            "text": "147 : 3 = 49"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Ba lớp 4A, 4B, 4C quyên góp được lần lượt 67, 55, 70 quyển sách. Hỏi trung bình mỗi lớp quyên góp được bao nhiêu quyển sách?"
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trung bình mỗi lớp quyên góp được {{b1}} quyển.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 64,
+            "unit": "quyển"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "64 quyển",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng là:",
+                "equation": "67 + 55 + 70 = 192 (quyển)"
+              },
+              {
+                "explanation": "Trung bình là:",
+                "equation": "192 : 3 = 64 (quyển)"
+              }
+            ],
+            "answer": "Đáp số: 64 quyển."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chiều cao của 3 bạn lần lượt là 128, 136, 126 cm. Hỏi trung bình mỗi bạn cao bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "130 cm"
+        },
+        {
+          "id": "b",
+          "text": "132 cm"
+        },
+        {
+          "id": "c",
+          "text": "129 cm"
+        },
+        {
+          "id": "d",
+          "text": "390 cm"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "130 cm",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng là:",
+                "equation": "128 + 136 + 126 = 390 (cm)"
+              },
+              {
+                "explanation": "Trung bình là:",
+                "equation": "390 : 3 = 130 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 130 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.tim-so-trung-binh-cong.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Chiều cao của 4 bạn lần lượt là 141, 143, 133, 131 cm. Hỏi trung bình mỗi bạn cao bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trung bình mỗi bạn cao {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 137,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "137 cm",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng là:",
+                "equation": "141 + 143 + 133 + 131 = 548 (cm)"
+              },
+              {
+                "explanation": "Trung bình là:",
+                "equation": "548 : 4 = 137 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 137 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

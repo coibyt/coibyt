@@ -1,0 +1,848 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c1",
+  "order": 2,
+  "title": "Ôn tập các phép tính trong phạm vi 100 000",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Cộng, trừ: đặt tính thẳng cột, tính từ phải sang trái. Nhân với số có một chữ số: nhân lần lượt từ phải sang trái. Chia: chia lần lượt từ trái sang phải.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 22.246 + 40.070 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "add",
+        "operands": [
+          "22246",
+          "40070"
+        ],
+        "result": "62316",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "6 cộng 0 bằng 6, viết 6.",
+            "write": "6"
+          },
+          {
+            "place": 1,
+            "text": "4 cộng 7 bằng 11, viết 1 nhớ 1.",
+            "write": "1",
+            "carry": 1
+          },
+          {
+            "place": 2,
+            "text": "2 cộng 0 bằng 2, thêm 1 bằng 3, viết 3.",
+            "write": "3"
+          },
+          {
+            "place": 3,
+            "text": "2 cộng 0 bằng 2, viết 2.",
+            "write": "2"
+          },
+          {
+            "place": 4,
+            "text": "2 cộng 4 bằng 6, viết 6.",
+            "write": "6"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "22.246 + 40.070 = 62.316"
+      },
+      {
+        "kind": "text",
+        "text": "Thử lại phép trừ bằng phép cộng, thử lại phép chia bằng phép nhân.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "89.531 + 7.104 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "template": "89.531 + 7.104 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 96635
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "96.635",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "89531",
+              "7104"
+            ],
+            "result": "96635",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 4 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "3 cộng 0 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 7 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "8 thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "89.531 + 7.104 = 96.635"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "41.496 - 9.410 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "template": "41.496 - 9.410 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 32086
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "32.086",
+        "hint": "Con đặt tính thẳng cột rồi trừ từ hàng đơn vị; nếu có nhớ thì cộng số nhớ vào hàng bên trái của số trừ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "41496",
+              "9410"
+            ],
+            "result": "32086",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 trừ 0 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "9 trừ 1 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 2,
+                "text": "4 trừ 4 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "1 không trừ được 9, lấy 11 trừ 9 bằng 2, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "4 trừ 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "41.496 - 9.410 = 32.086"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "3.389 × 2 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "3.389 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6778
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6.778",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "3389",
+              "2"
+            ],
+            "result": "6778",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 9 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 8 bằng 16, thêm 1 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "3.389 × 2 = 6.778"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 6.316 : 2 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3.159"
+        },
+        {
+          "id": "b",
+          "text": "3.158"
+        },
+        {
+          "id": "c",
+          "text": "3.157"
+        },
+        {
+          "id": "d",
+          "text": "3.168"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.158",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "6316",
+            "divisor": "2",
+            "quotient": "3158",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "6 chia 2 được 3, viết 3. 3 nhân 2 bằng 6; 6 trừ 6 bằng 0.",
+                "partialDividend": 6,
+                "quotientDigit": 3,
+                "product": 6,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 3; 3 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 3 trừ 2 bằng 1.",
+                "partialDividend": 3,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 1, được 11; 11 chia 2 được 5, viết 5. 5 nhân 2 bằng 10; 11 trừ 10 bằng 1.",
+                "partialDividend": 11,
+                "quotientDigit": 5,
+                "product": 10,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 6, được 16; 16 chia 2 được 8, viết 8. 8 nhân 2 bằng 16; 16 trừ 16 bằng 0.",
+                "partialDividend": 16,
+                "quotientDigit": 8,
+                "product": 16,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "6.316 : 2 = 3.158"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "template": "61.075 + 37.840 = {{s1}}\n82.501 - 35.013 = {{s2}}\n61.095 - 45.204 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "98.915"
+        },
+        {
+          "id": "t2",
+          "text": "15.891"
+        },
+        {
+          "id": "t3",
+          "text": "47.488"
+        },
+        {
+          "id": "t4",
+          "text": "98.815"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "98.915; 47.488; 15.891",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "61.075 + 37.840 = 98.915"
+          },
+          {
+            "kind": "equation",
+            "text": "82.501 - 35.013 = 47.488"
+          },
+          {
+            "kind": "equation",
+            "text": "61.095 - 45.204 = 15.891"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 98.815 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "55.394 + 10.218"
+        },
+        {
+          "id": "l2",
+          "text": "12.979 + 17.203"
+        },
+        {
+          "id": "l3",
+          "text": "95.885 - 79.576"
+        },
+        {
+          "id": "l4",
+          "text": "41.423 - 12.744"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "16.309"
+        },
+        {
+          "id": "r2",
+          "text": "30.182"
+        },
+        {
+          "id": "r3",
+          "text": "31.321"
+        },
+        {
+          "id": "r4",
+          "text": "28.679"
+        },
+        {
+          "id": "r5",
+          "text": "65.612"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "55.394 + 10.218 = 65.612; 12.979 + 17.203 = 30.182; 95.885 - 79.576 = 16.309; 41.423 - 12.744 = 28.679",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "55.394 + 10.218 = 65.612"
+          },
+          {
+            "kind": "equation",
+            "text": "12.979 + 17.203 = 30.182"
+          },
+          {
+            "kind": "equation",
+            "text": "95.885 - 79.576 = 16.309"
+          },
+          {
+            "kind": "equation",
+            "text": "41.423 - 12.744 = 28.679"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tháng Một nhà máy sản xuất được 57.712 chiếc bút, tháng Hai sản xuất được 16.851 chiếc bút. Hỏi cả hai tháng nhà máy sản xuất được bao nhiêu chiếc bút?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai tháng sản xuất được {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 74563,
+            "unit": "chiếc"
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "74.563 chiếc bút",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bút cả hai tháng nhà máy sản xuất được là:",
+                "equation": "57.712 + 16.851 = 74.563 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 74.563 chiếc bút."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "57712",
+              "16851"
+            ],
+            "result": "74563",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "1 cộng 5 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "7 cộng 8 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "7 cộng 6 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "5 cộng 1 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Con đường thứ nhất dài 84.414 m, con đường thứ hai ngắn hơn con đường thứ nhất 52.008 m. Hỏi con đường thứ hai dài bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "32.396 m"
+        },
+        {
+          "id": "b",
+          "text": "32.406 m"
+        },
+        {
+          "id": "c",
+          "text": "32.401 m"
+        },
+        {
+          "id": "d",
+          "text": "136.422 m"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "32.406 m",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Độ dài con đường thứ hai là:",
+                "equation": "84.414 - 52.008 = 32.406 (m)"
+              }
+            ],
+            "answer": "Đáp số: 32.406 m."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "84414",
+              "52008"
+            ],
+            "result": "32406",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "4 không trừ được 8, lấy 14 trừ 8 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "0 thêm 1 bằng 1; 1 trừ 1 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 trừ 0 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "4 trừ 2 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 4,
+                "text": "8 trừ 5 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.on-tap-cac-phep-tinh-pham-vi-100000.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một nhà máy có 2 xưởng, mỗi xưởng làm được 11.685 chiếc bút. Nhà máy còn nhập thêm 7.199 chiếc bút. Hỏi nhà máy có tất cả bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Nhà máy có tất cả {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30569,
+            "unit": "chiếc"
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "30.569 chiếc bút",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số bút các xưởng làm được là:",
+                "equation": "11.685 × 2 = 23.370 (chiếc)"
+              },
+              {
+                "explanation": "Số bút nhà máy có tất cả là:",
+                "equation": "23.370 + 7.199 = 30.569 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 30.569 chiếc bút."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "11685",
+              "2"
+            ],
+            "result": "23370",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 5 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 8 bằng 16, thêm 1 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 6 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 4,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23370",
+              "7199"
+            ],
+            "result": "30569",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 9 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 9 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 7 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

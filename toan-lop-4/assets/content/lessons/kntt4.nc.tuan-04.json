@@ -1,0 +1,861 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-04",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c2",
+  "order": 1,
+  "title": "Nâng cao tuần 4: Góc và đo góc",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Các góc ghép lại thành góc bẹt có tổng số đo 180°, thành góc vuông có tổng 90°.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bể thứ nhất có 24.400 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 4.700 l. Bể thứ ba có ít hơn bể thứ hai 10.700 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số nước ở bể thứ hai là:",
+            "equation": "24.400 + 4.700 = 29.100 (l)"
+          },
+          {
+            "explanation": "Số nước ở bể thứ ba là:",
+            "equation": "29.100 - 10.700 = 18.400 (l)"
+          },
+          {
+            "explanation": "Số nước ở cả ba bể là:",
+            "equation": "24.400 + 29.100 + 18.400 = 71.900 (l)"
+          }
+        ],
+        "answer": "Đáp số: 71.900 l nước."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-04.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số đo với tên góc."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "180°"
+        },
+        {
+          "id": "l2",
+          "text": "120°"
+        },
+        {
+          "id": "l3",
+          "text": "55°"
+        },
+        {
+          "id": "l4",
+          "text": "90°"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "góc vuông"
+        },
+        {
+          "id": "r2",
+          "text": "góc bẹt"
+        },
+        {
+          "id": "r3",
+          "text": "góc nhọn"
+        },
+        {
+          "id": "r4",
+          "text": "góc tù"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "180° → góc bẹt; 120° → góc tù; 55° → góc nhọn; 90° → góc vuông",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "180°: góc bẹt."
+          },
+          {
+            "kind": "text",
+            "text": "120°: góc tù."
+          },
+          {
+            "kind": "text",
+            "text": "55°: góc nhọn."
+          },
+          {
+            "kind": "text",
+            "text": "90°: góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số đo thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Góc nhọn: {{s1}}\nGóc vuông: {{s2}}\nGóc tù: {{s3}}\nGóc bẹt: {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "75°"
+        },
+        {
+          "id": "t2",
+          "text": "45°"
+        },
+        {
+          "id": "t3",
+          "text": "90°"
+        },
+        {
+          "id": "t4",
+          "text": "130°"
+        },
+        {
+          "id": "t5",
+          "text": "180°"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t5"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45°; 90°; 130°; 180°",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "45° < 90° < 130° < 180°."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một góc bẹt được chia thành ba góc. Góc thứ nhất bằng 25°, góc thứ hai gấp 3 lần góc thứ nhất. Hỏi góc thứ ba bằng bao nhiêu độ và là góc gì?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "hinh_hoc.goc_do",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "80°, góc nhọn"
+        },
+        {
+          "id": "b",
+          "text": "90°, góc vuông"
+        },
+        {
+          "id": "c",
+          "text": "100°, góc tù"
+        },
+        {
+          "id": "d",
+          "text": "155°, góc tù"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "80°, góc nhọn",
+        "hint": "Các góc ghép lại thành góc bẹt thì tổng số đo bằng một trăm tám mươi độ; thành góc vuông thì bằng chín mươi độ.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Góc thứ hai bằng:",
+                "equation": "25 × 3 = 75 (°)"
+              },
+              {
+                "explanation": "Góc thứ ba bằng:",
+                "equation": "180 - 25 - 75 = 80 (°)"
+              }
+            ],
+            "answer": "Đáp số: 80°, là góc nhọn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 880 l nước. Thùng to có số nước gấp 3 lần thùng nhỏ. Hỏi thùng to có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thùng to có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 660,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "660 l nước",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nước ở thùng nhỏ là 1 phần thì số nước ở thùng to là 3 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 3 = 4 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số nước ở thùng nhỏ) là:",
+                "equation": "880 : 4 = 220 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng to là:",
+                "equation": "220 × 3 = 660 (l)"
+              }
+            ],
+            "answer": "Đáp số: 660 l nước."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "880",
+            "divisor": "4",
+            "quotient": "220",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.",
+                "partialDividend": 8,
+                "quotientDigit": 2,
+                "product": 8,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 8; 8 chia 4 được 2, viết 2. 2 nhân 4 bằng 8; 8 trừ 8 bằng 0.",
+                "partialDividend": 8,
+                "quotientDigit": 2,
+                "product": 8,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "220",
+              "3"
+            ],
+            "result": "660",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "3 nhân 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn An có nhiều hơn bạn Linh 3.000 nhãn vở. Số nhãn vở của An gấp 6 lần số nhãn vở của Linh. Hỏi bạn Linh có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3.000 nhãn vở"
+        },
+        {
+          "id": "b",
+          "text": "600 nhãn vở"
+        },
+        {
+          "id": "c",
+          "text": "3.600 nhãn vở"
+        },
+        {
+          "id": "d",
+          "text": "500 nhãn vở"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "600 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Linh là 1 phần thì số nhãn vở của An là 6 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "6 - 1 = 5 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Linh là:",
+                "equation": "3.000 : 5 = 600 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 600 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "3000",
+            "divisor": "5",
+            "quotient": "600",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "30 chia 5 được 6, viết 6. 6 nhân 5 bằng 30; 30 trừ 30 bằng 0.",
+                "partialDividend": 30,
+                "quotientDigit": 6,
+                "product": 30,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 5 được 0, viết 0. 0 nhân 5 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 5 được 0, viết 0. 0 nhân 5 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kho thứ nhất có 23.200 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 5.800 kg. Kho thứ ba có ít hơn kho thứ hai 9.900 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "70.300 kg"
+        },
+        {
+          "id": "b",
+          "text": "71.300 kg"
+        },
+        {
+          "id": "c",
+          "text": "52.200 kg"
+        },
+        {
+          "id": "d",
+          "text": "58.000 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "71.300 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "23.200 + 5.800 = 29.000 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "29.000 - 9.900 = 19.100 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "23.200 + 29.000 + 19.100 = 71.300 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 71.300 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23200",
+              "5800"
+            ],
+            "result": "29000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 8 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 5 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "29000",
+              "9900"
+            ],
+            "result": "19100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 không trừ được 9, lấy 10 trừ 9 bằng 1, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 thêm 1 bằng 10; 9 không trừ được 10, lấy 19 trừ 10 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23200",
+              "29000",
+              "19100"
+            ],
+            "result": "71300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 0 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 9 cộng 9 bằng 21, viết 1 nhớ 2.",
+                "write": "1",
+                "carry": 2
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 2 cộng 1 bằng 5, thêm 2 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 20.500 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 9.400 l. Bể thứ ba có ít hơn bể thứ hai 3.700 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 76600,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "76.600 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "20.500 + 9.400 = 29.900 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "29.900 - 3.700 = 26.200 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "20.500 + 29.900 + 26.200 = 76.600 (l)"
+              }
+            ],
+            "answer": "Đáp số: 76.600 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "20500",
+              "9400"
+            ],
+            "result": "29900",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 4 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 9 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "29900",
+              "3700"
+            ],
+            "result": "26200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "9 trừ 7 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "9 trừ 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "20500",
+              "29900",
+              "26200"
+            ],
+            "result": "76600",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 9 cộng 2 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 9 cộng 6 bằng 15, thêm 1 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 2 cộng 2 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-04.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Một góc vuông được chia thành hai góc. Một góc có số đo 45°. Hỏi góc còn lại có số đo bao nhiêu độ?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Góc còn lại bằng {{b1}}°.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 45,
+            "unit": "°",
+            "unitAliases": [
+              "độ"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "45°",
+        "hint": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Góc vuông bằng 90°."
+          },
+          {
+            "kind": "equation",
+            "text": "90 - 45 = 45"
+          },
+          {
+            "kind": "text",
+            "text": "Góc còn lại bằng 45°."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,556 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c2.do-goc-don-vi-do-goc",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c2",
+  "order": 1,
+  "title": "Đo góc, đơn vị đo góc",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Để đo góc ta dùng thước đo góc. Đơn vị đo góc là độ, kí hiệu °. Góc vuông bằng 90°.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Con đặt tâm thước đo góc trùng với đỉnh góc, một cạnh đi qua vạch số không, rồi đọc số đo ở cạnh còn lại nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: góc đỉnh O, cạnh OA, OB có số đo 60°, viết là: góc AOB = 60°."
+      },
+      {
+        "kind": "text",
+        "text": "Đọc số đo theo vòng số bắt đầu từ vạch 0 mà một cạnh của góc đi qua.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Khi đo góc, tâm của thước đo góc đặt trùng với:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "đỉnh của góc"
+        },
+        {
+          "id": "b",
+          "text": "mép bàn"
+        },
+        {
+          "id": "c",
+          "text": "điểm giữa cạnh"
+        },
+        {
+          "id": "d",
+          "text": "một cạnh của góc"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "đỉnh của góc",
+        "hint": "Con đặt tâm thước đo góc trùng với đỉnh góc, một cạnh đi qua vạch số không, rồi đọc số đo ở cạnh còn lại nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con đặt tâm thước đo góc trùng với đỉnh góc, một cạnh đi qua vạch số không, rồi đọc số đo ở cạnh còn lại nhé.",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số đo thích hợp vào chỗ trống."
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Góc vuông bằng {{b1}}°.\nGóc bẹt bằng {{b2}}°.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 90,
+            "unit": "°",
+            "unitAliases": [
+              "độ"
+            ]
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 180,
+            "unit": "°",
+            "unitAliases": [
+              "độ"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "90°; 180°",
+        "hint": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Hình chữ nhật có bao nhiêu góc vuông?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Hình chữ nhật có {{b1}} góc vuông.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hình chữ nhật có 4 góc vuông."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Góc nào lớn nhất?\ngóc A: 160°, góc B: 170°, góc C: 130°, góc D: 30°"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "góc B"
+        },
+        {
+          "id": "b",
+          "text": "góc A"
+        },
+        {
+          "id": "c",
+          "text": "góc C"
+        },
+        {
+          "id": "d",
+          "text": "góc D"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "góc B",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "So sánh các số đo: 30° < 130° < 160° < 170°."
+          },
+          {
+            "kind": "text",
+            "text": "Góc lớn nhất có số đo 170°."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số đo thích hợp vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Góc nhọn: {{s1}}\nGóc vuông: {{s2}}\nGóc tù: {{s3}}\nGóc bẹt: {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "180°"
+        },
+        {
+          "id": "t2",
+          "text": "100°"
+        },
+        {
+          "id": "t3",
+          "text": "75°"
+        },
+        {
+          "id": "t4",
+          "text": "90°"
+        },
+        {
+          "id": "t5",
+          "text": "60°"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t5"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60°; 90°; 100°; 180°",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "60° < 90° < 100° < 180°."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số đo với tên góc."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "25°"
+        },
+        {
+          "id": "l2",
+          "text": "155°"
+        },
+        {
+          "id": "l3",
+          "text": "90°"
+        },
+        {
+          "id": "l4",
+          "text": "180°"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "góc bẹt"
+        },
+        {
+          "id": "r2",
+          "text": "góc tù"
+        },
+        {
+          "id": "r3",
+          "text": "góc vuông"
+        },
+        {
+          "id": "r4",
+          "text": "góc nhọn"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "25° → góc nhọn; 155° → góc tù; 90° → góc vuông; 180° → góc bẹt",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "25°: góc nhọn."
+          },
+          {
+            "kind": "text",
+            "text": "155°: góc tù."
+          },
+          {
+            "kind": "text",
+            "text": "90°: góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "180°: góc bẹt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lúc 10 giờ đúng, kim giờ và kim phút của đồng hồ tạo thành:"
+      },
+      "level": 2,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "góc nhọn"
+        },
+        {
+          "id": "b",
+          "text": "góc vuông"
+        },
+        {
+          "id": "c",
+          "text": "góc bẹt"
+        },
+        {
+          "id": "d",
+          "text": "góc tù"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "góc nhọn",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mỗi khoảng giữa hai số liền nhau trên mặt đồng hồ ứng với góc 30°."
+          },
+          {
+            "kind": "equation",
+            "text": "2 × 30 = 60"
+          },
+          {
+            "kind": "text",
+            "text": "Góc 60° là góc nhọn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Một góc bẹt được chia thành hai góc. Một góc có số đo 95°. Hỏi góc còn lại có số đo bao nhiêu độ?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "template": "Góc còn lại bằng {{b1}}°.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 85,
+            "unit": "°",
+            "unitAliases": [
+              "độ"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "85°",
+        "hint": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Góc bẹt bằng 180°."
+          },
+          {
+            "kind": "equation",
+            "text": "180 - 95 = 85"
+          },
+          {
+            "kind": "text",
+            "text": "Góc còn lại bằng 85°."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c2.do-goc-don-vi-do-goc.p09",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một góc bẹt được chia thành hai góc. Một góc có số đo 50°. Hỏi góc còn lại có số đo bao nhiêu độ?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "50°"
+        },
+        {
+          "id": "b",
+          "text": "230°"
+        },
+        {
+          "id": "c",
+          "text": "140°"
+        },
+        {
+          "id": "d",
+          "text": "130°"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "130°",
+        "hint": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Góc bẹt bằng 180°."
+          },
+          {
+            "kind": "equation",
+            "text": "180 - 50 = 130"
+          },
+          {
+            "kind": "text",
+            "text": "Góc còn lại bằng 130°."
+          }
+        ]
+      }
+    }
+  ]
+}

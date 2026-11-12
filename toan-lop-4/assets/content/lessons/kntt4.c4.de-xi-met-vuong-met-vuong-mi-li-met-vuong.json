@@ -1,0 +1,530 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c4",
+  "order": 2,
+  "title": "Đề-xi-mét vuông, mét vuông, mi-li-mét vuông",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đề-xi-mét vuông (dm²) là diện tích hình vuông cạnh 1 dm; mét vuông (m²) là diện tích hình vuông cạnh 1 m; mi-li-mét vuông (mm²) là diện tích hình vuông cạnh 1 mm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "1 m² = 100 dm²; 1 dm² = 100 cm²; 1 cm² = 100 mm²."
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 5 m² = 500 dm²."
+      },
+      {
+        "kind": "text",
+        "text": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "template": "9 cm² = {{b1}} mm²\n200 dm² = {{b2}} m²",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 900,
+            "unit": "mm²",
+            "unitAliases": [
+              "mi-li-mét vuông",
+              "mm2"
+            ]
+          },
+          "maxLength": 3
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2,
+            "unit": "m²",
+            "unitAliases": [
+              "mét vuông",
+              "m2"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "900 mm²; 2 m²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 cm² = 100 mm²; 1 m² = 100 dm².",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 100 = 900"
+          },
+          {
+            "kind": "equation",
+            "text": "200 : 100 = 2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "9 m² 40 dm² = ? dm²"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "template": "9 m² 40 dm² = {{b1}} dm²",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 940,
+            "unit": "dm²",
+            "unitAliases": [
+              "đề-xi-mét vuông",
+              "dm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "940 dm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 m² = 100 dm².",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "9 × 100 + 40 = 940"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Diện tích mặt một chiếc tem thư khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "6 cm²"
+        },
+        {
+          "id": "b",
+          "text": "6 dm²"
+        },
+        {
+          "id": "c",
+          "text": "6 mm²"
+        },
+        {
+          "id": "d",
+          "text": "6 m²"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 cm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 6 cm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "190 cm² ... 2 dm²"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<"
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": "="
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 2 dm² = 200 cm²."
+          },
+          {
+            "kind": "text",
+            "text": "So sánh: 190 cm² < 200 cm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "8 cm²"
+        },
+        {
+          "id": "l2",
+          "text": "9 cm²"
+        },
+        {
+          "id": "l3",
+          "text": "8 m²"
+        },
+        {
+          "id": "l4",
+          "text": "7 cm²"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "800 mm²"
+        },
+        {
+          "id": "r2",
+          "text": "700 mm²"
+        },
+        {
+          "id": "r3",
+          "text": "800 dm²"
+        },
+        {
+          "id": "r4",
+          "text": "900 mm²"
+        },
+        {
+          "id": "r5",
+          "text": "20 dm²"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8 cm² → 800 mm²; 9 cm² → 900 mm²; 8 m² → 800 dm²; 7 cm² → 700 mm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "8 cm² = 800 mm²"
+          },
+          {
+            "kind": "text",
+            "text": "9 cm² = 900 mm²"
+          },
+          {
+            "kind": "text",
+            "text": "8 m² = 800 dm²"
+          },
+          {
+            "kind": "text",
+            "text": "7 cm² = 700 mm²"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3 m², 207 dm², 2 m², 4 m²."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.dien_tich"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "207 dm²"
+        },
+        {
+          "id": "t2",
+          "text": "4 m²"
+        },
+        {
+          "id": "t3",
+          "text": "3 m²"
+        },
+        {
+          "id": "t4",
+          "text": "2 m²"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 m² < 207 dm² < 3 m² < 4 m²",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về đề-xi-mét vuông: 3 m² = 300 dm², 207 dm² = 207 dm², 2 m² = 200 dm², 4 m² = 400 dm²."
+          },
+          {
+            "kind": "text",
+            "text": "2 m² < 207 dm² < 3 m² < 4 m²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Người ta lát nền một căn phòng bằng 32 viên gạch hình vuông cạnh 20 cm. Hỏi căn phòng có diện tích bao nhiêu đề-xi-mét vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dien_tich",
+        "hinh_hoc.dien_tich"
+      ],
+      "access": "free",
+      "template": "Căn phòng có diện tích {{b1}} dm².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 128,
+            "unit": "dm²",
+            "unitAliases": [
+              "đề-xi-mét vuông",
+              "dm2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "128 dm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích một viên gạch là:",
+                "equation": "20 × 20 = 400 (cm²)"
+              },
+              {
+                "explanation": "Diện tích căn phòng là:",
+                "equation": "400 × 32 = 12.800 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 128 dm²."
+          },
+          {
+            "kind": "text",
+            "text": "Đổi 12.800 cm² = 128 dm²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.de-xi-met-vuong-met-vuong-mi-li-met-vuong.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Người ta lát nền một căn phòng bằng 72 viên gạch hình vuông cạnh 20 cm. Hỏi căn phòng có diện tích bao nhiêu đề-xi-mét vuông?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "do_luong.dien_tich",
+        "hinh_hoc.dien_tich"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "28 dm²"
+        },
+        {
+          "id": "b",
+          "text": "288 dm²"
+        },
+        {
+          "id": "c",
+          "text": "2.880 dm²"
+        },
+        {
+          "id": "d",
+          "text": "388 dm²"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "288 dm²",
+        "hint": "Hai đơn vị đo diện tích liền nhau hơn kém nhau một trăm lần, ví dụ một mét vuông bằng một trăm đề-xi-mét vuông.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Diện tích một viên gạch là:",
+                "equation": "20 × 20 = 400 (cm²)"
+              },
+              {
+                "explanation": "Diện tích căn phòng là:",
+                "equation": "400 × 72 = 28.800 (cm²)"
+              }
+            ],
+            "answer": "Đáp số: 288 dm²."
+          },
+          {
+            "kind": "text",
+            "text": "Đổi 28.800 cm² = 288 dm²."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,670 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c13",
+  "order": 2,
+  "title": "Ôn tập phép tính với số tự nhiên",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập bốn phép tính với số tự nhiên, tính chất của phép tính, biểu thức chứa chữ.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 2.703 × 3 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "multiply",
+        "operands": [
+          "2703",
+          "3"
+        ],
+        "result": "8109",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "3 nhân 3 bằng 9, viết 9.",
+            "write": "9"
+          },
+          {
+            "place": 1,
+            "text": "3 nhân 0 bằng 0, viết 0.",
+            "write": "0"
+          },
+          {
+            "place": 2,
+            "text": "3 nhân 7 bằng 21, viết 1 nhớ 2.",
+            "write": "1",
+            "carry": 2
+          },
+          {
+            "place": 3,
+            "text": "3 nhân 2 bằng 6, thêm 2 bằng 8, viết 8.",
+            "write": "8"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "2.703 × 3 = 8.109"
+      },
+      {
+        "kind": "text",
+        "text": "Nhân, chia trước; cộng, trừ sau.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "3.239.052 + 364.845 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "3.239.052 + 364.845 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3603897
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.603.897",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3239052",
+              "364845"
+            ],
+            "result": "3603897",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 5 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 4 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 8 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 4 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 cộng 6 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 5,
+                "text": "2 cộng 3 bằng 5, thêm 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 6,
+                "text": "Hạ 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "3.239.052 + 364.845 = 3.603.897"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "72 × 15 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.2cs"
+      ],
+      "access": "free",
+      "template": "72 × 15 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1080
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.080",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "72",
+              "15"
+            ],
+            "result": "1080",
+            "partials": [
+              "360",
+              "72"
+            ],
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 2 bằng 10, viết 0 nhớ 1; 5 nhân 7 bằng 35, thêm 1 bằng 36, viết 36. Tích riêng thứ nhất là 360.",
+                "write": "360"
+              },
+              {
+                "place": 1,
+                "text": "1 nhân 72 bằng 72, viết 72. Tích riêng thứ hai là 72, viết lùi sang trái một cột so với tích riêng trên.",
+                "write": "72"
+              },
+              {
+                "place": 0,
+                "text": "Cộng các tích riêng, được 1080.",
+                "write": "1080"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "72 × 15 = 1.080"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "1.769 : 29 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.2cs"
+      ],
+      "access": "free",
+      "template": "1.769 : 29 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 61
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "61",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "1769",
+            "divisor": "29",
+            "quotient": "61",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "176 chia 29 được 6, viết 6. 6 nhân 29 bằng 174; 176 trừ 174 bằng 2.",
+                "partialDividend": 176,
+                "quotientDigit": 6,
+                "product": 174,
+                "remainder": 2
+              },
+              {
+                "text": "Hạ 9, được 29; 29 chia 29 được 1, viết 1. 1 nhân 29 bằng 29; 29 trừ 29 bằng 0.",
+                "partialDividend": 29,
+                "quotientDigit": 1,
+                "product": 29,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "1.769 : 29 = 61"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cách tính thuận tiện nhất cho 25 × 50 × 4 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_nhan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "(25 + 4) × 50"
+        },
+        {
+          "id": "b",
+          "text": "(25 × 50) × 4"
+        },
+        {
+          "id": "c",
+          "text": "(25 × 4) × 50"
+        },
+        {
+          "id": "d",
+          "text": "25 × (50 + 4)"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(25 × 4) × 50",
+        "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "25 × 4 = 100 là số tròn nên nhân trước."
+          },
+          {
+            "kind": "equation",
+            "text": "(25 × 4) × 50 = 5.000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.2cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "91 × 21"
+        },
+        {
+          "id": "l2",
+          "text": "72 × 61"
+        },
+        {
+          "id": "l3",
+          "text": "13 × 93"
+        },
+        {
+          "id": "l4",
+          "text": "69 × 91"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "4.392"
+        },
+        {
+          "id": "r2",
+          "text": "1.209"
+        },
+        {
+          "id": "r3",
+          "text": "6.279"
+        },
+        {
+          "id": "r4",
+          "text": "690"
+        },
+        {
+          "id": "r5",
+          "text": "1.911"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "91 × 21 = 1.911; 72 × 61 = 4.392; 13 × 93 = 1.209; 69 × 91 = 6.279",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "91 × 21 = 1.911"
+          },
+          {
+            "kind": "equation",
+            "text": "72 × 61 = 4.392"
+          },
+          {
+            "kind": "equation",
+            "text": "13 × 93 = 1.209"
+          },
+          {
+            "kind": "equation",
+            "text": "69 × 91 = 6.279"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng của biểu thức vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "template": "a = 64, b = 18: a - b = {{s1}}\na = 56, b = 13: a - b = {{s2}}\na = 54, b = 17: a - b = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "43"
+        },
+        {
+          "id": "t2",
+          "text": "56"
+        },
+        {
+          "id": "t3",
+          "text": "46"
+        },
+        {
+          "id": "t4",
+          "text": "37"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "46; 43; 37",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "64 - 18 = 46"
+          },
+          {
+            "kind": "equation",
+            "text": "56 - 13 = 43"
+          },
+          {
+            "kind": "equation",
+            "text": "54 - 17 = 37"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mẹ đưa Lan 100.000 đồng đi mua đồ dùng học tập. Lan mua 2 quyển vở, mỗi quyển giá 8.000 đồng và 4 chiếc bút, mỗi chiếc giá 12.000 đồng. Hỏi Lan còn lại bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Lan còn lại {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36.000 đồng",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số tiền mua vở là:",
+                "equation": "8.000 × 2 = 16.000 (đồng)"
+              },
+              {
+                "explanation": "Số tiền mua bút là:",
+                "equation": "12.000 × 4 = 48.000 (đồng)"
+              },
+              {
+                "explanation": "Lan còn lại số tiền là:",
+                "equation": "100.000 - 16.000 - 48.000 = 36.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 36.000 đồng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong 4 ngày, một cửa hàng bán được lần lượt 39, 33, 28, 32 kg gạo. Hỏi trung bình mỗi ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "35 kg"
+        },
+        {
+          "id": "b",
+          "text": "33 kg"
+        },
+        {
+          "id": "c",
+          "text": "32 kg"
+        },
+        {
+          "id": "d",
+          "text": "132 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "33 kg",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng là:",
+                "equation": "39 + 33 + 28 + 32 = 132 (kg)"
+              },
+              {
+                "explanation": "Trung bình là:",
+                "equation": "132 : 4 = 33 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 33 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-phep-tinh-voi-so-tu-nhien.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai lớp 4A và 4B trồng được 160 cây. Lớp 4A trồng được nhiều hơn lớp 4B 6 cây. Hỏi mỗi lớp trồng được bao nhiêu cây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Lớp 4A: {{b1}} cây.\nLớp 4B: {{b2}} cây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 83,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 77,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "83 cây; 77 cây",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Lớp 4A trồng được:",
+                "equation": "(160 + 6) : 2 = 83 (cây)"
+              },
+              {
+                "explanation": "Lớp 4B trồng được:",
+                "equation": "160 - 83 = 77 (cây)"
+              }
+            ],
+            "answer": "Đáp số: 83 cây; 77 cây."
+          }
+        ]
+      }
+    }
+  ]
+}

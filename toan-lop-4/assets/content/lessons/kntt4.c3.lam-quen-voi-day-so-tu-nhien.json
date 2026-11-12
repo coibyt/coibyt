@@ -1,0 +1,483 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c3",
+  "order": 6,
+  "title": "Làm quen với dãy số tự nhiên",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Các số 0; 1; 2; 3; … là các số tự nhiên. Xếp các số tự nhiên theo thứ tự từ bé đến lớn ta được dãy số tự nhiên: 0; 1; 2; 3; 4; …",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Số 0 là số tự nhiên bé nhất. Không có số tự nhiên lớn nhất."
+      },
+      {
+        "kind": "text",
+        "text": "Hai số tự nhiên liên tiếp hơn kém nhau 1 đơn vị."
+      },
+      {
+        "kind": "text",
+        "text": "Thêm 1 vào số nào cũng được số tự nhiên liền sau, nên dãy số tự nhiên kéo dài mãi.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hai số tự nhiên liên tiếp hơn kém nhau mấy đơn vị?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "0 đơn vị"
+        },
+        {
+          "id": "b",
+          "text": "10 đơn vị"
+        },
+        {
+          "id": "c",
+          "text": "1 đơn vị"
+        },
+        {
+          "id": "d",
+          "text": "2 đơn vị"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1 đơn vị",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số tự nhiên bé nhất là số nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1"
+        },
+        {
+          "id": "b",
+          "text": "10"
+        },
+        {
+          "id": "c",
+          "text": "Không có"
+        },
+        {
+          "id": "d",
+          "text": "0"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "0",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Tìm số liền trước và số liền sau của số 999.998."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "template": "Số liền trước của 999.998 là {{b1}}.\nSố liền sau của 999.998 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 999997
+          },
+          "maxLength": 7
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 999999
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "999.997; 999.999",
+        "hint": "Số liền sau thì thêm một, số liền trước thì bớt một nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "999.998 - 1 = 999.997"
+          },
+          {
+            "kind": "equation",
+            "text": "999.998 + 1 = 999.999"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Có bao nhiêu số tự nhiên lớn hơn 6.865 và bé hơn 6.875?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "template": "Có {{b1}} số tự nhiên.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số đó là từ 6.866 đến 6.874."
+          },
+          {
+            "kind": "equation",
+            "text": "6.875 - 6.865 - 1 = 9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số thích hợp vào chỗ trống trong dãy số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "template": "1.580; {{s1}}; {{s2}}; 1.610; 1.620; {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1.600"
+        },
+        {
+          "id": "t2",
+          "text": "1.630"
+        },
+        {
+          "id": "t3",
+          "text": "1.591"
+        },
+        {
+          "id": "t4",
+          "text": "1.590"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.590; 1.600; 1.630",
+        "hint": "Con tìm xem hai số đứng liền nhau hơn kém nhau bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số liền nhau hơn kém nhau 10 đơn vị: 1.580; 1.590; 1.600; 1.610; 1.620; 1.630."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với số đúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "so.day_so_tu_nhien",
+        "so.chan_le"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Số lẻ liền sau 916"
+        },
+        {
+          "id": "l2",
+          "text": "Số chẵn liền sau 55"
+        },
+        {
+          "id": "l3",
+          "text": "Số chẵn liền trước 42"
+        },
+        {
+          "id": "l4",
+          "text": "Số lẻ liền sau 310"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "918"
+        },
+        {
+          "id": "r2",
+          "text": "56"
+        },
+        {
+          "id": "r3",
+          "text": "917"
+        },
+        {
+          "id": "r4",
+          "text": "40"
+        },
+        {
+          "id": "r5",
+          "text": "311"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Số lẻ liền sau 916 → 917; Số chẵn liền sau 55 → 56; Số chẵn liền trước 42 → 40; Số lẻ liền sau 310 → 311",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lẻ liền sau 916: 917."
+          },
+          {
+            "kind": "text",
+            "text": "Số chẵn liền sau 55: 56."
+          },
+          {
+            "kind": "text",
+            "text": "Số chẵn liền trước 42: 40."
+          },
+          {
+            "kind": "text",
+            "text": "Số lẻ liền sau 310: 311."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số tự nhiên lớn hơn 68.934 và bé hơn 68.940?"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.day_so_tu_nhien"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "5"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số đó là từ 68.935 đến 68.939."
+          },
+          {
+            "kind": "equation",
+            "text": "68.940 - 68.934 - 1 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-quen-voi-day-so-tu-nhien.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Dãy phố có các nhà mang số chẵn liên tiếp từ số 18 đến số 76. Hỏi dãy phố đó có bao nhiêu nhà?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.day_so_tu_nhien",
+        "so.chan_le"
+      ],
+      "access": "free",
+      "template": "Dãy phố có {{b1}} nhà.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "nhà"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "30 nhà",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số nhà liền nhau hơn kém nhau 2 đơn vị."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nhà của dãy phố là:",
+                "equation": "(76 - 18) : 2 + 1 = 30 (nhà)"
+              }
+            ],
+            "answer": "Đáp số: 30 nhà."
+          }
+        ]
+      }
+    }
+  ]
+}

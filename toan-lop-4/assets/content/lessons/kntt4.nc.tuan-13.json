@@ -1,0 +1,622 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-13",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c5",
+  "order": 2,
+  "title": "Nâng cao tuần 13: Cộng, trừ và tổng – hiệu",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Tìm hai số biết tổng và hiệu: số lớn = (tổng + hiệu) : 2, số bé = (tổng - hiệu) : 2. Có khi đề giấu tổng hoặc hiệu trong câu chữ.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Tuổi bố và tuổi con cộng lại là 48 tuổi. Bố hơn con 30 tuổi. Hỏi bố bao nhiêu tuổi, con bao nhiêu tuổi?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Tuổi bố là:",
+            "equation": "(48 + 30) : 2 = 39 (tuổi)"
+          },
+          {
+            "explanation": "Tuổi con là:",
+            "equation": "48 - 39 = 9 (tuổi)"
+          }
+        ],
+        "answer": "Đáp số: 39 tuổi; 9 tuổi."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-13.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp tổng – hiệu với số lớn tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tong_hieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Tổng 61, hiệu 17"
+        },
+        {
+          "id": "l2",
+          "text": "Tổng 101, hiệu 3"
+        },
+        {
+          "id": "l3",
+          "text": "Tổng 97, hiệu 3"
+        },
+        {
+          "id": "l4",
+          "text": "Tổng 60, hiệu 4"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "39"
+        },
+        {
+          "id": "r2",
+          "text": "52"
+        },
+        {
+          "id": "r3",
+          "text": "50"
+        },
+        {
+          "id": "r4",
+          "text": "32"
+        },
+        {
+          "id": "r5",
+          "text": "44"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tổng 61, hiệu 17 → 39; Tổng 101, hiệu 3 → 52; Tổng 97, hiệu 3 → 50; Tổng 60, hiệu 4 → 32",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tổng 61, hiệu 17: số lớn là (61 + 17) : 2 = 39."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 101, hiệu 3: số lớn là (101 + 3) : 2 = 52."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 97, hiệu 3: số lớn là (97 + 3) : 2 = 50."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 60, hiệu 4: số lớn là (60 + 4) : 2 = 32."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "454 + 7.496 + 46"
+        },
+        {
+          "id": "l2",
+          "text": "945 + 3.515 + 55"
+        },
+        {
+          "id": "l3",
+          "text": "73 + 798 + 27"
+        },
+        {
+          "id": "l4",
+          "text": "304 + 1.211 + 696"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "2.211"
+        },
+        {
+          "id": "r2",
+          "text": "898"
+        },
+        {
+          "id": "r3",
+          "text": "7.996"
+        },
+        {
+          "id": "r4",
+          "text": "8.096"
+        },
+        {
+          "id": "r5",
+          "text": "4.515"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "454 + 7.496 + 46 → 7.996; 945 + 3.515 + 55 → 4.515; 73 + 798 + 27 → 898; 304 + 1.211 + 696 → 2.211",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "454 + 7.496 + 46 = 7.996"
+          },
+          {
+            "kind": "equation",
+            "text": "945 + 3.515 + 55 = 4.515"
+          },
+          {
+            "kind": "equation",
+            "text": "73 + 798 + 27 = 898"
+          },
+          {
+            "kind": "equation",
+            "text": "304 + 1.211 + 696 = 2.211"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p03",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số vào ô trống để được cách tính thuận tiện."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "template": "12 + 258 + 88 = ({{s1}} + {{s2}}) + 258",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "12"
+        },
+        {
+          "id": "t2",
+          "text": "88"
+        },
+        {
+          "id": "t3",
+          "text": "259"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 88",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(12 + 88) + 258 = 358"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền chữ số thích hợp.",
+      "prompt": {
+        "text": "Tìm chữ số thích hợp thay cho mỗi ô trống trong phép tính sau:"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "3.7{{b1}}3 + {{b2}}.645 = 9.{{b3}}48",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 0
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b3",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.703 + 5.645 = 9.348",
+        "hint": "Con xét từng hàng từ hàng đơn vị sang trái, nhớ để ý hàng bên phải có nhớ hay không nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Xét lần lượt từng hàng từ hàng đơn vị (nhớ cộng cả số nhớ), ta tìm được phép tính đúng:"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "3703",
+              "5645"
+            ],
+            "result": "9348",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 cộng 5 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 4 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "7 cộng 6 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 5 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "3.703 + 5.645 = 9.348"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Tổng của hai số là số lớn nhất có ba chữ số, hiệu của chúng là số lớn nhất có ba chữ số mà chữ số hàng trăm là 1. Tìm số lớn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "619"
+        },
+        {
+          "id": "b",
+          "text": "600"
+        },
+        {
+          "id": "c",
+          "text": "400"
+        },
+        {
+          "id": "d",
+          "text": "599"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "599",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng hai số là 999, hiệu hai số là:",
+                "equation": "199 = 199"
+              },
+              {
+                "explanation": "Số lớn là:",
+                "equation": "(999 + 199) : 2 = 599"
+              }
+            ],
+            "answer": "Đáp số: 599."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chu vi 54 m, chiều dài hơn chiều rộng 9 m. Tính diện tích mảnh vườn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "163 m²"
+        },
+        {
+          "id": "b",
+          "text": "162 m²"
+        },
+        {
+          "id": "c",
+          "text": "180 m²"
+        },
+        {
+          "id": "d",
+          "text": "54 m²"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "162 m²",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi là:",
+                "equation": "54 : 2 = 27 (m)"
+              },
+              {
+                "explanation": "Chiều dài là:",
+                "equation": "(27 + 9) : 2 = 18 (m)"
+              },
+              {
+                "explanation": "Chiều rộng là:",
+                "equation": "27 - 18 = 9 (m)"
+              },
+              {
+                "explanation": "Diện tích mảnh vườn là:",
+                "equation": "18 × 9 = 162 (m²)"
+              }
+            ],
+            "answer": "Đáp số: 162 m²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tuổi bố và tuổi con cộng lại là 44 tuổi. Bố hơn con 28 tuổi. Hỏi bố bao nhiêu tuổi, con bao nhiêu tuổi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Bố: {{b1}} tuổi.\nCon: {{b2}} tuổi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 36,
+            "unit": "tuổi"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 8,
+            "unit": "tuổi"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36 tuổi; 8 tuổi",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tuổi bố là:",
+                "equation": "(44 + 28) : 2 = 36 (tuổi)"
+              },
+              {
+                "explanation": "Tuổi con là:",
+                "equation": "44 - 36 = 8 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 36 tuổi; 8 tuổi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-13.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Hiện nay tổng số tuổi của mẹ và con là 44 tuổi, mẹ hơn con 32 tuổi. Hỏi 7 năm nữa con bao nhiêu tuổi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "13 tuổi"
+        },
+        {
+          "id": "b",
+          "text": "45 tuổi"
+        },
+        {
+          "id": "c",
+          "text": "14 tuổi"
+        },
+        {
+          "id": "d",
+          "text": "6 tuổi"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "13 tuổi",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tuổi con hiện nay là:",
+                "equation": "(44 - 32) : 2 = 6 (tuổi)"
+              },
+              {
+                "explanation": "7 năm nữa tuổi con là:",
+                "equation": "6 + 7 = 13 (tuổi)"
+              }
+            ],
+            "answer": "Đáp số: 13 tuổi."
+          }
+        ]
+      }
+    }
+  ]
+}

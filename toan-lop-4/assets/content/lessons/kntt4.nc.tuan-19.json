@@ -1,0 +1,648 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-19",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c7",
+  "order": 2,
+  "title": "Nâng cao tuần 19: Ôn tập học kì 1",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập học kì 1: số lớn, cộng trừ, tổng – hiệu, hình học và đo lường.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Một mảnh vườn hình chữ nhật có chu vi 116 m, chiều dài hơn chiều rộng 10 m. Tính diện tích mảnh vườn."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Nửa chu vi là:",
+            "equation": "116 : 2 = 58 (m)"
+          },
+          {
+            "explanation": "Chiều dài là:",
+            "equation": "(58 + 10) : 2 = 34 (m)"
+          },
+          {
+            "explanation": "Chiều rộng là:",
+            "equation": "58 - 34 = 24 (m)"
+          },
+          {
+            "explanation": "Diện tích mảnh vườn là:",
+            "equation": "34 × 24 = 816 (m²)"
+          }
+        ],
+        "answer": "Đáp số: 816 m²."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-19.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp tổng – hiệu với số lớn tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tong_hieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Tổng 79, hiệu 11"
+        },
+        {
+          "id": "l2",
+          "text": "Tổng 72, hiệu 6"
+        },
+        {
+          "id": "l3",
+          "text": "Tổng 68, hiệu 8"
+        },
+        {
+          "id": "l4",
+          "text": "Tổng 26, hiệu 10"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "50"
+        },
+        {
+          "id": "r2",
+          "text": "38"
+        },
+        {
+          "id": "r3",
+          "text": "45"
+        },
+        {
+          "id": "r4",
+          "text": "18"
+        },
+        {
+          "id": "r5",
+          "text": "39"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tổng 79, hiệu 11 → 45; Tổng 72, hiệu 6 → 39; Tổng 68, hiệu 8 → 38; Tổng 26, hiệu 10 → 18",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tổng 79, hiệu 11: số lớn là (79 + 11) : 2 = 45."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 72, hiệu 6: số lớn là (72 + 6) : 2 = 39."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 68, hiệu 8: số lớn là (68 + 8) : 2 = 38."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 26, hiệu 10: số lớn là (26 + 10) : 2 = 18."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "79 + 711 + 121"
+        },
+        {
+          "id": "l2",
+          "text": "24 + 604 + 176"
+        },
+        {
+          "id": "l3",
+          "text": "115 + 6.133 + 885"
+        },
+        {
+          "id": "l4",
+          "text": "141 + 414 + 59"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "804"
+        },
+        {
+          "id": "r2",
+          "text": "911"
+        },
+        {
+          "id": "r3",
+          "text": "7.133"
+        },
+        {
+          "id": "r4",
+          "text": "614"
+        },
+        {
+          "id": "r5",
+          "text": "1.011"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "79 + 711 + 121 → 911; 24 + 604 + 176 → 804; 115 + 6.133 + 885 → 7.133; 141 + 414 + 59 → 614",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "79 + 711 + 121 = 911"
+          },
+          {
+            "kind": "equation",
+            "text": "24 + 604 + 176 = 804"
+          },
+          {
+            "kind": "equation",
+            "text": "115 + 6.133 + 885 = 7.133"
+          },
+          {
+            "kind": "equation",
+            "text": "141 + 414 + 59 = 614"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p03",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số vào ô trống để được cách tính thuận tiện."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "template": "12 + 804 + 188 = ({{s1}} + {{s2}}) + 804",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "12"
+        },
+        {
+          "id": "t2",
+          "text": "805"
+        },
+        {
+          "id": "t3",
+          "text": "188"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 188",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(12 + 188) + 804 = 1.004"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 13.000 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 9.300 l. Bể thứ ba có ít hơn bể thứ hai 16.100 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 41500,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "41.500 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "13.000 + 9.300 = 22.300 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "22.300 - 16.100 = 6.200 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "13.000 + 22.300 + 6.200 = 41.500 (l)"
+              }
+            ],
+            "answer": "Đáp số: 41.500 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "13000",
+              "9300"
+            ],
+            "result": "22300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 3 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 9 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "13000",
+              "22300",
+              "6200"
+            ],
+            "result": "41500",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "0 cộng 3 cộng 2 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 2 cộng 6 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Cửa hàng có 14 hộp bút, mỗi hộp 16 chiếc. Buổi sáng cửa hàng bán được 5 hộp và thêm 5 chiếc lẻ. Hỏi cửa hàng còn lại bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 139,
+            "unit": "chiếc"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "139 chiếc bút",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cửa hàng có số bút là:",
+                "equation": "16 × 14 = 224 (chiếc)"
+              },
+              {
+                "explanation": "Buổi sáng bán được số bút là:",
+                "equation": "16 × 5 + 5 = 85 (chiếc)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại số bút là:",
+                "equation": "224 - 85 = 139 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 139 chiếc bút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chu vi 92 m, chiều dài hơn chiều rộng 12 m. Tính diện tích mảnh vườn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Diện tích mảnh vườn là {{b1}} m².",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 493,
+            "unit": "m²",
+            "unitAliases": [
+              "mét vuông",
+              "m2"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "493 m²",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi là:",
+                "equation": "92 : 2 = 46 (m)"
+              },
+              {
+                "explanation": "Chiều dài là:",
+                "equation": "(46 + 12) : 2 = 29 (m)"
+              },
+              {
+                "explanation": "Chiều rộng là:",
+                "equation": "46 - 29 = 17 (m)"
+              },
+              {
+                "explanation": "Diện tích mảnh vườn là:",
+                "equation": "29 × 17 = 493 (m²)"
+              }
+            ],
+            "answer": "Đáp số: 493 m²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Trong số 598.486.984, giá trị của chữ số 4 đầu tiên (từ trái) gấp bao nhiêu lần giá trị của chữ số 4 thứ hai?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.hang_lop",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Gấp {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 100000,
+            "unit": "lần"
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100.000 lần",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của chữ số 4 đầu tiên là 400.000, của chữ số 4 thứ hai là 4. Ta có:",
+                "equation": "400.000 : 4 = 100.000"
+              }
+            ],
+            "answer": "Đáp số: 100.000 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-19.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Tổng của hai số là số lớn nhất có ba chữ số, hiệu của chúng là số lớn nhất có ba chữ số mà chữ số hàng trăm là 1. Tìm số lớn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "400"
+        },
+        {
+          "id": "b",
+          "text": "699"
+        },
+        {
+          "id": "c",
+          "text": "600"
+        },
+        {
+          "id": "d",
+          "text": "599"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "599",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng hai số là 999, hiệu hai số là:",
+                "equation": "199 = 199"
+              },
+              {
+                "explanation": "Số lớn là:",
+                "equation": "(999 + 199) : 2 = 599"
+              }
+            ],
+            "answer": "Đáp số: 599."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c9.day-so-lieu-thong-ke",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c9",
+  "order": 1,
+  "title": "Dãy số liệu thống kê",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Dãy số liệu thống kê là các số liệu được ghi lại theo thứ tự, ví dụ chiều cao của các bạn trong tổ: 132, 128, 140, 135 (cm).",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Từ dãy số liệu ta biết: có bao nhiêu số, số thứ mấy là bao nhiêu, số lớn nhất, số bé nhất."
+      },
+      {
+        "kind": "text",
+        "text": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Chiều cao (cm) của các bạn trong tổ 1: 132, 144, 141, 130, 138.\nDãy số liệu có mấy số? Số thứ 3 là số nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "template": "Dãy số liệu có {{b1}} số.\nSố thứ 3 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 141
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 141",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Dãy có 5 số; số thứ 3 là 141."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Cân nặng (kg) của các bạn trong nhóm: 26, 34, 41, 37, 42.\nDãy số liệu có mấy số? Số thứ 3 là số nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "template": "Dãy số liệu có {{b1}} số.\nSố thứ 3 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 41
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 41",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Dãy có 5 số; số thứ 3 là 41."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số cây mỗi lớp trồng được:\n4A: 20, 4B: 43, 4C: 18, 4D: 29, 4E: 53.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4C"
+        },
+        {
+          "id": "b",
+          "text": "4A"
+        },
+        {
+          "id": "c",
+          "text": "4E"
+        },
+        {
+          "id": "d",
+          "text": "4B"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4E",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất trong dãy là 53, của 4E."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số điểm 10 mỗi tổ đạt được trong tháng: 22, 27, 19, 12.\nSố lớn nhất hơn số bé nhất bao nhiêu điểm 10?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "template": "Hơn {{b1}} điểm 10.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 15,
+            "unit": "điểm 10"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "15 điểm 10",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất là 27, số bé nhất là 12."
+          },
+          {
+            "kind": "equation",
+            "text": "27 - 12 = 15"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "template": "(22 + 72 + 62) : {{s1}} = {{s2}} : 3 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "156"
+        },
+        {
+          "id": "t2",
+          "text": "52"
+        },
+        {
+          "id": "t3",
+          "text": "55"
+        },
+        {
+          "id": "t4",
+          "text": "3"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3; 156; 52",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "22 + 72 + 62 = 156"
+          },
+          {
+            "kind": "equation",
+            "text": "156 : 3 = 52"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp số với số trung bình cộng của chúng."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "55 và 35"
+        },
+        {
+          "id": "l2",
+          "text": "35 và 15"
+        },
+        {
+          "id": "l3",
+          "text": "14 và 34"
+        },
+        {
+          "id": "l4",
+          "text": "46 và 52"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "49"
+        },
+        {
+          "id": "r2",
+          "text": "45"
+        },
+        {
+          "id": "r3",
+          "text": "47"
+        },
+        {
+          "id": "r4",
+          "text": "25"
+        },
+        {
+          "id": "r5",
+          "text": "24"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "55 và 35 → 45; 35 và 15 → 25; 14 và 34 → 24; 46 và 52 → 49",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "(55 + 35) : 2 = 45."
+          },
+          {
+            "kind": "text",
+            "text": "(35 + 15) : 2 = 25."
+          },
+          {
+            "kind": "text",
+            "text": "(14 + 34) : 2 = 24."
+          },
+          {
+            "kind": "text",
+            "text": "(46 + 52) : 2 = 49."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số cây mỗi lớp trồng được: 20, 43, 60, 34, 56.\nSố lớn nhất hơn số bé nhất bao nhiêu cây?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "50 cây"
+        },
+        {
+          "id": "b",
+          "text": "80 cây"
+        },
+        {
+          "id": "c",
+          "text": "41 cây"
+        },
+        {
+          "id": "d",
+          "text": "40 cây"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "40 cây",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất là 60, số bé nhất là 20."
+          },
+          {
+            "kind": "equation",
+            "text": "60 - 20 = 40"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.day-so-lieu-thong-ke.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Chiều cao của 4 bạn lần lượt là 130, 131, 137, 134 cm. Hỏi trung bình mỗi bạn cao bao nhiêu xăng-ti-mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trung bình mỗi bạn cao {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 133,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "133 cm",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng là:",
+                "equation": "130 + 131 + 137 + 134 = 532 (cm)"
+              },
+              {
+                "explanation": "Trung bình là:",
+                "equation": "532 : 4 = 133 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 133 cm."
+          }
+        ]
+      }
+    }
+  ]
+}

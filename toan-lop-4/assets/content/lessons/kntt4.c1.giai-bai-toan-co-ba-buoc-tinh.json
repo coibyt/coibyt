@@ -1,0 +1,623 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c1",
+  "order": 5,
+  "title": "Giải bài toán có ba bước tính",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Giải bài toán có ba bước tính: đọc kỹ đề, tìm cái đã cho và cái phải tìm; lần lượt tính các số trung gian rồi mới tính kết quả.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Mua 3 quyển vở giá 8.000 đồng mỗi quyển và 2 bút giá 5.000 đồng mỗi chiếc, đưa 50.000 đồng."
+      },
+      {
+        "kind": "equation",
+        "text": "8.000 × 3 = 24.000"
+      },
+      {
+        "kind": "equation",
+        "text": "5.000 × 2 = 10.000"
+      },
+      {
+        "kind": "equation",
+        "text": "50.000 - 24.000 - 10.000 = 16.000"
+      },
+      {
+        "kind": "text",
+        "text": "Viết câu lời giải cho từng bước, cuối cùng ghi đáp số.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính giá trị của biểu thức.",
+      "prompt": {
+        "text": "279 + 60 × 4 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "279 + 60 × 4 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 519
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "519",
+        "hint": "Biểu thức có cộng, trừ, nhân, chia thì con làm nhân, chia trước; cộng, trừ sau nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "279 + 60 × 4 = 279 + 240 = 519"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trong buổi chào cờ, khối lớp Bốn xếp thành 8 hàng, mỗi hàng 7 bạn. Trong đó có 30 bạn nam. Hỏi số bạn nam nhiều hơn nữ bao nhiêu bạn?"
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Số bạn nam nhiều hơn nữ {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4 bạn",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Khối lớp Bốn có số bạn là:",
+                "equation": "7 × 8 = 56 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nữ là:",
+                "equation": "56 - 30 = 26 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nam nhiều hơn nữ là:",
+                "equation": "30 - 26 = 4 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 4 bạn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 152 kg gạo, kho thứ hai có nhiều hơn kho thứ nhất 149 kg gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 2,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai kho có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 453,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "453 kg gạo",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo ở kho thứ hai là:",
+                "equation": "152 + 149 = 301 (kg)"
+              },
+              {
+                "explanation": "Số gạo ở cả hai kho là:",
+                "equation": "152 + 301 = 453 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 453 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "152",
+              "149"
+            ],
+            "result": "301",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 9 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 4 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "152",
+              "301"
+            ],
+            "result": "453",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "5 cộng 0 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 3 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối biểu thức với giá trị.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "(16 + 58) : 2"
+        },
+        {
+          "id": "l2",
+          "text": "443 - (183 + 128)"
+        },
+        {
+          "id": "l3",
+          "text": "502 - (155 + 12)"
+        },
+        {
+          "id": "l4",
+          "text": "(114 - 66) × 6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "37"
+        },
+        {
+          "id": "r2",
+          "text": "335"
+        },
+        {
+          "id": "r3",
+          "text": "288"
+        },
+        {
+          "id": "r4",
+          "text": "132"
+        },
+        {
+          "id": "r5",
+          "text": "45"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "(16 + 58) : 2 = 37; 443 - (183 + 128) = 132; 502 - (155 + 12) = 335; (114 - 66) × 6 = 288",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(16 + 58) : 2 = 74 : 2 = 37"
+          },
+          {
+            "kind": "equation",
+            "text": "443 - (183 + 128) = 443 - 311 = 132"
+          },
+          {
+            "kind": "equation",
+            "text": "502 - (155 + 12) = 502 - 167 = 335"
+          },
+          {
+            "kind": "equation",
+            "text": "(114 - 66) × 6 = 48 × 6 = 288"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo giá trị đúng vào sau mỗi biểu thức."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "template": "421 - 15 × 8 = {{s1}}\n60 × 7 - 178 = {{s2}}\n153 + 15 × 9 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3.248"
+        },
+        {
+          "id": "t2",
+          "text": "288"
+        },
+        {
+          "id": "t3",
+          "text": "242"
+        },
+        {
+          "id": "t4",
+          "text": "301"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "301; 242; 288",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "421 - 15 × 8 = 421 - 120 = 301"
+          },
+          {
+            "kind": "equation",
+            "text": "60 × 7 - 178 = 420 - 178 = 242"
+          },
+          {
+            "kind": "equation",
+            "text": "153 + 15 × 9 = 153 + 135 = 288"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức (70 + 47) × 3 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "351"
+        },
+        {
+          "id": "b",
+          "text": "341"
+        },
+        {
+          "id": "c",
+          "text": "361"
+        },
+        {
+          "id": "d",
+          "text": "211"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "351",
+        "hint": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(70 + 47) × 3 = 117 × 3 = 351"
+          },
+          {
+            "kind": "text",
+            "text": "Biểu thức có dấu ngoặc thì con tính trong ngoặc trước nhé.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Cửa hàng có 12 hộp bút, mỗi hộp 24 chiếc. Buổi sáng cửa hàng bán được 4 hộp và thêm 10 chiếc lẻ. Hỏi cửa hàng còn lại bao nhiêu chiếc bút?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cửa hàng còn lại {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 182,
+            "unit": "chiếc"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "182 chiếc bút",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cửa hàng có số bút là:",
+                "equation": "24 × 12 = 288 (chiếc)"
+              },
+              {
+                "explanation": "Buổi sáng bán được số bút là:",
+                "equation": "24 × 4 + 10 = 106 (chiếc)"
+              },
+              {
+                "explanation": "Cửa hàng còn lại số bút là:",
+                "equation": "288 - 106 = 182 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 182 chiếc bút."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong buổi chào cờ, khối lớp Bốn xếp thành 7 hàng, mỗi hàng 7 bạn. Trong đó có 10 bạn nam. Hỏi số bạn nữ nhiều hơn nam bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "29 bạn"
+        },
+        {
+          "id": "b",
+          "text": "19 bạn"
+        },
+        {
+          "id": "c",
+          "text": "39 bạn"
+        },
+        {
+          "id": "d",
+          "text": "129 bạn"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "29 bạn",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Khối lớp Bốn có số bạn là:",
+                "equation": "7 × 7 = 49 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nữ là:",
+                "equation": "49 - 10 = 39 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nữ nhiều hơn nam là:",
+                "equation": "39 - 10 = 29 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 29 bạn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.giai-bai-toan-co-ba-buoc-tinh.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trong buổi chào cờ, khối lớp Bốn xếp thành 6 hàng, mỗi hàng 11 bạn. Trong đó có 18 bạn nam. Hỏi số bạn nữ nhiều hơn nam bao nhiêu bạn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Số bạn nữ nhiều hơn nam {{b1}} bạn.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 30,
+            "unit": "bạn"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "30 bạn",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Khối lớp Bốn có số bạn là:",
+                "equation": "11 × 6 = 66 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nữ là:",
+                "equation": "66 - 18 = 48 (bạn)"
+              },
+              {
+                "explanation": "Số bạn nữ nhiều hơn nam là:",
+                "equation": "48 - 18 = 30 (bạn)"
+              }
+            ],
+            "answer": "Đáp số: 30 bạn."
+          }
+        ]
+      }
+    }
+  ]
+}

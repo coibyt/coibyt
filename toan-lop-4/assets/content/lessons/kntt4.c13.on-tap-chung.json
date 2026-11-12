@@ -1,0 +1,653 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c13.on-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c13",
+  "order": 7,
+  "title": "Ôn tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập chung cả năm.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 4.116 : 7 = ?"
+      },
+      {
+        "kind": "long_division",
+        "dividend": "4116",
+        "divisor": "7",
+        "quotient": "588",
+        "remainder": 0,
+        "digitSteps": [
+          {
+            "text": "41 chia 7 được 5, viết 5. 5 nhân 7 bằng 35; 41 trừ 35 bằng 6.",
+            "partialDividend": 41,
+            "quotientDigit": 5,
+            "product": 35,
+            "remainder": 6
+          },
+          {
+            "text": "Hạ 1, được 61; 61 chia 7 được 8, viết 8. 8 nhân 7 bằng 56; 61 trừ 56 bằng 5.",
+            "partialDividend": 61,
+            "quotientDigit": 8,
+            "product": 56,
+            "remainder": 5
+          },
+          {
+            "text": "Hạ 6, được 56; 56 chia 7 được 8, viết 8. 8 nhân 7 bằng 56; 56 trừ 56 bằng 0.",
+            "partialDividend": 56,
+            "quotientDigit": 8,
+            "product": 56,
+            "remainder": 0
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "4.116 : 7 = 588"
+      },
+      {
+        "kind": "text",
+        "text": "Đọc kỹ đề, làm cẩn thận, kiểm tra lại kết quả.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c13.on-tap-chung.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "823.558.857 ... 883.558.857"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<"
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": "="
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số có cùng 9 chữ số. So sánh từ hàng cao nhất, đến hàng chục triệu có 2 < 8. Vậy 823.558.857 < 883.558.857."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "77 × 32 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.2cs"
+      ],
+      "access": "free",
+      "template": "77 × 32 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2464
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.464",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "77",
+              "32"
+            ],
+            "result": "2464",
+            "partials": [
+              "154",
+              "231"
+            ],
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 7 bằng 14, viết 4 nhớ 1; 2 nhân 7 bằng 14, thêm 1 bằng 15, viết 15. Tích riêng thứ nhất là 154.",
+                "write": "154"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 7 bằng 21, viết 1 nhớ 2; 3 nhân 7 bằng 21, thêm 2 bằng 23, viết 23. Tích riêng thứ hai là 231, viết lùi sang trái một cột so với tích riêng trên.",
+                "write": "231"
+              },
+              {
+                "place": 0,
+                "text": "Cộng các tích riêng, được 2464.",
+                "write": "2464"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "77 × 32 = 2.464"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Rút gọn phân số.",
+      "prompt": {
+        "text": "Rút gọn phân số 5/40 thành phân số tối giản."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "template": "5/40 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/8",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5/40 = 1/8"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 5."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với kết quả (đã rút gọn)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cong",
+        "phan_so.nhan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "7/8 × 1/2"
+        },
+        {
+          "id": "l2",
+          "text": "3/7 + 1/7"
+        },
+        {
+          "id": "l3",
+          "text": "1/8 + 3/8"
+        },
+        {
+          "id": "l4",
+          "text": "3/4 × 1/8"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "135/272"
+        },
+        {
+          "id": "r2",
+          "text": "1/2"
+        },
+        {
+          "id": "r3",
+          "text": "7/16"
+        },
+        {
+          "id": "r4",
+          "text": "3/32"
+        },
+        {
+          "id": "r5",
+          "text": "4/7"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7/8 × 1/2 → 7/16; 3/7 + 1/7 → 4/7; 1/8 + 3/8 → 1/2; 3/4 × 1/8 → 3/32",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "7/8 × 1/2 = 7/16"
+          },
+          {
+            "kind": "equation",
+            "text": "3/7 + 1/7 = 4/7"
+          },
+          {
+            "kind": "equation",
+            "text": "1/8 + 3/8 = 1/2"
+          },
+          {
+            "kind": "equation",
+            "text": "3/4 × 1/8 = 3/32"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "template": "(77 + 65 + 50) : {{s1}} = {{s2}} : 3 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "3"
+        },
+        {
+          "id": "t2",
+          "text": "192"
+        },
+        {
+          "id": "t3",
+          "text": "64"
+        },
+        {
+          "id": "t4",
+          "text": "67"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3; 192; 64",
+        "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "77 + 65 + 50 = 192"
+          },
+          {
+            "kind": "equation",
+            "text": "192 : 3 = 64"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p06",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số đo với tên góc."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "60°"
+        },
+        {
+          "id": "l2",
+          "text": "90°"
+        },
+        {
+          "id": "l3",
+          "text": "115°"
+        },
+        {
+          "id": "l4",
+          "text": "180°"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "góc bẹt"
+        },
+        {
+          "id": "r2",
+          "text": "góc tù"
+        },
+        {
+          "id": "r3",
+          "text": "góc nhọn"
+        },
+        {
+          "id": "r4",
+          "text": "góc vuông"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60° → góc nhọn; 90° → góc vuông; 115° → góc tù; 180° → góc bẹt",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "60°: góc nhọn."
+          },
+          {
+            "kind": "text",
+            "text": "90°: góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "115°: góc tù."
+          },
+          {
+            "kind": "text",
+            "text": "180°: góc bẹt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một thửa ruộng thu hoạch được 5.560 kg thóc gồm thóc nếp và thóc tẻ. Số thóc tẻ nhiều hơn thóc nếp 420 kg. Hỏi mỗi loại có bao nhiêu ki-lô-gam?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Thóc tẻ: {{b1}} kg.\nThóc nếp: {{b2}} kg.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2990,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2570,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.990 kg; 2.570 kg",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc tẻ là:",
+                "equation": "(5.560 + 420) : 2 = 2.990 (kg)"
+              },
+              {
+                "explanation": "Số thóc nếp là:",
+                "equation": "5.560 - 2.990 = 2.570 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 2.990 kg; 2.570 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Lớp 4A có 42 học sinh, trong đó 3/6 số học sinh thích đọc truyện tranh. Hỏi lớp 4A có bao nhiêu học sinh thích đọc truyện tranh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7 học sinh"
+        },
+        {
+          "id": "b",
+          "text": "21 học sinh"
+        },
+        {
+          "id": "c",
+          "text": "22 học sinh"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "21 học sinh",
+        "hint": "Muốn tìm phân số của một số, ta lấy số đó nhân với phân số đã cho.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số học sinh thích đọc truyện tranh là:",
+                "equation": "42 × 3/6 = 21 (học sinh)"
+              }
+            ],
+            "answer": "Đáp số: 21 học sinh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c13.on-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mua 7 quyển vở hết 42.000 đồng. Hỏi mua 2 quyển vở như thế hết bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mua 2 quyển vở hết {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 12000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "12.000 đồng",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá tiền một quyển vở là:",
+                "equation": "42.000 : 7 = 6.000 (đồng)"
+              },
+              {
+                "explanation": "Số cần tìm (2 quyển) là:",
+                "equation": "6.000 × 2 = 12.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 12.000 đồng."
+          }
+        ]
+      }
+    }
+  ]
+}

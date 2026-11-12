@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.tuan-17",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c6",
+    "kntt4.c7"
+  ],
+  "title": "Kiểm tra cuối tuần 17",
+  "description": "Ôn lại bài của tuần: Luyện tập chung; Ôn tập các số đến lớp triệu.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-17.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Hai đường thẳng vuông góc với nhau tạo thành mấy góc vuông?"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.vuong_goc_song_song"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "4 góc vuông"
+              },
+              {
+                "id": "b",
+                "text": "1 góc vuông"
+              },
+              {
+                "id": "c",
+                "text": "2 góc vuông"
+              },
+              {
+                "id": "d",
+                "text": "3 góc vuông"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4 góc vuông",
+              "hint": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai đường thẳng vuông góc tạo thành bốn góc vuông chung đỉnh; con dùng ê ke để kiểm tra nhé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Đáp án: 4 góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-17.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số nào dưới đây là số chẵn?"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "so.chan_le"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "2.585"
+              },
+              {
+                "id": "b",
+                "text": "385"
+              },
+              {
+                "id": "c",
+                "text": "205"
+              },
+              {
+                "id": "d",
+                "text": "256"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "256",
+              "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "256 có chữ số tận cùng là 6 nên là số chẵn."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-17.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "8.916.762 ... 8.914.762"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "="
+              },
+              {
+                "id": "b",
+                "text": "<"
+              },
+              {
+                "id": "c",
+                "text": ">"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": ">",
+              "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai số có cùng 7 chữ số. So sánh từ hàng cao nhất, đến hàng nghìn có 6 > 4. Vậy 8.916.762 > 8.914.762."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-17.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Số 6.590.048 gồm các lớp nào? Viết số ở mỗi lớp."
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "so.hang_lop"
+            ],
+            "access": "free",
+            "template": "lớp triệu: {{b1}}\nlớp nghìn: {{b2}}\nlớp đơn vị: {{b3}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 6
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 590
+                },
+                "maxLength": 3
+              },
+              {
+                "id": "b3",
+                "answer": {
+                  "kind": "number",
+                  "value": 48
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "lớp triệu: 6; lớp nghìn: 590; lớp đơn vị: 048",
+              "hint": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Con tách số thành từng nhóm ba chữ số từ phải sang trái: lớp đơn vị, lớp nghìn, lớp triệu nhé.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "6.590.048: lớp triệu gồm các chữ số 6; lớp nghìn gồm các chữ số 590; lớp đơn vị gồm các chữ số 048."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-17.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "Hình thoi MNPQ có cạnh MN = 12 cm. Tính chu vi hình thoi đó."
+            },
+            "level": 1,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "hinh_hoc.binh_hanh_thoi",
+              "hinh_hoc.chu_vi"
+            ],
+            "access": "free",
+            "template": "Chu vi là {{b1}} cm.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 48,
+                  "unit": "cm",
+                  "unitAliases": [
+                    "xăng-ti-mét"
+                  ]
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "48 cm",
+              "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hình thoi có bốn cạnh bằng nhau."
+                },
+                {
+                  "kind": "equation",
+                  "text": "12 × 4 = 48"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

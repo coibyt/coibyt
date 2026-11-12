@@ -1,0 +1,846 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 1,
+  "title": "Nhân với số có một chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đặt tính rồi nhân thừa số có một chữ số lần lượt với từng chữ số của thừa số kia, từ phải sang trái.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 14.507 × 6 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "multiply",
+        "operands": [
+          "14507",
+          "6"
+        ],
+        "result": "87042",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "6 nhân 7 bằng 42, viết 2 nhớ 4.",
+            "write": "2",
+            "carry": 4
+          },
+          {
+            "place": 1,
+            "text": "6 nhân 0 bằng 0, thêm 4 bằng 4, viết 4.",
+            "write": "4"
+          },
+          {
+            "place": 2,
+            "text": "6 nhân 5 bằng 30, viết 0 nhớ 3.",
+            "write": "0",
+            "carry": 3
+          },
+          {
+            "place": 3,
+            "text": "6 nhân 4 bằng 24, thêm 3 bằng 27, viết 7 nhớ 2.",
+            "write": "7",
+            "carry": 2
+          },
+          {
+            "place": 4,
+            "text": "6 nhân 1 bằng 6, thêm 2 bằng 8, viết 8.",
+            "write": "8"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "14.507 × 6 = 87.042"
+      },
+      {
+        "kind": "text",
+        "text": "Nhân xong mỗi hàng, đừng quên cộng thêm số nhớ của lượt trước.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "40.140 × 2 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "40.140 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 80280
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "80.280",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "40140",
+              "2"
+            ],
+            "result": "80280",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 4,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "40.140 × 2 = 80.280"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "16.387 × 6 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "16.387 × 6 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 98322
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "98.322",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "16387",
+              "6"
+            ],
+            "result": "98322",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 nhân 7 bằng 42, viết 2 nhớ 4.",
+                "write": "2",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "6 nhân 8 bằng 48, thêm 4 bằng 52, viết 2 nhớ 5.",
+                "write": "2",
+                "carry": 5
+              },
+              {
+                "place": 2,
+                "text": "6 nhân 3 bằng 18, thêm 5 bằng 23, viết 3 nhớ 2.",
+                "write": "3",
+                "carry": 2
+              },
+              {
+                "place": 3,
+                "text": "6 nhân 6 bằng 36, thêm 2 bằng 38, viết 8 nhớ 3.",
+                "write": "8",
+                "carry": 3
+              },
+              {
+                "place": 4,
+                "text": "6 nhân 1 bằng 6, thêm 3 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "16.387 × 6 = 98.322"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 404.173 × 2 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "808.346"
+        },
+        {
+          "id": "b",
+          "text": "808.356"
+        },
+        {
+          "id": "c",
+          "text": "808.348"
+        },
+        {
+          "id": "d",
+          "text": "808.246"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "808.346",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "404173",
+              "2"
+            ],
+            "result": "808346",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 7 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 4,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 5,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "404.173 × 2 = 808.346"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "13.010 × 3 = {{s1}}\n21.701 × 3 = {{s2}}\n11.799 × 5 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "39.030"
+        },
+        {
+          "id": "t2",
+          "text": "58.995"
+        },
+        {
+          "id": "t3",
+          "text": "39.033"
+        },
+        {
+          "id": "t4",
+          "text": "65.103"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "39.030; 65.103; 58.995",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "13.010 × 3 = 39.030"
+          },
+          {
+            "kind": "equation",
+            "text": "21.701 × 3 = 65.103"
+          },
+          {
+            "kind": "equation",
+            "text": "11.799 × 5 = 58.995"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 39.033 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "12.023 × 3"
+        },
+        {
+          "id": "l2",
+          "text": "27.393 × 3"
+        },
+        {
+          "id": "l3",
+          "text": "29.598 × 2"
+        },
+        {
+          "id": "l4",
+          "text": "13.192 × 7"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "59.196"
+        },
+        {
+          "id": "r2",
+          "text": "92.344"
+        },
+        {
+          "id": "r3",
+          "text": "71.734"
+        },
+        {
+          "id": "r4",
+          "text": "82.179"
+        },
+        {
+          "id": "r5",
+          "text": "36.069"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12.023 × 3 = 36.069; 27.393 × 3 = 82.179; 29.598 × 2 = 59.196; 13.192 × 7 = 92.344",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "12.023 × 3 = 36.069"
+          },
+          {
+            "kind": "equation",
+            "text": "27.393 × 3 = 82.179"
+          },
+          {
+            "kind": "equation",
+            "text": "29.598 × 2 = 59.196"
+          },
+          {
+            "kind": "equation",
+            "text": "13.192 × 7 = 92.344"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mỗi ngày một nhà máy may được 23.131 chiếc áo. Hỏi trong 2 ngày nhà máy đó may được bao nhiêu chiếc áo?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong 2 ngày nhà máy may được {{b1}} chiếc áo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 46262,
+            "unit": "chiếc"
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "46.262 chiếc áo",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số áo nhà máy may được trong 2 ngày là:",
+                "equation": "23.131 × 2 = 46.262 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 46.262 chiếc áo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "23131",
+              "2"
+            ],
+            "result": "46262",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 1 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Phép tính nào có kết quả lớn nhất?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "18.152 × 4"
+        },
+        {
+          "id": "b",
+          "text": "12.006 × 7"
+        },
+        {
+          "id": "c",
+          "text": "30.912 × 3"
+        },
+        {
+          "id": "d",
+          "text": "33.289 × 2"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30.912 × 3 (bằng 92.736)",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tính kết quả từng phép tính:"
+          },
+          {
+            "kind": "equation",
+            "text": "18.152 × 4 = 72.608"
+          },
+          {
+            "kind": "equation",
+            "text": "30.912 × 3 = 92.736"
+          },
+          {
+            "kind": "equation",
+            "text": "12.006 × 7 = 84.042"
+          },
+          {
+            "kind": "equation",
+            "text": "33.289 × 2 = 66.578"
+          },
+          {
+            "kind": "text",
+            "text": "Số lớn nhất là 92.736. Vậy phép tính 30.912 × 3 có kết quả lớn nhất."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Mỗi xe tải chở 1.032 kg xi măng. Hỏi 9 xe tải như thế chở được bao nhiêu ki-lô-gam xi măng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "nhan.1cs",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "9.283 kg"
+        },
+        {
+          "id": "b",
+          "text": "10.320 kg"
+        },
+        {
+          "id": "c",
+          "text": "1.041 kg"
+        },
+        {
+          "id": "d",
+          "text": "9.288 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9.288 kg xi măng",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số xi măng 9 xe tải chở được là:",
+                "equation": "1.032 × 9 = 9.288 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 9.288 kg xi măng."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "1032",
+              "9"
+            ],
+            "result": "9288",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "9 nhân 2 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 nhân 3 bằng 27, thêm 1 bằng 28, viết 8 nhớ 2.",
+                "write": "8",
+                "carry": 2
+              },
+              {
+                "place": 2,
+                "text": "9 nhân 0 bằng 0, thêm 2 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "9 nhân 1 bằng 9, viết 9.",
+                "write": "9"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.nhan-voi-so-co-mot-chu-so.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một kho có 93.691 kg thóc. Người ta đã chở đi 5 xe, mỗi xe chở 9.778 kg thóc. Hỏi trong kho còn lại bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "nhan.1cs",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Trong kho còn lại {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 44801,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "44.801 kg thóc",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc đã chở đi là:",
+                "equation": "9.778 × 5 = 48.890 (kg)"
+              },
+              {
+                "explanation": "Số thóc còn lại trong kho là:",
+                "equation": "93.691 - 48.890 = 44.801 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 44.801 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "9778",
+              "5"
+            ],
+            "result": "48890",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 nhân 8 bằng 40, viết 0 nhớ 4.",
+                "write": "0",
+                "carry": 4
+              },
+              {
+                "place": 1,
+                "text": "5 nhân 7 bằng 35, thêm 4 bằng 39, viết 9 nhớ 3.",
+                "write": "9",
+                "carry": 3
+              },
+              {
+                "place": 2,
+                "text": "5 nhân 7 bằng 35, thêm 3 bằng 38, viết 8 nhớ 3.",
+                "write": "8",
+                "carry": 3
+              },
+              {
+                "place": 3,
+                "text": "5 nhân 9 bằng 45, thêm 3 bằng 48, viết 48.",
+                "write": "48"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "93691",
+              "48890"
+            ],
+            "result": "44801",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 trừ 0 bằng 1, viết 1.",
+                "write": "1"
+              },
+              {
+                "place": 1,
+                "text": "9 trừ 9 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 không trừ được 8, lấy 16 trừ 8 bằng 8, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "8 thêm 1 bằng 9; 3 không trừ được 9, lấy 13 trừ 9 bằng 4, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "4 thêm 1 bằng 5; 9 trừ 5 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

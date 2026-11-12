@@ -1,0 +1,772 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-05",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c2",
+  "order": 2,
+  "title": "Nâng cao tuần 5: Góc và đo góc · Số có nhiều chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Giá trị của một chữ số phụ thuộc vào hàng của nó: cùng là chữ số 5 nhưng ở hàng triệu thì có giá trị 5.000.000.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Hai kho có tất cả 1.680 kg gạo. Số gạo ở kho thứ hai gấp 5 lần số gạo ở kho thứ nhất. Hỏi kho thứ hai có bao nhiêu ki-lô-gam gạo?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Coi số gạo ở kho thứ nhất là 1 phần thì số gạo ở kho thứ hai là 5 phần như thế. Tổng số phần bằng nhau là:",
+            "equation": "1 + 5 = 6 (phần)"
+          },
+          {
+            "explanation": "Giá trị của một phần (số gạo ở kho thứ nhất) là:",
+            "equation": "1.680 : 6 = 280 (kg)"
+          },
+          {
+            "explanation": "Số gạo ở kho thứ hai là:",
+            "equation": "280 × 5 = 1.400 (kg)"
+          }
+        ],
+        "answer": "Đáp số: 1.400 kg gạo."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-05.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 67.562.450, 67.567.410, 67.067.411, 64.567.410."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "67.562.450"
+        },
+        {
+          "id": "t2",
+          "text": "64.567.410"
+        },
+        {
+          "id": "t3",
+          "text": "67.567.410"
+        },
+        {
+          "id": "t4",
+          "text": "67.067.411"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "64.567.410 < 67.067.411 < 67.562.450 < 67.567.410",
+        "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Ta có: 64.567.410 < 67.067.411 < 67.562.450 < 67.567.410."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số đo với tên góc."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "hinh_hoc.goc_do"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "180°"
+        },
+        {
+          "id": "l2",
+          "text": "155°"
+        },
+        {
+          "id": "l3",
+          "text": "90°"
+        },
+        {
+          "id": "l4",
+          "text": "70°"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "góc bẹt"
+        },
+        {
+          "id": "r2",
+          "text": "góc tù"
+        },
+        {
+          "id": "r3",
+          "text": "góc nhọn"
+        },
+        {
+          "id": "r4",
+          "text": "góc vuông"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "180° → góc bẹt; 155° → góc tù; 90° → góc vuông; 70° → góc nhọn",
+        "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "180°: góc bẹt."
+          },
+          {
+            "kind": "text",
+            "text": "155°: góc tù."
+          },
+          {
+            "kind": "text",
+            "text": "90°: góc vuông."
+          },
+          {
+            "kind": "text",
+            "text": "70°: góc nhọn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai bạn Hoa và Hùng có tất cả 4.520 viên bi. Số bi của Hùng gấp 3 lần số bi của Hoa. Hỏi Hùng có bao nhiêu viên bi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Hùng có {{b1}} viên bi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3390,
+            "unit": "viên"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.390 viên bi",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số bi của Hoa là 1 phần thì số bi của Hùng là 3 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 3 = 4 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số bi của Hoa) là:",
+                "equation": "4.520 : 4 = 1.130 (viên)"
+              },
+              {
+                "explanation": "Số bi của Hùng là:",
+                "equation": "1.130 × 3 = 3.390 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 3.390 viên bi."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "4520",
+            "divisor": "4",
+            "quotient": "1130",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 5; 5 chia 4 được 1, viết 1. 1 nhân 4 bằng 4; 5 trừ 4 bằng 1.",
+                "partialDividend": 5,
+                "quotientDigit": 1,
+                "product": 4,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 4 được 3, viết 3. 3 nhân 4 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 3,
+                "product": 12,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "1130",
+              "3"
+            ],
+            "result": "3390",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "3 nhân 3 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "3 nhân 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "3 nhân 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 22.200 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 11.700 l. Bể thứ ba có ít hơn bể thứ hai 7.600 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 82400,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "82.400 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "22.200 + 11.700 = 33.900 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "33.900 - 7.600 = 26.300 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "22.200 + 33.900 + 26.300 = 82.400 (l)"
+              }
+            ],
+            "answer": "Đáp số: 82.400 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "22200",
+              "11700"
+            ],
+            "result": "33900",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 7 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "33900",
+              "7600"
+            ],
+            "result": "26300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "9 trừ 6 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "3 không trừ được 7, lấy 13 trừ 7 bằng 6, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "22200",
+              "33900",
+              "26300"
+            ],
+            "result": "82400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 9 cộng 3 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 3 cộng 6 bằng 11, thêm 1 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 3 cộng 2 bằng 7, thêm 1 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số tự nhiên lớn hơn 4.061 và bé hơn 4.067?"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.day_so_tu_nhien",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "7"
+        },
+        {
+          "id": "c",
+          "text": "6"
+        },
+        {
+          "id": "d",
+          "text": "4"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số đó là từ 4.062 đến 4.066."
+          },
+          {
+            "kind": "equation",
+            "text": "4.067 - 4.061 - 1 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một góc bẹt được chia thành ba góc. Góc thứ nhất bằng 30°, góc thứ hai gấp 3 lần góc thứ nhất. Hỏi góc thứ ba bằng bao nhiêu độ và là góc gì?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "hinh_hoc.goc_do",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Góc thứ ba bằng {{b1}}°.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 60,
+            "unit": "°",
+            "unitAliases": [
+              "độ"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "60° (góc nhọn)",
+        "hint": "Các góc ghép lại thành góc bẹt thì tổng số đo bằng một trăm tám mươi độ; thành góc vuông thì bằng chín mươi độ.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Góc thứ hai bằng:",
+                "equation": "30 × 3 = 90 (°)"
+              },
+              {
+                "explanation": "Góc thứ ba bằng:",
+                "equation": "180 - 30 - 90 = 60 (°)"
+              }
+            ],
+            "answer": "Đáp số: 60°, là góc nhọn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Từ các chữ số 6, 2, 0, 8, 1, 5, 3, hãy lập số lớn nhất và số bé nhất có 7 chữ số khác nhau."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.lop_trieu",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Số lớn nhất là {{b1}}.\nSố bé nhất là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8653210
+          },
+          "maxLength": 9
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 1023568
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.653.210; 1.023.568",
+        "hint": "Số lớn nhất có chữ số lớn đứng ở hàng cao; chữ số không thì không được đứng đầu.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất: chọn 7 chữ số lớn nhất, xếp từ lớn đến bé → 8.653.210."
+          },
+          {
+            "kind": "text",
+            "text": "Số bé nhất: chữ số đầu là chữ số bé nhất khác 0, các hàng sau xếp các chữ số bé nhất còn lại từ bé đến lớn → 1.023.568."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-05.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 4.920 l nước. Thùng to có số nước gấp 2 lần thùng nhỏ. Hỏi thùng to có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thùng to có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3280,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "3.280 l nước",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nước ở thùng nhỏ là 1 phần thì số nước ở thùng to là 2 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 2 = 3 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số nước ở thùng nhỏ) là:",
+                "equation": "4.920 : 3 = 1.640 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng to là:",
+                "equation": "1.640 × 2 = 3.280 (l)"
+              }
+            ],
+            "answer": "Đáp số: 3.280 l nước."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "4920",
+            "divisor": "3",
+            "quotient": "1640",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "4 chia 3 được 1, viết 1. 1 nhân 3 bằng 3; 4 trừ 3 bằng 1.",
+                "partialDividend": 4,
+                "quotientDigit": 1,
+                "product": 3,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 9, được 19; 19 chia 3 được 6, viết 6. 6 nhân 3 bằng 18; 19 trừ 18 bằng 1.",
+                "partialDividend": 19,
+                "quotientDigit": 6,
+                "product": 18,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 3 được 4, viết 4. 4 nhân 3 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 4,
+                "product": 12,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 3 được 0, viết 0. 0 nhân 3 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "1640",
+              "2"
+            ],
+            "result": "3280",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 4 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 6 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

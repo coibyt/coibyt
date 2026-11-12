@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- Được thay bằng giá trị của `flutter build web --base-href /duong-dan/` -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Ong Vàng Toán 4 – học Toán lớp 4 cùng cô Mai: bài giảng có giọng nói, luyện tập, gameshow, trò chơi ôn tập.">
+  <meta name="theme-color" content="#2B1470">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Ong Vàng Toán 4">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="preload" as="image" href="splash/logo.webp">
+
+  <title>Ong Vàng Toán 4</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    html, body { margin: 0; height: 100%; background: #2B1470; }
+    #splash {
+      position: fixed; inset: 0; overflow: hidden; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+      font: 700 18px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #fff;
+      background: radial-gradient(circle at 50% 42%, #6B3FD6 0%, #3B1E8C 45%, #1A0B4A 100%);
+      transition: opacity .45s ease;
+    }
+    #splash::before {
+      content: ""; position: absolute; inset: 0; background: url(splash/bg.webp) center/cover no-repeat;
+      opacity: .55; mix-blend-mode: screen;
+    }
+    #splash > * { position: relative; }
+    .logo { width: min(52vw, 230px); filter: drop-shadow(0 10px 30px rgba(255, 201, 60, .55)); animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-12px) rotate(1.5deg); } }
+    .glow { position: absolute; width: 320px; height: 320px; top: calc(50% - 250px); border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 214, 107, .45), rgba(255, 214, 107, 0) 70%); animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(.9); opacity: .7; } 50% { transform: scale(1.08); opacity: 1; } }
+    .title { font-size: clamp(30px, 9vw, 44px); font-weight: 900; letter-spacing: .5px; margin-top: 4px;
+      background: linear-gradient(180deg, #FFF6CC 0%, #FFC93C 55%, #FF9F1C 100%); -webkit-background-clip: text; background-clip: text; color: transparent;
+      text-shadow: 0 4px 18px rgba(255, 159, 28, .35); }
+    .sub { font-size: 16px; font-weight: 600; color: #E9E2FF; margin-top: -6px; }
+    .bar { width: min(64vw, 260px); height: 10px; border-radius: 6px; background: rgba(255, 255, 255, .18); overflow: hidden; margin-top: 14px;
+      box-shadow: inset 0 0 0 1px rgba(255, 214, 107, .4); }
+    .bar i { display: block; width: 45%; height: 100%; border-radius: 6px;
+      background: linear-gradient(90deg, #FFE08A, #FFC93C, #FF9F1C); animation: slide 1.3s ease-in-out infinite; }
+    @keyframes slide { from { transform: translateX(-110%); } to { transform: translateX(240%); } }
+    .tip { min-height: 44px; max-width: 300px; text-align: center; font-size: 15px; font-weight: 600; color: #FFE9A8; padding: 0 16px; transition: opacity .4s; }
+    .spark { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #FFE08A; box-shadow: 0 0 10px #FFC93C; animation: rise linear infinite; opacity: 0; }
+    @keyframes rise { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(-70vh) scale(1.1); opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .logo, .glow, .bar i, .spark { animation: none; } }
+  </style>
+</head>
+<body>
+  <div id="splash" role="status" aria-label="Đang mở Ong Vàng Toán 4">
+    <div class="glow"></div>
+    <img class="logo" src="splash/logo.webp" alt="Ong Vàng Toán 4">
+    <div class="title">Ong Vàng Toán 4</div>
+    <div class="sub">Lớp học Toán cùng cô Mai</div>
+    <div class="bar"><i></i></div>
+    <div class="tip" id="tip">Đang mở lớp học…</div>
+  </div>
+  <script>
+    (function () {
+      // Đốm sáng bay lên.
+      var s = document.getElementById('splash');
+      for (var i = 0; i < 18; i++) {
+        var d = document.createElement('div'); d.className = 'spark';
+        d.style.left = (Math.random() * 100) + '%'; d.style.bottom = (-5 - Math.random() * 10) + '%';
+        d.style.animationDuration = (4 + Math.random() * 5) + 's'; d.style.animationDelay = (Math.random() * 5) + 's';
+        s.appendChild(d);
+      }
+      // Mẹo học xoay vòng trong lúc chờ.
+      var tips = [
+        'Mẹo: Đổi chỗ hai thừa số thì tích không đổi!',
+        'Bí quyết: Đọc đề hai lần trước khi làm nhé.',
+        'Mẹo: Số dư luôn bé hơn số chia.',
+        'Học mỗi ngày một chút để giữ ngọn lửa chuỗi ngày!',
+        'Thử Đấu trường Ngôi sao Toán học để biết năng lực của con!'
+      ];
+      var k = 0, el = document.getElementById('tip');
+      var timer = setInterval(function () {
+        el.style.opacity = 0;
+        setTimeout(function () { el.textContent = tips[k++ % tips.length]; el.style.opacity = 1; }, 400);
+      }, 2600);
+      // Ẩn màn chờ khi Flutter vẽ khung hình đầu tiên.
+      window.addEventListener('flutter-first-frame', function () {
+        clearInterval(timer);
+        s.style.opacity = '0'; setTimeout(function () { s.remove(); }, 500);
+      });
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

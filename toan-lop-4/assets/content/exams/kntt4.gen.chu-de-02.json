@@ -1,0 +1,651 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-02",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c2"
+  ],
+  "title": "Kiểm tra chủ đề 2",
+  "description": "Góc và đơn vị đo góc.",
+  "examType": "kt_1_tiet",
+  "term": 1,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc có số đo 110° là:"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc tù"
+              },
+              {
+                "id": "b",
+                "text": "góc nhọn"
+              },
+              {
+                "id": "c",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "d",
+                "text": "góc vuông"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc tù",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "110° là góc tù."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc có số đo 90° là:"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc nhọn"
+              },
+              {
+                "id": "b",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "c",
+                "text": "góc tù"
+              },
+              {
+                "id": "d",
+                "text": "góc vuông"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc vuông",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "90° là góc vuông."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc nào lớn nhất?\ngóc A: 145°, góc B: 85°, góc C: 95°, góc D: 105°"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc D"
+              },
+              {
+                "id": "b",
+                "text": "góc A"
+              },
+              {
+                "id": "c",
+                "text": "góc C"
+              },
+              {
+                "id": "d",
+                "text": "góc B"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc A",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh các số đo: 85° < 95° < 105° < 145°."
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc lớn nhất có số đo 145°."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi số đo với tên góc."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "25°"
+              },
+              {
+                "id": "l2",
+                "text": "155°"
+              },
+              {
+                "id": "l3",
+                "text": "90°"
+              },
+              {
+                "id": "l4",
+                "text": "180°"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "r2",
+                "text": "góc tù"
+              },
+              {
+                "id": "r3",
+                "text": "góc vuông"
+              },
+              {
+                "id": "r4",
+                "text": "góc nhọn"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r2"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r1"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "25° → góc nhọn; 155° → góc tù; 90° → góc vuông; 180° → góc bẹt",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "25°: góc nhọn."
+                },
+                {
+                  "kind": "text",
+                  "text": "155°: góc tù."
+                },
+                {
+                  "kind": "text",
+                  "text": "90°: góc vuông."
+                },
+                {
+                  "kind": "text",
+                  "text": "180°: góc bẹt."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Lúc 10 giờ đúng, kim giờ và kim phút của đồng hồ tạo thành:"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc nhọn"
+              },
+              {
+                "id": "b",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "c",
+                "text": "góc vuông"
+              },
+              {
+                "id": "d",
+                "text": "góc tù"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc nhọn",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mỗi khoảng giữa hai số liền nhau trên mặt đồng hồ ứng với góc 30°."
+                },
+                {
+                  "kind": "equation",
+                  "text": "2 × 30 = 60"
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc 60° là góc nhọn."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc nào lớn nhất?\ngóc A: 160°, góc B: 170°, góc C: 130°, góc D: 30°"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc B"
+              },
+              {
+                "id": "b",
+                "text": "góc A"
+              },
+              {
+                "id": "c",
+                "text": "góc C"
+              },
+              {
+                "id": "d",
+                "text": "góc D"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc B",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh các số đo: 30° < 130° < 160° < 170°."
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc lớn nhất có số đo 170°."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q07",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Góc nào lớn nhất?\ngóc A: 20°, góc B: 90°, góc C: 50°, góc D: 45°"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc A"
+              },
+              {
+                "id": "b",
+                "text": "góc B"
+              },
+              {
+                "id": "c",
+                "text": "góc D"
+              },
+              {
+                "id": "d",
+                "text": "góc C"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc B",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh các số đo: 20° < 45° < 50° < 90°."
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc lớn nhất có số đo 90°."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q08",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Lúc 1 giờ đúng, kim giờ và kim phút của đồng hồ tạo thành:"
+            },
+            "level": 2,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "góc vuông"
+              },
+              {
+                "id": "b",
+                "text": "góc tù"
+              },
+              {
+                "id": "c",
+                "text": "góc bẹt"
+              },
+              {
+                "id": "d",
+                "text": "góc nhọn"
+              }
+            ],
+            "correctChoiceIds": [
+              "d"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "góc nhọn",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mỗi khoảng giữa hai số liền nhau trên mặt đồng hồ ứng với góc 30°."
+                },
+                {
+                  "kind": "equation",
+                  "text": "1 × 30 = 30"
+                },
+                {
+                  "kind": "text",
+                  "text": "Góc 30° là góc nhọn."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Viết số đo thích hợp vào chỗ trống."
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "template": "Góc vuông bằng {{b1}}°.\nGóc bẹt bằng {{b2}}°.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 90,
+                  "unit": "°",
+                  "unitAliases": [
+                    "độ"
+                  ]
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 180,
+                  "unit": "°",
+                  "unitAliases": [
+                    "độ"
+                  ]
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "90°; 180°",
+              "hint": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Nhớ nhé: góc vuông bằng chín mươi độ, góc bẹt bằng một trăm tám mươi độ.",
+                  "style": "rule"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-02.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số đo thích hợp vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "hinh_hoc.goc_do"
+            ],
+            "access": "free",
+            "template": "Góc nhọn: {{s1}}\nGóc vuông: {{s2}}\nGóc tù: {{s3}}\nGóc bẹt: {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "180°"
+              },
+              {
+                "id": "t2",
+                "text": "100°"
+              },
+              {
+                "id": "t3",
+                "text": "75°"
+              },
+              {
+                "id": "t4",
+                "text": "90°"
+              },
+              {
+                "id": "t5",
+                "text": "60°"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t5"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "60°; 90°; 100°; 180°",
+              "hint": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Góc nhọn bé hơn góc vuông; góc tù lớn hơn góc vuông nhưng bé hơn góc bẹt.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "60° < 90° < 100° < 180°."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

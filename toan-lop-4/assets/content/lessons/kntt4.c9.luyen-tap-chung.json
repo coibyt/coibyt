@@ -1,0 +1,470 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c9.luyen-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c9",
+  "order": 4,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: dãy số liệu, biểu đồ cột, số lần xuất hiện của một sự kiện.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Số cây mỗi lớp trồng được: 40, 43, 48, 54, 59.\nDãy số liệu có mấy số? Số thứ 4 là số nào?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "template": "Dãy số liệu có {{b1}} số.\nSố thứ 4 là {{b2}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 54
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 54",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Dãy có 5 số; số thứ 4 là 54."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số cây các tổ trồng được”. Tổ 3 có bao nhiêu cây?",
+        "image": {
+          "src": "assets/charts/c9-ltc-0f439c.webp",
+          "alt": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 50 cây, Tổ 2: 40 cây, Tổ 3: 45 cây, Tổ 4: 20 cây.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "template": "Tổ 3: {{b1}} cây.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 45,
+            "unit": "cây"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45 cây",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 50 cây, Tổ 2: 40 cây, Tổ 3: 45 cây, Tổ 4: 20 cây."
+          },
+          {
+            "kind": "text",
+            "text": "Cột Tổ 3 cao đến số 45."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Nam tung một đồng xu 40 lần, thấy mặt sấp xuất hiện 14 lần. Hỏi mặt ngửa xuất hiện bao nhiêu lần?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Mặt ngửa xuất hiện {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 26,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "26 lần",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "40 - 14 = 26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số học sinh thích mỗi môn thể thao”. Nối mỗi cột với số liệu của nó.",
+        "image": {
+          "src": "assets/charts/c9-ltc-9dbe73.webp",
+          "alt": "Biểu đồ cột “Số học sinh thích mỗi môn thể thao”: Bóng đá: 15 bạn, Bơi: 45 bạn, Cầu lông: 60 bạn, Cờ vua: 35 bạn.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Bóng đá"
+        },
+        {
+          "id": "l2",
+          "text": "Bơi"
+        },
+        {
+          "id": "l3",
+          "text": "Cầu lông"
+        },
+        {
+          "id": "l4",
+          "text": "Cờ vua"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "60 bạn"
+        },
+        {
+          "id": "r2",
+          "text": "5 bạn"
+        },
+        {
+          "id": "r3",
+          "text": "15 bạn"
+        },
+        {
+          "id": "r4",
+          "text": "45 bạn"
+        },
+        {
+          "id": "r5",
+          "text": "35 bạn"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Bóng đá → 15 bạn; Bơi → 45 bạn; Cầu lông → 60 bạn; Cờ vua → 35 bạn",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số học sinh thích mỗi môn thể thao”: Bóng đá: 15 bạn, Bơi: 45 bạn, Cầu lông: 60 bạn, Cờ vua: 35 bạn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Gieo xúc xắc 35 lần, kết quả: mặt 6 chấm xuất hiện 4 lần, mặt 4 chấm xuất hiện 6 lần, mặt 3 chấm xuất hiện 11 lần. Kéo số lần vào đúng chỗ."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Mặt 6 chấm: {{s1}} lần\nMặt 4 chấm: {{s2}} lần\nMặt 3 chấm: {{s3}} lần",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "11"
+        },
+        {
+          "id": "t2",
+          "text": "4"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "6"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t1"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4; 6; 11",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mặt 6 chấm: 4 lần."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt 4 chấm: 6 lần."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt 3 chấm: 11 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chiều cao (cm) của các bạn trong tổ 1:\nAn: 133, Bình: 134, Chi: 148, Dũng: 140, Hà: 139.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Dũng"
+        },
+        {
+          "id": "b",
+          "text": "Chi"
+        },
+        {
+          "id": "c",
+          "text": "An"
+        },
+        {
+          "id": "d",
+          "text": "Bình"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Chi",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất trong dãy là 148, của Chi."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Quan sát biểu đồ cột “Số lượt mượn sách mỗi ngày”. Tất cả có bao nhiêu lượt?",
+        "image": {
+          "src": "assets/charts/c9-ltc-ed3499.webp",
+          "alt": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 50 lượt, Thứ Ba: 45 lượt, Thứ Tư: 15 lượt, Thứ Năm: 25 lượt, Thứ Sáu: 10 lượt.",
+          "aspectRatio": 1.6
+        }
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "thong_ke.bieu_do_cot"
+      ],
+      "access": "free",
+      "template": "Tất cả có {{b1}} lượt.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 145,
+            "unit": "lượt"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "145 lượt",
+        "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 50 lượt, Thứ Ba: 45 lượt, Thứ Tư: 15 lượt, Thứ Năm: 25 lượt, Thứ Sáu: 10 lượt."
+          },
+          {
+            "kind": "equation",
+            "text": "50 + 45 + 15 + 25 + 10 = 145"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c9.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một vòng quay có ba ô: Gấu, Thỏ, Mèo. Quay 20 lần, kim dừng ở ô Gấu 6 lần, ô Thỏ 5 lần. Hỏi kim dừng ở ô Mèo bao nhiêu lần?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "14 lần"
+        },
+        {
+          "id": "b",
+          "text": "10 lần"
+        },
+        {
+          "id": "c",
+          "text": "11 lần"
+        },
+        {
+          "id": "d",
+          "text": "9 lần"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "9 lần",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số lần kim dừng ở ô Mèo là:",
+                "equation": "20 - 6 - 5 = 9 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 9 lần."
+          }
+        ]
+      }
+    }
+  ]
+}

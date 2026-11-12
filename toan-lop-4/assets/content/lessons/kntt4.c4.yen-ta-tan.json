@@ -1,0 +1,521 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c4.yen-ta-tan",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c4",
+  "order": 1,
+  "title": "Yến, tạ, tấn",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Để đo khối lượng các vật nặng hàng chục, hàng trăm, hàng nghìn ki-lô-gam, người ta dùng yến, tạ, tấn: 1 yến = 10 kg; 1 tạ = 100 kg; 1 tấn = 1.000 kg.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "1 tạ = 10 yến; 1 tấn = 10 tạ."
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 3 tạ = 300 kg."
+      },
+      {
+        "kind": "text",
+        "text": "Mẹo: yến – mười, tạ – trăm, tấn – nghìn (ki-lô-gam).",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c4.yen-ta-tan.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Viết số thích hợp vào chỗ trống:"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "template": "7 tấn = {{b1}} tạ\n70 kg = {{b2}} yến",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 70,
+            "unit": "tạ"
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7,
+            "unit": "yến"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "70 tạ; 7 yến",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 tấn = 10 tạ; 1 yến = 10 kg.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "7 × 10 = 70"
+          },
+          {
+            "kind": "equation",
+            "text": "70 : 10 = 7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "4 tạ 30 kg = ? kg"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "template": "4 tạ 30 kg = {{b1}} kg",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 430,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "430 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 tạ = 100 kg.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "4 × 100 + 30 = 430"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn số đo phù hợp.",
+      "prompt": {
+        "text": "Một xe tải chở được khoảng:"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3 g hàng"
+        },
+        {
+          "id": "b",
+          "text": "3 yến hàng"
+        },
+        {
+          "id": "c",
+          "text": "3 tấn hàng"
+        },
+        {
+          "id": "d",
+          "text": "3 kg hàng"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 tấn hàng",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số đo phù hợp là 3 tấn hàng."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "4 tấn ... 4.000 kg"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "=",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 4 tấn = 4.000 kg."
+          },
+          {
+            "kind": "text",
+            "text": "So sánh: 4.000 kg = 4.000 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối hai số đo bằng nhau.",
+      "prompt": {
+        "text": "Nối mỗi số đo bên trái với số đo bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "9 yến"
+        },
+        {
+          "id": "l2",
+          "text": "2 tấn"
+        },
+        {
+          "id": "l3",
+          "text": "5 tạ"
+        },
+        {
+          "id": "l4",
+          "text": "9 tấn"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "9.000 kg"
+        },
+        {
+          "id": "r2",
+          "text": "2 kg"
+        },
+        {
+          "id": "r3",
+          "text": "50 yến"
+        },
+        {
+          "id": "r4",
+          "text": "20 tạ"
+        },
+        {
+          "id": "r5",
+          "text": "90 kg"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "9 yến → 90 kg; 2 tấn → 20 tạ; 5 tạ → 50 yến; 9 tấn → 9.000 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "9 yến = 90 kg"
+          },
+          {
+            "kind": "text",
+            "text": "2 tấn = 20 tạ"
+          },
+          {
+            "kind": "text",
+            "text": "5 tạ = 50 yến"
+          },
+          {
+            "kind": "text",
+            "text": "9 tấn = 9.000 kg"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số đo vào ô trống theo thứ tự từ bé đến lớn: 3 tạ, 54 kg, 336 kg, 123 kg."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "do_luong.yen_ta_tan"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "54 kg"
+        },
+        {
+          "id": "t2",
+          "text": "3 tạ"
+        },
+        {
+          "id": "t3",
+          "text": "123 kg"
+        },
+        {
+          "id": "t4",
+          "text": "336 kg"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "54 kg < 123 kg < 3 tạ < 336 kg",
+        "hint": "Con đổi về cùng một đơn vị đo rồi mới tính hoặc so sánh nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi về ki-lô-gam: 3 tạ = 300 kg, 54 kg = 54 kg, 336 kg = 336 kg, 123 kg = 123 kg."
+          },
+          {
+            "kind": "text",
+            "text": "54 kg < 123 kg < 3 tạ < 336 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một xe tải chở được 4 tấn hàng. Trên xe đã có 28 bao gạo, mỗi bao nặng 50 kg. Hỏi xe còn chở thêm được bao nhiêu ki-lô-gam hàng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.yen_ta_tan",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Xe còn chở thêm được {{b1}} kg hàng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2600,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2.600 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi 4 tấn = 4.000 kg."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo đã có trên xe là:",
+                "equation": "50 × 28 = 1.400 (kg)"
+              },
+              {
+                "explanation": "Xe còn chở thêm được là:",
+                "equation": "4.000 - 1.400 = 2.600 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 2.600 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c4.yen-ta-tan.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bác Ba thu hoạch được 5 yến cam và 8 yến bưởi. Hỏi bác Ba thu hoạch được tất cả bao nhiêu ki-lô-gam cam và bưởi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "do_luong.yen_ta_tan",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "130 kg"
+        },
+        {
+          "id": "b",
+          "text": "230 kg"
+        },
+        {
+          "id": "c",
+          "text": "120 kg"
+        },
+        {
+          "id": "d",
+          "text": "1.300 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "130 kg",
+        "hint": "Nhớ nhé: một yến bằng mười ki-lô-gam, một tạ bằng một trăm ki-lô-gam, một tấn bằng một nghìn ki-lô-gam.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "1 yến = 10 kg.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5 + 8 = 13"
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Bác Ba thu hoạch được là:",
+                "equation": "13 × 10 = 130 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 130 kg."
+          }
+        ]
+      }
+    }
+  ]
+}

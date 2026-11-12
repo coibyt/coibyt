@@ -1,0 +1,717 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-07",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c3",
+  "order": 2,
+  "title": "Nâng cao tuần 7: Số có nhiều chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Giá trị của một chữ số phụ thuộc vào hàng của nó: cùng là chữ số 5 nhưng ở hàng triệu thì có giá trị 5.000.000.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bể thứ nhất có 20.200 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 10.000 l. Bể thứ ba có ít hơn bể thứ hai 4.400 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số nước ở bể thứ hai là:",
+            "equation": "20.200 + 10.000 = 30.200 (l)"
+          },
+          {
+            "explanation": "Số nước ở bể thứ ba là:",
+            "equation": "30.200 - 4.400 = 25.800 (l)"
+          },
+          {
+            "explanation": "Số nước ở cả ba bể là:",
+            "equation": "20.200 + 30.200 + 25.800 = 76.200 (l)"
+          }
+        ],
+        "answer": "Đáp số: 76.200 l nước."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-07.p01",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số với số làm tròn của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "8.751.131 (làm tròn đến hàng trăm nghìn)"
+        },
+        {
+          "id": "l2",
+          "text": "2.468.715 (làm tròn đến hàng chục nghìn)"
+        },
+        {
+          "id": "l3",
+          "text": "7.109.720 (làm tròn đến hàng chục nghìn)"
+        },
+        {
+          "id": "l4",
+          "text": "8.578.547 (làm tròn đến hàng chục nghìn)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "8.580.000"
+        },
+        {
+          "id": "r2",
+          "text": "8.800.000"
+        },
+        {
+          "id": "r3",
+          "text": "7.110.000"
+        },
+        {
+          "id": "r4",
+          "text": "8.700.000"
+        },
+        {
+          "id": "r5",
+          "text": "2.470.000"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8.751.131 (làm tròn đến hàng trăm nghìn) → 8.800.000; 2.468.715 (làm tròn đến hàng chục nghìn) → 2.470.000; 7.109.720 (làm tròn đến hàng chục nghìn) → 7.110.000; 8.578.547 (làm tròn đến hàng chục nghìn) → 8.580.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Làm tròn 8.751.131 đến hàng trăm nghìn được 8.800.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 2.468.715 đến hàng chục nghìn được 2.470.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 7.109.720 đến hàng chục nghìn được 7.110.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 8.578.547 đến hàng chục nghìn được 8.580.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p02",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Kéo các số vào ô trống theo thứ tự từ bé đến lớn: 47.285.712, 47.285.212, 41.885.212, 47.295.212."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "41.885.212"
+        },
+        {
+          "id": "t2",
+          "text": "47.285.712"
+        },
+        {
+          "id": "t3",
+          "text": "47.295.212"
+        },
+        {
+          "id": "t4",
+          "text": "47.285.212"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "41.885.212 < 47.285.212 < 47.285.712 < 47.295.212",
+        "hint": "Con so sánh các số rồi xếp lần lượt từ bé đến lớn nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Ta có: 41.885.212 < 47.285.212 < 47.285.712 < 47.295.212."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Trong số 257.367.272, giá trị của chữ số 2 đầu tiên (từ trái) gấp bao nhiêu lần giá trị của chữ số 2 thứ hai?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.hang_lop",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Gấp {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1000000,
+            "unit": "lần"
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.000.000 lần",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của chữ số 2 đầu tiên là 200.000.000, của chữ số 2 thứ hai là 200. Ta có:",
+                "equation": "200.000.000 : 200 = 1.000.000"
+              }
+            ],
+            "answer": "Đáp số: 1.000.000 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bể thứ nhất có 10.600 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 3.500 l. Bể thứ ba có ít hơn bể thứ hai 8.100 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "28.200 l"
+        },
+        {
+          "id": "b",
+          "text": "30.700 l"
+        },
+        {
+          "id": "c",
+          "text": "24.700 l"
+        },
+        {
+          "id": "d",
+          "text": "38.800 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "30.700 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "10.600 + 3.500 = 14.100 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "14.100 - 8.100 = 6.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "10.600 + 14.100 + 6.000 = 30.700 (l)"
+              }
+            ],
+            "answer": "Đáp số: 30.700 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10600",
+              "3500"
+            ],
+            "result": "14100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 5 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 3 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "10600",
+              "14100",
+              "6000"
+            ],
+            "result": "30700",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 1 cộng 0 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 3,
+                "text": "0 cộng 4 cộng 6 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong số 930.329.494, giá trị của chữ số 4 đầu tiên (từ trái) gấp bao nhiêu lần giá trị của chữ số 4 thứ hai?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.hang_lop",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "10 lần"
+        },
+        {
+          "id": "b",
+          "text": "1.000 lần"
+        },
+        {
+          "id": "c",
+          "text": "2 lần"
+        },
+        {
+          "id": "d",
+          "text": "100 lần"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100 lần",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của chữ số 4 đầu tiên là 400, của chữ số 4 thứ hai là 4. Ta có:",
+                "equation": "400 : 4 = 100"
+              }
+            ],
+            "answer": "Đáp số: 100 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có bao nhiêu số tự nhiên lớn hơn 81.577 và bé hơn 81.582?"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "so.day_so_tu_nhien",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5"
+        },
+        {
+          "id": "b",
+          "text": "6"
+        },
+        {
+          "id": "c",
+          "text": "4"
+        },
+        {
+          "id": "d",
+          "text": "3"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4",
+        "hint": "Trong dãy số tự nhiên, hai số liền nhau hơn kém nhau một đơn vị; số không là số tự nhiên bé nhất.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các số đó là từ 81.578 đến 81.581."
+          },
+          {
+            "kind": "equation",
+            "text": "81.582 - 81.577 - 1 = 4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Hoa có nhiều hơn bạn Bình 1.320 nhãn vở. Số nhãn vở của Hoa gấp 5 lần số nhãn vở của Bình. Hỏi bạn Bình có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.650 nhãn vở"
+        },
+        {
+          "id": "b",
+          "text": "264 nhãn vở"
+        },
+        {
+          "id": "c",
+          "text": "330 nhãn vở"
+        },
+        {
+          "id": "d",
+          "text": "1.320 nhãn vở"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "330 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Bình là 1 phần thì số nhãn vở của Hoa là 5 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "5 - 1 = 4 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Bình là:",
+                "equation": "1.320 : 4 = 330 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 330 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "1320",
+            "divisor": "4",
+            "quotient": "330",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "13 chia 4 được 3, viết 3. 3 nhân 4 bằng 12; 13 trừ 12 bằng 1.",
+                "partialDividend": 13,
+                "quotientDigit": 3,
+                "product": 12,
+                "remainder": 1
+              },
+              {
+                "text": "Hạ 2, được 12; 12 chia 4 được 3, viết 3. 3 nhân 4 bằng 12; 12 trừ 12 bằng 0.",
+                "partialDividend": 12,
+                "quotientDigit": 3,
+                "product": 12,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 4 được 0, viết 0. 0 nhân 4 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-07.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 15.500 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 4.500 l. Bể thứ ba có ít hơn bể thứ hai 13.200 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 42300,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "42.300 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "15.500 + 4.500 = 20.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "20.000 - 13.200 = 6.800 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "15.500 + 20.000 + 6.800 = 42.300 (l)"
+              }
+            ],
+            "answer": "Đáp số: 42.300 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15500",
+              "4500"
+            ],
+            "result": "20000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 5 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 4 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15500",
+              "20000",
+              "6800"
+            ],
+            "result": "42300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 0 cộng 8 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 0 cộng 6 bằng 11, thêm 1 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

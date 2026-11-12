@@ -1,0 +1,488 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c3",
+  "order": 4,
+  "title": "Làm tròn số đến hàng trăm nghìn",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Làm tròn số đến hàng trăm nghìn: nhìn chữ số hàng chục nghìn; bé hơn 5 thì làm tròn xuống, từ 5 trở lên thì làm tròn lên.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: làm tròn 4.732.540 đến hàng trăm nghìn."
+      },
+      {
+        "kind": "text",
+        "text": "Chữ số hàng chục nghìn của 4.732.540 là 3, bé hơn 5 nên làm tròn xuống."
+      },
+      {
+        "kind": "text",
+        "text": "Làm tròn 4.732.540 đến hàng trăm nghìn được 4.700.000."
+      },
+      {
+        "kind": "text",
+        "text": "Làm tròn số giúp ta nói gần đúng, ví dụ “khoảng 3.500.000 người”.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Làm tròn số 987.760 đến hàng trăm nghìn."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn số 987.760 đến hàng trăm nghìn ta được số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1000000
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.000.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 987.760 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 987.760 đến hàng trăm nghìn được 1.000.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Làm tròn số 6.688.336 đến hàng trăm nghìn."
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn số 6.688.336 đến hàng trăm nghìn ta được số {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6700000
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6.700.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 6.688.336 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 6.688.336 đến hàng trăm nghìn được 6.700.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Làm tròn số 4.082.359 đến hàng trăm nghìn ta được số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4.080.000"
+        },
+        {
+          "id": "b",
+          "text": "4.100.000"
+        },
+        {
+          "id": "c",
+          "text": "4.000.000"
+        },
+        {
+          "id": "d",
+          "text": "4.200.000"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.100.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 4.082.359 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 4.082.359 đến hàng trăm nghìn được 4.100.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi số với số làm tròn của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "1.661.770 (làm tròn đến hàng trăm nghìn)"
+        },
+        {
+          "id": "l2",
+          "text": "1.609.227 (làm tròn đến hàng chục nghìn)"
+        },
+        {
+          "id": "l3",
+          "text": "1.680.402 (làm tròn đến hàng chục nghìn)"
+        },
+        {
+          "id": "l4",
+          "text": "2.093.018 (làm tròn đến hàng trăm nghìn)"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "1.680.000"
+        },
+        {
+          "id": "r2",
+          "text": "2.100.000"
+        },
+        {
+          "id": "r3",
+          "text": "1.610.000"
+        },
+        {
+          "id": "r4",
+          "text": "1.600.000"
+        },
+        {
+          "id": "r5",
+          "text": "1.700.000"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.661.770 (làm tròn đến hàng trăm nghìn) → 1.700.000; 1.609.227 (làm tròn đến hàng chục nghìn) → 1.610.000; 1.680.402 (làm tròn đến hàng chục nghìn) → 1.680.000; 2.093.018 (làm tròn đến hàng trăm nghìn) → 2.100.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Làm tròn 1.661.770 đến hàng trăm nghìn được 1.700.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 1.609.227 đến hàng chục nghìn được 1.610.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 1.680.402 đến hàng chục nghìn được 1.680.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 2.093.018 đến hàng trăm nghìn được 2.100.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo số làm tròn đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Làm tròn 147.480 đến hàng trăm nghìn: {{s1}}\nLàm tròn 870.755 đến hàng trăm nghìn: {{s2}}\nLàm tròn 284.166 đến hàng chục nghìn: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "200.000"
+        },
+        {
+          "id": "t2",
+          "text": "100.000"
+        },
+        {
+          "id": "t3",
+          "text": "900.000"
+        },
+        {
+          "id": "t4",
+          "text": "280.000"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100.000; 900.000; 280.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Làm tròn 147.480 đến hàng trăm nghìn được 100.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 870.755 đến hàng trăm nghìn được 900.000."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 284.166 đến hàng chục nghìn được 280.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Làm tròn số 218.554 đến hàng chục nghìn ta được số:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "220.000"
+        },
+        {
+          "id": "b",
+          "text": "219.000"
+        },
+        {
+          "id": "c",
+          "text": "230.000"
+        },
+        {
+          "id": "d",
+          "text": "210.000"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "220.000",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng nghìn của 218.554 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 218.554 đến hàng chục nghìn được 220.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Quãng đường từ nhà bác Ba đến thị trấn dài 329.864 m. Làm tròn số đo đó đến hàng trăm nghìn thì quãng đường dài khoảng bao nhiêu mét?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "template": "Quãng đường dài khoảng {{b1}} m.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 300000,
+            "unit": "m",
+            "unitAliases": [
+              "mét"
+            ]
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "300.000 m",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 329.864 là 2, bé hơn 5 nên làm tròn xuống."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 329.864 đến hàng trăm nghìn được 300.000."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c3.lam-tron-so-den-hang-tram-nghin.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một trang trại nuôi 7.836.870 con gà. Làm tròn số đó đến hàng trăm nghìn thì trang trại nuôi khoảng bao nhiêu con gà?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "so.lam_tron"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7.800.003 con"
+        },
+        {
+          "id": "b",
+          "text": "7.900.000 con"
+        },
+        {
+          "id": "c",
+          "text": "7.800.000 con"
+        },
+        {
+          "id": "d",
+          "text": "7.836.870 con"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "7.800.000 con",
+        "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Chữ số hàng chục nghìn của 7.836.870 là 3, bé hơn 5 nên làm tròn xuống."
+          },
+          {
+            "kind": "text",
+            "text": "Làm tròn 7.836.870 đến hàng trăm nghìn được 7.800.000."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,536 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-33",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c13",
+  "order": 1,
+  "title": "Nâng cao tuần 33: Ôn tập cuối năm",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập cuối năm: số tự nhiên, phân số, hình học, đo lường, thống kê.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Trung bình cộng của 3 số là 39. Biết 2 số trong đó là 19, 36. Tìm số còn lại."
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Tổng của các số là:",
+            "equation": "39 × 3 = 117"
+          },
+          {
+            "explanation": "Số còn lại là:",
+            "equation": "117 - 19 - 36 = 62"
+          }
+        ],
+        "answer": "Đáp số: 62."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-33.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Xếp các phân số theo thứ tự từ bé đến lớn: 2/5, 8/7, 7/8, 5/9."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "5/9"
+        },
+        {
+          "id": "t2",
+          "text": "8/7"
+        },
+        {
+          "id": "t3",
+          "text": "7/8"
+        },
+        {
+          "id": "t4",
+          "text": "2/5"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2/5 < 5/9 < 7/8 < 8/7",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số (hoặc so sánh với 1, với 1/2) rồi so sánh."
+          },
+          {
+            "kind": "text",
+            "text": "2/5 < 5/9 < 7/8 < 8/7."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với kết quả (đã rút gọn)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.nhan",
+        "phan_so.chia"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "3/5 × 1/7"
+        },
+        {
+          "id": "l2",
+          "text": "6/7 : 1/9"
+        },
+        {
+          "id": "l3",
+          "text": "1/6 : 5"
+        },
+        {
+          "id": "l4",
+          "text": "4/7 : 1/9"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "143/1260"
+        },
+        {
+          "id": "r2",
+          "text": "1/30"
+        },
+        {
+          "id": "r3",
+          "text": "54/7"
+        },
+        {
+          "id": "r4",
+          "text": "3/35"
+        },
+        {
+          "id": "r5",
+          "text": "36/7"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3/5 × 1/7 → 3/35; 6/7 : 1/9 → 54/7; 1/6 : 5 → 1/30; 4/7 : 1/9 → 36/7",
+        "hint": "Muốn nhân hai phân số, ta lấy tử số nhân với tử số, mẫu số nhân với mẫu số.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "3/5 × 1/7 = 3/35"
+          },
+          {
+            "kind": "equation",
+            "text": "6/7 : 1/9 = 54/7"
+          },
+          {
+            "kind": "equation",
+            "text": "1/6 : 5 = 1/30"
+          },
+          {
+            "kind": "equation",
+            "text": "4/7 : 1/9 = 36/7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p03",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Lớp 4A có 12 học sinh, trong đó 1/2 số học sinh thích đọc truyện tranh. Hỏi lớp 4A có bao nhiêu học sinh thích đọc truyện tranh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cua_mot_so",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Có {{b1}} học sinh thích đọc truyện tranh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 6,
+            "unit": "học sinh"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "6 học sinh",
+        "hint": "Muốn tìm phân số của một số, ta lấy số đó nhân với phân số đã cho.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số học sinh thích đọc truyện tranh là:",
+                "equation": "12 × 1/2 = 6 (học sinh)"
+              }
+            ],
+            "answer": "Đáp số: 6 học sinh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Một mảnh vườn hình chữ nhật có chu vi 72 m, chiều dài hơn chiều rộng 4 m. Tính diện tích mảnh vườn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "340 m²"
+        },
+        {
+          "id": "b",
+          "text": "320 m²"
+        },
+        {
+          "id": "c",
+          "text": "322 m²"
+        },
+        {
+          "id": "d",
+          "text": "72 m²"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "320 m²",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi là:",
+                "equation": "72 : 2 = 36 (m)"
+              },
+              {
+                "explanation": "Chiều dài là:",
+                "equation": "(36 + 4) : 2 = 20 (m)"
+              },
+              {
+                "explanation": "Chiều rộng là:",
+                "equation": "36 - 20 = 16 (m)"
+              },
+              {
+                "explanation": "Diện tích mảnh vườn là:",
+                "equation": "20 × 16 = 320 (m²)"
+              }
+            ],
+            "answer": "Đáp số: 320 m²."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "3/5 số bi trong hộp là 30 viên. Hỏi trong hộp có tất cả bao nhiêu viên bi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.khai_niem",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Trong hộp có {{b1}} viên bi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 50,
+            "unit": "viên"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "50 viên",
+        "hint": "Biết giá trị của mấy phần, con tìm giá trị của một phần bằng phép chia, rồi nhân với mẫu số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của một phần là:",
+                "equation": "30 : 3 = 10 (viên)"
+              },
+              {
+                "explanation": "Số bi trong hộp là:",
+                "equation": "10 × 5 = 50 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 50 viên."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "2/3 số bi trong hộp là 18 viên. Hỏi trong hộp có tất cả bao nhiêu viên bi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "phan_so.khai_niem",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "54 viên"
+        },
+        {
+          "id": "b",
+          "text": "21 viên"
+        },
+        {
+          "id": "c",
+          "text": "36 viên"
+        },
+        {
+          "id": "d",
+          "text": "27 viên"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "27 viên",
+        "hint": "Biết giá trị của mấy phần, con tìm giá trị của một phần bằng phép chia, rồi nhân với mẫu số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của một phần là:",
+                "equation": "18 : 2 = 9 (viên)"
+              },
+              {
+                "explanation": "Số bi trong hộp là:",
+                "equation": "9 × 3 = 27 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 27 viên."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trung bình cộng của 3 số là 32. Biết 2 số trong đó là 38, 12. Tìm số còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "46"
+        },
+        {
+          "id": "b",
+          "text": "56"
+        },
+        {
+          "id": "c",
+          "text": "32"
+        },
+        {
+          "id": "d",
+          "text": "25"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "46",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng của các số là:",
+                "equation": "32 × 3 = 96"
+              },
+              {
+                "explanation": "Số còn lại là:",
+                "equation": "96 - 38 - 12 = 46"
+              }
+            ],
+            "answer": "Đáp số: 46."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-33.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Trung bình cộng của 4 số là 61. Biết 3 số trong đó là 75, 58, 79. Tìm số còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "trung_binh_cong",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Số còn lại là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 32
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "32",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng của các số là:",
+                "equation": "61 × 4 = 244"
+              },
+              {
+                "explanation": "Số còn lại là:",
+                "equation": "244 - 75 - 58 - 79 = 32"
+              }
+            ],
+            "answer": "Đáp số: 32."
+          }
+        ]
+      }
+    }
+  ]
+}

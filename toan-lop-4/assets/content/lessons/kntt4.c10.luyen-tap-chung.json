@@ -1,0 +1,508 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c10.luyen-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c10",
+  "order": 7,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: phân số, phân số và phép chia, tính chất cơ bản, rút gọn, quy đồng, so sánh phân số.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần."
+      },
+      {
+        "kind": "text",
+        "text": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Một chiếc bánh được chia thành 11 phần bằng nhau, đã tô màu 2 phần. Viết phân số chỉ phần đã tô màu."
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "phan_so.khai_niem"
+      ],
+      "access": "free",
+      "template": "Phân số chỉ phần đã tô màu: {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 11
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2/11",
+        "hint": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Phân số chỉ phần đã tô màu là 2/11: tử số 2, mẫu số 11."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Rút gọn phân số.",
+      "prompt": {
+        "text": "Rút gọn phân số 2/10 thành phân số tối giản."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "template": "2/10 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/5",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "2/10 = 1/5"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "1/3 ... 3/4"
+      },
+      "level": 1,
+      "estimatedSeconds": 40,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<"
+        },
+        {
+          "id": "b",
+          "text": ">"
+        },
+        {
+          "id": "c",
+          "text": "="
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "<",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 1/3 = 4/12; 3/4 = 9/12."
+          },
+          {
+            "kind": "text",
+            "text": "So sánh: 4/12 < 9/12, vậy 1/3 < 3/4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phân số với phân số tối giản bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "18/21"
+        },
+        {
+          "id": "l2",
+          "text": "12/15"
+        },
+        {
+          "id": "l3",
+          "text": "2/8"
+        },
+        {
+          "id": "l4",
+          "text": "3/6"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "6/7"
+        },
+        {
+          "id": "r2",
+          "text": "4/5"
+        },
+        {
+          "id": "r3",
+          "text": "1/4"
+        },
+        {
+          "id": "r4",
+          "text": "7/8"
+        },
+        {
+          "id": "r5",
+          "text": "1/2"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "18/21 → 6/7; 12/15 → 4/5; 2/8 → 1/4; 3/6 → 1/2",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "18/21 = 6/7."
+          },
+          {
+            "kind": "text",
+            "text": "12/15 = 4/5."
+          },
+          {
+            "kind": "text",
+            "text": "2/8 = 1/4."
+          },
+          {
+            "kind": "text",
+            "text": "3/6 = 1/2."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Xếp các phân số theo thứ tự từ bé đến lớn: 2/5, 4/5, 1/5, 3/5."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1/5"
+        },
+        {
+          "id": "t2",
+          "text": "2/5"
+        },
+        {
+          "id": "t3",
+          "text": "4/5"
+        },
+        {
+          "id": "t4",
+          "text": "3/5"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/5 < 2/5 < 3/5 < 4/5",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Các phân số cùng mẫu số 5: tử số nào bé hơn thì phân số bé hơn."
+          },
+          {
+            "kind": "text",
+            "text": "1/5 < 2/5 < 3/5 < 4/5."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Quy đồng mẫu số hai phân số 1/2 và 3/4 ta được:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.quy_dong"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2/4 và 3/4"
+        },
+        {
+          "id": "b",
+          "text": "2/4 và 6/8"
+        },
+        {
+          "id": "c",
+          "text": "1/4 và 3/4"
+        },
+        {
+          "id": "d",
+          "text": "3/4 và 3/4"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2/4 và 3/4",
+        "hint": "Con tìm mẫu số chung, rồi nhân cả tử số và mẫu số của từng phân số với cùng một số để được mẫu số chung.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mẫu số chung là 4: 4 : 2 = 2."
+          },
+          {
+            "kind": "equation",
+            "text": "1/2 = 2/4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Có 5 cái bánh chia đều cho 8 bạn. Hỏi mỗi bạn được bao nhiêu phần của cái bánh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.phep_chia"
+      ],
+      "access": "free",
+      "template": "Mỗi bạn được {{b1}}/{{b2}} cái bánh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5/8 cái bánh",
+        "hint": "Thương của phép chia số tự nhiên cho số tự nhiên khác không có thể viết thành phân số: tử số là số bị chia, mẫu số là số chia.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "5 : 8 = 5/8"
+          },
+          {
+            "kind": "text",
+            "text": "Mỗi bạn được 5/8 cái bánh."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Chi ăn 7/9 cái bánh, Quân ăn 3/4 cái bánh như thế. Ai ăn nhiều bánh hơn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Chi"
+        },
+        {
+          "id": "b",
+          "text": "Quân"
+        },
+        {
+          "id": "c",
+          "text": "Hai bạn ăn bằng nhau"
+        },
+        {
+          "id": "d",
+          "text": "Không so sánh được"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "Chi",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 7/9 = 28/36; 3/4 = 27/36."
+          },
+          {
+            "kind": "text",
+            "text": "So sánh: 28/36 > 27/36, vậy 7/9 > 3/4."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy Chi ăn nhiều bánh hơn."
+          }
+        ]
+      }
+    }
+  ]
+}

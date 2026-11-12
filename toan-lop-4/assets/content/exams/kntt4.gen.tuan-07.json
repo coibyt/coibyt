@@ -1,0 +1,254 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.tuan-07",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c3"
+  ],
+  "title": "Kiểm tra cuối tuần 7",
+  "description": "Ôn lại bài của tuần: Các số trong phạm vi lớp triệu; Làm tròn số đến hàng trăm nghìn; So sánh các số có nhiều chữ số.",
+  "examType": "kt_15p",
+  "term": 1,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-07.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn cách đọc đúng.",
+            "prompt": {
+              "text": "Số 208.143.255 đọc là:"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "hai trăm linh tám triệu một trăm ba mươi tư nghìn hai trăm năm mươi lăm"
+              },
+              {
+                "id": "b",
+                "text": "hai trăm tám mươi triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm"
+              },
+              {
+                "id": "c",
+                "text": "hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm"
+              },
+              {
+                "id": "d",
+                "text": "hai trăm ba mươi tám triệu một trăm bốn mươi nghìn hai trăm năm mươi lăm"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm",
+              "hint": "Con đọc số lần lượt theo từng hàng, từ trái sang phải nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "208.143.255 đọc là: hai trăm linh tám triệu một trăm bốn mươi ba nghìn hai trăm năm mươi lăm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-07.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "370.915 ... 377.915"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "<"
+              },
+              {
+                "id": "b",
+                "text": ">"
+              },
+              {
+                "id": "c",
+                "text": "="
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "<",
+              "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai số có cùng 6 chữ số. So sánh từ hàng cao nhất, đến hàng nghìn có 0 < 7. Vậy 370.915 < 377.915."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-07.q03",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "1.524.174 ... 140.985"
+            },
+            "level": 1,
+            "estimatedSeconds": 30,
+            "skillIds": [
+              "so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "<"
+              },
+              {
+                "id": "b",
+                "text": ">"
+              },
+              {
+                "id": "c",
+                "text": "="
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": ">",
+              "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số nào có nhiều chữ số hơn thì lớn hơn. Vậy 1.524.174 > 140.985."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-07.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Làm tròn số 987.760 đến hàng trăm nghìn."
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "so.lam_tron"
+            ],
+            "access": "free",
+            "template": "Làm tròn số 987.760 đến hàng trăm nghìn ta được số {{b1}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 1000000
+                },
+                "maxLength": 9
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "1.000.000",
+              "hint": "Con nhìn chữ số ngay bên phải hàng cần làm tròn: bé hơn năm thì làm tròn xuống, từ năm trở lên thì làm tròn lên.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Chữ số hàng chục nghìn của 987.760 là 8, lớn hơn hoặc bằng 5 nên làm tròn lên."
+                },
+                {
+                  "kind": "text",
+                  "text": "Làm tròn 987.760 đến hàng trăm nghìn được 1.000.000."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-07.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Viết số thích hợp.",
+            "prompt": {
+              "text": "Số gồm 4 triệu, 0 trăm nghìn, 5 chục nghìn, 0 nghìn, 0 trăm, 4 chục và 6 đơn vị viết là:"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "so.lop_trieu"
+            ],
+            "access": "free",
+            "template": "Số gồm 4 triệu, 0 trăm nghìn, 5 chục nghìn, 0 nghìn, 0 trăm, 4 chục và 6 đơn vị viết là {{b1}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 4050046
+                },
+                "maxLength": 9
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4.050.046",
+              "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "4.000.000 + 50.000 + 40 + 6 = 4.050.046"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

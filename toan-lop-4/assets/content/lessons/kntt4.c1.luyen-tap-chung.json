@@ -1,0 +1,648 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c1.luyen-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c1",
+  "order": 6,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: số đến 100 000, bốn phép tính, số chẵn – số lẻ, biểu thức chứa chữ, bài toán nhiều bước.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 62.007 - 30.569 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "subtract",
+        "operands": [
+          "62007",
+          "30569"
+        ],
+        "result": "31438",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "7 không trừ được 9, lấy 17 trừ 9 bằng 8, viết 8 nhớ 1.",
+            "write": "8",
+            "carry": 1
+          },
+          {
+            "place": 1,
+            "text": "6 thêm 1 bằng 7; 0 không trừ được 7, lấy 10 trừ 7 bằng 3, viết 3 nhớ 1.",
+            "write": "3",
+            "carry": 1
+          },
+          {
+            "place": 2,
+            "text": "5 thêm 1 bằng 6; 0 không trừ được 6, lấy 10 trừ 6 bằng 4, viết 4 nhớ 1.",
+            "write": "4",
+            "carry": 1
+          },
+          {
+            "place": 3,
+            "text": "0 thêm 1 bằng 1; 2 trừ 1 bằng 1, viết 1.",
+            "write": "1"
+          },
+          {
+            "place": 4,
+            "text": "6 trừ 3 bằng 3, viết 3.",
+            "write": "3"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "62.007 - 30.569 = 31.438"
+      },
+      {
+        "kind": "text",
+        "text": "Làm xong, con thử lại bằng phép tính ngược nhé.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn dấu thích hợp.",
+      "prompt": {
+        "text": "94.820 ... 94.820"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.pham_vi_100000",
+        "so.so_sanh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "="
+        },
+        {
+          "id": "b",
+          "text": "<"
+        },
+        {
+          "id": "c",
+          "text": ">"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "=",
+        "hint": "Con so sánh từ hàng cao nhất; số nào có chữ số ở hàng đó lớn hơn thì lớn hơn.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số có các chữ số ở từng hàng đều giống nhau. Vậy 94.820 = 94.820."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "1.992 × 2 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "nhan.1cs"
+      ],
+      "access": "free",
+      "template": "1.992 × 2 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 3984
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3.984",
+        "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "1992",
+              "2"
+            ],
+            "result": "3984",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "2 nhân 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 1,
+                "text": "2 nhân 9 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "2 nhân 9 bằng 18, thêm 1 bằng 19, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 nhân 1 bằng 2, thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "1.992 × 2 = 3.984"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Số nào dưới đây là số chẵn?"
+      },
+      "level": 1,
+      "estimatedSeconds": 30,
+      "skillIds": [
+        "so.chan_le"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "153"
+        },
+        {
+          "id": "b",
+          "text": "40.488"
+        },
+        {
+          "id": "c",
+          "text": "92.219"
+        },
+        {
+          "id": "d",
+          "text": "965"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "40.488",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "40.488 có chữ số tận cùng là 8 nên là số chẵn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi giá trị của a với giá trị của biểu thức (a + 5) × 2."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "a = 18"
+        },
+        {
+          "id": "l2",
+          "text": "a = 10"
+        },
+        {
+          "id": "l3",
+          "text": "a = 28"
+        },
+        {
+          "id": "l4",
+          "text": "a = 20"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "47"
+        },
+        {
+          "id": "r2",
+          "text": "50"
+        },
+        {
+          "id": "r3",
+          "text": "46"
+        },
+        {
+          "id": "r4",
+          "text": "66"
+        },
+        {
+          "id": "r5",
+          "text": "30"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "a = 18 → 46; a = 10 → 30; a = 28 → 66; a = 20 → 50",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "(18 + 5) × 2 = 46"
+          },
+          {
+            "kind": "equation",
+            "text": "(10 + 5) × 2 = 30"
+          },
+          {
+            "kind": "equation",
+            "text": "(28 + 5) × 2 = 66"
+          },
+          {
+            "kind": "equation",
+            "text": "(20 + 5) × 2 = 50"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.pham_vi_100000"
+      ],
+      "access": "free",
+      "template": "70.433 - 4.172 = {{s1}}\n29.119 + 51.763 = {{s2}}\n13.928 + 3.040 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "74.341"
+        },
+        {
+          "id": "t2",
+          "text": "66.261"
+        },
+        {
+          "id": "t3",
+          "text": "16.968"
+        },
+        {
+          "id": "t4",
+          "text": "80.882"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "66.261; 80.882; 16.968",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "70.433 - 4.172 = 66.261"
+          },
+          {
+            "kind": "equation",
+            "text": "29.119 + 51.763 = 80.882"
+          },
+          {
+            "kind": "equation",
+            "text": "13.928 + 3.040 = 16.968"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 74.341 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Giá trị của biểu thức (a - b) × c với a = 71, b = 55, c = 7 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "bieu_thuc_chu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "122"
+        },
+        {
+          "id": "b",
+          "text": "112"
+        },
+        {
+          "id": "c",
+          "text": "110"
+        },
+        {
+          "id": "d",
+          "text": "113"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "112",
+        "hint": "Con thay chữ bằng số đã cho rồi tính giá trị biểu thức như bình thường nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Với a = 71, b = 55, c = 7, thay chữ bằng số:"
+          },
+          {
+            "kind": "equation",
+            "text": "(71 - 55) × 7 = 112"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 63.736 : 8 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "chia.1cs"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7.966"
+        },
+        {
+          "id": "b",
+          "text": "7.968"
+        },
+        {
+          "id": "c",
+          "text": "7.967"
+        },
+        {
+          "id": "d",
+          "text": "7.977"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.967",
+        "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+        "steps": [
+          {
+            "kind": "long_division",
+            "dividend": "63736",
+            "divisor": "8",
+            "quotient": "7967",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "63 chia 8 được 7, viết 7. 7 nhân 8 bằng 56; 63 trừ 56 bằng 7.",
+                "partialDividend": 63,
+                "quotientDigit": 7,
+                "product": 56,
+                "remainder": 7
+              },
+              {
+                "text": "Hạ 7, được 77; 77 chia 8 được 9, viết 9. 9 nhân 8 bằng 72; 77 trừ 72 bằng 5.",
+                "partialDividend": 77,
+                "quotientDigit": 9,
+                "product": 72,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 3, được 53; 53 chia 8 được 6, viết 6. 6 nhân 8 bằng 48; 53 trừ 48 bằng 5.",
+                "partialDividend": 53,
+                "quotientDigit": 6,
+                "product": 48,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 6, được 56; 56 chia 8 được 7, viết 7. 7 nhân 8 bằng 56; 56 trừ 56 bằng 0.",
+                "partialDividend": 56,
+                "quotientDigit": 7,
+                "product": 56,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "63.736 : 8 = 7.967"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Ngày thứ nhất cửa hàng bán được 143 kg gạo. Ngày thứ hai bán được nhiều hơn ngày thứ nhất 20 kg. Ngày thứ ba bán được gấp 2 lần ngày thứ hai. Hỏi cả ba ngày cửa hàng bán được bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "giai_toan.ba_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả ba ngày bán được {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 632,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "632 kg gạo",
+        "hint": "Bài này cần ba bước tính: con tìm lần lượt từng số chưa biết, bước sau dùng kết quả của bước trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Ngày thứ hai bán được là:",
+                "equation": "143 + 20 = 163 (kg)"
+              },
+              {
+                "explanation": "Ngày thứ ba bán được là:",
+                "equation": "163 × 2 = 326 (kg)"
+              },
+              {
+                "explanation": "Cả ba ngày bán được là:",
+                "equation": "143 + 163 + 326 = 632 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 632 kg gạo."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c1.luyen-tap-chung.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Dãy phố có các nhà mang số chẵn liên tiếp từ số 20 đến số 100. Hỏi dãy phố đó có bao nhiêu nhà?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.chan_le",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Dãy phố có {{b1}} nhà.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 41,
+            "unit": "nhà"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "41 nhà",
+        "hint": "Số có chữ số tận cùng là không, hai, bốn, sáu, tám là số chẵn; tận cùng là một, ba, năm, bảy, chín là số lẻ.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai số nhà liền nhau hơn kém nhau 2 đơn vị."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nhà của dãy phố là:",
+                "equation": "(100 - 20) : 2 + 1 = 41 (nhà)"
+              }
+            ],
+            "answer": "Đáp số: 41 nhà."
+          }
+        ]
+      }
+    }
+  ]
+}

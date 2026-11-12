@@ -1,0 +1,841 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-08",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c8"
+  ],
+  "title": "Kiểm tra chủ đề 8",
+  "description": "Phép nhân và phép chia.",
+  "examType": "kt_1_tiet",
+  "term": 2,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của phép tính 10 × 81 là:"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "nhan.2cs"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "810"
+              },
+              {
+                "id": "b",
+                "text": "910"
+              },
+              {
+                "id": "c",
+                "text": "820"
+              },
+              {
+                "id": "d",
+                "text": "90"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "810",
+              "hint": "Con nhân lần lượt từ hàng đơn vị sang trái, nhớ cộng thêm số nhớ nhé.",
+              "steps": [
+                {
+                  "kind": "column_arithmetic",
+                  "operation": "multiply",
+                  "operands": [
+                    "10",
+                    "81"
+                  ],
+                  "result": "810",
+                  "partials": [
+                    "10",
+                    "80"
+                  ],
+                  "digitSteps": [
+                    {
+                      "place": 0,
+                      "text": "1 nhân 10 bằng 10, viết 10. Tích riêng thứ nhất là 10.",
+                      "write": "10"
+                    },
+                    {
+                      "place": 1,
+                      "text": "8 nhân 0 bằng 0, viết 0; 8 nhân 1 bằng 8, viết 8. Tích riêng thứ hai là 80, viết lùi sang trái một cột so với tích riêng trên.",
+                      "write": "80"
+                    },
+                    {
+                      "place": 0,
+                      "text": "Cộng các tích riêng, được 810.",
+                      "write": "810"
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "10 × 81 = 810"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q02",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối phép tính với kết quả.",
+            "prompt": {
+              "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "chia.1cs"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "14.973 : 3"
+              },
+              {
+                "id": "l2",
+                "text": "34.972 : 7"
+              },
+              {
+                "id": "l3",
+                "text": "69.776 : 7"
+              },
+              {
+                "id": "l4",
+                "text": "57.444 : 6"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "9.968"
+              },
+              {
+                "id": "r2",
+                "text": "9.575"
+              },
+              {
+                "id": "r3",
+                "text": "9.574"
+              },
+              {
+                "id": "r4",
+                "text": "4.991"
+              },
+              {
+                "id": "r5",
+                "text": "4.996"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "14.973 : 3 = 4.991; 34.972 : 7 = 4.996; 69.776 : 7 = 9.968; 57.444 : 6 = 9.574",
+              "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "14.973 : 3 = 4.991"
+                },
+                {
+                  "kind": "equation",
+                  "text": "34.972 : 7 = 4.996"
+                },
+                {
+                  "kind": "equation",
+                  "text": "69.776 : 7 = 9.968"
+                },
+                {
+                  "kind": "equation",
+                  "text": "57.444 : 6 = 9.574"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi cặp số với số trung bình cộng của chúng."
+            },
+            "level": 2,
+            "estimatedSeconds": 100,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "22 và 38"
+              },
+              {
+                "id": "l2",
+                "text": "33 và 51"
+              },
+              {
+                "id": "l3",
+                "text": "54 và 58"
+              },
+              {
+                "id": "l4",
+                "text": "50 và 56"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "42"
+              },
+              {
+                "id": "r2",
+                "text": "56"
+              },
+              {
+                "id": "r3",
+                "text": "53"
+              },
+              {
+                "id": "r4",
+                "text": "30"
+              },
+              {
+                "id": "r5",
+                "text": "32"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r2"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "22 và 38 → 30; 33 và 51 → 42; 54 và 58 → 56; 50 và 56 → 53",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "(22 + 38) : 2 = 30."
+                },
+                {
+                  "kind": "text",
+                  "text": "(33 + 51) : 2 = 42."
+                },
+                {
+                  "kind": "text",
+                  "text": "(54 + 58) : 2 = 56."
+                },
+                {
+                  "kind": "text",
+                  "text": "(50 + 56) : 2 = 53."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q04",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi câu với kết quả đúng (rút về đơn vị)."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "rut_ve_don_vi"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "3 gói có 36 cái, 1 gói có"
+              },
+              {
+                "id": "l2",
+                "text": "5 hộp có 40 bút, 1 hộp có"
+              },
+              {
+                "id": "l3",
+                "text": "6 bao nặng 300 kg, 1 bao nặng"
+              },
+              {
+                "id": "l4",
+                "text": "4 xe chở 20 tấn, 1 xe chở"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "50 kg"
+              },
+              {
+                "id": "r2",
+                "text": "5 tấn"
+              },
+              {
+                "id": "r3",
+                "text": "12 cái"
+              },
+              {
+                "id": "r4",
+                "text": "9 cái"
+              },
+              {
+                "id": "r5",
+                "text": "8 bút"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r3"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r1"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3 gói có 36 cái, 1 gói có → 12 cái; 5 hộp có 40 bút, 1 hộp có → 8 bút; 6 bao nặng 300 kg, 1 bao nặng → 50 kg; 4 xe chở 20 tấn, 1 xe chở → 5 tấn",
+              "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "36 : 3 = 12"
+                },
+                {
+                  "kind": "equation",
+                  "text": "40 : 5 = 8"
+                },
+                {
+                  "kind": "equation",
+                  "text": "300 : 6 = 50"
+                },
+                {
+                  "kind": "equation",
+                  "text": "20 : 4 = 5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q05",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Nối mỗi tích với tích bằng nó."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "tinh_chat.phep_nhan"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "25 × 4"
+              },
+              {
+                "id": "l2",
+                "text": "8 × 125"
+              },
+              {
+                "id": "l3",
+                "text": "(5 × 7) × 2"
+              },
+              {
+                "id": "l4",
+                "text": "50 × 6"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "25 × 5"
+              },
+              {
+                "id": "r2",
+                "text": "4 × 25"
+              },
+              {
+                "id": "r3",
+                "text": "125 × 8"
+              },
+              {
+                "id": "r4",
+                "text": "(5 × 2) × 7"
+              },
+              {
+                "id": "r5",
+                "text": "6 × 50"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r2"
+              },
+              {
+                "left": "l2",
+                "right": "r3"
+              },
+              {
+                "left": "l3",
+                "right": "r4"
+              },
+              {
+                "left": "l4",
+                "right": "r5"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "25 × 4 → 4 × 25; 8 × 125 → 125 × 8; (5 × 7) × 2 → (5 × 2) × 7; 50 × 6 → 6 × 50",
+              "hint": "Đổi chỗ các thừa số thì tích không đổi; con nhóm các thừa số nhân với nhau được số tròn chục, tròn trăm trước nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Đổi chỗ các thừa số thì tích không đổi."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q06",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Biểu thức nào bằng 83 × 101?"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "tinh_chat.phan_phoi"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "83 + 100 + 1"
+              },
+              {
+                "id": "b",
+                "text": "83 × 100 + 83"
+              },
+              {
+                "id": "c",
+                "text": "83 × 100 + 1"
+              },
+              {
+                "id": "d",
+                "text": "83 × 100 - 83"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "83 × 100 + 83",
+              "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "83 × 101 = 83 × (100 + 1) = 83 × 100 + 83 = 8.300 + 83 = 8.383"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số thích hợp vào ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "nhan_chia.10_100_1000"
+            ],
+            "access": "free",
+            "template": "52 × {{s1}} = 5.200\n52.000 : {{s2}} = 52\n52 × {{s3}} = 520",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "100"
+              },
+              {
+                "id": "t2",
+                "text": "10.000"
+              },
+              {
+                "id": "t3",
+                "text": "1.000"
+              },
+              {
+                "id": "t4",
+                "text": "10"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "100; 1.000; 10",
+              "hint": "Nhân với mười, một trăm, một nghìn thì viết thêm một, hai, ba chữ số không vào bên phải; chia thì bỏ bớt đi bấy nhiêu chữ số không.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "52 × 100 = 5.200"
+                },
+                {
+                  "kind": "equation",
+                  "text": "52.000 : 1.000 = 52"
+                },
+                {
+                  "kind": "equation",
+                  "text": "52 × 10 = 520"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q08",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "template": "(56 + 40 + 27) : {{s1}} = {{s2}} : 3 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "44"
+              },
+              {
+                "id": "t2",
+                "text": "123"
+              },
+              {
+                "id": "t3",
+                "text": "41"
+              },
+              {
+                "id": "t4",
+                "text": "3"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3; 123; 41",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "56 + 40 + 27 = 123"
+                },
+                {
+                  "kind": "equation",
+                  "text": "123 : 3 = 41"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo số vào ô trống.",
+            "prompt": {
+              "text": "Kéo thẻ số đúng vào mỗi ô trống."
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "nhan.1cs"
+            ],
+            "access": "free",
+            "template": "13.010 × 3 = {{s1}}\n21.701 × 3 = {{s2}}\n11.799 × 5 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "39.030"
+              },
+              {
+                "id": "t2",
+                "text": "58.995"
+              },
+              {
+                "id": "t3",
+                "text": "39.033"
+              },
+              {
+                "id": "t4",
+                "text": "65.103"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "39.030; 65.103; 58.995",
+              "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "13.010 × 3 = 39.030"
+                },
+                {
+                  "kind": "equation",
+                  "text": "21.701 × 3 = 65.103"
+                },
+                {
+                  "kind": "equation",
+                  "text": "11.799 × 5 = 58.995"
+                },
+                {
+                  "kind": "text",
+                  "text": "Thẻ 39.033 là thẻ thừa, không dùng đến.",
+                  "style": "tip"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-08.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "21.186 : 33 = ?"
+            },
+            "level": 2,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.2cs"
+            ],
+            "access": "free",
+            "template": "21.186 : 33 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 642
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "642",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "21186",
+                  "divisor": "33",
+                  "quotient": "642",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "211 chia 33 được 6, viết 6. 6 nhân 33 bằng 198; 211 trừ 198 bằng 13.",
+                      "partialDividend": 211,
+                      "quotientDigit": 6,
+                      "product": 198,
+                      "remainder": 13
+                    },
+                    {
+                      "text": "Hạ 8, được 138; 138 chia 33 được 4, viết 4. 4 nhân 33 bằng 132; 138 trừ 132 bằng 6.",
+                      "partialDividend": 138,
+                      "quotientDigit": 4,
+                      "product": 132,
+                      "remainder": 6
+                    },
+                    {
+                      "text": "Hạ 6, được 66; 66 chia 33 được 2, viết 2. 2 nhân 33 bằng 66; 66 trừ 66 bằng 0.",
+                      "partialDividend": 66,
+                      "quotientDigit": 2,
+                      "product": 66,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "21.186 : 33 = 642"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

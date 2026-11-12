@@ -1,0 +1,918 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c5",
+  "order": 1,
+  "title": "Phép cộng các số có nhiều chữ số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đặt tính sao cho các chữ số cùng hàng thẳng cột với nhau. Cộng lần lượt từ phải sang trái, bắt đầu từ hàng đơn vị.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 376.035 + 238.690 = ?"
+      },
+      {
+        "kind": "column_arithmetic",
+        "operation": "add",
+        "operands": [
+          "376035",
+          "238690"
+        ],
+        "result": "614725",
+        "digitSteps": [
+          {
+            "place": 0,
+            "text": "5 cộng 0 bằng 5, viết 5.",
+            "write": "5"
+          },
+          {
+            "place": 1,
+            "text": "3 cộng 9 bằng 12, viết 2 nhớ 1.",
+            "write": "2",
+            "carry": 1
+          },
+          {
+            "place": 2,
+            "text": "0 cộng 6 bằng 6, thêm 1 bằng 7, viết 7.",
+            "write": "7"
+          },
+          {
+            "place": 3,
+            "text": "6 cộng 8 bằng 14, viết 4 nhớ 1.",
+            "write": "4",
+            "carry": 1
+          },
+          {
+            "place": 4,
+            "text": "7 cộng 3 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+            "write": "1",
+            "carry": 1
+          },
+          {
+            "place": 5,
+            "text": "3 cộng 2 bằng 5, thêm 1 bằng 6, viết 6.",
+            "write": "6"
+          }
+        ]
+      },
+      {
+        "kind": "equation",
+        "text": "376.035 + 238.690 = 614.725"
+      },
+      {
+        "kind": "text",
+        "text": "Hàng nào cộng được từ 10 trở lên thì viết chữ số hàng đơn vị và nhớ 1 sang hàng bên trái.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "152.275 + 21.600 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "152.275 + 21.600 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 173875
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "173.875",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "152275",
+              "21600"
+            ],
+            "result": "173875",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 0 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 1,
+                "text": "7 cộng 0 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 2,
+                "text": "2 cộng 6 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 4,
+                "text": "5 cộng 2 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 5,
+                "text": "Hạ 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "152.275 + 21.600 = 173.875"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Đặt tính rồi tính.",
+      "prompt": {
+        "text": "2.079.598 + 2.701.575 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "2.079.598 + 2.701.575 = {{b1}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 4781173
+          },
+          "maxLength": 9
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "4.781.173",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "2079598",
+              "2701575"
+            ],
+            "result": "4781173",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "9 cộng 7 bằng 16, thêm 1 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 5 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 1 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "7 cộng 0 bằng 7, thêm 1 bằng 8, viết 8.",
+                "write": "8"
+              },
+              {
+                "place": 5,
+                "text": "0 cộng 7 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 6,
+                "text": "2 cộng 2 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "2.079.598 + 2.701.575 = 4.781.173"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kết quả của phép tính 279.921 + 34.632 là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 50,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "203.553"
+        },
+        {
+          "id": "b",
+          "text": "314.563"
+        },
+        {
+          "id": "c",
+          "text": "314.653"
+        },
+        {
+          "id": "d",
+          "text": "314.553"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "314.553",
+        "hint": "Con đặt tính thẳng cột rồi cộng từ hàng đơn vị, nhớ cộng số nhớ sang hàng bên trái nhé.",
+        "steps": [
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "279921",
+              "34632"
+            ],
+            "result": "314553",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "1 cộng 2 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 1,
+                "text": "2 cộng 3 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 6 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 4 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "7 cộng 3 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 5,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "279.921 + 34.632 = 314.553"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p04",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo số vào ô trống.",
+      "prompt": {
+        "text": "Kéo thẻ số đúng vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "template": "382.053 + 199.056 = {{s1}}\n272.805 + 82.155 = {{s2}}\n745.315 + 75.414 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "581.109"
+        },
+        {
+          "id": "t2",
+          "text": "471.009"
+        },
+        {
+          "id": "t3",
+          "text": "820.729"
+        },
+        {
+          "id": "t4",
+          "text": "354.960"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "581.109; 354.960; 820.729",
+        "hint": "Con tính kết quả từng dòng trước rồi kéo thẻ vào nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "382.053 + 199.056 = 581.109"
+          },
+          {
+            "kind": "equation",
+            "text": "272.805 + 82.155 = 354.960"
+          },
+          {
+            "kind": "equation",
+            "text": "745.315 + 75.414 = 820.729"
+          },
+          {
+            "kind": "text",
+            "text": "Thẻ 471.009 là thẻ thừa, không dùng đến.",
+            "style": "tip"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Chạm vào một phép tính, rồi chạm vào kết quả đúng của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "907.254 + 73.558"
+        },
+        {
+          "id": "l2",
+          "text": "590.162 + 150.240"
+        },
+        {
+          "id": "l3",
+          "text": "152.922 + 63.620"
+        },
+        {
+          "id": "l4",
+          "text": "284.417 + 38.693"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "216.542"
+        },
+        {
+          "id": "r2",
+          "text": "323.110"
+        },
+        {
+          "id": "r3",
+          "text": "740.402"
+        },
+        {
+          "id": "r4",
+          "text": "212.000"
+        },
+        {
+          "id": "r5",
+          "text": "980.812"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "907.254 + 73.558 = 980.812; 590.162 + 150.240 = 740.402; 152.922 + 63.620 = 216.542; 284.417 + 38.693 = 323.110",
+        "hint": "Con tính từng phép tính bên trái trước, rồi mới tìm kết quả bên phải nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "907.254 + 73.558 = 980.812"
+          },
+          {
+            "kind": "equation",
+            "text": "590.162 + 150.240 = 740.402"
+          },
+          {
+            "kind": "equation",
+            "text": "152.922 + 63.620 = 216.542"
+          },
+          {
+            "kind": "equation",
+            "text": "284.417 + 38.693 = 323.110"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm số thích hợp.",
+      "prompt": {
+        "text": "? + 43.814 = 50.863"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "tim_thanh_phan.so_hang"
+      ],
+      "access": "free",
+      "template": "{{b1}} + 43.814 = 50.863",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 7049
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.049",
+        "hint": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết.",
+            "style": "rule"
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "50863",
+              "43814"
+            ],
+            "result": "7049",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "1 thêm 1 bằng 2; 6 trừ 2 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 2,
+                "text": "8 trừ 8 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "0 không trừ được 3, lấy 10 trừ 3 bằng 7, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "4 thêm 1 bằng 5; 5 trừ 5 bằng 0, viết 0.",
+                "write": "0"
+              }
+            ]
+          },
+          {
+            "kind": "equation",
+            "text": "50.863 - 43.814 = 7.049"
+          },
+          {
+            "kind": "text",
+            "text": "Thử lại:"
+          },
+          {
+            "kind": "equation",
+            "text": "7.049 + 43.814 = 50.863"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Năm ngoái một tỉnh trồng được 102.366 cây xanh, năm nay trồng được 557.330 cây xanh. Hỏi cả hai năm tỉnh đó trồng được bao nhiêu cây xanh?"
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai năm trồng được {{b1}} cây xanh.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 659696,
+            "unit": "cây"
+          },
+          "maxLength": 7
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "659.696 cây xanh",
+        "hint": "Con đọc kỹ đề: đề cho biết gì, hỏi gì, rồi chọn phép tính thích hợp nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số cây xanh cả hai năm trồng được là:",
+                "equation": "102.366 + 557.330 = 659.696 (cây)"
+              }
+            ],
+            "answer": "Đáp số: 659.696 cây xanh."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "102366",
+              "557330"
+            ],
+            "result": "659696",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "6 cộng 0 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 1,
+                "text": "6 cộng 3 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "3 cộng 3 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 7 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 4,
+                "text": "0 cộng 5 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 5,
+                "text": "1 cộng 5 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Năm thứ nhất một nông trường thu hoạch được 1.589.545 kg cà phê. Năm thứ hai thu hoạch được nhiều hơn năm thứ nhất 5.895.748 kg. Hỏi năm thứ hai thu hoạch được bao nhiêu ki-lô-gam cà phê?"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7.485.303 kg"
+        },
+        {
+          "id": "b",
+          "text": "4.306.203 kg"
+        },
+        {
+          "id": "c",
+          "text": "7.485.293 kg"
+        },
+        {
+          "id": "d",
+          "text": "7.485.298 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "7.485.293 kg cà phê",
+        "hint": "Nhiều hơn thì làm phép cộng, ít hơn thì làm phép trừ nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số cà phê năm thứ hai thu hoạch được là:",
+                "equation": "1.589.545 + 5.895.748 = 7.485.293 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 7.485.293 kg cà phê."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "1589545",
+              "5895748"
+            ],
+            "result": "7485293",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "5 cộng 8 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 1,
+                "text": "4 cộng 4 bằng 8, thêm 1 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 2,
+                "text": "5 cộng 7 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 5 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "8 cộng 9 bằng 17, thêm 1 bằng 18, viết 8 nhớ 1.",
+                "write": "8",
+                "carry": 1
+              },
+              {
+                "place": 5,
+                "text": "5 cộng 8 bằng 13, thêm 1 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 6,
+                "text": "1 cộng 5 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c5.phep-cong-cac-so-co-nhieu-chu-so.p09",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 32.980 kg gạo, kho thứ hai có nhiều hơn kho thứ nhất 4.670 kg gạo. Hỏi cả hai kho có bao nhiêu ki-lô-gam gạo?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "cong_tru.nhieu_chu_so",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Cả hai kho có {{b1}} kg gạo.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 70630,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "70.630 kg gạo",
+        "hint": "Bài này cần hai bước tính: con tìm số chưa biết ở bước một trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số gạo ở kho thứ hai là:",
+                "equation": "32.980 + 4.670 = 37.650 (kg)"
+              },
+              {
+                "explanation": "Số gạo ở cả hai kho là:",
+                "equation": "32.980 + 37.650 = 70.630 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 70.630 kg gạo."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "32980",
+              "4670"
+            ],
+            "result": "37650",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "8 cộng 7 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 6 bằng 15, thêm 1 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 4 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 4,
+                "text": "Hạ 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "32980",
+              "37650"
+            ],
+            "result": "70630",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "8 cộng 5 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 2,
+                "text": "9 cộng 6 bằng 15, thêm 1 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "2 cộng 7 bằng 9, thêm 1 bằng 10, viết 0 nhớ 1.",
+                "write": "0",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 cộng 3 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

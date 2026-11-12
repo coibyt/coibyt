@@ -1,0 +1,823 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-25",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 6,
+  "title": "Nâng cao tuần 25: Nhân, chia, trung bình cộng · Thống kê và xác suất",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Đọc kỹ dãy số liệu, biểu đồ cột; tính tổng, hiệu, trung bình cộng từ số liệu.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Bể thứ nhất có 16.400 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 11.000 l. Bể thứ ba có ít hơn bể thứ hai 2.300 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số nước ở bể thứ hai là:",
+            "equation": "16.400 + 11.000 = 27.400 (l)"
+          },
+          {
+            "explanation": "Số nước ở bể thứ ba là:",
+            "equation": "27.400 - 2.300 = 25.100 (l)"
+          },
+          {
+            "explanation": "Số nước ở cả ba bể là:",
+            "equation": "16.400 + 27.400 + 25.100 = 68.900 (l)"
+          }
+        ],
+        "answer": "Đáp số: 68.900 l nước."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-25.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Gieo xúc xắc 27 lần, kết quả: mặt 6 chấm xuất hiện 5 lần, mặt 3 chấm xuất hiện 11 lần, mặt 5 chấm xuất hiện 6 lần. Kéo số lần vào đúng chỗ."
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Mặt 6 chấm: {{s1}} lần\nMặt 3 chấm: {{s2}} lần\nMặt 5 chấm: {{s3}} lần",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "5"
+        },
+        {
+          "id": "t2",
+          "text": "6"
+        },
+        {
+          "id": "t3",
+          "text": "2"
+        },
+        {
+          "id": "t4",
+          "text": "11"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5; 11; 6",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mặt 6 chấm: 5 lần."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt 3 chấm: 11 lần."
+          },
+          {
+            "kind": "text",
+            "text": "Mặt 5 chấm: 6 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p02",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cân nặng (kg) của các bạn trong nhóm:\nLan: 31, Minh: 37, Nam: 30, Thảo: 42, Vy: 27.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Minh"
+        },
+        {
+          "id": "b",
+          "text": "Lan"
+        },
+        {
+          "id": "c",
+          "text": "Thảo"
+        },
+        {
+          "id": "d",
+          "text": "Nam"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Thảo",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất trong dãy là 42, của Thảo."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p03",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với tổng của các số đó."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "trung_binh_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "2 số có trung bình cộng 34"
+        },
+        {
+          "id": "l2",
+          "text": "5 số có trung bình cộng 50"
+        },
+        {
+          "id": "l3",
+          "text": "4 số có trung bình cộng 23"
+        },
+        {
+          "id": "l4",
+          "text": "4 số có trung bình cộng 19"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "68"
+        },
+        {
+          "id": "r2",
+          "text": "92"
+        },
+        {
+          "id": "r3",
+          "text": "250"
+        },
+        {
+          "id": "r4",
+          "text": "75"
+        },
+        {
+          "id": "r5",
+          "text": "76"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r3"
+        },
+        {
+          "left": "l3",
+          "right": "r2"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2 số có trung bình cộng 34: tổng 68; 5 số có trung bình cộng 50: tổng 250; 4 số có trung bình cộng 23: tổng 92; 4 số có trung bình cộng 19: tổng 76",
+        "hint": "Con lấy số trung bình cộng nhân với số các số để được tổng, rồi trừ đi các số đã biết nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "2 số có trung bình cộng 34: tổng là 68."
+          },
+          {
+            "kind": "text",
+            "text": "5 số có trung bình cộng 50: tổng là 250."
+          },
+          {
+            "kind": "text",
+            "text": "4 số có trung bình cộng 23: tổng là 92."
+          },
+          {
+            "kind": "text",
+            "text": "4 số có trung bình cộng 19: tổng là 76."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai thùng có tất cả 2.160 l nước. Thùng to có số nước gấp 7 lần thùng nhỏ. Hỏi thùng to có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Thùng to có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1890,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.890 l nước",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nước ở thùng nhỏ là 1 phần thì số nước ở thùng to là 7 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 7 = 8 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số nước ở thùng nhỏ) là:",
+                "equation": "2.160 : 8 = 270 (l)"
+              },
+              {
+                "explanation": "Số nước ở thùng to là:",
+                "equation": "270 × 7 = 1.890 (l)"
+              }
+            ],
+            "answer": "Đáp số: 1.890 l nước."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "2160",
+            "divisor": "8",
+            "quotient": "270",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "21 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 21 trừ 16 bằng 5.",
+                "partialDividend": 21,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 5
+              },
+              {
+                "text": "Hạ 6, được 56; 56 chia 8 được 7, viết 7. 7 nhân 8 bằng 56; 56 trừ 56 bằng 0.",
+                "partialDividend": 56,
+                "quotientDigit": 7,
+                "product": 56,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "270",
+              "7"
+            ],
+            "result": "1890",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 7 bằng 49, viết 9 nhớ 4.",
+                "write": "9",
+                "carry": 4
+              },
+              {
+                "place": 2,
+                "text": "7 nhân 2 bằng 14, thêm 4 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một vòng quay có ba ô: Gấu, Thỏ, Mèo. Quay 30 lần, kim dừng ở ô Gấu 4 lần, ô Thỏ 7 lần. Hỏi kim dừng ở ô Mèo bao nhiêu lần?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "xac_suat.so_lan"
+      ],
+      "access": "free",
+      "template": "Kim dừng ở ô Mèo {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 19,
+            "unit": "lần"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "19 lần",
+        "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số lần kim dừng ở ô Mèo là:",
+                "equation": "30 - 4 - 7 = 19 (lần)"
+              }
+            ],
+            "answer": "Đáp số: 19 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 15.400 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 11.200 l. Bể thứ ba có ít hơn bể thứ hai 11.400 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 57200,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "57.200 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "15.400 + 11.200 = 26.600 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "26.600 - 11.400 = 15.200 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "15.400 + 26.600 + 15.200 = 57.200 (l)"
+              }
+            ],
+            "answer": "Đáp số: 57.200 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15400",
+              "11200"
+            ],
+            "result": "26600",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 2 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 1 bằng 6, viết 6.",
+                "write": "6"
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "26600",
+              "11400"
+            ],
+            "result": "15200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 trừ 4 bằng 2, viết 2.",
+                "write": "2"
+              },
+              {
+                "place": 3,
+                "text": "6 trừ 1 bằng 5, viết 5.",
+                "write": "5"
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "15400",
+              "26600",
+              "15200"
+            ],
+            "result": "57200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 6 cộng 2 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "5 cộng 6 cộng 5 bằng 16, thêm 1 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 cộng 1 bằng 4, thêm 1 bằng 5, viết 5.",
+                "write": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bể thứ nhất có 23.600 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 9.800 l. Bể thứ ba có ít hơn bể thứ hai 14.100 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "57.000 l"
+        },
+        {
+          "id": "b",
+          "text": "90.400 l"
+        },
+        {
+          "id": "c",
+          "text": "76.300 l"
+        },
+        {
+          "id": "d",
+          "text": "66.800 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "76.300 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "23.600 + 9.800 = 33.400 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "33.400 - 14.100 = 19.300 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "23.600 + 33.400 + 19.300 = 76.300 (l)"
+              }
+            ],
+            "answer": "Đáp số: 76.300 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23600",
+              "9800"
+            ],
+            "result": "33400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 8 bằng 14, viết 4 nhớ 1.",
+                "write": "4",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 9 bằng 12, thêm 1 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 thêm 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "33400",
+              "14100"
+            ],
+            "result": "19300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 trừ 1 bằng 3, viết 3.",
+                "write": "3"
+              },
+              {
+                "place": 3,
+                "text": "3 không trừ được 4, lấy 13 trừ 4 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2; 3 trừ 2 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "23600",
+              "33400",
+              "19300"
+            ],
+            "result": "76300",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "6 cộng 4 cộng 3 bằng 13, viết 3 nhớ 1.",
+                "write": "3",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "3 cộng 3 cộng 9 bằng 15, thêm 1 bằng 16, viết 6 nhớ 1.",
+                "write": "6",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 3 cộng 1 bằng 6, thêm 1 bằng 7, viết 7.",
+                "write": "7"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-25.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Có 148 học sinh đi tham quan. Mỗi xe chở được 28 học sinh. Hỏi cần ít nhất bao nhiêu xe để chở hết số học sinh?"
+      },
+      "level": 3,
+      "estimatedSeconds": 150,
+      "skillIds": [
+        "chia.2cs",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "5 xe"
+        },
+        {
+          "id": "b",
+          "text": "6 xe"
+        },
+        {
+          "id": "c",
+          "text": "7 xe"
+        },
+        {
+          "id": "d",
+          "text": "8 xe"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "6 xe",
+        "hint": "Phép chia còn dư thì phần dư vẫn cần thêm một chỗ nữa, con đừng quên nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "148 : 28 = 5 (dư 8)."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "5 xe chở đầy được:",
+                "equation": "28 × 5 = 140 (học sinh)"
+              },
+              {
+                "explanation": "Số học sinh còn lại là:",
+                "equation": "148 - 140 = 8 (học sinh)"
+              },
+              {
+                "explanation": "Cần thêm một xe cho số học sinh còn lại. Số xe cần ít nhất là:",
+                "equation": "5 + 1 = 6 (xe)"
+              }
+            ],
+            "answer": "Đáp số: 6 xe."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.tuan-25",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c8",
+    "kntt4.c9"
+  ],
+  "title": "Kiểm tra cuối tuần 25",
+  "description": "Ôn lại bài của tuần: Luyện tập chung; Dãy số liệu thống kê; Biểu đồ cột.",
+  "examType": "kt_15p",
+  "term": 2,
+  "durationMinutes": 15,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Tự luận",
+      "items": [
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-25.q01",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Cân nặng (kg) của các bạn trong nhóm: 26, 34, 41, 37, 42.\nDãy số liệu có mấy số? Số thứ 3 là số nào?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "template": "Dãy số liệu có {{b1}} số.\nSố thứ 3 là {{b2}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 5
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 41
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5; 41",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Dãy có 5 số; số thứ 3 là 41."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-25.q02",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số lượt mượn sách mỗi ngày”. Thứ Ba có bao nhiêu lượt?",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-9688f3.webp",
+                "alt": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 20 lượt, Thứ Ba: 45 lượt, Thứ Tư: 10 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 40 lượt.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "template": "Thứ Ba: {{b1}} lượt.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 45,
+                  "unit": "lượt"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "45 lượt",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 20 lượt, Thứ Ba: 45 lượt, Thứ Tư: 10 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 40 lượt."
+                },
+                {
+                  "kind": "text",
+                  "text": "Cột Thứ Ba cao đến số 45."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-25.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "7.144 : 76 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.2cs"
+            ],
+            "access": "free",
+            "template": "7.144 : 76 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 94
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "94",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "7144",
+                  "divisor": "76",
+                  "quotient": "94",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "714 chia 76 được 9, viết 9. 9 nhân 76 bằng 684; 714 trừ 684 bằng 30.",
+                      "partialDividend": 714,
+                      "quotientDigit": 9,
+                      "product": 684,
+                      "remainder": 30
+                    },
+                    {
+                      "text": "Hạ 4, được 304; 304 chia 76 được 4, viết 4. 4 nhân 76 bằng 304; 304 trừ 304 bằng 0.",
+                      "partialDividend": 304,
+                      "quotientDigit": 4,
+                      "product": 304,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "7.144 : 76 = 94"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-25.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Chiều cao (cm) của các bạn trong tổ 1: 132, 144, 141, 130, 138.\nDãy số liệu có mấy số? Số thứ 3 là số nào?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "template": "Dãy số liệu có {{b1}} số.\nSố thứ 3 là {{b2}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 5
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 141
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5; 141",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Dãy có 5 số; số thứ 3 là 141."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 2,
+          "problem": {
+            "id": "kntt4.gen.tuan-25.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số lượt mượn sách mỗi ngày”. Thứ Tư có bao nhiêu lượt?",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-6eddac.webp",
+                "alt": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 10 lượt, Thứ Ba: 45 lượt, Thứ Tư: 30 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 50 lượt.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "template": "Thứ Tư: {{b1}} lượt.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 30,
+                  "unit": "lượt"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "30 lượt",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 10 lượt, Thứ Ba: 45 lượt, Thứ Tư: 30 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 50 lượt."
+                },
+                {
+                  "kind": "text",
+                  "text": "Cột Thứ Tư cao đến số 30."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

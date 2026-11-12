@@ -1,0 +1,61 @@
+name: toan_lop_4
+description: "Ong Vàng Toán 4 - học toán lớp 4 cho bé (tên tạm)."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  # Cần Flutter 3.44 trở lên (Dart 3.10+). Bản đã kiểm tra: Flutter 3.47.9.
+  sdk: ">=3.10.0 <4.0.0"
+  flutter: ">=3.44.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Chuẩn hoá Unicode NFC cho tiếng Việt (gõ Telex/VNI có thể ra chữ tổ hợp).
+  unorm_dart: ^0.3.3
+  # Lưu offline (tiến độ, nội dung tải về) — chạy được cả Android, iOS và web.
+  hive_ce: ^2.23.3
+  hive_ce_flutter: ^2.5.0
+  # Âm thanh phản hồi đúng/sai (Android, iOS, web).
+  audioplayers: ^6.8.1
+  # Giọng đọc của gia sư ảo (Web Speech API trên web, giọng hệ thống trên điện thoại).
+  flutter_tts: ^4.2.5
+  # Gọi API máy chủ (đồng bộ tiến độ, tải đề, xác minh VIP).
+  http: ^1.6.0
+  # Mua VIP trong app (App Store / Google Play).
+  in_app_purchase: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/content/
+    - assets/content/lessons/
+    - assets/content/exams/
+    - assets/sounds/
+    # Cô giáo ảo: ảnh Kie.ai (tuỳ chọn), vật phẩm, giọng 11max
+    - assets/tutor/
+    - assets/ui/
+    - assets/pets/
+    - assets/bg/
+    - assets/chapters/
+    - assets/host/
+    - assets/illus/
+    - assets/examples/
+    - assets/charts/
+    - assets/voice/
+
+  fonts:
+    # Andika (SIL, giấy phép OFL 1.1 — xem assets/fonts/OFL.txt): font thiết kế cho
+    # trẻ mới tập đọc, chữ "a" một tầng giống chữ viết tay/SGK, đủ dấu tiếng Việt.
+    - family: Andika
+      fonts:
+        - asset: assets/fonts/Andika-Regular.ttf
+        - asset: assets/fonts/Andika-Bold.ttf
+          weight: 700

@@ -1,0 +1,516 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c8",
+  "order": 10,
+  "title": "Bài toán liên quan đến rút về đơn vị",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: 4 hộp có 48 cái bánh. Hỏi 7 hộp có bao nhiêu cái bánh?"
+      },
+      {
+        "kind": "equation",
+        "text": "48 : 4 = 12"
+      },
+      {
+        "kind": "equation",
+        "text": "12 × 7 = 84"
+      },
+      {
+        "kind": "text",
+        "text": "7 hộp có 84 cái bánh."
+      },
+      {
+        "kind": "text",
+        "text": "Bước rút về đơn vị là tìm giá trị của MỘT phần.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "6 hộp bút có tất cả 138 chiếc bút. Hỏi 5 hộp bút như thế có bao nhiêu chiếc bút?"
+      },
+      "level": 1,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "5 hộp có {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 115,
+            "unit": "chiếc"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "115 chiếc",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một hộp có số bút là:",
+                "equation": "138 : 6 = 23 (chiếc)"
+              },
+              {
+                "explanation": "Số cần tìm (5 hộp) là:",
+                "equation": "23 × 5 = 115 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 115 chiếc."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "5 hộp bút có tất cả 35 chiếc bút. Hỏi 9 hộp bút như thế có bao nhiêu chiếc bút?"
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "9 hộp có {{b1}} chiếc bút.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 63,
+            "unit": "chiếc"
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "63 chiếc",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một hộp có số bút là:",
+                "equation": "35 : 5 = 7 (chiếc)"
+              },
+              {
+                "explanation": "Số cần tìm (9 hộp) là:",
+                "equation": "7 × 9 = 63 (chiếc)"
+              }
+            ],
+            "answer": "Đáp số: 63 chiếc."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "5 can như nhau chứa 75 l dầu. Hỏi 3 can như thế chứa bao nhiêu lít dầu?"
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "60 l"
+        },
+        {
+          "id": "b",
+          "text": "225 l"
+        },
+        {
+          "id": "c",
+          "text": "78 l"
+        },
+        {
+          "id": "d",
+          "text": "45 l"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45 l",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một can chứa số dầu là:",
+                "equation": "75 : 5 = 15 (l)"
+              },
+              {
+                "explanation": "Số cần tìm (3 can) là:",
+                "equation": "15 × 3 = 45 (l)"
+              }
+            ],
+            "answer": "Đáp số: 45 l."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi câu với kết quả đúng (rút về đơn vị)."
+      },
+      "level": 2,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "rut_ve_don_vi"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "3 gói có 36 cái, 1 gói có"
+        },
+        {
+          "id": "l2",
+          "text": "5 hộp có 40 bút, 1 hộp có"
+        },
+        {
+          "id": "l3",
+          "text": "6 bao nặng 300 kg, 1 bao nặng"
+        },
+        {
+          "id": "l4",
+          "text": "4 xe chở 20 tấn, 1 xe chở"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "50 kg"
+        },
+        {
+          "id": "r2",
+          "text": "5 tấn"
+        },
+        {
+          "id": "r3",
+          "text": "12 cái"
+        },
+        {
+          "id": "r4",
+          "text": "9 cái"
+        },
+        {
+          "id": "r5",
+          "text": "8 bút"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "3 gói có 36 cái, 1 gói có → 12 cái; 5 hộp có 40 bút, 1 hộp có → 8 bút; 6 bao nặng 300 kg, 1 bao nặng → 50 kg; 4 xe chở 20 tấn, 1 xe chở → 5 tấn",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "36 : 3 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "40 : 5 = 8"
+          },
+          {
+            "kind": "equation",
+            "text": "300 : 6 = 50"
+          },
+          {
+            "kind": "equation",
+            "text": "20 : 4 = 5"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "5 can như nhau chứa 60 l dầu. Kéo số vào ô trống để tìm số dầu trong 8 can."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "rut_ve_don_vi"
+      ],
+      "access": "free",
+      "template": "1 can chứa: 60 : 5 = {{s1}} (l)\n8 can chứa: 12 × 8 = {{s2}} (l)",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "12"
+        },
+        {
+          "id": "t2",
+          "text": "96"
+        },
+        {
+          "id": "t3",
+          "text": "480"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12; 96",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "60 : 5 = 12"
+          },
+          {
+            "kind": "equation",
+            "text": "12 × 8 = 96"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "4 can như nhau chứa 88 l dầu. Hỏi 3 can như thế chứa bao nhiêu lít dầu?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "3 can chứa {{b1}} l dầu.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 66,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "66 l",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một can chứa số dầu là:",
+                "equation": "88 : 4 = 22 (l)"
+              },
+              {
+                "explanation": "Số cần tìm (3 can) là:",
+                "equation": "22 × 3 = 66 (l)"
+              }
+            ],
+            "answer": "Đáp số: 66 l."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p07",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "5 xe tải như nhau chở được 17.000 kg hàng. Hỏi 7 xe như thế chở được bao nhiêu ki-lô-gam hàng?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "23.800 kg"
+        },
+        {
+          "id": "b",
+          "text": "17.007 kg"
+        },
+        {
+          "id": "c",
+          "text": "119.000 kg"
+        },
+        {
+          "id": "d",
+          "text": "27.200 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "23.800 kg",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Một xe chở được là:",
+                "equation": "17.000 : 5 = 3.400 (kg)"
+              },
+              {
+                "explanation": "Số cần tìm (7 xe) là:",
+                "equation": "3.400 × 7 = 23.800 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 23.800 kg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c8.bai-toan-lien-quan-den-rut-ve-don-vi.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Mua 7 quyển vở hết 35.000 đồng. Hỏi mua 9 quyển vở như thế hết bao nhiêu tiền?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "rut_ve_don_vi",
+        "giai_toan.hai_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Mua 9 quyển vở hết {{b1}} đồng.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 45000,
+            "unit": "đồng",
+            "unitAliases": [
+              "đ"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "45.000 đồng",
+        "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá tiền một quyển vở là:",
+                "equation": "35.000 : 7 = 5.000 (đồng)"
+              },
+              {
+                "explanation": "Số cần tìm (9 quyển) là:",
+                "equation": "5.000 × 9 = 45.000 (đồng)"
+              }
+            ],
+            "answer": "Đáp số: 45.000 đồng."
+          }
+        ]
+      }
+    }
+  ]
+}

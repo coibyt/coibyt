@@ -1,0 +1,629 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-18",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c7",
+  "order": 1,
+  "title": "Nâng cao tuần 18: Ôn tập học kì 1",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn tập học kì 1: số lớn, cộng trừ, tổng – hiệu, hình học và đo lường.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Kho thứ nhất có 24.400 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 3.400 kg. Kho thứ ba có ít hơn kho thứ hai 7.000 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số thóc ở kho thứ hai là:",
+            "equation": "24.400 + 3.400 = 27.800 (kg)"
+          },
+          {
+            "explanation": "Số thóc ở kho thứ ba là:",
+            "equation": "27.800 - 7.000 = 20.800 (kg)"
+          },
+          {
+            "explanation": "Số thóc ở cả ba kho là:",
+            "equation": "24.400 + 27.800 + 20.800 = 73.000 (kg)"
+          }
+        ],
+        "answer": "Đáp số: 73.000 kg thóc."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-18.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo số vào ô trống để được cách tính thuận tiện."
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "template": "35 + 407 + 65 = ({{s1}} + {{s2}}) + 407",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "35"
+        },
+        {
+          "id": "t2",
+          "text": "408"
+        },
+        {
+          "id": "t3",
+          "text": "65"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "35; 65",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "(35 + 65) + 407 = 507"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi cặp tổng – hiệu với số lớn tương ứng."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "tong_hieu"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "Tổng 50, hiệu 24"
+        },
+        {
+          "id": "l2",
+          "text": "Tổng 93, hiệu 5"
+        },
+        {
+          "id": "l3",
+          "text": "Tổng 97, hiệu 11"
+        },
+        {
+          "id": "l4",
+          "text": "Tổng 41, hiệu 23"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "32"
+        },
+        {
+          "id": "r2",
+          "text": "37"
+        },
+        {
+          "id": "r3",
+          "text": "54"
+        },
+        {
+          "id": "r4",
+          "text": "42"
+        },
+        {
+          "id": "r5",
+          "text": "49"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r2"
+        },
+        {
+          "left": "l2",
+          "right": "r5"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r1"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Tổng 50, hiệu 24 → 37; Tổng 93, hiệu 5 → 49; Tổng 97, hiệu 11 → 54; Tổng 41, hiệu 23 → 32",
+        "hint": "Số lớn bằng tổng cộng hiệu rồi chia cho hai; số bé bằng tổng trừ hiệu rồi chia cho hai.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Tổng 50, hiệu 24: số lớn là (50 + 24) : 2 = 37."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 93, hiệu 5: số lớn là (93 + 5) : 2 = 49."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 97, hiệu 11: số lớn là (97 + 11) : 2 = 54."
+          },
+          {
+            "kind": "text",
+            "text": "Tổng 41, hiệu 23: số lớn là (41 + 23) : 2 = 32."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p03",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi biểu thức với giá trị của nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "tinh_chat.phep_cong"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "633 + 6.146 + 367"
+        },
+        {
+          "id": "l2",
+          "text": "667 + 5.073 + 333"
+        },
+        {
+          "id": "l3",
+          "text": "174 + 8.292 + 326"
+        },
+        {
+          "id": "l4",
+          "text": "59 + 19 + 41"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "6.073"
+        },
+        {
+          "id": "r2",
+          "text": "119"
+        },
+        {
+          "id": "r3",
+          "text": "7.246"
+        },
+        {
+          "id": "r4",
+          "text": "7.146"
+        },
+        {
+          "id": "r5",
+          "text": "8.792"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r4"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r5"
+        },
+        {
+          "left": "l4",
+          "right": "r2"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "633 + 6.146 + 367 → 7.146; 667 + 5.073 + 333 → 6.073; 174 + 8.292 + 326 → 8.792; 59 + 19 + 41 → 119",
+        "hint": "Đổi chỗ các số hạng thì tổng không đổi; con nhóm các số cộng lại được số tròn chục, tròn trăm, tròn nghìn cho dễ tính.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "633 + 6.146 + 367 = 7.146"
+          },
+          {
+            "kind": "equation",
+            "text": "667 + 5.073 + 333 = 6.073"
+          },
+          {
+            "kind": "equation",
+            "text": "174 + 8.292 + 326 = 8.792"
+          },
+          {
+            "kind": "equation",
+            "text": "59 + 19 + 41 = 119"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p04",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Điền số thích hợp.",
+      "prompt": {
+        "text": "Trong số 907.735.859, giá trị của chữ số 5 đầu tiên (từ trái) gấp bao nhiêu lần giá trị của chữ số 5 thứ hai?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.hang_lop",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "template": "Gấp {{b1}} lần.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 100,
+            "unit": "lần"
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "100 lần",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của chữ số 5 đầu tiên là 5.000, của chữ số 5 thứ hai là 50. Ta có:",
+                "equation": "5.000 : 50 = 100"
+              }
+            ],
+            "answer": "Đáp số: 100 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p05",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Kho thứ nhất có 14.400 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 6.700 kg. Kho thứ ba có ít hơn kho thứ hai 11.400 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "cong_tru.pham_vi_100000",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba kho có {{b1}} kg thóc.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 45200,
+            "unit": "kg",
+            "unitAliases": [
+              "ki-lô-gam"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "45.200 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "14.400 + 6.700 = 21.100 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "21.100 - 11.400 = 9.700 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "14.400 + 21.100 + 9.700 = 45.200 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 45.200 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14400",
+              "6700"
+            ],
+            "result": "21100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 7 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 6 bằng 10, thêm 1 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 thêm 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "14400",
+              "21100",
+              "9700"
+            ],
+            "result": "45200",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 1 cộng 7 bằng 12, viết 2 nhớ 1.",
+                "write": "2",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 1 cộng 9 bằng 14, thêm 1 bằng 15, viết 5 nhớ 1.",
+                "write": "5",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 bằng 3, thêm 1 bằng 4, viết 4.",
+                "write": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Trong số 642.052.214, giá trị của chữ số 4 đầu tiên (từ trái) gấp bao nhiêu lần giá trị của chữ số 4 thứ hai?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "so.hang_lop",
+        "tu_duy.quy_luat"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1.000.000 lần"
+        },
+        {
+          "id": "b",
+          "text": "10.000.000 lần"
+        },
+        {
+          "id": "c",
+          "text": "100.000.000 lần"
+        },
+        {
+          "id": "d",
+          "text": "7 lần"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "10.000.000 lần",
+        "hint": "Con xác định từng hàng của số, từ hàng cao nhất đến hàng đơn vị nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Giá trị của chữ số 4 đầu tiên là 40.000.000, của chữ số 4 thứ hai là 4. Ta có:",
+                "equation": "40.000.000 : 4 = 10.000.000"
+              }
+            ],
+            "answer": "Đáp số: 10.000.000 lần."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một khung ảnh hình bình hành có chu vi 38 cm, một cạnh dài 11 cm. Tính độ dài cạnh còn lại."
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "hinh_hoc.binh_hanh_thoi",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cạnh còn lại dài {{b1}} cm.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8,
+            "unit": "cm",
+            "unitAliases": [
+              "xăng-ti-mét"
+            ]
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8 cm",
+        "hint": "Hình bình hành có từng cặp cạnh đối diện song song và bằng nhau; hình thoi có bốn cạnh bằng nhau.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Nửa chu vi hình bình hành là:",
+                "equation": "38 : 2 = 19 (cm)"
+              },
+              {
+                "explanation": "Độ dài cạnh còn lại là:",
+                "equation": "19 - 11 = 8 (cm)"
+              }
+            ],
+            "answer": "Đáp số: 8 cm."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-18.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Tổng của hai số là số lớn nhất có ba chữ số, hiệu của chúng là số lớn nhất có hai chữ số. Tìm số lớn."
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "tong_hieu",
+        "hinh_hoc.dien_tich",
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Số lớn là {{b1}}.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 549
+          },
+          "maxLength": 3
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "549",
+        "hint": "Con tìm tổng và hiệu trước (có khi đề giấu chúng trong câu chữ), rồi mới tìm hai số.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Tổng hai số là 999, hiệu hai số là:",
+                "equation": "99 = 99"
+              },
+              {
+                "explanation": "Số lớn là:",
+                "equation": "(999 + 99) : 2 = 549"
+              }
+            ],
+            "answer": "Đáp số: 549."
+          }
+        ]
+      }
+    }
+  ]
+}

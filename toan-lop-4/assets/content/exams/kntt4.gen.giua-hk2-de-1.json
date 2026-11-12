@@ -1,0 +1,584 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.giua-hk2-de-1",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c8",
+    "kntt4.c9",
+    "kntt4.c10"
+  ],
+  "title": "Đề giữa học kì 2 — Đề số 1",
+  "description": "Ôn tập các chủ đề: Phép nhân và phép chia; Làm quen với yếu tố thống kê, xác suất; Phân số.",
+  "examType": "giua_hk2",
+  "term": 2,
+  "durationMinutes": 40,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q01",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn dấu thích hợp.",
+            "prompt": {
+              "text": "1/5 ... 4/5"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "phan_so.so_sanh"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "="
+              },
+              {
+                "id": "b",
+                "text": "<"
+              },
+              {
+                "id": "c",
+                "text": ">"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "<",
+              "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Hai phân số cùng mẫu số 5, so sánh tử số: 1 < 4."
+                },
+                {
+                  "kind": "text",
+                  "text": "Vậy 1/5 < 4/5."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Kết quả của 9.000 + 6.802 khoảng bao nhiêu?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "uoc_luong"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "14.800"
+              },
+              {
+                "id": "b",
+                "text": "15.800"
+              },
+              {
+                "id": "c",
+                "text": "16.800"
+              },
+              {
+                "id": "d",
+                "text": "158.000"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "15.800",
+              "hint": "Con làm tròn các số rồi tính nhẩm để ước lượng kết quả nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Làm tròn: 9.000 ≈ 9.000; 6.802 ≈ 6.800."
+                },
+                {
+                  "kind": "equation",
+                  "text": "9.000 + 6.800 = 15.800"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q03",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Tính nhẩm.",
+            "prompt": {
+              "text": "Tính nhẩm:"
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "nhan_chia.10_100_1000"
+            ],
+            "access": "free",
+            "template": "567 × 10 = {{b1}}\n80.000 : 100 = {{b2}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 5670
+                },
+                "maxLength": 5
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 800
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5.670; 800",
+              "hint": "Nhân với mười, một trăm, một nghìn thì viết thêm một, hai, ba chữ số không vào bên phải; chia thì bỏ bớt đi bấy nhiêu chữ số không.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Nhân với mười, một trăm, một nghìn thì viết thêm một, hai, ba chữ số không vào bên phải; chia thì bỏ bớt đi bấy nhiêu chữ số không.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "567 × 10 = 5.670"
+                },
+                {
+                  "kind": "equation",
+                  "text": "80.000 : 100 = 800"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q04",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Tính bằng hai cách: 92 × (28 + 6)"
+            },
+            "level": 1,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "tinh_chat.phan_phoi"
+            ],
+            "access": "free",
+            "template": "92 × (28 + 6) = 92 × 28 + 92 × {{b1}} = {{b2}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 6
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 3128
+                },
+                "maxLength": 5
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3.128",
+              "hint": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Một số nhân với một tổng bằng số đó nhân với từng số hạng rồi cộng các kết quả lại.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "92 × (28 + 6) = 92 × 34 = 3.128"
+                },
+                {
+                  "kind": "equation",
+                  "text": "92 × (28 + 6) = 92 × 28 + 92 × 6 = 2.576 + 552 = 3.128"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q05",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Một chiếc bánh được chia thành 11 phần bằng nhau, đã tô màu 2 phần. Viết phân số chỉ phần đã tô màu."
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "phan_so.khai_niem"
+            ],
+            "access": "free",
+            "template": "Phân số chỉ phần đã tô màu: {{b1}}/{{b2}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 2
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 11
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "2/11",
+              "hint": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "text",
+                  "text": "Phân số chỉ phần đã tô màu là 2/11: tử số 2, mẫu số 11."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q06",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Chiều cao (cm) của các bạn trong tổ 1: 132, 144, 141, 130, 138.\nDãy số liệu có mấy số? Số thứ 3 là số nào?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "template": "Dãy số liệu có {{b1}} số.\nSố thứ 3 là {{b2}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 5
+                },
+                "maxLength": 2
+              },
+              {
+                "id": "b2",
+                "answer": {
+                  "kind": "number",
+                  "value": 141
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "5; 141",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Dãy có 5 số; số thứ 3 là 141."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q07",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Đặt tính rồi tính.",
+            "prompt": {
+              "text": "376.524 : 9 = ?"
+            },
+            "level": 1,
+            "estimatedSeconds": 50,
+            "skillIds": [
+              "chia.1cs"
+            ],
+            "access": "free",
+            "template": "376.524 : 9 = {{b1}}",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 41836
+                },
+                "maxLength": 6
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "41.836",
+              "hint": "Con chia lần lượt từ trái sang phải, mỗi lượt hạ một chữ số xuống nhé.",
+              "steps": [
+                {
+                  "kind": "long_division",
+                  "dividend": "376524",
+                  "divisor": "9",
+                  "quotient": "41836",
+                  "remainder": 0,
+                  "digitSteps": [
+                    {
+                      "text": "37 chia 9 được 4, viết 4. 4 nhân 9 bằng 36; 37 trừ 36 bằng 1.",
+                      "partialDividend": 37,
+                      "quotientDigit": 4,
+                      "product": 36,
+                      "remainder": 1
+                    },
+                    {
+                      "text": "Hạ 6, được 16; 16 chia 9 được 1, viết 1. 1 nhân 9 bằng 9; 16 trừ 9 bằng 7.",
+                      "partialDividend": 16,
+                      "quotientDigit": 1,
+                      "product": 9,
+                      "remainder": 7
+                    },
+                    {
+                      "text": "Hạ 5, được 75; 75 chia 9 được 8, viết 8. 8 nhân 9 bằng 72; 75 trừ 72 bằng 3.",
+                      "partialDividend": 75,
+                      "quotientDigit": 8,
+                      "product": 72,
+                      "remainder": 3
+                    },
+                    {
+                      "text": "Hạ 2, được 32; 32 chia 9 được 3, viết 3. 3 nhân 9 bằng 27; 32 trừ 27 bằng 5.",
+                      "partialDividend": 32,
+                      "quotientDigit": 3,
+                      "product": 27,
+                      "remainder": 5
+                    },
+                    {
+                      "text": "Hạ 4, được 54; 54 chia 9 được 6, viết 6. 6 nhân 9 bằng 54; 54 trừ 54 bằng 0.",
+                      "partialDividend": 54,
+                      "quotientDigit": 6,
+                      "product": 54,
+                      "remainder": 0
+                    }
+                  ]
+                },
+                {
+                  "kind": "equation",
+                  "text": "376.524 : 9 = 41.836"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số lượt mượn sách mỗi ngày”. Thứ Tư có bao nhiêu lượt?",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-6eddac.webp",
+                "alt": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 10 lượt, Thứ Ba: 45 lượt, Thứ Tư: 30 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 50 lượt.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 1,
+            "estimatedSeconds": 40,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "template": "Thứ Tư: {{b1}} lượt.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 30,
+                  "unit": "lượt"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "30 lượt",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 10 lượt, Thứ Ba: 45 lượt, Thứ Tư: 30 lượt, Thứ Năm: 55 lượt, Thứ Sáu: 50 lượt."
+                },
+                {
+                  "kind": "text",
+                  "text": "Cột Thứ Tư cao đến số 30."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q09",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Tìm số trung bình cộng của các số: 22; 32."
+            },
+            "level": 1,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "template": "Số trung bình cộng là {{b1}}.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 27
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "27",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+                  "style": "rule"
+                },
+                {
+                  "kind": "equation",
+                  "text": "22 + 32 = 54"
+                },
+                {
+                  "kind": "equation",
+                  "text": "54 : 2 = 27"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.giua-hk2-de-1.q10",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Giải bài toán.",
+            "prompt": {
+              "text": "6 hộp bút có tất cả 138 chiếc bút. Hỏi 5 hộp bút như thế có bao nhiêu chiếc bút?"
+            },
+            "level": 1,
+            "estimatedSeconds": 120,
+            "skillIds": [
+              "rut_ve_don_vi",
+              "giai_toan.hai_phep_tinh"
+            ],
+            "access": "free",
+            "template": "5 hộp có {{b1}} chiếc bút.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 115,
+                  "unit": "chiếc"
+                },
+                "maxLength": 3
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "115 chiếc",
+              "hint": "Bước một tìm giá trị của một phần bằng phép chia; bước hai tìm giá trị của nhiều phần bằng phép nhân.",
+              "steps": [
+                {
+                  "kind": "word_problem",
+                  "lines": [
+                    {
+                      "explanation": "Một hộp có số bút là:",
+                      "equation": "138 : 6 = 23 (chiếc)"
+                    },
+                    {
+                      "explanation": "Số cần tìm (5 hộp) là:",
+                      "equation": "23 × 5 = 115 (chiếc)"
+                    }
+                  ],
+                  "answer": "Đáp số: 115 chiếc."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

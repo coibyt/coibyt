@@ -1,0 +1,520 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c10.rut-gon-phan-so",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c10",
+  "order": 4,
+  "title": "Rút gọn phân số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Rút gọn phân số: chia cả tử số và mẫu số cho cùng một số tự nhiên lớn hơn 1, làm đến khi được phân số tối giản (không rút gọn được nữa).",
+        "style": "rule"
+      },
+      {
+        "kind": "equation",
+        "text": "12/18 = 6/9 = 2/3"
+      },
+      {
+        "kind": "text",
+        "text": "2/3 là phân số tối giản."
+      },
+      {
+        "kind": "text",
+        "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Rút gọn phân số.",
+      "prompt": {
+        "text": "Rút gọn phân số 3/6 thành phân số tối giản."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "template": "3/6 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/2",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "3/6 = 1/2"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Rút gọn phân số.",
+      "prompt": {
+        "text": "Rút gọn phân số 5/15 thành phân số tối giản."
+      },
+      "level": 1,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "template": "5/15 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 3
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/3",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "5/15 = 1/3"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 5."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Phân số 4/16 rút gọn thành phân số tối giản là:"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "4/1"
+        },
+        {
+          "id": "b",
+          "text": "2/8"
+        },
+        {
+          "id": "c",
+          "text": "1/4"
+        },
+        {
+          "id": "d",
+          "text": "2/4"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/4",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "4/16 = 1/4"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Phân số nào dưới đây là phân số tối giản?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2/12"
+        },
+        {
+          "id": "b",
+          "text": "1/2"
+        },
+        {
+          "id": "c",
+          "text": "9/12"
+        },
+        {
+          "id": "d",
+          "text": "3/9"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/2",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Phân số tối giản là phân số mà tử số và mẫu số không cùng chia hết cho số nào lớn hơn 1."
+          },
+          {
+            "kind": "text",
+            "text": "9/12 = 3/4"
+          },
+          {
+            "kind": "text",
+            "text": "2/12 = 1/6"
+          },
+          {
+            "kind": "text",
+            "text": "3/9 = 1/3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p05",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phân số với phân số tối giản bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "2/10"
+        },
+        {
+          "id": "l2",
+          "text": "20/45"
+        },
+        {
+          "id": "l3",
+          "text": "4/6"
+        },
+        {
+          "id": "l4",
+          "text": "6/8"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "1/5"
+        },
+        {
+          "id": "r2",
+          "text": "2/6"
+        },
+        {
+          "id": "r3",
+          "text": "2/3"
+        },
+        {
+          "id": "r4",
+          "text": "4/9"
+        },
+        {
+          "id": "r5",
+          "text": "3/4"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r1"
+        },
+        {
+          "left": "l2",
+          "right": "r4"
+        },
+        {
+          "left": "l3",
+          "right": "r3"
+        },
+        {
+          "left": "l4",
+          "right": "r5"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "2/10 → 1/5; 20/45 → 4/9; 4/6 → 2/3; 6/8 → 3/4",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "2/10 = 1/5."
+          },
+          {
+            "kind": "text",
+            "text": "20/45 = 4/9."
+          },
+          {
+            "kind": "text",
+            "text": "4/6 = 2/3."
+          },
+          {
+            "kind": "text",
+            "text": "6/8 = 3/4."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p06",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo phân số thích hợp vào ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "phan_so.khai_niem"
+      ],
+      "access": "free",
+      "template": "Chia thành 3 phần bằng nhau, lấy 1 phần: {{s1}}\nChia thành 2 phần bằng nhau, lấy 1 phần: {{s2}}\nChia thành 6 phần bằng nhau, lấy 1 phần: {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1/2"
+        },
+        {
+          "id": "t2",
+          "text": "1/3"
+        },
+        {
+          "id": "t3",
+          "text": "3/1"
+        },
+        {
+          "id": "t4",
+          "text": "1/6"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t4"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/3; 1/2; 1/6",
+        "hint": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Mẫu số cho biết hình được chia thành mấy phần bằng nhau, tử số cho biết đã lấy mấy phần.",
+            "style": "rule"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Rút gọn phân số.",
+      "prompt": {
+        "text": "Rút gọn phân số 48/54 thành phân số tối giản."
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "template": "48/54 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 8
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 9
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "8/9",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+            "style": "rule"
+          },
+          {
+            "kind": "equation",
+            "text": "48/54 = 8/9"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 6."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c10.rut-gon-phan-so.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Phân số 3/9 rút gọn thành phân số tối giản là:"
+      },
+      "level": 3,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "2/4"
+        },
+        {
+          "id": "b",
+          "text": "1/3"
+        },
+        {
+          "id": "c",
+          "text": "2/3"
+        },
+        {
+          "id": "d",
+          "text": "3/1"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "1/3",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "3/9 = 1/3"
+          },
+          {
+            "kind": "text",
+            "text": "Chia cả tử số và mẫu số cho 3."
+          }
+        ]
+      }
+    }
+  ]
+}

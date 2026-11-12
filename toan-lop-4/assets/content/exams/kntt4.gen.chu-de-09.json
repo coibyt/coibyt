@@ -1,0 +1,725 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "exam",
+  "id": "kntt4.gen.chu-de-09",
+  "bookId": "kntt4",
+  "chapterIds": [
+    "kntt4.c9"
+  ],
+  "title": "Kiểm tra chủ đề 9",
+  "description": "Làm quen với yếu tố thống kê, xác suất.",
+  "examType": "kt_1_tiet",
+  "term": 2,
+  "durationMinutes": 35,
+  "access": "free",
+  "contentRev": 1,
+  "sections": [
+    {
+      "title": "Phần 1. Trắc nghiệm",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q01",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Mỗi bạn tung đồng xu 30 lần. Nối số lần mặt sấp với số lần mặt ngửa tương ứng."
+            },
+            "level": 2,
+            "estimatedSeconds": 90,
+            "skillIds": [
+              "xac_suat.so_lan"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Sấp 14 lần"
+              },
+              {
+                "id": "l2",
+                "text": "Sấp 16 lần"
+              },
+              {
+                "id": "l3",
+                "text": "Sấp 26 lần"
+              },
+              {
+                "id": "l4",
+                "text": "Sấp 5 lần"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "16 lần ngửa"
+              },
+              {
+                "id": "r2",
+                "text": "25 lần ngửa"
+              },
+              {
+                "id": "r3",
+                "text": "4 lần ngửa"
+              },
+              {
+                "id": "r4",
+                "text": "1 lần ngửa"
+              },
+              {
+                "id": "r5",
+                "text": "14 lần ngửa"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r1"
+              },
+              {
+                "left": "l2",
+                "right": "r5"
+              },
+              {
+                "left": "l3",
+                "right": "r3"
+              },
+              {
+                "left": "l4",
+                "right": "r2"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Sấp 14 lần → 16 lần ngửa; Sấp 16 lần → 14 lần ngửa; Sấp 26 lần → 4 lần ngửa; Sấp 5 lần → 25 lần ngửa",
+              "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "30 - 14 = 16."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 16 = 14."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 26 = 4."
+                },
+                {
+                  "kind": "text",
+                  "text": "30 - 5 = 25."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q02",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Số cây mỗi lớp trồng được:\n4A: 20, 4B: 43, 4C: 18, 4D: 29, 4E: 53.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "4C"
+              },
+              {
+                "id": "b",
+                "text": "4A"
+              },
+              {
+                "id": "c",
+                "text": "4E"
+              },
+              {
+                "id": "d",
+                "text": "4B"
+              }
+            ],
+            "correctChoiceIds": [
+              "c"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4E",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số lớn nhất trong dãy là 53, của 4E."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q03",
+            "rev": 1,
+            "type": "matching",
+            "instruction": "Nối cho đúng.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số lượt mượn sách mỗi ngày”. Nối mỗi cột với số liệu của nó.",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-727842.webp",
+                "alt": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 15 lượt, Thứ Ba: 35 lượt, Thứ Tư: 25 lượt, Thứ Năm: 10 lượt, Thứ Sáu: 40 lượt.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "left": [
+              {
+                "id": "l1",
+                "text": "Thứ Hai"
+              },
+              {
+                "id": "l2",
+                "text": "Thứ Ba"
+              },
+              {
+                "id": "l3",
+                "text": "Thứ Tư"
+              },
+              {
+                "id": "l4",
+                "text": "Thứ Năm"
+              }
+            ],
+            "right": [
+              {
+                "id": "r1",
+                "text": "35 lượt"
+              },
+              {
+                "id": "r2",
+                "text": "5 lượt"
+              },
+              {
+                "id": "r3",
+                "text": "10 lượt"
+              },
+              {
+                "id": "r4",
+                "text": "15 lượt"
+              },
+              {
+                "id": "r5",
+                "text": "25 lượt"
+              }
+            ],
+            "pairs": [
+              {
+                "left": "l1",
+                "right": "r4"
+              },
+              {
+                "left": "l2",
+                "right": "r1"
+              },
+              {
+                "left": "l3",
+                "right": "r5"
+              },
+              {
+                "left": "l4",
+                "right": "r3"
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Thứ Hai → 15 lượt; Thứ Ba → 35 lượt; Thứ Tư → 25 lượt; Thứ Năm → 10 lượt",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số lượt mượn sách mỗi ngày”: Thứ Hai: 15 lượt, Thứ Ba: 35 lượt, Thứ Tư: 25 lượt, Thứ Năm: 10 lượt, Thứ Sáu: 40 lượt."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q04",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Chiều cao (cm) của các bạn trong tổ 1:\nAn: 133, Bình: 134, Chi: 148, Dũng: 140, Hà: 139.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "Dũng"
+              },
+              {
+                "id": "b",
+                "text": "Chi"
+              },
+              {
+                "id": "c",
+                "text": "An"
+              },
+              {
+                "id": "d",
+                "text": "Bình"
+              }
+            ],
+            "correctChoiceIds": [
+              "b"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Chi",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số lớn nhất trong dãy là 148, của Chi."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q05",
+            "rev": 1,
+            "type": "multiple_choice",
+            "instruction": "Chọn đáp án đúng.",
+            "prompt": {
+              "text": "Trong hộp có các quả bóng xanh, đỏ, vàng. An lấy ra một quả, xem màu rồi trả lại, làm 24 lần: bóng xanh 7 lần, bóng đỏ 4 lần, bóng vàng 13 lần. Màu bóng nào xuất hiện nhiều lần nhất?"
+            },
+            "level": 2,
+            "estimatedSeconds": 60,
+            "skillIds": [
+              "xac_suat.so_lan"
+            ],
+            "access": "free",
+            "choices": [
+              {
+                "id": "a",
+                "text": "bóng vàng"
+              },
+              {
+                "id": "b",
+                "text": "bóng xanh"
+              },
+              {
+                "id": "c",
+                "text": "bóng đỏ"
+              },
+              {
+                "id": "d",
+                "text": "bóng tím"
+              }
+            ],
+            "correctChoiceIds": [
+              "a"
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "bóng vàng",
+              "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "So sánh: xanh: 7, đỏ: 4, vàng: 13."
+                },
+                {
+                  "kind": "text",
+                  "text": "Bóng vàng xuất hiện nhiều nhất."
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Phần 2. Tự luận",
+      "items": [
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q06",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Gieo xúc xắc 35 lần, kết quả: mặt 6 chấm xuất hiện 4 lần, mặt 4 chấm xuất hiện 6 lần, mặt 3 chấm xuất hiện 11 lần. Kéo số lần vào đúng chỗ."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "xac_suat.so_lan"
+            ],
+            "access": "free",
+            "template": "Mặt 6 chấm: {{s1}} lần\nMặt 4 chấm: {{s2}} lần\nMặt 3 chấm: {{s3}} lần",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "11"
+              },
+              {
+                "id": "t2",
+                "text": "4"
+              },
+              {
+                "id": "t3",
+                "text": "2"
+              },
+              {
+                "id": "t4",
+                "text": "6"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "4; 6; 11",
+              "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mặt 6 chấm: 4 lần."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt 4 chấm: 6 lần."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt 3 chấm: 11 lần."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q07",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Gieo xúc xắc 33 lần, kết quả: mặt 2 chấm xuất hiện 8 lần, mặt 1 chấm xuất hiện 2 lần, mặt 3 chấm xuất hiện 10 lần. Kéo số lần vào đúng chỗ."
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "xac_suat.so_lan"
+            ],
+            "access": "free",
+            "template": "Mặt 2 chấm: {{s1}} lần\nMặt 1 chấm: {{s2}} lần\nMặt 3 chấm: {{s3}} lần",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "3"
+              },
+              {
+                "id": "t2",
+                "text": "2"
+              },
+              {
+                "id": "t3",
+                "text": "8"
+              },
+              {
+                "id": "t4",
+                "text": "10"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t4"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "8; 2; 10",
+              "hint": "Con đếm số lần sự kiện xảy ra trong các lần thử, rồi so sánh với tổng số lần thử nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Mặt 2 chấm: 8 lần."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt 1 chấm: 2 lần."
+                },
+                {
+                  "kind": "text",
+                  "text": "Mặt 3 chấm: 10 lần."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q08",
+            "rev": 1,
+            "type": "fill_blank",
+            "instruction": "Điền số thích hợp.",
+            "prompt": {
+              "text": "Số điểm 10 mỗi tổ đạt được trong tháng: 22, 27, 19, 12.\nSố lớn nhất hơn số bé nhất bao nhiêu điểm 10?"
+            },
+            "level": 2,
+            "estimatedSeconds": 70,
+            "skillIds": [
+              "thong_ke.day_so_lieu"
+            ],
+            "access": "free",
+            "template": "Hơn {{b1}} điểm 10.",
+            "blanks": [
+              {
+                "id": "b1",
+                "answer": {
+                  "kind": "number",
+                  "value": 15,
+                  "unit": "điểm 10"
+                },
+                "maxLength": 2
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "15 điểm 10",
+              "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Số lớn nhất là 27, số bé nhất là 12."
+                },
+                {
+                  "kind": "equation",
+                  "text": "27 - 12 = 15"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q09",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Quan sát biểu đồ cột “Số cây các tổ trồng được”. Kéo tên vào ô trống theo thứ tự từ cột cao nhất đến cột thấp nhất.",
+              "image": {
+                "src": "assets/charts/c9-bieu-do-fa43ce.webp",
+                "alt": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 25 cây, Tổ 2: 10 cây, Tổ 3: 15 cây, Tổ 4: 55 cây.",
+                "aspectRatio": 1.6
+              }
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "thong_ke.bieu_do_cot"
+            ],
+            "access": "free",
+            "template": "{{s1}} > {{s2}} > {{s3}} > {{s4}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "Tổ 2"
+              },
+              {
+                "id": "t2",
+                "text": "Tổ 4"
+              },
+              {
+                "id": "t3",
+                "text": "Tổ 3"
+              },
+              {
+                "id": "t4",
+                "text": "Tổ 1"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t2"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t3"
+                ]
+              },
+              {
+                "id": "s4",
+                "accept": [
+                  "t1"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "Tổ 4 > Tổ 1 > Tổ 3 > Tổ 2",
+              "hint": "Con nhìn đỉnh của từng cột rồi đọc số ghi trên cột đó nhé.",
+              "steps": [
+                {
+                  "kind": "text",
+                  "text": "Biểu đồ cột “Số cây các tổ trồng được”: Tổ 1: 25 cây, Tổ 2: 10 cây, Tổ 3: 15 cây, Tổ 4: 55 cây."
+                },
+                {
+                  "kind": "text",
+                  "text": "Tổ 4 (55) > Tổ 1 (25) > Tổ 3 (15) > Tổ 2 (10)."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "points": 1,
+          "problem": {
+            "id": "kntt4.gen.chu-de-09.q10",
+            "rev": 1,
+            "type": "drag_drop",
+            "instruction": "Kéo thẻ vào ô trống.",
+            "prompt": {
+              "text": "Kéo số thích hợp vào ô trống để tìm số trung bình cộng."
+            },
+            "level": 2,
+            "estimatedSeconds": 80,
+            "skillIds": [
+              "trung_binh_cong"
+            ],
+            "access": "free",
+            "template": "(22 + 72 + 62) : {{s1}} = {{s2}} : 3 = {{s3}}",
+            "tokens": [
+              {
+                "id": "t1",
+                "text": "156"
+              },
+              {
+                "id": "t2",
+                "text": "52"
+              },
+              {
+                "id": "t3",
+                "text": "55"
+              },
+              {
+                "id": "t4",
+                "text": "3"
+              }
+            ],
+            "slots": [
+              {
+                "id": "s1",
+                "accept": [
+                  "t4"
+                ]
+              },
+              {
+                "id": "s2",
+                "accept": [
+                  "t1"
+                ]
+              },
+              {
+                "id": "s3",
+                "accept": [
+                  "t2"
+                ]
+              }
+            ],
+            "solution": {
+              "access": "free",
+              "answerText": "3; 156; 52",
+              "hint": "Muốn tìm số trung bình cộng của nhiều số, ta tính tổng các số đó rồi chia cho số các số hạng.",
+              "steps": [
+                {
+                  "kind": "equation",
+                  "text": "22 + 72 + 62 = 156"
+                },
+                {
+                  "kind": "equation",
+                  "text": "156 : 3 = 52"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

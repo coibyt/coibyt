@@ -1,0 +1,858 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.nc.tuan-26",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c9",
+  "order": 1,
+  "title": "Nâng cao tuần 26: Thống kê và xác suất · Phân số",
+  "contentRev": 1,
+  "theory": {
+    "title": "Bí kíp nâng cao",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Biết giá trị của n/d một số: lấy giá trị đó chia cho n để được một phần, rồi nhân với d.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Ví dụ: Kho thứ nhất có 18.300 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 10.300 kg. Kho thứ ba có ít hơn kho thứ hai 11.300 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      {
+        "kind": "word_problem",
+        "lines": [
+          {
+            "explanation": "Số thóc ở kho thứ hai là:",
+            "equation": "18.300 + 10.300 = 28.600 (kg)"
+          },
+          {
+            "explanation": "Số thóc ở kho thứ ba là:",
+            "equation": "28.600 - 11.300 = 17.300 (kg)"
+          },
+          {
+            "explanation": "Số thóc ở cả ba kho là:",
+            "equation": "18.300 + 28.600 + 17.300 = 64.200 (kg)"
+          }
+        ],
+        "answer": "Đáp số: 64.200 kg thóc."
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.nc.tuan-26.p01",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Xếp theo thứ tự từ bé đến lớn.",
+      "prompt": {
+        "text": "Xếp các phân số theo thứ tự từ bé đến lớn: 7/3, 4/7, 8/5, 1/8."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "template": "{{s1}} < {{s2}} < {{s3}} < {{s4}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "1/8"
+        },
+        {
+          "id": "t2",
+          "text": "8/5"
+        },
+        {
+          "id": "t3",
+          "text": "7/3"
+        },
+        {
+          "id": "t4",
+          "text": "4/7"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        },
+        {
+          "id": "s4",
+          "accept": [
+            "t3"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/8 < 4/7 < 8/5 < 7/3",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số (hoặc so sánh với 1, với 1/2) rồi so sánh."
+          },
+          {
+            "kind": "text",
+            "text": "1/8 < 4/7 < 8/5 < 7/3."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p02",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối cho đúng.",
+      "prompt": {
+        "text": "Nối mỗi phân số với phân số tối giản bằng nó."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "phan_so.rut_gon"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "12/21"
+        },
+        {
+          "id": "l2",
+          "text": "3/6"
+        },
+        {
+          "id": "l3",
+          "text": "15/20"
+        },
+        {
+          "id": "l4",
+          "text": "10/35"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "3/4"
+        },
+        {
+          "id": "r2",
+          "text": "1/2"
+        },
+        {
+          "id": "r3",
+          "text": "4/7"
+        },
+        {
+          "id": "r4",
+          "text": "2/7"
+        },
+        {
+          "id": "r5",
+          "text": "5/8"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r3"
+        },
+        {
+          "left": "l2",
+          "right": "r2"
+        },
+        {
+          "left": "l3",
+          "right": "r1"
+        },
+        {
+          "left": "l4",
+          "right": "r4"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "12/21 → 4/7; 3/6 → 1/2; 15/20 → 3/4; 10/35 → 2/7",
+        "hint": "Con tìm một số mà cả tử số và mẫu số đều chia hết, chia cả hai cho số đó, làm đến khi không chia được nữa.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "12/21 = 4/7."
+          },
+          {
+            "kind": "text",
+            "text": "3/6 = 1/2."
+          },
+          {
+            "kind": "text",
+            "text": "15/20 = 3/4."
+          },
+          {
+            "kind": "text",
+            "text": "10/35 = 2/7."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Cân nặng (kg) của các bạn trong nhóm:\nLan: 39, Minh: 35, Nam: 31, Thảo: 28, Vy: 33.\nAi (hoặc nhóm nào) có số liệu lớn nhất?"
+      },
+      "level": 2,
+      "estimatedSeconds": 60,
+      "skillIds": [
+        "thong_ke.day_so_lieu"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Nam"
+        },
+        {
+          "id": "b",
+          "text": "Thảo"
+        },
+        {
+          "id": "c",
+          "text": "Lan"
+        },
+        {
+          "id": "d",
+          "text": "Minh"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Lan",
+        "hint": "Con đọc kỹ dãy số liệu: số đầu tiên, số cuối cùng, số lớn nhất, số bé nhất là bao nhiêu nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Số lớn nhất trong dãy là 39, của Lan."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p04",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Kho thứ nhất có 24.100 kg thóc. Kho thứ hai có nhiều hơn kho thứ nhất 10.300 kg. Kho thứ ba có ít hơn kho thứ hai 5.000 kg. Hỏi cả ba kho có bao nhiêu ki-lô-gam thóc?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "58.500 kg"
+        },
+        {
+          "id": "b",
+          "text": "68.800 kg"
+        },
+        {
+          "id": "c",
+          "text": "87.900 kg"
+        },
+        {
+          "id": "d",
+          "text": "86.900 kg"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "87.900 kg thóc",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số thóc ở kho thứ hai là:",
+                "equation": "24.100 + 10.300 = 34.400 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở kho thứ ba là:",
+                "equation": "34.400 - 5.000 = 29.400 (kg)"
+              },
+              {
+                "explanation": "Số thóc ở cả ba kho là:",
+                "equation": "24.100 + 34.400 + 29.400 = 87.900 (kg)"
+              }
+            ],
+            "answer": "Đáp số: 87.900 kg thóc."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24100",
+              "10300"
+            ],
+            "result": "34400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 3 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 0 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 1 bằng 3, viết 3.",
+                "write": "3"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "34400",
+              "5000"
+            ],
+            "result": "29400",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 trừ 0 bằng 4, viết 4.",
+                "write": "4"
+              },
+              {
+                "place": 3,
+                "text": "4 không trừ được 5, lấy 14 trừ 5 bằng 9, viết 9 nhớ 1.",
+                "write": "9",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "3 trừ 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "24100",
+              "34400",
+              "29400"
+            ],
+            "result": "87900",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "1 cộng 4 cộng 4 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 3,
+                "text": "4 cộng 4 cộng 9 bằng 17, viết 7 nhớ 1.",
+                "write": "7",
+                "carry": 1
+              },
+              {
+                "place": 4,
+                "text": "2 cộng 3 cộng 2 bằng 7, thêm 1 bằng 8, viết 8.",
+                "write": "8"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p05",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Bạn Khang có nhiều hơn bạn Hà 2.440 nhãn vở. Số nhãn vở của Khang gấp 3 lần số nhãn vở của Hà. Hỏi bạn Hà có bao nhiêu nhãn vở?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "3.660 nhãn vở"
+        },
+        {
+          "id": "b",
+          "text": "1.221 nhãn vở"
+        },
+        {
+          "id": "c",
+          "text": "1.220 nhãn vở"
+        },
+        {
+          "id": "d",
+          "text": "2.440 nhãn vở"
+        }
+      ],
+      "correctChoiceIds": [
+        "c"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1.220 nhãn vở",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số nhãn vở của Hà là 1 phần thì số nhãn vở của Khang là 3 phần như thế. Hiệu số phần bằng nhau là:",
+                "equation": "3 - 1 = 2 (phần)"
+              },
+              {
+                "explanation": "Số nhãn vở của Hà là:",
+                "equation": "2.440 : 2 = 1.220 (nhãn vở)"
+              }
+            ],
+            "answer": "Đáp số: 1.220 nhãn vở."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "2440",
+            "divisor": "2",
+            "quotient": "1220",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "2 chia 2 được 1, viết 1. 1 nhân 2 bằng 2; 2 trừ 2 bằng 0.",
+                "partialDividend": 2,
+                "quotientDigit": 1,
+                "product": 2,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 4; 4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 4; 4 chia 2 được 2, viết 2. 2 nhân 2 bằng 4; 4 trừ 4 bằng 0.",
+                "partialDividend": 4,
+                "quotientDigit": 2,
+                "product": 4,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 2 được 0, viết 0. 0 nhân 2 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p06",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Dũng ăn 3/7 cái bánh, Ngân ăn 3/5 cái bánh như thế. Ai ăn nhiều bánh hơn?"
+      },
+      "level": 3,
+      "estimatedSeconds": 80,
+      "skillIds": [
+        "phan_so.so_sanh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ngân"
+        },
+        {
+          "id": "b",
+          "text": "Hai bạn ăn bằng nhau"
+        },
+        {
+          "id": "c",
+          "text": "Không so sánh được"
+        },
+        {
+          "id": "d",
+          "text": "Dũng"
+        }
+      ],
+      "correctChoiceIds": [
+        "a"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "Ngân",
+        "hint": "Cùng mẫu số thì phân số nào có tử số lớn hơn thì lớn hơn; khác mẫu số thì quy đồng rồi so sánh.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Hai phân số cùng tử số 3: phân số nào có mẫu số bé hơn thì lớn hơn."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy 3/7 < 3/5."
+          },
+          {
+            "kind": "text",
+            "text": "Vậy Ngân ăn nhiều bánh hơn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Bể thứ nhất có 19.400 l nước. Bể thứ hai có nhiều hơn bể thứ nhất 10.300 l. Bể thứ ba có ít hơn bể thứ hai 12.700 l. Hỏi cả ba bể có bao nhiêu lít nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Cả ba bể có {{b1}} l nước.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 66100,
+            "unit": "l",
+            "unitAliases": [
+              "lít"
+            ]
+          },
+          "maxLength": 6
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "66.100 l nước",
+        "hint": "Bài này có nhiều bước: con tóm tắt đề, tìm lần lượt từng số chưa biết rồi mới trả lời câu hỏi nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước ở bể thứ hai là:",
+                "equation": "19.400 + 10.300 = 29.700 (l)"
+              },
+              {
+                "explanation": "Số nước ở bể thứ ba là:",
+                "equation": "29.700 - 12.700 = 17.000 (l)"
+              },
+              {
+                "explanation": "Số nước ở cả ba bể là:",
+                "equation": "19.400 + 29.700 + 17.000 = 66.100 (l)"
+              }
+            ],
+            "answer": "Đáp số: 66.100 l nước."
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "19400",
+              "10300"
+            ],
+            "result": "29700",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 3 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 0 bằng 9, viết 9.",
+                "write": "9"
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 1 bằng 2, viết 2.",
+                "write": "2"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "subtract",
+            "operands": [
+              "29700",
+              "12700"
+            ],
+            "result": "17000",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 trừ 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "7 trừ 7 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 3,
+                "text": "9 trừ 2 bằng 7, viết 7.",
+                "write": "7"
+              },
+              {
+                "place": 4,
+                "text": "2 trừ 1 bằng 1, viết 1.",
+                "write": "1"
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "add",
+            "operands": [
+              "19400",
+              "29700",
+              "17000"
+            ],
+            "result": "66100",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "0 cộng 0 cộng 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 2,
+                "text": "4 cộng 7 cộng 0 bằng 11, viết 1 nhớ 1.",
+                "write": "1",
+                "carry": 1
+              },
+              {
+                "place": 3,
+                "text": "9 cộng 9 cộng 7 bằng 25, thêm 1 bằng 26, viết 6 nhớ 2.",
+                "write": "6",
+                "carry": 2
+              },
+              {
+                "place": 4,
+                "text": "1 cộng 2 cộng 1 bằng 4, thêm 2 bằng 6, viết 6.",
+                "write": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.nc.tuan-26.p08",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Hai bạn Hoa và Chi có tất cả 2.080 viên bi. Số bi của Chi gấp 7 lần số bi của Hoa. Hỏi Chi có bao nhiêu viên bi?"
+      },
+      "level": 3,
+      "estimatedSeconds": 180,
+      "skillIds": [
+        "giai_toan.nhieu_buoc"
+      ],
+      "access": "free",
+      "template": "Chi có {{b1}} viên bi.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1820,
+            "unit": "viên"
+          },
+          "maxLength": 5
+        }
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "1.820 viên bi",
+        "hint": "Con vẽ sơ đồ đoạn thẳng: coi số bé là một phần, số lớn là mấy phần như thế, rồi tìm giá trị một phần.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Coi số bi của Hoa là 1 phần thì số bi của Chi là 7 phần như thế. Tổng số phần bằng nhau là:",
+                "equation": "1 + 7 = 8 (phần)"
+              },
+              {
+                "explanation": "Giá trị của một phần (số bi của Hoa) là:",
+                "equation": "2.080 : 8 = 260 (viên)"
+              },
+              {
+                "explanation": "Số bi của Chi là:",
+                "equation": "260 × 7 = 1.820 (viên)"
+              }
+            ],
+            "answer": "Đáp số: 1.820 viên bi."
+          },
+          {
+            "kind": "long_division",
+            "dividend": "2080",
+            "divisor": "8",
+            "quotient": "260",
+            "remainder": 0,
+            "digitSteps": [
+              {
+                "text": "20 chia 8 được 2, viết 2. 2 nhân 8 bằng 16; 20 trừ 16 bằng 4.",
+                "partialDividend": 20,
+                "quotientDigit": 2,
+                "product": 16,
+                "remainder": 4
+              },
+              {
+                "text": "Hạ 8, được 48; 48 chia 8 được 6, viết 6. 6 nhân 8 bằng 48; 48 trừ 48 bằng 0.",
+                "partialDividend": 48,
+                "quotientDigit": 6,
+                "product": 48,
+                "remainder": 0
+              },
+              {
+                "text": "Hạ 0; 0 chia 8 được 0, viết 0. 0 nhân 8 bằng 0; 0 trừ 0 bằng 0.",
+                "partialDividend": 0,
+                "quotientDigit": 0,
+                "product": 0,
+                "remainder": 0
+              }
+            ]
+          },
+          {
+            "kind": "column_arithmetic",
+            "operation": "multiply",
+            "operands": [
+              "260",
+              "7"
+            ],
+            "result": "1820",
+            "digitSteps": [
+              {
+                "place": 0,
+                "text": "7 nhân 0 bằng 0, viết 0.",
+                "write": "0"
+              },
+              {
+                "place": 1,
+                "text": "7 nhân 6 bằng 42, viết 2 nhớ 4.",
+                "write": "2",
+                "carry": 4
+              },
+              {
+                "place": 2,
+                "text": "7 nhân 2 bằng 14, thêm 4 bằng 18, viết 18.",
+                "write": "18"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

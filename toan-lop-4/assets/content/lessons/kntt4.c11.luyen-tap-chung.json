@@ -1,0 +1,524 @@
+{
+  "schemaVersion": "1.3.0",
+  "kind": "lesson",
+  "id": "kntt4.c11.luyen-tap-chung",
+  "bookId": "kntt4",
+  "chapterId": "kntt4.c11",
+  "order": 3,
+  "title": "Luyện tập chung",
+  "contentRev": 1,
+  "theory": {
+    "title": "Nhớ nhanh",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Ôn lại: cộng, trừ hai phân số cùng mẫu số và khác mẫu số.",
+        "style": "rule"
+      },
+      {
+        "kind": "text",
+        "text": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Trừ hai phân số cùng mẫu số: lấy tử số trừ tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé."
+      },
+      {
+        "kind": "text",
+        "text": "Nhớ rút gọn kết quả.",
+        "style": "tip"
+      }
+    ]
+  },
+  "problems": [
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p01",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính rồi rút gọn (nếu được).",
+      "prompt": {
+        "text": "4/7 + 4/5 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.cong"
+      ],
+      "access": "free",
+      "template": "4/7 + 4/5 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 48
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 35
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "48/35",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 4/7 = 20/35; 4/5 = 28/35."
+          },
+          {
+            "kind": "equation",
+            "text": "4/7 + 4/5 = 20/35 + 28/35 = 48/35"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p02",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tính rồi rút gọn (nếu được).",
+      "prompt": {
+        "text": "5/6 - 1/3 = ?"
+      },
+      "level": 1,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.tru"
+      ],
+      "access": "free",
+      "template": "5/6 - 1/3 = {{b1}}/{{b2}}",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 2
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/2",
+        "hint": "Trừ hai phân số cùng mẫu số: lấy tử số trừ tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Trừ hai phân số cùng mẫu số: lấy tử số trừ tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+            "style": "rule"
+          },
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 5/6 = 5/6; 1/3 = 2/6."
+          },
+          {
+            "kind": "equation",
+            "text": "5/6 - 1/3 = 5/6 - 2/6 = 3/6 = 1/2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p03",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "7/8 + 2/3 = ?"
+      },
+      "level": 2,
+      "estimatedSeconds": 70,
+      "skillIds": [
+        "phan_so.cong"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "7/12"
+        },
+        {
+          "id": "b",
+          "text": "19/12"
+        },
+        {
+          "id": "c",
+          "text": "9/11"
+        },
+        {
+          "id": "d",
+          "text": "37/24"
+        }
+      ],
+      "correctChoiceIds": [
+        "d"
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "37/24",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 7/8 = 21/24; 2/3 = 16/24."
+          },
+          {
+            "kind": "equation",
+            "text": "7/8 + 2/3 = 21/24 + 16/24 = 37/24"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p04",
+      "rev": 1,
+      "type": "matching",
+      "instruction": "Nối phép tính với kết quả.",
+      "prompt": {
+        "text": "Nối mỗi phép tính với kết quả (đã rút gọn)."
+      },
+      "level": 2,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cong",
+        "phan_so.tru"
+      ],
+      "access": "free",
+      "left": [
+        {
+          "id": "l1",
+          "text": "1/2 + 1/5"
+        },
+        {
+          "id": "l2",
+          "text": "3/5 - 2/5"
+        },
+        {
+          "id": "l3",
+          "text": "8/9 + 7/9"
+        },
+        {
+          "id": "l4",
+          "text": "8/9 - 4/9"
+        }
+      ],
+      "right": [
+        {
+          "id": "r1",
+          "text": "1/5"
+        },
+        {
+          "id": "r2",
+          "text": "87/110"
+        },
+        {
+          "id": "r3",
+          "text": "4/9"
+        },
+        {
+          "id": "r4",
+          "text": "5/3"
+        },
+        {
+          "id": "r5",
+          "text": "7/10"
+        }
+      ],
+      "pairs": [
+        {
+          "left": "l1",
+          "right": "r5"
+        },
+        {
+          "left": "l2",
+          "right": "r1"
+        },
+        {
+          "left": "l3",
+          "right": "r4"
+        },
+        {
+          "left": "l4",
+          "right": "r3"
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/2 + 1/5 → 7/10; 3/5 - 2/5 → 1/5; 8/9 + 7/9 → 5/3; 8/9 - 4/9 → 4/9",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "1/2 + 1/5 = 7/10"
+          },
+          {
+            "kind": "equation",
+            "text": "3/5 - 2/5 = 1/5"
+          },
+          {
+            "kind": "equation",
+            "text": "8/9 + 7/9 = 5/3"
+          },
+          {
+            "kind": "equation",
+            "text": "8/9 - 4/9 = 4/9"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p05",
+      "rev": 1,
+      "type": "drag_drop",
+      "instruction": "Kéo thẻ vào ô trống.",
+      "prompt": {
+        "text": "Kéo kết quả đúng (đã rút gọn) vào mỗi ô trống."
+      },
+      "level": 2,
+      "estimatedSeconds": 100,
+      "skillIds": [
+        "phan_so.cong",
+        "phan_so.tru"
+      ],
+      "access": "free",
+      "template": "3/5 + 3/7 = {{s1}}\n4/7 + 2/3 = {{s2}}\n8/9 - 5/9 = {{s3}}",
+      "tokens": [
+        {
+          "id": "t1",
+          "text": "26/21"
+        },
+        {
+          "id": "t2",
+          "text": "1/3"
+        },
+        {
+          "id": "t3",
+          "text": "72/35"
+        },
+        {
+          "id": "t4",
+          "text": "36/35"
+        }
+      ],
+      "slots": [
+        {
+          "id": "s1",
+          "accept": [
+            "t4"
+          ]
+        },
+        {
+          "id": "s2",
+          "accept": [
+            "t1"
+          ]
+        },
+        {
+          "id": "s3",
+          "accept": [
+            "t2"
+          ]
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "36/35; 26/21; 1/3",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "equation",
+            "text": "3/5 + 3/7 = 36/35"
+          },
+          {
+            "kind": "equation",
+            "text": "4/7 + 2/3 = 26/21"
+          },
+          {
+            "kind": "equation",
+            "text": "8/9 - 5/9 = 1/3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p06",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Tìm phân số thích hợp.",
+      "prompt": {
+        "text": "? + 3/4 = 25/28"
+      },
+      "level": 3,
+      "estimatedSeconds": 90,
+      "skillIds": [
+        "phan_so.cong"
+      ],
+      "access": "free",
+      "template": "{{b1}}/{{b2}} + 3/4 = 25/28",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 1
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "1/7",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Muốn tìm số hạng chưa biết, ta lấy tổng trừ đi số hạng đã biết."
+          },
+          {
+            "kind": "equation",
+            "text": "25/28 - 3/4 = 1/7"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p07",
+      "rev": 1,
+      "type": "fill_blank",
+      "instruction": "Giải bài toán.",
+      "prompt": {
+        "text": "Một bể nước đang chứa 6/7 bể. Người ta dùng hết 1/7 bể. Hỏi trong bể còn lại bao nhiêu phần bể nước?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.tru",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "template": "Đáp số: {{b1}}/{{b2}} bể.",
+      "blanks": [
+        {
+          "id": "b1",
+          "answer": {
+            "kind": "number",
+            "value": 5
+          },
+          "maxLength": 2
+        },
+        {
+          "id": "b2",
+          "answer": {
+            "kind": "number",
+            "value": 7
+          },
+          "maxLength": 2
+        }
+      ],
+      "solution": {
+        "access": "free",
+        "answerText": "5/7 bể",
+        "hint": "Trừ hai phân số cùng mẫu số: lấy tử số trừ tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Số nước còn lại là:",
+                "equation": "6/7 - 1/7 = 5/7 (bể)"
+              }
+            ],
+            "answer": "Đáp số: 5/7 bể."
+          }
+        ]
+      }
+    },
+    {
+      "id": "kntt4.c11.luyen-tap-chung.p08",
+      "rev": 1,
+      "type": "multiple_choice",
+      "instruction": "Chọn đáp án đúng.",
+      "prompt": {
+        "text": "Ngày thứ nhất bác Tư sơn được 5/8 bức tường, ngày thứ hai sơn được 1/3 bức tường. Hỏi cả hai ngày bác sơn được bao nhiêu phần bức tường?"
+      },
+      "level": 3,
+      "estimatedSeconds": 120,
+      "skillIds": [
+        "phan_so.cong",
+        "giai_toan.mot_phep_tinh"
+      ],
+      "access": "free",
+      "choices": [
+        {
+          "id": "a",
+          "text": "1 bức tường"
+        },
+        {
+          "id": "b",
+          "text": "23/24 bức tường"
+        },
+        {
+          "id": "c",
+          "text": "23/12 bức tường"
+        },
+        {
+          "id": "d",
+          "text": "6/11 bức tường"
+        }
+      ],
+      "correctChoiceIds": [
+        "b"
+      ],
+      "solution": {
+        "access": "vip",
+        "answerText": "23/24 bức tường",
+        "hint": "Cộng hai phân số cùng mẫu số: cộng hai tử số và giữ nguyên mẫu số; khác mẫu số thì quy đồng trước nhé.",
+        "steps": [
+          {
+            "kind": "text",
+            "text": "Quy đồng mẫu số: 5/8 = 15/24; 1/3 = 8/24."
+          },
+          {
+            "kind": "word_problem",
+            "lines": [
+              {
+                "explanation": "Cả hai ngày bác sơn được là:",
+                "equation": "5/8 + 1/3 = 15/24 + 8/24 = 23/24 (bức tường)"
+              }
+            ],
+            "answer": "Đáp số: 23/24 bức tường."
+          }
+        ]
+      }
+    }
+  ]
+}
