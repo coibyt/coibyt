@@ -138,6 +138,10 @@ Kết quả: `build/app/outputs/bundle/release/app-release.aab`. Tải file này
 - **Cất giữ cẩn thận** cả file khoá lẫn mật khẩu. Mỗi lần cập nhật app phải ký bằng đúng khoá này.
 - Khi tạo app trên Play Console, bật **Ký ứng dụng bằng Play (Play App Signing)**. Nếu lỡ mất upload key thì vẫn xin Google đổi khoá được.
 
+**Dung lượng:** file `.aab` nặng khoảng 232 MB vì chứa thư viện cho 3 loại chip. Mỗi điện thoại chỉ tải **khoảng 181 MB**, dưới giới hạn 200 MB của CH Play. Phần lớn là khoảng 9.900 file giọng cô Mai. Nếu sau này thêm nhiều giọng và vượt 200 MB, cần tách giọng thành gói tài nguyên riêng (Play Asset Delivery).
+
+**Nếu build báo lỗi 429 khi tải thư viện Maven Central:** dùng bản sao của Google (`maven-central.storage-download.googleapis.com`), đặt trong `~/.gradle/init.d/`.
+
 Mỗi lần cập nhật: tăng số phiên bản trong `pubspec.yaml` (vd `version: 1.0.1+2`, số sau dấu `+` phải tăng).
 
 ## 8. Thứ tự đăng (lần đầu)
