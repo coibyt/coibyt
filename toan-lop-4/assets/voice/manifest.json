@@ -19202,6 +19202,12 @@
       "spoken": "Chính xác!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Chính xác! Con giỏi tiếng Anh quá!": {
+      "file": "assets/voice/chinh-xac-con-gioi-tieng-anh-qua-958bcb-trang.mp3",
+      "ms": 2376,
+      "spoken": "Chính xác! Con giỏi tiếng Anh quá!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Chính xác! Mình học tiếp nhé!": {
       "file": "assets/voice/chinh-xac-minh-hoc-tiep-nhe-c51a81-trang.mp3",
       "ms": 2256,
@@ -19236,6 +19242,12 @@
       "file": "assets/voice/chua-dung-roi-qua-bong-dung-dang-sang-le-1211a3-trang.mp3",
       "ms": 3024,
       "spoken": "Chưa đúng rồi! Quả bóng đúng đang sáng lên kìa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Chưa đúng rồi, con nghe cô đọc lại nhé.": {
+      "file": "assets/voice/chua-dung-roi-con-nghe-co-doc-lai-nhe-cad536-trang.mp3",
+      "ms": 2616,
+      "spoken": "Chưa đúng rồi, con nghe cô đọc lại nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Chưa đúng rồi, không sao đâu!": {
@@ -22232,6 +22244,12 @@
       "spoken": "Giỏi quá!",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Giờ mình đọc phép tính bằng tiếng Anh nhé:": {
+      "file": "assets/voice/gio-minh-doc-phep-tinh-bang-tieng-anh-nh-0a7cdf-trang.mp3",
+      "ms": 2304,
+      "spoken": "Giờ mình đọc phép tính bằng tiếng Anh nhé:",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Giữ nguyên 5/6.": {
       "file": "assets/voice/giu-nguyen-5-6-904a4c-trang.mp3",
       "ms": 1632,
@@ -22260,6 +22278,12 @@
       "file": "assets/voice/goc-60-la-goc-nhon-53669d-trang.mp3",
       "ms": 2184,
       "spoken": "Góc sáu mươi độ là góc nhọn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Góc Tiếng Anh! Con chọn từ tiếng Anh đúng nhé.": {
+      "file": "assets/voice/goc-tieng-anh-con-chon-tu-tieng-anh-dung-7e8f7d-trang.mp3",
+      "ms": 3048,
+      "spoken": "Góc Tiếng Anh! Con chọn từ tiếng Anh đúng nhé.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Góc bên phải không vuông. Con dùng ê ke để kiểm tra góc vuông nhé.": {
@@ -26616,6 +26640,624 @@
       "file": "assets/voice/nan-con-lai-chi-vach-120-goc-mo-cua-quat-b6a75c-trang.mp3",
       "ms": 5520,
       "spoken": "Nan còn lại chỉ vạch một trăm hai mươi. Góc mở của quạt là một trăm hai mươi độ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: biểu thức.": {
+      "file": "assets/voice/nghia-la-bieu-thuc-e53c85-trang.mp3",
+      "ms": 1824,
+      "spoken": "Nghĩa là: biểu thức.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: biểu đồ cột.": {
+      "file": "assets/voice/nghia-la-bieu-do-cot-3bea21-trang.mp3",
+      "ms": 1920,
+      "spoken": "Nghĩa là: biểu đồ cột.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bài học.": {
+      "file": "assets/voice/nghia-la-bai-hoc-3f640e-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: bài học.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bài kiểm tra.": {
+      "file": "assets/voice/nghia-la-bai-kiem-tra-4c5c23-trang.mp3",
+      "ms": 2232,
+      "spoken": "Nghĩa là: bài kiểm tra.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bài toán.": {
+      "file": "assets/voice/nghia-la-bai-toan-8385f1-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: bài toán.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bé hơn.": {
+      "file": "assets/voice/nghia-la-be-hon-1ebe5e-trang.mp3",
+      "ms": 2064,
+      "spoken": "Nghĩa là: bé hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bước.": {
+      "file": "assets/voice/nghia-la-buoc-e4a36d-trang.mp3",
+      "ms": 1440,
+      "spoken": "Nghĩa là: bước.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: bằng.": {
+      "file": "assets/voice/nghia-la-bang-7d50dd-trang.mp3",
+      "ms": 1584,
+      "spoken": "Nghĩa là: bằng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chia cho.": {
+      "file": "assets/voice/nghia-la-chia-cho-4b0d12-trang.mp3",
+      "ms": 2040,
+      "spoken": "Nghĩa là: chia cho.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chia phân số.": {
+      "file": "assets/voice/nghia-la-chia-phan-so-6631a6-trang.mp3",
+      "ms": 2304,
+      "spoken": "Nghĩa là: chia phân số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chia đều.": {
+      "file": "assets/voice/nghia-la-chia-deu-c081b1-trang.mp3",
+      "ms": 1896,
+      "spoken": "Nghĩa là: chia đều.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chia.": {
+      "file": "assets/voice/nghia-la-chia-0e5101-trang.mp3",
+      "ms": 1824,
+      "spoken": "Nghĩa là: chia.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chu vi.": {
+      "file": "assets/voice/nghia-la-chu-vi-5b0769-trang.mp3",
+      "ms": 1896,
+      "spoken": "Nghĩa là: chu vi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chữ (trong biểu thức).": {
+      "file": "assets/voice/nghia-la-chu-trong-bieu-thuc-12fe0c-trang.mp3",
+      "ms": 2256,
+      "spoken": "Nghĩa là: chữ (trong biểu thức).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: chữ số.": {
+      "file": "assets/voice/nghia-la-chu-so-ba73b5-trang.mp3",
+      "ms": 2280,
+      "spoken": "Nghĩa là: chữ số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cân nặng.": {
+      "file": "assets/voice/nghia-la-can-nang-cf500b-trang.mp3",
+      "ms": 1824,
+      "spoken": "Nghĩa là: cân nặng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: câu hỏi.": {
+      "file": "assets/voice/nghia-la-cau-hoi-078c01-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nghĩa là: câu hỏi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cô giáo.": {
+      "file": "assets/voice/nghia-la-co-giao-c61d6f-trang.mp3",
+      "ms": 2064,
+      "spoken": "Nghĩa là: cô giáo.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cùng mẫu số.": {
+      "file": "assets/voice/nghia-la-cung-mau-so-a45f06-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: cùng mẫu số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cạnh.": {
+      "file": "assets/voice/nghia-la-canh-f0e7f3-trang.mp3",
+      "ms": 1680,
+      "spoken": "Nghĩa là: cạnh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cả, một đơn vị.": {
+      "file": "assets/voice/nghia-la-ca-mot-don-vi-92f2a7-trang.mp3",
+      "ms": 2712,
+      "spoken": "Nghĩa là: cả, một đơn vị.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cộng (dấu +).": {
+      "file": "assets/voice/nghia-la-cong-dau-413444-trang.mp3",
+      "ms": 2232,
+      "spoken": "Nghĩa là: cộng (dấu cộng ).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cộng phân số.": {
+      "file": "assets/voice/nghia-la-cong-phan-so-2f1443-trang.mp3",
+      "ms": 2376,
+      "spoken": "Nghĩa là: cộng phân số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cộng.": {
+      "file": "assets/voice/nghia-la-cong-186cb6-trang.mp3",
+      "ms": 1752,
+      "spoken": "Nghĩa là: cộng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: cột.": {
+      "file": "assets/voice/nghia-la-cot-fca0e7-trang.mp3",
+      "ms": 1536,
+      "spoken": "Nghĩa là: cột.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: của (phân số của một số).": {
+      "file": "assets/voice/nghia-la-cua-phan-so-cua-mot-so-b0a5f0-trang.mp3",
+      "ms": 3000,
+      "spoken": "Nghĩa là: của (phân số của một số).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: diện tích.": {
+      "file": "assets/voice/nghia-la-dien-tich-ffef8d-trang.mp3",
+      "ms": 1800,
+      "spoken": "Nghĩa là: diện tích.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: giá trị theo hàng.": {
+      "file": "assets/voice/nghia-la-gia-tri-theo-hang-4ffb3c-trang.mp3",
+      "ms": 2592,
+      "spoken": "Nghĩa là: giá trị theo hàng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: giây.": {
+      "file": "assets/voice/nghia-la-giay-eb0db3-trang.mp3",
+      "ms": 1920,
+      "spoken": "Nghĩa là: giây.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: giải.": {
+      "file": "assets/voice/nghia-la-giai-00c562-trang.mp3",
+      "ms": 2088,
+      "spoken": "Nghĩa là: giải.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: giỏi lắm.": {
+      "file": "assets/voice/nghia-la-gioi-lam-73c98d-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: giỏi lắm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: góc bẹt.": {
+      "file": "assets/voice/nghia-la-goc-bet-856a49-trang.mp3",
+      "ms": 2256,
+      "spoken": "Nghĩa là: góc bẹt.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: góc nhọn.": {
+      "file": "assets/voice/nghia-la-goc-nhon-2d0994-trang.mp3",
+      "ms": 2088,
+      "spoken": "Nghĩa là: góc nhọn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: góc tù.": {
+      "file": "assets/voice/nghia-la-goc-tu-1d6d12-trang.mp3",
+      "ms": 2088,
+      "spoken": "Nghĩa là: góc tù.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: góc vuông.": {
+      "file": "assets/voice/nghia-la-goc-vuong-7bb639-trang.mp3",
+      "ms": 2016,
+      "spoken": "Nghĩa là: góc vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: góc.": {
+      "file": "assets/voice/nghia-la-goc-d97da4-trang.mp3",
+      "ms": 1560,
+      "spoken": "Nghĩa là: góc.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: hiệu.": {
+      "file": "assets/voice/nghia-la-hieu-cc6885-trang.mp3",
+      "ms": 1632,
+      "spoken": "Nghĩa là: hiệu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: hình bình hành.": {
+      "file": "assets/voice/nghia-la-hinh-binh-hanh-ef155f-trang.mp3",
+      "ms": 2160,
+      "spoken": "Nghĩa là: hình bình hành.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: hình chữ nhật.": {
+      "file": "assets/voice/nghia-la-hinh-chu-nhat-08ee3a-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: hình chữ nhật.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: hình thoi.": {
+      "file": "assets/voice/nghia-la-hinh-thoi-2eee5e-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: hình thoi.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: ki-lô-gam.": {
+      "file": "assets/voice/nghia-la-ki-lo-gam-16f981-trang.mp3",
+      "ms": 2592,
+      "spoken": "Nghĩa là: ki-lô-gam.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: kiểm tra lại.": {
+      "file": "assets/voice/nghia-la-kiem-tra-lai-8c0b64-trang.mp3",
+      "ms": 2352,
+      "spoken": "Nghĩa là: kiểm tra lại.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: kết quả.": {
+      "file": "assets/voice/nghia-la-ket-qua-540b8c-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nghĩa là: kết quả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: luyện tập.": {
+      "file": "assets/voice/nghia-la-luyen-tap-fd4e40-trang.mp3",
+      "ms": 1728,
+      "spoken": "Nghĩa là: luyện tập.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: làm tròn.": {
+      "file": "assets/voice/nghia-la-lam-tron-8dbbea-trang.mp3",
+      "ms": 1872,
+      "spoken": "Nghĩa là: làm tròn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: lớn hơn.": {
+      "file": "assets/voice/nghia-la-lon-hon-bfa028-trang.mp3",
+      "ms": 2160,
+      "spoken": "Nghĩa là: lớn hơn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: mét vuông.": {
+      "file": "assets/voice/nghia-la-met-vuong-26ff11-trang.mp3",
+      "ms": 2064,
+      "spoken": "Nghĩa là: mét vuông.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: môn Toán.": {
+      "file": "assets/voice/nghia-la-mon-toan-d651be-trang.mp3",
+      "ms": 2016,
+      "spoken": "Nghĩa là: môn Toán.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: mảnh, phần.": {
+      "file": "assets/voice/nghia-la-manh-phan-3c77e7-trang.mp3",
+      "ms": 2400,
+      "spoken": "Nghĩa là: mảnh, phần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: mẫu số chung.": {
+      "file": "assets/voice/nghia-la-mau-so-chung-af5c0e-trang.mp3",
+      "ms": 2064,
+      "spoken": "Nghĩa là: mẫu số chung.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: mẫu số.": {
+      "file": "assets/voice/nghia-la-mau-so-84c6ac-trang.mp3",
+      "ms": 1848,
+      "spoken": "Nghĩa là: mẫu số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: một nửa.": {
+      "file": "assets/voice/nghia-la-mot-nua-d870b9-trang.mp3",
+      "ms": 1872,
+      "spoken": "Nghĩa là: một nửa.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: một phần ba.": {
+      "file": "assets/voice/nghia-la-mot-phan-ba-1ae44f-trang.mp3",
+      "ms": 2208,
+      "spoken": "Nghĩa là: một phần ba.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: một phần năm.": {
+      "file": "assets/voice/nghia-la-mot-phan-nam-ca0116-trang.mp3",
+      "ms": 2304,
+      "spoken": "Nghĩa là: một phần năm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: một phần tám.": {
+      "file": "assets/voice/nghia-la-mot-phan-tam-b58a7e-trang.mp3",
+      "ms": 2304,
+      "spoken": "Nghĩa là: một phần tám.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: một phần tư.": {
+      "file": "assets/voice/nghia-la-mot-phan-tu-e669b9-trang.mp3",
+      "ms": 2400,
+      "spoken": "Nghĩa là: một phần tư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: nghìn.": {
+      "file": "assets/voice/nghia-la-nghin-7c6c79-trang.mp3",
+      "ms": 1680,
+      "spoken": "Nghĩa là: nghìn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: nhiều nhất.": {
+      "file": "assets/voice/nghia-la-nhieu-nhat-9d78db-trang.mp3",
+      "ms": 1752,
+      "spoken": "Nghĩa là: nhiều nhất.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: nhân (lần).": {
+      "file": "assets/voice/nghia-la-nhan-lan-92c655-trang.mp3",
+      "ms": 1872,
+      "spoken": "Nghĩa là: nhân (lần).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: nhân phân số.": {
+      "file": "assets/voice/nghia-la-nhan-phan-so-cb507f-trang.mp3",
+      "ms": 2232,
+      "spoken": "Nghĩa là: nhân phân số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: nhân.": {
+      "file": "assets/voice/nghia-la-nhan-61da08-trang.mp3",
+      "ms": 1464,
+      "spoken": "Nghĩa là: nhân.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: phân số đảo ngược.": {
+      "file": "assets/voice/nghia-la-phan-so-dao-nguoc-9d8c3c-trang.mp3",
+      "ms": 2280,
+      "spoken": "Nghĩa là: phân số đảo ngược.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: phân số.": {
+      "file": "assets/voice/nghia-la-phan-so-ddfff2-trang.mp3",
+      "ms": 1824,
+      "spoken": "Nghĩa là: phân số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: phút.": {
+      "file": "assets/voice/nghia-la-phut-be496a-trang.mp3",
+      "ms": 1368,
+      "spoken": "Nghĩa là: phút.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: phần bằng nhau.": {
+      "file": "assets/voice/nghia-la-phan-bang-nhau-1feff8-trang.mp3",
+      "ms": 2208,
+      "spoken": "Nghĩa là: phần bằng nhau.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: rút gọn.": {
+      "file": "assets/voice/nghia-la-rut-gon-d461a8-trang.mp3",
+      "ms": 1944,
+      "spoken": "Nghĩa là: rút gọn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: sai.": {
+      "file": "assets/voice/nghia-la-sai-918274-trang.mp3",
+      "ms": 1752,
+      "spoken": "Nghĩa là: sai.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: so sánh.": {
+      "file": "assets/voice/nghia-la-so-sanh-9d592d-trang.mp3",
+      "ms": 1680,
+      "spoken": "Nghĩa là: so sánh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: song song.": {
+      "file": "assets/voice/nghia-la-song-song-732965-trang.mp3",
+      "ms": 1920,
+      "spoken": "Nghĩa là: song song.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số bé.": {
+      "file": "assets/voice/nghia-la-so-be-6ab3c1-trang.mp3",
+      "ms": 1872,
+      "spoken": "Nghĩa là: số bé.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số chẵn.": {
+      "file": "assets/voice/nghia-la-so-chan-e12277-trang.mp3",
+      "ms": 1944,
+      "spoken": "Nghĩa là: số chẵn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số dư.": {
+      "file": "assets/voice/nghia-la-so-du-fb19aa-trang.mp3",
+      "ms": 2184,
+      "spoken": "Nghĩa là: số dư.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số liệu.": {
+      "file": "assets/voice/nghia-la-so-lieu-cfc050-trang.mp3",
+      "ms": 2088,
+      "spoken": "Nghĩa là: số liệu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số lần.": {
+      "file": "assets/voice/nghia-la-so-lan-12ee22-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: số lần.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số lẻ.": {
+      "file": "assets/voice/nghia-la-so-le-4e024b-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nghĩa là: số lẻ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số lớn.": {
+      "file": "assets/voice/nghia-la-so-lon-3fe7fb-trang.mp3",
+      "ms": 2016,
+      "spoken": "Nghĩa là: số lớn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: số.": {
+      "file": "assets/voice/nghia-la-so-6d019e-trang.mp3",
+      "ms": 1728,
+      "spoken": "Nghĩa là: số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: theo thứ tự.": {
+      "file": "assets/voice/nghia-la-theo-thu-tu-159aa4-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: theo thứ tự.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: thương.": {
+      "file": "assets/voice/nghia-la-thuong-c87bb4-trang.mp3",
+      "ms": 1896,
+      "spoken": "Nghĩa là: thương.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: thước đo góc.": {
+      "file": "assets/voice/nghia-la-thuoc-do-goc-4a2fc3-trang.mp3",
+      "ms": 2256,
+      "spoken": "Nghĩa là: thước đo góc.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: thế kỉ.": {
+      "file": "assets/voice/nghia-la-the-ki-0ab2f4-trang.mp3",
+      "ms": 2088,
+      "spoken": "Nghĩa là: thế kỉ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: triệu.": {
+      "file": "assets/voice/nghia-la-trieu-5e9cdb-trang.mp3",
+      "ms": 1560,
+      "spoken": "Nghĩa là: triệu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: trung bình cộng.": {
+      "file": "assets/voice/nghia-la-trung-binh-cong-4dd838-trang.mp3",
+      "ms": 1992,
+      "spoken": "Nghĩa là: trung bình cộng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: trừ (dấu −).": {
+      "file": "assets/voice/nghia-la-tru-dau-3ebe77-trang.mp3",
+      "ms": 1896,
+      "spoken": "Nghĩa là: trừ (dấu −).",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: trừ phân số.": {
+      "file": "assets/voice/nghia-la-tru-phan-so-4ea4c6-trang.mp3",
+      "ms": 2352,
+      "spoken": "Nghĩa là: trừ phân số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: trừ.": {
+      "file": "assets/voice/nghia-la-tru-a08d6b-trang.mp3",
+      "ms": 1680,
+      "spoken": "Nghĩa là: trừ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: tích.": {
+      "file": "assets/voice/nghia-la-tich-1757c9-trang.mp3",
+      "ms": 1176,
+      "spoken": "Nghĩa là: tích.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: tấn.": {
+      "file": "assets/voice/nghia-la-tan-8190c8-trang.mp3",
+      "ms": 1872,
+      "spoken": "Nghĩa là: tấn.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: tất cả.": {
+      "file": "assets/voice/nghia-la-tat-ca-b41321-trang.mp3",
+      "ms": 2112,
+      "spoken": "Nghĩa là: tất cả.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: tổng.": {
+      "file": "assets/voice/nghia-la-tong-d3efa8-trang.mp3",
+      "ms": 1704,
+      "spoken": "Nghĩa là: tổng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: tử số.": {
+      "file": "assets/voice/nghia-la-tu-so-e9884d-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nghĩa là: tử số.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: vuông góc.": {
+      "file": "assets/voice/nghia-la-vuong-goc-385516-trang.mp3",
+      "ms": 1968,
+      "spoken": "Nghĩa là: vuông góc.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: xúc xắc.": {
+      "file": "assets/voice/nghia-la-xuc-xac-169829-trang.mp3",
+      "ms": 2064,
+      "spoken": "Nghĩa là: xúc xắc.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: ít nhất.": {
+      "file": "assets/voice/nghia-la-it-nhat-3025e3-trang.mp3",
+      "ms": 1512,
+      "spoken": "Nghĩa là: ít nhất.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: ôn tập.": {
+      "file": "assets/voice/nghia-la-on-tap-21a1e9-trang.mp3",
+      "ms": 2016,
+      "spoken": "Nghĩa là: ôn tập.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: điểm.": {
+      "file": "assets/voice/nghia-la-diem-0b25ed-trang.mp3",
+      "ms": 1848,
+      "spoken": "Nghĩa là: điểm.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: đáp án.": {
+      "file": "assets/voice/nghia-la-dap-an-af4c21-trang.mp3",
+      "ms": 1848,
+      "spoken": "Nghĩa là: đáp án.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: đúng.": {
+      "file": "assets/voice/nghia-la-dung-d814a3-trang.mp3",
+      "ms": 1584,
+      "spoken": "Nghĩa là: đúng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: đường thẳng.": {
+      "file": "assets/voice/nghia-la-duong-thang-374dc0-trang.mp3",
+      "ms": 2040,
+      "spoken": "Nghĩa là: đường thẳng.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: đỉnh.": {
+      "file": "assets/voice/nghia-la-dinh-0d4fdb-trang.mp3",
+      "ms": 1608,
+      "spoken": "Nghĩa là: đỉnh.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: đồng xu.": {
+      "file": "assets/voice/nghia-la-dong-xu-f49969-trang.mp3",
+      "ms": 2040,
+      "spoken": "Nghĩa là: đồng xu.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: độ.": {
+      "file": "assets/voice/nghia-la-do-c0e1d8-trang.mp3",
+      "ms": 1608,
+      "spoken": "Nghĩa là: độ.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Nghĩa là: ước lượng.": {
+      "file": "assets/voice/nghia-la-uoc-luong-24da71-trang.mp3",
+      "ms": 2040,
+      "spoken": "Nghĩa là: ước lượng.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "Ngày ba hái gấp đôi ngày hai: 150 × 2 = 300 kg.": {
@@ -38030,6 +38672,624 @@
       "spoken": "Từ năm hai nghìn không trăm linh một đến năm hai nghìn một trăm là thế kỉ hai mươi mốt, thế kỉ chúng ta đang sống.",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
+    "Từ “biểu thức” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bieu-thuc-trong-tieng-anh-la-gi-2b7f5e-trang.mp3",
+      "ms": 1944,
+      "spoken": "Từ “biểu thức” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “biểu đồ cột” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bieu-do-cot-trong-tieng-anh-la-gi-0a27e4-trang.mp3",
+      "ms": 2376,
+      "spoken": "Từ “biểu đồ cột” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bài học” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bai-hoc-trong-tieng-anh-la-gi-542a51-trang.mp3",
+      "ms": 2064,
+      "spoken": "Từ “bài học” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bài kiểm tra” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bai-kiem-tra-trong-tieng-anh-la-gi-8d1d2a-trang.mp3",
+      "ms": 2376,
+      "spoken": "Từ “bài kiểm tra” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bài toán” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bai-toan-trong-tieng-anh-la-gi-0f2a50-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “bài toán” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bé hơn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-be-hon-trong-tieng-anh-la-gi-d3f849-trang.mp3",
+      "ms": 2160,
+      "spoken": "Từ “bé hơn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bước” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-buoc-trong-tieng-anh-la-gi-6baefc-trang.mp3",
+      "ms": 1944,
+      "spoken": "Từ “bước” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “bằng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-bang-trong-tieng-anh-la-gi-a06fb6-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “bằng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chia cho” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chia-cho-trong-tieng-anh-la-gi-f0a7b2-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “chia cho” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chia phân số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chia-phan-so-trong-tieng-anh-la-gi-da9f81-trang.mp3",
+      "ms": 2688,
+      "spoken": "Từ “chia phân số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chia đều” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chia-deu-trong-tieng-anh-la-gi-f620ff-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “chia đều” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chia” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chia-trong-tieng-anh-la-gi-9f4017-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “chia” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chu vi” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chu-vi-trong-tieng-anh-la-gi-4cc71b-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “chu vi” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chữ (trong biểu thức)” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chu-trong-bieu-thuc-trong-tieng-anh-l-b25514-trang.mp3",
+      "ms": 2592,
+      "spoken": "Từ “chữ (trong biểu thức)” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “chữ số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-chu-so-trong-tieng-anh-la-gi-da688a-trang.mp3",
+      "ms": 2328,
+      "spoken": "Từ “chữ số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cân nặng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-can-nang-trong-tieng-anh-la-gi-150d69-trang.mp3",
+      "ms": 2040,
+      "spoken": "Từ “cân nặng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “câu hỏi” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cau-hoi-trong-tieng-anh-la-gi-756d72-trang.mp3",
+      "ms": 2496,
+      "spoken": "Từ “câu hỏi” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cô giáo” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-co-giao-trong-tieng-anh-la-gi-19a847-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “cô giáo” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cùng mẫu số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cung-mau-so-trong-tieng-anh-la-gi-17df18-trang.mp3",
+      "ms": 2544,
+      "spoken": "Từ “cùng mẫu số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cạnh” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-canh-trong-tieng-anh-la-gi-3829f8-trang.mp3",
+      "ms": 1992,
+      "spoken": "Từ “cạnh” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cả, một đơn vị” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-ca-mot-don-vi-trong-tieng-anh-la-gi-5a0729-trang.mp3",
+      "ms": 3096,
+      "spoken": "Từ “cả, một đơn vị” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cộng (dấu +)” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cong-dau-trong-tieng-anh-la-gi-054bdf-trang.mp3",
+      "ms": 2640,
+      "spoken": "Từ “cộng (dấu cộng )” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cộng phân số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cong-phan-so-trong-tieng-anh-la-gi-866ee5-trang.mp3",
+      "ms": 2520,
+      "spoken": "Từ “cộng phân số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cộng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cong-trong-tieng-anh-la-gi-46ee25-trang.mp3",
+      "ms": 2160,
+      "spoken": "Từ “cộng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “cột” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cot-trong-tieng-anh-la-gi-87377e-trang.mp3",
+      "ms": 2256,
+      "spoken": "Từ “cột” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “của (phân số của một số)” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-cua-phan-so-cua-mot-so-trong-tieng-an-d67cd5-trang.mp3",
+      "ms": 3624,
+      "spoken": "Từ “của (phân số của một số)” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “diện tích” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-dien-tich-trong-tieng-anh-la-gi-997b1c-trang.mp3",
+      "ms": 2280,
+      "spoken": "Từ “diện tích” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “giá trị theo hàng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-gia-tri-theo-hang-trong-tieng-anh-la-f2d814-trang.mp3",
+      "ms": 2688,
+      "spoken": "Từ “giá trị theo hàng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “giây” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-giay-trong-tieng-anh-la-gi-492fdd-trang.mp3",
+      "ms": 1968,
+      "spoken": "Từ “giây” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “giải” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-giai-trong-tieng-anh-la-gi-51d73b-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “giải” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “giỏi lắm” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-gioi-lam-trong-tieng-anh-la-gi-14704f-trang.mp3",
+      "ms": 2400,
+      "spoken": "Từ “giỏi lắm” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “góc bẹt” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-goc-bet-trong-tieng-anh-la-gi-0c0f0f-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “góc bẹt” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “góc nhọn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-goc-nhon-trong-tieng-anh-la-gi-71217a-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “góc nhọn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “góc tù” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-goc-tu-trong-tieng-anh-la-gi-34d011-trang.mp3",
+      "ms": 2040,
+      "spoken": "Từ “góc tù” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “góc vuông” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-goc-vuong-trong-tieng-anh-la-gi-4bd7a9-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “góc vuông” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “góc” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-goc-trong-tieng-anh-la-gi-7d230a-trang.mp3",
+      "ms": 2112,
+      "spoken": "Từ “góc” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “hiệu” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-hieu-trong-tieng-anh-la-gi-b7c23b-trang.mp3",
+      "ms": 2064,
+      "spoken": "Từ “hiệu” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “hình bình hành” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-hinh-binh-hanh-trong-tieng-anh-la-gi-f9b5ac-trang.mp3",
+      "ms": 2304,
+      "spoken": "Từ “hình bình hành” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “hình chữ nhật” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-hinh-chu-nhat-trong-tieng-anh-la-gi-5ad96c-trang.mp3",
+      "ms": 2424,
+      "spoken": "Từ “hình chữ nhật” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “hình thoi” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-hinh-thoi-trong-tieng-anh-la-gi-f25c77-trang.mp3",
+      "ms": 2256,
+      "spoken": "Từ “hình thoi” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “ki-lô-gam” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-ki-lo-gam-trong-tieng-anh-la-gi-737597-trang.mp3",
+      "ms": 2400,
+      "spoken": "Từ “ki-lô-gam” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “kiểm tra lại” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-kiem-tra-lai-trong-tieng-anh-la-gi-417d28-trang.mp3",
+      "ms": 2472,
+      "spoken": "Từ “kiểm tra lại” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “kết quả” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-ket-qua-trong-tieng-anh-la-gi-a443db-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “kết quả” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “luyện tập” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-luyen-tap-trong-tieng-anh-la-gi-4aa1b3-trang.mp3",
+      "ms": 2160,
+      "spoken": "Từ “luyện tập” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “làm tròn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-lam-tron-trong-tieng-anh-la-gi-ae5aba-trang.mp3",
+      "ms": 2280,
+      "spoken": "Từ “làm tròn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “lớn hơn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-lon-hon-trong-tieng-anh-la-gi-21c465-trang.mp3",
+      "ms": 2088,
+      "spoken": "Từ “lớn hơn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “mét vuông” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-met-vuong-trong-tieng-anh-la-gi-fac278-trang.mp3",
+      "ms": 2352,
+      "spoken": "Từ “mét vuông” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “môn Toán” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mon-toan-trong-tieng-anh-la-gi-dfb0ae-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “môn Toán” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “mảnh, phần” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-manh-phan-trong-tieng-anh-la-gi-24619a-trang.mp3",
+      "ms": 2784,
+      "spoken": "Từ “mảnh, phần” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “mẫu số chung” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mau-so-chung-trong-tieng-anh-la-gi-ead074-trang.mp3",
+      "ms": 2544,
+      "spoken": "Từ “mẫu số chung” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “mẫu số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mau-so-trong-tieng-anh-la-gi-898750-trang.mp3",
+      "ms": 2328,
+      "spoken": "Từ “mẫu số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “một nửa” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mot-nua-trong-tieng-anh-la-gi-4b906b-trang.mp3",
+      "ms": 2544,
+      "spoken": "Từ “một nửa” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “một phần ba” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mot-phan-ba-trong-tieng-anh-la-gi-13ed44-trang.mp3",
+      "ms": 2352,
+      "spoken": "Từ “một phần ba” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “một phần năm” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mot-phan-nam-trong-tieng-anh-la-gi-f0b6fe-trang.mp3",
+      "ms": 2424,
+      "spoken": "Từ “một phần năm” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “một phần tám” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mot-phan-tam-trong-tieng-anh-la-gi-d20846-trang.mp3",
+      "ms": 2424,
+      "spoken": "Từ “một phần tám” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “một phần tư” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-mot-phan-tu-trong-tieng-anh-la-gi-9f4333-trang.mp3",
+      "ms": 2352,
+      "spoken": "Từ “một phần tư” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “nghìn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-nghin-trong-tieng-anh-la-gi-ef9eb6-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “nghìn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “nhiều nhất” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-nhieu-nhat-trong-tieng-anh-la-gi-76477d-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “nhiều nhất” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “nhân (lần)” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-nhan-lan-trong-tieng-anh-la-gi-6fce0f-trang.mp3",
+      "ms": 2160,
+      "spoken": "Từ “nhân (lần)” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “nhân phân số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-nhan-phan-so-trong-tieng-anh-la-gi-d46934-trang.mp3",
+      "ms": 2448,
+      "spoken": "Từ “nhân phân số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “nhân” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-nhan-trong-tieng-anh-la-gi-8011bf-trang.mp3",
+      "ms": 2040,
+      "spoken": "Từ “nhân” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “phân số đảo ngược” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-phan-so-dao-nguoc-trong-tieng-anh-la-21e05e-trang.mp3",
+      "ms": 2880,
+      "spoken": "Từ “phân số đảo ngược” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “phân số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-phan-so-trong-tieng-anh-la-gi-0084bb-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “phân số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “phút” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-phut-trong-tieng-anh-la-gi-16253e-trang.mp3",
+      "ms": 1968,
+      "spoken": "Từ “phút” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “phần bằng nhau” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-phan-bang-nhau-trong-tieng-anh-la-gi-39a86a-trang.mp3",
+      "ms": 2640,
+      "spoken": "Từ “phần bằng nhau” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “rút gọn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-rut-gon-trong-tieng-anh-la-gi-0f1977-trang.mp3",
+      "ms": 2232,
+      "spoken": "Từ “rút gọn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “sai” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-sai-trong-tieng-anh-la-gi-74fe6a-trang.mp3",
+      "ms": 1992,
+      "spoken": "Từ “sai” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “so sánh” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-sanh-trong-tieng-anh-la-gi-a1e1f5-trang.mp3",
+      "ms": 2376,
+      "spoken": "Từ “so sánh” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “song song” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-song-song-trong-tieng-anh-la-gi-36ac10-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “song song” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số bé” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-be-trong-tieng-anh-la-gi-55d44b-trang.mp3",
+      "ms": 2064,
+      "spoken": "Từ “số bé” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số chẵn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-chan-trong-tieng-anh-la-gi-4cf246-trang.mp3",
+      "ms": 2280,
+      "spoken": "Từ “số chẵn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số dư” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-du-trong-tieng-anh-la-gi-da0fcc-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “số dư” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số liệu” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-lieu-trong-tieng-anh-la-gi-904811-trang.mp3",
+      "ms": 2472,
+      "spoken": "Từ “số liệu” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số lần” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-lan-trong-tieng-anh-la-gi-eb3bf3-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “số lần” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số lẻ” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-le-trong-tieng-anh-la-gi-ddbb23-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “số lẻ” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số lớn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-lon-trong-tieng-anh-la-gi-f4d0c0-trang.mp3",
+      "ms": 2280,
+      "spoken": "Từ “số lớn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-so-trong-tieng-anh-la-gi-a4974f-trang.mp3",
+      "ms": 2040,
+      "spoken": "Từ “số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “theo thứ tự” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-theo-thu-tu-trong-tieng-anh-la-gi-0c78f2-trang.mp3",
+      "ms": 2448,
+      "spoken": "Từ “theo thứ tự” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “thương” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-thuong-trong-tieng-anh-la-gi-ff6298-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “thương” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “thước đo góc” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-thuoc-do-goc-trong-tieng-anh-la-gi-155886-trang.mp3",
+      "ms": 2400,
+      "spoken": "Từ “thước đo góc” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “thế kỉ” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-the-ki-trong-tieng-anh-la-gi-1625d8-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “thế kỉ” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “triệu” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-trieu-trong-tieng-anh-la-gi-3188be-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “triệu” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “trung bình cộng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-trung-binh-cong-trong-tieng-anh-la-gi-79d196-trang.mp3",
+      "ms": 2472,
+      "spoken": "Từ “trung bình cộng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “trừ (dấu −)” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tru-dau-trong-tieng-anh-la-gi-3140b5-trang.mp3",
+      "ms": 2256,
+      "spoken": "Từ “trừ (dấu −)” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “trừ phân số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tru-phan-so-trong-tieng-anh-la-gi-102fe4-trang.mp3",
+      "ms": 2496,
+      "spoken": "Từ “trừ phân số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “trừ” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tru-trong-tieng-anh-la-gi-bffd46-trang.mp3",
+      "ms": 2040,
+      "spoken": "Từ “trừ” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “tích” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tich-trong-tieng-anh-la-gi-c57e66-trang.mp3",
+      "ms": 2088,
+      "spoken": "Từ “tích” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “tấn” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tan-trong-tieng-anh-la-gi-20f908-trang.mp3",
+      "ms": 2064,
+      "spoken": "Từ “tấn” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “tất cả” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tat-ca-trong-tieng-anh-la-gi-c190b9-trang.mp3",
+      "ms": 2184,
+      "spoken": "Từ “tất cả” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “tổng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tong-trong-tieng-anh-la-gi-79b0ec-trang.mp3",
+      "ms": 2328,
+      "spoken": "Từ “tổng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “tử số” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-tu-so-trong-tieng-anh-la-gi-bb9430-trang.mp3",
+      "ms": 2376,
+      "spoken": "Từ “tử số” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “vuông góc” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-vuong-goc-trong-tieng-anh-la-gi-117dbf-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “vuông góc” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “xúc xắc” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-xuc-xac-trong-tieng-anh-la-gi-23c254-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “xúc xắc” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “ít nhất” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-it-nhat-trong-tieng-anh-la-gi-f329b1-trang.mp3",
+      "ms": 2304,
+      "spoken": "Từ “ít nhất” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “ôn tập” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-on-tap-trong-tieng-anh-la-gi-547ff0-trang.mp3",
+      "ms": 2112,
+      "spoken": "Từ “ôn tập” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “điểm” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-diem-trong-tieng-anh-la-gi-65c1b0-trang.mp3",
+      "ms": 2016,
+      "spoken": "Từ “điểm” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “đáp án” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-dap-an-trong-tieng-anh-la-gi-7dfc6a-trang.mp3",
+      "ms": 2064,
+      "spoken": "Từ “đáp án” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “đúng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-dung-trong-tieng-anh-la-gi-f66c57-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “đúng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “đường thẳng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-duong-thang-trong-tieng-anh-la-gi-a42ae8-trang.mp3",
+      "ms": 2208,
+      "spoken": "Từ “đường thẳng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “đỉnh” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-dinh-trong-tieng-anh-la-gi-7d536e-trang.mp3",
+      "ms": 1944,
+      "spoken": "Từ “đỉnh” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “đồng xu” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-dong-xu-trong-tieng-anh-la-gi-292b1c-trang.mp3",
+      "ms": 2136,
+      "spoken": "Từ “đồng xu” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “độ” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-do-trong-tieng-anh-la-gi-1829bd-trang.mp3",
+      "ms": 1848,
+      "spoken": "Từ “độ” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "Từ “ước lượng” trong tiếng Anh là gì?": {
+      "file": "assets/voice/tu-uoc-luong-trong-tieng-anh-la-gi-552335-trang.mp3",
+      "ms": 2112,
+      "spoken": "Từ “ước lượng” trong tiếng Anh là gì?",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
     "Tử nhân tử, mẫu nhân mẫu.": {
       "file": "assets/voice/tu-nhan-tu-mau-nhan-mau-9b5f87-trang.mp3",
       "ms": 2352,
@@ -39156,6 +40416,198 @@
       "file": "assets/voice/can-dia-4a8f9e-trang.mp3",
       "ms": 816,
       "spoken": "cân đĩa",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Brilliant!": {
+      "file": "assets/voice/brilliant-b18c96-en-trang.mp3",
+      "ms": 696,
+      "spoken": "Brilliant!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Calculate in the easiest way.": {
+      "file": "assets/voice/calculate-in-the-easiest-way-66a4ee-en-trang.mp3",
+      "ms": 2088,
+      "spoken": "Calculate in the easiest way.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Calculate, then simplify if you can.": {
+      "file": "assets/voice/calculate-then-simplify-if-you-can-9e698d-en-trang.mp3",
+      "ms": 2688,
+      "spoken": "Calculate, then simplify if you can.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Calculate.": {
+      "file": "assets/voice/calculate-7b083c-en-trang.mp3",
+      "ms": 912,
+      "spoken": "Calculate.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Choose the correct answer.": {
+      "file": "assets/voice/choose-the-correct-answer-a4f762-en-trang.mp3",
+      "ms": 1536,
+      "spoken": "Choose the correct answer.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Choose the correct sign.": {
+      "file": "assets/voice/choose-the-correct-sign-5ba3f5-en-trang.mp3",
+      "ms": 1536,
+      "spoken": "Choose the correct sign.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Choose the correct way to read it.": {
+      "file": "assets/voice/choose-the-correct-way-to-read-it-883d62-en-trang.mp3",
+      "ms": 1968,
+      "spoken": "Choose the correct way to read it.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Choose the right measurement.": {
+      "file": "assets/voice/choose-the-right-measurement-5ebf9f-en-trang.mp3",
+      "ms": 1536,
+      "spoken": "Choose the right measurement.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Drag the cards into the boxes.": {
+      "file": "assets/voice/drag-the-cards-into-the-boxes-9667d5-en-trang.mp3",
+      "ms": 1872,
+      "spoken": "Drag the cards into the boxes.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Drag the numbers into the boxes.": {
+      "file": "assets/voice/drag-the-numbers-into-the-boxes-cadb67-en-trang.mp3",
+      "ms": 2040,
+      "spoken": "Drag the numbers into the boxes.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Excellent!": {
+      "file": "assets/voice/excellent-1bd635-en-trang.mp3",
+      "ms": 864,
+      "spoken": "Excellent!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Fill in the missing number.": {
+      "file": "assets/voice/fill-in-the-missing-number-e4bfd5-en-trang.mp3",
+      "ms": 1344,
+      "spoken": "Fill in the missing number.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Find a common denominator.": {
+      "file": "assets/voice/find-a-common-denominator-95687f-en-trang.mp3",
+      "ms": 1680,
+      "spoken": "Find a common denominator.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Find the missing fraction.": {
+      "file": "assets/voice/find-the-missing-fraction-676bc4-en-trang.mp3",
+      "ms": 1512,
+      "spoken": "Find the missing fraction.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Find the missing number.": {
+      "file": "assets/voice/find-the-missing-number-c9e3ff-en-trang.mp3",
+      "ms": 1320,
+      "spoken": "Find the missing number.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Find the value of the expression.": {
+      "file": "assets/voice/find-the-value-of-the-expression-965945-en-trang.mp3",
+      "ms": 2112,
+      "spoken": "Find the value of the expression.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Great job!": {
+      "file": "assets/voice/great-job-97c462-en-trang.mp3",
+      "ms": 888,
+      "spoken": "Great job!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Match each expression with its value.": {
+      "file": "assets/voice/match-each-expression-with-its-value-a83687-en-trang.mp3",
+      "ms": 2256,
+      "spoken": "Match each expression with its value.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Match each number with its name.": {
+      "file": "assets/voice/match-each-number-with-its-name-48352b-en-trang.mp3",
+      "ms": 2088,
+      "spoken": "Match each number with its name.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Match each sum with its answer.": {
+      "file": "assets/voice/match-each-sum-with-its-answer-86351b-en-trang.mp3",
+      "ms": 2088,
+      "spoken": "Match each sum with its answer.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Match the equal measurements.": {
+      "file": "assets/voice/match-the-equal-measurements-cf496e-en-trang.mp3",
+      "ms": 1704,
+      "spoken": "Match the equal measurements.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Match the pairs.": {
+      "file": "assets/voice/match-the-pairs-b7bf25-en-trang.mp3",
+      "ms": 1080,
+      "spoken": "Match the pairs.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Put them in order from smallest to largest.": {
+      "file": "assets/voice/put-them-in-order-from-smallest-to-large-6ba450-en-trang.mp3",
+      "ms": 2712,
+      "spoken": "Put them in order from smallest to largest.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Set out the sum and work it out.": {
+      "file": "assets/voice/set-out-the-sum-and-work-it-out-ca5e86-en-trang.mp3",
+      "ms": 2232,
+      "spoken": "Set out the sum and work it out.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Seven is an odd number.": {
+      "file": "assets/voice/seven-is-an-odd-number-31dc72-en-trang.mp3",
+      "ms": 1824,
+      "spoken": "Seven is an odd number.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Simplify the fraction.": {
+      "file": "assets/voice/simplify-the-fraction-373671-en-trang.mp3",
+      "ms": 1416,
+      "spoken": "Simplify the fraction.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Solve the problem.": {
+      "file": "assets/voice/solve-the-problem-165afb-en-trang.mp3",
+      "ms": 1080,
+      "spoken": "Solve the problem.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Super!": {
+      "file": "assets/voice/super-d6708e-en-trang.mp3",
+      "ms": 672,
+      "spoken": "Super!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Well done!": {
+      "file": "assets/voice/well-done-6b3efd-en-trang.mp3",
+      "ms": 744,
+      "spoken": "Well done!",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Work it out in your head.": {
+      "file": "assets/voice/work-it-out-in-your-head-c2e4cc-en-trang.mp3",
+      "ms": 1464,
+      "spoken": "Work it out in your head.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:Write the correct number.": {
+      "file": "assets/voice/write-the-correct-number-74f2c8-en-trang.mp3",
+      "ms": 1320,
+      "spoken": "Write the correct number.",
+      "voice": "HAAKLJlaJeGl18MKHYeg"
+    },
+    "en:number": {
+      "file": "assets/voice/number-1bd670-en-trang.mp3",
+      "ms": 624,
+      "spoken": "number",
       "voice": "HAAKLJlaJeGl18MKHYeg"
     },
     "giây": {
