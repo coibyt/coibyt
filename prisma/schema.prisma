@@ -221,8 +221,12 @@ model Business {
   // Look (src/lib/seasonal-themes.ts): the bookings calendar's booking colours
   // (#rrggbb, null = default) and a holiday theme ("auto", a theme id, or null)
   // for the public booking page and/or the bookings calendar.
+  // calendarBooking* colour the bookings the salon added itself;
+  // calendarOnline* the ones customers made on the booking page.
   calendarBookingBg   String?   @db.VarChar(9)
   calendarBookingText String?   @db.VarChar(9)
+  calendarOnlineBg    String?   @db.VarChar(9)
+  calendarOnlineText  String?   @db.VarChar(9)
   seasonalTheme       String?   @db.VarChar(24)
   themeOnBookingPage  Boolean   @default(true)
   themeOnCalendar     Boolean   @default(true)

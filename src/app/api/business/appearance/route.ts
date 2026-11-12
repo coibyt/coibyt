@@ -10,6 +10,8 @@ const color = z.string().regex(HEX_COLOR).nullable().optional();
 const schema = z.object({
   calendarBookingBg: color,
   calendarBookingText: color,
+  calendarOnlineBg: color,
+  calendarOnlineText: color,
   seasonalTheme: z
     .string()
     .refine((v) => v === "auto" || SEASONAL_THEMES.some((t) => t.id === v))
@@ -27,7 +29,14 @@ export async function PATCH(req: Request) {
   const b = await prisma.business.update({
     where: { id: owned.businessId },
     data: parsed.data,
-    select: { calendarBookingBg: true, calendarBookingText: true, seasonalTheme: true, themeOnBookingPage: true, themeOnCalendar: true },
+    select: {
+      calendarBookingBg: true,
+      calendarBookingText: true,
+      calendarOnlineBg: true,
+      calendarOnlineText: true,
+      seasonalTheme: true, themeOnBookingPage: true,
+      themeOnCalendar: true,
+    },
   });
   return NextResponse.json(b);
 }

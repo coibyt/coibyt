@@ -505,6 +505,7 @@ export function BookingCalendar({
   headerSlot,
   businessId,
   bookingColors = null,
+  onlineColors = null,
 }: {
   staff: StaffOption[];
   services: ServiceOption[];
@@ -525,6 +526,8 @@ export function BookingCalendar({
   businessId: string;
   /** Settings › Look: colours for live (confirmed / awaiting payment) bookings. */
   bookingColors?: { bg: string; text: string } | null;
+  // The owner's colours for bookings customers made online (null = emerald).
+  onlineColors?: { bg: string; text: string } | null;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -1913,7 +1916,7 @@ export function BookingCalendar({
     // Finished and no-show ones keep their status colours.
     const live = ["PENDING_PAYMENT", "CONFIRMED"].includes(b.status);
     const online = b.source === "WEBSITE";
-    const own = bookingColors && live && !online ? bookingColors : null;
+    const own = live ? (online ? onlineColors : bookingColors) : null;
     const ownStyle = own ? { backgroundColor: own.bg, color: own.text, borderColor: own.text } : {};
     return (
       <button
@@ -1952,7 +1955,7 @@ export function BookingCalendar({
       >
         <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
         <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
-          {online && <Globe aria-label={sourceLabels.online} className="h-3 w-3 shrink-0 text-emerald-600" />}
+          {online && <Globe aria-label={sourceLabels.online} className={`h-3 w-3 shrink-0 ${own ? "" : "text-emerald-600"}`} />}
           <span className="truncate">{b.customerName}</span>
         </p>
         {!compact && (
@@ -2102,8 +2105,13 @@ export function BookingCalendar({
       {(view === "day" || view === "week") && (
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-ink-700">
           <span className="flex items-center gap-1.5">
-            <span className="flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] border-emerald-500 bg-emerald-50 ring-1 ring-emerald-200/70">
-              <Globe className="h-2.5 w-2.5 text-emerald-600" />
+            <span
+              className={`flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] ring-1 ${
+                onlineColors ? "ring-black/5" : "border-emerald-500 bg-emerald-50 text-emerald-600 ring-emerald-200/70"
+              }`}
+              style={onlineColors ? { backgroundColor: onlineColors.bg, borderColor: onlineColors.text, color: onlineColors.text } : undefined}
+            >
+              <Globe className="h-2.5 w-2.5" />
             </span>
             {sourceLabels.online}
           </span>

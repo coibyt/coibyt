@@ -87,7 +87,9 @@ export default async function BusinessBookingsPage({
           // the owner's own, else the theme's, else the default.
           const theme = business.themeOnCalendar ? resolveTheme(business.seasonalTheme, business.timezone) : null;
           const own = business.calendarBookingBg && business.calendarBookingText ? { bg: business.calendarBookingBg, text: business.calendarBookingText } : null;
-          return { theme, colors: own ?? theme?.booking ?? null };
+          // Customers' online bookings have their own colours (default: emerald).
+          const online = business.calendarOnlineBg && business.calendarOnlineText ? { bg: business.calendarOnlineBg, text: business.calendarOnlineText } : null;
+          return { theme, colors: own ?? theme?.booking ?? null, onlineColors: online };
         })()}
         staff={staff.map((s) => ({
           id: s.id,

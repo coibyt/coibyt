@@ -61,7 +61,7 @@ export function BookingsView({
   viewerStaffId: string | null;
   businessId: string;
   /** Settings › Look: a holiday banner and the booking colours. */
-  look?: { theme: SeasonalTheme | null; colors: { bg: string; text: string } | null };
+  look?: { theme: SeasonalTheme | null; colors: { bg: string; text: string } | null; onlineColors?: { bg: string; text: string } | null };
 }) {
   const t = useTranslations("business");
   const [view, setView] = useState<"calendar" | "list">("calendar");
@@ -128,6 +128,7 @@ export function BookingsView({
           headerSlot={headerSlot}
           businessId={businessId}
           bookingColors={look?.colors ?? null}
+          onlineColors={look?.onlineColors ?? null}
         />
       ) : (
         <BookingsManager

@@ -146,6 +146,8 @@ export default async function BusinessSettingsPage({
               initial={{
                 calendarBookingBg: business.calendarBookingBg,
                 calendarBookingText: business.calendarBookingText,
+                calendarOnlineBg: business.calendarOnlineBg,
+                calendarOnlineText: business.calendarOnlineText,
                 seasonalTheme: business.seasonalTheme,
                 themeOnBookingPage: business.themeOnBookingPage,
                 themeOnCalendar: business.themeOnCalendar,
