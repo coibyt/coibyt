@@ -9,6 +9,7 @@ import { getTranslations } from "next-intl/server";
 import { DashboardSidebar } from "@/components/dashboard-sidebar";
 import { PendingBanner } from "@/components/pending-banner";
 import { DashboardBody } from "@/components/dashboard-body";
+import { DashboardShell } from "@/components/dashboard-shell";
 import { DashboardSupportWidget } from "@/components/dashboard-support-widget";
 import { BookingAlarm } from "@/components/booking-alarm";
 import { incomeStrings } from "@/lib/income-strings";
@@ -148,7 +149,7 @@ export default async function BusinessDashboardLayout({
   ];
 
   return (
-    <div className="container grid grid-cols-1 gap-6 py-10 md:grid-cols-[180px_1fr]">
+    <DashboardShell>
       <DashboardSidebar links={links} title={t("dashboardTitle")} />
       <DashboardBody switcher={switcher}>
         <div key={business.id} className="contents">
@@ -164,6 +165,6 @@ export default async function BusinessDashboardLayout({
       {/* Staff with bookings not reported 24 hours after they ended, when the
           owner has income report reminders on. */}
       {!isOwner && access.staffId && business.incomeRemindersSince && <IncomeReminderAlarm locale={locale} />}
-    </div>
+    </DashboardShell>
   );
 }

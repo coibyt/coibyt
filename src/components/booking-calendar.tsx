@@ -180,6 +180,12 @@ interface CustomerDetail {
   loyalty: { pointsRequired: number; discountPercent: number } | null;
 }
 
+// How tall the day/week grid may get: the screen minus the site's top bar, the
+// grid's own header row and the date bar at the bottom, so once the page is
+// scrolled to the calendar, the grid fills the screen.
+const GRID_MAX_H =
+  "max-h-[max(50vh,calc(100dvh-11.5rem))] sm:max-h-[max(60vh,calc(100dvh-13rem))] md:max-h-[max(60vh,calc(100dvh-15rem))]";
+
 const HOUR_HEIGHT = 48; // px per hour in the day/week grid — short enough to need little scrolling
 // How long a finger must rest on empty grid space to open the new-booking
 // modal on a touchscreen. Keep in sync with the press-fill animation length
@@ -1980,10 +1986,10 @@ export function BookingCalendar({
   // Colour key: who made the booking.
   const sourceLabels =
     locale === "vi"
-      ? { online: "Khách tự đặt online", manual: "Salon tự thêm" }
+      ? { online: "Khách tự đặt online", manual: "Salon tự thêm", onlineShort: "Online", manualShort: "Salon" }
       : locale === "fi"
-        ? { online: "Asiakas varasi verkossa", manual: "Salonki lisäsi" }
-        : { online: "Booked online by the customer", manual: "Added by the salon" };
+        ? { online: "Asiakas varasi verkossa", manual: "Salonki lisäsi", onlineShort: "Verkko", manualShort: "Salonki" }
+        : { online: "Booked online by the customer", manual: "Added by the salon", onlineShort: "Online", manualShort: "Salon" };
 
   const headerContent = (
     <>
@@ -2011,8 +2017,30 @@ export function BookingCalendar({
     </>
   );
 
+  // The day's numbers; `short` is the label next to the number on a phone.
+  const dayStats = [
+    {
+      label: locale === "vi" ? "Lịch hẹn" : locale === "fi" ? "Varaukset" : "Bookings",
+      short: locale === "vi" ? "hẹn" : locale === "fi" ? "var." : "appts",
+      value: String(dayBookings.length),
+      cls: "from-primary-500 to-primary-700",
+    },
+    {
+      label: locale === "vi" ? "Đã xong" : locale === "fi" ? "Valmiit" : "Done",
+      short: locale === "vi" ? "xong" : locale === "fi" ? "valmis" : "done",
+      value: String(dayBookings.filter((b) => b.status === "COMPLETED").length),
+      cls: "from-teal-400 to-teal-600",
+    },
+    {
+      label: locale === "vi" ? "Doanh thu dự kiến" : locale === "fi" ? "Arvioitu myynti" : "Expected revenue",
+      short: "",
+      value: dayRevenueCurrency ? formatMoney(dayRevenueCents, dayRevenueCurrency, locale) : "—",
+      cls: "from-coral-400 to-berry-500",
+    },
+  ];
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-2 md:space-y-4">
       {headerSlot ? (
         createPortal(headerContent, headerSlot)
       ) : (
@@ -2043,25 +2071,11 @@ export function BookingCalendar({
         />
       )}
 
+      {/* The day's numbers: full tiles on wider screens; on a phone they are
+          three short chips in the legend row below, so the grid gets the height. */}
       {view === "day" && (
-        <div className="grid grid-cols-3 gap-2">
-          {[
-            {
-              label: locale === "vi" ? "Lịch hẹn" : "Bookings",
-              value: String(dayBookings.length),
-              cls: "from-primary-500 to-primary-700",
-            },
-            {
-              label: locale === "vi" ? "Đã xong" : "Done",
-              value: String(dayBookings.filter((b) => b.status === "COMPLETED").length),
-              cls: "from-teal-400 to-teal-600",
-            },
-            {
-              label: locale === "vi" ? "Doanh thu dự kiến" : "Expected revenue",
-              value: dayRevenueCurrency ? formatMoney(dayRevenueCents, dayRevenueCurrency, locale) : "—",
-              cls: "from-coral-400 to-berry-500",
-            },
-          ].map((tile) => (
+        <div className="hidden grid-cols-3 gap-2 sm:grid">
+          {dayStats.map((tile) => (
             <div key={tile.label} className={`rounded-2xl bg-gradient-to-br ${tile.cls} px-3 py-2.5 text-white shadow-sm`}>
               <p className="truncate text-lg font-bold leading-tight">{tile.value}</p>
               <p className="truncate text-[11px] font-medium text-white/85">{tile.label}</p>
@@ -2071,11 +2085,11 @@ export function BookingCalendar({
       )}
 
       {staff.length > 1 && (
-        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        <div className="flex items-center gap-1.5 overflow-x-auto max-sm:[scrollbar-width:none] sm:gap-2 sm:pb-1 max-sm:[&::-webkit-scrollbar]:hidden">
           <button
             type="button"
             onClick={toggleAllStaffVisible}
-            className="flex shrink-0 items-center gap-1.5 rounded-full border border-ink-100 bg-white px-3 py-1.5 text-xs font-semibold text-ink-700 shadow-sm transition-colors hover:bg-mist-50"
+            className="flex shrink-0 items-center gap-1.5 rounded-full border border-ink-100 bg-white px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:py-1.5 sm:text-xs text-ink-700 shadow-sm transition-colors hover:bg-mist-50"
           >
             {hiddenStaffIds.size > 0 ? t("showAllStaff") : t("hideAllStaff")}
           </button>
@@ -2086,7 +2100,7 @@ export function BookingCalendar({
                 key={s.id}
                 type="button"
                 onClick={() => toggleStaffVisible(s.id)}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold shadow-sm transition-colors ${
+                className={`flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold sm:px-3 sm:py-1.5 sm:text-xs shadow-sm transition-colors ${
                   checked
                     ? "border-primary-200 bg-primary-50 text-primary-800"
                     : "border-ink-100 bg-white text-ink-400"
@@ -2103,8 +2117,22 @@ export function BookingCalendar({
       )}
 
       {(view === "day" || view === "week") && (
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-ink-700">
-          <span className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] font-semibold text-ink-700 sm:gap-x-4">
+          {view === "day" && (
+            <span className="mr-auto flex items-center gap-1 sm:hidden">
+              {dayStats.map((tile) => (
+                <span
+                  key={tile.label}
+                  title={tile.label}
+                  className={`whitespace-nowrap rounded-full bg-gradient-to-br ${tile.cls} px-2 py-0.5 font-bold tabular-nums text-white shadow-sm`}
+                >
+                  {tile.value}
+                  {tile.short && <span className="ml-1 font-medium text-white/85">{tile.short}</span>}
+                </span>
+              ))}
+            </span>
+          )}
+          <span className="flex items-center gap-1.5" title={sourceLabels.online}>
             <span
               className={`flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] ring-1 ${
                 onlineColors ? "ring-black/5" : "border-emerald-500 bg-emerald-50 text-emerald-600 ring-emerald-200/70"
@@ -2113,9 +2141,10 @@ export function BookingCalendar({
             >
               <Globe className="h-2.5 w-2.5" />
             </span>
-            {sourceLabels.online}
+            <span className="sm:hidden">{sourceLabels.onlineShort}</span>
+            <span className="hidden sm:inline">{sourceLabels.online}</span>
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className="flex items-center gap-1.5" title={sourceLabels.manual}>
             <span
               className={`flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] ring-1 ring-black/5 ${
                 bookingColors ? "" : "border-violet-500 bg-violet-50 text-violet-700"
@@ -2124,17 +2153,10 @@ export function BookingCalendar({
             >
               <UserPen className="h-2.5 w-2.5" />
             </span>
-            {sourceLabels.manual}
+            <span className="sm:hidden">{sourceLabels.manualShort}</span>
+            <span className="hidden sm:inline">{sourceLabels.manual}</span>
           </span>
         </div>
-      )}
-
-      {(view === "day" || view === "week") && services.length > 0 && (
-        <p className="hidden text-[11px] text-ink-400 [@media(pointer:coarse)]:block">
-          {locale === "vi"
-            ? "Nhấn giữ khoảng 1 giây vào ô trống để tạo lịch hẹn mới."
-            : "Press and hold an empty slot for about a second to create a booking."}
-        </p>
       )}
 
       {view === "day" && staff.length > 0 && visibleStaff.length === 0 && (
@@ -2160,7 +2182,7 @@ export function BookingCalendar({
               region, so it never needs to stick — sidesteps both bugs. The
               two rows' horizontal scroll positions are kept in sync manually. */}
           <div className="flex">
-            <div className="h-24 w-10 shrink-0 border-b border-r border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50" />
+            <div className="h-14 w-10 shrink-0 border-b border-r border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 md:h-24" />
             <div ref={headerScrollRef} className="min-w-0 flex-1 overflow-hidden">
               <div
                 className="grid"
@@ -2169,7 +2191,7 @@ export function BookingCalendar({
                 }}
               >
                 {staff.length === 0 ? (
-                  <div className="flex h-24 items-center border-b border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-3 text-xs font-semibold text-ink-700">
+                  <div className="flex h-14 items-center border-b border-ink-100 md:h-24 bg-gradient-to-b from-primary-50 to-mist-50 px-3 text-xs font-semibold text-ink-700">
                     {t("unassigned")}
                   </div>
                 ) : (
@@ -2180,16 +2202,16 @@ export function BookingCalendar({
                       <div
                         key={s.id}
                         title={s.name}
-                        className="flex h-24 min-w-0 flex-col items-center justify-center gap-1 overflow-hidden border-b border-l border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-1 py-2"
+                        className="flex h-14 min-w-0 flex-col items-center justify-center gap-0.5 overflow-hidden border-b border-l border-ink-100 bg-gradient-to-b from-primary-50 to-mist-50 px-1 py-1 md:h-24 md:gap-1 md:py-2"
                       >
                         <div className="relative">
                           {s.avatarUrl ? (
-                            <div className={`relative h-11 w-11 shrink-0 overflow-hidden rounded-full ring-2 ring-offset-2 ring-offset-primary-50 ${ring}`}>
+                            <div className={`relative h-7 w-7 shrink-0 overflow-hidden rounded-full ring-2 ring-offset-1 ring-offset-primary-50 md:h-11 md:w-11 md:ring-offset-2 ${ring}`}>
                               <Image src={s.avatarUrl} alt="" fill className="object-cover" />
                             </div>
                           ) : (
                             <span
-                              className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-sm font-bold text-white ring-2 ring-white ${
+                              className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ring-2 ring-white md:h-11 md:w-11 md:text-sm ${
                                 staffColor.get(s.id) ?? "bg-ink-400"
                               }`}
                             >
@@ -2197,12 +2219,12 @@ export function BookingCalendar({
                             </span>
                           )}
                           {count > 0 && (
-                            <span className="absolute -right-1.5 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-primary-600 px-1 text-[10px] font-bold text-white ring-2 ring-white">
+                            <span className="absolute -right-2 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary-600 px-1 text-[9px] font-bold text-white ring-2 ring-white md:-right-1.5 md:h-[18px] md:min-w-[18px] md:text-[10px]">
                               {count}
                             </span>
                           )}
                         </div>
-                        <span className="w-full truncate text-center text-xs font-semibold text-ink-900">{s.name}</span>
+                        <span className="w-full truncate text-center text-[11px] font-semibold leading-tight text-ink-900 md:text-xs">{s.name}</span>
                       </div>
                     );
                   })
@@ -2211,7 +2233,7 @@ export function BookingCalendar({
             </div>
           </div>
 
-          <div className="flex max-h-[70vh] items-start overflow-y-auto">
+          <div className={`flex items-start overflow-y-auto ${GRID_MAX_H}`}>
             {/* items-start (instead of the flex row's default align-items:
                 stretch) keeps both children at their true content height.
                 Under stretch, the flex line's cross-size gets clamped to the
@@ -2437,7 +2459,7 @@ export function BookingCalendar({
             </div>
           </div>
 
-          <div className="flex max-h-[70vh] items-start overflow-y-auto">
+          <div className={`flex items-start overflow-y-auto ${GRID_MAX_H}`}>
             {/* See the matching comment in the day view for why items-start
                 is required here (without it, content below a certain scroll
                 depth silently disappears). */}
@@ -2569,6 +2591,17 @@ export function BookingCalendar({
             })}
           </div>
         </div>
+      )}
+
+      {/* Below the grid, not above it: every row above pushes the calendar down. */}
+      {(view === "day" || view === "week") && services.length > 0 && (
+        <p className="hidden text-[11px] text-ink-400 [@media(pointer:coarse)]:block">
+          {locale === "vi"
+            ? "Nhấn giữ khoảng 1 giây vào ô trống để tạo lịch hẹn mới."
+            : locale === "fi"
+              ? "Luo uusi varaus painamalla tyhjää kohtaa noin sekunnin ajan."
+              : "Press and hold an empty slot for about a second to create a booking."}
+        </p>
       )}
 
       {/* On phones the bar is docked to the bottom edge of the screen (like a

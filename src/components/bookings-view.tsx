@@ -77,8 +77,8 @@ export function BookingsView({
   const { setSlot: setSwitcherSlot } = useSwitcherSlot();
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-col gap-3 md:flex-row md:items-center">
+    <div className="space-y-2 md:space-y-4">
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-3">
         <div className="flex shrink-0 flex-wrap items-center gap-2 sm:gap-3">
           <div ref={setSwitcherSlot} className="shrink-0 empty:hidden" />
           {/* The nav already says where we are: the title is for screen readers. */}
