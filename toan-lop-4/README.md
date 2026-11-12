@@ -1,8 +1,33 @@
-# Ong Vàng Toán 3 (tên tạm)
+# Ong Vàng Toán 4 (tên tạm)
 
-App học Toán lớp 3 cho bé 8–9 tuổi: lý thuyết, luyện tập, đề kiểm tra theo chương trình SGK Việt Nam
+App học Toán lớp 4 cho bé 9–10 tuổi: lý thuyết, luyện tập, đề kiểm tra theo chương trình SGK Việt Nam
 (bộ Kết nối tri thức; Chân trời sáng tạo đã có chỗ trong mục lục). Flutter cho Android, iOS và web
 (web dùng để chơi thử), backend Node.js + PostgreSQL.
+
+Bộ máy (cô Mai, MC, giọng 11max, gameshow, video bảng phấn, phòng thi…) chép nguyên từ `../toan-lop-3/`,
+giữ cùng giao diện và cùng giọng; chỉ khác nội dung lớp 4 và các phần mở rộng sau:
+
+| Phần | Lớp 4 |
+|---|---|
+| Nội dung | 13 chủ đề, 73 bài (612 bài toán), 36 bài nâng cao (288 bài), 57 đề; lịch 175 tiết năm học 2026–2027 |
+| Số | đến hàng tỉ, hàng và lớp; ô nhập tối đa 13 ký tự |
+| Đặt tính | nhân với số có hai chữ số (tích riêng, `partials`), chia cho số có hai chữ số |
+| Phân số | viết "3/4" trong nội dung: app vẽ chồng tử/mẫu (`lib/ui/widgets/math_text.dart`), ô nhập tử/mẫu `{{b1}}/{{b2}}`, đọc "ba phần tư", kiểm tra toán bằng số hữu tỉ |
+| Đo lường | góc (độ), yến/tạ/tấn, dm²/m²/mm², giây/thế kỉ (số La Mã) |
+| Thống kê | biểu đồ cột vẽ bằng Pillow (`assets/charts/`) |
+| Tranh | 13 ảnh bìa, 46 tranh bài học, 146 tranh "ví dụ trong cuộc sống" (Kie.ai) |
+
+Sinh lại toàn bộ nội dung (thứ tự quan trọng):
+
+```bash
+python3 tool/gen_curriculum.py && python3 tool/gen_advanced.py && python3 tool/gen_exams.py && python3 tool/gen_examples.py
+```
+
+```bash
+dart run tool/make_voice.dart --workers 16
+```
+
+`dart run tool/make_voice.dart --prune` xoá các file giọng không còn dùng.
 
 > Thư mục này độc lập với app VaraaAi ở gốc repo: không dùng chung code, cấu hình hay triển khai.
 
@@ -73,11 +98,11 @@ cd coibyt
 ```
 
 ```bash
-git checkout claude/awesome-shannon-qmbaff
+git checkout claude/zealous-lovelace-02qv5t
 ```
 
 ```bash
-cd toan-lop-3
+cd toan-lop-4
 ```
 
 ### Bước 3 — Chạy app
@@ -137,11 +162,11 @@ Bản web được đặt ở một đường dẫn riêng khó đoán trong m�
 lập chỉ mục, giống cách TraceLight đang làm). Build và chép sang repo Babelisa:
 
 ```bash
-flutter build web --release --no-web-resources-cdn --base-href /lab/toan3-9yt2a3py/ --dart-define=ALLOW_DEV_VIP=true
+flutter build web --release --no-web-resources-cdn --base-href /lab/toan4-ttuclnqj/ --dart-define=ALLOW_DEV_VIP=true
 ```
 
 ```bash
-tool/deploy_lab.sh toan3-9yt2a3py ../../babelisa
+tool/deploy_lab.sh toan4-ttuclnqj ../../babelisa
 ```
 
 Script chép file vào `public/lab/<mã>/` và các file `.wasm` vào `lab-bin/<mã>/` (máy chủ Hostinger phục vụ

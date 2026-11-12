@@ -58,7 +58,13 @@ GameQuestion? toGameQuestion(Problem p, Random random, {int maxLength = maxPromp
     final ask = numeric[random.nextInt(numeric.length)];
     final rule = ask.answer as NumberAnswerRule;
     final v = rule.value;
-    final answers = {for (final b in body.blanks) b.id: b.answer.displayAnswer};
+    final answers = {
+      for (final b in body.blanks)
+        b.id: switch (b.answer) {
+          NumberAnswerRule(:final value) => formatVi(value),
+          final other => other.displayAnswer,
+        },
+    };
     final shown = body.template.replaceAllMapped(_blank, (m) => m[1] == ask.id ? '?' : answers[m[1]] ?? '?').trim();
     final hasNumbers = RegExp(r'\d').hasMatch(shown.replaceAll('?', ''));
     // Đề có nội dung (có số, hoặc dài) thì luôn giữ lại; chỉ bỏ câu lệnh chung chung như "Tính.".
@@ -97,10 +103,10 @@ List<int> numberDistractors(int v, Random random) {
   return list.take(3).toList();
 }
 
-/// Viết số kiểu Việt Nam: 12.345.
+/// Viết số kiểu Việt Nam như trong đề: từ 1.000 trở lên có dấu chấm (12.345).
 String formatVi(int n) {
   final s = '$n';
-  if (s.length <= 4) return s;
+  if (s.length <= 3) return s;
   final b = StringBuffer();
   for (var i = 0; i < s.length; i++) {
     if (i > 0 && (s.length - i) % 3 == 0) b.write('.');

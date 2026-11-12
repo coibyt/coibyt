@@ -37,7 +37,7 @@ void main() {
       expect(d.toSet(), hasLength(3));
     }
     expect(formatVi(12345), '12.345');
-    expect(formatVi(1000), '1000');
+    expect(formatVi(1000), '1.000');
   });
 
   test('tính điểm: chuỗi đúng cộng thêm, sai mất tim, hết tim là thua; sao & vàng', () {
