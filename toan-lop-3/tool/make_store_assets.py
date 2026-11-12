@@ -81,6 +81,48 @@ def banner():
     print("OK store/banner-1024x500.png")
 
 
+def og():
+    """Ảnh xem trước khi chia sẻ link (Open Graph 1200×630): Facebook, Zalo, Telegram, WhatsApp, Messenger."""
+    W, H = 1200, 630
+    bg = cover(Image.open(ROOT / ".art-raw" / "store_banner_bg.png").convert("RGBA"), W, H)
+    veil = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    vd = ImageDraw.Draw(veil)
+    for x in range(W):
+        vd.line([(x, 0), (x, H)], fill=(255, 250, 235, int(max(0, 190 - x * 0.33))))
+    bg.alpha_composite(veil)
+    t = Image.open(ROOT / "assets" / "tutor" / "teacher_point.webp").convert("RGBA").transpose(Image.FLIP_LEFT_RIGHT)
+    th = 600
+    t = t.resize((round(t.width * th / t.height), th), Image.LANCZOS)
+    bg.alpha_composite(t, (W - t.width + 10, H - th))
+    logo = Image.open(ROOT / "assets" / "ui" / "logo_emblem.webp").convert("RGBA").resize((112, 112), Image.LANCZOS)
+    bg.alpha_composite(logo, (46, 34))
+    shadow_text(bg, (170, 52), "HỌC CÙNG CÔ MAI", font(36), (229, 72, 77, 255), offset=2)
+    shadow_text(bg, (170, 98), "Theo chương trình SGK mới", font(26), (90, 58, 0, 255), offset=1, shadow=(0, 0, 0, 40))
+    shadow_text(bg, (42, 168), "Toán Lớp 3", font(128), (255, 196, 0, 255), offset=5, stroke=7, stroke_fill=(120, 60, 0, 255))
+    shadow_text(bg, (50, 338), "Video bài giảng có cô giáo nói", font(40), (30, 77, 56, 255), offset=1,
+                shadow=(255, 255, 255, 170))
+    x = 48
+    for text, c in [("1000+ bài tập", (91, 63, 214, 255)), ("65 đề thi", (229, 72, 77, 255)), ("Gameshow", (46, 140, 230, 255))]:
+        x += pill(bg, (x, 410), text, font(30), c, (255, 255, 255, 255)) + 14
+    # Nút kêu gọi bấm vào.
+    d = ImageDraw.Draw(bg)
+    btn = "Học thử miễn phí"
+    f = font(40)
+    l, tp, r, b = d.textbbox((0, 0), btn, font=f)
+    bw, bh = r - l + 64 + 44, b - tp + 30
+    bx, by = 48, 500
+    sd = Image.new("RGBA", bg.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sd).rounded_rectangle([bx + 4, by + 8, bx + bw + 4, by + bh + 8], radius=bh // 2, fill=(0, 0, 0, 90))
+    bg.alpha_composite(sd.filter(ImageFilter.GaussianBlur(6)))
+    d.rounded_rectangle([bx, by, bx + bw, by + bh], radius=bh // 2, fill=(46, 184, 114, 255), outline=(255, 255, 255, 255), width=4)
+    cy = by + bh / 2  # nút "phát" vẽ bằng hình (font không có ký tự ▶)
+    d.polygon([(bx + 30, cy - 15), (bx + 30, cy + 15), (bx + 56, cy)], fill=(255, 255, 255, 255))
+    d.text((bx + 32 + 44, by + 15 - tp), btn, font=f, fill=(255, 255, 255, 255))
+    dest = ROOT / "web" / "og-image.jpg"
+    bg.convert("RGB").save(dest, quality=86, optimize=True, progressive=True)
+    print("OK", dest.relative_to(ROOT), dest.stat().st_size // 1024, "KB")
+
+
 def icon():
     src = ROOT / ".art-raw" / "icon_app.png"
     im = Image.open(src).convert("RGBA") if src.exists() else Image.open(ROOT / "assets" / "ui" / "logo_emblem.webp").convert("RGBA")
@@ -143,6 +185,8 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
     if cmd == "banner":
         banner()
+    elif cmd == "og":
+        og()
     elif cmd == "icon":
         icon()
     elif cmd == "shots":
