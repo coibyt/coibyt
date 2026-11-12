@@ -13,6 +13,7 @@ import 'package:toan_lop_3/services/sound_service.dart';
 import 'package:toan_lop_3/services/tutor_voice.dart';
 import 'package:toan_lop_3/tutor/tutor_audio_service.dart';
 import 'package:toan_lop_3/ui/quiz_screen.dart';
+import 'package:toan_lop_3/tutor/voice_library.dart';
 import 'dart:math';
 
 import 'helpers.dart';
@@ -99,6 +100,37 @@ void main() {
       await tester.pump(const Duration(seconds: 10));
     },
   );
+
+  test('giọng tiếng Anh (11max) có đủ cho câu cố định, tên bài, từ vựng, đề và đáp án', () {
+    final lib = VoiceLibrary.fromJson(
+      jsonDecode(File('assets/voice/manifest.json').readAsStringSync()) as Map<String, dynamic>,
+    );
+    final lines = <String>{...BilingualLines.en()};
+    for (final e in en.values) {
+      lines.add(e.title);
+      lines.addAll(e.vocab.map((v) => v.en));
+    }
+    for (final c in loadCatalogFromDisk().books.first.chapters) {
+      for (final ref in [...c.lessons, ...c.advancedLessons]) {
+        final e = en[ref.id]!;
+        for (final p in loadLessonFromDisk(ref.id).problems) {
+          lines.addAll([
+            ?e.of(p.displayInstruction),
+            ?e.of(p.prompt.text.trim()),
+            ?answerInEnglish(p.solution.answerText),
+          ]);
+        }
+      }
+    }
+    final missing = [
+      for (final l in lines)
+        if (lib.lookup('en:$l') == null) l,
+    ];
+    expect(missing, isEmpty, reason: '${missing.length}:\n${missing.take(10).join('\n')}');
+    for (final l in BilingualLines.vi()) {
+      expect(lib.lookup(l), isNotNull, reason: l);
+    }
+  });
 
   testWidgets('Trang chủ: bật "Toán + Tiếng Anh"; ôn từ vựng: chọn đúng nghĩa thì được điểm', (tester) async {
     tester.view.physicalSize = const Size(1080, 2340);
