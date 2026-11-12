@@ -85,23 +85,56 @@ String spokenVietnamese(String text) {
     final v = romanValue(m[2]!);
     return v == null ? m[0]! : '${m[1]} ${numberToVietnamese(v)}';
   });
-  // Đơn vị diện tích: "25 m²" → "25 mét vuông".
-  s = s.replaceAllMapped(RegExp(r'(\d|\(|\s)\s*(km|dm|cm|mm|m)(²|2\b)'), (m) => '${m[1]} ${_units[m[2]]} vuông');
+  // Ô trống "□" đọc như dấu hỏi chấm.
+  s = s.replaceAll('□', '?');
+  // Số có chữ số còn trống ("1.?11", "5.62?"): đọc từng chữ số, ô trống đọc "ô trống".
+  s = s.replaceAllMapped(RegExp(r'(?<![\d.])(?=[\d.?]*\d)(?=[\d.?]*\?)[\d?][\d.?]*[\d?]'), (m) {
+    final t = m[0]!;
+    if (!t.contains(RegExp(r'\d')) || !t.contains('?') || RegExp(r'^\?+$').hasMatch(t)) return t;
+    // "1/4?" là dấu hỏi cuối câu: chỉ coi là ô trống khi số có dấu chấm nhóm nghìn hoặc dấu ? nằm giữa các chữ số.
+    if (!t.contains('.') && t.endsWith('?')) return t;
+    return [
+      for (final ch in t.split(''))
+        if (ch == '?') 'ô trống' else if (ch != '.') _digits[int.parse(ch)],
+    ].join(', ');
+  });
+  // Phân số có ô trống: "?/8" → "bao nhiêu phần tám", "6/?" → "sáu phần bao nhiêu".
+  s = s.replaceAllMapped(RegExp(r'\?\s*/\s*(\d+)'), (m) => 'bao nhiêu phần ${_denominator(int.parse(m[1]!))}');
+  s = s.replaceAllMapped(RegExp(r'(\d+)\s*/\s*\?'), (m) => '${numberToVietnamese(int.parse(m[1]!))} phần bao nhiêu');
+  // Đơn vị diện tích: "25 m²", "? m²" → "… mét vuông".
+  s = s.replaceAllMapped(RegExp(r'(\d|\(|\s|\?)\s*(km|dm|cm|mm|m)(²|2\b)'), (m) => '${m[1]} ${_units[m[2]]} vuông');
   // Góc: "60°" → "60 độ".
-  s = s.replaceAllMapped(RegExp(r'(\d)\s*°(?!C)'), (m) => '${m[1]} độ');
-  // Đơn vị đứng sau số hoặc trong ngoặc: "93 kg", "(l)", "35 °C"
+  s = s.replaceAllMapped(RegExp(r'(\d|\?)\s*°(?!C)'), (m) => '${m[1]} độ');
+  // Đơn vị đứng sau số, sau ô trống hoặc trong ngoặc: "93 kg", "? kg", "(l)", "35 °C"
   s = s.replaceAllMapped(RegExp(r'(\d)\s*°C'), (m) => '${m[1]} độ C');
   s = s.replaceAllMapped(
-    RegExp(r'(\d|\()\s*(kg|dm|cm|mm|ml|km|g|m|l)(?![\p{L}\d])', unicode: true),
+    RegExp(r'(\d|\(|\?)\s*(kg|dm|cm|mm|ml|km|g|m|l)(?![\p{L}\d])', unicode: true),
     (m) => '${m[1]} ${_units[m[2]]}',
   );
-  // Phép tính giữa hai số
-  s = s.replaceAllMapped(RegExp(r'(\d)\s*[×x*]\s*(?=[\d?])'), (m) => '${m[1]} nhân ');
-  s = s.replaceAllMapped(RegExp(r'(\d)\s*[:÷]\s*(?=[\d?])'), (m) => '${m[1]} chia ');
-  s = s.replaceAllMapped(RegExp(r'(\d)\s*\+\s*(?=[\d?])'), (m) => '${m[1]} cộng ');
+  // Phép tính. Trong nội dung: "+", "×", "÷" luôn là dấu phép tính; trừ là " - " (có dấu cách) hoặc "5-3";
+  // chia là " : " (có dấu cách hai bên — "tổ 1: 132" là dấu hai chấm của câu, không phải phép chia).
+  s = s.replaceAll(RegExp(r'\s*[×*]\s*'), ' nhân ');
+  s = s.replaceAllMapped(RegExp(r'(\d)\s*x\s*(?=\d)'), (m) => '${m[1]} nhân ');
+  s = s.replaceAll(RegExp(r'\s+:\s+|\s*÷\s*'), ' chia ');
+  s = s.replaceAll(RegExp(r'\s*\+\s*'), ' cộng ');
+  s = s.replaceAll(RegExp(r'\s+[-−]\s+'), ' trừ ');
   s = s.replaceAllMapped(RegExp(r'(\d)\s*[-−–]\s*(?=[\d?])'), (m) => '${m[1]} trừ ');
+  s = s.replaceAll(RegExp(r'\s*=\s*\?(?=\s+[a-zà-ỹđ(])', unicode: true), ' bằng bao nhiêu');
   s = s.replaceAll(RegExp(r'\s*=\s*\?'), ' bằng bao nhiêu?');
   s = s.replaceAll(RegExp(r'\s*=\s*'), ' bằng ');
+  // Dấu so sánh: "<" bé hơn, ">" lớn hơn, "≈" khoảng bằng.
+  s = s.replaceAll(RegExp(r'\s*≈\s*'), ' khoảng bằng ');
+  s = s.replaceAll(RegExp(r'\s*≤\s*'), ' bé hơn hoặc bằng ');
+  s = s.replaceAll(RegExp(r'\s*≥\s*'), ' lớn hơn hoặc bằng ');
+  s = s.replaceAll(RegExp(r'\s*<\s*'), ' bé hơn ');
+  s = s.replaceAll(RegExp(r'\s*>\s*'), ' lớn hơn ');
+  s = s.replaceAll(RegExp(r'\s*→\s*'), ', được ');
+  // Ô trống "?" ở giữa câu (sau đó là chữ thường, số, dấu câu, ngoặc) → "bao nhiêu". Dấu hỏi cuối câu giữ nguyên.
+  s = s.replaceAll(RegExp(r'\?\s*\.\.'), 'bao nhiêu.');
+  s = s.replaceAll(RegExp(r'(?<=^|[\s(])\?(?=\s*[.,;:)]|\s+[a-zà-ỹđ\d(]|\s*$)', unicode: true), 'bao nhiêu');
+  s = s.replaceAll('bằng bao nhiêu bao nhiêu', 'bằng bao nhiêu');
+  // Phân số chữ: "a/b" → "a phần b".
+  s = s.replaceAllMapped(RegExp(r'\b([a-z])/([a-z])\b'), (m) => '${m[1]} phần ${m[2]}');
   // Phân số "3/4" → "ba phần tư".
   s = s.replaceAllMapped(
     RegExp(r'(\d+)\s*/\s*(\d+)'),
@@ -113,5 +146,6 @@ String spokenVietnamese(String text) {
     (m) => numberToVietnamese(int.parse(m[0]!.replaceAll('.', ''))),
   );
   s = s.replaceAllMapped(RegExp(r'([a-zà-ỹ])([A-Z])\b'), (m) => '${m[1]} ${m[2]}');
+  s = s.replaceAllMapped(RegExp(r'\s+([.,;!])'), (m) => m[1]!);
   return s.replaceAll(RegExp(r'\s+'), ' ').trim();
 }
