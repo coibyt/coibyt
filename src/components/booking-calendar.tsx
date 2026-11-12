@@ -24,7 +24,7 @@ import {
 } from "date-fns";
 import { formatInTimeZone, fromZonedTime, toZonedTime } from "date-fns-tz";
 import { vi } from "date-fns/locale";
-import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Loader2, Lock, Mail, Pencil, Star, Trash2, X } from "lucide-react";
+import { CalendarDays, Check, ChevronLeft, ChevronRight, Clock, Globe, Loader2, Lock, Mail, Pencil, Star, Trash2, UserPen, X } from "lucide-react";
 import { formatMoney, toSmallestUnit, fromSmallestUnit } from "@/lib/money";
 import { BookingStatusBadge } from "@/components/booking-status-badge";
 import { CUSTOMER_REVIEW_EVENT, type CustomerReviewEventDetail } from "@/components/pending-customer-reviews";
@@ -227,6 +227,10 @@ const STAFF_RING: Record<string, string> = {
   "bg-berry-500": "ring-berry-500",
   "bg-sage-500": "ring-sage-500",
 };
+
+// Live bookings a customer made on the booking page: always emerald, so the
+// owner tells them apart from the ones the salon added itself at a glance.
+const ONLINE_BG = "bg-emerald-50 border-emerald-500 text-emerald-900 ring-emerald-200/70";
 
 const STATUS_BG: Record<string, string> = {
   PENDING_PAYMENT: "bg-coral-50 border-coral-400 text-coral-600",
@@ -1904,9 +1908,12 @@ export function BookingCalendar({
       toZonedTime(new Date(b.endsAt), businessTimezone),
       "HH:mm"
     )}`;
-    // The owner's colours (or the holiday theme's) for live bookings; finished
-    // and no-show ones keep their status colours.
-    const own = bookingColors && ["PENDING_PAYMENT", "CONFIRMED"].includes(b.status) ? bookingColors : null;
+    // Live bookings: a customer's online booking is emerald; ones the salon
+    // added use the owner's colours (or the holiday theme's), else violet.
+    // Finished and no-show ones keep their status colours.
+    const live = ["PENDING_PAYMENT", "CONFIRMED"].includes(b.status);
+    const online = b.source === "WEBSITE";
+    const own = bookingColors && live && !online ? bookingColors : null;
     const ownStyle = own ? { backgroundColor: own.bg, color: own.text, borderColor: own.text } : {};
     return (
       <button
@@ -1924,10 +1931,13 @@ export function BookingCalendar({
         } ${
           own
             ? ""
-            : b.source === "MANUAL"
-              ? "bg-violet-50 border-violet-500 text-violet-800"
-              : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
+            : live && online
+              ? ONLINE_BG
+              : b.source === "MANUAL"
+                ? "bg-violet-50 border-violet-500 text-violet-800"
+                : STATUS_BG[b.status] ?? "bg-mist-100 border-ink-400 text-ink-700"
         }`}
+        title={online ? sourceLabels.online : sourceLabels.manual}
         style={
           lane
             ? {
@@ -1941,7 +1951,10 @@ export function BookingCalendar({
         }
       >
         <p className="truncate font-medium leading-tight opacity-70">{timeLabel}</p>
-        <p className="truncate text-xs font-bold leading-tight">{b.customerName}</p>
+        <p className="flex items-center gap-1 truncate text-xs font-bold leading-tight">
+          {online && <Globe aria-label={sourceLabels.online} className="h-3 w-3 shrink-0 text-emerald-600" />}
+          <span className="truncate">{b.customerName}</span>
+        </p>
         {!compact && (
           <p className="truncate leading-tight opacity-80">
             {b.slotKey !== "primary" ? "+ " : ""}
@@ -1960,6 +1973,14 @@ export function BookingCalendar({
   }
 
   const showLocalTime = !!viewerTimezone && viewerTimezone !== businessTimezone;
+
+  // Colour key: who made the booking.
+  const sourceLabels =
+    locale === "vi"
+      ? { online: "Khách tự đặt online", manual: "Salon tự thêm" }
+      : locale === "fi"
+        ? { online: "Asiakas varasi verkossa", manual: "Salonki lisäsi" }
+        : { online: "Booked online by the customer", manual: "Added by the salon" };
 
   const headerContent = (
     <>
@@ -2075,6 +2096,28 @@ export function BookingCalendar({
               </button>
             );
           })}
+        </div>
+      )}
+
+      {(view === "day" || view === "week") && (
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] font-semibold text-ink-700">
+          <span className="flex items-center gap-1.5">
+            <span className="flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] border-emerald-500 bg-emerald-50 ring-1 ring-emerald-200/70">
+              <Globe className="h-2.5 w-2.5 text-emerald-600" />
+            </span>
+            {sourceLabels.online}
+          </span>
+          <span className="flex items-center gap-1.5">
+            <span
+              className={`flex h-4 w-6 items-center justify-center rounded-md border-l-[3px] ring-1 ring-black/5 ${
+                bookingColors ? "" : "border-violet-500 bg-violet-50 text-violet-700"
+              }`}
+              style={bookingColors ? { backgroundColor: bookingColors.bg, borderColor: bookingColors.text, color: bookingColors.text } : undefined}
+            >
+              <UserPen className="h-2.5 w-2.5" />
+            </span>
+            {sourceLabels.manual}
+          </span>
         </div>
       )}
 
