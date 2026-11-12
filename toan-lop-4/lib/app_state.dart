@@ -49,6 +49,7 @@ class AppState extends ChangeNotifier {
   static const vipKey = 'vip.dev';
   static const vipUntilKey = 'vip.until';
   static const voiceKey = 'settings.voice';
+  static const bilingualKey = 'settings.bilingual';
   static const greetedKey = 'tutor.greeted';
   static const breakKey = 'settings.breakMinutes';
   static const nicknameKey = 'lb.nickname';
@@ -370,6 +371,14 @@ class AppState extends ChangeNotifier {
   }
 
   /// Cô giáo tự đọc to lời thoại (mặc định bật; phụ huynh tắt được).
+  /// Chế độ "Toán + Tiếng Anh": câu lệnh tiếng Anh, cô đọc phép tính bằng tiếng Anh, câu đố từ vựng xen giữa.
+  bool get bilingual => store.get(bilingualKey) == 'true';
+
+  Future<void> setBilingual(bool value) async {
+    await store.put(bilingualKey, '$value');
+    notifyListeners();
+  }
+
   bool get voiceEnabled => store.get(voiceKey) != 'false';
 
   Future<void> setVoiceEnabled(bool value) async {

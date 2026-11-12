@@ -8,6 +8,7 @@ import '../models/content.dart';
 import 'app_theme.dart';
 import 'board_lesson_screen.dart';
 import 'ability_screens.dart';
+import 'english_screens.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
 import 'leaderboard_screen.dart';
@@ -286,6 +287,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     const SizedBox(height: 12),
                     AbilityHomeCard(app: app),
+                    const SizedBox(height: 14),
+                    BilingualToggleCard(app: app),
                     const SizedBox(height: 12),
                     _DailyCard(app: app),
                     const SizedBox(height: 12),
@@ -1279,6 +1282,20 @@ class LessonScreen extends StatelessWidget {
                   icon: Icons.lightbulb_rounded,
                   color: AppColors.tryAgain,
                   onPressed: () => pushScreen<void>(context, TheoryScreen(lessonRef: lessonRef)),
+                ),
+                const SizedBox(height: 16),
+                BigButton(
+                  key: const ValueKey('btn-english'),
+                  label: 'Từ vựng Tiếng Anh',
+                  icon: Icons.translate_rounded,
+                  color: const Color(0xFF3A57E8),
+                  onPressed: () => pushScreen<void>(
+                    context,
+                    EnglishVocabScreen(
+                      chapter: int.tryParse(RegExp(r'\.c(\d+)\.').firstMatch(lessonRef.id)?[1] ?? '') ?? 13,
+                      title: 'Tiếng Anh · ${lessonRef.title}',
+                    ),
+                  ),
                 ),
                 const SizedBox(height: 16),
                 BigButton(

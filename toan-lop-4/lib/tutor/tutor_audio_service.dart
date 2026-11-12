@@ -70,7 +70,9 @@ class TutorAudioService {
   static int _seq = 0;
   late final String _playerId = '${speaker.isEmpty ? 'teacher' : speaker}-voice-${_seq++}';
 
-  VoiceClip? _clip(String part) => (speaker.isEmpty ? null : library.lookup('$speaker:$part')) ?? library.lookup(part);
+  /// Câu tiếng Anh (chế độ Toán + Tiếng Anh) có khoá "en:`câu`" trong danh mục.
+  VoiceClip? _clip(String part) =>
+      (speaker.isEmpty ? null : library.lookup('$speaker:$part')) ?? library.lookup(part) ?? library.lookup('en:$part');
 
   final VoiceLibrary? _library;
   final TutorVoice? _fallback;

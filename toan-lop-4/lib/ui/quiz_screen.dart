@@ -29,6 +29,8 @@ import '../logic/tips.dart';
 import '../logic/tutor.dart';
 import 'teacher_class_screen.dart';
 import 'widgets/math_text.dart';
+import '../logic/english.dart';
+import 'english_screens.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
 typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
@@ -164,6 +166,15 @@ class _QuizBodyState extends State<_QuizBody> {
   late final TutorAudioService _audio = TutorAudioService(fallback: widget.voice);
   late final TeacherController _teacher = TeacherController(audio: _audio, voiceEnabled: widget.voiceOn);
 
+  /// Chế độ "Toán + Tiếng Anh" (bật ở trang chủ).
+  bool get _bi => context.getInheritedWidgetOfExactType<AppScope>()?.notifier?.bilingual ?? false;
+
+  /// Câu tiếng Anh của câu vừa làm đúng (hiện dưới lời cô).
+  String? _englishLine;
+  int _englishQuizSeed = 0;
+
+  int get _chapterOrder => int.tryParse(RegExp(r'\.c(\d+)$').firstMatch(widget.lesson.chapterId)?[1] ?? '') ?? 13;
+
   /// Lượt bắn tiền vàng / ngôi sao.
   int _burst = 0;
 
@@ -200,6 +211,7 @@ class _QuizBodyState extends State<_QuizBody> {
         await _teacher.say([
           if (tip != null) ...[TutorLines.tipLead[tip.kind]!, tip.text],
           if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction,
+          if (_bi) ?englishInstructions[instruction],
           text,
           ?template,
         ]);
@@ -296,7 +308,12 @@ class _QuizBodyState extends State<_QuizBody> {
       QuestionPhase.revealed => TeacherMood.idle,
       _ => TeacherMood.think,
     };
-    _teacher.say(_session.messageParts, mood: mood);
+    final english = _bi && _session.phase == QuestionPhase.correct ? englishSolution(problem) : null;
+    _englishLine = english;
+    _teacher.say([
+      ..._session.messageParts,
+      if (english != null) ...[englishLead, englishPraise[_session.index % englishPraise.length], english],
+    ], mood: mood);
     if (result.status == CheckStatus.correct) {
       _burst++;
       widget.sound.correct();
@@ -314,10 +331,20 @@ class _QuizBodyState extends State<_QuizBody> {
     MatchingBody() => const MatchingAnswer({}),
   };
 
-  void _next() {
+  Future<void> _next() async {
     _stopReading();
     widget.sound.tap();
     _teacher.clear();
+    _englishLine = null;
+    // Toán + Tiếng Anh: cứ xong 3 câu Toán thì có một câu đố nhanh từ vựng tiếng Anh.
+    final done = _session.index + 1;
+    if (_bi && done % 3 == 0 && done < _session.problems.length) {
+      final q = englishQuizFor(_chapterOrder, _englishQuizSeed++);
+      if (q != null) {
+        await showEnglishQuiz(context, _teacher, q.$1, q.$2);
+        if (!mounted) return;
+      }
+    }
     _resetWatch();
     setState(() {
       _session.next();
@@ -507,6 +534,10 @@ class _QuizBodyState extends State<_QuizBody> {
                   _FeedbackAndActions(
                     session: _session,
                     teacher: _teacher,
+                    english: _englishLine,
+                    onReplayEnglish: _englishLine == null
+                        ? null
+                        : () => _teacher.say([_englishLine!], forceVoice: true),
                     onCheck: _check,
                     onRetry: () {
                       _idleSeconds = 0;
@@ -652,9 +683,21 @@ class _PromptCard extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                     decoration: BoxDecoration(color: const Color(0xFFFFD66B), borderRadius: BorderRadius.circular(12)),
-                    child: Text(
-                      problem.displayInstruction,
-                      style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: Color(0xFF3B2A00)),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          problem.displayInstruction,
+                          style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800, color: Color(0xFF3B2A00)),
+                        ),
+                        if ((AppScope.maybeOf(context)?.bilingual ?? false) &&
+                            englishInstructions[problem.displayInstruction] != null)
+                          Text(
+                            '🇬🇧 ${englishInstructions[problem.displayInstruction]}',
+                            key: const ValueKey('english-instruction'),
+                            style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w700, color: Color(0xFF1B2A6B)),
+                          ),
+                      ],
                     ),
                   ),
                 ),
@@ -720,10 +763,14 @@ class _FeedbackAndActions extends StatelessWidget {
     required this.onSolution,
     required this.onHint,
     required this.onNext,
+    this.english,
+    this.onReplayEnglish,
   });
 
   final QuizSession session;
   final TeacherController teacher;
+  final String? english;
+  final VoidCallback? onReplayEnglish;
   final VoidCallback onCheck;
   final VoidCallback onRetry;
   final VoidCallback onSolution;
@@ -754,6 +801,8 @@ class _FeedbackAndActions extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              if (english != null && phase == QuestionPhase.correct)
+                EnglishLineCard(text: english!, onReplay: onReplayEnglish),
               // Cô giáo luôn ở góc dưới; khung thoại trượt lên khi cô nói.
               TeacherHud(
                 key: const ValueKey('feedback-message'),
