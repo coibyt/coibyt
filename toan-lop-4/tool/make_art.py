@@ -291,6 +291,13 @@ JOBS["bg_exam_room"] = dict(group="bg", aspect="9:16", prompt=(
     "desks each with a blank exam sheet, a pencil and an eraser, a big blank green chalkboard on the wall, a round "
     "wall clock, tall windows with soft morning sunlight and green trees outside, a vase of yellow flowers on the "
     "teacher's desk, potted plants, warm cream walls, peaceful focused atmosphere, no people. " + STYLE + " " + CLEAN))
+JOBS["og_banner_bg"] = dict(group="store", aspect="16:9", prompt=(
+    "A luxurious, magical banner background for a children's Grade 4 math learning app: a deep royal purple and violet "
+    "night-sky classroom with a soft glowing golden honeycomb pattern, floating glossy 3D math objects made of candy-like "
+    "glass: a pie chart cut into slices, a golden protractor, colourful number blocks, a star-shaped badge, sparkling gold "
+    "particles and soft bokeh lights, a warm radial glow on the RIGHT side where characters will stand, the LEFT half "
+    "calmer and darker with plenty of empty space for a big title, elegant, premium, festive. No people, no characters. "
+    + STYLE + " No text, no letters, no numbers, no watermark."))
 JOBS["chalk_pen"] = dict(group="ui", aspect="1:1", prompt=obj(
     "A teacher's elegant chalk pen: a slim golden metal chalk holder with a small coral ribbon, holding a white chalk "
     "stick, lying diagonally with the white chalk TIP at the BOTTOM-LEFT corner and the golden end at the TOP-RIGHT corner"))
