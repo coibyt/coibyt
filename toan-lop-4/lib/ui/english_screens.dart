@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../app_state.dart';
 import '../logic/english.dart';
+import '../services/sound_service.dart';
+import '../tutor/reward_burst.dart';
 import '../tutor/teacher_avatar.dart';
 import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
@@ -149,8 +151,7 @@ class EnglishLineCard extends StatelessWidget {
 }
 
 /// Chọn một từ để đố và 2 từ khác làm phương án nhiễu (cố định theo [seed]).
-(EnglishWord, List<String>)? englishQuizFor(int chapter, int seed) {
-  final words = englishVocab[chapter] ?? englishVocab[13]!;
+(EnglishWord, List<String>)? englishQuizFor(List<EnglishWord> words, int seed) {
   if (words.length < 3) return null;
   final word = words[seed % words.length];
   final others = [
@@ -337,9 +338,9 @@ class _ChoiceButton extends StatelessWidget {
 
 /// Thẻ từ vựng Tiếng Anh của một chủ đề: cô đọc từ, nghĩa, câu ví dụ; bé lật từng thẻ.
 class EnglishVocabScreen extends StatefulWidget {
-  const EnglishVocabScreen({super.key, required this.chapter, this.title = 'Từ vựng Tiếng Anh'});
+  const EnglishVocabScreen({super.key, required this.words, this.title = 'Từ vựng Tiếng Anh'});
 
-  final int chapter;
+  final List<EnglishWord> words;
   final String title;
 
   @override
@@ -347,7 +348,7 @@ class EnglishVocabScreen extends StatefulWidget {
 }
 
 class _EnglishVocabScreenState extends State<EnglishVocabScreen> {
-  late final List<EnglishWord> _words = englishVocab[widget.chapter] ?? englishVocab[13]!;
+  late final List<EnglishWord> _words = widget.words;
   late final TeacherController _teacher = TeacherController(audio: TutorAudioService());
   int _i = 0;
 
@@ -478,6 +479,19 @@ class _EnglishVocabScreenState extends State<EnglishVocabScreen> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 12),
+                BigButton(
+                  key: const ValueKey('btn-word-game'),
+                  label: 'Trò chơi ôn từ',
+                  icon: Icons.sports_esports_rounded,
+                  color: const Color(0xFF7B5CFF),
+                  onPressed: () {
+                    _teacher.clear();
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(builder: (_) => EnglishWordGameScreen(words: _words, title: widget.title)),
+                    );
+                  },
+                ),
                 const SizedBox(height: 14),
                 Wrap(
                   spacing: 8,
@@ -501,5 +515,301 @@ class _EnglishVocabScreenState extends State<EnglishVocabScreen> {
         ),
       ),
     );
+  }
+}
+
+
+/// Trò chơi ôn từ: lượt chẵn nghe từ tiếng Anh → chọn nghĩa tiếng Việt; lượt lẻ xem nghĩa → chọn từ tiếng Anh.
+class EnglishWordGameScreen extends StatefulWidget {
+  const EnglishWordGameScreen({super.key, required this.words, this.title = 'Trò chơi ôn từ', this.seed});
+
+  final List<EnglishWord> words;
+  final String title;
+  final int? seed;
+
+  @override
+  State<EnglishWordGameScreen> createState() => _EnglishWordGameScreenState();
+}
+
+class _EnglishWordGameScreenState extends State<EnglishWordGameScreen> {
+  late final TeacherController _teacher = TeacherController(audio: TutorAudioService());
+  late Random _rnd = Random(widget.seed);
+  late List<EnglishWord> _rounds;
+  late List<String> _choices;
+  int _i = 0;
+  int _score = 0;
+  int _burst = 0;
+  String? _picked;
+  bool _done = false;
+
+  EnglishWord get _word => _rounds[_i];
+
+  /// Lượt nghe (chọn nghĩa tiếng Việt) hay lượt đọc nghĩa (chọn từ tiếng Anh).
+  bool get _listen => _i.isEven;
+
+  @override
+  void initState() {
+    super.initState();
+    _start(first: true);
+  }
+
+  @override
+  void dispose() {
+    _teacher.dispose();
+    super.dispose();
+  }
+
+  void _start({bool first = false}) {
+    _rnd = Random(widget.seed);
+    _rounds = [...widget.words]..shuffle(_rnd);
+    if (_rounds.length > 8) _rounds = _rounds.sublist(0, 8);
+    _i = 0;
+    _score = 0;
+    _done = false;
+    _setupRound();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _ask(lead: true));
+  }
+
+  void _setupRound() {
+    _picked = null;
+    final pool = widget.words.length >= 4 ? widget.words : englishWordIndex.values.toList();
+    final others = [
+      for (final w in pool)
+        if (w.en != _word.en) w,
+    ]..shuffle(_rnd);
+    final opts = [_word, ...others.take(3)]..shuffle(_rnd);
+    _choices = [for (final w in opts) _listen ? w.vi : w.en];
+  }
+
+  void _ask({bool lead = false}) {
+    if (!mounted || _done) return;
+    _teacher.say([
+      if (lead) englishGameLead,
+      if (_listen) ...[_word.en, englishGameListen] else _word.quizQuestion,
+    ], forceVoice: true);
+  }
+
+  void _pick(String c) {
+    if (_picked != null) return;
+    final right = c == (_listen ? _word.vi : _word.en);
+    setState(() {
+      _picked = c;
+      if (right) {
+        _score++;
+        _burst++;
+      }
+    });
+    if (right) {
+      AppSound.instance.correct();
+    } else {
+      AppSound.instance.wrong();
+    }
+    _teacher.say([
+      right ? englishQuizRight : englishQuizWrong,
+      _word.en,
+      _word.meaningLine,
+    ], mood: right ? TeacherMood.clap : TeacherMood.think, forceVoice: true);
+  }
+
+  void _next() {
+    _teacher.clear();
+    if (_i + 1 >= _rounds.length) {
+      setState(() => _done = true);
+      AppSound.instance.finish();
+      _teacher.say([_score == _rounds.length ? englishGamePerfect : englishGameDone], mood: TeacherMood.clap, forceVoice: true);
+      return;
+    }
+    setState(() {
+      _i++;
+      _setupRound();
+    });
+    _ask();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(widget.title), backgroundColor: const Color(0xFFEEF2FF)),
+      backgroundColor: const Color(0xFFF6F4FF),
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Center(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 560),
+                child: ListView(padding: const EdgeInsets.all(18), children: _done ? _result() : _round()),
+              ),
+            ),
+            Positioned.fill(child: IgnorePointer(child: RewardBurst(trigger: _burst))),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _round() {
+    final w = _word;
+    final answer = _listen ? w.vi : w.en;
+    return [
+      Row(
+        children: [
+          Text(
+            'Câu ${_i + 1}/${_rounds.length}',
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: _navy),
+          ),
+          const Spacer(),
+          const Icon(Icons.star_rounded, color: Color(0xFFFFB800), size: 28),
+          Text(
+            '$_score',
+            key: const ValueKey('word-game-score'),
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: _navy),
+          ),
+        ],
+      ),
+      const SizedBox(height: 8),
+      ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: LinearProgressIndicator(
+          value: (_i + (_picked == null ? 0 : 1)) / _rounds.length,
+          minHeight: 10,
+          backgroundColor: const Color(0xFFDDE3FF),
+          color: const Color(0xFF7B5CFF),
+        ),
+      ),
+      const SizedBox(height: 14),
+      Container(
+        key: ValueKey('word-game-card-$_i'),
+        padding: const EdgeInsets.fromLTRB(18, 18, 18, 18),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [_navy, Color(0xFF3A57E8), Color(0xFF7B5CFF)],
+          ),
+          borderRadius: BorderRadius.circular(28),
+          border: Border.all(color: const Color(0xFFE8D3A6), width: 3),
+        ),
+        child: Column(
+          children: [
+            Text(
+              _listen ? 'Nghe và chọn nghĩa đúng' : 'Chọn từ tiếng Anh đúng',
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: Color(0xFFFFD66B)),
+            ),
+            const SizedBox(height: 10),
+            if (_listen)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton.filled(
+                    key: const ValueKey('word-game-listen'),
+                    iconSize: 34,
+                    style: IconButton.styleFrom(backgroundColor: _red),
+                    onPressed: () => _teacher.say([w.en], forceVoice: true),
+                    icon: const Icon(Icons.volume_up_rounded, color: Colors.white),
+                  ),
+                  const SizedBox(width: 12),
+                  Flexible(
+                    child: Text(
+                      w.en,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 36, fontWeight: FontWeight.w900, color: Colors.white),
+                    ),
+                  ),
+                ],
+              )
+            else
+              Text(
+                w.vi,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 34, fontWeight: FontWeight.w900, color: Colors.white),
+              ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 14),
+      for (final c in _choices)
+        Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: _ChoiceButton(
+            label: c,
+            state: _picked == null
+                ? null
+                : c == answer
+                ? true
+                : (c == _picked ? false : null),
+            onTap: () => _pick(c),
+          ),
+        ),
+      if (_picked != null)
+        Container(
+          padding: const EdgeInsets.all(12),
+          decoration: BoxDecoration(color: const Color(0xFFEEF2FF), borderRadius: BorderRadius.circular(16)),
+          child: Text(
+            '${w.en} = ${w.vi}\n“${w.example}”',
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w700, color: _navy, height: 1.35),
+          ),
+        ),
+      const SizedBox(height: 8),
+      TeacherHud(controller: _teacher, avatarHeight: 80, maxTextHeight: 70),
+      const SizedBox(height: 8),
+      BigButton(
+        key: const ValueKey('word-game-next'),
+        label: _picked == null ? 'Bỏ qua' : (_i + 1 >= _rounds.length ? 'Xem điểm' : 'Câu tiếp'),
+        icon: Icons.arrow_forward_rounded,
+        color: _picked == null ? Colors.grey : AppColors.good,
+        onPressed: _next,
+      ),
+    ];
+  }
+
+  List<Widget> _result() {
+    final total = _rounds.length;
+    final stars = _score == total ? 3 : (_score * 3 >= total * 2 ? 2 : (_score > 0 ? 1 : 0));
+    return [
+      const SizedBox(height: 10),
+      const Center(child: EnglishBadge(size: 44)),
+      const SizedBox(height: 12),
+      const Text(
+        'Kết quả ôn từ',
+        textAlign: TextAlign.center,
+        style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, color: _navy),
+      ),
+      const SizedBox(height: 10),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          for (var k = 0; k < 3; k++)
+            Icon(
+              Icons.star_rounded,
+              size: 64,
+              color: k < stars ? const Color(0xFFFFB800) : const Color(0xFFD9D9E3),
+            ),
+        ],
+      ),
+      Text(
+        'Con đúng $_score/$total từ',
+        key: const ValueKey('word-game-result'),
+        textAlign: TextAlign.center,
+        style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: _navy),
+      ),
+      const SizedBox(height: 14),
+      TeacherHud(controller: _teacher, avatarHeight: 96, maxTextHeight: 80),
+      const SizedBox(height: 14),
+      BigButton(
+        key: const ValueKey('word-game-again'),
+        label: 'Chơi lại',
+        icon: Icons.replay_rounded,
+        color: const Color(0xFF7B5CFF),
+        onPressed: () => setState(_start),
+      ),
+      const SizedBox(height: 12),
+      BigButton(
+        key: const ValueKey('word-game-close'),
+        label: 'Xong',
+        icon: Icons.check_rounded,
+        color: AppColors.good,
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+    ];
   }
 }

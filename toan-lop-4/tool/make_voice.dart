@@ -24,6 +24,7 @@ import 'package:toan_lop_4/logic/real_examples.dart';
 import 'package:toan_lop_4/logic/board_script.dart';
 import 'package:toan_lop_4/logic/exam_lines.dart';
 import 'package:toan_lop_4/logic/english.dart';
+import 'package:toan_lop_4/logic/english_prompts.dart';
 import 'package:toan_lop_4/models/exam.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
@@ -32,6 +33,9 @@ const model = 'eleven_flash_v2_5';
 
 /// Giọng cô Mai: "Trang" — nữ trẻ miền Nam, nhẹ nhàng (chủ dự án chọn trên 11max).
 const teacherVoice = 'HAAKLJlaJeGl18MKHYeg';
+
+/// Giọng tiếng Anh (chế độ Toán + Tiếng Anh): "Jessica" — nữ trẻ, chuẩn Mỹ, dễ nghe (chủ dự án chọn trên 11max).
+const englishVoice = 'cgSgspJ2msm6clMCkdW9';
 
 /// Giọng MC gameshow: "Saigon Lily" — nữ trẻ miền Nam, tươi sáng (chủ dự án chọn trên 11max).
 const hostVoice = 'WFDoCi084FlAxSbpBEfC';
@@ -67,24 +71,28 @@ String bare(String key) => key.startsWith('mc:') || key.startsWith('en:') ? key.
 bool isEnglish(String key) => key.startsWith('en:');
 
 /// Chữ gửi cho 11max: câu tiếng Việt đổi số/ký hiệu thành chữ; câu tiếng Anh giữ nguyên.
-String spokenOf(String key) => isEnglish(key) ? bare(key) : spokenVietnamese(bare(key));
+String spokenOf(String key) => isEnglish(key) ? englishSpoken(bare(key)) : spokenVietnamese(bare(key));
+
+String voiceTag(String voice) => voice == hostVoice ? 'lily' : (voice == englishVoice ? 'jessica' : 'trang');
 
 /// Mọi câu cần thu: (câu, giọng). Cô giáo: câu cố định, gợi ý, phần làm mẫu; MC: lời dẫn gameshow.
 List<(String, String)> allLines() => [
   for (final l in teacherLines()) (l, teacherVoice),
-  for (final l in englishLines()) ('en:${voiceKey(l)}', teacherVoice),
+  for (final l in englishLines()) ('en:${voiceKey(l)}', englishVoice),
   for (final l in {...ShowLines.all(), ...showQuestionLines()}) ('mc:${voiceKey(l)}', hostVoice),
 ];
 
-/// Câu tiếng Anh của chế độ Toán + Tiếng Anh: câu lệnh, lời khen, từ vựng, câu ví dụ, phép tính chốt của mọi bài.
+/// Câu tiếng Anh của chế độ Toán + Tiếng Anh: câu lệnh, lời khen, từ vựng, câu ví dụ, đề và đáp án của mọi bài.
 List<String> englishLines() {
   final out = <String>{...englishFixedLines()};
   for (final f in Directory('assets/content/lessons').listSync().whereType<File>()) {
     if (!f.path.endsWith('.json')) continue;
     final lesson = Lesson.fromJson(jsonDecode(f.readAsStringSync()));
     for (final p in lesson.problems) {
-      final e = englishSolution(p);
+      final e = englishPrompt(p.prompt.text);
       if (e != null) out.add(e);
+      final a = englishAnswer(p);
+      if (a != null) out.add(a);
     }
   }
   return [for (final l in out) voiceKey(l)];
@@ -276,7 +284,7 @@ Future<void> main(List<String> args) async {
   bool upToDate(String l, String voice) {
     final e = lines[l] as Map<String, dynamic>?;
     if (e == null || !File(e['file'] as String).existsSync() || e['voice'] != voice) return false;
-    if (!(e['file'] as String).endsWith(voice == hostVoice ? '-lily.mp3' : '-trang.mp3')) return false;
+    if (!(e['file'] as String).endsWith('-${voiceTag(voice)}.mp3')) return false;
     return e['spoken'] == spokenOf(l);
   }
 
@@ -324,7 +332,7 @@ Future<void> main(List<String> args) async {
   void saveManifest() {
     final sorted = Map.fromEntries(lines.entries.toList()..sort((a, b) => a.key.compareTo(b.key)));
     manifest['lines'] = sorted;
-    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Saigon Lily ($hostVoice) · $model';
+    manifest['voice'] = 'Cô Mai: Trang ($teacherVoice) · MC: Saigon Lily ($hostVoice) · Tiếng Anh: Jessica ($englishVoice) · $model';
     manifestFile.writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(manifest)}\n');
   }
 
@@ -333,8 +341,7 @@ Future<void> main(List<String> args) async {
     while (queue.isNotEmpty) {
       final (text, voice) = queue.removeAt(0);
       // Tên file có tên giọng → đổi giọng thì đổi đường dẫn, trình duyệt không phát lại bản cũ trong bộ nhớ đệm.
-      final en = isEnglish(text) ? '-en' : '';
-      final file = '$outDir/${slug(bare(text))}$en-${voice == hostVoice ? 'lily' : 'trang'}.mp3';
+      final file = '$outDir/${slug(bare(text))}-${voiceTag(voice)}.mp3';
       final spoken = spokenOf(text);
       try {
         final audio = await tts(client, key, spoken, voice, language: isEnglish(text) ? 'en' : 'vi');

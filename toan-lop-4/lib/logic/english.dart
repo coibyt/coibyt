@@ -192,7 +192,7 @@ const englishInstructions = {
 const englishPraise = ['Excellent!', 'Well done!', 'Great job!', 'Super!', 'Brilliant!'];
 
 /// Câu cô dẫn vào phần tiếng Anh (tiếng Việt).
-const englishLead = 'Giờ mình đọc phép tính bằng tiếng Anh nhé:';
+const englishLead = 'Đáp án bằng tiếng Anh là:';
 const englishQuizLead = 'Góc Tiếng Anh! Con chọn từ tiếng Anh đúng nhé.';
 const englishQuizRight = 'Chính xác! Con giỏi tiếng Anh quá!';
 const englishQuizWrong = 'Chưa đúng rồi, con nghe cô đọc lại nhé.';
@@ -353,8 +353,7 @@ const englishVocab = <int, List<EnglishWord>>{
 List<String> englishFixedLines() => {
   ...englishInstructions.values,
   ...englishPraise,
-  for (final ws in englishVocab.values)
-    for (final w in ws) ...[w.en, w.example],
+  for (final w in englishWordIndex.values) ...[w.en, w.example],
 }.toList();
 
 /// Câu tiếng Việt đi kèm (cô nói bằng giọng tiếng Việt).
@@ -363,6 +362,139 @@ List<String> englishVietnameseLines() => {
   englishQuizLead,
   englishQuizRight,
   englishQuizWrong,
-  for (final ws in englishVocab.values)
-    for (final w in ws) ...[w.quizQuestion, w.meaningLine],
+  englishGameLead,
+  englishGameListen,
+  englishGameDone,
+  englishGamePerfect,
+  for (final w in englishWordIndex.values) ...[w.quizQuestion, w.meaningLine],
 }.toList();
+
+/// Từ bổ sung (không thuộc riêng chủ đề nào) — dùng cho thẻ từ vựng của từng bài.
+const englishExtraWords = [
+  EnglishWord('hundred', 'trăm', 'One hundred has two zeros.'),
+  EnglishWord('ten thousand', 'chục nghìn', 'Ten thousand has four zeros.'),
+  EnglishWord('hundred thousand', 'trăm nghìn', 'One hundred thousand has five zeros.'),
+  EnglishWord('value', 'giá trị', 'Find the value of the digit.'),
+  EnglishWord('calculate', 'tính', 'Calculate the answer.'),
+  EnglishWord('natural number', 'số tự nhiên', 'Zero is the first natural number.'),
+  EnglishWord('sequence', 'dãy số', 'One, two, three is a sequence.'),
+  EnglishWord('next', 'tiếp theo', 'The next number is ten.'),
+  EnglishWord('about', 'khoảng', 'The answer is about one thousand.'),
+  EnglishWord('quintal', 'tạ', 'One quintal is one hundred kilograms.'),
+  EnglishWord('square decimeter', 'đề-xi-mét vuông', 'One square decimeter is one hundred square centimeters.'),
+  EnglishWord('square millimeter', 'mi-li-mét vuông', 'A tiny dot is about one square millimeter.'),
+  EnglishWord('year', 'năm', 'One year has twelve months.'),
+  EnglishWord('measure', 'đo', 'Measure the length with a ruler.'),
+  EnglishWord('unit', 'đơn vị', 'The meter is a unit of length.'),
+  EnglishWord('swap', 'đổi chỗ', 'Swap the two numbers.'),
+  EnglishWord('group', 'nhóm', 'Group the numbers that are easy to add.'),
+  EnglishWord('draw', 'vẽ', 'Draw a line.'),
+  EnglishWord('set square', 'ê ke', 'Use a set square to draw a right angle.'),
+  EnglishWord('ruler', 'thước kẻ', 'Draw a straight line with a ruler.'),
+  EnglishWord('point', 'điểm', 'Mark a point on the line.'),
+  EnglishWord('shape', 'hình', 'A rhombus is a shape with four equal sides.'),
+  EnglishWord('zero', 'số không', 'Ten has one zero.'),
+  EnglishWord('two-digit number', 'số có hai chữ số', 'Twenty-five is a two-digit number.'),
+  EnglishWord('brackets', 'dấu ngoặc', 'Do the part in brackets first.'),
+  EnglishWord('each', 'mỗi', 'Each box has six pens.'),
+  EnglishWord('event', 'sự kiện', 'Getting heads is an event.'),
+  EnglishWord('equivalent fractions', 'phân số bằng nhau', 'One half and two quarters are equivalent fractions.'),
+  EnglishWord('compare fractions', 'so sánh phân số', 'Compare fractions with the same denominator.'),
+];
+
+/// Từ trọng tâm của từng bài (theo tên bài; bài "Luyện tập chung" dùng từ của cả chủ đề).
+const _lessonWords = <String, List<String>>{
+  'Ôn tập các số đến 100': ['number', 'hundred', 'ten thousand', 'digit', 'compare', 'value'],
+  'Ôn tập các phép tính trong phạm vi': ['add', 'subtract', 'multiply', 'divide', 'calculate'],
+  'Số chẵn, số lẻ': ['even number', 'odd number', 'number', 'digit'],
+  'Biểu thức chứa chữ': ['expression', 'letter', 'value', 'calculate'],
+  'Giải bài toán có ba bước tính': ['step', 'problem', 'solve', 'answer'],
+  'Đo góc, đơn vị đo góc': ['angle', 'degree', 'protractor', 'vertex', 'measure', 'unit'],
+  'Góc nhọn, góc tù, góc bẹt': ['acute angle', 'obtuse angle', 'straight angle', 'right angle', 'angle', 'degree'],
+  'Số có sáu chữ số': ['hundred thousand', 'million', 'thousand', 'digit', 'place value'],
+  'Hàng và lớp': ['place value', 'digit', 'thousand', 'million', 'value'],
+  'Các số trong phạm vi lớp triệu': ['million', 'thousand', 'digit', 'place value', 'compare'],
+  'Làm tròn số': ['round', 'hundred thousand', 'about', 'estimate'],
+  'So sánh các số có nhiều chữ số': ['compare', 'greater than', 'less than', 'in order', 'digit'],
+  'dãy số tự nhiên': ['natural number', 'sequence', 'next', 'even number', 'odd number'],
+  'Yến, tạ, tấn': ['weight', 'kilogram', 'quintal', 'tonne'],
+  'mét vuông': ['area', 'square meter', 'square decimeter', 'square millimeter'],
+  'Giây, thế kỉ': ['second', 'minute', 'century', 'year'],
+  'đơn vị đo đại lượng': ['measure', 'unit', 'weight', 'area'],
+  'Phép cộng các số có nhiều chữ số': ['add', 'plus', 'sum', 'equals'],
+  'Phép trừ các số có nhiều chữ số': ['subtract', 'minus', 'difference', 'equals'],
+  'kết hợp của phép cộng': ['add', 'sum', 'swap', 'group'],
+  'tổng và hiệu': ['sum', 'difference', 'bigger number', 'smaller number'],
+  'Hai đường thẳng vuông góc': ['line', 'perpendicular', 'right angle', 'set square'],
+  'vẽ hai đường thẳng vuông góc': ['draw', 'perpendicular', 'set square', 'ruler', 'point'],
+  'Hai đường thẳng song song': ['line', 'parallel', 'side', 'rectangle'],
+  'vẽ hai đường thẳng song song': ['draw', 'parallel', 'set square', 'ruler', 'point'],
+  'Hình bình hành, hình thoi': ['parallelogram', 'rhombus', 'side', 'shape'],
+  'Ôn tập các số đến lớp triệu': ['million', 'thousand', 'digit', 'compare'],
+  'Ôn tập phép cộng, phép trừ': ['add', 'subtract', 'sum', 'difference'],
+  'hình học và đo lường': ['angle', 'parallel', 'area', 'weight'],
+  'Ôn tập hình học': ['angle', 'line', 'parallel', 'perpendicular', 'rhombus'],
+  'Ôn tập đo lường': ['weight', 'area', 'second', 'century'],
+  'Nhân với số có một chữ số': ['multiply', 'times', 'product', 'digit'],
+  'Chia cho số có một chữ số': ['divide', 'divided by', 'quotient', 'remainder'],
+  'kết hợp của phép nhân': ['multiply', 'product', 'swap', 'group'],
+  'Nhân, chia với 10': ['multiply', 'divide', 'zero', 'hundred', 'thousand'],
+  'Tính chất phân phối': ['multiply', 'add', 'brackets', 'product'],
+  'Nhân với số có hai chữ số': ['multiply', 'times', 'product', 'two-digit number'],
+  'Chia cho số có hai chữ số': ['divide', 'quotient', 'remainder', 'two-digit number'],
+  'ước lượng': ['estimate', 'round', 'about'],
+  'trung bình cộng': ['average', 'sum', 'divide'],
+  'rút về đơn vị': ['each', 'divide', 'multiply', 'unit'],
+  'Dãy số liệu thống kê': ['data', 'number', 'most', 'least'],
+  'Biểu đồ cột': ['bar chart', 'column', 'data', 'most', 'least'],
+  'Số lần xuất hiện': ['coin', 'dice', 'times (how often)', 'event'],
+  'Khái niệm phân số': ['fraction', 'numerator', 'denominator', 'equal parts', 'half', 'quarter'],
+  'Phân số và phép chia': ['fraction', 'divide', 'numerator', 'denominator'],
+  'Tính chất cơ bản của phân số': ['fraction', 'equivalent fractions', 'multiply', 'divide'],
+  'Rút gọn phân số': ['simplify', 'fraction', 'equivalent fractions'],
+  'Quy đồng mẫu số': ['common denominator', 'denominator', 'fraction'],
+  'So sánh phân số': ['compare fractions', 'greater than', 'less than', 'fraction'],
+  'Phép cộng phân số': ['add fractions', 'same denominator', 'plus', 'whole'],
+  'Phép trừ phân số': ['subtract fractions', 'same denominator', 'minus', 'whole'],
+  'Phép nhân phân số': ['multiply fractions', 'times', 'numerator', 'denominator'],
+  'Phép chia phân số': ['divide fractions', 'reciprocal', 'divided by'],
+  'Tìm phân số của một số': ['of', 'fraction', 'share', 'piece'],
+  'Ôn tập số tự nhiên': ['natural number', 'digit', 'million', 'compare'],
+  'phép tính với số tự nhiên': ['add', 'subtract', 'multiply', 'divide'],
+  'Ôn tập phân số': ['fraction', 'numerator', 'denominator', 'simplify'],
+  'phép tính với phân số': ['add fractions', 'subtract fractions', 'multiply fractions', 'divide fractions'],
+  'thống kê và xác suất': ['data', 'bar chart', 'event', 'dice'],
+};
+
+/// Mọi từ vựng (theo chủ đề + từ bổ sung), tra theo chữ tiếng Anh.
+final Map<String, EnglishWord> englishWordIndex = {
+  for (final ws in englishVocab.values)
+    for (final w in ws) w.en: w,
+  for (final w in englishExtraWords) w.en: w,
+};
+
+/// Thẻ từ vựng của một bài: từ trọng tâm của bài trước, rồi thêm từ của chủ đề cho đủ 8 thẻ.
+List<EnglishWord> lessonVocab(String lessonTitle, int chapter) {
+  final title = lessonTitle.replaceAll(RegExp(r'\s+'), ' ');
+  final out = <String, EnglishWord>{};
+  for (final e in _lessonWords.entries) {
+    if (title.contains(e.key)) {
+      for (final en in e.value) {
+        final w = englishWordIndex[en];
+        if (w != null) out[en] = w;
+      }
+      break;
+    }
+  }
+  for (final w in englishVocab[chapter] ?? englishVocab[13]!) {
+    if (out.length >= 8) break;
+    out.putIfAbsent(w.en, () => w);
+  }
+  return out.values.toList();
+}
+
+/// Trò chơi ôn từ: câu cô nói (tiếng Việt).
+const englishGameLead = 'Trò chơi ôn từ! Con nghe cô đọc từ tiếng Anh, rồi chọn nghĩa đúng nhé.';
+const englishGameListen = 'Từ này nghĩa là gì?';
+const englishGameDone = 'Hết lượt rồi! Con giỏi lắm, mình cùng xem điểm nhé.';
+const englishGamePerfect = 'Tuyệt vời! Con đúng hết tất cả các từ!';

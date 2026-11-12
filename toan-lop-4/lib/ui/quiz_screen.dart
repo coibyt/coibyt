@@ -30,6 +30,7 @@ import '../logic/tutor.dart';
 import 'teacher_class_screen.dart';
 import 'widgets/math_text.dart';
 import '../logic/english.dart';
+import '../logic/english_prompts.dart';
 import 'english_screens.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
@@ -211,9 +212,10 @@ class _QuizBodyState extends State<_QuizBody> {
         await _teacher.say([
           if (tip != null) ...[TutorLines.tipLead[tip.kind]!, tip.text],
           if (instruction.isNotEmpty && !text.startsWith(instruction)) instruction,
-          if (_bi) ?englishInstructions[instruction],
           text,
           ?template,
+          // Toán + Tiếng Anh: đọc xong tiếng Việt thì cô đọc bản tiếng Anh (giọng Jessica).
+          if (_bi) ...[?englishInstructions[instruction], ?englishPrompt(text)],
         ]);
         // Trắc nghiệm: cô đọc lần lượt từng đáp án, đáp án đang đọc sáng lên.
         final body = p.body;
@@ -308,12 +310,12 @@ class _QuizBodyState extends State<_QuizBody> {
       QuestionPhase.revealed => TeacherMood.idle,
       _ => TeacherMood.think,
     };
-    final english = _bi && _session.phase == QuestionPhase.correct ? englishSolution(problem) : null;
+    // Toán + Tiếng Anh: làm đúng thì cô đọc đáp án bằng tiếng Anh ("Ninety-six!").
+    final english = _bi && _session.phase == QuestionPhase.correct
+        ? (englishAnswer(problem) ?? englishPraise[_session.index % englishPraise.length])
+        : null;
     _englishLine = english;
-    _teacher.say([
-      ..._session.messageParts,
-      if (english != null) ...[englishLead, englishPraise[_session.index % englishPraise.length], english],
-    ], mood: mood);
+    _teacher.say([..._session.messageParts, ?english], mood: mood);
     if (result.status == CheckStatus.correct) {
       _burst++;
       widget.sound.correct();
@@ -339,7 +341,7 @@ class _QuizBodyState extends State<_QuizBody> {
     // Toán + Tiếng Anh: cứ xong 3 câu Toán thì có một câu đố nhanh từ vựng tiếng Anh.
     final done = _session.index + 1;
     if (_bi && done % 3 == 0 && done < _session.problems.length) {
-      final q = englishQuizFor(_chapterOrder, _englishQuizSeed++);
+      final q = englishQuizFor(lessonVocab(widget.lesson.title, _chapterOrder), _englishQuizSeed++);
       if (q != null) {
         await showEnglishQuiz(context, _teacher, q.$1, q.$2);
         if (!mounted) return;
@@ -717,6 +719,31 @@ class _PromptCard extends StatelessWidget {
                 shadows: [Shadow(color: Color(0x55FFFFFF), blurRadius: 2)],
               ),
             ),
+            if ((AppScope.maybeOf(context)?.bilingual ?? false) && englishPrompt(problem.prompt.text) != null) ...[
+              const SizedBox(height: 8),
+              Row(
+                key: const ValueKey('english-prompt'),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 2, right: 6),
+                    child: Text('🇬🇧', style: TextStyle(fontSize: 18)),
+                  ),
+                  Expanded(
+                    child: MathText(
+                      englishPrompt(problem.prompt.text)!,
+                      style: const TextStyle(
+                        fontSize: AppSizes.promptFont - 5,
+                        fontWeight: FontWeight.w600,
+                        fontStyle: FontStyle.italic,
+                        height: 1.3,
+                        color: Color(0xFFBFE3FF),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
             if (problem.prompt.image != null) ...[
               const SizedBox(height: 12),
               ClipRRect(

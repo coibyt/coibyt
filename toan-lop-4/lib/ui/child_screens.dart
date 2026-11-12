@@ -8,6 +8,7 @@ import '../models/content.dart';
 import 'app_theme.dart';
 import 'board_lesson_screen.dart';
 import 'ability_screens.dart';
+import '../logic/english.dart';
 import 'english_screens.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
@@ -1292,7 +1293,10 @@ class LessonScreen extends StatelessWidget {
                   onPressed: () => pushScreen<void>(
                     context,
                     EnglishVocabScreen(
-                      chapter: int.tryParse(RegExp(r'\.c(\d+)\.').firstMatch(lessonRef.id)?[1] ?? '') ?? 13,
+                      words: lessonVocab(
+                        lessonRef.title,
+                        int.tryParse(RegExp(r'\.c(\d+)\.').firstMatch(lessonRef.id)?[1] ?? '') ?? 13,
+                      ),
                       title: 'Tiếng Anh · ${lessonRef.title}',
                     ),
                   ),
