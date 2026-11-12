@@ -47,6 +47,7 @@ import { InstallAppButton } from "@/components/install-app-button";
 import { BusinessMapShowcase } from "@/components/business-map-showcase";
 import { businessMapStrings } from "@/lib/business-landing/map-strings";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor, faqJsonLd, jsonLd } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
 
@@ -60,7 +61,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title,
     description: t.hero.subtitle,
-    alternates: { canonical: pageUrl(locale) },
+    alternates: alternatesFor("/business", locale),
     openGraph: { title, description: t.hero.subtitle, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
@@ -93,9 +94,28 @@ export default async function BusinessLandingPage({ params }: { params: Params }
   const spot = spotlightStrings(locale);
   const map = businessMapStrings(locale);
   const faq = [t.faq[0], { q: map.faqQ, a: map.faqA }, t.faq[1], spot.faq, ...t.faq.slice(2)];
+  // For search engines and AI assistants: what VaraaAi is, that it's free,
+  // and the questions answered on this page.
+  const structured = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: "VaraaAi",
+      url: pageUrl(locale),
+      applicationCategory: "BusinessApplication",
+      applicationSubCategory: "Salon booking and management software",
+      operatingSystem: "Web, iOS, Android",
+      inLanguage: locale,
+      description: t.hero.subtitle,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+      publisher: { "@type": "Organization", name: "VaraaAi", url: SITE },
+    },
+    faqJsonLd(faq.map((f) => [f.q, f.a])),
+  ];
 
   return (
     <div className="overflow-x-clip">
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structured)} />
       <Suspense fallback={null}>
         <PlatformAffiliateCookieSetter />
       </Suspense>

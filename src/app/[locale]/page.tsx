@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { alternatesFor } from "@/lib/seo";
+import { SITE, alternatesFor, jsonLd, localizedUrl } from "@/lib/seo";
 import { prisma } from "@/lib/prisma";
 import { HomeHero } from "@/components/home-hero";
 import { CategoryCard } from "@/components/category-card";
@@ -50,9 +50,39 @@ export default async function HomePage({
   const perks = PERKS[(locale as "vi" | "en" | "fi")] ?? PERKS.en;
   const promo = homePromoStrings(locale);
   const chat = businessLandingStrings(locale).chat;
+  // For search engines and AI assistants: the organisation and the site search.
+  const structured = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": `${SITE}/#organization`,
+      name: "VaraaAi",
+      alternateName: "VaraaAi.com",
+      url: SITE,
+      logo: `${SITE}/icons/icon-512.png`,
+      description: t("heroSubtitle"),
+      areaServed: ["FI", "VN"],
+      knowsLanguage: ["fi", "en", "vi"],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": `${SITE}/#website`,
+      name: "VaraaAi",
+      url: localizedUrl(locale, ""),
+      inLanguage: locale,
+      publisher: { "@id": `${SITE}/#organization` },
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: `${localizedUrl(locale, "/search")}?q={search_term_string}` },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ];
 
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structured)} />
       <HomeHero
         locale={locale}
         title={t("heroTitle")}

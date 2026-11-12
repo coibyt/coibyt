@@ -5,6 +5,7 @@ import { SupportLauncher } from "@/components/support-launcher";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { businessLandingStrings } from "@/lib/business-landing/strings";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
 
@@ -13,15 +14,22 @@ const pageUrl = (locale: string) => `${SITE}${locale === routing.defaultLocale ?
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { locale } = await params;
-  const vi = locale === "vi";
-  const title = vi ? "Kiểm tra salon miễn phí — Salon của bạn trông thế nào trên mạng?" : "Free salon check — how does your salon look online?";
-  const description = vi
-    ? "Chấm điểm website, Google, Facebook và Instagram của salon trong 60 giây, kèm kế hoạch hành động và gợi ý marketing. Miễn phí, không cần đăng ký."
-    : "Score your salon's website, Google, Facebook and Instagram in 60 seconds, with an action plan and marketing ideas. Free, no sign-up.";
+  const title =
+    locale === "vi"
+      ? "Kiểm tra salon miễn phí — Salon của bạn trông thế nào trên mạng?"
+      : locale === "fi"
+        ? "Ilmainen salonkitesti — miltä salonkisi näyttää netissä?"
+        : "Free salon check — how does your salon look online?";
+  const description =
+    locale === "vi"
+      ? "Chấm điểm website, Google, Facebook và Instagram của salon trong 60 giây, kèm kế hoạch hành động và gợi ý marketing. Miễn phí, không cần đăng ký."
+      : locale === "fi"
+        ? "Pisteytä salonkisi verkkosivut, Google, Facebook ja Instagram 60 sekunnissa. Saat toimintasuunnitelman ja markkinointi-ideoita. Ilmainen, ei rekisteröitymistä."
+        : "Score your salon's website, Google, Facebook and Instagram in 60 seconds, with an action plan and marketing ideas. Free, no sign-up.";
   return {
     title,
     description,
-    alternates: { canonical: pageUrl(locale) },
+    alternates: alternatesFor("/salon-check", locale),
     openGraph: { title, description, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }

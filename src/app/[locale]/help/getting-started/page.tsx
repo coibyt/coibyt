@@ -10,6 +10,7 @@ import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { supportWidgetStrings } from "@/lib/support-ai/widget-strings";
 import { businessLandingStrings } from "@/lib/business-landing/strings";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
 
@@ -73,7 +74,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: c.metaTitle,
     description: c.metaDescription,
-    alternates: { canonical: pageUrl(locale) },
+    alternates: alternatesFor("/help/getting-started", locale),
     openGraph: { title: c.metaTitle, description: c.metaDescription, url: pageUrl(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }

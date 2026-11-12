@@ -5,6 +5,7 @@ import { siteSerif } from "@/lib/site-fonts";
 import { currentLiteSalon } from "@/lib/loyalty-lite";
 import { liteStrings } from "@/lib/loyalty-lite-strings";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor, faqJsonLd, jsonLd, localizedUrl } from "@/lib/seo";
 import { LiteSignupForm } from "@/components/loyalty-lite/signup-form";
 import { LiteSignupPopup } from "@/components/loyalty-lite/signup-popup";
 import { LiteVisitTracker } from "@/components/loyalty-lite/visit-tracker";
@@ -13,7 +14,12 @@ import { LiteOr, LiteTryNow } from "@/components/loyalty-lite/try-now";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
   const t = liteStrings(locale);
-  return { title: t.metaTitle, description: t.metaDescription, openGraph: { title: t.metaTitle, description: t.metaDescription, images: [ogImage(locale)] } };
+  return {
+    title: t.metaTitle,
+    description: t.metaDescription,
+    alternates: alternatesFor("/loyalty-lite", locale),
+    openGraph: { title: t.metaTitle, description: t.metaDescription, url: localizedUrl(locale, "/loyalty-lite"), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
+  };
 }
 
 /** Loyalty Lite: try VaraaAi's loyalty cards with only a salon name and an
@@ -28,6 +34,7 @@ export default async function LoyaltyLitePage({ params, searchParams }: { params
   return (
     <div className={`${siteSerif.variable} relative overflow-hidden bg-gradient-to-b from-[#fdf2f8] via-[#fbeaf4] to-white`}>
       <LiteVisitTracker />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(faqJsonLd(t.faq.map(([q, a]) => [q, a] as const)))} />
       {/* Visitors without an account meet the sign-up card first, like a welcome screen. */}
       {!signedIn && <LiteSignupPopup locale={locale} t={t} expired={link === "expired"} initialMode={login ? "login" : "signup"} />}
       {/* The glows run behind the whole page, so there is no seam between sections. */}

@@ -39,6 +39,15 @@ export function metaDescription(text: string | null | undefined, max = 160) {
   return `${clean.slice(0, max - 1).replace(/\s+\S*$/, "")}…`;
 }
 
+/** FAQPage structured data from [question, answer] pairs. */
+export function faqJsonLd(pairs: (readonly [string, string])[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: pairs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
+  };
+}
+
 /** A JSON-LD <script> payload — `<` is escaped so text from the database
  * can never close the script tag. */
 export function jsonLd(data: unknown) {

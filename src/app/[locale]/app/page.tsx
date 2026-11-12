@@ -8,6 +8,7 @@ import { spotlightStrings } from "@/lib/business-landing/spotlight";
 import { AppInstallHero } from "@/components/app-install-hero";
 import { FooterAppDownload } from "@/components/footer-app-download";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor, localizedUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -15,7 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: S.metaTitle,
     description: S.metaDescription,
-    openGraph: { title: S.metaTitle, description: S.metaDescription, images: [ogImage(locale)] },
+    alternates: alternatesFor("/app", locale),
+    openGraph: { title: S.metaTitle, description: S.metaDescription, url: localizedUrl(locale, "/app"), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
 

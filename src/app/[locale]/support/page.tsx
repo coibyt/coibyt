@@ -6,6 +6,7 @@ import { supportAiEnabled } from "@/lib/support";
 import { supportCenterStrings } from "@/lib/support-ai/strings";
 import { SupportCenter } from "@/components/support-center";
 import { ogImage } from "@/lib/og-image";
+import { alternatesFor } from "@/lib/seo";
 
 type Params = Promise<{ locale: string }>;
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: t.metaTitle,
     description: t.metaDescription,
-    alternates: { canonical: url(locale) },
+    alternates: alternatesFor("/support", locale),
     openGraph: { title: t.metaTitle, description: t.metaDescription, url: url(locale), siteName: "VaraaAi", type: "website", images: [ogImage(locale)] },
   };
 }
