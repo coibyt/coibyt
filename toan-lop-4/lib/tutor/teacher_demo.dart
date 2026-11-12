@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
+import '../logic/real_examples.dart';
 import '../logic/demo_script.dart';
 import '../logic/tutor.dart';
 import '../logic/visual_story.dart';
@@ -21,7 +22,7 @@ TeacherMood _mood(DemoMood m) => switch (m) {
 
 /// Điều khiển phần cô làm mẫu: tự chạy từ đầu tới cuối một lần, tạm dừng, nghe lại, xem hết.
 class DemoPlayer extends ChangeNotifier {
-  DemoPlayer({required this.scenes, required this.teacher, required List<ContentBlock> blocks}) {
+  DemoPlayer({required this.scenes, required this.teacher, required List<ContentBlock> blocks, this.remedy}) {
     for (final (i, b) in blocks.indexed) {
       if (b is ColumnArithmeticBlock || b is LongDivisionBlock) drivers[i] = ValueNotifier(0);
     }
@@ -33,6 +34,18 @@ class DemoPlayer extends ChangeNotifier {
 
   final List<DemoScene> scenes;
   final TeacherController teacher;
+
+  /// Tranh sửa sai của bài (theo dạng toán) — dùng khi bé trả lời sai mà phép tính không vẽ được bằng đồ vật.
+  final RealExample? remedy;
+
+  bool _remedyOn = false;
+  PointAt? _remedyAt;
+
+  /// Cô đang giảng bằng tranh sửa sai.
+  bool get showingRemedy => _remedyOn;
+
+  /// Chỗ que chỉ của cô trên tranh sửa sai.
+  PointAt? get remedyAt => _remedyAt;
 
   /// Bước hiện tại của từng khối đặt tính (cô điều khiển).
   final drivers = <int, ValueNotifier<int>>{};
@@ -218,8 +231,23 @@ class DemoPlayer extends ChangeNotifier {
           } else {
             // Sai: cô thuyết minh tranh đồ vật (từng nhóm sáng lên), rồi hỏi lại câu dễ hơn.
             final story = aidStory(q.aid ?? '');
-            await teacher.say(const [TutorLines.quizWrong, TutorLines.remedyLook], mood: TeacherMood.think);
+            final picture = story == null ? remedy : null;
+            await teacher.say([
+              TutorLines.quizWrong,
+              if (story != null || picture != null) TutorLines.remedyLook,
+            ], mood: TeacherMood.think);
             if (token != _token || _disposed) return;
+            if (picture != null) {
+              _remedyOn = true;
+              for (final (text, at) in picture.lines) {
+                _remedyAt = at;
+                notifyListeners();
+                await teacher.say([text], mood: TeacherMood.point);
+                if (token != _token || _disposed) return;
+              }
+              _remedyAt = null;
+              notifyListeners();
+            }
             if (story != null) {
               _story = story;
               for (final (text, lit) in story.lines) {
@@ -246,6 +274,7 @@ class DemoPlayer extends ChangeNotifier {
               ...q.followUp,
             ], mood: ok2 ? TeacherMood.clap : TeacherMood.idle);
             _story = null;
+            _remedyOn = false;
           }
           if (token != _token || _disposed) return;
         }
@@ -267,6 +296,8 @@ class DemoPlayer extends ChangeNotifier {
     _picked = null;
     _story = null;
     _lit = null;
+    _remedyOn = false;
+    _remedyAt = null;
     final w = _waiting;
     _waiting = null;
     if (w != null && !w.isCompleted) w.complete(-1);

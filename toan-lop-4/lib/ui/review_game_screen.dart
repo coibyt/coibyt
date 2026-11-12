@@ -15,6 +15,7 @@ import '../tutor/teacher_avatar.dart';
 import '../tutor/teacher_controller.dart';
 import '../tutor/teacher_hud.dart';
 import 'app_theme.dart';
+import 'english_island.dart';
 import 'widgets/big_button.dart';
 import 'widgets/game_art.dart';
 import 'widgets/math_text.dart';
@@ -84,7 +85,7 @@ class ReviewGameCard extends StatelessWidget {
                     ),
                     Text(
                       unlocked
-                          ? (best > 0 ? 'Kỷ lục: $best điểm · ${'⭐' * stars}' : 'Chạm để chơi · chấm điểm ngay')
+                          ? (best > 0 ? 'Kỷ lục: $best điểm · ${'⭐' * stars} · 🎟️ 1 vé/ván' : 'Chạm để chơi · 🎟️ 1 vé/ván')
                           : 'Học xong $done/${chapter.lessons.length} bài để mở khoá',
                       style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.w600),
                     ),
@@ -125,6 +126,8 @@ class ReviewGameCard extends StatelessWidget {
       if (ok != true || !await app.unlockGame(chapter)) return;
     }
     if (!context.mounted) return;
+    // Mỗi ván chơi cần 1 vé vui chơi (hết vé thì học tiếng Anh ở Đảo Tiếng Anh để nhận thêm).
+    if (!await useTicketOrInvite(context) || !context.mounted) return;
     await Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ReviewGameScreen(chapter: chapter)));
   }
 }

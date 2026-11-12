@@ -32,6 +32,10 @@ import 'widgets/math_text.dart';
 import '../logic/english.dart';
 import '../logic/english_prompts.dart';
 import 'english_screens.dart';
+import 'remedy_sheet.dart';
+import 'widgets/real_example_view.dart';
+import '../logic/real_examples.dart';
+import '../logic/remedies.dart';
 
 /// Gọi khi bé làm xong bài: lưu tiến độ, trả về điểm thưởng + huy hiệu mới.
 typedef QuizFinished = Future<RewardOutcome?> Function(QuizSession session);
@@ -168,6 +172,12 @@ class _QuizBodyState extends State<_QuizBody> {
   late final TeacherController _teacher = TeacherController(audio: _audio, voiceEnabled: widget.voiceOn);
 
   /// Chế độ "Toán + Tiếng Anh" (bật ở trang chủ).
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Remedies.load().then((r) => _remedies = r);
+  }
+
   bool get _bi => context.getInheritedWidgetOfExactType<AppScope>()?.notifier?.bilingual ?? false;
 
   /// Câu tiếng Anh của câu vừa làm đúng (hiện dưới lời cô).
@@ -315,7 +325,11 @@ class _QuizBodyState extends State<_QuizBody> {
         ? (englishAnswer(problem) ?? englishPraise[_session.index % englishPraise.length])
         : null;
     _englishLine = english;
-    _teacher.say([..._session.messageParts, ?english], mood: mood);
+    // Sai lần đầu: cô mở tranh minh hoạ của dạng toán và giảng lại, xong mới nhắc gợi ý của bài này.
+    final remedy = _session.phase == QuestionPhase.incorrect && _remedied.add(problem.id)
+        ? remedyForProblem(problem, _remedies)
+        : null;
+    if (remedy == null) _teacher.say([..._session.messageParts, ?english], mood: mood);
     if (result.status == CheckStatus.correct) {
       _burst++;
       widget.sound.correct();
@@ -324,7 +338,17 @@ class _QuizBodyState extends State<_QuizBody> {
       if (_session.phase == QuestionPhase.revealed) _openSolution();
     }
     setState(() {});
+    if (remedy != null) {
+      () async {
+        await showRemedy(context, _teacher, remedy);
+        if (mounted) _teacher.say(_session.messageParts, mood: TeacherMood.think);
+      }();
+    }
   }
+
+  /// Tranh sửa sai theo dạng toán; bài nào đã giảng bằng tranh thì không mở lại.
+  Map<String, RealExample> _remedies = const {};
+  final _remedied = <String>{};
 
   UserAnswer _emptyAnswer(Problem p) => switch (p.body) {
     MultipleChoiceBody() => const ChoiceAnswer({}),

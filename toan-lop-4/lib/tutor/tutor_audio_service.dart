@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 
 import '../logic/spoken_vi.dart';
 import '../services/tutor_voice.dart';
+import '../services/web_voice.dart';
 import 'voice_library.dart';
 
 /// Một lượt cô giáo nói (một hoặc vài câu nối tiếp).
@@ -127,6 +128,16 @@ class TutorAudioService {
   }
 
   Future<bool> _playClip(Utterance u, VoiceClip clip) async {
+    // Web: bộ phát Web Audio dùng chung (mở khoá một lần khi bé chạm) → câu nào cũng phát được.
+    if (kIsWeb && WebVoice.ready) {
+      u._audible.value = true;
+      await Future.any([
+        WebVoice.play(clip.file, _playerId),
+        u._wait(Duration(milliseconds: clip.durationMs + 1500)),
+      ]);
+      u._audible.value = false;
+      return true;
+    }
     try {
       final player = _player ??= AudioPlayer(playerId: _playerId)..setReleaseMode(ReleaseMode.stop);
       final finished = Completer<void>();
@@ -167,6 +178,7 @@ class TutorAudioService {
     u._finish();
     _current = null;
     _player?.stop();
+    if (kIsWeb) WebVoice.stop(_playerId);
     fallback.stop();
   }
 }

@@ -354,6 +354,8 @@ List<String> englishFixedLines() => {
   ...englishInstructions.values,
   ...englishPraise,
   for (final w in englishWordIndex.values) ...[w.en, w.example],
+  for (final (en, _) in MascotLines.all) en,
+  for (final i in englishIslands) i.name,
 }.toList();
 
 /// Câu tiếng Việt đi kèm (cô nói bằng giọng tiếng Việt).
@@ -366,6 +368,7 @@ List<String> englishVietnameseLines() => {
   englishGameListen,
   englishGameDone,
   englishGamePerfect,
+  noTicketLine,
   for (final w in englishWordIndex.values) ...[w.quizQuestion, w.meaningLine],
 }.toList();
 
@@ -498,3 +501,61 @@ const englishGameLead = 'Trò chơi ôn từ! Con nghe cô đọc từ tiếng A
 const englishGameListen = 'Từ này nghĩa là gì?';
 const englishGameDone = 'Hết lượt rồi! Con giỏi lắm, mình cùng xem điểm nhé.';
 const englishGamePerfect = 'Tuyệt vời! Con đúng hết tất cả các từ!';
+
+/// Một câu của bạn Vẹt Lulu: tiếng Anh (giọng Jessica) + phụ đề tiếng Việt.
+typedef MascotLine = (String en, String vi);
+
+/// Lời bạn Vẹt Lulu ở Đảo Tiếng Anh.
+abstract final class MascotLines {
+  static const greet = (
+    "Hello! I'm Lulu, your English friend. Learn English with me to win play tickets!",
+    'Xin chào! Tớ là Lulu, bạn tiếng Anh của cậu. Học tiếng Anh cùng tớ để nhận vé vui chơi nhé!',
+  );
+  static const pick = ('Pick an island, and let\'s learn some words!', 'Chọn một hòn đảo rồi mình cùng học từ mới nhé!');
+  static const noTicket = (
+    'Oh no, you have no play tickets left! Learn English with me to get more!',
+    'Ôi, cậu hết vé vui chơi rồi! Học tiếng Anh cùng tớ để nhận thêm vé nhé!',
+  );
+  static const earned = ('Hooray! You won play tickets!', 'Hoan hô! Cậu nhận được vé vui chơi!');
+  static const perfect = ('Perfect! You are an English star!', 'Tuyệt vời! Cậu là ngôi sao tiếng Anh!');
+  static const ticketRule = (
+    'One free ticket every day. Want to play more? Learn English!',
+    'Mỗi ngày tặng 1 vé. Muốn chơi nhiều hơn? Học tiếng Anh nhé!',
+  );
+  static const all = [greet, pick, noTicket, earned, perfect, ticketRule];
+}
+
+/// Một hòn đảo từ vựng.
+class EnglishIsland {
+  const EnglishIsland(this.id, this.name, this.vi, this.emoji, this.words);
+
+  final String id;
+  final String name;
+  final String vi;
+  final String emoji;
+  final List<EnglishWord> words;
+}
+
+/// Các đảo của Đảo Tiếng Anh: 13 chủ đề Toán + đảo từ thưởng.
+final englishIslands = [
+  for (final (n, name, vi, emoji) in const [
+    (1, 'Number Beach', 'Bãi biển Số', '🏖️'),
+    (2, 'Angle Mountain', 'Núi Góc', '⛰️'),
+    (3, 'Million Tower', 'Tháp Triệu', '🗼'),
+    (4, 'Measure Market', 'Chợ Đo Lường', '⚖️'),
+    (5, 'Plus Minus Bay', 'Vịnh Cộng Trừ', '⛵'),
+    (6, 'Shape Garden', 'Vườn Hình', '🔷'),
+    (7, 'Test Castle', 'Lâu đài Ôn tập', '🏰'),
+    (8, 'Times Jungle', 'Rừng Nhân Chia', '🌴'),
+    (9, 'Chart Volcano', 'Núi lửa Biểu đồ', '🌋'),
+    (10, 'Fraction Bakery', 'Tiệm bánh Phân số', '🍰'),
+    (11, 'Fraction Falls', 'Thác Phân số', '💧'),
+    (12, 'Magic Lagoon', 'Đầm Phép màu', '✨'),
+    (13, 'Champion Peak', 'Đỉnh Vô địch', '🏆'),
+  ])
+    EnglishIsland('c$n', name, vi, emoji, englishVocab[n]!),
+  const EnglishIsland('bonus', 'Bonus Cove', 'Vịnh Từ thưởng', '🎁', englishExtraWords),
+];
+
+/// Câu cô Mai nói khi bé hết vé.
+const noTicketLine = 'Con hết vé vui chơi rồi! Con sang Đảo Tiếng Anh học cùng bạn Vẹt Lulu để nhận thêm vé nhé!';

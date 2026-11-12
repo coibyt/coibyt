@@ -46,8 +46,10 @@ flutter:
     - assets/bg/
     - assets/chapters/
     - assets/host/
+    - assets/mascot/
     - assets/illus/
     - assets/examples/
+    - assets/remedies/
     - assets/charts/
     - assets/voice/
 

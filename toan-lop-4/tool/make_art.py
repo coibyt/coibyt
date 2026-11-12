@@ -370,14 +370,68 @@ for n, desc in CHAPTERS.items():
 for pid, (desc, bg) in PETS.items():
     JOBS[f"pet_{pid}"] = dict(group="pets", aspect="1:1", prompt=pet(desc, bg), key="green" if bg == GREEN else "magenta")
 
+# ---- Tranh sửa sai theo dạng toán (assets/content/remedies.json) — Nano Banana thường (4 credit/tranh) ----
+_rem_file = ROOT / "assets" / "content" / "remedies.json"
+if _rem_file.exists():
+    for _skill, _x in json.loads(_rem_file.read_text()).items():
+        JOBS[f"remedy_{_skill}"] = dict(group="remedies", aspect="4:3", model="google/nano-banana", prompt=(
+            "A bright, warm and detailed picture-book illustration used by a teacher to explain a math idea to a "
+            f"child: {_x['prompt']} Full-bleed scene filling the whole frame. {STYLE} {CLEAN}"))
 
-def create(prompt, aspect, refs):
-    inp = {"prompt": prompt, "aspect_ratio": aspect, "resolution": "1K", "output_format": "png"}
-    if refs:
-        inp["image_input"] = refs
+
+# ---- Đảo Tiếng Anh: linh vật Vẹt Lulu nói tiếng Anh (nền hồng sẫm vì vẹt màu xanh lá) ----
+MASCOT = (
+    "An original 3D mascot character for a children's English learning game: an adorable chibi baby parrot named "
+    "Lulu with bright emerald-green and sky-blue feathers, a sunny yellow chest, a small curved orange beak, huge "
+    "sparkling friendly eyes with long lashes, rosy cheeks, wearing a tiny red bow tie and a small navy graduation "
+    "cap with a golden tassel. Standing upright facing the viewer, full body, wings relaxed at its sides, centered, "
+    "the character fills about 85% of the frame height with empty margin around it. Not resembling any existing "
+    "character. " + STYLE + " " + MAGENTA + " " + CLEAN
+)
+MASCOT_KEEP = (
+    "Use the reference image. Keep EVERYTHING identical: the same parrot character, same feathers and colours, same "
+    "bow tie and graduation cap, same art style and lighting, same framing, same position and size in the frame, same "
+    "solid pure magenta (#FF00FF) background. "
+)
+JOBS["mascot_idle"] = dict(group="mascot", aspect="3:4", prompt=MASCOT, key="magenta")
+JOBS["mascot_blink"] = dict(group="mascot", aspect="3:4", ref="mascot_idle", key="magenta",
+                            prompt=MASCOT_KEEP + "Only change: its eyes are gently closed in a happy blink, beak closed.")
+JOBS["mascot_talk"] = dict(group="mascot", aspect="3:4", ref="mascot_idle", key="magenta",
+                           prompt=MASCOT_KEEP + "Only change: its beak is open in a cheerful speaking shape, eyes bright.")
+JOBS["mascot_present"] = dict(group="mascot", aspect="3:4", ref="mascot_idle", key="magenta",
+                              prompt=MASCOT_KEEP + "Change only its pose: it spreads its right wing out to the side like a hand presenting something, excited smile, beak closed. The wing must stay inside the frame.")
+JOBS["mascot_present_talk"] = dict(group="mascot", aspect="3:4", ref="mascot_present", key="magenta",
+                                   prompt=MASCOT_KEEP.replace("same position", "same presenting pose, same position") + "Only change: its beak is open in a cheerful speaking shape.")
+JOBS["mascot_cheer"] = dict(group="mascot", aspect="3:4", ref="mascot_idle", key="magenta",
+                            prompt=MASCOT_KEEP + "Change only its pose: it raises both wings high above its head in joyful celebration, eyes squinting happily, a few small golden sparkles around, beak closed in a big smile.")
+JOBS["mascot_cheer_talk"] = dict(group="mascot", aspect="3:4", ref="mascot_cheer", key="magenta",
+                                 prompt=MASCOT_KEEP.replace("same position", "same celebrating pose, same position") + "Only change: its beak is open wide in a cheerful 'Yay!' shape.")
+JOBS["bg_english"] = dict(group="bg", aspect="9:16", prompt=(
+    "A dreamy bright background for a children's English learning island: a small tropical island in a sparkling "
+    "turquoise sea under a sunny sky, palm trees, a cute treehouse classroom, a wooden signpost without any writing, "
+    "colourful balloons and soft clouds far away, very soft and low contrast in the middle for buttons, no characters, "
+    "no text. One single seamless full-bleed scene filling the entire frame edge to edge, no inset picture, no border, "
+    "no frame, no blurred margins. " + STYLE + " " + CLEAN))
+JOBS["ticket"] = dict(group="ui", aspect="1:1", prompt=obj(
+    "A shiny golden-orange fun-fair admission ticket with scalloped edges, a big star punched in the centre and a "
+    "small red ribbon, slightly tilted"))
+JOBS["tile_english"] = dict(group="ui", aspect="1:1", prompt=obj(
+    "A tiny magical tropical island with a palm tree and a cute treehouse, a colourful speech bubble floating above "
+    "it with a heart inside, sparkles"))
+
+
+def create(prompt, aspect, refs, model=MODEL):
+    if model == "google/nano-banana":
+        inp = {"prompt": prompt, "image_size": aspect, "output_format": "png"}
+        if refs:
+            inp["image_urls"] = refs
+    else:
+        inp = {"prompt": prompt, "aspect_ratio": aspect, "resolution": "1K", "output_format": "png"}
+        if refs:
+            inp["image_input"] = refs
     for i in range(4):
         try:
-            j = requests.post(CREATE, headers=HEAD, json={"model": MODEL, "input": inp}, timeout=60).json()
+            j = requests.post(CREATE, headers=HEAD, json={"model": model, "input": inp}, timeout=60).json()
             if j.get("code") != 200:
                 raise RuntimeError(f"createTask: {j}")
             return j["data"]["taskId"]
@@ -414,7 +468,7 @@ def run(name):
             raise RuntimeError(f"[{name}] cần tạo {job['ref']} trước (ảnh tham chiếu)")
         refs = [url_file.read_text().strip()]
     print(f"• {name}")
-    url = wait(create(job["prompt"], job["aspect"], refs), name)
+    url = wait(create(job["prompt"], job["aspect"], refs, job.get("model", MODEL)), name)
     RAW.mkdir(exist_ok=True)
     (RAW / f"{name}.png").write_bytes(requests.get(url, timeout=180).content)
     (RAW / f"{name}.url").write_text(url)

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../app_state.dart';
 import '../logic/economy.dart';
 import 'app_theme.dart';
+import 'english_island.dart';
 import 'widgets/game_art.dart';
 import '../tutor/teacher_assets.dart';
 import 'widgets/big_button.dart';
@@ -80,6 +81,8 @@ class _SpinTabState extends State<_SpinTab> {
   bool _spinning = false;
 
   Future<void> _spin(AppState app) async {
+    // Quay thẻ là trò chơi: cần 1 vé vui chơi (kiếm bằng cách học tiếng Anh).
+    if (!await useTicketOrInvite(context) || !mounted) return;
     setState(() => _spinning = true);
     await Future<void>.delayed(const Duration(milliseconds: 700)); // hồi hộp một chút
     if (!mounted) return;
@@ -134,7 +137,7 @@ class _SpinTabState extends State<_SpinTab> {
         const SizedBox(height: 8),
         BigButton(
           key: const ValueKey('btn-spin'),
-          label: 'Quay thẻ (🪙 ${Economy.spinCost})',
+          label: 'Quay thẻ (🪙 ${Economy.spinCost} + 🎟️ 1)',
           color: const Color(0xFFFF6FB5),
           onPressed: canSpin ? () => _spin(app) : null,
         ),

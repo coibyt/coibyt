@@ -25,6 +25,7 @@ import 'package:toan_lop_4/logic/board_script.dart';
 import 'package:toan_lop_4/logic/exam_lines.dart';
 import 'package:toan_lop_4/logic/english.dart';
 import 'package:toan_lop_4/logic/english_prompts.dart';
+import 'package:toan_lop_4/logic/remedies.dart';
 import 'package:toan_lop_4/models/exam.dart';
 import 'package:unorm_dart/unorm_dart.dart' as unorm;
 
@@ -150,6 +151,16 @@ List<String> teacherLines() {
         for (final (say, _) in e.lines) {
           lines.add(say);
         }
+      }
+    }
+  }
+  // Tranh sửa sai: bé làm sai, cô chỉ vào tranh của dạng toán và giảng lại.
+  lines.addAll(RemedyLines.all);
+  final rem = File(remediesPath);
+  if (rem.existsSync()) {
+    for (final r in parseRemedies(jsonDecode(rem.readAsStringSync()) as Map<String, dynamic>).values) {
+      for (final (say, _) in r.lines) {
+        lines.add(say);
       }
     }
   }

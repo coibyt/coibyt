@@ -205,6 +205,8 @@ class _EnglishQuizSheetState extends State<_EnglishQuizSheet> {
     if (_picked != null) return;
     setState(() => _picked = c);
     final right = c == widget.word.en;
+    // Đúng câu đố "Góc Tiếng Anh" được thưởng 1 vé vui chơi.
+    if (right) AppScope.maybeOf(context)?.addTickets(1);
     widget.teacher.say([
       right ? englishQuizRight : englishQuizWrong,
       widget.word.en,
@@ -264,6 +266,16 @@ class _EnglishQuizSheetState extends State<_EnglishQuizSheet> {
                       ? true
                       : (c == _picked ? false : null),
                   onTap: () => _pick(c),
+                ),
+              ),
+            if (_picked == w.en)
+              const Padding(
+                padding: EdgeInsets.only(bottom: 8),
+                child: Text(
+                  '🎟️ +1 vé vui chơi!',
+                  key: ValueKey('english-quiz-ticket'),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900, color: Color(0xFF7A4A00)),
                 ),
               ),
             if (_picked != null)
@@ -338,10 +350,13 @@ class _ChoiceButton extends StatelessWidget {
 
 /// Thẻ từ vựng Tiếng Anh của một chủ đề: cô đọc từ, nghĩa, câu ví dụ; bé lật từng thẻ.
 class EnglishVocabScreen extends StatefulWidget {
-  const EnglishVocabScreen({super.key, required this.words, this.title = 'Từ vựng Tiếng Anh'});
+  const EnglishVocabScreen({super.key, required this.words, this.title = 'Từ vựng Tiếng Anh', this.islandId});
 
   final List<EnglishWord> words;
   final String title;
+
+  /// Đảo Tiếng Anh: lưu sao của đảo khi chơi ôn từ.
+  final String? islandId;
 
   @override
   State<EnglishVocabScreen> createState() => _EnglishVocabScreenState();
@@ -488,7 +503,8 @@ class _EnglishVocabScreenState extends State<EnglishVocabScreen> {
                   onPressed: () {
                     _teacher.clear();
                     Navigator.of(context).push(
-                      MaterialPageRoute<void>(builder: (_) => EnglishWordGameScreen(words: _words, title: widget.title)),
+                      MaterialPageRoute<void>(builder: (_) => EnglishWordGameScreen(words: _words, title: widget.title, islandId: widget.islandId),
+                      ),
                     );
                   },
                 ),
@@ -521,9 +537,12 @@ class _EnglishVocabScreenState extends State<EnglishVocabScreen> {
 
 /// Trò chơi ôn từ: lượt chẵn nghe từ tiếng Anh → chọn nghĩa tiếng Việt; lượt lẻ xem nghĩa → chọn từ tiếng Anh.
 class EnglishWordGameScreen extends StatefulWidget {
-  const EnglishWordGameScreen({super.key, required this.words, this.title = 'Trò chơi ôn từ', this.seed});
+  const EnglishWordGameScreen({super.key, required this.words, this.title = 'Trò chơi ôn từ', this.seed, this.islandId});
 
   final List<EnglishWord> words;
+
+  /// Đảo Tiếng Anh: lưu sao cao nhất của đảo.
+  final String? islandId;
   final String title;
   final int? seed;
 
@@ -611,12 +630,33 @@ class _EnglishWordGameScreenState extends State<EnglishWordGameScreen> {
     ], mood: right ? TeacherMood.clap : TeacherMood.think, forceVoice: true);
   }
 
+  /// Vé vui chơi nhận được ở lượt vừa chơi (= số sao).
+  int _won = 0;
+
+  int get _stars {
+    final total = _rounds.length;
+    return _score == total ? 3 : (_score * 3 >= total * 2 ? 2 : (_score > 0 ? 1 : 0));
+  }
+
   void _next() {
     _teacher.clear();
     if (_i + 1 >= _rounds.length) {
-      setState(() => _done = true);
+      final stars = _stars;
+      setState(() {
+        _done = true;
+        _won = stars;
+      });
       AppSound.instance.finish();
-      _teacher.say([_score == _rounds.length ? englishGamePerfect : englishGameDone], mood: TeacherMood.clap, forceVoice: true);
+      // Học tiếng Anh được thưởng vé vui chơi: bao nhiêu sao, bấy nhiêu vé.
+      final app = AppScope.maybeOf(context);
+      if (app != null) {
+        app.addTickets(stars);
+        if (widget.islandId != null) app.saveEnglishStars(widget.islandId!, stars);
+      }
+      _teacher.say([
+        _score == _rounds.length ? englishGamePerfect : englishGameDone,
+        if (stars > 0) (_score == _rounds.length ? MascotLines.perfect : MascotLines.earned).$1,
+      ], mood: TeacherMood.clap, forceVoice: true);
       return;
     }
     setState(() {
@@ -764,7 +804,7 @@ class _EnglishWordGameScreenState extends State<EnglishWordGameScreen> {
 
   List<Widget> _result() {
     final total = _rounds.length;
-    final stars = _score == total ? 3 : (_score * 3 >= total * 2 ? 2 : (_score > 0 ? 1 : 0));
+    final stars = _stars;
     return [
       const SizedBox(height: 10),
       const Center(child: EnglishBadge(size: 44)),
@@ -792,6 +832,24 @@ class _EnglishWordGameScreenState extends State<EnglishWordGameScreen> {
         textAlign: TextAlign.center,
         style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w800, color: _navy),
       ),
+      if (_won > 0) ...[
+        const SizedBox(height: 10),
+        Center(
+          child: Container(
+            key: const ValueKey('word-game-tickets'),
+            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
+            decoration: BoxDecoration(
+              color: const Color(0xFFFFF4D6),
+              borderRadius: BorderRadius.circular(30),
+              border: Border.all(color: const Color(0xFFFFB800), width: 2),
+            ),
+            child: Text(
+              '🎟️ +$_won vé vui chơi',
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w900, color: Color(0xFF7A4A00)),
+            ),
+          ),
+        ),
+      ],
       const SizedBox(height: 14),
       TeacherHud(controller: _teacher, avatarHeight: 96, maxTextHeight: 80),
       const SizedBox(height: 14),

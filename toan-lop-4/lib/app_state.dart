@@ -121,6 +121,66 @@ class AppState extends ChangeNotifier {
     return true;
   }
 
+  // ---------- Vé vui chơi & Đảo Tiếng Anh ----------
+  // Muốn chơi trò chơi (Bóng bay Toán học, Quay thẻ thú cưng) thì cần vé. Mỗi ngày tặng 1 vé;
+  // muốn chơi thêm thì học tiếng Anh với bạn Vẹt Lulu để nhận vé.
+  static const ticketsKey = 'english.tickets';
+  static const freeTicketDayKey = 'english.freeDay';
+  static const englishStarsKey = 'english.stars';
+
+  String get _todayKey {
+    final d = now();
+    return '${d.year}-${d.month}-${d.day}';
+  }
+
+  /// Vé đã kiếm được (chưa kể vé tặng hôm nay).
+  int get _earnedTickets => int.tryParse(store.get(ticketsKey) ?? '') ?? 0;
+
+  /// Hôm nay còn vé tặng không.
+  bool get freeTicketToday => store.get(freeTicketDayKey) != _todayKey;
+
+  /// Số vé đang có (cả vé tặng hôm nay).
+  int get tickets => _earnedTickets + (freeTicketToday ? 1 : 0);
+
+  /// Dùng một vé để chơi; false nếu hết vé.
+  Future<bool> spendTicket() async {
+    if (freeTicketToday) {
+      await store.put(freeTicketDayKey, _todayKey);
+    } else if (_earnedTickets > 0) {
+      await store.put(ticketsKey, '${_earnedTickets - 1}');
+    } else {
+      return false;
+    }
+    notifyListeners();
+    return true;
+  }
+
+  /// Học tiếng Anh được thưởng vé.
+  Future<void> addTickets(int n) async {
+    if (n <= 0) return;
+    await store.put(ticketsKey, '${_earnedTickets + n}');
+    notifyListeners();
+  }
+
+  /// Sao cao nhất của từng đảo từ vựng (mã đảo → 0..3).
+  Map<String, int> get englishStars {
+    try {
+      final raw = store.get(englishStarsKey);
+      if (raw == null) return const {};
+      return (jsonDecode(raw) as Map<String, dynamic>).map((k, v) => MapEntry(k, (v as num).toInt()));
+    } on Object {
+      return const {};
+    }
+  }
+
+  Future<void> saveEnglishStars(String island, int stars) async {
+    final m = {...englishStars};
+    if ((m[island] ?? 0) >= stars) return;
+    m[island] = stars;
+    await store.put(englishStarsKey, jsonEncode(m));
+    notifyListeners();
+  }
+
   /// Lưu kết quả một ván; trả về true nếu phá kỷ lục.
   Future<bool> saveGameResult(String chapterId, {required int score, required int stars, required int coins}) async {
     final (best, bestStars) = gameBest(chapterId);

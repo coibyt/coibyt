@@ -35,7 +35,23 @@ enum HostPose {
 /// MC gameshow "sống": thở, lắc lư nhẹ, tự chớp mắt, gật đầu khi nói, đổi tư thế mượt,
 /// mở/ngậm miệng theo [mouthOpen] (lấy từ TeacherController — chỉ cử động khi đang phát tiếng).
 class HostAvatar extends StatefulWidget {
-  const HostAvatar({super.key, this.pose = HostPose.idle, this.mouthOpen = false, this.height = 200});
+  const HostAvatar({
+    super.key,
+    this.pose = HostPose.idle,
+    this.mouthOpen = false,
+    this.height = 200,
+    this.prefix = 'assets/host/host_',
+    this.emoji = '🎤',
+  });
+
+  /// Linh vật Vẹt Lulu (Đảo Tiếng Anh) dùng cùng bộ chuyển động với MC.
+  const HostAvatar.mascot({super.key, this.pose = HostPose.idle, this.mouthOpen = false, this.height = 200})
+    : prefix = 'assets/mascot/mascot_',
+      emoji = '🦜';
+
+  /// Đường dẫn khung hình: `<prefix><khung>.webp`.
+  final String prefix;
+  final String emoji;
 
   final HostPose pose;
   final bool mouthOpen;
@@ -134,18 +150,19 @@ class _HostAvatarState extends State<HostAvatar> with TickerProviderStateMixin {
     final fallback = SizedBox(
       height: h,
       width: h * 0.75,
-      child: const Center(child: Text('🎤', style: TextStyle(fontSize: 60))),
+      child: Center(child: Text(widget.emoji, style: const TextStyle(fontSize: 60))),
     );
+    String path(String stem) => '${widget.prefix}$stem.webp';
     Widget frame(String stem) => Image.asset(
-      HostAvatar.path(stem),
+      path(stem),
       key: ValueKey(stem),
       height: h,
       fit: BoxFit.contain,
       gaplessPlayback: true,
       // Thiếu khung nói / chớp mắt: dùng khung tư thế, rồi khung đứng.
       errorBuilder: (_, _, _) => stem == widget.pose.name
-          ? Image.asset(HostAvatar.path('idle'), height: h, errorBuilder: (_, _, _) => fallback)
-          : Image.asset(HostAvatar.path(widget.pose.name), height: h, errorBuilder: (_, _, _) => fallback),
+          ? Image.asset(path('idle'), height: h, errorBuilder: (_, _, _) => fallback)
+          : Image.asset(path(widget.pose.name), height: h, errorBuilder: (_, _, _) => fallback),
     );
     return AnimatedBuilder(
       animation: Listenable.merge([_breath, _sway, _bob]),

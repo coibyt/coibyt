@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../logic/real_examples.dart';
+import '../../logic/remedies.dart';
 import '../../tutor/teacher_avatar.dart';
 
 /// Danh mục ví dụ trong cuộc sống (đọc một lần).
@@ -26,12 +27,37 @@ class RealExamples {
   static void reset() => _cache = null;
 }
 
+/// Danh mục tranh sửa sai theo dạng toán (đọc một lần).
+class Remedies {
+  static Future<Map<String, RealExample>>? _cache;
+
+  static Future<Map<String, RealExample>> load([AssetBundle? bundle]) => _cache ??= () async {
+    try {
+      final data = await (bundle ?? rootBundle).load(remediesPath);
+      final raw = utf8.decode(data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes));
+      return parseRemedies(jsonDecode(raw) as Map<String, dynamic>);
+    } on Object {
+      return <String, RealExample>{};
+    }
+  }();
+}
+
 /// Tranh ví dụ trong cuộc sống: lúc cô giảng, tranh phóng to về chỗ cô chỉ,
 /// que chỉ của cô đặt đúng chỗ đó và một vòng sáng nhấp nháy quanh.
 class RealExampleView extends StatelessWidget {
-  const RealExampleView({super.key, required this.example, this.active = false, this.pointAt, this.reached = true});
+  const RealExampleView({
+    super.key,
+    required this.example,
+    this.active = false,
+    this.pointAt,
+    this.reached = true,
+    this.chip = 'Ví dụ trong cuộc sống',
+  });
 
   final RealExample example;
+
+  /// Nhãn nhỏ góc trên tranh.
+  final String chip;
   final bool active;
   final PointAt? pointAt;
   final bool reached;
@@ -87,7 +113,7 @@ class RealExampleView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        const Positioned(left: 10, top: 10, child: _Chip()),
+                        Positioned(left: 10, top: 10, child: _Chip(chip)),
                         if (at != null)
                           AnimatedPositioned(
                             key: const ValueKey('example-pointer'),
@@ -126,7 +152,9 @@ class RealExampleView extends StatelessWidget {
 }
 
 class _Chip extends StatelessWidget {
-  const _Chip();
+  const _Chip(this.label);
+
+  final String label;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -136,14 +164,14 @@ class _Chip extends StatelessWidget {
       borderRadius: BorderRadius.circular(14),
       boxShadow: const [BoxShadow(color: Color(0x33000000), blurRadius: 6)],
     ),
-    child: const Row(
+    child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(Icons.photo_camera_rounded, color: Color(0xFFFFE08A), size: 16),
-        SizedBox(width: 5),
+        const Icon(Icons.photo_camera_rounded, color: Color(0xFFFFE08A), size: 16),
+        const SizedBox(width: 5),
         Text(
-          'Ví dụ trong cuộc sống',
-          style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.white),
+          label,
+          style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: Colors.white),
         ),
       ],
     ),

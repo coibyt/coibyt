@@ -17,6 +17,7 @@ import 'board_lesson_screen.dart' show ChalkLessonBoard;
 import '../logic/board_script.dart';
 import 'widgets/chalk.dart' show ChalkBoardFrame;
 import 'widgets/game_art.dart';
+import '../logic/remedies.dart';
 import 'widgets/real_example_view.dart';
 import 'widgets/solution_view.dart';
 import 'widgets/step_solver.dart';
@@ -284,7 +285,8 @@ class QuizPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     final story = player.story;
     final q = player.activeQuiz;
-    if (q == null && story == null) return const SizedBox.shrink();
+    final picture = player.showingRemedy ? player.remedy : null;
+    if (q == null && story == null && picture == null) return const SizedBox.shrink();
     final picked = player.picked;
     return Container(
       key: const ValueKey('class-quiz'),
@@ -298,6 +300,20 @@ class QuizPanel extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // Bé trả lời sai: cô giảng bằng tranh minh hoạ của dạng toán, que chỉ lần lượt từng chỗ.
+          if (picture != null)
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxHeight: 300),
+              child: SingleChildScrollView(
+                child: RealExampleView(
+                  key: const ValueKey('remedy-picture'),
+                  example: picture,
+                  active: player.remedyAt != null,
+                  pointAt: player.remedyAt,
+                  chip: 'Tranh minh hoạ của cô',
+                ),
+              ),
+            ),
           // Cô thuyết minh tranh đồ vật khi bé trả lời sai: nhóm đang đếm sáng lên.
           if (story != null)
             ConstrainedBox(
@@ -515,6 +531,7 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
   final _teacher = TeacherController(voiceEnabled: false);
   DemoPlayer? _player;
   List<Tip> _tips = const [];
+  RealExample? _remedy;
   final _blockKeys = <int, GlobalKey>{};
   final _tipsKey = GlobalKey();
   int? _scrolledTo;
@@ -523,11 +540,13 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _lesson ??= () async {
-      final (lesson, examples) = await (
+      final (lesson, examples, remedies) = await (
         AppScope.read(context).content.loadLesson(widget.lessonRef.src),
         RealExamples.load(),
+        Remedies.load(),
       ).wait;
       _examples = examples[lesson.id] ?? const [];
+      _remedy = remedyForLesson(lesson.problems, remedies);
       return lesson;
     }();
   }
@@ -546,6 +565,7 @@ class _TeacherClassScreenState extends State<TeacherClassScreen> {
     _player = DemoPlayer(
       blocks: blocks,
       teacher: _teacher,
+      remedy: _remedy,
       scenes: buildDemoScript(
         blocks,
         intro: const [TutorLines.classStart], // lời giới thiệu bài đã nói ở màn bài học → không lặp

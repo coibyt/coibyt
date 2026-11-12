@@ -15,6 +15,7 @@ import 'teacher_class_screen.dart';
 import 'widgets/big_button.dart';
 import 'widgets/chalk.dart';
 import 'widgets/game_art.dart';
+import '../logic/remedies.dart';
 import 'widgets/real_example_view.dart';
 
 const _weekdays = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ nhật'];
@@ -36,6 +37,7 @@ class BoardLessonScreen extends StatefulWidget {
 class _BoardLessonScreenState extends State<BoardLessonScreen> {
   Future<Lesson>? _lesson;
   List<RealExample> _examples = const [];
+  RealExample? _remedy;
   final _teacher = TeacherController(voiceEnabled: false);
   BoardScript? _script;
   DemoPlayer? _player;
@@ -45,11 +47,13 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     _lesson ??= () async {
-      final (lesson, examples) = await (
+      final (lesson, examples, remedies) = await (
         AppScope.read(context).content.loadLesson(widget.lessonRef.src),
         RealExamples.load(),
+        Remedies.load(),
       ).wait;
       _examples = examples[lesson.id] ?? const [];
+      _remedy = remedyForLesson(lesson.problems, remedies);
       return lesson;
     }();
   }
@@ -72,7 +76,8 @@ class _BoardLessonScreenState extends State<BoardLessonScreen> {
       problems: lesson.problems,
       examples: _examples,
     );
-    _player = DemoPlayer(blocks: blocks, teacher: _teacher, scenes: _script!.scenes)..addListener(_changed);
+    _player = DemoPlayer(blocks: blocks, teacher: _teacher, scenes: _script!.scenes, remedy: _remedy)
+      ..addListener(_changed);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted) return;
       _teacher.voiceEnabled = AppScope.read(context).voiceEnabled;

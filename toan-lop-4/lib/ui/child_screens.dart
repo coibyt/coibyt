@@ -9,6 +9,7 @@ import 'app_theme.dart';
 import 'board_lesson_screen.dart';
 import 'ability_screens.dart';
 import '../logic/english.dart';
+import 'english_island.dart';
 import 'english_screens.dart';
 import 'badges_screen.dart';
 import 'shop_screen.dart';
@@ -228,6 +229,14 @@ class _HomeScreenState extends State<HomeScreen> {
         color: AppColors.tryAgain,
         art: UiAsset.tileExam,
         builder: (_) => ExamListScreen(book: book),
+      ),
+      HomeTile(
+        label: 'Đảo Tiếng Anh',
+        subtitle: 'Học tiếng Anh · 🎟️ ${app.tickets} vé chơi',
+        icon: Icons.sailing_rounded,
+        color: const Color(0xFF26A69A),
+        art: UiAsset.tileEnglish,
+        builder: (_) => const EnglishIslandScreen(),
       ),
       HomeTile(
         label: 'Bảng xếp hạng',

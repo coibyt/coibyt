@@ -90,7 +90,9 @@ enum UiAsset {
   abDoluong,
   abRocket,
   ruler,
-  button;
+  button,
+  ticket,
+  tileEnglish;
 
   /// Tên file: chestClosed → chest_closed
   String get fileStem => name.replaceAllMapped(RegExp('[A-Z]'), (m) => '_${m[0]!.toLowerCase()}');

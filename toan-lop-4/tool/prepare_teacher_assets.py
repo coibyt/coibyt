@@ -88,10 +88,10 @@ def save_webp(img: Image.Image, dest: pathlib.Path, quality=86):
     print(f"OK  {dest.relative_to(ROOT)}  ({dest.stat().st_size // 1024} KB)")
 
 
-def teacher(files: dict, prefix: str = "teacher", folder: str = "tutor") -> None:
+def teacher(files: dict, prefix: str = "teacher", folder: str = "tutor", key: str = "green") -> None:
     if "idle" not in files:
         sys.exit(f"Thiếu {prefix}_idle (bắt buộc).")
-    keyed = {p: key_out(Image.open(f), "green") for p, f in files.items()}
+    keyed = {p: key_out(Image.open(f), key) for p, f in files.items()}
     base = keyed["idle"].size
     keyed = {p: (im if im.size == base else im.resize(base, Image.LANCZOS)) for p, im in keyed.items()}
     boxes = [im.getbbox() for im in keyed.values() if im.getbbox()]
@@ -142,6 +142,9 @@ def auto() -> None:
     host = {n.removeprefix("host_"): RAW / f"{n}.png" for n, m in meta.items() if m["group"] == "host"}
     if host:
         teacher(host, prefix="host", folder="host")
+    mascot = {n.removeprefix("mascot_"): RAW / f"{n}.png" for n, m in meta.items() if m["group"] == "mascot"}
+    if mascot:
+        teacher(mascot, prefix="mascot", folder="mascot", key="magenta")
     for name, m in meta.items():
         src = RAW / f"{name}.png"
         if m["group"] == "ui":
@@ -153,6 +156,8 @@ def auto() -> None:
             background(src, ROOT / "assets" / "bg" / f"{name.removeprefix('bg_')}.webp")
         elif m["group"] == "illus":
             background(src, ROOT / "assets" / "illus" / f"{name.removeprefix('illus_')}.webp", width=640)
+        elif m["group"] == "remedies":
+            background(src, ROOT / "assets" / "remedies" / f"{name.removeprefix('remedy_')}.webp", width=720)
         elif m["group"] == "examples":
             background(src, ROOT / "assets" / "examples" / f"{name.removeprefix('example_')}.webp", width=720)
         elif m["group"] == "chapters":
