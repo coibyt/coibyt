@@ -403,7 +403,17 @@
       "lesson_karst_bay_base": "Tô xanh ngọc cho mặt nước, xanh lá đậm cho cây trên đảo, xám cho vách đá, nâu cho thuyền.",
       "lesson_karst_bay_shadow": "Vách đá phía phải và bóng đảo dưới nước là vùng tối. Tô xanh ngọc đậm và xám đậm lên đó.",
       "lesson_karst_bay_highlight": "Thêm những vệt sáng trên mặt nước cho vịnh lấp lánh.",
-      "lesson_karst_bay_done": "Vịnh đảo đá của bạn hùng vĩ và thơ mộng quá!"
+      "lesson_karst_bay_done": "Vịnh đảo đá của bạn hùng vĩ và thơ mộng quá!",
+      "english_intro_1": "Chào mừng bạn đến Góc tiếng Anh! Đây là bạn vẹt Pip, Pip sẽ đọc tiếng Anh, còn mình giải thích nghĩa nhé.",
+      "english_intro_2": "Mỗi lượt học xong, bạn nhận một cọ năng lượng và xu để chơi tiếp đấy. Học càng nhiều, chơi càng vui!",
+      "english_cards": "Chạm vào thẻ để nghe Pip đọc. Đọc to theo Pip nhé!",
+      "english_quiz": "Giờ nghe Pip đọc rồi chọn đúng hình nhé.",
+      "english_round_done": "Hoàn thành lượt học! Bạn nhận được một cọ năng lượng và xu thưởng.",
+      "magic_gate": "Muốn chơi thì trả lời câu thần chú tiếng Anh trước nhé! Nghe Pip đọc rồi chọn đúng hình.",
+      "magic_ok": "Đúng rồi! Cửa đã mở, chơi thôi!",
+      "magic_wrong": "Chưa đúng rồi, nghe Pip đọc lại nhé!",
+      "english_new_word": "Đây là từ tiếng Anh mới của bài vẽ này. Nghe Pip đọc và nói theo nhé!",
+      "english_right": "Chính xác! Bạn giỏi quá!"
     }
   },
   "lesson": {
@@ -677,7 +687,8 @@
     "streakShort": "ngày vẽ",
     "energyShort": "năng lượng",
     "streakToday": "Hôm nay bạn đã vẽ rồi ✓",
-    "streakNotYet": "Hôm nay chưa vẽ: vẽ một nét để giữ chuỗi nhé!"
+    "streakNotYet": "Hôm nay chưa vẽ: vẽ một nét để giữ chuỗi nhé!",
+    "englishButton": "Học tiếng Anh với Pip để nhận cọ"
   },
   "shop": {
     "title": "Hộp quà bí ẩn",
@@ -759,7 +770,8 @@
     "bonusClaim": "Mở rương",
     "resets": "Nhiệm vụ mới sau {time}",
     "doneCount": "{done}/{total} hôm nay",
-    "lesson1": "Hoàn thành 1 bài tô màu"
+    "lesson1": "Hoàn thành 1 bài tô màu",
+    "english5": "Trả lời đúng 5 câu tiếng Anh"
   },
   "badge": {
     "title": "Huy hiệu",
@@ -808,6 +820,10 @@
     "hall": {
       "title": "Tranh vinh danh",
       "hint": "Đưa một bức tranh lên Vinh danh"
+    },
+    "english": {
+      "title": "Ngôi sao tiếng Anh",
+      "hint": "Trả lời đúng 30 câu tiếng Anh"
     }
   },
   "start": {
@@ -839,5 +855,25 @@
     "delete": "Xoá",
     "sectionTitle": "Lộ trình học tô màu",
     "sectionHint": "Học từ khối cơ bản đến chân dung và phong cảnh, cùng Lumi từng bước."
+  },
+  "english": {
+    "title": "Góc tiếng Anh",
+    "card": "Học cùng vẹt Pip",
+    "learned": "{count}/{total} từ",
+    "play": "Chơi một lượt",
+    "cards": "Thẻ từ",
+    "practice": "Luyện tập",
+    "listenPick": "Nghe và chọn hình đúng",
+    "round": "Câu {n}/{total}",
+    "done": "Hoàn thành lượt học!",
+    "reward": "+1 cọ năng lượng · +{coins} xu",
+    "again": "Chơi tiếp",
+    "back": "Quay lại",
+    "magicTitle": "Câu thần chú tiếng Anh",
+    "magicHint": "Nghe Pip đọc rồi chọn đúng hình để mở khoá",
+    "newWord": "Từ mới",
+    "tapToHear": "Chạm để nghe",
+    "mastered": "Đã thuộc",
+    "sentence": "Câu ví dụ"
   }
 }

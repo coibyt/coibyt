@@ -10,6 +10,7 @@ import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/teacher_script.dart';
 import '../teacher/widgets/teacher_overlay.dart';
+import '../english/english_quiz.dart';
 import 'game_store.dart';
 
 /// Shop: art coins buy blind boxes with special brushes and outfits for
@@ -50,6 +51,9 @@ class _ShopScreenState extends State<ShopScreen> with SingleTickerProviderStateM
 
   Future<void> _open(GameStore game) async {
     if (_opening) return;
+    // Playing needs a little English first: the magic word opens the box.
+    if (!await passMagicWord(context)) return;
+    if (!mounted) return;
     setState(() => _opening = true);
     await _shake.forward(from: 0);
     final GachaResult? r = await game.openBox(widget.random);

@@ -15,6 +15,10 @@ import '../exams/exam.dart';
 import '../exams/exams_screen.dart';
 import '../../core/game_art.dart';
 import '../../core/widgets/art_tile.dart';
+import '../english/english_catalog.dart';
+import '../english/english_corner.dart';
+import '../english/english_scope.dart';
+import '../english/widgets/pip.dart';
 import '../game/game_status_bar.dart';
 import '../game/goals.dart';
 import '../game/quests_screen.dart';
@@ -156,6 +160,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
+  }
+
+  void _openEnglish() {
+    _teacher.close();
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const EnglishCornerScreen()));
   }
 
   void _openGallery() {
@@ -382,6 +392,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ],
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+                    child: _EnglishCard(onTap: _openEnglish),
+                  ),
+                ),
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(16, 14, 16, 12),
@@ -928,6 +944,89 @@ class _StatChip extends StatelessWidget {
                 const Icon(Icons.chevron_right, size: 16, color: Colors.white54),
               ],
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The English corner card: Pip waves, words learned so far.
+class _EnglishCard extends StatelessWidget {
+  const _EnglishCard({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final EnglishScope? english = EnglishScope.maybeOf(context);
+    final List<EnglishWord> all = english?.catalog.words ?? const <EnglishWord>[];
+    final int learned = english?.store.learnedCount(all.map((EnglishWord w) => w.id)) ?? 0;
+    return Material(
+      key: const Key('englishCard'),
+      color: Colors.transparent,
+      borderRadius: BorderRadius.circular(26),
+      clipBehavior: Clip.antiAlias,
+      child: Ink(
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: <Color>[Color(0xFF0B6B5E), Color(0xFF1DB39B), Color(0xFF7BD389)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(26),
+          border: Border.all(color: const Color(0x55FFD27A), width: 1.5),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(8, 8, 14, 8),
+            child: Row(
+              children: <Widget>[
+                Pip(audio: english?.audio, size: 92),
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        context.tr('english.title'),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 19,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        context.tr('english.card'),
+                        style: const TextStyle(color: Color(0xEEFFFFFF), fontSize: 12.5),
+                      ),
+                      const SizedBox(height: 6),
+                      Row(
+                        children: <Widget>[
+                          const Icon(Icons.auto_stories_rounded, size: 16, color: AppTheme.gold),
+                          const SizedBox(width: 4),
+                          Flexible(
+                            child: Text(
+                              context.tr(
+                                'english.learned',
+                                args: <String, Object?>{'count': learned, 'total': all.length},
+                              ),
+                              style: const TextStyle(
+                                color: AppTheme.gold,
+                                fontWeight: FontWeight.w800,
+                                fontSize: 12.5,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                ArtImage(GameArt.tile('english'), size: 74),
+              ],
+            ),
           ),
         ),
       ),

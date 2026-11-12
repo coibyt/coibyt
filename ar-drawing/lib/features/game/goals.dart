@@ -28,6 +28,9 @@ enum GameEvent {
 
   /// A colouring lesson finished.
   lessonDone,
+
+  /// An English question answered right.
+  english,
 }
 
 /// A daily quest: do [target] × [event] today for [coins].
@@ -71,6 +74,7 @@ const List<List<QuestDef>> kQuestGroups = <List<QuestDef>>[
     QuestDef('steps3', GameEvent.lessonStep, 3, 15),
     QuestDef('drill1', GameEvent.drill, 1, 10),
     QuestDef('lesson1', GameEvent.lessonDone, 1, 20),
+    QuestDef('english5', GameEvent.english, 5, 15),
   ],
   <QuestDef>[
     QuestDef('exam1', GameEvent.exam, 1, 15),
@@ -92,6 +96,7 @@ const List<AchievementDef> kAchievements = <AchievementDef>[
   AchievementDef('lucky', 1, 10, event: GameEvent.box),
   AchievementDef('collector', 4, 50),
   AchievementDef('hall', 1, 20, event: GameEvent.artShared),
+  AchievementDef('english', 30, 30, event: GameEvent.english),
 ];
 
 /// Today's three quests, the same for the whole day.

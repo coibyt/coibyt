@@ -1,0 +1,217 @@
+{
+ "lessonWords": {
+  "sphere": {
+   "en": "ball",
+   "vi": "quả bóng"
+  },
+  "cube": {
+   "en": "box",
+   "vi": "cái hộp"
+  },
+  "cylinder": {
+   "en": "glass",
+   "vi": "cái cốc"
+  },
+  "apple": {
+   "en": "apple",
+   "vi": "quả táo"
+  },
+  "strawberry": {
+   "en": "strawberry",
+   "vi": "quả dâu tây"
+  },
+  "ladybug": {
+   "en": "ladybug",
+   "vi": "con bọ rùa"
+  },
+  "cupcake": {
+   "en": "cupcake",
+   "vi": "bánh cupcake"
+  },
+  "watermelon": {
+   "en": "watermelon",
+   "vi": "dưa hấu"
+  },
+  "goldfish": {
+   "en": "goldfish",
+   "vi": "cá vàng"
+  },
+  "mushroom": {
+   "en": "mushroom",
+   "vi": "cây nấm"
+  },
+  "ice_cream": {
+   "en": "ice cream",
+   "vi": "kem"
+  },
+  "fox": {
+   "en": "fox",
+   "vi": "con cáo"
+  },
+  "cat": {
+   "en": "cat",
+   "vi": "con mèo"
+  },
+  "owl": {
+   "en": "owl",
+   "vi": "con cú"
+  },
+  "panda": {
+   "en": "panda",
+   "vi": "gấu trúc"
+  },
+  "flower_vase": {
+   "en": "vase",
+   "vi": "bình hoa"
+  },
+  "sunflower": {
+   "en": "sunflower",
+   "vi": "hoa hướng dương"
+  },
+  "teapot": {
+   "en": "teapot",
+   "vi": "ấm trà"
+  },
+  "unicorn": {
+   "en": "unicorn",
+   "vi": "kỳ lân"
+  },
+  "toddler": {
+   "en": "baby",
+   "vi": "em bé"
+  },
+  "schoolgirl": {
+   "en": "student",
+   "vi": "học sinh"
+  },
+  "vintage_car": {
+   "en": "car",
+   "vi": "xe hơi"
+  },
+  "balloon": {
+   "en": "balloon",
+   "vi": "khinh khí cầu"
+  },
+  "mountain_lake": {
+   "en": "lake",
+   "vi": "hồ nước"
+  },
+  "rice_terraces": {
+   "en": "rice field",
+   "vi": "ruộng lúa"
+  },
+  "beach_sunset": {
+   "en": "beach",
+   "vi": "bãi biển"
+  },
+  "village_house": {
+   "en": "house",
+   "vi": "ngôi nhà"
+  },
+  "lighthouse": {
+   "en": "lighthouse",
+   "vi": "ngọn hải đăng"
+  },
+  "sailboat": {
+   "en": "boat",
+   "vi": "con thuyền"
+  },
+  "portrait_girl": {
+   "en": "girl",
+   "vi": "cô gái"
+  },
+  "portrait_boy": {
+   "en": "boy",
+   "vi": "cậu bé"
+  },
+  "young_woman": {
+   "en": "lady",
+   "vi": "cô gái"
+  },
+  "man_glasses": {
+   "en": "glasses",
+   "vi": "cặp kính"
+  },
+  "grandma": {
+   "en": "grandmother",
+   "vi": "bà"
+  },
+  "grandpa": {
+   "en": "grandfather",
+   "vi": "ông"
+  },
+  "scooter": {
+   "en": "scooter",
+   "vi": "xe tay ga"
+  },
+  "city_street": {
+   "en": "street",
+   "vi": "con phố"
+  },
+  "karst_bay": {
+   "en": "island",
+   "vi": "hòn đảo"
+  },
+  "dragon": {
+   "en": "dragon",
+   "vi": "con rồng"
+  },
+  "castle": {
+   "en": "castle",
+   "vi": "lâu đài"
+  },
+  "starry_night": {
+   "en": "night sky",
+   "vi": "bầu trời đêm"
+  },
+  "pearl_earring": {
+   "en": "pearl",
+   "vi": "ngọc trai"
+  }
+ },
+ "pencils": {
+  "graphite": "grey",
+  "white": "white",
+  "lemon": "lemon yellow",
+  "yellow": "yellow",
+  "orange": "orange",
+  "red": "red",
+  "crimson": "dark red",
+  "pink": "pink",
+  "magenta": "magenta",
+  "purple": "purple",
+  "blue": "blue",
+  "sky": "sky blue",
+  "turquoise": "turquoise",
+  "green": "green",
+  "darkgreen": "dark green",
+  "lime": "light green",
+  "brown": "brown",
+  "tan": "light brown",
+  "darkbrown": "dark brown",
+  "cream": "cream",
+  "grey": "grey",
+  "black": "black",
+  "skin": "peach",
+  "rust": "rust",
+  "lightpink": "light pink",
+  "lightgrey": "light grey",
+  "mint": "mint green",
+  "navy": "navy blue",
+  "teal": "teal"
+ },
+ "pip": {
+  "pip_hello": "Hello! I'm Pip! Let's learn English together!",
+  "pip_listen": "Listen!",
+  "pip_great": "Great job!",
+  "pip_super": "Wow! Super star!",
+  "pip_try": "Oops! Try again!",
+  "pip_magic": "Magic word time!",
+  "pip_open": "Yay! It opens!",
+  "pip_bye": "Bye-bye! See you soon!",
+  "pip_round": "You did it! Well done!",
+  "pip_new": "A new word!",
+  "pip_colour": "What colour is it?",
+  "pip_what": "What is it?"
+ }
+}

@@ -1,0 +1,563 @@
+{
+ "units": [
+  {
+   "id": "colours",
+   "title": {
+    "vi": "Màu sắc",
+    "en": "Colours"
+   },
+   "words": [
+    {
+     "id": "red",
+     "en": "red",
+     "vi": "màu đỏ",
+     "hex": "#E53935",
+     "s": "The apple is red.",
+     "sv": "Quả táo màu đỏ."
+    },
+    {
+     "id": "blue",
+     "en": "blue",
+     "vi": "màu xanh dương",
+     "hex": "#1E88E5",
+     "s": "The sea is blue.",
+     "sv": "Biển màu xanh dương."
+    },
+    {
+     "id": "yellow",
+     "en": "yellow",
+     "vi": "màu vàng",
+     "hex": "#FDD835",
+     "s": "The sun is yellow.",
+     "sv": "Mặt trời màu vàng."
+    },
+    {
+     "id": "green",
+     "en": "green",
+     "vi": "màu xanh lá",
+     "hex": "#43A047",
+     "s": "The tree is green.",
+     "sv": "Cái cây màu xanh lá."
+    },
+    {
+     "id": "orange",
+     "en": "orange",
+     "vi": "màu cam",
+     "hex": "#FB8C00",
+     "s": "The fox is orange.",
+     "sv": "Con cáo màu cam."
+    },
+    {
+     "id": "purple",
+     "en": "purple",
+     "vi": "màu tím",
+     "hex": "#8E44AD",
+     "s": "I like purple.",
+     "sv": "Mình thích màu tím."
+    },
+    {
+     "id": "pink",
+     "en": "pink",
+     "vi": "màu hồng",
+     "hex": "#F48FB1",
+     "s": "The flower is pink.",
+     "sv": "Bông hoa màu hồng."
+    },
+    {
+     "id": "brown",
+     "en": "brown",
+     "vi": "màu nâu",
+     "hex": "#8D5524",
+     "s": "The owl is brown.",
+     "sv": "Con cú màu nâu."
+    },
+    {
+     "id": "black",
+     "en": "black",
+     "vi": "màu đen",
+     "hex": "#212121",
+     "s": "The cat is black.",
+     "sv": "Con mèo màu đen."
+    },
+    {
+     "id": "white",
+     "en": "white",
+     "vi": "màu trắng",
+     "hex": "#FAFAFA",
+     "s": "The rabbit is white.",
+     "sv": "Con thỏ màu trắng."
+    }
+   ]
+  },
+  {
+   "id": "numbers",
+   "title": {
+    "vi": "Con số",
+    "en": "Numbers"
+   },
+   "words": [
+    {
+     "id": "one",
+     "en": "one",
+     "vi": "số một",
+     "number": 1,
+     "s": "One star.",
+     "sv": "Một ngôi sao."
+    },
+    {
+     "id": "two",
+     "en": "two",
+     "vi": "số hai",
+     "number": 2,
+     "s": "Two stars.",
+     "sv": "Hai ngôi sao."
+    },
+    {
+     "id": "three",
+     "en": "three",
+     "vi": "số ba",
+     "number": 3,
+     "s": "Three stars.",
+     "sv": "Ba ngôi sao."
+    },
+    {
+     "id": "four",
+     "en": "four",
+     "vi": "số bốn",
+     "number": 4,
+     "s": "Four stars.",
+     "sv": "Bốn ngôi sao."
+    },
+    {
+     "id": "five",
+     "en": "five",
+     "vi": "số năm",
+     "number": 5,
+     "s": "Five stars.",
+     "sv": "Năm ngôi sao."
+    },
+    {
+     "id": "six",
+     "en": "six",
+     "vi": "số sáu",
+     "number": 6,
+     "s": "Six stars.",
+     "sv": "Sáu ngôi sao."
+    },
+    {
+     "id": "seven",
+     "en": "seven",
+     "vi": "số bảy",
+     "number": 7,
+     "s": "Seven stars.",
+     "sv": "Bảy ngôi sao."
+    },
+    {
+     "id": "eight",
+     "en": "eight",
+     "vi": "số tám",
+     "number": 8,
+     "s": "Eight stars.",
+     "sv": "Tám ngôi sao."
+    },
+    {
+     "id": "nine",
+     "en": "nine",
+     "vi": "số chín",
+     "number": 9,
+     "s": "Nine stars.",
+     "sv": "Chín ngôi sao."
+    },
+    {
+     "id": "ten",
+     "en": "ten",
+     "vi": "số mười",
+     "number": 10,
+     "s": "Ten stars.",
+     "sv": "Mười ngôi sao."
+    }
+   ]
+  },
+  {
+   "id": "animals",
+   "title": {
+    "vi": "Con vật",
+    "en": "Animals"
+   },
+   "words": [
+    {
+     "id": "cat",
+     "en": "cat",
+     "vi": "con mèo",
+     "image": "assets/english/cat.png",
+     "s": "I see a cat.",
+     "sv": "Mình thấy một con mèo."
+    },
+    {
+     "id": "dog",
+     "en": "dog",
+     "vi": "con chó",
+     "image": "assets/english/dog.png",
+     "s": "The dog is happy.",
+     "sv": "Chú chó đang vui."
+    },
+    {
+     "id": "fox",
+     "en": "fox",
+     "vi": "con cáo",
+     "image": "assets/english/fox.png",
+     "s": "The fox is orange.",
+     "sv": "Con cáo màu cam."
+    },
+    {
+     "id": "owl",
+     "en": "owl",
+     "vi": "con cú",
+     "image": "assets/english/owl.png",
+     "s": "The owl has big eyes.",
+     "sv": "Con cú có đôi mắt to."
+    },
+    {
+     "id": "panda",
+     "en": "panda",
+     "vi": "gấu trúc",
+     "image": "assets/english/panda.png",
+     "s": "The panda eats bamboo.",
+     "sv": "Gấu trúc ăn tre."
+    },
+    {
+     "id": "fish",
+     "en": "fish",
+     "vi": "con cá",
+     "image": "assets/english/fish.png",
+     "s": "The fish can swim.",
+     "sv": "Con cá biết bơi."
+    },
+    {
+     "id": "bird",
+     "en": "bird",
+     "vi": "con chim",
+     "image": "assets/english/bird.png",
+     "s": "The bird can fly.",
+     "sv": "Con chim biết bay."
+    },
+    {
+     "id": "rabbit",
+     "en": "rabbit",
+     "vi": "con thỏ",
+     "image": "assets/english/rabbit.png",
+     "s": "The rabbit is white.",
+     "sv": "Con thỏ màu trắng."
+    },
+    {
+     "id": "ladybug",
+     "en": "ladybug",
+     "vi": "con bọ rùa",
+     "image": "assets/english/ladybug.png",
+     "s": "The ladybug is red.",
+     "sv": "Con bọ rùa màu đỏ."
+    },
+    {
+     "id": "unicorn",
+     "en": "unicorn",
+     "vi": "kỳ lân",
+     "image": "assets/english/unicorn.png",
+     "s": "I love the unicorn.",
+     "sv": "Mình yêu kỳ lân."
+    }
+   ]
+  },
+  {
+   "id": "food",
+   "title": {
+    "vi": "Đồ ăn",
+    "en": "Food"
+   },
+   "words": [
+    {
+     "id": "apple",
+     "en": "apple",
+     "vi": "quả táo",
+     "image": "assets/english/apple.png",
+     "s": "I like apples.",
+     "sv": "Mình thích táo."
+    },
+    {
+     "id": "strawberry",
+     "en": "strawberry",
+     "vi": "quả dâu tây",
+     "image": "assets/english/strawberry.png",
+     "s": "The strawberry is sweet.",
+     "sv": "Dâu tây ngọt."
+    },
+    {
+     "id": "watermelon",
+     "en": "watermelon",
+     "vi": "dưa hấu",
+     "image": "assets/english/watermelon.png",
+     "s": "Watermelon is yummy.",
+     "sv": "Dưa hấu ngon lắm."
+    },
+    {
+     "id": "banana",
+     "en": "banana",
+     "vi": "quả chuối",
+     "image": "assets/english/banana.png",
+     "s": "The banana is yellow.",
+     "sv": "Quả chuối màu vàng."
+    },
+    {
+     "id": "ice_cream",
+     "en": "ice cream",
+     "vi": "kem",
+     "image": "assets/english/ice_cream.png",
+     "s": "I want ice cream.",
+     "sv": "Mình muốn ăn kem."
+    },
+    {
+     "id": "cake",
+     "en": "cake",
+     "vi": "bánh ngọt",
+     "image": "assets/english/cake.png",
+     "s": "Happy birthday cake!",
+     "sv": "Bánh sinh nhật!"
+    },
+    {
+     "id": "mushroom",
+     "en": "mushroom",
+     "vi": "cây nấm",
+     "image": "assets/english/mushroom.png",
+     "s": "The mushroom is red.",
+     "sv": "Cây nấm màu đỏ."
+    },
+    {
+     "id": "carrot",
+     "en": "carrot",
+     "vi": "củ cà rốt",
+     "image": "assets/english/carrot.png",
+     "s": "Rabbits eat carrots.",
+     "sv": "Thỏ ăn cà rốt."
+    }
+   ]
+  },
+  {
+   "id": "family",
+   "title": {
+    "vi": "Gia đình",
+    "en": "Family"
+   },
+   "words": [
+    {
+     "id": "baby",
+     "en": "baby",
+     "vi": "em bé",
+     "image": "assets/english/baby.png",
+     "s": "The baby is sleeping.",
+     "sv": "Em bé đang ngủ."
+    },
+    {
+     "id": "girl",
+     "en": "girl",
+     "vi": "bạn gái",
+     "image": "assets/english/girl.png",
+     "s": "She is a girl.",
+     "sv": "Bạn ấy là con gái."
+    },
+    {
+     "id": "boy",
+     "en": "boy",
+     "vi": "bạn trai",
+     "image": "assets/english/boy.png",
+     "s": "He is a boy.",
+     "sv": "Bạn ấy là con trai."
+    },
+    {
+     "id": "mother",
+     "en": "mother",
+     "vi": "mẹ",
+     "image": "assets/english/mother.png",
+     "s": "I love my mother.",
+     "sv": "Con yêu mẹ."
+    },
+    {
+     "id": "father",
+     "en": "father",
+     "vi": "bố",
+     "image": "assets/english/father.png",
+     "s": "My father is tall.",
+     "sv": "Bố con cao lắm."
+    },
+    {
+     "id": "grandmother",
+     "en": "grandmother",
+     "vi": "bà",
+     "image": "assets/english/grandmother.png",
+     "s": "Hello, grandmother!",
+     "sv": "Con chào bà!"
+    },
+    {
+     "id": "grandfather",
+     "en": "grandfather",
+     "vi": "ông",
+     "image": "assets/english/grandfather.png",
+     "s": "Hello, grandfather!",
+     "sv": "Con chào ông!"
+    },
+    {
+     "id": "teacher",
+     "en": "teacher",
+     "vi": "cô giáo / thầy giáo",
+     "image": "assets/english/teacher.png",
+     "s": "Good morning, teacher!",
+     "sv": "Chào buổi sáng ạ!"
+    }
+   ]
+  },
+  {
+   "id": "nature",
+   "title": {
+    "vi": "Thiên nhiên",
+    "en": "Nature"
+   },
+   "words": [
+    {
+     "id": "sun",
+     "en": "sun",
+     "vi": "mặt trời",
+     "image": "assets/english/sun.png",
+     "s": "The sun is hot.",
+     "sv": "Mặt trời nóng."
+    },
+    {
+     "id": "moon",
+     "en": "moon",
+     "vi": "mặt trăng",
+     "image": "assets/english/moon.png",
+     "s": "Good night, moon.",
+     "sv": "Chúc trăng ngủ ngon."
+    },
+    {
+     "id": "star",
+     "en": "star",
+     "vi": "ngôi sao",
+     "image": "assets/english/star.png",
+     "s": "Twinkle, little star.",
+     "sv": "Lấp lánh ngôi sao nhỏ."
+    },
+    {
+     "id": "tree",
+     "en": "tree",
+     "vi": "cái cây",
+     "image": "assets/english/tree.png",
+     "s": "The tree is tall.",
+     "sv": "Cái cây cao."
+    },
+    {
+     "id": "flower",
+     "en": "flower",
+     "vi": "bông hoa",
+     "image": "assets/english/flower.png",
+     "s": "The flower is pretty.",
+     "sv": "Bông hoa xinh quá."
+    },
+    {
+     "id": "sea",
+     "en": "sea",
+     "vi": "biển",
+     "image": "assets/english/sea.png",
+     "s": "I swim in the sea.",
+     "sv": "Mình bơi ở biển."
+    },
+    {
+     "id": "mountain",
+     "en": "mountain",
+     "vi": "ngọn núi",
+     "image": "assets/english/mountain.png",
+     "s": "The mountain is big.",
+     "sv": "Ngọn núi to lớn."
+    },
+    {
+     "id": "house",
+     "en": "house",
+     "vi": "ngôi nhà",
+     "image": "assets/english/house.png",
+     "s": "This is my house.",
+     "sv": "Đây là nhà mình."
+    }
+   ]
+  },
+  {
+   "id": "art",
+   "title": {
+    "vi": "Lớp vẽ",
+    "en": "Art class"
+   },
+   "words": [
+    {
+     "id": "pencil",
+     "en": "pencil",
+     "vi": "bút chì",
+     "image": "assets/english/pencil.png",
+     "s": "I draw with a pencil.",
+     "sv": "Mình vẽ bằng bút chì."
+    },
+    {
+     "id": "brush",
+     "en": "brush",
+     "vi": "cọ vẽ",
+     "image": "assets/english/brush.png",
+     "s": "I paint with a brush.",
+     "sv": "Mình tô bằng cọ."
+    },
+    {
+     "id": "paper",
+     "en": "paper",
+     "vi": "tờ giấy",
+     "image": "assets/english/paper.png",
+     "s": "Here is some paper.",
+     "sv": "Đây là giấy."
+    },
+    {
+     "id": "crayon",
+     "en": "crayon",
+     "vi": "bút sáp màu",
+     "image": "assets/english/crayon.png",
+     "s": "I have a crayon.",
+     "sv": "Mình có bút sáp."
+    },
+    {
+     "id": "eraser",
+     "en": "eraser",
+     "vi": "cục tẩy",
+     "image": "assets/english/eraser.png",
+     "s": "Use the eraser.",
+     "sv": "Dùng cục tẩy nhé."
+    },
+    {
+     "id": "paint",
+     "en": "paint",
+     "vi": "màu vẽ",
+     "image": "assets/english/paint.png",
+     "s": "Let's paint!",
+     "sv": "Cùng tô màu nào!"
+    },
+    {
+     "id": "picture",
+     "en": "picture",
+     "vi": "bức tranh",
+     "image": "assets/english/picture.png",
+     "s": "Look at my picture!",
+     "sv": "Xem tranh của mình này!"
+    },
+    {
+     "id": "easel",
+     "en": "easel",
+     "vi": "giá vẽ",
+     "image": "assets/english/easel.png",
+     "s": "The easel is wooden.",
+     "sv": "Giá vẽ bằng gỗ."
+    }
+   ]
+  }
+ ]
+}

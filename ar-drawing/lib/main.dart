@@ -3,6 +3,9 @@ import 'package:flutter/services.dart';
 
 import 'app.dart';
 import 'core/i18n/language_controller.dart';
+import 'features/english/english_audio.dart';
+import 'features/english/english_catalog.dart';
+import 'features/english/english_store.dart';
 import 'features/exams/exam.dart';
 import 'features/exams/exam_record_store.dart';
 import 'features/game/game_store.dart';
@@ -43,6 +46,11 @@ Future<void> main() async {
     PlayerProfile.load(),
     GalleryStore.load(),
   ).wait;
+  final (EnglishCatalog englishWords, EnglishStore englishStore) = await (
+    EnglishCatalog.load(),
+    EnglishStore.load(),
+  ).wait;
+  final EnglishAudio englishAudio = await EnglishAudio.load(isMuted: () => teacher.voice.muted);
 
   runApp(
     TraceLightApp(
@@ -56,6 +64,9 @@ Future<void> main() async {
       profile: profile,
       leaderboard: LeaderboardClient(),
       gallery: gallery,
+      englishCatalog: englishWords,
+      englishStore: englishStore,
+      englishAudio: englishAudio,
     ),
   );
 }

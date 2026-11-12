@@ -403,7 +403,17 @@
       "lesson_karst_bay_base": "Turquoise water, dark green trees on the islands, grey cliffs, brown boat.",
       "lesson_karst_bay_shadow": "The right cliffs and the reflections are in shadow. Add deep turquoise and dark grey.",
       "lesson_karst_bay_highlight": "Add bright streaks on the water so the bay sparkles.",
-      "lesson_karst_bay_done": "Your bay is majestic and dreamy!"
+      "lesson_karst_bay_done": "Your bay is majestic and dreamy!",
+      "english_intro_1": "Welcome to the English corner! This is Pip the parrot. Pip reads in English and I explain the meaning.",
+      "english_intro_2": "After each round you get an energy brush and coins to keep playing. The more you learn, the more you play!",
+      "english_cards": "Tap a card to hear Pip. Say it out loud with Pip!",
+      "english_quiz": "Now listen to Pip and pick the right picture.",
+      "english_round_done": "Round complete! You earned an energy brush and coins.",
+      "magic_gate": "To play, answer the English magic word first! Listen to Pip and pick the right picture.",
+      "magic_ok": "That's right! The door is open, let's play!",
+      "magic_wrong": "Not quite, listen to Pip again!",
+      "english_new_word": "Here is the English word for this drawing. Listen to Pip and say it too!",
+      "english_right": "Correct! You're so clever!"
     }
   },
   "lesson": {
@@ -677,7 +687,8 @@
     "streakShort": "day streak",
     "energyShort": "energy",
     "streakToday": "You drew today ✓",
-    "streakNotYet": "Not yet today: draw one stroke to keep it!"
+    "streakNotYet": "Not yet today: draw one stroke to keep it!",
+    "englishButton": "Learn English with Pip for a brush"
   },
   "shop": {
     "title": "Mystery box",
@@ -759,7 +770,8 @@
     "bonusClaim": "Open chest",
     "resets": "New quests in {time}",
     "doneCount": "{done}/{total} today",
-    "lesson1": "Finish 1 colouring lesson"
+    "lesson1": "Finish 1 colouring lesson",
+    "english5": "Answer 5 English questions"
   },
   "badge": {
     "title": "Badges",
@@ -808,6 +820,10 @@
     "hall": {
       "title": "Hall of Famer",
       "hint": "Get a drawing into the Hall of Fame"
+    },
+    "english": {
+      "title": "English star",
+      "hint": "Answer 30 English questions"
     }
   },
   "start": {
@@ -839,5 +855,25 @@
     "delete": "Delete",
     "sectionTitle": "Colouring path",
     "sectionHint": "From basic shapes to portraits and landscapes, step by step with Lumi."
+  },
+  "english": {
+    "title": "English corner",
+    "card": "Learn with Pip the parrot",
+    "learned": "{count}/{total} words",
+    "play": "Play a round",
+    "cards": "Word cards",
+    "practice": "Practice",
+    "listenPick": "Listen and pick the picture",
+    "round": "Question {n}/{total}",
+    "done": "Round complete!",
+    "reward": "+1 energy brush · +{coins} coins",
+    "again": "Play again",
+    "back": "Back",
+    "magicTitle": "English magic word",
+    "magicHint": "Listen to Pip and pick the right picture to unlock",
+    "newWord": "New word",
+    "tapToHear": "Tap to hear",
+    "mastered": "Learned",
+    "sentence": "Example"
   }
 }

@@ -112,6 +112,7 @@ String _questArt(GameEvent e) => switch (e) {
   GameEvent.box => GameArt.giftClosed,
   GameEvent.artShared => GameArt.badge('hall'),
   GameEvent.lessonDone => GameArt.tile('academy'),
+  GameEvent.english => GameArt.tile('english'),
 };
 
 class _QuestList extends StatelessWidget {

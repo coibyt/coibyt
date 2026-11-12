@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/game_art.dart';
 import '../../core/i18n/language_controller.dart';
+import '../english/english_corner.dart';
 import 'drill_screen.dart';
 import 'game_store.dart';
 
@@ -97,6 +98,23 @@ class _EnergySheetState extends State<_EnergySheet> {
                         },
                   icon: const Icon(Icons.gesture),
                   label: Text(context.tr('game.drillButton')),
+                ),
+              ),
+              const SizedBox(height: 8),
+              SizedBox(
+                width: double.infinity,
+                child: FilledButton.tonalIcon(
+                  key: const Key('englishForBrush'),
+                  onPressed: game.brushes >= GameStore.maxBrushes
+                      ? null
+                      : () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(
+                            MaterialPageRoute<void>(builder: (_) => const EnglishCornerScreen()),
+                          );
+                        },
+                  icon: const Icon(Icons.translate),
+                  label: Text(context.tr('game.englishButton')),
                 ),
               ),
             ],

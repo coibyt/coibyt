@@ -142,5 +142,15 @@
       "id": "gallery_intro",
       "mood": "happy"
     }
+  ],
+  "english_intro": [
+    {
+      "id": "english_intro_1",
+      "mood": "wave"
+    },
+    {
+      "id": "english_intro_2",
+      "mood": "happy"
+    }
   ]
 }

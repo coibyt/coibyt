@@ -95,6 +95,9 @@ flutter:
     - assets/audio/teacher/vi/
     - assets/lessons/
     - assets/exams/
+    - assets/english/
+    - assets/english/pip/
+    - assets/audio/english/
     - assets/game/
     - assets/game/items/
     - assets/game/tiles/

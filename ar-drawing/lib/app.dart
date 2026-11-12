@@ -7,6 +7,10 @@ import 'core/i18n/language_controller.dart';
 import 'features/home/home_screen.dart';
 import 'features/home/start_screen.dart';
 import 'features/teacher/voiceover_service.dart';
+import 'features/english/english_audio.dart';
+import 'features/english/english_catalog.dart';
+import 'features/english/english_scope.dart';
+import 'features/english/english_store.dart';
 import 'features/exams/exam.dart';
 import 'features/exams/exam_record_store.dart';
 import 'features/game/game_store.dart';
@@ -32,8 +36,15 @@ class TraceLightApp extends StatelessWidget {
     this.profile,
     this.leaderboard,
     this.gallery,
+    this.englishCatalog = EnglishCatalog.empty,
+    this.englishStore,
+    this.englishAudio,
     this.home,
   });
+
+  final EnglishCatalog englishCatalog;
+  final EnglishStore? englishStore;
+  final EnglishAudio? englishAudio;
 
   final GalleryStore? gallery;
 
@@ -71,29 +82,34 @@ class TraceLightApp extends StatelessWidget {
                   client: leaderboard ?? LeaderboardClient(),
                   child: GalleryScope(
                     store: gallery ?? GalleryStore(),
-                    child: LessonCatalogScope(
-                      lessons: lessons.lessons,
-                      child: ListenableBuilder(
-                        listenable: language,
-                        builder: (BuildContext context, _) => Listener(
-                          // Any tap unlocks sound in the browser (see VoiceoverService).
-                          behavior: HitTestBehavior.translucent,
-                          onPointerDown: (_) => VoiceoverService.noteUserGesture(),
-                          child: MaterialApp(
-                            title: language.translations.tr('app.name'),
-                            debugShowCheckedModeBanner: false,
-                            theme: AppTheme.dark(),
-                            locale: language.language.locale,
-                            supportedLocales: <Locale>[
-                              for (final AppLanguage l in AppLanguage.values) l.locale,
-                            ],
-                            localizationsDelegates: GlobalMaterialLocalizations.delegates,
-                            home:
-                                home ??
-                                StartScreen(
-                                  next: () =>
-                                      HomeScreen(lessons: lessons.lessons, exams: exams.exams),
-                                ),
+                    child: EnglishScope(
+                      catalog: englishCatalog,
+                      store: englishStore ?? EnglishStore(),
+                      audio: englishAudio ?? EnglishAudio(),
+                      child: LessonCatalogScope(
+                        lessons: lessons.lessons,
+                        child: ListenableBuilder(
+                          listenable: language,
+                          builder: (BuildContext context, _) => Listener(
+                            // Any tap unlocks sound in the browser (see VoiceoverService).
+                            behavior: HitTestBehavior.translucent,
+                            onPointerDown: (_) => VoiceoverService.noteUserGesture(),
+                            child: MaterialApp(
+                              title: language.translations.tr('app.name'),
+                              debugShowCheckedModeBanner: false,
+                              theme: AppTheme.dark(),
+                              locale: language.language.locale,
+                              supportedLocales: <Locale>[
+                                for (final AppLanguage l in AppLanguage.values) l.locale,
+                              ],
+                              localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                              home:
+                                  home ??
+                                  StartScreen(
+                                    next: () =>
+                                        HomeScreen(lessons: lessons.lessons, exams: exams.exams),
+                                  ),
+                            ),
                           ),
                         ),
                       ),

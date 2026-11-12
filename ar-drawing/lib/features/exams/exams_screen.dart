@@ -9,6 +9,7 @@ import '../teacher/teacher_controller.dart';
 import '../teacher/teacher_script.dart';
 import '../teacher/teacher_scope.dart';
 import '../teacher/widgets/teacher_overlay.dart';
+import '../english/english_quiz.dart';
 import 'exam.dart';
 import 'exam_record_store.dart';
 import 'exam_screen.dart';
@@ -52,6 +53,8 @@ class _ExamsScreenState extends State<ExamsScreen> {
       await showEnergySheet(context);
       return;
     }
+    // A quick English magic word before playing.
+    if (!await passMagicWord(context) || !context.mounted) return;
     final bool? go = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) => AlertDialog(

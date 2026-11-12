@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../../core/i18n/language_controller.dart';
+import '../../english/english_scope.dart';
 import '../lesson.dart';
 
 /// Bottom panel of a lesson: step name and progress, the pencils to use in
@@ -103,6 +106,7 @@ class PencilPalette extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final EnglishScope? english = EnglishScope.read(context);
     return Wrap(
       key: const Key('pencilPalette'),
       alignment: WrapAlignment.center,
@@ -123,7 +127,11 @@ class PencilPalette extends StatelessWidget {
             ),
             child: InkWell(
               customBorder: const StadiumBorder(),
-              onTap: onPick == null ? null : () => onPick!(c.color),
+              onTap: () {
+                // Every colour is also an English word: Pip says it.
+                unawaited(english?.audio.say(<String>['pen_${c.pencil}']));
+                onPick?.call(c.color);
+              },
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(4, 3, 9, 3),
                 child: Row(
@@ -141,9 +149,11 @@ class PencilPalette extends StatelessWidget {
                     const SizedBox(width: 5),
                     Flexible(
                       child: Text(
-                        onPick == null
-                            ? context.tr('pencil.${c.pencil}')
-                            : '${context.tr('pencil.${c.pencil}')} ${c.hex}',
+                        <String>[
+                          context.tr('pencil.${c.pencil}'),
+                          if (english?.catalog.pencils[c.pencil] case final String en) '· $en',
+                          if (onPick != null) c.hex,
+                        ].join(' '),
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(fontSize: 12.5, fontWeight: FontWeight.w600),
                       ),

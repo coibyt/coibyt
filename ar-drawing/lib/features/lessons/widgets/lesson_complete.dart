@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'dart:typed_data';
 
@@ -6,6 +7,8 @@ import 'package:flutter/material.dart';
 import '../../../core/app_theme.dart';
 import '../../../core/game_art.dart';
 import '../../../core/i18n/language_controller.dart';
+import '../../english/english_scope.dart';
+import '../../english/widgets/pip.dart';
 import '../lesson.dart';
 import 'lesson_card.dart';
 
@@ -138,7 +141,9 @@ class _LessonCompleteState extends State<_LessonComplete> with SingleTickerProvi
                     Expanded(child: _frame(Image.asset(widget.lesson.steps.last.overlay))),
                   ],
                 ),
-                const SizedBox(height: 14),
+                const SizedBox(height: 12),
+                _NewWord(lesson: widget.lesson),
+                const SizedBox(height: 12),
                 if (widget.coins > 0)
                   Container(
                     key: const Key('completeCoins'),
@@ -267,6 +272,93 @@ class _LessonCompleteState extends State<_LessonComplete> with SingleTickerProvi
           color: const Color(0xFFFFFDF8),
           padding: const EdgeInsets.all(4),
           child: child ?? const Icon(Icons.edit_note_rounded, size: 40, color: Colors.black26),
+        ),
+      ),
+    );
+  }
+}
+
+/// The English word of the finished picture, read aloud by Pip.
+class _NewWord extends StatefulWidget {
+  const _NewWord({required this.lesson});
+
+  final Lesson lesson;
+
+  @override
+  State<_NewWord> createState() => _NewWordState();
+}
+
+class _NewWordState extends State<_NewWord> {
+  EnglishScope? _english;
+  Timer? _timer;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _english = EnglishScope.maybeOf(context);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _timer = Timer(const Duration(milliseconds: 1600), () {
+      if (mounted) _say();
+    });
+  }
+
+  void _say() => _english?.audio.say(<String>['pip_new', 'lw_${widget.lesson.id}']);
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _english?.audio.stop();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ({String en, String vi})? w = _english?.catalog.lessonWords[widget.lesson.id];
+    if (w == null) return const SizedBox.shrink();
+    return Material(
+      key: const Key('newWord'),
+      color: const Color(0x2214B8A6),
+      borderRadius: BorderRadius.circular(18),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(18),
+        onTap: _say,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(6, 6, 14, 6),
+          child: Row(
+            children: <Widget>[
+              Pip(audio: _english?.audio, size: 56),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      context.tr('english.newWord'),
+                      style: const TextStyle(
+                        color: AppTheme.teal,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    Text(
+                      w.en,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w900,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(w.vi, style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                  ],
+                ),
+              ),
+              const Icon(Icons.volume_up_rounded, color: AppTheme.gold),
+            ],
+          ),
         ),
       ),
     );
