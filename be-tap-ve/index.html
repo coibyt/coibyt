@@ -983,7 +983,7 @@ body.scr-englishIsland #lisaPop, body:has(#enQuiz:not([hidden])) #lisaPop{displa
 .blpane > *{pointer-events:auto}
 .blpane[hidden]{display:none}
 .blteach{position:absolute; left:8px; bottom:8px; z-index:4; display:flex; align-items:flex-end; gap:4px; max-width:min(560px,calc(100% - 16px)); pointer-events:none}
-.blstudio[data-mode="map"] .blteach,.blstudio[data-mode="dict"] .blteach{bottom:auto; top:6px}
+.blstudio[data-mode="map"] .blteach,.blstudio[data-mode="videos"] .blteach{bottom:auto; top:6px}
 .blteach img{width:clamp(78px,20vw,120px); border-radius:18px; filter:drop-shadow(0 6px 10px rgba(0,0,0,.35)); transform-origin:50% 100%}
 .blteach.talking img{animation:hubtalk .5s ease-in-out infinite alternate}
 .blteach p{margin:0 0 6px; padding:8px 12px; border-radius:18px 18px 18px 4px; background:rgba(255,250,246,.96); color:#4a1d3f; font-weight:800; font-size:clamp(13.5px,3.7vw,16.5px); line-height:1.35;
@@ -1035,6 +1035,79 @@ body.scr-englishIsland #lisaPop, body:has(#enQuiz:not([hidden])) #lisaPop{displa
 .blterm-card,.blterm{font:inherit}
 button.blterm{border:0; cursor:pointer; border-radius:18px; padding:6px; background:#fffaf6; color:#4a1d3f; display:flex; flex-direction:column; align-items:center; box-shadow:0 0 0 2px #f7c8dc; align-self:auto; margin:0}
 button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm small{font-weight:800}
+/* ballet v2: dressing room tabs, video lessons */
+.bldress{gap:7px; padding-top:10px; background:linear-gradient(0deg,rgba(38,8,48,.92) 0%,rgba(38,8,48,.82) 70%,rgba(38,8,48,0)); padding-bottom:max(12px,env(safe-area-inset-bottom))}
+@media (max-width:699px){ .blstudio[data-mode="dress"] .blteach{bottom:auto; top:50px; max-width:calc(100% - 16px)} .blstudio[data-mode="dress"] .blteach img{width:52px} .blstudio[data-mode="dress"] .blteach p{font-size:13.5px; padding:6px 10px} }
+@media (min-width:700px){
+  .bldress{position:absolute; right:14px; top:62px; bottom:14px; width:min(460px,44vw); margin:0; padding:14px; border-radius:26px; overflow-y:auto;
+    background:linear-gradient(180deg,rgba(38,8,48,.88),rgba(38,8,48,.94)); box-shadow:0 12px 40px rgba(0,0,0,.4), inset 0 0 0 1.5px rgba(255,255,255,.18)}
+  .bldress .blcostumes{flex-wrap:wrap; overflow:visible; justify-content:center}
+  .bldress .blcos{width:96px}
+  .blstudio[data-mode="dress"] .blteach{bottom:auto; top:56px; max-width:calc(100% - 520px)} .blstudio[data-mode="dress"] .blteach img{width:72px} }
+.bldact{display:flex; gap:6px; justify-content:center; flex-wrap:wrap}
+.bltabs{display:flex; gap:6px; background:rgba(255,255,255,.12); padding:4px; border-radius:999px; align-self:center; max-width:100%; overflow-x:auto; scrollbar-width:none}
+.bltabs button{border:0; cursor:pointer; font:inherit; font-weight:900; font-size:14px; padding:8px 13px; border-radius:999px; background:transparent; color:#ffe9f3; white-space:nowrap}
+.bltabs button.on{background:linear-gradient(135deg,#fff3c4,#f6c945); color:#4a1d3f; box-shadow:0 3px 10px rgba(0,0,0,.25)}
+.blcostumes{padding:4px 2px 6px; scroll-snap-type:x proximity}
+.blcos{width:88px; scroll-snap-align:center; background:linear-gradient(180deg,#fffaf6,#ffeef6); transition:transform .2s var(--spring), box-shadow .2s}
+.blcos.on{box-shadow:0 0 0 3px #f6c945, 0 0 22px rgba(246,201,69,.7); transform:translateY(-3px)}
+.blcosth{background:radial-gradient(circle at 50% 40%,#fff 0%,#fde3ef 60%,#f6cfe2 100%); display:grid; place-items:center; overflow:hidden}
+.blcosth canvas{width:100%; height:100%; object-fit:contain; display:block}
+.blcos.chipt .blcosth{aspect-ratio:1/1; background:#fff}
+.blhint{color:#fff; font-weight:800; margin:8px 4px}
+.bldress .swrow{justify-content:center; flex-wrap:wrap; gap:7px}
+.bldress .swrow[hidden]{display:none}
+.blvbadge{padding:3px 9px; border-radius:8px; background:#e63946; color:#fff; font-weight:900; font-size:11.5px; letter-spacing:.5px; box-shadow:0 2px 8px rgba(230,57,70,.5)}
+.blstep{margin-left:auto; color:#fff; font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.35)}
+.blvchip{align-self:center; margin-top:2px; padding:6px 14px; border-radius:999px; background:rgba(30,6,40,.72); color:#fff; font-weight:800; font-size:14px; backdrop-filter:blur(6px); box-shadow:0 0 0 1.5px rgba(255,255,255,.35)}
+.blvchip[hidden]{display:none}
+.blvchip.in{animation:blchip .45s var(--spring)}
+@keyframes blchip{from{transform:translateY(-8px) scale(.9); opacity:0}}
+.blplayer{margin-top:auto; padding:8px 10px max(10px,env(safe-area-inset-bottom)); background:linear-gradient(0deg,rgba(20,4,28,.9),rgba(20,4,28,.55) 70%,rgba(20,4,28,0)); display:flex; flex-direction:column; gap:7px}
+@media (max-width:699px){ .blplayer{padding-bottom:max(132px,calc(env(safe-area-inset-bottom) + 126px))} }
+@media (min-width:700px){ .blplayer{padding-left:280px} }
+.blplayer .bldots{margin:0; gap:4px; width:100%}
+.blseg{flex:1; height:7px; border:0; padding:0; border-radius:99px; background:rgba(255,255,255,.28); overflow:hidden; cursor:pointer}
+.blseg i{display:block; height:100%; width:0; border-radius:99px; background:linear-gradient(90deg,#ff5d8f,#ffd166); transition:width .25s linear}
+.blplayer .blctrl{margin:0; padding:0; background:none; display:flex; align-items:center; gap:7px; justify-content:center; flex-wrap:nowrap}
+.blpbtn{border:0; cursor:pointer; width:42px; height:42px; border-radius:50%; font:inherit; font-size:18px; background:rgba(255,255,255,.16); color:#fff; box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35); display:grid; place-items:center}
+.blpbtn.main{width:52px; height:52px; font-size:22px; background:linear-gradient(135deg,#ff7aa2,#ff4d6d); box-shadow:0 4px 14px rgba(255,77,109,.55)}
+.blpbtn.txt{width:auto; padding:0 11px; border-radius:999px; font-size:13px; font-weight:900; height:36px}
+.blpbtn.on{background:#ffd166; color:#4a1d3f}
+.blpbtn:active{transform:scale(.92)}
+.bltime{color:#fff; font-weight:800; font-size:12.5px; font-variant-numeric:tabular-nums; min-width:74px; text-align:center}
+.blbigplay{display:none; position:absolute; left:50%; top:42%; width:84px; height:84px; margin:-42px; border-radius:50%; border:0; font-size:36px; color:#fff; cursor:pointer; background:rgba(255,77,109,.9); box-shadow:0 0 0 8px rgba(255,255,255,.25), 0 10px 30px rgba(0,0,0,.4); z-index:6}
+.blstudio.paused .blbigplay{display:grid; place-items:center; animation:nudge 2s ease-in-out infinite}
+.blask{position:absolute; inset:0; z-index:7; display:grid; place-items:center; background:rgba(30,6,40,.35); backdrop-filter:blur(2px); padding:16px}
+.blask[hidden]{display:none}
+.blaskcard{width:min(400px,100%); padding:18px 16px 16px; border-radius:26px; text-align:center; color:#4a1d3f; background:linear-gradient(180deg,#fffaf6,#ffe9f2); box-shadow:0 0 0 3px #f6c945, 0 20px 50px rgba(0,0,0,.45); display:flex; flex-direction:column; gap:6px; animation:pop .5s var(--spring)}
+.blaskcard b{font-size:24px} .blaskcard small{font-weight:700; color:#8a4b73}
+.blaskem{font-size:40px; line-height:1}
+.blaskrow{display:flex; flex-direction:column; gap:10px; margin-top:8px; align-items:stretch}
+.blaskrow .blbtn{font-size:17px}
+.blstudio[data-mode="lesson"] .blteach img{border-radius:50%; aspect-ratio:1; object-fit:cover; object-position:50% 12%; width:clamp(64px,17vw,104px); box-shadow:0 0 0 3px #f6c945, 0 6px 16px rgba(0,0,0,.4)}
+.blstudio[data-mode="lesson"] .blteach p{background:rgba(20,4,28,.82); color:#fff; backdrop-filter:blur(6px)}
+.blstudio[data-mode="lesson"] .blteach p b{color:#ffd166}
+@media (max-width:699px){ .blstudio[data-mode="lesson"] .blteach{bottom:max(14px,env(safe-area-inset-bottom))} }
+.blteach img{animation:blbreathe 3.2s ease-in-out infinite}
+@keyframes blbreathe{50%{transform:translateY(-3px) rotate(-1.2deg)}}
+.blvlib{flex:1; overflow-y:auto; padding:150px 12px 18px; display:flex; flex-direction:column; gap:10px}
+.blvhero{display:flex; align-items:center; gap:12px; border:0; cursor:pointer; text-align:left; font:inherit; padding:10px; border-radius:22px; color:#fff;
+  background:linear-gradient(120deg,#ff5d8f,#9b5de5); box-shadow:0 8px 24px rgba(155,93,229,.45), inset 0 0 0 2px rgba(255,255,255,.35)}
+.blvhero canvas{width:70px; height:96px; border-radius:14px; background:rgba(255,255,255,.25)}
+.blvhero > span:last-child{display:flex; flex-direction:column; gap:2px} .blvhero b{font-size:18px} .blvhero small{font-weight:800; opacity:.9} .blvhero em{font-style:normal; font-size:12.5px; opacity:.9}
+.blvhero .blvplay{position:static; flex:0 0 auto; margin:0}
+.blvlv{margin:8px 0 0; color:#fff; font-size:17px; text-shadow:0 2px 6px rgba(0,0,0,.5)} .blvlv i{font-style:normal}
+.blvrow{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px}
+.blvcard{border:0; cursor:pointer; font:inherit; text-align:left; padding:6px 6px 9px; border-radius:18px; background:#fffaf6; color:#4a1d3f; display:flex; flex-direction:column; gap:3px; box-shadow:0 6px 14px rgba(0,0,0,.25)}
+.blvcard.done{box-shadow:0 0 0 3px #2bb673, 0 6px 14px rgba(0,0,0,.25)}
+.blvcard b{font-size:14px; line-height:1.2; padding:0 3px} .blvcard small{font-weight:700; color:#a05a86; font-style:italic; padding:0 3px; font-size:12px}
+.blvth{position:relative; aspect-ratio:4/3; border-radius:13px; overflow:hidden; background:linear-gradient(160deg,#ffe3ee,#e9d5ff 60%,#c9b6f2)}
+.blvth canvas{width:100%; height:100%; display:block}
+.blvplay{position:absolute; left:50%; top:50%; width:42px; height:42px; margin:-21px; border-radius:50%; display:grid; place-items:center; color:#fff; font-size:17px; background:rgba(230,57,70,.92); box-shadow:0 0 0 4px rgba(255,255,255,.55)}
+.blvdur{position:absolute; right:6px; bottom:6px; padding:2px 7px; border-radius:7px; background:rgba(0,0,0,.7); color:#fff; font-size:11.5px; font-weight:800}
+.blvok{position:absolute; left:6px; top:6px; padding:2px 8px; border-radius:7px; background:#2bb673; color:#fff; font-size:11.5px; font-weight:900} .blvok.half{background:#f4a261}
+.blcard:active,.blvcard:active,.blvhero:active,.blcos:active{transform:scale(.95)}
 </style>
 </head>
 <body>
@@ -1394,26 +1467,43 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
     <div class="blteach"><img id="blTeacher" alt="Cô Vy" draggable="false"><p><b>Cô Vy</b><span id="blSay"></span></p></div>
     <div class="blpane" data-p="map">
       <div class="blmap" id="blMap"></div>
-      <div class="bltools"><button class="blbtn" id="blDressBtn">👗 Phòng thay đồ</button><button class="blbtn gold" id="blStageBtn">🎭 Lên sân khấu</button><button class="blbtn" id="blDictBtn">📖 Từ điển ba lê</button></div>
+      <div class="bltools"><button class="blbtn" id="blDressBtn">👗 Phòng thay đồ</button><button class="blbtn gold" id="blStageBtn">🎭 Lên sân khấu</button><button class="blbtn" id="blVideoBtn">🎬 Video bài học</button></div>
     </div>
     <div class="blpane" data-p="lesson" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Bài học</button><b id="blLessonTitle"></b><div class="bldots" id="blDots"></div></div>
+      <div class="bltop"><button class="blbtn small blback">◀ Bài học</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span></div>
+      <div class="blvchip" id="blVChip" hidden></div>
       <div class="blterm" id="blTerm" hidden></div>
       <div class="blcount" id="blCount"></div>
-      <div class="blctrl">
-        <button class="blbtn small" id="blPrev" aria-label="Bước trước">⏮</button>
-        <button class="blbtn small" id="blAgain">🔁 Tập lại</button>
-        <button class="blbtn small" id="blMirrorBtn">🪞 Gương</button>
-        <button class="blbtn big gold" id="blDone" hidden>✅ Con làm được rồi!</button>
+      <button class="blbigplay" id="blBigPlay" aria-label="Xem tiếp">▶</button>
+      <div class="blask" id="blAsk" hidden>
+        <div class="blaskcard"><span class="blaskem">🩰</span><b>Bé làm xong chưa?</b><small>Làm theo bạn Na thật đẹp rồi bấm nút xanh nhé!</small>
+          <div class="blaskrow"><button class="blbtn big gold" id="blDone">✅ Con làm xong rồi!</button><button class="blbtn" id="blAgain">🔁 Xem lại cô làm</button></div></div>
+      </div>
+      <div class="blplayer">
+        <div class="bldots" id="blDots"></div>
+        <div class="blctrl">
+          <button class="blpbtn" id="blPrev" aria-label="Bước trước">⏮</button>
+          <button class="blpbtn main" id="blPlay" aria-label="Tạm dừng">⏸</button>
+          <button class="blpbtn" id="blNext" aria-label="Bước sau">⏭</button>
+          <span class="bltime" id="blTime">0:00</span>
+          <button class="blpbtn txt" id="blSlow">🐢 Chậm</button>
+          <button class="blpbtn txt" id="blMirrorBtn">🪞 Gương</button>
+        </div>
       </div>
     </div>
     <div class="blpane" data-p="dress" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>👗 Phòng thay đồ</b></div>
-      <div class="bldress"><div class="blcostumes" id="blCostumes"></div><div class="swrow" id="blPalette"></div></div>
+      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>👗 Phòng thay đồ</b>
+</div>
+      <div class="bldress">
+        <div class="bltabs" id="blTabs"><button data-t="cos" class="on">👗 Váy</button><button data-t="pat">✨ Hoạ tiết</button><button data-t="hair">💇 Tóc</button><button data-t="acc">👑 Phụ kiện</button></div>
+        <div class="blcostumes" id="blOpts"></div>
+        <div class="swrow" id="blPalette" hidden></div>
+        <div class="bldact"><button class="blbtn small" id="blTwirl">💃 Xoay</button><button class="blbtn small" id="blRandom">🎲 Phối</button><button class="blbtn small" id="blPhoto">📸 Chụp</button><button class="blbtn small gold" id="blDressStage">🎭 Sân khấu</button></div>
+      </div>
     </div>
-    <div class="blpane" data-p="dict" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>📖 Từ điển ba lê</b></div>
-      <div class="bldict" id="blDictGrid"></div>
+    <div class="blpane" data-p="videos" hidden>
+      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>🎬 Video bài học</b></div>
+      <div class="blvlib" id="blVLib"></div>
     </div>
   </div>
 </section>
@@ -5130,10 +5220,10 @@ const HUB_CARDS = [
     learn: ['🔤 Từ vựng', '👂 Nghe', '🎈 Bóng bay'], tags: ['learn'], badge: 'MỚI',
     intro: 'Đảo tiếng Anh là nơi bé học từ mới qua trò chơi. Học càng nhiều, bé càng có nhiều năng lượng để chơi các phòng khác!',
     play: [['▶ Học tiếng Anh', () => English.open()]] },
-  { id: 'ballet', cover: 'cv_ballet', title: 'Lớp học Ba lê', sub: 'Cô Vy dạy múa từng bước, 17 động tác, váy tutu và sân khấu biểu diễn',
+  { id: 'ballet', cover: 'cv_ballet', title: 'Lớp học Ba lê', sub: 'Video bài học có bạn Na làm mẫu, cô Vy hướng dẫn từng bước, 11 bộ váy, kiểu tóc và sân khấu',
     learn: ['🩰 Múa ba lê', '🎵 Nhịp điệu', '🧘 Thăng bằng'], tags: ['style', 'move'], badge: 'MỚI',
     intro: 'Lớp học ba lê là nơi cô Vy dạy bé múa từng bước, từ dễ đến khó. Bé còn được mặc váy tutu và biểu diễn trên sân khấu nữa!',
-    play: [['🩰 Vào lớp học', () => Ballet.open()]] },
+    play: [['🩰 Vào lớp học', () => Ballet.open()], ['🎬 Video bài học', () => Ballet.open().then(() => Ballet.ready() && Ballet.buildVideos())], ['👗 Phòng thay đồ', () => Ballet.open().then(() => Ballet.ready() && Ballet.dress())]] },
   { id: 'paper', cover: 'cv_paper', title: 'Phòng tranh', sub: 'Hơn 30 bức tranh để tô màu và vẽ theo từng bước',
     learn: ['🎨 Màu sắc', '🔤 Tiếng Anh', '✏️ Vẽ theo bước'], tags: ['draw'],
     intro: 'Phòng tranh có hơn ba mươi bức tranh để bé tô màu. Tô xong, bé còn học tên con vật bằng tiếng Anh nữa đó!',
@@ -8212,17 +8302,52 @@ const English = (() => {
        a dressing room with tutus (recolourable), a stage show and a dictionary
    ===================================================================== */
 const BALLET = [{"id": 1, "name": "Làm quen", "icon": "🌱", "lessons": [{"id": "l1", "title": "Chào lớp học", "steps": [{"pose": "ready", "say": "Chào bé! Cô là cô Vy, cô giáo dạy múa ba lê. Hôm nay mình cùng học những bước múa đầu tiên nhé!", "t": "show"}, {"pose": "ready", "say": "Đầu tiên, bé đứng thật thẳng, kéo cao cổ như chú thiên nga, vai thả lỏng, bụng hóp nhẹ.", "count": 8}, {"pose": "reverence", "from": "ready", "say": "Trong ba lê, mình luôn cúi chào trước và sau buổi học. Động tác này gọi là Rê-vê-răng, nghĩa là cúi chào.", "term": ["Révérence", "Cúi chào"], "count": 4}]}, {"id": "l2", "title": "Vị trí chân thứ nhất", "steps": [{"pose": "ready", "say": "Hai gót chân chạm nhau, mũi chân mở ra hai bên như chữ V. Đây là vị trí chân thứ nhất.", "term": ["Première position", "Vị trí thứ nhất"], "count": 8}, {"pose": "ready", "say": "Hai tay để thấp trước người, cong tròn như ôm một quả bóng nhỏ. Tư thế tay này gọi là Bra-ba.", "term": ["Bras bas", "Tay thấp"], "count": 4}]}, {"id": "l3", "title": "Tay thứ nhất và thứ hai", "steps": [{"pose": "arm1", "from": "ready", "say": "Nâng tay lên trước bụng, tròn như ôm một quả bóng to. Đây là vị trí tay thứ nhất.", "count": 4}, {"pose": "arm2", "from": "arm1", "say": "Bây giờ mở tay sang hai bên, khuỷu tay hơi cong thật mềm mại. Đây là vị trí tay thứ hai.", "count": 4}, {"pose": "ready", "from": "arm2", "say": "Đưa tay về thấp thật chậm. Giỏi lắm!", "count": 4}]}]}, {"id": 2, "name": "Cơ bản", "icon": "⭐", "lessons": [{"id": "l4", "title": "Tay thứ năm, chân thứ hai", "steps": [{"pose": "arm5", "from": "arm1", "say": "Đưa hai tay lên cao trên đầu, tròn như một chiếc vương miện. Đây là vị trí tay thứ năm.", "count": 4}, {"pose": "feet2", "say": "Vị trí chân thứ hai: hai chân mở rộng bằng vai, mũi chân vẫn mở ra ngoài, tay mở sang hai bên.", "term": ["Seconde position", "Vị trí thứ hai"], "count": 8}]}, {"id": "l5", "title": "Plié – Nhún gối", "steps": [{"pose": "plie", "from": "ready", "swing": 1, "say": "Pli-ê nghĩa là nhún gối. Bé từ từ khuỵu gối ra hai bên, lưng vẫn thẳng, gót chân không nhấc lên.", "term": ["Plié", "Nhún gối"], "count": 8}, {"pose": "ready", "from": "plie", "swing": 1, "say": "Rồi đứng lên thật chậm. Nhún xuống hai nhịp, đứng lên hai nhịp nhé!", "count": 8}]}, {"id": "l6", "title": "Relevé – Kiễng chân", "steps": [{"pose": "releve", "from": "ready", "swing": 1, "say": "Rơ-lơ-vê nghĩa là nâng lên. Bé kiễng gót chân lên thật cao, tay đưa lên vị trí thứ năm.", "term": ["Relevé", "Nâng lên"], "count": 8}, {"pose": "releve", "say": "Giữ thăng bằng nhé! Mắt nhìn thẳng về phía trước, bụng hóp lại.", "count": 8}]}]}, {"id": 3, "name": "Trung cấp", "icon": "🌸", "lessons": [{"id": "l7", "title": "Tendu – Duỗi chân", "steps": [{"pose": "tendu", "from": "ready", "swing": 1, "say": "Tăng-đuy nghĩa là duỗi. Bé trượt mũi chân sang bên, duỗi thật thẳng, mũi chân vẫn chạm sàn.", "term": ["Tendu", "Duỗi chân"], "count": 8}, {"pose": "ready", "from": "tendu", "say": "Rồi kéo chân về vị trí thứ nhất. Làm thật chậm và đẹp nhé!", "count": 4}]}, {"id": "l8", "title": "Passé – Co chân", "steps": [{"pose": "passe", "from": "ready", "say": "Pa-xê: bé co một chân lên, mũi chân chạm cạnh đầu gối chân kia, giống hình số bốn.", "term": ["Passé", "Co chân"], "count": 8}]}, {"id": "l9", "title": "Đưa tay & chân thứ năm", "steps": [{"pose": "portbras", "from": "arm2", "say": "Pô-đơ-bra nghĩa là đưa tay. Bé đưa tay mềm mại qua đầu và nghiêng người nhẹ như cành liễu trong gió.", "term": ["Port de bras", "Đưa tay"], "count": 8}, {"pose": "feet5", "say": "Vị trí chân thứ năm: đặt gót chân trước sát mũi chân sau, hai chân bắt chéo khít nhau. Vị trí này khó, bé tập từ từ nhé.", "term": ["Cinquième position", "Vị trí thứ năm"], "count": 8}]}]}, {"id": 4, "name": "Nâng cao", "icon": "👑", "lessons": [{"id": "l10", "title": "Arabesque & Attitude", "steps": [{"pose": "arabesque", "from": "ready", "say": "A-ra-bét: đứng trên một chân, chân kia duỗi thẳng ra phía sau, hai tay vươn dài như cánh chim.", "term": ["Arabesque", "Duỗi chân sau"], "count": 8}, {"pose": "attitude", "from": "arabesque", "say": "A-ti-tuýt: giống A-ra-bét nhưng chân sau co lại một chút thật duyên dáng, tay đưa lên cao.", "term": ["Attitude", "Co chân sau"], "count": 8}]}, {"id": "l11", "title": "Sauté – Bật nhảy", "steps": [{"pose": "plie", "from": "ready", "say": "Mình chuẩn bị nhún gối thật mềm.", "count": 2}, {"pose": "saute", "from": "plie", "swing": 1, "anim": "jump", "say": "Xô-tê nghĩa là nhảy. Bé bật nhảy lên thật nhẹ, mũi chân duỗi, rồi tiếp đất mềm bằng cách nhún gối.", "term": ["Sauté", "Bật nhảy"], "count": 8}]}, {"id": "l12", "title": "Pirouette – Xoay vòng", "steps": [{"pose": "pirprep", "from": "ready", "say": "Chuẩn bị: chân thứ tư, nhún gối, tay ở vị trí thứ nhất.", "count": 4}, {"pose": "pirouette", "from": "pirprep", "anim": "spin", "say": "Pi-ru-ét là xoay tròn. Bé kiễng một chân, co chân kia lên đầu gối và xoay một vòng. Mắt nhìn một điểm để không chóng mặt nhé!", "term": ["Pirouette", "Xoay tròn"], "count": 8}]}]}, {"id": 5, "name": "Biểu diễn", "icon": "🏆", "lessons": [{"id": "l13", "title": "Bài múa Thiên nga nhỏ", "show": 1, "steps": [{"pose": "reverence", "say": "Chào khán giả!", "count": 4}, {"pose": "releve", "say": "Kiễng chân, tay lên cao!", "count": 4}, {"pose": "tendu", "say": "Duỗi chân!", "count": 4}, {"pose": "passe", "say": "Co chân!", "count": 4}, {"pose": "arabesque", "say": "A-ra-bét!", "count": 4}, {"pose": "portbras", "say": "Đưa tay mềm mại!", "count": 4}, {"pose": "pirouette", "anim": "spin", "say": "Xoay tròn!", "count": 4}, {"pose": "final", "say": "Tạo dáng thật đẹp!", "count": 4}, {"pose": "reverence", "say": "Cúi chào nào!", "count": 4}]}]}];
-const BCOSTUMES = [
-  ['practice', 'Đồ tập', '🩰'], ['pink', 'Tutu hồng', '🌸'], ['swan', 'Thiên nga trắng', '🦢'], ['fairy', 'Tiên xanh', '🧚'],
-  ['plum', 'Tiên kẹo ngọt', '🍬'], ['sun', 'Hoa hướng dương', '🌻'],
+/* the dressing room: real tutus (pink, swan, fairy) + new ones made by recolouring them with prints */
+const BCOS = [
+  { id: 'practice', name: 'Đồ tập', em: '🩰', say: 'Bộ đồ tập gồm áo liền thân, quần tất hồng và giày múa mềm. Mặc bộ này để tập mỗi ngày nhé!' },
+  { id: 'pink', name: 'Tutu hồng', em: '🌸', src: 'pink', acc: 'tiara', say: 'Váy tutu hồng lấp lánh kim sa, đội vương miện bạc. Bé xinh như một nàng công chúa!' },
+  { id: 'swan', name: 'Thiên nga trắng', em: '🦢', src: 'swan', acc: 'feather', say: 'Váy thiên nga trắng có lông vũ mềm mại, giống nàng Ô-đét trong vở Hồ thiên nga.' },
+  { id: 'fairy', name: 'Tiên xanh', em: '🧚', src: 'fairy', acc: 'flowers', say: 'Váy tiên xanh có đôi cánh trong suốt và vòng hoa nhỏ. Bé bay lượn như một nàng tiên nhé!' },
+  { id: 'plum', name: 'Tiên kẹo ngọt', em: '🍬', src: 'pink', tint: '#b48be6', pat: 'gold', acc: 'crown', say: 'Váy tiên kẹo ngọt màu tím, rắc nhũ vàng, giống nàng tiên trong vở Kẹp hạt dẻ.' },
+  { id: 'black', name: 'Thiên nga đen', em: '🖤', src: 'swan', tint: '#2b2535', pat: 'glitter', acc: 'crown', say: 'Váy thiên nga đen huyền bí, là nàng Ô-đin trong vở Hồ thiên nga. Bé múa thật mạnh mẽ nhé!' },
+  { id: 'cinder', name: 'Lọ Lem', em: '👠', src: 'pink', tint: '#8fc8ff', pat: 'glitter', acc: 'tiara', say: 'Váy Lọ Lem xanh da trời lấp lánh như phép màu của bà tiên. Đến giờ dự dạ hội rồi!' },
+  { id: 'sakura', name: 'Hoa anh đào', em: '🌺', src: 'pink', tint: '#ffc4d8', pat: 'sakura', acc: 'flowers', say: 'Váy hoa anh đào hồng phấn, rắc đầy cánh hoa nhỏ như mùa xuân.' },
+  { id: 'sun', name: 'Hoa hướng dương', em: '🌻', src: 'pink', tint: '#ffcc33', pat: 'sun', acc: 'bow', say: 'Váy hoa hướng dương vàng rực rỡ như ánh mặt trời. Bé luôn tươi cười nhé!' },
+  { id: 'snow', name: 'Bông tuyết', em: '❄️', src: 'pink', tint: '#bfe2ff', pat: 'snow', acc: 'tiara', say: 'Váy bông tuyết xanh băng giá, lấp lánh như những bông tuyết trong vở Kẹp hạt dẻ.' },
+  { id: 'ruby', name: 'Hồng ngọc', em: '❤️', src: 'pink', tint: '#d81b4f', pat: 'gold', acc: 'crown', say: 'Váy hồng ngọc đỏ thắm rắc nhũ vàng, sang trọng như một nữ hoàng ba lê.' },
 ];
+const BHAIR = [
+  ['bun', 'Búi cao', 'Búi tóc cao gọn gàng, kiểu tóc chuẩn của các vũ công ba lê.'],
+  ['braid', 'Búi tết vòng', 'Búi tết vòng: tóc tết quấn quanh búi như một chiếc vương miện nhỏ.'],
+  ['pearl', 'Búi ngọc trai', 'Búi ngọc trai: những hạt ngọc trắng ôm quanh búi tóc, thật sang trọng.'],
+  ['curls', 'Đuôi xoăn', 'Tóc đuôi xoăn buộc nơ: những lọn tóc xoăn bồng bềnh, đung đưa khi bé xoay.'],
+  ['plait', 'Tóc tết dài', 'Tóc tết dài vắt qua vai, dịu dàng như cô bé trong truyện cổ tích.'],
+];
+const BHAIRC = [['', 'Nâu tự nhiên'], ['#2a1d19', 'Đen tuyền'], ['#e9c46a', 'Vàng óng'], ['#b5532f', 'Nâu đỏ'], ['#f6a6c7', 'Hồng phấn'], ['#b39cff', 'Tím mộng mơ'], ['#86d8ff', 'Xanh băng']];
+const BACC = [
+  ['auto', 'Theo váy', 'Phụ kiện đi kèm bộ váy, thật hợp nhau!'], ['none', 'Không đội', 'Không đội gì, bé vẫn xinh lắm!'],
+  ['tiara', 'Vương miện bạc', 'Vương miện bạc lấp lánh như công chúa!'], ['crown', 'Vương miện vàng', 'Vương miện vàng lộng lẫy như nữ hoàng!'],
+  ['feather', 'Lông thiên nga', 'Băng đô lông thiên nga trắng muốt, thật mềm mại!'], ['flowers', 'Vòng hoa', 'Vòng hoa xinh xắn như nàng tiên mùa xuân!'],
+  ['bow', 'Nơ lụa', 'Chiếc nơ lụa hồng thật duyên dáng!'],
+];
+const BPAT = [['auto', 'Theo váy'], ['plain', 'Trơn'], ['glitter', 'Kim tuyến'], ['gold', 'Nhũ vàng'], ['dots', 'Chấm bi'], ['sakura', 'Hoa anh đào'],
+  ['sun', 'Hướng dương'], ['stars', 'Ngôi sao'], ['snow', 'Bông tuyết'], ['hearts', 'Trái tim']];
+const BDCOL = ['#ffffff', '#ffd1dc', '#ff8fab', '#ff4d6d', '#c9184a', '#ffd60a', '#ff9f1c', '#9be15d', '#2ec4b6', '#4cc9f0', '#3a6ff7', '#9b5de5', '#2b2535', '#d4af37'];
 const BL = {
   hello: 'Chào mừng bé đến lớp học ba lê! Bé chọn một bài học nhé!', follow: 'Bé làm theo cô nhé!', count: 'Mình đếm nhịp nào!', good: 'Bé làm tốt lắm!',
-  done: 'Hoàn thành bài học! Bé nhận được ba ngôi sao!', level: 'Bé đã mở khóa cấp độ mới!', dress: 'Phòng thay đồ đây! Bé chọn bộ váy múa thật đẹp nhé!',
+  done: 'Hoàn thành bài học! Bé nhận được ba ngôi sao!', level: 'Bé đã mở khóa cấp độ mới!', dress: 'Phòng thay đồ đây! Bé chọn váy, kiểu tóc và phụ kiện thật đẹp nhé!',
   stage: 'Mời bé lên sân khấu biểu diễn!', bravo: 'Bé múa đẹp quá! Cả khán phòng vỗ tay kìa!', mirror: 'Bé bật gương tập để nhìn mình múa nhé!',
-  dict: 'Từ điển ba lê đây! Chạm vào để nghe cô đọc nhé!', locked: 'Bài này chưa mở, bé học xong bài trước nhé!', nice: 'Bộ váy này đẹp quá!', color: 'Bé chọn màu cho chiếc váy nhé!',
+  locked: 'Bài này chưa mở, bé học xong bài trước nhé!', nice: 'Bộ váy này đẹp quá!', color: 'Bé chọn màu cho chiếc váy nhé!',
+  videos: 'Đây là thư viện video bài học. Bé chọn một video để xem bạn Na làm mẫu và cô hướng dẫn nhé!',
+  watch: 'Bé xem bạn Na làm mẫu thật kĩ nhé!', ask: 'Bé làm xong chưa? Xong rồi thì bấm nút xanh nhé!', again: 'Mình xem lại bạn Na làm mẫu nhé!',
+  vdone: 'Bé đã học xong video này! Giỏi quá đi!', paused: 'Video đang tạm dừng. Bé bấm nút để xem tiếp nhé!',
+  pat: 'Hoạ tiết mới đẹp quá!', hairc: 'Màu tóc mới thật xinh!', random: 'Bộ đồ bất ngờ đây! Bé thấy có đẹp không?', twirl: 'Bé xoay một vòng cho cô xem nào!',
+  tabpat: 'Bé chọn hoạ tiết và màu cho chiếc váy nhé!', tabhair: 'Bé chọn kiểu tóc và màu tóc nhé!', tabacc: 'Bé chọn vương miện hoặc nơ xinh nhé!',
 };
 for (const t of Object.values(BL)) FAR_VOICE.add(clipKey(t));
+for (const c of BCOS) FAR_VOICE.add(clipKey(c.say));
+for (const h of BHAIR) FAR_VOICE.add(clipKey(h[2]));
+for (const a of BACC) FAR_VOICE.add(clipKey(a[2]));
 for (const lv of BALLET) for (const ls of lv.lessons) for (const s of ls.steps) FAR_VOICE.add(clipKey(s.say));
 for (let i = 1; i <= 8; i++) FAR_VOICE.add('bc_' + i);
 const COUNT_VI = ['Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám'];
@@ -8265,12 +8390,18 @@ const BMusic = (() => {
 
 const Ballet = (() => {
   const el = $('#balletStudio'), cv = $('#blCanvas'), ctx = cv.getContext('2d'), KEY = 'btv.ballet';
-  let S = { done: {}, costume: 'practice', color: null };
-  try { S = { ...S, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch (_) { /* fresh */ }
+  const LOOK0 = { cos: 'practice', color: null, pat: 'auto', hair: 'bun', hairColor: '', acc: 'auto' };
+  let S = { done: {}, watched: {}, look: { ...LOOK0 } };
+  try {
+    const o = JSON.parse(localStorage.getItem(KEY) || '{}');
+    S = { ...S, ...o }; S.look = { ...LOOK0, ...(o.look || {}) };
+    if (o.costume && !o.look) S.look.cos = o.costume;
+    if (!BCOS.some((c) => c.id === S.look.cos)) S.look.cos = 'practice';
+    S.watched = S.watched || {};
+  } catch (_) { /* fresh */ }
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) { /* private mode */ } };
-  let P = null, IMG = {}, CL = {}, BG = {}, TCH = {}, ready = false, mode = 'map', scene = 'studio';
-  let cur = { pose: 'ready', from: null, t0: 0, anim: null, swing: false, alt: false }, raf = 0, lesson = null, sayN = 0, stream = null, show = null;
-  const tintCache = {};
+  let P = null, IMG = {}, HM = {}, CL = {}, CM = {}, ACC = {}, BG = {}, TCH = {}, ready = false, mode = 'map', scene = 'studio';
+  let cur = { pose: 'ready', from: null, t0: 0, anim: null }, raf = 0, lesson = null, sayN = 0, stream = null, show = null, demo = 0, dressTab = 'cos', twirlT = 0;
 
   /* ---------- assets ---------- */
   let packP = null;
@@ -8284,53 +8415,223 @@ const Ballet = (() => {
     });
     return packP;
   }
+  const pick = (o, i) => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v[i]]));
   async function init() {
     if (ready) return;
     P = await loadPack();
     IMG = await Pack.group(P.poses);
-    for (const [c, set] of Object.entries(P.costumes)) CL[c] = await Pack.group(set);
+    HM = await Pack.group(P.hair || {});
+    for (const [c, set] of Object.entries(P.costumes)) { CL[c] = await Pack.group(pick(set, 0)); CM[c] = await Pack.group(pick(set, 1)); }
+    ACC = await Pack.group(P.acc || {});
     BG = await Pack.group(P.bg);
     TCH = P.teacher;
     $('#blTeacher').src = TCH.talk;
     ready = true;
   }
 
-  /* ---------- the dancer ---------- */
-  function costumeLayer(pose) {
-    const c = S.costume; if (c === 'practice' || !CL[c] || !CL[c][pose]) return null;
-    const im = CL[c][pose], r = P.costumes[c][pose];
-    if (!S.color) return [im, r];
-    const k = c + pose + S.color;
-    if (!tintCache[k]) tintCache[k] = shadeLayer(im, hexRgb(S.color), { hi: 0.75 });
-    return [tintCache[k], r];
+  /* ---------- composing the dancer: costume → dress colour & print → hair colour → hairstyle → accessory ---------- */
+  const figCache = new Map(), chanCache = new WeakMap(), spriteCache = {};
+  function chan(img, ch) {                         // a mask image's channel as an alpha-only canvas
+    let m = chanCache.get(img); if (!m) chanCache.set(img, (m = {}));
+    if (m[ch]) return m[ch];
+    const w = img.naturalWidth || img.width, h = img.naturalHeight || img.height, c = blankCanvas(w, h), x = c.getContext('2d', { willReadFrequently: true });
+    x.drawImage(img, 0, 0); const d = x.getImageData(0, 0, w, h), q = d.data;
+    for (let j = 0; j < q.length; j += 4) { const v = q[j + ch]; q[j] = q[j + 1] = q[j + 2] = 0; q[j + 3] = v; }
+    x.putImageData(d, 0, 0);
+    return (m[ch] = c);
   }
+  function masked(img, mask) {
+    const c = blankCanvas(P.size[0], P.size[1]), x = c.getContext('2d');
+    x.drawImage(img, 0, 0, c.width, c.height); x.globalCompositeOperation = 'destination-in'; x.drawImage(mask, 0, 0, c.width, c.height);
+    return c;
+  }
+  const cosDef = (id) => BCOS.find((c) => c.id === id) || BCOS[0];
+  function look(over) {
+    const L = { ...S.look, ...(over || {}) }, d = cosDef(L.cos);
+    return { ...L, d, tint: L.color || d.tint || null, pat: L.pat === 'auto' ? (d.pat || 'plain') : L.pat, acc: L.acc === 'auto' ? (d.acc || 'none') : L.acc };
+  }
+  function mix(hex, amt) {                          // lighten (+) / darken (−) a colour
+    const [r, g, b] = hexRgb(hex), f = (v) => Math.round(amt > 0 ? v + (255 - v) * amt : v * (1 + amt));
+    return `rgb(${f(r)},${f(g)},${f(b)})`;
+  }
+  const tintHair = (img, mk, col) => shadeLayer(masked(img, chan(mk, 1)), hexRgb(col), { hi: 0.45 });
+  function inReady(x, T, fn) {                      // draw in the "ready" pose's head frame, moved onto this pose's head
+    x.save(); x.translate(T[2], T[3]); x.rotate(T[4]); x.scale(T[5], T[5]); x.translate(-T[0], -T[1]); fn(); x.restore();
+  }
+  function bunSprite(col) {                         // a round patch of the real (rendered) bun: braids and curls are made of it
+    if (spriteCache[col]) return spriteCache[col];
+    const r = 22, c = blankCanvas(r * 2, r * 2), x = c.getContext('2d');
+    const src = col ? tintHair(IMG.ready, HM.ready, col) : IMG.ready;
+    x.drawImage(src, 325 - r, 95 - r, r * 2, r * 2, 0, 0, r * 2, r * 2);
+    x.globalCompositeOperation = 'destination-in';
+    const g = x.createRadialGradient(r, r, r * 0.5, r, r, r); g.addColorStop(0, '#000'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    x.fillStyle = g; x.fillRect(0, 0, r * 2, r * 2);
+    return (spriteCache[col] = c);
+  }
+  function stamp(x, spr, cx, cy, rw, rh, rot) {
+    x.save(); x.translate(cx, cy); x.rotate(rot);
+    x.fillStyle = 'rgba(30,15,10,.28)'; x.beginPath(); x.ellipse(1.5, 2.5, rw * 0.92, rh * 0.92, 0, 0, Math.PI * 2); x.fill();
+    x.drawImage(spr, -rw, -rh, rw * 2, rh * 2);
+    x.restore();
+  }
+  function drawBow(x, cx, cy, s, col, rot = 0) {
+    x.save(); x.translate(cx, cy); x.rotate(rot);
+    const g = x.createLinearGradient(0, -s, 0, s); g.addColorStop(0, mix(col, 0.35)); g.addColorStop(0.55, col); g.addColorStop(1, mix(col, -0.35));
+    x.fillStyle = g; x.strokeStyle = 'rgba(80,0,30,.25)'; x.lineWidth = Math.max(1, s * 0.05);
+    x.beginPath(); x.moveTo(-s * 0.08, s * 0.05); x.lineTo(-s * 0.5, s * 1.05); x.lineTo(-s * 0.28, s * 0.95); x.lineTo(0, s * 0.15);
+    x.lineTo(s * 0.28, s * 0.95); x.lineTo(s * 0.5, s * 1.05); x.lineTo(s * 0.08, s * 0.05); x.closePath(); x.fill(); x.stroke();
+    for (const d of [-1, 1]) {
+      x.beginPath(); x.moveTo(0, 0); x.bezierCurveTo(d * s * 0.35, -s * 0.85, d * s * 1.2, -s * 0.65, d * s * 1.02, 0);
+      x.bezierCurveTo(d * s * 1.2, s * 0.6, d * s * 0.35, s * 0.62, 0, 0); x.fill(); x.stroke();
+      x.fillStyle = 'rgba(255,255,255,.38)'; x.beginPath(); x.ellipse(d * s * 0.6, -s * 0.22, s * 0.24, s * 0.09, -d * 0.45, 0, Math.PI * 2); x.fill();
+      x.fillStyle = g;
+    }
+    x.fillStyle = mix(col, -0.2); x.beginPath(); x.ellipse(0, 0, s * 0.22, s * 0.28, 0, 0, Math.PI * 2); x.fill(); x.stroke();
+    x.restore();
+  }
+  function pearl(x, cx, cy, r) {
+    const g = x.createRadialGradient(cx - r * 0.35, cy - r * 0.4, r * 0.1, cx, cy, r);
+    g.addColorStop(0, '#ffffff'); g.addColorStop(0.55, '#f4eef7'); g.addColorStop(1, '#bdb0c6');
+    x.fillStyle = 'rgba(40,20,30,.25)'; x.beginPath(); x.arc(cx + 0.8, cy + 1.2, r, 0, Math.PI * 2); x.fill();
+    x.fillStyle = g; x.beginPath(); x.arc(cx, cy, r, 0, Math.PI * 2); x.fill();
+  }
+  function hairStyle(x, T, lk, side) {
+    const st = lk.hair; if (!st || st === 'bun') return;
+    const spr = bunSprite(lk.hairColor || '');
+    inReady(x, T, () => {
+      if (st === 'curls' && side === 'back') {
+        for (const [ox, k] of [[0, 1], [-16, 0.85]]) {
+          [[372, 104, 20], [394, 128, 19], [406, 158, 18], [412, 190, 18], [410, 222, 17], [414, 254, 16], [410, 284, 15], [414, 312, 13], [410, 336, 11]]
+            .forEach(([cx, cy, r], i) => stamp(x, spr, cx + ox + (i % 2 ? 4 : -4), cy + (ox ? 10 : 0), r * k * 0.85, r * k * 1.2, i % 2 ? 0.35 : -0.35));
+        }
+      }
+      if (st === 'curls' && side === 'front') drawBow(x, 360, 112, 22, '#ff5d8f', 0.35);
+      if (st === 'braid' && side === 'front') {
+        for (let i = 0; i <= 15; i++) {
+          const t = -0.2 * Math.PI + (i / 15) * 1.4 * Math.PI, cx = 326 + 50 * Math.cos(t), cy = 103 + 19 * Math.sin(t);
+          stamp(x, spr, cx, cy, 14, 9.5, t + Math.PI / 2 + (i % 2 ? 0.45 : -0.45));
+        }
+      }
+      if (st === 'pearl' && side === 'front') {
+        for (let i = 0; i <= 14; i++) { const t = (i / 14) * Math.PI; pearl(x, 326 + 47 * Math.cos(t), 104 + 15 * Math.sin(t), 5.6); }
+        for (let i = 0; i <= 8; i++) { const t = Math.PI * 0.12 + (i / 8) * Math.PI * 0.76; pearl(x, 326 + 30 * Math.cos(t), 80 - 4 * Math.sin(t), 4); }
+      }
+      if (st === 'plait' && side === 'front') {
+        const pts = [[262, 178], [251, 210], [244, 242], [240, 274], [240, 304]];
+        pts.forEach(([cx, cy], i) => { const k = 1 - i * 0.06; stamp(x, spr, cx + (i % 2 ? 5 : -5), cy, 17 * k, 13 * k, i % 2 ? 0.55 : -0.55); });
+        drawBow(x, 242, 322, 12, '#ff5d8f', 0);
+      }
+    });
+  }
+  function accessory(x, T, lk) {
+    const a = lk.acc; if (!a || a === 'none') return;
+    inReady(x, T, () => {
+      if (a === 'bow') { drawBow(x, 370, 100, 26, '#ff5d8f', 0.3); return; }
+      const im = ACC[a], r = P.acc && P.acc[a]; if (!im || !r) return;
+      x.drawImage(im, r[0], r[1], r[2], r[3]);
+    });
+  }
+  /* prints on the dress (drawn on the tinted dress layer only) */
+  function rng(seed) { return () => { seed |= 0; seed = (seed + 0x6d2b79f5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  function star(x, cx, cy, r, pts = 5, inner = 0.45) {
+    x.beginPath();
+    for (let i = 0; i < pts * 2; i++) { const a = (i * Math.PI) / pts - Math.PI / 2, rr = i % 2 ? r * inner : r; x.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr); }
+    x.closePath(); x.fill();
+  }
+  function flower(x, cx, cy, r, petal, mid, n = 5, rot = 0) {
+    x.fillStyle = petal;
+    for (let i = 0; i < n; i++) { const a = rot + (i / n) * Math.PI * 2; x.beginPath(); x.ellipse(cx + Math.cos(a) * r * 0.55, cy + Math.sin(a) * r * 0.55, r * 0.5, r * 0.32, a, 0, Math.PI * 2); x.fill(); }
+    x.fillStyle = mid; x.beginPath(); x.arc(cx, cy, r * 0.3, 0, Math.PI * 2); x.fill();
+  }
+  function printPattern(c, pat) {
+    const x = c.getContext('2d'), W = c.width, H = c.height, R = rng(7 + pat.length * 13);
+    x.save(); x.globalCompositeOperation = 'source-atop';
+    const grid = (step, fn) => { for (let y = 0, row = 0; y < H; y += step, row++) for (let X = (row % 2) * step / 2; X < W; X += step) fn(X + (R() - 0.5) * step * 0.5, y + (R() - 0.5) * step * 0.5, R()); };
+    if (pat === 'glitter' || pat === 'gold') {
+      const cols = pat === 'gold' ? ['#fff3b0', '#ffd25e', '#e0a526'] : ['#ffffff', '#fdf6ff', '#e6f4ff'];
+      grid(9, (X, y, r) => { x.globalAlpha = 0.35 + r * 0.55; x.fillStyle = cols[(r * 3) | 0]; x.fillRect(X, y, 1.6, 1.6); });
+      grid(34, (X, y, r) => { x.globalAlpha = 0.9; x.fillStyle = cols[0]; star(x, X, y, 3 + r * 4, 4, 0.22); });
+    } else if (pat === 'dots') grid(24, (X, y) => { x.globalAlpha = 0.9; x.fillStyle = '#ffffff'; x.beginPath(); x.arc(X, y, 4.2, 0, Math.PI * 2); x.fill(); });
+    else if (pat === 'sakura') grid(30, (X, y, r) => { x.globalAlpha = 0.95; flower(x, X, y, 7 + r * 3, '#fff2f6', '#ff7aa2', 5, r * 6); });
+    else if (pat === 'sun') grid(34, (X, y, r) => { x.globalAlpha = 0.95; flower(x, X, y, 9 + r * 2, '#ffb000', '#6b3e12', 9, r * 6); });
+    else if (pat === 'stars') grid(28, (X, y, r) => { x.globalAlpha = 0.9; x.fillStyle = r > 0.5 ? '#fff6c2' : '#ffffff'; star(x, X, y, 5 + r * 2); });
+    else if (pat === 'hearts') grid(28, (X, y, r) => {
+      x.globalAlpha = 0.9; x.fillStyle = r > 0.5 ? '#ff4d6d' : '#ffffff'; const s = 4.5 + r * 2;
+      x.beginPath(); x.moveTo(X, y + s); x.bezierCurveTo(X - s * 2, y - s * 0.4, X - s * 0.6, y - s * 1.8, X, y - s * 0.5); x.bezierCurveTo(X + s * 0.6, y - s * 1.8, X + s * 2, y - s * 0.4, X, y + s); x.fill();
+    });
+    else if (pat === 'snow') grid(30, (X, y, r) => {
+      x.globalAlpha = 0.9; x.strokeStyle = '#ffffff'; x.lineWidth = 1.3; const s = 5 + r * 3;
+      x.beginPath(); for (let i = 0; i < 6; i++) { const a = (i * Math.PI) / 3 + r; x.moveTo(X, y); x.lineTo(X + Math.cos(a) * s, y + Math.sin(a) * s); } x.stroke();
+    });
+    x.restore();
+  }
+  function figure(pose, lk = look()) {
+    const src = lk.d.src && CL[lk.d.src] && CL[lk.d.src][pose] ? lk.d.src : null;
+    if (!src && !IMG[pose]) return null;
+    const key = [pose, src, src && lk.tint, src && lk.pat, lk.hair, lk.hairColor, lk.acc].join('|');
+    const hit = figCache.get(key); if (hit) { figCache.delete(key); figCache.set(key, hit); return hit; }
+    const W = P.size[0], H = P.size[1], c = blankCanvas(W, H), x = c.getContext('2d');
+    const img = src ? CL[src][pose] : IMG[pose], mk = src ? CM[src][pose] : HM[pose];
+    const T = (src ? P.costumes[src][pose][2] : P.T && P.T[pose]) || [0, 0, 0, 0, 0, 1];
+    hairStyle(x, T, lk, 'back');
+    x.drawImage(img, 0, 0, W, H);
+    if (src && mk && (lk.tint || lk.pat !== 'plain')) {
+      let dl = masked(img, chan(mk, 0));
+      if (lk.tint) dl = shadeLayer(dl, hexRgb(lk.tint), { hi: 0.75 });
+      if (lk.pat !== 'plain') printPattern(dl, lk.pat);
+      x.drawImage(dl, 0, 0, W, H);
+    }
+    if (lk.hairColor && mk) x.drawImage(tintHair(img, mk, lk.hairColor), 0, 0, W, H);
+    hairStyle(x, T, lk, 'front');
+    accessory(x, T, lk);
+    if (figCache.size > 40) figCache.delete(figCache.keys().next().value);
+    figCache.set(key, c);
+    return c;
+  }
+
+  /* ---------- the dancer on stage ---------- */
   function drawDancer(x, pose, alpha, ox, oy, s, flip) {
-    const im = IMG[pose]; if (!im) return;
+    const f = figure(pose); if (!f) return;
     x.save(); x.globalAlpha = alpha;
     const W = P.size[0] * s, H = P.size[1] * s;
     x.translate(ox + W / 2, oy); if (flip) x.scale(flip, 1); x.translate(-W / 2, 0);
-    x.drawImage(im, 0, 0, W, H);
-    const cl = costumeLayer(pose);
-    if (cl) { const [c, r] = cl; x.drawImage(c, r[0] * s, r[1] * s, r[2] * s, r[3] * s); }
+    x.drawImage(f, 0, 0, W, H);
     x.restore();
   }
   function render() { if (!raf) raf = requestAnimationFrame(loop); }
+  let lastUi = 0;
   function loop(t) {
     raf = 0; if (el.hidden || !ready) return;
     const css = fitCanvas(cv), d = css.dpr, W = css.w, H = css.h;
     ctx.setTransform(d, 0, 0, d, 0, 0);
+    const now = t || performance.now();
     const bg = BG[scene]; if (bg) drawCover(ctx, bg, W, H, 0.5, 0.75); else { ctx.fillStyle = '#fde7f0'; ctx.fillRect(0, 0, W, H); }
-    if (mode === 'map' || mode === 'dict') { ctx.fillStyle = 'rgba(40,10,50,.35)'; ctx.fillRect(0, 0, W, H); return; }
-    // keep the whole dancer (feet too!) in the free space between the top bar and the buttons / teacher
-    const narrow = W < 700, top = 64, bot = mode === 'dress' ? (narrow ? 230 : 24) : (narrow ? 178 : 30);
-    const s = Math.min((H - top - bot) / (P.size[1] * 0.97), (W * 0.86) / P.size[0]), dw = P.size[0] * s, bx = (W - dw) / 2 + (narrow ? 0 : 60), by = H - bot - P.size[1] * s * 0.97;
-    const now = t || performance.now(), k = Math.min(1, (now - cur.t0) / 450);
+    if (mode === 'map' || mode === 'videos') { ctx.fillStyle = 'rgba(40,10,50,.35)'; ctx.fillRect(0, 0, W, H); return; }
+    // keep the whole dancer (feet too!) in the free space between the top bar and the panel / teacher
+    const narrow = W < 700; let top = mode === 'lesson' ? 96 : 64;
+    let bot = narrow ? 178 : 30;
+    if (mode === 'dress') {
+      const sh = el.querySelector('.bldress'), tb = el.querySelector('.blteach').getBoundingClientRect(), r0 = cv.getBoundingClientRect();
+      bot = (narrow && sh ? sh.offsetHeight : 0) + 6;
+      top = Math.max(top, tb.bottom - r0.top + 4);
+    }
+    if (mode === 'lesson') { const pl = el.querySelector('.blplayer'); bot = (pl ? pl.offsetHeight : 120) + (narrow ? 70 : 10); }
+    let s = Math.min((H - top - bot) / (P.size[1] * 0.97), (W * (mode === 'dress' && !narrow ? 0.45 : 0.86)) / P.size[0]);
+    if (mode === 'lesson' && lesson && !lesson.paused) s *= 1 + 0.035 * Math.sin(now / 2600);     // slow camera push, like a video
+    const side = mode === 'dress' && !narrow ? Math.min(460, W * 0.44) + 14 : 0;
+    const dw = P.size[0] * s, bx = (W - side - dw) / 2 + (narrow ? 0 : side ? 0 : 60), by = H - bot - P.size[1] * s * 0.97;
+    const k = Math.min(1, (now - cur.t0) / 520);
     let oy = by + Math.sin(now / 700) * 1.5, flip = 1;
     if (cur.anim === 'jump' && cur.pose === 'saute') oy -= Math.abs(Math.sin((now - cur.t0) / 260)) * H * 0.06;
     if (cur.anim === 'spin') { const ph = ((now - cur.t0) / 900) % 1; flip = Math.cos(ph * Math.PI * 2); if (Math.abs(flip) < 0.08) flip = flip < 0 ? -0.08 : 0.08; }
+    if (scene === 'stage' || mode === 'dress') {                                     // a soft spotlight on the dancer
+      const g = ctx.createRadialGradient(bx + dw / 2, by + P.size[1] * s * 0.6, 10, bx + dw / 2, by + P.size[1] * s * 0.6, dw * 0.9);
+      g.addColorStop(0, 'rgba(255,240,220,.18)'); g.addColorStop(1, 'rgba(255,240,220,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    }
     ctx.fillStyle = 'rgba(40,10,40,.25)'; ctx.beginPath(); ctx.ellipse(bx + dw / 2, by + P.size[1] * s * 0.955, dw * 0.24, dw * 0.04, 0, 0, Math.PI * 2); ctx.fill();
     if (cur.from && k < 1) drawDancer(ctx, cur.from, 1 - k, bx, oy, s, flip);
     drawDancer(ctx, cur.pose, cur.from ? k : 1, bx, oy, s, flip);
+    if (mode === 'lesson' && now - lastUi > 250) { lastUi = now; progressUi(); }
     if (cur.anim || k < 1 || mode !== 'map') render();
   }
   function setPose(p, anim) {
@@ -8343,9 +8644,9 @@ const Ballet = (() => {
   async function say(text, pose = 'talk') {
     const id = ++sayN;
     $('#blTeacher').src = TCH[pose] || TCH.talk;
-    const b = $('#blSay'); b.textContent = text; b.parentElement.classList.add('talking');
+    const b = $('#blSay'); b.textContent = text; b.closest('.blteach').classList.add('talking');
     if (prefs.sound) { stopVoice(); await playVoice(clipKey(text), text, 'vi-VN', Snd.token); } else await wait(900 + text.length * 35);
-    if (id === sayN) b.parentElement.classList.remove('talking');
+    if (id === sayN) b.closest('.blteach').classList.remove('talking');
     return id === sayN;
   }
 
@@ -8377,38 +8678,72 @@ const Ballet = (() => {
     $('#blStars').textContent = totalStars();
   }
 
-  /* ---------- a lesson: explain → show → count with music → "I did it!" ---------- */
+  /* ---------- a lesson = a video: watch the model → count along with music → "Bé làm xong chưa?" ---------- */
+  const stepSec = (st) => 1.4 + st.say.length * 0.072 + (st.count ? 2.2 + (st.count * 60) / 66 : 0);
+  const lessonSec = (ls) => ls.steps.reduce((a, st) => a + stepSec(st), 0);
+  const mmss = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
+  function progressUi() {
+    if (!lesson) return;
+    const L = lesson, steps = L.ls.steps, segs = $('#blDots').children;
+    const into = L.paused ? L.into || 0 : Math.min(stepSec(steps[L.i] || steps[0]), (performance.now() - (L.t0 || performance.now())) / 1000);
+    let el0 = 0; for (let k = 0; k < L.i; k++) el0 += stepSec(steps[k]);
+    steps.forEach((st, k) => { const f = segs[k] && segs[k].firstChild; if (f) f.style.width = (k < L.i ? 100 : k > L.i ? 0 : (100 * into) / stepSec(st)) + '%'; });
+    $('#blTime').textContent = `${mmss(el0 + into)} / ${mmss(lessonSec(L.ls))}`;
+  }
+  function stepDots() {
+    const d = $('#blDots'); d.textContent = '';
+    lesson.ls.steps.forEach((st, k) => {
+      const seg = document.createElement('button'); seg.className = 'blseg' + (k === lesson.i ? ' cur' : ''); seg.style.flex = String(stepSec(st));
+      seg.setAttribute('aria-label', 'Bước ' + (k + 1)); seg.appendChild(document.createElement('i'));
+      seg.addEventListener('click', () => { if (!lesson || lesson.ls.show) return; lesson.i = k; runStep(); });
+      d.appendChild(seg);
+    });
+    $('#blStep').textContent = `Bước ${lesson.i + 1}/${lesson.ls.steps.length}`;
+  }
+  function chip(text) { const c = $('#blVChip'); c.textContent = text; c.hidden = !text; c.classList.remove('in'); void c.offsetWidth; c.classList.add('in'); }
+  function stopDemo() { clearInterval(demo); demo = 0; }
   async function startLesson(ls) {
     stopAll();
     lesson = { ls, i: 0 };
     scene = ls.show ? 'stage' : 'studio';
     pane('lesson');
     $('#blLessonTitle').textContent = ls.title;
+    S.watched[ls.id || 'show'] = S.watched[ls.id || 'show'] || 0.5; save();
     if (ls.show) return runShow(ls);
     runStep();
   }
-  function stepDots() {
-    const d = $('#blDots'); d.textContent = '';
-    lesson.ls.steps.forEach((_, k) => d.appendChild(Object.assign(document.createElement('i'), { className: k < lesson.i ? 'ok' : k === lesson.i ? 'cur' : '' })));
-  }
   async function runStep() {
     if (!lesson) return;
+    stopDemo(); BMusic.stop();
     const L = lesson, st = L.ls.steps[L.i], me = (L.run = (L.run > 0 ? L.run : 0) + 1);
+    L.paused = false; L.t0 = performance.now(); $('#blPlay').textContent = '⏸'; $('#blPlay').setAttribute('aria-label', 'Tạm dừng');
+    el.classList.remove('paused');
     stepDots();
-    $('#blDone').hidden = true; $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term;
+    $('#blAsk').hidden = true; $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term;
     if (st.term) $('#blTerm').innerHTML = `<b>${st.term[0]}</b> · ${st.term[1]}`;
+    chip('👀 Bạn Na làm mẫu – bé xem kĩ nhé');
     if (st.from) { cur = { ...cur, pose: st.from, from: null, anim: null }; render(); await wait(350); }
     setPose(st.pose, st.anim);
+    if (st.from) {                                               // the model repeats the movement slowly while cô Vy explains
+      let on = true;
+      demo = setInterval(() => { if (!lesson || L.run !== me) return stopDemo(); on = !on; setPose(on ? st.pose : st.from, on ? st.anim : null); }, 2300);
+    }
+    if (L.i === 0 && !L.watched) { L.watched = 1; const ok0 = await say(BL.watch, 'show'); if (!ok0 || L.run !== me) return; }
     const ok = await say(st.say, L.i === 0 && L.ls.id === 'l1' ? 'show' : 'talk');
+    stopDemo(); if (L.run === me) setPose(st.pose, st.anim);
     if (!ok || !lesson || L.run !== me) return;
     if (st.count) {
+      chip('💃 Đến lượt bé! Làm theo bạn Na nhé');
       if (L.i === 0) await say(BL.count, 'show');
       if (!lesson || L.run !== me) return;
       await countBeats(st, me);
     }
     if (!lesson || L.run !== me) return;
-    $('#blDone').hidden = false;
-    $('#blTeacher').src = TCH.clap || TCH.talk;
+    if (!st.count) { lesson.i++; if (lesson.i < lesson.ls.steps.length) return runStep(); return finishLesson(); }
+    chip('');
+    $('#blAsk').hidden = false;
+    $('#blTeacher').src = TCH.show || TCH.talk;
+    say(BL.ask, 'show');
   }
   function countBeats(st, me) {
     return new Promise((res) => {
@@ -8420,37 +8755,54 @@ const Ballet = (() => {
         if (prefs.sound) playVoice('bc_' + n, COUNT_VI[n - 1], 'vi-VN', Snd.token);
         if (st.swing && n % 2 === 1) setPose(n % 4 === 1 ? st.pose : (st.from || 'ready'), st.anim);
         if (n >= st.count) { setTimeout(() => { BMusic.stop(); setPose(st.pose, st.anim); res(); }, 700); }
-      }, st.anim === 'jump' ? 84 : 66);
+      }, (st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1));
       if (!ok) setTimeout(res, 300);
     });
   }
+  function pauseVideo() {
+    if (!lesson || lesson.ls.show) return;
+    const L = lesson;
+    if (L.paused) { runStep(); return; }
+    L.into = Math.min(stepSec(L.ls.steps[L.i]), (performance.now() - (L.t0 || 0)) / 1000);
+    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); stopDemo();
+    $('#blSay').closest('.blteach').classList.remove('talking'); $('#blSay').textContent = BL.paused;
+    $('#blPlay').textContent = '▶'; $('#blPlay').setAttribute('aria-label', 'Xem tiếp');
+    el.classList.add('paused'); chip('⏸ Tạm dừng'); progressUi();
+  }
+  $('#blPlay').addEventListener('click', (e) => { pop(e.currentTarget); pauseVideo(); });
+  $('#blBigPlay').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && lesson.paused) runStep(); });
   $('#blDone').addEventListener('click', async (e) => {
     pop(e.currentTarget); if (!lesson) return;
-    sparkle(e.clientX - el.getBoundingClientRect().left, e.clientY - el.getBoundingClientRect().top, 10, $('#blFx'));
-    chime();
+    sparkle(e.clientX - el.getBoundingClientRect().left, e.clientY - el.getBoundingClientRect().top, 12, $('#blFx'));
+    chime(); claps(2);
+    $('#blAsk').hidden = true;
     lesson.i++;
-    if (lesson.i < lesson.ls.steps.length) { say(BL.good, 'clap').then(() => runStep()); return; }
+    if (lesson.i < lesson.ls.steps.length) { const L = lesson, me = (L.run = (L.run > 0 ? L.run : 0) + 1); say(BL.good, 'clap').then((ok) => { if (ok && lesson === L && L.run === me) runStep(); }); return; }
     finishLesson();
   });
-  $('#blAgain').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson) runStep(); });
-  $('#blPrev').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && lesson.i > 0) { lesson.i--; runStep(); } });
+  $('#blAgain').addEventListener('click', (e) => { pop(e.currentTarget); if (!lesson) return; say(BL.again, 'show').then((ok) => { if (ok && lesson) runStep(); }); $('#blAsk').hidden = true; });
+  $('#blPrev').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show) { lesson.i = Math.max(0, lesson.i - 1); runStep(); } });
+  $('#blNext').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show && lesson.i < lesson.ls.steps.length - 1) { lesson.i++; runStep(); } });
+  $('#blSlow').addEventListener('click', (e) => { pop(e.currentTarget); S.slow = !S.slow; save(); e.currentTarget.classList.toggle('on', !!S.slow); });
   async function finishLesson() {
     const ls = lesson.ls, all = lessons(), idx = all.findIndex((x) => x.id === ls.id);
     const wasNewLevel = idx + 1 < all.length && all[idx + 1].level.id !== ls.level.id && !S.done[ls.id];
-    S.done[ls.id] = 3; save(); lesson = null; stopAll();
+    S.done[ls.id] = 3; S.watched[ls.id] = 1; save(); lesson = null; stopAll();
     celebrationFx(); claps(4);
     $('#blTeacher').src = TCH.clap || TCH.talk;
+    await say(BL.vdone, 'clap');
     await say(BL.done, 'clap');
     if (wasNewLevel) await say(BL.level, 'clap');
     stats.balletDone = ls.id;
-    buildMap();
+    if (mode === 'lesson') buildMap();
   }
 
   /* ---------- stage show: the routine with music, then the runway / certificate ---------- */
   async function runShow(ls) {
     scene = 'stage'; pane('lesson'); el.classList.add('onstage');
-    $('#blDone').hidden = true; $('#blTerm').hidden = true;
+    $('#blAsk').hidden = true; $('#blTerm').hidden = true; chip('🎭 Sân khấu');
     show = { i: 0 };
+    lesson.t0 = performance.now(); stepDots();
     await say(BL.stage, 'show');
     if (!show) return;
     const steps = ls.steps; let beat = 0, si = 0;
@@ -8466,7 +8818,7 @@ const Ballet = (() => {
           if (si >= steps.length) { BMusic.stop(); return res(); }
           const st = steps[si]; setPose(st.pose, st.anim); $('#blSay').textContent = st.say;
           if (prefs.sound) playVoice(clipKey(st.say), st.say, 'vi-VN', Snd.token);
-          const d = $('#blDots'); d.textContent = ''; steps.forEach((_, k) => d.appendChild(Object.assign(document.createElement('i'), { className: k < si ? 'ok' : k === si ? 'cur' : '' })));
+          if (lesson) { lesson.i = si; lesson.t0 = performance.now(); stepDots(); }
         }
       }, 70);
       if (!ok) res();
@@ -8476,58 +8828,128 @@ const Ballet = (() => {
     celebrationFx(); claps(6);
     await say(BL.bravo, 'clap');
     if (ls.id) { S.done[ls.id] = 3; save(); }
+    lesson = null;
     Showcase.open({ kind: 'ballet', img: snapshot(), points: 14 + totalStars() / 3, back: () => { open(); } });
   }
-  function snapshot() {
+  function snapshot(pose = 'final') {
     const c = blankCanvas(900, 1400), x = c.getContext('2d');
     if (BG.stage) drawCover(x, BG.stage, 900, 1400, 0.5, 0.75);
     const s = Math.min(1260 / P.size[1], 810 / P.size[0]);
-    drawDancer(x, 'final', 1, (900 - P.size[0] * s) / 2, 1400 - P.size[1] * s - 30, s, 1);
+    drawDancer(x, figure(pose) ? pose : 'ready', 1, (900 - P.size[0] * s) / 2, 1400 - P.size[1] * s - 30, s, 1);
     return c;
   }
 
-  /* ---------- dressing room ---------- */
-  function buildDress() {
-    scene = 'dress'; pane('dress'); stopAll();
-    cur = { ...cur, pose: 'ready', from: null, anim: null };
-    const g = $('#blCostumes'); g.textContent = '';
-    if (S.costume !== 'practice' && !(P.costumes[S.costume] && P.costumes[S.costume].ready)) S.costume = 'practice';
-    BCOSTUMES.filter(([id]) => id === 'practice' || (P.costumes[id] && P.costumes[id].ready)).forEach(([id, name, em]) => {
-      const b = document.createElement('button'); b.className = 'blcos' + (S.costume === id ? ' on' : '');
-      const th = document.createElement('div'); th.className = 'blcosth';
-      const im = id === 'practice' ? P.poses.ready : P.costumes[id] && P.costumes[id].ready && P.costumes[id].ready[4];
-      if (im) th.style.backgroundImage = `url("${im}")`;
-      b.append(th, Object.assign(document.createElement('b'), { textContent: em + ' ' + name }));
-      b.addEventListener('click', () => { pop(b); S.costume = id; S.color = null; save(); buildDress(); render(); if (id !== 'practice') say(BL.nice, 'clap'); });
-      g.appendChild(b);
-    });
-    const pal = $('#blPalette'); pal.textContent = '';
-    if (S.costume !== 'practice') {
-      const og = document.createElement('button'); og.className = 'swx' + (!S.color ? ' on' : ''); og.textContent = 'Gốc';
-      og.addEventListener('click', () => { S.color = null; save(); buildDress(); });
-      pal.appendChild(og);
-      ['#ffffff', '#ffd1dc', '#ff8fab', '#ff4d6d', '#c9184a', '#ffd60a', '#ff9f1c', '#9be15d', '#4cc9f0', '#3a6ff7', '#9b5de5', '#222222', '#d4af37'].forEach((hex) => {
-        const b = document.createElement('button'); b.className = 'sw' + (S.color === hex ? ' on' : ''); b.style.setProperty('--c', hex);
-        b.addEventListener('click', () => { pop(b); S.color = hex; save(); buildDress(); render(); });
-        pal.appendChild(b);
+  /* ---------- video library (replaces the dictionary) ---------- */
+  function thumbCanvas(pose, w, h, lk, crop) {
+    const c = blankCanvas(w * 2, h * 2), x = c.getContext('2d'), f = figure(pose, lk) || figure('ready', lk);
+    const [cx, cy, cw, ch] = crop || [0, 30, P.size[0], P.size[1] - 30];
+    const s = Math.min((w * 2) / cw, (h * 2) / ch);
+    x.drawImage(f, cx, cy, cw, ch, (w * 2 - cw * s) / 2, (h * 2 - ch * s) / 2, cw * s, ch * s);
+    return c;
+  }
+  function buildVideos() {
+    scene = 'studio'; pane('videos'); stopAll();
+    const g = $('#blVLib'); g.textContent = '';
+    const all = lessons(), next = all.find((l) => !S.done[l.id]) || all[0];
+    const hero = document.createElement('button'); hero.className = 'blvhero';
+    hero.innerHTML = `<span class="blvplay">▶</span><span><small>${S.done[next.id] ? 'Xem lại' : 'Học tiếp'} · Cấp ${next.level.id}</small><b>${next.title}</b><em>⏱ ${mmss(lessonSec(next))} · ${next.steps.length} bước · có bạn Na làm mẫu</em></span>`;
+    hero.prepend(thumbCanvas(next.steps[next.steps.length - 1].pose, 70, 96, look({ cos: 'practice' })));
+    hero.addEventListener('click', () => { pop(hero); startLesson(next); });
+    g.appendChild(hero);
+    BALLET.forEach((lv) => {
+      const h = document.createElement('h3'); h.className = 'blvlv'; h.innerHTML = `<i>${lv.icon}</i> Cấp ${lv.id}: ${lv.name}`; g.appendChild(h);
+      const row = document.createElement('div'); row.className = 'blvrow';
+      lv.lessons.forEach((ls) => {
+        const L = all.find((x) => x.id === ls.id), w = S.watched[ls.id], done = S.done[ls.id];
+        const b = document.createElement('button'); b.className = 'blvcard' + (done ? ' done' : '');
+        const th = document.createElement('div'); th.className = 'blvth';
+        th.appendChild(thumbCanvas(ls.steps[ls.steps.length - 1].pose, 130, 96, look({ cos: ls.show ? S.look.cos : 'practice' }), [60, 20, 525, 700]));
+        th.insertAdjacentHTML('beforeend', `<span class="blvplay">▶</span><span class="blvdur">${mmss(lessonSec(L))}</span>${done ? '<span class="blvok">✓ Đã học</span>' : w ? '<span class="blvok half">Đang học</span>' : ''}`);
+        const terms = ls.steps.filter((s) => s.term).map((s) => s.term[0]).slice(0, 2).join(' · ');
+        b.append(th, Object.assign(document.createElement('b'), { textContent: ls.title }),
+          Object.assign(document.createElement('small'), { textContent: terms || `${ls.steps.length} bước` }));
+        b.addEventListener('click', () => { pop(b); startLesson(L); });
+        row.appendChild(b);
       });
-    }
-    render();
+      g.appendChild(row);
+    });
+    say(BL.videos, 'show');
   }
 
-  /* ---------- dictionary ---------- */
-  function buildDict() {
-    pane('dict'); stopAll();
-    const g = $('#blDictGrid'); g.textContent = '';
-    lessons().forEach((ls) => ls.steps.filter((s) => s.term).forEach((s) => {
-      const b = document.createElement('button'); b.className = 'blterm';
-      const th = document.createElement('div'); th.className = 'blthumb'; if (P.poses[s.pose]) th.style.backgroundImage = `url("${P.poses[s.pose]}")`;
-      b.append(th, Object.assign(document.createElement('b'), { textContent: s.term[0] }), Object.assign(document.createElement('small'), { textContent: s.term[1] }));
-      b.addEventListener('click', () => { pop(b); say(s.say, 'show'); });
-      g.appendChild(b);
-    }));
-    say(BL.dict, 'show');
+  /* ---------- dressing room ---------- */
+  function setLook(ch, line) {
+    Object.assign(S.look, ch); save(); render(); buildDress(true);
+    setPose('releve'); setTimeout(() => { if (mode === 'dress') setPose('ready'); }, 900);
+    sparkle(el.clientWidth / 2, el.clientHeight * 0.35, 8, $('#blFx'));
+    if (line) say(line, 'show');
   }
+  function tile(label, canvas, on, fn, cls = '') {
+    const b = document.createElement('button'); b.className = 'blcos ' + cls + (on ? ' on' : '');
+    const th = document.createElement('div'); th.className = 'blcosth'; if (canvas) th.appendChild(canvas);
+    b.append(th, Object.assign(document.createElement('b'), { textContent: label }));
+    b.addEventListener('click', () => { pop(b); fn(); });
+    return b;
+  }
+  function swatch(hex, on, fn, label) {
+    const b = document.createElement('button'); b.className = 'sw' + (on ? ' on' : ''); b.style.setProperty('--c', hex); b.title = label || hex;
+    b.setAttribute('aria-label', label || hex); b.addEventListener('click', () => { pop(b); fn(); }); return b;
+  }
+  function fabricChip(pat, tint) {
+    const c = blankCanvas(120, 120), x = c.getContext('2d');
+    const g = x.createLinearGradient(0, 0, 120, 120); g.addColorStop(0, mix(tint, 0.35)); g.addColorStop(1, mix(tint, -0.15));
+    x.fillStyle = g; x.beginPath(); x.arc(60, 60, 56, 0, Math.PI * 2); x.fill();
+    if (pat !== 'plain') printPattern(c, pat);
+    return c;
+  }
+  const HEAD = [190, 40, 270, 300];
+  function buildDress(keep) {
+    if (!keep) { scene = 'dress'; pane('dress'); stopAll(); cur = { ...cur, pose: 'ready', from: null, anim: null }; }
+    el.querySelectorAll('#blTabs button').forEach((b) => b.classList.toggle('on', b.dataset.t === dressTab));
+    const g = $('#blOpts'), pal = $('#blPalette'); g.textContent = ''; pal.textContent = ''; pal.hidden = true;
+    const L = S.look, lk = look();
+    if (dressTab === 'cos') {
+      BCOS.forEach((c) => g.appendChild(tile(c.em + ' ' + c.name, thumbCanvas('ready', 48, 64, look({ cos: c.id, color: null, pat: 'auto' })), L.cos === c.id,
+        () => setLook({ cos: c.id, color: null, pat: 'auto' }, c.say))));
+    } else if (dressTab === 'pat') {
+      const tint = lk.tint || (lk.d.src === 'swan' ? '#f4f1f4' : lk.d.src === 'fairy' ? '#a9d4f5' : '#ff9fc0');
+      if (!lk.d.src) g.appendChild(Object.assign(document.createElement('p'), { className: 'blhint', textContent: '👗 Bé chọn một chiếc váy trước, rồi thêm hoạ tiết và màu nhé!' }));
+      else BPAT.forEach(([id, name]) => g.appendChild(tile(name, fabricChip(id === 'auto' ? lk.d.pat || 'plain' : id, tint), L.pat === id, () => setLook({ pat: id }, BL.pat), 'chipt')));
+      if (lk.d.src) {
+        pal.hidden = false;
+        const og = document.createElement('button'); og.className = 'swx' + (!L.color ? ' on' : ''); og.textContent = 'Màu gốc';
+        og.addEventListener('click', () => { pop(og); setLook({ color: null }); }); pal.appendChild(og);
+        BDCOL.forEach((hex) => pal.appendChild(swatch(hex, L.color === hex, () => setLook({ color: hex }))));
+      }
+    } else if (dressTab === 'hair') {
+      BHAIR.forEach(([id, name, line]) => g.appendChild(tile(name, thumbCanvas('ready', 48, 56, look({ hair: id, acc: 'none' }), HEAD), L.hair === id, () => setLook({ hair: id }, line))));
+      pal.hidden = false;
+      BHAIRC.forEach(([hex, name]) => pal.appendChild(swatch(hex || '#5a3a2c', (L.hairColor || '') === hex, () => setLook({ hairColor: hex }, BL.hairc), name)));
+    } else {
+      BACC.forEach(([id, name, line]) => g.appendChild(tile(name, thumbCanvas('ready', 48, 56, look({ acc: id }), HEAD), L.acc === id, () => setLook({ acc: id }, line))));
+    }
+    const on = g.querySelector('.on'); if (on && !keep) requestAnimationFrame(() => on.scrollIntoView({ inline: 'center', block: 'nearest' }));
+    render();
+  }
+  el.querySelectorAll('#blTabs button').forEach((b) => b.addEventListener('click', () => {
+    pop(b); dressTab = b.dataset.t; buildDress(true);
+    say({ cos: BL.dress, pat: BL.tabpat, hair: BL.tabhair, acc: BL.tabacc }[dressTab], 'show');
+  }));
+  $('#blTwirl').addEventListener('click', (e) => {
+    pop(e.currentTarget); clearTimeout(twirlT); say(BL.twirl, 'show');
+    const seq = [['releve'], ['pirouette', 'spin'], ['final'], ['ready']];
+    let i = 0; const go = () => { if (mode !== 'dress' || i >= seq.length) return; setPose(seq[i][0], seq[i][1]); i++; twirlT = setTimeout(go, i === 2 ? 1800 : 1100); };
+    go();
+  });
+  $('#blRandom').addEventListener('click', (e) => {
+    pop(e.currentTarget);
+    const r = (a) => a[Math.floor(Math.random() * a.length)];
+    setLook({ cos: r(BCOS.slice(1)).id, color: null, pat: 'auto', hair: r(BHAIR)[0], hairColor: Math.random() < 0.5 ? '' : r(BHAIRC)[0], acc: 'auto' }, BL.random);
+  });
+  $('#blPhoto').addEventListener('click', (e) => {
+    pop(e.currentTarget);
+    Showcase.open({ kind: 'ballet', img: snapshot(figure('final') ? 'final' : 'ready'), points: 10 + totalStars() / 3, back: () => { open().then(() => buildDress()); } });
+  });
+  $('#blDressStage').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
 
   /* ---------- mirror: the front camera so the child sees herself ---------- */
   async function mirror(on) {
@@ -8544,12 +8966,13 @@ const Ballet = (() => {
   }
   $('#blMirrorBtn').addEventListener('click', (e) => { pop(e.currentTarget); mirror(!stream); });
 
-  function stopAll() { BMusic.stop(); show = null; el.classList.remove('onstage'); if (lesson) lesson.run = -1; }
-  $('#blDressBtn').addEventListener('click', (e) => { pop(e.currentTarget); buildDress(); say(BL.dress, 'show'); });
+  function stopAll() { BMusic.stop(); stopDemo(); clearTimeout(twirlT); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
+  $('#blDressBtn').addEventListener('click', (e) => { pop(e.currentTarget); dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); });
   $('#blStageBtn').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
-  $('#blDictBtn').addEventListener('click', (e) => { pop(e.currentTarget); buildDict(); });
-  el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; buildMap(); }));
+  $('#blVideoBtn').addEventListener('click', (e) => { pop(e.currentTarget); buildVideos(); });
+  el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; sayN++; stopVoice(); buildMap(); }));
   $('#blHome').addEventListener('click', () => close());
+  $('#blSlow').classList.toggle('on', !!S.slow);
 
   if (/^https?:$/.test(location.protocol)) $('#blCourses').hidden = false;      // back to babelisa.com/khoa-hoc/
   async function open() {
@@ -8563,8 +8986,10 @@ const Ballet = (() => {
   }
   function close() { stopAll(); lesson = null; sayN++; stopVoice(); mirror(false); Screens.close(); Hub.open(); }
   window.addEventListener('resize', () => { if (!el.hidden) render(); });
-  return { open, close, state: () => S, startLesson: (id) => startLesson(lessons().find((l) => l.id === id)), next: () => $('#blDone').click(), ready: () => ready, buildDress, mode: () => mode };
+  return { open, close, state: () => S, startLesson: (id) => startLesson(lessons().find((l) => l.id === id)), next: () => $('#blDone').click(), ready: () => ready, _fig: (p, o) => figure(p, look(o)), buildDress, buildVideos, dress: () => { dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); }, mode: () => mode, look: (o) => { Object.assign(S.look, o); figCache.clear(); render(); if (mode === 'dress') buildDress(true); } };
 })();
+
+if (/[?&]qa=1/.test(location.search)) window.Ballet = Ballet;     // test hook
 
 /* =====================================================================
    25. Sàn diễn (Phase 4): runway with lights, stars from the tutor,

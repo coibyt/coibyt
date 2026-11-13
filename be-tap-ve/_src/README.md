@@ -11,3 +11,12 @@
   (khoá lấy từ biến môi trường MAX11_API_KEY, proxy tự gắn; giọng cô Vy = "trang_slow").
 - Bản trên babelisa: `babelisa/public/be-tap-ve.html` = `index.html` + `<meta name="robots" content="noindex, nofollow">`
   sau `<meta charset>` + `<script src="/js/course-nav.js" defer></script>` trước `</head>` (đừng làm mất 2 dòng này).
+
+## Ba lê v2 (phòng thay đồ mới + video bài học)
+- Tải ảnh gốc độ phân giải cao từ `ballet_raw/kie_urls.json` vào thư mục `full/` (hoặc đặt `BALLET_FULL`), rồi:
+  `python3 ballet2_proc.py` (tách nền: toàn thân từng tư thế + váy pink/swan/fairy, mặt nạ váy (đỏ) & tóc (xanh lá), khớp đầu
+  giữa các tư thế, tách vương miện/lông/vòng hoa) → `python3 ballet2_build.py` → `be-tap-ve-ballet.js` (chép vào `../`).
+- Váy mới (kẹo ngọt, thiên nga đen, Lọ Lem, anh đào, hướng dương, bông tuyết, hồng ngọc) = váy thật được nhuộm lại + in hoạ tiết
+  (vẽ trong game, `BCOS` trong `src_index.html`). Kiểu tóc tết/xoăn/ngọc trai = ghép từ mẫu tóc búi thật, theo khung đầu `T`.
+- Giọng mới: `ballet2_tts.py` (đọc `miss.json` = danh sách câu thiếu, giọng trang_slow).
+- Kiểm thử: mở `index.html?qa=1#ba-le` → `window.Ballet` (`_fig(tư thế, {cos, hair, ...})`).
