@@ -1,0 +1,79 @@
+{
+ "w_ready_arm1": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_arm1",
+  "duration": "5",
+  "prompt": "Standing in first position, the little ballerina slowly lifts both rounded arms forward up to tummy height, as if hugging a big ball (first position of the arms). Feet do not move. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_arm1_arm2": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_arm1",
+  "end": "vd_arm2",
+  "duration": "5",
+  "prompt": "From arms rounded in front of her tummy, she slowly opens both arms out to the sides at shoulder height (second position), elbows soft. Feet do not move. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_arm1_arm5": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_arm1",
+  "end": "vd_arm5",
+  "duration": "5",
+  "prompt": "From arms rounded in front of her tummy, she slowly lifts both rounded arms straight up above her head into a crown shape (fifth position). She does not open the arms to the sides. Feet do not move. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_ready_feet2": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_feet2",
+  "duration": "5",
+  "prompt": "From first position she opens her arms to the sides and slides one foot out sideways so her feet end shoulder-width apart with toes turned out (second position). Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_ready_plie": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_plie",
+  "duration": "5",
+  "prompt": "She opens her arms to the sides, then slowly bends both knees outward over her toes into a demi-plie with heels on the floor and a straight back. No jumping, arms never go above her head. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_plie_saute": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_plie",
+  "end": "vd_saute",
+  "duration": "5",
+  "prompt": "From the demi-plie she pushes off and springs straight up into a small light jump: both feet leave the floor, toes pointed, legs straight, arms rounded low; at the end she is in the air. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_ready_releve": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_releve",
+  "duration": "5",
+  "prompt": "She lifts her rounded arms up above her head into fifth position while rising high onto the balls of both feet, heels lifting off the floor, legs straight. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_ready_feet5": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_feet5",
+  "duration": "5",
+  "prompt": "She slides one foot in front of the other and crosses her legs tightly so the heel of the front foot touches the toes of the back foot (fifth position); arms stay low and rounded. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_arabesque_attitude": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_arabesque",
+  "end": "vd_attitude",
+  "duration": "5",
+  "prompt": "From the arabesque she softly bends the knee of her lifted back leg into attitude and raises one arm in a curve above her head, staying balanced on her supporting leg. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_ready_pirprep": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_ready",
+  "end": "vd_pirprep",
+  "duration": "5",
+  "prompt": "She steps one foot forward into fourth position, softly bends both knees in demi-plie and lifts her rounded arms in front of her tummy (first position), ready to turn. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ },
+ "w_pirprep_pirouette": {
+  "model": "kling/v2-5-turbo-image-to-video-pro",
+  "start": "vd_pirprep",
+  "end": "vd_pirouette",
+  "duration": "5",
+  "prompt": "From the fourth-position preparation she rises onto one toe, brings the other foot to her knee (passe), turns one full pirouette and ends facing the camera balanced in passe. Static camera, no zoom, no cut; the dark evening ballet studio background and the soft spotlight stay exactly the same. Smooth, slow, graceful, anatomically correct movement of a little ballerina; she smiles and blinks naturally. Photorealistic 3D animated film."
+ }
+}

@@ -1060,6 +1060,21 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .blvbadge{padding:3px 9px; border-radius:8px; background:#e63946; color:#fff; font-weight:900; font-size:11.5px; letter-spacing:.5px; box-shadow:0 2px 8px rgba(230,57,70,.5)}
 .blround{color:#4a1d3f; font-weight:900; font-size:13px; padding:4px 10px; border-radius:999px; background:linear-gradient(135deg,#fff3c4,#f6c945); box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .blround[hidden]{display:none}
+.blauto{border:0; cursor:pointer; font:inherit; font-weight:900; font-size:12.5px; padding:5px 10px; border-radius:999px; color:#fff; background:rgba(255,255,255,.18); box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.4)}
+.blauto.on{background:linear-gradient(135deg,#2bb673,#1f8f5a); box-shadow:0 2px 10px rgba(43,182,115,.5)}
+.bltimer{position:absolute; left:10px; top:30%; width:128px; height:128px; z-index:3; display:grid; place-items:center; color:#fff; text-align:center; filter:drop-shadow(0 6px 16px rgba(0,0,0,.45))}
+.bltimer[hidden]{display:none}
+.bltimer svg{position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg)}
+.bltimer .tbg{fill:rgba(30,6,40,.72); stroke:rgba(255,255,255,.18); stroke-width:9}
+.bltimer .tfg{fill:none; stroke:#ffd166; stroke-width:9; stroke-linecap:round; stroke-dasharray:326.7; transition:stroke-dashoffset .25s linear}
+.bltimer b{position:relative; font-size:34px; line-height:1; font-variant-numeric:tabular-nums; margin-top:-8px}
+.bltimer small{position:absolute; bottom:30px; font-weight:800; font-size:11.5px; color:#ffe9f3}
+.bltimer.warn .tfg{stroke:#ff4d6d} .bltimer.warn b{animation:blbeat .5s ease infinite}
+@media (min-width:700px){ .bltimer{left:290px; top:24%; width:150px; height:150px} }
+.blact{position:absolute; left:0; right:0; bottom:calc(100% - 100%); display:flex; justify-content:center; gap:8px; flex-wrap:wrap; padding:0 12px; z-index:6; pointer-events:auto; top:auto}
+.blact[hidden]{display:none}
+.blpane[data-p="lesson"] .blact{position:relative; margin-top:auto; margin-bottom:6px}
+.blact .blbtn{font-size:16px; animation:pop .45s var(--spring)}
 .blround.in{animation:pop .5s var(--spring)}
 .blstep{margin-left:auto; color:#fff; font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.35)}
 .blvchip{align-self:center; margin-top:2px; padding:6px 14px; border-radius:999px; background:rgba(30,6,40,.72); color:#fff; font-weight:800; font-size:14px; backdrop-filter:blur(6px); box-shadow:0 0 0 1.5px rgba(255,255,255,.35)}
@@ -1072,6 +1087,7 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .bltips span:nth-child(2){animation-delay:.15s} .bltips span:nth-child(3){animation-delay:.3s}
 .blvchip.in{animation:blchip .45s var(--spring)}
 @keyframes blchip{from{transform:translateY(-8px) scale(.9); opacity:0}}
+.blact:not([hidden]) + .blplayer{margin-top:0}
 .blplayer{margin-top:auto; padding:8px 10px max(10px,env(safe-area-inset-bottom)); background:linear-gradient(0deg,rgba(20,4,28,.9),rgba(20,4,28,.55) 70%,rgba(20,4,28,0)); display:flex; flex-direction:column; gap:7px}
 @media (max-width:699px){ .blplayer{padding-bottom:max(132px,calc(env(safe-area-inset-bottom) + 126px))} }
 @media (min-width:700px){ .blplayer{padding-left:280px} }
@@ -1482,12 +1498,14 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
       <div class="blmap" id="blMap"></div>
     </div>
     <div class="blpane" data-p="lesson" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span><span class="blround" id="blRound">Lần 1/3</span></div>
+      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span><span class="blround" id="blRound">Lần 1/3</span><button class="blauto" id="blAuto" aria-pressed="true">🤖 Tự động</button></div>
       <div class="blvchip" id="blVChip" hidden></div>
       <div class="bltips" id="blTips" hidden></div>
       <div class="blterm" id="blTerm" hidden></div>
       <div class="blcount" id="blCount"></div>
       <button class="blbigplay" id="blBigPlay" aria-label="Xem tiếp">▶</button>
+      <div class="bltimer" id="blTimer" hidden><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="tbg"/><circle cx="60" cy="60" r="52" class="tfg" id="blTimerRing"/></svg><b id="blTimerTxt">2:00</b><small>Bé tự tập</small></div>
+      <div class="blact" id="blAct" hidden></div>
       <div class="blplayer">
         <div class="bldots" id="blDots"></div>
         <div class="blctrl">
@@ -6111,7 +6129,7 @@ function shade(hex, amt) {
        layers stack like real clothes. Recolouring keeps the fabric's shading:
        new colour × (pixel luminance ÷ the layer's median luminance).
    ===================================================================== */
-const STUDIO_VER = 2;
+const STUDIO_VER = 3;
 const Pack = (() => {
   let prom = null;
   const imgs = new Map();
@@ -8358,7 +8376,12 @@ const BL = {
   locked: 'Bài này chưa mở, bé học xong bài trước nhé!', nice: 'Bộ váy này đẹp quá!', color: 'Bé chọn màu cho chiếc váy nhé!',
   videos: 'Đây là thư viện video bài học. Bé chọn một video để xem bạn Na làm mẫu và cô hướng dẫn nhé!',
   watch: 'Bé xem bạn Na làm mẫu thật kĩ nhé!', ask: 'Bé làm xong chưa? Xong rồi thì bấm nút xanh nhé!', again: 'Mình xem lại bạn Na làm mẫu nhé!',
-  vdone: 'Bé đã học xong video này! Giỏi quá đi!', round2: 'Bây giờ mình tập lại lần thứ hai nhé!', round3: 'Lần cuối cùng rồi, bé cố lên nhé!', paused: 'Video đang tạm dừng. Bé bấm nút để xem tiếp nhé!',
+  vdone: 'Bé đã học xong video này! Giỏi quá đi!', round2: 'Bây giờ mình tập lại lần thứ hai nhé!',
+  pr1: 'Bây giờ bé tự tập lại bài này trong một phút nhé! Cô bấm giờ đây, bắt đầu nào!', pr2: 'Bây giờ bé tự tập lại bài này trong hai phút nhé! Cô bấm giờ đây, bắt đầu nào!',
+  pr3: 'Bây giờ bé tự tập lại bài này trong ba phút nhé! Cô bấm giờ đây, bắt đầu nào!', ten: 'Còn mười giây nữa thôi!',
+  timeup: 'Hết giờ rồi! Bé tập chăm chỉ quá. Mình sang bài tiếp theo nhé!', timeupM: 'Hết giờ rồi! Bé tập chăm chỉ quá!',
+  allDone: 'Bé đã học hết các bài rồi! Giỏi quá! Mình lên sân khấu biểu diễn nhé!',
+  autoOn: 'Chế độ tự động: cô sẽ dạy cả buổi, bé chỉ cần múa theo thôi!', autoOff: 'Chế độ tự học: bé bấm nút để sang bước tiếp theo nhé!', round3: 'Lần cuối cùng rồi, bé cố lên nhé!', paused: 'Video đang tạm dừng. Bé bấm nút để xem tiếp nhé!',
   pat: 'Hoạ tiết mới đẹp quá!', hairc: 'Màu tóc mới thật xinh!', random: 'Bộ đồ bất ngờ đây! Bé thấy có đẹp không?', twirl: 'Bé xoay một vòng cho cô xem nào!',
   tabpat: 'Bé chọn hoạ tiết và màu cho chiếc váy nhé!', tabhair: 'Bé chọn kiểu tóc và màu tóc nhé!', tabacc: 'Bé chọn vương miện hoặc nơ xinh nhé!',
 };
@@ -8545,8 +8568,13 @@ const Ballet = (() => {
     VID.on = v; VID.key = c.key; VID.fwd = c.fwd;
     const D = v.duration || 10, half = D / 2;
     try {
-      if (phase === 'hold') { v.pause(); v.currentTime = c.fwd ? half : 0.05; }
-      else {
+      VID.holdAt = null;
+      if (phase === 'hold') { v.pause(); v.currentTime = c.fwd ? half : D - 0.06; }
+      else if (phase === 'demo') {                           // while cô Vy explains: do the movement once, then hold the pose she describes
+        v.playbackRate = S.slow ? 0.75 : 1; v.currentTime = c.fwd ? 0.05 : half;
+        VID.holdAt = c.fwd ? half - 0.04 : D - 0.06;
+        await v.play().catch(() => {});
+      } else {
         v.playbackRate = phase === 'count' ? Math.max(0.5, Math.min(2.5, D / beats)) : (S.slow ? 0.75 : 1);
         if (phase === 'count' || Math.abs(v.currentTime - (c.fwd ? 0 : half)) > 0.3) v.currentTime = c.fwd ? 0.05 : half;
         await v.play().catch(() => {});
@@ -8794,6 +8822,7 @@ const Ballet = (() => {
       top = Math.max(top, tb.bottom - r0.top + 4);
     }
     if (mode === 'lesson') { const pl = el.querySelector('.blplayer'); bot = (pl ? pl.offsetHeight : 120) + (narrow ? 70 : 10); }
+    if (VID.on && VID.holdAt != null && VID.on.currentTime >= VID.holdAt) { const v = VID.on; v.pause(); v.currentTime = VID.holdAt; VID.holdAt = null; }
     if (mode === 'lesson' && !show && VID.on && VID.on.readyState >= 2 && drawVid(ctx, W, H, VID.on, top, bot)) {
       if (now - lastUi > 250) { lastUi = now; progressUi(); }
       render(); return;
@@ -8898,6 +8927,10 @@ const Ballet = (() => {
   }
   async function runStep() {
     if (!lesson) return;
+    if (lesson.phase === 'practice') {                      // resumed (▶) during the self-practice countdown
+      const L = lesson; L.run = (L.run > 0 ? L.run : 0) + 1; L.paused = false; $('#blPlay').textContent = '⏸'; el.classList.remove('paused'); BMusic.bg(true);
+      return practice(L, true);
+    }
     stopDemo(); BMusic.stop();
     const L = lesson, st = L.ls.steps[L.i], me = (L.run = (L.run > 0 ? L.run : 0) + 1);
     if (L.ls.id) { S.cur = { id: L.ls.id, i: L.i, r: L.round || 1 }; save(); }               // come back here next time
@@ -8935,19 +8968,97 @@ const Ballet = (() => {
     if (!lesson || L.run !== me) return;
     nextStep();
   }
-  /* the video runs straight through; the whole lesson plays 3 times (round 1/3 → 3/3) so the child gets used to it */
-  const ROUNDS = 3;
+  /* the video runs straight through; the whole lesson plays 3 times (round 1/3 → 3/3) so the child gets used to it,
+     then the child practises alone against a countdown (music + the model keeps dancing) and the next lesson starts.
+     Auto mode (default) needs no touch at all; manual mode waits for a tap at each step. */
+  const ROUNDS = 3, PRACTICE_MIN = { 1: 1, 2: 2, 3: 2, 4: 3 };
+  let actWait = null;
+  function waitAct(btns) {                                  // → Promise<key>; buttons [key, label, gold?]
+    const a = $('#blAct'); a.textContent = ''; a.hidden = false;
+    return new Promise((res) => {
+      actWait = { res, def: btns[0][0] };
+      btns.forEach(([k, label, gold]) => {
+        const b = document.createElement('button'); b.className = 'blbtn' + (gold ? ' gold big' : ''); b.textContent = label;
+        b.addEventListener('click', () => { pop(b); actDone(k); });
+        a.appendChild(b);
+      });
+    });
+  }
+  function actDone(k) { const w = actWait; actWait = null; $('#blAct').hidden = true; $('#blAct').textContent = ''; if (w) w.res(k == null ? w.def : k); }
+  function autoUi() { const b = $('#blAuto'); b.classList.toggle('on', S.auto !== false); b.textContent = S.auto !== false ? '🤖 Tự động' : '👆 Tự bấm'; b.setAttribute('aria-pressed', String(S.auto !== false)); }
+  $('#blAuto').addEventListener('click', (e) => {
+    pop(e.currentTarget); S.auto = S.auto === false; save(); autoUi();
+    if (mode === 'lesson') chip(S.auto ? '🤖 Tự động: cô dạy cả buổi' : '👆 Tự bấm: bé bấm để sang bước'); else say(S.auto ? BL.autoOn : BL.autoOff, 'show');
+    if (S.auto && actWait) actDone();                       // switched to auto while waiting: carry on by itself
+  });
+  autoUi();
   async function nextStep() {
     const L = lesson; if (!L) return;
     const me = L.run;
+    if (S.auto === false && L.i < L.ls.steps.length - 1) {
+      chip('👆 Bé bấm để học bước tiếp');
+      const k = await waitAct([['next', 'Bước tiếp ▶', 1], ['again', '🔁 Tập lại bước này']]);
+      if (lesson !== L || L.run !== me) return;
+      if (k === 'again') return runStep();
+    }
     L.i++;
     if (L.i < L.ls.steps.length) { chime(); return runStep(); }
     L.round = (L.round || 1) + 1;
-    if (L.round > ROUNDS) return finishLesson();
+    if (L.round > ROUNDS) { L.round = ROUNDS; L.i = L.ls.steps.length - 1; L.phase = 'practice'; L.left = null; return practice(L); }
     L.i = 0; S.cur = { id: L.ls.id, i: 0, r: L.round }; save();
     roundUi(); claps(2);
     const ok = await say(L.round === 2 ? BL.round2 : BL.round3, 'clap');
     if (ok && lesson === L && L.run === me) runStep();
+  }
+  /* ---------- self practice: countdown + music, the model keeps dancing the lesson's moves ---------- */
+  async function practice(L, resumed) {
+    const me = L.run, min = PRACTICE_MIN[L.ls.level.id] || 2, total = min * 60000;
+    $('#blTips').hidden = true; $('#blTerm').hidden = true; $('#blCount').textContent = '';
+    chip('⏱ Bé tự tập theo nhạc');
+    if (!resumed) {
+      if (S.auto === false) {
+        const k = await waitAct([['go', `⏱ Bắt đầu tự tập ${min} phút`, 1], ['skip', '⏭ Bỏ qua']]);
+        if (lesson !== L || L.run !== me) return;
+        if (k === 'skip') { L.phase = null; return finishLesson(); }
+      }
+      const ok = await say(BL['pr' + min], 'show');
+      if (!ok || lesson !== L || L.run !== me) return;
+    }
+    let left = L.left != null ? L.left : total;
+    const cs = L.ls.steps.filter((x) => x.count), steps = cs.length ? cs : L.ls.steps;
+    const tm = $('#blTimer'), ring = $('#blTimerRing'), txt = $('#blTimerTxt');
+    tm.hidden = false; tm.classList.remove('warn');
+    let end = performance.now() + left, warned = left < 11000, si = -1, n = 0;
+    const draw = () => {
+      left = Math.max(0, end - performance.now()); L.left = left;
+      const sec = Math.ceil(left / 1000); txt.textContent = `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+      ring.style.strokeDashoffset = String(326.7 * (1 - left / total)); tm.classList.toggle('warn', left < 10500);
+    };
+    draw();
+    const nextMove = () => {                                // the model dances the moves of this lesson one after another
+      si = (si + 1) % steps.length; const st = steps[si];
+      $('#blTerm').hidden = !st.term; if (st.term) $('#blTerm').innerHTML = `<b>${st.term[0]}</b> · ${st.term[1]}`;
+      const bs = BMusic.beatSec('count', S.slow ? 0.85 : 1) || 60 / 66;
+      vidPlay(st, 'count', 8 * bs).then((has) => { if (!has) setPose(st.pose, st.anim); });
+    };
+    nextMove();
+    const iv = setInterval(draw, 250);
+    const done = await new Promise((res) => {
+      const ok = BMusic.start((b) => {
+        if (lesson !== L || L.run !== me) { BMusic.stop(); return res(false); }
+        n = (b % 8) + 1;
+        const c = $('#blCount'); c.textContent = n; c.classList.remove('beat'); void c.offsetWidth; c.classList.add('beat');
+        if (b > 0 && n === 1) nextMove();
+        if (!warned && end - performance.now() < 10500) { warned = true; say(BL.ten, 'show'); }
+        if (performance.now() >= end) { BMusic.stop(); res(true); }
+      }, 66, 'count', S.slow ? 0.85 : 1);
+      if (!ok) { const t = setInterval(() => { if (lesson !== L || L.run !== me) { clearInterval(t); res(false); } else if (performance.now() >= end) { clearInterval(t); res(true); } }, 300); }
+    });
+    clearInterval(iv);
+    if (!done || lesson !== L) return;
+    tm.hidden = true; $('#blCount').textContent = ''; L.phase = null; L.left = null;
+    chime(); claps(5); celebrationFx();
+    finishLesson(true);
   }
   function roundUi() { const r = $('#blRound'); if (r) r.hidden = !!(lesson && lesson.ls.show); if (r && lesson) { r.textContent = `Lần ${lesson.round || 1}/${ROUNDS}`; r.classList.remove('in'); void r.offsetWidth; r.classList.add('in'); } }
   function countBeats(st, me) {
@@ -8971,7 +9082,7 @@ const Ballet = (() => {
     const L = lesson;
     if (L.paused) { runStep(); return; }
     L.into = Math.min(stepSec(L.ls.steps[L.i]), (performance.now() - (L.t0 || 0)) / 1000);
-    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); BMusic.bg(false); BMusic.duck(false); stopDemo(); if (VID.on) VID.on.pause(); teacherVid('talk', false);
+    L.paused = true; L.run = -1; actDone('__pause'); sayN++; stopVoice(); BMusic.stop(); BMusic.bg(false); BMusic.duck(false); stopDemo(); if (VID.on) VID.on.pause(); teacherVid('talk', false);
     $('#blSay').closest('.blteach').classList.remove('talking'); $('#blSay').textContent = BL.paused;
     $('#blPlay').textContent = '▶'; $('#blPlay').setAttribute('aria-label', 'Xem tiếp');
     el.classList.add('paused'); chip('⏸ Tạm dừng'); progressUi();
@@ -8981,20 +9092,31 @@ const Ballet = (() => {
   $('#blPrev').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show) { lesson.i = Math.max(0, lesson.i - 1); runStep(); } });
   $('#blNext').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show && lesson.i < lesson.ls.steps.length - 1) { lesson.i++; runStep(); } });
   $('#blSlow').addEventListener('click', (e) => { pop(e.currentTarget); S.slow = !S.slow; save(); e.currentTarget.classList.toggle('on', !!S.slow); });
-  async function finishLesson() {
+  async function finishLesson(timeUp) {
+    $('#blTimer').hidden = true;
     const ls = lesson.ls, all = lessons(), idx = all.findIndex((x) => x.id === ls.id);
     const wasNewLevel = idx + 1 < all.length && all[idx + 1].level.id !== ls.level.id && !S.done[ls.id];
     S.done[ls.id] = 3; S.watched[ls.id] = 1; save(); lesson = null; stopAll();
     $('#blStars').textContent = totalStars();
     celebrationFx(); claps(4);
     $('#blTeacher').src = TCH.clap || TCH.talk;
-    await say(BL.vdone, 'clap');
+    const nx = all[idx + 1];
+    if (timeUp) await say(S.auto !== false && nx ? BL.timeup : BL.timeupM, 'clap'); else await say(BL.vdone, 'clap');
+    if (mode !== 'lesson' || lesson) return;
     await say(BL.done, 'clap');
     if (wasNewLevel) await say(BL.level, 'clap');
     stats.balletDone = ls.id;
     if (mode !== 'lesson' || lesson) return;
-    const nx = all[idx + 1];                                                 // straight on to the next video
-    if (nx && !nx.show) { S.cur = { id: nx.id, i: 0 }; save(); startLesson(nx); } else { S.cur = null; save(); buildVideos(); }
+    S.cur = nx && !nx.show ? { id: nx.id, i: 0 } : null; save();
+    if (S.auto === false) {                                                   // manual: the child chooses
+      chip('👆 Bé chọn nhé');
+      const k = await waitAct([...(nx ? [['next', nx.show ? '🎭 Lên sân khấu ▶' : 'Bài tiếp theo ▶', 1]] : []), ['again', '🔁 Học lại bài này'], ['lib', '📚 Thư viện video']]);
+      if (mode !== 'lesson' || lesson || k === '__pause') return;
+      if (k === 'again') return startLesson(all[idx]);
+      if (k === 'lib' || !nx) return buildVideos();
+    }
+    if (nx && nx.show) { await say(BL.allDone, 'clap'); if (mode !== 'lesson' || lesson) return; return startLesson(nx); }
+    if (nx) startLesson(nx); else buildVideos();
   }
 
   /* ---------- stage show: the routine with music, then the runway / certificate ---------- */
@@ -9167,7 +9289,7 @@ const Ballet = (() => {
   }
   $('#blMirrorBtn').addEventListener('click', (e) => { pop(e.currentTarget); mirror(!stream); });
 
-  function stopAll() { BMusic.stop(); stopDemo(); vidStop(); clearTimeout(twirlT); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
+  function stopAll() { BMusic.stop(); stopDemo(); vidStop(); clearTimeout(twirlT); $('#blTimer').hidden = true; if (actWait) actDone('__pause'); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
   $('#blDressBtn').addEventListener('click', (e) => { pop(e.currentTarget); dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); });
   $('#blStageBtn').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
   el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; sayN++; stopVoice(); buildVideos(); }));
