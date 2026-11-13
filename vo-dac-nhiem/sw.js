@@ -1,5 +1,5 @@
 // Sinh tự động bởi tools/build_sw.py — đừng sửa tay.
-const VERSION = "cb9a4732a6";
+const VERSION = "96902f30b4";
 const SHELL = [
 "./",
 "index.html",
@@ -51,6 +51,23 @@ const SHELL = [
 "assets/img/kf/tk5-2.webp",
 "assets/img/kf/tk5-3.webp",
 "assets/img/kf/tk5-4.webp",
+"assets/img/kf/tk5-5.webp",
+"assets/img/kf/tk5-6.webp",
+"assets/img/kf/tk6-1.webp",
+"assets/img/kf/tk6-2.webp",
+"assets/img/kf/tk6-3.webp",
+"assets/img/kf/tk6-4.webp",
+"assets/img/kf/tk6-5.webp",
+"assets/img/kf/tk7-1.webp",
+"assets/img/kf/tk7-2.webp",
+"assets/img/kf/tk7-3.webp",
+"assets/img/kf/tk7-4.webp",
+"assets/img/kf/tk7-5.webp",
+"assets/img/kf/tk8-1.webp",
+"assets/img/kf/tk8-2.webp",
+"assets/img/kf/tk8-3.webp",
+"assets/img/kf/tk8-4.webp",
+"assets/img/kf/tk8-5.webp",
 "assets/sfx/silence.mp3",
 "assets/video/coach-idle.mp4",
 "assets/video/coach-talk.mp4"

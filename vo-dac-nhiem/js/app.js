@@ -219,6 +219,8 @@ function screenStart() {
   if (matchMedia("(min-width: 900px)").matches) $(".panel").prepend($(".start .logo"));
 }
 
+// Đổi thành true khi có assets/video/welcome-sync.mp4 (video thầy chào, khớp khẩu hình với giọng).
+const HAS_WELCOME_SYNC = false;
 function playWelcome() {
   const hero = $(".start .coach");
   const line = $(".speech-card .line");
@@ -244,6 +246,7 @@ function playWelcome() {
       hero.classList.add("live");
     });
   };
+  if (!HAS_WELCOME_SYNC) return begin(false);
   sync.addEventListener("canplaythrough", () => begin(true), { once: true });
   sync.addEventListener("error", () => begin(false), { once: true });
   setTimeout(() => begin(false), 1800);
