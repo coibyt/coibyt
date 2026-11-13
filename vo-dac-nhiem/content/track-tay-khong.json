@@ -1,0 +1,544 @@
+{
+  "id": "tay-khong",
+  "lessons": [
+    {
+      "id": "tk1",
+      "title": "Khởi động & hơi thở",
+      "sub": "Xoay khớp, làm nóng, thở dẫn bước, thở xả, căng – chùng",
+      "minutes": 12,
+      "level": 1,
+      "xp": 100,
+      "intro": "Bài đầu tiên. Chưa có đòn thế nào cả. Một chiến binh giỏi bắt đầu từ khớp xương ấm và hơi thở bình tĩnh. Hãy làm theo tôi từng bước.",
+      "safety": "Khởi động trước mọi buổi tập. Đau nhói ở khớp là dừng ngay.",
+      "steps": [
+        {
+          "id": "tk1-1",
+          "title": "Xoay khớp từ trên xuống",
+          "say": "Đứng thẳng, hai chân rộng bằng vai. Xoay cổ thật chậm, năm vòng mỗi chiều. Tiếp theo xoay vai, xoay khuỷu tay, xoay cổ tay. Rồi xoay hông, xoay gối và cổ chân. Đi lần lượt từ trên xuống dưới, động tác tròn và mềm, không giật. Khớp có ấm thì cơ thể mới an toàn khi ngã và khi ra đòn.",
+          "cues": ["Từ trên xuống: cổ → vai → khuỷu → cổ tay → hông → gối → cổ chân", "Mỗi khớp 5 vòng mỗi chiều", "Chậm, tròn, không giật"],
+          "mistakes": ["Xoay cổ quá nhanh, ngửa cổ ra sau quá mạnh", "Nín thở khi xoay"],
+          "drill": { "type": "time", "n": 90, "label": "Xoay khớp" },
+          "shot": { "who": ["coach"], "frame": "standing on the canvas mat facing the camera, feet shoulder-width apart, both hands on his hips, head tilted slightly to one side as he begins a slow neck rotation", "motion": "He slowly rolls his neck in a full circle, then rolls both shoulders backwards in big smooth circles, calm controlled breathing, relaxed natural motion" }
+        },
+        {
+          "id": "tk1-2",
+          "title": "Làm nóng cơ thể",
+          "say": "Chạy tại chỗ, nâng cao gối trong ba mươi giây. Tiếp theo là mười cái squat: hạ hông xuống như ngồi vào ghế, lưng thẳng, gối hướng theo mũi chân. Rồi mười cái chống đẩy, ai chưa quen thì chống gối. Mục tiêu là cơ thể ấm lên và hơi thở nhanh hơn một chút, chứ không phải tập đến kiệt sức.",
+          "cues": ["30 giây chạy nâng gối", "10 squat: lưng thẳng, gối theo mũi chân", "10 chống đẩy (được chống gối)"],
+          "mistakes": ["Gối đổ vào trong khi squat", "Võng lưng khi chống đẩy"],
+          "drill": { "type": "reps", "n": 10, "label": "Squat" },
+          "shot": { "who": ["coach"], "frame": "standing on the canvas mat in profile view (side view, facing left), arms extended straight forward at shoulder height, beginning a bodyweight squat", "motion": "He performs two slow, perfect bodyweight squats: hips go back and down until thighs are parallel to the ground, back straight, knees tracking over the toes, arms forward for balance, then stands up tall. Smooth realistic motion" }
+        },
+        {
+          "id": "tk1-3",
+          "title": "Hơi thở dẫn bước",
+          "say": "Đây là bài thở quen thuộc của các hệ võ thực chiến Nga. Đi bộ đều. Hít vào bằng mũi trong bốn bước, thở ra bằng miệng trong bốn bước. Sau một phút, giảm xuống ba bước, rồi hai bước, rồi một bước. Sau đó tăng ngược trở lại bốn bước. Nhớ kỹ: hơi thở dẫn chuyển động. Không bao giờ nín thở.",
+          "cues": ["Hít mũi 4 bước – thở miệng 4 bước", "Giảm dần 4 → 3 → 2 → 1, rồi tăng lại", "Vai thả lỏng, không nín thở"],
+          "mistakes": ["Nín thở khi đổi nhịp", "Nhún vai lên khi hít vào"],
+          "drill": { "type": "time", "n": 120, "label": "Đi bộ thở theo bước" },
+          "shot": { "who": ["coach"], "frame": "walking slowly along a muddy forest path next to the training ground, seen from the front-side, arms relaxed, chest rising as he inhales through his nose", "motion": "He walks slowly and steadily towards the camera, breathing deeply and calmly in rhythm with his steps, shoulders relaxed, a little mist around him" }
+        },
+        {
+          "id": "tk1-4",
+          "title": "Thở xả khi gắng sức",
+          "say": "Khi mệt hoặc căng thẳng, hãy thở ngắn và nhanh: hít vào bằng mũi, thở ra mạnh bằng miệng, nhiều lần liên tiếp, giống như thổi tắt ngọn nến. Tập thử ngay: giữ tư thế chống đẩy ở trên cao trong hai mươi giây và thở xả liên tục. Bạn sẽ thấy cơ bớt căng cứng, đầu óc tỉnh táo hơn.",
+          "cues": ["Hít mũi ngắn – thổi ra miệng mạnh", "Liên tục như thổi nến", "Giữ plank cao 20 giây khi thở"],
+          "mistakes": ["Thở dồn dập đến chóng mặt: chậm lại", "Hông võng xuống khi giữ plank"],
+          "drill": { "type": "time", "n": 20, "label": "Plank cao + thở xả" },
+          "shot": { "who": ["coach"], "frame": "holding a high plank (top of a push-up position) on the canvas mat, side view, body in a straight line, face showing effort and controlled breathing", "motion": "He holds the high plank firmly, body straight, and breathes out in short powerful bursts through his mouth, his back rising and falling slightly with each breath" }
+        },
+        {
+          "id": "tk1-5",
+          "title": "Căng – chùng toàn thân",
+          "say": "Nằm ngửa trên thảm. Hít vào, siết chặt hai bàn chân trong ba giây, rồi thở ra và thả lỏng hoàn toàn. Lần lượt đi lên bắp chân, đùi, bụng, nắm tay, vai và cả khuôn mặt. Cuối cùng siết toàn thân một lần rồi thả. Người biết thả lỏng sẽ chịu va chạm tốt hơn, di chuyển nhanh hơn và ít chấn thương hơn.",
+          "cues": ["Hít vào – siết 3 giây", "Thở ra – thả lỏng hoàn toàn", "Từ bàn chân lên tới mặt"],
+          "mistakes": ["Siết quá mạnh đến chuột rút", "Quên thở ra khi thả"],
+          "drill": { "type": "time", "n": 60, "label": "Căng – chùng" },
+          "shot": { "who": ["coach"], "frame": "lying on his back on the canvas mat, seen from a high three-quarter angle, arms by his sides with clenched fists, eyes closed, calm face", "motion": "He tenses his whole body for a moment, fists clenched, then exhales slowly and lets every muscle go completely loose, hands opening, chest settling, peaceful expression" }
+        }
+      ],
+      "quiz": [
+        { "q": "Khi xoay khớp, nên đi theo thứ tự nào?", "a": ["Từ trên xuống: cổ, vai… tới cổ chân", "Ngẫu nhiên, khớp nào cũng được", "Chỉ cần xoay cổ chân"], "ok": 0, "why": "Đi từ trên xuống giúp không bỏ sót khớp nào." },
+        { "q": "Trong bài thở dẫn bước, hít vào bằng gì?", "a": ["Bằng miệng", "Bằng mũi", "Nín thở rồi hít"], "ok": 1, "why": "Hít bằng mũi, thở ra bằng miệng, theo nhịp bước chân." },
+        { "q": "Thở xả dùng khi nào?", "a": ["Khi mệt hoặc căng thẳng", "Chỉ khi ngủ", "Không bao giờ"], "ok": 0, "why": "Thở ngắn, mạnh giúp giảm căng cơ và giữ tỉnh táo khi gắng sức." },
+        { "q": "Vì sao cần biết thả lỏng?", "a": ["Để trông đẹp hơn", "Chịu va chạm tốt hơn, di chuyển nhanh hơn, ít chấn thương", "Để khỏi phải khởi động"], "ok": 1, "why": "Cơ căng cứng phản ứng chậm và dễ chấn thương hơn." }
+      ],
+      "outro": "Tốt lắm. Khớp đã ấm, hơi thở đã vào nhịp. Buổi sau ta học thế đứng và bộ pháp."
+    },
+    {
+      "id": "tk2",
+      "title": "Thế đứng & bộ pháp",
+      "sub": "Hàng rào tay, thế chiến đấu, bước trượt, xoay trụ",
+      "minutes": 14,
+      "level": 1,
+      "xp": 120,
+      "intro": "Đôi chân quyết định tất cả. Đứng vững thì mới đỡ được, mới đánh được, mới thoát được. Hôm nay ta xây nền móng.",
+      "safety": "Tập trên nền phẳng, không trơn. Bước ngắn và chắc.",
+      "steps": [
+        {
+          "id": "tk2-1",
+          "title": "Thế cảnh giác – hàng rào tay",
+          "say": "Khi có người tiến lại gần với thái độ gây hấn, đừng nắm đấm vội. Đứng hơi chéo người, chân thuận lùi về sau nửa bước. Hai bàn tay mở, đưa ra trước ngực, lòng bàn tay hướng về phía trước, như đang nói: bình tĩnh nào. Hai tay là hàng rào giữ khoảng cách. Trông bạn không hung hăng, nhưng thật ra đã sẵn sàng.",
+          "cues": ["Đứng chéo, chân thuận lùi nửa bước", "Hai bàn tay mở trước ngực", "Giữ khoảng cách, giọng bình tĩnh"],
+          "mistakes": ["Nắm đấm ngay: dễ leo thang xung đột", "Đứng thẳng mặt, hai chân song song"],
+          "drill": { "type": "reps", "n": 10, "label": "Vào thế hàng rào" },
+          "shot": { "who": ["coach"], "frame": "standing on the canvas mat, body slightly angled, right foot half a step back, both open palms raised in front of his chest facing forward in a calm 'stop, easy' gesture, calm alert expression, three-quarter front view", "motion": "From a relaxed stance he smoothly steps his right foot back half a step and raises both open palms in front of his chest in a calming fence gesture, then holds still, alert and composed" }
+        },
+        {
+          "id": "tk2-2",
+          "title": "Thế đứng chiến đấu",
+          "say": "Người thuận tay phải: chân trái trước, chân phải sau. Hai bàn chân cách nhau rộng hơn vai một chút, mũi chân trước hơi chếch vào trong, gót chân sau hơi nhấc. Gối chùng, trọng lượng chia đều hai chân. Hai tay lên trước mặt, khuỷu tay khép che sườn, cằm thu xuống, mắt nhìn qua hai nắm tay. Người thuận tay trái thì làm ngược lại.",
+          "cues": ["Chân trái trước (thuận tay phải)", "Gối chùng, gót sau hơi nhấc", "Tay che mặt, khuỷu che sườn, cằm thu"],
+          "mistakes": ["Hai chân cùng trên một đường thẳng: dễ mất thăng bằng", "Hất cằm lên, hạ tay xuống"],
+          "drill": { "type": "reps", "n": 10, "label": "Vào thế chiến đấu" },
+          "shot": { "who": ["coach"], "frame": "standing on the canvas mat in a classic orthodox fighting stance at a three-quarter angle: left foot forward, knees bent, both fists raised in front of his face, elbows tucked, chin down, focused eyes", "motion": "From a neutral standing position he steps his left foot forward, bends his knees, raises both fists to guard his face with elbows tucked, tucks his chin and settles into a solid balanced fighting stance, small bounce on the balls of his feet" }
+        },
+        {
+          "id": "tk2-3",
+          "title": "Bước trượt tiến – lùi",
+          "say": "Muốn tiến: chân trước bước đi trước một bước ngắn, chân sau trượt theo đúng khoảng cách ấy. Muốn lùi: chân sau lùi trước, chân trước rút theo. Bàn chân lướt sát mặt đất, không nhảy. Không bao giờ để hai chân bắt chéo hay chụm lại. Sau mỗi bước, bạn vẫn đúng thế đứng ban đầu.",
+          "cues": ["Tiến: chân trước đi trước", "Lùi: chân sau đi trước", "Khoảng cách hai chân không đổi"],
+          "mistakes": ["Bắt chéo chân", "Nhảy lên thay vì trượt"],
+          "drill": { "type": "reps", "n": 20, "label": "Bước tiến – lùi" },
+          "shot": { "who": ["coach"], "frame": "in his fighting stance on the canvas mat, seen from the side (profile view facing left), fists up, knees bent", "motion": "He moves with short shuffle steps: two steps forward (front foot first, rear foot follows) then two steps back (rear foot first, front foot follows), feet gliding close to the mat, never crossing, guard always up, smooth and balanced" }
+        },
+        {
+          "id": "tk2-4",
+          "title": "Bước ngang",
+          "say": "Sang trái thì chân trái đi trước, sang phải thì chân phải đi trước, chân còn lại trượt theo. Giữ khoảng cách hai chân không đổi, tay vẫn che mặt. Trên nền bùn trơn, bước càng ngắn càng chắc.",
+          "cues": ["Sang trái: chân trái trước", "Sang phải: chân phải trước", "Bước ngắn trên nền trơn"],
+          "mistakes": ["Chân sau bước qua chân trước", "Hạ tay khi di chuyển"],
+          "drill": { "type": "reps", "n": 20, "label": "Bước ngang" },
+          "shot": { "who": ["coach"], "frame": "in his fighting stance on the canvas mat facing the camera at a slight angle, fists up, knees bent", "motion": "He shuffles sideways two short steps to his left (left foot leads, right foot follows) then two short steps to his right (right foot leads), feet never crossing, guard up, low and stable" }
+        },
+        {
+          "id": "tk2-5",
+          "title": "Xoay trụ đổi góc",
+          "say": "Đứng thế chiến đấu. Lấy mũi chân trước làm trụ, xoay chân sau theo vòng cung một phần tư vòng tròn. Cả người đổi góc chín mươi độ, ra khỏi đường lao tới của đối phương. Xoay bên này mười lần, rồi đổi chiều.",
+          "cues": ["Trụ trên mũi chân trước", "Chân sau quét vòng cung", "Đổi góc 90°, tay vẫn thủ"],
+          "mistakes": ["Trụ bằng gót chân", "Đứng thẳng người khi xoay"],
+          "drill": { "type": "reps", "n": 10, "label": "Xoay trụ mỗi chiều" },
+          "shot": { "who": ["coach"], "frame": "in his fighting stance on the canvas mat, seen from a high three-quarter angle so the feet are visible, fists up", "motion": "Pivoting on the ball of his front foot, he swings his rear foot in a quarter-circle arc so his whole body turns ninety degrees, then pivots back, guard always up, controlled and balanced" }
+        },
+        {
+          "id": "tk2-6",
+          "title": "Di chuyển theo khẩu lệnh",
+          "say": "Bây giờ hãy di chuyển theo khẩu lệnh của tôi trong ba mươi giây: tiến, lùi, trái, phải, xoay. Giữ tay, giữ cằm, giữ hơi thở đều. Đôi chân nhanh nhưng thân trên luôn bình tĩnh.",
+          "cues": ["Tiến – lùi – trái – phải – xoay", "Tay và cằm luôn đúng vị trí", "Thở đều"],
+          "mistakes": ["Nhìn xuống chân", "Bước quá dài"],
+          "drill": { "type": "calls", "n": 30, "label": "Bộ pháp theo khẩu lệnh", "calls": ["Tiến!", "Lùi!", "Sang trái!", "Sang phải!", "Xoay!"] },
+          "shot": { "who": ["coach", "ivan"], "frame": "the instructor and the trainee Ivan both stand in fighting stances on the canvas mat facing each other at a distance, side view of both, fists up", "motion": "The instructor moves forward, back and sideways with short shuffle steps while Ivan mirrors his footwork, keeping the same distance, both staying low and balanced, guards up" }
+        }
+      ],
+      "quiz": [
+        { "q": "Thế hàng rào tay dùng để làm gì?", "a": ["Giữ khoảng cách mà không tỏ ra hung hăng", "Đấm ngay đối phương", "Khoanh tay chờ"], "ok": 0, "why": "Hai bàn tay mở giữ khoảng cách và làm dịu tình huống." },
+        { "q": "Muốn lùi, chân nào đi trước?", "a": ["Chân trước", "Chân sau", "Cả hai cùng nhảy"], "ok": 1, "why": "Hướng nào thì chân gần hướng đó đi trước." },
+        { "q": "Lỗi nguy hiểm nhất khi di chuyển là gì?", "a": ["Bắt chéo hai chân", "Bước ngắn", "Giữ tay che mặt"], "ok": 0, "why": "Chân bắt chéo làm bạn mất thăng bằng rất dễ." },
+        { "q": "Khi xoay trụ, trụ trên phần nào của chân trước?", "a": ["Gót chân", "Mũi chân", "Mép ngoài bàn chân"], "ok": 1, "why": "Trụ trên mũi chân giúp xoay nhẹ và nhanh." }
+      ],
+      "outro": "Nền móng đã có. Đôi chân vững là nửa trận đấu. Bài sau: học cách ngã an toàn."
+    },
+    {
+      "id": "tk3",
+      "title": "Ngã an toàn",
+      "sub": "Nguyên tắc ngã, ngã ngửa, ngã nghiêng, lộn trước",
+      "minutes": 15,
+      "level": 2,
+      "xp": 150,
+      "intro": "Ở trại này, ai cũng phải học ngã trước khi học quật. Ngã đúng cách là kỹ năng cứu mạng, kể cả khi bạn trượt chân trên đường trơn.",
+      "safety": "Chỉ tập trên đệm dày. Cằm luôn thu. Có người hướng dẫn khi tập lộn.",
+      "steps": [
+        {
+          "id": "tk3-1",
+          "title": "Ba nguyên tắc vàng",
+          "say": "Ba nguyên tắc vàng khi ngã. Một: cằm luôn thu sát ngực, để đầu không bao giờ đập xuống đất. Hai: lưng cuộn tròn như bánh xe, để bạn lăn chứ không đập phẳng xuống. Ba: cánh tay đập xuống thảm cùng lúc với thân người, để chia nhỏ lực va chạm. Luôn tập trên đệm dày. Tuyệt đối không tập trên nền cứng.",
+          "cues": ["Cằm thu sát ngực", "Lưng tròn như bánh xe", "Tay đập thảm cùng lúc với thân"],
+          "mistakes": ["Chống tay thẳng xuống đất khi ngã: dễ gãy cổ tay", "Ngửa đầu ra sau"],
+          "drill": { "type": "reps", "n": 10, "label": "Cuộn lưng, thu cằm" },
+          "shot": { "who": ["coach"], "frame": "sitting on the canvas mat with knees bent, arms crossed over his chest, chin tucked to his chest, back rounded, side view", "motion": "Sitting with chin tucked, he gently rocks backwards on his rounded back like a rocking chair and then rocks forward again, back curved, head never touching the mat, slow and controlled" }
+        },
+        {
+          "id": "tk3-2",
+          "title": "Ngã ngửa từ tư thế ngồi",
+          "say": "Ngồi trên thảm, hai chân duỗi ra trước, hai tay đưa ra trước. Cằm thu, lưng cuộn tròn, lăn ngửa ra sau. Khi lưng trên chạm thảm, hai cánh tay duỗi thẳng, đập mạnh xuống thảm, chếch khoảng bốn mươi lăm độ so với thân, lòng bàn tay úp. Thở ra khi chạm thảm. Lăn trở về tư thế ngồi. Tập mười lần.",
+          "cues": ["Ngồi, tay đưa ra trước", "Lăn ngửa, cằm thu", "Đập hai tay chếch 45°, lòng bàn tay úp, thở ra"],
+          "mistakes": ["Đập tay quá xa hoặc sát người", "Đập khuỷu tay xuống thay vì cả cánh tay"],
+          "drill": { "type": "reps", "n": 10, "label": "Ngã ngửa từ ngồi" },
+          "shot": { "who": ["coach"], "frame": "sitting on the canvas mat with legs extended forward, both arms reaching forward, chin tucked, side view", "motion": "He rolls backwards onto his rounded upper back with chin tucked, and as his shoulders touch the mat both straight arms slap down on the mat at about forty-five degrees from his body, palms down, then he rolls back up to sitting. Realistic breakfall" }
+        },
+        {
+          "id": "tk3-3",
+          "title": "Ngã ngửa từ ngồi xổm",
+          "say": "Ngồi xổm, hai tay đưa ra trước. Hạ mông xuống thảm, sát gót chân, rồi lăn tròn ra sau giống bài trước và đập hai tay. Không ngồi phịch xuống. Không để lưng thẳng đập phẳng. Khi đã chắc, đứng lên rồi ngồi xổm xuống liên tục để tập nhanh dần.",
+          "cues": ["Mông hạ sát gót chân", "Lăn tròn, không đập phẳng", "Đập tay, thở ra"],
+          "mistakes": ["Ngồi phịch xuống xa gót", "Đầu bật ngửa chạm thảm"],
+          "drill": { "type": "reps", "n": 10, "label": "Ngã ngửa từ ngồi xổm" },
+          "shot": { "who": ["coach"], "frame": "in a deep squat on the canvas mat with both arms extended forward, chin tucked, side view", "motion": "From the squat he lowers his hips to the mat right next to his heels, rolls backwards on his rounded back, slaps the mat with both arms at forty-five degrees, then rocks forward back into the squat. Smooth controlled breakfall" }
+        },
+        {
+          "id": "tk3-4",
+          "title": "Ngã nghiêng",
+          "say": "Từ tư thế ngồi xổm, duỗi chân phải chéo qua trước chân trái, hạ người nghiêng sang bên phải. Hông phải, rồi lưng bên phải chạm thảm theo thứ tự, cánh tay phải đập xuống thảm. Cằm thu, đầu không chạm thảm. Rồi đổi bên. Đây là kiểu ngã hay gặp nhất khi bị quật.",
+          "cues": ["Duỗi chân chéo qua trước", "Hông → lưng chạm thảm theo thứ tự", "Tay cùng bên đập thảm"],
+          "mistakes": ["Chống khuỷu tay xuống", "Đầu đập nghiêng xuống thảm"],
+          "drill": { "type": "reps", "n": 8, "label": "Ngã nghiêng mỗi bên" },
+          "shot": { "who": ["coach"], "frame": "squatting on the canvas mat, right leg starting to sweep across in front of his left leg, right arm across his chest, chin tucked, front view", "motion": "He sweeps his right leg across in front of his left leg and lowers himself sideways to the right, rolling onto his right hip and the right side of his back while his right arm slaps the mat, head kept up off the mat, then sits back up" }
+        },
+        {
+          "id": "tk3-5",
+          "title": "Lộn trước qua vai",
+          "say": "Quỳ một gối trên thảm, chân phải ở trước. Tay phải cong thành vòng cung như vành bánh xe, đặt cạnh ngoài cánh tay xuống thảm. Nhìn qua vai trái. Lăn chéo từ vai phải xuống hông trái. Không lăn qua đỉnh đầu, không lăn thẳng theo cột sống. Kết thúc bằng tư thế ngồi vững hoặc đứng dậy, tay đưa lên che mặt.",
+          "cues": ["Tay tạo vòng cung như bánh xe", "Lăn chéo: vai phải → hông trái", "Không lăn qua đầu, đứng dậy che mặt"],
+          "mistakes": ["Lăn thẳng qua đỉnh đầu: rất nguy hiểm cho cổ", "Tay gập lại làm đầu chạm thảm"],
+          "drill": { "type": "reps", "n": 6, "label": "Lộn trước mỗi bên" },
+          "shot": { "who": ["coach"], "frame": "kneeling on his left knee on the canvas mat with his right foot forward, his right arm curved in front of him like a wheel rim with the outer edge of the forearm near the mat, chin tucked, three-quarter view", "motion": "He rolls forward diagonally across his body from his right shoulder to his left hip in a smooth round shoulder roll, never touching his head on the mat, and comes up onto one knee with his hands raised to guard. Realistic martial arts forward roll" }
+        }
+      ],
+      "quiz": [
+        { "q": "Khi ngã, cằm phải thế nào?", "a": ["Ngửa lên", "Thu sát ngực", "Quay sang bên"], "ok": 1, "why": "Thu cằm để đầu không đập xuống đất." },
+        { "q": "Cánh tay đập thảm chếch khoảng bao nhiêu độ so với thân?", "a": ["Khoảng 45°", "Sát người 0°", "Thẳng lên trời"], "ok": 0, "why": "Khoảng 45°: chia lực tốt mà không đập khuỷu tay." },
+        { "q": "Khi lộn trước, đường lăn đi thế nào?", "a": ["Thẳng qua đỉnh đầu", "Chéo từ vai xuống hông bên kia", "Lăn ngang"], "ok": 1, "why": "Lăn chéo qua vai để bảo vệ cổ và cột sống." },
+        { "q": "Tập ngã ở đâu?", "a": ["Nền bê tông cho quen", "Trên đệm dày", "Cầu thang"], "ok": 1, "why": "Luôn tập trên đệm dày, an toàn là trên hết." }
+      ],
+      "outro": "Bạn đã biết ngã. Từ hôm nay, mặt đất không còn đáng sợ nữa. Bài sau: che chắn và đỡ đòn."
+    },
+    {
+      "id": "tk4",
+      "title": "Che chắn & đỡ đòn",
+      "sub": "Thủ cao, ôm đầu, gạt đỡ, đỡ cẳng tay, né góc",
+      "minutes": 15,
+      "level": 2,
+      "xp": 150,
+      "intro": "Trước khi học đánh, phải học không bị đánh trúng. Phòng thủ tốt nhất là đơn giản, nhỏ gọn, và luôn đi kèm di chuyển.",
+      "safety": "Tập đôi đeo găng, bạn tập ra đòn chậm, chỉ hai mươi phần trăm sức.",
+      "steps": [
+        {
+          "id": "tk4-1",
+          "title": "Thủ cao",
+          "say": "Từ thế chiến đấu, đưa hai nắm tay lên ngang trán, hai cẳng tay dựng đứng trước mặt như hai tấm khiên. Khuỷu tay khép, cằm thu, vai nhô lên che hàm. Đây là tư thế che chắn chắc chắn nhất khi đòn đến quá nhanh và bạn không kịp nhìn.",
+          "cues": ["Nắm tay ngang trán", "Cẳng tay dựng như khiên", "Cằm thu, vai che hàm"],
+          "mistakes": ["Nhắm mắt khi che", "Khuỷu tay mở rộng để lộ sườn"],
+          "drill": { "type": "reps", "n": 15, "label": "Vào thủ cao" },
+          "shot": { "who": ["coach"], "frame": "in his fighting stance on the canvas mat facing the camera, fists raised high near his forehead, forearms vertical in front of his face like shields, elbows tight, chin tucked", "motion": "From a normal guard he snaps both forearms up into a tight high guard in front of his face, elbows squeezed together, shoulders lifted, then relaxes back to normal guard and repeats, eyes always visible between his forearms" }
+        },
+        {
+          "id": "tk4-2",
+          "title": "Ôm đầu che kín",
+          "say": "Khi bị dồn ép nhiều đòn liên tiếp: hai bàn tay ôm lấy phía sau đầu, hai khuỷu tay khép lại trước mặt, cúi người, gập gối. Đầu nằm gọn trong lồng hai cánh tay. Nhưng không được đứng yên lâu ở tư thế này. Che, rồi di chuyển ngay ra khỏi góc tấn công.",
+          "cues": ["Hai tay ôm sau đầu", "Khuỷu khép trước mặt", "Che rồi di chuyển ngay"],
+          "mistakes": ["Đứng yên chịu đòn", "Quay lưng lại"],
+          "drill": { "type": "reps", "n": 10, "label": "Ôm đầu rồi thoát ngang" },
+          "shot": { "who": ["coach"], "frame": "on the canvas mat, slightly crouched, both hands clasped behind his head, elbows pulled together in front of his face forming a protective shell, knees bent, three-quarter view", "motion": "He drops into a tight protective crouch with hands wrapped behind his head and elbows closed in front of his face, then quickly steps out sideways at an angle while keeping the cover, and rises back into his fighting stance" }
+        },
+        {
+          "id": "tk4-3",
+          "title": "Gạt đỡ",
+          "say": "Khi một cú đấm thẳng lao tới mặt, đừng đỡ cứng. Dùng lòng bàn tay gạt nhẹ cổ tay hoặc nắm đấm của đối phương lệch sang một bên, chỉ vừa đủ để nó trượt qua mặt bạn. Động tác nhỏ và ngắn, tay trở về vị trí thủ ngay lập tức.",
+          "cues": ["Gạt bằng lòng bàn tay", "Chỉ vừa đủ lệch đòn", "Về thủ ngay"],
+          "mistakes": ["Vung tay gạt quá rộng", "Với tay ra đón đòn"],
+          "drill": { "type": "reps", "n": 20, "label": "Gạt đỡ mỗi tay" },
+          "shot": { "who": ["coach", "ivan"], "frame": "the instructor and Ivan face each other in fighting stances on the canvas mat, side view of both, Ivan wearing boxing gloves and starting a slow straight punch towards the instructor's face", "motion": "Ivan throws a slow straight punch; the instructor calmly parries it with the palm of his open hand, deflecting Ivan's glove just slightly past his head, then returns his hand to guard. Slow, controlled, safe partner drill" }
+        },
+        {
+          "id": "tk4-4",
+          "title": "Đỡ cẳng tay lên trên",
+          "say": "Khi đòn bổ từ trên cao xuống, đưa cẳng tay lên chéo trước trán, cẳng tay nghiêng như mái nhà, để lực trượt đi chứ không dồn thẳng vào xương. Cùng lúc đó, bước chéo lên phía trước hoặc ra ngoài.",
+          "cues": ["Cẳng tay chéo trước trán", "Nghiêng như mái nhà", "Kèm bước chéo"],
+          "mistakes": ["Cẳng tay nằm ngang: chịu trọn lực", "Đứng yên tại chỗ"],
+          "drill": { "type": "reps", "n": 10, "label": "Đỡ lên trên mỗi tay" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, Ivan (wearing boxing gloves) raises his right arm high for a slow overhead downward strike with an open hand, the instructor faces him in a fighting stance, side view", "motion": "As Ivan brings his arm slowly down from above, the instructor raises his left forearm angled like a roof above his forehead so Ivan's arm slides off it, while stepping diagonally forward to the outside. Slow, controlled, safe demonstration" }
+        },
+        {
+          "id": "tk4-5",
+          "title": "Né góc – bước chéo",
+          "say": "Phòng thủ tốt nhất là không đứng ở chỗ đòn đánh tới. Khi gạt đỡ, đồng thời bước chéo bốn mươi lăm độ ra phía ngoài tay đánh của đối phương. Bạn rời khỏi đường tấn công và đứng ở vị trí an toàn hơn để thoát đi.",
+          "cues": ["Gạt + bước chéo 45°", "Ra phía ngoài tay đánh", "Từ góc an toàn, thoát đi"],
+          "mistakes": ["Lùi thẳng về sau: đối phương đuổi theo dễ", "Bước vào phía trong tay kia của đối phương"],
+          "drill": { "type": "reps", "n": 10, "label": "Gạt + né góc mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, seen from a high angle, the instructor and Ivan in fighting stances facing each other, Ivan with boxing gloves beginning a slow straight punch", "motion": "As Ivan punches slowly, the instructor parries and simultaneously steps diagonally forty-five degrees to the outside of the punching arm, ending at Ivan's side angle with his guard up. Smooth slow-motion style partner drill" }
+        },
+        {
+          "id": "tk4-6",
+          "title": "Tập đôi chậm",
+          "say": "Tập với bạn tập, cả hai đeo găng. Người đánh ra đòn thật chậm, chỉ hai mươi phần trăm sức, nhắm vào găng chứ không nhắm vào mặt. Người đỡ gọi tên kỹ thuật mình dùng: thủ cao, gạt, né góc. Khi đã đúng và bình tĩnh, mới tăng tốc dần.",
+          "cues": ["Đeo găng, 20% sức", "Gọi tên kỹ thuật khi làm", "Đúng rồi mới nhanh"],
+          "mistakes": ["Tăng tốc quá sớm", "Đánh thật vào mặt bạn tập"],
+          "drill": { "type": "time", "n": 60, "label": "Tập đôi chậm" },
+          "shot": { "who": ["ivan", "katya"], "frame": "the trainees Ivan and Katya, both wearing boxing gloves, face each other in fighting stances on the canvas mat, side view, the instructor's presence implied", "motion": "Katya throws slow light punches at Ivan's gloves while Ivan calmly defends with high guard and parries, both moving lightly on their feet, controlled friendly sparring drill at low speed" }
+        }
+      ],
+      "quiz": [
+        { "q": "Gạt đỡ đúng là:", "a": ["Gạt nhỏ vừa đủ lệch đòn rồi về thủ", "Vung tay thật rộng", "Đón đòn bằng mặt"], "ok": 0, "why": "Động tác nhỏ, nhanh, không mở hở thế thủ." },
+        { "q": "Khi đỡ đòn bổ từ trên xuống, cẳng tay đặt thế nào?", "a": ["Nằm ngang", "Chéo, nghiêng như mái nhà", "Hạ xuống bụng"], "ok": 1, "why": "Nghiêng như mái nhà để lực trượt đi." },
+        { "q": "Né góc là bước theo hướng nào?", "a": ["Chéo 45° ra ngoài tay đánh", "Lùi thẳng", "Đứng yên"], "ok": 0, "why": "Ra khỏi đường tấn công và tới góc an toàn." },
+        { "q": "Khi tập đôi, người đánh dùng bao nhiêu sức?", "a": ["Hết sức", "Khoảng 20%", "50%"], "ok": 1, "why": "Tập chậm để học đúng và an toàn." }
+      ],
+      "outro": "Bạn đã có tấm khiên. Bài sau ta học đòn đánh cơ bản trên đích đỡ."
+    },
+    {
+      "id": "tk5",
+      "title": "Đòn cơ bản trên đích đỡ",
+      "sub": "Nắm đấm, đấm thẳng, gót bàn tay, đá đẩy, tổ hợp",
+      "minutes": 16,
+      "level": 3,
+      "xp": 170,
+      "intro": "Đòn đánh tốt không cần đẹp, chỉ cần đúng, gọn và an toàn cho chính bạn. Hôm nay ta tập trên đích đỡ, không bao giờ vào người thật.",
+      "safety": "Quấn băng tay, đeo găng. Chỉ đánh vào đích đỡ hoặc bao cát.",
+      "steps": [
+        {
+          "id": "tk5-1",
+          "title": "Nắm đấm đúng",
+          "say": "Cuộn bốn ngón tay vào lòng bàn tay. Ngón cái gập chặt bên ngoài ngón trỏ và ngón giữa, không bao giờ kẹp bên trong. Khi chạm đích, cổ tay thẳng hàng với cẳng tay, lực đi vào hai khớp đốt của ngón trỏ và ngón giữa. Người mới tập luôn quấn băng tay và đeo găng.",
+          "cues": ["Cuộn 4 ngón vào lòng bàn tay", "Ngón cái gập bên ngoài", "Cổ tay thẳng hàng cẳng tay"],
+          "mistakes": ["Kẹp ngón cái bên trong nắm tay", "Gập cổ tay khi chạm đích"],
+          "drill": { "type": "reps", "n": 10, "label": "Nắm – mở bàn tay đúng" },
+          "shot": { "who": ["coach"], "frame": "close-up medium shot of the instructor holding his right hand up in front of his chest, fingers starting to curl into a fist, his face visible above, forest background blurred", "motion": "He slowly curls his four fingers into his palm and folds his thumb firmly across the outside of the index and middle fingers to form a correct fist, then rotates the fist to show the straight wrist alignment" }
+        },
+        {
+          "id": "tk5-2",
+          "title": "Đấm thẳng tay trước",
+          "say": "Từ thế chiến đấu, phóng thẳng nắm tay trước ra theo đường ngắn nhất. Xoay úp nắm tay khi gần chạm đích, vai nâng lên che cằm. Tay kia vẫn ở cạnh mặt. Đấm xong, rút về đúng đường cũ, nhanh như lúc ra.",
+          "cues": ["Đường thẳng ngắn nhất", "Xoay úp nắm tay khi chạm", "Rút về nhanh, tay kia giữ thủ"],
+          "mistakes": ["Kéo tay ra sau lấy đà", "Hạ tay sau xuống"],
+          "drill": { "type": "reps", "n": 20, "label": "Đấm tay trước" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, the instructor wearing boxing gloves in his fighting stance, Ivan holding up a pair of padded focus mitts in front of him, side view of both", "motion": "The instructor throws crisp, controlled jabs with his lead hand into Ivan's focus mitt, turning the fist over at impact and snapping it straight back to guard, rear hand staying by his chin" }
+        },
+        {
+          "id": "tk5-3",
+          "title": "Đấm thẳng tay sau",
+          "say": "Đẩy từ gót chân sau, xoay hông và vai, phóng nắm tay sau thẳng tới đích. Mũi chân sau xoay theo, như đang dụi tắt một đốm lửa. Sức mạnh đến từ chân và hông, không chỉ từ cánh tay. Rồi rút về thế thủ ngay.",
+          "cues": ["Đẩy từ chân sau", "Xoay hông – vai – mũi chân sau", "Rút về thủ ngay"],
+          "mistakes": ["Chỉ dùng tay, không xoay hông", "Ngả người quá trước, mất thăng bằng"],
+          "drill": { "type": "reps", "n": 20, "label": "Đấm tay sau" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, the instructor wearing boxing gloves in his fighting stance, Ivan holding up padded focus mitts, side view of both", "motion": "The instructor throws a powerful controlled straight right cross into Ivan's mitt, pivoting his rear foot and rotating his hips and shoulders, then returns quickly to guard. Realistic boxing pad work" }
+        },
+        {
+          "id": "tk5-4",
+          "title": "Đòn gót bàn tay",
+          "say": "Ngửa cổ tay ra sau, mở bàn tay, các ngón co nhẹ. Đánh bằng phần gót bàn tay, đường đi thẳng như cú đấm. Trong tình huống tự vệ ngoài đời, đòn này an toàn cho tay hơn nắm đấm trần, vì không có khớp ngón tay nào va vào xương cứng.",
+          "cues": ["Ngửa cổ tay, mở bàn tay", "Đánh bằng gót bàn tay", "Đường thẳng như cú đấm"],
+          "mistakes": ["Đánh bằng lòng ngón tay", "Duỗi thẳng cứng các ngón"],
+          "drill": { "type": "reps", "n": 15, "label": "Gót bàn tay mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, the instructor without gloves in his fighting stance with open hands, Ivan holding a thick rectangular kick shield pad in front of his chest, side view", "motion": "The instructor strikes the pad with controlled straight palm-heel strikes, wrist bent back and fingers slightly curled, alternating hands, returning to guard each time. Controlled pad drill" }
+        },
+        {
+          "id": "tk5-5",
+          "title": "Đá đẩy trước",
+          "say": "Co gối chân sau lên cao ngang hông. Rồi đạp thẳng gót chân ra trước, như đạp tung một cánh cửa, đẩy hông theo. Đích là vùng bụng, ở đây là chiếc khiên đỡ. Thu chân về và đặt xuống trong thế đứng. Mục đích của đòn này là đẩy kẻ tấn công ra xa, tạo khoảng cách để bạn thoát đi.",
+          "cues": ["Co gối cao ngang hông", "Đạp bằng gót, đẩy hông", "Thu chân về thế đứng"],
+          "mistakes": ["Đá bằng mũi chân", "Ngả người ra sau quá nhiều"],
+          "drill": { "type": "reps", "n": 10, "label": "Đá đẩy mỗi chân" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, the instructor in his fighting stance, Ivan braced holding a thick kick shield pad against his torso, side view of both", "motion": "The instructor chambers his rear knee up to hip height and drives a straight push kick with his heel into the kick shield, pushing Ivan back a step, then retracts his leg and lands back in his fighting stance. Realistic controlled kick" }
+        },
+        {
+          "id": "tk5-6",
+          "title": "Tổ hợp và thoát ly",
+          "say": "Bây giờ ghép lại thành tổ hợp: đấm tay trước, đấm tay sau, đá đẩy, rồi lùi hai bước về thế hàng rào tay. Tập ba hiệp, mỗi hiệp ba mươi giây vào đích đỡ, nghỉ hai mươi giây. Đánh rõ ràng từng đòn. Đúng rồi mới nhanh.",
+          "cues": ["Tay trước – tay sau – đá đẩy", "Lùi 2 bước, hàng rào tay", "3 hiệp × 30 giây, nghỉ 20 giây"],
+          "mistakes": ["Quên lùi ra sau tổ hợp", "Đánh vội, mất thế đứng"],
+          "drill": { "type": "rounds", "n": 30, "rounds": 3, "rest": 20, "label": "Hiệp tổ hợp" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, the instructor wearing boxing gloves in his fighting stance, Ivan holding focus mitts, wide side view of both", "motion": "The instructor throws a quick combination into Ivan's pads: jab, cross, then a push kick into the pad, and immediately steps back two steps raising open hands in a fence position. Controlled, realistic, fluid" }
+        }
+      ],
+      "quiz": [
+        { "q": "Ngón cái đặt ở đâu khi nắm đấm?", "a": ["Kẹp bên trong", "Gập bên ngoài ngón trỏ và ngón giữa", "Duỗi thẳng"], "ok": 1, "why": "Kẹp bên trong dễ gãy ngón cái." },
+        { "q": "Sức mạnh cú đấm tay sau đến từ đâu?", "a": ["Chỉ từ cánh tay", "Từ chân và hông", "Từ cổ"], "ok": 1, "why": "Đẩy chân, xoay hông, vai và tay đi theo." },
+        { "q": "Mục đích chính của đá đẩy trong tự vệ?", "a": ["Tạo khoảng cách để thoát", "Đá vào đầu", "Khoe kỹ thuật"], "ok": 0, "why": "Đẩy kẻ tấn công ra xa để bạn rời đi an toàn." },
+        { "q": "Vì sao đòn gót bàn tay an toàn cho tay hơn?", "a": ["Không có khớp ngón va vào xương cứng", "Vì nó chậm", "Vì đánh nhẹ"], "ok": 0, "why": "Gót bàn tay chắc, ít rủi ro chấn thương bàn tay." }
+      ],
+      "outro": "Đòn đã có lực và có kỷ luật. Bài sau: thoát khỏi bị nắm cổ tay."
+    },
+    {
+      "id": "tk6",
+      "title": "Thoát nắm cổ tay",
+      "sub": "Nguyên tắc ngón cái, nắm cùng bên, nắm chéo, hai tay nắm",
+      "minutes": 13,
+      "level": 3,
+      "xp": 160,
+      "intro": "Bị nắm cổ tay là tình huống rất hay gặp. Không cần sức mạnh, chỉ cần hiểu đúng điểm yếu của bàn tay đối phương.",
+      "safety": "Bạn tập nắm vừa sức. Thoát chậm, không giật mạnh làm đau khớp.",
+      "steps": [
+        {
+          "id": "tk6-1",
+          "title": "Nguyên tắc ngón cái",
+          "say": "Khi bị nắm cổ tay, điểm yếu nhất của bàn tay đối phương là khe hở giữa ngón cái và các ngón còn lại. Đừng giằng co sức với sức. Hãy xoay cẳng tay để phần xương mỏng của cổ tay hướng vào khe hở ấy, rồi rút mạnh ra theo hướng ngón cái.",
+          "cues": ["Tìm ngón cái của đối phương", "Xoay cổ tay vào khe ngón cái", "Rút mạnh theo hướng ngón cái"],
+          "mistakes": ["Kéo thẳng ra sau, giằng co", "Rút về phía bốn ngón tay"],
+          "drill": { "type": "reps", "n": 10, "label": "Tìm hướng ngón cái" },
+          "shot": { "who": ["coach", "ivan"], "frame": "close medium shot on the canvas mat: Ivan firmly grips the instructor's right wrist with his left hand, the gap between Ivan's thumb and fingers clearly visible, both men's faces visible", "motion": "The instructor calmly points to the gap between Ivan's thumb and fingers with his free hand, then slowly rotates his trapped forearm so the narrow edge of his wrist faces that gap, demonstrating the escape direction in slow motion" }
+        },
+        {
+          "id": "tk6-2",
+          "title": "Bị nắm cùng bên",
+          "say": "Ivan nắm cổ tay phải của tôi bằng tay trái. Tôi hạ trọng tâm, gập khuỷu tay, kéo tay về sát người mình. Xoay cẳng tay để cổ tay hướng vào ngón cái của Ivan, rồi giật mạnh lên trên, về phía vai của tôi. Tay thoát ra. Lập tức giơ hai tay hàng rào và lùi lại.",
+          "cues": ["Hạ trọng tâm, gập khuỷu", "Xoay cổ tay vào ngón cái", "Giật về phía vai mình, rồi hàng rào tay"],
+          "mistakes": ["Duỗi thẳng tay khi thoát", "Đứng sát lại sau khi thoát"],
+          "drill": { "type": "reps", "n": 10, "label": "Thoát nắm cùng bên mỗi tay" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view of both: Ivan grips the instructor's right wrist with his left hand, arm extended, the instructor standing calm", "motion": "The instructor lowers his stance, bends his elbow bringing his hand towards his body, rotates his wrist towards Ivan's thumb and pulls it up and out towards his own shoulder, breaking free, then immediately raises both open hands in a fence and steps back. Slow, controlled" }
+        },
+        {
+          "id": "tk6-3",
+          "title": "Bị nắm chéo",
+          "say": "Khi bị nắm chéo, ví dụ tay phải đối phương nắm cổ tay phải của bạn, ngón cái của họ nằm ở phía trên. Xoay cổ tay của bạn lên trên, cắt ngang qua khe ngón cái, kéo về phía vai đối diện. Kết hợp với một bước lùi chéo.",
+          "cues": ["Ngón cái đối phương ở phía trên", "Xoay lên, cắt qua khe ngón cái", "Kéo về vai đối diện + lùi chéo"],
+          "mistakes": ["Kéo xuống dưới, ngược hướng khe hở", "Quên bước chân"],
+          "drill": { "type": "reps", "n": 10, "label": "Thoát nắm chéo mỗi tay" },
+          "shot": { "who": ["coach", "katya"], "frame": "on the canvas mat, side view: the trainee Katya grips the instructor's right wrist with her right hand in a cross grip, both standing", "motion": "The instructor rotates his trapped wrist upward through the gap of Katya's thumb and pulls his hand across towards his opposite shoulder while stepping back diagonally, breaking the grip cleanly, then raises his hands in a fence. Slow controlled demonstration" }
+        },
+        {
+          "id": "tk6-4",
+          "title": "Bị nắm bằng hai tay",
+          "say": "Khi bị nắm bằng cả hai tay, một tay của bạn không đủ sức. Hãy luồn bàn tay tự do vào giữa hai cánh tay của đối phương, nắm lấy nắm tay của chính mình. Rồi dùng sức của cả hai tay, cộng với lực xoay vai, giật mạnh lên trên, qua khe hở của hai ngón cái.",
+          "cues": ["Tay tự do luồn vào giữa", "Nắm lấy nắm tay của mình", "Hai tay + xoay vai, giật lên"],
+          "mistakes": ["Cố rút một tay đơn độc", "Giật ngang thay vì lên trên"],
+          "drill": { "type": "reps", "n": 8, "label": "Thoát nắm hai tay" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view: Ivan holds the instructor's right forearm firmly with both hands, the instructor's free left hand ready", "motion": "The instructor reaches his free left hand between Ivan's arms, grabs his own right fist, and using both arms and a rotation of his shoulders pulls sharply upward through the gap between Ivan's thumbs, breaking free, then steps back with a fence. Controlled demonstration" }
+        },
+        {
+          "id": "tk6-5",
+          "title": "Sau khi thoát",
+          "say": "Thoát ra không phải là hết. Lập tức lùi xa, giơ hai tay hàng rào, và hô thật to: Dừng lại! Tiếng hô thu hút người xung quanh và cho thấy bạn không muốn đánh nhau. Mục tiêu của tự vệ luôn là thoát ra an toàn và rời đi.",
+          "cues": ["Lùi xa ngay", "Hàng rào tay", "Hô to: Dừng lại!"],
+          "mistakes": ["Đứng lại tranh cãi", "Quay lưng bỏ chạy khi còn quá gần"],
+          "drill": { "type": "reps", "n": 5, "label": "Thoát – lùi – hô" },
+          "shot": { "who": ["coach"], "frame": "on the canvas mat, the instructor stepping backwards with both open palms raised forward in a fence position, mouth open as if shouting a firm command, intense but controlled expression, three-quarter front view", "motion": "He steps back two firm steps with both palms raised in a fence and shouts a firm 'stop' command, assertive and confident, then holds his position, scanning around" }
+        }
+      ],
+      "quiz": [
+        { "q": "Điểm yếu của bàn tay đang nắm là:", "a": ["Lòng bàn tay", "Khe giữa ngón cái và các ngón", "Ngón út"], "ok": 1, "why": "Khe ngón cái là chỗ hở dễ thoát nhất." },
+        { "q": "Bị nắm bằng hai tay, nên làm gì?", "a": ["Rút một tay thật mạnh", "Nắm lấy tay mình, dùng hai tay giật lên", "Đứng yên"], "ok": 1, "why": "Hai tay cộng xoay vai thắng được hai tay đối phương." },
+        { "q": "Sau khi thoát, việc đầu tiên là:", "a": ["Lùi xa, hàng rào tay, hô to", "Đánh trả ngay", "Tranh cãi"], "ok": 0, "why": "Mục tiêu tự vệ là an toàn và rời đi." },
+        { "q": "Có nên giằng co sức với sức?", "a": ["Có", "Không, hãy dùng đúng hướng ngón cái"], "ok": 1, "why": "Kỹ thuật đúng thắng sức mạnh." }
+      ],
+      "outro": "Bàn tay bạn đã biết tự giải thoát. Bài sau: thoát khi bị ôm và bị nắm phía trước."
+    },
+    {
+      "id": "tk7",
+      "title": "Thoát ôm & nắm phía trước",
+      "sub": "Ôm sau khóa tay, ôm sau tay tự do, nắm cổ áo phía trước, tín hiệu dừng",
+      "minutes": 15,
+      "level": 4,
+      "xp": 190,
+      "intro": "Bị ôm chặt là cảm giác đáng sợ nhất. Bí quyết nằm ở trọng tâm thấp và đôi chân linh hoạt. Ta tập chậm, an toàn, và luôn tôn trọng tín hiệu dừng.",
+      "safety": "Bạn tập ôm vừa sức. Không bao giờ siết cổ thật. Vỗ hai lần là dừng.",
+      "steps": [
+        {
+          "id": "tk7-1",
+          "title": "Tín hiệu dừng",
+          "say": "Trước mọi bài tập đôi, hãy thống nhất tín hiệu dừng. Vỗ tay vào người bạn tập hoặc vào thảm hai lần, hoặc nói to: Dừng. Khi nghe hoặc cảm thấy tín hiệu này, buông ra ngay lập tức. Người tập phải tôn trọng tín hiệu này tuyệt đối. Tập an toàn thì mới tập lâu dài được.",
+          "cues": ["Vỗ 2 lần hoặc nói: Dừng", "Buông ngay lập tức", "Tôn trọng tuyệt đối"],
+          "mistakes": ["Cố thêm một chút sau tín hiệu", "Không thống nhất trước khi tập"],
+          "drill": { "type": "reps", "n": 3, "label": "Thống nhất tín hiệu" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, Ivan stands behind the instructor with his arms loosely around the instructor's waist, the instructor's hand raised ready to tap Ivan's forearm, side view", "motion": "The instructor taps Ivan's forearm twice clearly, and Ivan immediately lets go and steps back, both nodding to each other respectfully. Calm demonstration" }
+        },
+        {
+          "id": "tk7-2",
+          "title": "Bị ôm sau – hạ trọng tâm",
+          "say": "Khi bị ôm từ phía sau mà hai tay bị khóa bên trong vòng ôm: lập tức hạ thấp trọng tâm, chùng gối, đẩy hông ra sau. Cùng lúc đó, mở rộng hai khuỷu tay ra hai bên để nới vòng ôm. Trọng tâm thấp làm đối phương rất khó nhấc bổng bạn lên.",
+          "cues": ["Hạ trọng tâm ngay", "Đẩy hông ra sau", "Mở rộng khuỷu tay nới vòng ôm"],
+          "mistakes": ["Đứng thẳng người, dễ bị nhấc bổng", "Hoảng loạn giãy giụa"],
+          "drill": { "type": "reps", "n": 8, "label": "Hạ trọng tâm, nới vòng ôm" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view: Ivan hugs the instructor from behind with his arms wrapped around the instructor's upper arms and chest, pinning his arms", "motion": "The instructor instantly drops his weight, bending his knees and pushing his hips back, while forcing both elbows outward to loosen Ivan's bear hug, staying low and stable. Controlled partner drill" }
+        },
+        {
+          "id": "tk7-3",
+          "title": "Bị ôm sau – xoay thoát",
+          "say": "Khi vòng ôm đã nới ra, bước một chân sang ngang, hạ người thấp hơn nữa, xoay hông và vai, luồn ra khỏi vòng tay. Quay lại đối mặt với đối phương, hai tay hàng rào, rồi lùi xa. Tập chậm với bạn tập, người ôm chỉ ôm vừa sức.",
+          "cues": ["Bước ngang một chân", "Hạ thấp, xoay hông luồn ra", "Đối mặt, hàng rào, lùi xa"],
+          "mistakes": ["Xoay khi trọng tâm còn cao", "Ở lại gần sau khi thoát"],
+          "drill": { "type": "reps", "n": 8, "label": "Thoát ôm sau mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view: Ivan's bear hug from behind has loosened, the instructor is low with elbows wide and starting to step his right foot out to the side", "motion": "The instructor steps sideways, drops lower, twists his hips and shoulders and slips out of Ivan's loosened arms, turns to face him with both palms raised in a fence and steps back to a safe distance. Slow, controlled" }
+        },
+        {
+          "id": "tk7-4",
+          "title": "Bị ôm sau – hai tay tự do",
+          "say": "Nếu hai tay của bạn ở bên ngoài vòng ôm: vẫn hạ trọng tâm trước tiên. Rồi nắm lấy bàn tay của đối phương ở trước bụng, gỡ cho vòng tay mở ra, đồng thời xoay người thoát ra ngoài. Lùi xa và giữ hàng rào tay.",
+          "cues": ["Hạ trọng tâm trước", "Gỡ bàn tay đối phương trước bụng", "Xoay thoát, lùi xa"],
+          "mistakes": ["Cào cấu tay đối phương mà không hạ thấp", "Quay lưng bỏ đi khi còn sát"],
+          "drill": { "type": "reps", "n": 8, "label": "Thoát ôm sau tay tự do" },
+          "shot": { "who": ["coach", "katya"], "frame": "on the canvas mat, side view: the instructor hugs Katya from behind around her waist with his hands clasped at her stomach, her arms free", "motion": "Katya drops her weight low, grabs the instructor's clasped hands at her stomach and peels them open, then twists her body out to the side and steps away, turning to face him with her palms raised in a fence. Slow controlled self-defence drill" }
+        },
+        {
+          "id": "tk7-5",
+          "title": "Bị nắm cổ áo phía trước",
+          "say": "Khi đối phương dùng hai tay túm cổ áo của bạn từ phía trước: thu cằm, nâng vai để bảo vệ cổ. Giơ thẳng một cánh tay lên cao qua đầu, rồi xoay mạnh người sang một bên, để vai và cánh tay đè qua hai cánh tay đối phương, phá vòng nắm. Lập tức bước lùi và giơ hàng rào tay. Khi tập: bạn tập chỉ túm cổ áo, tuyệt đối không bóp vào cổ.",
+          "cues": ["Thu cằm, nâng vai", "Giơ thẳng một tay lên cao", "Xoay mạnh người, đè qua hai tay, lùi ra"],
+          "mistakes": ["Kéo hai tay đối phương ra bằng sức", "Xoay mà không giơ tay cao"],
+          "drill": { "type": "reps", "n": 8, "label": "Thoát nắm cổ áo mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view: Ivan grabs the instructor's jacket collar with both hands from the front, arms extended, the instructor with chin tucked and shoulders raised", "motion": "The instructor raises his right arm straight up high over his head and turns his whole body sharply to the left, bringing his shoulder and arm down over both of Ivan's arms and breaking the collar grip, then steps back raising both open palms in a fence. Controlled demonstration, no pressure on the neck" }
+        }
+      ],
+      "quiz": [
+        { "q": "Bị ôm từ phía sau, việc đầu tiên là gì?", "a": ["Hạ thấp trọng tâm", "Nhảy lên", "Ngửa đầu ra sau"], "ok": 0, "why": "Trọng tâm thấp khiến đối phương khó nhấc bổng bạn." },
+        { "q": "Tín hiệu dừng trong tập đôi là:", "a": ["Vỗ hai lần hoặc nói: Dừng", "Hét to bất kỳ", "Không cần tín hiệu"], "ok": 0, "why": "Thống nhất trước và tôn trọng tuyệt đối." },
+        { "q": "Thoát nắm cổ áo phía trước dùng gì?", "a": ["Sức kéo hai tay", "Giơ tay cao rồi xoay mạnh người đè qua", "Đứng yên chờ"], "ok": 1, "why": "Xoay cả thân người mạnh hơn sức hai cánh tay đối phương." },
+        { "q": "Khi tập thoát nắm cổ áo, bạn tập được phép:", "a": ["Bóp cổ thật", "Chỉ túm cổ áo, không bóp cổ"], "ok": 1, "why": "An toàn tuyệt đối với vùng cổ." }
+      ],
+      "outro": "Bạn đã biết thoát khỏi những thế nắm khó chịu nhất. Bài cuối nhánh này: phá thăng bằng và quật ngã an toàn."
+    },
+    {
+      "id": "tk8",
+      "title": "Phá thăng bằng & quật ngã",
+      "sub": "Chân đế, thế nắm áo, gạt chân sau, ngáng chân trước, kiểm soát",
+      "minutes": 18,
+      "level": 5,
+      "xp": 220,
+      "intro": "Đây là tinh hoa của vật Sambo: dùng thăng bằng của đối phương để đưa họ xuống đất. Chỉ tập khi đã ngã thành thạo, trên đệm dày, có người hướng dẫn.",
+      "safety": "Bắt buộc: đã thuần thục bài Ngã an toàn, đệm dày, có huấn luyện viên, tốc độ chậm.",
+      "steps": [
+        {
+          "id": "tk8-1",
+          "title": "Chân đế và phá thăng bằng",
+          "say": "Đối phương đứng vững nhờ hai chân. Đường nối giữa hai bàn chân là chân đế. Đẩy hoặc kéo theo hướng vuông góc với đường ấy, đối phương sẽ mất thăng bằng rất dễ. Tập với bạn tập: nắm tay áo và cổ áo, đẩy, kéo, xoay nhẹ theo tám hướng. Cảm nhận khoảnh khắc trọng lượng của họ dồn hết lên gót chân hoặc mũi chân.",
+          "cues": ["Chân đế = đường nối hai bàn chân", "Đẩy/kéo vuông góc chân đế", "Cảm nhận trọng lượng dồn lên gót hoặc mũi"],
+          "mistakes": ["Đẩy dọc theo chân đế", "Dùng sức tay cứng đờ"],
+          "drill": { "type": "time", "n": 60, "label": "Đẩy – kéo 8 hướng" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, side view: the instructor and Ivan hold each other in a standard jacket grip (one hand on the sleeve, one on the collar), both upright", "motion": "The instructor gently pushes and pulls Ivan in different directions, rocking him onto his heels and then onto his toes, Ivan's balance visibly shifting, slow controlled grip-fighting drill" }
+        },
+        {
+          "id": "tk8-2",
+          "title": "Thế nắm áo cơ bản",
+          "say": "Thế nắm cơ bản của vật Sambo: tay trái nắm tay áo bên phải của bạn tập, ngay dưới khuỷu. Tay phải nắm ve áo bên trái, ngang ngực. Khuỷu tay mềm, không cứng đờ. Đứng thẳng lưng, hai chân rộng bằng vai, sẵn sàng di chuyển.",
+          "cues": ["Tay trái: tay áo dưới khuỷu", "Tay phải: ve áo ngang ngực", "Khuỷu mềm, lưng thẳng"],
+          "mistakes": ["Khom lưng, cúi đầu", "Khóa cứng khuỷu tay"],
+          "drill": { "type": "reps", "n": 10, "label": "Vào thế nắm áo" },
+          "shot": { "who": ["coach", "ivan"], "frame": "close medium shot on the canvas mat, side view: the instructor reaches to take a grip on Ivan's jacket, Ivan's jacket clearly visible", "motion": "The instructor takes a clean grip: his left hand grabs Ivan's right sleeve just below the elbow and his right hand grabs Ivan's left lapel at chest height, his posture upright and relaxed, then both take a small step together" }
+        },
+        {
+          "id": "tk8-3",
+          "title": "Gạt chân sau",
+          "say": "Kéo bạn tập về phía sau bên phải của họ, để trọng lượng dồn lên gót chân phải. Bước chân trái của bạn lên sát cạnh ngoài chân phải của họ. Chân phải của bạn vung qua, gạt bắp chân phải của họ từ phía sau, trong khi thân trên đẩy họ ra sau. Bạn tập ngã ngửa đúng kỹ thuật đã học. Bạn giữ tay áo của họ suốt cú ngã, kéo nhẹ lên, để lưng họ chạm thảm từ từ.",
+          "cues": ["Dồn trọng lượng lên gót phải của bạn tập", "Bước sát, gạt bắp chân từ phía sau", "Giữ tay áo, cho họ ngã nhẹ"],
+          "mistakes": ["Gạt khi trọng lượng chưa dồn lên chân đó", "Buông tay áo khi bạn tập đang ngã"],
+          "drill": { "type": "reps", "n": 6, "label": "Gạt chân sau (chậm) mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on a thick canvas mat, side view: the instructor holds Ivan in a sleeve-and-lapel grip, stepping in close beside Ivan's right leg, Ivan's weight on his right heel", "motion": "In slow motion the instructor reaps Ivan's right leg from behind with his own right leg while pushing his upper body back, and Ivan falls backwards onto the mat performing a correct back breakfall with chin tucked and arms slapping the mat, the instructor keeping hold of Ivan's sleeve to control the fall. Safe judo-style training throw" }
+        },
+        {
+          "id": "tk8-4",
+          "title": "Ngáng chân trước",
+          "say": "Kéo bạn tập về phía trước, chếch bên phải của họ. Xoay người, đặt chân phải của bạn chắn ngang trước cổ chân phải của họ. Tiếp tục kéo tay áo theo một vòng cung xuống dưới. Họ vấp qua chân bạn và ngã về phía trước, lăn qua vai đúng như bài lộn trước.",
+          "cues": ["Kéo về trước – chếch phải", "Chân chắn trước cổ chân", "Kéo vòng cung xuống dưới"],
+          "mistakes": ["Đá vào cổ chân thay vì chắn", "Kéo thẳng xuống đất quá mạnh"],
+          "drill": { "type": "reps", "n": 6, "label": "Ngáng chân trước (chậm) mỗi bên" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on a thick canvas mat, side view: the instructor in a sleeve-and-lapel grip with Ivan, turning his body and placing his right leg across in front of Ivan's right ankle", "motion": "In slow motion the instructor pulls Ivan forward in a circular arc over his blocking leg, and Ivan trips forward and performs a smooth rolling forward breakfall over his shoulder onto the mat. Safe controlled sambo-style training trip" }
+        },
+        {
+          "id": "tk8-5",
+          "title": "Kiểm soát sau khi quật",
+          "say": "Sau khi bạn tập ngã, đừng buông tay ngay. Giữ tay áo của họ, đứng vững, mắt nhìn họ, rồi đỡ họ đứng dậy. Người quật có trách nhiệm với người ngã. Chỉ tập quật ngã trên đệm dày, có huấn luyện viên theo dõi, tốc độ chậm, và luôn tôn trọng tín hiệu dừng.",
+          "cues": ["Giữ tay áo, đứng vững", "Mắt nhìn bạn tập", "Đỡ bạn tập dậy"],
+          "mistakes": ["Buông tay ngay khi ném", "Ngã đè lên bạn tập"],
+          "drill": { "type": "reps", "n": 5, "label": "Quật chậm + đỡ dậy" },
+          "shot": { "who": ["coach", "ivan"], "frame": "on the canvas mat, Ivan lying on his back after a breakfall, the instructor standing over him still holding his sleeve, three-quarter view", "motion": "The instructor keeps hold of Ivan's sleeve, stays balanced, looks at him, then pulls him up to his feet with a firm hand, both nod respectfully. Calm, warm moment" }
+        }
+      ],
+      "quiz": [
+        { "q": "Muốn phá thăng bằng, nên đẩy/kéo theo hướng nào?", "a": ["Dọc theo đường nối hai chân", "Vuông góc với đường nối hai chân", "Thẳng xuống đất"], "ok": 1, "why": "Hướng vuông góc với chân đế là hướng yếu nhất." },
+        { "q": "Khi gạt chân sau, trọng lượng bạn tập phải dồn lên đâu?", "a": ["Mũi chân", "Gót chân bị gạt", "Chân kia"], "ok": 1, "why": "Chân mang trọng lượng mới bị gạt đổ được." },
+        { "q": "Người quật có trách nhiệm gì?", "a": ["Giữ tay áo, kiểm soát cú ngã của bạn tập", "Buông ngay", "Ngã đè lên"], "ok": 0, "why": "Kiểm soát giúp bạn tập ngã an toàn." },
+        { "q": "Điều kiện để tập quật ngã:", "a": ["Đã ngã thành thạo, đệm dày, có huấn luyện viên", "Tập ở đâu cũng được", "Tập nhanh cho quen"], "ok": 0, "why": "An toàn là điều kiện bắt buộc." }
+      ],
+      "outro": "Chúc mừng! Bạn đã đi hết nhánh Tay không. Hãy ôn lại mỗi ngày. Kỹ năng thật nằm ở sự lặp lại."
+    }
+  ]
+}
