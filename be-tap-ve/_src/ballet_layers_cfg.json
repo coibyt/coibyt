@@ -1,0 +1,416 @@
+{
+ "bp_ready": {
+  "base": "b_ready.png",
+  "scale": 0.42,
+  "items": {
+   "ready.pink": {
+    "src": "bc_pink_ready",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "ready.swan": {
+    "src": "bc_swan_ready",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "ready.fairy": {
+    "src": "bc_fairy_ready",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "ready.plum": {
+    "src": "bc_plum_ready",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "ready.sun": {
+    "src": "bc_sun_ready",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_arm1": {
+  "base": "b_arm1.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_arm2": {
+  "base": "b_arm2.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_arm5": {
+  "base": "b_arm5.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_feet2": {
+  "base": "b_feet2.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_feet5": {
+  "base": "b_feet5.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_plie": {
+  "base": "b_plie.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_releve": {
+  "base": "b_releve.png",
+  "scale": 0.42,
+  "items": {
+   "releve.pink": {
+    "src": "bc_pink_releve",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "releve.swan": {
+    "src": "bc_swan_releve",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "releve.fairy": {
+    "src": "bc_fairy_releve",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "releve.plum": {
+    "src": "bc_plum_releve",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "releve.sun": {
+    "src": "bc_sun_releve",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_tendu": {
+  "base": "b_tendu.png",
+  "scale": 0.42,
+  "items": {
+   "tendu.pink": {
+    "src": "bc_pink_tendu",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "tendu.swan": {
+    "src": "bc_swan_tendu",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "tendu.fairy": {
+    "src": "bc_fairy_tendu",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "tendu.plum": {
+    "src": "bc_plum_tendu",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "tendu.sun": {
+    "src": "bc_sun_tendu",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_passe": {
+  "base": "b_passe.png",
+  "scale": 0.42,
+  "items": {
+   "passe.pink": {
+    "src": "bc_pink_passe",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "passe.swan": {
+    "src": "bc_swan_passe",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "passe.fairy": {
+    "src": "bc_fairy_passe",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "passe.plum": {
+    "src": "bc_plum_passe",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "passe.sun": {
+    "src": "bc_sun_passe",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_portbras": {
+  "base": "b_portbras.png",
+  "scale": 0.42,
+  "items": {
+   "portbras.pink": {
+    "src": "bc_pink_portbras",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "portbras.swan": {
+    "src": "bc_swan_portbras",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "portbras.fairy": {
+    "src": "bc_fairy_portbras",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "portbras.plum": {
+    "src": "bc_plum_portbras",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "portbras.sun": {
+    "src": "bc_sun_portbras",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_saute": {
+  "base": "b_saute.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_pirprep": {
+  "base": "b_pirprep.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_pirouette": {
+  "base": "b_pirouette.png",
+  "scale": 0.42,
+  "items": {
+   "pirouette.pink": {
+    "src": "bc_pink_pirouette",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "pirouette.swan": {
+    "src": "bc_swan_pirouette",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "pirouette.fairy": {
+    "src": "bc_fairy_pirouette",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "pirouette.plum": {
+    "src": "bc_plum_pirouette",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "pirouette.sun": {
+    "src": "bc_sun_pirouette",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_arabesque": {
+  "base": "b_arabesque.png",
+  "scale": 0.42,
+  "items": {
+   "arabesque.pink": {
+    "src": "bc_pink_arabesque",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "arabesque.swan": {
+    "src": "bc_swan_arabesque",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "arabesque.fairy": {
+    "src": "bc_fairy_arabesque",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "arabesque.plum": {
+    "src": "bc_plum_arabesque",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "arabesque.sun": {
+    "src": "bc_sun_arabesque",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_attitude": {
+  "base": "b_attitude.png",
+  "scale": 0.42,
+  "items": {}
+ },
+ "bp_reverence": {
+  "base": "b_reverence.png",
+  "scale": 0.42,
+  "items": {
+   "reverence.pink": {
+    "src": "bc_pink_reverence",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "reverence.swan": {
+    "src": "bc_swan_reverence",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "reverence.fairy": {
+    "src": "bc_fairy_reverence",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "reverence.plum": {
+    "src": "bc_plum_reverence",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "reverence.sun": {
+    "src": "bc_sun_reverence",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ },
+ "bp_final": {
+  "base": "b_final.png",
+  "scale": 0.42,
+  "items": {
+   "final.pink": {
+    "src": "bc_pink_final",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "final.swan": {
+    "src": "bc_swan_final",
+    "zone": [],
+    "minarea": 400,
+    "close": 6,
+    "t": 12,
+    "nobg": 1,
+    "hole": 20000
+   },
+   "final.fairy": {
+    "src": "bc_fairy_final",
+    "zone": [],
+    "minarea": 400,
+    "close": 5,
+    "t": 16,
+    "nobg": 1
+   },
+   "final.plum": {
+    "src": "bc_plum_final",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   },
+   "final.sun": {
+    "src": "bc_sun_final",
+    "zone": [],
+    "minarea": 400,
+    "close": 5
+   }
+  }
+ }
+}
