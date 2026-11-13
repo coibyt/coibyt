@@ -9,7 +9,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const app = $("#app");
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-const D = { tracks: [], covers: {}, lessons: {}, order: {}, text: {} };
+const D = { tracks: [], covers: {}, lessons: {}, order: {}, text: {}, sync: new Set() };
 let cleanup = [];               // việc dọn dẹp khi rời màn hình
 let pendingSpeech = null;       // lời thoại chờ người dùng chạm lần đầu
 let routeId = 0;
@@ -39,6 +39,8 @@ async function boot() {
       l.quiz.forEach((q, k) => { D.text[`${l.id}-q${k}`] = q.q; D.text[`${l.id}-w${k}`] = q.why; });
     });
   }
+  // video thầy nói khớp khẩu hình (Kie.ai InfiniTalk), có thì dùng, không có thì dùng clip "đang nói"
+  try { (await get(`assets/video/sync/${lang}/index.json`)).forEach((k) => D.sync.add(k)); } catch { /* chưa có */ }
   A.setup(manifest, `assets/voice/${lang}/`);
   A.configure(St.S().settings);
   A.onSpeak(setTalking);
@@ -69,6 +71,7 @@ function route() {
     lesson: () => screenLesson(a),
     play: () => screenPlay(a, +b || 0),
     quiz: () => screenQuiz(a),
+    exam: () => screenExam(a),
     drills: () => screenDrills(),
     me: () => screenMe(),
   };
@@ -133,12 +136,35 @@ function coachHTML({ cls = "", bubble = true } = {}) {
     ${bubble ? `<div class="speech idle"><div class="who">${t("coach")} <span class="eq"><i></i><i></i><i></i></span></div><div class="line"></div></div>` : ""}
   </div>`;
 }
-function setTalking(on) {
+function setTalking(on, key) {
+  const syncSrc = on && key && D.sync.has(key) ? `assets/video/sync/${L()}/${key}.mp4` : null;
   $$(".coach.live").forEach((c) => {
-    const talk = $("video.talk", c);
+    const talk = $("video.talk", c), idle = $("video.idle", c);
     if (!talk) return;
-    if (on) { talk.play().catch(() => {}); talk.classList.remove("off"); }
-    else { talk.classList.add("off"); }
+    let sync = $("video.sync", c);
+    if (syncSrc) {
+      if (!sync) {
+        sync = document.createElement("video");
+        Object.assign(sync, { muted: true, playsInline: true, preload: "auto" });
+        sync.className = "sync off";
+        c.appendChild(sync);
+      }
+      sync.src = syncSrc;
+      sync.playbackRate = A.rate();
+      sync.oncanplay = () => { sync.classList.remove("off"); talk.classList.add("off"); };
+      sync.onended = () => { sync.classList.add("off"); };
+      sync.play().catch(() => {});
+      talk.classList.add("off");
+      talk.play().catch(() => {});
+      talk.classList.remove("off");
+    } else if (on) {
+      if (sync) { sync.pause(); sync.classList.add("off"); }
+      talk.play().catch(() => {}); talk.classList.remove("off");
+    } else {
+      talk.classList.add("off");
+      if (sync) { sync.pause(); sync.classList.add("off"); }
+      idle?.play().catch(() => {});
+    }
     $(".eq", c.parentElement)?.style.setProperty("visibility", on ? "visible" : "hidden");
   });
 }
@@ -146,7 +172,7 @@ function setTalking(on) {
 const sentences = (text) => text.match(/[^.!?:]+[.!?:]*\s*/g) || [text];
 
 // Thầy nói câu `key`, phụ đề chạy theo từng câu trong ô `box` (nếu có).
-function speak(key, box) {
+function speak(key, box, cap) {
   const text = D.text[key] || "";
   const parts = sentences(text);
   const weights = parts.map((p) => p.length);
@@ -164,6 +190,7 @@ function speak(key, box) {
     if (idx === lastIdx) return;
     lastIdx = idx;
     $$(".s", box).forEach((s, i) => { s.className = `s ${i < idx ? "past" : i === idx ? "now" : ""}`; });
+    if (cap) cap.textContent = parts[idx];
   });
 }
 // Lời thoại ngắn trong bong bóng của thầy (chỉ hiện câu đang nói).
@@ -331,14 +358,22 @@ function screenTrack(id) {
     nodes = ls.map((l, i) => {
       const ok = St.unlocked(ls, i);
       const st = s.lessons[l.id]?.stars || 0;
-      return `<button class="node ${ok ? "" : "locked"} ${nl && nl.id === l.id ? "next" : ""}" data-next="${t("nextBadge")}" data-lesson="${l.id}" data-ok="${ok ? 1 : 0}">
+      const tier = l.tier !== ls[i - 1]?.tier ? `<div class="tier"><span>${l.tier === "adv" ? t("tierAdv") : t("tierBase")}</span></div>` : "";
+      return `${tier}<button class="node ${i % 2 ? "r" : "l"} ${ok ? "" : "locked"} ${nl && nl.id === l.id ? "next" : ""}" data-next="${t("nextBadge")}" data-lesson="${l.id}" data-ok="${ok ? 1 : 0}">
         <span class="thumb" style="background-image:url(assets/img/kf/${D.covers[l.id] || l.steps[0].id}.webp)"><b>${l.no}</b></span>
         <span class="txt"><h3>${esc(l.title)}</h3><span class="sub">${esc(l.sub)}</span>
           <span class="stars">${[0, 1, 2].map((k) => I.star.replace("<svg", `<svg class="${k < st ? "on" : ""}"`)).join("")}${ok ? "" : `<span class="pill chip-lock" style="margin-left:6px;padding:2px 8px">${I.lock}${t("locked")}</span>`}</span>
         </span></button>`;
     }).join("");
+    const allDone = ls.every((l) => s.lessons[l.id]?.done);
+    const grad = s.badges.includes("grad");
+    nodes += `<div class="tier"><span>${t("exam")}</span></div>
+      <button class="node exam ${allDone ? "" : "locked"} ${allDone && !grad ? "next" : ""}" data-next="${t("nextBadge")}" data-exam="${tr.id}" data-ok="${allDone ? 1 : 0}">
+        <span class="thumb medalthumb">${medal("grad")}</span>
+        <span class="txt"><h3>${t("examTitle")}</h3><span class="sub">${t("examSub")}</span>
+          <span class="stars">${grad ? `<span class="pill">${I.check}${t("badges").grad[0]}</span>` : allDone ? "" : `<span class="pill chip-lock" style="padding:2px 8px">${I.lock}${t("locked")}</span>`}</span></span></button>`;
   } else {
-    nodes = tr.preview.map((p, i) => `<button class="node locked" data-soon="1"><span class="thumb" style="background-image:url(assets/img/${tr.cover})"><b>${i + 1}</b></span>
+    nodes = tr.preview.map((p, i) => `<button class="node ${i % 2 ? "r" : "l"} locked" data-soon="1"><span class="thumb" style="background-image:url(assets/img/${tr.cover})"><b>${i + 1}</b></span>
       <span class="txt"><h3>${esc(p)}</h3><span class="stars"><span class="pill chip-lock" style="padding:2px 8px">${I.lock}${t("soon")}</span></span></span></button>`).join("");
   }
   render(`${topbar({ back: "#/home", title: `<span class="eyebrow">${t("tabMap")}</span><h1>${esc(tr.title)}</h1>` })}
@@ -349,6 +384,10 @@ function screenTrack(id) {
   $$(".node").forEach((n) => n.addEventListener("click", () => {
     A.sfx("tap");
     if (n.dataset.soon) { toast(t("trackLockedToast")); return; }
+    if (n.dataset.exam) {
+      if (n.dataset.ok === "1") go(`#/exam/${n.dataset.exam}`); else { toast(t("examLockedToast")); bubbleSay("exam_locked"); }
+      return;
+    }
     if (n.dataset.ok === "1") go(`#/lesson/${n.dataset.lesson}`);
     else { toast(t("lessonLockedToast")); bubbleSay("lesson_locked"); }
   }));
@@ -405,19 +444,28 @@ function screenPlay(id, idx) {
         <div class="stage">
           <video id="vid" src="assets/video/${st.id}.mp4" poster="assets/img/kf/${st.id}.webp" muted loop playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
           <div class="slowtag" id="slowtag">0,5×</div>
+          <div class="pip coach live ${St.S().settings.pip ? "" : "hide"}" style="background-image:url(assets/img/coach.webp)">
+            <video class="idle" src="assets/video/coach-idle.mp4" muted loop playsinline autoplay preload="auto"></video>
+            <video class="talk off" src="assets/video/coach-talk.mp4" muted loop playsinline preload="auto"></video>
+          </div>
+          <div class="cap" id="cap"></div>
           <div class="hud"><span class="badge-step">${t("step").toUpperCase()} ${idx + 1}/${l.steps.length}</span><span class="grow"></span>
             <button class="icon-btn ${view.slow ? "on" : ""}" id="bSlow" aria-label="${t("slow")}" title="${t("slow")}">${I.slow}</button>
             <button class="icon-btn ${view.mirror ? "on" : ""}" id="bMirror" aria-label="${t("mirror")}" title="${t("mirror")}">${I.mirror}</button></div>
           <div class="ctrl">
             <button class="icon-btn" id="bPlay" aria-label="Phát / dừng">${I.pause}</button>
             <button class="icon-btn" id="bReplay" aria-label="${t("replay")}" title="${t("replay")}">${I.replay}</button>
+            <button class="icon-btn ${St.S().settings.pip ? "on" : ""}" id="bPip" aria-label="${t("pip")}" title="${t("pip")}">${I.user}</button>
+            <button class="icon-btn" id="bFull" aria-label="${t("full")}" title="${t("full")}">${I.expand}</button>
           </div>
         </div>
         <div class="segs">${l.steps.map((_, i) => `<button data-go="#/play/${l.id}/${i}" class="${i === idx ? "cur" : Ls.seen.includes(i) ? "seen" : ""}" aria-label="${t("step")} ${i + 1}">${i === idx ? '<i id="segfill" style="width:0"></i>' : ""}</button>`).join("")}</div>
       </div>
       <div style="display:grid;gap:12px;align-content:start">
         <div class="step-title"><h2>${idx + 1}. ${esc(st.title)}</h2></div>
-        <div class="card subtitle"><div class="who">${t("coach")} <span class="eq" style="visibility:hidden"><i></i><i></i><i></i></span></div><div id="sub"></div></div>
+        <div class="card subtitle"><div class="who">${t("coach")} <span class="eq" style="visibility:hidden"><i></i><i></i><i></i></span><span class="grow"></span>
+          <span class="rates">${[0.85, 1, 1.15].map((r) => `<button class="rate ${A.rate() === r ? "on" : ""}" data-rate="${r}">${String(r).replace(".", ",")}×</button>`).join("")}</span></div><div id="sub"></div></div>
+        <label class="autorow"><span>${I.play}${t("autoPlay")}</span><button class="switch ${St.S().settings.auto ? "on" : ""}" id="bAuto" aria-label="${t("autoPlay")}"></button></label>
         <button class="btn ghost block" id="bDrill">${I.bolt}${t("practice")} · ${drillLabel}</button>
         <div class="card cues"><div class="panel-h">${t("cuesH")}</div>
           ${st.cues.map((c, i) => `<button class="cue ${checks[i] ? "on" : ""}" data-i="${i}"><span class="box"></span><span>${esc(c)}</span></button>`).join("")}</div>
@@ -447,6 +495,30 @@ function screenPlay(id, idx) {
   const bPlay = $("#bPlay");
   bPlay.onclick = () => { if (vid.paused) { vid.play().catch(() => {}); bPlay.innerHTML = I.pause; } else { vid.pause(); bPlay.innerHTML = I.play; } };
   $("#bReplay").onclick = () => narrate();
+  const stage = $(".stage");
+  $("#bPip").onclick = () => {
+    const S = St.S().settings; S.pip = !S.pip; St.save(); A.sfx("tap");
+    $(".pip", stage).classList.toggle("hide", !S.pip); $("#bPip").classList.toggle("on", S.pip);
+  };
+  const exitFull = () => { stage.classList.remove("full"); document.body.classList.remove("theater"); $("#bFull").innerHTML = I.expand; };
+  $("#bFull").onclick = () => {
+    A.sfx("tap");
+    if (stage.classList.contains("full")) return exitFull();
+    stage.classList.add("full"); document.body.classList.add("theater"); $("#bFull").innerHTML = I.close;
+  };
+  cleanup.push(exitFull);
+  $$(".rate").forEach((b) => b.onclick = () => {
+    const r = +b.dataset.rate; St.S().settings.rate = r; St.save(); A.configure(St.S().settings); A.sfx("tap");
+    $$(".rate").forEach((x) => x.classList.toggle("on", x === b));
+    narrate();
+  });
+  $("#bAuto").onclick = () => {
+    const S = St.S().settings; S.auto = !S.auto; St.save(); A.sfx("tap");
+    $("#bAuto").classList.toggle("on", S.auto);
+    if (!S.auto) clearTimeout(autoT);
+  };
+  let autoT = 0;
+  cleanup.push(() => clearTimeout(autoT));
   $$(".cue").forEach((c) => c.onclick = () => {
     const on = St.toggleCheck(st.id, +c.dataset.i, st.cues.length);
     c.classList.toggle("on", on); A.sfx(on ? "ok" : "tap");
@@ -459,13 +531,29 @@ function screenPlay(id, idx) {
   const eq = $(".subtitle .eq");
   const off = A.onSpeak((v) => { eq.style.visibility = v ? "visible" : "hidden"; });
   cleanup.push(off);
+  const cap = $("#cap");
   async function narrate() {
-    const ok = await speak(st.id, sub);
+    clearTimeout(autoT);
+    const ok = await speak(st.id, sub, cap);
     if (fill) fill.style.width = "100%";
     if (ok) {
+      St.addTime((A.durationOf(st.id) || 0) / 1000);
       const res = St.markSeen(l.id, idx);
       if (res) rewardToast(res);
-      $("#bNext")?.classList.add("pulse");
+      const nb = $("#bNext");
+      nb?.classList.add("pulse");
+      // Xem liên tục: tự sang bước sau sau một vòng clip
+      if (St.S().settings.auto && nb) {
+        let n = 4;
+        const label = nb.innerHTML;
+        const tick = () => {
+          if (!St.S().settings.auto) { nb.innerHTML = label; return; }
+          if (n <= 0) { nb.click(); return; }
+          nb.innerHTML = `${t("autoIn", n)} ${I.next}`; n--;
+          autoT = setTimeout(tick, 1000);
+        };
+        tick();
+      }
     }
   }
   // thanh tiến độ của bước hiện tại chạy theo lời giảng
@@ -526,6 +614,7 @@ function openDrill(st) {
       setRing(1);
       call.textContent = t("done") + "!";
       const res = St.drillDone(st.id);
+      St.addTime(d.type === "reps" ? d.n * tempo : d.type === "rounds" ? d.n * d.rounds : d.n);
       rewardToast(res);
       await A.say(key);
       if (dead) return;
@@ -587,19 +676,35 @@ function screenQuiz(id) {
   if (!l) return go("#/home");
   const ls = D.order[l.track];
   if (!St.unlocked(ls, ls.indexOf(l))) return go(`#/track/${l.track}`);
+  const qs = l.quiz.map((q, k) => ({ ...q, qk: `${l.id}-q${k}`, wk: `${l.id}-w${k}` }));
+  runQuiz(qs, { back: `#/lesson/${l.id}`, title: l.title, eyebrow: t("quiz"), intro: "quiz_intro", done: (score) => showResult(l, score) });
+}
+
+// Bài thi tốt nghiệp nhánh: 10 câu ngẫu nhiên từ mọi bài.
+function screenExam(trackId) {
+  const ls = D.order[trackId];
+  if (!ls) return go("#/home");
+  if (!ls.every((l) => St.S().lessons[l.id]?.done)) { toast(t("examLockedToast")); return go(`#/track/${trackId}`); }
+  const pool = ls.flatMap((l) => l.quiz.map((q, k) => ({ ...q, qk: `${l.id}-q${k}`, wk: `${l.id}-w${k}` })));
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  const tr = D.tracks.find((x) => x.id === trackId);
+  runQuiz(pool.slice(0, 10), { back: `#/track/${trackId}`, title: tr.title, eyebrow: t("exam"), intro: "exam_intro", done: (score, total) => showExamResult(trackId, score, total) });
+}
+
+function runQuiz(qs, { back, title, eyebrow, intro, done }) {
   let qi = 0, score = 0, shown = false;
   const marks = [];
-  render(`${topbar({ back: `#/lesson/${l.id}`, title: `<span class="eyebrow">${t("quiz")}</span><h1>${esc(l.title)}</h1>` })}
+  render(`${topbar({ back, title: `<span class="eyebrow">${eyebrow}</span><h1>${esc(title)}</h1>` })}
     <div class="wrap quiz">${coachHTML()}<div class="qprog" id="qp"></div><div class="card q" id="qbox"></div></div>`, { tab: null });
   const box = $("#qbox");
-  const prog = () => { $("#qp").innerHTML = l.quiz.map((_, i) => `<i class="${marks[i] === true ? "ok" : marks[i] === false ? "no" : i === qi ? "cur" : ""}"></i>`).join(""); };
+  const prog = () => { $("#qp").innerHTML = qs.map((_, i) => `<i class="${marks[i] === true ? "ok" : marks[i] === false ? "no" : i === qi ? "cur" : ""}"></i>`).join(""); };
   const show = () => {
-    const q = l.quiz[qi];
+    const q = qs[qi];
     prog();
-    box.innerHTML = `<span class="eyebrow">${t("qOf", qi + 1, l.quiz.length)}</span><h2>${esc(q.q)}</h2>
+    box.innerHTML = `<span class="eyebrow">${t("qOf", qi + 1, qs.length)}</span><h2>${esc(q.q)}</h2>
       ${q.a.map((a, i) => `<button class="opt" data-i="${i}"><span class="k">${"ABCD"[i]}</span><span>${esc(a)}</span></button>`).join("")}
       <div id="qafter"></div>`;
-    bubbleSay(`${l.id}-q${qi}`);
+    bubbleSay(q.qk);
     $$(".opt", box).forEach((b) => b.onclick = async () => {
       const i = +b.dataset.i;
       $$(".opt", box).forEach((x) => { x.disabled = true; });
@@ -610,18 +715,49 @@ function screenQuiz(id) {
       $$(".opt", box)[q.ok].classList.add("right");
       A.sfx(right ? "ok" : "bad");
       prog();
-      const lastQ = qi === l.quiz.length - 1;
+      const lastQ = qi === qs.length - 1;
       $("#qafter").innerHTML = `<div class="why">${esc(q.why)}</div><button class="btn block" id="qn" style="margin-top:12px">${lastQ ? t("finish") : t("nextQ")} ${I.next}</button>`;
-      $("#qn").onclick = () => { A.sfx("tap"); if (lastQ) showResult(l, score); else { qi++; show(); } };
+      $("#qn").onclick = () => { A.sfx("tap"); if (lastQ) done(score, qs.length); else { qi++; show(); } };
       const pick = right ? `right_${1 + Math.floor(Math.random() * 4)}` : `wrong_${1 + Math.floor(Math.random() * 3)}`;
-      if (await bubbleSay(pick)) bubbleSay(`${l.id}-w${qi}`);
+      if (await bubbleSay(pick)) bubbleSay(q.wk);
     });
   };
   const first = () => { if (!shown) { shown = true; show(); } };
-  whenReady(async () => { await bubbleSay("quiz_intro"); first(); });
-  // không bắt người chơi chờ: câu hỏi đầu tiên hiện sau tối đa 4,5 giây
-  const h = setTimeout(first, 4500);
+  whenReady(async () => { await bubbleSay(intro); first(); });
+  // không bắt người chơi chờ: câu hỏi đầu tiên hiện sau tối đa 5 giây
+  const h = setTimeout(first, 5000);
   cleanup.push(() => clearTimeout(h));
+}
+
+function showExamResult(trackId, score, total) {
+  const res = St.examDone(trackId, score, total);
+  const tr = D.tracks.find((x) => x.id === trackId);
+  const r = St.rankOf();
+  const medalOf = (b) => medal(b === "streak3" ? "flame3" : b === "streak7" ? "flame7" : b);
+  render(`${topbar({ back: `#/track/${trackId}`, title: `<span class="eyebrow">${t("exam")}</span><h1>${esc(tr.title)}</h1>` })}
+    <div class="wrap result">
+      ${coachHTML()}
+      <span class="eyebrow">${res.pass ? t("examPass") : t("resultFail")} · ${score}/${total}</span>
+      <div class="bigstars">${[0, 1, 2].map((k) => I.star.replace("<svg", `<svg class="${k < (res.pass ? (score === total ? 3 : 2) : 0) ? "on" : ""}"`)).join("")}</div>
+      ${res.gained ? `<div class="xpgain">+${res.gained} XP</div>` : ""}
+      ${res.rankUp != null ? `<div class="card reward">${insignia(res.rankUp)}<div><span class="eyebrow">${t("rankUp")}</span><h3>${rankName(res.rankUp)}</h3></div></div>` : ""}
+      ${res.badges.map((b) => `<div class="card reward">${medalOf(b)}<div><span class="eyebrow">${t("newBadge")}</span><h3>${t("badges")[b][0]}</h3><span class="muted">${t("badges")[b][1]}</span></div></div>`).join("")}
+      <div class="card rankcard" style="width:100%">${insignia(r.lvl)}<div class="info"><b>${rankName(r.lvl)}</b><div class="xpbar"><i style="width:${Math.round(r.pct * 100)}%"></i></div></div></div>
+      <div style="display:grid;gap:10px;width:100%">
+        ${St.S().badges.includes("grad") ? `<label class="namefield card" style="padding:12px 14px"><span class="eyebrow">${t("yourName")}</span><input id="cname" maxlength="40" value="${esc(St.S().name || "")}" placeholder="${t("namePh")}"></label>
+        <button class="btn block" id="cert">${I.star}${t("certBtn")}</button>` : ""}
+        <button class="btn ${St.S().badges.includes("grad") ? "ghost" : ""} block" data-go="#/exam/${trackId}">${I.replay}${res.pass ? t("examAgain") : t("retry")}</button>
+        <button class="btn ghost block" data-go="#/track/${trackId}">${t("backToMap")}</button>
+      </div>
+    </div>`, { tab: null });
+  if (res.pass) { A.sfx("win"); confetti(); }
+  $("#cert")?.addEventListener("click", () => {
+    const n = $("#cname").value.trim(); St.S().name = n; St.save();
+    certificate(n || t("warrior"), tr.title);
+  });
+  const keys = [res.pass ? "exam_pass" : "exam_fail"];
+  if (res.rankUp != null) keys.push("rank_up");
+  whenReady(async () => { for (const k of keys) { if (!(await bubbleSay(k))) break; } });
 }
 
 function showResult(l, score) {
@@ -658,6 +794,42 @@ function showResult(l, score) {
   if (res.rankUp != null) keys.push("rank_up");
   else if (res.badges.length) keys.push("badge");
   whenReady(async () => { for (const k of keys) { if (!(await bubbleSay(k))) break; } });
+}
+
+// Giấy chứng nhận tốt nghiệp: vẽ bằng canvas, tải về dạng PNG.
+async function certificate(name, trackTitle) {
+  await document.fonts?.ready;
+  const W = 1600, H = 1130;
+  const c = document.createElement("canvas"); c.width = W; c.height = H;
+  const x = c.getContext("2d");
+  const bg = x.createRadialGradient(W / 2, H * 0.4, 100, W / 2, H / 2, W * 0.75);
+  bg.addColorStop(0, "#1d2416"); bg.addColorStop(1, "#090b07");
+  x.fillStyle = bg; x.fillRect(0, 0, W, H);
+  const gold = x.createLinearGradient(0, 0, 0, H); gold.addColorStop(0, "#f1e0b4"); gold.addColorStop(1, "#b08a3e");
+  x.strokeStyle = gold; x.lineWidth = 6; x.strokeRect(40, 40, W - 80, H - 80);
+  x.lineWidth = 1.5; x.strokeRect(60, 60, W - 120, H - 120);
+  const logo = new Image();
+  logo.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(LOGO.replace("<svg", '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"'));
+  await new Promise((r) => { logo.onload = r; logo.onerror = r; });
+  try { x.drawImage(logo, W / 2 - 90, 100, 180, 180); } catch { /* bỏ qua */ }
+  x.textAlign = "center"; x.fillStyle = gold;
+  x.font = "600 30px Oswald, sans-serif"; x.fillText(t("brand").split("").join(" "), W / 2, 330);
+  x.font = "700 78px Oswald, sans-serif"; x.fillText(t("certTitle"), W / 2, 440);
+  x.fillStyle = "#a9ab9b"; x.font = "400 30px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certGiven"), W / 2, 520);
+  x.fillStyle = "#eeece3"; x.font = "700 86px 'Be Vietnam Pro', sans-serif"; x.fillText(name, W / 2, 630);
+  x.fillStyle = "#a9ab9b"; x.font = "400 30px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certFor"), W / 2, 710);
+  x.fillStyle = gold; x.font = "600 46px Oswald, sans-serif"; x.fillText(`${trackTitle.toUpperCase()} · ${t("badges").grad[0].toUpperCase()}`, W / 2, 780);
+  const d = new Date();
+  x.fillStyle = "#a9ab9b"; x.font = "400 26px 'Be Vietnam Pro', sans-serif";
+  x.fillText(`${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`, W * 0.27, 960);
+  x.fillText(t("coach"), W * 0.73, 960);
+  x.strokeStyle = "rgba(232,211,166,.4)"; x.beginPath(); x.moveTo(W * 0.17, 910); x.lineTo(W * 0.37, 910); x.moveTo(W * 0.63, 910); x.lineTo(W * 0.83, 910); x.stroke();
+  x.fillStyle = "#74776a"; x.font = "400 20px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certNote"), W / 2, 1040);
+  const a = document.createElement("a");
+  a.download = "soi-taiga-chung-nhan.png";
+  a.href = c.toDataURL("image/png");
+  document.body.appendChild(a); a.click(); a.remove();
+  toast(t("certDone"));
 }
 
 function confetti() {
@@ -717,12 +889,13 @@ function screenMe() {
     <div class="wrap profile">
       <div style="display:grid;gap:16px">
         <div class="card prof-top">${insignia(r.lvl)}<span class="eyebrow">${t("profile")}</span><h2 style="font-size:26px">${rankName(r.lvl)}</h2>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><span class="pill">${I.spark}${s.xp} XP</span><span class="pill">${I.flame}${t("streakDays", St.streak())}</span><span class="pill">${I.bolt}${s.drills}</span></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center"><span class="pill">${I.spark}${s.xp} XP</span><span class="pill">${I.flame}${t("streakDays", St.streak())}</span><span class="pill">${I.bolt}${s.drills}</span><span class="pill">${I.clock}${t("trained", Math.round((s.stats?.sec || 0) / 60))}</span><span class="pill">${I.list}${t("stepsSeen", Object.values(s.lessons).reduce((n, x) => n + (x.seen?.length || 0), 0))}</span></div>
+          <label class="namefield"><span class="eyebrow">${t("yourName")}</span><input id="pname" maxlength="40" value="${esc(s.name || "")}" placeholder="${t("namePh")}"></label>
           <div class="xpbar" style="width:100%"><i style="width:${Math.round(r.pct * 100)}%"></i></div>
           <span class="muted" style="font-size:12.5px">${r.nxt ? t("toNext", r.nxt.xp - s.xp, t("ranks")[r.nxt.id]) : t("maxRank")}</span></div>
         <div class="card"><div class="panel-h">${t("calH")}</div><div class="cal">${cells.join("")}</div></div>
         <div class="card settings"><div class="panel-h" style="padding-left:0">${t("settingsH")}</div>
-          ${sw("voice", t("setVoice"))}${sw("sfx", t("setSfx"))}${sw("ambient", t("setAmb"))}
+          ${sw("voice", t("setVoice"))}${sw("sfx", t("setSfx"))}${sw("ambient", t("setAmb"))}${sw("auto", t("autoPlay"))}${sw("pip", t("pip"))}
           <div class="set-row"><span class="muted" style="font-size:12.5px">${t("disclaimer")}</span></div>
           <div class="set-row"><button class="btn ghost sm" id="reset">${t("resetBtn")}</button></div></div>
       </div>
@@ -738,6 +911,7 @@ function screenMe() {
     b.setAttribute("aria-pressed", s.settings[k]);
     St.save(); A.configure(s.settings); A.sfx("tap");
   });
+  $("#pname").onchange = (e) => { s.name = e.target.value.trim(); St.save(); toast(t("saved")); };
   $("#reset").onclick = () => { if (confirm(t("resetAsk"))) { St.reset(); go("#/home"); } };
   whenReady(() => A.say("profile"));
 }

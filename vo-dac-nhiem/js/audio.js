@@ -10,7 +10,7 @@ let ctx = null;
 let amb = null;
 let unlockedFlag = false;
 const listeners = new Set();
-const settings = { voice: true, sfx: true, ambient: true };
+const settings = { voice: true, sfx: true, ambient: true, rate: 1 };
 
 export function setup(m, b) { manifest = m; base = b; }
 export function configure(s) {
@@ -20,7 +20,8 @@ export function configure(s) {
 }
 export const isUnlocked = () => unlockedFlag;
 export const onSpeak = (fn) => { listeners.add(fn); return () => listeners.delete(fn); };
-const emit = (v) => listeners.forEach((fn) => { try { fn(v); } catch { /* bỏ qua */ } });
+const emit = (v, key) => listeners.forEach((fn) => { try { fn(v, key); } catch { /* bỏ qua */ } });
+export const rate = () => settings.rate || 1;
 export const durationOf = (key) => manifest[key]?.d || 0;
 export const has = (key) => !!manifest[key];
 
@@ -79,12 +80,13 @@ export function say(key, onTime) {
       raf = requestAnimationFrame(tick);
     };
     // chốt an toàn: quá thời lượng + 4 giây thì coi như xong
-    const guard = setTimeout(() => finish(true), item.d + 4000);
+    const guard = setTimeout(() => finish(true), item.d / rate() + 4000);
     el.onended = () => finish(true);
     el.onerror = () => finish(false);
     el.src = `${base}${item.f}`;
     el.currentTime = 0;
-    emit(true);
+    el.playbackRate = rate();
+    emit(true, key);
     duck(true);
     el.play().then(() => { raf = requestAnimationFrame(tick); }).catch(() => finish(false));
   });

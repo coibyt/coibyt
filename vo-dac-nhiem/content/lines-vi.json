@@ -7,7 +7,7 @@
   "home_4": "Rừng không chờ ai cả. Khởi động đi, ta bắt đầu.",
   "home_streak": "Chuỗi ngày tập của bạn vẫn đang tiếp tục. Đừng để nó đứt.",
   "home_done": "Bạn đã đi hết nhánh Cận chiến tự vệ. Hãy ôn lại mỗi ngày. Kỹ năng thật nằm ở sự lặp lại.",
-  "track_tay-khong": "Nhánh Cận chiến tự vệ. Tám bài, từ hơi thở đến quật ngã. Đi theo thứ tự, không nhảy cóc.",
+  "track_tay-khong": "Nhánh Cận chiến tự vệ. Tám bài cơ bản và bảy bài nâng cao, từ hơi thở đến thoát hiểm dưới đất. Đi theo thứ tự, không nhảy cóc.",
   "track_the-luc": "Nhánh Thể lực và sinh tồn: mang vác, bơi, tìm nước, lửa và chỗ trú. Nhánh này đang được chuẩn bị.",
   "track_ban-sung": "Nhánh Bắn súng thể thao. An toàn là trên hết. Nhánh này đang được chuẩn bị.",
   "lesson_locked": "Bài này chưa mở. Hoàn thành bài trước đã.",
@@ -63,5 +63,9 @@
   "track_ngu-trang": "Nhánh Ngụy trang và ẩn mình: đồ ghillie, sơn mặt, di chuyển không tiếng động, xoá dấu vết. Nhánh này đang được chuẩn bị.",
   "track_dong-doi": "Nhánh Phối hợp đồng đội: ra hiệu bằng tay, liên lạc và di chuyển theo đội. Sẽ sớm mở cửa.",
   "track_so-cuu": "Nhánh Sơ cứu chiến trường: cầm máu, đặt garo, hồi sức tim phổi. Kỹ năng này có thể cứu một mạng người. Sẽ sớm mở cửa.",
-  "track_tam-ly": "Nhánh Bản lĩnh tinh thần: giữ bình tĩnh, kiểm soát nỗi sợ, rèn quan sát. Sẽ sớm mở cửa."
+  "track_tam-ly": "Nhánh Bản lĩnh tinh thần: giữ bình tĩnh, kiểm soát nỗi sợ, rèn quan sát. Sẽ sớm mở cửa.",
+  "exam_intro": "Bài thi tốt nghiệp nhánh. Mười câu hỏi lấy từ mọi bài đã học. Đúng tám câu trở lên là đạt. Bình tĩnh, đọc kỹ từng câu.",
+  "exam_pass": "Xuất sắc! Bạn đã tốt nghiệp nhánh Cận chiến tự vệ. Từ hôm nay, bạn là một Sói Thép của trại Sói Taiga.",
+  "exam_fail": "Chưa đạt lần này. Ôn lại những bài còn yếu rồi thi lại. Thép được tôi qua nhiều lần lửa.",
+  "exam_locked": "Hoàn thành cả mười lăm bài của nhánh để mở bài thi tốt nghiệp."
 }

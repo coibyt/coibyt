@@ -13,7 +13,9 @@ const blank = () => ({
   days: [],         // ngày có tập (YYYY-MM-DD)
   plan: {},         // date → { lesson, drill, quiz }
   badges: [],
-  settings: { voice: true, sfx: true, ambient: true },
+  settings: { voice: true, sfx: true, ambient: true, rate: 1, auto: false, pip: true },
+  stats: { sec: 0 },
+  name: "",
   last: null,       // { lesson, step }
 });
 
@@ -22,9 +24,17 @@ let state = load();
 function load() {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) return { ...blank(), ...JSON.parse(raw) };
+    if (raw) {
+      const b = blank(), v = JSON.parse(raw);
+      return { ...b, ...v, settings: { ...b.settings, ...(v.settings || {}) }, stats: { ...b.stats, ...(v.stats || {}) } };
+    }
   } catch { /* trình duyệt chặn bộ nhớ: dùng tạm trong phiên */ }
   return blank();
+}
+export function addTime(sec) {
+  state.stats ||= { sec: 0 };
+  state.stats.sec += Math.round(sec);
+  save();
 }
 export function save() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); } catch { /* bỏ qua */ }
@@ -132,6 +142,15 @@ export function quizDone(lesson, score, total) {
   planTick("quiz");
   const res = gain(xp, extra);
   return { ...res, stars, pass, firstClear };
+}
+
+export function examDone(trackId, score, total) {
+  const pass = score >= Math.ceil(total * 0.8);
+  const first = pass && !state.badges.includes("grad");
+  const extra = pass ? award("grad") : [];
+  planTick("quiz");
+  const res = gain(pass ? (first ? 300 : 30) : 0, extra);
+  return { ...res, pass };
 }
 
 export function allChecksBadge(lesson) {

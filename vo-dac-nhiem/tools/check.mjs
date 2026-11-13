@@ -36,7 +36,23 @@ for (const [name, vp] of [["phone", { width: 390, height: 844 }], ["desk", { wid
   await p.waitForTimeout(2500); await shot("10-result");
   await p.goto(url + "#/drills"); await p.waitForTimeout(1500); await shot("11-drills");
   await p.goto(url + "#/me"); await p.waitForTimeout(1500); await shot("12-me");
-  await p.goto(url + "#/track/da-ngoai"); await p.waitForTimeout(1500); await shot("13-locked-track");
+  await p.goto(url + "#/track/ngu-trang"); await p.waitForTimeout(1500); await shot("13-locked-track");
+  // giả lập đã học xong cả nhánh → bản đồ có vạch Cơ bản/Nâng cao và bài thi tốt nghiệp
+  await p.evaluate(() => {
+    const k = "soi-taiga.v1"; const s = JSON.parse(localStorage.getItem(k));
+    for (let i = 1; i <= 15; i++) s.lessons["tk" + i] = { seen: [0, 1, 2, 3, 4], done: true, stars: 3, best: 4 };
+    localStorage.setItem(k, JSON.stringify(s));
+  });
+  await p.goto(url + "#/track/tay-khong"); await p.reload(); await p.waitForTimeout(600);
+  if (await p.$(".tapgate")) await p.click(".tapgate");
+  await p.waitForTimeout(800); await shot("14-track-adv");
+  await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight)); await p.waitForTimeout(400); await shot("15-track-exam");
+  await p.goto(url + "#/exam/tay-khong"); await p.waitForTimeout(5500);
+  for (let i = 0; i < 10; i++) {
+    await p.waitForSelector(".opt:not([disabled])");
+    await p.click('.opt[data-i="0"]'); await p.waitForTimeout(300); await p.click("#qn");
+  }
+  await p.waitForTimeout(1500); await shot("16-exam-result");
   await ctx.close();
 }
 await b.close();

@@ -246,7 +246,7 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: 0.02em; margin: 0; font-w
 .path { position: relative; display: grid; gap: 18px; padding: 10px 0 20px; }
 .path::before { content: ""; position: absolute; left: 50%; top: 30px; bottom: 30px; width: 3px; transform: translateX(-50%); background: repeating-linear-gradient(180deg, var(--line-2) 0 10px, transparent 10px 18px); }
 .node { position: relative; display: flex; align-items: center; gap: 14px; width: min(92%, 440px); padding: 10px; text-align: left; border-radius: 24px; background: var(--panel); border: 1px solid var(--line); box-shadow: var(--shadow); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-.node:nth-child(odd) { justify-self: start; } .node:nth-child(even) { justify-self: end; }
+.node.l { justify-self: start; } .node.r { justify-self: end; }
 .node .thumb { width: 84px; height: 84px; border-radius: 18px; flex: none; background: #222 center / cover; position: relative; }
 .node .thumb b { position: absolute; left: -8px; top: -8px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--panel-solid); border: 1.5px solid var(--gold); font: 600 14px/1 var(--head); color: var(--gold-2); }
 .node .txt { flex: 1; min-width: 0; }
@@ -448,3 +448,36 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: 0.02em; margin: 0; font-w
 .home-hero .coach { max-height: 52svh; }
 @media (min-width: 900px) { .home-hero .coach { max-height: calc(100svh - 260px); } }
 .result .coachbox { width: 100%; }
+
+/* ---------- bản đồ: vạch chia cấp độ, bài thi ---------- */
+.tier { position: relative; z-index: 1; display: flex; justify-content: center; margin: 6px 0 -4px; }
+.tier span { font: 600 12px/1 var(--head); letter-spacing: 0.26em; text-transform: uppercase; color: #1a1408;
+  background: linear-gradient(180deg, #e2c47c, var(--gold) 60%, var(--gold-3)); padding: 8px 16px; border-radius: 999px; box-shadow: 0 6px 20px rgba(201,162,74,.25); }
+.node.exam { justify-self: center; border-color: var(--line-2); }
+.node .thumb.medalthumb { background: radial-gradient(circle, rgba(201,162,74,.25), rgba(0,0,0,.4)); display: grid; place-items: center; }
+.node .thumb.medalthumb .medal { width: 64px; height: 64px; }
+
+/* ---------- video khớp khẩu hình, khung thầy giảng, phóng to ---------- */
+.coach video.sync { z-index: 1; }
+.pip { position: absolute; right: 10px; bottom: 64px; width: 30%; max-width: 190px; aspect-ratio: 3 / 4; z-index: 4;
+  border-radius: 18px; border: 2px solid var(--gold); box-shadow: 0 10px 30px rgba(0,0,0,.6); transition: opacity .3s, transform .3s; }
+.pip::after { display: none; }
+.pip.hide { opacity: 0; transform: scale(.8); pointer-events: none; }
+.pip video { object-position: 50% 12%; }
+.stage .cap { display: none; }
+.stage.full { position: fixed; inset: 0; z-index: 75; border-radius: 0; aspect-ratio: auto; max-height: none; width: 100vw; height: 100svh; }
+.stage.full video#vid { object-fit: contain; }
+.stage.full .pip { width: 22%; max-width: 240px; bottom: 120px; }
+.stage.full .cap { display: block; position: absolute; left: 12px; right: 12px; bottom: 64px; z-index: 5; text-align: center;
+  font-size: clamp(16px, 2.4vw, 22px); line-height: 1.45; color: #fff; text-shadow: 0 2px 10px #000, 0 0 2px #000; padding: 0 4%; }
+body.theater #tabbar { display: none; }
+.subtitle .who .grow { flex: 1; }
+.rates { display: inline-flex; gap: 4px; }
+.rate { border: 1px solid var(--line); background: none; border-radius: 8px; padding: 3px 7px; font: 600 11px/1 var(--head); letter-spacing: .04em; color: var(--muted); }
+.rate.on { border-color: var(--gold); color: var(--gold-2); background: rgba(201,162,74,.14); }
+.autorow { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; border-radius: 16px; border: 1px solid var(--line); background: var(--panel); font-size: 14px; font-weight: 600; cursor: pointer; }
+.autorow span { display: inline-flex; gap: 8px; align-items: center; }
+.autorow svg { width: 16px; height: 16px; color: var(--gold); }
+.namefield { display: grid; gap: 6px; width: 100%; text-align: left; }
+.namefield input { font: 600 16px var(--body); color: var(--text); background: rgba(0,0,0,.35); border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; outline: none; }
+.namefield input:focus { border-color: var(--gold); }

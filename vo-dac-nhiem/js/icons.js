@@ -26,6 +26,7 @@ export const I = {
   target: s('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'),
   volume: s('<path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/>'),
   replay: s('<path d="M3 12a9 9 0 109-9 9.7 9.7 0 00-6.7 2.8L3 8"/><path d="M3 3v5h5"/>'),
+  expand: s('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),
   quiz: s('<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 015 .5c0 1.7-2.5 2-2.5 4M12 17h.01"/>'),
 };
 
@@ -40,12 +41,12 @@ export const LOGO = `<svg viewBox="0 0 64 64" aria-hidden="true">
 
 export const RANKS = [
   { id: "tan-binh", xp: 0 },
-  { id: "hoc-vien", xp: 300 },
-  { id: "chien-si", xp: 700 },
-  { id: "trinh-sat", xp: 1200 },
-  { id: "dac-cong", xp: 1800 },
-  { id: "soi-xam", xp: 2500 },
-  { id: "soi-dau-dan", xp: 3400 },
+  { id: "hoc-vien", xp: 400 },
+  { id: "chien-si", xp: 1000 },
+  { id: "trinh-sat", xp: 1800 },
+  { id: "dac-cong", xp: 2800 },
+  { id: "soi-xam", xp: 4000 },
+  { id: "soi-dau-dan", xp: 5500 },
 ];
 
 const starPath = (cx, cy, r) => {
@@ -90,6 +91,7 @@ const GLYPH = {
   early: '<circle cx="32" cy="34" r="6" fill="#1a1408"/><path d="M32 20v4M20 34h4M40 34h4M23.5 25.5l2.8 2.8M40.5 25.5l-2.8 2.8M20 42h24" stroke="#1a1408" stroke-width="2.5" stroke-linecap="round"/>',
   night: '<path fill="#1a1408" d="M36 18a12 12 0 1010 18 10 10 0 01-10-18z"/>',
   track: '<path fill="#1a1408" d="M22 19l5 6 5-2.5 5 2.5 5-6-1 10-5 6-4 6-4-6-5-6z"/>',
+  grad: '<path fill="#1a1408" d="M32 16l12 5v9c0 8-5 13-12 16-7-3-12-8-12-16v-9z"/><path fill="#d1ad5c" d="M32 23l2.2 4.6 5 .6-3.7 3.4 1 5-4.5-2.5-4.5 2.5 1-5-3.7-3.4 5-.6z"/>',
   checks: '<rect x="22" y="20" width="20" height="24" rx="3" fill="none" stroke="#1a1408" stroke-width="2.5"/><path d="M26 30l3 3 6-6M26 38h12" stroke="#1a1408" stroke-width="2.5" fill="none" stroke-linecap="round"/>',
 };
 
