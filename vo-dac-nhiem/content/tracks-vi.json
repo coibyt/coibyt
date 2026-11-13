@@ -1,0 +1,12 @@
+{
+  "tracks": [
+    { "id": "tay-khong", "title": "Tay không · Tự vệ", "sub": "Lấy cảm hứng từ Systema và vật Sambo: hơi thở, bộ pháp, ngã an toàn, che chắn, thoát hiểm, quật ngã.", "cover": "kf/tk2-2.webp", "file": "track-tay-khong.json", "open": true },
+    { "id": "the-luc", "title": "Thể lực & vượt chướng ngại", "sub": "Sức mạnh bằng trọng lượng cơ thể, sức bền, bò thấp, vượt tường gỗ, leo dây, cầu thăng bằng, làm quen với nước.", "cover": "cover-the-luc.webp", "open": false,
+      "preview": ["Khởi động chuyên sâu", "Sức mạnh bằng trọng lượng cơ thể", "Sức bền chạy biến tốc", "Bò thấp – bò cao", "Vượt tường gỗ", "Leo dây an toàn", "Cầu thăng bằng", "Làm quen với nước an toàn"] },
+    { "id": "da-ngoai", "title": "Kỹ năng dã ngoại", "sub": "Ngụy trang, ẩn nấp, di chuyển im lặng, quan sát, bản đồ – la bàn, sinh tồn cơ bản.", "cover": "cover-da-ngoai.webp", "open": false,
+      "preview": ["Ngụy trang mặt và trang phục", "Hình dáng – ánh sáng – bóng – đường viền", "Ẩn nấp trong thiên nhiên", "Di chuyển im lặng", "Quan sát và ghi nhớ", "Bản đồ và la bàn", "Nước, lửa và chỗ trú"] },
+    { "id": "ban-sung", "title": "Bắn súng thể thao", "sub": "Bốn quy tắc an toàn, cầm súng tập an toàn, tư thế, ngắm và thở, lịch sử súng trường thể thao.", "cover": "cover-ban-sung.webp", "open": false,
+      "preview": ["Bốn quy tắc an toàn", "Cầm súng tập đúng cách", "Tư thế đứng, quỳ, nằm", "Đường ngắm và hơi thở", "Lịch sử bắn súng thể thao"] }
+  ],
+  "covers": { "tk1": "tk1-2", "tk2": "tk2-2", "tk3": "tk3-5", "tk4": "tk4-3", "tk5": "tk5-3", "tk6": "tk6-2", "tk7": "tk7-5", "tk8": "tk8-3" }
+}

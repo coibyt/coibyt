@@ -325,6 +325,10 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: 0.02em; margin: 0; font-w
   .stage { max-height: calc(100svh - 170px); aspect-ratio: 1; justify-self: center; width: 100%; }
 }
 
+.pulse { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 10px 30px rgba(201,162,74,.28), 0 0 0 0 rgba(232,211,166,.5); } 50% { box-shadow: 0 10px 30px rgba(201,162,74,.28), 0 0 0 10px rgba(232,211,166,0); } }
+.coach video { object-position: 50% 22%; }
+
 /* ---------- tập theo ---------- */
 #overlay:empty { display: none; }
 .modal-bg { position: fixed; inset: 0; z-index: 80; background: rgba(5, 6, 4, 0.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: grid; place-items: center; padding: 16px; animation: fade .25s both; }
@@ -417,3 +421,17 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: 0.02em; margin: 0; font-w
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* ---------- cỡ biểu tượng trong nút ---------- */
+.btn svg, .chap > svg, .plan-item > svg, .drill-row > svg, .opt svg, .safety svg, .mist summary svg { width: 20px; height: 20px; flex: none; }
+.btn.sm svg { width: 16px; height: 16px; }
+.chap .n svg { width: 18px; height: 18px; }
+.mist summary svg { color: #e98a70; }
+.speech-card:has(.speech.idle) { display: none; }
+.brand small { letter-spacing: 0.12em; white-space: nowrap; }
+@media (max-width: 899px) {
+  .start .logo { top: auto; bottom: 64px; }
+  .start .logo svg { width: 52px; height: 52px; }
+  .start .hero .coach::after { background: linear-gradient(180deg, transparent 40%, rgba(11, 13, 10, 0.55) 70%, var(--bg)); }
+}
+@media (max-width: 380px) { .brand small { display: none; } }
