@@ -136,8 +136,10 @@ function coachHTML({ cls = "", bubble = true } = {}) {
     ${bubble ? `<div class="speech idle"><div class="who">${t("coach")} <span class="eq"><i></i><i></i><i></i></span></div><div class="line"></div></div>` : ""}
   </div>`;
 }
+let syncTimer = 0;
 function setTalking(on, key) {
   const syncSrc = on && key && D.sync.has(key) ? `assets/video/sync/${L()}/${key}.mp4` : null;
+  clearInterval(syncTimer);
   $$(".coach.live").forEach((c) => {
     const talk = $("video.talk", c), idle = $("video.idle", c);
     if (!talk) return;
@@ -149,14 +151,18 @@ function setTalking(on, key) {
         sync.className = "sync off";
         c.appendChild(sync);
       }
+      // trong lúc video khớp khẩu hình đang tải: dùng clip "đang nói"
+      talk.play().catch(() => {}); talk.classList.remove("off");
+      sync.classList.add("off");
       sync.src = syncSrc;
       sync.playbackRate = A.rate();
-      sync.oncanplay = () => { sync.classList.remove("off"); talk.classList.add("off"); };
+      sync.onplaying = () => {
+        sync.currentTime = A.time();
+        sync.classList.remove("off");
+        talk.classList.add("off");
+      };
       sync.onended = () => { sync.classList.add("off"); };
       sync.play().catch(() => {});
-      talk.classList.add("off");
-      talk.play().catch(() => {});
-      talk.classList.remove("off");
     } else if (on) {
       if (sync) { sync.pause(); sync.classList.add("off"); }
       talk.play().catch(() => {}); talk.classList.remove("off");
@@ -167,6 +173,16 @@ function setTalking(on, key) {
     }
     $(".eq", c.parentElement)?.style.setProperty("visibility", on ? "visible" : "hidden");
   });
+  // giữ miệng thầy khớp với giọng (sửa lệch do mạng chậm)
+  if (syncSrc) {
+    syncTimer = setInterval(() => {
+      $$(".coach.live video.sync").forEach((v) => {
+        if (v.paused || v.readyState < 2) return;
+        const drift = v.currentTime - A.time();
+        if (Math.abs(drift) > 0.2) v.currentTime = A.time();
+      });
+    }, 400);
+  }
 }
 
 const sentences = (text) => text.match(/[^.!?:]+[.!?:]*\s*/g) || [text];
@@ -250,7 +266,7 @@ function screenStart() {
 }
 
 // Đổi thành true khi có assets/video/welcome-sync.mp4 (video thầy chào, khớp khẩu hình với giọng).
-const HAS_WELCOME_SYNC = false;
+const HAS_WELCOME_SYNC = false; // đã thay bằng cơ chế chung: assets/video/sync/<lang>/welcome.mp4
 function playWelcome() {
   const hero = $(".start .coach");
   const line = $(".speech-card .line");
@@ -421,6 +437,7 @@ function screenLesson(id) {
     </div>`, { tab: null });
   $(".coach.mini").style.aspectRatio = "16 / 9";
   A.prefetch([l.steps[0].id]);
+  if (D.sync.has(`${l.id}-intro`)) fetch(`assets/video/sync/${L()}/${l.id}-intro.mp4`).catch(() => {});
   whenReady(() => bubbleSay(`${l.id}-intro`));
 }
 

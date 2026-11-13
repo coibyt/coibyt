@@ -481,3 +481,8 @@ body.theater #tabbar { display: none; }
 .namefield { display: grid; gap: 6px; width: 100%; text-align: left; }
 .namefield input { font: 600 16px var(--body); color: var(--text); background: rgba(0,0,0,.35); border: 1px solid var(--line-2); border-radius: 12px; padding: 12px 14px; outline: none; }
 .namefield input:focus { border-color: var(--gold); }
+
+/* thầy cận cảnh: giữ khuôn mặt trong khung ở mọi tỉ lệ */
+.coach video { object-position: 50% 18%; }
+.coach video.sync { z-index: 1; }
+.coach video.talk { z-index: 0; }

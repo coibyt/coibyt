@@ -22,6 +22,8 @@ export const isUnlocked = () => unlockedFlag;
 export const onSpeak = (fn) => { listeners.add(fn); return () => listeners.delete(fn); };
 const emit = (v, key) => listeners.forEach((fn) => { try { fn(v, key); } catch { /* bỏ qua */ } });
 export const rate = () => settings.rate || 1;
+// vị trí đang phát của câu thoại (giây) — để video khớp khẩu hình bám theo giọng
+export const time = () => (el ? el.currentTime || 0 : 0);
 export const durationOf = (key) => manifest[key]?.d || 0;
 export const has = (key) => !!manifest[key];
 

@@ -30,16 +30,16 @@ def mp4(src, dst, w, boomerang=False, crf=26):
                     "-crf", str(crf), "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dst)], check=True)
 
 
-for name, out, size in [("coach_portrait", "coach.webp", (720, 960)), ("ivan_portrait", "ivan.webp", (600, 800)),
+for name, out, size in [("coach_presenter", "coach.webp", (720, 960)), ("ivan_portrait", "ivan.webp", (600, 800)),
                         ("katya_portrait", "katya.webp", (600, 800)), ("bg_tall", "bg-tall.webp", (720, 1280)),
                         ("bg_wide", "bg-wide.webp", (1600, 900)), ("cover_the-luc", "cover-the-luc.webp", (800, 600)),
                         ("cover_da-ngoai", "cover-da-ngoai.webp", (800, 600)), ("cover_ban-sung", "cover-ban-sung.webp", (800, 600))]:
     if (RAW / f"{name}.png").exists():
         webp(RAW / f"{name}.png", IMG / out, size)
-for name, out in [("coach_idle", "coach-idle.mp4"), ("coach_talk", "coach-talk.mp4")]:
+for name, out in [("presenter_idle", "coach-idle.mp4"), ("presenter_talk", "coach-talk.mp4")]:
     if (RAW / f"{name}.mp4").exists():
         mp4(RAW / f"{name}.mp4", VID / out, 540, boomerang=True, crf=27)
-if (RAW / "coach_idle.mp4").exists() and not (IMG / "coach-idle.webp").exists():
+if (RAW / "presenter_idle.mp4").exists():
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(VID / "coach-idle.mp4"), "-frames:v", "1", "-q:v", "80", str(IMG / "coach-idle.webp")], check=True)
 n = 0
 for kf in sorted(RAW.glob("kf_tk*.png")):
