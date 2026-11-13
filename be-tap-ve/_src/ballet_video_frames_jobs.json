@@ -1,0 +1,172 @@
+{
+ "vf_reverence": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_reverence"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: reverence (ballet curtsy bow): one foot pointed behind, knees softly bent, head gently bowed with a smile, arms opened low and gracefully to the sides. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_arm1": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_arm1"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: first position feet, arms in first position: rounded in front of the tummy as if hugging a big ball. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_arm2": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_arm2"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: first position feet, arms in second position: opened wide to the sides at shoulder height with soft rounded elbows. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_arm5": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_arm5"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: first position feet, arms in fifth position: rounded above the head like a crown. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_feet2": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_feet2"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: second position feet: feet apart about shoulder width with toes turned out, arms in second position. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_plie": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_plie"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: demi-plie in first position: knees bent outwards over the toes, heels on the floor, back straight, arms in second position. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_releve": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_releve"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: releve in first position: standing high on the balls of both feet with heels lifted, arms in fifth position above the head. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_tendu": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_tendu"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: tendu to the side: weight on the left leg, the right leg stretched straight out to the side with the pointed toe touching the floor, arms in second position. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_passe": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_passe"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: passe (retire): standing on the straight left leg, the right foot pointed and touching the side of the left knee making a number 4 shape, arms in first position. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_portbras": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_portbras"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: port de bras: standing in first position, bending gracefully to the side with one arm curved over the head and the other arm low. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_feet5": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_feet5"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: fifth position feet: feet crossed tightly with the heel of the front foot touching the toes of the back foot, arms rounded low (bras bas). Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_arabesque": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_arabesque"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: arabesque seen from the side: standing on the straight left leg, the right leg stretched straight behind her and lifted, one arm reaching forward and the other to the side, long elegant line, the whole body and both feet inside the frame. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_attitude": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_attitude"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: attitude: standing on the left leg, the right leg lifted behind with the knee bent gracefully, arms in fifth position above the head, the whole body inside the frame. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_saute": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_saute"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: saute: jumping straight up in the air with both legs straight, toes pointed, feet off the floor, arms rounded low. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_pirprep": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_pirprep"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: pirouette preparation: fourth position demi-plie with one foot in front of the other, knees bent, arms in first position. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_pirouette": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_pirouette"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: pirouette: turning on the half toe of the left foot, right foot in passe at the knee, arms in first position, body slightly turned. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ },
+ "vf_final": {
+  "model": "nano-banana-pro",
+  "size": "9:16",
+  "res": "2K",
+  "refs": [
+   "vf_ready",
+   "b_final"
+  ],
+  "prompt": "Image 1 is the scene. Change ONLY the girl's body pose so that it matches exactly the pose of the girl in image 2: final pose: standing on one leg with the other leg in tendu in front, one arm up in fifth position and the other in second position, big proud smile. Keep everything else pixel-identical to image 1: the same ballet studio background, the same camera, framing and lighting, the girl at the same spot on the floor and the same size, the same face, dark hair bun, pale pink leotard, pink tights and pink ballet shoes. Photorealistic 3D animated film style. The whole body including hands and feet stays inside the picture."
+ }
+}

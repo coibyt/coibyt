@@ -1061,6 +1061,12 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .blstep{margin-left:auto; color:#fff; font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.35)}
 .blvchip{align-self:center; margin-top:2px; padding:6px 14px; border-radius:999px; background:rgba(30,6,40,.72); color:#fff; font-weight:800; font-size:14px; backdrop-filter:blur(6px); box-shadow:0 0 0 1.5px rgba(255,255,255,.35)}
 .blvchip[hidden]{display:none}
+.bltips{position:absolute; left:8px; top:30%; display:flex; flex-direction:column; align-items:flex-start; gap:6px; max-width:31%; z-index:2}
+.blpane[data-p="lesson"] .blterm{position:absolute; right:8px; top:47%; max-width:34%; margin:0; text-align:center; line-height:1.25; border-radius:16px; padding:6px 10px; z-index:2}
+@media (min-width:700px){ .bltips{left:290px; top:26%} .blpane[data-p="lesson"] .blterm{right:24px; top:44%} }
+.bltips[hidden]{display:none}
+.bltips span{padding:5px 10px; line-height:1.2; border-radius:999px; background:rgba(43,182,115,.88); color:#fff; font-weight:800; font-size:12.5px; box-shadow:0 2px 8px rgba(0,0,0,.25); animation:blchip .45s var(--spring) both}
+.bltips span:nth-child(2){animation-delay:.15s} .bltips span:nth-child(3){animation-delay:.3s}
 .blvchip.in{animation:blchip .45s var(--spring)}
 @keyframes blchip{from{transform:translateY(-8px) scale(.9); opacity:0}}
 .blplayer{margin-top:auto; padding:8px 10px max(10px,env(safe-area-inset-bottom)); background:linear-gradient(0deg,rgba(20,4,28,.9),rgba(20,4,28,.55) 70%,rgba(20,4,28,0)); display:flex; flex-direction:column; gap:7px}
@@ -1090,6 +1096,10 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .blstudio[data-mode="lesson"] .blteach p b{color:#ffd166}
 @media (max-width:699px){ .blstudio[data-mode="lesson"] .blteach{bottom:max(14px,env(safe-area-inset-bottom))} }
 .blteach img{animation:blbreathe 3.2s ease-in-out infinite}
+.bltframe{position:relative; display:block; flex:0 0 auto; line-height:0}
+.bltframe video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 14%; border-radius:18px; filter:drop-shadow(0 6px 10px rgba(0,0,0,.35))}
+.bltframe video[hidden]{display:none}
+.blstudio[data-mode="lesson"] .bltframe video{border-radius:50%; box-shadow:0 0 0 3px #f6c945, 0 6px 16px rgba(0,0,0,.4)}
 @keyframes blbreathe{50%{transform:translateY(-3px) rotate(-1.2deg)}}
 .blvlib{flex:1; overflow-y:auto; padding:150px 12px 18px; min-height:0; display:flex; flex-direction:column; gap:10px}
 .blvhero{display:flex; align-items:center; gap:12px; border:0; cursor:pointer; text-align:left; font:inherit; padding:10px; border-radius:22px; color:#fff;
@@ -1464,13 +1474,14 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
     <div class="fx" id="blFx"></div>
     <div class="spot s1"></div><div class="spot s2"></div><div class="spot s3"></div>
     <video id="blMirror" class="blmirror" playsinline muted hidden></video>
-    <div class="blteach"><img id="blTeacher" alt="Cô Vy" draggable="false"><p><b>Cô Vy</b><span id="blSay"></span></p></div>
+    <div class="blteach"><span class="bltframe"><img id="blTeacher" alt="Cô Vy" draggable="false"><video id="blTeachVid" muted playsinline loop preload="auto" hidden></video></span><p><b>Cô Vy</b><span id="blSay"></span></p></div>
     <div class="blpane" data-p="map">
       <div class="blmap" id="blMap"></div>
     </div>
     <div class="blpane" data-p="lesson" hidden>
       <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span></div>
       <div class="blvchip" id="blVChip" hidden></div>
+      <div class="bltips" id="blTips" hidden></div>
       <div class="blterm" id="blTerm" hidden></div>
       <div class="blcount" id="blCount"></div>
       <button class="blbigplay" id="blBigPlay" aria-label="Xem tiếp">▶</button>
@@ -8349,6 +8360,17 @@ for (const h of BHAIR) FAR_VOICE.add(clipKey(h[2]));
 for (const a of BACC) FAR_VOICE.add(clipKey(a[2]));
 for (const lv of BALLET) for (const ls of lv.lessons) for (const s of ls.steps) FAR_VOICE.add(clipKey(s.say));
 for (let i = 1; i <= 8; i++) FAR_VOICE.add('bc_' + i);
+const BTIPS = {
+  ready: ['Lưng thẳng', 'Cằm nâng nhẹ', 'Gót chạm nhau'], reverence: ['Cúi đầu nhẹ', 'Một chân lùi sau', 'Tay mở mềm'],
+  arm1: ['Tay tròn như ôm bóng', 'Khuỷu tay mềm', 'Vai thả lỏng'], arm2: ['Tay mở sang hai bên', 'Khuỷu hơi cong', 'Ngón tay mềm'],
+  arm5: ['Tay tròn trên đầu', 'Nhìn thẳng', 'Vai không nhún'], feet2: ['Chân rộng bằng vai', 'Mũi chân mở ra', 'Tay vị trí hai'],
+  plie: ['Gối mở ra hai bên', 'Gót không nhấc', 'Lưng thẳng'], releve: ['Kiễng thật cao', 'Bụng hóp lại', 'Tay lên cao'],
+  tendu: ['Duỗi thẳng chân', 'Mũi chân chạm sàn', 'Hông giữ yên'], passe: ['Mũi chân chạm gối', 'Hình số 4', 'Chân trụ thẳng'],
+  portbras: ['Tay mềm như cành liễu', 'Nghiêng nhẹ', 'Thở đều'], feet5: ['Hai chân bắt chéo', 'Gót sát mũi', 'Tập từ từ'],
+  arabesque: ['Chân sau duỗi thẳng', 'Tay vươn dài', 'Ngực nâng'], attitude: ['Chân sau hơi co', 'Tay lên cao', 'Đứng vững'],
+  saute: ['Nhún gối trước', 'Mũi chân duỗi', 'Tiếp đất êm'], pirprep: ['Chân thứ tư', 'Nhún gối', 'Tay vị trí một'],
+  pirouette: ['Nhìn một điểm', 'Chân co lên gối', 'Xoay một vòng'], final: ['Tạo dáng', 'Mỉm cười', 'Tự tin'],
+};
 const COUNT_VI = ['Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám'];
 
 /** A gentle music-box tune (Web Audio): calls onBeat(n) on every beat. */
@@ -8401,6 +8423,73 @@ const Ballet = (() => {
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (_) { /* private mode */ } };
   let P = null, IMG = {}, HM = {}, CL = {}, CM = {}, ACC = {}, BG = {}, TCH = {}, ready = false, mode = 'map', scene = 'studio';
   let cur = { pose: 'ready', from: null, t0: 0, anim: null }, raf = 0, lesson = null, sayN = 0, stream = null, show = null, demo = 0, dressTab = 'cos', twirlT = 0;
+
+  /* ---------- real lesson videos (kie.ai / Kling): the model girl moves A → B → A; the teacher talks on video ---------- */
+  const VDIR = 'be-tap-ve-ballet-video/';
+  const VPAIRS = ['ready_ready', 'ready_reverence', 'ready_arm1', 'arm1_arm2', 'arm2_ready', 'arm1_arm5', 'ready_feet2', 'ready_plie', 'ready_releve', 'ready_tendu',
+    'ready_passe', 'arm2_portbras', 'ready_feet5', 'ready_arabesque', 'arabesque_attitude', 'plie_saute', 'ready_pirprep', 'pirprep_pirouette'];
+  const VID = { els: [document.createElement('video'), document.createElement('video')], on: null, key: '', fwd: true, t0: 0, rate: 1, hold: null, fail: {} };
+  VID.els.forEach((v) => { v.muted = true; v.playsInline = true; v.loop = true; v.preload = 'auto'; v.setAttribute('playsinline', ''); v.setAttribute('muted', ''); });
+  function clipFor(st) {
+    const has = (a, b) => VPAIRS.includes(a + '_' + b);
+    if (st.from && has(st.from, st.pose)) return { key: st.from + '_' + st.pose, fwd: true };
+    if (st.from && has(st.pose, st.from)) return { key: st.pose + '_' + st.from, fwd: false };
+    if (st.pose === 'ready') return { key: 'ready_ready', fwd: true };
+    if (has('ready', st.pose)) return { key: 'ready_' + st.pose, fwd: true, arrive: true };
+    return null;
+  }
+  function vidLoad(key) {                                  // → Promise<video|null>, double-buffered
+    if (VID.fail[key]) return Promise.resolve(null);
+    if (VID.on && VID.key === key) return Promise.resolve(VID.on);
+    const v = VID.els.find((e) => e !== VID.on);
+    return new Promise((res) => {
+      let done = false;
+      const fin = (ok) => { if (done) return; done = true; clearTimeout(t); v.onloadeddata = v.onerror = null; if (!ok) VID.fail[key] = 1; res(ok ? v : null); };
+      const t = setTimeout(() => fin(v.readyState >= 2), 6000);
+      v.onloadeddata = () => fin(true); v.onerror = () => fin(false);
+      v.src = VDIR + key + '.mp4?v=' + STUDIO_VER; v.load();
+    });
+  }
+  async function vidPlay(st, phase, beats) {               // phase: 'demo' (loop) | 'count' (one cycle per beats) | 'hold'
+    const c = clipFor(st); if (!c) { vidStop(); return false; }
+    const v = await vidLoad(c.key); if (!v || !lesson) { vidStop(); return false; }
+    if (VID.on && VID.on !== v) VID.on.pause();
+    VID.on = v; VID.key = c.key; VID.fwd = c.fwd;
+    const D = v.duration || 10, half = D / 2;
+    try {
+      if (phase === 'hold') { v.pause(); v.currentTime = c.fwd ? half : 0.05; }
+      else {
+        v.playbackRate = phase === 'count' ? Math.max(0.5, Math.min(2.5, D / beats)) : (S.slow ? 0.75 : 1);
+        if (phase === 'count' || Math.abs(v.currentTime - (c.fwd ? 0 : half)) > 0.3) v.currentTime = c.fwd ? 0.05 : half;
+        await v.play().catch(() => {});
+      }
+    } catch (_) { /* seek before metadata */ }
+    render();
+    return true;
+  }
+  function vidStop() { if (VID.on) VID.on.pause(); VID.on = null; VID.key = ''; }
+  function drawVid(x, W, H, v, top, bot) {                 // the dancer (≈ 33 %–80 % of the clip's height) framed between the top bar and the player
+    const iw = v.videoWidth, ih = v.videoHeight; if (!iw) return false;
+    const area = Math.max(120, H - top - bot), fit = area / (ih * 0.6), s = W < 700 ? Math.max(W / iw, fit) : fit;
+    const cy = top + area / 2 - ih * 0.565 * s, y = Math.min(0, cy);
+    x.fillStyle = '#24102c'; x.fillRect(0, 0, W, H);
+    if (iw * s < W) {                                      // wide screens: the same clip, soft and dim, fills the sides
+      const c = Math.max(W / iw, H / ih); x.save(); x.globalAlpha = 0.45; x.filter = 'blur(14px)';
+      x.drawImage(v, (W - iw * c) / 2, (H - ih * c) / 2, iw * c, ih * c); x.restore();
+      x.fillStyle = 'rgba(36,16,44,.35)'; x.fillRect(0, 0, W, H);
+    }
+    x.drawImage(v, W / 2 - (iw * s) / 2, y, iw * s, ih * s);
+    return true;
+  }
+  /* the teacher on video: talking loop while she speaks, clapping when she praises */
+  const tv = $('#blTeachVid'); let tvKey = '';
+  tv.addEventListener('loadeddata', () => { tv.hidden = false; $('#blTeacher').style.visibility = 'hidden'; });
+  tv.addEventListener('error', () => { tv.hidden = true; $('#blTeacher').style.visibility = ''; });
+  function teacherVid(kind, talking) {
+    const key = kind === 'clap' ? 'tv_clap' : 'tv_talk';
+    if (tvKey !== key) { tvKey = key; tv.src = VDIR + key + '.mp4?v=' + STUDIO_VER; tv.load(); }
+    if (talking) tv.play().catch(() => {}); else tv.pause();
+  }
 
   /* ---------- assets ---------- */
   let packP = null;
@@ -8607,7 +8696,7 @@ const Ballet = (() => {
     const bg = BG[scene]; if (bg) drawCover(ctx, bg, W, H, 0.5, 0.75); else { ctx.fillStyle = '#fde7f0'; ctx.fillRect(0, 0, W, H); }
     if (mode === 'map' || mode === 'videos') { ctx.fillStyle = 'rgba(40,10,50,.35)'; ctx.fillRect(0, 0, W, H); return; }
     // keep the whole dancer (feet too!) in the free space between the top bar and the panel / teacher
-    const narrow = W < 700; let top = mode === 'lesson' ? 96 : 64;
+    const narrow = W < 700; let top = mode === 'lesson' ? (narrow ? 168 : 120) : 64;
     let bot = narrow ? 178 : 30;
     if (mode === 'dress') {
       const sh = el.querySelector('.bldress'), tb = el.querySelector('.blteach').getBoundingClientRect(), r0 = cv.getBoundingClientRect();
@@ -8615,6 +8704,10 @@ const Ballet = (() => {
       top = Math.max(top, tb.bottom - r0.top + 4);
     }
     if (mode === 'lesson') { const pl = el.querySelector('.blplayer'); bot = (pl ? pl.offsetHeight : 120) + (narrow ? 70 : 10); }
+    if (mode === 'lesson' && !show && VID.on && VID.on.readyState >= 2 && drawVid(ctx, W, H, VID.on, top, bot)) {
+      if (now - lastUi > 250) { lastUi = now; progressUi(); }
+      render(); return;
+    }
     let s = Math.min((H - top - bot) / (P.size[1] * 0.97), (W * (mode === 'dress' && !narrow ? 0.45 : 0.86)) / P.size[0]);
     if (mode === 'lesson' && lesson && !lesson.paused) s *= 1 + 0.035 * Math.sin(now / 2600);     // slow camera push, like a video
     const side = mode === 'dress' && !narrow ? Math.min(460, W * 0.44) + 14 : 0;
@@ -8643,9 +8736,10 @@ const Ballet = (() => {
   async function say(text, pose = 'talk') {
     const id = ++sayN;
     $('#blTeacher').src = TCH[pose] || TCH.talk;
+    teacherVid(pose === 'clap' ? 'clap' : 'talk', true);
     const b = $('#blSay'); b.textContent = text; b.closest('.blteach').classList.add('talking');
     if (prefs.sound) { stopVoice(); await playVoice(clipKey(text), text, 'vi-VN', Snd.token); } else await wait(900 + text.length * 35);
-    if (id === sayN) b.closest('.blteach').classList.remove('talking');
+    if (id === sayN) { b.closest('.blteach').classList.remove('talking'); teacherVid(pose === 'clap' ? 'clap' : 'talk', false); }
     return id === sayN;
   }
 
@@ -8719,12 +8813,16 @@ const Ballet = (() => {
     L.paused = false; L.t0 = performance.now(); $('#blPlay').textContent = '⏸'; $('#blPlay').setAttribute('aria-label', 'Tạm dừng');
     el.classList.remove('paused');
     stepDots();
-    $('#blAsk').hidden = true; $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term;
+    $('#blAsk').hidden = true; $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term; $('#blTips').hidden = true;
+    const nx = L.ls.steps[L.i + 1], nc = nx && clipFor(nx);                     // warm up the next clip
+    if (nc && !VID.fail[nc.key]) fetch(VDIR + nc.key + '.mp4?v=' + STUDIO_VER).catch(() => {});
     if (st.term) $('#blTerm').innerHTML = `<b>${st.term[0]}</b> · ${st.term[1]}`;
     chip('👀 Bạn Na làm mẫu – bé xem kĩ nhé');
-    if (st.from) { cur = { ...cur, pose: st.from, from: null, anim: null }; render(); await wait(350); }
+    const hasVid = await vidPlay(st, 'demo');
+    if (!lesson || L.run !== me) return;
+    if (!hasVid && st.from) { cur = { ...cur, pose: st.from, from: null, anim: null }; render(); await wait(350); }
     setPose(st.pose, st.anim);
-    if (st.from) {                                               // the model repeats the movement slowly while cô Vy explains
+    if (!hasVid && st.from) {                                    // (no video) the model repeats the movement while cô Vy explains
       let on = true;
       demo = setInterval(() => { if (!lesson || L.run !== me) return stopDemo(); on = !on; setPose(on ? st.pose : st.from, on ? st.anim : null); }, 2300);
     }
@@ -8732,11 +8830,15 @@ const Ballet = (() => {
     const ok = await say(st.say, L.i === 0 && L.ls.id === 'l1' ? 'show' : 'talk');
     stopDemo(); if (L.run === me) setPose(st.pose, st.anim);
     if (!ok || !lesson || L.run !== me) return;
+    if (hasVid && !st.count) vidPlay(st, 'hold');
     if (st.count) {
       chip('💃 Đến lượt bé! Làm theo bạn Na nhé');
+      const tp = BTIPS[st.pose]; $('#blTips').hidden = !tp; if (tp) $('#blTips').innerHTML = tp.map((t) => `<span>✔ ${t}</span>`).join('');
       if (L.i === 0) await say(BL.count, 'show');
       if (!lesson || L.run !== me) return;
+      if (hasVid) await vidPlay(st, 'count', ((st.count >= 8 ? 8 : 4) * 60) / ((st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1)));
       await countBeats(st, me);
+      if (hasVid && lesson && L.run === me) vidPlay(st, 'hold');
     }
     if (!lesson || L.run !== me) return;
     if (!st.count) { lesson.i++; if (lesson.i < lesson.ls.steps.length) return runStep(); return finishLesson(); }
@@ -8754,6 +8856,8 @@ const Ballet = (() => {
         const c = $('#blCount'); c.textContent = n; c.classList.remove('beat'); void c.offsetWidth; c.classList.add('beat');
         if (prefs.sound) playVoice('bc_' + n, COUNT_VI[n - 1], 'vi-VN', Snd.token);
         if (st.swing && n % 2 === 1) setPose(n % 4 === 1 ? st.pose : (st.from || 'ready'), st.anim);
+        const cyc = st.count >= 8 ? 8 : 4;
+        if (VID.on && n > 1 && (n - 1) % cyc === 0) { try { VID.on.currentTime = VID.fwd ? 0.05 : VID.on.duration / 2; } catch (_) { /* ignore */ } }
         if (n >= st.count) { setTimeout(() => { BMusic.stop(); setPose(st.pose, st.anim); res(); }, 700); }
       }, (st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1));
       if (!ok) setTimeout(res, 300);
@@ -8764,7 +8868,7 @@ const Ballet = (() => {
     const L = lesson;
     if (L.paused) { runStep(); return; }
     L.into = Math.min(stepSec(L.ls.steps[L.i]), (performance.now() - (L.t0 || 0)) / 1000);
-    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); stopDemo();
+    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); stopDemo(); if (VID.on) VID.on.pause(); teacherVid('talk', false);
     $('#blSay').closest('.blteach').classList.remove('talking'); $('#blSay').textContent = BL.paused;
     $('#blPlay').textContent = '▶'; $('#blPlay').setAttribute('aria-label', 'Xem tiếp');
     el.classList.add('paused'); chip('⏸ Tạm dừng'); progressUi();
@@ -8970,7 +9074,7 @@ const Ballet = (() => {
   }
   $('#blMirrorBtn').addEventListener('click', (e) => { pop(e.currentTarget); mirror(!stream); });
 
-  function stopAll() { BMusic.stop(); stopDemo(); clearTimeout(twirlT); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
+  function stopAll() { BMusic.stop(); stopDemo(); vidStop(); clearTimeout(twirlT); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
   $('#blDressBtn').addEventListener('click', (e) => { pop(e.currentTarget); dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); });
   $('#blStageBtn').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
   el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; sayN++; stopVoice(); buildVideos(); }));

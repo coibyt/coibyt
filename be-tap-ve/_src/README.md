@@ -20,3 +20,10 @@
   (vẽ trong game, `BCOS` trong `src_index.html`). Kiểu tóc tết/xoăn/ngọc trai = ghép từ mẫu tóc búi thật, theo khung đầu `T`.
 - Giọng mới: `ballet2_tts.py` (đọc `miss.json` = danh sách câu thiếu, giọng trang_slow).
 - Kiểm thử: mở `index.html?qa=1#ba-le` → `window.Ballet` (`_fig(tư thế, {cos, hair, ...})`).
+
+## Video bài học thật (kie.ai)
+- Khung hình: `vf_<tư thế>` (bạn Na trong phòng tập, nano-banana-pro; job ở `ballet_video_frames_jobs.json`, URL trong `ballet_raw/kie_urls.json`).
+- Đoạn chuyển động A→B: Kling 2.5 Turbo Pro (`kling/v2-5-turbo-image-to-video-pro`, có `tail_image_url`; bản 2.1 pro báo lỗi khi có ảnh cuối),
+  `python3 kie_video.py ballet_video_jobs.json`. Cô Vy: `tv_talk` (10 s) và `tv_clap` (5 s) từ ảnh `tch_*`.
+- `ballet_video_enc.sh NGUỒN ../be-tap-ve-ballet-video` → mp4 "đi rồi về" (A→B→A) 720 px, không tiếng. Game phát theo bước (`VPAIRS` trong
+  `src_index.html`): lặp khi cô giảng, khớp 8 nhịp khi đếm, dừng ở tư thế cuối; thiếu video thì quay về ảnh tĩnh như cũ.

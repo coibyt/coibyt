@@ -1,0 +1,128 @@
+{
+ "v_ready_ready": {
+  "start": "vf_ready",
+  "end": "vf_ready",
+  "duration": "5",
+  "prompt": "The little ballerina stands tall in first position with arms rounded low, breathing calmly, lifting her chin proudly, smiling, blinking and gently tilting her head, a tiny graceful sway. Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_reverence": {
+  "start": "vf_ready",
+  "end": "vf_reverence",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (reverence (ballet curtsy bow): one foot pointed behind, knees softly bent, head gently bowed with a smile, arms opened low and gracefully to the sides). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_arm1": {
+  "start": "vf_ready",
+  "end": "vf_arm1",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (first position feet, arms in first position: rounded in front of the tummy as if hugging a big ball). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_arm1_arm2": {
+  "start": "vf_arm1",
+  "end": "vf_arm2",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (first position feet, arms in first position: rounded in front of the tummy as if hugging a big ball) into the final pose (first position feet, arms in second position: opened wide to the sides at shoulder height with soft rounded elbows). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_arm2_ready": {
+  "start": "vf_arm2",
+  "end": "vf_ready",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (first position feet, arms in second position: opened wide to the sides at shoulder height with soft rounded elbows) into the final pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_arm1_arm5": {
+  "start": "vf_arm1",
+  "end": "vf_arm5",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (first position feet, arms in first position: rounded in front of the tummy as if hugging a big ball) into the final pose (first position feet, arms in fifth position: rounded above the head like a crown). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_feet2": {
+  "start": "vf_ready",
+  "end": "vf_feet2",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (second position feet: feet apart about shoulder width with toes turned out, arms in second position). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_plie": {
+  "start": "vf_ready",
+  "end": "vf_plie",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (demi-plie in first position: knees bent outwards over the toes, heels on the floor, back straight, arms in second position). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_releve": {
+  "start": "vf_ready",
+  "end": "vf_releve",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (releve in first position: standing high on the balls of both feet with heels lifted, arms in fifth position above the head). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_tendu": {
+  "start": "vf_ready",
+  "end": "vf_tendu",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (tendu to the side: weight on the left leg, the right leg stretched straight out to the side with the pointed toe touching the floor, arms in second position). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_passe": {
+  "start": "vf_ready",
+  "end": "vf_passe",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (passe (retire): standing on the straight left leg, the right foot pointed and touching the side of the left knee making a number 4 shape, arms in first position). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_arm2_portbras": {
+  "start": "vf_arm2",
+  "end": "vf_portbras",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (first position feet, arms in second position: opened wide to the sides at shoulder height with soft rounded elbows) into the final pose (port de bras: standing in first position, bending gracefully to the side with one arm curved over the head and the other arm low). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_feet5": {
+  "start": "vf_ready",
+  "end": "vf_feet5",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (fifth position feet: feet crossed tightly with the heel of the front foot touching the toes of the back foot, arms rounded low (bras bas)). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_arabesque": {
+  "start": "vf_ready",
+  "end": "vf_arabesque",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (arabesque seen from the side: standing on the straight left leg, the right leg stretched straight behind her and lifted, one arm reaching forward and the other to the side, long elegant line, the whole body and both feet inside the frame). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_arabesque_attitude": {
+  "start": "vf_arabesque",
+  "end": "vf_attitude",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (arabesque seen from the side: standing on the straight left leg, the right leg stretched straight behind her and lifted, one arm reaching forward and the other to the side, long elegant line, the whole body and both feet inside the frame) into the final pose (attitude: standing on the left leg, the right leg lifted behind with the knee bent gracefully, arms in fifth position above the head, the whole body inside the frame). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_plie_saute": {
+  "start": "vf_plie",
+  "end": "vf_saute",
+  "duration": "5",
+  "prompt": "From a demi-plie the little ballerina springs up into a small light jump (saute) with pointed toes, lands softly back in demi-plie. Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_ready_pirprep": {
+  "start": "vf_ready",
+  "end": "vf_pirprep",
+  "duration": "5",
+  "prompt": "The little ballerina moves slowly and smoothly from the first pose (standing tall in first position: heels together and toes turned out in a V, arms rounded low in front of the hips (bras bas), chin up, proud posture) into the final pose (pirouette preparation: fourth position demi-plie with one foot in front of the other, knees bent, arms in first position). Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ },
+ "v_pirprep_pirouette": {
+  "start": "vf_pirprep",
+  "end": "vf_pirouette",
+  "duration": "5",
+  "prompt": "From the preparation the little ballerina rises onto one toe with the other foot at her knee (passe) and turns one full pirouette, ending facing the camera. Static camera, no zoom, no cut, the ballet studio background stays exactly the same. Smooth, slow, graceful and anatomically correct movement of a little ballerina, the girl keeps a happy focused face, smiles, blinks naturally and looks at the camera like a dance teacher's demo model. Photorealistic 3D animated film.",
+  "model": "kling/v2-5-turbo-image-to-video-pro"
+ }
+}
