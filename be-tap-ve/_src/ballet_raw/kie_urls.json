@@ -54,5 +54,21 @@
  "face_base": "https://tempfile.aiquickdraw.com/models/nano-banana-pro/1794398594731-fp9aahrmrrp.png",
  "tch_clap": "https://tempfile.aiquickdraw.com/workers/images/image_731f55b7eeb28c2f6152b78ac9f8f575.png",
  "tch_show": "https://tempfile.aiquickdraw.com/workers/images/image_4c13c5f00225fbaad1040d1ecebf7f09.png",
- "tch_talk": "https://tempfile.aiquickdraw.com/workers/images/image_5dbd7d1dd12dfb2653273c90b9ea1c05.png"
+ "tch_talk": "https://tempfile.aiquickdraw.com/workers/images/image_5dbd7d1dd12dfb2653273c90b9ea1c05.png",
+ "bc_plum_tendu": "https://tempfile.aiquickdraw.com/models/nano-banana-pro/1794574205459-7wwy7nimsq8.png",
+ "bc_plum_pirouette": "https://tempfile.aiquickdraw.com/models/nano-banana-pro/1794574203748-z6fodpya7gd.png",
+ "bc_plum_portbras": "https://tempfile.aiquickdraw.com/models/nano-banana-pro/1794574356520-01h4m1w3df3k.png",
+ "bc_sun_ready": "https://tempfile.aiquickdraw.com/workers/images/image_2c7734c13fc6c3fc7fe5a5f41002d962.png",
+ "bc_plum_passe": "https://tempfile.aiquickdraw.com/workers/images/image_296f4dc86d227c8afb32ec5564865f03.png",
+ "bc_plum_reverence": "https://tempfile.aiquickdraw.com/workers/images/image_5809dbc337318c08f6a10d4bb4faeb14.png",
+ "bc_plum_arabesque": "https://tempfile.aiquickdraw.com/workers/images/image_c06954d37de024d3b7f654baca6bcec4.png",
+ "bc_plum_final": "https://tempfile.aiquickdraw.com/workers/images/image_cfc41f6df8c2dbebe1b4ad787aa82e21.png",
+ "bc_sun_tendu": "https://tempfile.aiquickdraw.com/workers/images/image_51449fd6b546fd0bb937d35267e09d41.png",
+ "bc_sun_passe": "https://tempfile.aiquickdraw.com/workers/images/image_dbb4ddb33db5304154e090cbbf2e04b5.png",
+ "bc_sun_portbras": "https://tempfile.aiquickdraw.com/workers/images/image_883c5f87476b63647fe4e66d303d3428.png",
+ "bc_sun_releve": "https://tempfile.aiquickdraw.com/workers/images/image_bc61398e61803092ea2d73e6127039dd.png",
+ "bc_sun_arabesque": "https://tempfile.aiquickdraw.com/models/nano-banana-pro/1794574432832-8mqqu59sz75.png",
+ "bc_sun_final": "https://tempfile.aiquickdraw.com/workers/images/image_945f487fa7568dbb0d9f2ebe91dff73a.png",
+ "bc_sun_reverence": "https://tempfile.aiquickdraw.com/workers/images/image_3dfd1af797c5ab58520aeeeae03ac3a4.png",
+ "bc_sun_pirouette": "https://tempfile.aiquickdraw.com/workers/images/image_8c00a47a0cb18c77ba2ee1b7e00a4c35.png"
 }

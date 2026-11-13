@@ -8308,11 +8308,11 @@ const BCOS = [
   { id: 'pink', name: 'Tutu hồng', em: '🌸', src: 'pink', acc: 'tiara', say: 'Váy tutu hồng lấp lánh kim sa, đội vương miện bạc. Bé xinh như một nàng công chúa!' },
   { id: 'swan', name: 'Thiên nga trắng', em: '🦢', src: 'swan', acc: 'feather', say: 'Váy thiên nga trắng có lông vũ mềm mại, giống nàng Ô-đét trong vở Hồ thiên nga.' },
   { id: 'fairy', name: 'Tiên xanh', em: '🧚', src: 'fairy', acc: 'flowers', say: 'Váy tiên xanh có đôi cánh trong suốt và vòng hoa nhỏ. Bé bay lượn như một nàng tiên nhé!' },
-  { id: 'plum', name: 'Tiên kẹo ngọt', em: '🍬', src: 'pink', tint: '#b48be6', pat: 'gold', acc: 'crown', say: 'Váy tiên kẹo ngọt màu tím, rắc nhũ vàng, giống nàng tiên trong vở Kẹp hạt dẻ.' },
+  { id: 'plum', name: 'Tiên kẹo ngọt', em: '🍬', src: 'plum', acc: 'crown', say: 'Váy tiên kẹo ngọt màu tím thêu chỉ vàng, giống nàng tiên trong vở Kẹp hạt dẻ.' },
   { id: 'black', name: 'Thiên nga đen', em: '🖤', src: 'swan', tint: '#2b2535', pat: 'glitter', acc: 'crown', say: 'Váy thiên nga đen huyền bí, là nàng Ô-đin trong vở Hồ thiên nga. Bé múa thật mạnh mẽ nhé!' },
   { id: 'cinder', name: 'Lọ Lem', em: '👠', src: 'pink', tint: '#8fc8ff', pat: 'glitter', acc: 'tiara', say: 'Váy Lọ Lem xanh da trời lấp lánh như phép màu của bà tiên. Đến giờ dự dạ hội rồi!' },
   { id: 'sakura', name: 'Hoa anh đào', em: '🌺', src: 'pink', tint: '#ffc4d8', pat: 'sakura', acc: 'flowers', say: 'Váy hoa anh đào hồng phấn, rắc đầy cánh hoa nhỏ như mùa xuân.' },
-  { id: 'sun', name: 'Hoa hướng dương', em: '🌻', src: 'pink', tint: '#ffcc33', pat: 'sun', acc: 'bow', say: 'Váy hoa hướng dương vàng rực rỡ như ánh mặt trời. Bé luôn tươi cười nhé!' },
+  { id: 'sun', name: 'Hoa hướng dương', em: '🌻', src: 'sun', acc: 'sunflowers', say: 'Váy hoa hướng dương vàng rực rỡ như ánh mặt trời. Bé luôn tươi cười nhé!' },
   { id: 'snow', name: 'Bông tuyết', em: '❄️', src: 'pink', tint: '#bfe2ff', pat: 'snow', acc: 'tiara', say: 'Váy bông tuyết xanh băng giá, lấp lánh như những bông tuyết trong vở Kẹp hạt dẻ.' },
   { id: 'ruby', name: 'Hồng ngọc', em: '❤️', src: 'pink', tint: '#d81b4f', pat: 'gold', acc: 'crown', say: 'Váy hồng ngọc đỏ thắm rắc nhũ vàng, sang trọng như một nữ hoàng ba lê.' },
 ];
@@ -8328,7 +8328,7 @@ const BACC = [
   ['auto', 'Theo váy', 'Phụ kiện đi kèm bộ váy, thật hợp nhau!'], ['none', 'Không đội', 'Không đội gì, bé vẫn xinh lắm!'],
   ['tiara', 'Vương miện bạc', 'Vương miện bạc lấp lánh như công chúa!'], ['crown', 'Vương miện vàng', 'Vương miện vàng lộng lẫy như nữ hoàng!'],
   ['feather', 'Lông thiên nga', 'Băng đô lông thiên nga trắng muốt, thật mềm mại!'], ['flowers', 'Vòng hoa', 'Vòng hoa xinh xắn như nàng tiên mùa xuân!'],
-  ['bow', 'Nơ lụa', 'Chiếc nơ lụa hồng thật duyên dáng!'],
+  ['sunflowers', 'Hoa hướng dương', 'Băng đô hoa hướng dương vàng tươi, rạng rỡ như mặt trời!'], ['bow', 'Nơ lụa', 'Chiếc nơ lụa hồng thật duyên dáng!'],
 ];
 const BPAT = [['auto', 'Theo váy'], ['plain', 'Trơn'], ['glitter', 'Kim tuyến'], ['gold', 'Nhũ vàng'], ['dots', 'Chấm bi'], ['sakura', 'Hoa anh đào'],
   ['sun', 'Hướng dương'], ['stars', 'Ngôi sao'], ['snow', 'Bông tuyết'], ['hearts', 'Trái tim']];
@@ -8911,7 +8911,7 @@ const Ballet = (() => {
       BCOS.forEach((c) => g.appendChild(tile(c.em + ' ' + c.name, thumbCanvas('ready', 48, 64, look({ cos: c.id, color: null, pat: 'auto' })), L.cos === c.id,
         () => setLook({ cos: c.id, color: null, pat: 'auto' }, c.say))));
     } else if (dressTab === 'pat') {
-      const tint = lk.tint || (lk.d.src === 'swan' ? '#f4f1f4' : lk.d.src === 'fairy' ? '#a9d4f5' : '#ff9fc0');
+      const tint = lk.tint || ({ swan: '#f4f1f4', fairy: '#a9d4f5', plum: '#c9a8ef', sun: '#ffc93c' }[lk.d.src] || '#ff9fc0');
       if (!lk.d.src) g.appendChild(Object.assign(document.createElement('p'), { className: 'blhint', textContent: '👗 Bé chọn một chiếc váy trước, rồi thêm hoạ tiết và màu nhé!' }));
       else BPAT.forEach(([id, name]) => g.appendChild(tile(name, fabricChip(id === 'auto' ? lk.d.pat || 'plain' : id, tint), L.pat === id, () => setLook({ pat: id }, BL.pat), 'chipt')));
       if (lk.d.src) {
