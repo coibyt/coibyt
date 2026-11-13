@@ -1091,7 +1091,7 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 @media (max-width:699px){ .blstudio[data-mode="lesson"] .blteach{bottom:max(14px,env(safe-area-inset-bottom))} }
 .blteach img{animation:blbreathe 3.2s ease-in-out infinite}
 @keyframes blbreathe{50%{transform:translateY(-3px) rotate(-1.2deg)}}
-.blvlib{flex:1; overflow-y:auto; padding:150px 12px 18px; display:flex; flex-direction:column; gap:10px}
+.blvlib{flex:1; overflow-y:auto; padding:150px 12px 18px; min-height:0; display:flex; flex-direction:column; gap:10px}
 .blvhero{display:flex; align-items:center; gap:12px; border:0; cursor:pointer; text-align:left; font:inherit; padding:10px; border-radius:22px; color:#fff;
   background:linear-gradient(120deg,#ff5d8f,#9b5de5); box-shadow:0 8px 24px rgba(155,93,229,.45), inset 0 0 0 2px rgba(255,255,255,.35)}
 .blvhero canvas{width:70px; height:96px; border-radius:14px; background:rgba(255,255,255,.25)}
@@ -1467,10 +1467,9 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
     <div class="blteach"><img id="blTeacher" alt="Cô Vy" draggable="false"><p><b>Cô Vy</b><span id="blSay"></span></p></div>
     <div class="blpane" data-p="map">
       <div class="blmap" id="blMap"></div>
-      <div class="bltools"><button class="blbtn" id="blDressBtn">👗 Phòng thay đồ</button><button class="blbtn gold" id="blStageBtn">🎭 Lên sân khấu</button><button class="blbtn" id="blVideoBtn">🎬 Video bài học</button></div>
     </div>
     <div class="blpane" data-p="lesson" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Bài học</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span></div>
+      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span></div>
       <div class="blvchip" id="blVChip" hidden></div>
       <div class="blterm" id="blTerm" hidden></div>
       <div class="blcount" id="blCount"></div>
@@ -1492,7 +1491,7 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
       </div>
     </div>
     <div class="blpane" data-p="dress" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>👗 Phòng thay đồ</b>
+      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b>👗 Phòng thay đồ</b>
 </div>
       <div class="bldress">
         <div class="bltabs" id="blTabs"><button data-t="cos" class="on">👗 Váy</button><button data-t="pat">✨ Hoạ tiết</button><button data-t="hair">💇 Tóc</button><button data-t="acc">👑 Phụ kiện</button></div>
@@ -1502,8 +1501,8 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
       </div>
     </div>
     <div class="blpane" data-p="videos" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Lớp học</button><b>🎬 Video bài học</b></div>
       <div class="blvlib" id="blVLib"></div>
+      <div class="bltools"><button class="blbtn" id="blDressBtn">👗 Phòng thay đồ</button><button class="blbtn gold" id="blStageBtn">🎭 Lên sân khấu</button></div>
     </div>
   </div>
 </section>
@@ -5223,7 +5222,7 @@ const HUB_CARDS = [
   { id: 'ballet', cover: 'cv_ballet', title: 'Lớp học Ba lê', sub: 'Video bài học có bạn Na làm mẫu, cô Vy hướng dẫn từng bước, 11 bộ váy, kiểu tóc và sân khấu',
     learn: ['🩰 Múa ba lê', '🎵 Nhịp điệu', '🧘 Thăng bằng'], tags: ['style', 'move'], badge: 'MỚI',
     intro: 'Lớp học ba lê là nơi cô Vy dạy bé múa từng bước, từ dễ đến khó. Bé còn được mặc váy tutu và biểu diễn trên sân khấu nữa!',
-    play: [['🩰 Vào lớp học', () => Ballet.open()], ['🎬 Video bài học', () => Ballet.open().then(() => Ballet.ready() && Ballet.buildVideos())], ['👗 Phòng thay đồ', () => Ballet.open().then(() => Ballet.ready() && Ballet.dress())]] },
+    play: [['🩰 Vào lớp học', () => Ballet.open()], ['🎬 Video bài học', () => Ballet.open(() => Ballet.buildVideos())], ['👗 Phòng thay đồ', () => Ballet.open(() => Ballet.dress())]] },
   { id: 'paper', cover: 'cv_paper', title: 'Phòng tranh', sub: 'Hơn 30 bức tranh để tô màu và vẽ theo từng bước',
     learn: ['🎨 Màu sắc', '🔤 Tiếng Anh', '✏️ Vẽ theo bước'], tags: ['draw'],
     intro: 'Phòng tranh có hơn ba mươi bức tranh để bé tô màu. Tô xong, bé còn học tên con vật bằng tiếng Anh nữa đó!',
@@ -8702,9 +8701,9 @@ const Ballet = (() => {
   }
   function chip(text) { const c = $('#blVChip'); c.textContent = text; c.hidden = !text; c.classList.remove('in'); void c.offsetWidth; c.classList.add('in'); }
   function stopDemo() { clearInterval(demo); demo = 0; }
-  async function startLesson(ls) {
+  async function startLesson(ls, at = 0) {
     stopAll();
-    lesson = { ls, i: 0 };
+    lesson = { ls, i: Math.max(0, Math.min(at || 0, ls.steps.length - 1)) };
     scene = ls.show ? 'stage' : 'studio';
     pane('lesson');
     $('#blLessonTitle').textContent = ls.title;
@@ -8716,6 +8715,7 @@ const Ballet = (() => {
     if (!lesson) return;
     stopDemo(); BMusic.stop();
     const L = lesson, st = L.ls.steps[L.i], me = (L.run = (L.run > 0 ? L.run : 0) + 1);
+    if (L.ls.id) { S.cur = { id: L.ls.id, i: L.i }; save(); }               // come back here next time
     L.paused = false; L.t0 = performance.now(); $('#blPlay').textContent = '⏸'; $('#blPlay').setAttribute('aria-label', 'Tạm dừng');
     el.classList.remove('paused');
     stepDots();
@@ -8788,13 +8788,16 @@ const Ballet = (() => {
     const ls = lesson.ls, all = lessons(), idx = all.findIndex((x) => x.id === ls.id);
     const wasNewLevel = idx + 1 < all.length && all[idx + 1].level.id !== ls.level.id && !S.done[ls.id];
     S.done[ls.id] = 3; S.watched[ls.id] = 1; save(); lesson = null; stopAll();
+    $('#blStars').textContent = totalStars();
     celebrationFx(); claps(4);
     $('#blTeacher').src = TCH.clap || TCH.talk;
     await say(BL.vdone, 'clap');
     await say(BL.done, 'clap');
     if (wasNewLevel) await say(BL.level, 'clap');
     stats.balletDone = ls.id;
-    if (mode === 'lesson') buildMap();
+    if (mode !== 'lesson' || lesson) return;
+    const nx = all[idx + 1];                                                 // straight on to the next video
+    if (nx && !nx.show) { S.cur = { id: nx.id, i: 0 }; save(); startLesson(nx); } else { S.cur = null; save(); buildVideos(); }
   }
 
   /* ---------- stage show: the routine with music, then the runway / certificate ---------- */
@@ -8829,7 +8832,7 @@ const Ballet = (() => {
     await say(BL.bravo, 'clap');
     if (ls.id) { S.done[ls.id] = 3; save(); }
     lesson = null;
-    Showcase.open({ kind: 'ballet', img: snapshot(), points: 14 + totalStars() / 3, back: () => { open(); } });
+    Showcase.open({ kind: 'ballet', img: snapshot(), points: 14 + totalStars() / 3, back: () => { open(() => buildVideos(true)); } });
   }
   function snapshot(pose = 'final') {
     const c = blankCanvas(900, 1400), x = c.getContext('2d');
@@ -8847,14 +8850,14 @@ const Ballet = (() => {
     x.drawImage(f, cx, cy, cw, ch, (w * 2 - cw * s) / 2, (h * 2 - ch * s) / 2, cw * s, ch * s);
     return c;
   }
-  function buildVideos() {
+  function buildVideos(quiet) {
     scene = 'studio'; pane('videos'); stopAll();
     const g = $('#blVLib'); g.textContent = '';
-    const all = lessons(), next = all.find((l) => !S.done[l.id]) || all[0];
+    const all = lessons(), resume = S.cur && all.find((l) => l.id === S.cur.id), next = resume || all.find((l) => !S.done[l.id] && !l.show) || all[0];
     const hero = document.createElement('button'); hero.className = 'blvhero';
     hero.innerHTML = `<span class="blvplay">▶</span><span><small>${S.done[next.id] ? 'Xem lại' : 'Học tiếp'} · Cấp ${next.level.id}</small><b>${next.title}</b><em>⏱ ${mmss(lessonSec(next))} · ${next.steps.length} bước · có bạn Na làm mẫu</em></span>`;
     hero.prepend(thumbCanvas(next.steps[next.steps.length - 1].pose, 70, 96, look({ cos: 'practice' })));
-    hero.addEventListener('click', () => { pop(hero); startLesson(next); });
+    hero.addEventListener('click', () => { pop(hero); startLesson(next, resume ? S.cur.i : 0); });
     g.appendChild(hero);
     BALLET.forEach((lv) => {
       const h = document.createElement('h3'); h.className = 'blvlv'; h.innerHTML = `<i>${lv.icon}</i> Cấp ${lv.id}: ${lv.name}`; g.appendChild(h);
@@ -8873,7 +8876,8 @@ const Ballet = (() => {
       });
       g.appendChild(row);
     });
-    say(BL.videos, 'show');
+    $('#blStars').textContent = totalStars();
+    if (!quiet) say(BL.videos, 'show');
   }
 
   /* ---------- dressing room ---------- */
@@ -8947,7 +8951,7 @@ const Ballet = (() => {
   });
   $('#blPhoto').addEventListener('click', (e) => {
     pop(e.currentTarget);
-    Showcase.open({ kind: 'ballet', img: snapshot(figure('final') ? 'final' : 'ready'), points: 10 + totalStars() / 3, back: () => { open().then(() => buildDress()); } });
+    Showcase.open({ kind: 'ballet', img: snapshot(figure('final') ? 'final' : 'ready'), points: 10 + totalStars() / 3, back: () => { open(() => buildDress()); } });
   });
   $('#blDressStage').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
 
@@ -8969,20 +8973,22 @@ const Ballet = (() => {
   function stopAll() { BMusic.stop(); stopDemo(); clearTimeout(twirlT); show = null; el.classList.remove('onstage', 'paused'); if (lesson) lesson.run = -1; }
   $('#blDressBtn').addEventListener('click', (e) => { pop(e.currentTarget); dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); });
   $('#blStageBtn').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
-  $('#blVideoBtn').addEventListener('click', (e) => { pop(e.currentTarget); buildVideos(); });
-  el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; sayN++; stopVoice(); buildMap(); }));
+  el.querySelectorAll('.blback').forEach((b) => b.addEventListener('click', () => { stopAll(); lesson = null; sayN++; stopVoice(); buildVideos(); }));
   $('#blHome').addEventListener('click', () => close());
   $('#blSlow').classList.toggle('on', !!S.slow);
 
   if (/^https?:$/.test(location.protocol)) $('#blCourses').hidden = false;      // back to babelisa.com/khoa-hoc/
-  async function open() {
+  async function open(then) {
     Lisa.hide();
     Screens.open('balletStudio');
     el.classList.add('loading');
     try { await init(); } catch (_) { el.classList.remove('loading'); $('#blSay').textContent = 'Chưa tải được lớp học, bé kiểm tra mạng rồi thử lại nhé!'; return; }
     el.classList.remove('loading');
-    buildMap();
-    say(BL.hello, 'show');
+    if (then) return then();
+    const all = lessons().filter((l) => !l.show);
+    let ls = S.cur && all.find((l) => l.id === S.cur.id), at = ls ? S.cur.i : 0;
+    if (!ls) ls = all.find((l) => !S.done[l.id]) || all[0];
+    startLesson(ls, at);
   }
   function close() { stopAll(); lesson = null; sayN++; stopVoice(); mirror(false); Screens.close(); Hub.open(); }
   window.addEventListener('resize', () => { if (!el.hidden) render(); });
