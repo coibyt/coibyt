@@ -52,6 +52,7 @@ export async function GET(
       customerId: true,
       customerNote: true,
       source: true,
+      createdAt: true,
       business: { select: { name: true, timezone: true } },
       service: { select: { name: true } },
       staff: { select: { name: true } },
@@ -105,6 +106,7 @@ export async function GET(
     customerReviewId: booking.customerReview?.id ?? null,
     customerReviewStatus: booking.customerReview?.status ?? null,
     source: booking.source,
+    createdAt: booking.createdAt.toISOString(),
     slots: serviceSlots(booking).map((sl) => ({
       ...sl,
       startsAt: sl.startsAt.toISOString(),

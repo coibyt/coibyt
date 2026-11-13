@@ -79,6 +79,7 @@ export async function GET(req: Request) {
       customerId: true,
       customerNote: true,
       source: true,
+      createdAt: true,
       service: { select: { name: true } },
       staff: { select: { name: true } },
       customer: { select: { name: true, phone: true, email: true } },
@@ -130,6 +131,7 @@ export async function GET(req: Request) {
       customerReviewId: b.customerReview?.id ?? null,
       customerReviewStatus: b.customerReview?.status ?? null,
       source: b.source,
+      createdAt: b.createdAt.toISOString(),
       slots: serviceSlots(b).map((sl) => ({
         ...sl,
         startsAt: sl.startsAt.toISOString(),

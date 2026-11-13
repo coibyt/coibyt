@@ -69,6 +69,8 @@ interface ServiceSlotView {
 interface CalendarBooking {
   id: string;
   source: "WEBSITE" | "MANUAL";
+  /** When the booking was made: by the customer online, or added by the salon. */
+  createdAt?: string | null;
   slots: ServiceSlotView[];
   startsAt: string;
   endsAt: string;
@@ -2759,6 +2761,31 @@ export function BookingCalendar({
                   { dateStyle: "medium", timeStyle: "short", timeZone: businessTimezone }
                 )}
               </p>
+              {activeBooking.createdAt && (
+                <p className="flex items-center gap-1.5 text-xs text-ink-400">
+                  {activeBooking.source === "WEBSITE" ? (
+                    <Globe className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
+                  ) : (
+                    <UserPen className="h-3.5 w-3.5 shrink-0 text-primary-500" />
+                  )}
+                  <span>
+                    {locale === "vi"
+                      ? activeBooking.source === "WEBSITE"
+                        ? "Khách đặt online lúc "
+                        : "Salon thêm lúc "
+                      : locale === "fi"
+                        ? activeBooking.source === "WEBSITE"
+                          ? "Asiakas varasi verkossa "
+                          : "Salonki lisäsi "
+                        : activeBooking.source === "WEBSITE"
+                          ? "Booked online at "
+                          : "Added by the salon at "}
+                    <span className="font-semibold text-ink-700">
+                      {formatInTimeZone(activeBooking.createdAt, businessTimezone, locale === "fi" ? "d.M.yyyy 'klo' HH.mm" : "HH:mm, dd/MM/yyyy")}
+                    </span>
+                  </span>
+                </p>
+              )}
               <div className="flex items-center justify-between border-t border-ink-100 pt-2">
                 <span className="text-sm font-medium text-ink-700">
                   {locale === "vi" ? "Tổng cộng (cần thu)" : "Total to collect"}
