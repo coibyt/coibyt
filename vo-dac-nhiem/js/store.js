@@ -13,7 +13,7 @@ const blank = () => ({
   days: [],         // ngày có tập (YYYY-MM-DD)
   plan: {},         // date → { lesson, drill, quiz }
   badges: [],
-  settings: { voice: true, sfx: true, ambient: true, rate: 1, autoTeach: true, pip: true },
+  settings: { voice: true, sfx: true, ambient: true, rate: 1, autoTeach: true, pip: true, force: true },
   stats: { sec: 0 },
   name: "",
   last: null,       // { lesson, step }

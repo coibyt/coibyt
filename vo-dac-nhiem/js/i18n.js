@@ -51,6 +51,8 @@ export const STR = {
     examAgain: "Thi lại để ôn tập",
     examLockedToast: "Hoàn thành cả 15 bài để mở bài thi tốt nghiệp.",
     tierBase: "Cơ bản",
+    forceBtn: "Hướng lực",
+    forceLegend: [["foot", "Bước chân"], ["hit", "Đòn / lực ra"], ["body", "Đẩy · kéo · xoay"]],
     autoTeach: "Thầy dạy tự động",
     autoTeachOn: "Thầy giảng, dặn tập, đếm giờ và tự sang bước sau.",
     autoTeachOff: "Học thủ công: bạn tự bấm để sang bước sau.",

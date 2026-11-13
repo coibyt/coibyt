@@ -351,7 +351,21 @@
             "frame": "in an orthodox fighting stance on the canvas mat, strict side view (profile), facing the right edge of the frame, left foot forward toward the right edge, right foot behind, knees bent, fists up guarding his face, his boots clearly visible",
             "motion": "Strict side view (profile), the instructor faces the RIGHT edge of the frame, his LEFT foot is the front foot (closer to the right edge), his RIGHT foot is the rear foot. Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. First he moves FORWARD: his FRONT (left) foot slides forward one short step toward the right edge and lands, and only after that his REAR (right) foot slides forward the same short distance. He pauses in the same stance. Then he moves BACKWARD: his REAR (right) foot slides back one short step first, and only after that his FRONT (left) foot slides back the same distance. Feet never cross, never come together, never jump; the rear foot never moves first when going forward"
           },
-          "feet": "fwdback"
+          "feet": "fwdback",
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk2-3-fw"
+            },
+            {
+              "at": 2,
+              "file": "tk2-3-bw"
+            },
+            {
+              "at": 4,
+              "diagram": true
+            }
+          ]
         },
         {
           "id": "tk2-4",
@@ -379,7 +393,17 @@
             "frame": "in an orthodox fighting stance on the canvas mat facing the camera at a slight angle, fists up, knees bent, both boots clearly visible on the mat",
             "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. He shuffles sideways toward the left edge of the frame: the foot nearer the left edge steps out first and the other foot slides after it, keeping the same distance between the feet. He pauses. Then he shuffles back toward the right edge: the foot nearer the right edge steps first and the other foot follows. Feet never cross, never come together, guard stays up"
           },
-          "feet": "side"
+          "feet": "side",
+          "segs": [
+            {
+              "at": 0,
+              "diagram": true
+            },
+            {
+              "at": 2,
+              "file": "tk2-2"
+            }
+          ]
         },
         {
           "id": "tk2-5",
@@ -407,7 +431,17 @@
             "frame": "in an orthodox fighting stance on the canvas mat, seen from a high three-quarter angle so both feet are clearly visible, fists up",
             "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. Keeping the ball of his FRONT foot planted on the same spot as a pivot point, he swings his REAR foot around in a short quarter-circle arc so his body turns only about ninety degrees (a quarter turn), then he stops and holds the new angle, guard up. He never turns his back to the camera and never turns more than a quarter turn"
           },
-          "feet": "pivot"
+          "feet": "pivot",
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk2-2"
+            },
+            {
+              "at": 1,
+              "diagram": true
+            }
+          ]
         },
         {
           "id": "tk2-6",

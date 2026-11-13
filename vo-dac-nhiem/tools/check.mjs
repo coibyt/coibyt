@@ -15,6 +15,7 @@ for (const [name, vp] of [["phone", { width: 390, height: 844 }], ["desk", { wid
   await p.goto(url);
   await p.waitForTimeout(1200); await shot("01-start");
   await p.click("#c1"); await p.click("#c2"); await p.click("#startBtn");
+  await p.evaluate(() => { const k = "soi-taiga.v1"; const s = JSON.parse(localStorage.getItem(k)); s.settings = { ...(s.settings || {}), autoTeach: false }; localStorage.setItem(k, JSON.stringify(s)); });
   await p.waitForTimeout(3500); await shot("02-welcome");
   await p.click("#startBtn"); await p.waitForTimeout(2500); await shot("03-home");
   await p.goto(url + "#/track/tay-khong"); await p.waitForTimeout(400);

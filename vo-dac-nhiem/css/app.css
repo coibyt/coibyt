@@ -547,3 +547,51 @@ body.theater #tabbar { display: none; }
 .modal-bg.dock .dbtns .btn { white-space: nowrap; }
 body:has(.modal-bg.dock) #toast { bottom: auto; top: calc(70px + env(safe-area-inset-top, 0px)); }
 @media (min-width: 900px) { .modal-bg.dock { justify-items: end; padding-right: 24px; } }
+
+/* sơ đồ bước chân cỡ lớn trong khung video */
+.stage video.hidden { visibility: hidden; }
+.stagefeet { position: absolute; inset: 0; z-index: 2; display: grid; align-content: center; gap: 8px; padding: 56px 18px 70px;
+  background: radial-gradient(ellipse at 50% 35%, #1f2718, #0b0d0a 75%); transition: opacity .35s; }
+.stagefeet.off { opacity: 0; pointer-events: none; }
+.stagefeet .feet-svg { max-height: none; height: 100%; min-height: 0; }
+.stagefeet .feet-cap { text-align: center; font-size: 16px; }
+.stagefeet .feet-note { text-align: center; }
+.stage.full .stagefeet { padding-bottom: 110px; }
+
+.stagefeet { grid-template-rows: auto minmax(0, 1fr) auto auto; align-content: stretch; padding: 58px 14px 66px; }
+.stagefeet .feet-svg { width: 100%; height: 100%; }
+.stage.diagram-on .pip { opacity: 0; transform: scale(.8); pointer-events: none; }
+
+/* ---------- mũi tên hướng lực ---------- */
+.force { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.stage.full .force { inset: auto; left: 50%; top: 50%; width: min(100vw, 100svh); aspect-ratio: 1; transform: translate(-50%, -50%); }
+.force svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.force .fa { transition: opacity .25s; }
+.force .fa path.main { fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.force .fa path.glow { fill: none; stroke-width: 3.6; stroke-linecap: round; opacity: .55; }
+.force .fa .origin { animation: fpulse 1.1s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+.force .fa .head { filter: drop-shadow(0 0 1.2px rgba(0,0,0,.8)); }
+@keyframes fpulse { 0%, 100% { transform: scale(.7); opacity: .7; } 50% { transform: scale(1.5); opacity: 1; } }
+.force-labels { position: absolute; inset: 0; }
+.fl { position: absolute; transform: translate(-50%, -50%) translateY(6px); white-space: nowrap; max-width: 62%; overflow: hidden; text-overflow: ellipsis;
+  padding: 5px 10px; border-radius: 999px; font: 600 12.5px/1.2 var(--body); color: #14110a; opacity: 0;
+  box-shadow: 0 4px 14px rgba(0,0,0,.5); transition: opacity .25s, transform .25s; }
+.fl.show { opacity: 1; transform: translate(-50%, -50%); }
+.fl.foot { background: linear-gradient(180deg, #f6e2a8, #d9b45e); }
+.fl.hit { background: linear-gradient(180deg, #ffb39b, #e2795d); }
+.fl.body { background: linear-gradient(180deg, #cdeea9, #8cc566); }
+.force-legend { position: absolute; left: 10px; bottom: 60px; display: none; gap: 6px; flex-wrap: wrap; max-width: 70%; }
+.force.has .force-legend { display: flex; }
+.force-legend .lg { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px; border-radius: 8px; background: rgba(10,12,9,.66);
+  font-size: 10.5px; color: var(--text); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.force-legend .lg i { width: 14px; height: 3px; border-radius: 3px; }
+.force-legend .foot i { background: #e0c06f; } .force-legend .hit i { background: #e2795d; } .force-legend .body i { background: #8cc566; }
+.stage.full .force-legend { bottom: 16px; }
+@media (min-width: 900px) { .fl { font-size: 14px; } }
+
+.force-legend { top: 58px; bottom: auto; left: 10px; flex-direction: column; align-items: flex-start; gap: 4px; }
+.stage.full .force-legend { top: 64px; bottom: auto; }
+.fl { max-width: 58%; }
+
+.force-legend { transition: opacity .5s; }
+.force.legend-off .force-legend { opacity: 0; }

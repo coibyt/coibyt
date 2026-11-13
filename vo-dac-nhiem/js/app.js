@@ -4,13 +4,14 @@ import * as St from "./store.js";
 import { I, LOGO, RANKS, insignia, medal, ring } from "./icons.js";
 import { t, setLang, L } from "./i18n.js";
 import { mountFeet } from "./feet.js";
+import { mountForce } from "./force.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const app = $("#app");
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-const D = { tracks: [], covers: {}, lessons: {}, order: {}, text: {}, sync: new Set() };
+const D = { tracks: [], covers: {}, lessons: {}, order: {}, text: {}, sync: new Set(), force: {} };
 let cleanup = [];               // việc dọn dẹp khi rời màn hình
 let pendingSpeech = null;       // lời thoại chờ người dùng chạm lần đầu
 let routeId = 0;
@@ -43,6 +44,7 @@ async function boot() {
   }
   // video thầy nói khớp khẩu hình (Kie.ai InfiniTalk), có thì dùng, không có thì dùng clip "đang nói"
   try { (await get(`assets/video/sync/${lang}/index.json`)).forEach((k) => D.sync.add(k)); } catch { /* chưa có */ }
+  try { D.force = await get(`content/force-${lang}.json`); } catch { /* chưa có */ }
   A.setup(manifest, `assets/voice/${lang}/`);
   A.configure(St.S().settings);
   A.onSpeak(setTalking);
@@ -470,14 +472,16 @@ function screenPlay(id, idx) {
   const d = st.drill;
   const drillLabel = d.type === "reps" ? t("reps", d.n) : d.type === "rounds" ? t("rounds", d.rounds, d.n) : t("secs", d.n);
   // các clip của bước: mỗi clip ứng với một đoạn lời giảng (at = số thứ tự câu)
-  const segs = (st.segs || [{ at: 0, file: st.id }]).map((g) => ({ at: g.at, file: g.file || `${st.id}-${g.key}` }));
+  const segs = (st.segs || [{ at: 0, file: st.id }]).map((g) => ({ at: g.at, diagram: !!g.diagram, file: g.diagram ? null : g.file || `${st.id}-${g.key}` }));
+  const firstFile = (segs.find((g) => g.file) || { file: st.id }).file;
   const nextHref = last ? `#/quiz/${l.id}` : `#/play/${l.id}/${idx + 1}`;
   render(`${topbar({ back: `#/lesson/${l.id}`, title: `<span class="eyebrow">Bài ${l.no} · ${t("step")} ${idx + 1}/${l.steps.length}</span><h1>${esc(l.title)}</h1>` })}
     <div class="wrap player">
       <div class="left">
         <div class="stage">
-          <video id="vid" src="assets/video/${segs[0].file}.mp4" poster="assets/img/kf/${segs[0].file}.webp" muted ${segs.length > 1 ? "" : "loop"} playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
+          <video id="vid" ${segs[0].file ? `src="assets/video/${segs[0].file}.mp4"` : ""} poster="assets/img/kf/${firstFile}.webp" muted ${segs.length > 1 ? "" : "loop"} playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
           <div class="slowtag" id="slowtag">0,5×</div>
+          ${segs.some((g) => g.diagram) ? `<div class="stagefeet ${segs[0].diagram ? "" : "off"}" id="stagefeet"></div>` : ""}
           <div class="pip coach live ${St.S().settings.pip ? "" : "hide"}" style="background-image:url(assets/img/coach.webp)">
             <video class="idle" src="assets/video/coach-idle.mp4" muted loop playsinline autoplay preload="auto"></video>
             <video class="talk off" src="assets/video/coach-talk.mp4" muted loop playsinline preload="auto"></video>
@@ -486,6 +490,7 @@ function screenPlay(id, idx) {
           <div class="hud"><span class="badge-step">${t("step").toUpperCase()} ${idx + 1}/${l.steps.length}</span>
             ${segs.length > 1 ? `<span class="badge-step segbadge" id="segb">1/${segs.length}</span>` : ""}<span class="grow"></span>
             <button class="icon-btn ${view.slow ? "on" : ""}" id="bSlow" aria-label="${t("slow")}" title="${t("slow")}">${I.slow}</button>
+            ${segs.some((g) => g.file && D.force[g.file]) ? `<button class="icon-btn ${St.S().settings.force !== false ? "on" : ""}" id="bForce" aria-label="${t("forceBtn")}" title="${t("forceBtn")}">${I.arrow}</button>` : ""}
             <button class="icon-btn ${view.mirror ? "on" : ""}" id="bMirror" aria-label="${t("mirror")}" title="${t("mirror")}">${I.mirror}</button></div>
           <div class="ctrl">
             <button class="icon-btn" id="bPlay" aria-label="Phát / dừng">${I.pause}</button>
@@ -495,7 +500,7 @@ function screenPlay(id, idx) {
           </div>
         </div>
         <div class="segs">${l.steps.map((_, i) => `<button data-go="#/play/${l.id}/${i}" class="${i === idx ? "cur" : Ls.seen.includes(i) ? "seen" : ""}" aria-label="${t("step")} ${i + 1}">${i === idx ? '<i id="segfill" style="width:0"></i>' : ""}</button>`).join("")}</div>
-        ${st.feet ? `<div class="card feet" id="feet"></div>` : ""}
+        ${st.feet && !segs.some((g) => g.diagram) ? `<div class="card feet" id="feet"></div>` : ""}
       </div>
       <div style="display:grid;gap:12px;align-content:start">
         <div class="step-title"><h2>${idx + 1}. ${esc(st.title)}</h2></div>
@@ -513,25 +518,52 @@ function screenPlay(id, idx) {
       </div>
     </div>`, { tab: null });
 
-  if (st.feet) cleanup.push(mountFeet($("#feet"), st.feet, t("feet")));
+  if (st.feet && $("#feet")) cleanup.push(mountFeet($("#feet"), st.feet, t("feet")));
   const vid = $("#vid");
+  // mũi tên hướng lực trên video
+  const force = mountForce($(".stage"), vid, D.force, t("forceLegend"));
+  cleanup.push(() => force.destroy());
+  force.setOn(St.S().settings.force !== false);
+  force.setMirror(view.mirror);
+  force.setClip(segs[0].file);
+  $("#bForce")?.addEventListener("click", () => {
+    const S = St.S().settings; S.force = S.force === false; St.save(); A.sfx("tap");
+    $("#bForce").classList.toggle("on", S.force); force.setOn(S.force);
+  });
   const applyView = () => {
     vid.playbackRate = view.slow ? 0.5 : 1;
     vid.classList.toggle("mirror", view.mirror);
+    force.setMirror(view.mirror);
     $("#bSlow").classList.toggle("on", view.slow);
     $("#bMirror").classList.toggle("on", view.mirror);
   };
   vid.addEventListener("loadedmetadata", applyView);
   applyView();
   // ---- chuyển clip theo lời giảng
-  let segIdx = 0, cycling = false;
-  const showSeg = (i) => {
-    if (i === segIdx && vid.getAttribute("src")) return;
+  const stage = $(".stage");
+  let segIdx = 0, cycling = false, diagT = 0;
+  // sơ đồ bước chân cỡ lớn trong khung video (cho các đoạn lời giảng về thứ tự bước chân)
+  const sf = $("#stagefeet");
+  if (sf && st.feet) cleanup.push(mountFeet(sf, st.feet, t("feet")));
+  cleanup.push(() => clearTimeout(diagT));
+  const showSeg = (i, again) => {
+    if (i === segIdx && !again && (segs[i].diagram || vid.getAttribute("src"))) return;
     segIdx = i;
-    const f = segs[i].file;
-    vid.poster = `assets/img/kf/${f}.webp`;
-    vid.src = `assets/video/${f}.mp4`;
-    vid.play().catch(() => {});
+    clearTimeout(diagT);
+    const g = segs[i];
+    if (sf) sf.classList.toggle("off", !g.diagram);
+    stage.classList.toggle("diagram-on", g.diagram);
+    vid.classList.toggle("hidden", g.diagram);
+    force.setClip(g.diagram ? null : g.file);
+    if (g.diagram) {
+      vid.pause();
+      // lúc tập theo: sơ đồ chạy một vòng rồi sang clip kế tiếp
+      if (cycling) diagT = setTimeout(() => showSeg((segIdx + 1) % segs.length), 7000);
+    } else {
+      vid.poster = `assets/img/kf/${g.file}.webp`;
+      vid.src = `assets/video/${g.file}.mp4`;
+      vid.play().catch(() => {});
+    }
     const b = $("#segb"); if (b) b.textContent = `${i + 1}/${segs.length}`;
   };
   const segAt = (pos) => { let k = 0; segs.forEach((g, i) => { if (pos >= g.at) k = i; }); return k; };
@@ -547,7 +579,6 @@ function screenPlay(id, idx) {
   const bPlay = $("#bPlay");
   bPlay.onclick = () => { if (vid.paused) { vid.play().catch(() => {}); bPlay.innerHTML = I.pause; } else { vid.pause(); bPlay.innerHTML = I.play; } };
   $("#bReplay").onclick = () => { session++; narrate(); };
-  const stage = $(".stage");
   $("#bPip").onclick = () => {
     const S = St.S().settings; S.pip = !S.pip; St.save(); A.sfx("tap");
     $(".pip", stage).classList.toggle("hide", !S.pip); $("#bPip").classList.toggle("on", S.pip);
@@ -591,7 +622,7 @@ function screenPlay(id, idx) {
 
   async function narrate() {
     cycling = false;
-    showSeg(0);
+    showSeg(0, true);
     const ok = await speak(st.id, sub, cap, segs.length > 1 ? (pos) => showSeg(segAt(pos)) : null);
     if (fill) fill.style.width = "100%";
     if (ok) {
@@ -604,7 +635,7 @@ function screenPlay(id, idx) {
   }
   async function practice(auto) {
     cycling = segs.length > 1;
-    if (cycling) showSeg(0);
+    if (cycling) showSeg(0, true);
     const s = session;
     if (auto) {
       if (!(await speak(`prac-${st.id}`, sub, cap)) || !alive(s)) return false;
