@@ -27,3 +27,10 @@
   `python3 kie_video.py ballet_video_jobs.json`. Cô Vy: `tv_talk` (10 s) và `tv_clap` (5 s) từ ảnh `tch_*`.
 - `ballet_video_enc.sh NGUỒN ../be-tap-ve-ballet-video` → mp4 "đi rồi về" (A→B→A) 720 px, không tiếng. Game phát theo bước (`VPAIRS` trong
   `src_index.html`): lặp khi cô giảng, khớp 8 nhịp khi đếm, dừng ở tư thế cuối; thiếu video thì quay về ảnh tĩnh như cũ.
+- Bản nền tối (đang dùng): khung `vd_*` (đổi nền từ `vf_*`), đoạn Kling `ballet_video_jobs_dark.json` (`w_*` → đổi tên `v_*` rồi chạy `ballet_video_enc.sh`).
+- Bài học chạy liền, không hỏi; cả bài lặp 3 lần (`ROUNDS`) rồi mới xong, tự sang bài sau.
+
+## Nhạc ba lê (Suno qua kie.ai)
+- `ballet_music_suno.py` tạo nhạc (không lời); `ballet_music_bpm.py` đo nhịp (BPM) và điểm phách đầu → bảng `TR` trong `BMusic`.
+- Tệp: `../be-tap-ve-music/ballet_{bg,count,jump,stage}.mp3` (mono 64 kbps). Nhạc nền nhỏ dần khi cô Vy nói; khi đếm, phát nhạc gióng múa
+  và đếm đúng phách nhạc; sân khấu dùng nhạc dàn nhạc. Đổi tệp nhớ tăng `STUDIO_VER`.

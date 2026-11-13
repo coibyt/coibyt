@@ -1058,6 +1058,8 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .bldress .swrow{justify-content:center; flex-wrap:wrap; gap:7px}
 .bldress .swrow[hidden]{display:none}
 .blvbadge{padding:3px 9px; border-radius:8px; background:#e63946; color:#fff; font-weight:900; font-size:11.5px; letter-spacing:.5px; box-shadow:0 2px 8px rgba(230,57,70,.5)}
+.blround{color:#4a1d3f; font-weight:900; font-size:13px; padding:4px 10px; border-radius:999px; background:linear-gradient(135deg,#fff3c4,#f6c945); box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.blround.in{animation:pop .5s var(--spring)}
 .blstep{margin-left:auto; color:#fff; font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.35)}
 .blvchip{align-self:center; margin-top:2px; padding:6px 14px; border-radius:999px; background:rgba(30,6,40,.72); color:#fff; font-weight:800; font-size:14px; backdrop-filter:blur(6px); box-shadow:0 0 0 1.5px rgba(255,255,255,.35)}
 .blvchip[hidden]{display:none}
@@ -1479,16 +1481,12 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
       <div class="blmap" id="blMap"></div>
     </div>
     <div class="blpane" data-p="lesson" hidden>
-      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span></div>
+      <div class="bltop"><button class="blbtn small blback">◀ Video</button><b id="blLessonTitle"></b><span class="blvbadge">🎬 VIDEO</span><span class="blstep" id="blStep"></span><span class="blround" id="blRound">Lần 1/3</span></div>
       <div class="blvchip" id="blVChip" hidden></div>
       <div class="bltips" id="blTips" hidden></div>
       <div class="blterm" id="blTerm" hidden></div>
       <div class="blcount" id="blCount"></div>
       <button class="blbigplay" id="blBigPlay" aria-label="Xem tiếp">▶</button>
-      <div class="blask" id="blAsk" hidden>
-        <div class="blaskcard"><span class="blaskem">🩰</span><b>Bé làm xong chưa?</b><small>Làm theo bạn Na thật đẹp rồi bấm nút xanh nhé!</small>
-          <div class="blaskrow"><button class="blbtn big gold" id="blDone">✅ Con làm xong rồi!</button><button class="blbtn" id="blAgain">🔁 Xem lại cô làm</button></div></div>
-      </div>
       <div class="blplayer">
         <div class="bldots" id="blDots"></div>
         <div class="blctrl">
@@ -6103,7 +6101,7 @@ function shade(hex, amt) {
        layers stack like real clothes. Recolouring keeps the fabric's shading:
        new colour × (pixel luminance ÷ the layer's median luminance).
    ===================================================================== */
-const STUDIO_VER = 1;
+const STUDIO_VER = 2;
 const Pack = (() => {
   let prom = null;
   const imgs = new Map();
@@ -8350,7 +8348,7 @@ const BL = {
   locked: 'Bài này chưa mở, bé học xong bài trước nhé!', nice: 'Bộ váy này đẹp quá!', color: 'Bé chọn màu cho chiếc váy nhé!',
   videos: 'Đây là thư viện video bài học. Bé chọn một video để xem bạn Na làm mẫu và cô hướng dẫn nhé!',
   watch: 'Bé xem bạn Na làm mẫu thật kĩ nhé!', ask: 'Bé làm xong chưa? Xong rồi thì bấm nút xanh nhé!', again: 'Mình xem lại bạn Na làm mẫu nhé!',
-  vdone: 'Bé đã học xong video này! Giỏi quá đi!', paused: 'Video đang tạm dừng. Bé bấm nút để xem tiếp nhé!',
+  vdone: 'Bé đã học xong video này! Giỏi quá đi!', round2: 'Bây giờ mình tập lại lần thứ hai nhé!', round3: 'Lần cuối cùng rồi, bé cố lên nhé!', paused: 'Video đang tạm dừng. Bé bấm nút để xem tiếp nhé!',
   pat: 'Hoạ tiết mới đẹp quá!', hairc: 'Màu tóc mới thật xinh!', random: 'Bộ đồ bất ngờ đây! Bé thấy có đẹp không?', twirl: 'Bé xoay một vòng cho cô xem nào!',
   tabpat: 'Bé chọn hoạ tiết và màu cho chiếc váy nhé!', tabhair: 'Bé chọn kiểu tóc và màu tóc nhé!', tabacc: 'Bé chọn vương miện hoặc nơ xinh nhé!',
 };
@@ -8373,8 +8371,8 @@ const BTIPS = {
 };
 const COUNT_VI = ['Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám'];
 
-/** A gentle music-box tune (Web Audio): calls onBeat(n) on every beat. */
-const BMusic = (() => {
+/** A gentle music-box tune (Web Audio): calls onBeat(n) on every beat. (fallback while the real music loads) */
+const BSynth = (() => {
   let timer = 0, beat = 0, next = 0, ctx = null, gain = null, cb = null, bpm = 72;
   const MEL = [[0, 4, 7], [7, 4, 0], [2, 5, 9], [9, 5, 2], [4, 7, 11], [12, 11, 7], [5, 9, 12], [7, 4, 0]];
   const BASS = [-12, -5, -10, -8, -12, -5, -7, -12];
@@ -8406,6 +8404,80 @@ const BMusic = (() => {
     },
     stop() { clearInterval(timer); timer = 0; cb = null; if (gain) { try { gain.gain.setTargetAtTime(0, ctx.currentTime, 0.08); } catch (_) { /* ignore */ } gain = null; } },
     on: () => !!timer,
+  };
+})();
+
+/** Real ballet music (Suno via kie.ai): background music for the class, ducked under cô Vy's voice; barre / jump / stage
+    tracks with a known beat grid, so the counting "Một, hai, ba…" lands on the music's beats. Falls back to BSynth. */
+const BMusic = (() => {
+  const TR = { bg: ['ballet_bg', 72.36, 0.72], count: ['ballet_count', 70.88, 0.627], jump: ['ballet_jump', 83.78, 0.012], stage: ['ballet_stage', 71.98, 0.348] };
+  const buf = {}, pos = {};
+  let bg = null, bgWant = false, duck = false, cur = null, timer = 0, cb = null, synth = false;
+  const vol = () => (prefs.sound ? 1 : 0);
+  function load(k) {
+    if (!buf[k]) buf[k] = (async () => {
+      const ctx = audioCtx(); if (!ctx) return null;
+      try {
+        const a = await (await fetch(`be-tap-ve-music/${TR[k][0]}.mp3?v=${STUDIO_VER}`)).arrayBuffer();
+        const b = await new Promise((res) => ctx.decodeAudioData(a, res, () => res(null)));
+        buf[k + '_ok'] = b; return b;
+      } catch (_) { buf[k] = null; return null; }
+    })();
+    return buf[k];
+  }
+  function voice(k, level, loop, at) {                     // → {src, gain, t0, at}
+    const ctx = audioCtx(), b = buf[k + '_ok']; if (!ctx || !b) return null;
+    const src = ctx.createBufferSource(), g = ctx.createGain(); src.buffer = b; src.loop = loop;
+    g.gain.value = 0; g.gain.setTargetAtTime(level * vol(), ctx.currentTime, 0.35);
+    src.connect(g); g.connect(ctx.destination);
+    const off = ((at || 0) % b.duration + b.duration) % b.duration, t0 = ctx.currentTime + 0.05;
+    src.start(t0, off);
+    return { src, gain: g, t0, at: off, k };
+  }
+  function fade(v, t = 0.35) {
+    if (!v) return; const ctx = audioCtx();
+    try { v.gain.gain.setTargetAtTime(0, ctx.currentTime, t / 3); v.src.stop(ctx.currentTime + t + 0.1); } catch (_) { /* stopped */ }
+  }
+  const bgLevel = () => (duck ? 0.06 : 0.2);
+  function bgSync() {
+    const want = bgWant && !cur && !synth;
+    if (want && !bg && buf.bg_ok) bg = voice('bg', bgLevel(), true, pos.bg || 0);
+    else if (!want && bg) { pos.bg = posOf(bg); fade(bg, 0.6); bg = null; }
+    else if (bg) bg.gain.gain.setTargetAtTime(bgLevel() * vol(), audioCtx().currentTime, 0.25);
+  }
+  const posOf = (v) => v.at + (audioCtx().currentTime - v.t0) * (v.rate || 1);
+  return {
+    preload() { ['bg', 'count', 'jump', 'stage'].forEach(load); },
+    bg(on) { bgWant = on; if (on) load('bg').then(bgSync); else bgSync(); },
+    duck(on) { duck = on; bgSync(); },
+    beatSec(kind, rate = 1) { return buf[kind + '_ok'] ? 60 / TR[kind][1] / rate : null; },
+    /** start(onBeat, fallbackTempo, kind) → true; onBeat(n) n = 0,1,2… on the music's beats */
+    start(onBeat, tempo = 72, kind = 'count', rate = 1) {
+      this.stop(); cb = onBeat;
+      if (!buf[kind + '_ok']) { load(kind); synth = true; bgSync(); return BSynth.start(onBeat, tempo); }
+      const ctx = audioCtx(), [, bpm, off] = TR[kind], sp0 = 60 / bpm, sp = sp0 / rate, D = buf[kind + '_ok'].duration;
+      // continue the piece where it stopped, on a beat a little before the next downbeat (two beats of pick-up)
+      let p = pos[kind] || off; const k = Math.ceil((p - off) / sp0); p = off + k * sp0;
+      if (p > D - 20) p = off;
+      cur = voice(kind, 0.55, false, Math.max(0, p - 2 * sp0)); cur.src.playbackRate.value = rate; cur.rate = rate; bgSync();
+      const first = cur.t0 + 2 * sp; let n = 0;
+      const tick = () => {
+        if (!cur) return;
+        while (first + n * sp < ctx.currentTime + 0.25) {
+          const at = first + n * sp, b = n;
+          setTimeout(() => { if (cb) cb(b); }, Math.max(0, (at - ctx.currentTime) * 1000)); n++;
+        }
+      };
+      tick(); timer = setInterval(tick, 80);
+      return true;
+    },
+    stop() {
+      clearInterval(timer); timer = 0; cb = null;
+      if (synth) { BSynth.stop(); synth = false; }
+      if (cur) { pos[cur.k] = posOf(cur); fade(cur, 0.5); cur = null; }
+      bgSync();
+    },
+    on: () => !!timer || BSynth.on(),
   };
 })();
 
@@ -8514,6 +8586,7 @@ const Ballet = (() => {
     BG = await Pack.group(P.bg);
     TCH = P.teacher;
     $('#blTeacher').src = TCH.talk;
+    BMusic.preload();
     ready = true;
   }
 
@@ -8736,10 +8809,10 @@ const Ballet = (() => {
   async function say(text, pose = 'talk') {
     const id = ++sayN;
     $('#blTeacher').src = TCH[pose] || TCH.talk;
-    teacherVid(pose === 'clap' ? 'clap' : 'talk', true);
+    teacherVid(pose === 'clap' ? 'clap' : 'talk', true); BMusic.duck(true);
     const b = $('#blSay'); b.textContent = text; b.closest('.blteach').classList.add('talking');
     if (prefs.sound) { stopVoice(); await playVoice(clipKey(text), text, 'vi-VN', Snd.token); } else await wait(900 + text.length * 35);
-    if (id === sayN) { b.closest('.blteach').classList.remove('talking'); teacherVid(pose === 'clap' ? 'clap' : 'talk', false); }
+    if (id === sayN) { b.closest('.blteach').classList.remove('talking'); teacherVid(pose === 'clap' ? 'clap' : 'talk', false); BMusic.duck(false); }
     return id === sayN;
   }
 
@@ -8795,11 +8868,12 @@ const Ballet = (() => {
   }
   function chip(text) { const c = $('#blVChip'); c.textContent = text; c.hidden = !text; c.classList.remove('in'); void c.offsetWidth; c.classList.add('in'); }
   function stopDemo() { clearInterval(demo); demo = 0; }
-  async function startLesson(ls, at = 0) {
+  async function startLesson(ls, at = 0, round = 1) {
     stopAll();
-    lesson = { ls, i: Math.max(0, Math.min(at || 0, ls.steps.length - 1)) };
+    lesson = { ls, i: Math.max(0, Math.min(at || 0, ls.steps.length - 1)), round: Math.max(1, Math.min(ROUNDS, round || 1)) };
+    roundUi();
     scene = ls.show ? 'stage' : 'studio';
-    pane('lesson');
+    pane('lesson'); BMusic.bg(true);
     $('#blLessonTitle').textContent = ls.title;
     S.watched[ls.id || 'show'] = S.watched[ls.id || 'show'] || 0.5; save();
     if (ls.show) return runShow(ls);
@@ -8809,11 +8883,11 @@ const Ballet = (() => {
     if (!lesson) return;
     stopDemo(); BMusic.stop();
     const L = lesson, st = L.ls.steps[L.i], me = (L.run = (L.run > 0 ? L.run : 0) + 1);
-    if (L.ls.id) { S.cur = { id: L.ls.id, i: L.i }; save(); }               // come back here next time
-    L.paused = false; L.t0 = performance.now(); $('#blPlay').textContent = '⏸'; $('#blPlay').setAttribute('aria-label', 'Tạm dừng');
+    if (L.ls.id) { S.cur = { id: L.ls.id, i: L.i, r: L.round || 1 }; save(); }               // come back here next time
+    L.paused = false; L.t0 = performance.now(); BMusic.bg(true); $('#blPlay').textContent = '⏸'; $('#blPlay').setAttribute('aria-label', 'Tạm dừng');
     el.classList.remove('paused');
     stepDots();
-    $('#blAsk').hidden = true; $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term; $('#blTips').hidden = true;
+    $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term; $('#blTips').hidden = true;
     const nx = L.ls.steps[L.i + 1], nc = nx && clipFor(nx);                     // warm up the next clip
     if (nc && !VID.fail[nc.key]) fetch(VDIR + nc.key + '.mp4?v=' + STUDIO_VER).catch(() => {});
     if (st.term) $('#blTerm').innerHTML = `<b>${st.term[0]}</b> · ${st.term[1]}`;
@@ -8836,17 +8910,29 @@ const Ballet = (() => {
       const tp = BTIPS[st.pose]; $('#blTips').hidden = !tp; if (tp) $('#blTips').innerHTML = tp.map((t) => `<span>✔ ${t}</span>`).join('');
       if (L.i === 0) await say(BL.count, 'show');
       if (!lesson || L.run !== me) return;
-      if (hasVid) await vidPlay(st, 'count', ((st.count >= 8 ? 8 : 4) * 60) / ((st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1)));
+      const kind = st.anim === 'jump' ? 'jump' : 'count', bs = BMusic.beatSec(kind, S.slow ? 0.85 : 1) || 60 / ((st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1));
+      if (hasVid) await vidPlay(st, 'count', (st.count >= 8 ? 8 : 4) * bs);
       await countBeats(st, me);
       if (hasVid && lesson && L.run === me) vidPlay(st, 'hold');
     }
     if (!lesson || L.run !== me) return;
-    if (!st.count) { lesson.i++; if (lesson.i < lesson.ls.steps.length) return runStep(); return finishLesson(); }
-    chip('');
-    $('#blAsk').hidden = false;
-    $('#blTeacher').src = TCH.show || TCH.talk;
-    say(BL.ask, 'show');
+    nextStep();
   }
+  /* the video runs straight through; the whole lesson plays 3 times (round 1/3 → 3/3) so the child gets used to it */
+  const ROUNDS = 3;
+  async function nextStep() {
+    const L = lesson; if (!L) return;
+    const me = L.run;
+    L.i++;
+    if (L.i < L.ls.steps.length) { chime(); return runStep(); }
+    L.round = (L.round || 1) + 1;
+    if (L.round > ROUNDS) return finishLesson();
+    L.i = 0; S.cur = { id: L.ls.id, i: 0, r: L.round }; save();
+    roundUi(); claps(2);
+    const ok = await say(L.round === 2 ? BL.round2 : BL.round3, 'clap');
+    if (ok && lesson === L && L.run === me) runStep();
+  }
+  function roundUi() { const r = $('#blRound'); if (r && lesson) { r.textContent = `Lần ${lesson.round || 1}/${ROUNDS}`; r.classList.remove('in'); void r.offsetWidth; r.classList.add('in'); } }
   function countBeats(st, me) {
     return new Promise((res) => {
       const L = lesson; let n = 0;
@@ -8859,7 +8945,7 @@ const Ballet = (() => {
         const cyc = st.count >= 8 ? 8 : 4;
         if (VID.on && n > 1 && (n - 1) % cyc === 0) { try { VID.on.currentTime = VID.fwd ? 0.05 : VID.on.duration / 2; } catch (_) { /* ignore */ } }
         if (n >= st.count) { setTimeout(() => { BMusic.stop(); setPose(st.pose, st.anim); res(); }, 700); }
-      }, (st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1));
+      }, (st.anim === 'jump' ? 84 : 66) * (S.slow ? 0.8 : 1), st.anim === 'jump' ? 'jump' : 'count', S.slow ? 0.85 : 1);
       if (!ok) setTimeout(res, 300);
     });
   }
@@ -8868,23 +8954,13 @@ const Ballet = (() => {
     const L = lesson;
     if (L.paused) { runStep(); return; }
     L.into = Math.min(stepSec(L.ls.steps[L.i]), (performance.now() - (L.t0 || 0)) / 1000);
-    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); stopDemo(); if (VID.on) VID.on.pause(); teacherVid('talk', false);
+    L.paused = true; L.run = -1; sayN++; stopVoice(); BMusic.stop(); BMusic.bg(false); BMusic.duck(false); stopDemo(); if (VID.on) VID.on.pause(); teacherVid('talk', false);
     $('#blSay').closest('.blteach').classList.remove('talking'); $('#blSay').textContent = BL.paused;
     $('#blPlay').textContent = '▶'; $('#blPlay').setAttribute('aria-label', 'Xem tiếp');
     el.classList.add('paused'); chip('⏸ Tạm dừng'); progressUi();
   }
   $('#blPlay').addEventListener('click', (e) => { pop(e.currentTarget); pauseVideo(); });
   $('#blBigPlay').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && lesson.paused) runStep(); });
-  $('#blDone').addEventListener('click', async (e) => {
-    pop(e.currentTarget); if (!lesson) return;
-    sparkle(e.clientX - el.getBoundingClientRect().left, e.clientY - el.getBoundingClientRect().top, 12, $('#blFx'));
-    chime(); claps(2);
-    $('#blAsk').hidden = true;
-    lesson.i++;
-    if (lesson.i < lesson.ls.steps.length) { const L = lesson, me = (L.run = (L.run > 0 ? L.run : 0) + 1); say(BL.good, 'clap').then((ok) => { if (ok && lesson === L && L.run === me) runStep(); }); return; }
-    finishLesson();
-  });
-  $('#blAgain').addEventListener('click', (e) => { pop(e.currentTarget); if (!lesson) return; say(BL.again, 'show').then((ok) => { if (ok && lesson) runStep(); }); $('#blAsk').hidden = true; });
   $('#blPrev').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show) { lesson.i = Math.max(0, lesson.i - 1); runStep(); } });
   $('#blNext').addEventListener('click', (e) => { pop(e.currentTarget); if (lesson && !lesson.ls.show && lesson.i < lesson.ls.steps.length - 1) { lesson.i++; runStep(); } });
   $('#blSlow').addEventListener('click', (e) => { pop(e.currentTarget); S.slow = !S.slow; save(); e.currentTarget.classList.toggle('on', !!S.slow); });
@@ -8907,7 +8983,7 @@ const Ballet = (() => {
   /* ---------- stage show: the routine with music, then the runway / certificate ---------- */
   async function runShow(ls) {
     scene = 'stage'; pane('lesson'); el.classList.add('onstage');
-    $('#blAsk').hidden = true; $('#blTerm').hidden = true; chip('🎭 Sân khấu');
+    $('#blTerm').hidden = true; chip('🎭 Sân khấu');
     show = { i: 0 };
     lesson.t0 = performance.now(); stepDots();
     await say(BL.stage, 'show');
@@ -8927,7 +9003,7 @@ const Ballet = (() => {
           if (prefs.sound) playVoice(clipKey(st.say), st.say, 'vi-VN', Snd.token);
           if (lesson) { lesson.i = si; lesson.t0 = performance.now(); stepDots(); }
         }
-      }, 70);
+      }, 70, 'stage');
       if (!ok) res();
     });
     if (!show) return;
@@ -8936,7 +9012,7 @@ const Ballet = (() => {
     await say(BL.bravo, 'clap');
     if (ls.id) { S.done[ls.id] = 3; save(); }
     lesson = null;
-    Showcase.open({ kind: 'ballet', img: snapshot(), points: 14 + totalStars() / 3, back: () => { open(() => buildVideos(true)); } });
+    BMusic.bg(false); Showcase.open({ kind: 'ballet', img: snapshot(), points: 14 + totalStars() / 3, back: () => { open(() => buildVideos(true)); } });
   }
   function snapshot(pose = 'final') {
     const c = blankCanvas(900, 1400), x = c.getContext('2d');
@@ -8955,13 +9031,13 @@ const Ballet = (() => {
     return c;
   }
   function buildVideos(quiet) {
-    scene = 'studio'; pane('videos'); stopAll();
+    scene = 'studio'; pane('videos'); stopAll(); BMusic.bg(true);
     const g = $('#blVLib'); g.textContent = '';
     const all = lessons(), resume = S.cur && all.find((l) => l.id === S.cur.id), next = resume || all.find((l) => !S.done[l.id] && !l.show) || all[0];
     const hero = document.createElement('button'); hero.className = 'blvhero';
     hero.innerHTML = `<span class="blvplay">▶</span><span><small>${S.done[next.id] ? 'Xem lại' : 'Học tiếp'} · Cấp ${next.level.id}</small><b>${next.title}</b><em>⏱ ${mmss(lessonSec(next))} · ${next.steps.length} bước · có bạn Na làm mẫu</em></span>`;
     hero.prepend(thumbCanvas(next.steps[next.steps.length - 1].pose, 70, 96, look({ cos: 'practice' })));
-    hero.addEventListener('click', () => { pop(hero); startLesson(next, resume ? S.cur.i : 0); });
+    hero.addEventListener('click', () => { pop(hero); startLesson(next, resume ? S.cur.i : 0, resume ? S.cur.r : 1); });
     g.appendChild(hero);
     BALLET.forEach((lv) => {
       const h = document.createElement('h3'); h.className = 'blvlv'; h.innerHTML = `<i>${lv.icon}</i> Cấp ${lv.id}: ${lv.name}`; g.appendChild(h);
@@ -9011,7 +9087,7 @@ const Ballet = (() => {
   }
   const HEAD = [190, 40, 270, 300];
   function buildDress(keep) {
-    if (!keep) { scene = 'dress'; pane('dress'); stopAll(); cur = { ...cur, pose: 'ready', from: null, anim: null }; }
+    if (!keep) { scene = 'dress'; pane('dress'); stopAll(); BMusic.bg(true); cur = { ...cur, pose: 'ready', from: null, anim: null }; }
     el.querySelectorAll('#blTabs button').forEach((b) => b.classList.toggle('on', b.dataset.t === dressTab));
     const g = $('#blOpts'), pal = $('#blPalette'); g.textContent = ''; pal.textContent = ''; pal.hidden = true;
     const L = S.look, lk = look();
@@ -9055,7 +9131,7 @@ const Ballet = (() => {
   });
   $('#blPhoto').addEventListener('click', (e) => {
     pop(e.currentTarget);
-    Showcase.open({ kind: 'ballet', img: snapshot(figure('final') ? 'final' : 'ready'), points: 10 + totalStars() / 3, back: () => { open(() => buildDress()); } });
+    BMusic.bg(false); Showcase.open({ kind: 'ballet', img: snapshot(figure('final') ? 'final' : 'ready'), points: 10 + totalStars() / 3, back: () => { open(() => buildDress()); } });
   });
   $('#blDressStage').addEventListener('click', (e) => { pop(e.currentTarget); const l = lessons().find((x) => x.show); startLesson({ ...l, id: null }); });
 
@@ -9092,11 +9168,11 @@ const Ballet = (() => {
     const all = lessons().filter((l) => !l.show);
     let ls = S.cur && all.find((l) => l.id === S.cur.id), at = ls ? S.cur.i : 0;
     if (!ls) ls = all.find((l) => !S.done[l.id]) || all[0];
-    startLesson(ls, at);
+    startLesson(ls, at, ls && S.cur && S.cur.id === ls.id ? S.cur.r : 1);
   }
-  function close() { stopAll(); lesson = null; sayN++; stopVoice(); mirror(false); Screens.close(); Hub.open(); }
+  function close() { stopAll(); BMusic.bg(false); BMusic.duck(false); lesson = null; sayN++; stopVoice(); mirror(false); Screens.close(); Hub.open(); }
   window.addEventListener('resize', () => { if (!el.hidden) render(); });
-  return { open, close, state: () => S, startLesson: (id) => startLesson(lessons().find((l) => l.id === id)), next: () => $('#blDone').click(), ready: () => ready, _fig: (p, o) => figure(p, look(o)), buildDress, buildVideos, dress: () => { dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); }, mode: () => mode, look: (o) => { Object.assign(S.look, o); figCache.clear(); render(); if (mode === 'dress') buildDress(true); } };
+  return { open, close, state: () => S, startLesson: (id) => startLesson(lessons().find((l) => l.id === id)), next: () => nextStep(), ready: () => ready, _fig: (p, o) => figure(p, look(o)), buildDress, buildVideos, dress: () => { dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); }, mode: () => mode, look: (o) => { Object.assign(S.look, o); figCache.clear(); render(); if (mode === 'dress') buildDress(true); } };
 })();
 
 if (/[?&]qa=1/.test(location.search)) window.Ballet = Ballet;     // test hook
