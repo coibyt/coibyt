@@ -269,7 +269,14 @@ Future<int> shrink(List<int> audio, File dest) async {
     '32k',
     dest.path,
   ]);
-  if (r.exitCode != 0 || !dest.existsSync() || dest.lengthSync() < 400) dest.writeAsBytesSync(audio);
+  if (r.exitCode != 0 || !dest.existsSync() || dest.lengthSync() < 400) {
+    // 11max đôi khi trả về chữ báo lỗi thay vì âm thanh → không lưu, để lần chạy sau thu lại.
+    if (audio.length < 2000) {
+      tmp.deleteSync();
+      throw HttpException('11max trả về dữ liệu không phải âm thanh (${audio.length} byte)');
+    }
+    dest.writeAsBytesSync(audio);
+  }
   tmp.deleteSync();
   final probe = await Process.run('ffprobe', [
     '-v',

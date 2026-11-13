@@ -2,7 +2,7 @@ name: toan_lop_3
 description: "Ong Vàng Toán 3 - học toán lớp 3 cho bé (tên tạm)."
 publish_to: 'none'
 
-version: 0.1.0+1
+version: 1.0.0+2
 
 environment:
   # Cần Flutter 3.44 trở lên (Dart 3.10+). Bản đã kiểm tra: Flutter 3.47.9.

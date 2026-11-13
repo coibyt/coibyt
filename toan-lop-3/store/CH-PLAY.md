@@ -1,4 +1,4 @@
-# Đăng "Toán Lớp 3 – Học cùng Cô Mai" lên CH Play
+# Đăng "Toán Lớp 3 & Tiếng Anh: Cô Mai" lên CH Play (bản 1.0.0)
 
 Thư mục `store/` có sẵn mọi hình cần tải lên. File cài đặt `.aab` tạo bằng lệnh ở mục 7.
 
@@ -6,23 +6,25 @@ Thư mục `store/` có sẵn mọi hình cần tải lên. File cài đặt `.a
 |---|---|---|
 | Biểu tượng ứng dụng | `icon-512.png` | 512 × 512, PNG |
 | Hình nổi bật (banner) | `banner-1024x500.png` | 1024 × 500 |
-| Ảnh chụp màn hình điện thoại (7 ảnh) | `screenshot-1…7-*.png` | 1080 × 1920 (tỉ lệ 9:16) |
+| Ảnh chụp màn hình điện thoại (8 ảnh, tối đa CH Play cho phép) | `screenshot-1…8-*.png` | 1080 × 1920 (tỉ lệ 9:16) |
 
 ---
 
 ## 1. Tên ứng dụng (tối đa 30 ký tự)
 
-Tên chính, nên dùng (28 ký tự):
+Tên chính, nên dùng (30 ký tự):
 
-> **Toán Lớp 3 – Học cùng Cô Mai**
+> **Toán Lớp 3 & Tiếng Anh: Cô Mai**
 
-Từ khoá quan trọng nhất là "Toán Lớp 3" và nằm ngay đầu tên. Phụ huynh hay gõ đúng cụm này. Phần "Học cùng Cô Mai" làm tên dễ nhớ và khác các app cùng loại.
+- Tên chứa đúng 2 cụm phụ huynh tìm nhiều nhất là **"Toán Lớp 3"** và **"Tiếng Anh"**, nên app hiện ra ở cả hai luồng tìm kiếm.
+- "Toán Lớp 3" đứng đầu tên vì là từ khoá chính.
+- "Cô Mai" là thương hiệu riêng, dễ nhớ, phân biệt với app khác.
 
-Tên dự phòng (dùng nếu tên chính đã có người đặt hoặc muốn thử A/B):
+Tên dự phòng (nếu tên chính đã có người đặt, hoặc muốn thử A/B trong Play Console):
 
-- `Toán Lớp 3: Video Bài Giảng` (27)
-- `Học Toán Lớp 3 – Cô Mai Dạy` (27)
-- `Toán Lớp 3 – Luyện Thi & Giải` (29)
+- `Toán Lớp 3 – Học cùng Cô Mai` (28): bản cũ, nhấn vào cô giáo.
+- `Toán Lớp 3 + Tiếng Anh Cho Bé` (29)
+- `Học Toán Lớp 3 Song Ngữ Anh` (27)
 
 Không nên đặt "Kết nối tri thức" hay tên NXB vào **tên app**, vì có thể bị coi là mạo danh thương hiệu. Chỉ nhắc trong phần mô tả là "theo chương trình sách giáo khoa".
 
@@ -30,15 +32,22 @@ Tên dưới biểu tượng trên điện thoại: **Toán Lớp 3**.
 
 ## 2. Mô tả ngắn (tối đa 80 ký tự)
 
-Chọn 1 (bản đầu khuyên dùng câu đầu):
+Chọn 1 (khuyên dùng câu đầu):
 
-- `Học Toán lớp 3 cùng cô giáo biết nói: video bài giảng, luyện tập, đề kiểm tra` (77)
-- `Video bài giảng Toán lớp 3, 1000+ bài tập, 65 đề kiểm tra, lời giải từng bước` (77)
+- `Học Toán lớp 3 kèm Tiếng Anh: cô giáo biết nói, video bài giảng, đề kiểm tra` (77)
+- `Video bài giảng Toán lớp 3 song ngữ Anh – Việt, 1000+ bài tập, 65 đề thi` (73)
 
 ## 3. Mô tả đầy đủ (dán nguyên văn, dưới 4000 ký tự)
 
 ```
-Toán Lớp 3 – Học cùng Cô Mai là ứng dụng học Toán lớp 3 có cô giáo ảo biết nói, giảng bài như ở lớp. Bé xem video bài giảng, làm bài tập, thi thử và được cô chấm điểm, gợi ý ngay. Nội dung bám sát chương trình sách giáo khoa Toán 3 mới, giúp bé 8–9 tuổi tự học Toán mỗi ngày thật vui.
+Toán Lớp 3 & Tiếng Anh: Cô Mai là ứng dụng học Toán lớp 3 có cô giáo ảo biết nói, giảng bài như ở lớp – và bé học thêm Tiếng Anh ngay trong giờ Toán. Bé xem video bài giảng, làm bài tập, thi thử và được cô chấm điểm, gợi ý ngay. Nội dung bám sát chương trình sách giáo khoa Toán 3 mới, giúp bé 8–9 tuổi tự học mỗi ngày thật vui.
+
+🇬🇧 TOÁN + TIẾNG ANH (SONG NGỮ)
+• Bật một nút là bé vừa học Toán vừa học Tiếng Anh.
+• Mỗi câu hỏi có bản tiếng Anh; cô đọc tiếng Việt rồi đọc tiếng Anh bằng giọng bản ngữ.
+• Làm đúng được khen bằng tiếng Anh kèm đáp án: "Excellent! Sixty-three."
+• Gần 840 từ vựng Toán tiếng Anh có hình minh hoạ (multiply, divide, circle, perimeter…), chạm để nghe phát âm.
+• Trò chơi ôn từ: nghe từ tiếng Anh, chọn nghĩa đúng.
 
 🎬 VIDEO BÀI GIẢNG CHO MỌI BÀI
 • Cô Mai viết bài lên bảng bằng bút phấn, vẽ hình (hình tròn, góc vuông, trung điểm, đồng hồ, sơ đồ đoạn thẳng…) và giảng bằng giọng nói tự nhiên.
@@ -74,14 +83,14 @@ Bảng nhân, bảng chia 2–9; nhân, chia số có nhiều chữ số; phép 
 • Khu phụ huynh có cổng bảo vệ, xem tiến độ học của con.
 • Nhắc bé nghỉ mắt sau mỗi phiên học.
 
-Tải Toán Lớp 3 – Học cùng Cô Mai để bé học Toán lớp 3 vui như chơi và tự tin đạt điểm 10!
+Tải Toán Lớp 3 & Tiếng Anh: Cô Mai để bé học Toán lớp 3 vui như chơi, giỏi thêm Tiếng Anh và tự tin đạt điểm 10!
 ```
 
 ## 4. Từ khoá SEO
 
 CH Play không có ô từ khoá riêng. Máy tìm kiếm đọc **tên + mô tả ngắn + mô tả đầy đủ**. Mô tả ở trên đã lồng sẵn các cụm phụ huynh hay tìm:
 
-`toán lớp 3`, `học toán lớp 3`, `toán 3`, `bài tập toán lớp 3`, `đề kiểm tra toán lớp 3`, `luyện thi toán lớp 3`, `giải toán lớp 3`, `bảng nhân`, `bảng chia`, `bảng cửu chương`, `toán tiểu học`, `học toán cho bé`, `video bài giảng toán`, `đề thi giữa kì`, `đề thi cuối kì`.
+`toán lớp 3`, `học toán lớp 3`, `toán 3`, `tiếng anh lớp 3`, `toán tiếng anh`, `học tiếng anh cho bé`, `toán song ngữ`, `từ vựng tiếng anh`, `bài tập toán lớp 3`, `đề kiểm tra toán lớp 3`, `luyện thi toán lớp 3`, `giải toán lớp 3`, `bảng nhân`, `bảng chia`, `bảng cửu chương`, `toán tiểu học`, `học toán cho bé`, `video bài giảng toán`, `đề thi giữa kì`, `đề thi cuối kì`.
 
 Mẹo:
 - Mỗi cụm chỉ cần xuất hiện **1–3 lần** trong mô tả. Nhồi nhét từ khoá có thể bị CH Play hạ thứ hạng.
@@ -117,10 +126,10 @@ Mẹo:
 - App không có quảng cáo, không đăng nhập, không gửi dữ liệu nên đáp ứng yêu cầu.
 - Khi Console hỏi app có thể hấp dẫn trẻ em không, trả lời "Có" và tích vào chính sách Gia đình.
 
-## 6. "Có gì mới" cho bản đầu tiên
+## 6. "Có gì mới" (bản 1.0.0)
 
 ```
-Phiên bản đầu tiên: video bài giảng cho mọi bài Toán lớp 3, hơn 1000 bài luyện tập có lời giải từng bước, 65 đề kiểm tra, gameshow kiểm tra năng lực. Cô Mai đọc đề và giảng bằng giọng nói.
+Ra mắt Toán Lớp 3 & Tiếng Anh: video bài giảng cho mọi bài Toán lớp 3, chế độ song ngữ Toán + Tiếng Anh với giọng bản ngữ và gần 840 từ vựng, hơn 1000 bài luyện tập có lời giải từng bước, 65 đề kiểm tra, gameshow kiểm tra năng lực. Cô Mai đọc đề và giảng bằng giọng nói.
 ```
 
 ## 7. Tạo file cài đặt (.aab) và ký số
@@ -128,21 +137,26 @@ Phiên bản đầu tiên: video bài giảng cho mọi bài Toán lớp 3, hơn
 Bản này **mở miễn phí toàn bộ nội dung** (cờ `ALL_FREE`), không có mục mua VIP. Lý do: bán VIP cần máy chủ xác minh giao dịch Google Play mà dự án chưa có.
 
 ```bash
-flutter build appbundle --release --dart-define=ALL_FREE=true
+bash tool/build_android.sh
 ```
 
-Kết quả: `build/app/outputs/bundle/release/app-release.aab`. Tải file này lên Play Console → Phát hành → Tạo bản phát hành mới.
+Lệnh này làm 3 việc:
+1. Nén giọng nói xuống 24 kbps, **chỉ cho bản Android**. Bản web giữ nguyên chất lượng.
+2. Dựng `build/app/outputs/bundle/release/app-release.aab`.
+3. Trả lại thư mục giọng gốc.
+
+Tải file `.aab` lên Play Console → Phát hành → Tạo bản phát hành mới.
 
 **Khoá tải lên (upload key):** file `upload-keystore.jks` và `key.properties` (gửi riêng, **không đưa lên git**).
 - Đặt cả hai vào thư mục `android/` của dự án rồi build như trên.
 - **Cất giữ cẩn thận** cả file khoá lẫn mật khẩu. Mỗi lần cập nhật app phải ký bằng đúng khoá này.
 - Khi tạo app trên Play Console, bật **Ký ứng dụng bằng Play (Play App Signing)**. Nếu lỡ mất upload key thì vẫn xin Google đổi khoá được.
 
-**Dung lượng:** file `.aab` nặng khoảng 232 MB vì chứa thư viện cho 3 loại chip. Mỗi điện thoại chỉ tải **khoảng 181 MB**, dưới giới hạn 200 MB của CH Play. Phần lớn là khoảng 9.900 file giọng cô Mai. Nếu sau này thêm nhiều giọng và vượt 200 MB, cần tách giọng thành gói tài nguyên riêng (Play Asset Delivery).
+**Dung lượng bản 1.0.0:** file `.aab` khoảng 217 MB vì chứa thư viện cho 3 loại chip. Mỗi điện thoại chỉ tải **khoảng 165 MB**, dưới giới hạn 200 MB của CH Play. Giọng nói gồm cô Mai, MC và tiếng Anh, khoảng 11.700 câu.
 
 **Nếu build báo lỗi 429 khi tải thư viện Maven Central:** dùng bản sao của Google (`maven-central.storage-download.googleapis.com`), đặt trong `~/.gradle/init.d/`.
 
-Mỗi lần cập nhật: tăng số phiên bản trong `pubspec.yaml` (vd `version: 1.0.1+2`, số sau dấu `+` phải tăng).
+**Mỗi lần cập nhật:** tăng số phiên bản trong `pubspec.yaml` (hiện là `version: 1.0.0+2`; bản sau ví dụ `1.0.1+3`, số sau dấu `+` phải tăng).
 
 ## 8. Thứ tự đăng (lần đầu)
 

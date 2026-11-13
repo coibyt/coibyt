@@ -69,12 +69,14 @@ def banner():
     shadow_text(bg, (146, 80), "Chương trình mới · SGK", font(22), (90, 58, 0, 255), offset=1, shadow=(0, 0, 0, 40))
     shadow_text(bg, (38, 140), "Toán Lớp 3", font(104), (255, 196, 0, 255), offset=4,
                 stroke=6, stroke_fill=(120, 60, 0, 255))
-    shadow_text(bg, (44, 278), "Video bài giảng có cô giáo nói", font(34), (30, 77, 56, 255), offset=1,
+    shadow_text(bg, (44, 262), "+ Tiếng Anh", font(56), (29, 78, 216, 255), offset=3,
+                stroke=4, stroke_fill=(255, 255, 255, 255))
+    shadow_text(bg, (46, 336), "Video bài giảng có cô giáo nói", font(30), (30, 77, 56, 255), offset=1,
                 shadow=(255, 255, 255, 160))
     x = 40
     for text, c in [("Luyện thi", (91, 63, 214, 255)), ("Gameshow", (229, 72, 77, 255)), ("Lời giải", (46, 184, 114, 255))]:
-        x += pill(bg, (x, 350), text, font(26), c, (255, 255, 255, 255)) + 12
-    shadow_text(bg, (44, 425), "1000+ bài tập · 65 đề kiểm tra", font(26), (60, 40, 10, 255), offset=1,
+        x += pill(bg, (x, 392), text, font(26), c, (255, 255, 255, 255)) + 12
+    shadow_text(bg, (44, 452), "1000+ bài tập · 65 đề kiểm tra", font(24), (60, 40, 10, 255), offset=1,
                 shadow=(255, 255, 255, 140))
     OUT.mkdir(exist_ok=True)
     bg.convert("RGB").save(OUT / "banner-1024x500.png", optimize=True)
@@ -99,11 +101,11 @@ def og():
     shadow_text(bg, (170, 52), "HỌC CÙNG CÔ MAI", font(36), (229, 72, 77, 255), offset=2)
     shadow_text(bg, (170, 98), "Theo chương trình SGK mới", font(26), (90, 58, 0, 255), offset=1, shadow=(0, 0, 0, 40))
     shadow_text(bg, (42, 168), "Toán Lớp 3", font(128), (255, 196, 0, 255), offset=5, stroke=7, stroke_fill=(120, 60, 0, 255))
-    shadow_text(bg, (50, 338), "Video bài giảng có cô giáo nói", font(40), (30, 77, 56, 255), offset=1,
-                shadow=(255, 255, 255, 170))
+    shadow_text(bg, (50, 318), "+ Tiếng Anh", font(64), (29, 78, 216, 255), offset=3,
+                stroke=5, stroke_fill=(255, 255, 255, 255))
     x = 48
-    for text, c in [("1000+ bài tập", (91, 63, 214, 255)), ("65 đề thi", (229, 72, 77, 255)), ("Gameshow", (46, 140, 230, 255))]:
-        x += pill(bg, (x, 410), text, font(30), c, (255, 255, 255, 255)) + 14
+    for text, c in [("Video bài giảng", (30, 77, 56, 255)), ("65 đề thi", (229, 72, 77, 255)), ("Gameshow", (91, 63, 214, 255))]:
+        x += pill(bg, (x, 412), text, font(30), c, (255, 255, 255, 255)) + 14
     # Nút kêu gọi bấm vào.
     d = ImageDraw.Draw(bg)
     btn = "Học thử miễn phí"
@@ -134,14 +136,15 @@ def icon():
 
 SHOTS = [
     ("home", "Học Toán lớp 3 cùng Cô Mai", "Cô giáo biết nói, bé tự học mỗi ngày"),
+    ("bilingual", "Toán + Tiếng Anh", "Cô đọc đề bằng cả 2 thứ tiếng"),
+    ("vocab", "Từ vựng Toán tiếng Anh", "Thẻ từ có hình, trò chơi ôn từ"),
     ("board", "Video bài giảng trên bảng", "Bút viết, vẽ hình, cô giảng từng bước"),
     ("example", "Ví dụ thật trong cuộc sống", "Cô chỉ vào tranh để bé hiểu bài"),
-    ("practice", "1000+ bài luyện tập", "Cô đọc đề, gợi ý khi bé làm sai"),
-    ("solution", "Lời giải từng bước", "Video lời giải cho mọi bài tập"),
+    ("solution", "Lời giải từng bước", "1000+ bài tập có video lời giải"),
     ("exam", "Phòng thi như thật", "65 đề kiểm tra, cô coi thi đọc đề"),
     ("show", "Gameshow Toán học", "Kiểm tra năng lực vui như truyền hình"),
 ]
-COLORS = [(91, 63, 214), (30, 77, 56), (224, 122, 0), (46, 140, 230), (229, 72, 77), (30, 77, 56), (120, 40, 180)]
+COLORS = [(91, 63, 214), (29, 78, 216), (225, 29, 72), (30, 77, 56), (224, 122, 0), (229, 72, 77), (30, 77, 56), (120, 40, 180)]
 
 
 def shots(folder):
