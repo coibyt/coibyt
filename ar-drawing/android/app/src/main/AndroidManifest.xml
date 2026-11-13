@@ -1,9 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Camera: the whole app is built around the rear camera preview. -->
+    <!-- Camera: tracing on paper uses the rear camera; lessons, exams,
+         English and the drawing board also work without one, so tablets
+         and phones without a camera can install the app too. -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera.any" android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
     <!-- Flashlight toggle comes in Phase 2; not every phone has a flash. -->
     <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
     <!-- The camera plugin also declares RECORD_AUDIO. TraceLight never records
@@ -21,6 +24,7 @@
 
     <application
         android:label="TraceLight"
+        android:usesCleartextTraffic="false"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
