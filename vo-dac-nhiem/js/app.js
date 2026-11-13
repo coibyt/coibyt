@@ -105,6 +105,7 @@ document.addEventListener("click", (e) => {
 
 // Lần đầu mở (hoặc tải lại trang): trình duyệt chặn tiếng cho tới khi người dùng chạm một lần.
 function showTapGate() {
+  if ($(".tapgate")) return; // chỉ một lớp, kể cả khi chuyển màn hình trước khi chạm
   const g = document.createElement("div");
   g.className = "tapgate";
   g.innerHTML = `<div class="card">${LOGO.replace("<svg", '<svg class="logo"')}

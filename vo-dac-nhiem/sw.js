@@ -1,5 +1,5 @@
 // Sinh tự động bởi tools/build_sw.py — đừng sửa tay.
-const VERSION = "75527f1bfc";
+const VERSION = "c5f893f4f5";
 const SHELL = [
 "./",
 "index.html",
