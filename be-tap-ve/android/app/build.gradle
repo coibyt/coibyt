@@ -1,0 +1,43 @@
+plugins { id 'com.android.application' }
+
+// The game files (../index.html + packs, voices, videos, music) are copied into the app: it works offline.
+def wwwSrc = file('../..')
+tasks.register('syncGame', Sync) {
+    from(wwwSrc) {
+        include 'index.html', 'be-tap-ve-*.js', 'be-tap-ve-voice/**', 'be-tap-ve-ballet-video/**', 'be-tap-ve-music/**'
+    }
+    into 'src/main/assets/www'
+}
+preBuild.dependsOn syncGame
+
+def ksFile = rootProject.file('keystore.properties')
+def ks = new Properties(); if (ksFile.exists()) ks.load(new FileInputStream(ksFile))
+
+android {
+    namespace 'com.babelisa.bemuabale'
+    compileSdk 36
+    defaultConfig {
+        applicationId 'com.babelisa.bemuabale'
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName '1.0'
+    }
+    signingConfigs {
+        release {
+            if (ksFile.exists()) {
+                storeFile rootProject.file(ks['storeFile']); storePassword ks['storePassword']
+                keyAlias ks['keyAlias']; keyPassword ks['keyPassword']
+            }
+        }
+    }
+    buildTypes {
+        release { minifyEnabled false; signingConfig signingConfigs.release }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+    androidResources { noCompress += ['mp3', 'mp4', 'js', 'html'] }
+}
+dependencies {
+    implementation 'androidx.webkit:webkit:1.14.0'
+    implementation 'androidx.core:core:1.15.0'
+}

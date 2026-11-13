@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bé Múa Ba Lê</string>
+    <string name="saved">Đã lưu ảnh vào Thư viện ảnh 📸</string>
+    <string name="save_fail">Chưa lưu được ảnh, bé thử lại nhé!</string>
+    <string name="share">Chia sẻ tác phẩm của bé</string>
+</resources>

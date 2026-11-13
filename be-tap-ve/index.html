@@ -1059,6 +1059,7 @@ button.blterm b{font-style:italic; color:#c9184a; font-size:15px} button.blterm 
 .bldress .swrow[hidden]{display:none}
 .blvbadge{padding:3px 9px; border-radius:8px; background:#e63946; color:#fff; font-weight:900; font-size:11.5px; letter-spacing:.5px; box-shadow:0 2px 8px rgba(230,57,70,.5)}
 .blround{color:#4a1d3f; font-weight:900; font-size:13px; padding:4px 10px; border-radius:999px; background:linear-gradient(135deg,#fff3c4,#f6c945); box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.blround[hidden]{display:none}
 .blround.in{animation:pop .5s var(--spring)}
 .blstep{margin-left:auto; color:#fff; font-weight:800; font-size:13px; padding:4px 10px; border-radius:999px; background:rgba(0,0,0,.35)}
 .blvchip{align-self:center; margin-top:2px; padding:6px 14px; border-radius:999px; background:rgba(30,6,40,.72); color:#fff; font-weight:800; font-size:14px; backdrop-filter:blur(6px); box-shadow:0 0 0 1.5px rgba(255,255,255,.35)}
@@ -2533,7 +2534,16 @@ function canvasToBlob(c) {
     else fetch(c.toDataURL('image/png')).then((r) => r.blob()).then(res);
   });
 }
+/* inside the Android app (CH Play) the page talks to the app: save to the gallery / share with other apps */
+const IN_APP = !!window.BTVApp;
+function blobB64(blob) { return new Promise((res) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1] || ''); r.onerror = () => res(''); r.readAsDataURL(blob); }); }
+async function shareFile(file, title) {
+  if (IN_APP) { BTVApp.shareImage(await blobB64(file), file.name || 'anh.png'); return; }
+  await navigator.share({ files: [file], title });
+}
+const canShareFiles = (file) => { if (IN_APP) return true; try { return !!(navigator.canShare && navigator.canShare({ files: [file] })); } catch (_) { return false; } };
 function downloadBlob(blob, name) {
+  if (IN_APP) { blobB64(blob).then((b) => BTVApp.saveImage(b, name)); return; }
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url; a.download = name;
@@ -4752,7 +4762,7 @@ async function showShot(canvas) {
   shot.hidden = false;
   $('#celSaveWrap').hidden = false;
   let canShare = false;
-  try { canShare = !!(navigator.canShare && navigator.canShare({ files: [new File([cel.blob], 'x.png', { type: 'image/png' })] })); } catch (_) { canShare = false; }
+  canShare = canShareFiles(new File([cel.blob], 'x.png', { type: 'image/png' }));
   $('#celShareWrap').hidden = !canShare;
   stats.shot = canvas.width + 'x' + canvas.height;
 }
@@ -4833,7 +4843,7 @@ $('#celSave').addEventListener('click', (e) => {
 $('#celShare').addEventListener('click', async () => {
   if (!cel.blob) return;
   const file = new File([cel.blob], `be-tap-ve-${stamp()}.png`, { type: 'image/png' });
-  try { await navigator.share({ files: [file], title: 'Tranh của bé' }); } catch (_) { /* cancelled */ }
+  try { await shareFile(file, 'Tranh của bé'); } catch (_) { /* cancelled */ }
 });
 $('#celLb').addEventListener('click', (e) => {
   pop(e.currentTarget);
@@ -4847,7 +4857,7 @@ $('#celClose').addEventListener('click', () => { $('#celebrate').hidden = true; 
        id + token as Babelisa's weekly league (localStorage "babelisa:league"),
        name + animal chosen by the child. Works only on babelisa.com (not file://).
    ===================================================================== */
-const LB = { online: /^https?:$/.test(location.protocol), period: 'week' };
+const LB = { online: /^https?:$/.test(location.protocol) && !IN_APP, period: 'week' };
 const AV = { cat: '🐱', dog: '🐶', fox: '🦊', panda: '🐼', rabbit: '🐰', tiger: '🐯', lion: '🦁', frog: '🐸' };
 function identity() {
   let v = null;
@@ -8510,17 +8520,23 @@ const Ballet = (() => {
     if (has('ready', st.pose)) return { key: 'ready_' + st.pose, fwd: true, arrive: true };
     return null;
   }
+  const blobs = {};
+  function vidUrl(key) {                                   // whole clip in memory → smooth seeking (also in the app's WebView)
+    if (!blobs[key]) blobs[key] = fetch(VDIR + key + '.mp4?v=' + STUDIO_VER).then((r) => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+      .then((b) => URL.createObjectURL(b)).catch(() => { delete blobs[key]; return null; });
+    return blobs[key];
+  }
   function vidLoad(key) {                                  // → Promise<video|null>, double-buffered
     if (VID.fail[key]) return Promise.resolve(null);
     if (VID.on && VID.key === key) return Promise.resolve(VID.on);
     const v = VID.els.find((e) => e !== VID.on);
-    return new Promise((res) => {
+    return vidUrl(key).then((url) => !url ? (VID.fail[key] = 1, null) : new Promise((res) => {
       let done = false;
       const fin = (ok) => { if (done) return; done = true; clearTimeout(t); v.onloadeddata = v.onerror = null; if (!ok) VID.fail[key] = 1; res(ok ? v : null); };
       const t = setTimeout(() => fin(v.readyState >= 2), 6000);
       v.onloadeddata = () => fin(true); v.onerror = () => fin(false);
-      v.src = VDIR + key + '.mp4?v=' + STUDIO_VER; v.load();
-    });
+      v.src = url; v.load();
+    }));
   }
   async function vidPlay(st, phase, beats) {               // phase: 'demo' (loop) | 'count' (one cycle per beats) | 'hold'
     const c = clipFor(st); if (!c) { vidStop(); return false; }
@@ -8559,7 +8575,8 @@ const Ballet = (() => {
   tv.addEventListener('error', () => { tv.hidden = true; $('#blTeacher').style.visibility = ''; });
   function teacherVid(kind, talking) {
     const key = kind === 'clap' ? 'tv_clap' : 'tv_talk';
-    if (tvKey !== key) { tvKey = key; tv.src = VDIR + key + '.mp4?v=' + STUDIO_VER; tv.load(); }
+    if (tvKey !== key) { tvKey = key; vidUrl(key).then((u) => { if (u && tvKey === key) { tv.src = u; tv.load(); if (tv.dataset.play === '1') tv.play().catch(() => {}); } }); }
+    tv.dataset.play = talking ? '1' : '0';
     if (talking) tv.play().catch(() => {}); else tv.pause();
   }
 
@@ -8889,7 +8906,7 @@ const Ballet = (() => {
     stepDots();
     $('#blCount').textContent = ''; $('#blTerm').hidden = !st.term; $('#blTips').hidden = true;
     const nx = L.ls.steps[L.i + 1], nc = nx && clipFor(nx);                     // warm up the next clip
-    if (nc && !VID.fail[nc.key]) fetch(VDIR + nc.key + '.mp4?v=' + STUDIO_VER).catch(() => {});
+    if (nc && !VID.fail[nc.key]) vidUrl(nc.key);
     if (st.term) $('#blTerm').innerHTML = `<b>${st.term[0]}</b> · ${st.term[1]}`;
     chip('👀 Bạn Na làm mẫu – bé xem kĩ nhé');
     const hasVid = await vidPlay(st, 'demo');
@@ -8932,7 +8949,7 @@ const Ballet = (() => {
     const ok = await say(L.round === 2 ? BL.round2 : BL.round3, 'clap');
     if (ok && lesson === L && L.run === me) runStep();
   }
-  function roundUi() { const r = $('#blRound'); if (r && lesson) { r.textContent = `Lần ${lesson.round || 1}/${ROUNDS}`; r.classList.remove('in'); void r.offsetWidth; r.classList.add('in'); } }
+  function roundUi() { const r = $('#blRound'); if (r) r.hidden = !!(lesson && lesson.ls.show); if (r && lesson) { r.textContent = `Lần ${lesson.round || 1}/${ROUNDS}`; r.classList.remove('in'); void r.offsetWidth; r.classList.add('in'); } }
   function countBeats(st, me) {
     return new Promise((res) => {
       const L = lesson; let n = 0;
@@ -8983,7 +9000,7 @@ const Ballet = (() => {
   /* ---------- stage show: the routine with music, then the runway / certificate ---------- */
   async function runShow(ls) {
     scene = 'stage'; pane('lesson'); el.classList.add('onstage');
-    $('#blTerm').hidden = true; chip('🎭 Sân khấu');
+    $('#blTerm').hidden = true; $('#blTips').hidden = true; $('#blRound').hidden = true; chip('🎭 Sân khấu');
     show = { i: 0 };
     lesson.t0 = performance.now(); stepDots();
     await say(BL.stage, 'show');
@@ -9157,7 +9174,7 @@ const Ballet = (() => {
   $('#blHome').addEventListener('click', () => close());
   $('#blSlow').classList.toggle('on', !!S.slow);
 
-  if (/^https?:$/.test(location.protocol)) $('#blCourses').hidden = false;      // back to babelisa.com/khoa-hoc/
+  if (/^https?:$/.test(location.protocol) && !IN_APP) $('#blCourses').hidden = false;      // back to babelisa.com/khoa-hoc/
   async function open(then) {
     Lisa.hide();
     Screens.open('balletStudio');
@@ -9175,7 +9192,23 @@ const Ballet = (() => {
   return { open, close, state: () => S, startLesson: (id) => startLesson(lessons().find((l) => l.id === id)), next: () => nextStep(), ready: () => ready, _fig: (p, o) => figure(p, look(o)), buildDress, buildVideos, dress: () => { dressTab = 'cos'; buildDress(); say(BL.dress, 'show'); }, mode: () => mode, look: (o) => { Object.assign(S.look, o); figCache.clear(); render(); if (mode === 'dress') buildDress(true); } };
 })();
 
-if (/[?&]qa=1/.test(location.search)) window.Ballet = Ballet;     // test hook
+if (/[?&]qa=1/.test(location.search)) window.Ballet = Ballet;
+/* Android app: the phone's Back key closes the current screen first (true = handled) */
+window.BTVAppBack = () => {
+  const cur = Screens.cur();
+  if (cur === 'balletStudio') {
+    if (Ballet.mode() !== 'videos') { const b = document.querySelector('#balletStudio .blpane:not([hidden]) .blback'); if (b) { b.click(); return true; } }
+    Ballet.close(); return true;
+  }
+  if (cur) { const b = document.querySelector('#' + cur + ' .ss-top button'); if (b) { b.click(); return true; } Screens.close(); Hub.open(); return true; }
+  if (trace.open) { closeTrace(); return true; }
+  if ($('#studioMenu').hidden) { Hub.open(); return true; }
+  return false;
+};
+document.addEventListener('visibilitychange', () => {
+  if (!Snd.ctx) return;
+  if (document.hidden) Snd.ctx.suspend().catch(() => {}); else Snd.ctx.resume().catch(() => {});
+});     // test hook
 
 /* =====================================================================
    25. Sàn diễn (Phase 4): runway with lights, stars from the tutor,
@@ -9262,14 +9295,14 @@ const Showcase = (() => {
     im.dataset.url = URL.createObjectURL(certBlob); im.src = im.dataset.url;
     $('#certModal').hidden = false;
     let canShare = false;
-    try { canShare = !!(navigator.canShare && navigator.canShare({ files: [new File([certBlob], 'x.png', { type: 'image/png' })] })); } catch (_) { canShare = false; }
+    canShare = canShareFiles(new File([certBlob], 'x.png', { type: 'image/png' }));
     $('#certShareWrap').hidden = !canShare;
     confetti();
     setTimeout(() => Lisa.say(['Bé nhớ lưu giấy chứng nhận để khoe với bố mẹ nha!'], { pose: 'happy' }), 400);
     stats.certificate = c.width + 'x' + c.height;
   });
   $('#certSave').addEventListener('click', (e) => { pop(e.currentTarget); if (certBlob) downloadBlob(certBlob, `chung-nhan-nha-thiet-ke-${stamp()}.png`); });
-  $('#certShare').addEventListener('click', async () => { try { await navigator.share({ files: [new File([certBlob], 'chung-nhan.png', { type: 'image/png' })], title: 'Nhà thiết kế tài ba' }); } catch (_) { /* cancelled */ } });
+  $('#certShare').addEventListener('click', async () => { try { await shareFile(new File([certBlob], 'chung-nhan.png', { type: 'image/png' }), 'Nhà thiết kế tài ba'); } catch (_) { /* cancelled */ } });
   $('#certClose').addEventListener('click', () => { $('#certModal').hidden = true; });
   $('#shSave').addEventListener('click', async (e) => { pop(e.currentTarget); downloadBlob(await canvasToBlob(info.img), `tac-pham-${stamp()}.png`); });
   $('#shBack').addEventListener('click', () => { Lisa.hide(); if (info && info.back) info.back(); else Screens.close(); });
