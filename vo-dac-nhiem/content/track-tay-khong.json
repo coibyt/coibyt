@@ -27,7 +27,8 @@
           "drill": {
             "type": "time",
             "n": 90,
-            "label": "Xoay khớp"
+            "label": "Xoay khớp",
+            "say": "Đến lượt bạn. Xoay khớp trong chín mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -35,7 +36,46 @@
             ],
             "frame": "standing on the canvas mat facing the camera, feet shoulder-width apart, both hands on his hips, head tilted slightly to one side as he begins a slow neck rotation",
             "motion": "He slowly rolls his neck in a full circle, then rolls both shoulders backwards in big smooth circles, calm controlled breathing, relaxed natural motion"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk1-1"
+            },
+            {
+              "at": 2,
+              "key": "b",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, full body visible, feet shoulder-width apart, both arms relaxed at his sides",
+                "motion": "He rolls both shoulders backwards in big slow circles, then bends his arms and circles his elbows, then rotates both wrists in slow circles in front of his chest. Slow, smooth warm-up, calm breathing"
+              }
+            },
+            {
+              "at": 3,
+              "key": "c",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, full body visible, feet shoulder-width apart, hands on his hips",
+                "motion": "With his hands on his hips he makes big slow circles with his hips, smooth and controlled, upper body stays upright. Slow warm-up"
+              }
+            },
+            {
+              "at": 3.5,
+              "key": "d",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, feet together, knees slightly bent, both hands resting on his knees, full body visible",
+                "motion": "With his hands on his knees he slowly circles both knees together, then lifts one foot slightly and rotates the ankle in slow circles, then the other ankle. Slow, smooth warm-up"
+              }
+            }
+          ]
         },
         {
           "id": "tk1-2",
@@ -53,7 +93,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Squat"
+            "label": "Squat",
+            "say": "Đến lượt bạn. Squat: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -61,7 +102,35 @@
             ],
             "frame": "standing on the canvas mat in profile view (side view, facing left), arms extended straight forward at shoulder height, beginning a bodyweight squat",
             "motion": "He performs two slow, perfect bodyweight squats: hips go back and down until thighs are parallel to the ground, back straight, knees tracking over the toes, arms forward for balance, then stands up tall. Smooth realistic motion"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "key": "a",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, full body visible, feet shoulder-width apart, arms bent at his sides ready to jog",
+                "motion": "He jogs in place on the mat lifting his knees high to hip height, arms pumping, steady rhythm, energetic but controlled warm-up"
+              }
+            },
+            {
+              "at": 1,
+              "file": "tk1-2"
+            },
+            {
+              "at": 2,
+              "key": "c",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "on the canvas mat in a high push-up position, side view (profile), body in a straight line from head to heels, hands under his shoulders",
+                "motion": "He performs three slow, perfect push-ups: chest lowers close to the mat with elbows at about forty-five degrees, body straight, then pushes back up. Side view, realistic"
+              }
+            }
+          ]
         },
         {
           "id": "tk1-3",
@@ -79,7 +148,8 @@
           "drill": {
             "type": "time",
             "n": 120,
-            "label": "Đi bộ thở theo bước"
+            "label": "Đi bộ thở theo bước",
+            "say": "Đến lượt bạn. Đi bộ thở theo bước trong một trăm hai mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -105,7 +175,8 @@
           "drill": {
             "type": "time",
             "n": 20,
-            "label": "Plank cao + thở xả"
+            "label": "Plank cao + thở xả",
+            "say": "Đến lượt bạn. Plank cao + thở xả trong hai mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -131,7 +202,8 @@
           "drill": {
             "type": "time",
             "n": 60,
-            "label": "Căng – chùng"
+            "label": "Căng – chùng",
+            "say": "Đến lượt bạn. Căng – chùng trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -185,7 +257,8 @@
         }
       ],
       "outro": "Tốt lắm. Khớp đã ấm, hơi thở đã vào nhịp. Buổi sau ta học thế đứng và bộ pháp.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: mỗi sáng, khởi động và thở theo bước mười phút, liên tục bảy ngày."
     },
     {
       "id": "tk2",
@@ -213,7 +286,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Vào thế hàng rào"
+            "label": "Vào thế hàng rào",
+            "say": "Đến lượt bạn. Vào thế hàng rào: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -239,7 +313,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Vào thế chiến đấu"
+            "label": "Vào thế chiến đấu",
+            "say": "Đến lượt bạn. Vào thế chiến đấu: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -266,7 +341,8 @@
           "drill": {
             "type": "reps",
             "n": 20,
-            "label": "Bước tiến – lùi"
+            "label": "Bước tiến – lùi",
+            "say": "Đến lượt bạn. Bước tiến – lùi: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -293,7 +369,8 @@
           "drill": {
             "type": "reps",
             "n": 20,
-            "label": "Bước ngang"
+            "label": "Bước ngang",
+            "say": "Đến lượt bạn. Bước ngang: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -320,7 +397,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Xoay trụ mỗi chiều"
+            "label": "Xoay trụ mỗi chiều",
+            "say": "Đến lượt bạn. Xoay trụ mỗi chiều: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -354,7 +432,8 @@
               "Sang trái!",
               "Sang phải!",
               "Xoay!"
-            ]
+            ],
+            "say": "Đến lượt bạn. Di chuyển theo khẩu lệnh của tôi trong ba mươi giây. Nghe kỹ nhé."
           },
           "shot": {
             "who": [
@@ -410,7 +489,8 @@
         }
       ],
       "outro": "Nền móng đã có. Đôi chân vững là nửa trận đấu. Bài sau: học cách ngã an toàn.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: mỗi ngày mười phút đứng thế và di chuyển, ba hiệp, trong bảy ngày."
     },
     {
       "id": "tk3",
@@ -438,7 +518,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Cuộn lưng, thu cằm"
+            "label": "Cuộn lưng, thu cằm",
+            "say": "Đến lượt bạn. Cuộn lưng, thu cằm: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -446,7 +527,24 @@
             ],
             "frame": "sitting on the canvas mat with knees bent, arms crossed over his chest, chin tucked to his chest, back rounded, side view",
             "motion": "Sitting with chin tucked, he gently rocks backwards on his rounded back like a rocking chair and then rocks forward again, back curved, head never touching the mat, slow and controlled"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk3-1"
+            },
+            {
+              "at": 3,
+              "key": "b",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "lying on his back on the canvas mat with his chin tucked to his chest, knees bent, both arms raised up in front of him, seen from the side",
+                "motion": "He slaps the mat hard with both straight arms at about forty-five degrees from his body, palms down, while keeping his chin tucked and his head off the mat, then raises his arms and slaps again. Clear breakfall arm-slap drill"
+              }
+            }
+          ]
         },
         {
           "id": "tk3-2",
@@ -464,7 +562,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Ngã ngửa từ ngồi"
+            "label": "Ngã ngửa từ ngồi",
+            "say": "Đến lượt bạn. Ngã ngửa từ ngồi: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -490,7 +589,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Ngã ngửa từ ngồi xổm"
+            "label": "Ngã ngửa từ ngồi xổm",
+            "say": "Đến lượt bạn. Ngã ngửa từ ngồi xổm: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -516,7 +616,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Ngã nghiêng mỗi bên"
+            "label": "Ngã nghiêng mỗi bên",
+            "say": "Đến lượt bạn. Ngã nghiêng mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -542,7 +643,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Lộn trước mỗi bên"
+            "label": "Lộn trước mỗi bên",
+            "say": "Đến lượt bạn. Lộn trước mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -596,7 +698,8 @@
         }
       ],
       "outro": "Bạn đã biết ngã. Từ hôm nay, mặt đất không còn đáng sợ nữa. Bài sau: che chắn và đỡ đòn.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: mỗi ngày mười lần ngã ngửa và mười lần ngã nghiêng mỗi bên trên đệm dày, trong một tuần."
     },
     {
       "id": "tk4",
@@ -624,7 +727,8 @@
           "drill": {
             "type": "reps",
             "n": 15,
-            "label": "Vào thủ cao"
+            "label": "Vào thủ cao",
+            "say": "Đến lượt bạn. Vào thủ cao: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -650,7 +754,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Ôm đầu rồi thoát ngang"
+            "label": "Ôm đầu rồi thoát ngang",
+            "say": "Đến lượt bạn. Ôm đầu rồi thoát ngang: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -676,7 +781,8 @@
           "drill": {
             "type": "reps",
             "n": 20,
-            "label": "Gạt đỡ mỗi tay"
+            "label": "Gạt đỡ mỗi tay",
+            "say": "Đến lượt bạn. Gạt đỡ mỗi tay: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -703,7 +809,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Đỡ lên trên mỗi tay"
+            "label": "Đỡ lên trên mỗi tay",
+            "say": "Đến lượt bạn. Đỡ lên trên mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -730,7 +837,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Gạt + né góc mỗi bên"
+            "label": "Gạt + né góc mỗi bên",
+            "say": "Đến lượt bạn. Gạt + né góc mỗi bên: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -758,7 +866,8 @@
           "drill": {
             "type": "time",
             "n": 60,
-            "label": "Tập đôi chậm"
+            "label": "Tập đôi chậm",
+            "say": "Đến lượt bạn. Tập đôi chậm trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -813,7 +922,8 @@
         }
       ],
       "outro": "Bạn đã có tấm khiên. Bài sau ta học đòn đánh cơ bản trên đích đỡ.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: mỗi ngày năm phút tập che chắn trước gương, hai lần một tuần tập đôi chậm."
     },
     {
       "id": "tk5",
@@ -841,7 +951,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Nắm – mở bàn tay đúng"
+            "label": "Nắm – mở bàn tay đúng",
+            "say": "Đến lượt bạn. Nắm – mở bàn tay đúng: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -867,7 +978,8 @@
           "drill": {
             "type": "reps",
             "n": 20,
-            "label": "Đấm tay trước"
+            "label": "Đấm tay trước",
+            "say": "Đến lượt bạn. Đấm tay trước: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -894,7 +1006,8 @@
           "drill": {
             "type": "reps",
             "n": 20,
-            "label": "Đấm tay sau"
+            "label": "Đấm tay sau",
+            "say": "Đến lượt bạn. Đấm tay sau: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -921,7 +1034,8 @@
           "drill": {
             "type": "reps",
             "n": 15,
-            "label": "Gót bàn tay mỗi bên"
+            "label": "Gót bàn tay mỗi bên",
+            "say": "Đến lượt bạn. Gót bàn tay mỗi bên: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -948,7 +1062,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Đá đẩy mỗi chân"
+            "label": "Đá đẩy mỗi chân",
+            "say": "Đến lượt bạn. Đá đẩy mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -977,7 +1092,8 @@
             "n": 30,
             "rounds": 3,
             "rest": 20,
-            "label": "Hiệp tổ hợp"
+            "label": "Hiệp tổ hợp",
+            "say": "Đến lượt bạn. Hiệp tổ hợp: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -1032,7 +1148,8 @@
         }
       ],
       "outro": "Đòn đã có lực và có kỷ luật. Bài sau: thoát khỏi bị nắm cổ tay.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: ba buổi một tuần, mỗi buổi năm hiệp ba mươi giây đánh vào đích đỡ hoặc bao cát."
     },
     {
       "id": "tk6",
@@ -1060,7 +1177,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Tìm hướng ngón cái"
+            "label": "Tìm hướng ngón cái",
+            "say": "Đến lượt bạn. Tìm hướng ngón cái: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1087,7 +1205,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Thoát nắm cùng bên mỗi tay"
+            "label": "Thoát nắm cùng bên mỗi tay",
+            "say": "Đến lượt bạn. Thoát nắm cùng bên mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1114,7 +1233,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Thoát nắm chéo mỗi tay"
+            "label": "Thoát nắm chéo mỗi tay",
+            "say": "Đến lượt bạn. Thoát nắm chéo mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1141,7 +1261,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Thoát nắm hai tay"
+            "label": "Thoát nắm hai tay",
+            "say": "Đến lượt bạn. Thoát nắm hai tay: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1168,7 +1289,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Thoát – lùi – hô"
+            "label": "Thoát – lùi – hô",
+            "say": "Đến lượt bạn. Thoát – lùi – hô: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1221,7 +1343,8 @@
         }
       ],
       "outro": "Bàn tay bạn đã biết tự giải thoát. Bài sau: thoát khi bị ôm và bị nắm phía trước.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: mỗi ngày mười lần thoát nắm cho mỗi kiểu, tập cùng người thân, trong một tuần."
     },
     {
       "id": "tk7",
@@ -1249,7 +1372,8 @@
           "drill": {
             "type": "reps",
             "n": 3,
-            "label": "Thống nhất tín hiệu"
+            "label": "Thống nhất tín hiệu",
+            "say": "Đến lượt bạn. Thống nhất tín hiệu: ba lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1276,7 +1400,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Hạ trọng tâm, nới vòng ôm"
+            "label": "Hạ trọng tâm, nới vòng ôm",
+            "say": "Đến lượt bạn. Hạ trọng tâm, nới vòng ôm: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1303,7 +1428,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Thoát ôm sau mỗi bên"
+            "label": "Thoát ôm sau mỗi bên",
+            "say": "Đến lượt bạn. Thoát ôm sau mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1330,7 +1456,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Thoát ôm sau tay tự do"
+            "label": "Thoát ôm sau tay tự do",
+            "say": "Đến lượt bạn. Thoát ôm sau tay tự do: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1357,7 +1484,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Thoát nắm cổ áo mỗi bên"
+            "label": "Thoát nắm cổ áo mỗi bên",
+            "say": "Đến lượt bạn. Thoát nắm cổ áo mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1411,7 +1539,8 @@
         }
       ],
       "outro": "Bạn đã biết thoát khỏi những thế nắm khó chịu nhất. Bài cuối nhánh này: phá thăng bằng và quật ngã an toàn.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: hai buổi một tuần, mỗi tình huống tám lần mỗi bên, luôn có tín hiệu dừng."
     },
     {
       "id": "tk8",
@@ -1439,7 +1568,8 @@
           "drill": {
             "type": "time",
             "n": 60,
-            "label": "Đẩy – kéo 8 hướng"
+            "label": "Đẩy – kéo 8 hướng",
+            "say": "Đến lượt bạn. Đẩy – kéo 8 hướng trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -1466,7 +1596,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Vào thế nắm áo"
+            "label": "Vào thế nắm áo",
+            "say": "Đến lượt bạn. Vào thế nắm áo: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1493,7 +1624,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Gạt chân sau (chậm) mỗi bên"
+            "label": "Gạt chân sau (chậm) mỗi bên",
+            "say": "Đến lượt bạn. Gạt chân sau (chậm) mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1520,7 +1652,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Ngáng chân trước (chậm) mỗi bên"
+            "label": "Ngáng chân trước (chậm) mỗi bên",
+            "say": "Đến lượt bạn. Ngáng chân trước (chậm) mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1547,7 +1680,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Quật chậm + đỡ dậy"
+            "label": "Quật chậm + đỡ dậy",
+            "say": "Đến lượt bạn. Quật chậm + đỡ dậy: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1602,7 +1736,8 @@
         }
       ],
       "outro": "Chúc mừng! Bạn đã hoàn thành phần Cơ bản của nhánh Cận chiến tự vệ. Phần Nâng cao đang chờ bạn, với những tình huống thật hơn.",
-      "tier": "base"
+      "tier": "base",
+      "home": "Bài tập về nhà: hai buổi một tuần trên đệm dày, có người hướng dẫn, mỗi kỹ thuật sáu lần chậm."
     },
     {
       "id": "tk9",
@@ -1631,7 +1766,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Hàng rào tay – lùi – chạy"
+            "label": "Hàng rào tay – lùi – chạy",
+            "say": "Đến lượt bạn. Hàng rào tay – lùi – chạy: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1657,7 +1793,8 @@
           "drill": {
             "type": "reps",
             "n": 15,
-            "label": "Quẹt vào găng mỗi tay"
+            "label": "Quẹt vào găng mỗi tay",
+            "say": "Đến lượt bạn. Quẹt vào găng mỗi tay: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1684,7 +1821,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Thúc gối vào khiên mỗi chân"
+            "label": "Thúc gối vào khiên mỗi chân",
+            "say": "Đến lượt bạn. Thúc gối vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1711,7 +1849,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Đạp thấp vào khiên mỗi chân"
+            "label": "Đạp thấp vào khiên mỗi chân",
+            "say": "Đến lượt bạn. Đạp thấp vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1740,7 +1879,8 @@
             "n": 30,
             "rounds": 3,
             "rest": 20,
-            "label": "Hiệp liên hoàn"
+            "label": "Hiệp liên hoàn",
+            "say": "Đến lượt bạn. Hiệp liên hoàn: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -1793,7 +1933,8 @@
           "why": "Tuyệt đối không đánh vào điểm yếu thật của bạn tập."
         }
       ],
-      "outro": "Bạn đã có những đòn mở đường thoát. Nhớ kỹ: đánh để chạy, không đánh để thắng. Bài sau: khuỷu tay và gối ở cự ly gần."
+      "outro": "Bạn đã có những đòn mở đường thoát. Nhớ kỹ: đánh để chạy, không đánh để thắng. Bài sau: khuỷu tay và gối ở cự ly gần.",
+      "home": "Bài tập về nhà: ba buổi một tuần, ba hiệp liên hoàn trên đích đỡ, kết thúc bằng chạy."
     },
     {
       "id": "tk10",
@@ -1822,7 +1963,8 @@
           "drill": {
             "type": "reps",
             "n": 15,
-            "label": "Khuỷu ngang mỗi tay"
+            "label": "Khuỷu ngang mỗi tay",
+            "say": "Đến lượt bạn. Khuỷu ngang mỗi tay: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1849,7 +1991,8 @@
           "drill": {
             "type": "reps",
             "n": 12,
-            "label": "Khuỷu hất lên mỗi tay"
+            "label": "Khuỷu hất lên mỗi tay",
+            "say": "Đến lượt bạn. Khuỷu hất lên mỗi tay: mười hai lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1876,15 +2019,16 @@
           "drill": {
             "type": "time",
             "n": 30,
-            "label": "Giữ thế khống chế cổ – vai"
+            "label": "Giữ thế khống chế cổ – vai",
+            "say": "Đến lượt bạn. Giữ thế khống chế cổ – vai trong ba mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
               "coach",
               "ivan"
             ],
-            "frame": "on the canvas mat, side view: the instructor and Ivan stand chest to chest, the instructor has both hands stacked behind Ivan's head with his elbows together in front of Ivan's chest in a gentle muay-thai style clinch",
-            "motion": "The instructor gently pulls Ivan's head slightly down and moves him left and right controlling his balance, slowly and carefully, then releases and both step apart. Gentle controlled clinch drill"
+            "frame": "on the canvas mat, side view: the instructor and Ivan stand chest to chest; the instructor (vest and ghillie scarf) has both of his hands stacked one on top of the other behind Ivan's head, and his two elbows pressed together in front of Ivan's chest (a muay-thai style clinch)",
+            "motion": "Slow, deliberate tutorial pace. The instructor keeps his hands stacked behind Ivan's head and his elbows together in front of Ivan's chest, gently pulls Ivan's head slightly down, then steers him slowly to the left and to the right by turning his own body. Ivan bends forward a little and follows. Then the instructor releases and both step apart. Gentle and safe"
           }
         },
         {
@@ -1903,7 +2047,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Gối vào khiên mỗi chân"
+            "label": "Gối vào khiên mỗi chân",
+            "say": "Đến lượt bạn. Gối vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -1932,7 +2077,8 @@
             "n": 30,
             "rounds": 3,
             "rest": 20,
-            "label": "Hiệp cự ly gần"
+            "label": "Hiệp cự ly gần",
+            "say": "Đến lượt bạn. Hiệp cự ly gần: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -1984,7 +2130,8 @@
           "why": "Thở xả giúp không đuối sức và giữ bình tĩnh."
         }
       ],
-      "outro": "Cự ly gần không còn đáng sợ. Bài sau: chống bị vật ngã và đứng dậy an toàn."
+      "outro": "Cự ly gần không còn đáng sợ. Bài sau: chống bị vật ngã và đứng dậy an toàn.",
+      "home": "Bài tập về nhà: ba buổi một tuần, ba hiệp cự ly gần trên đích đỡ."
     },
     {
       "id": "tk11",
@@ -2013,7 +2160,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Bật chân chống vật"
+            "label": "Bật chân chống vật",
+            "say": "Đến lượt bạn. Bật chân chống vật: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2040,7 +2188,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Chống vật – bật dậy – lùi"
+            "label": "Chống vật – bật dậy – lùi",
+            "say": "Đến lượt bạn. Chống vật – bật dậy – lùi: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2067,7 +2216,8 @@
           "drill": {
             "type": "time",
             "n": 30,
-            "label": "Xoay theo bạn tập"
+            "label": "Xoay theo bạn tập",
+            "say": "Đến lượt bạn. Xoay theo bạn tập trong ba mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2094,7 +2244,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Đứng dậy kỹ thuật mỗi bên"
+            "label": "Đứng dậy kỹ thuật mỗi bên",
+            "say": "Đến lượt bạn. Đứng dậy kỹ thuật mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2120,7 +2271,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Chuỗi ngã – đứng dậy mỗi bên"
+            "label": "Chuỗi ngã – đứng dậy mỗi bên",
+            "say": "Đến lượt bạn. Chuỗi ngã – đứng dậy mỗi bên: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2128,7 +2280,21 @@
             ],
             "frame": "on a thick canvas mat, wide side view: the instructor sitting on the mat in a low squat, arms extended forward, chin tucked",
             "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. He rocks back onto his rounded upper back with his chin tucked and slaps the mat with both arms (his head never touches the mat and he never rolls over his head), then he turns onto his side with one knee raised, then he places one hand behind him, lifts his hips, sweeps his leg back under him and stands up into a fighting stance with his hands raised"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk3-3"
+            },
+            {
+              "at": 0.3,
+              "file": "tk11-3"
+            },
+            {
+              "at": 0.62,
+              "file": "tk11-4"
+            }
+          ]
         }
       ],
       "quiz": [
@@ -2171,7 +2337,8 @@
           "why": "Đứng dậy lùi xa để an toàn."
         }
       ],
-      "outro": "Giờ bạn rất khó bị vật xuống, và biết đứng dậy an toàn. Bài sau: thoát hiểm khi đã bị đè dưới đất."
+      "outro": "Giờ bạn rất khó bị vật xuống, và biết đứng dậy an toàn. Bài sau: thoát hiểm khi đã bị đè dưới đất.",
+      "home": "Bài tập về nhà: mỗi ngày mười lần đứng dậy kỹ thuật mỗi bên, hai buổi một tuần tập chống vật với bạn."
     },
     {
       "id": "tk12",
@@ -2200,7 +2367,8 @@
           "drill": {
             "type": "time",
             "n": 40,
-            "label": "Di chuyển con tôm dọc thảm"
+            "label": "Di chuyển con tôm dọc thảm",
+            "say": "Đến lượt bạn. Di chuyển con tôm dọc thảm trong bốn mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2226,7 +2394,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Bắc cầu lật mỗi bên"
+            "label": "Bắc cầu lật mỗi bên",
+            "say": "Đến lượt bạn. Bắc cầu lật mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2253,7 +2422,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Khuỷu – gối thoát mỗi bên"
+            "label": "Khuỷu – gối thoát mỗi bên",
+            "say": "Đến lượt bạn. Khuỷu – gối thoát mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2280,7 +2450,8 @@
           "drill": {
             "type": "reps",
             "n": 6,
-            "label": "Thủ chân – đẩy – đứng dậy"
+            "label": "Thủ chân – đẩy – đứng dậy",
+            "say": "Đến lượt bạn. Thủ chân – đẩy – đứng dậy: sáu lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2289,7 +2460,17 @@
             ],
             "frame": "on a thick canvas mat, side view: the instructor (vest and ghillie scarf) lies on his back with both boots placed on the hips of Ivan (olive t-shirt), who kneels in front of him",
             "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. The instructor pushes Ivan away with both feet on Ivan's hips; Ivan slides back on his knees and stays kneeling. Then the instructor turns onto his side, posts one hand behind him, lifts his hips and stands up, stepping back into a fighting stance with hands raised, while Ivan remains kneeling on the mat"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk12-4-a"
+            },
+            {
+              "at": 2,
+              "file": "tk11-4"
+            }
+          ]
         },
         {
           "id": "tk12-5",
@@ -2309,7 +2490,8 @@
             "n": 60,
             "rounds": 2,
             "rest": 30,
-            "label": "Hiệp vật mềm"
+            "label": "Hiệp vật mềm",
+            "say": "Đến lượt bạn. Hiệp vật mềm: hai hiệp, mỗi hiệp sáu mươi giây, nghỉ ba mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -2360,7 +2542,8 @@
           "why": "Tập an toàn, có kiểm soát."
         }
       ],
-      "outro": "Bạn đã biết thoát dưới đất. Bài sau, một chủ đề nghiêm túc: đối mặt kẻ cầm dao."
+      "outro": "Bạn đã biết thoát dưới đất. Bài sau, một chủ đề nghiêm túc: đối mặt kẻ cầm dao.",
+      "home": "Bài tập về nhà: mỗi ngày hai phút di chuyển con tôm, hai buổi một tuần tập vật mềm."
     },
     {
       "id": "tk13",
@@ -2389,7 +2572,8 @@
           "drill": {
             "type": "reps",
             "n": 3,
-            "label": "Ném ví – chạy (tập tình huống)"
+            "label": "Ném ví – chạy (tập tình huống)",
+            "say": "Đến lượt bạn. Ném ví – chạy (tập tình huống): ba lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2416,7 +2600,8 @@
           "drill": {
             "type": "time",
             "n": 30,
-            "label": "Giữ khiên ba lô, lùi về lối thoát"
+            "label": "Giữ khiên ba lô, lùi về lối thoát",
+            "say": "Đến lượt bạn. Giữ khiên ba lô, lùi về lối thoát trong ba mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2443,7 +2628,8 @@
           "drill": {
             "type": "reps",
             "n": 10,
-            "label": "Vào tư thế che chắn"
+            "label": "Vào tư thế che chắn",
+            "say": "Đến lượt bạn. Vào tư thế che chắn: mười lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2469,7 +2655,8 @@
           "drill": {
             "type": "reps",
             "n": 8,
-            "label": "Chặn – kiểm soát (chậm) mỗi bên"
+            "label": "Chặn – kiểm soát (chậm) mỗi bên",
+            "say": "Đến lượt bạn. Chặn – kiểm soát (chậm) mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2496,7 +2683,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Kiểm soát – đẩy – chạy (chậm)"
+            "label": "Kiểm soát – đẩy – chạy (chậm)",
+            "say": "Đến lượt bạn. Kiểm soát – đẩy – chạy (chậm): năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2546,7 +2734,8 @@
           "why": "Mục tiêu là thoát an toàn, không phải giành vũ khí."
         }
       ],
-      "outro": "Hãy nhớ kỹ: chạy là chiến thắng. Bài sau: giữ bình tĩnh khi bị đe doạ bằng súng."
+      "outro": "Hãy nhớ kỹ: chạy là chiến thắng. Bài sau: giữ bình tĩnh khi bị đe doạ bằng súng.",
+      "home": "Bài tập về nhà: mỗi tuần một buổi tập tình huống với dao cao su, chậm và an toàn, luôn kết thúc bằng chạy."
     },
     {
       "id": "tk14",
@@ -2575,7 +2764,8 @@
           "drill": {
             "type": "time",
             "n": 64,
-            "label": "Thở hộp 4 nhịp"
+            "label": "Thở hộp 4 nhịp",
+            "say": "Đến lượt bạn. Thở hộp 4 nhịp trong sáu mươi tư giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2601,7 +2791,8 @@
           "drill": {
             "type": "reps",
             "n": 3,
-            "label": "Tập tình huống tuân thủ"
+            "label": "Tập tình huống tuân thủ",
+            "say": "Đến lượt bạn. Tập tình huống tuân thủ: ba lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2628,7 +2819,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Chạy chéo về vật che chắn"
+            "label": "Chạy chéo về vật che chắn",
+            "say": "Đến lượt bạn. Chạy chéo về vật che chắn: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2654,7 +2846,8 @@
           "drill": {
             "type": "time",
             "n": 30,
-            "label": "Trò ghi nhớ: tả lại một người"
+            "label": "Trò ghi nhớ: tả lại một người",
+            "say": "Đến lượt bạn. Trò ghi nhớ: tả lại một người trong ba mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2681,7 +2874,8 @@
           "drill": {
             "type": "reps",
             "n": 3,
-            "label": "Nhắc lại các nguyên tắc"
+            "label": "Nhắc lại các nguyên tắc",
+            "say": "Đến lượt bạn. Nhắc lại các nguyên tắc: ba lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2731,7 +2925,8 @@
           "why": "Không bao giờ đuổi theo người có vũ khí."
         }
       ],
-      "outro": "Cái đầu lạnh là vũ khí mạnh nhất của bạn. Bài cuối nhánh: tổng hợp và phản xạ."
+      "outro": "Cái đầu lạnh là vũ khí mạnh nhất của bạn. Bài cuối nhánh: tổng hợp và phản xạ.",
+      "home": "Bài tập về nhà: mỗi ngày ba phút thở hộp, và tập trò ghi nhớ khi ra đường."
     },
     {
       "id": "tk15",
@@ -2762,7 +2957,8 @@
             "n": 45,
             "rounds": 3,
             "rest": 20,
-            "label": "Hiệp phản xạ"
+            "label": "Hiệp phản xạ",
+            "say": "Đến lượt bạn. Hiệp phản xạ: ba hiệp, mỗi hiệp bốn mươi lăm giây, nghỉ hai mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -2789,7 +2985,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Tình huống nắm tay"
+            "label": "Tình huống nắm tay",
+            "say": "Đến lượt bạn. Tình huống nắm tay: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2816,7 +3013,8 @@
           "drill": {
             "type": "reps",
             "n": 5,
-            "label": "Tình huống ôm sau"
+            "label": "Tình huống ôm sau",
+            "say": "Đến lượt bạn. Tình huống ôm sau: năm lần. Tôi sẽ đếm nhịp cho bạn."
           },
           "shot": {
             "who": [
@@ -2845,7 +3043,8 @@
             "n": 60,
             "rounds": 3,
             "rest": 30,
-            "label": "Hiệp tập đôi"
+            "label": "Hiệp tập đôi",
+            "say": "Đến lượt bạn. Hiệp tập đôi: ba hiệp, mỗi hiệp sáu mươi giây, nghỉ ba mươi giây giữa hiệp."
           },
           "shot": {
             "who": [
@@ -2872,7 +3071,8 @@
           "drill": {
             "type": "time",
             "n": 120,
-            "label": "Giãn cơ hồi phục"
+            "label": "Giãn cơ hồi phục",
+            "say": "Đến lượt bạn. Giãn cơ hồi phục trong một trăm hai mươi giây. Đồng hồ sẽ đếm ngược."
           },
           "shot": {
             "who": [
@@ -2880,7 +3080,35 @@
             ],
             "frame": "on the canvas mat, side view: the instructor sits in a seated forward bend stretching his hamstrings, calm face, soft morning light",
             "motion": "He slowly exhales and leans deeper into the stretch, then transitions calmly into a lying spinal twist, breathing slowly, peaceful recovery moment"
-          }
+          },
+          "segs": [
+            {
+              "at": 0,
+              "file": "tk15-5"
+            },
+            {
+              "at": 1,
+              "key": "b",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, full body visible, feet shoulder-width apart, calm face",
+                "motion": "He stands on one leg and pulls his other heel up behind him toward his buttock to stretch the front of his thigh, holds it calmly, then switches legs. Slow cool-down stretch"
+              }
+            },
+            {
+              "at": 1.5,
+              "key": "c",
+              "shot": {
+                "who": [
+                  "coach"
+                ],
+                "frame": "standing on the canvas mat facing the camera, full body visible, feet shoulder-width apart, calm face",
+                "motion": "He pulls one straight arm across his chest with the other arm to stretch his shoulder, holds it, then switches arms, breathing out slowly. Slow cool-down stretch"
+              }
+            }
+          ]
         }
       ],
       "quiz": [
@@ -2921,7 +3149,8 @@
           "why": "Hồi phục là một phần của luyện tập."
         }
       ],
-      "outro": "Chúc mừng chiến binh! Bạn đã hoàn thành trọn nhánh Cận chiến tự vệ, cả phần cơ bản lẫn nâng cao. Hãy làm bài thi tốt nghiệp nhánh để nhận huy hiệu Sói Thép."
+      "outro": "Chúc mừng chiến binh! Bạn đã hoàn thành trọn nhánh Cận chiến tự vệ, cả phần cơ bản lẫn nâng cao. Hãy làm bài thi tốt nghiệp nhánh để nhận huy hiệu Sói Thép.",
+      "home": "Bài tập về nhà: ba buổi một tuần ôn toàn bộ nhánh, mỗi buổi ba mươi phút, luôn khởi động và giãn cơ."
     }
   ]
 }

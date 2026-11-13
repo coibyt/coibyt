@@ -50,3 +50,12 @@ for kf in sorted(RAW.glob("kf_tk*.png")):
         mp4(v, VID / f"{sid}.mp4", 720)
         n += 1
 print("videos", n)
+
+# Clip cắt ngắn (chỉ giữ phần đúng của clip AI): tên mới → (clip gốc, đến giây thứ mấy)
+TRIMS = {"tk12-4-a": ("tk12-4", 2.4)}
+for name, (src, to) in TRIMS.items():
+    v = RAW / f"vid_{src}.mp4"
+    if v.exists():
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(v), "-t", str(to), "-vf", "scale=720:-2:flags=lanczos,fps=24", "-an",
+                        "-c:v", "libx264", "-preset", "slow", "-crf", "26", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(VID / f"{name}.mp4")], check=True)
+        webp(RAW / f"kf_{src}.png", IMG / "kf" / f"{name}.webp", (720, 720), 74)

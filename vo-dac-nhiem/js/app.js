@@ -36,7 +36,8 @@ async function boot() {
       D.lessons[l.id] = l;
       D.text[`${l.id}-intro`] = l.intro;
       D.text[`${l.id}-outro`] = l.outro;
-      l.steps.forEach((s) => { D.text[s.id] = s.say; });
+      l.steps.forEach((s) => { D.text[s.id] = s.say; if (s.drill.say) D.text[`prac-${s.id}`] = s.drill.say; });
+      if (l.home) D.text[`${l.id}-home`] = l.home;
       l.quiz.forEach((q, k) => { D.text[`${l.id}-q${k}`] = q.q; D.text[`${l.id}-w${k}`] = q.why; });
     });
   }
@@ -189,7 +190,7 @@ function setTalking(on, key) {
 const sentences = (text) => text.match(/[^.!?:]+[.!?:]*\s*/g) || [text];
 
 // Thầy nói câu `key`, phụ đề chạy theo từng câu trong ô `box` (nếu có).
-function speak(key, box, cap) {
+function speak(key, box, cap, onPos) {
   const text = D.text[key] || "";
   const parts = sentences(text);
   const weights = parts.map((p) => p.length);
@@ -200,11 +201,14 @@ function speak(key, box, cap) {
   }
   let lastIdx = -1;
   return A.say(key, (tm, dur) => {
-    if (!box) return;
     const pos = (tm / (dur || 1)) * total;
-    let acc = 0, idx = parts.length - 1;
-    for (let i = 0; i < parts.length; i++) { acc += weights[i]; if (pos < acc) { idx = i; break; } }
-    if (idx === lastIdx) return;
+    let acc = 0, idx = parts.length - 1, frac = 1;
+    for (let i = 0; i < parts.length; i++) {
+      if (pos < acc + weights[i]) { idx = i; frac = (pos - acc) / weights[i]; break; }
+      acc += weights[i];
+    }
+    if (onPos) onPos(idx + frac);
+    if (!box || idx === lastIdx) return;
     lastIdx = idx;
     $$(".s", box).forEach((s, i) => { s.className = `s ${i < idx ? "past" : i === idx ? "now" : ""}`; });
     if (cap) cap.textContent = parts[idx];
@@ -429,6 +433,7 @@ function screenLesson(id) {
       </div>
       <div style="display:grid;gap:14px">
         <div class="safety">${I.warn}<div><b>${t("safetyH")}:</b> ${esc(l.safety)}</div></div>
+        ${l.home ? `<div class="homework">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^Bài tập về nhà:\s*/, ""))}</div></div>` : ""}
         <div class="card chapters"><div class="panel-h">${t("chapters")}</div>
           ${l.steps.map((st, i) => `<button class="chap" data-go="#/play/${l.id}/${i}"><img src="assets/img/kf/${st.id}.webp" alt="" loading="lazy"><span class="n ${Ls.seen.includes(i) ? "seen" : ""}">${i + 1}</span><span class="t">${esc(st.title)}</span>${I.next}</button>`).join("")}
           <button class="chap" data-go="#/quiz/${l.id}"><span class="n">${I.quiz}</span><span class="t">${t("toQuiz")}</span>${I.next}</button>
@@ -439,35 +444,47 @@ function screenLesson(id) {
   $(".coach.mini").style.aspectRatio = "16 / 9";
   A.prefetch([l.steps[0].id]);
   if (D.sync.has(`${l.id}-intro`)) fetch(`assets/video/sync/${L()}/${l.id}-intro.mp4`).catch(() => {});
-  whenReady(() => bubbleSay(`${l.id}-intro`));
+  whenReady(async () => {
+    const my = routeId;
+    const ok = await bubbleSay(`${l.id}-intro`);
+    // thầy dạy tự động: giới thiệu xong tự vào bước 1
+    if (ok && my === routeId && St.S().settings.autoTeach !== false) { await wait(900); if (my === routeId) go(`#/play/${l.id}/0`); }
+  });
 }
 
 // ---------------------------------------------------------------- trình phát từng bước
 const view = { slow: false, mirror: false };
+const autoOn = () => St.S().settings.autoTeach !== false;
+
 function screenPlay(id, idx) {
   const l = D.lessons[id];
   if (!l) return go("#/home");
   const ls = D.order[l.track];
   if (!St.unlocked(ls, ls.indexOf(l))) return go(`#/track/${l.track}`);
   idx = Math.max(0, Math.min(idx, l.steps.length - 1));
+  const my = routeId;
   const st = l.steps[idx];
   const Ls = St.lessonState(id);
   const checks = St.S().checks[st.id] || [];
   const last = idx === l.steps.length - 1;
   const d = st.drill;
   const drillLabel = d.type === "reps" ? t("reps", d.n) : d.type === "rounds" ? t("rounds", d.rounds, d.n) : t("secs", d.n);
+  // các clip của bước: mỗi clip ứng với một đoạn lời giảng (at = số thứ tự câu)
+  const segs = (st.segs || [{ at: 0, file: st.id }]).map((g) => ({ at: g.at, file: g.file || `${st.id}-${g.key}` }));
+  const nextHref = last ? `#/quiz/${l.id}` : `#/play/${l.id}/${idx + 1}`;
   render(`${topbar({ back: `#/lesson/${l.id}`, title: `<span class="eyebrow">Bài ${l.no} · ${t("step")} ${idx + 1}/${l.steps.length}</span><h1>${esc(l.title)}</h1>` })}
     <div class="wrap player">
       <div class="left">
         <div class="stage">
-          <video id="vid" src="assets/video/${st.id}.mp4" poster="assets/img/kf/${st.id}.webp" muted loop playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
+          <video id="vid" src="assets/video/${segs[0].file}.mp4" poster="assets/img/kf/${segs[0].file}.webp" muted ${segs.length > 1 ? "" : "loop"} playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
           <div class="slowtag" id="slowtag">0,5×</div>
           <div class="pip coach live ${St.S().settings.pip ? "" : "hide"}" style="background-image:url(assets/img/coach.webp)">
             <video class="idle" src="assets/video/coach-idle.mp4" muted loop playsinline autoplay preload="auto"></video>
             <video class="talk off" src="assets/video/coach-talk.mp4" muted loop playsinline preload="auto"></video>
           </div>
           <div class="cap" id="cap"></div>
-          <div class="hud"><span class="badge-step">${t("step").toUpperCase()} ${idx + 1}/${l.steps.length}</span><span class="grow"></span>
+          <div class="hud"><span class="badge-step">${t("step").toUpperCase()} ${idx + 1}/${l.steps.length}</span>
+            ${segs.length > 1 ? `<span class="badge-step segbadge" id="segb">1/${segs.length}</span>` : ""}<span class="grow"></span>
             <button class="icon-btn ${view.slow ? "on" : ""}" id="bSlow" aria-label="${t("slow")}" title="${t("slow")}">${I.slow}</button>
             <button class="icon-btn ${view.mirror ? "on" : ""}" id="bMirror" aria-label="${t("mirror")}" title="${t("mirror")}">${I.mirror}</button></div>
           <div class="ctrl">
@@ -482,16 +499,16 @@ function screenPlay(id, idx) {
       </div>
       <div style="display:grid;gap:12px;align-content:start">
         <div class="step-title"><h2>${idx + 1}. ${esc(st.title)}</h2></div>
+        <label class="autorow ${autoOn() ? "on" : ""}" id="autorow"><span>${I.play}<span><b>${t("autoTeach")}</b><small>${autoOn() ? t("autoTeachOn") : t("autoTeachOff")}</small></span></span><button class="switch ${autoOn() ? "on" : ""}" id="bAuto" aria-label="${t("autoTeach")}"></button></label>
         <div class="card subtitle"><div class="who">${t("coach")} <span class="eq" style="visibility:hidden"><i></i><i></i><i></i></span><span class="grow"></span>
           <span class="rates">${[0.85, 1, 1.15].map((r) => `<button class="rate ${A.rate() === r ? "on" : ""}" data-rate="${r}">${String(r).replace(".", ",")}×</button>`).join("")}</span></div><div id="sub"></div></div>
-        <label class="autorow"><span>${I.play}${t("autoPlay")}</span><button class="switch ${St.S().settings.auto ? "on" : ""}" id="bAuto" aria-label="${t("autoPlay")}"></button></label>
         <button class="btn ghost block" id="bDrill">${I.bolt}${t("practice")} · ${drillLabel}</button>
         <div class="card cues"><div class="panel-h">${t("cuesH")}</div>
           ${st.cues.map((c, i) => `<button class="cue ${checks[i] ? "on" : ""}" data-i="${i}"><span class="box"></span><span>${esc(c)}</span></button>`).join("")}</div>
         <details class="card mist"><summary>${I.warn}${t("mistakesH")}</summary><ul>${st.mistakes.map((m) => `<li>${esc(m)}</li>`).join("")}</ul></details>
         <div class="navrow">
           <button class="btn ghost" ${idx ? `data-go="#/play/${l.id}/${idx - 1}"` : "disabled"} aria-label="${t("prev")}">${I.back}</button>
-          <button class="btn" id="bNext" data-go="${last ? `#/quiz/${l.id}` : `#/play/${l.id}/${idx + 1}`}">${last ? t("toQuiz") : t("next")} ${I.next}</button>
+          <button class="btn" id="bNext" data-go="${nextHref}">${last ? t("toQuiz") : t("next")} ${I.next}</button>
         </div>
       </div>
     </div>`, { tab: null });
@@ -505,8 +522,23 @@ function screenPlay(id, idx) {
     $("#bMirror").classList.toggle("on", view.mirror);
   };
   vid.addEventListener("loadedmetadata", applyView);
-  vid.addEventListener("error", () => { vid.removeAttribute("src"); }, { once: true });
   applyView();
+  // ---- chuyển clip theo lời giảng
+  let segIdx = 0, cycling = false;
+  const showSeg = (i) => {
+    if (i === segIdx && vid.getAttribute("src")) return;
+    segIdx = i;
+    const f = segs[i].file;
+    vid.poster = `assets/img/kf/${f}.webp`;
+    vid.src = `assets/video/${f}.mp4`;
+    vid.play().catch(() => {});
+    const b = $("#segb"); if (b) b.textContent = `${i + 1}/${segs.length}`;
+  };
+  const segAt = (pos) => { let k = 0; segs.forEach((g, i) => { if (pos >= g.at) k = i; }); return k; };
+  if (segs.length > 1) {
+    // hết một clip: lúc thầy đang giảng thì phát lại clip đó, lúc tập theo thì chạy vòng qua mọi clip
+    vid.addEventListener("ended", () => { if (cycling) showSeg((segIdx + 1) % segs.length); else { vid.currentTime = 0; vid.play().catch(() => {}); } });
+  }
   $("#bSlow").onclick = () => {
     view.slow = !view.slow; applyView(); A.sfx("tap");
     const tag = $("#slowtag"); tag.textContent = view.slow ? "0,5×" : "1×"; tag.classList.add("show"); setTimeout(() => tag.classList.remove("show"), 700);
@@ -514,7 +546,7 @@ function screenPlay(id, idx) {
   $("#bMirror").onclick = () => { view.mirror = !view.mirror; applyView(); A.sfx("tap"); };
   const bPlay = $("#bPlay");
   bPlay.onclick = () => { if (vid.paused) { vid.play().catch(() => {}); bPlay.innerHTML = I.pause; } else { vid.pause(); bPlay.innerHTML = I.play; } };
-  $("#bReplay").onclick = () => narrate();
+  $("#bReplay").onclick = () => { session++; narrate(); };
   const stage = $(".stage");
   $("#bPip").onclick = () => {
     const S = St.S().settings; S.pip = !S.pip; St.save(); A.sfx("tap");
@@ -530,21 +562,14 @@ function screenPlay(id, idx) {
   $$(".rate").forEach((b) => b.onclick = () => {
     const r = +b.dataset.rate; St.S().settings.rate = r; St.save(); A.configure(St.S().settings); A.sfx("tap");
     $$(".rate").forEach((x) => x.classList.toggle("on", x === b));
-    narrate();
+    session++; narrate();
   });
-  $("#bAuto").onclick = () => {
-    const S = St.S().settings; S.auto = !S.auto; St.save(); A.sfx("tap");
-    $("#bAuto").classList.toggle("on", S.auto);
-    if (!S.auto) clearTimeout(autoT);
-  };
-  let autoT = 0;
-  cleanup.push(() => clearTimeout(autoT));
   $$(".cue").forEach((c) => c.onclick = () => {
     const on = St.toggleCheck(st.id, +c.dataset.i, st.cues.length);
     c.classList.toggle("on", on); A.sfx(on ? "ok" : "tap");
     const b = St.allChecksBadge(l); if (b.length) toast(`${t("newBadge")}: ${t("badges")[b[0]][0]}`);
   });
-  $("#bDrill").onclick = () => openDrill(st);
+  $("#bDrill").onclick = () => { session++; practice(false); };
 
   const fill = $("#segfill");
   const sub = $("#sub");
@@ -552,37 +577,68 @@ function screenPlay(id, idx) {
   const off = A.onSpeak((v) => { eq.style.visibility = v ? "visible" : "hidden"; });
   cleanup.push(off);
   const cap = $("#cap");
+  // thanh tiến độ của bước hiện tại chạy theo lời giảng
+  const dur = A.durationOf(st.id) || 1;
+  let t0 = 0;
+  const offProg = A.onSpeak((v, key) => { if (v && key === st.id) t0 = performance.now(); });
+  cleanup.push(offProg);
+  const timer = setInterval(() => { if (t0 && fill) fill.style.width = `${Math.min(100, ((performance.now() - t0) / dur) * 100)}%`; }, 200);
+  cleanup.push(() => clearInterval(timer));
+
+  // "session" tăng mỗi khi người học tự can thiệp → chuỗi tự động cũ dừng lại
+  let session = 0;
+  const alive = (s) => my === routeId && s === session;
+
   async function narrate() {
-    clearTimeout(autoT);
-    const ok = await speak(st.id, sub, cap);
+    cycling = false;
+    showSeg(0);
+    const ok = await speak(st.id, sub, cap, segs.length > 1 ? (pos) => showSeg(segAt(pos)) : null);
     if (fill) fill.style.width = "100%";
     if (ok) {
       St.addTime((A.durationOf(st.id) || 0) / 1000);
       const res = St.markSeen(l.id, idx);
       if (res) rewardToast(res);
-      const nb = $("#bNext");
-      nb?.classList.add("pulse");
-      // Xem liên tục: tự sang bước sau sau một vòng clip
-      if (St.S().settings.auto && nb) {
-        let n = 4;
-        const label = nb.innerHTML;
-        const tick = () => {
-          if (!St.S().settings.auto) { nb.innerHTML = label; return; }
-          if (n <= 0) { nb.click(); return; }
-          nb.innerHTML = `${t("autoIn", n)} ${I.next}`; n--;
-          autoT = setTimeout(tick, 1000);
-        };
-        tick();
-      }
+      $("#bNext")?.classList.add("pulse");
     }
+    return ok;
   }
-  // thanh tiến độ của bước hiện tại chạy theo lời giảng
-  const dur = A.durationOf(st.id) || 1;
-  let t0 = 0;
-  const offProg = A.onSpeak((v) => { if (v) t0 = performance.now(); });
-  cleanup.push(offProg);
-  const timer = setInterval(() => { if (t0 && fill) fill.style.width = `${Math.min(100, ((performance.now() - t0) / dur) * 100)}%`; }, 200);
-  cleanup.push(() => clearInterval(timer));
+  async function practice(auto) {
+    cycling = segs.length > 1;
+    if (cycling) showSeg(0);
+    const s = session;
+    if (auto) {
+      if (!(await speak(`prac-${st.id}`, sub, cap)) || !alive(s)) return false;
+    }
+    const done = await openDrill(st, { auto, dock: true });
+    cycling = false;
+    return done && alive(s);
+  }
+  // Thầy dạy tự động: giảng → dặn tập → đếm giờ → nhạc báo → sang bước sau (hết bài: dặn bài về nhà → kiểm tra)
+  async function lesson() {
+    const s = session;
+    if (!(await narrate()) || !alive(s) || !autoOn()) return;
+    await wait(600);
+    if (!alive(s) || !autoOn()) return;
+    if (!(await practice(true)) || !alive(s) || !autoOn()) return;
+    if (last) {
+      await speak(`${l.id}-home`, sub, cap);
+      if (!alive(s) || !autoOn()) return;
+      await A.say("lesson_end_auto");
+    } else {
+      await A.say("next_step");
+    }
+    if (alive(s) && autoOn()) go(nextHref);
+  }
+  $("#bAuto").onclick = (e) => {
+    e.preventDefault();
+    const S = St.S().settings; S.autoTeach = !autoOn(); St.save(); A.sfx("tap");
+    $("#bAuto").classList.toggle("on", S.autoTeach);
+    $("#autorow").classList.toggle("on", S.autoTeach);
+    $("#autorow small").textContent = S.autoTeach ? t("autoTeachOn") : t("autoTeachOff");
+    session++;
+    $("#overlay").innerHTML = "";
+    if (S.autoTeach) { A.say("auto_on").then(() => { session++; lesson(); }); } else A.say("auto_off");
+  };
   // phím tắt trên máy tính
   const onKey = (e) => {
     if (e.target.matches("input,textarea")) return;
@@ -594,100 +650,118 @@ function screenPlay(id, idx) {
   cleanup.push(() => document.removeEventListener("keydown", onKey));
   // tải trước bước sau
   const nx = l.steps[idx + 1];
-  if (nx) { A.prefetch([nx.id]); fetch(`assets/video/${nx.id}.mp4`).catch(() => {}); }
-  whenReady(narrate);
+  if (nx) { A.prefetch([nx.id, `prac-${nx.id}`]); fetch(`assets/video/${nx.id}.mp4`).catch(() => {}); }
+  A.prefetch([`prac-${st.id}`]);
+  whenReady(() => (autoOn() ? lesson() : narrate()));
 }
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // ---------------------------------------------------------------- tập theo thầy (đếm nhịp)
-function openDrill(st) {
+// auto: tự bắt đầu (thầy dạy tự động). dock: khung nhỏ ở dưới, vẫn thấy video làm mẫu.
+// Trả về Promise<boolean>: true khi tập xong, false nếu người học dừng.
+function openDrill(st, { auto = false, dock = false } = {}) {
   A.stop();
   const d = st.drill;
   const ov = $("#overlay");
   const R = 54, C = 2 * Math.PI * R;
-  ov.innerHTML = `<div class="modal-bg"><div class="card modal">
-    <span class="eyebrow">${t("practice")}</span><h2>${esc(d.label)}</h2>
+  ov.innerHTML = `<div class="modal-bg ${dock ? "dock" : ""}"><div class="card modal">
+    <div class="dtitle"><span class="eyebrow">${t("practice")}</span><h2>${esc(d.label)}</h2></div>
     <div class="ringwrap"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="${R}" stroke="rgba(255,255,255,.1)" stroke-width="8" fill="none"/>
       <circle id="dr" cx="60" cy="60" r="${R}" stroke="#e8d3a6" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>
       <div class="big"><b id="dn">${d.type === "reps" ? 0 : d.n}</b><small id="du">${d.type === "reps" ? `/ ${d.n} ${t("count")}` : t("seconds")}</small></div></div>
     <div class="drill-call" id="dc"></div>
-    ${d.type === "reps" ? `<div class="tempo">${t("tempo")}: <button class="btn ghost sm" data-tp="3.2">Chậm</button><button class="btn ghost sm on" data-tp="2.4">Vừa</button><button class="btn ghost sm" data-tp="1.7">Nhanh</button></div>` : ""}
-    <div style="display:flex;gap:10px;width:100%"><button class="btn ghost" id="dx" style="flex:1">${t("stop")}</button><button class="btn" id="dg" style="flex:2">${I.play}${t("go")}</button></div>
+    ${d.type === "reps" ? `<div class="tempo">${t("tempo")}: <button class="btn ghost sm" data-tp="3.2">Chậm</button><button class="btn ghost sm" data-tp="2.4">Vừa</button><button class="btn ghost sm" data-tp="1.7">Nhanh</button></div>` : ""}
+    <div class="dbtns"><button class="btn ghost" id="dx">${auto ? t("skip") : t("stop")}</button><button class="btn" id="dg">${I.play}${t("go")}</button></div>
   </div></div>`;
-  let tempo = 2.4, running = false, timers = [], dead = false;
-  const ringEl = $("#dr"), num = $("#dn"), call = $("#dc"), small = $("#du");
-  const setRing = (p) => { ringEl.style.strokeDashoffset = C * (1 - Math.max(0, Math.min(1, p))); };
-  const later = (fn, ms) => { const h = setTimeout(() => { if (!dead) fn(); }, ms); timers.push(h); return h; };
-  const close = () => { dead = true; timers.forEach(clearTimeout); timers = []; A.stop(); ov.innerHTML = ""; };
-  cleanup.push(close);
-  $$("[data-tp]").forEach((b) => b.onclick = () => { tempo = +b.dataset.tp; $$("[data-tp]").forEach((x) => x.classList.toggle("on", x === b)); $$("[data-tp]").forEach((x) => x.style.borderColor = x === b ? "var(--gold)" : ""); });
-  $("[data-tp='2.4']")?.style.setProperty("border-color", "var(--gold)");
-  $("#dx").onclick = close;
-  $("#dg").onclick = async () => {
-    if (running) return;
-    running = true;
-    $("#dg").disabled = true;
-    A.sfx("go");
-    await A.say("drill_start");
-    if (dead) return;
-    const finish = async (key) => {
-      A.sfx("win");
-      setRing(1);
-      call.textContent = t("done") + "!";
-      const res = St.drillDone(st.id);
-      St.addTime(d.type === "reps" ? d.n * tempo : d.type === "rounds" ? d.n * d.rounds : d.n);
-      rewardToast(res);
-      await A.say(key);
+  return new Promise((resolve) => {
+    let tempo = 2.4, running = false, timers = [], dead = false;
+    const ringEl = $("#dr"), num = $("#dn"), call = $("#dc"), small = $("#du");
+    const setRing = (p) => { ringEl.style.strokeDashoffset = C * (1 - Math.max(0, Math.min(1, p))); };
+    const later = (fn, ms) => { const h = setTimeout(() => { if (!dead) fn(); }, ms); timers.push(h); return h; };
+    const close = (ok) => {
       if (dead) return;
-      $("#dg").disabled = false; $("#dg").innerHTML = `${I.check}${t("done")}`; $("#dg").onclick = close;
+      dead = true; timers.forEach(clearTimeout); timers = [];
+      if (!ok) A.stop();
+      ov.innerHTML = "";
+      resolve(!!ok);
     };
-    if (d.type === "reps") {
-      let i = 0;
-      const beat = () => {
-        i++;
-        num.textContent = i; setRing(i / d.n); A.sfx("tick");
-        if (A.has(`n${i}`)) A.say(`n${i}`);
-        if (i >= d.n) return later(() => finish("drill_reps_done"), tempo * 600);
-        later(beat, tempo * 1000);
+    cleanup.push(() => close(false));
+    const tps = $$("[data-tp]");
+    const markTp = () => tps.forEach((x) => { x.style.borderColor = +x.dataset.tp === tempo ? "var(--gold)" : ""; x.style.color = +x.dataset.tp === tempo ? "var(--gold-2)" : ""; });
+    tps.forEach((b) => b.onclick = () => { tempo = +b.dataset.tp; markTp(); });
+    markTp();
+    $("#dx").onclick = () => close(false);
+    const start = async () => {
+      if (running) return;
+      running = true;
+      $("#dg").disabled = true;
+      A.sfx("go");
+      await A.say("drill_start");
+      if (dead) return;
+      const finish = async (key) => {
+        A.sfx("win");
+        setRing(1);
+        call.textContent = t("done") + "!";
+        const res = St.drillDone(st.id);
+        St.addTime(d.type === "reps" ? d.n * tempo : d.type === "rounds" ? d.n * d.rounds : d.n);
+        rewardToast(res);
+        await A.say(key);
+        if (dead) return;
+        if (auto) { later(() => close(true), 300); return; }
+        $("#dg").disabled = false; $("#dg").innerHTML = `${I.check}${t("done")}`; $("#dg").onclick = () => close(true);
       };
-      later(beat, 400);
-    } else {
-      const rounds = d.type === "rounds" ? d.rounds : 1;
-      const runRound = (r) => {
-        const t0 = Date.now();
-        let warned = false, nextCall = 0;
-        if (rounds > 1) small.textContent = t("round", r, rounds);
-        const tick = () => {
-          const left = Math.max(0, d.n - (Date.now() - t0) / 1000);
-          num.textContent = Math.ceil(left);
-          setRing(1 - left / d.n);
-          if (d.type === "calls" && Date.now() >= nextCall && left > 1) {
-            const c = d.calls[Math.floor(Math.random() * d.calls.length)];
-            const key = { "Tiến!": "call_tien", "Lùi!": "call_lui", "Sang trái!": "call_trai", "Sang phải!": "call_phai", "Xoay!": "call_xoay" }[c];
-            call.textContent = c; A.say(key); A.sfx("tick");
-            nextCall = Date.now() + 2200 + Math.random() * 800;
-          }
-          if (!warned && d.n >= 20 && left <= 10) { warned = true; if (d.type !== "calls") A.say("drill_10s"); }
-          if (left <= 0) {
-            if (r < rounds) {
-              call.textContent = t("rest"); A.say("drill_rest"); A.sfx("go");
-              const rs = Date.now();
-              const restTick = () => {
-                const lf = Math.max(0, d.rest - (Date.now() - rs) / 1000);
-                num.textContent = Math.ceil(lf); setRing(lf / d.rest);
-                if (lf <= 0) { call.textContent = ""; A.say("drill_round"); A.sfx("go"); later(() => runRound(r + 1), 900); }
-                else later(restTick, 200);
-              };
-              later(restTick, 200);
-            } else finish("drill_end");
-            return;
-          }
-          later(tick, 200);
+      if (d.type === "reps") {
+        let i = 0;
+        const beat = () => {
+          i++;
+          num.textContent = i; setRing(i / d.n); A.sfx("tick");
+          if (A.has(`n${i}`)) A.say(`n${i}`);
+          if (i >= d.n) return later(() => finish("drill_reps_done"), tempo * 600);
+          later(beat, tempo * 1000);
         };
-        tick();
-      };
-      runRound(1);
-    }
-  };
+        later(beat, 400);
+      } else {
+        const rounds = d.type === "rounds" ? d.rounds : 1;
+        const runRound = (r) => {
+          const t0 = Date.now();
+          let warned = false, nextCall = 0;
+          if (rounds > 1) small.textContent = t("round", r, rounds);
+          const tick = () => {
+            const left = Math.max(0, d.n - (Date.now() - t0) / 1000);
+            num.textContent = Math.ceil(left);
+            setRing(1 - left / d.n);
+            if (d.type === "calls" && Date.now() >= nextCall && left > 1) {
+              const c = d.calls[Math.floor(Math.random() * d.calls.length)];
+              const key = { "Tiến!": "call_tien", "Lùi!": "call_lui", "Sang trái!": "call_trai", "Sang phải!": "call_phai", "Xoay!": "call_xoay" }[c];
+              call.textContent = c; A.say(key); A.sfx("tick");
+              nextCall = Date.now() + 2200 + Math.random() * 800;
+            }
+            if (!warned && d.n >= 20 && left <= 10) { warned = true; if (d.type !== "calls") A.say("drill_10s"); }
+            if (left > 0 && left <= 3 && Math.ceil(left) !== tick.last) { tick.last = Math.ceil(left); A.sfx("tick"); }
+            if (left <= 0) {
+              if (r < rounds) {
+                call.textContent = t("rest"); A.say("drill_rest"); A.sfx("go");
+                const rs = Date.now();
+                const restTick = () => {
+                  const lf = Math.max(0, d.rest - (Date.now() - rs) / 1000);
+                  num.textContent = Math.ceil(lf); setRing(lf / d.rest);
+                  if (lf <= 0) { call.textContent = ""; A.say("drill_round"); A.sfx("go"); later(() => runRound(r + 1), 900); }
+                  else later(restTick, 200);
+                };
+                later(restTick, 200);
+              } else finish("drill_end");
+              return;
+            }
+            later(tick, 200);
+          };
+          tick();
+        };
+        runRound(1);
+      }
+    };
+    $("#dg").onclick = start;
+    if (auto) start();
+  });
 }
 
 // ---------------------------------------------------------------- kiểm tra
@@ -796,6 +870,7 @@ function showResult(l, score) {
       ${res.gained ? `<div class="xpgain" id="xpg">+0 XP</div>` : ""}
       ${res.rankUp != null ? `<div class="card reward">${insignia(res.rankUp)}<div><span class="eyebrow">${t("rankUp")}</span><h3>${rankName(res.rankUp)}</h3></div></div>` : ""}
       ${res.badges.map((b) => `<div class="card reward">${medal(b === "streak3" ? "flame3" : b === "streak7" ? "flame7" : b)}<div><span class="eyebrow">${t("newBadge")}</span><h3>${t("badges")[b][0]}</h3><span class="muted">${t("badges")[b][1]}</span></div></div>`).join("")}
+      ${res.pass && l.home ? `<div class="homework" style="width:100%;text-align:left">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^Bài tập về nhà:\s*/, ""))}</div></div>` : ""}
       <div class="card rankcard" style="width:100%">${insignia(r.lvl)}<div class="info"><b>${rankName(r.lvl)}</b><div class="xpbar"><i style="width:${Math.round(r.pct * 100)}%"></i></div></div></div>
       <div style="display:grid;gap:10px;width:100%">
         ${res.pass && nx ? `<button class="btn block" data-go="#/lesson/${nx.id}">${t("nextLesson")}: ${esc(nx.title)} ${I.next}</button>` : ""}
@@ -811,6 +886,7 @@ function showResult(l, score) {
   if (res.pass) { A.sfx("win"); confetti(); }
   const keys = [res.stars === 3 ? "quiz_perfect" : res.pass ? "quiz_pass" : "quiz_retry"];
   if (res.pass) keys.push(`${l.id}-outro`);
+  if (res.pass && l.home) keys.push(`${l.id}-home`);
   if (res.rankUp != null) keys.push("rank_up");
   else if (res.badges.length) keys.push("badge");
   whenReady(async () => { for (const k of keys) { if (!(await bubbleSay(k))) break; } });
@@ -915,7 +991,7 @@ function screenMe() {
           <span class="muted" style="font-size:12.5px">${r.nxt ? t("toNext", r.nxt.xp - s.xp, t("ranks")[r.nxt.id]) : t("maxRank")}</span></div>
         <div class="card"><div class="panel-h">${t("calH")}</div><div class="cal">${cells.join("")}</div></div>
         <div class="card settings"><div class="panel-h" style="padding-left:0">${t("settingsH")}</div>
-          ${sw("voice", t("setVoice"))}${sw("sfx", t("setSfx"))}${sw("ambient", t("setAmb"))}${sw("auto", t("autoPlay"))}${sw("pip", t("pip"))}
+          ${sw("voice", t("setVoice"))}${sw("sfx", t("setSfx"))}${sw("ambient", t("setAmb"))}${sw("autoTeach", t("autoTeach"))}${sw("pip", t("pip"))}
           <div class="set-row"><span class="muted" style="font-size:12.5px">${t("disclaimer")}</span></div>
           <div class="set-row"><button class="btn ghost sm" id="reset">${t("resetBtn")}</button></div></div>
       </div>

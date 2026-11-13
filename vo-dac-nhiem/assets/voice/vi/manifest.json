@@ -1,4 +1,12 @@
 {
+"auto_off": {
+"d": 3604,
+"f": "auto_off-422e865b.mp3"
+},
+"auto_on": {
+"d": 3526,
+"f": "auto_on-ceccbffc.mp3"
+},
 "badge": {
 "d": 1697,
 "f": "badge-3c24113a.mp3"
@@ -95,6 +103,10 @@
 "d": 3448,
 "f": "home_streak-4b1281c1.mp3"
 },
+"lesson_end_auto": {
+"d": 5929,
+"f": "lesson_end_auto-ebd25a5d.mp3"
+},
 "lesson_locked": {
 "d": 2560,
 "f": "lesson_locked-9bdf46fe.mp3"
@@ -179,6 +191,10 @@
 "d": 444,
 "f": "n9-78879e75.mp3"
 },
+"next_step": {
+"d": 2533,
+"f": "next_step-22300fa4.mp3"
+},
 "plan": {
 "d": 3265,
 "f": "plan-d64ead25.mp3"
@@ -186,6 +202,318 @@
 "plan_done": {
 "d": 3709,
 "f": "plan_done-44dfe68e.mp3"
+},
+"prac-tk1-1": {
+"d": 4101,
+"f": "prac-tk1-1-a72c1b20.mp3"
+},
+"prac-tk1-2": {
+"d": 4493,
+"f": "prac-tk1-2-d5cc05f2.mp3"
+},
+"prac-tk1-3": {
+"d": 5146,
+"f": "prac-tk1-3-1274c3f8.mp3"
+},
+"prac-tk1-4": {
+"d": 4702,
+"f": "prac-tk1-4-3385bd51.mp3"
+},
+"prac-tk1-5": {
+"d": 4728,
+"f": "prac-tk1-5-66166404.mp3"
+},
+"prac-tk10-1": {
+"d": 5198,
+"f": "prac-tk10-1-4bf401d2.mp3"
+},
+"prac-tk10-2": {
+"d": 4806,
+"f": "prac-tk10-2-bee375d2.mp3"
+},
+"prac-tk10-3": {
+"d": 6060,
+"f": "prac-tk10-3-f75694d0.mp3"
+},
+"prac-tk10-4": {
+"d": 5198,
+"f": "prac-tk10-4-3445a4fd.mp3"
+},
+"prac-tk10-5": {
+"d": 6164,
+"f": "prac-tk10-5-2cf009d3.mp3"
+},
+"prac-tk11-1": {
+"d": 4649,
+"f": "prac-tk11-1-a9e90198.mp3"
+},
+"prac-tk11-2": {
+"d": 5694,
+"f": "prac-tk11-2-6e504a26.mp3"
+},
+"prac-tk11-3": {
+"d": 4466,
+"f": "prac-tk11-3-ba13584e.mp3"
+},
+"prac-tk11-4": {
+"d": 4963,
+"f": "prac-tk11-4-6b1580f9.mp3"
+},
+"prac-tk11-5": {
+"d": 6295,
+"f": "prac-tk11-5-a574b819.mp3"
+},
+"prac-tk12-1": {
+"d": 5146,
+"f": "prac-tk12-1-6e79dcc2.mp3"
+},
+"prac-tk12-2": {
+"d": 5093,
+"f": "prac-tk12-2-8e786286.mp3"
+},
+"prac-tk12-3": {
+"d": 5642,
+"f": "prac-tk12-3-ff1b0f50.mp3"
+},
+"prac-tk12-4": {
+"d": 5982,
+"f": "prac-tk12-4-af1ae42e.mp3"
+},
+"prac-tk12-5": {
+"d": 5459,
+"f": "prac-tk12-5-4c659244.mp3"
+},
+"prac-tk13-1": {
+"d": 5302,
+"f": "prac-tk13-1-605652a3.mp3"
+},
+"prac-tk13-2": {
+"d": 5720,
+"f": "prac-tk13-2-4f18ba4a.mp3"
+},
+"prac-tk13-3": {
+"d": 5224,
+"f": "prac-tk13-3-6ca4d7f1.mp3"
+},
+"prac-tk13-4": {
+"d": 5903,
+"f": "prac-tk13-4-51325cd5.mp3"
+},
+"prac-tk13-5": {
+"d": 6321,
+"f": "prac-tk13-5-df3e8726.mp3"
+},
+"prac-tk14-1": {
+"d": 4754,
+"f": "prac-tk14-1-a7952fe6.mp3"
+},
+"prac-tk14-2": {
+"d": 4832,
+"f": "prac-tk14-2-8680332f.mp3"
+},
+"prac-tk14-3": {
+"d": 5172,
+"f": "prac-tk14-3-08314e81.mp3"
+},
+"prac-tk14-4": {
+"d": 6164,
+"f": "prac-tk14-4-a0140c0c.mp3"
+},
+"prac-tk14-5": {
+"d": 5616,
+"f": "prac-tk14-5-11d55723.mp3"
+},
+"prac-tk15-1": {
+"d": 5668,
+"f": "prac-tk15-1-7ca3aa7b.mp3"
+},
+"prac-tk15-2": {
+"d": 5067,
+"f": "prac-tk15-2-0b117556.mp3"
+},
+"prac-tk15-3": {
+"d": 4153,
+"f": "prac-tk15-3-3bd7b9ac.mp3"
+},
+"prac-tk15-4": {
+"d": 5511,
+"f": "prac-tk15-4-7bb1482d.mp3"
+},
+"prac-tk15-5": {
+"d": 5067,
+"f": "prac-tk15-5-68fd6c7a.mp3"
+},
+"prac-tk2-1": {
+"d": 5120,
+"f": "prac-tk2-1-11799355.mp3"
+},
+"prac-tk2-2": {
+"d": 4963,
+"f": "prac-tk2-2-41b3f1a0.mp3"
+},
+"prac-tk2-3": {
+"d": 5146,
+"f": "prac-tk2-3-b2d97cd8.mp3"
+},
+"prac-tk2-4": {
+"d": 4231,
+"f": "prac-tk2-4-ec027d40.mp3"
+},
+"prac-tk2-5": {
+"d": 4284,
+"f": "prac-tk2-5-236785a9.mp3"
+},
+"prac-tk2-6": {
+"d": 4257,
+"f": "prac-tk2-6-009ccfac.mp3"
+},
+"prac-tk3-1": {
+"d": 5172,
+"f": "prac-tk3-1-316f753b.mp3"
+},
+"prac-tk3-2": {
+"d": 5511,
+"f": "prac-tk3-2-a6450557.mp3"
+},
+"prac-tk3-3": {
+"d": 4884,
+"f": "prac-tk3-3-c3a361ef.mp3"
+},
+"prac-tk3-4": {
+"d": 5302,
+"f": "prac-tk3-4-e1cded0f.mp3"
+},
+"prac-tk3-5": {
+"d": 4623,
+"f": "prac-tk3-5-a1e7a9be.mp3"
+},
+"prac-tk4-1": {
+"d": 4911,
+"f": "prac-tk4-1-3f9531f3.mp3"
+},
+"prac-tk4-2": {
+"d": 5093,
+"f": "prac-tk4-2-b505fe5d.mp3"
+},
+"prac-tk4-3": {
+"d": 4858,
+"f": "prac-tk4-3-9efb8cc9.mp3"
+},
+"prac-tk4-4": {
+"d": 4754,
+"f": "prac-tk4-4-a3c04feb.mp3"
+},
+"prac-tk4-5": {
+"d": 4884,
+"f": "prac-tk4-5-b2e5d90f.mp3"
+},
+"prac-tk4-6": {
+"d": 4310,
+"f": "prac-tk4-6-ec700a14.mp3"
+},
+"prac-tk5-1": {
+"d": 5041,
+"f": "prac-tk5-1-24f74cff.mp3"
+},
+"prac-tk5-2": {
+"d": 4675,
+"f": "prac-tk5-2-1ae28968.mp3"
+},
+"prac-tk5-3": {
+"d": 4911,
+"f": "prac-tk5-3-64a1de52.mp3"
+},
+"prac-tk5-4": {
+"d": 5041,
+"f": "prac-tk5-4-fcbc1870.mp3"
+},
+"prac-tk5-5": {
+"d": 5302,
+"f": "prac-tk5-5-427919b5.mp3"
+},
+"prac-tk5-6": {
+"d": 5355,
+"f": "prac-tk5-6-f45a46d1.mp3"
+},
+"prac-tk6-1": {
+"d": 4440,
+"f": "prac-tk6-1-d6ae812f.mp3"
+},
+"prac-tk6-2": {
+"d": 4989,
+"f": "prac-tk6-2-7be0032b.mp3"
+},
+"prac-tk6-3": {
+"d": 5381,
+"f": "prac-tk6-3-bcfbade1.mp3"
+},
+"prac-tk6-4": {
+"d": 4911,
+"f": "prac-tk6-4-844d8f50.mp3"
+},
+"prac-tk6-5": {
+"d": 5773,
+"f": "prac-tk6-5-8aa6e7fd.mp3"
+},
+"prac-tk7-1": {
+"d": 4519,
+"f": "prac-tk7-1-64be4f09.mp3"
+},
+"prac-tk7-2": {
+"d": 5328,
+"f": "prac-tk7-2-e25bb6cc.mp3"
+},
+"prac-tk7-3": {
+"d": 4806,
+"f": "prac-tk7-3-c51001b3.mp3"
+},
+"prac-tk7-4": {
+"d": 5407,
+"f": "prac-tk7-4-9c33b384.mp3"
+},
+"prac-tk7-5": {
+"d": 5381,
+"f": "prac-tk7-5-69e6c758.mp3"
+},
+"prac-tk8-1": {
+"d": 5720,
+"f": "prac-tk8-1-9f9302cf.mp3"
+},
+"prac-tk8-2": {
+"d": 4754,
+"f": "prac-tk8-2-7b216ca2.mp3"
+},
+"prac-tk8-3": {
+"d": 4989,
+"f": "prac-tk8-3-07b6fc08.mp3"
+},
+"prac-tk8-4": {
+"d": 5172,
+"f": "prac-tk8-4-c55b8848.mp3"
+},
+"prac-tk8-5": {
+"d": 4440,
+"f": "prac-tk8-5-b7b5b1a0.mp3"
+},
+"prac-tk9-1": {
+"d": 7053,
+"f": "prac-tk9-1-b1b45cfd.mp3"
+},
+"prac-tk9-2": {
+"d": 5093,
+"f": "prac-tk9-2-3dd74708.mp3"
+},
+"prac-tk9-3": {
+"d": 5302,
+"f": "prac-tk9-3-6c66af8a.mp3"
+},
+"prac-tk9-4": {
+"d": 5694,
+"f": "prac-tk9-4-a0071a07.mp3"
+},
+"prac-tk9-5": {
+"d": 6191,
+"f": "prac-tk9-5-5b749ed2.mp3"
 },
 "practice_intro": {
 "d": 2403,
@@ -251,6 +579,10 @@
 "d": 20741,
 "f": "tk1-5-32587e8e.mp3"
 },
+"tk1-home": {
+"d": 5407,
+"f": "tk1-home-69fd8198.mp3"
+},
 "tk1-intro": {
 "d": 8385,
 "f": "tk1-intro-a28ee9e6.mp3"
@@ -310,6 +642,10 @@
 "tk10-5": {
 "d": 11833,
 "f": "tk10-5-b35804e2.mp3"
+},
+"tk10-home": {
+"d": 4231,
+"f": "tk10-home-abcff2a8.mp3"
 },
 "tk10-intro": {
 "d": 9717,
@@ -371,6 +707,10 @@
 "d": 12721,
 "f": "tk11-5-33078cfd.mp3"
 },
+"tk11-home": {
+"d": 5982,
+"f": "tk11-home-8448521a.mp3"
+},
 "tk11-intro": {
 "d": 8385,
 "f": "tk11-intro-85fcb66d.mp3"
@@ -430,6 +770,10 @@
 "tk12-5": {
 "d": 15621,
 "f": "tk12-5-9dfda991.mp3"
+},
+"tk12-home": {
+"d": 5198,
+"f": "tk12-home-9c228aac.mp3"
 },
 "tk12-intro": {
 "d": 10605,
@@ -491,6 +835,10 @@
 "d": 14262,
 "f": "tk13-5-65fe35fe.mp3"
 },
+"tk13-home": {
+"d": 6556,
+"f": "tk13-home-aef2b675.mp3"
+},
 "tk13-intro": {
 "d": 15542,
 "f": "tk13-intro-a55d04ff.mp3"
@@ -551,6 +899,10 @@
 "d": 20584,
 "f": "tk14-5-b7db1122.mp3"
 },
+"tk14-home": {
+"d": 4780,
+"f": "tk14-home-f770f119.mp3"
+},
 "tk14-intro": {
 "d": 8751,
 "f": "tk14-intro-0b97c6fb.mp3"
@@ -610,6 +962,10 @@
 "tk15-5": {
 "d": 15464,
 "f": "tk15-5-616e906e.mp3"
+},
+"tk15-home": {
+"d": 5982,
+"f": "tk15-home-4344d552.mp3"
 },
 "tk15-intro": {
 "d": 8594,
@@ -675,6 +1031,10 @@
 "d": 12617,
 "f": "tk2-6-f3405f26.mp3"
 },
+"tk2-home": {
+"d": 4911,
+"f": "tk2-home-13410feb.mp3"
+},
 "tk2-intro": {
 "d": 7392,
 "f": "tk2-intro-ba1d719d.mp3"
@@ -734,6 +1094,10 @@
 "tk3-5": {
 "d": 18181,
 "f": "tk3-5-58fca5ec.mp3"
+},
+"tk3-home": {
+"d": 6504,
+"f": "tk3-home-92207af2.mp3"
 },
 "tk3-intro": {
 "d": 7053,
@@ -799,6 +1163,10 @@
 "d": 13844,
 "f": "tk4-6-d9395ece.mp3"
 },
+"tk4-home": {
+"d": 4884,
+"f": "tk4-home-6be17cc2.mp3"
+},
 "tk4-intro": {
 "d": 6791,
 "f": "tk4-intro-a63b4efd.mp3"
@@ -863,6 +1231,10 @@
 "d": 15203,
 "f": "tk5-6-573a50e3.mp3"
 },
+"tk5-home": {
+"d": 5355,
+"f": "tk5-home-5ac084b8.mp3"
+},
 "tk5-intro": {
 "d": 7209,
 "f": "tk5-intro-63b3185a.mp3"
@@ -922,6 +1294,10 @@
 "tk6-5": {
 "d": 13426,
 "f": "tk6-5-5457640c.mp3"
+},
+"tk6-home": {
+"d": 5511,
+"f": "tk6-home-cd65ebb7.mp3"
 },
 "tk6-intro": {
 "d": 6060,
@@ -983,6 +1359,10 @@
 "d": 19957,
 "f": "tk7-5-f9232858.mp3"
 },
+"tk7-home": {
+"d": 5982,
+"f": "tk7-home-549fa01b.mp3"
+},
 "tk7-intro": {
 "d": 9012,
 "f": "tk7-intro-9b046b6f.mp3"
@@ -1043,6 +1423,10 @@
 "d": 15595,
 "f": "tk8-5-9f96c5de.mp3"
 },
+"tk8-home": {
+"d": 5825,
+"f": "tk8-home-7cac15db.mp3"
+},
 "tk8-intro": {
 "d": 8542,
 "f": "tk8-intro-1fd8729a.mp3"
@@ -1102,6 +1486,10 @@
 "tk9-5": {
 "d": 14628,
 "f": "tk9-5-5a5b2968.mp3"
+},
+"tk9-home": {
+"d": 5120,
+"f": "tk9-home-98895968.mp3"
 },
 "tk9-intro": {
 "d": 11102,

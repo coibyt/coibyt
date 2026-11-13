@@ -67,5 +67,9 @@
   "exam_intro": "Bài thi tốt nghiệp nhánh. Mười câu hỏi lấy từ mọi bài đã học. Đúng tám câu trở lên là đạt. Bình tĩnh, đọc kỹ từng câu.",
   "exam_pass": "Xuất sắc! Bạn đã tốt nghiệp nhánh Cận chiến tự vệ. Từ hôm nay, bạn là một Sói Thép của trại Sói Taiga.",
   "exam_fail": "Chưa đạt lần này. Ôn lại những bài còn yếu rồi thi lại. Thép được tôi qua nhiều lần lửa.",
-  "exam_locked": "Hoàn thành cả mười lăm bài của nhánh để mở bài thi tốt nghiệp."
+  "exam_locked": "Hoàn thành cả mười lăm bài của nhánh để mở bài thi tốt nghiệp.",
+  "next_step": "Tốt lắm. Chuyển sang bước tiếp theo.",
+  "lesson_end_auto": "Buổi học đã xong. Nhớ làm bài tập về nhà nhé. Giờ ta kiểm tra nhanh xem bạn nhớ được bao nhiêu.",
+  "auto_off": "Đã chuyển sang học thủ công. Bạn tự bấm để sang bước tiếp theo.",
+  "auto_on": "Đã bật chế độ thầy dạy tự động. Bạn chỉ cần tập theo tôi."
 }

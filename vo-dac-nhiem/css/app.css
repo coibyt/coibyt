@@ -510,3 +510,40 @@ body.theater #tabbar { display: none; }
 .feet-svg.show-pivot .pivotdot { opacity: 1; }
 .feet-cap { margin: 0; font-weight: 600; font-size: 14.5px; min-height: 44px; color: var(--text); }
 .feet-note { margin: 0; font-size: 11.5px; color: var(--dim); }
+
+/* ---------- thầy dạy tự động, tập theo dạng khung dưới ---------- */
+.autorow { align-items: center; }
+.autorow > span { display: flex; gap: 10px; align-items: center; }
+.autorow > span > span { display: grid; gap: 2px; }
+.autorow b { font-size: 14.5px; }
+.autorow small { font-weight: 400; font-size: 12px; color: var(--muted); }
+.autorow.on { border-color: var(--gold); background: linear-gradient(90deg, rgba(201,162,74,.16), var(--panel)); }
+.segbadge { color: var(--muted); }
+.modal-bg.dock { background: linear-gradient(180deg, transparent 35%, rgba(5,6,4,.88)); backdrop-filter: none; -webkit-backdrop-filter: none; align-items: end; pointer-events: none; padding-bottom: calc(14px + var(--safe-b)); }
+.modal-bg.dock .modal { pointer-events: auto; max-width: 560px; grid-template-columns: auto 1fr; align-items: center; text-align: left; gap: 10px 16px; padding: 14px 16px; }
+.modal-bg.dock .ringwrap { width: 112px; grid-row: span 3; }
+.modal-bg.dock .ringwrap .big b { font-size: 38px; }
+.modal-bg.dock .ringwrap .big small { font-size: 10.5px; }
+.modal-bg.dock .dtitle h2 { font-size: 18px; }
+.modal-bg.dock .drill-call { font-size: 22px; min-height: 26px; }
+.modal-bg.dock .tempo { justify-content: flex-start; flex-wrap: wrap; }
+.dbtns { display: flex; gap: 10px; width: 100%; }
+.dbtns #dx { flex: 1; } .dbtns #dg { flex: 2; }
+.modal-bg.dock .dbtns .btn { min-height: 42px; font-size: 13px; }
+.homework { display: flex; gap: 12px; padding: 12px 14px; border-radius: 16px; background: rgba(143,191,106,.08); border: 1px solid rgba(143,191,106,.35); font-size: 13.5px; }
+.homework svg { width: 22px; height: 22px; color: var(--ok); flex: none; margin-top: 1px; }
+/* khung tập theo (dạng dưới) gọn và rõ */
+.modal-bg.dock .modal {
+  background: rgba(15, 19, 13, 0.97); grid-template-columns: 104px 1fr;
+  grid-template-areas: "ring title" "ring call" "tempo tempo" "btns btns";
+  gap: 6px 14px; justify-items: stretch;
+}
+.modal-bg.dock .ringwrap { grid-area: ring; width: 104px; grid-row: auto; align-self: center; }
+.modal-bg.dock .dtitle { grid-area: title; align-self: end; }
+.modal-bg.dock .drill-call { grid-area: call; align-self: start; text-align: left; }
+.modal-bg.dock .tempo { grid-area: tempo; flex-wrap: nowrap; gap: 6px; }
+.modal-bg.dock .tempo .btn { flex: 1; min-height: 36px; padding: 0 8px; }
+.modal-bg.dock .dbtns { grid-area: btns; }
+.modal-bg.dock .dbtns .btn { white-space: nowrap; }
+body:has(.modal-bg.dock) #toast { bottom: auto; top: calc(70px + env(safe-area-inset-top, 0px)); }
+@media (min-width: 900px) { .modal-bg.dock { justify-items: end; padding-right: 24px; } }

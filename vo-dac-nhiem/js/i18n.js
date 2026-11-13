@@ -51,6 +51,11 @@ export const STR = {
     examAgain: "Thi lại để ôn tập",
     examLockedToast: "Hoàn thành cả 15 bài để mở bài thi tốt nghiệp.",
     tierBase: "Cơ bản",
+    autoTeach: "Thầy dạy tự động",
+    autoTeachOn: "Thầy giảng, dặn tập, đếm giờ và tự sang bước sau.",
+    autoTeachOff: "Học thủ công: bạn tự bấm để sang bước sau.",
+    skip: "Bỏ qua",
+    homeH: "Bài tập về nhà:",
     feet: {
       title: "Sơ đồ bước chân", left: "T", right: "P", facing: "Hướng mặt", attackLine: "Đòn lao tới",
       lefty: "Nhìn từ trên xuống · người thuận tay phải (T = chân trái, P = chân phải). Thuận tay trái thì làm ngược lại.",

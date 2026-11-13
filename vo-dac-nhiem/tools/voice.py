@@ -23,8 +23,12 @@ def all_lines(lang):
         for l in data["lessons"]:
             lines[f"{l['id']}-intro"] = l["intro"]
             lines[f"{l['id']}-outro"] = l["outro"]
+            if l.get("home"):
+                lines[f"{l['id']}-home"] = l["home"]
             for s in l["steps"]:
                 lines[s["id"]] = s["say"]
+                if s["drill"].get("say"):
+                    lines[f"prac-{s['id']}"] = s["drill"]["say"]
             for i, q in enumerate(l["quiz"]):
                 lines[f"{l['id']}-q{i}"] = q["q"]
                 lines[f"{l['id']}-w{i}"] = q["why"]

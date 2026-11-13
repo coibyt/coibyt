@@ -56,7 +56,15 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     data = json.loads(pathlib.Path(args[0]).read_text())
     only = {a for a in args[1:] if not a.startswith("--")}
-    steps = [s for l in data["lessons"] for s in l["steps"] if not only or s["id"] in only]
+    # mỗi bước: clip chính + các clip phụ theo từng ý của lời giảng (segs có "key")
+    jobs = []
+    for l in data["lessons"]:
+        for s in l["steps"]:
+            jobs.append({"id": s["id"], "shot": s["shot"]})
+            for g in s.get("segs", []):
+                if "key" in g:
+                    jobs.append({"id": f"{s['id']}-{g['key']}", "shot": g["shot"]})
+    steps = [j for j in jobs if not only or j["id"] in only or j["id"].rsplit("-", 1)[0] in only]
     with cf.ThreadPoolExecutor(4) as ex:
         futs = {ex.submit(do, s, "--images-only" in args, "--force" in args): s["id"] for s in steps}
         for f in cf.as_completed(futs):
