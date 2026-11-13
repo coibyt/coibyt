@@ -124,11 +124,14 @@ function whenReady(fn) {
 
 // ---------------------------------------------------------------- thầy Alexei "sống"
 function coachHTML({ cls = "", bubble = true } = {}) {
-  return `<div class="coach live ${cls}" style="background-image:url(assets/img/coach.webp)">
+  // Lời thoại nằm DƯỚI video (không đè lên mặt thầy).
+  return `<div class="coachbox">
+    <div class="coach live ${cls}" style="background-image:url(assets/img/coach.webp)">
       <video class="idle" src="assets/video/coach-idle.mp4" poster="assets/img/coach-idle.webp" muted loop playsinline autoplay preload="auto"></video>
       <video class="talk off" src="assets/video/coach-talk.mp4" muted loop playsinline preload="auto"></video>
-      ${bubble ? `<div class="speech idle"><div class="who">${t("coach")} <span class="eq"><i></i><i></i><i></i></span></div><div class="line"></div></div>` : ""}
-    </div>`;
+    </div>
+    ${bubble ? `<div class="speech idle"><div class="who">${t("coach")} <span class="eq"><i></i><i></i><i></i></span></div><div class="line"></div></div>` : ""}
+  </div>`;
 }
 function setTalking(on) {
   $$(".coach.live").forEach((c) => {
@@ -136,7 +139,7 @@ function setTalking(on) {
     if (!talk) return;
     if (on) { talk.play().catch(() => {}); talk.classList.remove("off"); }
     else { talk.classList.add("off"); }
-    $(".eq", c)?.style.setProperty("visibility", on ? "visible" : "hidden");
+    $(".eq", c.parentElement)?.style.setProperty("visibility", on ? "visible" : "hidden");
   });
 }
 

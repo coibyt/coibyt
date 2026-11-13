@@ -435,3 +435,16 @@ h1, h2, h3 { font-family: var(--head); letter-spacing: 0.02em; margin: 0; font-w
   .start .hero .coach::after { background: linear-gradient(180deg, transparent 40%, rgba(11, 13, 10, 0.55) 70%, var(--bg)); }
 }
 @media (max-width: 380px) { .brand small { display: none; } }
+
+/* ---------- lời thầy nằm dưới video, không che hình ---------- */
+.coachbox { display: grid; gap: 10px; min-width: 0; }
+.coachbox .speech {
+  position: relative; left: auto; right: auto; bottom: auto;
+  background: var(--panel); box-shadow: var(--shadow);
+}
+.coachbox .speech.idle { opacity: 1; transform: none; }
+.coachbox .speech.idle .line::before { content: "…"; color: var(--dim); }
+.coach::after { background: linear-gradient(180deg, transparent 70%, rgba(11, 13, 10, 0.35)); }
+.home-hero .coach { max-height: 52svh; }
+@media (min-width: 900px) { .home-hero .coach { max-height: calc(100svh - 260px); } }
+.result .coachbox { width: 100%; }
