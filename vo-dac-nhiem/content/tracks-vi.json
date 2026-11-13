@@ -1,12 +1,18 @@
 {
   "tracks": [
-    { "id": "tay-khong", "title": "Tay không · Tự vệ", "sub": "Lấy cảm hứng từ Systema và vật Sambo: hơi thở, bộ pháp, ngã an toàn, che chắn, thoát hiểm, quật ngã.", "cover": "kf/tk2-2.webp", "file": "track-tay-khong.json", "open": true },
-    { "id": "the-luc", "title": "Thể lực & vượt chướng ngại", "sub": "Sức mạnh bằng trọng lượng cơ thể, sức bền, bò thấp, vượt tường gỗ, leo dây, cầu thăng bằng, làm quen với nước.", "cover": "cover-the-luc.webp", "open": false,
-      "preview": ["Khởi động chuyên sâu", "Sức mạnh bằng trọng lượng cơ thể", "Sức bền chạy biến tốc", "Bò thấp – bò cao", "Vượt tường gỗ", "Leo dây an toàn", "Cầu thăng bằng", "Làm quen với nước an toàn"] },
-    { "id": "da-ngoai", "title": "Kỹ năng dã ngoại", "sub": "Ngụy trang, ẩn nấp, di chuyển im lặng, quan sát, bản đồ – la bàn, sinh tồn cơ bản.", "cover": "cover-da-ngoai.webp", "open": false,
-      "preview": ["Ngụy trang mặt và trang phục", "Hình dáng – ánh sáng – bóng – đường viền", "Ẩn nấp trong thiên nhiên", "Di chuyển im lặng", "Quan sát và ghi nhớ", "Bản đồ và la bàn", "Nước, lửa và chỗ trú"] },
-    { "id": "ban-sung", "title": "Bắn súng thể thao", "sub": "Bốn quy tắc an toàn, cầm súng tập an toàn, tư thế, ngắm và thở, lịch sử súng trường thể thao.", "cover": "cover-ban-sung.webp", "open": false,
-      "preview": ["Bốn quy tắc an toàn", "Cầm súng tập đúng cách", "Tư thế đứng, quỳ, nằm", "Đường ngắm và hơi thở", "Lịch sử bắn súng thể thao"] }
+    { "id": "tay-khong", "title": "Cận chiến tự vệ", "sub": "Lấy cảm hứng từ Systema và vật Sambo: hơi thở, bộ pháp, ngã an toàn, che chắn, đòn cơ bản, thoát hiểm, quật ngã.", "cover": "kf/tk2-2.webp", "file": "track-tay-khong.json", "open": true },
+    { "id": "ngu-trang", "title": "Ngụy trang & ẩn mình", "sub": "Đồ ghillie, sơn mặt, ẩn nấp, di chuyển không tiếng động, xoá dấu vết, tiếp cận không bị phát hiện.", "cover": "cover-da-ngoai.webp", "open": false,
+      "preview": ["Bốn yếu tố lộ: hình dáng, bóng, ánh sáng, chuyển động", "Sơn mặt ngụy trang", "Tự làm đồ ghillie", "Chọn chỗ ẩn nấp", "Bò thấp, bò cao, đi bước cáo", "Di chuyển không tiếng động", "Xoá dấu vết", "Quan sát mà không bị phát hiện"] },
+    { "id": "ban-sung", "title": "Bắn súng thể thao", "sub": "Bốn quy tắc an toàn, cầm súng tập đúng cách, tư thế đứng – quỳ – nằm, ngắm và thở, lịch sử súng.", "cover": "cover-ban-sung.webp", "open": false,
+      "preview": ["Bốn quy tắc an toàn", "Cầm súng tập đúng cách", "Tư thế đứng, quỳ, nằm", "Đường ngắm và hơi thở", "Bóp cò mượt", "Lịch sử bắn súng thể thao"] },
+    { "id": "dong-doi", "title": "Phối hợp đồng đội", "sub": "Ra hiệu bằng tay, liên lạc ngắn gọn, đội hình di chuyển và yểm trợ nhau trong airsoft, paintball.", "cover": "kf/tk2-6.webp", "open": false,
+      "preview": ["Ký hiệu tay cơ bản", "Liên lạc ngắn gọn bằng bộ đàm", "Đội hình di chuyển", "Quan sát theo khu vực", "Trò chơi phối hợp đội"] },
+    { "id": "the-luc", "title": "Thể lực & sinh tồn", "sub": "Hành quân mang vác, bơi an toàn, quản lý mệt mỏi, tìm nước, thức ăn, lửa và chỗ trú ở rừng, sa mạc, biển.", "cover": "cover-the-luc.webp", "open": false,
+      "preview": ["Sức mạnh bằng trọng lượng cơ thể", "Hành quân mang vác an toàn", "Vượt tường gỗ, leo dây", "Bơi và nổi an toàn", "Quản lý mệt mỏi, thiếu ngủ", "Tìm và lọc nước", "Lửa và chỗ trú", "Sinh tồn ở rừng, sa mạc, biển"] },
+    { "id": "so-cuu", "title": "Sơ cứu chiến trường", "sub": "Cầm máu, đặt garo, băng ép, xử lý sốc, hồi sức tim phổi, sơ cứu khi thiếu vật tư.", "cover": "cover-the-luc.webp", "open": false,
+      "preview": ["Đánh giá an toàn hiện trường", "Ép cầm máu trực tiếp", "Đặt garo đúng cách", "Nhét gạc và băng ép", "Giữ đường thở, tư thế hồi phục", "Phòng sốc và hạ thân nhiệt", "Hồi sức tim phổi (CPR)", "Sơ cứu khi thiếu vật tư"] },
+    { "id": "tam-ly", "title": "Bản lĩnh tinh thần", "sub": "Giữ bình tĩnh khi nguy hiểm, thở chống hoảng loạn, kiểm soát nỗi sợ, rèn quan sát và trí nhớ.", "cover": "kf/tk1-3.webp", "open": false,
+      "preview": ["Thở hộp chống hoảng loạn", "Kiểm soát nỗi sợ", "Tự nói chuyện tích cực", "Quan sát và ghi nhớ (trò Kim)", "Ra quyết định khi bị áp lực"] }
   ],
   "covers": { "tk1": "tk1-2", "tk2": "tk2-2", "tk3": "tk3-5", "tk4": "tk4-3", "tk5": "tk5-3", "tk6": "tk6-2", "tk7": "tk7-5", "tk8": "tk8-3" }
 }

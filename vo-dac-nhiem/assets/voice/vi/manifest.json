@@ -72,8 +72,8 @@
 "f": "home_4-4cef4f02.mp3"
 },
 "home_done": {
-"d": 5799,
-"f": "home_done-d707f67c.mp3"
+"d": 5564,
+"f": "home_done-2d32e3f9.mp3"
 },
 "home_streak": {
 "d": 3448,
@@ -672,8 +672,8 @@
 "f": "tk8-intro-1fd8729a.mp3"
 },
 "tk8-outro": {
-"d": 5955,
-"f": "tk8-outro-cddebf10.mp3"
+"d": 6112,
+"f": "tk8-outro-46e5823f.mp3"
 },
 "tk8-q0": {
 "d": 3213,
@@ -708,20 +708,32 @@
 "f": "tk8-w3-d3907604.mp3"
 },
 "track_ban-sung": {
-"d": 4231,
-"f": "track_ban-sung-9fb4ab01.mp3"
+"d": 4545,
+"f": "track_ban-sung-7a6d0e0f.mp3"
 },
-"track_da-ngoai": {
-"d": 6713,
-"f": "track_da-ngoai-a9662789.mp3"
+"track_dong-doi": {
+"d": 6400,
+"f": "track_dong-doi-3158e724.mp3"
+},
+"track_ngu-trang": {
+"d": 8542,
+"f": "track_ngu-trang-491a9639.mp3"
+},
+"track_so-cuu": {
+"d": 8359,
+"f": "track_so-cuu-e490e8e7.mp3"
+},
+"track_tam-ly": {
+"d": 6295,
+"f": "track_tam-ly-dc4258a7.mp3"
 },
 "track_tay-khong": {
-"d": 5982,
-"f": "track_tay-khong-dca2b9d2.mp3"
+"d": 5433,
+"f": "track_tay-khong-5ff79b76.mp3"
 },
 "track_the-luc": {
-"d": 4623,
-"f": "track_the-luc-63ed5fee.mp3"
+"d": 7105,
+"f": "track_the-luc-457d3690.mp3"
 },
 "welcome": {
 "d": 15960,

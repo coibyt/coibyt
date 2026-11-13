@@ -93,7 +93,7 @@ export const STR = {
       drill10: ["Kỷ luật thép", "10 lượt tập theo thầy"],
       early: ["Sói sớm", "Tập trước 7 giờ sáng"],
       night: ["Sói đêm", "Tập sau 9 giờ tối"],
-      track: ["Tay không", "Hoàn thành nhánh Tay không"],
+      track: ["Cận chiến", "Hoàn thành nhánh Cận chiến tự vệ"],
       checks: ["Tỉ mỉ", "Đánh dấu đủ điểm cần nhớ của một bài"],
     },
   },

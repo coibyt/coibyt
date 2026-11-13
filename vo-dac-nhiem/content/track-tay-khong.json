@@ -538,7 +538,7 @@
         { "q": "Người quật có trách nhiệm gì?", "a": ["Giữ tay áo, kiểm soát cú ngã của bạn tập", "Buông ngay", "Ngã đè lên"], "ok": 0, "why": "Kiểm soát giúp bạn tập ngã an toàn." },
         { "q": "Điều kiện để tập quật ngã:", "a": ["Đã ngã thành thạo, đệm dày, có huấn luyện viên", "Tập ở đâu cũng được", "Tập nhanh cho quen"], "ok": 0, "why": "An toàn là điều kiện bắt buộc." }
       ],
-      "outro": "Chúc mừng! Bạn đã đi hết nhánh Tay không. Hãy ôn lại mỗi ngày. Kỹ năng thật nằm ở sự lặp lại."
+      "outro": "Chúc mừng! Bạn đã đi hết nhánh Cận chiến tự vệ. Hãy ôn lại mỗi ngày. Kỹ năng thật nằm ở sự lặp lại."
     }
   ]
 }
