@@ -486,3 +486,27 @@ body.theater #tabbar { display: none; }
 .coach video { object-position: 50% 18%; }
 .coach video.sync { z-index: 1; }
 .coach video.talk { z-index: 0; }
+
+/* ---------- sơ đồ bước chân ---------- */
+.feet { padding: 12px 14px 10px; display: grid; gap: 6px; }
+.feet-h { display: flex; justify-content: space-between; align-items: center; }
+.feet-n { font: 600 12px/1 var(--head); letter-spacing: .1em; color: var(--gold-2); }
+.feet-svg { width: 100%; max-height: 240px; background: radial-gradient(ellipse at 50% 40%, rgba(111,127,74,.22), rgba(0,0,0,.25)); border-radius: 16px; }
+.feet-svg .grid line { stroke: rgba(232,211,166,.07); stroke-width: 1; }
+.feet-svg .sole { fill: rgba(232,211,166,.16); stroke: rgba(232,211,166,.55); stroke-width: 2; transition: fill .3s, stroke .3s; }
+.feet-svg .toe { fill: rgba(232,211,166,.35); }
+.feet-svg .lab { font: 700 15px var(--head); fill: var(--gold-2); }
+.feet-svg .foot.hi .sole { fill: rgba(201,162,74,.85); stroke: #f1e0b4; filter: drop-shadow(0 0 8px rgba(232,211,166,.7)); }
+.feet-svg .foot.hi .lab { fill: #1a1408; }
+.feet-svg .face line, .feet-svg .attack line { stroke: #c9a24a; stroke-width: 2.5; }
+.feet-svg .face { transition: transform .2s; }
+.feet-svg .facet { font: 600 11px var(--body); fill: var(--muted); }
+.feet-svg .guide { stroke: rgba(143,191,106,.7); stroke-width: 1.5; stroke-dasharray: 5 5; opacity: 0; transition: opacity .3s; }
+.feet-svg.show-guide .guide { opacity: 1; }
+.feet-svg .attack { opacity: 0; transition: opacity .3s; }
+.feet-svg.show-attack .attack { opacity: 1; }
+.feet-svg .attack line { stroke: #d0644b; }
+.feet-svg .pivotdot { fill: none; stroke: #8fbf6a; stroke-width: 2.5; opacity: 0; transition: opacity .3s; }
+.feet-svg.show-pivot .pivotdot { opacity: 1; }
+.feet-cap { margin: 0; font-weight: 600; font-size: 14.5px; min-height: 44px; color: var(--text); }
+.feet-note { margin: 0; font-size: 11.5px; color: var(--dim); }

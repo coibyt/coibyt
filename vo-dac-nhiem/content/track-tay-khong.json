@@ -247,7 +247,8 @@
             ],
             "frame": "standing on the canvas mat in a classic orthodox fighting stance at a three-quarter angle: left foot forward, knees bent, both fists raised in front of his face, elbows tucked, chin down, focused eyes",
             "motion": "From a neutral standing position he steps his left foot forward, bends his knees, raises both fists to guard his face with elbows tucked, tucks his chin and settles into a solid balanced fighting stance, small bounce on the balls of his feet"
-          }
+          },
+          "feet": "stance"
         },
         {
           "id": "tk2-3",
@@ -271,9 +272,10 @@
             "who": [
               "coach"
             ],
-            "frame": "in his fighting stance on the canvas mat, seen from the side (profile view facing left), fists up, knees bent",
-            "motion": "He moves with short shuffle steps: two steps forward (front foot first, rear foot follows) then two steps back (rear foot first, front foot follows), feet gliding close to the mat, never crossing, guard always up, smooth and balanced"
-          }
+            "frame": "in an orthodox fighting stance on the canvas mat, strict side view (profile), facing the right edge of the frame, left foot forward toward the right edge, right foot behind, knees bent, fists up guarding his face, his boots clearly visible",
+            "motion": "Strict side view (profile), the instructor faces the RIGHT edge of the frame, his LEFT foot is the front foot (closer to the right edge), his RIGHT foot is the rear foot. Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. First he moves FORWARD: his FRONT (left) foot slides forward one short step toward the right edge and lands, and only after that his REAR (right) foot slides forward the same short distance. He pauses in the same stance. Then he moves BACKWARD: his REAR (right) foot slides back one short step first, and only after that his FRONT (left) foot slides back the same distance. Feet never cross, never come together, never jump; the rear foot never moves first when going forward"
+          },
+          "feet": "fwdback"
         },
         {
           "id": "tk2-4",
@@ -297,9 +299,10 @@
             "who": [
               "coach"
             ],
-            "frame": "in his fighting stance on the canvas mat facing the camera at a slight angle, fists up, knees bent",
-            "motion": "He shuffles sideways two short steps to his left (left foot leads, right foot follows) then two short steps to his right (right foot leads), feet never crossing, guard up, low and stable"
-          }
+            "frame": "in an orthodox fighting stance on the canvas mat facing the camera at a slight angle, fists up, knees bent, both boots clearly visible on the mat",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. He shuffles sideways toward the left edge of the frame: the foot nearer the left edge steps out first and the other foot slides after it, keeping the same distance between the feet. He pauses. Then he shuffles back toward the right edge: the foot nearer the right edge steps first and the other foot follows. Feet never cross, never come together, guard stays up"
+          },
+          "feet": "side"
         },
         {
           "id": "tk2-5",
@@ -323,9 +326,10 @@
             "who": [
               "coach"
             ],
-            "frame": "in his fighting stance on the canvas mat, seen from a high three-quarter angle so the feet are visible, fists up",
-            "motion": "Pivoting on the ball of his front foot, he swings his rear foot in a quarter-circle arc so his whole body turns ninety degrees, then pivots back, guard always up, controlled and balanced"
-          }
+            "frame": "in an orthodox fighting stance on the canvas mat, seen from a high three-quarter angle so both feet are clearly visible, fists up",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. Keeping the ball of his FRONT foot planted on the same spot as a pivot point, he swings his REAR foot around in a short quarter-circle arc so his body turns only about ninety degrees (a quarter turn), then he stops and holds the new angle, guard up. He never turns his back to the camera and never turns more than a quarter turn"
+          },
+          "feet": "pivot"
         },
         {
           "id": "tk2-6",
@@ -357,9 +361,10 @@
               "coach",
               "ivan"
             ],
-            "frame": "the instructor and the trainee Ivan both stand in fighting stances on the canvas mat facing each other at a distance, side view of both, fists up",
-            "motion": "The instructor moves forward, back and sideways with short shuffle steps while Ivan mirrors his footwork, keeping the same distance, both staying low and balanced, guards up"
-          }
+            "frame": "the instructor and the trainee Ivan both stand in fighting stances on the canvas mat facing each other about two metres apart, strict side view of both, fists up",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. Mirror drill: the instructor takes one short shuffle step forward and Ivan takes one short shuffle step back keeping the same distance; then the instructor steps back and Ivan steps forward. The two men always stay facing each other two metres apart, never touch, never swap places, never turn around"
+          },
+          "feet": "fwdback"
         }
       ],
       "quiz": [
@@ -705,8 +710,8 @@
               "coach",
               "ivan"
             ],
-            "frame": "on the canvas mat, Ivan (wearing boxing gloves) raises his right arm high for a slow overhead downward strike with an open hand, the instructor faces him in a fighting stance, side view",
-            "motion": "As Ivan brings his arm slowly down from above, the instructor raises his left forearm angled like a roof above his forehead so Ivan's arm slides off it, while stepping diagonally forward to the outside. Slow, controlled, safe demonstration"
+            "frame": "on the canvas mat, side view: Ivan (the young trainee in the olive t-shirt, wearing boxing gloves) raises his right arm high above his head preparing a slow downward strike; the instructor (the big man in the plate-carrier vest and ghillie scarf) faces him in a fighting stance",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. Ivan (olive t-shirt) slowly brings his raised arm down from above toward the instructor's head. The instructor (vest and ghillie scarf) raises his left forearm angled like a roof above his own forehead so Ivan's arm slides off it, and steps diagonally forward to the outside. Only Ivan strikes; only the instructor blocks"
           }
         },
         {
@@ -734,7 +739,8 @@
             ],
             "frame": "on the canvas mat, seen from a high angle, the instructor and Ivan in fighting stances facing each other, Ivan with boxing gloves beginning a slow straight punch",
             "motion": "As Ivan punches slowly, the instructor parries and simultaneously steps diagonally forty-five degrees to the outside of the punching arm, ending at Ivan's side angle with his guard up. Smooth slow-motion style partner drill"
-          }
+          },
+          "feet": "angle"
         },
         {
           "id": "tk4-6",
@@ -1741,8 +1747,8 @@
               "coach",
               "ivan"
             ],
-            "frame": "on the canvas mat, wide side view: Ivan holds a focus mitt up in one hand and a low kick shield in the other, the instructor faces him in a fence stance",
-            "motion": "The instructor flicks his fingers across the mitt, then stomps a low heel kick into the low shield, then immediately turns and runs three steps away across the mat, looking back over his shoulder. Fluid controlled drill"
+            "frame": "on the canvas mat, wide side view: Ivan holds a padded focus mitt up at face height in one hand and a thick kick shield low against his shin with the other hand, the instructor faces him in a fence stance with open palms",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. The instructor flicks his relaxed fingers across the focus mitt, then stomps a low heel kick into the low shield, then turns away and jogs three steps off the mat toward the left edge of the frame. Only these two people are in the scene; nobody else appears and nobody holds any weapon"
           }
         }
       ],
@@ -2014,8 +2020,8 @@
               "coach",
               "ivan"
             ],
-            "frame": "on a thick canvas mat, side view: Ivan crouches low and lunges slowly forward reaching for the instructor's legs, the instructor in his fighting stance",
-            "motion": "As Ivan shoots slowly for his legs, the instructor sprawls: he kicks both legs back, drops his hips heavily onto Ivan's upper back and blocks Ivan's shoulders with his hands, pinning him down, then both reset. Realistic wrestling sprawl, controlled speed"
+            "frame": "on a thick canvas mat, strict side view: Ivan (olive t-shirt) crouches low and lunges slowly forward reaching toward the instructor's legs; the instructor (vest and ghillie scarf) stands in his fighting stance",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. As Ivan reaches slowly for his legs, the instructor kicks both of his own legs straight back behind him and drops his hips down onto Ivan's upper back, his hands pressing on Ivan's shoulders, so Ivan ends on his knees underneath and the instructor ends on top with his legs stretched far back. The instructor never ends up underneath"
           }
         },
         {
@@ -2120,8 +2126,8 @@
             "who": [
               "coach"
             ],
-            "frame": "on a thick canvas mat, wide side view: the instructor in a squat ready to perform a back breakfall, arms forward, chin tucked",
-            "motion": "He performs a back breakfall slapping the mat, rolls onto his side with his leg chambered, then does a technical stand-up back into a fighting stance and raises open palms in a fence. Fluid, realistic"
+            "frame": "on a thick canvas mat, wide side view: the instructor sitting on the mat in a low squat, arms extended forward, chin tucked",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. He rocks back onto his rounded upper back with his chin tucked and slaps the mat with both arms (his head never touches the mat and he never rolls over his head), then he turns onto his side with one knee raised, then he places one hand behind him, lifts his hips, sweeps his leg back under him and stands up into a fighting stance with his hands raised"
           }
         }
       ],
@@ -2281,8 +2287,8 @@
               "coach",
               "ivan"
             ],
-            "frame": "on a thick canvas mat, side view: the instructor lies on his back with both feet on the hips of Ivan, who kneels in front of him",
-            "motion": "The instructor pushes Ivan away with both feet on his hips, creating distance, then turns to his side and performs a technical stand-up, stepping back into his fighting stance with hands raised. Controlled grappling drill"
+            "frame": "on a thick canvas mat, side view: the instructor (vest and ghillie scarf) lies on his back with both boots placed on the hips of Ivan (olive t-shirt), who kneels in front of him",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. The instructor pushes Ivan away with both feet on Ivan's hips; Ivan slides back on his knees and stays kneeling. Then the instructor turns onto his side, posts one hand behind him, lifts his hips and stands up, stepping back into a fighting stance with hands raised, while Ivan remains kneeling on the mat"
           }
         },
         {
@@ -2497,8 +2503,8 @@
               "coach",
               "ivan"
             ],
-            "frame": "on the canvas mat, side view: the instructor holds Ivan's knife arm wrapped tightly with both arms, the dull black rubber training knife pointed away",
-            "motion": "In slow motion, the instructor delivers a low controlled push-kick toward Ivan's thigh, shoves Ivan away with both arms and turns and runs off the mat, looking back once. Controlled role-play"
+            "frame": "on the canvas mat, side view: the instructor (vest and ghillie scarf) holds Ivan's forearm wrapped tightly with both arms, a dull black rubber training knife in Ivan's hand pointed away from the instructor",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. The instructor pushes Ivan away with both arms so Ivan stumbles back a step and stays standing where he is, then the instructor turns and runs away alone toward the left edge of the frame. Ivan does not follow"
           }
         }
       ],
@@ -2817,8 +2823,8 @@
               "katya",
               "ivan"
             ],
-            "frame": "on the canvas mat, side view: Ivan hugs Katya from behind around her arms in a bear hug",
-            "motion": "Katya drops her weight low, pushes her elbows out, steps sideways and twists out of the hug, turns and pushes Ivan away with her hands, then runs a few steps away. Realistic controlled self-defence scenario"
+            "frame": "on the canvas mat, side view: Ivan (olive t-shirt) hugs Katya (the young woman with a blonde braid, dark olive long-sleeve top) from behind around her arms in a bear hug",
+            "motion": "Slow, deliberate tutorial pace, one clear movement at a time, natural anatomy, feet clearly visible on the mat. Katya drops her weight low, pushes her elbows outward, steps her right foot to the side and twists her body out of the hug, turns to face Ivan, pushes him away with both hands and steps back raising open palms in a fence. Ivan stays on the mat. The camera does not move"
           }
         },
         {

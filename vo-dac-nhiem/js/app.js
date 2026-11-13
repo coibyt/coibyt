@@ -3,6 +3,7 @@ import * as A from "./audio.js";
 import * as St from "./store.js";
 import { I, LOGO, RANKS, insignia, medal, ring } from "./icons.js";
 import { t, setLang, L } from "./i18n.js";
+import { mountFeet } from "./feet.js";
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -477,6 +478,7 @@ function screenPlay(id, idx) {
           </div>
         </div>
         <div class="segs">${l.steps.map((_, i) => `<button data-go="#/play/${l.id}/${i}" class="${i === idx ? "cur" : Ls.seen.includes(i) ? "seen" : ""}" aria-label="${t("step")} ${i + 1}">${i === idx ? '<i id="segfill" style="width:0"></i>' : ""}</button>`).join("")}</div>
+        ${st.feet ? `<div class="card feet" id="feet"></div>` : ""}
       </div>
       <div style="display:grid;gap:12px;align-content:start">
         <div class="step-title"><h2>${idx + 1}. ${esc(st.title)}</h2></div>
@@ -494,6 +496,7 @@ function screenPlay(id, idx) {
       </div>
     </div>`, { tab: null });
 
+  if (st.feet) cleanup.push(mountFeet($("#feet"), st.feet, t("feet")));
   const vid = $("#vid");
   const applyView = () => {
     vid.playbackRate = view.slow ? 0.5 : 1;
