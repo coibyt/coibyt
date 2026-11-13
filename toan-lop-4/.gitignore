@@ -49,3 +49,4 @@ app.*.map.json
 
 # Ảnh gốc Kie.ai (chỉ đưa ảnh đã xử lý vào assets/)
 .art-raw/
+.android-voice/
