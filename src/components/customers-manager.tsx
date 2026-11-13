@@ -31,6 +31,7 @@ import {
   X,
 } from "lucide-react";
 import { formatMoney } from "@/lib/money";
+import { downloadXlsx } from "@/lib/xlsx-write";
 import { fill } from "@/lib/shop-strings";
 import { customersStrings, type CustomerSegment } from "@/lib/customers-strings";
 import { Link, getPathname, useRouter } from "@/i18n/navigation";
@@ -215,22 +216,12 @@ export function CustomersManager({
   }
 
   function exportCsv() {
-    const cell = (v: string | number | null) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+    // A real Excel file: a comma CSV opens in one column where the list separator is ";".
     const day = (iso: string | null) => (iso ? iso.slice(0, 10) : "");
-    const lines = [
-      S.csv.map(cell).join(","),
-      ...filtered.map((c) =>
-        [c.name, c.walkIn ? "" : c.email, c.phone, c.visits, formatMoney(c.spentCents, c.currency, locale), day(c.firstVisit), day(c.lastVisit), day(c.nextVisit), c.noShows]
-          .map(cell)
-          .join(",")
-      ),
-    ];
-    const blob = new Blob([`﻿${lines.join("\r\n")}`], { type: "text/csv;charset=utf-8" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `customers-${segment}.csv`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+    downloadXlsx(`customers-${segment}`, "Customers", [
+      [...S.csv],
+      ...filtered.map((c) => [c.name, c.walkIn ? "" : c.email, c.phone, c.visits, formatMoney(c.spentCents, c.currency, locale), day(c.firstVisit), day(c.lastVisit), day(c.nextVisit), c.noShows]),
+    ]);
   }
 
   async function resendInvoice(invoiceId: string, email: string) {

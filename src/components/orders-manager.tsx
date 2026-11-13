@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link, useRouter } from "@/i18n/navigation";
 import { formatMoney } from "@/lib/money";
+import { downloadXlsx } from "@/lib/xlsx-write";
 import { fill } from "@/lib/shop-strings";
 import { ordersStrings, type OrderTab } from "@/lib/orders-strings";
 
@@ -161,31 +162,21 @@ export function OrdersManager({
   }, [initialOrders, tab, q]);
 
   function exportCsv() {
-    const cell = (v: string | number | null) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-    const lines = [
-      S.csv.map(cell).join(","),
-      ...shown.map((o) =>
-        [
-          orderNo(o.id),
-          o.createdAt.slice(0, 16).replace("T", " "),
-          o.customer.name,
-          o.customer.email,
-          o.customer.phone,
-          o.items.map((it) => `${it.name} × ${it.qty}`).join("; "),
-          money(o.totalCents, o.currency),
-          S.methods[o.paymentMethod],
-          S.tabs[o.status],
-        ]
-          .map(cell)
-          .join(",")
-      ),
-    ];
-    const blob = new Blob([`﻿${lines.join("\r\n")}`], { type: "text/csv;charset=utf-8" });
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = `orders-${tab.toLowerCase()}.csv`;
-    a.click();
-    URL.revokeObjectURL(a.href);
+    // A real Excel file: a comma CSV opens in one column where the list separator is ";".
+    downloadXlsx(`orders-${tab.toLowerCase()}`, "Orders", [
+      [...S.csv],
+      ...shown.map((o) => [
+        orderNo(o.id),
+        o.createdAt.slice(0, 16).replace("T", " "),
+        o.customer.name,
+        o.customer.email,
+        o.customer.phone,
+        o.items.map((it) => `${it.name} × ${it.qty}`).join("; "),
+        money(o.totalCents, o.currency),
+        S.methods[o.paymentMethod],
+        S.tabs[o.status],
+      ]),
+    ]);
   }
 
   /** A printable slip for packing or handing over the order. */

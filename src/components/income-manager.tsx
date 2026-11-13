@@ -36,7 +36,7 @@ import { IncomeReportModal } from "@/components/income-report";
 import { fieldValue, giftNet, type AmountField } from "@/lib/income-math";
 import { OwnerCorrection, OwnerEditedBadge } from "@/components/income-correction";
 import { TelegramRemindersCard } from "@/components/telegram-reminders-card";
-import { IncomeSheet, SheetExportButton, downloadCsv } from "@/components/income-sheet";
+import { IncomeSheet, SheetExportButton, downloadIncomeXlsx } from "@/components/income-sheet";
 import { IncomeDayModal } from "@/components/income-day-modal";
 
 type Period = "today" | "week" | "month" | "last" | "year" | "custom";
@@ -451,7 +451,7 @@ export function IncomeManager({
           {view === "sheet" && shown.length > 0 && (
             <SheetExportButton
               S={S}
-              onClick={() => downloadCsv(sheets, S, locale, timezone, `${isOwner ? S.ownerTitle : S.staffTitle} ${period === "custom" && custom ? `${custom.from}_${custom.to}` : today ?? ""}.csv`)}
+              onClick={() => downloadIncomeXlsx(sheets, S, locale, timezone, `${isOwner ? S.ownerTitle : S.staffTitle} ${period === "custom" && custom ? `${custom.from}_${custom.to}` : today ?? ""}`)}
             />
           )}
           <div className="flex gap-1 rounded-full bg-mist-50 p-1">

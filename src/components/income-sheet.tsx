@@ -6,6 +6,7 @@ import { formatMoney } from "@/lib/money";
 import { giftNet, staffValueIfChanged, type AmountField } from "@/lib/income-math";
 import type { IncomeReportJson } from "@/lib/income";
 import type { IncomeStrings } from "@/lib/income-strings";
+import { downloadXlsx, type XlsxRow } from "@/lib/xlsx-write";
 
 /** One staff member's reports as a spreadsheet: a row per booking and the
  * totals underneath. On the Doanh thu page, "Bảng tính" view. */
@@ -30,12 +31,13 @@ export function sheetTotals(rows: IncomeReportJson[]) {
   );
 }
 
-/** The rows as CSV — opens in Excel with Vietnamese letters intact. */
-export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[], S: IncomeStrings, locale: string, timezone: string, filename: string) {
+/** The rows as a real Excel file: one row per booking, a bold totals row
+ * under each staff member, amounts as numbers Excel can add up. */
+export function downloadIncomeXlsx(groups: { name: string; rows: IncomeReportJson[] }[], S: IncomeStrings, locale: string, timezone: string, filename: string) {
   const day = new Intl.DateTimeFormat(locale, { day: "2-digit", month: "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: timezone });
-  const amt = (c: number) => (c / 100).toFixed(2);
+  const amt = (c: number) => c / 100;
   const status = (r: IncomeReportJson) => (r.status === "APPROVED" ? S.approved : r.status === "REJECTED" ? S.rejected : S.pending);
-  const lines: (string | number)[][] = [
+  const lines: XlsxRow[] = [
     [S.colDate, S.byStaff, S.colCustomer, S.colService, S.colPrice, S.colCash, S.colBank, S.colMobilePay, S.colOnline, S.colGift, S.colTip, S.colTotal, S.colStatus, S.colOwnerEdit],
   ];
   for (const g of groups) {
@@ -59,15 +61,12 @@ export function downloadCsv(groups: { name: string; rows: IncomeReportJson[] }[]
       ]);
     }
     const t = sheetTotals(g.rows);
-    lines.push(["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.mobilePay), amt(t.online), amt(t.gift), amt(t.tip), amt(t.total), "", ""]);
+    lines.push({
+      bold: true,
+      cells: ["", `${S.totalRow} · ${g.name}`, "", "", amt(t.expected), amt(t.cash), amt(t.bank), amt(t.mobilePay), amt(t.online), amt(t.gift), amt(t.tip), amt(t.total), "", ""],
+    });
   }
-  const csv = "﻿" + lines.map((l) => l.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\r\n");
-  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
-  URL.revokeObjectURL(url);
+  downloadXlsx(filename, S.colTotal, lines, { money: [4, 5, 6, 7, 8, 9, 10, 11, 13] });
 }
 
 export function IncomeSheet({
