@@ -21,6 +21,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { canvasMeasure, clearMeasureCache, ensureFonts, pageToPng } from "@/lib/print/canvas";
+import { pagesToPdfBlob } from "@/lib/print/pdf-client";
 import type { Page } from "@/lib/print/ops";
 import { layoutPoster } from "@/lib/qr-poster/layout";
 import { POSTER_LABELS } from "@/lib/qr-poster/i18n/sheet";
@@ -269,13 +270,21 @@ export function QrPosterEditor({
     if (!canDownload) return;
     setBusy("pdf");
     try {
-      const res = await fetch("/api/tools/render-pdf", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: doc.salonName || "QR poster", logo: doc.logo, pages }),
-      });
-      if (!res.ok) throw new Error();
-      saveBlob(await res.blob(), `${fileBase}.pdf`);
+      // The server draws the better PDF (vector text). If it can't, the
+      // browser makes one itself, so the download never just fails.
+      const title = doc.salonName || "QR poster";
+      const pdfBlob = async () => {
+        try {
+          const res = await fetch("/api/tools/render-pdf", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ title, logo: doc.logo, pages }),
+          });
+          if (res.ok) return await res.blob();
+        } catch {}
+        return pagesToPdfBlob(pages, logoImg, title);
+      };
+      saveBlob(await pdfBlob(), `${fileBase}.pdf`);
       track("download_pdf");
       afterDownload();
     } catch {

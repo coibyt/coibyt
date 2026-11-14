@@ -96,6 +96,8 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("[tool pdf]", err);
-    return NextResponse.json({ error: "RENDER_FAILED" }, { status: 500 });
+    // TEMP: the reason, to find out why the server can't draw the PDF.
+    const detail = (err instanceof Error ? `${err.name}: ${err.message}` : String(err)).slice(0, 400);
+    return NextResponse.json({ error: "RENDER_FAILED", detail }, { status: 500 });
   }
 }
