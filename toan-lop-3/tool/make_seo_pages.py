@@ -87,7 +87,8 @@ def problem_html(i, p):
     if p.get("choices"):
         extra = "<ol class='abc'>" + "".join(f"<li>{esc(c['text'])}</li>" for c in p["choices"]) + "</ol>"
     elif p.get("template") and p["type"] == "fill_blank":
-        extra = f"<p class='tpl'>{esc(re.sub(r'{{\\w+}}', '…', p['template'])).replace(chr(10), '<br>')}</p>"
+        tpl = esc(re.sub(r"\{\{\w+\}\}", "…", p["template"])).replace("\n", "<br>")
+        extra = f"<p class='tpl'>{tpl}</p>"
     sol = p.get("solution", {})
     steps = "".join(block_html(b) for b in sol.get("steps", []))
     return (f'<div class="pb"><p class="q"><span class="n">Bài {i}.</span> <i>{esc(p.get("instruction", ""))}</i> {q}</p>{extra}'
@@ -117,7 +118,7 @@ HEAD = """<!doctype html>
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
-<header class="top"><a class="brand" href="{landing}"><img src="{site}hoc/img/logo.webp" alt="" width="40" height="40">Toán Lớp 3 &amp; Tiếng Anh</a>
+<header class="top"><a class="brand" href="{landing}"><img src="{site}hoc/img/logo.webp" alt="" width="40" height="40">Toán Lớp 3</a>
 <a class="cta small" href="{site}">▶ Học miễn phí</a></header>
 <main>
 """
