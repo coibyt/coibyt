@@ -3,13 +3,53 @@
 "d": 1854,
 "f": "badge-85c6745d.mp3"
 },
+"call_lui": {
+"d": 809,
+"f": "call_lui-1b8d16e1.mp3"
+},
+"call_phai": {
+"d": 992,
+"f": "call_phai-ae0247ae.mp3"
+},
+"call_tien": {
+"d": 992,
+"f": "call_tien-2613552f.mp3"
+},
+"call_trai": {
+"d": 914,
+"f": "call_trai-24399b57.mp3"
+},
+"call_xoay": {
+"d": 757,
+"f": "call_xoay-2bd6e268.mp3"
+},
 "drill_10s": {
 "d": 1280,
 "f": "drill_10s-a38fceec.mp3"
 },
+"drill_end": {
+"d": 2115,
+"f": "drill_end-48a7d94e.mp3"
+},
+"drill_reps_done": {
+"d": 2821,
+"f": "drill_reps_done-3cfb1e45.mp3"
+},
+"drill_rest": {
+"d": 2455,
+"f": "drill_rest-28987dba.mp3"
+},
+"drill_round": {
+"d": 2011,
+"f": "drill_round-15bdaba7.mp3"
+},
 "drill_start": {
 "d": 1724,
 "f": "drill_start-b6ebb9d0.mp3"
+},
+"drill_switch": {
+"d": 992,
+"f": "drill_switch-bd3a6486.mp3"
 },
 "gate": {
 "d": 12303,

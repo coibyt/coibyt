@@ -1,4 +1,12 @@
 {
+"auto_off": {
+"d": 3996,
+"f": "auto_off-3bd8b3cd.mp3"
+},
+"auto_on": {
+"d": 4336,
+"f": "auto_on-974ceb03.mp3"
+},
 "badge": {
 "d": 1567,
 "f": "badge-f672cc20.mp3"
@@ -195,6 +203,18 @@
 "d": 4179,
 "f": "plan_done-336ec0bc.mp3"
 },
+"prac-tk1-1": {
+"d": 5328,
+"f": "prac-tk1-1-977b4c1a.mp3"
+},
+"prac-tk1-2": {
+"d": 3918,
+"f": "prac-tk1-2-4a0a4754.mp3"
+},
+"prac-tk1-3": {
+"d": 5642,
+"f": "prac-tk1-3-4602a1bb.mp3"
+},
 "practice_intro": {
 "d": 3134,
 "f": "practice_intro-2d830bd6.mp3"
@@ -238,6 +258,26 @@
 "right_4": {
 "d": 1671,
 "f": "right_4-e6d534c8.mp3"
+},
+"tk1-1": {
+"d": 23248,
+"f": "tk1-1-916dd5ed.mp3"
+},
+"tk1-2": {
+"d": 20401,
+"f": "tk1-2-bcc14a0b.mp3"
+},
+"tk1-home": {
+"d": 4858,
+"f": "tk1-home-84bcb38c.mp3"
+},
+"tk1-intro": {
+"d": 9299,
+"f": "tk1-intro-8a0637e2.mp3"
+},
+"tk1-outro": {
+"d": 6739,
+"f": "tk1-outro-80cb7e17.mp3"
 },
 "track_ban-sung": {
 "d": 4153,
