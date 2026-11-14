@@ -323,9 +323,20 @@ async function drawOps(doc: Doc, forms: GlyphForms, ops: Op[], logo: Buffer | nu
   }
 }
 
+// pdfkit skips its default font only for a falsy value; its types want a string.
+const NO_DEFAULT_FONT = null as unknown as string;
+
 /** Draws laid-out pages (see ops.ts) into a print-quality PDF. */
 export async function renderPdf(pages: Page[], logo: Buffer | null, title: string): Promise<Buffer> {
-  const doc = new PDFDocument({ autoFirstPage: false, margin: 0, info: { Title: title, Creator: "VaraaAi.com", Producer: "VaraaAi.com" } });
+  const doc = new PDFDocument({
+    autoFirstPage: false,
+    margin: 0,
+    // No built-in font. All text is drawn as glyph outlines, and pdfkit would
+    // otherwise load Helvetica from a file path fixed at build time — a folder
+    // the host clears after each deploy, which made every PDF fail.
+    font: NO_DEFAULT_FONT,
+    info: { Title: title, Creator: "VaraaAi.com", Producer: "VaraaAi.com" },
+  });
   const chunks: Buffer[] = [];
   doc.on("data", (c: Buffer) => chunks.push(c));
   const done = new Promise<Buffer>((resolve, reject) => {

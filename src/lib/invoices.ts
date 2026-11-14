@@ -427,7 +427,10 @@ export async function renderInvoicePdf(invoice: InvoiceData): Promise<Buffer> {
   const qrPng = await invoiceQrPng(invoice.token, invoice.locale);
 
   return new Promise((resolve, reject) => {
-    const doc = new PDFDocument({ size: "A4", margin: 50 });
+    // No built-in font: pdfkit would load Helvetica from a file path fixed at
+    // build time, a folder the host clears after each deploy. The invoice's
+    // own embedded fonts are registered and selected right below.
+    const doc = new PDFDocument({ size: "A4", margin: 50, font: null as unknown as string });
     const chunks: Buffer[] = [];
     doc.on("data", (c) => chunks.push(c));
     doc.on("end", () => resolve(Buffer.concat(chunks)));
@@ -435,6 +438,7 @@ export async function renderInvoicePdf(invoice: InvoiceData): Promise<Buffer> {
 
     doc.registerFont("Body", fonts.regular);
     doc.registerFont("Bold", fonts.bold);
+    doc.font("Body");
     let hasScriptGlyph: ((ch: string) => boolean) | null = null;
     if (fonts.needsLatinFallback) {
       doc.registerFont("BodyLatin", fontBuffer(NOTO_SANS_REGULAR_B64));
