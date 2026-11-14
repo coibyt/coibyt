@@ -95,7 +95,7 @@ class TraceLightApp extends StatelessWidget {
                             behavior: HitTestBehavior.translucent,
                             onPointerDown: (_) => VoiceoverService.noteUserGesture(),
                             child: MaterialApp(
-                              title: language.translations.tr('app.name'),
+                              title: language.translations.tr('app.webTitle'),
                               debugShowCheckedModeBanner: false,
                               theme: AppTheme.dark(),
                               locale: language.language.locale,

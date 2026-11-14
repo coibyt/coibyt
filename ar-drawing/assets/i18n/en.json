@@ -1,7 +1,8 @@
 {
   "app": {
     "name": "TraceLight",
-    "tagline": "Trace any picture onto paper with your camera."
+    "tagline": "Trace any picture onto paper with your camera.",
+    "webTitle": "Learn to Draw & Colour – TraceLight"
   },
   "language": {
     "label": "Language",

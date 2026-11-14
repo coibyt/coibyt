@@ -11,7 +11,8 @@
 | Danh mục | **Giáo dục** (Education) |
 | Thẻ (tags) | Vẽ · Tô màu · Học tập · Trẻ em · Nghệ thuật |
 | Giá | Miễn phí, không quảng cáo, không mua hàng trong ứng dụng |
-| Chính sách quyền riêng tư | https://babelisa.com/lab/tracelight-baxm5cl0/privacy.html |
+| Trang web (chơi trên trình duyệt) | https://babelisa.com/hoc-ve-to-mau/ |
+| Chính sách quyền riêng tư | https://babelisa.com/hoc-ve-to-mau/chinh-sach-rieng-tu.html |
 
 ## 2. Tên ứng dụng (tối đa 30 ký tự)
 

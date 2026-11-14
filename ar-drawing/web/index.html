@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <!-- Replaced by `flutter build web --base-href /path/` -->
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="TraceLight – trace any picture onto paper through your phone camera.">
-  <!-- Private test build: keep it out of search engines until launch. -->
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#14161F">
+  <meta name="description" content="Chơi miễn phí: bé học vẽ, tô màu 42 bài từng bước cùng cô Lumi, đồ tranh lên giấy bằng camera, luyện thi Mỹ thuật và học tiếng Anh cùng vẹt Pip.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://babelisa.com/hoc-ve-to-mau/choi/">
+  <meta name="theme-color" content="#14122E">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Babelisa">
+  <meta property="og:title" content="Học Vẽ & Tô Màu – TraceLight (chơi trên web)">
+  <meta property="og:description" content="Bé học vẽ, tô màu từng bước cùng cô Lumi, đồ tranh AR và học tiếng Anh cùng vẹt Pip. Miễn phí, không quảng cáo.">
+  <meta property="og:url" content="https://babelisa.com/hoc-ve-to-mau/choi/">
+  <meta property="og:image" content="https://babelisa.com/hoc-ve-to-mau/img/banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="TraceLight">
+  <meta name="apple-mobile-web-app-title" content="Học Vẽ">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
   <link rel="icon" type="image/png" href="favicon.png"/>
 
-  <title>TraceLight</title>
+  <title>Chơi Học Vẽ & Tô Màu – TraceLight | Miễn phí trên web</title>
   <link rel="manifest" href="manifest.json">
   <style>
-    html, body { margin: 0; height: 100%; background: #14161F; }
+    html, body { margin: 0; height: 100%; background: #14122E; }
     #splash {
       position: fixed; inset: 0; display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 18px;
@@ -29,7 +37,7 @@
       transition: opacity .3s;
     }
     #splash img { width: 96px; height: 96px; border-radius: 22px; }
-    #splash .bar { width: 140px; height: 4px; border-radius: 2px; background: #2a2e3d; overflow: hidden; }
+    #splash .bar { width: 140px; height: 4px; border-radius: 2px; background: #2f2b66; overflow: hidden; }
     #splash .bar i { display: block; width: 40%; height: 100%; background: #FFB547; animation: slide 1.1s ease-in-out infinite; }
     @keyframes slide { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
   </style>
@@ -37,7 +45,7 @@
 <body>
   <div id="splash">
     <img src="icons/Icon-192.png" alt="">
-    <div>TraceLight</div>
+    <div>Học Vẽ &amp; Tô Màu cùng Lumi</div>
     <div class="bar"><i></i></div>
   </div>
   <script>
@@ -47,6 +55,11 @@
       if (s) { s.style.opacity = '0'; setTimeout(function () { s.remove(); }, 350); }
     });
   </script>
+  <noscript>
+    <h1>Học Vẽ &amp; Tô Màu – TraceLight</h1>
+    <p>Trò chơi học vẽ cho bé: 42 bài tô màu từng bước cùng cô giáo Lumi, đồ tranh lên giấy bằng camera, luyện thi Mỹ thuật và học tiếng Anh cùng vẹt Pip. Cần bật JavaScript để chơi.</p>
+    <p><a href="https://babelisa.com/hoc-ve-to-mau/">Xem giới thiệu</a></p>
+  </noscript>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

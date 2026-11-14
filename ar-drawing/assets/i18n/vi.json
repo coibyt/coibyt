@@ -1,7 +1,8 @@
 {
   "app": {
     "name": "TraceLight",
-    "tagline": "Đồ mọi bức tranh lên giấy bằng camera điện thoại."
+    "tagline": "Đồ mọi bức tranh lên giấy bằng camera điện thoại.",
+    "webTitle": "Học Vẽ & Tô Màu – TraceLight"
   },
   "language": {
     "label": "Ngôn ngữ",
