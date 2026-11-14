@@ -60,7 +60,7 @@
    },
    "tk1-4": {
     "title": "Respiración en ráfaga bajo esfuerzo",
-    "say": "Cuando estés cansado o tenso, respira corto y rápido: inhala por la nariz y exhala con fuerza por la boca, varias veces seguidas, como si apagaras una vela. Pruébalo ahora: mantén la posición alta de flexión durante veinte segundos y respira en ráfaga sin parar. Vas a notar los músculos menos rígidos y la cabeza despejada.",
+    "say": "Cuando estés cansado o tenso, haz respiraciones cortas y veloces: inhala por la nariz y exhala con fuerza por la boca, varias veces seguidas, como si apagaras una vela. Pruébalo ahora: mantén la posición alta de flexión durante veinte segundos y respira en ráfaga sin parar. Vas a notar los músculos menos rígidos y la cabeza despejada.",
     "cues": [
      "Inhalación corta por la nariz – soplo fuerte por la boca",
      "Seguido, como al apagar una vela",
@@ -113,7 +113,7 @@
     "why": "Inhalas por la nariz y exhalas por la boca, al ritmo de los pasos."
    },
    {
-    "q": "¿Cuándo se usa la respiración en ráfaga?",
+    "q": "¿En qué momento se usa la respiración en ráfaga?",
     "a": [
      "Cuando estás cansado o tenso",
      "Solo al dormir",
@@ -193,7 +193,7 @@
    },
    "tk2-4": {
     "title": "Paso lateral",
-    "say": "Hacia la izquierda, sale primero el pie izquierdo; hacia la derecha, sale primero el derecho; el otro pie lo sigue deslizándose. Mantén la misma distancia entre los pies y las manos cubriendo la cara. En un suelo de barro resbaladizo, cuanto más corto es el paso, mayor es la firmeza.",
+    "say": "Hacia la izquierda, sale primero el pie izquierdo; hacia la derecha, sale primero el derecho; el otro pie lo acompaña con un deslizamiento. Mantén la misma distancia entre los pies y las manos cubriendo la cara. En un suelo de barro resbaladizo, cuanto más corto es el paso, mayor es la firmeza.",
     "cues": [
      "Izquierda: primero el pie izquierdo",
      "Derecha: primero el pie derecho",
@@ -270,7 +270,7 @@
     "why": "Sale primero el pie más cercano a la dirección del movimiento."
    },
    {
-    "q": "¿Cuál es el error más peligroso al desplazarte?",
+    "q": "¿Qué error es el más peligroso al desplazarte?",
     "a": [
      "Cruzar los pies",
      "Dar pasos cortos",
@@ -333,7 +333,7 @@
    },
    "tk3-3": {
     "title": "Caída hacia atrás desde cuclillas",
-    "say": "Ponte en cuclillas, con los brazos al frente. Baja los glúteos al tatami, cerca de los talones, y rueda hacia atrás como en el ejercicio anterior, golpeando con los dos brazos. No te dejes caer sentado de golpe. No dejes que la espalda recta golpee de plano. Cuando lo domines, levántate y vuelve a ponerte en cuclillas sin parar, subiendo la velocidad poco a poco.",
+    "say": "Ponte en cuclillas, con los brazos al frente. Baja los glúteos al tatami, cerca de los talones, y rueda hacia atrás como en el ejercicio anterior, golpeando con los dos brazos. No te dejes caer sentado de golpe. No dejes que la espalda recta golpee de plano. Cuando lo domines, ponte de pie y baja de nuevo a cuclillas sin parar, subiendo la velocidad poco a poco.",
     "cues": [
      "Glúteos cerca de los talones",
      "Rueda en redondo, sin caer de plano",
@@ -350,7 +350,7 @@
    },
    "tk3-4": {
     "title": "Caída lateral",
-    "say": "Desde cuclillas, estira la pierna derecha cruzándola por delante de la izquierda y deja caer el cuerpo de lado, hacia la derecha. Tocan el tatami, en este orden, la cadera derecha y luego el lado derecho de la espalda; el brazo derecho golpea el tatami. Barbilla recogida; la cabeza no toca el tatami. Luego cambia de lado. Es la caída más frecuente cuando te derriban.",
+    "say": "Desde cuclillas, estira la pierna derecha en diagonal por delante de la izquierda y deja caer el cuerpo de lado, hacia la derecha. Tocan el tatami, en este orden, la cadera derecha y luego el lado derecho de la espalda; el brazo derecho golpea el tatami. Barbilla recogida; la cabeza no toca el tatami. Luego cambia de lado. Es la caída más frecuente cuando te derriban.",
     "cues": [
      "Estira la pierna cruzándola por delante",
      "Cadera → espalda tocan el tatami en orden",
@@ -432,7 +432,7 @@
   "steps": {
    "tk4-1": {
     "title": "Guardia alta",
-    "say": "Desde la guardia de combate, sube los puños a la altura de la frente, con los antebrazos verticales delante de la cara, como dos escudos. Codos cerrados, barbilla recogida y hombros arriba para proteger la mandíbula. Es la forma de cubrirte más segura cuando el golpe llega demasiado rápido y no te da tiempo a verlo.",
+    "say": "Desde la guardia de combate, sube los puños a la altura de la frente, con los antebrazos verticales delante de la cara, como dos escudos. Codos cerrados, barbilla recogida y hombros arriba para proteger la mandíbula. Es la forma de cubrirte más segura cuando el golpe llega demasiado deprisa y no te da tiempo a verlo.",
     "cues": [
      "Puños a la altura de la frente",
      "Antebrazos verticales como escudos",
@@ -732,7 +732,7 @@
   "steps": {
    "tk6-1": {
     "title": "La regla del pulgar",
-    "say": "Cuando te agarran de la muñeca, el punto más débil de la mano del rival es el hueco entre el pulgar y los demás dedos. No luches fuerza contra fuerza. Gira el antebrazo para que la parte estrecha de tu muñeca apunte hacia ese hueco, y tira con fuerza en la dirección del pulgar.",
+    "say": "Cuando te agarran de la muñeca, el punto más débil de la mano del rival es el hueco entre el pulgar y el resto de los dedos. No luches fuerza contra fuerza. Gira el antebrazo para que la parte estrecha de tu muñeca apunte hacia ese hueco, y tira con fuerza en la dirección del pulgar.",
     "cues": [
      "Busca el pulgar del rival",
      "Gira la muñeca hacia el hueco del pulgar",
@@ -766,7 +766,7 @@
    },
    "tk6-3": {
     "title": "Agarre cruzado",
-    "say": "En un agarre cruzado, por ejemplo cuando la mano derecha del rival agarra tu muñeca derecha, su pulgar queda por encima. Gira tu muñeca hacia arriba, cortando a través del hueco del pulgar, y tira hacia el hombro contrario. Acompáñalo con un paso atrás en diagonal.",
+    "say": "En un agarre cruzado, por ejemplo cuando la mano derecha del rival agarra tu muñeca derecha, su pulgar queda por encima. Gira tu muñeca hacia arriba, cortando a través del hueco del pulgar, y tira hacia el hombro contrario. Combínalo con un paso atrás en diagonal.",
     "cues": [
      "El pulgar del rival queda arriba",
      "Gira hacia arriba, corta por el hueco del pulgar",
@@ -824,7 +824,7 @@
      "El hueco entre el pulgar y los demás dedos",
      "El meñique"
     ],
-    "why": "El hueco del pulgar es la abertura por donde es más fácil escapar."
+    "why": "El hueco del pulgar es la abertura por donde es más sencillo escapar."
    },
    {
     "q": "Si te agarran con las dos manos, ¿qué haces?",
@@ -898,7 +898,7 @@
    },
    "tk7-3": {
     "title": "Abrazo por la espalda – escape girando",
-    "say": "Cuando el abrazo ya se ha aflojado, da un paso lateral con una pierna, baja todavía más el cuerpo, gira la cadera y los hombros, y sal deslizándote de entre sus brazos. Date la vuelta para quedar de frente al rival, con las manos en barrera, y toma distancia. Practica despacio con tu compañero; quien abraza lo hace solo con fuerza moderada.",
+    "say": "Cuando el abrazo ya se ha aflojado, da un paso lateral con una pierna, baja todavía más el cuerpo, gira la cadera y los hombros, y sal de entre sus brazos. Date la vuelta para quedar de frente al rival, con las manos en barrera, y toma distancia. Practica despacio con tu compañero; quien abraza lo hace solo con fuerza moderada.",
     "cues": [
      "Paso lateral con una pierna",
      "Baja más, gira la cadera y sal",
@@ -1443,7 +1443,7 @@
    },
    "tk11-4": {
     "title": "Levantada técnica",
-    "say": "Para levantarte con seguridad: apoya la mano trasera en el tatami, por detrás de la cadera, y cubre la cara con la mano delantera. Empuja la cadera hacia arriba y retira la pierna de apoyo por debajo del cuerpo. Apoya el pie lejos, en guardia, y solo entonces ponte erguido. Cubre siempre la cara y levántate tomando distancia del rival, nunca justo delante de él.",
+    "say": "Para levantarte con seguridad: apoya la mano trasera en el tatami, por detrás de la cadera, y cubre la cara con la mano delantera. Empuja la cadera hacia arriba y retira la pierna de apoyo por debajo del cuerpo. Apoya el pie lejos, en guardia, y solo entonces ponte erguido. Cubre siempre la cara y, al incorporarte, toma distancia del rival; nunca te pongas de pie justo delante de él.",
     "cues": [
      "Mano trasera apoyada, mano delantera cubre la cara",
      "Empuja la cadera, retira la pierna hacia atrás",
@@ -1509,7 +1509,7 @@
      "Me alejo",
      "Me acerco"
     ],
-    "why": "Levántate alejándote, para estar seguro."
+    "why": "Te levantas alejándote, para estar seguro."
    }
   ]
  },
@@ -1609,7 +1609,7 @@
   },
   "quiz": [
    {
-    "q": "¿Cuál es el movimiento más importante en el suelo?",
+    "q": "¿Qué movimiento es el más importante en el suelo?",
     "a": [
      "El camarón",
      "Quedarse quieto",
@@ -1775,7 +1775,7 @@
  "tk14": {
   "title": "Amenaza con arma de fuego",
   "sub": "Calma, obedecer, observar, cobertura, escape – pistola de plástico de entrenamiento",
-  "intro": "Esta lección trata más de la calma que de las técnicas. Frente a un arma, tu vida depende de tener la cabeza fría. Usamos una pistola de plástico naranja, de las que solo sirven para entrenar.",
+  "intro": "Esta lección trata sobre todo de la calma, no tanto de las técnicas. Frente a un arma, tu vida depende de tener la cabeza fría. Usamos una pistola de plástico naranja, de las que solo sirven para entrenar.",
   "safety": "Usa solo pistolas de entrenamiento de plástico naranja. Nada de armas reales, de aire comprimido ni réplicas realistas.",
   "outro": "La cabeza fría es tu arma más poderosa. Última lección de la rama: repaso y reflejos.",
   "home": "Tarea para casa: cada día, tres minutos de respiración cuadrada, y practica el juego de memoria cuando salgas a la calle.",
@@ -1850,7 +1850,7 @@
    },
    "tk14-5": {
     "title": "El último recurso",
-    "say": "Solo si estás seguro de que va a disparar aunque hayas obedecido, piensa en el último recurso: desviar el cañón lejos de tu cuerpo y de los demás, sujetarlo con fuerza con las dos manos y buscar una forma de escapar. Es una técnica de altísimo riesgo, que solo se aprende en persona con un instructor certificado y con un arma de entrenamiento. En casi todas las situaciones, obedecer y observar es la mejor opción para sobrevivir.",
+    "say": "Solo si estás seguro de que va a disparar aunque hayas obedecido, piensa en el último recurso: desviar el cañón lejos de tu cuerpo y de otras personas, sujetarlo con fuerza con las dos manos y buscar una forma de escapar. Es una técnica de altísimo riesgo, que solo se aprende en persona con un instructor certificado y con un arma de entrenamiento. En casi todas las situaciones, obedecer y observar es la mejor opción para sobrevivir.",
     "cues": [
      "Solo si es seguro que va a disparar",
      "Desvía el cañón lejos de las personas, sujeta con las dos manos",

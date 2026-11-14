@@ -219,5 +219,6 @@
  "langH": "Idioma",
  "langPick": "Elige el idioma de aprendizaje",
  "voiceDevice": "Voz del dispositivo (aún no hay voz grabada del entrenador para este idioma)",
- "decimal": "."
+ "decimal": ".",
+ "voiceRecorded": "Voz del entrenador grabada. En otros idiomas se usa la voz del dispositivo."
 }
