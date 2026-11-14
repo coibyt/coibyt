@@ -159,15 +159,23 @@ function setTalking(on, key) {
       // trong lúc video khớp khẩu hình đang tải: dùng clip "đang nói"
       talk.play().catch(() => {}); talk.classList.remove("off");
       sync.classList.add("off");
+      sync.onplaying = sync.onseeked = null;
       sync.src = syncSrc;
       sync.playbackRate = A.rate();
-      sync.onplaying = () => {
-        sync.currentTime = A.time();
-        sync.classList.remove("off");
-        talk.classList.add("off");
-      };
-      sync.onended = () => { sync.classList.add("off"); };
-      sync.play().catch(() => {});
+      sync.dataset.lastSeek = "0";
+      // CHỈ MỘT LẦN: đặt đúng vị trí giọng đang đọc, đợi khung hình sẵn sàng rồi mới hiện (không chớp)
+      sync.addEventListener("loadeddata", () => {
+        const t0 = A.time();
+        if (t0 > 0.25) sync.currentTime = t0;
+        const show = () => {
+          if (sync.getAttribute("src") !== syncSrc) return;
+          sync.classList.remove("off");
+          setTimeout(() => { if (!sync.classList.contains("off")) talk.classList.add("off"); }, 380);
+        };
+        if (t0 > 0.25) sync.addEventListener("seeked", show, { once: true }); else show();
+        sync.play().catch(() => {});
+      }, { once: true });
+      sync.onended = () => { sync.classList.add("off"); talk.classList.remove("off"); };
     } else if (on) {
       if (sync) { sync.pause(); sync.classList.add("off"); }
       talk.play().catch(() => {}); talk.classList.remove("off");
@@ -180,13 +188,25 @@ function setTalking(on, key) {
   });
   // giữ miệng thầy khớp với giọng (sửa lệch do mạng chậm)
   if (syncSrc) {
+    // Lệch ít: chỉnh tốc độ video chút xíu để bắt kịp giọng (không nhảy hình).
+    // Lệch nhiều (> 0,6 giây): mới kéo về đúng chỗ, và tối đa 2 giây một lần.
     syncTimer = setInterval(() => {
       $$(".coach.live video.sync").forEach((v) => {
-        if (v.paused || v.readyState < 2) return;
+        if (v.paused || v.seeking || v.readyState < 3 || v.classList.contains("off")) return;
+        const base = A.rate();
         const drift = v.currentTime - A.time();
-        if (Math.abs(drift) > 0.2) v.currentTime = A.time();
+        const now = performance.now();
+        if (Math.abs(drift) > 0.6 && now - +v.dataset.lastSeek > 2000) {
+          v.dataset.lastSeek = String(now);
+          v.currentTime = A.time();
+          v.playbackRate = base;
+        } else if (Math.abs(drift) > 0.08) {
+          v.playbackRate = base * (drift > 0 ? 0.94 : 1.06);
+        } else if (v.playbackRate !== base) {
+          v.playbackRate = base;
+        }
       });
-    }, 400);
+    }, 500);
   }
 }
 
