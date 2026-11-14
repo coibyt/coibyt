@@ -51,6 +51,22 @@
 "d": 966,
 "f": "drill_switch-898f19ab.mp3"
 },
+"exam_fail": {
+"d": 8698,
+"f": "exam_fail-505fa526.mp3"
+},
+"exam_intro": {
+"d": 9952,
+"f": "exam_intro-08d92875.mp3"
+},
+"exam_locked": {
+"d": 4806,
+"f": "exam_locked-186c00ab.mp3"
+},
+"exam_pass": {
+"d": 6870,
+"f": "exam_pass-c6ab7115.mp3"
+},
 "gate": {
 "d": 11520,
 "f": "gate-3b3c9f6f.mp3"
@@ -78,6 +94,10 @@
 "home_streak": {
 "d": 3526,
 "f": "home_streak-a2fbfdc3.mp3"
+},
+"lesson_end_auto": {
+"d": 4649,
+"f": "lesson_end_auto-14b84cbe.mp3"
 },
 "lesson_locked": {
 "d": 3787,
@@ -163,6 +183,10 @@
 "d": 600,
 "f": "n9-f146368e.mp3"
 },
+"next_step": {
+"d": 2560,
+"f": "next_step-44104705.mp3"
+},
 "plan": {
 "d": 3134,
 "f": "plan-da5162ce.mp3"
@@ -218,6 +242,22 @@
 "track_ban-sung": {
 "d": 4153,
 "f": "track_ban-sung-792cbd66.mp3"
+},
+"track_dong-doi": {
+"d": 6844,
+"f": "track_dong-doi-7776e184.mp3"
+},
+"track_ngu-trang": {
+"d": 7549,
+"f": "track_ngu-trang-803d13fc.mp3"
+},
+"track_so-cuu": {
+"d": 8385,
+"f": "track_so-cuu-4afa34e0.mp3"
+},
+"track_tam-ly": {
+"d": 6530,
+"f": "track_tam-ly-0db56ce4.mp3"
 },
 "track_tay-khong": {
 "d": 8933,

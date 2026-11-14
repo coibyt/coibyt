@@ -1,0 +1,65 @@
+{
+ "tk2-3-fw": [
+  "① FRÄMRE foten kliver först",
+  "② BAKRE foten glider efter"
+ ],
+ "tk2-3-bw": [
+  "① Bakåt: BAKRE foten först",
+  "② FRÄMRE foten dras efter"
+ ],
+ "tk4-3": [
+  "Inkommande slag",
+  "Led bort slaget"
+ ],
+ "tk4-5": [
+  "Anfallslinje",
+  "Kliv snett 45° utåt"
+ ],
+ "tk5-2": [
+  "Rak stöt – kortaste vägen",
+  "Tillbaka samma väg"
+ ],
+ "tk5-3": [
+  "Vrid höften",
+  "Slag med bakre handen",
+  "Vrid bakre foten"
+ ],
+ "tk5-5": [
+  "① Lyft knät högt",
+  "② Tryck med hälen, skjut höften"
+ ],
+ "tk6-2": [
+  "Dra ut vid tummen, mot axeln"
+ ],
+ "tk7-5": [
+  "① Sträck armarna rakt upp",
+  "② Vrid dig, pressa över armarna"
+ ],
+ "tk8-1": [
+  "Tryck – vinkelrätt mot fötterna",
+  "Drag"
+ ],
+ "tk8-3": [
+  "Svep vaden bakifrån",
+  "Tryck överkroppen bakåt"
+ ],
+ "tk8-4": [
+  "Foten blockerar vristen",
+  "Dra i en båge nedåt"
+ ],
+ "tk9-4": [
+  "Låg hälspark mot knät",
+  "Låg hälspark mot knät"
+ ],
+ "tk10-1": [
+  "Svepande armbåge",
+  "Svepande armbåge"
+ ],
+ "tk11-1": [
+  "Skjut fötterna bakåt",
+  "Sänk höften, pressa ner"
+ ],
+ "tk12-2": [
+  "Höftbrygga, rulla över axeln"
+ ]
+}

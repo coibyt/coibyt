@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Närkamp och självförsvar",
+  "sub": "Inspirerat av Systema och Sambobrottning: andning, fotarbete, säkra fall, skydd, grundslag, att ta sig loss och kast."
+ },
+ "ngu-trang": {
+  "title": "Kamouflage & att hålla sig dold",
+  "sub": "Ghilliedräkt, kamouflagemålning, att gömma sig, röra sig ljudlöst, sopa igen spåren och närma sig oupptäckt.",
+  "preview": [
+   "Fyra saker som avslöjar: form, skugga, ljus, rörelse",
+   "Kamouflagemålning av ansiktet",
+   "Gör din egen ghilliedräkt",
+   "Välj gömställe",
+   "Låg krypning, hög krypning, rävsteg",
+   "Röra sig ljudlöst",
+   "Sopa igen spåren",
+   "Iaktta utan att bli upptäckt"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sportskytte",
+  "sub": "Fyra säkerhetsregler, rätt grepp om övningsvapnet, stående, knästående och liggande, sikte och andning, skyttets historia.",
+  "preview": [
+   "Fyra säkerhetsregler",
+   "Rätt grepp om övningsvapnet",
+   "Stående, knästående, liggande",
+   "Siktlinje och andning",
+   "Mjukt avtryck",
+   "Sportskyttets historia"
+  ]
+ },
+ "dong-doi": {
+  "title": "Lagsamarbete",
+  "sub": "Handsignaler, kort kommunikation, förflyttningsformationer och att understödja varandra i airsoft och paintball.",
+  "preview": [
+   "Grundläggande handsignaler",
+   "Kort radiokommunikation",
+   "Förflyttningsformationer",
+   "Bevakning per sektor",
+   "Samarbetslekar i lag"
+  ]
+ },
+ "the-luc": {
+  "title": "Fysik & överlevnad",
+  "sub": "Marsch med packning, säker simning, hantera trötthet, hitta vatten, mat, eld och skydd i skog, öken och till havs.",
+  "preview": [
+   "Styrka med kroppsvikt",
+   "Säker marsch med packning",
+   "Klättra över plank, klättra i rep",
+   "Simma och flyta säkert",
+   "Hantera trötthet och sömnbrist",
+   "Hitta och rena vatten",
+   "Eld och skydd",
+   "Överlevnad i skog, öken och till havs"
+  ]
+ },
+ "so-cuu": {
+  "title": "Första hjälpen i fält",
+  "sub": "Stoppa blödningar, lägga tourniquet, tryckförband, hantera chock, hjärt-lungräddning, första hjälpen med lite material.",
+  "preview": [
+   "Bedöm säkerheten på platsen",
+   "Direkt tryck mot blödningen",
+   "Lägg tourniquet rätt",
+   "Packa såret och lägg tryckförband",
+   "Fri luftväg, stabilt sidoläge",
+   "Förebygg chock och nedkylning",
+   "Hjärt-lungräddning (HLR)",
+   "Första hjälpen med lite material"
+  ]
+ },
+ "tam-ly": {
+  "title": "Mental styrka",
+  "sub": "Behåll lugnet i fara, andas bort paniken, kontrollera rädslan, träna iakttagelse och minne.",
+  "preview": [
+   "Fyrkantsandning mot panik",
+   "Kontrollera rädslan",
+   "Positivt självprat",
+   "Iakttagelse och minne (Kims lek)",
+   "Fatta beslut under press"
+  ]
+ }
+}

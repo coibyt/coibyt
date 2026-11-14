@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Échauffement & respiration",
+  "sub": "Rotations articulaires, mise en température, respiration rythmée par les pas, respiration en rafales, contraction – relâchement",
+  "intro": "Première leçon. Pas encore de technique de combat. Un bon guerrier commence par des articulations chaudes et un souffle calme. Suis-moi, étape par étape.",
+  "safety": "Échauffe-toi avant chaque séance. Douleur vive dans une articulation : tu arrêtes tout de suite.",
+  "outro": "Très bien. Tes articulations sont chaudes, ta respiration a trouvé son rythme. La prochaine fois, on apprend la garde et le jeu de jambes.",
+  "home": "Entraînement maison : chaque matin, échauffement et respiration rythmée pendant dix minutes, sept jours de suite.",
+  "steps": {
+   "tk1-1": {
+    "title": "Rotations du haut vers le bas",
+    "say": "Tiens-toi droit, pieds écartés de la largeur des épaules. Fais tourner le cou très lentement, cinq tours dans chaque sens. Ensuite les épaules, les coudes, les poignets. Puis les hanches, les genoux et les chevilles. Descends dans l'ordre, du haut vers le bas, avec des gestes ronds et souples, sans à-coups. Des articulations chaudes protègent ton corps quand tu chutes et quand tu frappes.",
+    "cues": [
+     "Du haut vers le bas : cou → épaules → coudes → poignets → hanches → genoux → chevilles",
+     "5 tours dans chaque sens par articulation",
+     "Lent, rond, sans à-coups"
+    ],
+    "mistakes": [
+     "Tourner le cou trop vite, basculer la tête trop fort en arrière",
+     "Bloquer sa respiration pendant les rotations"
+    ],
+    "drill": {
+     "label": "Rotations articulaires",
+     "say": "C'est ton tour. Rotations articulaires pendant quatre-vingt-dix secondes. Le chrono va décompter."
+    }
+   },
+   "tk1-2": {
+    "title": "Mise en température",
+    "say": "Cours sur place en montant les genoux pendant trente secondes. Ensuite, dix squats : descends les hanches comme pour t'asseoir sur une chaise, dos droit, genoux dans l'axe des pieds. Puis dix pompes, sur les genoux si tu débutes. Le but est de te réchauffer et d'accélérer un peu ta respiration, pas de t'épuiser.",
+    "cues": [
+     "30 secondes de montées de genoux",
+     "10 squats : dos droit, genoux dans l'axe des pieds",
+     "10 pompes (sur les genoux si besoin)"
+    ],
+    "mistakes": [
+     "Genoux qui rentrent vers l'intérieur pendant le squat",
+     "Dos creusé pendant les pompes"
+    ],
+    "drill": {
+     "label": "Squats",
+     "say": "C'est ton tour. Squats : dix fois. Je compte pour toi."
+    }
+   },
+   "tk1-3": {
+    "title": "Respiration rythmée par les pas",
+    "say": "Voici un exercice de respiration classique des arts de combat russes. Marche d'un pas régulier. Inspire par le nez sur quatre pas, expire par la bouche sur quatre pas. Après une minute, descends sur trois pas, puis deux, puis un. Ensuite, remonte jusqu'à quatre pas. Retiens bien ceci : le souffle guide le mouvement. Ne bloque jamais ta respiration.",
+    "cues": [
+     "Inspire par le nez 4 pas – expire par la bouche 4 pas",
+     "Descends 4 → 3 → 2 → 1, puis remonte",
+     "Épaules relâchées, ne bloque pas le souffle"
+    ],
+    "mistakes": [
+     "Bloquer le souffle en changeant de rythme",
+     "Hausser les épaules en inspirant"
+    ],
+    "drill": {
+     "label": "Marche respirée",
+     "say": "C'est ton tour. Marche respirée pendant cent vingt secondes. Le chrono va décompter."
+    }
+   },
+   "tk1-4": {
+    "title": "Respiration en rafales dans l'effort",
+    "say": "Quand tu es fatigué ou tendu, respire court et vite : inspire par le nez, souffle fort par la bouche, plusieurs fois de suite, comme pour éteindre une bougie. Essaie tout de suite : tiens la position haute de la pompe pendant vingt secondes, en respirant en rafales sans t'arrêter. Tu sentiras tes muscles moins raides et ton esprit plus clair.",
+    "cues": [
+     "Inspiration courte par le nez – souffle fort par la bouche",
+     "En continu, comme pour souffler une bougie",
+     "Planche haute 20 secondes en respirant"
+    ],
+    "mistakes": [
+     "Respirer si vite que la tête tourne : ralentis",
+     "Hanches qui s'affaissent pendant la planche"
+    ],
+    "drill": {
+     "label": "Planche haute + rafales",
+     "say": "C'est ton tour. Planche haute et respiration en rafales pendant vingt secondes. Le chrono va décompter."
+    }
+   },
+   "tk1-5": {
+    "title": "Contraction – relâchement",
+    "say": "Allonge-toi sur le dos, sur le tapis. Inspire et contracte fort les pieds pendant trois secondes, puis expire et détends tout. Remonte ensuite aux mollets, aux cuisses, au ventre, aux poings, aux épaules et jusqu'au visage. Pour finir, contracte tout le corps une fois, puis détends-toi. Celui qui sait se détendre encaisse mieux les chocs, bouge plus vite et se blesse moins.",
+    "cues": [
+     "Inspire – contracte 3 secondes",
+     "Expire – détends-toi complètement",
+     "Des pieds jusqu'au visage"
+    ],
+    "mistakes": [
+     "Contracter si fort qu'on attrape une crampe",
+     "Oublier d'expirer en relâchant"
+    ],
+    "drill": {
+     "label": "Contraction – relâchement",
+     "say": "C'est ton tour. Contraction et relâchement pendant soixante secondes. Le chrono va décompter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Pour les rotations articulaires, quel ordre faut-il suivre ?",
+    "a": [
+     "Du haut vers le bas : cou, épaules… jusqu'aux chevilles",
+     "Au hasard, n'importe quelle articulation",
+     "Seulement les chevilles"
+    ],
+    "why": "Aller du haut vers le bas permet de n'oublier aucune articulation."
+   },
+   {
+    "q": "Dans la respiration rythmée par les pas, tu inspires par où ?",
+    "a": [
+     "Par la bouche",
+     "Par le nez",
+     "En bloquant, puis en inspirant"
+    ],
+    "why": "On inspire par le nez et on expire par la bouche, au rythme des pas."
+   },
+   {
+    "q": "Quand utiliser la respiration en rafales ?",
+    "a": [
+     "Quand on est fatigué ou tendu",
+     "Seulement pour dormir",
+     "Jamais"
+    ],
+    "why": "Un souffle court et fort réduit les tensions musculaires et garde l'esprit clair dans l'effort."
+   },
+   {
+    "q": "Pourquoi faut-il savoir se détendre ?",
+    "a": [
+     "Pour avoir plus d'allure",
+     "Mieux encaisser les chocs, bouger plus vite, moins se blesser",
+     "Pour ne plus avoir besoin de s'échauffer"
+    ],
+    "why": "Un muscle crispé réagit lentement et se blesse plus facilement."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Garde & jeu de jambes",
+  "sub": "Barrière des mains, garde de combat, pas glissés, pivot",
+  "intro": "Tes jambes décident de tout. Si tu es stable, tu peux te protéger, frapper et t'échapper. Aujourd'hui, on construit les fondations.",
+  "safety": "Travaille sur un sol plat et non glissant. Des pas courts et sûrs.",
+  "outro": "Les fondations sont posées. Des jambes solides, c'est la moitié du combat. Prochaine leçon : apprendre à chuter en sécurité.",
+  "home": "Entraînement maison : chaque jour, dix minutes de garde et de déplacements, en trois rounds, pendant sept jours.",
+  "steps": {
+   "tk2-1": {
+    "title": "Garde de vigilance – la barrière",
+    "say": "Quand quelqu'un s'approche de toi de façon agressive, ne serre pas les poings tout de suite. Place-toi légèrement de biais, la jambe forte recule d'un demi-pas. Tes mains sont ouvertes, devant la poitrine, paumes vers l'avant, comme pour dire : du calme. Tes mains forment une barrière qui garde la distance. Tu n'as pas l'air agressif, mais en réalité, tu es prêt.",
+    "cues": [
+     "De biais, jambe forte un demi-pas en arrière",
+     "Mains ouvertes devant la poitrine",
+     "Garde la distance, voix calme"
+    ],
+    "mistakes": [
+     "Serrer les poings d'emblée : le conflit risque de dégénérer",
+     "Se tenir de face, pieds parallèles"
+    ],
+    "drill": {
+     "label": "Mise en barrière",
+     "say": "C'est ton tour. Mise en barrière : dix fois. Je compte pour toi."
+    }
+   },
+   "tk2-2": {
+    "title": "Garde de combat",
+    "say": "Si tu es droitier : pied gauche devant, pied droit derrière. Les pieds un peu plus écartés que les épaules, la pointe du pied avant légèrement tournée vers l'intérieur, le talon arrière un peu levé. Genoux fléchis, poids réparti sur les deux jambes. Les mains devant le visage, les coudes serrés pour protéger les côtes, le menton rentré, le regard entre les poings. Si tu es gaucher, fais l'inverse.",
+    "cues": [
+     "Pied gauche devant (droitier)",
+     "Genoux fléchis, talon arrière levé",
+     "Mains devant le visage, coudes sur les côtes, menton rentré"
+    ],
+    "mistakes": [
+     "Pieds sur la même ligne : on perd facilement l'équilibre",
+     "Lever le menton, baisser les mains"
+    ],
+    "drill": {
+     "label": "Mise en garde",
+     "say": "C'est ton tour. Mise en garde : dix fois. Je compte pour toi."
+    }
+   },
+   "tk2-3": {
+    "title": "Pas glissés avant – arrière",
+    "say": "Pour avancer : le pied avant part en premier, d'un petit pas, et le pied arrière glisse de la même distance. Pour reculer : le pied arrière recule en premier, et le pied avant suit. Les pieds rasent le sol, sans sauter. Ne croise jamais les pieds, ne les colle jamais. Après chaque pas, tu retrouves exactement ta garde de départ.",
+    "cues": [
+     "Avancer : le pied avant part d'abord",
+     "Reculer : le pied arrière part d'abord",
+     "L'écart entre les pieds ne change pas"
+    ],
+    "mistakes": [
+     "Croiser les pieds",
+     "Sauter au lieu de glisser"
+    ],
+    "drill": {
+     "label": "Pas avant – arrière",
+     "say": "C'est ton tour. Pas avant et arrière : vingt fois. Je compte pour toi."
+    }
+   },
+   "tk2-4": {
+    "title": "Pas latéraux",
+    "say": "Pour aller vers la gauche, le pied gauche part en premier. Pour aller vers la droite, c'est le pied droit. L'autre pied suit en glissant. Garde le même écart entre les pieds, les mains toujours devant le visage. Sur un sol boueux et glissant, plus le pas est court, plus il est sûr.",
+    "cues": [
+     "Vers la gauche : pied gauche d'abord",
+     "Vers la droite : pied droit d'abord",
+     "Pas courts sur sol glissant"
+    ],
+    "mistakes": [
+     "Le pied arrière passe devant le pied avant",
+     "Baisser les mains en se déplaçant"
+    ],
+    "drill": {
+     "label": "Pas latéraux",
+     "say": "C'est ton tour. Pas latéraux : vingt fois. Je compte pour toi."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivot pour changer d'angle",
+    "say": "Mets-toi en garde. En pivot sur la pointe du pied avant, fais tourner le pied arrière sur un quart de cercle. Tout ton corps change d'angle de quatre-vingt-dix degrés et sort de la ligne d'attaque de l'adversaire. Pivote dix fois dans un sens, puis change de sens.",
+    "cues": [
+     "Pivot sur la pointe du pied avant",
+     "Le pied arrière balaie un arc de cercle",
+     "Angle de 90°, la garde reste haute"
+    ],
+    "mistakes": [
+     "Pivoter sur le talon",
+     "Se redresser en pivotant"
+    ],
+    "drill": {
+     "label": "Pivots dans chaque sens",
+     "say": "C'est ton tour. Pivots dans chaque sens : dix fois. Je compte pour toi."
+    }
+   },
+   "tk2-6": {
+    "title": "Déplacements aux ordres",
+    "say": "Maintenant, déplace-toi selon mes ordres pendant trente secondes : avance, recule, gauche, droite, pivote. Garde les mains hautes, le menton rentré, la respiration régulière. Les pieds sont rapides, mais le haut du corps reste toujours calme.",
+    "cues": [
+     "Avance – recule – gauche – droite – pivote",
+     "Mains et menton toujours en place",
+     "Respiration régulière"
+    ],
+    "mistakes": [
+     "Regarder ses pieds",
+     "Faire des pas trop longs"
+    ],
+    "drill": {
+     "label": "Jeu de jambes aux ordres",
+     "say": "C'est ton tour. Déplace-toi selon mes ordres pendant trente secondes. Écoute bien.",
+     "calls": [
+      "Avance !",
+      "Recule !",
+      "À gauche !",
+      "À droite !",
+      "Pivote !"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "À quoi sert la barrière des mains ?",
+    "a": [
+     "Garder la distance sans paraître agressif",
+     "Frapper l'adversaire tout de suite",
+     "Croiser les bras et attendre"
+    ],
+    "why": "Les mains ouvertes gardent la distance et calment la situation."
+   },
+   {
+    "q": "Pour reculer, quel pied part en premier ?",
+    "a": [
+     "Le pied avant",
+     "Le pied arrière",
+     "Les deux en sautant"
+    ],
+    "why": "On part toujours avec le pied le plus proche de la direction visée."
+   },
+   {
+    "q": "Quelle est l'erreur la plus dangereuse quand on se déplace ?",
+    "a": [
+     "Croiser les pieds",
+     "Faire des petits pas",
+     "Garder les mains devant le visage"
+    ],
+    "why": "Les pieds croisés te font perdre l'équilibre très facilement."
+   },
+   {
+    "q": "Pour pivoter, sur quelle partie du pied avant tournes-tu ?",
+    "a": [
+     "Le talon",
+     "La pointe du pied",
+     "Le bord extérieur du pied"
+    ],
+    "why": "Pivoter sur la pointe rend la rotation légère et rapide."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Chutes en sécurité",
+  "sub": "Principes de chute, chute arrière, chute latérale, roulade avant",
+  "intro": "Dans ce camp, chacun apprend les chutes avant d'apprendre les projections. Bien chuter peut te sauver la vie, même quand tu glisses sur une route mouillée.",
+  "safety": "Uniquement sur des tapis épais. Menton toujours rentré. Un encadrant est présent pour les roulades.",
+  "outro": "Tu sais chuter. Désormais, le sol ne te fait plus peur. Prochaine leçon : se protéger et bloquer les coups.",
+  "home": "Entraînement maison : chaque jour, dix chutes arrière et dix chutes latérales de chaque côté, sur un tapis épais, pendant une semaine.",
+  "steps": {
+   "tk3-1": {
+    "title": "Trois règles d'or",
+    "say": "Trois règles d'or pour chuter. Un : le menton reste collé contre la poitrine, pour que la tête ne frappe jamais le sol. Deux : le dos s'arrondit comme une roue, pour rouler au lieu de s'écraser d'un bloc. Trois : les bras frappent le tapis au moment où le corps le touche, pour répartir la force de l'impact. Entraîne-toi toujours sur des tapis épais. Jamais sur un sol dur.",
+    "cues": [
+     "Menton collé contre la poitrine",
+     "Dos rond comme une roue",
+     "Les bras frappent le tapis en même temps que le corps"
+    ],
+    "mistakes": [
+     "Tendre le bras pour se rattraper : risque de fracture du poignet",
+     "Basculer la tête en arrière"
+    ],
+    "drill": {
+     "label": "Dos rond, menton rentré",
+     "say": "C'est ton tour. Dos rond, menton rentré : dix fois. Je compte pour toi."
+    }
+   },
+   "tk3-2": {
+    "title": "Chute arrière depuis assis",
+    "say": "Assieds-toi sur le tapis, jambes tendues devant toi, bras tendus vers l'avant. Menton rentré, dos rond, roule en arrière. Quand le haut du dos touche le tapis, tends les deux bras et frappe fort le tapis, environ quarante-cinq degrés par rapport au corps, paumes vers le bas. Expire au moment de l'impact. Reviens en position assise en roulant. Fais-le dix fois.",
+    "cues": [
+     "Assis, bras tendus devant",
+     "Roule en arrière, menton rentré",
+     "Frappe des deux bras à 45°, paumes vers le bas, expire"
+    ],
+    "mistakes": [
+     "Frapper trop loin ou trop près du corps",
+     "Frapper avec le coude au lieu de tout le bras"
+    ],
+    "drill": {
+     "label": "Chute arrière depuis assis",
+     "say": "C'est ton tour. Chute arrière depuis assis : dix fois. Je compte pour toi."
+    }
+   },
+   "tk3-3": {
+    "title": "Chute arrière depuis accroupi",
+    "say": "Accroupis-toi, bras tendus vers l'avant. Pose les fesses sur le tapis, tout près des talons, puis roule en arrière comme dans l'exercice précédent, et frappe des deux bras. Ne te laisse pas tomber lourdement. Ne laisse pas ton dos raide claquer sur le tapis. Quand c'est solide, relève-toi et accroupis-toi en enchaînant, pour aller de plus en plus vite.",
+    "cues": [
+     "Fesses tout près des talons",
+     "Roule, ne tombe pas à plat",
+     "Frappe des bras, expire"
+    ],
+    "mistakes": [
+     "Se laisser tomber loin des talons",
+     "La tête part en arrière et touche le tapis"
+    ],
+    "drill": {
+     "label": "Chute arrière depuis accroupi",
+     "say": "C'est ton tour. Chute arrière depuis accroupi : dix fois. Je compte pour toi."
+    }
+   },
+   "tk3-4": {
+    "title": "Chute latérale",
+    "say": "Depuis la position accroupie, lance la jambe droite en diagonale devant la jambe gauche, et descends en t'inclinant vers la droite. La hanche droite touche le tapis en premier, puis le flanc droit du dos, et le bras droit frappe le tapis. Menton rentré : la tête ne touche pas le tapis. Ensuite, inverse. C'est la chute la plus fréquente quand on se fait projeter.",
+    "cues": [
+     "Jambe lancée en diagonale devant",
+     "Hanche → dos touchent le tapis dans l'ordre",
+     "Le bras du côté de la chute frappe le tapis"
+    ],
+    "mistakes": [
+     "S'appuyer sur le coude",
+     "La tête cogne le tapis en tombant"
+    ],
+    "drill": {
+     "label": "Chute latérale de chaque côté",
+     "say": "C'est ton tour. Chute latérale de chaque côté : huit fois. Je compte pour toi."
+    }
+   },
+   "tk3-5": {
+    "title": "Roulade avant par l'épaule",
+    "say": "Mets un genou au sol, jambe droite devant. Arrondis le bras droit comme la jante d'une roue, et pose le tranchant extérieur du bras sur le tapis. Regarde par-dessus ton épaule gauche. Roule en diagonale, de l'épaule droite vers la hanche gauche. Ne roule pas sur le sommet du crâne, ni tout droit le long de la colonne. Termine assis, bien stable, ou debout, les mains levées devant le visage.",
+    "cues": [
+     "Le bras forme un arc, comme une roue",
+     "Roulade en diagonale : épaule droite → hanche gauche",
+     "Jamais sur la tête, relève-toi en protégeant ton visage"
+    ],
+    "mistakes": [
+     "Rouler tout droit sur le sommet du crâne : très dangereux pour le cou",
+     "Le bras plie et la tête touche le tapis"
+    ],
+    "drill": {
+     "label": "Roulade avant de chaque côté",
+     "say": "C'est ton tour. Roulade avant de chaque côté : six fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Quand tu chutes, où doit être ton menton ?",
+    "a": [
+     "Levé",
+     "Collé contre la poitrine",
+     "Tourné sur le côté"
+    ],
+    "why": "On rentre le menton pour que la tête ne heurte pas le sol."
+   },
+   {
+    "q": "Quel angle environ le bras fait-il avec le corps quand il frappe le tapis ?",
+    "a": [
+     "Environ 45°",
+     "Collé au corps, 0°",
+     "Tout droit vers le ciel"
+    ],
+    "why": "Environ quarante-cinq degrés : la force est bien répartie, sans frapper avec le coude."
+   },
+   {
+    "q": "Pendant la roulade avant, quel chemin suit le corps ?",
+    "a": [
+     "Tout droit sur le sommet du crâne",
+     "En diagonale, de l'épaule vers la hanche opposée",
+     "Sur le côté"
+    ],
+    "why": "On roule en diagonale par l'épaule pour protéger le cou et la colonne."
+   },
+   {
+    "q": "Où faut-il s'entraîner aux chutes ?",
+    "a": [
+     "Sur du béton, pour s'habituer",
+     "Sur un tapis épais",
+     "Dans un escalier"
+    ],
+    "why": "Toujours sur un tapis épais : la sécurité passe avant tout."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Protection & blocages",
+  "sub": "Garde haute, garde casque, parade, blocage de l'avant-bras, esquive en angle",
+  "intro": "Avant d'apprendre les frappes, il faut apprendre à ne pas se faire toucher. La meilleure défense est simple, compacte, et toujours accompagnée d'un déplacement.",
+  "safety": "Travail à deux avec gants : le partenaire frappe lentement, avec vingt pour cent de sa force seulement.",
+  "outro": "Tu as maintenant ton bouclier. Prochaine leçon : les frappes de base, sur cible.",
+  "home": "Entraînement maison : cinq minutes de protection devant le miroir chaque jour, et deux séances lentes à deux par semaine.",
+  "steps": {
+   "tk4-1": {
+    "title": "Garde haute",
+    "say": "Depuis la garde de combat, monte les deux poings au niveau du front, les avant-bras dressés devant le visage comme deux boucliers. Coudes serrés, menton rentré, épaules relevées pour protéger la mâchoire. C'est la protection la plus solide quand le coup arrive trop vite pour que tu le voies.",
+    "cues": [
+     "Poings au niveau du front",
+     "Avant-bras dressés comme des boucliers",
+     "Menton rentré, épaules devant la mâchoire"
+    ],
+    "mistakes": [
+     "Fermer les yeux en se protégeant",
+     "Écarter les coudes et découvrir les côtes"
+    ],
+    "drill": {
+     "label": "Garde haute",
+     "say": "C'est ton tour. Garde haute : quinze fois. Je compte pour toi."
+    }
+   },
+   "tk4-2": {
+    "title": "Garde casque",
+    "say": "Quand tu es acculé sous une série de coups : les deux mains se plaquent sur la nuque, les coudes se referment devant le visage, tu te penches en avant, genoux fléchis. Ta tête est bien abritée dans la cage de tes bras. Mais ne reste jamais longtemps dans cette position. Protège-toi, puis sors immédiatement de l'angle d'attaque.",
+    "cues": [
+     "Les deux mains derrière la tête",
+     "Coudes serrés devant le visage",
+     "Protège-toi, puis bouge aussitôt"
+    ],
+    "mistakes": [
+     "Rester immobile et encaisser",
+     "Tourner le dos"
+    ],
+    "drill": {
+     "label": "Garde casque, puis sortie latérale",
+     "say": "C'est ton tour. Garde casque, puis sortie latérale : dix fois. Je compte pour toi."
+    }
+   },
+   "tk4-3": {
+    "title": "Parade",
+    "say": "Quand un coup de poing direct arrive vers ton visage, ne bloque pas en force. Avec la paume, dévie légèrement le poignet ou le poing de l'adversaire, juste assez pour qu'il passe près de ton visage sans le toucher. Le geste est petit et court, et la main revient immédiatement en garde.",
+    "cues": [
+     "Dévier avec la paume",
+     "Juste assez pour faire passer le coup",
+     "Retour immédiat en garde"
+    ],
+    "mistakes": [
+     "Faire une parade trop large",
+     "Aller chercher le coup avec la main"
+    ],
+    "drill": {
+     "label": "Parade de chaque main",
+     "say": "C'est ton tour. Parade de chaque main : vingt fois. Je compte pour toi."
+    }
+   },
+   "tk4-4": {
+    "title": "Blocage haut de l'avant-bras",
+    "say": "Quand un coup tombe de haut en bas, monte l'avant-bras en diagonale devant le front, incliné comme un toit, pour que la force glisse au lieu de frapper l'os de plein fouet. En même temps, avance d'un pas en diagonale ou sors vers l'extérieur.",
+    "cues": [
+     "Avant-bras en diagonale devant le front",
+     "Incliné comme un toit",
+     "Avec un pas en diagonale"
+    ],
+    "mistakes": [
+     "Avant-bras à l'horizontale : il prend toute la force",
+     "Rester sur place"
+    ],
+    "drill": {
+     "label": "Blocage haut de chaque bras",
+     "say": "C'est ton tour. Blocage haut de chaque bras : dix fois. Je compte pour toi."
+    }
+   },
+   "tk4-5": {
+    "title": "Esquive en angle – pas en diagonale",
+    "say": "La meilleure défense, c'est de ne pas rester sur la trajectoire du coup. Pendant la parade, fais aussi un pas en diagonale de quarante-cinq degrés, vers l'extérieur du bras qui frappe. Tu quittes la ligne d'attaque, et tu te places dans une position plus sûre pour t'échapper.",
+    "cues": [
+     "Parade + pas en diagonale à 45°",
+     "Vers l'extérieur du bras qui frappe",
+     "Depuis l'angle sûr, échappe-toi"
+    ],
+    "mistakes": [
+     "Reculer tout droit : l'adversaire te suit facilement",
+     "Entrer par l'intérieur, vers l'autre bras de l'adversaire"
+    ],
+    "drill": {
+     "label": "Parade + esquive de chaque côté",
+     "say": "C'est ton tour. Parade et esquive en angle de chaque côté : dix fois. Je compte pour toi."
+    }
+   },
+   "tk4-6": {
+    "title": "Travail lent à deux",
+    "say": "Travaille avec un partenaire, gants aux mains tous les deux. Celui qui attaque frappe très lentement, avec vingt pour cent de sa force seulement, en visant les gants et pas le visage. Celui qui défend dit le nom de la technique qu'il utilise : garde haute, parade, esquive. Quand c'est juste et calme, alors seulement, on accélère petit à petit.",
+    "cues": [
+     "Gants, 20 % de force",
+     "Nomme la technique en la faisant",
+     "D'abord juste, ensuite rapide"
+    ],
+    "mistakes": [
+     "Accélérer trop tôt",
+     "Frapper vraiment le visage du partenaire"
+    ],
+    "drill": {
+     "label": "Travail lent à deux",
+     "say": "C'est ton tour. Travail lent à deux pendant soixante secondes. Le chrono va décompter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Une bonne parade, c'est :",
+    "a": [
+     "Une petite déviation, juste assez, puis retour en garde",
+     "Un grand geste du bras",
+     "Recevoir le coup avec le visage"
+    ],
+    "why": "Un geste petit et rapide, qui n'ouvre pas ta garde."
+   },
+   {
+    "q": "Face à un coup qui tombe d'en haut, comment places-tu l'avant-bras ?",
+    "a": [
+     "À l'horizontale",
+     "En diagonale, incliné comme un toit",
+     "Baissé devant le ventre"
+    ],
+    "why": "Incliné comme un toit, pour que la force glisse."
+   },
+   {
+    "q": "Dans quelle direction fais-tu l'esquive en angle ?",
+    "a": [
+     "En diagonale à 45°, vers l'extérieur du bras qui frappe",
+     "Tout droit en arrière",
+     "Tu restes sur place"
+    ],
+    "why": "Pour sortir de la ligne d'attaque et gagner un angle sûr."
+   },
+   {
+    "q": "En travail à deux, avec quelle force frappe celui qui attaque ?",
+    "a": [
+     "À fond",
+     "Environ 20 %",
+     "50 %"
+    ],
+    "why": "On travaille lentement pour apprendre juste, et en sécurité."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Frappes de base sur cible",
+  "sub": "Le poing, le direct, la frappe paume, le coup de pied poussé, les enchaînements",
+  "intro": "Une bonne frappe n'a pas besoin d'être belle, seulement juste, compacte, et sans danger pour toi. Aujourd'hui, on frappe sur cible, jamais sur une vraie personne.",
+  "safety": "Bandes aux mains et gants. Frappe uniquement sur cible ou sur sac de frappe.",
+  "outro": "Tes frappes ont de la puissance et de la discipline. Prochaine leçon : se dégager d'une saisie de poignet.",
+  "home": "Entraînement maison : trois séances par semaine, chacune avec cinq rounds de trente secondes sur cible ou sur sac de frappe.",
+  "steps": {
+   "tk5-1": {
+    "title": "Bien fermer le poing",
+    "say": "Replie les quatre doigts dans la paume. Le pouce se plie fermement par-dessus l'index et le majeur, jamais coincé dedans. Au contact, le poignet est aligné avec l'avant-bras, et la force passe par les deux articulations de l'index et du majeur. Les débutants portent toujours des bandes et des gants.",
+    "cues": [
+     "4 doigts repliés dans la paume",
+     "Pouce plié par-dessus",
+     "Poignet aligné avec l'avant-bras"
+    ],
+    "mistakes": [
+     "Coincer le pouce dans le poing",
+     "Plier le poignet à l'impact"
+    ],
+    "drill": {
+     "label": "Fermer – ouvrir la main correctement",
+     "say": "C'est ton tour. Fermer et ouvrir la main correctement : dix fois. Je compte pour toi."
+    }
+   },
+   "tk5-2": {
+    "title": "Direct du bras avant",
+    "say": "Depuis la garde, lance le poing avant tout droit, par le chemin le plus court. Tourne le poing vers le bas juste avant l'impact, et monte l'épaule pour protéger le menton. L'autre main reste près du visage. Après la frappe, ramène le poing par le même chemin, aussi vite qu'il est parti.",
+    "cues": [
+     "Ligne droite, le chemin le plus court",
+     "Poing tourné vers le bas à l'impact",
+     "Retour rapide, l'autre main en garde"
+    ],
+    "mistakes": [
+     "Armer le bras en arrière pour prendre de l'élan",
+     "Baisser la main arrière"
+    ],
+    "drill": {
+     "label": "Direct avant",
+     "say": "C'est ton tour. Direct avant : vingt fois. Je compte pour toi."
+    }
+   },
+   "tk5-3": {
+    "title": "Direct du bras arrière",
+    "say": "Pousse sur le talon arrière, fais tourner la hanche et l'épaule, et lance le poing arrière droit sur la cible. La pointe du pied arrière pivote, comme pour écraser une braise. La puissance vient des jambes et des hanches, pas seulement du bras. Puis reviens aussitôt en garde.",
+    "cues": [
+     "Pousse sur la jambe arrière",
+     "Rotation hanche – épaule – pointe du pied arrière",
+     "Retour immédiat en garde"
+    ],
+    "mistakes": [
+     "Frapper seulement avec le bras, sans tourner la hanche",
+     "Trop se pencher en avant et perdre l'équilibre"
+    ],
+    "drill": {
+     "label": "Direct arrière",
+     "say": "C'est ton tour. Direct arrière : vingt fois. Je compte pour toi."
+    }
+   },
+   "tk5-4": {
+    "title": "Frappe paume",
+    "say": "Casse le poignet vers l'arrière, ouvre la main, les doigts légèrement fléchis. Frappe avec le talon de la main, en ligne droite, comme un coup de poing. En situation réelle de self-défense, cette frappe est plus sûre pour ta main qu'un poing nu, parce qu'aucune articulation des doigts ne heurte un os dur.",
+    "cues": [
+     "Poignet cassé en arrière, main ouverte",
+     "Frappe avec le talon de la main",
+     "Ligne droite, comme un coup de poing"
+    ],
+    "mistakes": [
+     "Frapper avec le plat des doigts",
+     "Raidir les doigts bien tendus"
+    ],
+    "drill": {
+     "label": "Frappe paume de chaque main",
+     "say": "C'est ton tour. Frappe paume de chaque main : quinze fois. Je compte pour toi."
+    }
+   },
+   "tk5-5": {
+    "title": "Coup de pied poussé",
+    "say": "Monte le genou de la jambe arrière, haut, au niveau de la hanche. Puis pousse le talon tout droit devant toi, comme pour enfoncer une porte, en avançant la hanche. La cible est la zone du ventre, ici le bouclier de frappe. Ramène la jambe et repose-la en garde. Le but de ce coup est de repousser l'agresseur, pour créer la distance qui te permet de t'échapper.",
+    "cues": [
+     "Genou haut, au niveau de la hanche",
+     "Pousse avec le talon, hanche en avant",
+     "Ramène la jambe en garde"
+    ],
+    "mistakes": [
+     "Frapper avec la pointe du pied",
+     "Trop se pencher en arrière"
+    ],
+    "drill": {
+     "label": "Coup de pied poussé de chaque jambe",
+     "say": "C'est ton tour. Coup de pied poussé de chaque jambe : dix fois. Je compte pour toi."
+    }
+   },
+   "tk5-6": {
+    "title": "Enchaînement et sortie",
+    "say": "Maintenant, on assemble un enchaînement : direct avant, direct arrière, coup de pied poussé, puis deux pas en arrière pour revenir en barrière. Fais trois rounds de trente secondes sur cible, avec vingt secondes de repos. Chaque coup doit être net. D'abord juste, ensuite rapide.",
+    "cues": [
+     "Direct avant – direct arrière – coup de pied poussé",
+     "2 pas en arrière, barrière des mains",
+     "3 rounds × 30 secondes, repos 20 secondes"
+    ],
+    "mistakes": [
+     "Oublier de reculer après l'enchaînement",
+     "Frapper dans la précipitation et perdre sa garde"
+    ],
+    "drill": {
+     "label": "Rounds d'enchaînement",
+     "say": "C'est ton tour. Rounds d'enchaînement : trois rounds de trente secondes, avec vingt secondes de repos entre les rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Où se place le pouce quand tu fermes le poing ?",
+    "a": [
+     "Coincé à l'intérieur",
+     "Plié par-dessus l'index et le majeur",
+     "Tendu"
+    ],
+    "why": "Coincé dans le poing, le pouce se casse facilement."
+   },
+   {
+    "q": "D'où vient la puissance du direct arrière ?",
+    "a": [
+     "Seulement du bras",
+     "Des jambes et des hanches",
+     "Du cou"
+    ],
+    "why": "Les jambes poussent, la hanche tourne, l'épaule et le bras suivent."
+   },
+   {
+    "q": "Quel est le but principal du coup de pied poussé en self-défense ?",
+    "a": [
+     "Créer de la distance pour s'échapper",
+     "Frapper la tête",
+     "Montrer sa technique"
+    ],
+    "why": "Repousser l'agresseur pour pouvoir partir en sécurité."
+   },
+   {
+    "q": "Pourquoi la frappe paume est-elle plus sûre pour ta main ?",
+    "a": [
+     "Aucune articulation des doigts ne heurte un os dur",
+     "Parce qu'elle est lente",
+     "Parce qu'on frappe doucement"
+    ],
+    "why": "Le talon de la main est solide, avec peu de risque de blessure."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Se dégager d'une saisie de poignet",
+  "sub": "La règle du pouce, saisie directe, saisie croisée, saisie des deux mains",
+  "intro": "La saisie de poignet est une situation très fréquente. Pas besoin de force. Il suffit de bien comprendre le point faible de la main adverse.",
+  "safety": "Le partenaire saisit avec une force raisonnable. Dégage-toi lentement, sans arracher, pour ne pas blesser l'articulation.",
+  "outro": "Ta main sait maintenant se libérer. Prochaine leçon : se dégager des ceinturages et des saisies de face.",
+  "home": "Entraînement maison : chaque jour, dix dégagements pour chaque type de saisie, avec un proche, pendant une semaine.",
+  "steps": {
+   "tk6-1": {
+    "title": "La règle du pouce",
+    "say": "Quand on te saisit le poignet, le point le plus faible de la main adverse, c'est l'espace entre le pouce et les autres doigts. Ne lutte pas force contre force. Tourne l'avant-bras pour orienter la partie fine du poignet vers cette ouverture, puis tire d'un coup sec dans la direction du pouce.",
+    "cues": [
+     "Repère le pouce de l'adversaire",
+     "Tourne le poignet vers l'ouverture du pouce",
+     "Tire d'un coup sec dans la direction du pouce"
+    ],
+    "mistakes": [
+     "Tirer tout droit en arrière, en force",
+     "Tirer du côté des quatre doigts"
+    ],
+    "drill": {
+     "label": "Trouver la direction du pouce",
+     "say": "C'est ton tour. Trouver la direction du pouce : dix fois. Je compte pour toi."
+    }
+   },
+   "tk6-2": {
+    "title": "Saisie directe",
+    "say": "Ivan saisit mon poignet droit avec sa main gauche. Je baisse mon centre de gravité, je plie le coude et je ramène le bras contre mon corps. Je tourne l'avant-bras pour orienter mon poignet vers le pouce d'Ivan, puis je tire d'un coup sec vers le haut, vers mon épaule. La main se libère. Aussitôt, je lève les mains en barrière et je recule.",
+    "cues": [
+     "Centre de gravité bas, coude plié",
+     "Poignet tourné vers le pouce",
+     "Coup sec vers ta propre épaule, puis barrière"
+    ],
+    "mistakes": [
+     "Tendre le bras pour se dégager",
+     "Rester tout près après le dégagement"
+    ],
+    "drill": {
+     "label": "Saisie directe, chaque main",
+     "say": "C'est ton tour. Dégagement de saisie directe, chaque main : dix fois. Je compte pour toi."
+    }
+   },
+   "tk6-3": {
+    "title": "Saisie croisée",
+    "say": "Dans une saisie croisée, par exemple la main droite de l'adversaire sur ton poignet droit, son pouce se trouve au-dessus. Tourne ton poignet vers le haut, coupe en travers de l'ouverture du pouce, et tire vers l'épaule opposée. Accompagne le geste d'un pas en arrière, en diagonale.",
+    "cues": [
+     "Le pouce adverse est au-dessus",
+     "Tourne vers le haut, coupe par l'ouverture du pouce",
+     "Tire vers l'épaule opposée + recul en diagonale"
+    ],
+    "mistakes": [
+     "Tirer vers le bas, loin de l'ouverture",
+     "Oublier le jeu de jambes"
+    ],
+    "drill": {
+     "label": "Saisie croisée, chaque main",
+     "say": "C'est ton tour. Dégagement de saisie croisée, chaque main : dix fois. Je compte pour toi."
+    }
+   },
+   "tk6-4": {
+    "title": "Saisie à deux mains",
+    "say": "Quand on te saisit avec les deux mains, un seul bras ne suffit pas. Glisse ta main libre entre les bras de l'adversaire, et attrape ton propre poing. Puis, avec la force de tes deux bras et la rotation des épaules, tire d'un coup sec vers le haut, par l'ouverture entre les deux pouces.",
+    "cues": [
+     "La main libre passe entre ses bras",
+     "Attrape ton propre poing",
+     "Deux bras + rotation des épaules, coup sec vers le haut"
+    ],
+    "mistakes": [
+     "Essayer de dégager un seul bras",
+     "Tirer sur le côté au lieu de vers le haut"
+    ],
+    "drill": {
+     "label": "Saisie à deux mains",
+     "say": "C'est ton tour. Dégagement de saisie à deux mains : huit fois. Je compte pour toi."
+    }
+   },
+   "tk6-5": {
+    "title": "Après le dégagement",
+    "say": "Se dégager, ce n'est pas fini. Recule tout de suite, lève les mains en barrière, et crie très fort : Stop ! Ce cri attire l'attention des gens autour, et montre que tu ne veux pas te battre. En self-défense, le but est toujours de se libérer en sécurité, puis de partir.",
+    "cues": [
+     "Recule tout de suite",
+     "Barrière des mains",
+     "Crie fort : Stop !"
+    ],
+    "mistakes": [
+     "Rester sur place pour se disputer",
+     "Tourner le dos et fuir alors qu'on est encore trop près"
+    ],
+    "drill": {
+     "label": "Dégager – reculer – crier",
+     "say": "C'est ton tour. Dégager, reculer, crier : cinq fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Le point faible d'une main qui saisit, c'est :",
+    "a": [
+     "La paume",
+     "L'espace entre le pouce et les autres doigts",
+     "L'auriculaire"
+    ],
+    "why": "L'ouverture du pouce est le passage le plus facile pour se dégager."
+   },
+   {
+    "q": "Saisi par les deux mains, que faut-il faire ?",
+    "a": [
+     "Tirer très fort sur un seul bras",
+     "Attraper son propre poing et tirer vers le haut avec les deux bras",
+     "Rester immobile"
+    ],
+    "why": "Tes deux bras, plus la rotation des épaules, l'emportent sur les deux mains de l'adversaire."
+   },
+   {
+    "q": "Après le dégagement, la première chose à faire, c'est :",
+    "a": [
+     "Reculer, mettre les mains en barrière, crier fort",
+     "Riposter tout de suite",
+     "Se disputer"
+    ],
+    "why": "Le but de la self-défense est de rester en sécurité et de partir."
+   },
+   {
+    "q": "Faut-il lutter force contre force ?",
+    "a": [
+     "Oui",
+     "Non, il faut utiliser la direction du pouce"
+    ],
+    "why": "Une bonne technique bat la force."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Ceinturages & saisies de face",
+  "sub": "Ceinturage arrière bras pris, ceinturage arrière bras libres, saisie du col de face, signal d'arrêt",
+  "intro": "Se faire ceinturer, c'est la sensation la plus effrayante qui soit. Le secret, c'est un centre de gravité bas et des jambes mobiles. On travaille lentement, en sécurité, et on respecte toujours le signal d'arrêt.",
+  "safety": "Le partenaire ceinture avec une force raisonnable. Jamais de vrai étranglement. Deux tapes, et on arrête.",
+  "outro": "Tu sais te dégager des saisies les plus désagréables. Dernière leçon des fondamentaux : déséquilibrer et projeter en sécurité.",
+  "home": "Entraînement maison : deux séances par semaine, huit répétitions de chaque côté pour chaque situation, toujours avec un signal pour stopper.",
+  "steps": {
+   "tk7-1": {
+    "title": "Le signal d'arrêt",
+    "say": "Avant chaque exercice avec un partenaire, mettez-vous d'accord sur le signal d'arrêt. Tape deux fois sur ton partenaire ou sur le tapis, ou dis fort : Stop. Dès que tu entends ou sens ce signal, tu libères ton partenaire immédiatement. Chaque pratiquant doit respecter ce signal, sans exception. S'entraîner en sécurité, c'est pouvoir s'entraîner longtemps.",
+    "cues": [
+     "Deux tapes ou dire : Stop",
+     "Lâcher immédiatement",
+     "Respect absolu"
+    ],
+    "mistakes": [
+     "Forcer encore un peu après le signal",
+     "Ne pas se mettre d'accord avant de commencer"
+    ],
+    "drill": {
+     "label": "Convenir du signal",
+     "say": "C'est ton tour. Convenir du signal : trois fois. Je compte pour toi."
+    }
+   },
+   "tk7-2": {
+    "title": "Ceinturage arrière – s'abaisser",
+    "say": "Quand on te ceinture par-derrière, les bras pris dans l'étreinte : baisse immédiatement ton centre de gravité, fléchis les genoux, pousse les hanches vers l'arrière. Simultanément, écarte les coudes vers l'extérieur pour desserrer l'étreinte. Avec un centre de gravité bas, l'adversaire a beaucoup de mal à te soulever.",
+    "cues": [
+     "Baisse ton centre de gravité tout de suite",
+     "Pousse les hanches en arrière",
+     "Écarte les coudes pour desserrer l'étreinte"
+    ],
+    "mistakes": [
+     "Rester droit : on te soulève facilement",
+     "Paniquer et se débattre"
+    ],
+    "drill": {
+     "label": "S'abaisser, desserrer l'étreinte",
+     "say": "C'est ton tour. S'abaisser, desserrer l'étreinte : huit fois. Je compte pour toi."
+    }
+   },
+   "tk7-3": {
+    "title": "Ceinturage arrière – sortie en rotation",
+    "say": "Une fois l'étreinte desserrée, fais un pas sur le côté, descends encore plus bas, tourne les hanches et les épaules, et glisse hors de ses bras. Retourne-toi vers l'adversaire, les mains en barrière, puis éloigne-toi. Entraîne-toi lentement avec un partenaire, qui serre avec une force raisonnable.",
+    "cues": [
+     "Un pas sur le côté",
+     "Descends, tourne les hanches, glisse dehors",
+     "Face à lui, barrière, éloigne-toi"
+    ],
+    "mistakes": [
+     "Tourner alors que le centre de gravité est encore haut",
+     "Rester près de lui après le dégagement"
+    ],
+    "drill": {
+     "label": "Sortie de ceinturage arrière, chaque côté",
+     "say": "C'est ton tour. Sortie de ceinturage arrière, de chaque côté : huit fois. Je compte pour toi."
+    }
+   },
+   "tk7-4": {
+    "title": "Ceinturage arrière – bras libres",
+    "say": "Si tes bras sont restés libres, en dehors de l'étreinte : commence toujours par abaisser ton centre de gravité. Puis attrape la main de l'adversaire devant ton ventre, décroche-la pour ouvrir ses bras, et tourne-toi en même temps pour sortir. Éloigne-toi, les mains en barrière.",
+    "cues": [
+     "D'abord, abaisser le centre de gravité",
+     "Décrocher la main adverse devant le ventre",
+     "Tourner pour sortir, s'éloigner"
+    ],
+    "mistakes": [
+     "Griffer les mains de l'adversaire sans s'abaisser",
+     "Tourner le dos et partir alors qu'on est encore collé"
+    ],
+    "drill": {
+     "label": "Ceinturage arrière bras libres",
+     "say": "C'est ton tour. Ceinturage arrière bras libres : huit fois. Je compte pour toi."
+    }
+   },
+   "tk7-5": {
+    "title": "Saisie du col de face",
+    "say": "Quand l'adversaire saisit ton col des deux mains, de face : rentre le menton, monte les épaules pour protéger le cou. Lève un bras bien tendu au-dessus de la tête, puis fais pivoter tout le corps avec force, pour que l'épaule et le bras écrasent les deux bras adverses et cassent la saisie. Recule tout de suite et mets les mains en barrière. Pendant l'entraînement, le partenaire saisit seulement le col, jamais la gorge.",
+    "cues": [
+     "Menton rentré, épaules montées",
+     "Un bras tendu vers le haut",
+     "Rotation puissante, écrase les deux bras, recule"
+    ],
+    "mistakes": [
+     "Écarter les bras adverses en force",
+     "Tourner sans lever le bras"
+    ],
+    "drill": {
+     "label": "Saisie du col, chaque côté",
+     "say": "C'est ton tour. Dégagement de saisie du col, de chaque côté : huit fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Ceinturé par-derrière, quelle est la première chose à faire ?",
+    "a": [
+     "Abaisser son centre de gravité",
+     "Sauter",
+     "Basculer la tête en arrière"
+    ],
+    "why": "Avec un centre de gravité bas, l'adversaire a du mal à te soulever."
+   },
+   {
+    "q": "Le signal d'arrêt, pendant le travail en duo, c'est :",
+    "a": [
+     "Deux tapes ou dire : Stop",
+     "Crier n'importe quoi",
+     "Pas besoin de signal"
+    ],
+    "why": "On le décide avant de commencer, et on le respecte sans exception."
+   },
+   {
+    "q": "Pour se dégager d'une saisie du col de face, on utilise :",
+    "a": [
+     "La force des deux bras pour tirer",
+     "Un bras levé haut, puis une rotation puissante du corps qui écrase",
+     "On attend sans bouger"
+    ],
+    "why": "La rotation de tout le corps est plus forte que les deux bras de l'adversaire."
+   },
+   {
+    "q": "Quand on travaille le dégagement de col, le partenaire a le droit de :",
+    "a": [
+     "Serrer vraiment la gorge",
+     "Saisir seulement le col, sans serrer la gorge"
+    ],
+    "why": "Sécurité absolue pour la zone du cou."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Déséquilibres & projections",
+  "sub": "Base d'appui, saisie de la veste, fauchage arrière, barrage avant, contrôle",
+  "intro": "Voici l'essence de la lutte Sambo : utiliser l'équilibre de l'adversaire pour l'amener au sol. On ne s'y entraîne que si l'on maîtrise déjà les chutes, sur des tapis épais, avec un encadrant.",
+  "safety": "Obligatoire : maîtriser parfaitement la leçon Chutes en sécurité, tapis épais, entraîneur présent, vitesse lente.",
+  "outro": "Félicitations ! Tu as terminé les Fondamentaux du parcours Combat rapproché. Le niveau Avancé t'attend, avec des situations plus réalistes.",
+  "home": "Entraînement maison : deux séances par semaine sur tapis épais, avec un encadrant, six fois lentement pour chaque technique.",
+  "steps": {
+   "tk8-1": {
+    "title": "Base d'appui et déséquilibre",
+    "say": "L'adversaire tient debout sur ses deux jambes. La ligne qui relie ses deux pieds, c'est sa base d'appui. Pousse ou tire perpendiculairement à cette ligne, et il perd l'équilibre très facilement. Avec ton partenaire : saisis la manche et le col, pousse, tire, tourne légèrement, dans huit directions. Sens le moment où tout son poids passe sur les talons ou sur la pointe des pieds.",
+    "cues": [
+     "Base d'appui = ligne entre les deux pieds",
+     "Pousser ou tirer perpendiculairement à la base",
+     "Sentir le poids passer sur les talons ou les pointes"
+    ],
+    "mistakes": [
+     "Pousser dans l'axe de la base",
+     "Bras raides, tout en force"
+    ],
+    "drill": {
+     "label": "Pousser – tirer, 8 directions",
+     "say": "C'est ton tour. Pousser et tirer dans huit directions pendant soixante secondes. Le chrono va décompter."
+    }
+   },
+   "tk8-2": {
+    "title": "Saisie de base de la veste",
+    "say": "La saisie de base en lutte Sambo : ta main gauche tient la manche droite de ton partenaire, juste sous le coude. Ta main droite tient son revers gauche, au niveau de la poitrine. Coudes souples, jamais raides. Dos droit, pieds écartés de la largeur des épaules, toujours mobile.",
+    "cues": [
+     "Main gauche : la manche, sous le coude",
+     "Main droite : le revers, au niveau de la poitrine",
+     "Coudes souples, dos droit"
+    ],
+    "mistakes": [
+     "Dos rond, tête baissée",
+     "Bloquer les coudes"
+    ],
+    "drill": {
+     "label": "Prise de saisie",
+     "say": "C'est ton tour. Prise de saisie : dix fois. Je compte pour toi."
+    }
+   },
+   "tk8-3": {
+    "title": "Fauchage arrière",
+    "say": "Tire ton partenaire vers son arrière droit, pour que son poids passe sur son talon droit. Avance ton pied gauche tout contre l'extérieur de son pied droit. Ta jambe droite passe et fauche son mollet droit par-derrière, pendant que ton buste le pousse en arrière. Ton partenaire chute en arrière, avec la technique apprise. Tu gardes sa manche pendant toute la chute, en tirant légèrement vers le haut, pour que son dos touche le tapis en douceur.",
+    "cues": [
+     "Faire passer le poids sur le talon droit du partenaire",
+     "Pas tout contre lui, fauche le mollet par-derrière",
+     "Garde la manche, laisse-le tomber en douceur"
+    ],
+    "mistakes": [
+     "Faucher avant que le poids soit sur cette jambe",
+     "Lâcher la manche pendant que le partenaire chute"
+    ],
+    "drill": {
+     "label": "Fauchage arrière (lent), chaque côté",
+     "say": "C'est ton tour. Fauchage arrière, lentement, de chaque côté : six fois. Je compte pour toi."
+    }
+   },
+   "tk8-4": {
+    "title": "Barrage avant",
+    "say": "Tire ton partenaire vers l'avant, en diagonale sur sa droite. Tourne-toi, et place ta jambe droite en barrage devant sa cheville droite. Continue de tirer la manche en arc de cercle vers le bas. Il trébuche sur ta jambe et chute vers l'avant, en roulant par l'épaule, exactement comme dans la roulade avant.",
+    "cues": [
+     "Tirer vers l'avant, en diagonale droite",
+     "Jambe en barrage devant la cheville",
+     "Tirer en arc de cercle vers le bas"
+    ],
+    "mistakes": [
+     "Frapper la cheville au lieu de faire barrage",
+     "Tirer trop fort, tout droit vers le sol"
+    ],
+    "drill": {
+     "label": "Barrage avant (lent), chaque côté",
+     "say": "C'est ton tour. Barrage avant, lentement, de chaque côté : six fois. Je compte pour toi."
+    }
+   },
+   "tk8-5": {
+    "title": "Contrôle après la projection",
+    "say": "Quand ton partenaire est au sol, ne le laisse pas partir tout de suite. Garde sa manche, reste stable, regarde-le, puis tends-lui la main pour le relever. Celui qui projette est responsable de celui qui chute. Ne t'entraîne aux projections que sur des tapis épais, sous le regard d'un entraîneur, lentement, et en respectant toujours le signal d'arrêt.",
+    "cues": [
+     "Garde la manche, reste stable",
+     "Regarde ton partenaire",
+     "Aide-le à se relever"
+    ],
+    "mistakes": [
+     "Lâcher dès la projection",
+     "Tomber sur son partenaire"
+    ],
+    "drill": {
+     "label": "Projection lente + relevé",
+     "say": "C'est ton tour. Projection lente, puis aider à se relever : cinq fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Pour déséquilibrer, dans quelle direction faut-il pousser ou tirer ?",
+    "a": [
+     "Dans l'axe de la ligne entre les pieds",
+     "Perpendiculairement à la ligne entre les pieds",
+     "Tout droit vers le sol"
+    ],
+    "why": "La direction perpendiculaire à la base d'appui est la plus faible."
+   },
+   {
+    "q": "Pour le fauchage arrière, où doit se trouver le poids du partenaire ?",
+    "a": [
+     "Sur la pointe des pieds",
+     "Sur le talon de la jambe fauchée",
+     "Sur l'autre jambe"
+    ],
+    "why": "On ne peut faucher qu'une jambe qui porte le poids du corps."
+   },
+   {
+    "q": "Quelle est la responsabilité de celui qui projette ?",
+    "a": [
+     "Garder la manche et contrôler la chute du partenaire",
+     "Lâcher tout de suite",
+     "Tomber sur lui"
+    ],
+    "why": "Ce contrôle permet au partenaire de chuter en sécurité."
+   },
+   {
+    "q": "Les conditions pour s'entraîner aux projections :",
+    "a": [
+     "Savoir déjà chuter, tapis épais, entraîneur présent",
+     "On peut s'entraîner n'importe où",
+     "Aller vite pour s'habituer"
+    ],
+    "why": "La sécurité est une condition obligatoire."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Frappes aux points faibles pour s'échapper",
+  "sub": "Fouetté aux yeux, genou dans l'entrejambe, coup de pied au genou – uniquement pour ouvrir une sortie",
+  "intro": "Si tu es vraiment attaqué et que tu ne peux pas fuir, il te faut un coup simple, suffisant pour stopper l'agresseur une seconde. Cette seconde, c'est ta porte de sortie. Aujourd'hui, on s'entraîne sur cible, jamais sur le partenaire.",
+  "safety": "Frappe uniquement sur cible ou sur bouclier. Ne touche jamais les yeux, l'entrejambe ou les genoux de ton partenaire.",
+  "outro": "Tu as maintenant des frappes pour ouvrir une sortie. Retiens bien : on frappe pour fuir, pas pour gagner. Prochaine leçon : coudes et genoux en combat rapproché.",
+  "home": "Entraînement maison : trois séances par semaine, trois rounds d'enchaînement sur cible, en finissant par une course.",
+  "steps": {
+   "tk9-1": {
+    "title": "Le principe : frapper pour fuir",
+    "say": "Premier principe : les frappes aux points faibles servent seulement si tu es vraiment attaqué, sans autre solution. Le but n'est pas de gagner, mais de stopper l'agresseur un instant. Frappe une fois, puis crée immédiatement de la distance, et cours vers un endroit où il y a du monde. Ne reste pas pour continuer le combat.",
+    "cues": [
+     "Seulement en cas d'attaque réelle",
+     "Un coup pour ouvrir le passage",
+     "Une fois le coup porté, tu cours"
+    ],
+    "mistakes": [
+     "Rester pour continuer alors que la sortie est ouverte",
+     "Frapper alors qu'on peut encore partir"
+    ],
+    "drill": {
+     "label": "Barrière – reculer – courir",
+     "say": "C'est ton tour. Barrière, reculer, courir : cinq fois. Je compte pour toi."
+    }
+   },
+   "tk9-2": {
+    "title": "Fouetté des doigts aux yeux",
+    "say": "Depuis la barrière des mains, ta main avant est tout près du visage de l'adversaire. Les doigts légèrement fléchis et souples, balaie vite la zone des yeux, comme pour chasser l'eau de ta main, puis ramène-la. Ce coup ne demande pas de force, seulement de la vitesse. Par réflexe, la personne ferme les yeux et recule. À l'entraînement, balaie seulement la patte d'ours que ton partenaire tient devant son visage.",
+    "cues": [
+     "Départ depuis la barrière des mains",
+     "Doigts fléchis, souples, balayage horizontal",
+     "Vite, retour, puis recule"
+    ],
+    "mistakes": [
+     "Raidir les doigts : risque d'entorse",
+     "Armer de loin et dévoiler son intention"
+    ],
+    "drill": {
+     "label": "Fouetté sur la patte d'ours, chaque main",
+     "say": "C'est ton tour. Fouetté sur la patte d'ours, chaque main : quinze fois. Je compte pour toi."
+    }
+   },
+   "tk9-3": {
+    "title": "Genou dans l'entrejambe (sur bouclier)",
+    "say": "Quand l'agresseur se colle contre toi et t'empoigne de très près, tes deux mains tiennent ses épaules ou son col. Tire vers le bas, tout en montant le genou de la jambe arrière, tout droit. Pousse la hanche vers l'avant. Pendant l'entraînement, ton partenaire tient un bouclier épais devant le bas du ventre, et ton genou frappe le bouclier. Ensuite, repousse-le et éloigne-toi.",
+    "cues": [
+     "Mains sur les épaules, tire vers le bas",
+     "Genou arrière vers le haut, hanche en avant",
+     "Repousse, éloigne-toi"
+    ],
+    "mistakes": [
+     "Se pencher en arrière en montant le genou",
+     "Frapper du genou sans être en équilibre"
+    ],
+    "drill": {
+     "label": "Genou dans le bouclier, chaque jambe",
+     "say": "C'est ton tour. Genou dans le bouclier, chaque jambe : dix fois. Je compte pour toi."
+    }
+   },
+   "tk9-4": {
+    "title": "Coup de pied au genou, au tibia",
+    "say": "Quand l'agresseur fonce sur toi de loin, un coup de talon bas dans son genou ou son tibia avant casse son élan. Lève un peu le genou avant, enfonce le talon en diagonale, vers le bas et vers l'avant, puis ramène la jambe. Un coup bas est difficile à bloquer, et il te garde bien en équilibre. Pendant l'entraînement, frappe seulement un bouclier tenu bas.",
+    "cues": [
+     "Genou levé bas",
+     "Talon enfoncé en diagonale, vers le bas et l'avant",
+     "Ramène la jambe, recule"
+    ],
+    "mistakes": [
+     "Frapper haut, dans le ventre : lent, et on risque de tomber",
+     "Frapper avec la pointe du pied"
+    ],
+    "drill": {
+     "label": "Coup bas dans le bouclier, chaque jambe",
+     "say": "C'est ton tour. Coup bas dans le bouclier, chaque jambe : dix fois. Je compte pour toi."
+    }
+   },
+   "tk9-5": {
+    "title": "Enchaînement : fouetté – coup de pied – fuite",
+    "say": "On assemble tout en une seule séquence : depuis la barrière, fouetté aux yeux sur la patte d'ours, coup de pied bas dans le bouclier, puis demi-tour et trois pas de course. Lentement d'abord, pour bien faire, puis de plus en plus vite. À la fin de chaque séquence, crie fort : Stop ! Cette chaîne de réflexes doit devenir une habitude du corps.",
+    "cues": [
+     "Barrière → fouetté → coup de pied",
+     "Demi-tour, 3 pas de course",
+     "Crie fort : Stop !"
+    ],
+    "mistakes": [
+     "Oublier de courir en fin de séquence",
+     "Rester tout près après le coup de pied"
+    ],
+    "drill": {
+     "label": "Rounds d'enchaînement",
+     "say": "C'est ton tour. Rounds d'enchaînement : trois rounds de trente secondes, avec vingt secondes de repos entre les rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Quel est le but des frappes aux points faibles ?",
+    "a": [
+     "Gagner le combat",
+     "Stopper l'agresseur pour pouvoir t'enfuir",
+     "Punir l'adversaire"
+    ],
+    "why": "On frappe pour ouvrir le passage, puis on court se mettre en sécurité."
+   },
+   {
+    "q": "Pour le fouetté aux yeux, comment tiens-tu les doigts ?",
+    "a": [
+     "Tendus et raides",
+     "Légèrement fléchis, souples, en balayage rapide",
+     "Serrés en poing"
+    ],
+    "why": "Des doigts souples vont vite et ne risquent pas l'entorse."
+   },
+   {
+    "q": "Où vise le coup de pied bas ?",
+    "a": [
+     "Le genou ou le tibia avant",
+     "La tête",
+     "Le dos"
+    ],
+    "why": "Un coup bas est rapide, difficile à bloquer, et il casse l'élan de l'agresseur."
+   },
+   {
+    "q": "À l'entraînement avec un partenaire, où frappes-tu ?",
+    "a": [
+     "Sur le partenaire, mais doucement",
+     "Uniquement sur cible ou sur bouclier"
+    ],
+    "why": "Jamais sur les vrais points faibles de ton partenaire."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Coudes & genoux à courte distance",
+  "sub": "Coude circulaire, coude remontant, genou direct, clinch nuque – épaules",
+  "intro": "Quand l'adversaire est collé contre toi, le poing n'a plus la place de partir. Les coudes et les genoux deviennent alors les armes naturelles les plus puissantes du corps. On s'entraîne sur cible : la technique d'abord, la puissance ensuite.",
+  "safety": "Frappe uniquement sur des cibles épaisses. Celui qui tient la cible doit la tenir fermement, bien campé sur ses appuis.",
+  "outro": "La courte distance ne te fait plus peur. Prochaine leçon : résister aux amenées au sol et se relever en sécurité.",
+  "home": "Entraînement maison : trois séances par semaine, trois rounds de combat rapproché sur cible.",
+  "steps": {
+   "tk10-1": {
+    "title": "Coude circulaire",
+    "say": "Depuis la garde, plie le coude avant, l'avant-bras parallèle au sol, la main près de l'oreille. Fais tourner la hanche et l'épaule, et balaie horizontalement avec le coude, comme une porte qui claque. La zone d'impact, c'est l'os juste sous le coude. L'autre main protège toujours le visage. Après la frappe, reviens aussitôt en garde.",
+    "cues": [
+     "Main près de l'oreille, avant-bras horizontal",
+     "Rotation de la hanche, balayage horizontal",
+     "Impact avec l'os juste sous le coude"
+    ],
+    "mistakes": [
+     "Balancer tout le bras tendu",
+     "Oublier de protéger le visage avec l'autre main"
+    ],
+    "drill": {
+     "label": "Coude circulaire, chaque bras",
+     "say": "C'est ton tour. Coude circulaire, chaque bras : quinze fois. Je compte pour toi."
+    }
+   },
+   "tk10-2": {
+    "title": "Coude remontant",
+    "say": "Quand l'adversaire se baisse pour foncer sur toi, le coude remontant, du bas vers le haut, est très efficace. Plie fort le coude, le poing contre l'épaule, puis pousse sur les jambes et remonte le coude tout droit, sur la ligne verticale devant toi. Pendant l'entraînement, ton partenaire tient une patte d'ours tournée vers le bas, au niveau de la poitrine.",
+    "cues": [
+     "Coude bien plié, poing contre l'épaule",
+     "Pousse sur les jambes, remonte tout droit",
+     "L'autre main protège le visage"
+    ],
+    "mistakes": [
+     "Remonter en diagonale vers l'extérieur",
+     "Frapper seulement avec le bras, sans pousser sur les jambes"
+    ],
+    "drill": {
+     "label": "Coude remontant, chaque bras",
+     "say": "C'est ton tour. Coude remontant, chaque bras : douze fois. Je compte pour toi."
+    }
+   },
+   "tk10-3": {
+    "title": "Clinch nuque – épaules",
+    "say": "Au contact, pose tes deux mains l'une sur l'autre derrière la nuque de l'adversaire, les deux coudes serrés devant sa poitrine. Tire vers le bas, en serrant les coudes vers l'intérieur. Ce clinch te permet de maîtriser son équilibre. Pendant l'entraînement, tire doucement et lentement, et ton partenaire peut toujours taper pour demander l'arrêt.",
+    "cues": [
+     "Mains l'une sur l'autre derrière la nuque",
+     "Coudes serrés devant sa poitrine",
+     "Tirer vers le bas, doucement, lentement"
+    ],
+    "mistakes": [
+     "Croiser les doigts : ils risquent de se coincer",
+     "Tirer brutalement sur le cou du partenaire"
+    ],
+    "drill": {
+     "label": "Tenir le clinch nuque – épaules",
+     "say": "C'est ton tour. Tiens le clinch nuque et épaules pendant trente secondes. Le chrono va décompter."
+    }
+   },
+   "tk10-4": {
+    "title": "Genou direct dans le clinch",
+    "say": "Depuis le clinch, tire l'adversaire vers le bas et monte le genou tout droit dans le bouclier que ton partenaire tient devant son ventre. Pousse la hanche vers l'avant, reste droit sur ta jambe d'appui. Après deux coups de genou, repousse-le fort et éloigne-toi.",
+    "cues": [
+     "Clinch nuque – épaules",
+     "Tire vers le bas, genou tout droit vers le haut",
+     "Deux genoux, puis repousse et éloigne-toi"
+    ],
+    "mistakes": [
+     "Se plier en avant avec lui",
+     "Monter sur la pointe du pied d'appui et perdre l'équilibre"
+    ],
+    "drill": {
+     "label": "Genou dans le bouclier, chaque jambe",
+     "say": "C'est ton tour. Genou dans le bouclier, chaque jambe : dix fois. Je compte pour toi."
+    }
+   },
+   "tk10-5": {
+    "title": "Enchaînement à courte distance",
+    "say": "On assemble : coude circulaire, coude remontant, entrée dans le clinch, deux coups de genou, on repousse, et on recule en barrière. Fais trois rounds de trente secondes sur cible. Garde une respiration en rafales, courte, pendant que tu frappes.",
+    "cues": [
+     "Coude circulaire → coude remontant",
+     "Clinch → 2 genoux",
+     "Repousser, barrière, respiration en rafales"
+    ],
+    "mistakes": [
+     "Bloquer sa respiration en frappant",
+     "Oublier de repousser pour créer de la distance"
+    ],
+    "drill": {
+     "label": "Rounds à courte distance",
+     "say": "C'est ton tour. Rounds à courte distance : trois rounds de trente secondes, avec vingt secondes de repos entre les rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Avec quelle partie frappe le coude circulaire ?",
+    "a": [
+     "L'os juste sous le coude",
+     "La main",
+     "L'épaule"
+    ],
+    "why": "L'os dur, juste sous le coude, est la surface de frappe la plus solide."
+   },
+   {
+    "q": "Dans le clinch nuque et épaules, comment places-tu les mains ?",
+    "a": [
+     "Doigts croisés",
+     "L'une sur l'autre, derrière la nuque"
+    ],
+    "why": "Les doigts croisés risquent de se coincer. Les mains l'une sur l'autre, c'est plus sûr."
+   },
+   {
+    "q": "Après deux coups de genou, que faut-il faire ?",
+    "a": [
+     "Repousser et s'éloigner",
+     "Continuer de serrer",
+     "S'asseoir"
+    ],
+    "why": "Toujours créer de la distance pour s'échapper."
+   },
+   {
+    "q": "Quand tu enchaînes les coups, comment respires-tu ?",
+    "a": [
+     "En bloquant ma respiration",
+     "En rafales courtes, à chaque coup"
+    ],
+    "why": "La respiration en rafales évite de s'épuiser et aide à rester calme."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Contrer l'amenée au sol & se relever",
+  "sub": "Sprawl contre la plongée aux jambes, écrasement des hanches, relevé technique, garder la distance avec les pieds",
+  "intro": "Dans une bagarre, le plus dangereux, c'est de se retrouver au sol. Aujourd'hui, tu apprends comment ne pas te faire tirer au sol, et, si tu tombes malgré tout, comment te relever en sécurité en quelques secondes.",
+  "safety": "Sur tapis épais. Le partenaire plonge lentement, sans coup de tête.",
+  "outro": "Maintenant, il est très difficile de t'amener au sol, et tu sais te relever en sécurité. Prochaine leçon : s'échapper quand on est plaqué au sol.",
+  "home": "Entraînement maison : chaque jour, dix relevés techniques de chaque côté, et deux séances par semaine de sprawl avec un partenaire.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl contre la plongée aux jambes",
+    "say": "Quand l'adversaire se baisse et plonge sur tes jambes : projette les deux jambes en arrière, très vite, écrase les hanches sur le haut de son dos, et bloque ses épaules avec les deux mains. Tout le poids de ton corps pèse sur lui, et tes jambes sont loin, hors de sa portée. C'est ce qu'on appelle le sprawl. Entraîne-toi lentement avec un partenaire, sur le tapis.",
+    "cues": [
+     "Projette les deux jambes en arrière",
+     "Écrase les hanches sur le haut du dos",
+     "Les mains bloquent ses épaules"
+    ],
+    "mistakes": [
+     "Reculer en restant droit : il attrape facilement tes jambes",
+     "Garder les hanches hautes : il peut encore tirer tes jambes"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "C'est ton tour. Sprawl : dix fois. Je compte pour toi."
+    }
+   },
+   "tk11-2": {
+    "title": "Se dégager après le sprawl",
+    "say": "Une fois le sprawl réussi, ne reste pas longtemps sur lui. Pousse avec les deux mains sur ses épaules, redresse-toi d'un coup, fais deux pas en arrière, et reviens en garde de combat, les mains devant le visage. Le but reste toujours de s'échapper.",
+    "cues": [
+     "Pousse sur ses épaules",
+     "Redresse-toi, 2 pas en arrière",
+     "Retour en garde, mains devant le visage"
+    ],
+    "mistakes": [
+     "Rester trop longtemps sur lui",
+     "Se relever juste devant l'adversaire"
+    ],
+    "drill": {
+     "label": "Sprawl – relevé – recul",
+     "say": "C'est ton tour. Sprawl, relevé, recul : huit fois. Je compte pour toi."
+    }
+   },
+   "tk11-3": {
+    "title": "Garder la distance depuis le sol",
+    "say": "Si tu es tombé sur le dos et que l'adversaire est debout : couche-toi sur une hanche, une main en appui sur le tapis, l'autre devant le visage. La jambe du dessus est repliée, armée pour frapper le genou ou le ventre s'il fonce sur toi. Tourne avec lui, les pieds toujours dirigés vers l'adversaire, et ne le laisse pas contourner ta tête.",
+    "cues": [
+     "Couché sur la hanche, une main en appui, l'autre en protection",
+     "Jambe du dessus repliée, armée pour frapper",
+     "Tourne avec lui, pieds toujours vers l'adversaire"
+    ],
+    "mistakes": [
+     "Rester allongé à plat sur le dos",
+     "Laisser l'adversaire contourner ta tête"
+    ],
+    "drill": {
+     "label": "Tourner avec le partenaire",
+     "say": "C'est ton tour. Tourne avec ton partenaire pendant trente secondes. Le chrono va décompter."
+    }
+   },
+   "tk11-4": {
+    "title": "Relevé technique",
+    "say": "Pour te relever en sécurité : la main arrière en appui sur le tapis, derrière la hanche, la main avant devant le visage. Pousse les hanches vers le haut, et passe la jambe d'appui sous ton corps, vers l'arrière. Pose le pied loin derrière, en garde, et seulement ensuite, redresse-toi. Tu protèges toujours ton visage, et tu te relèves en t'éloignant de l'adversaire, jamais juste devant lui.",
+    "cues": [
+     "Main arrière en appui, main avant devant le visage",
+     "Pousse les hanches, passe la jambe en arrière",
+     "Relève-toi en reculant, en garde"
+    ],
+    "mistakes": [
+     "Se relever sur les deux mains, visage découvert",
+     "Se relever en avançant vers l'adversaire"
+    ],
+    "drill": {
+     "label": "Relevé technique de chaque côté",
+     "say": "C'est ton tour. Relevé technique de chaque côté : huit fois. Je compte pour toi."
+    }
+   },
+   "tk11-5": {
+    "title": "Enchaînement : chute – distance – relevé",
+    "say": "On assemble : chute arrière dans les règles, bascule sur la hanche, garde la distance avec les pieds, relevé technique, recule et mets les mains en barrière. Après chaque passage, vérifie que tu as toujours protégé ton visage. Fais-le cinq fois de chaque côté.",
+    "cues": [
+     "Chute arrière → sur le côté",
+     "Garder la distance avec les pieds",
+     "Relevé technique → barrière des mains"
+    ],
+    "mistakes": [
+     "Se relever trop vite alors que l'adversaire est encore tout près",
+     "Oublier de protéger son visage"
+    ],
+    "drill": {
+     "label": "Chute – relevé, chaque côté",
+     "say": "C'est ton tour. Enchaînement chute et relevé, de chaque côté : cinq fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "L'adversaire plonge sur tes jambes. Que fais-tu ?",
+    "a": [
+     "Je projette les deux jambes en arrière et j'écrase avec les hanches",
+     "Je reste droit et j'attends",
+     "Je saute"
+    ],
+    "why": "Le sprawl : les jambes loin, le poids du corps sur l'adversaire."
+   },
+   {
+    "q": "Au sol, vers où doivent pointer tes pieds ?",
+    "a": [
+     "Vers l'adversaire",
+     "Vers le ciel",
+     "Vers l'arrière"
+    ],
+    "why": "Les pieds vers l'adversaire, pour garder la distance en frappant."
+   },
+   {
+    "q": "Pendant le relevé technique, que fait la main avant ?",
+    "a": [
+     "Elle s'appuie sur le sol",
+     "Elle protège le visage"
+    ],
+    "why": "On protège toujours le visage en se relevant."
+   },
+   {
+    "q": "En te relevant, tu recules ou tu avances vers l'adversaire ?",
+    "a": [
+     "Je recule",
+     "J'avance"
+    ],
+    "why": "On se relève en s'éloignant, pour rester en sécurité."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "S'échapper au sol",
+  "sub": "Crevette, pont et renversement, sortie quand on est plaqué, garde au sol",
+  "intro": "Si tu es plaqué au sol, ne panique pas. Il existe des mouvements simples de lutte Sambo pour renverser la situation. On travaille lentement, le partenaire appuie avec une force raisonnable, et on respecte toujours le signal d'arrêt.",
+  "safety": "Tapis épais. Celui qui est dessus ne met pas tout son poids, et n'appuie jamais sur le cou. Deux tapes, et on arrête.",
+  "outro": "Tu sais t'échapper au sol. Prochaine leçon, un sujet sérieux : faire face à un agresseur armé d'un couteau.",
+  "home": "Entraînement maison : chaque jour, deux minutes de crevette, et deux séances par semaine de randori souple.",
+  "steps": {
+   "tk12-1": {
+    "title": "La crevette",
+    "say": "Allonge-toi sur le dos, genoux pliés. Pousse un pied dans le tapis, chasse les hanches vers l'arrière, tout en te tournant sur le flanc, les deux mains poussées devant toi, comme pour repousser un objet lourd. Ton corps se courbe comme une crevette. Puis reviens sur le dos, et recommence de l'autre côté. C'est le mouvement le plus important au sol : il crée de l'espace.",
+    "cues": [
+     "Pousse avec le pied, chasse les hanches",
+     "Tourne-toi sur le flanc, mains poussées devant",
+     "Alterne les deux côtés en continu"
+    ],
+    "mistakes": [
+     "Rester à plat sur le dos sans tourner les hanches",
+     "Pousser avec les mains sans chasser les hanches"
+    ],
+    "drill": {
+     "label": "Crevettes le long du tapis",
+     "say": "C'est ton tour. Crevettes le long du tapis pendant quarante secondes. Le chrono va décompter."
+    }
+   },
+   "tk12-2": {
+    "title": "Pont et renversement contre la position montée",
+    "say": "Quand l'adversaire est assis sur ton ventre : d'abord, protège ton visage avec les deux mains. Puis serre un de ses bras contre ton corps, et cale ton pied contre l'extérieur de sa jambe, sur le même flanc. Pousse les hanches très fort vers le haut, fais un pont par-dessus l'épaule, vers le bras bloqué, et renverse-le. Tu te retrouves au-dessus, puis tu te relèves et tu recules.",
+    "cues": [
+     "D'abord protéger le visage",
+     "Bloquer un bras + caler le pied sur le même flanc",
+     "Pont des hanches, renverser par l'épaule de ce côté"
+    ],
+    "mistakes": [
+     "Pousser avec les mains sur sa poitrine",
+     "Faire un pont droit vers le haut sans bloquer le bras et la jambe"
+    ],
+    "drill": {
+     "label": "Pont et renversement de chaque côté",
+     "say": "C'est ton tour. Pont et renversement de chaque côté : six fois. Je compte pour toi."
+    }
+   },
+   "tk12-3": {
+    "title": "Sortie coude – genou",
+    "say": "Si le renversement ne passe pas : mets-toi sur le flanc, coude collé au genou, et cale le coude contre la hanche de l'adversaire. Fais une crevette pour créer de l'espace, et glisse ton genou entre vous deux. Une fois le genou passé, ramène les jambes en garde, et tiens l'adversaire à distance avec tes deux jambes.",
+    "cues": [
+     "Sur le flanc, coude contre le genou",
+     "Une crevette pour créer de l'espace",
+     "Glisse le genou, ramène les jambes en garde"
+    ],
+    "mistakes": [
+     "Pousser bras tendus : risque de clé de bras",
+     "Rester à plat sur le dos"
+    ],
+    "drill": {
+     "label": "Sortie coude – genou de chaque côté",
+     "say": "C'est ton tour. Sortie coude genou, de chaque côté : six fois. Je compte pour toi."
+    }
+   },
+   "tk12-4": {
+    "title": "Garde au sol et relevé",
+    "say": "Quand tes deux jambes sont entre toi et l'adversaire, tu es en garde. Pose les pieds sur ses hanches, et repousse-le loin. Dès que tu as de l'espace, passe sur le flanc et fais un relevé technique, comme dans la leçon précédente. Être au sol, ce n'est pas avoir perdu, tant que tu gardes tes jambes entre vous deux.",
+    "cues": [
+     "Les deux jambes entre toi et l'adversaire",
+     "Les pieds poussent ses hanches, créent la distance",
+     "Relevé technique"
+    ],
+    "mistakes": [
+     "Retirer les jambes et laisser l'adversaire se coller",
+     "Se relever sans avoir créé de distance"
+    ],
+    "drill": {
+     "label": "Garde – repousser – relevé",
+     "say": "C'est ton tour. Garde, repousser, relevé : six fois. Je compte pour toi."
+    }
+   },
+   "tk12-5": {
+    "title": "Randori souple contrôlé",
+    "say": "Maintenant, randori souple contrôlé pendant deux minutes. L'un commence dessous, l'autre dessus. Celui du dessous n'a qu'une seule mission : s'échapper et se relever. Celui du dessus se contente de tenir, sans clé de bras, sans étranglement. Cinquante pour cent de la force. Deux tapes, et on stoppe tout de suite.",
+    "cues": [
+     "Dessous : s'échapper et se relever",
+     "Dessus : seulement tenir, ni clé, ni étranglement",
+     "50 % de force, deux tapes et on arrête"
+    ],
+    "mistakes": [
+     "Mettre toute sa force dès le début",
+     "Ne pas respecter le signal d'arrêt"
+    ],
+    "drill": {
+     "label": "Rounds de randori souple",
+     "say": "C'est ton tour. Rounds de randori souple : deux rounds de soixante secondes, avec trente secondes de repos entre les rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Quel est le mouvement le plus important au sol ?",
+    "a": [
+     "La crevette",
+     "Rester immobile",
+     "Frapper vers le haut"
+    ],
+    "why": "La crevette crée de l'espace pour s'échapper."
+   },
+   {
+    "q": "Pont et renversement : de quel côté renverses-tu ?",
+    "a": [
+     "Du côté du bras et de la jambe que tu as bloqués",
+     "N'importe quel côté"
+    ],
+    "why": "L'adversaire ne peut pas se rattraper avec un bras et une jambe bloqués."
+   },
+   {
+    "q": "Plaqué au sol, faut-il pousser sur sa poitrine bras tendus ?",
+    "a": [
+     "Oui",
+     "Non, on risque une clé de bras"
+    ],
+    "why": "Garde les coudes près du corps."
+   },
+   {
+    "q": "En randori souple, que peut faire celui qui est dessus ?",
+    "a": [
+     "Faire des clés de bras, étrangler",
+     "Seulement tenir, sans clé ni étranglement"
+    ],
+    "why": "On s'entraîne en sécurité, avec contrôle."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Face à un agresseur armé d'un couteau",
+  "sub": "Règles d'or, obstacle, protection, contrôle du bras, fuite – couteau en caoutchouc",
+  "intro": "Écoute bien ce qui compte le plus aujourd'hui : un couteau est très dangereux, même pour quelqu'un qui pratique les arts martiaux depuis des années. Si le voleur ne veut que tes affaires, donne-les-lui. Les biens se remplacent, la vie, non. Les techniques qui suivent sont réservées au cas où il n'y a plus aucun autre choix.",
+  "safety": "Entraîne-toi uniquement avec un couteau en caoutchouc ou en plastique émoussé. Jamais avec un vrai couteau.",
+  "outro": "Retiens bien : fuir, c'est gagner. Prochaine leçon : garder son calme devant une menace avec une arme à feu.",
+  "home": "Entraînement maison : une séance de mise en situation par semaine avec un couteau en caoutchouc, lentement et en sécurité, en finissant toujours par la fuite.",
+  "steps": {
+   "tk13-1": {
+    "title": "Les règles d'or",
+    "say": "Trois règles d'or. Un : s'il réclame tes affaires, donne-les tout de suite, lance ton portefeuille loin de toi, et cours dans la direction opposée. Deux : garde la plus grande distance possible, et cherche une issue. Trois : c'est seulement si tu es attaqué sans pouvoir fuir que tu utilises une technique. Et souviens-toi : dans la réalité, presque tous ceux qui affrontent un couteau finissent blessés. Fuir, c'est gagner.",
+    "cues": [
+     "Donner ses affaires, lancer loin, courir",
+     "Garder la distance, chercher une issue",
+     "La technique, c'est le dernier recours"
+    ],
+    "mistakes": [
+     "Vouloir garder ses affaires",
+     "Foncer avec trop de confiance sur un homme armé d'un couteau"
+    ],
+    "drill": {
+     "label": "Lancer le portefeuille – courir (mise en situation)",
+     "say": "C'est ton tour. Lancer le portefeuille et courir, en mise en situation : trois fois. Je compte pour toi."
+    }
+   },
+   "tk13-2": {
+    "title": "Un obstacle comme bouclier",
+    "say": "Tout ce que tu as dans les mains peut servir de bouclier : un sac à dos, une veste enroulée autour du bras, une chaise, un sac. Garde l'obstacle entre toi et la pointe du couteau, tiens-le fermement des deux mains, et recule vers une sortie. L'obstacle tient la lame loin de ton corps, et te donne le temps de fuir.",
+    "cues": [
+     "Sac à dos, veste, chaise comme bouclier",
+     "L'obstacle entre toi et le couteau",
+     "Recule vers une sortie"
+    ],
+    "mistakes": [
+     "Jeter l'obstacle pour se battre à mains nues",
+     "Reculer dans un coin"
+    ],
+    "drill": {
+     "label": "Bouclier sac à dos, recul vers la sortie",
+     "say": "C'est ton tour. Bouclier sac à dos, recul vers la sortie, pendant trente secondes. Le chrono va décompter."
+    }
+   },
+   "tk13-3": {
+    "title": "Protection et posture",
+    "say": "Sans obstacle : les deux avant-bras levés devant le visage, la face intérieure tournée vers toi, les coudes devant les côtes, le corps un peu penché, le menton rentré. Tu te tiens de biais pour offrir une cible plus petite. Ton regard reste sur la main qui tient le couteau, pas sur le visage de l'adversaire.",
+    "cues": [
+     "Avant-bras devant le visage, face intérieure vers toi",
+     "De biais, un peu penché, menton rentré",
+     "Regard sur la main armée"
+    ],
+    "mistakes": [
+     "Présenter la paume pour bloquer",
+     "Regarder le visage au lieu de la main"
+    ],
+    "drill": {
+     "label": "Prise de posture de protection",
+     "say": "C'est ton tour. Prise de posture de protection : dix fois. Je compte pour toi."
+    }
+   },
+   "tk13-4": {
+    "title": "Bloquer et contrôler le bras",
+    "say": "Si un coup de couteau arrive et que tu ne peux pas l'éviter : bloque le bras armé avec les deux avant-bras, en sortant en diagonale vers l'extérieur. Immédiatement, serre ce bras contre ton corps avec tes deux bras, contrôle le poignet, et garde la lame tournée loin de toi. Tes deux bras contre un seul bras de l'adversaire. Entraîne-toi très lentement, avec un couteau en caoutchouc.",
+    "cues": [
+     "Blocage des deux avant-bras + pas en diagonale",
+     "Serrer le bras armé contre soi",
+     "Deux mains sur le poignet, lame tournée loin de toi"
+    ],
+    "mistakes": [
+     "N'utiliser qu'une seule main",
+     "Lâcher le bras en cours de route"
+    ],
+    "drill": {
+     "label": "Blocage – contrôle (lent), chaque bras",
+     "say": "C'est ton tour. Blocage et contrôle, lentement, en alternant les bras : huit fois. Je compte pour toi."
+    }
+   },
+   "tk13-5": {
+    "title": "Se dégager et fuir",
+    "say": "Une fois le bras contrôlé, n'essaie pas de prendre le couteau. Donne un coup de pied bas dans le genou, comme dans la leçon neuf, repousse fort l'adversaire, puis cours vers un endroit où il y a du monde, appelle au secours et préviens la police. Ensuite, examine ton corps : une personne blessée au couteau ne le sent souvent pas tout de suite.",
+    "cues": [
+     "Ne pas chercher à prendre le couteau",
+     "Coup de pied bas, repousser, courir",
+     "Appeler au secours, prévenir la police, chercher les blessures"
+    ],
+    "mistakes": [
+     "Essayer d'arracher le couteau",
+     "Poursuivre l'agresseur"
+    ],
+    "drill": {
+     "label": "Contrôle – repousser – fuir (lent)",
+     "say": "C'est ton tour. Contrôle, repousser, fuir, lentement : cinq fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Un homme armé d'un couteau réclame ton portefeuille. Que fais-tu ?",
+    "a": [
+     "Je me bats pour le garder",
+     "Je le donne, je le lance loin, je cours"
+    ],
+    "why": "Les biens se remplacent, la vie, non."
+   },
+   {
+    "q": "Qu'est-ce qui peut servir de bouclier ?",
+    "a": [
+     "Sac à dos, veste, chaise",
+     "Rien du tout"
+    ],
+    "why": "L'obstacle tient la lame loin de ton corps."
+   },
+   {
+    "q": "Face à un couteau, où regardes-tu ?",
+    "a": [
+     "Le visage de l'adversaire",
+     "La main qui tient le couteau"
+    ],
+    "why": "Le danger, c'est la main qui tient le couteau."
+   },
+   {
+    "q": "Une fois la main armée contrôlée, que faut-il faire ?",
+    "a": [
+     "Essayer de prendre le couteau",
+     "Repousser, fuir, appeler au secours"
+    ],
+    "why": "Le but est de s'échapper en sécurité, pas de prendre l'arme."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Menace avec une arme à feu",
+  "sub": "Calme, obéissance, observation, abri, fuite – pistolet d'entraînement en plastique",
+  "intro": "Cette leçon parle plus de calme que de technique. Devant une arme à feu, ta survie dépend de ton sang-froid. On utilise un pistolet orange en plastique, fait uniquement pour l'entraînement.",
+  "safety": "Uniquement un pistolet d'entraînement orange en plastique. Jamais de vraie arme, d'arme à air comprimé, ni de réplique réaliste.",
+  "outro": "Le sang-froid est ton arme la plus puissante. Dernière leçon du parcours : synthèse et réflexes.",
+  "home": "Entraînement maison : chaque jour, trois minutes de respiration carrée, et le jeu de mémoire quand tu sors dans la rue.",
+  "steps": {
+   "tk14-1": {
+    "title": "Respirer et garder son calme",
+    "say": "Quand on braque une arme sur toi, ton cœur bat très vite. Fais une respiration carrée : inspire pendant quatre secondes, bloque quatre secondes, expire quatre secondes, bloque quatre secondes. Un ou deux cycles suffisent pour t'éclaircir l'esprit. Celui qui reste calme voit une issue. Celui qui panique, non.",
+    "cues": [
+     "Inspire 4 – bloque 4 – expire 4 – bloque 4",
+     "Un ou deux cycles suffisent",
+     "Le calme permet de voir l'issue"
+    ],
+    "mistakes": [
+     "Respirer de façon saccadée",
+     "Faire des gestes brusques"
+    ],
+    "drill": {
+     "label": "Respiration carrée en 4 temps",
+     "say": "C'est ton tour. Respiration carrée en quatre temps pendant soixante-quatre secondes. Le chrono va décompter."
+    }
+   },
+   "tk14-2": {
+    "title": "Obéir et lever les mains",
+    "say": "S'il réclame tes affaires : obéis. Lève les deux mains ouvertes à hauteur des épaules, et dis lentement et clairement : d'accord, je vous les donne. Annonce chaque geste avant de le faire : je vais prendre mon portefeuille dans ma poche droite. Pose tes affaires par terre, ou lance-les loin de toi. Ne le fixe pas dans les yeux, et ne discute pas.",
+    "cues": [
+     "Mains ouvertes à hauteur des épaules",
+     "Parler lentement, annoncer chaque geste",
+     "Donner ses affaires, sans discuter"
+    ],
+    "mistakes": [
+     "Mettre brusquement la main dans sa poche",
+     "Discuter, menacer en retour"
+    ],
+    "drill": {
+     "label": "Mise en situation : obéir",
+     "say": "C'est ton tour. Mise en situation, obéir : trois fois. Je compte pour toi."
+    }
+   },
+   "tk14-3": {
+    "title": "Masque et abri",
+    "say": "Il faut distinguer deux choses. Un masque te cache des regards, comme un buisson ou un rideau. Un abri arrête les balles, comme un mur en béton, un pilier, ou le bloc moteur d'une voiture. Si tu as l'occasion de fuir, cours vers un abri, en diagonale et pas en ligne droite, en restant bas.",
+    "cues": [
+     "Masque ≠ abri",
+     "Courir vers un abri",
+     "Courir en diagonale, en restant bas"
+    ],
+    "mistakes": [
+     "Se cacher derrière une porte en bois ou un buisson en se croyant protégé",
+     "Courir en ligne droite"
+    ],
+    "drill": {
+     "label": "Course en diagonale vers un abri",
+     "say": "C'est ton tour. Course en diagonale vers un abri : cinq fois. Je compte pour toi."
+    }
+   },
+   "tk14-4": {
+    "title": "Observer et mémoriser",
+    "say": "Pendant que tu obéis, observe discrètement : la taille, les vêtements, la voix, la direction dans laquelle il part. Une fois qu'il est parti, reste sur place, en lieu sûr, appelle tout de suite la police, et raconte tout ce dont tu te souviens. Ne le poursuis jamais.",
+    "cues": [
+     "Observer en silence : silhouette, vêtements, voix, direction",
+     "Rester en lieu sûr",
+     "Appeler la police, ne pas poursuivre"
+    ],
+    "mistakes": [
+     "Poursuivre le voleur",
+     "Le fixer dans les yeux"
+    ],
+    "drill": {
+     "label": "Jeu de mémoire : décrire une personne",
+     "say": "C'est ton tour. Jeu de mémoire, décrire une personne, pendant trente secondes. Le chrono va décompter."
+    }
+   },
+   "tk14-5": {
+    "title": "Le dernier recours",
+    "say": "C'est seulement si tu es certain qu'il va tirer, alors que tu as obéi, que tu peux penser au dernier recours : dévier le canon loin de toi et des autres, le tenir fermement des deux mains, puis tenter de t'échapper. C'est une technique très risquée, qu'on apprend seulement en personne, avec un entraîneur diplômé, et une arme d'entraînement. Dans presque toutes les situations, obéir et observer reste le meilleur choix pour survivre.",
+    "cues": [
+     "Seulement si tu es certain qu'il va tirer",
+     "Dévier le canon, le tenir à deux mains",
+     "Apprendre en personne, avec un entraîneur"
+    ],
+    "mistakes": [
+     "Agir alors qu'il veut seulement tes affaires",
+     "S'entraîner seul avec une vidéo, sans encadrant"
+    ],
+    "drill": {
+     "label": "Répéter les principes",
+     "say": "C'est ton tour. Répéter les principes : trois fois. Je compte pour toi."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Qu'est-ce que la respiration carrée ?",
+    "a": [
+     "Inspirer 4 – bloquer 4 – expirer 4 – bloquer 4 secondes",
+     "Bloquer sa respiration très longtemps"
+    ],
+    "why": "Un rythme régulier fait baisser le rythme cardiaque et garde l'esprit clair."
+   },
+   {
+    "q": "Quelqu'un te menace avec une arme et réclame tes affaires. Que fais-tu ?",
+    "a": [
+     "Je résiste",
+     "J'obéis, j'annonce mes gestes, je donne mes affaires"
+    ],
+    "why": "Tes affaires ne valent pas ta vie."
+   },
+   {
+    "q": "Qu'est-ce qui est un abri, capable d'arrêter les balles ?",
+    "a": [
+     "Un buisson",
+     "Un mur en béton, un pilier"
+    ],
+    "why": "Un buisson te cache seulement. Il n'arrête pas les balles."
+   },
+   {
+    "q": "Une fois le voleur parti, tu dois :",
+    "a": [
+     "Le poursuivre",
+     "Rester en lieu sûr et appeler la police"
+    ],
+    "why": "Ne poursuis jamais une personne armée."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Synthèse & réflexes",
+  "sub": "Situations enchaînées, sparring contrôlé, étirements de récupération",
+  "intro": "Dernière leçon. On transforme tout ce que tu as appris en réflexes. Quand la situation arrive, tu n'as pas le temps de réfléchir. Ton corps doit savoir quoi faire tout seul.",
+  "safety": "Gants, et protège-dents si possible. Travail à deux entre 30 et 50 % de force, sous le regard d'un encadrant.",
+  "outro": "Félicitations, guerrier ! Tu as terminé tout le parcours Combat rapproché, les fondamentaux comme le niveau avancé. Passe maintenant l'examen de fin de parcours pour gagner le badge Loup d'acier.",
+  "home": "Entraînement maison : trois séances par semaine pour réviser tout le parcours, trente minutes chacune, toujours avec échauffement et étirements.",
+  "steps": {
+   "tk15-1": {
+    "title": "Réflexes sur cibles mobiles",
+    "say": "Ton partenaire tient deux pattes d'ours, tourne autour de toi, et les présente soudain, chaque fois ailleurs. Patte d'ours au niveau du visage : direct. Patte d'ours basse : coup de pied poussé. Patte d'ours qui balaie vers ta tête : garde haute. Réagis tout de suite, sans réfléchir.",
+    "cues": [
+     "Patte au niveau du visage → direct",
+     "Patte basse → coup de pied poussé",
+     "Patte qui balaie → garde haute"
+    ],
+    "mistakes": [
+     "Rester planté sans bouger",
+     "Baisser les mains après chaque coup"
+    ],
+    "drill": {
+     "label": "Rounds de réflexes",
+     "say": "C'est ton tour. Rounds de réflexes : trois rounds de quarante-cinq secondes, avec vingt secondes de repos entre les rounds."
+    }
+   },
+   "tk15-2": {
+    "title": "Situation : saisie de poignet",
+    "say": "Situation un. Ton partenaire saisit soudain ton poignet et tire. Réflexe : abaisse ton centre de gravité, dégage-toi dans la direction du pouce, mains en barrière, recule, et crie fort : Stop ! Puis fais demi-tour et cours trois pas. Recommence cinq fois. Ton partenaire change de saisie à chaque fois.",
+    "cues": [
+     "Centre de gravité bas, sortie par le pouce",
+     "Barrière des mains, crie fort",
+     "Cours 3 pas"
+    ],
+    "mistakes": [
+     "Lutter force contre force",
+     "Oublier de crier et de courir"
+    ],
+    "drill": {
+     "label": "Situation saisie de poignet",
+     "say": "C'est ton tour. Situation saisie de poignet : cinq fois. Je compte pour toi."
+    }
+   },
+   "tk15-3": {
+    "title": "Situation : ceinturage arrière",
+    "say": "Situation deux. Ton partenaire te ceinture par-derrière. Réflexe : abaisse ton centre de gravité, écarte les coudes, pas latéral, rotation pour sortir, coup de pied poussé dans le bouclier tenu par une troisième personne, puis fuis. Changez de rôle après chaque passage. Cinq fois chacun.",
+    "cues": [
+     "Centre de gravité bas, coudes écartés",
+     "Pas latéral, rotation pour sortir",
+     "Coup de pied poussé, fuite"
+    ],
+    "mistakes": [
+     "Rester droit",
+     "Tourner alors que le centre de gravité est encore haut"
+    ],
+    "drill": {
+     "label": "Situation ceinturage arrière",
+     "say": "C'est ton tour. Situation ceinturage arrière : cinq fois. Je compte pour toi."
+    }
+   },
+   "tk15-4": {
+    "title": "Sparring contrôlé",
+    "say": "Sparring léger, trois rounds d'une minute. Seulement des directs dans les gants et les épaules, et des coups de pied poussés très légers dans le ventre, avec trente pour cent de la force. Rien au visage, rien sur les points faibles. Le but est d'entraîner ton regard, ton jeu de jambes, et ton calme devant quelqu'un qui attaque vraiment.",
+    "cues": [
+     "30 % de force, rien au visage",
+     "Entraîner le regard, le jeu de jambes, le calme",
+     "Toucher les gants pour se saluer, avant et après"
+    ],
+    "mistakes": [
+     "Frapper plus fort après avoir été touché",
+     "Fermer les yeux quand on reçoit un coup"
+    ],
+    "drill": {
+     "label": "Rounds de sparring",
+     "say": "C'est ton tour. Rounds de sparring : trois rounds de soixante secondes, avec trente secondes de repos entre les rounds."
+    }
+   },
+   "tk15-5": {
+    "title": "Étirements et récupération",
+    "say": "Après une séance intense, étire-toi pendant dix minutes. Étire l'avant et l'arrière des cuisses, les hanches, les épaules et le dos, trente secondes par position, en expirant pour aller plus loin dans l'étirement. Bois de l'eau, mange suffisamment, et dors suffisamment. Les muscles se développent quand tu te reposes, pas quand tu t'entraînes.",
+    "cues": [
+     "30 secondes par position",
+     "Expire pour aller plus loin",
+     "Boire, bien manger, bien dormir"
+    ],
+    "mistakes": [
+     "Faire des à-coups en s'étirant",
+     "Sauter la récupération"
+    ],
+    "drill": {
+     "label": "Étirements de récupération",
+     "say": "C'est ton tour. Étirements de récupération pendant cent vingt secondes. Le chrono va décompter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "La patte d'ours est présentée bas, au niveau du ventre. Quel est le réflexe ?",
+    "a": [
+     "Coup de pied poussé",
+     "Garde haute"
+    ],
+    "why": "Une cible basse, c'est pour le coup de pied poussé."
+   },
+   {
+    "q": "Avec quelle force fait-on le sparring contrôlé ?",
+    "a": [
+     "Environ 30 %",
+     "À fond"
+    ],
+    "why": "On travaille la technique en sécurité. On ne se bat pas pour de vrai."
+   },
+   {
+    "q": "Chaque situation de self-défense se termine toujours par :",
+    "a": [
+     "Rester et continuer le combat",
+     "Crier fort, créer de la distance et fuir"
+    ],
+    "why": "Le but de la self-défense, c'est la sécurité."
+   },
+   {
+    "q": "Quand les muscles se développent-ils ?",
+    "a": [
+     "Au repos, quand on mange et dort assez",
+     "Seulement pendant l'entraînement"
+    ],
+    "why": "La récupération fait partie de l'entraînement."
+   }
+  ]
+ }
+}

@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Pemanasan & napas",
+  "sub": "Memutar sendi, menghangatkan tubuh, napas mengikuti langkah, napas buang, tegang – rileks",
+  "intro": "Materi pertama. Belum ada teknik serangan sama sekali. Pejuang yang baik selalu mulai dari sendi yang hangat dan napas yang tenang. Ikuti saya langkah demi langkah.",
+  "safety": "Lakukan pemanasan sebelum setiap sesi latihan. Jika sendi terasa nyeri tajam, segera berhenti.",
+  "outro": "Bagus sekali. Sendi sudah hangat, napas sudah masuk ke ritmenya. Sesi berikutnya kita belajar kuda-kuda dan langkah kaki.",
+  "home": "Pekerjaan rumah: setiap pagi, lakukan pemanasan dan napas mengikuti langkah selama sepuluh menit, tujuh hari berturut-turut.",
+  "steps": {
+   "tk1-1": {
+    "title": "Memutar sendi dari atas ke bawah",
+    "say": "Berdiri tegak, kedua kaki selebar bahu. Putar leher dengan sangat pelan, lima putaran ke setiap arah. Lalu putar bahu, putar siku, dan putar pergelangan tangan. Kemudian putar pinggul, lutut, dan pergelangan kaki. Lakukan berurutan dari atas ke bawah, dengan gerakan melingkar dan lembut, tanpa menyentak. Kalau sendi sudah hangat, tubuh lebih aman saat jatuh dan saat menyerang.",
+    "cues": [
+     "Dari atas ke bawah: leher → bahu → siku → pergelangan tangan → pinggul → lutut → pergelangan kaki",
+     "Setiap sendi 5 putaran ke setiap arah",
+     "Pelan, melingkar, tanpa menyentak"
+    ],
+    "mistakes": [
+     "Memutar leher terlalu cepat, mendongak ke belakang terlalu kuat",
+     "Menahan napas saat memutar"
+    ],
+    "drill": {
+     "label": "Memutar sendi",
+     "say": "Giliranmu. Putar sendi selama sembilan puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk1-2": {
+    "title": "Menghangatkan tubuh",
+    "say": "Lari di tempat sambil mengangkat lutut tinggi selama tiga puluh detik. Berikutnya sepuluh kali squat: turunkan pinggul seperti duduk di kursi, punggung lurus, lutut searah ujung kaki. Lalu sepuluh kali push-up. Kalau belum terbiasa, tumpukan lutut di lantai. Tujuannya membuat tubuh hangat dan napas sedikit lebih cepat, bukan berlatih sampai kehabisan tenaga.",
+    "cues": [
+     "30 detik lari angkat lutut",
+     "10 squat: punggung lurus, lutut searah ujung kaki",
+     "10 push-up (boleh bertumpu pada lutut)"
+    ],
+    "mistakes": [
+     "Lutut jatuh ke dalam saat squat",
+     "Punggung melengkung turun saat push-up"
+    ],
+    "drill": {
+     "label": "Squat",
+     "say": "Giliranmu. Squat: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk1-3": {
+    "title": "Napas mengikuti langkah",
+    "say": "Ini latihan napas yang umum dalam sistem bela diri praktis Rusia. Berjalanlah dengan langkah teratur. Tarik napas lewat hidung selama empat langkah, buang napas lewat mulut selama empat langkah. Setelah satu menit, kurangi menjadi tiga langkah, lalu dua langkah, lalu satu langkah. Setelah itu naikkan lagi sampai empat langkah. Ingat baik-baik: napas memimpin gerakan. Jangan pernah menahan napas.",
+    "cues": [
+     "Tarik lewat hidung 4 langkah – buang lewat mulut 4 langkah",
+     "Kurangi bertahap 4 → 3 → 2 → 1, lalu naikkan lagi",
+     "Bahu rileks, jangan menahan napas"
+    ],
+    "mistakes": [
+     "Menahan napas saat ganti ritme",
+     "Mengangkat bahu saat menarik napas"
+    ],
+    "drill": {
+     "label": "Jalan sambil napas mengikuti langkah",
+     "say": "Giliranmu. Berjalan sambil bernapas mengikuti langkah selama seratus dua puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk1-4": {
+    "title": "Napas buang saat mengerahkan tenaga",
+    "say": "Saat lelah atau tegang, bernapaslah pendek dan cepat: tarik lewat hidung, embuskan kuat lewat mulut, berkali-kali tanpa henti, seperti meniup lilin. Coba sekarang juga: tahan posisi push-up di atas selama dua puluh detik, sambil terus melakukan napas buang. Kamu akan merasakan otot tidak terlalu kaku, dan pikiran lebih jernih.",
+    "cues": [
+     "Tarik pendek lewat hidung – embuskan kuat lewat mulut",
+     "Terus-menerus seperti meniup lilin",
+     "Tahan plank tinggi 20 detik sambil bernapas"
+    ],
+    "mistakes": [
+     "Napas terlalu cepat sampai pusing: perlambat",
+     "Pinggul turun saat menahan plank"
+    ],
+    "drill": {
+     "label": "Plank tinggi + napas buang",
+     "say": "Giliranmu. Plank tinggi sambil napas buang, selama dua puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk1-5": {
+    "title": "Tegang – rileks seluruh tubuh",
+    "say": "Berbaring telentang di atas matras. Tarik napas, kencangkan kedua telapak kaki selama tiga detik, lalu buang napas dan lemaskan sepenuhnya. Lanjutkan naik ke betis, paha, perut, kepalan tangan, bahu, dan seluruh wajah. Terakhir, kencangkan seluruh tubuh sekali, lalu lepaskan. Orang yang bisa rileks lebih tahan benturan, bergerak lebih cepat, dan lebih jarang cedera.",
+    "cues": [
+     "Tarik napas – kencangkan 3 detik",
+     "Buang napas – lemaskan sepenuhnya",
+     "Dari telapak kaki sampai wajah"
+    ],
+    "mistakes": [
+     "Mengencangkan terlalu kuat sampai kram",
+     "Lupa membuang napas saat melepaskan"
+    ],
+    "drill": {
+     "label": "Tegang – rileks",
+     "say": "Giliranmu. Tegang dan rileks selama enam puluh detik. Waktunya akan dihitung mundur."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Saat memutar sendi, urutan mana yang sebaiknya diikuti?",
+    "a": [
+     "Dari atas ke bawah: leher, bahu… sampai pergelangan kaki",
+     "Acak, sendi mana saja boleh",
+     "Cukup memutar pergelangan kaki"
+    ],
+    "why": "Urutan dari atas ke bawah membantu agar tidak ada sendi yang terlewat."
+   },
+   {
+    "q": "Dalam latihan napas mengikuti langkah, kita menarik napas lewat apa?",
+    "a": [
+     "Lewat mulut",
+     "Lewat hidung",
+     "Menahan napas dulu, baru menarik"
+    ],
+    "why": "Tarik napas lewat hidung, buang lewat mulut, mengikuti irama langkah kaki."
+   },
+   {
+    "q": "Kapan napas buang digunakan?",
+    "a": [
+     "Saat lelah atau tegang",
+     "Hanya saat tidur",
+     "Tidak pernah"
+    ],
+    "why": "Napas yang pendek dan kuat membantu mengurangi ketegangan otot dan menjaga pikiran tetap jernih saat mengerahkan tenaga."
+   },
+   {
+    "q": "Mengapa kita perlu bisa rileks?",
+    "a": [
+     "Supaya terlihat lebih keren",
+     "Lebih tahan benturan, bergerak lebih cepat, lebih jarang cedera",
+     "Supaya tidak perlu pemanasan"
+    ],
+    "why": "Otot yang kaku bereaksi lebih lambat dan lebih mudah cedera."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Kuda-kuda & langkah kaki",
+  "sub": "Pagar tangan, kuda-kuda bertarung, langkah geser, putaran poros",
+  "intro": "Kaki menentukan segalanya. Hanya dengan berdiri kokoh kamu bisa menangkis, menyerang, dan meloloskan diri. Hari ini kita membangun fondasinya.",
+  "safety": "Berlatih di permukaan yang rata dan tidak licin. Melangkah pendek dan mantap.",
+  "outro": "Fondasinya sudah ada. Kaki yang kokoh adalah separuh pertarungan. Materi berikutnya: belajar cara jatuh dengan aman.",
+  "home": "Pekerjaan rumah: setiap hari sepuluh menit berlatih kuda-kuda dan bergerak, tiga ronde, selama tujuh hari.",
+  "steps": {
+   "tk2-1": {
+    "title": "Sikap waspada – pagar tangan",
+    "say": "Saat ada orang mendekat dengan sikap agresif, jangan buru-buru mengepalkan tangan. Berdirilah agak menyamping, kaki dominan mundur setengah langkah. Kedua telapak tangan terbuka di depan dada, telapak menghadap ke depan, seolah berkata: tenang dulu. Kedua tangan adalah pagar untuk menjaga jarak. Kamu tidak terlihat agresif, padahal sebenarnya sudah siap.",
+    "cues": [
+     "Berdiri menyamping, kaki dominan mundur setengah langkah",
+     "Kedua telapak tangan terbuka di depan dada",
+     "Jaga jarak, suara tetap tenang"
+    ],
+    "mistakes": [
+     "Langsung mengepalkan tangan: konflik mudah memanas",
+     "Berdiri menghadap lurus, kedua kaki sejajar"
+    ],
+    "drill": {
+     "label": "Masuk sikap pagar",
+     "say": "Giliranmu. Masuk ke sikap pagar: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk2-2": {
+    "title": "Kuda-kuda bertarung",
+    "say": "Untuk yang dominan tangan kanan: kaki kiri di depan, kaki kanan di belakang. Jarak kedua telapak kaki sedikit lebih lebar dari bahu. Ujung kaki depan agak menyerong ke dalam, tumit kaki belakang sedikit terangkat. Lutut ditekuk, berat badan terbagi rata di kedua kaki. Kedua tangan di depan wajah, siku merapat melindungi rusuk, dagu ditarik ke bawah, mata melihat dari balik kedua kepalan. Kalau kamu kidal, lakukan sebaliknya.",
+    "cues": [
+     "Kaki kiri di depan (dominan tangan kanan)",
+     "Lutut ditekuk, tumit belakang sedikit terangkat",
+     "Tangan melindungi wajah, siku melindungi rusuk, dagu ditarik"
+    ],
+    "mistakes": [
+     "Kedua kaki di satu garis lurus: mudah kehilangan keseimbangan",
+     "Dagu terangkat, tangan turun"
+    ],
+    "drill": {
+     "label": "Masuk kuda-kuda bertarung",
+     "say": "Giliranmu. Masuk ke kuda-kuda bertarung: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk2-3": {
+    "title": "Langkah geser maju – mundur",
+    "say": "Untuk maju: kaki depan melangkah dulu dengan langkah pendek, kaki belakang menggeser menyusul sejauh jarak yang sama. Untuk mundur: kaki belakang mundur dulu, kaki depan ditarik menyusul. Telapak kaki meluncur dekat dengan lantai, jangan melompat. Jangan pernah menyilangkan atau merapatkan kedua kaki. Setelah setiap langkah, kamu tetap dalam kuda-kuda semula.",
+    "cues": [
+     "Maju: kaki depan bergerak dulu",
+     "Mundur: kaki belakang bergerak dulu",
+     "Jarak kedua kaki tetap"
+    ],
+    "mistakes": [
+     "Menyilangkan kaki",
+     "Melompat, bukannya menggeser"
+    ],
+    "drill": {
+     "label": "Langkah maju – mundur",
+     "say": "Giliranmu. Langkah maju dan mundur: dua puluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk2-4": {
+    "title": "Langkah ke samping",
+    "say": "Ke kiri, kaki kiri bergerak dulu. Ke kanan, kaki kanan bergerak dulu. Kaki yang lain menggeser menyusul. Jaga jarak kedua kaki tetap sama, tangan tetap melindungi wajah. Di tanah berlumpur yang licin, makin pendek langkahnya, makin mantap.",
+    "cues": [
+     "Ke kiri: kaki kiri dulu",
+     "Ke kanan: kaki kanan dulu",
+     "Langkah pendek di permukaan licin"
+    ],
+    "mistakes": [
+     "Kaki belakang melangkah melewati kaki depan",
+     "Menurunkan tangan saat bergerak"
+    ],
+    "drill": {
+     "label": "Langkah ke samping",
+     "say": "Giliranmu. Langkah ke samping: dua puluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk2-5": {
+    "title": "Putaran poros untuk ubah sudut",
+    "say": "Berdiri dalam kuda-kuda bertarung. Jadikan ujung kaki depan sebagai poros, lalu putar kaki belakang membentuk busur seperempat lingkaran. Seluruh badan berubah sudut sembilan puluh derajat, keluar dari jalur serangan lawan. Putar ke satu sisi sepuluh kali, lalu ganti arah.",
+    "cues": [
+     "Bertumpu pada ujung kaki depan",
+     "Kaki belakang menyapu membentuk busur",
+     "Ubah sudut 90°, tangan tetap menjaga"
+    ],
+    "mistakes": [
+     "Bertumpu pada tumit",
+     "Badan tegak kaku saat berputar"
+    ],
+    "drill": {
+     "label": "Putaran poros tiap arah",
+     "say": "Giliranmu. Putaran poros ke setiap arah: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk2-6": {
+    "title": "Bergerak sesuai aba-aba",
+    "say": "Sekarang bergeraklah sesuai aba-aba saya selama tiga puluh detik: maju, mundur, kiri, kanan, putar. Jaga tangan, jaga dagu, jaga napas tetap teratur. Kaki bergerak cepat, tetapi badan atas selalu tenang.",
+    "cues": [
+     "Maju – mundur – kiri – kanan – putar",
+     "Tangan dan dagu selalu di posisi yang benar",
+     "Bernapas teratur"
+    ],
+    "mistakes": [
+     "Melihat ke bawah, ke kaki",
+     "Langkah terlalu panjang"
+    ],
+    "drill": {
+     "label": "Langkah kaki sesuai aba-aba",
+     "say": "Giliranmu. Bergeraklah sesuai aba-aba saya selama tiga puluh detik. Dengarkan baik-baik, ya.",
+     "calls": [
+      "Maju!",
+      "Mundur!",
+      "Ke kiri!",
+      "Ke kanan!",
+      "Putar!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Untuk apa sikap pagar tangan?",
+    "a": [
+     "Menjaga jarak tanpa terlihat agresif",
+     "Langsung memukul lawan",
+     "Melipat tangan sambil menunggu"
+    ],
+    "why": "Telapak tangan yang terbuka menjaga jarak dan meredakan situasi."
+   },
+   {
+    "q": "Untuk mundur, kaki mana yang bergerak lebih dulu?",
+    "a": [
+     "Kaki depan",
+     "Kaki belakang",
+     "Kedua kaki melompat bersamaan"
+    ],
+    "why": "Ke arah mana pun kamu bergerak, kaki yang paling dekat dengan arah itu bergerak lebih dulu."
+   },
+   {
+    "q": "Apa kesalahan paling berbahaya saat bergerak?",
+    "a": [
+     "Menyilangkan kedua kaki",
+     "Melangkah pendek",
+     "Menjaga tangan tetap melindungi wajah"
+    ],
+    "why": "Kaki yang bersilang membuatmu sangat mudah kehilangan keseimbangan."
+   },
+   {
+    "q": "Saat putaran poros, kita bertumpu pada bagian mana dari kaki depan?",
+    "a": [
+     "Tumit",
+     "Ujung kaki",
+     "Sisi luar telapak kaki"
+    ],
+    "why": "Bertumpu pada ujung kaki membuat putaran ringan dan cepat."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Jatuh aman",
+  "sub": "Prinsip jatuh, jatuh ke belakang, jatuh ke samping, guling depan",
+  "intro": "Di kamp ini, semua orang harus belajar jatuh sebelum belajar membanting. Jatuh dengan benar adalah keterampilan yang menyelamatkan nyawa, bahkan saat kamu terpeleset di jalan yang licin.",
+  "safety": "Hanya berlatih di atas matras tebal. Dagu selalu ditarik. Latihan guling harus didampingi instruktur.",
+  "outro": "Kamu sudah tahu cara jatuh. Mulai hari ini, lantai tidak lagi menakutkan. Materi berikutnya: melindungi diri dan menangkis serangan.",
+  "home": "Pekerjaan rumah: setiap hari sepuluh kali jatuh ke belakang, dan sepuluh kali jatuh ke samping untuk setiap sisi, di atas matras tebal, selama satu minggu.",
+  "steps": {
+   "tk3-1": {
+    "title": "Tiga prinsip emas",
+    "say": "Tiga prinsip emas saat jatuh. Pertama: dagu selalu ditarik rapat ke dada, supaya kepala tidak pernah membentur lantai. Kedua: punggung melengkung bulat seperti roda, supaya kamu berguling, bukan terbanting datar. Ketiga: lengan menepuk matras bersamaan dengan badan, untuk memecah gaya benturan. Selalu berlatih di atas matras tebal. Jangan sekali-kali berlatih di lantai keras.",
+    "cues": [
+     "Dagu ditarik rapat ke dada",
+     "Punggung bulat seperti roda",
+     "Lengan menepuk matras bersamaan dengan badan"
+    ],
+    "mistakes": [
+     "Menahan jatuh dengan tangan lurus ke lantai: pergelangan tangan mudah patah",
+     "Kepala terdongak ke belakang"
+    ],
+    "drill": {
+     "label": "Bulatkan punggung, tarik dagu",
+     "say": "Giliranmu. Bulatkan punggung, tarik dagu: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk3-2": {
+    "title": "Jatuh ke belakang dari posisi duduk",
+    "say": "Duduk di atas matras, kedua kaki diluruskan ke depan, kedua tangan diulurkan ke depan. Tarik dagu, bulatkan punggung, lalu berguling ke belakang. Saat punggung atas menyentuh matras, luruskan kedua lengan dan tepukkan dengan kuat ke matras, kira-kira empat puluh lima derajat dari badan, telapak tangan menghadap ke bawah. Embuskan napas saat menyentuh matras. Berguling kembali ke posisi duduk. Lakukan sepuluh kali.",
+    "cues": [
+     "Duduk, tangan diulurkan ke depan",
+     "Berguling ke belakang, dagu ditarik",
+     "Tepuk dengan kedua lengan pada 45°, telapak menghadap ke bawah, embuskan napas"
+    ],
+    "mistakes": [
+     "Menepuk terlalu jauh atau terlalu dekat dengan badan",
+     "Menepuk dengan siku, bukan dengan seluruh lengan"
+    ],
+    "drill": {
+     "label": "Jatuh ke belakang dari duduk",
+     "say": "Giliranmu. Jatuh ke belakang dari posisi duduk: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk3-3": {
+    "title": "Jatuh ke belakang dari jongkok",
+    "say": "Jongkok, kedua tangan diulurkan ke depan. Turunkan bokong ke matras, dekat dengan tumit, lalu berguling bulat ke belakang seperti latihan sebelumnya, dan tepukkan kedua lengan. Jangan menjatuhkan diri dengan keras. Jangan biarkan punggung lurus terbanting datar. Kalau sudah mantap, berdiri lalu jongkok lagi berulang-ulang, untuk berlatih makin cepat.",
+    "cues": [
+     "Bokong turun dekat tumit",
+     "Berguling bulat, jangan terbanting datar",
+     "Tepuk lengan, embuskan napas"
+    ],
+    "mistakes": [
+     "Menjatuhkan bokong jauh dari tumit",
+     "Kepala terhentak ke belakang menyentuh matras"
+    ],
+    "drill": {
+     "label": "Jatuh ke belakang dari jongkok",
+     "say": "Giliranmu. Jatuh ke belakang dari jongkok: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk3-4": {
+    "title": "Jatuh ke samping",
+    "say": "Dari posisi jongkok, julurkan kaki kanan menyilang di depan kaki kiri, lalu turunkan badan miring ke kanan. Pinggul kanan, lalu sisi kanan punggung menyentuh matras secara berurutan, dan lengan kanan menepuk matras. Dagu ditarik, kepala tidak menyentuh matras. Lalu ganti sisi. Ini cara jatuh yang paling sering terjadi saat kamu dibanting.",
+    "cues": [
+     "Julurkan kaki menyilang di depan",
+     "Pinggul → punggung menyentuh matras berurutan",
+     "Lengan di sisi yang sama menepuk matras"
+    ],
+    "mistakes": [
+     "Menahan dengan siku",
+     "Kepala terbentur miring ke matras"
+    ],
+    "drill": {
+     "label": "Jatuh ke samping tiap sisi",
+     "say": "Giliranmu. Jatuh ke samping untuk setiap sisi: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk3-5": {
+    "title": "Guling depan lewat bahu",
+    "say": "Berlutut dengan satu kaki di atas matras, kaki kanan di depan. Lengan kanan dilengkungkan seperti bingkai roda, letakkan sisi luar lengan di matras. Lihat ke arah bahu kiri. Berguling menyilang dari bahu kanan ke pinggul kiri. Jangan berguling lewat ubun-ubun, jangan berguling lurus di atas tulang belakang. Akhiri dengan posisi duduk yang mantap, atau langsung berdiri, tangan naik melindungi wajah.",
+    "cues": [
+     "Lengan membentuk busur seperti roda",
+     "Berguling menyilang: bahu kanan → pinggul kiri",
+     "Jangan lewat kepala, berdiri sambil melindungi wajah"
+    ],
+    "mistakes": [
+     "Berguling lurus lewat ubun-ubun: sangat berbahaya bagi leher",
+     "Lengan tertekuk sehingga kepala menyentuh matras"
+    ],
+    "drill": {
+     "label": "Guling depan tiap sisi",
+     "say": "Giliranmu. Guling depan untuk setiap sisi: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Saat jatuh, bagaimana posisi dagu?",
+    "a": [
+     "Mendongak",
+     "Ditarik rapat ke dada",
+     "Menoleh ke samping"
+    ],
+    "why": "Dagu ditarik supaya kepala tidak membentur lantai."
+   },
+   {
+    "q": "Lengan menepuk matras kira-kira berapa derajat dari badan?",
+    "a": [
+     "Sekitar 45°",
+     "Menempel badan, 0°",
+     "Lurus ke atas"
+    ],
+    "why": "Sekitar empat puluh lima derajat. Gayanya terpecah dengan baik, dan siku tidak terbentur."
+   },
+   {
+    "q": "Saat guling depan, bagaimana jalur gulingnya?",
+    "a": [
+     "Lurus lewat ubun-ubun",
+     "Menyilang dari bahu ke pinggul sisi lain",
+     "Berguling menyamping"
+    ],
+    "why": "Berguling menyilang lewat bahu untuk melindungi leher dan tulang belakang."
+   },
+   {
+    "q": "Di mana kita berlatih jatuh?",
+    "a": [
+     "Di lantai beton supaya terbiasa",
+     "Di atas matras tebal",
+     "Di tangga"
+    ],
+    "why": "Selalu berlatih di atas matras tebal. Keselamatan nomor satu."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Melindungi diri & menangkis",
+  "sub": "Jaga tinggi, lindungi kepala, tepisan, tangkisan lengan bawah, menghindar ke sudut",
+  "intro": "Sebelum belajar menyerang, kamu harus belajar supaya tidak terkena pukulan. Pertahanan terbaik itu sederhana, ringkas, dan selalu disertai gerakan.",
+  "safety": "Latihan berpasangan memakai sarung tangan. Partner latihanmu menyerang pelan, hanya dua puluh persen tenaga.",
+  "outro": "Kamu sudah punya perisai. Materi berikutnya kita belajar serangan dasar pada sasaran pad.",
+  "home": "Pekerjaan rumah: setiap hari lima menit latihan melindungi diri di depan cermin, dan dua kali seminggu latihan berpasangan pelan-pelan.",
+  "steps": {
+   "tk4-1": {
+    "title": "Jaga tinggi",
+    "say": "Dari kuda-kuda bertarung, angkat kedua kepalan setinggi dahi, kedua lengan bawah tegak di depan wajah seperti dua perisai. Siku merapat, dagu ditarik, bahu terangkat melindungi rahang. Ini posisi perlindungan paling kokoh saat serangan datang terlalu cepat dan kamu tidak sempat melihatnya.",
+    "cues": [
+     "Kepalan setinggi dahi",
+     "Lengan bawah tegak seperti perisai",
+     "Dagu ditarik, bahu melindungi rahang"
+    ],
+    "mistakes": [
+     "Memejamkan mata saat melindungi diri",
+     "Siku terbuka lebar sehingga rusuk terbuka"
+    ],
+    "drill": {
+     "label": "Masuk jaga tinggi",
+     "say": "Giliranmu. Masuk ke posisi jaga tinggi: lima belas kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk4-2": {
+    "title": "Lindungi kepala sepenuhnya",
+    "say": "Saat kamu terdesak oleh banyak serangan beruntun: kedua telapak tangan memegang bagian belakang kepala, kedua siku merapat di depan wajah, badan membungkuk, lutut ditekuk. Kepala terlindung rapat di dalam sangkar kedua lengan. Tapi jangan diam lama dalam posisi ini. Lindungi diri, lalu segera bergerak keluar dari sudut serangan.",
+    "cues": [
+     "Kedua tangan memegang belakang kepala",
+     "Siku merapat di depan wajah",
+     "Lindungi, lalu segera bergerak"
+    ],
+    "mistakes": [
+     "Diam di tempat menerima pukulan",
+     "Membalikkan badan membelakangi lawan"
+    ],
+    "drill": {
+     "label": "Lindungi kepala lalu keluar ke samping",
+     "say": "Giliranmu. Lindungi kepala, lalu keluar ke samping: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk4-3": {
+    "title": "Tepisan",
+    "say": "Saat pukulan lurus melesat ke wajah, jangan menahannya dengan kaku. Gunakan telapak tangan untuk menepis pelan pergelangan atau kepalan lawan ke samping, cukup supaya pukulannya meleset melewati wajahmu. Gerakannya kecil dan pendek, lalu tangan segera kembali ke posisi jaga.",
+    "cues": [
+     "Tepis dengan telapak tangan",
+     "Cukup untuk membelokkan pukulan",
+     "Segera kembali menjaga"
+    ],
+    "mistakes": [
+     "Mengayunkan tangan terlalu lebar",
+     "Menjulurkan tangan untuk menyambut pukulan"
+    ],
+    "drill": {
+     "label": "Tepisan tiap tangan",
+     "say": "Giliranmu. Tepisan dengan setiap tangan: dua puluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk4-4": {
+    "title": "Tangkisan lengan bawah ke atas",
+    "say": "Saat serangan menghantam dari atas ke bawah, angkat lengan bawah menyilang di depan dahi. Lengan bawah dimiringkan seperti atap rumah, supaya gayanya meluncur, tidak menghantam lurus ke tulang. Pada saat yang sama, melangkah serong ke depan atau ke luar.",
+    "cues": [
+     "Lengan bawah menyilang di depan dahi",
+     "Miring seperti atap rumah",
+     "Disertai langkah serong"
+    ],
+    "mistakes": [
+     "Lengan bawah mendatar: menerima gaya sepenuhnya",
+     "Diam di tempat"
+    ],
+    "drill": {
+     "label": "Tangkis ke atas tiap tangan",
+     "say": "Giliranmu. Tangkisan ke atas dengan setiap tangan: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk4-5": {
+    "title": "Menghindar ke sudut – langkah serong",
+    "say": "Pertahanan terbaik adalah tidak berada di tempat serangan itu datang. Saat menepis, sekaligus melangkah serong empat puluh lima derajat ke sisi luar tangan lawan yang memukul. Kamu keluar dari jalur serangan, dan berdiri di posisi yang lebih aman untuk menjauh.",
+    "cues": [
+     "Tepis + langkah serong 45°",
+     "Ke sisi luar tangan yang memukul",
+     "Dari sudut aman, menjauh"
+    ],
+    "mistakes": [
+     "Mundur lurus ke belakang: lawan mudah mengejar",
+     "Melangkah ke sisi dalam, ke arah tangan lawan yang lain"
+    ],
+    "drill": {
+     "label": "Tepis + menghindar ke sudut tiap sisi",
+     "say": "Giliranmu. Tepis dan menghindar ke sudut untuk setiap sisi: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk4-6": {
+    "title": "Latihan berpasangan pelan",
+    "say": "Berlatih dengan partner, keduanya memakai sarung tangan. Yang menyerang memukul dengan sangat pelan, hanya dua puluh persen tenaga, mengarah ke sarung tangan, bukan ke wajah. Yang bertahan menyebutkan nama teknik yang dipakai: jaga tinggi, tepis, menghindar ke sudut. Setelah gerakannya benar dan tenang, baru tambah kecepatan sedikit demi sedikit.",
+    "cues": [
+     "Pakai sarung tangan, 20% tenaga",
+     "Sebutkan nama teknik saat melakukannya",
+     "Benar dulu, baru cepat"
+    ],
+    "mistakes": [
+     "Menambah kecepatan terlalu cepat",
+     "Benar-benar memukul wajah partner"
+    ],
+    "drill": {
+     "label": "Latihan berpasangan pelan",
+     "say": "Giliranmu. Latihan berpasangan pelan selama enam puluh detik. Waktunya akan dihitung mundur."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Tepisan yang benar adalah?",
+    "a": [
+     "Tepisan kecil yang cukup untuk membelokkan pukulan, lalu kembali menjaga",
+     "Mengayunkan tangan selebar mungkin",
+     "Menyambut pukulan dengan wajah"
+    ],
+    "why": "Gerakannya kecil dan cepat, tidak membuka celah dalam pertahanan."
+   },
+   {
+    "q": "Saat menangkis serangan dari atas ke bawah, bagaimana posisi lengan bawah?",
+    "a": [
+     "Mendatar",
+     "Menyilang, miring seperti atap rumah",
+     "Diturunkan ke perut"
+    ],
+    "why": "Miring seperti atap rumah, supaya gayanya meluncur."
+   },
+   {
+    "q": "Menghindar ke sudut artinya melangkah ke arah mana?",
+    "a": [
+     "Serong 45° ke sisi luar tangan yang memukul",
+     "Mundur lurus",
+     "Diam di tempat"
+    ],
+    "why": "Keluar dari jalur serangan, menuju sudut yang aman."
+   },
+   {
+    "q": "Saat latihan berpasangan, berapa tenaga yang dipakai si penyerang?",
+    "a": [
+     "Sekuat tenaga",
+     "Sekitar 20%",
+     "50%"
+    ],
+    "why": "Berlatih pelan supaya belajar dengan benar dan aman."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Serangan dasar pada pad",
+  "sub": "Kepalan, pukulan lurus, pukulan pangkal telapak, tendangan dorong, kombinasi",
+  "intro": "Serangan yang baik tidak perlu indah. Cukup benar, ringkas, dan aman untuk dirimu sendiri. Hari ini kita berlatih pada pad sasaran, tidak pernah pada orang sungguhan.",
+  "safety": "Pakai pembalut tangan dan sarung tangan. Pukul hanya pad sasaran atau samsak.",
+  "outro": "Seranganmu sudah bertenaga dan disiplin. Materi berikutnya: meloloskan diri saat pergelangan tangan dicengkeram.",
+  "home": "Pekerjaan rumah: tiga sesi seminggu, setiap sesi lima ronde tiga puluh detik memukul pad sasaran atau samsak.",
+  "steps": {
+   "tk5-1": {
+    "title": "Kepalan yang benar",
+    "say": "Gulung keempat jari ke dalam telapak tangan. Ibu jari ditekuk rapat di luar jari telunjuk dan jari tengah, jangan pernah dijepit di dalam. Saat mengenai sasaran, pergelangan tangan lurus segaris dengan lengan bawah, dan tenaga masuk lewat dua buku jari, yaitu jari telunjuk dan jari tengah. Pemula selalu memakai pembalut tangan dan sarung tangan.",
+    "cues": [
+     "Gulung 4 jari ke telapak tangan",
+     "Ibu jari ditekuk di luar",
+     "Pergelangan segaris dengan lengan bawah"
+    ],
+    "mistakes": [
+     "Menjepit ibu jari di dalam kepalan",
+     "Pergelangan tertekuk saat mengenai sasaran"
+    ],
+    "drill": {
+     "label": "Kepal – buka tangan dengan benar",
+     "say": "Giliranmu. Kepalkan dan buka tangan dengan benar: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk5-2": {
+    "title": "Pukulan lurus tangan depan",
+    "say": "Dari kuda-kuda bertarung, lepaskan kepalan depan lurus ke depan lewat jalur terpendek. Putar kepalan menghadap ke bawah saat hampir mengenai sasaran, bahu terangkat melindungi dagu. Tangan yang lain tetap di samping wajah. Setelah memukul, tarik kembali lewat jalur yang sama, secepat saat melepaskannya.",
+    "cues": [
+     "Jalur lurus terpendek",
+     "Putar kepalan ke bawah saat mengenai",
+     "Tarik kembali cepat, tangan lain tetap menjaga"
+    ],
+    "mistakes": [
+     "Menarik tangan ke belakang untuk ancang-ancang",
+     "Menurunkan tangan belakang"
+    ],
+    "drill": {
+     "label": "Pukulan tangan depan",
+     "say": "Giliranmu. Pukulan tangan depan: dua puluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk5-3": {
+    "title": "Pukulan lurus tangan belakang",
+    "say": "Dorong dari tumit kaki belakang, putar pinggul dan bahu, lalu lepaskan kepalan belakang lurus ke sasaran. Ujung kaki belakang ikut berputar, seperti sedang mematikan puntung api. Kekuatan datang dari kaki dan pinggul, bukan hanya dari lengan. Lalu segera kembali ke posisi jaga.",
+    "cues": [
+     "Dorong dari kaki belakang",
+     "Putar pinggul – bahu – ujung kaki belakang",
+     "Segera kembali menjaga"
+    ],
+    "mistakes": [
+     "Hanya memakai lengan, pinggul tidak berputar",
+     "Badan condong terlalu ke depan, kehilangan keseimbangan"
+    ],
+    "drill": {
+     "label": "Pukulan tangan belakang",
+     "say": "Giliranmu. Pukulan tangan belakang: dua puluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk5-4": {
+    "title": "Pukulan pangkal telapak",
+    "say": "Tekuk pergelangan tangan ke belakang, buka telapak tangan, jari-jari sedikit menekuk. Pukul dengan pangkal telapak tangan, jalurnya lurus seperti pukulan biasa. Dalam situasi bela diri di dunia nyata, serangan ini lebih aman bagi tangan dibanding kepalan tanpa pelindung, karena tidak ada buku jari yang membentur tulang keras.",
+    "cues": [
+     "Tekuk pergelangan ke belakang, buka telapak",
+     "Pukul dengan pangkal telapak",
+     "Jalur lurus seperti pukulan biasa"
+    ],
+    "mistakes": [
+     "Memukul dengan bagian dalam jari",
+     "Jari-jari diluruskan kaku"
+    ],
+    "drill": {
+     "label": "Pangkal telapak tiap sisi",
+     "say": "Giliranmu. Pukulan pangkal telapak untuk setiap sisi: lima belas kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk5-5": {
+    "title": "Tendangan dorong depan",
+    "say": "Angkat lutut kaki belakang tinggi setinggi pinggul. Lalu tendang lurus dengan tumit ke depan, seperti mendobrak pintu, sambil mendorong pinggul. Sasarannya area perut, di sini berupa perisai pad. Tarik kaki kembali, dan turunkan ke kuda-kuda. Tujuan serangan ini adalah mendorong penyerang menjauh, untuk menciptakan jarak supaya kamu bisa pergi.",
+    "cues": [
+     "Angkat lutut setinggi pinggul",
+     "Tendang dengan tumit, dorong pinggul",
+     "Tarik kaki kembali ke kuda-kuda"
+    ],
+    "mistakes": [
+     "Menendang dengan ujung jari kaki",
+     "Badan terlalu condong ke belakang"
+    ],
+    "drill": {
+     "label": "Tendangan dorong tiap kaki",
+     "say": "Giliranmu. Tendangan dorong dengan setiap kaki: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk5-6": {
+    "title": "Kombinasi dan menjauh",
+    "say": "Sekarang gabungkan menjadi kombinasi: pukulan tangan depan, pukulan tangan belakang, tendangan dorong, lalu mundur dua langkah ke sikap pagar tangan. Lakukan tiga ronde, setiap ronde tiga puluh detik pada pad sasaran, istirahat dua puluh detik. Lakukan setiap serangan dengan jelas. Benar dulu, baru cepat.",
+    "cues": [
+     "Tangan depan – tangan belakang – tendangan dorong",
+     "Mundur 2 langkah, pagar tangan",
+     "3 ronde × 30 detik, istirahat 20 detik"
+    ],
+    "mistakes": [
+     "Lupa mundur setelah kombinasi",
+     "Menyerang terburu-buru, kuda-kuda hilang"
+    ],
+    "drill": {
+     "label": "Ronde kombinasi",
+     "say": "Giliranmu. Ronde kombinasi: tiga ronde, setiap ronde tiga puluh detik, istirahat dua puluh detik di antara ronde."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Di mana posisi ibu jari saat mengepal?",
+    "a": [
+     "Dijepit di dalam",
+     "Ditekuk di luar jari telunjuk dan jari tengah",
+     "Diluruskan"
+    ],
+    "why": "Kalau dijepit di dalam, ibu jari mudah patah."
+   },
+   {
+    "q": "Dari mana kekuatan pukulan tangan belakang berasal?",
+    "a": [
+     "Hanya dari lengan",
+     "Dari kaki dan pinggul",
+     "Dari leher"
+    ],
+    "why": "Kaki mendorong, pinggul berputar, lalu bahu dan lengan mengikuti."
+   },
+   {
+    "q": "Apa tujuan utama tendangan dorong dalam bela diri?",
+    "a": [
+     "Menciptakan jarak untuk pergi",
+     "Menendang ke kepala",
+     "Pamer teknik"
+    ],
+    "why": "Mendorong penyerang menjauh, supaya kamu bisa pergi dengan aman."
+   },
+   {
+    "q": "Mengapa pukulan pangkal telapak lebih aman bagi tangan?",
+    "a": [
+     "Tidak ada buku jari yang membentur tulang keras",
+     "Karena gerakannya lambat",
+     "Karena pukulannya lemah"
+    ],
+    "why": "Pangkal telapak tangan itu kokoh, risiko cedera tangan lebih kecil."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Lolos dari cengkeraman pergelangan",
+  "sub": "Prinsip ibu jari, cengkeraman sesisi, cengkeraman silang, cengkeraman dua tangan",
+  "intro": "Pergelangan tangan dicengkeram adalah situasi yang sangat sering terjadi. Tidak perlu kekuatan besar, cukup pahami titik lemah tangan lawan dengan benar.",
+  "safety": "Partner latihan mencengkeram dengan tenaga secukupnya. Lepaskan diri dengan pelan, jangan menyentak keras sampai sendi sakit.",
+  "outro": "Tanganmu sudah tahu cara membebaskan diri. Materi berikutnya: meloloskan diri saat dipeluk dan dicengkeram dari depan.",
+  "home": "Pekerjaan rumah: setiap hari sepuluh kali lolos dari cengkeraman untuk setiap jenis, berlatih bersama keluarga, selama satu minggu.",
+  "steps": {
+   "tk6-1": {
+    "title": "Prinsip ibu jari",
+    "say": "Saat pergelangan tanganmu dicengkeram, titik terlemah tangan lawan adalah celah antara ibu jari dan jari-jari lainnya. Jangan adu tenaga dengan tenaga. Putar lengan bawahmu, supaya bagian tulang pergelangan yang tipis menghadap celah itu, lalu tarik kuat keluar ke arah ibu jari.",
+    "cues": [
+     "Cari ibu jari lawan",
+     "Putar pergelangan ke celah ibu jari",
+     "Tarik kuat ke arah ibu jari"
+    ],
+    "mistakes": [
+     "Menarik lurus ke belakang, adu tarik",
+     "Menarik ke arah keempat jari"
+    ],
+    "drill": {
+     "label": "Cari arah ibu jari",
+     "say": "Giliranmu. Cari arah ibu jari: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk6-2": {
+    "title": "Dicengkeram dari sisi yang sama",
+    "say": "Ivan mencengkeram pergelangan kanan saya dengan tangan kirinya. Saya menurunkan titik berat, menekuk siku, dan menarik tangan rapat ke badan saya. Saya putar lengan bawah, supaya pergelangan menghadap ibu jari Ivan, lalu saya sentak kuat ke atas, ke arah bahu saya. Tangan pun lepas. Segera angkat kedua tangan membentuk pagar, lalu mundur.",
+    "cues": [
+     "Turunkan titik berat, tekuk siku",
+     "Putar pergelangan ke arah ibu jari",
+     "Sentak ke arah bahu sendiri, lalu pagar tangan"
+    ],
+    "mistakes": [
+     "Meluruskan lengan saat meloloskan diri",
+     "Tetap berdiri dekat setelah lolos"
+    ],
+    "drill": {
+     "label": "Lolos cengkeraman sesisi tiap tangan",
+     "say": "Giliranmu. Lolos dari cengkeraman sesisi dengan setiap tangan: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk6-3": {
+    "title": "Dicengkeram silang",
+    "say": "Saat dicengkeram silang, misalnya tangan kanan lawan mencengkeram pergelangan kananmu, ibu jarinya berada di atas. Putar pergelanganmu ke atas, memotong melewati celah ibu jari, lalu tarik ke arah bahu yang berlawanan. Gabungkan dengan satu langkah mundur serong.",
+    "cues": [
+     "Ibu jari lawan ada di atas",
+     "Putar ke atas, potong lewat celah ibu jari",
+     "Tarik ke bahu seberang + mundur serong"
+    ],
+    "mistakes": [
+     "Menarik ke bawah, berlawanan dengan arah celah",
+     "Lupa melangkah"
+    ],
+    "drill": {
+     "label": "Lolos cengkeraman silang tiap tangan",
+     "say": "Giliranmu. Lolos dari cengkeraman silang dengan setiap tangan: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk6-4": {
+    "title": "Dicengkeram dengan dua tangan",
+    "say": "Saat dicengkeram dengan kedua tangan, satu tanganmu tidak cukup kuat. Selipkan tanganmu yang bebas di antara kedua lengan lawan, lalu pegang kepalan tanganmu sendiri. Kemudian gunakan tenaga kedua tangan, ditambah putaran bahu, untuk menyentak kuat ke atas, lewat celah kedua ibu jari lawan.",
+    "cues": [
+     "Tangan bebas diselipkan ke tengah",
+     "Pegang kepalan tanganmu sendiri",
+     "Dua tangan + putaran bahu, sentak ke atas"
+    ],
+    "mistakes": [
+     "Mencoba menarik dengan satu tangan saja",
+     "Menyentak ke samping, bukan ke atas"
+    ],
+    "drill": {
+     "label": "Lolos cengkeraman dua tangan",
+     "say": "Giliranmu. Lolos dari cengkeraman dua tangan: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk6-5": {
+    "title": "Setelah lolos",
+    "say": "Lolos bukan berarti selesai. Segera mundur menjauh, angkat kedua tangan membentuk pagar, dan berteriak sekeras-kerasnya: Berhenti! Teriakan itu menarik perhatian orang di sekitar, dan menunjukkan bahwa kamu tidak ingin berkelahi. Tujuan bela diri selalu sama: lolos dengan selamat, lalu pergi.",
+    "cues": [
+     "Segera mundur menjauh",
+     "Pagar tangan",
+     "Teriak keras: Berhenti!"
+    ],
+    "mistakes": [
+     "Tetap di tempat dan berdebat",
+     "Berbalik lari saat masih terlalu dekat"
+    ],
+    "drill": {
+     "label": "Lolos – mundur – teriak",
+     "say": "Giliranmu. Lolos, mundur, lalu teriak: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Apa titik lemah tangan yang sedang mencengkeram?",
+    "a": [
+     "Telapak tangan",
+     "Celah antara ibu jari dan jari-jari lainnya",
+     "Jari kelingking"
+    ],
+    "why": "Celah ibu jari adalah bagian terbuka yang paling mudah untuk meloloskan diri."
+   },
+   {
+    "q": "Kalau dicengkeram dengan dua tangan, apa yang sebaiknya dilakukan?",
+    "a": [
+     "Tarik satu tangan sekuat-kuatnya",
+     "Pegang tanganmu sendiri, sentak ke atas dengan dua tangan",
+     "Diam saja"
+    ],
+    "why": "Dua tangan ditambah putaran bahu bisa mengalahkan dua tangan lawan."
+   },
+   {
+    "q": "Setelah lolos, apa yang pertama dilakukan?",
+    "a": [
+     "Mundur menjauh, pagar tangan, teriak keras",
+     "Langsung membalas",
+     "Berdebat"
+    ],
+    "why": "Tujuan bela diri adalah selamat, lalu pergi."
+   },
+   {
+    "q": "Apakah sebaiknya kita adu tenaga dengan tenaga?",
+    "a": [
+     "Ya",
+     "Tidak, gunakan arah ibu jari yang benar"
+    ],
+    "why": "Teknik yang benar mengalahkan kekuatan."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Lolos dari pelukan & cengkeraman depan",
+  "sub": "Dipeluk dari belakang dengan lengan terkunci, dipeluk dari belakang dengan lengan bebas, kerah dicengkeram dari depan, sinyal berhenti",
+  "intro": "Dipeluk erat adalah perasaan yang paling menakutkan. Rahasianya ada pada titik berat yang rendah dan kaki yang lincah. Kita berlatih pelan, aman, dan selalu menghormati sinyal berhenti.",
+  "safety": "Partner latihan memeluk dengan tenaga secukupnya. Jangan pernah mencekik leher sungguhan. Tepuk dua kali berarti berhenti.",
+  "outro": "Kamu sudah bisa lolos dari cengkeraman yang paling tidak nyaman. Materi terakhir di bagian ini: mematahkan keseimbangan dan membanting dengan aman.",
+  "home": "Pekerjaan rumah: dua sesi seminggu, setiap situasi delapan kali untuk setiap sisi, selalu dengan sinyal berhenti.",
+  "steps": {
+   "tk7-1": {
+    "title": "Sinyal berhenti",
+    "say": "Sebelum setiap latihan berpasangan, sepakati dulu sinyal berhenti. Tepuk badan partner atau matras dua kali, atau katakan dengan keras: Berhenti. Saat mendengar atau merasakan sinyal ini, segera lepaskan. Setiap orang yang berlatih wajib menghormati sinyal ini sepenuhnya. Hanya dengan berlatih aman, kamu bisa berlatih untuk jangka panjang.",
+    "cues": [
+     "Tepuk 2 kali atau katakan: Berhenti",
+     "Segera lepaskan",
+     "Hormati sepenuhnya"
+    ],
+    "mistakes": [
+     "Memaksa sedikit lagi setelah ada sinyal",
+     "Tidak menyepakati sinyal sebelum berlatih"
+    ],
+    "drill": {
+     "label": "Sepakati sinyal",
+     "say": "Giliranmu. Sepakati sinyal berhenti: tiga kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk7-2": {
+    "title": "Dipeluk dari belakang – turunkan titik berat",
+    "say": "Saat dipeluk dari belakang dan kedua lenganmu terkunci di dalam pelukan: segera turunkan titik berat, tekuk lutut, dorong pinggul ke belakang. Pada saat yang sama, buka kedua siku lebar ke samping untuk melonggarkan pelukan. Titik berat yang rendah membuat lawan sangat sulit mengangkatmu.",
+    "cues": [
+     "Segera turunkan titik berat",
+     "Dorong pinggul ke belakang",
+     "Buka siku lebar untuk melonggarkan pelukan"
+    ],
+    "mistakes": [
+     "Berdiri tegak, mudah diangkat",
+     "Panik dan meronta-ronta"
+    ],
+    "drill": {
+     "label": "Turunkan titik berat, longgarkan pelukan",
+     "say": "Giliranmu. Turunkan titik berat, longgarkan pelukan: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk7-3": {
+    "title": "Dipeluk dari belakang – berputar lolos",
+    "say": "Setelah pelukan longgar, langkahkan satu kaki ke samping, turunkan badan lebih rendah lagi, putar pinggul dan bahu, lalu menyelinap keluar dari lingkaran lengan. Berbalik menghadap lawan, kedua tangan membentuk pagar, lalu mundur menjauh. Latihlah pelan bersama partner, dan yang memeluk hanya memakai tenaga secukupnya.",
+    "cues": [
+     "Satu kaki melangkah ke samping",
+     "Turunkan badan, putar pinggul, menyelinap keluar",
+     "Hadapi lawan, pagar tangan, mundur menjauh"
+    ],
+    "mistakes": [
+     "Berputar saat titik berat masih tinggi",
+     "Tetap dekat setelah lolos"
+    ],
+    "drill": {
+     "label": "Lolos pelukan belakang tiap sisi",
+     "say": "Giliranmu. Lolos dari pelukan belakang untuk setiap sisi: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk7-4": {
+    "title": "Dipeluk dari belakang – lengan bebas",
+    "say": "Kalau kedua lenganmu berada di luar pelukan: tetap turunkan titik berat lebih dulu. Lalu pegang tangan lawan di depan perutmu, buka kaitan lengannya, sambil memutar badan keluar. Mundur menjauh, dan pertahankan pagar tangan.",
+    "cues": [
+     "Turunkan titik berat lebih dulu",
+     "Buka tangan lawan di depan perut",
+     "Berputar keluar, mundur menjauh"
+    ],
+    "mistakes": [
+     "Mencakar tangan lawan tanpa merendahkan badan",
+     "Berbalik pergi saat masih menempel"
+    ],
+    "drill": {
+     "label": "Lolos pelukan belakang, lengan bebas",
+     "say": "Giliranmu. Lolos dari pelukan belakang dengan lengan bebas: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk7-5": {
+    "title": "Kerah dicengkeram dari depan",
+    "say": "Saat lawan mencengkeram kerah bajumu dengan dua tangan dari depan: tarik dagu, angkat bahu untuk melindungi leher. Angkat satu lengan lurus tinggi melewati kepala, lalu putar badan dengan kuat ke satu sisi, supaya bahu dan lenganmu menindih kedua lengan lawan dan mematahkan cengkeramannya. Segera melangkah mundur dan angkat pagar tangan. Saat berlatih: partner hanya mencengkeram kerah, sama sekali tidak boleh menekan leher.",
+    "cues": [
+     "Tarik dagu, angkat bahu",
+     "Angkat satu lengan lurus ke atas",
+     "Putar badan kuat, tindih kedua lengan, mundur"
+    ],
+    "mistakes": [
+     "Menarik lepas kedua tangan lawan dengan tenaga",
+     "Berputar tanpa mengangkat lengan tinggi"
+    ],
+    "drill": {
+     "label": "Lolos cengkeraman kerah tiap sisi",
+     "say": "Giliranmu. Lolos dari cengkeraman kerah untuk setiap sisi: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Saat dipeluk dari belakang, apa yang pertama dilakukan?",
+    "a": [
+     "Turunkan titik berat",
+     "Melompat",
+     "Mendongakkan kepala ke belakang"
+    ],
+    "why": "Titik berat yang rendah membuat lawan sulit mengangkatmu."
+   },
+   {
+    "q": "Apa sinyal berhenti dalam latihan berpasangan?",
+    "a": [
+     "Tepuk dua kali atau katakan: Berhenti",
+     "Teriakan apa saja",
+     "Tidak perlu sinyal"
+    ],
+    "why": "Disepakati sebelumnya, dan dihormati sepenuhnya."
+   },
+   {
+    "q": "Untuk lolos dari cengkeraman kerah dari depan, apa yang dipakai?",
+    "a": [
+     "Tenaga tarikan dua tangan",
+     "Angkat lengan tinggi, lalu putar badan kuat untuk menindih",
+     "Diam dan menunggu"
+    ],
+    "why": "Putaran seluruh badan lebih kuat daripada tenaga dua lengan lawan."
+   },
+   {
+    "q": "Saat berlatih lolos dari cengkeraman kerah, partner latihan boleh:",
+    "a": [
+     "Mencekik leher sungguhan",
+     "Hanya mencengkeram kerah, tidak menekan leher"
+    ],
+    "why": "Area leher harus benar-benar aman."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Patahkan keseimbangan & bantingan",
+  "sub": "Garis tumpuan, pegangan baju, sapuan kaki belakang, jegalan kaki depan, kontrol",
+  "intro": "Inilah inti gulat Sambo: memanfaatkan keseimbangan lawan untuk membawanya ke lantai. Hanya berlatih setelah mahir jatuh, di atas matras tebal, dan didampingi instruktur.",
+  "safety": "Wajib: sudah menguasai materi Jatuh aman, matras tebal, ada pelatih, kecepatan pelan.",
+  "outro": "Selamat! Kamu sudah menyelesaikan bagian Dasar dari jalur Bela diri jarak dekat. Bagian Lanjutan sudah menunggumu, dengan situasi yang lebih nyata.",
+  "home": "Pekerjaan rumah: dua sesi seminggu di atas matras tebal, didampingi instruktur, setiap teknik enam kali dengan pelan.",
+  "steps": {
+   "tk8-1": {
+    "title": "Garis tumpuan dan mematahkan keseimbangan",
+    "say": "Lawan berdiri kokoh berkat kedua kakinya. Garis yang menghubungkan kedua telapak kakinya disebut garis tumpuan. Dorong atau tarik tegak lurus terhadap garis itu, maka lawan akan sangat mudah kehilangan keseimbangan. Berlatih dengan partner: pegang lengan baju dan kerahnya, lalu dorong, tarik, dan putar pelan ke delapan arah. Rasakan saat berat badannya bertumpu penuh pada tumit atau ujung kakinya.",
+    "cues": [
+     "Garis tumpuan = garis yang menghubungkan kedua telapak kaki",
+     "Dorong/tarik tegak lurus garis tumpuan",
+     "Rasakan berat badan bertumpu di tumit atau ujung kaki"
+    ],
+    "mistakes": [
+     "Mendorong searah garis tumpuan",
+     "Memakai tenaga lengan yang kaku"
+    ],
+    "drill": {
+     "label": "Dorong – tarik 8 arah",
+     "say": "Giliranmu. Dorong dan tarik ke delapan arah selama enam puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk8-2": {
+    "title": "Pegangan baju dasar",
+    "say": "Pegangan dasar dalam gulat Sambo: tangan kiri memegang lengan baju kanan partner, tepat di bawah siku. Tangan kanan memegang kerah kiri, setinggi dada. Siku lentur, tidak kaku. Berdiri dengan punggung lurus, kedua kaki selebar bahu, siap bergerak.",
+    "cues": [
+     "Tangan kiri: lengan baju di bawah siku",
+     "Tangan kanan: kerah setinggi dada",
+     "Siku lentur, punggung lurus"
+    ],
+    "mistakes": [
+     "Membungkuk dan menunduk",
+     "Mengunci siku dengan kaku"
+    ],
+    "drill": {
+     "label": "Masuk pegangan baju",
+     "say": "Giliranmu. Masuk ke pegangan baju: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk8-3": {
+    "title": "Sapuan kaki belakang",
+    "say": "Tarik partnermu ke arah belakang kanannya, supaya berat badannya bertumpu pada tumit kanan. Langkahkan kaki kirimu rapat di sisi luar kaki kanannya. Kaki kananmu berayun, menyapu betis kanannya dari belakang, sementara badan atasmu mendorongnya ke belakang. Partnermu jatuh ke belakang dengan teknik yang sudah dipelajari. Kamu tetap memegang lengan bajunya selama dia jatuh, sambil menarik sedikit ke atas, supaya punggungnya menyentuh matras dengan pelan.",
+    "cues": [
+     "Pindahkan berat badan partner ke tumit kanannya",
+     "Melangkah rapat, sapu betis dari belakang",
+     "Pegang lengan baju, biarkan dia jatuh dengan lembut"
+    ],
+    "mistakes": [
+     "Menyapu saat berat badan belum bertumpu di kaki itu",
+     "Melepas lengan baju saat partner sedang jatuh"
+    ],
+    "drill": {
+     "label": "Sapuan kaki belakang (pelan) tiap sisi",
+     "say": "Giliranmu. Sapuan kaki belakang, pelan-pelan, untuk setiap sisi: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk8-4": {
+    "title": "Jegalan kaki depan",
+    "say": "Tarik partnermu ke depan, serong ke arah kanannya. Putar badan, lalu letakkan kaki kananmu menghalangi di depan pergelangan kaki kanannya. Terus tarik lengan bajunya melengkung ke bawah. Dia tersandung kakimu dan jatuh ke depan, berguling lewat bahu, persis seperti latihan guling depan.",
+    "cues": [
+     "Tarik ke depan – serong kanan",
+     "Kaki menghalangi di depan pergelangan kaki",
+     "Tarik melengkung ke bawah"
+    ],
+    "mistakes": [
+     "Menendang pergelangan kaki, bukan menghalanginya",
+     "Menarik lurus ke lantai terlalu keras"
+    ],
+    "drill": {
+     "label": "Jegalan kaki depan (pelan) tiap sisi",
+     "say": "Giliranmu. Jegalan kaki depan, pelan-pelan, untuk setiap sisi: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk8-5": {
+    "title": "Kontrol setelah membanting",
+    "say": "Setelah partnermu jatuh, jangan langsung melepaskan tangan. Pegang lengan bajunya, berdiri kokoh, tatap dia, lalu bantu dia berdiri. Orang yang membanting bertanggung jawab atas orang yang jatuh. Latih bantingan hanya di atas matras tebal, diawasi pelatih, dengan kecepatan pelan, dan selalu hormati sinyal berhenti.",
+    "cues": [
+     "Pegang lengan baju, berdiri kokoh",
+     "Tatap partnermu",
+     "Bantu partner berdiri"
+    ],
+    "mistakes": [
+     "Langsung melepas pegangan saat membanting",
+     "Jatuh menimpa partner"
+    ],
+    "drill": {
+     "label": "Bantingan pelan + bantu berdiri",
+     "say": "Giliranmu. Bantingan pelan, lalu bantu partner berdiri: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Untuk mematahkan keseimbangan, ke arah mana kita mendorong atau menarik?",
+    "a": [
+     "Searah garis yang menghubungkan kedua kaki",
+     "Tegak lurus garis yang menghubungkan kedua kaki",
+     "Lurus ke lantai"
+    ],
+    "why": "Arah yang tegak lurus garis tumpuan adalah arah yang paling lemah."
+   },
+   {
+    "q": "Saat sapuan kaki belakang, berat badan partner harus bertumpu di mana?",
+    "a": [
+     "Ujung kaki",
+     "Tumit kaki yang disapu",
+     "Kaki yang lain"
+    ],
+    "why": "Hanya kaki yang menanggung berat badan yang bisa disapu sampai jatuh."
+   },
+   {
+    "q": "Apa tanggung jawab orang yang membanting?",
+    "a": [
+     "Memegang lengan baju, mengontrol jatuhnya partner",
+     "Langsung melepaskan",
+     "Jatuh menimpa"
+    ],
+    "why": "Kontrol membantu partnermu jatuh dengan aman."
+   },
+   {
+    "q": "Syarat untuk berlatih bantingan:",
+    "a": [
+     "Sudah mahir jatuh, matras tebal, ada pelatih",
+     "Boleh berlatih di mana saja",
+     "Berlatih cepat supaya terbiasa"
+    ],
+    "why": "Keselamatan adalah syarat wajib."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Serangan ke titik lemah untuk meloloskan diri",
+  "sub": "Sapuan mata, lutut ke selangkangan, tendangan ke lutut – hanya untuk membuka jalan keluar",
+  "intro": "Saat diserang sungguhan dan tidak bisa lari, kamu butuh satu serangan sederhana yang cukup membuat penyerang tertegun selama satu detik. Satu detik itulah jalan keluarmu. Hari ini kita berlatih pada pad sasaran, sama sekali tidak pada tubuh partner.",
+  "safety": "Pukul hanya pad sasaran atau perisai. Jangan pernah menyentuh mata, selangkangan, atau sendi lutut partner latihanmu.",
+  "outro": "Kamu sudah punya serangan untuk membuka jalan keluar. Ingat baik-baik: menyerang untuk lari, bukan menyerang untuk menang. Materi berikutnya: siku dan lutut di jarak dekat.",
+  "home": "Pekerjaan rumah: tiga sesi seminggu, tiga ronde rangkaian pada pad sasaran, diakhiri dengan lari.",
+  "steps": {
+   "tk9-1": {
+    "title": "Prinsip: menyerang untuk lari",
+    "say": "Prinsip pertama: serangan ke titik lemah hanya dipakai saat kamu diserang sungguhan, dan tidak ada pilihan lain. Tujuannya bukan untuk menang, tetapi supaya penyerang tertegun sesaat. Lakukan satu serangan, lalu segera ciptakan jarak, dan lari ke tempat yang ramai. Jangan tinggal untuk terus berkelahi.",
+    "cues": [
+     "Hanya saat diserang sungguhan",
+     "Satu serangan untuk membuka jalan",
+     "Selesai menyerang, langsung lari"
+    ],
+    "mistakes": [
+     "Tetap tinggal dan terus menyerang setelah ada jalan keluar",
+     "Menyerang padahal masih bisa pergi"
+    ],
+    "drill": {
+     "label": "Pagar tangan – mundur – lari",
+     "say": "Giliranmu. Pagar tangan, mundur, lalu lari: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk9-2": {
+    "title": "Sapuan jari ke mata",
+    "say": "Dari sikap pagar tangan, tangan depanmu sudah berada dekat wajah lawan. Jari-jari sedikit menekuk dan rileks, sapukan cepat melintasi area mata, seperti mengibaskan air dari tangan, lalu tarik kembali. Serangan ini tidak butuh tenaga, cukup cepat. Orang yang terkena akan memejamkan mata dan mundur secara refleks. Saat berlatih, sapukan hanya ke sarung tangan pad yang dipegang partner di depan wajahnya.",
+    "cues": [
+     "Mulai dari pagar tangan",
+     "Jari menekuk, rileks, sapukan melintang",
+     "Cepat lalu tarik kembali, mundur"
+    ],
+    "mistakes": [
+     "Meluruskan jari dengan kaku: jari mudah terkilir",
+     "Mengayunkan tangan dari jauh, niatmu terbaca"
+    ],
+    "drill": {
+     "label": "Sapuan ke sarung pad tiap tangan",
+     "say": "Giliranmu. Sapuan ke sarung tangan pad dengan setiap tangan: lima belas kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk9-3": {
+    "title": "Lutut ke selangkangan (pada perisai)",
+    "say": "Saat penyerang merapat dan mencengkerammu dari jarak sangat dekat, kedua tanganmu memegang bahu atau kerah bajunya. Tarik ke bawah, sambil menghentakkan lutut kaki belakang lurus ke atas. Pinggul didorong ke depan. Saat berlatih, partner memegang perisai tebal di depan perut bawahnya, dan kamu menghentakkan lutut ke perisai itu. Setelah itu, dorong dia menjauh dan mundur.",
+    "cues": [
+     "Kedua tangan memegang bahu, tarik ke bawah",
+     "Hentakkan lutut kaki belakang ke atas, dorong pinggul",
+     "Dorong menjauh, mundur"
+    ],
+    "mistakes": [
+     "Badan condong ke belakang saat menghentakkan lutut",
+     "Menghentakkan lutut sebelum seimbang"
+    ],
+    "drill": {
+     "label": "Lutut ke perisai tiap kaki",
+     "say": "Giliranmu. Hentakan lutut ke perisai dengan setiap kaki: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk9-4": {
+    "title": "Tendangan ke lutut dan tulang kering",
+    "say": "Saat penyerang menerjang dari jauh, tendangan rendah dengan tumit ke lutut atau tulang kering kaki depannya akan menghentikan lajunya. Angkat lutut kaki depan sedikit, tendang tumit lurus ke bawah serong ke depan, lalu tarik kaki kembali. Serangan rendah sulit ditangkis, dan menjaga keseimbanganmu tetap baik. Saat berlatih, tendang hanya perisai yang diletakkan rendah.",
+    "cues": [
+     "Angkat lutut rendah",
+     "Tendang tumit serong ke bawah depan",
+     "Tarik kaki, mundur"
+    ],
+    "mistakes": [
+     "Menendang tinggi ke perut: lambat dan mudah jatuh",
+     "Menendang dengan ujung jari kaki"
+    ],
+    "drill": {
+     "label": "Tendangan rendah ke perisai tiap kaki",
+     "say": "Giliranmu. Tendangan rendah ke perisai dengan setiap kaki: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk9-5": {
+    "title": "Rangkaian: sapu – tendang – lari",
+    "say": "Gabungkan menjadi satu rangkaian: dari pagar tangan, sapuan mata ke sarung pad, tendangan rendah ke perisai, lalu berbalik dan lari tiga langkah. Latih pelan supaya benar, lalu makin cepat. Setiap kali selesai, teriak keras: Berhenti! Rangkaian refleks ini harus menjadi kebiasaan tubuhmu.",
+    "cues": [
+     "Pagar → sapu → tendang",
+     "Berbalik, lari 3 langkah",
+     "Teriak keras: Berhenti!"
+    ],
+    "mistakes": [
+     "Lupa lari di akhir rangkaian",
+     "Merapat lagi setelah tendangan"
+    ],
+    "drill": {
+     "label": "Ronde rangkaian",
+     "say": "Giliranmu. Ronde rangkaian: tiga ronde, setiap ronde tiga puluh detik, istirahat dua puluh detik di antara ronde."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Apa tujuan serangan ke titik lemah?",
+    "a": [
+     "Memenangkan pertarungan",
+     "Membuat penyerang tertegun supaya kamu bisa lari",
+     "Menghukum lawan"
+    ],
+    "why": "Menyerang untuk membuka jalan, lalu lari ke tempat yang aman."
+   },
+   {
+    "q": "Untuk sapuan mata, bagaimana jari dipakai?",
+    "a": [
+     "Diluruskan kaku",
+     "Sedikit menekuk, rileks, disapukan cepat",
+     "Dikepal erat"
+    ],
+    "why": "Jari yang rileks bisa bergerak cepat dan tidak terkilir."
+   },
+   {
+    "q": "Tendangan rendah diarahkan ke mana?",
+    "a": [
+     "Lutut atau tulang kering kaki depan",
+     "Kepala",
+     "Punggung"
+    ],
+    "why": "Serangan rendah itu cepat, sulit ditangkis, dan menghentikan laju terjangan."
+   },
+   {
+    "q": "Saat berlatih dengan partner, kamu menyerang ke mana?",
+    "a": [
+     "Ke tubuh partner, pelan saja",
+     "Hanya ke pad sasaran atau perisai"
+    ],
+    "why": "Sama sekali jangan menyerang titik lemah partner yang sebenarnya."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Siku & lutut jarak dekat",
+  "sub": "Siku mendatar, siku ke atas, lutut lurus, kuncian leher – bahu",
+  "intro": "Saat lawan merapat, kepalan tidak punya ruang lagi untuk diayunkan. Saat itu, siku dan lutut adalah senjata alami terkuat tubuhmu. Kita berlatih pada pad sasaran: teknik yang benar dulu, tenaga belakangan.",
+  "safety": "Pukul hanya pad sasaran yang tebal. Orang yang memegang pad harus memegangnya erat dan berdiri kokoh.",
+  "outro": "Jarak dekat tidak lagi menakutkan. Materi berikutnya: bertahan dari bantingan dan bangkit berdiri dengan aman.",
+  "home": "Pekerjaan rumah: tiga sesi seminggu, tiga ronde jarak dekat pada pad sasaran.",
+  "steps": {
+   "tk10-1": {
+    "title": "Siku mendatar",
+    "say": "Dari kuda-kuda bertarung, tekuk siku depan, lengan bawah sejajar lantai, telapak tangan dekat telinga. Putar pinggul dan bahu, lalu sapukan siku mendatar seperti pintu yang dibanting menutup. Titik kenanya adalah tulang tepat di bawah siku. Tangan yang lain tetap melindungi wajah. Setelah menyerang, segera kembali ke posisi jaga.",
+    "cues": [
+     "Telapak tangan dekat telinga, lengan bawah mendatar",
+     "Putar pinggul, sapukan mendatar",
+     "Kenai dengan tulang di bawah siku"
+    ],
+    "mistakes": [
+     "Mengayunkan seluruh lengan yang lurus",
+     "Lupa melindungi wajah dengan tangan lain"
+    ],
+    "drill": {
+     "label": "Siku mendatar tiap tangan",
+     "say": "Giliranmu. Siku mendatar dengan setiap tangan: lima belas kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk10-2": {
+    "title": "Siku ke atas",
+    "say": "Saat lawan menunduk dan menerjang masuk, siku yang menyentak dari bawah ke atas sangat efektif. Tekuk siku rapat, kepalan menyentuh bahu, lalu dorong dengan kaki dan sentakkan siku lurus ke atas, di jalur vertikal di depan wajahmu. Saat berlatih, partner memegang sarung pad menghadap ke bawah, setinggi dada.",
+    "cues": [
+     "Tekuk rapat, kepalan menyentuh bahu",
+     "Dorong dengan kaki, sentak lurus ke atas",
+     "Tangan lain melindungi wajah"
+    ],
+    "mistakes": [
+     "Menyentak serong ke luar",
+     "Hanya memakai lengan, tanpa dorongan kaki"
+    ],
+    "drill": {
+     "label": "Siku ke atas tiap tangan",
+     "say": "Giliranmu. Siku ke atas dengan setiap tangan: dua belas kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk10-3": {
+    "title": "Kuncian leher – bahu",
+    "say": "Pada jarak sangat rapat, tumpuk kedua telapak tanganmu di belakang tengkuk lawan, kedua siku merapat di depan dadanya. Tarik kepalanya ke bawah, siku menekan ke dalam. Kuncian ini membantumu mengendalikan keseimbangan lawan. Saat berlatih, tarik dengan lembut dan pelan, dan partnermu selalu bisa menepuk untuk minta berhenti.",
+    "cues": [
+     "Kedua tangan bertumpuk di belakang tengkuk",
+     "Siku merapat di depan dada lawan",
+     "Tarik ke bawah dengan lembut dan pelan"
+    ],
+    "mistakes": [
+     "Menjalin jari-jari: jari mudah terjepit",
+     "Menyentak leher partner dengan keras"
+    ],
+    "drill": {
+     "label": "Tahan kuncian leher – bahu",
+     "say": "Giliranmu. Tahan kuncian leher dan bahu selama tiga puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk10-4": {
+    "title": "Lutut lurus dalam kuncian",
+    "say": "Dari kuncian leher dan bahu, tarik lawan ke bawah, lalu hentakkan lutut lurus ke atas ke perisai yang dipegang partner di depan perutnya. Dorong pinggul ke depan, berdiri tegak di atas kaki tumpu. Setelah dua kali hentakan lutut, dorong dia kuat-kuat menjauh, lalu mundur.",
+    "cues": [
+     "Kuncian leher – bahu",
+     "Tarik ke bawah, hentakkan lutut lurus ke atas",
+     "Dua lutut, lalu dorong menjauh, mundur"
+    ],
+    "mistakes": [
+     "Ikut membungkuk",
+     "Berdiri di ujung kaki tumpu, kehilangan keseimbangan"
+    ],
+    "drill": {
+     "label": "Lutut ke perisai tiap kaki",
+     "say": "Giliranmu. Lutut ke perisai dengan setiap kaki: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk10-5": {
+    "title": "Rangkaian jarak dekat",
+    "say": "Gabungkan: siku mendatar, siku ke atas, masuk ke kuncian, dua kali lutut, dorong menjauh, lalu mundur ke pagar tangan. Lakukan tiga ronde, setiap ronde tiga puluh detik pada pad sasaran. Pertahankan napas buang yang pendek selama menyerang.",
+    "cues": [
+     "Siku mendatar → siku ke atas",
+     "Kuncian → 2 lutut",
+     "Dorong menjauh, pagar tangan, napas buang"
+    ],
+    "mistakes": [
+     "Menahan napas saat menyerang",
+     "Lupa mendorong menjauh untuk menciptakan jarak"
+    ],
+    "drill": {
+     "label": "Ronde jarak dekat",
+     "say": "Giliranmu. Ronde jarak dekat: tiga ronde, setiap ronde tiga puluh detik, istirahat dua puluh detik di antara ronde."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Siku mendatar mengenai sasaran dengan bagian mana?",
+    "a": [
+     "Tulang tepat di bawah siku",
+     "Telapak tangan",
+     "Bahu"
+    ],
+    "why": "Tulang keras tepat di bawah siku adalah titik kena yang paling kokoh."
+   },
+   {
+    "q": "Dalam kuncian leher dan bahu, bagaimana posisi kedua telapak tangan?",
+    "a": [
+     "Jari-jari saling menjalin",
+     "Bertumpuk di belakang tengkuk"
+    ],
+    "why": "Jari yang menjalin mudah terjepit. Tangan yang bertumpuk lebih aman."
+   },
+   {
+    "q": "Setelah dua kali hentakan lutut, apa yang sebaiknya dilakukan?",
+    "a": [
+     "Dorong menjauh dan mundur",
+     "Terus memeluk erat",
+     "Duduk"
+    ],
+    "why": "Selalu ciptakan jarak untuk meloloskan diri."
+   },
+   {
+    "q": "Saat menyerang beruntun, bagaimana napasnya?",
+    "a": [
+     "Menahan napas",
+     "Napas buang pendek di setiap serangan"
+    ],
+    "why": "Napas buang membantumu tidak kehabisan tenaga dan tetap tenang."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Bertahan dari bantingan & bangkit berdiri",
+  "sub": "Menahan sergapan kaki, tindih dengan pinggul, bangkit teknis, tendangan penjaga jarak",
+  "intro": "Dalam perkelahian, yang paling berbahaya adalah dibanting ke lantai. Hari ini kamu belajar cara supaya tidak terjatuh ditarik lawan, dan kalau sudah jatuh, cara bangkit berdiri dengan aman dalam beberapa detik.",
+  "safety": "Berlatih di atas matras tebal. Partner menerjang masuk dengan pelan, tanpa menyeruduk dengan kepala.",
+  "outro": "Sekarang kamu sangat sulit dibanting, dan tahu cara bangkit dengan aman. Materi berikutnya: meloloskan diri saat sudah ditindih di lantai.",
+  "home": "Pekerjaan rumah: setiap hari sepuluh kali bangkit teknis untuk setiap sisi, dan dua sesi seminggu latihan sprawl bersama partner.",
+  "steps": {
+   "tk11-1": {
+    "title": "Menahan sergapan kaki",
+    "say": "Saat lawan merendah dan menerjang untuk menyergap kakimu: lempar kedua kaki ke belakang secepat mungkin, turunkan pinggul untuk menindih punggung atasnya, dan kedua tangan menahan bahunya. Berat badanmu menindihnya, dan kakimu jauh di luar jangkauannya. Ini disebut sprawl. Latih pelan-pelan bersama partner di atas matras.",
+    "cues": [
+     "Lempar kedua kaki ke belakang",
+     "Turunkan pinggul menindih punggung atas",
+     "Tangan menahan bahu lawan"
+    ],
+    "mistakes": [
+     "Mundur dengan badan tegak: kaki mudah disergap",
+     "Pinggul dibiarkan tinggi, lawan masih bisa menarik kaki"
+    ],
+    "drill": {
+     "label": "Lempar kaki, sprawl",
+     "say": "Giliranmu. Lempar kaki ke belakang, sprawl: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk11-2": {
+    "title": "Melepaskan diri setelah sprawl",
+    "say": "Setelah sprawl berhasil, jangan menindih terlalu lama. Dorong kedua tangan ke bahu lawan, lalu bangkit berdiri dengan cepat. Mundur dua langkah, dan kembali ke kuda-kuda bertarung, kedua tangan melindungi wajah. Tujuannya tetap sama: meloloskan diri.",
+    "cues": [
+     "Dorong tangan ke bahu",
+     "Bangkit cepat, mundur 2 langkah",
+     "Kembali ke kuda-kuda, lindungi wajah"
+    ],
+    "mistakes": [
+     "Menindih terlalu lama",
+     "Berdiri tepat di depan lawan"
+    ],
+    "drill": {
+     "label": "Sprawl – bangkit – mundur",
+     "say": "Giliranmu. Sprawl, bangkit, lalu mundur: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk11-3": {
+    "title": "Tendangan penjaga jarak dari lantai",
+    "say": "Kalau kamu sudah jatuh telentang dan lawan sedang berdiri: berbaringlah miring di satu sisi pinggul, satu tangan bertumpu di matras, satu tangan melindungi wajah. Kaki atas ditekuk dan siap menendang ke lutut atau perutnya kalau dia menerjang. Putar badan mengikuti gerakannya, telapak kakimu selalu mengarah ke lawan, jangan biarkan dia memutar ke arah kepalamu.",
+    "cues": [
+     "Berbaring miring, satu tangan bertumpu, satu melindungi",
+     "Kaki atas ditekuk, siap menendang",
+     "Putar mengikuti, kaki selalu mengarah ke lawan"
+    ],
+    "mistakes": [
+     "Berbaring telentang dengan punggung datar",
+     "Membiarkan lawan memutar ke arah kepala"
+    ],
+    "drill": {
+     "label": "Berputar mengikuti partner",
+     "say": "Giliranmu. Berputar mengikuti partner selama tiga puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk11-4": {
+    "title": "Bangkit teknis",
+    "say": "Untuk bangkit berdiri dengan aman: tangan belakang bertumpu di matras di belakang pinggul, tangan depan melindungi wajah. Angkat pinggul, lalu tarik kaki tumpu lewat bawah badan ke belakang. Letakkan kaki jauh di belakang, masuk ke kuda-kuda, baru kemudian berdiri tegak. Kamu selalu melindungi wajah dan bangkit sambil menjauhi lawan, bukan berdiri tegak tepat di depannya.",
+    "cues": [
+     "Tangan belakang bertumpu, tangan depan melindungi wajah",
+     "Angkat pinggul, tarik kaki ke belakang",
+     "Bangkit sambil menjauh, masuk kuda-kuda"
+    ],
+    "mistakes": [
+     "Bertumpu dengan dua tangan, wajah tidak terlindungi",
+     "Bangkit sambil maju ke arah lawan"
+    ],
+    "drill": {
+     "label": "Bangkit teknis tiap sisi",
+     "say": "Giliranmu. Bangkit teknis untuk setiap sisi: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk11-5": {
+    "title": "Rangkaian: jatuh – jaga jarak – bangkit",
+    "say": "Gabungkan: jatuh ke belakang dengan teknik yang benar, berbaring miring, tendangan penjaga jarak, bangkit teknis, mundur menjauh, lalu pagar tangan. Setiap kali selesai, periksa apakah kamu selalu melindungi wajah. Lakukan lima kali untuk setiap sisi.",
+    "cues": [
+     "Jatuh ke belakang → berbaring miring",
+     "Tendangan penjaga jarak",
+     "Bangkit teknis → pagar tangan"
+    ],
+    "mistakes": [
+     "Buru-buru bangkit saat lawan masih dekat",
+     "Lupa melindungi wajah"
+    ],
+    "drill": {
+     "label": "Rangkaian jatuh – bangkit tiap sisi",
+     "say": "Giliranmu. Rangkaian jatuh dan bangkit untuk setiap sisi: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Saat lawan menerjang untuk menyergap kakimu, apa yang sebaiknya dilakukan?",
+    "a": [
+     "Lempar kedua kaki ke belakang, turunkan pinggul untuk menindih",
+     "Berdiri tegak menunggu",
+     "Melompat"
+    ],
+    "why": "Sprawl: kaki menjauh, berat badan menindih lawan."
+   },
+   {
+    "q": "Saat berbaring di lantai, telapak kaki harus mengarah ke mana?",
+    "a": [
+     "Ke arah lawan",
+     "Ke atas",
+     "Ke belakang"
+    ],
+    "why": "Kaki mengarah ke lawan, supaya bisa menendang untuk menjaga jarak."
+   },
+   {
+    "q": "Saat bangkit teknis, apa yang dilakukan tangan depan?",
+    "a": [
+     "Bertumpu di lantai",
+     "Melindungi wajah"
+    ],
+    "why": "Selalu lindungi wajah saat bangkit berdiri."
+   },
+   {
+    "q": "Saat bangkit, sebaiknya menjauh atau maju ke arah lawan?",
+    "a": [
+     "Menjauh",
+     "Maju"
+    ],
+    "why": "Bangkit sambil menjauh supaya aman."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Meloloskan diri di lantai",
+  "sub": "Gerakan udang, jembatan pinggul, lolos saat ditindih, jaga dengan kaki",
+  "intro": "Kalau kamu ditindih di lantai, jangan panik. Ada gerakan sederhana dari gulat Sambo yang membantumu membalikkan keadaan. Kita berlatih pelan, partner menindih dengan tenaga secukupnya, dan selalu hormati sinyal berhenti.",
+  "safety": "Matras tebal. Yang menindih tidak menumpukan seluruh berat badannya, dan tidak menekan leher. Tepuk dua kali berarti berhenti.",
+  "outro": "Kamu sudah tahu cara lolos di lantai. Materi berikutnya adalah topik yang serius: menghadapi orang bersenjata pisau.",
+  "home": "Pekerjaan rumah: setiap hari dua menit gerakan udang, dan dua sesi seminggu latihan gulat ringan.",
+  "steps": {
+   "tk12-1": {
+    "title": "Gerakan udang",
+    "say": "Berbaring telentang, kedua lutut ditekuk. Jejakkan satu kaki ke matras, dorong pinggul mundur ke belakang, sambil memiringkan badan ke satu sisi, kedua tangan mendorong ke depan seperti mendorong benda berat. Tubuhmu melengkung seperti udang. Lalu kembali telentang, dan lakukan ke sisi lainnya. Ini gerakan terpenting saat berada di lantai: gerakan ini menciptakan ruang.",
+    "cues": [
+     "Jejakkan kaki, dorong pinggul mundur",
+     "Miringkan badan, tangan mendorong ke depan",
+     "Ganti sisi terus-menerus"
+    ],
+    "mistakes": [
+     "Berbaring telentang datar tanpa memutar pinggul",
+     "Mendorong dengan tangan tanpa mendorong pinggul"
+    ],
+    "drill": {
+     "label": "Gerakan udang sepanjang matras",
+     "say": "Giliranmu. Gerakan udang sepanjang matras selama empat puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk12-2": {
+    "title": "Jembatan pinggul saat ditunggangi",
+    "say": "Saat lawan duduk menindih perutmu: lindungi wajah dengan kedua tangan lebih dulu. Lalu kunci erat satu lengan lawan rapat ke badanmu, dan letakkan telapak kaki di sisi yang sama untuk menghalangi kaki luarnya. Dorong pinggul sekuat-kuatnya ke atas, membuat jembatan ke arah bahu di sisi lengan yang kamu kunci, lalu gulingkan lawan ke samping. Kamu bangkit di posisi atas, lalu berdiri dan mundur.",
+    "cues": [
+     "Lindungi wajah dulu",
+     "Kunci satu lengan + halangi kaki di sisi yang sama",
+     "Jembatan pinggul, gulingkan lewat bahu di sisi itu"
+    ],
+    "mistakes": [
+     "Mendorong dada lawan dengan tangan",
+     "Membuat jembatan lurus ke atas tanpa mengunci lengan dan kaki"
+    ],
+    "drill": {
+     "label": "Jembatan pinggul tiap sisi",
+     "say": "Giliranmu. Jembatan pinggul untuk setiap sisi: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk12-3": {
+    "title": "Lolos siku – lutut saat ditindih",
+    "say": "Kalau tidak bisa membalik lawan: berbaring miring, rapatkan siku ke lutut, dan selipkan siku ke pinggul lawan. Lakukan gerakan udang untuk menciptakan ruang, lalu selipkan lutut di antara kamu dan dia. Setelah lutut masuk, bawa kakimu ke posisi jaga, dan jaga lawan tetap jauh dengan kedua kaki.",
+    "cues": [
+     "Berbaring miring, siku menyentuh lutut",
+     "Gerakan udang menciptakan ruang",
+     "Selipkan lutut, bawa kaki ke posisi jaga"
+    ],
+    "mistakes": [
+     "Mendorong dengan lengan lurus: lengan mudah dikunci",
+     "Berbaring telentang datar"
+    ],
+    "drill": {
+     "label": "Lolos siku – lutut tiap sisi",
+     "say": "Giliranmu. Lolos siku dan lutut untuk setiap sisi: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk12-4": {
+    "title": "Jaga dengan kaki dan bangkit",
+    "say": "Saat kedua kakimu sudah berada di antara kamu dan lawan, kamu berada dalam posisi jaga dengan kaki. Letakkan telapak kaki di pinggulnya, lalu dorong menjauh. Saat ada ruang, beralih ke posisi berbaring miring, lalu bangkit teknis seperti materi sebelumnya. Berada di lantai bukan berarti kalah, asalkan kamu bisa menjaga kakimu tetap di antara kalian berdua.",
+    "cues": [
+     "Kedua kaki di antara kamu dan lawan",
+     "Telapak kaki mendorong pinggul, ciptakan jarak",
+     "Bangkit teknis"
+    ],
+    "mistakes": [
+     "Melepas kaki, membiarkan lawan merapat",
+     "Bangkit sebelum ada jarak"
+    ],
+    "drill": {
+     "label": "Jaga kaki – dorong – bangkit",
+     "say": "Giliranmu. Jaga dengan kaki, dorong, lalu bangkit: enam kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk12-5": {
+    "title": "Gulat ringan terkontrol",
+    "say": "Sekarang gulat ringan terkontrol selama dua menit. Satu orang mulai di bawah, satu orang di atas. Yang di bawah hanya punya satu tugas: lolos dan bangkit berdiri. Yang di atas hanya menahan, tidak mengunci lengan, tidak mencekik leher. Lima puluh persen tenaga. Tepuk dua kali berarti segera berhenti.",
+    "cues": [
+     "Yang di bawah: lolos dan bangkit",
+     "Yang di atas: hanya menahan, tanpa kuncian, tanpa cekikan",
+     "50% tenaga, tepuk dua kali berarti berhenti"
+    ],
+    "mistakes": [
+     "Memakai seluruh tenaga sejak awal",
+     "Tidak menghormati sinyal berhenti"
+    ],
+    "drill": {
+     "label": "Ronde gulat ringan",
+     "say": "Giliranmu. Ronde gulat ringan: dua ronde, setiap ronde enam puluh detik, istirahat tiga puluh detik di antara ronde."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Apa gerakan terpenting saat berada di lantai?",
+    "a": [
+     "Gerakan udang",
+     "Diam tidak bergerak",
+     "Memukul ke atas"
+    ],
+    "why": "Gerakan udang menciptakan ruang untuk meloloskan diri."
+   },
+   {
+    "q": "Pada jembatan pinggul, lawan digulingkan ke arah mana?",
+    "a": [
+     "Ke sisi lengan dan kaki yang sudah kamu kunci dan halangi",
+     "Ke arah mana saja"
+    ],
+    "why": "Lawan tidak bisa menahan dengan lengan dan kaki yang sudah terkunci."
+   },
+   {
+    "q": "Saat ditindih, apakah sebaiknya kamu mendorong dada lawan dengan lengan lurus?",
+    "a": [
+     "Ya",
+     "Tidak, lengan mudah dikunci"
+    ],
+    "why": "Jaga siku tetap rapat ke badan."
+   },
+   {
+    "q": "Dalam gulat ringan, apa yang boleh dilakukan orang yang di atas?",
+    "a": [
+     "Mengunci lengan, mencekik leher",
+     "Hanya menahan, tanpa kuncian, tanpa cekikan"
+    ],
+    "why": "Berlatih dengan aman dan terkontrol."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Menghadapi orang bersenjata pisau",
+  "sub": "Prinsip emas, benda penghalang, melindungi diri, mengontrol lengan, meloloskan diri – pisau karet",
+  "intro": "Dengarkan baik-baik hal terpenting hari ini: pisau sangat berbahaya, bahkan bagi orang yang sudah lama berlatih bela diri. Kalau perampok hanya menginginkan barangmu, berikan saja. Barang bisa dibeli lagi, nyawa tidak. Teknik-teknik berikut hanya untuk saat tidak ada pilihan lain.",
+  "safety": "Berlatih hanya dengan pisau karet atau pisau plastik yang tumpul. Jangan pernah berlatih dengan pisau sungguhan.",
+  "outro": "Ingat baik-baik: lari adalah kemenangan. Materi berikutnya: tetap tenang saat diancam dengan senjata api.",
+  "home": "Pekerjaan rumah: seminggu sekali latihan situasi dengan pisau karet, pelan dan aman, selalu diakhiri dengan lari.",
+  "steps": {
+   "tk13-1": {
+    "title": "Prinsip emas",
+    "say": "Tiga prinsip emas. Pertama: kalau dia meminta barangmu, segera berikan. Lempar dompet jauh-jauh, lalu lari ke arah sebaliknya. Kedua: jaga jarak sejauh mungkin, dan cari jalan untuk lari. Ketiga: hanya saat diserang dan tidak bisa lari, barulah kamu memakai teknik. Dan ingat: dalam kenyataan, hampir semua orang yang menghadapi pisau akan terluka. Lari adalah kemenangan.",
+    "cues": [
+     "Berikan barang, lempar jauh, lari",
+     "Jaga jarak, cari jalan keluar",
+     "Teknik adalah pilihan terakhir"
+    ],
+    "mistakes": [
+     "Berusaha mempertahankan barang",
+     "Terlalu percaya diri menerjang orang bersenjata pisau"
+    ],
+    "drill": {
+     "label": "Lempar dompet – lari (latihan situasi)",
+     "say": "Giliranmu. Latihan situasi, lempar dompet lalu lari: tiga kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk13-2": {
+    "title": "Memakai benda penghalang sebagai perisai",
+    "say": "Apa pun yang ada di tanganmu bisa menjadi perisai: ransel, jaket yang dililitkan di lengan, kursi, tas. Jaga benda itu di antara kamu dan ujung pisau, pegang erat dengan kedua tangan, lalu mundur ke arah jalan keluar. Benda penghalang menjaga pisau tetap jauh dari tubuhmu, dan memberimu waktu untuk lari.",
+    "cues": [
+     "Ransel, jaket, kursi sebagai perisai",
+     "Jaga penghalang di antara kamu dan pisau",
+     "Mundur ke arah jalan keluar"
+    ],
+    "mistakes": [
+     "Membuang penghalang untuk melawan dengan tangan kosong",
+     "Mundur ke sudut tembok"
+    ],
+    "drill": {
+     "label": "Perisai ransel, mundur ke jalan keluar",
+     "say": "Giliranmu. Pegang ransel sebagai perisai, lalu mundur ke arah jalan keluar, selama tiga puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk13-3": {
+    "title": "Melindungi diri dan sikap tubuh",
+    "say": "Kalau tidak ada benda penghalang: angkat kedua lengan di depan wajah, sisi dalam lengan bawah menghadap ke arahmu, siku melindungi rusuk, badan sedikit membungkuk, dagu ditarik. Berdirilah menyamping supaya sasaranmu lebih kecil. Mata melihat tangan yang memegang pisau, bukan wajah lawan.",
+    "cues": [
+     "Lengan bawah di depan wajah, sisi dalam menghadap ke dalam",
+     "Berdiri menyamping, sedikit membungkuk, dagu ditarik",
+     "Mata melihat tangan yang memegang pisau"
+    ],
+    "mistakes": [
+     "Menyodorkan telapak tangan untuk menahan",
+     "Melihat wajah, bukan tangan"
+    ],
+    "drill": {
+     "label": "Masuk sikap melindungi diri",
+     "say": "Giliranmu. Masuk ke sikap melindungi diri: sepuluh kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk13-4": {
+    "title": "Menahan dan mengontrol lengan",
+    "say": "Saat ditusuk dan tidak bisa menghindar: tahan lengan yang memegang pisau dengan kedua lengan bawah, sambil melangkah serong ke luar. Segera peluk erat lengan itu ke badanmu dengan kedua tangan, kontrol pergelangannya, dan jaga mata pisau tetap mengarah menjauh. Dua tanganmu melawan satu tangannya. Latih dengan sangat pelan memakai pisau karet.",
+    "cues": [
+     "Tahan dengan dua lengan bawah + langkah serong",
+     "Peluk erat lengan yang memegang pisau",
+     "Dua tangan mengontrol pergelangan, pisau mengarah menjauh"
+    ],
+    "mistakes": [
+     "Hanya memakai satu tangan",
+     "Melepas lengan itu di tengah jalan"
+    ],
+    "drill": {
+     "label": "Tahan – kontrol (pelan) tiap sisi",
+     "say": "Giliranmu. Tahan dan kontrol, pelan-pelan, untuk setiap sisi: delapan kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk13-5": {
+    "title": "Meloloskan diri dan lari",
+    "say": "Setelah lengannya terkontrol, jangan mencoba merebut pisau. Tendang rendah ke lutut seperti di materi sembilan, dorong lawan kuat-kuat, lalu lari ke tempat yang ramai, minta tolong, dan lapor polisi. Setelah itu, periksa tubuhmu: orang yang terluka oleh pisau sering tidak langsung merasakannya.",
+    "cues": [
+     "Jangan mencoba merebut pisau",
+     "Tendang rendah, dorong, lari",
+     "Minta tolong, lapor polisi, periksa luka"
+    ],
+    "mistakes": [
+     "Berusaha merampas pisau",
+     "Mengejar lawan"
+    ],
+    "drill": {
+     "label": "Kontrol – dorong – lari (pelan)",
+     "say": "Giliranmu. Kontrol, dorong, lalu lari, pelan-pelan: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Orang bersenjata pisau meminta dompetmu. Apa yang kamu lakukan?",
+    "a": [
+     "Berkelahi untuk mempertahankan dompet",
+     "Berikan dompet, lempar jauh, lari"
+    ],
+    "why": "Barang bisa dibeli lagi, nyawa tidak."
+   },
+   {
+    "q": "Benda apa yang bisa dijadikan perisai?",
+    "a": [
+     "Ransel, jaket, kursi",
+     "Tidak ada"
+    ],
+    "why": "Benda penghalang menjaga pisau tetap jauh dari tubuhmu."
+   },
+   {
+    "q": "Saat menghadapi pisau, mata melihat ke mana?",
+    "a": [
+     "Wajah lawan",
+     "Tangan yang memegang pisau"
+    ],
+    "why": "Bahayanya ada pada tangan yang memegang pisau."
+   },
+   {
+    "q": "Setelah tangan yang memegang pisau terkontrol, apa yang sebaiknya dilakukan?",
+    "a": [
+     "Berusaha merebut pisau",
+     "Dorong menjauh, lari, minta tolong"
+    ],
+    "why": "Tujuannya lolos dengan selamat, bukan merebut senjata."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Diancam dengan senjata api",
+  "sub": "Tenang, patuhi, amati, perlindungan, meloloskan diri – pistol latihan plastik",
+  "intro": "Materi ini lebih banyak membahas ketenangan daripada teknik. Saat berhadapan dengan senjata api, hidupmu bergantung pada kepala yang dingin. Kita memakai pistol plastik berwarna oranye, yang khusus untuk latihan.",
+  "safety": "Hanya pakai pistol latihan plastik berwarna oranye. Jangan memakai senjata api sungguhan, senapan angin, atau replika yang mirip aslinya.",
+  "outro": "Kepala yang dingin adalah senjata terkuatmu. Materi terakhir di jalur ini: rangkuman dan refleks.",
+  "home": "Pekerjaan rumah: setiap hari tiga menit napas kotak, dan berlatih permainan mengingat saat kamu bepergian.",
+  "steps": {
+   "tk14-1": {
+    "title": "Bernapas dan tetap tenang",
+    "say": "Saat ditodong senjata api, jantungmu akan berdetak sangat cepat. Lakukan napas kotak: tarik napas empat detik, tahan empat detik, buang napas empat detik, tahan empat detik. Hanya satu atau dua putaran napas sudah membuat pikiranmu lebih jernih. Orang yang tenang bisa melihat jalan keluar, orang yang panik tidak.",
+    "cues": [
+     "Tarik 4 – tahan 4 – buang 4 – tahan 4",
+     "Satu atau dua putaran sudah cukup",
+     "Hanya dengan tenang kamu melihat jalan keluar"
+    ],
+    "mistakes": [
+     "Napas memburu",
+     "Bergerak tiba-tiba"
+    ],
+    "drill": {
+     "label": "Napas kotak 4 hitungan",
+     "say": "Giliranmu. Napas kotak empat hitungan selama enam puluh empat detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk14-2": {
+    "title": "Patuhi dan angkat tangan",
+    "say": "Kalau dia meminta barangmu: patuhi. Angkat kedua telapak tangan terbuka setinggi bahu, dan bicara pelan dan jelas: baik, saya berikan. Beri tahu setiap gerakan sebelumnya: saya akan mengambil dompet di saku kanan. Letakkan barangmu, atau lempar jauh-jauh. Jangan menatap wajahnya terus-menerus, jangan berdebat.",
+    "cues": [
+     "Kedua telapak terbuka, setinggi bahu",
+     "Bicara pelan, beri tahu setiap gerakan",
+     "Serahkan barang, jangan berdebat"
+    ],
+    "mistakes": [
+     "Tiba-tiba merogoh saku",
+     "Berdebat, balik mengancam"
+    ],
+    "drill": {
+     "label": "Latihan situasi patuh",
+     "say": "Giliranmu. Latihan situasi patuh: tiga kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk14-3": {
+    "title": "Penyembunyi dan pelindung",
+    "say": "Bedakan dua hal. Penyembunyi adalah sesuatu yang menutupimu dari pandangan, seperti semak atau tirai. Pelindung adalah sesuatu yang bisa menahan peluru, seperti tembok beton, tiang, atau blok mesin mobil. Saat ada kesempatan lari, larilah ke arah pelindung, berlari zig-zag, bukan lurus, dan jaga badan tetap rendah.",
+    "cues": [
+     "Penyembunyi ≠ pelindung",
+     "Lari ke arah pelindung",
+     "Lari zig-zag, badan rendah"
+    ],
+    "mistakes": [
+     "Bersembunyi di balik pintu kayu atau semak dan merasa aman",
+     "Lari dalam satu garis lurus"
+    ],
+    "drill": {
+     "label": "Lari zig-zag ke pelindung",
+     "say": "Giliranmu. Lari zig-zag ke arah pelindung: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk14-4": {
+    "title": "Mengamati dan mengingat",
+    "say": "Sambil mematuhi, amati diam-diam: tinggi badan, pakaian, suara, dan arah dia pergi. Setelah dia pergi, tetap diam di tempat yang aman, segera hubungi polisi, dan ceritakan semua yang kamu ingat. Jangan pernah mengejarnya.",
+    "cues": [
+     "Amati diam-diam: postur, pakaian, suara, arah pergi",
+     "Tetap di tempat yang aman",
+     "Hubungi polisi, jangan mengejar"
+    ],
+    "mistakes": [
+     "Mengejar perampok",
+     "Menatap wajahnya terus-menerus"
+    ],
+    "drill": {
+     "label": "Permainan mengingat: gambarkan seseorang",
+     "say": "Giliranmu. Permainan mengingat: gambarkan ciri seseorang selama tiga puluh detik. Waktunya akan dihitung mundur."
+    }
+   },
+   "tk14-5": {
+    "title": "Pilihan terakhir",
+    "say": "Hanya jika kamu yakin dia akan menembak meskipun kamu sudah patuh, barulah pikirkan pilihan terakhir: dorong laras senjata menjauh dari tubuhmu dan dari orang lain, pegang erat dengan kedua tangan, lalu cari cara untuk lolos. Ini teknik yang berisiko sangat tinggi, dan hanya boleh dipelajari langsung dengan pelatih bersertifikat, memakai senjata latihan. Dalam hampir semua situasi, patuh dan mengamati adalah pilihan terbaik untuk tetap hidup.",
+    "cues": [
+     "Hanya jika yakin akan ditembak",
+     "Dorong laras menjauh dari tubuh, pegang dengan dua tangan",
+     "Belajar langsung dengan pelatih"
+    ],
+    "mistakes": [
+     "Bertindak padahal hanya diminta barang",
+     "Berlatih sendiri dari video tanpa instruktur"
+    ],
+    "drill": {
+     "label": "Ulangi prinsip-prinsipnya",
+     "say": "Giliranmu. Ulangi prinsip-prinsipnya: tiga kali. Saya akan menghitung ritmenya untukmu."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Apa itu napas kotak?",
+    "a": [
+     "Tarik 4 – tahan 4 – buang 4 – tahan 4 detik",
+     "Menahan napas selama mungkin"
+    ],
+    "why": "Napas yang teratur membantu menurunkan detak jantung, dan pikiran tetap jernih."
+   },
+   {
+    "q": "Ditodong senjata api dan diminta barang, apa yang sebaiknya dilakukan?",
+    "a": [
+     "Melawan",
+     "Patuhi, beri tahu gerakanmu dulu, serahkan barang"
+    ],
+    "why": "Barang tidak sebanding dengan nyawa."
+   },
+   {
+    "q": "Benda mana yang termasuk pelindung, yang bisa menahan peluru?",
+    "a": [
+     "Semak",
+     "Tembok beton, tiang"
+    ],
+    "why": "Semak hanya menyembunyikanmu, tidak bisa menahan peluru."
+   },
+   {
+    "q": "Setelah perampok pergi, sebaiknya kamu:",
+    "a": [
+     "Mengejarnya",
+     "Tetap di tempat yang aman dan hubungi polisi"
+    ],
+    "why": "Jangan pernah mengejar orang yang bersenjata."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Rangkuman & refleks",
+  "sub": "Situasi berangkai, latihan berpasangan terkontrol, peregangan pemulihan",
+  "intro": "Materi terakhir. Kita gabungkan semua yang sudah dipelajari menjadi refleks. Saat situasi terjadi, kamu tidak akan punya waktu untuk berpikir. Tubuhmu harus tahu sendiri apa yang harus dilakukan.",
+  "safety": "Pakai sarung tangan, dan pelindung gigi jika ada. Latihan berpasangan dengan 30–50% tenaga, diawasi instruktur.",
+  "outro": "Selamat, pejuang! Kamu sudah menuntaskan seluruh jalur Bela diri jarak dekat, baik bagian dasar maupun lanjutan. Ikuti ujian kelulusan jalur untuk mendapatkan lencana Serigala Baja.",
+  "home": "Pekerjaan rumah: tiga sesi seminggu mengulang seluruh jalur, setiap sesi tiga puluh menit, selalu dengan pemanasan dan peregangan.",
+  "steps": {
+   "tk15-1": {
+    "title": "Refleks dengan pad yang bergerak",
+    "say": "Partnermu memegang dua sarung pad, bergerak mengelilingimu, dan tiba-tiba mengangkat pad di posisi yang berbeda-beda. Pad setinggi wajah: pukulan lurus. Pad rendah: tendangan dorong. Pad diayunkan ke kepalamu: jaga tinggi. Bereaksi langsung, tanpa berpikir.",
+    "cues": [
+     "Pad setinggi wajah → pukulan lurus",
+     "Pad rendah → tendangan dorong",
+     "Pad diayunkan → jaga tinggi"
+    ],
+    "mistakes": [
+     "Diam menunggu, tidak bergerak",
+     "Menurunkan tangan setelah setiap serangan"
+    ],
+    "drill": {
+     "label": "Ronde refleks",
+     "say": "Giliranmu. Ronde refleks: tiga ronde, setiap ronde empat puluh lima detik, istirahat dua puluh detik di antara ronde."
+    }
+   },
+   "tk15-2": {
+    "title": "Situasi: pergelangan dicengkeram",
+    "say": "Situasi pertama. Partnermu tiba-tiba mencengkeram pergelanganmu dan menarik. Refleksnya: turunkan titik berat, lolos ke arah ibu jari, pagar tangan, mundur menjauh, lalu teriak keras: Berhenti! Kemudian berbalik dan lari tiga langkah. Ulangi lima kali, dan setiap kali partnermu mencengkeram dengan cara yang berbeda.",
+    "cues": [
+     "Turunkan titik berat, lolos ke arah ibu jari",
+     "Pagar tangan, teriak keras",
+     "Lari 3 langkah"
+    ],
+    "mistakes": [
+     "Adu tenaga dengan tenaga",
+     "Lupa berteriak dan lari"
+    ],
+    "drill": {
+     "label": "Situasi pergelangan dicengkeram",
+     "say": "Giliranmu. Situasi pergelangan dicengkeram: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk15-3": {
+    "title": "Situasi: dipeluk dari belakang",
+    "say": "Situasi kedua. Partnermu memelukmu dari belakang. Refleksnya: turunkan titik berat, buka siku, langkah ke samping, berputar lolos, tendangan dorong ke perisai yang dipegang orang ketiga, lalu lari. Bertukar peran setiap kali selesai. Lima kali untuk setiap orang.",
+    "cues": [
+     "Turunkan titik berat, buka siku",
+     "Langkah ke samping, berputar lolos",
+     "Tendangan dorong, lari"
+    ],
+    "mistakes": [
+     "Berdiri tegak",
+     "Berputar saat titik berat masih tinggi"
+    ],
+    "drill": {
+     "label": "Situasi pelukan belakang",
+     "say": "Giliranmu. Situasi dipeluk dari belakang: lima kali. Saya akan menghitung ritmenya untukmu."
+    }
+   },
+   "tk15-4": {
+    "title": "Latihan berpasangan terkontrol",
+    "say": "Latihan berpasangan ringan tiga ronde, setiap ronde satu menit. Hanya pukulan lurus ke sarung tangan dan bahu, dan tendangan dorong ke perut dengan sangat pelan, tiga puluh persen tenaga. Jangan memukul wajah, jangan menyerang titik lemah. Tujuannya melatih mata, langkah kaki, dan ketenangan saat ada orang yang benar-benar menyerang.",
+    "cues": [
+     "30% tenaga, jangan ke wajah",
+     "Latih mata, langkah kaki, ketenangan",
+     "Saling menyentuhkan sarung tangan sebelum dan sesudah"
+    ],
+    "mistakes": [
+     "Menambah tenaga setelah terkena pukulan",
+     "Memejamkan mata saat dipukul"
+    ],
+    "drill": {
+     "label": "Ronde latihan berpasangan",
+     "say": "Giliranmu. Ronde latihan berpasangan: tiga ronde, setiap ronde enam puluh detik, istirahat tiga puluh detik di antara ronde."
+    }
+   },
+   "tk15-5": {
+    "title": "Peregangan dan pemulihan",
+    "say": "Setelah sesi latihan yang berat, lakukan peregangan sepuluh menit. Regangkan paha depan, paha belakang, pinggul, bahu, dan punggung, setiap posisi tiga puluh detik, dan buang napas saat meregang lebih dalam. Minum air, makan cukup, dan tidur cukup. Otot tumbuh saat kamu beristirahat, bukan saat kamu berlatih.",
+    "cues": [
+     "Setiap posisi 30 detik",
+     "Buang napas saat meregang lebih dalam",
+     "Minum air, makan cukup, tidur cukup"
+    ],
+    "mistakes": [
+     "Memantul-mantul saat meregang",
+     "Melewatkan bagian pemulihan"
+    ],
+    "drill": {
+     "label": "Peregangan pemulihan",
+     "say": "Giliranmu. Peregangan pemulihan selama seratus dua puluh detik. Waktunya akan dihitung mundur."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Kalau pad diangkat rendah setinggi perut, apa refleksnya?",
+    "a": [
+     "Tendangan dorong",
+     "Jaga tinggi"
+    ],
+    "why": "Sasaran rendah untuk tendangan dorong."
+   },
+   {
+    "q": "Berapa tenaga yang dipakai dalam latihan berpasangan terkontrol?",
+    "a": [
+     "Sekitar 30%",
+     "Sekuat tenaga"
+    ],
+    "why": "Melatih keterampilan dengan aman, bukan berkelahi sungguhan."
+   },
+   {
+    "q": "Setiap situasi bela diri selalu diakhiri dengan:",
+    "a": [
+     "Tetap di tempat dan terus bertarung",
+     "Berteriak keras, menciptakan jarak, lalu lari"
+    ],
+    "why": "Tujuan bela diri adalah keselamatan."
+   },
+   {
+    "q": "Kapan otot tumbuh?",
+    "a": [
+     "Saat beristirahat, makan dan tidur cukup",
+     "Hanya saat berlatih"
+    ],
+    "why": "Pemulihan adalah bagian dari latihan."
+   }
+  ]
+ }
+}
