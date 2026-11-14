@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Combate próximo e autodefesa",
+  "sub": "Inspirado no Systema e na luta Sambo: respiração, trabalho de pés, quedas seguras, proteção, golpes básicos, fugas e projeções."
+ },
+ "ngu-trang": {
+  "title": "Camuflagem e ocultação",
+  "sub": "Fato ghillie, pintura facial, esconderijo, deslocação silenciosa, apagar rastos e aproximação sem ser detetado.",
+  "preview": [
+   "Os quatro sinais que denunciam: forma, sombra, brilho, movimento",
+   "Pintura facial de camuflagem",
+   "Fazer um fato ghillie",
+   "Escolher um esconderijo",
+   "Rastejar baixo, rastejar alto, passo de raposa",
+   "Deslocação silenciosa",
+   "Apagar rastos",
+   "Observar sem ser detetado"
+  ]
+ },
+ "ban-sung": {
+  "title": "Tiro desportivo",
+  "sub": "As quatro regras de segurança, pegar corretamente na arma de treino, posições de pé, de joelhos e deitado, pontaria e respiração, história das armas.",
+  "preview": [
+   "As quatro regras de segurança",
+   "Pegar corretamente na arma de treino",
+   "Posições de pé, de joelhos e deitado",
+   "Linha de mira e respiração",
+   "Pressionar o gatilho com suavidade",
+   "História do tiro desportivo"
+  ]
+ },
+ "dong-doi": {
+  "title": "Trabalho de equipa",
+  "sub": "Sinais com as mãos, comunicação curta, formações de deslocação e apoio mútuo no airsoft e no paintball.",
+  "preview": [
+   "Sinais básicos com as mãos",
+   "Comunicação curta por rádio",
+   "Formações de deslocação",
+   "Vigilância por setores",
+   "Jogos de coordenação em equipa"
+  ]
+ },
+ "the-luc": {
+  "title": "Preparação física e sobrevivência",
+  "sub": "Marchas com carga, natação segura, gestão do cansaço, encontrar água, comida, fogo e abrigo na floresta, no deserto e no mar.",
+  "preview": [
+   "Força com o peso do corpo",
+   "Marcha com carga em segurança",
+   "Passar paredes de madeira, subir à corda",
+   "Nadar e flutuar em segurança",
+   "Gerir o cansaço e a falta de sono",
+   "Encontrar e filtrar água",
+   "Fogo e abrigo",
+   "Sobreviver na floresta, no deserto e no mar"
+  ]
+ },
+ "so-cuu": {
+  "title": "Primeiros socorros em combate",
+  "sub": "Estancar hemorragias, aplicar garrote, ligadura compressiva, tratar o choque, reanimação cardiopulmonar e socorro com poucos materiais.",
+  "preview": [
+   "Avaliar a segurança do local",
+   "Compressão direta da hemorragia",
+   "Aplicar um garrote corretamente",
+   "Tamponamento e ligadura compressiva",
+   "Via aérea e posição lateral de segurança",
+   "Prevenir o choque e a hipotermia",
+   "Reanimação cardiopulmonar (RCP)",
+   "Socorrer com poucos materiais"
+  ]
+ },
+ "tam-ly": {
+  "title": "Força mental",
+  "sub": "Manter a calma no perigo, respirar contra o pânico, controlar o medo, treinar a observação e a memória.",
+  "preview": [
+   "Respiração em caixa contra o pânico",
+   "Controlar o medo",
+   "Diálogo interior positivo",
+   "Observar e memorizar (jogo de Kim)",
+   "Decidir sob pressão"
+  ]
+ }
+}
