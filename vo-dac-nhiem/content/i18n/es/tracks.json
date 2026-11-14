@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Defensa personal cuerpo a cuerpo",
+  "sub": "Inspirada en el Systema y la lucha Sambo: respiración, juego de pies, caídas seguras, cobertura, golpes básicos, escapes y derribos."
+ },
+ "ngu-trang": {
+  "title": "Camuflaje y ocultación",
+  "sub": "Traje ghillie, pintura facial, ocultarse, moverse sin ruido, borrar el rastro, acercarse sin ser detectado.",
+  "preview": [
+   "Cuatro cosas que te delatan: silueta, sombra, brillo, movimiento",
+   "Pintura facial de camuflaje",
+   "Haz tu propio traje ghillie",
+   "Elegir un escondite",
+   "Arrastre bajo, arrastre alto, paso de zorro",
+   "Moverse sin hacer ruido",
+   "Borrar el rastro",
+   "Observar sin ser detectado"
+  ]
+ },
+ "ban-sung": {
+  "title": "Tiro deportivo",
+  "sub": "Las cuatro reglas de seguridad, sujetar bien el arma de entrenamiento, posiciones de pie, de rodillas y tumbado, puntería y respiración, historia de las armas.",
+  "preview": [
+   "Las cuatro reglas de seguridad",
+   "Sujetar bien el arma de entrenamiento",
+   "Posición de pie, de rodillas y tumbado",
+   "Línea de mira y respiración",
+   "Presión suave del gatillo",
+   "Historia del tiro deportivo"
+  ]
+ },
+ "dong-doi": {
+  "title": "Trabajo en equipo",
+  "sub": "Señales con las manos, comunicación breve, formaciones de movimiento y apoyo mutuo en airsoft y paintball.",
+  "preview": [
+   "Señales de mano básicas",
+   "Comunicación breve por radio",
+   "Formaciones de movimiento",
+   "Observación por sectores",
+   "Juegos de coordinación en equipo"
+  ]
+ },
+ "the-luc": {
+  "title": "Condición física y supervivencia",
+  "sub": "Marchas con carga, natación segura, gestión del cansancio, buscar agua, comida, fuego y refugio en bosque, desierto y mar.",
+  "preview": [
+   "Fuerza con el peso corporal",
+   "Marchas con carga seguras",
+   "Superar muros de madera, trepar por la cuerda",
+   "Nadar y flotar con seguridad",
+   "Gestionar el cansancio y la falta de sueño",
+   "Encontrar y filtrar agua",
+   "Fuego y refugio",
+   "Supervivencia en bosque, desierto y mar"
+  ]
+ },
+ "so-cuu": {
+  "title": "Primeros auxilios en combate",
+  "sub": "Detener hemorragias, colocar torniquetes, vendaje compresivo, tratar el shock, reanimación cardiopulmonar, primeros auxilios con pocos recursos.",
+  "preview": [
+   "Evaluar la seguridad de la escena",
+   "Presión directa sobre la herida",
+   "Colocar bien un torniquete",
+   "Taponar la herida y vendaje compresivo",
+   "Mantener la vía aérea, posición lateral de seguridad",
+   "Prevenir el shock y la hipotermia",
+   "Reanimación cardiopulmonar (RCP)",
+   "Primeros auxilios con pocos recursos"
+  ]
+ },
+ "tam-ly": {
+  "title": "Fortaleza mental",
+  "sub": "Mantener la calma ante el peligro, respirar contra el pánico, controlar el miedo, entrenar la observación y la memoria.",
+  "preview": [
+   "Respiración cuadrada contra el pánico",
+   "Controlar el miedo",
+   "Diálogo interno positivo",
+   "Observar y recordar (juego de Kim)",
+   "Decidir bajo presión"
+  ]
+ }
+}

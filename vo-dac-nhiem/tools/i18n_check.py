@@ -50,8 +50,77 @@ def walk(a, b, path, errs, lang):
             errs.append(f"{path}: giá trị phải giữ nguyên {a!r}")
 
 
-def check(lang):
+# ---- nhận diện ngôn ngữ (không cần mạng): chữ viết + tần suất từ thông dụng
+STOP = {
+ "en": "the and you your to of is in it with on not this that for be are".split(),
+ "fr": "le la les et vous tu de des un une est pas que en du pour avec ton ta".split(),
+ "es": "el la los las y de que en un una es no con por tu para se del".split(),
+ "de": "der die das und du nicht ist ein eine zu mit den auf dich dein im".split(),
+ "it": "il la le e di che non un una è per con ti tuo del in".split(),
+ "pt": "o a os as e de que não um uma é com para do da em teu".split(),
+ "nl": "de het een en je niet is van op met dat te zijn jouw".split(),
+ "sv": "och att det är du en som inte på med för till din dig".split(),
+ "da": "og at det er du en som ikke på med for til din dig".split(),
+ "fi": "ja on se et ei että kun sinun tai myös ole niin".split(),
+ "pl": "i nie się w na to z że jest do jak twoja ci".split(),
+ "tr": "ve bir bu da de ile için değil sen çok gibi ama".split(),
+ "tk": "we bir bu bilen üçin däl sen hem ýaly ýa-da".split(),
+ "uz": "va bir bu bilan uchun emas siz ham kabi yoki".split(),
+ "id": "dan yang di ini itu dengan tidak kamu untuk ke dari".split(),
+ "so": "iyo waa ku in ka oo u la aan ay ee".split(),
+ "mg": "ny ary dia amin'ny ianao tsy ho an'ny ka fa".split(),
+}
+def guess(text):
+    t = text.lower()
+    scripts = [("zh", r"[\u4e00-\u9fff]"), ("ja", r"[\u3040-\u30ff]"), ("ko", r"[\uac00-\ud7af]"), ("th", r"[\u0e00-\u0e7f]"),
+               ("my", r"[\u1000-\u109f]"), ("el", r"[\u0370-\u03ff]"), ("ar", r"[\u0600-\u06ff]"), ("cyr", r"[\u0400-\u04ff]")]
+    counts = {k: len(re.findall(rx, t)) for k, rx in scripts}
+    latin = len(re.findall(r"[a-z]", t))
+    top = max(counts, key=counts.get)
+    if counts[top] > latin:
+        if top == "ja" or (top == "zh" and counts["ja"] > counts["zh"] * 0.05): return "ja" if counts["ja"] else "zh"
+        if top == "ar": return "fa" if re.search(r"[پچژگکی]", t) else "ar"
+        if top == "cyr":
+            if re.search(r"[әғқңұһ]", t): return "kk"
+            if re.search(r"[іїєґ]", t): return "uk"
+            if re.search(r"[өү]", t): return "mn"
+            return "ru"
+        return top
+    words = re.findall(r"[a-zà-ÿăâđêôơưçğışñäöüåæøœʻ'’-]+", t)
+    best, bs = None, 0
+    for lg, sw in STOP.items():
+        sc = sum(1 for w in words if w in sw)
+        if sc > bs: best, bs = lg, sc
+    return best
+
+
+def collect(o, out):
+    if isinstance(o, str): out.append(o)
+    elif isinstance(o, list): [collect(x, out) for x in o]
+    elif isinstance(o, dict): [collect(v, out) for v in o.values()]
+    return out
+
+
+def lang_errs(lang):
     errs = []
+    if lang == "vi": return errs
+    d = BASE / lang
+    chunks = []
+    try:
+        les = json.loads((d / "lessons.json").read_text())
+        chunks += [(f"lessons.json.{k}", " ".join(collect(v, []))) for k, v in les.items()]
+        chunks += [(f"{f}", " ".join(collect(json.loads((d / f).read_text()), []))) for f in ["ui.json", "lines.json", "tracks.json"]]
+    except Exception:  # noqa: BLE001
+        return errs
+    for name, txt in chunks:
+        g = guess(txt)
+        if g and g != lang and not (lang in ("da", "sv") and g in ("da", "sv")) and not (lang in ("tr", "tk", "uz") and g in ("tr", "tk", "uz") and lang != "tr" and g == lang):
+            errs.append(f"{name}: có vẻ là tiếng '{g}' chứ không phải '{lang}'")
+    return errs
+
+
+def check(lang):
+    errs = lang_errs(lang)
     for f in FILES:
         src = json.loads((BASE / "vi" / f).read_text())
         p = BASE / lang / f

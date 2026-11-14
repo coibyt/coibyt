@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Nahkampf-Selbstverteidigung",
+  "sub": "Inspiriert von Systema und Sambo-Ringen: Atmung, Beinarbeit, sicheres Fallen, Deckung, Grundtechniken, Befreiungen, Würfe."
+ },
+ "ngu-trang": {
+  "title": "Tarnung & Verbergen",
+  "sub": "Ghillie-Anzug, Tarnschminke, Deckung, lautlose Bewegung, Spuren verwischen, unentdeckt annähern.",
+  "preview": [
+   "Vier Verräter: Umriss, Schatten, Licht, Bewegung",
+   "Tarnschminke",
+   "Ghillie-Anzug selbst bauen",
+   "Das richtige Versteck wählen",
+   "Tiefes Kriechen, hohes Kriechen, Fuchsgang",
+   "Lautlos bewegen",
+   "Spuren verwischen",
+   "Beobachten, ohne entdeckt zu werden"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sportschießen",
+  "sub": "Vier Sicherheitsregeln, richtige Haltung der Übungswaffe, Anschlag stehend – kniend – liegend, Zielen und Atmen, Geschichte der Waffen.",
+  "preview": [
+   "Vier Sicherheitsregeln",
+   "Übungswaffe richtig halten",
+   "Anschlag stehend, kniend, liegend",
+   "Visierlinie und Atmung",
+   "Sauberes Abziehen",
+   "Geschichte des Sportschießens"
+  ]
+ },
+ "dong-doi": {
+  "title": "Teamarbeit",
+  "sub": "Handzeichen, kurze Kommunikation, Bewegungsformationen und gegenseitige Deckung bei Airsoft und Paintball.",
+  "preview": [
+   "Grundlegende Handzeichen",
+   "Kurzer Funkverkehr",
+   "Bewegungsformationen",
+   "Beobachtung nach Sektoren",
+   "Teamspiele"
+  ]
+ },
+ "the-luc": {
+  "title": "Fitness & Überleben",
+  "sub": "Marsch mit Gepäck, sicheres Schwimmen, Umgang mit Erschöpfung, Wasser, Nahrung, Feuer und Unterschlupf in Wald, Wüste und am Meer.",
+  "preview": [
+   "Kraft mit dem eigenen Körpergewicht",
+   "Sicher marschieren mit Gepäck",
+   "Holzwand überwinden, Seilklettern",
+   "Sicher schwimmen und treiben",
+   "Umgang mit Erschöpfung und Schlafmangel",
+   "Wasser finden und filtern",
+   "Feuer und Unterschlupf",
+   "Überleben in Wald, Wüste und am Meer"
+  ]
+ },
+ "so-cuu": {
+  "title": "Erste Hilfe im Einsatz",
+  "sub": "Blutungen stillen, Tourniquet anlegen, Druckverband, Schock behandeln, Herz-Lungen-Wiederbelebung, Erste Hilfe mit wenig Material.",
+  "preview": [
+   "Sicherheit am Einsatzort prüfen",
+   "Direkter Druck auf die Wunde",
+   "Tourniquet richtig anlegen",
+   "Wunde austamponieren und Druckverband",
+   "Atemwege freihalten, stabile Seitenlage",
+   "Schock und Unterkühlung vorbeugen",
+   "Herz-Lungen-Wiederbelebung (HLW)",
+   "Erste Hilfe mit wenig Material"
+  ]
+ },
+ "tam-ly": {
+  "title": "Mentale Stärke",
+  "sub": "Ruhig bleiben in Gefahr, Atmen gegen Panik, Angst kontrollieren, Beobachtung und Gedächtnis schärfen.",
+  "preview": [
+   "Box-Atmung gegen Panik",
+   "Angst kontrollieren",
+   "Positives Selbstgespräch",
+   "Beobachten und merken (Kim-Spiel)",
+   "Entscheiden unter Druck"
+  ]
+ }
+}

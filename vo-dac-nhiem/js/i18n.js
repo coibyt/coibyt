@@ -1,161 +1,83 @@
-// Chữ giao diện. Thêm ngôn ngữ mới: chép khối "vi", dịch, rồi thêm content/*-<lang>.json và assets/voice/<lang>/.
-export const STR = {
-  vi: {
-    brand: "SÓI TAIGA",
-    tagline: "Võ đặc công thực chiến",
-    coach: "HLV Alexei",
-    start: "Bắt đầu",
-    enter: "Vào trại",
-    tapToEnter: "Chạm để vào trại",
-    tapHint: "Thầy Alexei sẽ nói chuyện với bạn ở mọi màn hình.",
-    consentAge: "Tôi <b>đủ 16 tuổi</b>, hoặc có người lớn đi cùng khi tập.",
-    consentSafe: "Tôi sẽ <b>khởi động kỹ, tập trên đệm</b>, tập cùng bạn tập và người hướng dẫn có chuyên môn. Đau là dừng.",
-    disclaimer: "Nội dung mang tính thể thao – tự vệ – rèn luyện thể lực. Nhân vật và trại huấn luyện là hư cấu.",
-    tabHome: "Trại", tabMap: "Kỹ năng", tabDrill: "Tập nhanh", tabMe: "Hồ sơ",
-    todayPlan: "Kế hoạch hôm nay",
-    planLesson: "Học một bài", planLessonSub: "Xem trọn các bước và qua bài kiểm tra",
-    planDrill: "Tập theo thầy", planDrillSub: "Một lượt đếm nhịp bất kỳ",
-    planQuiz: "Làm bài kiểm tra", planQuizSub: "Ôn lại kiến thức",
-    tracks: "Các nhánh huấn luyện",
-    lessonsN: (n) => `${n} bài`,
-    soon: "Sắp mở",
-    continue: "Học tiếp",
-    streakDays: (n) => `${n} ngày`,
-    xp: "XP",
-    toNext: (n, r) => `Còn ${n} XP để lên ${r}`,
-    maxRank: "Cấp bậc cao nhất",
-    min: (n) => `${n} phút`,
-    level: (n) => `Độ khó ${n}/5`,
-    steps: (n) => `${n} bước`,
-    startLesson: "Bắt đầu bài học",
-    review: "Học lại",
-    chapters: "Các bước trong bài",
-    step: "Bước",
-    cuesH: "Điểm cần nhớ",
-    mistakesH: "Lỗi hay gặp",
-    practice: "Tập theo",
-    prev: "Trước",
-    next: "Bước tiếp",
-    toQuiz: "Làm bài kiểm tra",
-    replay: "Nghe lại",
-    slow: "Chậm 0,5×",
-    mirror: "Lật gương",
-    loop: "Lặp lại",
-    nextBadge: "TIẾP THEO",
-    locked: "Chưa mở",
-    quiz: "Kiểm tra",
-    exam: "Thi tốt nghiệp",
-    examTitle: "Thi tốt nghiệp nhánh",
-    examSub: "10 câu ngẫu nhiên từ mọi bài · đúng 8 câu là đạt",
-    examPass: "Tốt nghiệp nhánh",
-    examAgain: "Thi lại để ôn tập",
-    examLockedToast: "Hoàn thành cả 15 bài để mở bài thi tốt nghiệp.",
-    tierBase: "Cơ bản",
-    forceBtn: "Hướng lực",
-    forceLegend: [["foot", "Bước chân"], ["hit", "Đòn / lực ra"], ["body", "Đẩy · kéo · xoay"]],
-    autoTeach: "Thầy dạy tự động",
-    autoTeachOn: "Thầy giảng, dặn tập, đếm giờ và tự sang bước sau.",
-    autoTeachOff: "Học thủ công: bạn tự bấm để sang bước sau.",
-    skip: "Bỏ qua",
-    homeH: "Bài tập về nhà:",
-    feet: {
-      title: "Sơ đồ bước chân", left: "T", right: "P", facing: "Hướng mặt", attackLine: "Đòn lao tới",
-      lefty: "Nhìn từ trên xuống · người thuận tay phải (T = chân trái, P = chân phải). Thuận tay trái thì làm ngược lại.",
-      ready: "Thế đứng chiến đấu: chân trái trước, chân phải sau.",
-      stance1: "Chân TRÁI ở trước, mũi chân hơi chếch vào trong.",
-      stance2: "Chân PHẢI ở sau, gót hơi nhấc.",
-      stance3: "Hai chân rộng hơn vai, không đứng trên cùng một đường thẳng.",
-      fb1: "① Tiến: chân TRƯỚC (trái) bước lên trước.",
-      fb2: "② Chân SAU (phải) trượt theo đúng khoảng cách ấy.",
-      fb3: "③ Lùi: chân SAU (phải) lùi trước.",
-      fb4: "④ Chân TRƯỚC (trái) rút theo. Về đúng thế đứng.",
-      sd1: "① Sang trái: chân TRÁI đi trước.",
-      sd2: "② Chân PHẢI trượt theo, khoảng cách không đổi.",
-      sd3: "③ Sang phải: chân PHẢI đi trước.",
-      sd4: "④ Chân TRÁI trượt theo. Không bắt chéo chân.",
-      pv1: "① Trụ trên mũi chân TRƯỚC, chân SAU quét vòng cung một phần tư vòng.",
-      pv2: "② Cả người đổi góc 90°. Xoay về vị trí cũ rồi lặp lại.",
-      an1: "① Chân trước bước chéo 45° ra ngoài đường lao tới.",
-      an2: "② Chân sau theo, bạn đứng ở góc an toàn.",
-      an3: "Rời khỏi đường tấn công, rồi thoát đi.",
-    },
-    pip: "Khung thầy giảng",
-    full: "Phóng to",
-    autoPlay: "Xem liên tục (tự sang bước sau)",
-    autoIn: (n) => `Tự chuyển sau ${n}…`,
-    trained: (n) => `${n} phút tập`,
-    stepsSeen: (n) => `${n} bước đã học`,
-    yourName: "Tên chiến binh",
-    namePh: "Nhập tên của bạn",
-    saved: "Đã lưu",
-    warrior: "Chiến binh",
-    certBtn: "Tải giấy chứng nhận",
-    certTitle: "GIẤY CHỨNG NHẬN",
-    certGiven: "Trại huấn luyện Sói Taiga chứng nhận",
-    certFor: "đã hoàn thành chương trình huấn luyện",
-    certNote: "Chứng nhận trong trò chơi, mang tính khích lệ luyện tập thể thao – tự vệ.",
-    certDone: "Đã tải giấy chứng nhận",
-    tierAdv: "Nâng cao",
-    qOf: (i, n) => `Câu ${i}/${n}`,
-    nextQ: "Câu tiếp",
-    finish: "Xem kết quả",
-    resultPass: "Hoàn thành bài học",
-    resultFail: "Chưa đạt",
-    retry: "Làm lại",
-    backToMap: "Về bản đồ kỹ năng",
-    nextLesson: "Bài tiếp theo",
-    rankUp: "Thăng cấp!",
-    newBadge: "Huy hiệu mới",
-    profile: "Hồ sơ chiến binh",
-    ranksH: "Thang cấp bậc",
-    badgesH: "Huy hiệu",
-    calH: "28 ngày gần nhất",
-    settingsH: "Cài đặt",
-    setVoice: "Giọng thầy",
-    setSfx: "Âm hiệu ứng",
-    setAmb: "Tiếng gió rừng",
-    resetBtn: "Xoá tiến độ",
-    resetAsk: "Xoá toàn bộ tiến độ trên máy này?",
-    drillsH: "Tập nhanh",
-    drillsSub: "Các bài tập theo nhịp từ những bước bạn đã học.",
-    drillsEmpty: "Học bài đầu tiên để mở các bài tập theo nhịp.",
-    randomDrill: "Vòng ngẫu nhiên",
-    reps: (n) => `${n} lần`,
-    secs: (n) => `${n} giây`,
-    rounds: (r, n) => `${r} hiệp × ${n} giây`,
-    go: "Bắt đầu",
-    stop: "Dừng",
-    done: "Xong",
-    tempo: "Nhịp",
-    rest: "Nghỉ",
-    round: (i, n) => `Hiệp ${i}/${n}`,
-    count: "lần",
-    seconds: "giây",
-    safetyH: "An toàn",
-    trackLockedToast: "Nhánh này sẽ mở ở bản cập nhật sau.",
-    lessonLockedToast: "Hoàn thành bài trước để mở bài này.",
-    offlineReady: "Đã sẵn sàng tập cả khi không có mạng.",
-    gained: (n) => `+${n} XP`,
-    ranks: { "tan-binh": "Tân binh", "hoc-vien": "Học viên", "chien-si": "Chiến sĩ", "trinh-sat": "Trinh sát", "dac-cong": "Đặc công", "soi-xam": "Sói Xám", "soi-dau-dan": "Sói Đầu Đàn" },
-    badges: {
-      fall: ["Biết ngã", "Hoàn thành bài Ngã an toàn"],
-      streak3: ["Lửa 3 ngày", "Tập 3 ngày liên tục"],
-      streak7: ["Lửa 7 ngày", "Tập 7 ngày liên tục"],
-      perfect: ["Tuyệt đối", "Một bài kiểm tra không sai câu nào"],
-      drill10: ["Kỷ luật thép", "10 lượt tập theo thầy"],
-      early: ["Sói sớm", "Tập trước 7 giờ sáng"],
-      night: ["Sói đêm", "Tập sau 9 giờ tối"],
-      track: ["Cận chiến", "Hoàn thành nhánh Cận chiến tự vệ"],
-      grad: ["Sói Thép", "Tốt nghiệp nhánh Cận chiến tự vệ"],
-      checks: ["Tỉ mỉ", "Đánh dấu đủ điểm cần nhớ của một bài"],
-    },
-  },
-};
+// Đa ngôn ngữ: chữ giao diện nằm ở content/i18n/<mã>/ui.json (bản gốc: vi). Thêm ngôn ngữ: xem content/i18n/TRANSLATE.md.
+
+// Thứ tự theo yêu cầu của chủ dự án. font: phông Google Fonts bổ sung cho chữ viết không có trong Be Vietnam Pro/Oswald.
+export const LANGS = [
+  { code: "vi", name: "Tiếng Việt" },
+  { code: "ru", name: "Русский", font: "Noto Sans" },
+  { code: "zh", name: "中文", font: "Noto Sans SC" },
+  { code: "kk", name: "Қазақша", font: "Noto Sans" },
+  { code: "ar", name: "العربية", font: "Noto Sans Arabic", rtl: true },
+  { code: "id", name: "Bahasa Indonesia" },
+  { code: "fa", name: "فارسی", font: "Vazirmatn", rtl: true },
+  { code: "mn", name: "Монгол", font: "Noto Sans" },
+  { code: "tr", name: "Türkçe", font: "Noto Sans" },
+  { code: "my", name: "မြန်မာ", font: "Noto Sans Myanmar" },
+  { code: "fr", name: "Français" },
+  { code: "so", name: "Soomaali" },
+  { code: "uk", name: "Українська", font: "Noto Sans" },
+  { code: "mg", name: "Malagasy" },
+  { code: "th", name: "ไทย", font: "Noto Sans Thai" },
+  { code: "es", name: "Español" },
+  { code: "tk", name: "Türkmençe", font: "Noto Sans" },
+  { code: "sv", name: "Svenska" },
+  { code: "uz", name: "Oʻzbekcha", font: "Noto Sans" },
+  { code: "ja", name: "日本語", font: "Noto Sans JP" },
+  { code: "de", name: "Deutsch" },
+  { code: "fi", name: "Suomi" },
+  { code: "it", name: "Italiano" },
+  { code: "en", name: "English" },
+  { code: "pl", name: "Polski", font: "Noto Sans" },
+  { code: "ko", name: "한국어", font: "Noto Sans KR" },
+  { code: "pt", name: "Português" },
+  { code: "el", name: "Ελληνικά", font: "Noto Sans" },
+  { code: "nl", name: "Nederlands" },
+  { code: "da", name: "Dansk" },
+];
+export const langInfo = (c) => LANGS.find((x) => x.code === c) || LANGS[0];
+
+// Ngôn ngữ mặc định: ?lang=xx trên địa chỉ → ngôn ngữ của trình duyệt → tiếng Việt.
+export function detectLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && LANGS.some((x) => x.code === q)) return q;
+  for (const n of navigator.languages || [navigator.language || "vi"]) {
+    const c = String(n).toLowerCase().split("-")[0];
+    if (LANGS.some((x) => x.code === c)) return c;
+  }
+  return "vi";
+}
 
 let lang = "vi";
-export const setLang = (l) => { lang = STR[l] ? l : "vi"; };
+let UI = {};
+let VI = {};
+const fetchJSON = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); });
+
+// Nạp chữ giao diện + phông + hướng viết cho ngôn ngữ `l`.
+export async function setLang(l) {
+  const info = langInfo(l);
+  lang = info.code;
+  VI = await fetchJSON("content/i18n/vi/ui.json");
+  UI = lang === "vi" ? VI : await fetchJSON(`content/i18n/${lang}/ui.json`).catch(() => VI);
+  const html = document.documentElement;
+  html.lang = lang;
+  html.dir = info.rtl ? "rtl" : "ltr";
+  if (info.font) {
+    const id = "font-" + lang;
+    if (!document.getElementById(id)) {
+      const link = document.createElement("link");
+      link.id = id; link.rel = "stylesheet";
+      link.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(info.font)}:wght@400;500;600;700&display=swap`;
+      document.head.appendChild(link);
+    }
+    html.style.setProperty("--fx", `"${info.font}"`);
+  } else html.style.removeProperty("--fx");
+  return lang;
+}
+
 export const t = (k, ...a) => {
-  const v = STR[lang][k] ?? STR.vi[k];
-  return typeof v === "function" ? v(...a) : v ?? k;
+  const v = UI[k] ?? VI[k];
+  if (v == null) return k;
+  if (typeof v === "string" && a.length) return v.replace(/\{(\d)\}/g, (_, i) => (a[i] ?? ""));
+  return v;
 };
 export const L = () => lang;
+export const fx = () => langInfo(lang).font || "";

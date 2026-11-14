@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Yakın dövüşle savunma",
+  "sub": "Systema ve Sambo güreşinden ilham alır: nefes, ayak çalışması, güvenli düşüş, korunma, temel vuruşlar, kurtulma, yere indirme."
+ },
+ "ngu-trang": {
+  "title": "Kamuflaj ve gizlenme",
+  "sub": "Ghillie kıyafeti, yüz boyası, saklanma, sessiz hareket, iz silme, fark edilmeden yaklaşma.",
+  "preview": [
+   "Seni ele veren dört şey: şekil, gölge, ışık, hareket",
+   "Kamuflaj yüz boyası",
+   "Kendi ghillie kıyafetini yap",
+   "Saklanma yeri seçmek",
+   "Alçak sürünme, yüksek sürünme, tilki adımı",
+   "Sessiz hareket",
+   "İz silme",
+   "Fark edilmeden gözlem"
+  ]
+ },
+ "ban-sung": {
+  "title": "Spor atıcılık",
+  "sub": "Dört güvenlik kuralı, eğitim silahını doğru tutma, ayakta – diz çökerek – yatarak pozisyon, nişan ve nefes, atıcılık tarihi.",
+  "preview": [
+   "Dört güvenlik kuralı",
+   "Eğitim silahını doğru tutma",
+   "Ayakta, diz çökerek, yatarak",
+   "Nişan hattı ve nefes",
+   "Tetiği yumuşak çekmek",
+   "Spor atıcılığın tarihi"
+  ]
+ },
+ "dong-doi": {
+  "title": "Takım koordinasyonu",
+  "sub": "Airsoft ve paintball'da el işaretleri, kısa iletişim, hareket düzeni ve birbirini kollama.",
+  "preview": [
+   "Temel el işaretleri",
+   "Telsizle kısa iletişim",
+   "Hareket düzeni",
+   "Bölgeye göre gözlem",
+   "Takım koordinasyon oyunu"
+  ]
+ },
+ "the-luc": {
+  "title": "Kondisyon ve hayatta kalma",
+  "sub": "Yükle yürüyüş, güvenli yüzme, yorgunluk yönetimi; ormanda, çölde ve denizde su, yiyecek, ateş ve barınak bulma.",
+  "preview": [
+   "Vücut ağırlığıyla kuvvet",
+   "Güvenli yükle yürüyüş",
+   "Ahşap duvar aşma, ip tırmanma",
+   "Güvenli yüzme ve suda durma",
+   "Yorgunluk ve uykusuzluk yönetimi",
+   "Su bulma ve arıtma",
+   "Ateş ve barınak",
+   "Ormanda, çölde, denizde hayatta kalma"
+  ]
+ },
+ "so-cuu": {
+  "title": "Sahada ilk yardım",
+  "sub": "Kanamayı durdurma, turnike, baskılı sargı, şok yönetimi, kalp masajı, malzeme yokken ilk yardım.",
+  "preview": [
+   "Olay yeri güvenliğini değerlendirme",
+   "Doğrudan bastırarak kanama kontrolü",
+   "Turnikeyi doğru uygulama",
+   "Yara tamponlama ve baskılı sargı",
+   "Hava yolunu açık tutma, derlenme pozisyonu",
+   "Şok ve hipotermiyi önleme",
+   "Kalp masajı (CPR)",
+   "Malzeme yokken ilk yardım"
+  ]
+ },
+ "tam-ly": {
+  "title": "Zihinsel dayanıklılık",
+  "sub": "Tehlikede sakin kalma, paniğe karşı nefes, korkuyu kontrol etme, gözlem ve hafıza çalışması.",
+  "preview": [
+   "Paniğe karşı kutu nefesi",
+   "Korkuyu kontrol etmek",
+   "Olumlu iç konuşma",
+   "Gözlem ve hafıza (Kim oyunu)",
+   "Baskı altında karar vermek"
+  ]
+ }
+}

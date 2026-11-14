@@ -12,7 +12,23 @@ let unlockedFlag = false;
 const listeners = new Set();
 const settings = { voice: true, sfx: true, ambient: true, rate: 1 };
 
-export function setup(m, b) { manifest = m; base = b; }
+let lang = "vi";
+let textOf = () => "";
+// m: danh sách giọng thu sẵn; opts.lang, opts.text(key): để đọc bằng giọng của máy khi ngôn ngữ chưa có giọng thu sẵn
+export function setup(m, b, opts = {}) { manifest = m; base = b; lang = opts.lang || "vi"; textOf = opts.text || (() => ""); }
+// Giọng đọc của máy (Web Speech API) cho ngôn ngữ chưa có giọng thầy thu sẵn
+const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
+const BCP = { zh: "zh-CN", ar: "ar-SA", fa: "fa-IR", pt: "pt-PT", en: "en-GB", es: "es-ES", fr: "fr-FR", de: "de-DE", sv: "sv-SE", nl: "nl-NL", da: "da-DK", fi: "fi-FI", el: "el-GR", ko: "ko-KR", ja: "ja-JP", ru: "ru-RU", uk: "uk-UA", tr: "tr-TR", it: "it-IT", pl: "pl-PL", th: "th-TH", id: "id-ID", vi: "vi-VN", kk: "kk-KZ", uz: "uz-UZ", mn: "mn-MN", my: "my-MM", so: "so-SO", mg: "mg-MG", tk: "tk-TM" };
+function deviceVoice() {
+  if (!synth) return null;
+  const vs = synth.getVoices();
+  const want = (BCP[lang] || lang).toLowerCase();
+  // ưu tiên giọng nam nếu tên giọng cho biết
+  const match = vs.filter((v) => v.lang.toLowerCase().replace("_", "-").startsWith(lang));
+  return match.find((v) => v.lang.toLowerCase() === want && /male|man|nam|муж/i.test(v.name) && !/female/i.test(v.name))
+    || match.find((v) => v.lang.toLowerCase() === want) || match[0] || null;
+}
+export const deviceTTS = () => !!(synth && deviceVoice());
 export function configure(s) {
   Object.assign(settings, s);
   if (!settings.voice) stop();
@@ -24,8 +40,9 @@ const emit = (v, key) => listeners.forEach((fn) => { try { fn(v, key); } catch {
 export const rate = () => settings.rate || 1;
 // vị trí đang phát của câu thoại (giây) — để video khớp khẩu hình bám theo giọng
 export const time = () => (el ? el.currentTime || 0 : 0);
-export const durationOf = (key) => manifest[key]?.d || 0;
-export const has = (key) => !!manifest[key];
+const estimate = (key) => Math.max(1200, (textOf(key) || "").length * (/^(zh|ja|ko)$/.test(lang) ? 190 : 62));
+export const durationOf = (key) => manifest[key]?.d || (textOf(key) ? estimate(key) : 0);
+export const has = (key) => !!manifest[key] || !!(textOf(key) && deviceVoice());
 
 // Gọi trong sự kiện chạm đầu tiên của người dùng.
 export function unlock() {
@@ -37,6 +54,8 @@ export function unlock() {
   // một đoạn im lặng cực ngắn để "mở khoá" phần tử audio trên iOS
   el.src = `${base}../../sfx/silence.mp3`;
   el.play().catch(() => {});
+  // "mở khoá" giọng của máy trên điện thoại (cần một lần nói trong cú chạm đầu tiên)
+  try { if (synth) { const u = new SpeechSynthesisUtterance(" "); u.volume = 0; synth.speak(u); } } catch { /* bỏ qua */ }
   try {
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     if (ctx.state === "suspended") ctx.resume();
@@ -47,6 +66,7 @@ export function unlock() {
 export function stop() {
   token++;
   if (el) { try { el.pause(); } catch { /* bỏ qua */ } }
+  try { if (synth && (synth.speaking || synth.pending)) synth.cancel(); } catch { /* bỏ qua */ }
   emit(false);
   duck(false);
 }
@@ -59,9 +79,10 @@ export function say(key, onTime) {
   stop();
   const my = ++token;
   const item = manifest[key];
+  if (!item && el && settings.voice && textOf(key) && deviceVoice()) return speakDevice(my, key, onTime);
   if (!item || !el || !settings.voice) {
     // không có giọng: vẫn cho phụ đề chạy theo thời lượng ước tính
-    return fakeSpeak(my, item ? item.d : 2500, onTime, !!item && !settings.voice);
+    return fakeSpeak(my, item ? item.d : textOf(key) ? estimate(key) : 2500, onTime, !!item && !settings.voice);
   }
   return new Promise((resolve) => {
     let done = false, raf = 0;
@@ -91,6 +112,39 @@ export function say(key, onTime) {
     emit(true, key);
     duck(true);
     el.play().then(() => { raf = requestAnimationFrame(tick); }).catch(() => finish(false));
+  });
+}
+
+// Đọc bằng giọng của máy: phụ đề chạy theo thời lượng ước tính; kết thúc khi máy đọc xong (có chốt an toàn).
+function speakDevice(my, key, onTime) {
+  return new Promise((resolve) => {
+    const text = textOf(key);
+    const est = estimate(key) / rate();
+    const u = new SpeechSynthesisUtterance(text);
+    const v = deviceVoice();
+    if (v) { u.voice = v; u.lang = v.lang; }
+    u.rate = rate(); u.pitch = 0.9;
+    let done = false, raf = 0, t0 = 0;
+    const finish = (ok) => {
+      if (done) return;
+      done = true; cancelAnimationFrame(raf); clearTimeout(guard);
+      if (my === token) { emit(false); duck(false); }
+      if (onTime && ok) onTime(est / 1000, est / 1000);
+      resolve(ok && my === token);
+    };
+    const tick = () => {
+      if (done || my !== token) return finish(false);
+      if (onTime && t0) onTime(Math.min((performance.now() - t0) / 1000, est / 1000 * 0.98), est / 1000);
+      raf = requestAnimationFrame(tick);
+    };
+    const guard = setTimeout(() => finish(true), est * 2 + 5000);
+    u.onstart = () => { t0 = performance.now(); };
+    u.onend = () => finish(true);
+    u.onerror = () => finish(false);
+    emit(true, key); duck(true);
+    t0 = performance.now();
+    raf = requestAnimationFrame(tick);
+    synth.speak(u);
   });
 }
 

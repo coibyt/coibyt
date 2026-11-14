@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Close-Combat Self-Defence",
+  "sub": "Inspired by Systema and Sambo wrestling: breathing, footwork, breakfalls, covering, basic strikes, escapes and takedowns."
+ },
+ "ngu-trang": {
+  "title": "Camouflage & Concealment",
+  "sub": "Ghillie suits, face paint, taking cover, silent movement, covering your tracks and approaching unseen.",
+  "preview": [
+   "Four giveaways: shape, shadow, shine, movement",
+   "Camouflage face paint",
+   "Making your own ghillie suit",
+   "Choosing cover",
+   "Low crawl, high crawl, fox walk",
+   "Moving silently",
+   "Covering your tracks",
+   "Observing without being seen"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sport Shooting",
+  "sub": "The four safety rules, holding a training gun correctly, standing, kneeling and prone positions, aiming and breathing, the history of the sport.",
+  "preview": [
+   "The four safety rules",
+   "Holding a training gun correctly",
+   "Standing, kneeling and prone",
+   "Sight picture and breathing",
+   "A smooth trigger squeeze",
+   "History of sport shooting"
+  ]
+ },
+ "dong-doi": {
+  "title": "Teamwork",
+  "sub": "Hand signals, short and clear comms, movement formations and covering each other in airsoft and paintball.",
+  "preview": [
+   "Basic hand signals",
+   "Short, clear radio comms",
+   "Movement formations",
+   "Sector observation",
+   "Team coordination games"
+  ]
+ },
+ "the-luc": {
+  "title": "Fitness & Survival",
+  "sub": "Loaded marches, safe swimming, managing fatigue, finding water, food, fire and shelter in forest, desert and at sea.",
+  "preview": [
+   "Bodyweight strength",
+   "Safe loaded marching",
+   "Wall climbs and rope climbing",
+   "Swimming and floating safely",
+   "Managing fatigue and sleep loss",
+   "Finding and filtering water",
+   "Fire and shelter",
+   "Survival in forest, desert and at sea"
+  ]
+ },
+ "so-cuu": {
+  "title": "Battlefield First Aid",
+  "sub": "Stopping bleeding, applying a tourniquet, pressure bandages, treating shock, CPR, and first aid with few supplies.",
+  "preview": [
+   "Assessing scene safety",
+   "Direct pressure on a wound",
+   "Applying a tourniquet correctly",
+   "Wound packing and pressure bandages",
+   "Airway and the recovery position",
+   "Preventing shock and hypothermia",
+   "Cardiopulmonary resuscitation (CPR)",
+   "First aid with few supplies"
+  ]
+ },
+ "tam-ly": {
+  "title": "Mental Toughness",
+  "sub": "Staying calm in danger, breathing against panic, controlling fear, sharpening observation and memory.",
+  "preview": [
+   "Box breathing against panic",
+   "Controlling fear",
+   "Positive self-talk",
+   "Observation and memory (Kim's Game)",
+   "Decision-making under pressure"
+  ]
+ }
+}

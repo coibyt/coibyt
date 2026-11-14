@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Bela diri jarak dekat",
+  "sub": "Terinspirasi dari Systema dan gulat Sambo: napas, langkah kaki, jatuh aman, menangkis, serangan dasar, meloloskan diri, bantingan."
+ },
+ "ngu-trang": {
+  "title": "Kamuflase & menyembunyikan diri",
+  "sub": "Pakaian ghillie, cat wajah, bersembunyi, bergerak tanpa suara, menghapus jejak, mendekat tanpa terdeteksi.",
+  "preview": [
+   "Empat hal yang membuatmu terlihat: bentuk, bayangan, kilau, gerakan",
+   "Cat wajah kamuflase",
+   "Membuat pakaian ghillie sendiri",
+   "Memilih tempat bersembunyi",
+   "Merayap rendah, merayap tinggi, langkah rubah",
+   "Bergerak tanpa suara",
+   "Menghapus jejak",
+   "Mengamati tanpa terdeteksi"
+  ]
+ },
+ "ban-sung": {
+  "title": "Menembak olahraga",
+  "sub": "Empat aturan keselamatan, cara memegang senjata latihan yang benar, posisi berdiri – berlutut – tiarap, membidik dan bernapas, sejarah senjata.",
+  "preview": [
+   "Empat aturan keselamatan",
+   "Cara memegang senjata latihan yang benar",
+   "Posisi berdiri, berlutut, tiarap",
+   "Garis bidik dan napas",
+   "Menarik pelatuk dengan halus",
+   "Sejarah menembak olahraga"
+  ]
+ },
+ "dong-doi": {
+  "title": "Kerja sama tim",
+  "sub": "Isyarat tangan, komunikasi singkat, formasi bergerak, dan saling melindungi dalam airsoft dan paintball.",
+  "preview": [
+   "Isyarat tangan dasar",
+   "Komunikasi singkat lewat radio",
+   "Formasi bergerak",
+   "Pengamatan per sektor",
+   "Permainan kerja sama tim"
+  ]
+ },
+ "the-luc": {
+  "title": "Fisik & bertahan hidup",
+  "sub": "Berjalan jauh membawa beban, berenang aman, mengelola kelelahan, mencari air, makanan, api, dan tempat berlindung di hutan, gurun, dan laut.",
+  "preview": [
+   "Kekuatan dengan berat badan sendiri",
+   "Berjalan jauh membawa beban dengan aman",
+   "Melewati dinding kayu, memanjat tali",
+   "Berenang dan mengapung dengan aman",
+   "Mengelola kelelahan dan kurang tidur",
+   "Mencari dan menyaring air",
+   "Api dan tempat berlindung",
+   "Bertahan hidup di hutan, gurun, laut"
+  ]
+ },
+ "so-cuu": {
+  "title": "Pertolongan pertama medan tempur",
+  "sub": "Menghentikan perdarahan, memasang torniket, balut tekan, menangani syok, resusitasi jantung paru, pertolongan pertama saat perlengkapan terbatas.",
+  "preview": [
+   "Menilai keamanan lokasi",
+   "Menekan langsung untuk menghentikan perdarahan",
+   "Memasang torniket dengan benar",
+   "Menyumbat luka dengan kasa dan balut tekan",
+   "Menjaga jalan napas, posisi pemulihan",
+   "Mencegah syok dan hipotermia",
+   "Resusitasi jantung paru (RJP)",
+   "Pertolongan pertama saat perlengkapan terbatas"
+  ]
+ },
+ "tam-ly": {
+  "title": "Ketangguhan mental",
+  "sub": "Tetap tenang saat bahaya, bernapas untuk melawan panik, mengendalikan rasa takut, melatih pengamatan dan ingatan.",
+  "preview": [
+   "Napas kotak untuk melawan panik",
+   "Mengendalikan rasa takut",
+   "Bicara positif pada diri sendiri",
+   "Mengamati dan mengingat (permainan Kim)",
+   "Mengambil keputusan di bawah tekanan"
+  ]
+ }
+}

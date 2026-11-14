@@ -1,0 +1,65 @@
+{
+ "tk2-3-fw": [
+  "① Önce ÖN ayak adım atar",
+  "② ARKA ayak kayarak gelir"
+ ],
+ "tk2-3-bw": [
+  "① Geri: önce ARKA ayak",
+  "② ÖN ayak geri çekilir"
+ ],
+ "tk4-3": [
+  "Gelen yumruk",
+  "Saptırma"
+ ],
+ "tk4-5": [
+  "Gelen saldırı",
+  "Dışa 45° çapraz adım"
+ ],
+ "tk5-2": [
+  "Düz yumruk – en kısa yol",
+  "Aynı yoldan geri çek"
+ ],
+ "tk5-3": [
+  "Kalça dönüşü",
+  "Arka el yumruğu",
+  "Arka ayak ucunu döndür"
+ ],
+ "tk5-5": [
+  "① Dizi yukarı çek",
+  "② Topukla it, kalçayı ver"
+ ],
+ "tk6-2": [
+  "Başparmak boşluğundan omza doğru çek"
+ ],
+ "tk7-5": [
+  "① Kolu dik yukarı kaldır",
+  "② Dön, iki kolun üzerinden bastır"
+ ],
+ "tk8-1": [
+  "İt – tabana dik",
+  "Çek"
+ ],
+ "tk8-3": [
+  "Baldırı arkadan süpür",
+  "Üst gövdeyi geriye it"
+ ],
+ "tk8-4": [
+  "Ayak bileğinin önünü kes",
+  "Yay çizerek aşağı çek"
+ ],
+ "tk9-4": [
+  "Alçak topuk tekmesi dize",
+  "Alçak topuk tekmesi dize"
+ ],
+ "tk10-1": [
+  "Yatay dirsek",
+  "Yatay dirsek"
+ ],
+ "tk11-1": [
+  "İki ayağı geriye fırlat",
+  "Kalçayı indir, bastır"
+ ],
+ "tk12-2": [
+  "Kalça köprüsü, omuz üstünden çevir"
+ ]
+}

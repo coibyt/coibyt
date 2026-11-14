@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Thu giọng thầy Alexei bằng 11max (eleven_v3, giọng VânCa) → assets/voice/<lang>/*.mp3 + manifest.json.
+"""Thu giọng thầy Alexei bằng 11max (eleven_v3) → assets/voice/<lang>/*.mp3 + manifest.json.
+Giọng từng ngôn ngữ: content/i18n/voices.json (vi: VânCa, chủ dự án chọn). Lời của ngôn ngữ khác: bản gốc + bản dịch content/i18n/<lang>/.
 
   python3 tools/voice.py vi --count     # đếm câu còn thiếu
   python3 tools/voice.py vi             # thu mọi câu còn thiếu (câu đổi chữ thì thu lại)
@@ -11,13 +12,15 @@ import requests
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 API = "https://api.11max.id.vn"
-VOICE = "CE5BJM57m1rtrAFVXfCq"  # VânCa — chủ dự án chọn
+VOICES = json.loads((ROOT / "content/i18n/voices.json").read_text()) if (ROOT / "content/i18n/voices.json").exists() else {}
+VOICE = "CE5BJM57m1rtrAFVXfCq"  # VânCa — chủ dự án chọn (được thay theo ngôn ngữ trong main())
+LANG = "vi"
 MODEL = "eleven_v3"
 HEAD = {"xi-api-key": os.environ.get("MAX11_API_KEY", "proxy-injected"), "Content-Type": "application/json"}
 
 
 def all_lines(lang):
-    lines = dict(json.loads((ROOT / f"content/lines-{lang}.json").read_text()))
+    lines = dict(json.loads((ROOT / "content/lines-vi.json").read_text()))
     for f in sorted((ROOT / "content").glob("track-*.json")):
         data = json.loads(f.read_text())
         for l in data["lessons"]:
@@ -32,11 +35,23 @@ def all_lines(lang):
             for i, q in enumerate(l["quiz"]):
                 lines[f"{l['id']}-q{i}"] = q["q"]
                 lines[f"{l['id']}-w{i}"] = q["why"]
+    if lang != "vi":
+        # phủ bản dịch lên bản gốc
+        d = ROOT / "content/i18n" / lang
+        lines.update(json.loads((d / "lines.json").read_text()))
+        for lid, o in json.loads((d / "lessons.json").read_text()).items():
+            for k in ("intro", "outro", "home"):
+                if o.get(k): lines[f"{lid}-{k}"] = o[k]
+            for sid, os_ in o.get("steps", {}).items():
+                if os_.get("say"): lines[sid] = os_["say"]
+                if os_.get("drill", {}).get("say"): lines[f"prac-{sid}"] = os_["drill"]["say"]
+            for i, q in enumerate(o.get("quiz", [])):
+                lines[f"{lid}-q{i}"] = q["q"]; lines[f"{lid}-w{i}"] = q["why"]
     return lines
 
 
 def tts(text):
-    body = {"text": text, "model_id": MODEL, "language_code": "vi", "output_format": "mp3_44100_128",
+    body = {"text": text, "model_id": MODEL, "language_code": LANG, "output_format": "mp3_44100_128",
             "voice_settings": {"stability": 0.5, "similarity_boost": 0.8}}
     for attempt in range(6):
         try:
@@ -75,7 +90,14 @@ def shrink(audio, dest):
 
 
 def main():
+    global VOICE, LANG
     lang = sys.argv[1]
+    LANG = lang
+    v = VOICES.get(lang, {}).get("id")
+    if v:
+        VOICE = v
+    elif lang != "vi":
+        sys.exit(f"Chưa chọn giọng cho {lang} (content/i18n/voices.json)")
     out = ROOT / "assets/voice" / lang
     out.mkdir(parents=True, exist_ok=True)
     mf = out / "manifest.json"
@@ -115,6 +137,12 @@ def main():
             if f.exists():
                 f.unlink()
     mf.write_text(json.dumps(manifest, ensure_ascii=False, indent=0, sort_keys=True))
+    # đánh dấu ngôn ngữ đã có giọng thu sẵn (đủ ≥ 95% câu) cho bảng chọn ngôn ngữ trong game
+    idx = ROOT / "assets/voice/index.json"
+    have = set(json.loads(idx.read_text())) if idx.exists() else set()
+    if len(manifest) >= 0.95 * len(lines):
+        have.add(lang)
+        idx.write_text(json.dumps(sorted(have)))
 
 
 if __name__ == "__main__":

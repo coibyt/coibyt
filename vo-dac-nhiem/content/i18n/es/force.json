@@ -1,0 +1,65 @@
+{
+ "tk2-3-fw": [
+  "① Pie DELANTERO primero",
+  "② El pie TRASERO lo sigue"
+ ],
+ "tk2-3-bw": [
+  "① Atrás: pie TRASERO primero",
+  "② El pie DELANTERO lo sigue"
+ ],
+ "tk4-3": [
+  "Puñetazo que llega",
+  "Desvío del golpe"
+ ],
+ "tk4-5": [
+  "Ataque que llega",
+  "Paso diagonal a 45° hacia fuera"
+ ],
+ "tk5-2": [
+  "Directo: el camino más corto",
+  "Vuelve por el mismo camino"
+ ],
+ "tk5-3": [
+  "Giro de cadera",
+  "Puño trasero",
+  "Gira la punta del pie trasero"
+ ],
+ "tk5-5": [
+  "① Rodilla arriba",
+  "② Talón y empuje de cadera"
+ ],
+ "tk6-2": [
+  "Sal por el hueco del pulgar, hacia el hombro"
+ ],
+ "tk7-5": [
+  "① Brazo recto hacia arriba",
+  "② Gira y pasa sobre sus brazos"
+ ],
+ "tk8-1": [
+  "Empuje perpendicular a la base",
+  "Tirón"
+ ],
+ "tk8-3": [
+  "Barre la pantorrilla por detrás",
+  "Empuja el tronco hacia atrás"
+ ],
+ "tk8-4": [
+  "Pierna cruzada ante el tobillo",
+  "Tira en arco hacia abajo"
+ ],
+ "tk9-4": [
+  "Talón bajo a la rodilla",
+  "Talón bajo a la rodilla"
+ ],
+ "tk10-1": [
+  "Codazo horizontal",
+  "Codazo horizontal"
+ ],
+ "tk11-1": [
+  "Piernas atrás de un salto",
+  "Baja la cadera y aplasta"
+ ],
+ "tk12-2": [
+  "Puente de cadera, volteo sobre el hombro"
+ ]
+}

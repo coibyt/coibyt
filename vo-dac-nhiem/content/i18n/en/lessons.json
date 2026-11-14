@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Warm-up & breathing",
+  "sub": "Joint rotations, warming up, step breathing, burst breathing, tense and release",
+  "intro": "Lesson one. No techniques yet. A good fighter starts with warm joints and calm breathing. Follow me step by step.",
+  "safety": "Warm up before every session. Sharp pain in a joint means stop at once.",
+  "outro": "Well done. Your joints are warm and your breathing has found its rhythm. Next time we'll learn the stance and footwork.",
+  "home": "Homework: every morning, warm up and do step breathing for ten minutes, seven days in a row.",
+  "steps": {
+   "tk1-1": {
+    "title": "Joint rotations, top to bottom",
+    "say": "Stand tall, feet shoulder-width apart. Roll your neck very slowly, five circles each way. Next, circle your shoulders, your elbows and your wrists. Then your hips, your knees and your ankles. Work your way from top to bottom, with round, soft movements, no jerking. Only warm joints keep your body safe when you fall and when you strike.",
+    "cues": [
+     "Top to bottom: neck → shoulders → elbows → wrists → hips → knees → ankles",
+     "5 circles each way for every joint",
+     "Slow, round, no jerking"
+    ],
+    "mistakes": [
+     "Rolling the neck too fast, or throwing the head back too hard",
+     "Holding your breath while rotating"
+    ],
+    "drill": {
+     "label": "Joint rotations",
+     "say": "Your turn. Joint rotations for ninety seconds. The timer will count down."
+    }
+   },
+   "tk1-2": {
+    "title": "Warming up the body",
+    "say": "Run on the spot with high knees for thirty seconds. Next, ten squats: lower your hips as if sitting on a chair, back straight, knees tracking over your toes. Then ten press-ups. If you're not used to them, do them from your knees. The goal is to warm up and breathe a little faster, not to train to exhaustion.",
+    "cues": [
+     "30 seconds of high knees",
+     "10 squats: back straight, knees over toes",
+     "10 press-ups (knees down is fine)"
+    ],
+    "mistakes": [
+     "Knees caving inwards in the squat",
+     "Sagging back in the press-up"
+    ],
+    "drill": {
+     "label": "Squats",
+     "say": "Your turn. Squats: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk1-3": {
+    "title": "Step breathing",
+    "say": "This is a well-known breathing drill from the Russian combat systems. Walk at a steady pace. Breathe in through your nose for four steps, and out through your mouth for four steps. After a minute, drop to three steps, then two, then one. Then build back up to four. Remember this: the breath leads the movement. Never hold your breath.",
+    "cues": [
+     "In through the nose for 4 steps – out through the mouth for 4",
+     "Count down 4 → 3 → 2 → 1, then back up",
+     "Shoulders relaxed, never hold your breath"
+    ],
+    "mistakes": [
+     "Holding your breath when the count changes",
+     "Hunching your shoulders as you breathe in"
+    ],
+    "drill": {
+     "label": "Step-breathing walk",
+     "say": "Your turn. Walk with step breathing for one hundred and twenty seconds. The timer will count down."
+    }
+   },
+   "tk1-4": {
+    "title": "Burst breathing under strain",
+    "say": "When you're tired or tense, breathe short and fast: in through the nose, and out hard through the mouth, many times in a row, like blowing out a candle. Try it now. Hold a high press-up position for twenty seconds and keep burst breathing. You'll feel your muscles let go of tension, and your head clear.",
+    "cues": [
+     "Short sniff in – sharp blow out through the mouth",
+     "Non-stop, like blowing out candles",
+     "Hold a high plank for 20 seconds while breathing"
+    ],
+    "mistakes": [
+     "Breathing so hard you feel dizzy: slow down",
+     "Hips sagging in the plank"
+    ],
+    "drill": {
+     "label": "High plank + burst breathing",
+     "say": "Your turn. High plank with burst breathing for twenty seconds. The timer will count down."
+    }
+   },
+   "tk1-5": {
+    "title": "Full-body tense and release",
+    "say": "Lie on your back on the mat. Breathe in and squeeze both feet hard for three seconds, then breathe out and let go completely. Work your way up through your calves, thighs, stomach, fists, shoulders and even your face. Finally, tense your whole body once, then let go. Someone who knows how to relax takes impact better, moves faster and gets injured less.",
+    "cues": [
+     "Breathe in – squeeze for 3 seconds",
+     "Breathe out – let go completely",
+     "From the feet up to the face"
+    ],
+    "mistakes": [
+     "Squeezing so hard you get cramp",
+     "Forgetting to breathe out as you let go"
+    ],
+    "drill": {
+     "label": "Tense and release",
+     "say": "Your turn. Tense and release for sixty seconds. The timer will count down."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "When you rotate your joints, what order should you follow?",
+    "a": [
+     "Top to bottom: neck, shoulders… down to the ankles",
+     "Any order, any joint will do",
+     "Just the ankles"
+    ],
+    "why": "Going from top to bottom means you don't miss a single joint."
+   },
+   {
+    "q": "In step breathing, how do you breathe in?",
+    "a": [
+     "Through the mouth",
+     "Through the nose",
+     "Hold your breath, then breathe in"
+    ],
+    "why": "Breathe in through the nose and out through the mouth, in time with your steps."
+   },
+   {
+    "q": "When do you use burst breathing?",
+    "a": [
+     "When you're tired or tense",
+     "Only when sleeping",
+     "Never"
+    ],
+    "why": "Short, sharp breaths ease muscle tension and keep you alert under strain."
+   },
+   {
+    "q": "Why do you need to know how to relax?",
+    "a": [
+     "To look better",
+     "To take impact better, move faster and get injured less",
+     "So you don't have to warm up"
+    ],
+    "why": "Tense muscles react more slowly and get injured more easily."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Stance & footwork",
+  "sub": "Fence, fighting stance, sliding steps, pivots",
+  "intro": "Your feet decide everything. Only with a solid base can you defend, strike and escape. Today we lay the foundations.",
+  "safety": "Train on flat ground that isn't slippery. Keep your steps short and firm.",
+  "outro": "The foundations are in place. Solid footwork is half the fight. Next lesson: learning to fall safely.",
+  "home": "Homework: ten minutes of stance and movement every day, three rounds, for seven days.",
+  "steps": {
+   "tk2-1": {
+    "title": "Alert stance – the fence",
+    "say": "When someone comes towards you aggressively, don't make a fist yet. Stand slightly side-on, with your strong-side foot half a step back. Open your hands and bring them up in front of your chest, palms facing forward, as if to say: calm down. Your hands are a fence that keeps your distance. You don't look aggressive, but in fact you're ready.",
+    "cues": [
+     "Side-on, strong-side foot half a step back",
+     "Open hands in front of the chest",
+     "Keep your distance and a calm voice"
+    ],
+    "mistakes": [
+     "Making a fist straight away: it can escalate the conflict",
+     "Standing square-on, feet side by side"
+    ],
+    "drill": {
+     "label": "Into the fence",
+     "say": "Your turn. Into the fence: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk2-2": {
+    "title": "Fighting stance",
+    "say": "If you're right-handed: left foot forward, right foot back. Your feet are a little wider than your shoulders, front toes turned slightly in, back heel slightly raised. Knees soft, weight shared evenly on both feet. Hands up in front of your face, elbows tucked in to cover your ribs, chin down, eyes looking over your fists. If you're left-handed, do the opposite.",
+    "cues": [
+     "Left foot forward (if right-handed)",
+     "Knees soft, back heel slightly raised",
+     "Hands guard the face, elbows cover the ribs, chin down"
+    ],
+    "mistakes": [
+     "Both feet on one straight line: easy to lose balance",
+     "Chin up, hands down"
+    ],
+    "drill": {
+     "label": "Into fighting stance",
+     "say": "Your turn. Into fighting stance: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk2-3": {
+    "title": "Sliding step forward and back",
+    "say": "To go forward: your front foot takes a short step first, and your back foot slides up the same distance. To go back: your back foot moves first, and your front foot follows. Your feet glide close to the ground. Don't hop. Never let your feet cross or come together. After every step, you're still in the same stance as before.",
+    "cues": [
+     "Forward: front foot first",
+     "Back: back foot first",
+     "The distance between your feet never changes"
+    ],
+    "mistakes": [
+     "Crossing your feet",
+     "Hopping instead of sliding"
+    ],
+    "drill": {
+     "label": "Steps forward and back",
+     "say": "Your turn. Steps forward and back: twenty reps. I'll count the rhythm for you."
+    }
+   },
+   "tk2-4": {
+    "title": "Side step",
+    "say": "To go left, your left foot moves first. To go right, your right foot moves first. The other foot slides after it. Keep the distance between your feet the same, and your hands up guarding your face. On slippery mud, the shorter the step, the safer it is.",
+    "cues": [
+     "To the left: left foot first",
+     "To the right: right foot first",
+     "Short steps on slippery ground"
+    ],
+    "mistakes": [
+     "Back foot stepping across the front foot",
+     "Dropping your hands as you move"
+    ],
+    "drill": {
+     "label": "Side steps",
+     "say": "Your turn. Side steps: twenty reps. I'll count the rhythm for you."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivot to change angle",
+    "say": "Stand in fighting stance. Use the ball of your front foot as a pivot, and swing your back foot round in a quarter circle. Your whole body turns ninety degrees, out of your opponent's line of attack. Pivot ten times this way, then change direction.",
+    "cues": [
+     "Pivot on the ball of the front foot",
+     "Back foot sweeps an arc",
+     "Turn 90°, guard stays up"
+    ],
+    "mistakes": [
+     "Pivoting on the heel",
+     "Standing upright as you turn"
+    ],
+    "drill": {
+     "label": "Pivots each way",
+     "say": "Your turn. Pivots each way: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk2-6": {
+    "title": "Moving on command",
+    "say": "Now move on my commands for thirty seconds: forward, back, left, right, pivot. Keep your hands up, your chin down and your breathing steady. Your feet are quick, but your upper body always stays calm.",
+    "cues": [
+     "Forward – back – left – right – pivot",
+     "Hands and chin always in position",
+     "Breathe steadily"
+    ],
+    "mistakes": [
+     "Looking down at your feet",
+     "Steps that are too long"
+    ],
+    "drill": {
+     "label": "Footwork on command",
+     "say": "Your turn. Move on my commands for thirty seconds. Listen carefully.",
+     "calls": [
+      "Forward!",
+      "Back!",
+      "Left!",
+      "Right!",
+      "Pivot!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "What is the fence for?",
+    "a": [
+     "Keeping your distance without looking aggressive",
+     "Punching your opponent right away",
+     "Folding your arms and waiting"
+    ],
+    "why": "Open hands keep your distance and calm the situation down."
+   },
+   {
+    "q": "To move back, which foot goes first?",
+    "a": [
+     "The front foot",
+     "The back foot",
+     "Both feet hop together"
+    ],
+    "why": "Whichever way you move, the foot nearest that direction goes first."
+   },
+   {
+    "q": "What is the most dangerous mistake when moving?",
+    "a": [
+     "Crossing your feet",
+     "Taking short steps",
+     "Keeping your hands up to guard your face"
+    ],
+    "why": "Crossed feet make it very easy to lose your balance."
+   },
+   {
+    "q": "When you pivot, which part of the front foot do you turn on?",
+    "a": [
+     "The heel",
+     "The ball of the foot",
+     "The outside edge of the foot"
+    ],
+    "why": "Pivoting on the ball of the foot lets you turn lightly and quickly."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Breakfalls",
+  "sub": "Falling principles, back breakfall, side breakfall, forward roll",
+  "intro": "In this camp, everyone learns to fall before they learn to throw. Falling the right way is a life-saving skill, even when you slip on a slippery road.",
+  "safety": "Only train on thick mats. Always keep your chin tucked. Have an instructor present when practising rolls.",
+  "outro": "Now you know how to fall. From today, the ground is nothing to fear. Next lesson: covering and blocking.",
+  "home": "Homework: every day, ten back breakfalls and ten side breakfalls on each side, on thick mats, for one week.",
+  "steps": {
+   "tk3-1": {
+    "title": "Three golden rules",
+    "say": "There are three golden rules of falling. One: keep your chin tucked to your chest, so your head never hits the ground. Two: round your back like a wheel, so you roll instead of landing flat. Three: slap the mat with your arm at the same moment your body lands, to spread out the impact. Always train on thick mats. Never, ever train on a hard floor.",
+    "cues": [
+     "Chin tucked to the chest",
+     "Back rounded like a wheel",
+     "Arm slaps the mat as the body lands"
+    ],
+    "mistakes": [
+     "Posting a straight arm on the ground as you fall: an easy way to break a wrist",
+     "Throwing your head back"
+    ],
+    "drill": {
+     "label": "Round back, tuck chin",
+     "say": "Your turn. Round your back and tuck your chin: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk3-2": {
+    "title": "Back breakfall from sitting",
+    "say": "Sit on the mat with your legs out in front and your arms reaching forward. Tuck your chin, round your back, and roll backwards. As your upper back touches the mat, straighten both arms and slap the mat hard, at about forty-five degrees from your body, palms down. Breathe out as you land. Roll back up to sitting. Do it ten times.",
+    "cues": [
+     "Sit, arms reaching forward",
+     "Roll back, chin tucked",
+     "Slap with both arms at 45°, palms down, breathe out"
+    ],
+    "mistakes": [
+     "Slapping too far out or too close to the body",
+     "Hitting the mat with the elbows instead of the whole arm"
+    ],
+    "drill": {
+     "label": "Back breakfall from sitting",
+     "say": "Your turn. Back breakfall from sitting: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk3-3": {
+    "title": "Back breakfall from squatting",
+    "say": "Squat down with your arms reaching forward. Lower your bottom to the mat, close to your heels, then roll back as in the last drill and slap with both arms. Don't drop down heavily. Don't let a straight back land flat. Once you're confident, stand up and squat down again and again to build up speed.",
+    "cues": [
+     "Bottom down close to the heels",
+     "Roll, don't land flat",
+     "Slap and breathe out"
+    ],
+    "mistakes": [
+     "Plonking down far from the heels",
+     "Head snapping back onto the mat"
+    ],
+    "drill": {
+     "label": "Back breakfall from squatting",
+     "say": "Your turn. Back breakfall from squatting: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk3-4": {
+    "title": "Side breakfall",
+    "say": "From a squat, slide your right leg across in front of your left, and lower yourself sideways to the right. Your right hip, then the right side of your back, touch the mat in that order, and your right arm slaps the mat. Chin tucked, head off the mat. Then switch sides. This is the fall you'll take most often when you're thrown.",
+    "cues": [
+     "Slide the leg across in front",
+     "Hip → back touch the mat in order",
+     "Same-side arm slaps the mat"
+    ],
+    "mistakes": [
+     "Landing on your elbow",
+     "Head hitting the mat sideways"
+    ],
+    "drill": {
+     "label": "Side breakfall each side",
+     "say": "Your turn. Side breakfall on each side: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk3-5": {
+    "title": "Forward shoulder roll",
+    "say": "Kneel on one knee on the mat, right leg in front. Curve your right arm into an arc like the rim of a wheel, and place the outside edge of the arm on the mat. Look over your left shoulder. Roll diagonally from your right shoulder to your left hip. Don't roll over the top of your head, and don't roll straight down your spine. Finish sitting firmly or back on your feet, with your hands up guarding your face.",
+    "cues": [
+     "Arm curved like a wheel",
+     "Roll diagonally: right shoulder → left hip",
+     "Never over the head; come up with your guard up"
+    ],
+    "mistakes": [
+     "Rolling straight over the top of the head: very dangerous for the neck",
+     "Arm collapsing so the head hits the mat"
+    ],
+    "drill": {
+     "label": "Forward roll each side",
+     "say": "Your turn. Forward roll on each side: six reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "When you fall, where should your chin be?",
+    "a": [
+     "Raised",
+     "Tucked to the chest",
+     "Turned to the side"
+    ],
+    "why": "Tuck your chin so your head doesn't hit the ground."
+   },
+   {
+    "q": "At roughly what angle from the body does your arm slap the mat?",
+    "a": [
+     "About 45°",
+     "Tight to the body, 0°",
+     "Straight up in the air"
+    ],
+    "why": "About forty-five degrees spreads the force well without hitting your elbow."
+   },
+   {
+    "q": "In a forward roll, what path do you roll along?",
+    "a": [
+     "Straight over the top of the head",
+     "Diagonally from one shoulder to the opposite hip",
+     "Sideways"
+    ],
+    "why": "Roll diagonally over the shoulder to protect your neck and spine."
+   },
+   {
+    "q": "Where should you practise breakfalls?",
+    "a": [
+     "On concrete, to get used to it",
+     "On thick mats",
+     "On the stairs"
+    ],
+    "why": "Always train on thick mats. Safety comes first."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Covering & blocking",
+  "sub": "High guard, head cover, parry, forearm block, angling off",
+  "intro": "Before you learn to hit, you must learn not to get hit. The best defence is simple and compact, and it always comes with movement.",
+  "safety": "Partner drills with gloves on. Your partner strikes slowly, at only twenty per cent power.",
+  "outro": "Now you have your shield. Next lesson, we'll learn the basic strikes on pads.",
+  "home": "Homework: five minutes of covering in front of a mirror every day, and slow partner work twice a week.",
+  "steps": {
+   "tk4-1": {
+    "title": "High guard",
+    "say": "From fighting stance, raise both fists to forehead height, forearms upright in front of your face like two shields. Elbows in, chin tucked, shoulders raised to cover your jaw. This is the most solid cover when strikes come too fast and you can't see them in time.",
+    "cues": [
+     "Fists at forehead height",
+     "Forearms upright like shields",
+     "Chin tucked, shoulders cover the jaw"
+    ],
+    "mistakes": [
+     "Closing your eyes as you cover",
+     "Elbows flaring out and exposing the ribs"
+    ],
+    "drill": {
+     "label": "Into high guard",
+     "say": "Your turn. Into high guard: fifteen reps. I'll count the rhythm for you."
+    }
+   },
+   "tk4-2": {
+    "title": "Full head cover",
+    "say": "When you're swamped by a flurry of strikes: wrap both hands round the back of your head, bring your elbows together in front of your face, lean forward and bend your knees. Your head sits snugly in a cage made by your arms. But don't stay still in this position for long. Cover, then move straight off the line of attack.",
+    "cues": [
+     "Both hands wrapped behind the head",
+     "Elbows together in front of the face",
+     "Cover, then move at once"
+    ],
+    "mistakes": [
+     "Standing still and soaking up strikes",
+     "Turning your back"
+    ],
+    "drill": {
+     "label": "Cover, then side exit",
+     "say": "Your turn. Cover your head, then exit to the side: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk4-3": {
+    "title": "Parry",
+    "say": "When a straight punch comes at your face, don't block it hard. Use your palm to tap your opponent's wrist or fist to one side, just enough for it to slide past your face. Keep the movement small and short, and bring your hand straight back to guard.",
+    "cues": [
+     "Parry with the palm",
+     "Just enough to deflect the strike",
+     "Straight back to guard"
+    ],
+    "mistakes": [
+     "Swinging the hand too wide",
+     "Reaching out to meet the strike"
+    ],
+    "drill": {
+     "label": "Parry with each hand",
+     "say": "Your turn. Parry with each hand: twenty reps. I'll count the rhythm for you."
+    }
+   },
+   "tk4-4": {
+    "title": "Rising forearm block",
+    "say": "When a blow comes down from above, raise your forearm at an angle in front of your forehead, sloping like a roof, so the force slides off instead of driving straight into the bone. At the same time, step diagonally forward or to the outside.",
+    "cues": [
+     "Forearm angled in front of the forehead",
+     "Sloping like a roof",
+     "Combine with a diagonal step"
+    ],
+    "mistakes": [
+     "Forearm flat and level: it takes the full force",
+     "Standing still on the spot"
+    ],
+    "drill": {
+     "label": "Rising block with each arm",
+     "say": "Your turn. Rising block with each arm: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk4-5": {
+    "title": "Angling off – diagonal step",
+    "say": "The best defence is not to be where the strike is going. As you parry, step diagonally forty-five degrees to the outside of your opponent's striking arm. You leave the line of attack and stand in a safer position to get away.",
+    "cues": [
+     "Parry + 45° diagonal step",
+     "To the outside of the striking arm",
+     "From the safe angle, get away"
+    ],
+    "mistakes": [
+     "Backing straight up: easy for your opponent to follow",
+     "Stepping inside, towards your opponent's other arm"
+    ],
+    "drill": {
+     "label": "Parry + angle off each side",
+     "say": "Your turn. Parry and angle off on each side: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk4-6": {
+    "title": "Slow partner drill",
+    "say": "Work with a partner, both wearing gloves. The attacker strikes very slowly, at only twenty per cent power, aiming at the gloves, not the face. The defender calls out the name of each technique: high guard, parry, angle off. Only when it's correct and calm do you gradually speed up.",
+    "cues": [
+     "Gloves on, 20% power",
+     "Name the technique as you do it",
+     "Correct first, then fast"
+    ],
+    "mistakes": [
+     "Speeding up too soon",
+     "Actually hitting your partner in the face"
+    ],
+    "drill": {
+     "label": "Slow partner drill",
+     "say": "Your turn. Slow partner drill for sixty seconds. The timer will count down."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "A correct parry is:",
+    "a": [
+     "A small tap, just enough to deflect, then back to guard",
+     "A big, wide swing of the arm",
+     "Meeting the strike with your face"
+    ],
+    "why": "A small, quick movement that doesn't open up your guard."
+   },
+   {
+    "q": "When blocking a blow coming down from above, how do you hold your forearm?",
+    "a": [
+     "Flat and level",
+     "Angled, sloping like a roof",
+     "Down at stomach level"
+    ],
+    "why": "Slope it like a roof so the force slides off."
+   },
+   {
+    "q": "Which way do you step when angling off?",
+    "a": [
+     "45° diagonally, to the outside of the striking arm",
+     "Straight back",
+     "You stand still"
+    ],
+    "why": "You get off the line of attack and reach a safe angle."
+   },
+   {
+    "q": "In partner drills, how much power does the attacker use?",
+    "a": [
+     "Full power",
+     "About 20%",
+     "50%"
+    ],
+    "why": "Train slowly so you learn it correctly and safely."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Basic strikes on pads",
+  "sub": "The fist, straight punches, palm heel, push kick, combinations",
+  "intro": "A good strike doesn't need to look pretty. It just needs to be correct, compact and safe for you. Today we train on pads, and never on a real person.",
+  "safety": "Wrap your hands and wear gloves. Only strike pads or a punchbag.",
+  "outro": "Your strikes now have power and discipline. Next lesson: escaping a wrist grab.",
+  "home": "Homework: three sessions a week, each one five rounds of thirty seconds on pads or a punchbag.",
+  "steps": {
+   "tk5-1": {
+    "title": "Making a proper fist",
+    "say": "Curl your four fingers into your palm. Fold your thumb tightly across the outside of your index and middle fingers, never tucked inside. On impact, your wrist is in line with your forearm, and the force goes through the two knuckles of your index and middle fingers. Beginners always wrap their hands and wear gloves.",
+    "cues": [
+     "Curl 4 fingers into the palm",
+     "Thumb folded on the outside",
+     "Wrist in line with the forearm"
+    ],
+    "mistakes": [
+     "Tucking the thumb inside the fist",
+     "Bending the wrist on impact"
+    ],
+    "drill": {
+     "label": "Close and open the fist correctly",
+     "say": "Your turn. Close and open your fist correctly: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk5-2": {
+    "title": "Lead straight punch",
+    "say": "From fighting stance, shoot your lead fist straight out along the shortest line. Turn your fist palm down just before impact, and lift your shoulder to cover your chin. Your other hand stays by your face. After the punch, bring it back along the same line, as fast as it went out.",
+    "cues": [
+     "The shortest straight line",
+     "Turn the fist palm down on impact",
+     "Snap it back, other hand guarding"
+    ],
+    "mistakes": [
+     "Pulling the arm back to wind up",
+     "Dropping the rear hand"
+    ],
+    "drill": {
+     "label": "Lead-hand punch",
+     "say": "Your turn. Lead-hand punch: twenty reps. I'll count the rhythm for you."
+    }
+   },
+   "tk5-3": {
+    "title": "Rear straight punch",
+    "say": "Drive off your back heel, turn your hips and shoulders, and fire your rear fist straight at the target. Your back foot pivots on the ball, as if stubbing out a spark. The power comes from your legs and hips, not just your arm. Then go straight back to guard.",
+    "cues": [
+     "Drive off the back foot",
+     "Turn hips – shoulders – back foot",
+     "Straight back to guard"
+    ],
+    "mistakes": [
+     "Using only the arm, no hip turn",
+     "Leaning too far forward and losing balance"
+    ],
+    "drill": {
+     "label": "Rear-hand punch",
+     "say": "Your turn. Rear-hand punch: twenty reps. I'll count the rhythm for you."
+    }
+   },
+   "tk5-4": {
+    "title": "Palm-heel strike",
+    "say": "Bend your wrist back, open your hand, and curl your fingers slightly. Strike with the heel of your palm, travelling in a straight line like a punch. In a real self-defence situation, this strike is safer for your hand than a bare fist, because no knuckles hit hard bone.",
+    "cues": [
+     "Wrist bent back, hand open",
+     "Strike with the heel of the palm",
+     "A straight line, like a punch"
+    ],
+    "mistakes": [
+     "Striking with the fingers",
+     "Fingers locked stiff and straight"
+    ],
+    "drill": {
+     "label": "Palm heel, each side",
+     "say": "Your turn. Palm-heel strike on each side: fifteen reps. I'll count the rhythm for you."
+    }
+   },
+   "tk5-5": {
+    "title": "Front push kick",
+    "say": "Lift the knee of your back leg up to hip height. Then drive your heel straight out in front, as if kicking a door open, and push your hips through. The target is the stomach, which here is a kick shield. Pull your leg back and put it down in your stance. The aim of this kick is to push the attacker away and make space for you to escape.",
+    "cues": [
+     "Knee up to hip height",
+     "Drive with the heel, push the hips",
+     "Pull the leg back into stance"
+    ],
+    "mistakes": [
+     "Kicking with the toes",
+     "Leaning back too far"
+    ],
+    "drill": {
+     "label": "Push kick, each leg",
+     "say": "Your turn. Push kick with each leg: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk5-6": {
+    "title": "Combination and disengage",
+    "say": "Now put it together into a combination: lead punch, rear punch, push kick, then two steps back into the fence. Do three rounds, thirty seconds each on the pads, with twenty seconds' rest. Make every strike clean. Correct first, then fast.",
+    "cues": [
+     "Lead – rear – push kick",
+     "2 steps back into the fence",
+     "3 rounds × 30 sec, 20 sec rest"
+    ],
+    "mistakes": [
+     "Forgetting to step back after the combination",
+     "Rushing and losing your stance"
+    ],
+    "drill": {
+     "label": "Combination rounds",
+     "say": "Your turn. Combination rounds: three rounds of thirty seconds each, with twenty seconds' rest between rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Where does your thumb go when you make a fist?",
+    "a": [
+     "Tucked inside",
+     "Folded outside the index and middle fingers",
+     "Sticking straight out"
+    ],
+    "why": "A thumb tucked inside breaks easily."
+   },
+   {
+    "q": "Where does the power of the rear punch come from?",
+    "a": [
+     "Only from the arm",
+     "From the legs and hips",
+     "From the neck"
+    ],
+    "why": "The legs drive, the hips turn, and the shoulder and arm follow."
+   },
+   {
+    "q": "What is the main purpose of the push kick in self-defence?",
+    "a": [
+     "To make space so you can escape",
+     "To kick to the head",
+     "To show off technique"
+    ],
+    "why": "It pushes the attacker away so you can leave safely."
+   },
+   {
+    "q": "Why is the palm-heel strike safer for your hand?",
+    "a": [
+     "No knuckles hit hard bone",
+     "Because it's slow",
+     "Because it's a light strike"
+    ],
+    "why": "The heel of the palm is solid, so there's less risk of hand injury."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Wrist-grab escapes",
+  "sub": "The thumb principle, same-side grab, cross grab, two-handed grab",
+  "intro": "Being grabbed by the wrist is a very common situation. You don't need strength. You just need to understand the weak point of your opponent's hand.",
+  "safety": "Your partner grips with moderate force. Escape slowly, without yanking hard and hurting the joints.",
+  "outro": "Your hands now know how to free themselves. Next lesson: escaping bear hugs and grabs from the front.",
+  "home": "Homework: ten escapes of each type every day, practising with a family member, for one week.",
+  "steps": {
+   "tk6-1": {
+    "title": "The thumb principle",
+    "say": "When someone grabs your wrist, the weakest point of their hand is the gap between the thumb and the fingers. Don't fight strength with strength. Turn your forearm so the narrow edge of your wrist points into that gap, then pull out sharply towards the thumb.",
+    "cues": [
+     "Find your opponent's thumb",
+     "Turn your wrist into the thumb gap",
+     "Pull out sharply towards the thumb"
+    ],
+    "mistakes": [
+     "Pulling straight back in a tug of war",
+     "Pulling out towards the four fingers"
+    ],
+    "drill": {
+     "label": "Find the thumb side",
+     "say": "Your turn. Find the thumb side: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk6-2": {
+    "title": "Same-side grab",
+    "say": "Ivan grabs my right wrist with his left hand. I drop my centre of gravity, bend my elbow, and draw my arm in close to my body. I turn my forearm so my wrist points into Ivan's thumb, then jerk it sharply upwards, towards my own shoulder. My hand comes free. At once I raise both hands in the fence and step back.",
+    "cues": [
+     "Drop your weight, bend the elbow",
+     "Turn the wrist into the thumb",
+     "Jerk towards your own shoulder, then the fence"
+    ],
+    "mistakes": [
+     "Straightening the arm as you escape",
+     "Staying close after you escape"
+    ],
+    "drill": {
+     "label": "Same-side escape, each hand",
+     "say": "Your turn. Same-side grab escape with each hand: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk6-3": {
+    "title": "Cross grab",
+    "say": "In a cross grab, for example when your opponent's right hand grabs your right wrist, their thumb is on top. Turn your wrist upwards, cutting through the thumb gap, and pull towards the opposite shoulder. Combine it with a diagonal step back.",
+    "cues": [
+     "Your opponent's thumb is on top",
+     "Turn upwards, cut through the thumb gap",
+     "Pull to the opposite shoulder + diagonal step back"
+    ],
+    "mistakes": [
+     "Pulling downwards, away from the gap",
+     "Forgetting the footwork"
+    ],
+    "drill": {
+     "label": "Cross-grab escape, each hand",
+     "say": "Your turn. Cross-grab escape with each hand: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk6-4": {
+    "title": "Two-handed grab",
+    "say": "When someone grabs you with both hands, one arm isn't strong enough. Slide your free hand in between your opponent's arms and grab your own fist. Then use the strength of both arms, plus a turn of your shoulders, to jerk sharply upwards, through the gap between the two thumbs.",
+    "cues": [
+     "Free hand slides in between",
+     "Grab your own fist",
+     "Both arms + shoulder turn, jerk upwards"
+    ],
+    "mistakes": [
+     "Trying to pull one arm out on its own",
+     "Jerking sideways instead of upwards"
+    ],
+    "drill": {
+     "label": "Two-handed grab escape",
+     "say": "Your turn. Two-handed grab escape: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk6-5": {
+    "title": "After the escape",
+    "say": "Getting free isn't the end. Back away at once, raise both hands in the fence, and shout as loudly as you can: Stop! The shout draws the attention of people nearby and shows that you don't want to fight. The goal of self-defence is always to get free safely and leave.",
+    "cues": [
+     "Back away at once",
+     "Hands up in the fence",
+     "Shout loudly: Stop!"
+    ],
+    "mistakes": [
+     "Staying to argue",
+     "Turning your back and running while still too close"
+    ],
+    "drill": {
+     "label": "Escape – back off – shout",
+     "say": "Your turn. Escape, back off and shout: five reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "The weak point of a gripping hand is:",
+    "a": [
+     "The palm",
+     "The gap between the thumb and the fingers",
+     "The little finger"
+    ],
+    "why": "The thumb gap is the opening that's easiest to escape through."
+   },
+   {
+    "q": "If you're grabbed with both hands, what should you do?",
+    "a": [
+     "Yank one arm out as hard as you can",
+     "Grab your own hand and jerk upwards with both arms",
+     "Stand still"
+    ],
+    "why": "Both arms plus a shoulder turn beat your opponent's two hands."
+   },
+   {
+    "q": "After escaping, the first thing to do is:",
+    "a": [
+     "Back away, fence up, shout loudly",
+     "Hit back straight away",
+     "Argue"
+    ],
+    "why": "The goal of self-defence is to be safe and leave."
+   },
+   {
+    "q": "Should you fight strength with strength?",
+    "a": [
+     "Yes",
+     "No, use the direction of the thumb"
+    ],
+    "why": "Correct technique beats strength."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Bear-hug & front-grab escapes",
+  "sub": "Rear hug, arms pinned; rear hug, arms free; front collar grab; the stop signal",
+  "intro": "Being held tight is the scariest feeling of all. The secret lies in a low centre of gravity and nimble feet. We train slowly and safely, and we always respect the stop signal.",
+  "safety": "Your partner holds with moderate force. Never apply real pressure to the neck. Two taps means stop.",
+  "outro": "Now you know how to escape the nastiest holds. The last Foundation lesson: breaking balance and throwing safely.",
+  "home": "Homework: two sessions a week, eight reps of each situation on each side, always with a stop signal.",
+  "steps": {
+   "tk7-1": {
+    "title": "The stop signal",
+    "say": "Before any partner drill, agree on a stop signal. Tap your partner or the mat twice, or say out loud: Stop. When you hear or feel this signal, let go at once. Everyone must respect this signal without exception. Only by training safely can you keep training for years.",
+    "cues": [
+     "Tap twice or say: Stop",
+     "Let go immediately",
+     "Respect it without exception"
+    ],
+    "mistakes": [
+     "Pushing a little further after the signal",
+     "Not agreeing on it before training"
+    ],
+    "drill": {
+     "label": "Agree on the signal",
+     "say": "Your turn. Agree on the signal: three reps. I'll count the rhythm for you."
+    }
+   },
+   "tk7-2": {
+    "title": "Rear hug – drop your weight",
+    "say": "When you're hugged from behind with both arms pinned inside the hold: drop your centre of gravity at once, bend your knees and push your hips back. At the same time, spread your elbows out to the sides to loosen the hold. With your weight low, it's very hard for your opponent to lift you off the ground.",
+    "cues": [
+     "Drop your weight at once",
+     "Push your hips back",
+     "Spread the elbows to loosen the hold"
+    ],
+    "mistakes": [
+     "Standing upright: easy to be lifted",
+     "Panicking and thrashing about"
+    ],
+    "drill": {
+     "label": "Drop weight, loosen the hold",
+     "say": "Your turn. Drop your weight and loosen the hold: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk7-3": {
+    "title": "Rear hug – turn and escape",
+    "say": "Once the hold has loosened, step one foot out to the side, drop even lower, turn your hips and shoulders, and slip out of the arms. Turn to face your opponent, hands up in the fence, then back well away. Train slowly with a partner, who only holds with moderate force.",
+    "cues": [
+     "Step one foot to the side",
+     "Drop low, turn the hips and slip out",
+     "Face them, fence up, back away"
+    ],
+    "mistakes": [
+     "Turning while your weight is still high",
+     "Staying close after the escape"
+    ],
+    "drill": {
+     "label": "Rear-hug escape, each side",
+     "say": "Your turn. Rear-hug escape on each side: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk7-4": {
+    "title": "Rear hug – arms free",
+    "say": "If your arms are outside the hold: still drop your weight first. Then grab your opponent's hand in front of your stomach and peel it away to open the hold, while turning your body to escape. Back well away and keep the fence up.",
+    "cues": [
+     "Drop your weight first",
+     "Peel the hand away in front of your stomach",
+     "Turn out, back away"
+    ],
+    "mistakes": [
+     "Clawing at their hands without dropping low",
+     "Turning your back and walking off while still close"
+    ],
+    "drill": {
+     "label": "Rear-hug escape, arms free",
+     "say": "Your turn. Rear-hug escape with your arms free: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk7-5": {
+    "title": "Front collar grab",
+    "say": "When your opponent grabs your collar with both hands from the front: tuck your chin and raise your shoulders to protect your neck. Raise one arm straight up overhead, then turn your body hard to one side, so your shoulder and arm drop over both of your opponent's arms and break the grip. Immediately step back and raise the fence. In training, your partner only grabs the collar, and never squeezes the neck.",
+    "cues": [
+     "Chin tucked, shoulders up",
+     "One arm straight up overhead",
+     "Turn hard, drop over both arms, step out"
+    ],
+    "mistakes": [
+     "Trying to pull their arms apart by strength",
+     "Turning without raising the arm high"
+    ],
+    "drill": {
+     "label": "Collar-grab escape, each side",
+     "say": "Your turn. Collar-grab escape on each side: eight reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "When you're hugged from behind, what's the first thing to do?",
+    "a": [
+     "Drop your centre of gravity",
+     "Jump up",
+     "Throw your head back"
+    ],
+    "why": "A low centre of gravity makes it hard for your opponent to lift you."
+   },
+   {
+    "q": "The stop signal in partner drills is:",
+    "a": [
+     "Two taps, or saying: Stop",
+     "Any loud shout",
+     "No signal is needed"
+    ],
+    "why": "Agree on it beforehand and respect it without exception."
+   },
+   {
+    "q": "What do you use to escape a front collar grab?",
+    "a": [
+     "The pulling strength of your arms",
+     "Raise one arm high, then turn hard and drop over their arms",
+     "Stand still and wait"
+    ],
+    "why": "Turning your whole body is stronger than your opponent's two arms."
+   },
+   {
+    "q": "When practising the collar-grab escape, your partner may:",
+    "a": [
+     "Really squeeze the neck",
+     "Only grab the collar, never squeeze the neck"
+    ],
+    "why": "The neck must be kept completely safe."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Off-balancing & takedowns",
+  "sub": "The base line, the jacket grip, outside reap, front trip, control",
+  "intro": "This is the essence of Sambo wrestling: using your opponent's balance to bring them to the ground. Only train this once you can fall well, on thick mats, with an instructor.",
+  "safety": "Required: you've mastered the Breakfalls lesson, thick mats, a coach present, slow speed.",
+  "outro": "Congratulations! You've completed the Foundation part of the Close-Combat Self-Defence track. The Advanced part is waiting for you, with more realistic situations.",
+  "home": "Homework: two sessions a week on thick mats, with an instructor, six slow reps of each technique.",
+  "steps": {
+   "tk8-1": {
+    "title": "The base line and off-balancing",
+    "say": "Your opponent stays upright on two feet. The line joining their feet is their base line. Push or pull at right angles to that line, and your opponent will lose balance very easily. Practise with a partner: hold the sleeve and the collar, then push, pull and turn gently in eight directions. Feel the moment when all their weight shifts onto their heels or their toes.",
+    "cues": [
+     "Base line = the line joining the feet",
+     "Push/pull at right angles to the base line",
+     "Feel the weight shift onto the heels or toes"
+    ],
+    "mistakes": [
+     "Pushing along the base line",
+     "Using stiff arm strength"
+    ],
+    "drill": {
+     "label": "Push – pull in 8 directions",
+     "say": "Your turn. Push and pull in eight directions for sixty seconds. The timer will count down."
+    }
+   },
+   "tk8-2": {
+    "title": "The basic jacket grip",
+    "say": "The basic Sambo grip: your left hand holds your partner's right sleeve, just below the elbow. Your right hand holds their left lapel, at chest height. Keep your elbows soft, not stiff. Stand with your back straight, feet shoulder-width apart, ready to move.",
+    "cues": [
+     "Left hand: sleeve below the elbow",
+     "Right hand: lapel at chest height",
+     "Elbows soft, back straight"
+    ],
+    "mistakes": [
+     "Hunching the back, head down",
+     "Locking the elbows stiff"
+    ],
+    "drill": {
+     "label": "Take the grip",
+     "say": "Your turn. Take the jacket grip: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk8-3": {
+    "title": "Outside reap",
+    "say": "Pull your partner towards their back right corner, so their weight shifts onto their right heel. Step your left foot in close, beside the outside of their right foot. Swing your right leg through and reap their right calf from behind, while your upper body pushes them backwards. Your partner takes a back breakfall, just as you've learnt. Keep hold of their sleeve all the way through the fall, lifting it slightly, so their back reaches the mat gently.",
+    "cues": [
+     "Shift your partner's weight onto their right heel",
+     "Step in close, reap the calf from behind",
+     "Hold the sleeve, let them fall gently"
+    ],
+    "mistakes": [
+     "Reaping before the weight is on that leg",
+     "Letting go of the sleeve while your partner is falling"
+    ],
+    "drill": {
+     "label": "Outside reap (slow), each side",
+     "say": "Your turn. Slow outside reap on each side: six reps. I'll count the rhythm for you."
+    }
+   },
+   "tk8-4": {
+    "title": "Front trip",
+    "say": "Pull your partner forward, towards their front right corner. Turn your body and place your right foot across the front of their right ankle as a block. Keep pulling the sleeve in an arc downwards. They trip over your leg and fall forward, rolling over the shoulder exactly as in the forward roll drill.",
+    "cues": [
+     "Pull forward – towards their right",
+     "Foot blocks in front of the ankle",
+     "Pull down in an arc"
+    ],
+    "mistakes": [
+     "Kicking the ankle instead of blocking it",
+     "Yanking straight down at the ground too hard"
+    ],
+    "drill": {
+     "label": "Front trip (slow), each side",
+     "say": "Your turn. Slow front trip on each side: six reps. I'll count the rhythm for you."
+    }
+   },
+   "tk8-5": {
+    "title": "Control after the throw",
+    "say": "Once your partner has fallen, don't let go straight away. Keep hold of their sleeve, stay steady on your feet, keep your eyes on them, then help them up. The thrower is responsible for the person who falls. Only practise throws on thick mats, with a coach watching, at slow speed, and always respect the stop signal.",
+    "cues": [
+     "Hold the sleeve, stay steady",
+     "Eyes on your partner",
+     "Help your partner up"
+    ],
+    "mistakes": [
+     "Letting go the moment you throw",
+     "Falling on top of your partner"
+    ],
+    "drill": {
+     "label": "Slow throw + help up",
+     "say": "Your turn. Slow throw, then help your partner up: five reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "To break someone's balance, which way should you push or pull?",
+    "a": [
+     "Along the line joining their feet",
+     "At right angles to the line joining their feet",
+     "Straight down at the ground"
+    ],
+    "why": "At right angles to the base line is the weakest direction."
+   },
+   {
+    "q": "In the outside reap, where must your partner's weight be?",
+    "a": [
+     "On their toes",
+     "On the heel of the leg you reap",
+     "On the other leg"
+    ],
+    "why": "Only a leg that's carrying weight can be reaped out."
+   },
+   {
+    "q": "What is the thrower responsible for?",
+    "a": [
+     "Holding the sleeve and controlling the partner's fall",
+     "Letting go at once",
+     "Landing on top of them"
+    ],
+    "why": "Control helps your partner fall safely."
+   },
+   {
+    "q": "The conditions for practising throws are:",
+    "a": [
+     "Good breakfalls, thick mats, a coach present",
+     "Anywhere will do",
+     "Go fast to get used to it"
+    ],
+    "why": "Safety is a must."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Vulnerable-target strikes to escape",
+  "sub": "Eye flick, knee to the groin, knee stomp – only to open an escape route",
+  "intro": "When you're genuinely attacked and you can't run, you need one simple strike that makes the attacker freeze for a second. That second is your way out. Today we train on pads, and never, ever on your partner.",
+  "safety": "Only strike pads or shields. Never touch your partner's eyes, groin or knee joints.",
+  "outro": "Now you have strikes that open an escape route. Remember this well: strike to run, not to win. Next lesson: elbows and knees at close range.",
+  "home": "Homework: three sessions a week, three rounds of the combination on pads, finishing with a run.",
+  "steps": {
+   "tk9-1": {
+    "title": "The principle: strike to run",
+    "say": "The first principle: strikes to vulnerable targets are only for when you're genuinely attacked and there's no other way out. The aim isn't to win. It's to make the attacker freeze for a moment. Strike once, then immediately create distance and run to where there are people. Don't stay and keep fighting.",
+    "cues": [
+     "Only when genuinely attacked",
+     "One strike to open the way",
+     "Strike, then run"
+    ],
+    "mistakes": [
+     "Staying to fight once you have a way out",
+     "Striking when you could still walk away"
+    ],
+    "drill": {
+     "label": "Fence – back off – run",
+     "say": "Your turn. Fence, back off and run: five reps. I'll count the rhythm for you."
+    }
+   },
+   "tk9-2": {
+    "title": "Finger flick to the eyes",
+    "say": "From the fence, your lead hand is already close to your opponent's face. With your fingers slightly bent and relaxed, flick them quickly across the eyes, like flicking water off your hand, then pull back. This strike needs no strength, only speed. The person who's flicked will shut their eyes and pull back by reflex. In training, only flick a focus mitt that your partner holds up at face height.",
+    "cues": [
+     "Start from the fence",
+     "Fingers bent, relaxed, flick across",
+     "Fast, then pull back and step away"
+    ],
+    "mistakes": [
+     "Fingers locked straight: easy to dislocate a finger",
+     "Swinging from far away and telegraphing it"
+    ],
+    "drill": {
+     "label": "Flick the mitt, each hand",
+     "say": "Your turn. Flick the mitt with each hand: fifteen reps. I'll count the rhythm for you."
+    }
+   },
+   "tk9-3": {
+    "title": "Knee to the groin (on a shield)",
+    "say": "When the attacker closes in and grabs you at very close range, take hold of their shoulders or collar with both hands. Pull down, and at the same time drive your rear knee straight up. Push your hips forward. In training, your partner holds a thick shield in front of their lower stomach, and you drive the knee into the shield. After the knee, push them off and back well away.",
+    "cues": [
+     "Both hands on the shoulders, pull down",
+     "Drive the rear knee up, push the hips",
+     "Push off, back away"
+    ],
+    "mistakes": [
+     "Leaning back as you drive the knee",
+     "Kneeing before you have your balance"
+    ],
+    "drill": {
+     "label": "Knee the shield, each leg",
+     "say": "Your turn. Knee the shield with each leg: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk9-4": {
+    "title": "Stomp to the knee or shin",
+    "say": "When the attacker charges in from a distance, a low heel stomp to their front knee or shin will stop their momentum. Lift your front knee a little, drive your heel straight down and forward at an angle, then pull your foot back. A low strike is hard to block and keeps you well balanced. In training, only stomp a shield held low.",
+    "cues": [
+     "Lift the knee a little",
+     "Drive the heel down and forward at an angle",
+     "Pull the foot back, step away"
+    ],
+    "mistakes": [
+     "Kicking high to the stomach: slow and easy to fall",
+     "Stomping with the toes"
+    ],
+    "drill": {
+     "label": "Low stomp on the shield, each leg",
+     "say": "Your turn. Low stomp on the shield with each leg: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk9-5": {
+    "title": "Combination: flick – stomp – run",
+    "say": "Put it together into one sequence: from the fence, flick the mitt, stomp low on the shield, then turn and run three steps. Train slowly to get it right, then gradually faster. Every time you finish, shout loudly: Stop! This chain of reflexes has to become a habit for your body.",
+    "cues": [
+     "Fence → flick → stomp",
+     "Turn and run 3 steps",
+     "Shout loudly: Stop!"
+    ],
+    "mistakes": [
+     "Forgetting to run at the end of the sequence",
+     "Moving back in close after the stomp"
+    ],
+    "drill": {
+     "label": "Combination rounds",
+     "say": "Your turn. Combination rounds: three rounds of thirty seconds each, with twenty seconds' rest between rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "What is the purpose of striking a vulnerable target?",
+    "a": [
+     "To win the fight",
+     "To make the attacker freeze so you can escape",
+     "To punish your opponent"
+    ],
+    "why": "Strike to open the way, then run somewhere safe."
+   },
+   {
+    "q": "How should you use your fingers for an eye flick?",
+    "a": [
+     "Locked stiff and straight",
+     "Slightly bent, relaxed, a quick flick",
+     "Clenched tight"
+    ],
+    "why": "Relaxed fingers are fast and won't get dislocated."
+   },
+   {
+    "q": "Where does the low stomp go?",
+    "a": [
+     "The front knee or shin",
+     "The head",
+     "The back"
+    ],
+    "why": "A low strike is fast, hard to block, and stops a charge."
+   },
+   {
+    "q": "When training with a partner, where do you strike?",
+    "a": [
+     "Your partner's body, but lightly",
+     "Only pads or shields"
+    ],
+    "why": "Never strike your partner's real vulnerable targets."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Close-range elbows & knees",
+  "sub": "Horizontal elbow, upward elbow, straight knee, neck-and-shoulder clinch",
+  "intro": "When someone is right on top of you, there's no room to swing a punch. That's when your elbows and knees are your body's strongest natural weapons. We train on pads: correct technique first, power later.",
+  "safety": "Only strike thick pads. The pad holder must grip firmly and stand solidly.",
+  "outro": "Close range is nothing to fear any more. Next lesson: stopping takedowns and getting up safely.",
+  "home": "Homework: three sessions a week, three close-range rounds on pads.",
+  "steps": {
+   "tk10-1": {
+    "title": "Horizontal elbow",
+    "say": "From fighting stance, bend your lead elbow, forearm parallel to the ground, hand close to your ear. Turn your hips and shoulders, and sweep the elbow across like a door slamming shut. You strike with the bone just below the elbow. Your other hand still guards your face. After the strike, go straight back to guard.",
+    "cues": [
+     "Hand by the ear, forearm level",
+     "Turn the hips, sweep across",
+     "Strike with the bone just below the elbow"
+    ],
+    "mistakes": [
+     "Swinging the whole arm out straight",
+     "Forgetting to guard your face with the other hand"
+    ],
+    "drill": {
+     "label": "Horizontal elbow, each arm",
+     "say": "Your turn. Horizontal elbow with each arm: fifteen reps. I'll count the rhythm for you."
+    }
+   },
+   "tk10-2": {
+    "title": "Upward elbow",
+    "say": "When your opponent ducks their head and charges in, an elbow driven upwards from below is very effective. Fold your elbow tight, fist touching your shoulder, then drive off your legs and lift the elbow straight up, on a vertical line in front of your face. In training, your partner holds a mitt facing down at chest height.",
+    "cues": [
+     "Fold tight, fist to the shoulder",
+     "Drive off the legs, straight up",
+     "Other hand guards the face"
+    ],
+    "mistakes": [
+     "Lifting it out diagonally",
+     "Using only the arm, no leg drive"
+    ],
+    "drill": {
+     "label": "Upward elbow, each arm",
+     "say": "Your turn. Upward elbow with each arm: twelve reps. I'll count the rhythm for you."
+    }
+   },
+   "tk10-3": {
+    "title": "Neck-and-shoulder clinch",
+    "say": "At hugging range, place one hand over the other behind your opponent's neck, with your elbows together in front of their chest. Pull their head down and squeeze your elbows in. This clinch lets you control your opponent's balance. In training, pull gently and slowly, and your partner can always tap to stop.",
+    "cues": [
+     "One hand over the other behind the neck",
+     "Elbows together in front of their chest",
+     "Pull down gently and slowly"
+    ],
+    "mistakes": [
+     "Interlacing your fingers: they can get caught",
+     "Yanking your partner's neck"
+    ],
+    "drill": {
+     "label": "Hold the neck-and-shoulder clinch",
+     "say": "Your turn. Hold the neck-and-shoulder clinch for thirty seconds. The timer will count down."
+    }
+   },
+   "tk10-4": {
+    "title": "Straight knee from the clinch",
+    "say": "From the neck-and-shoulder clinch, pull your opponent down and drive your knee straight up into the shield your partner holds in front of their stomach. Push your hips forward and stand tall on your supporting leg. After two knees, push them off hard and back well away.",
+    "cues": [
+     "Neck-and-shoulder clinch",
+     "Pull down, drive the knee straight up",
+     "Two knees, then push off and back away"
+    ],
+    "mistakes": [
+     "Bending over along with them",
+     "Standing on the toes of the supporting foot and losing balance"
+    ],
+    "drill": {
+     "label": "Knee the shield, each leg",
+     "say": "Your turn. Knee the shield with each leg: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk10-5": {
+    "title": "Close-range combination",
+    "say": "Put it together: horizontal elbow, upward elbow, into the clinch, two knees, push off, and back into the fence. Do three rounds, thirty seconds each, on the pads. Keep up short burst breathing as you strike.",
+    "cues": [
+     "Horizontal elbow → upward elbow",
+     "Clinch → 2 knees",
+     "Push off, fence up, burst breathing"
+    ],
+    "mistakes": [
+     "Holding your breath as you strike",
+     "Forgetting to push off and make space"
+    ],
+    "drill": {
+     "label": "Close-range rounds",
+     "say": "Your turn. Close-range rounds: three rounds of thirty seconds each, with twenty seconds' rest between rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Which part do you strike with in a horizontal elbow?",
+    "a": [
+     "The bone just below the elbow",
+     "The hand",
+     "The shoulder"
+    ],
+    "why": "The hard bone just below the elbow is the most solid striking point."
+   },
+   {
+    "q": "In the neck-and-shoulder clinch, how do you place your hands?",
+    "a": [
+     "Fingers interlaced",
+     "One over the other behind the neck"
+    ],
+    "why": "Interlaced fingers can get caught. One hand over the other is safer."
+   },
+   {
+    "q": "After two knees, what should you do?",
+    "a": [
+     "Push off and back well away",
+     "Keep holding on tight",
+     "Sit down"
+    ],
+    "why": "Always make space so you can escape."
+   },
+   {
+    "q": "When you strike in a combination, how do you breathe?",
+    "a": [
+     "Hold your breath",
+     "Short burst breaths with each strike"
+    ],
+    "why": "Burst breathing stops you running out of steam and keeps you calm."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Takedown defence & getting up",
+  "sub": "Stopping leg grabs, sprawling with the hips, technical stand-up, kicking to keep distance",
+  "intro": "In a brawl, the most dangerous thing is being taken to the ground. Today you'll learn how not to be dragged down, and if you do go down, how to get back up safely in a few seconds.",
+  "safety": "Train on thick mats. Your partner shoots in slowly, with no head-butting.",
+  "outro": "Now you're very hard to take down, and you know how to get up safely. Next lesson: escaping when you're pinned on the ground.",
+  "home": "Homework: ten technical stand-ups on each side every day, and two sessions a week of takedown defence with a partner.",
+  "steps": {
+   "tk11-1": {
+    "title": "Stopping a leg grab",
+    "say": "When your opponent ducks low and shoots in for your legs: kick both legs back as fast as you can, drop your hips down onto their upper back, and block their shoulders with both hands. Your bodyweight presses down on them, and your legs are far out of reach. This is called a sprawl. Practise it slowly with a partner on the mats.",
+    "cues": [
+     "Kick both legs back",
+     "Drop the hips onto the upper back",
+     "Hands block the opponent's shoulders"
+    ],
+    "mistakes": [
+     "Stepping back upright: easy for them to grab your legs",
+     "Hips left high, so they can still pull your legs"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Your turn. Sprawl: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk11-2": {
+    "title": "Getting out after the sprawl",
+    "say": "Once your sprawl has worked, don't stay lying on top for long. Push off your opponent's shoulders with both hands, spring up, take two steps back and return to fighting stance, hands guarding your face. The goal is still to get away.",
+    "cues": [
+     "Push off the shoulders",
+     "Spring up, 2 steps back",
+     "Back into stance, guard your face"
+    ],
+    "mistakes": [
+     "Lying on top for too long",
+     "Getting up right in front of your opponent"
+    ],
+    "drill": {
+     "label": "Sprawl – spring up – step back",
+     "say": "Your turn. Sprawl, spring up and step back: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk11-3": {
+    "title": "Kicking to keep distance from the ground",
+    "say": "If you've fallen on your back and your opponent is standing: lie on one hip, one hand posted on the mat, the other guarding your face. Keep your top leg cocked and ready to kick their knee or stomach if they come in. Turn with them, always pointing your feet at your opponent, and don't let them get round behind your head.",
+    "cues": [
+     "On your side, one hand posted, one guarding",
+     "Top leg cocked, ready to kick",
+     "Turn with them, feet always towards your opponent"
+    ],
+    "mistakes": [
+     "Lying flat on your back",
+     "Letting your opponent get round to your head"
+    ],
+    "drill": {
+     "label": "Turn with your partner",
+     "say": "Your turn. Turn with your partner for thirty seconds. The timer will count down."
+    }
+   },
+   "tk11-4": {
+    "title": "Technical stand-up",
+    "say": "To get up safely: post your rear hand on the mat behind your hip, and guard your face with your front hand. Lift your hips and pull your base leg through underneath you, to the back. Put that foot down well behind you, into your stance, and only then stand up straight. Always keep your face covered and stand up moving away from your opponent, never right in front of them.",
+    "cues": [
+     "Rear hand posted, front hand guards the face",
+     "Lift the hips, pull the leg back through",
+     "Stand up moving away, into your stance"
+    ],
+    "mistakes": [
+     "Pushing up on both hands, leaving your face open",
+     "Standing up moving towards your opponent"
+    ],
+    "drill": {
+     "label": "Technical stand-up, each side",
+     "say": "Your turn. Technical stand-up on each side: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk11-5": {
+    "title": "Combination: fall – keep distance – get up",
+    "say": "Put it together: a proper back breakfall, turn onto your side, kick to keep your distance, technical stand-up, back away and raise the fence. Each time you finish, check whether you kept your face covered the whole time. Do five reps on each side.",
+    "cues": [
+     "Back breakfall → onto your side",
+     "Kick to keep distance",
+     "Technical stand-up → fence"
+    ],
+    "mistakes": [
+     "Rushing to get up while your opponent is still close",
+     "Forgetting to guard your face"
+    ],
+    "drill": {
+     "label": "Fall – stand-up sequence, each side",
+     "say": "Your turn. The fall and stand-up sequence on each side: five reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "When someone shoots in for your legs, what should you do?",
+    "a": [
+     "Kick both legs back and drop your hips down",
+     "Stand upright and wait",
+     "Jump up"
+    ],
+    "why": "A sprawl: legs far back, your weight pressing down on your opponent."
+   },
+   {
+    "q": "When you're on the ground, where should your feet point?",
+    "a": [
+     "Towards your opponent",
+     "Up at the sky",
+     "Behind you"
+    ],
+    "why": "Point your feet at your opponent so you can kick to keep your distance."
+   },
+   {
+    "q": "In the technical stand-up, what does your front hand do?",
+    "a": [
+     "Pushes on the ground",
+     "Guards your face"
+    ],
+    "why": "Always protect your face as you get up."
+   },
+   {
+    "q": "When you get up, should you move away from or towards your opponent?",
+    "a": [
+     "Away",
+     "Towards"
+    ],
+    "why": "Get up moving away, to stay safe."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Ground escapes",
+  "sub": "Shrimping, bridge and roll, escaping when pinned, the guard",
+  "intro": "If you're pinned on the ground, don't panic. There are simple movements from Sambo wrestling that help you turn the tables. We train slowly, your partner pins you with moderate force, and we always respect the stop signal.",
+  "safety": "Thick mats. The person on top doesn't put their full weight down and never presses on the neck. Two taps means stop.",
+  "outro": "Now you know how to escape on the ground. Next lesson, a serious subject: facing someone with a knife.",
+  "home": "Homework: two minutes of shrimping every day, and two sessions a week of light flow wrestling.",
+  "steps": {
+   "tk12-1": {
+    "title": "Shrimping",
+    "say": "Lie on your back with both knees bent. Push one foot into the mat and drive your hips backwards, turning onto your side at the same time, with both hands pushing out in front as if pushing something heavy away. Your body curls like a shrimp. Then come back onto your back and do it to the other side. This is the most important movement on the ground: it creates space.",
+    "cues": [
+     "Push off the foot, drive the hips back",
+     "Turn on your side, hands push out in front",
+     "Keep switching sides"
+    ],
+    "mistakes": [
+     "Lying flat without turning the hips",
+     "Pushing with the hands but not the hips"
+    ],
+    "drill": {
+     "label": "Shrimping down the mat",
+     "say": "Your turn. Shrimp down the length of the mat for forty seconds. The timer will count down."
+    }
+   },
+   "tk12-2": {
+    "title": "Bridge and roll from the mount",
+    "say": "When someone is sitting on your stomach: guard your face with both hands first. Then trap one of your opponent's arms tight against your body, and place your foot on the same side outside their leg as a block. Drive your hips up hard, bridging over the shoulder on the side of the trapped arm, and roll your opponent over. You come up on top, then get up and back away.",
+    "cues": [
+     "Guard the face first",
+     "Trap one arm + block the leg on the same side",
+     "Hip bridge, roll over that shoulder"
+    ],
+    "mistakes": [
+     "Pushing on your opponent's chest with your hands",
+     "Bridging straight up without trapping the arm and leg"
+    ],
+    "drill": {
+     "label": "Bridge and roll, each side",
+     "say": "Your turn. Bridge and roll on each side: six reps. I'll count the rhythm for you."
+    }
+   },
+   "tk12-3": {
+    "title": "Elbow-knee escape when pinned",
+    "say": "If you can't roll them: turn on your side, bring your elbow to your knee, and wedge your elbow against your opponent's hip. Shrimp to make space, and slide your knee in between you and them. Once your knee is in, bring your legs into guard and keep your opponent away with both legs.",
+    "cues": [
+     "On your side, elbow touches the knee",
+     "Shrimp to make space",
+     "Slide the knee in, legs into guard"
+    ],
+    "mistakes": [
+     "Pushing with straight arms: easy to get arm-locked",
+     "Lying flat on your back"
+    ],
+    "drill": {
+     "label": "Elbow-knee escape, each side",
+     "say": "Your turn. Elbow-knee escape on each side: six reps. I'll count the rhythm for you."
+    }
+   },
+   "tk12-4": {
+    "title": "Guard and getting up",
+    "say": "Once you have both legs between you and your opponent, you're in guard. Put your feet on their hips and push them away. When you have space, turn onto your side and do a technical stand-up, as in the last lesson. Being on the ground doesn't mean you've lost, as long as you keep your legs between the two of you.",
+    "cues": [
+     "Both legs between you and your opponent",
+     "Feet push on the hips to make distance",
+     "Technical stand-up"
+    ],
+    "mistakes": [
+     "Dropping your legs and letting your opponent close in",
+     "Getting up before you have distance"
+    ],
+    "drill": {
+     "label": "Guard – push – stand up",
+     "say": "Your turn. Guard, push away and stand up: six reps. I'll count the rhythm for you."
+    }
+   },
+   "tk12-5": {
+    "title": "Controlled flow wrestling",
+    "say": "Now for two minutes of controlled flow wrestling. One person starts underneath, the other on top. The person underneath has only one job: escape and get up. The person on top only holds, with no arm locks and no chokes. Fifty per cent power. Two taps means stop at once.",
+    "cues": [
+     "Underneath: escape and get up",
+     "On top: hold only, no locks, no chokes",
+     "50% power, two taps means stop"
+    ],
+    "mistakes": [
+     "Going full power from the start",
+     "Ignoring the stop signal"
+    ],
+    "drill": {
+     "label": "Flow wrestling rounds",
+     "say": "Your turn. Flow wrestling: two rounds of sixty seconds each, with thirty seconds' rest between rounds."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "What is the most important movement on the ground?",
+    "a": [
+     "Shrimping",
+     "Lying still",
+     "Punching upwards"
+    ],
+    "why": "Shrimping creates the space you need to escape."
+   },
+   {
+    "q": "In the bridge and roll, which way do you roll?",
+    "a": [
+     "Towards the arm and leg you've trapped and blocked",
+     "Any direction"
+    ],
+    "why": "Your opponent can't post with an arm and leg that are trapped."
+   },
+   {
+    "q": "When pinned, should you push your opponent's chest with straight arms?",
+    "a": [
+     "Yes",
+     "No, it's easy to get arm-locked"
+    ],
+    "why": "Keep your elbows tight to your body."
+   },
+   {
+    "q": "In flow wrestling, what may the person on top do?",
+    "a": [
+     "Arm locks and chokes",
+     "Hold only, no locks, no chokes"
+    ],
+    "why": "Train safely, with control."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Facing a knife",
+  "sub": "Golden rules, barriers, covering, arm control, escape – rubber knives",
+  "intro": "Listen carefully to the most important thing today: a knife is extremely dangerous, even for someone who has trained for years. If a robber only wants your belongings, give them up. Belongings can be replaced. Your life cannot. The following techniques are only for when there's no other choice.",
+  "safety": "Only train with rubber knives or blunt plastic knives. Never train with a real knife.",
+  "outro": "Remember this well: running away is winning. Next lesson: staying calm when you're threatened with a gun.",
+  "home": "Homework: one scenario session a week with a rubber knife, slow and safe, always finishing with a run.",
+  "steps": {
+   "tk13-1": {
+    "title": "The golden rules",
+    "say": "Three golden rules. One: if they demand your belongings, hand them over at once, throw your wallet well away, and run the other way. Two: keep as much distance as you can, and look for a way out. Three: only use techniques when you're attacked and you can't run. And remember: in real life, almost everyone who faces a knife gets hurt. Running away is winning.",
+    "cues": [
+     "Hand over your things, throw them away, run",
+     "Keep your distance, find a way out",
+     "Technique is the very last resort"
+    ],
+    "mistakes": [
+     "Trying to hold on to your belongings",
+     "Confidently charging at someone with a knife"
+    ],
+    "drill": {
+     "label": "Throw the wallet – run (scenario)",
+     "say": "Your turn. A scenario drill: throw the wallet and run, three reps. I'll count the rhythm for you."
+    }
+   },
+   "tk13-2": {
+    "title": "Using a barrier as a shield",
+    "say": "Anything in your hands can be a shield: a rucksack, a jacket wrapped round your arm, a chair, a handbag. Keep the barrier between you and the point of the knife, hold it firmly with both hands, and back towards the exit. The barrier keeps the knife away from your body and gives you time to run.",
+    "cues": [
+     "A rucksack, jacket or chair as a shield",
+     "Keep the barrier between you and the knife",
+     "Back towards the exit"
+    ],
+    "mistakes": [
+     "Dropping the barrier to fight empty-handed",
+     "Backing into a corner"
+    ],
+    "drill": {
+     "label": "Rucksack shield, back to the exit",
+     "say": "Your turn. Hold the rucksack as a shield and back towards the exit for thirty seconds. The timer will count down."
+    }
+   },
+   "tk13-3": {
+    "title": "Covering and posture",
+    "say": "If there's no barrier: raise both arms in front of your face, with the inside of your forearms turned towards you, elbows covering your ribs, body slightly hunched, chin tucked. Stand side-on to make yourself a smaller target. Keep your eyes on the hand holding the knife, not on your opponent's face.",
+    "cues": [
+     "Forearms in front of the face, inner side turned in",
+     "Side-on, slightly hunched, chin tucked",
+     "Eyes on the knife hand"
+    ],
+    "mistakes": [
+     "Holding out your palms to block",
+     "Watching the face instead of the hand"
+    ],
+    "drill": {
+     "label": "Into the cover position",
+     "say": "Your turn. Into the cover position: ten reps. I'll count the rhythm for you."
+    }
+   },
+   "tk13-4": {
+    "title": "Blocking and controlling the arm",
+    "say": "When a stab comes at you and you can't avoid it: block the knife arm with both forearms, while stepping diagonally to the outside. Immediately wrap that arm tight against your body with both arms, control the wrist, and keep the blade pointing away. Your two arms against their one. Practise very slowly with a rubber knife.",
+    "cues": [
+     "Block with both forearms + diagonal step",
+     "Wrap up the knife arm tightly",
+     "Both hands control the wrist, blade pointing away"
+    ],
+    "mistakes": [
+     "Using only one hand",
+     "Letting go of the arm halfway"
+    ],
+    "drill": {
+     "label": "Block – control (slow), each side",
+     "say": "Your turn. Slow block and control on each side: eight reps. I'll count the rhythm for you."
+    }
+   },
+   "tk13-5": {
+    "title": "Escape and run",
+    "say": "Once you have control of the arm, don't try to take the knife. Stomp low on the knee as in lesson nine, shove your opponent away hard, then run to where there are people, call for help and call the police. Afterwards, check your body: people with knife wounds often don't feel them straight away.",
+    "cues": [
+     "Don't try to take the knife",
+     "Low stomp, shove away, run",
+     "Call for help, call the police, check for wounds"
+    ],
+    "mistakes": [
+     "Trying to grab the knife",
+     "Chasing after your opponent"
+    ],
+    "drill": {
+     "label": "Control – shove – run (slow)",
+     "say": "Your turn. Slowly: control, shove and run, five reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Someone with a knife demands your wallet. What do you do?",
+    "a": [
+     "Fight to keep the wallet",
+     "Hand it over, throw it away, run"
+    ],
+    "why": "Belongings can be replaced. Your life cannot."
+   },
+   {
+    "q": "What can you use as a shield?",
+    "a": [
+     "A rucksack, a jacket, a chair",
+     "Nothing"
+    ],
+    "why": "A barrier keeps the knife away from your body."
+   },
+   {
+    "q": "When facing a knife, where do you look?",
+    "a": [
+     "At your opponent's face",
+     "At the hand holding the knife"
+    ],
+    "why": "The danger is in the hand holding the knife."
+   },
+   {
+    "q": "Once you control the knife arm, what should you do?",
+    "a": [
+     "Try to take the knife",
+     "Shove them away, run, call for help"
+    ],
+    "why": "The goal is to escape safely, not to take the weapon."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Threatened with a gun",
+  "sub": "Calm, compliance, observation, cover, escape – plastic training guns",
+  "intro": "This lesson is more about staying calm than about techniques. When you face a gun, your life depends on keeping a cool head. We use orange plastic guns, made only for training.",
+  "safety": "Only use orange plastic training guns. No real guns, air guns or realistic replicas.",
+  "outro": "A cool head is your strongest weapon. The last lesson of the track: putting it all together and building reflexes.",
+  "home": "Homework: three minutes of box breathing every day, and play the memory game whenever you're out and about.",
+  "steps": {
+   "tk14-1": {
+    "title": "Breathe and stay calm",
+    "say": "When a gun is pointed at you, your heart will race. Use box breathing: breathe in for four seconds, hold for four, breathe out for four, and hold for four. Just one or two breaths will clear your head. A calm person sees a way out. A panicking person doesn't.",
+    "cues": [
+     "In 4 – hold 4 – out 4 – hold 4",
+     "One or two breaths are enough",
+     "Only when calm do you see the way out"
+    ],
+    "mistakes": [
+     "Rapid, shallow breathing",
+     "Sudden movements"
+    ],
+    "drill": {
+     "label": "Box breathing, 4 counts",
+     "say": "Your turn. Box breathing on a count of four, for sixty-four seconds. The timer will count down."
+    }
+   },
+   "tk14-2": {
+    "title": "Comply and raise your hands",
+    "say": "If they demand your belongings: comply. Raise both open hands to shoulder height, and say slowly and clearly: all right, here you are. Announce every movement before you make it: I'm going to take my wallet out of my right pocket. Put your things down or throw them away from you. Don't stare at their face, and don't argue.",
+    "cues": [
+     "Hands open, at shoulder height",
+     "Speak slowly, announce every movement",
+     "Hand over your things, don't argue"
+    ],
+    "mistakes": [
+     "Reaching suddenly into a pocket",
+     "Arguing or making threats back"
+    ],
+    "drill": {
+     "label": "Compliance scenario",
+     "say": "Your turn. The compliance scenario: three reps. I'll count the rhythm for you."
+    }
+   },
+   "tk14-3": {
+    "title": "Concealment and cover",
+    "say": "Know the difference between two things. Concealment hides you from view, like a bush or a curtain. Cover actually stops bullets, like a concrete wall, a pillar, or a car's engine block. When you get the chance to run, run towards cover, run at an angle rather than in a straight line, and keep low.",
+    "cues": [
+     "Concealment ≠ cover",
+     "Run towards cover",
+     "Run at an angle, stay low"
+    ],
+    "mistakes": [
+     "Hiding behind a wooden door or a bush and thinking you're safe",
+     "Running in a straight line"
+    ],
+    "drill": {
+     "label": "Angled run to cover",
+     "say": "Your turn. Run at an angle to cover: five reps. I'll count the rhythm for you."
+    }
+   },
+   "tk14-4": {
+    "title": "Observe and remember",
+    "say": "While you comply, quietly take note: their height, clothes, voice, and which way they leave. Once they've gone, stay put somewhere safe, call the police straight away, and tell them everything you remember. Never chase after them.",
+    "cues": [
+     "Note quietly: build, clothes, voice, direction",
+     "Stay put somewhere safe",
+     "Call the police, never give chase"
+    ],
+    "mistakes": [
+     "Chasing the robber",
+     "Staring at their face"
+    ],
+    "drill": {
+     "label": "Memory game: describe a person",
+     "say": "Your turn. The memory game: describe a person in thirty seconds. The timer will count down."
+    }
+   },
+   "tk14-5": {
+    "title": "The last resort",
+    "say": "Only if you're certain they'll shoot even though you've complied should you think about the last resort: push the barrel away from yourself and everyone else, hold it tight with both hands, then find a way out. This is a very high-risk technique, and you may only learn it in person with a certified instructor, using a training gun. In almost every situation, complying and observing is your best chance of survival.",
+    "cues": [
+     "Only if you're certain they'll shoot",
+     "Push the barrel off line, hold with both hands",
+     "Learn it in person with an instructor"
+    ],
+    "mistakes": [
+     "Acting when they only want your belongings",
+     "Teaching yourself from videos without an instructor"
+    ],
+    "drill": {
+     "label": "Recite the principles",
+     "say": "Your turn. Recite the principles: three reps. I'll count the rhythm for you."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "What is box breathing?",
+    "a": [
+     "In 4 – hold 4 – out 4 – hold 4 seconds",
+     "Holding your breath for as long as you can"
+    ],
+    "why": "Steady breathing slows your heart rate and keeps your mind clear."
+   },
+   {
+    "q": "Someone points a gun at you and demands your belongings. What should you do?",
+    "a": [
+     "Fight back",
+     "Comply, announce your movements, hand them over"
+    ],
+    "why": "Your belongings aren't worth as much as your life."
+   },
+   {
+    "q": "Which of these is cover, something that stops bullets?",
+    "a": [
+     "A bush",
+     "A concrete wall, a pillar"
+    ],
+    "why": "A bush only conceals you. It can't stop a bullet."
+   },
+   {
+    "q": "After the robber leaves, you should:",
+    "a": [
+     "Chase them",
+     "Stay put somewhere safe and call the police"
+    ],
+    "why": "Never chase someone who is armed."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Putting it together & reflexes",
+  "sub": "Linked scenarios, controlled partner sparring, recovery stretching",
+  "intro": "The final lesson. We'll turn everything you've learnt into reflexes. When a situation happens, you won't have time to think. Your body has to know what to do by itself.",
+  "safety": "Wear gloves, and a gum shield if you have one. Partner work at 30–50% power, with an instructor watching.",
+  "outro": "Congratulations, warrior! You've completed the whole Close-Combat Self-Defence track, both the Foundation and the Advanced parts. Take the track final exam to earn the Steel Wolf badge.",
+  "home": "Homework: three sessions a week reviewing the whole track, thirty minutes each, always with a warm-up and a stretch.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflexes with moving pads",
+    "say": "Your partner holds two focus mitts, moves around you, and suddenly raises a mitt in different positions. A mitt at face height: straight punch. A mitt held low: push kick. A mitt swinging at your head: high guard. React at once, without thinking.",
+    "cues": [
+     "Mitt at face height → straight punch",
+     "Mitt held low → push kick",
+     "Mitt swinging in → high guard"
+    ],
+    "mistakes": [
+     "Standing and waiting, not moving",
+     "Dropping your hands after each strike"
+    ],
+    "drill": {
+     "label": "Reflex rounds",
+     "say": "Your turn. Reflex rounds: three rounds of forty-five seconds each, with twenty seconds' rest between rounds."
+    }
+   },
+   "tk15-2": {
+    "title": "Scenario: wrist grab",
+    "say": "Scenario one. Your partner suddenly grabs your wrist and pulls. Your reflex: drop your weight, escape towards the thumb, fence up, back well away, and shout loudly: Stop! Then turn and run three steps. Do it five times, with your partner using a different grab each time.",
+    "cues": [
+     "Drop your weight, escape towards the thumb",
+     "Fence up, shout loudly",
+     "Run 3 steps"
+    ],
+    "mistakes": [
+     "Fighting strength with strength",
+     "Forgetting to shout and run"
+    ],
+    "drill": {
+     "label": "Wrist-grab scenario",
+     "say": "Your turn. The wrist-grab scenario: five reps. I'll count the rhythm for you."
+    }
+   },
+   "tk15-3": {
+    "title": "Scenario: rear bear hug",
+    "say": "Scenario two. Your partner hugs you from behind. Your reflex: drop your weight, spread your elbows, step to the side, turn out, push kick a shield held by a third person, then run. Swap roles after each rep. Five reps each.",
+    "cues": [
+     "Drop your weight, spread the elbows",
+     "Step to the side, turn out",
+     "Push kick, run"
+    ],
+    "mistakes": [
+     "Standing upright",
+     "Turning while your weight is still high"
+    ],
+    "drill": {
+     "label": "Rear-hug scenario",
+     "say": "Your turn. The rear-hug scenario: five reps. I'll count the rhythm for you."
+    }
+   },
+   "tk15-4": {
+    "title": "Controlled partner sparring",
+    "say": "Light partner sparring, three rounds of one minute each. Only straight punches to the gloves and shoulders, and very light push kicks to the stomach, at thirty per cent power. Nothing to the face, and nothing to vulnerable targets. The aim is to train your eyes, your footwork and your calm when someone really attacks.",
+    "cues": [
+     "30% power, nothing to the face",
+     "Train your eyes, footwork and calm",
+     "Touch gloves before and after"
+    ],
+    "mistakes": [
+     "Hitting harder when you get caught",
+     "Closing your eyes when strikes come in"
+    ],
+    "drill": {
+     "label": "Sparring rounds",
+     "say": "Your turn. Sparring rounds: three rounds of sixty seconds each, with thirty seconds' rest between rounds."
+    }
+   },
+   "tk15-5": {
+    "title": "Stretching and recovery",
+    "say": "After a hard session, stretch for ten minutes. Stretch the fronts and backs of your thighs, your hips, shoulders and back, thirty seconds for each position, breathing out as you go deeper. Drink water, eat well and get enough sleep. Muscles grow while you rest, not while you train.",
+    "cues": [
+     "30 seconds per position",
+     "Breathe out as you go deeper",
+     "Drink water, eat well, sleep enough"
+    ],
+    "mistakes": [
+     "Bouncing as you stretch",
+     "Skipping recovery"
+    ],
+    "drill": {
+     "label": "Recovery stretch",
+     "say": "Your turn. Recovery stretch for one hundred and twenty seconds. The timer will count down."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "When a mitt is held low, at stomach height, what is your reflex?",
+    "a": [
+     "Push kick",
+     "High guard"
+    ],
+    "why": "A low target is for the push kick."
+   },
+   {
+    "q": "How much power do you use in controlled partner sparring?",
+    "a": [
+     "About 30%",
+     "Full power"
+    ],
+    "why": "You're training skills safely, not fighting for real."
+   },
+   {
+    "q": "Every self-defence scenario always ends with:",
+    "a": [
+     "Staying to keep fighting",
+     "Shouting loudly, making distance and running"
+    ],
+    "why": "The goal of self-defence is safety."
+   },
+   {
+    "q": "When do muscles grow?",
+    "a": [
+     "When you rest, eat and sleep well",
+     "Only when you train"
+    ],
+    "why": "Recovery is part of training."
+   }
+  ]
+ }
+}

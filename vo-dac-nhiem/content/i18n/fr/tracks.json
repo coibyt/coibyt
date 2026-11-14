@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Combat rapproché",
+  "sub": "Inspiré du Systema et de la lutte Sambo : respiration, jeu de jambes, chutes, protection, frappes de base, dégagements, projections."
+ },
+ "ngu-trang": {
+  "title": "Camouflage & dissimulation",
+  "sub": "Tenue ghillie, peinture faciale, se cacher, se déplacer sans bruit, effacer ses traces, approcher sans être repéré.",
+  "preview": [
+   "Les quatre indices qui trahissent : forme, ombre, reflet, mouvement",
+   "Peinture faciale de camouflage",
+   "Fabriquer sa tenue ghillie",
+   "Choisir sa cachette",
+   "Ramper bas, ramper haut, marche du renard",
+   "Se déplacer sans bruit",
+   "Effacer ses traces",
+   "Observer sans être repéré"
+  ]
+ },
+ "ban-sung": {
+  "title": "Tir sportif",
+  "sub": "Les quatre règles de sécurité, bien tenir l'arme d'entraînement, positions debout, genou au sol et couché, visée et respiration, histoire du tir.",
+  "preview": [
+   "Les quatre règles de sécurité",
+   "Bien tenir l'arme d'entraînement",
+   "Debout, genou au sol, couché",
+   "Ligne de visée et respiration",
+   "Lâcher la détente en douceur",
+   "Histoire du tir sportif"
+  ]
+ },
+ "dong-doi": {
+  "title": "Travail d'équipe",
+  "sub": "Signaux de la main, communication brève, formations de déplacement et appui mutuel en airsoft et en paintball.",
+  "preview": [
+   "Signaux de la main de base",
+   "Communication brève par radio",
+   "Formations de déplacement",
+   "Surveillance par secteur",
+   "Jeux de coordination en équipe"
+  ]
+ },
+ "the-luc": {
+  "title": "Condition physique & survie",
+  "sub": "Marche avec charge, nager en sécurité, gérer la fatigue, trouver eau, nourriture, feu et abri en forêt, dans le désert ou en mer.",
+  "preview": [
+   "Force au poids du corps",
+   "Marche chargée en sécurité",
+   "Franchir un mur en bois, grimper à la corde",
+   "Nager et flotter en sécurité",
+   "Gérer la fatigue et le manque de sommeil",
+   "Trouver et filtrer l'eau",
+   "Feu et abri",
+   "Survivre en forêt, dans le désert, en mer"
+  ]
+ },
+ "so-cuu": {
+  "title": "Premiers secours au combat",
+  "sub": "Arrêter une hémorragie, poser un garrot, pansement compressif, gérer l'état de choc, réanimation cardio-pulmonaire, secourir avec peu de matériel.",
+  "preview": [
+   "Évaluer la sécurité des lieux",
+   "Compression directe de la plaie",
+   "Poser un garrot correctement",
+   "Méchage et pansement compressif",
+   "Libérer les voies aériennes, position latérale de sécurité",
+   "Prévenir le choc et l'hypothermie",
+   "Réanimation cardio-pulmonaire (RCP)",
+   "Secourir avec peu de matériel"
+  ]
+ },
+ "tam-ly": {
+  "title": "Force mentale",
+  "sub": "Garder son calme face au danger, respirer contre la panique, maîtriser la peur, aiguiser l'observation et la mémoire.",
+  "preview": [
+   "Respiration carrée anti-panique",
+   "Maîtriser la peur",
+   "Dialogue intérieur positif",
+   "Observer et mémoriser (jeu de Kim)",
+   "Décider sous pression"
+  ]
+ }
+}

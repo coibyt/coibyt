@@ -1,0 +1,220 @@
+{
+ "vi": {
+  "id": "CE5BJM57m1rtrAFVXfCq",
+  "name": "VânCa",
+  "locked": true
+ },
+ "ru": {
+  "id": "LoUhJTipfY14nZ07pnKn",
+  "name": "Book Reader - Deep & Pleasant",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 154
+ },
+ "zh": {
+  "id": "BBHoHpGBAZTswB4lLbUH",
+  "name": "Ming - Narration",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 13
+ },
+ "kk": {
+  "id": "Wa1HorICOC58Tie62cWB",
+  "name": "Yersultan - Casual",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 2757
+ },
+ "ar": {
+  "id": "3CrYxaJgCSwZkjCpp3Ut",
+  "name": "Ezz eldeen - Versatile",
+  "accent": "modern standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 140
+ },
+ "id": {
+  "id": "AfkBqzsATOuueGnLAvJi",
+  "name": "Samsul - Warm & Clear Narrator",
+  "accent": "standard",
+  "age": "young",
+  "use": "narrative_story",
+  "clones": 167
+ },
+ "fa": {
+  "id": "PEdcOLzbXYhL8IKOswXB",
+  "name": "Aran - Parsi",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 6240
+ },
+ "mn": {
+  "id": "KQhNCZcXa4AKEt3GoAdo",
+  "name": "Bilguun - Calm",
+  "accent": "standard",
+  "age": "young",
+  "use": "narrative_story",
+  "clones": 1051
+ },
+ "tr": {
+  "id": "OpoW3DsteOy3H7PNuCr4",
+  "name": "Serdar Tekyildiz - Deep, Confident",
+  "accent": "istanbul",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 196
+ },
+ "my": {
+  "id": "eZUdq4hHF9YhlUfu5DFe",
+  "name": "Yan - Warm, Young & Friendly",
+  "accent": "standard",
+  "age": "young",
+  "use": "narrative_story",
+  "clones": 443
+ },
+ "fr": {
+  "id": "5wxQDLkW6TUl2qUI7vxm",
+  "name": "Thimsen - Clear, Composed",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "informative_educational",
+  "clones": 56
+ },
+ "so": {
+  "id": null
+ },
+ "uk": {
+  "id": "Ntd0iVwICtUtA6Fvx27M",
+  "name": "Evgeniy Shevchenko - Vibrant & Rich",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 141052
+ },
+ "mg": {
+  "id": null
+ },
+ "th": {
+  "id": "3SQTl9c6zS9vh1r8maCI",
+  "name": "Thanid - Thai Stories & Everyday Talk",
+  "accent": "standard",
+  "age": "young",
+  "use": "conversational",
+  "clones": 118
+ },
+ "es": {
+  "id": "iQyHWD0266EByXgHUl7n",
+  "name": "Lucas - Bright, Dynamic, Clear",
+  "accent": "peninsular",
+  "age": "middle_aged",
+  "use": "informative_educational",
+  "clones": 199
+ },
+ "tk": {
+  "id": null
+ },
+ "sv": {
+  "id": "x0u3EW21dbrORJzOq1m9",
+  "name": "Adam Composer - Resonant and Smooth",
+  "accent": "stockholm",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 76137
+ },
+ "uz": {
+  "id": "Mr8H1TFJYJ6b9qiOCDfH",
+  "name": "Rustamjon - Neutral",
+  "accent": "standard",
+  "age": "young",
+  "use": "conversational",
+  "clones": 85
+ },
+ "ja": {
+  "id": "pwGjJklNH5wjmzAI1Y7n",
+  "name": "Yudai Nakata - Sales professional",
+  "accent": "kanto",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 23
+ },
+ "de": {
+  "id": "FLwxB4gpn3VYZnvR9A6H",
+  "name": "Levin - Effortless News",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 29
+ },
+ "fi": {
+  "id": "3OArekHEkHv5XvmZirVD",
+  "name": "Christoffer Weiss - Hopeful and Steady",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 36899
+ },
+ "it": {
+  "id": "h6ixshJPLroLgcLjQcK7",
+  "name": "Enzo - Classy",
+  "accent": "sicilian",
+  "age": "middle_aged",
+  "use": "informative_educational",
+  "clones": 8
+ },
+ "en": {
+  "id": "lo1O1Dz1Tu4FWVEPaxuT",
+  "name": "Oliver - Warm British Narrator",
+  "accent": "british",
+  "locked": true
+ },
+ "pl": {
+  "id": "yeOapfWYEXqVf0eEXcQS",
+  "name": "Irek - Friendly",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "conversational",
+  "clones": 47
+ },
+ "ko": {
+  "id": "hIcokoVUEVvwcYzi1tkt",
+  "name": "Minho - Deep & Trustworthy Narrator",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 83
+ },
+ "pt": {
+  "id": "aLFUti4k8YKvtQGXv0UO",
+  "name": "Paulo - Diplomatic and Friendly",
+  "accent": "european",
+  "locked": true
+ },
+ "el": {
+  "id": "n0vzWypeCK1NlWPVwhOc",
+  "name": "Theos - Narrational, Assertive and Warm",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 101301
+ },
+ "nl": {
+  "id": "Jn7U4vF8ZkmjZIZRn4Uk",
+  "name": "John",
+  "accent": "standard",
+  "age": "middle_aged",
+  "use": "informative_educational",
+  "clones": 9727
+ },
+ "da": {
+  "id": "ygiXC2Oa1BiHksD3WkJZ",
+  "name": "Mathias - Engaging, Natural and Warm",
+  "accent": "jutlandic",
+  "age": "middle_aged",
+  "use": "narrative_story",
+  "clones": 297948
+ }
+}

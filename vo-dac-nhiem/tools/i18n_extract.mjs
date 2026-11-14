@@ -11,17 +11,7 @@ const out = path.join(ROOT, "content/i18n/vi");
 fs.mkdirSync(out, { recursive: true });
 const wr = (f, o) => fs.writeFileSync(path.join(out, f), JSON.stringify(o, null, 1) + "\n");
 
-// ---- ui: hàm → mẫu có {0}, {1}
-const { STR } = await import(path.join(ROOT, "js/i18n.js"));
-const ui = {};
-for (const [k, v] of Object.entries(STR.vi)) ui[k] = typeof v === "function" ? v("{0}", "{1}") : v;
-Object.assign(ui, {
-  lessonN: "Bài {0}", back: "Quay lại", streakTitle: "Chuỗi ngày tập", playPause: "Phát / dừng",
-  tempoSlow: "Chậm", tempoMid: "Vừa", tempoFast: "Nhanh", loadError: "Không tải được dữ liệu. Hãy tải lại trang.",
-  langH: "Ngôn ngữ", langPick: "Chọn ngôn ngữ học", voiceDevice: "Giọng đọc của máy (chưa có giọng thầy thu sẵn cho ngôn ngữ này)",
-  decimal: ",",
-});
-wr("ui.json", ui);
+// ---- ui.json là bản gốc viết tay (content/i18n/vi/ui.json), không sinh lại ở đây.
 
 // ---- lời thoại ở các màn hình
 wr("lines.json", rd("content/lines-vi.json"));

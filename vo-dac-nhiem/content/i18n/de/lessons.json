@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Aufwärmen & Atmung",
+  "sub": "Gelenke kreisen, aufwärmen, Schrittatmung, Entlastungsatmung, Anspannen – Entspannen",
+  "intro": "Die erste Lektion. Noch keine einzige Technik. Ein guter Kämpfer beginnt mit warmen Gelenken und ruhigem Atem. Mach es mir Schritt für Schritt nach.",
+  "safety": "Vor jedem Training aufwärmen. Bei stechendem Gelenkschmerz sofort aufhören.",
+  "outro": "Sehr gut. Die Gelenke sind warm, der Atem hat seinen Rhythmus. Beim nächsten Mal lernen wir Stellung und Beinarbeit.",
+  "home": "Hausaufgabe: Wärm dich jeden Morgen auf und mach zehn Minuten Schrittatmung, sieben Tage am Stück.",
+  "steps": {
+   "tk1-1": {
+    "title": "Gelenke kreisen von oben nach unten",
+    "say": "Stell dich aufrecht hin, die Füße schulterbreit. Kreise den Kopf ganz langsam, fünf Mal in jede Richtung. Dann kreist du die Schultern, die Ellbogen und die Handgelenke. Danach die Hüfte, die Knie und die Fußgelenke. Geh der Reihe nach von oben nach unten vor, mit runden, weichen Bewegungen, ohne Ruck. Nur mit warmen Gelenken ist der Körper sicher, wenn du fällst oder zuschlägst.",
+    "cues": [
+     "Von oben nach unten: Nacken → Schultern → Ellbogen → Handgelenke → Hüfte → Knie → Fußgelenke",
+     "Jedes Gelenk 5 Kreise pro Richtung",
+     "Langsam, rund, ohne Ruck"
+    ],
+    "mistakes": [
+     "Kopf zu schnell kreisen, Nacken zu stark nach hinten überstrecken",
+     "Beim Kreisen die Luft anhalten"
+    ],
+    "drill": {
+     "label": "Gelenke kreisen",
+     "say": "Jetzt bist du dran. Kreise neunzig Sekunden lang die Gelenke. Die Uhr zählt herunter."
+    }
+   },
+   "tk1-2": {
+    "title": "Den Körper aufwärmen",
+    "say": "Lauf auf der Stelle und zieh dabei dreißig Sekunden lang die Knie hoch. Dann folgen zehn Kniebeugen: Senk die Hüfte, als würdest du dich auf einen Stuhl setzen, der Rücken bleibt gerade, die Knie zeigen in Richtung der Fußspitzen. Danach zehn Liegestütze. Wer noch nicht so weit ist, macht sie auf den Knien. Das Ziel ist, dass der Körper warm wird und der Atem etwas schneller geht. Du sollst dich nicht völlig verausgaben.",
+    "cues": [
+     "30 Sekunden Kniehebelauf",
+     "10 Kniebeugen: Rücken gerade, Knie über den Fußspitzen",
+     "10 Liegestütze (auch auf den Knien erlaubt)"
+    ],
+    "mistakes": [
+     "Knie fallen bei der Kniebeuge nach innen",
+     "Hohlkreuz bei den Liegestützen"
+    ],
+    "drill": {
+     "label": "Kniebeugen",
+     "say": "Jetzt bist du dran. Kniebeugen: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk1-3": {
+    "title": "Schrittatmung",
+    "say": "Das ist eine bekannte Atemübung aus den russischen Kampfsystemen. Geh in gleichmäßigem Tempo. Atme vier Schritte lang durch die Nase ein und vier Schritte lang durch den Mund aus. Nach einer Minute gehst du auf drei Schritte herunter, dann auf zwei, dann auf einen. Danach steigerst du wieder bis auf vier Schritte. Merk dir gut: Der Atem führt die Bewegung. Halte niemals die Luft an.",
+    "cues": [
+     "4 Schritte durch die Nase ein – 4 Schritte durch den Mund aus",
+     "Nach und nach 4 → 3 → 2 → 1, dann wieder hoch",
+     "Schultern locker, Luft nicht anhalten"
+    ],
+    "mistakes": [
+     "Beim Rhythmuswechsel die Luft anhalten",
+     "Beim Einatmen die Schultern hochziehen"
+    ],
+    "drill": {
+     "label": "Gehen mit Schrittatmung",
+     "say": "Jetzt bist du dran. Geh hundertzwanzig Sekunden lang mit Schrittatmung. Die Uhr zählt herunter."
+    }
+   },
+   "tk1-4": {
+    "title": "Entlastungsatmung unter Belastung",
+    "say": "Wenn du müde oder angespannt bist, atme kurz und schnell: durch die Nase ein, kräftig durch den Mund aus, viele Male hintereinander, als würdest du eine Kerze ausblasen. Probier es gleich aus: Halte zwanzig Sekunden lang die hohe Liegestützposition und atme dabei ständig stoßweise aus. Du wirst merken, dass die Muskeln weniger verkrampfen und der Kopf klarer wird.",
+    "cues": [
+     "Kurz durch die Nase ein – kräftig durch den Mund aus",
+     "Ununterbrochen, wie beim Kerzenausblasen",
+     "Dabei 20 Sekunden hohe Plank halten"
+    ],
+    "mistakes": [
+     "So hastig atmen, dass dir schwindlig wird: langsamer werden",
+     "Hüfte sackt in der Plank durch"
+    ],
+    "drill": {
+     "label": "Hohe Plank + Entlastungsatmung",
+     "say": "Jetzt bist du dran. Hohe Plank mit Entlastungsatmung, zwanzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   },
+   "tk1-5": {
+    "title": "Ganzkörper anspannen – entspannen",
+    "say": "Leg dich auf dem Rücken auf die Matte. Atme ein und spann drei Sekunden lang beide Füße fest an. Dann atme aus und lass vollständig locker. Arbeite dich nach oben: Waden, Oberschenkel, Bauch, Fäuste, Schultern und auch das Gesicht. Zum Schluss spannst du einmal den ganzen Körper an und lässt los. Wer sich entspannen kann, steckt Treffer besser weg, bewegt sich schneller und verletzt sich seltener.",
+    "cues": [
+     "Einatmen – 3 Sekunden anspannen",
+     "Ausatmen – vollständig lockerlassen",
+     "Von den Füßen bis zum Gesicht"
+    ],
+    "mistakes": [
+     "So fest anspannen, dass ein Krampf kommt",
+     "Beim Lockerlassen das Ausatmen vergessen"
+    ],
+    "drill": {
+     "label": "Anspannen – entspannen",
+     "say": "Jetzt bist du dran. Anspannen und entspannen, sechzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "In welcher Reihenfolge kreist du die Gelenke?",
+    "a": [
+     "Von oben nach unten: Nacken, Schultern … bis zu den Fußgelenken",
+     "Beliebig, jedes Gelenk ist recht",
+     "Nur die Fußgelenke"
+    ],
+    "why": "Von oben nach unten vergisst du kein Gelenk."
+   },
+   {
+    "q": "Wodurch atmest du bei der Schrittatmung ein?",
+    "a": [
+     "Durch den Mund",
+     "Durch die Nase",
+     "Erst Luft anhalten, dann einatmen"
+    ],
+    "why": "Durch die Nase ein, durch den Mund aus, im Takt der Schritte."
+   },
+   {
+    "q": "Wann setzt du die Entlastungsatmung ein?",
+    "a": [
+     "Wenn du müde oder angespannt bist",
+     "Nur im Schlaf",
+     "Nie"
+    ],
+    "why": "Kurzes, kräftiges Atmen löst Muskelspannung und hält dich unter Belastung wach."
+   },
+   {
+    "q": "Warum musst du lockerlassen können?",
+    "a": [
+     "Damit es besser aussieht",
+     "Du steckst Treffer besser weg, bist schneller und verletzt dich seltener",
+     "Damit du dich nicht aufwärmen musst"
+    ],
+    "why": "Verkrampfte Muskeln reagieren langsamer und verletzen sich leichter."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Stellung & Beinarbeit",
+  "sub": "Handzaun, Kampfstellung, Gleitschritt, Drehschritt",
+  "intro": "Die Beine entscheiden alles. Nur wer fest steht, kann abwehren, schlagen und entkommen. Heute legen wir das Fundament.",
+  "safety": "Auf ebenem, rutschfestem Boden trainieren. Kurze, sichere Schritte.",
+  "outro": "Das Fundament steht. Feste Beine sind der halbe Kampf. Nächste Lektion: sicher fallen lernen.",
+  "home": "Hausaufgabe: Übe sieben Tage lang jeden Tag zehn Minuten Stellung und Bewegung, in drei Runden.",
+  "steps": {
+   "tk2-1": {
+    "title": "Wachsame Stellung – der Handzaun",
+    "say": "Wenn jemand aggressiv auf dich zukommt, balle nicht gleich die Fäuste. Stell dich leicht schräg und nimm dein starkes Bein einen halben Schritt zurück. Beide Hände sind offen vor der Brust, die Handflächen zeigen nach vorn, als würdest du sagen: Ganz ruhig. Deine Hände sind ein Zaun, der Abstand hält. Du wirkst nicht aggressiv, bist aber in Wahrheit schon bereit.",
+    "cues": [
+     "Schräg stehen, starkes Bein einen halben Schritt zurück",
+     "Beide Hände offen vor der Brust",
+     "Abstand halten, ruhige Stimme"
+    ],
+    "mistakes": [
+     "Sofort die Fäuste ballen: Der Konflikt eskaliert leicht",
+     "Frontal stehen, Füße parallel"
+    ],
+    "drill": {
+     "label": "In den Handzaun",
+     "say": "Jetzt bist du dran. In den Handzaun: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk2-2": {
+    "title": "Kampfstellung",
+    "say": "Als Rechtshänder steht dein linker Fuß vorn und der rechte hinten. Die Füße stehen etwas weiter als schulterbreit auseinander. Die vordere Fußspitze zeigt leicht nach innen, die hintere Ferse ist leicht angehoben. Die Knie sind gebeugt, das Gewicht ist auf beide Beine verteilt. Die Hände sind vor dem Gesicht, die Ellbogen eng an den Rippen, das Kinn ist gesenkt, und du schaust über die Fäuste. Als Linkshänder machst du alles spiegelverkehrt.",
+    "cues": [
+     "Linker Fuß vorn (Rechtshänder)",
+     "Knie gebeugt, hintere Ferse leicht angehoben",
+     "Hände schützen das Gesicht, Ellbogen die Rippen, Kinn gesenkt"
+    ],
+    "mistakes": [
+     "Beide Füße auf einer Linie: Du verlierst leicht das Gleichgewicht",
+     "Kinn hoch, Hände unten"
+    ],
+    "drill": {
+     "label": "In die Kampfstellung",
+     "say": "Jetzt bist du dran. In die Kampfstellung: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk2-3": {
+    "title": "Gleitschritt vor und zurück",
+    "say": "Nach vorn: Der vordere Fuß macht zuerst einen kurzen Schritt, der hintere gleitet genau dieselbe Strecke nach. Nach hinten: Der hintere Fuß geht zuerst zurück, der vordere zieht nach. Die Füße gleiten dicht über den Boden, ohne zu springen. Lass die Füße niemals überkreuzen oder zusammenkommen. Nach jedem Schritt stehst du wieder genau in deiner Ausgangsstellung.",
+    "cues": [
+     "Vorwärts: vorderer Fuß zuerst",
+     "Rückwärts: hinterer Fuß zuerst",
+     "Abstand der Füße bleibt gleich"
+    ],
+    "mistakes": [
+     "Füße überkreuzen",
+     "Springen statt gleiten"
+    ],
+    "drill": {
+     "label": "Schritt vor – zurück",
+     "say": "Jetzt bist du dran. Schritt vor und zurück: zwanzig Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk2-4": {
+    "title": "Seitschritt",
+    "say": "Nach links geht der linke Fuß zuerst, nach rechts der rechte Fuß, der andere gleitet nach. Der Abstand der Füße bleibt gleich, die Hände schützen weiter das Gesicht. Auf rutschigem, schlammigem Boden gilt: Je kürzer der Schritt, desto sicherer.",
+    "cues": [
+     "Nach links: linker Fuß zuerst",
+     "Nach rechts: rechter Fuß zuerst",
+     "Kurze Schritte auf rutschigem Boden"
+    ],
+    "mistakes": [
+     "Hinterer Fuß kreuzt über den vorderen",
+     "Hände sinken beim Bewegen"
+    ],
+    "drill": {
+     "label": "Seitschritt",
+     "say": "Jetzt bist du dran. Seitschritt: zwanzig Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk2-5": {
+    "title": "Drehschritt zum Winkelwechsel",
+    "say": "Geh in die Kampfstellung. Der Ballen des vorderen Fußes ist dein Drehpunkt, der hintere Fuß beschreibt einen Viertelkreis. Dein ganzer Körper dreht sich um neunzig Grad, raus aus der Angriffslinie des Gegners. Dreh dich zehn Mal zu dieser Seite, dann wechselst du die Richtung.",
+    "cues": [
+     "Drehen auf dem vorderen Fußballen",
+     "Hinterer Fuß beschreibt einen Bogen",
+     "Winkel um 90° ändern, Deckung bleibt oben"
+    ],
+    "mistakes": [
+     "Auf der Ferse drehen",
+     "Beim Drehen aufrecht hochkommen"
+    ],
+    "drill": {
+     "label": "Drehschritt pro Richtung",
+     "say": "Jetzt bist du dran. Drehschritt in jede Richtung: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk2-6": {
+    "title": "Bewegen auf Kommando",
+    "say": "Jetzt bewegst du dich dreißig Sekunden lang auf mein Kommando: vor, zurück, links, rechts, drehen. Halte die Hände oben, das Kinn unten und den Atem ruhig. Die Füße sind schnell, aber der Oberkörper bleibt immer ruhig.",
+    "cues": [
+     "Vor – zurück – links – rechts – drehen",
+     "Hände und Kinn immer in Position",
+     "Gleichmäßig atmen"
+    ],
+    "mistakes": [
+     "Auf die Füße schauen",
+     "Zu große Schritte"
+    ],
+    "drill": {
+     "label": "Beinarbeit auf Kommando",
+     "say": "Jetzt bist du dran. Beweg dich dreißig Sekunden lang auf mein Kommando. Hör genau hin.",
+     "calls": [
+      "Vor!",
+      "Zurück!",
+      "Nach links!",
+      "Nach rechts!",
+      "Drehen!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wozu dient der Handzaun?",
+    "a": [
+     "Abstand halten, ohne aggressiv zu wirken",
+     "Den Gegner sofort schlagen",
+     "Mit verschränkten Armen abwarten"
+    ],
+    "why": "Offene Hände halten Abstand und beruhigen die Situation."
+   },
+   {
+    "q": "Welcher Fuß geht beim Zurückweichen zuerst?",
+    "a": [
+     "Der vordere Fuß",
+     "Der hintere Fuß",
+     "Beide springen zugleich"
+    ],
+    "why": "Der Fuß, der näher an der Bewegungsrichtung ist, geht zuerst."
+   },
+   {
+    "q": "Was ist der gefährlichste Fehler bei der Beinarbeit?",
+    "a": [
+     "Die Füße überkreuzen",
+     "Kurze Schritte",
+     "Die Hände vor dem Gesicht halten"
+    ],
+    "why": "Mit überkreuzten Füßen verlierst du sehr leicht das Gleichgewicht."
+   },
+   {
+    "q": "Auf welchem Teil des vorderen Fußes drehst du dich beim Drehschritt?",
+    "a": [
+     "Auf der Ferse",
+     "Auf dem Fußballen",
+     "Auf der Fußaußenkante"
+    ],
+    "why": "Auf dem Fußballen drehst du dich leicht und schnell."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Sicheres Fallen",
+  "sub": "Fallprinzipien, Rückwärtsfall, Seitfall, Vorwärtsrolle",
+  "intro": "In diesem Lager lernt jeder zuerst fallen, bevor er werfen lernt. Richtig fallen kann Leben retten, auch wenn du nur auf glatter Straße ausrutschst.",
+  "safety": "Nur auf dicker Matte üben. Kinn immer angezogen. Rollen nur unter Anleitung.",
+  "outro": "Du kannst jetzt fallen. Ab heute ist der Boden nicht mehr zum Fürchten. Nächste Lektion: Deckung und Abwehr.",
+  "home": "Hausaufgabe: Übe eine Woche lang jeden Tag auf dicker Matte zehn Rückwärtsfälle und zehn Seitfälle pro Seite.",
+  "steps": {
+   "tk3-1": {
+    "title": "Drei goldene Regeln",
+    "say": "Drei goldene Regeln beim Fallen. Erstens: Das Kinn bleibt dicht an der Brust, damit der Kopf nie auf den Boden schlägt. Zweitens: Der Rücken ist rund wie ein Rad, damit du rollst und nicht flach aufschlägst. Drittens: Der Arm schlägt gleichzeitig mit dem Körper auf die Matte, damit sich die Aufprallkraft verteilt. Übe immer auf dicker Matte. Niemals auf hartem Boden.",
+    "cues": [
+     "Kinn dicht an der Brust",
+     "Rücken rund wie ein Rad",
+     "Arm schlägt zugleich mit dem Körper ab"
+    ],
+    "mistakes": [
+     "Beim Fallen mit gestrecktem Arm abstützen: Das Handgelenk bricht leicht",
+     "Kopf nach hinten werfen"
+    ],
+    "drill": {
+     "label": "Rücken rund, Kinn an",
+     "say": "Jetzt bist du dran. Rücken rund, Kinn an: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk3-2": {
+    "title": "Rückwärtsfall aus dem Sitzen",
+    "say": "Setz dich auf die Matte, die Beine nach vorn gestreckt, die Arme nach vorn. Kinn an, Rücken rund, und roll nach hinten ab. Wenn der obere Rücken die Matte berührt, schlagen beide Arme gestreckt und kräftig auf die Matte, etwa fünfundvierzig Grad vom Körper weg, die Handflächen nach unten. Atme beim Aufkommen aus. Roll zurück in den Sitz. Zehn Mal üben.",
+    "cues": [
+     "Sitzen, Arme nach vorn",
+     "Nach hinten rollen, Kinn an",
+     "Beide Arme im 45°-Winkel abschlagen, Handflächen nach unten, ausatmen"
+    ],
+    "mistakes": [
+     "Arme zu weit weg oder zu nah am Körper",
+     "Mit dem Ellbogen statt mit dem ganzen Arm abschlagen"
+    ],
+    "drill": {
+     "label": "Rückwärtsfall aus dem Sitzen",
+     "say": "Jetzt bist du dran. Rückwärtsfall aus dem Sitzen: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk3-3": {
+    "title": "Rückwärtsfall aus der Hocke",
+    "say": "Geh in die Hocke, die Arme nach vorn. Senk das Gesäß dicht an den Fersen auf die Matte. Dann rollst du wie in der vorigen Übung rund nach hinten ab und schlägst mit beiden Armen ab. Lass dich nicht einfach plumpsen. Schlag nicht mit geradem Rücken flach auf. Wenn es sicher klappt, steh auf, geh wieder in die Hocke und werde nach und nach schneller.",
+    "cues": [
+     "Gesäß dicht an den Fersen absenken",
+     "Rund abrollen, nicht flach aufschlagen",
+     "Abschlagen, ausatmen"
+    ],
+    "mistakes": [
+     "Weit hinter den Fersen hinplumpsen",
+     "Kopf schlägt nach hinten auf die Matte"
+    ],
+    "drill": {
+     "label": "Rückwärtsfall aus der Hocke",
+     "say": "Jetzt bist du dran. Rückwärtsfall aus der Hocke: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk3-4": {
+    "title": "Seitfall",
+    "say": "Aus der Hocke streckst du das rechte Bein schräg vor dem linken Bein vorbei und lässt dich zur rechten Seite fallen. Erst die rechte Hüfte, dann die rechte Rückenseite berühren die Matte, und der rechte Arm schlägt ab. Das Kinn bleibt angezogen, der Kopf berührt die Matte nicht. Dann wechselst du die Seite. Das ist der häufigste Fall, wenn du geworfen wirst.",
+    "cues": [
+     "Bein schräg nach vorn durchstrecken",
+     "Hüfte → Rücken berühren der Reihe nach die Matte",
+     "Arm derselben Seite schlägt ab"
+    ],
+    "mistakes": [
+     "Auf den Ellbogen stützen",
+     "Kopf schlägt seitlich auf die Matte"
+    ],
+    "drill": {
+     "label": "Seitfall pro Seite",
+     "say": "Jetzt bist du dran. Seitfall pro Seite: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk3-5": {
+    "title": "Vorwärtsrolle über die Schulter",
+    "say": "Knie dich auf ein Knie auf die Matte, das rechte Bein vorn. Bilde mit dem rechten Arm einen Bogen wie den Rand eines Rades und setz die Außenkante des Arms auf die Matte. Schau über die linke Schulter. Roll schräg von der rechten Schulter zur linken Hüfte. Roll nicht über den Kopf und nicht gerade über die Wirbelsäule. Komm in einen stabilen Sitz oder steh auf, die Hände oben vor dem Gesicht.",
+    "cues": [
+     "Arm bildet einen Bogen wie ein Rad",
+     "Schräg rollen: rechte Schulter → linke Hüfte",
+     "Nicht über den Kopf, aufstehen mit Deckung"
+    ],
+    "mistakes": [
+     "Gerade über den Kopf rollen: sehr gefährlich für den Nacken",
+     "Arm knickt ein, der Kopf berührt die Matte"
+    ],
+    "drill": {
+     "label": "Vorwärtsrolle pro Seite",
+     "say": "Jetzt bist du dran. Vorwärtsrolle pro Seite: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was machst du beim Fallen mit dem Kinn?",
+    "a": [
+     "Nach oben recken",
+     "Dicht an die Brust ziehen",
+     "Zur Seite drehen"
+    ],
+    "why": "Zieh das Kinn an, damit der Kopf nicht auf den Boden schlägt."
+   },
+   {
+    "q": "In welchem Winkel zum Körper schlägt der Arm etwa auf die Matte?",
+    "a": [
+     "Etwa 45°",
+     "Dicht am Körper, 0°",
+     "Senkrecht nach oben"
+    ],
+    "why": "Etwa fünfundvierzig Grad verteilen die Kraft gut, ohne dass der Ellbogen aufschlägt."
+   },
+   {
+    "q": "Wie verläuft der Weg bei der Vorwärtsrolle?",
+    "a": [
+     "Gerade über den Kopf",
+     "Schräg von der Schulter zur Hüfte der anderen Seite",
+     "Seitwärts"
+    ],
+    "why": "Roll schräg über die Schulter, um Nacken und Wirbelsäule zu schützen."
+   },
+   {
+    "q": "Wo übst du das Fallen?",
+    "a": [
+     "Auf Beton, zur Gewöhnung",
+     "Auf dicker Matte",
+     "Auf der Treppe"
+    ],
+    "why": "Übe immer auf dicker Matte. Sicherheit geht vor."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Deckung & Abwehr",
+  "sub": "Hohe Deckung, Kopfschutz, Ablenken, Unterarmblock, Winkelausweichen",
+  "intro": "Bevor du schlagen lernst, musst du lernen, nicht getroffen zu werden. Die beste Verteidigung ist einfach, kompakt und immer mit Bewegung verbunden.",
+  "safety": "Partnerübungen mit Handschuhen. Der Partner schlägt langsam, mit nur zwanzig Prozent Kraft.",
+  "outro": "Du hast jetzt einen Schild. In der nächsten Lektion lernen wir die Grundschläge an der Pratze.",
+  "home": "Hausaufgabe: Übe jeden Tag fünf Minuten Deckung vor dem Spiegel und zwei Mal pro Woche langsam mit Partner.",
+  "steps": {
+   "tk4-1": {
+    "title": "Hohe Deckung",
+    "say": "Aus der Kampfstellung hebst du beide Fäuste auf Stirnhöhe. Die Unterarme stehen senkrecht vor dem Gesicht wie zwei Schilde. Die Ellbogen sind eng, das Kinn ist angezogen, die Schultern sind hochgezogen und schützen den Kiefer. Das ist die sicherste Deckung, wenn ein Schlag zu schnell kommt und du ihn nicht mehr sehen kannst.",
+    "cues": [
+     "Fäuste auf Stirnhöhe",
+     "Unterarme senkrecht wie Schilde",
+     "Kinn an, Schultern schützen den Kiefer"
+    ],
+    "mistakes": [
+     "Beim Decken die Augen schließen",
+     "Ellbogen weit offen, die Rippen sind frei"
+    ],
+    "drill": {
+     "label": "In die hohe Deckung",
+     "say": "Jetzt bist du dran. In die hohe Deckung: fünfzehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk4-2": {
+    "title": "Kopf komplett abdecken",
+    "say": "Wenn viele Schläge hintereinander auf dich einprasseln: Beide Hände umfassen den Hinterkopf, beide Ellbogen kommen vor dem Gesicht zusammen, du beugst dich vor und gehst in die Knie. Der Kopf liegt geschützt im Käfig deiner Arme. Aber bleib nie lange so stehen. Erst decken, dann sofort raus aus dem Angriffswinkel.",
+    "cues": [
+     "Beide Hände am Hinterkopf",
+     "Ellbogen vor dem Gesicht zusammen",
+     "Decken, dann sofort bewegen"
+    ],
+    "mistakes": [
+     "Stehen bleiben und Schläge einstecken",
+     "Den Rücken zudrehen"
+    ],
+    "drill": {
+     "label": "Kopf decken, seitlich raus",
+     "say": "Jetzt bist du dran. Kopf decken und seitlich raus: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk4-3": {
+    "title": "Ablenken",
+    "say": "Wenn ein gerader Schlag auf dein Gesicht zukommt, blocke nicht hart. Lenk mit der Handfläche das Handgelenk oder die Faust des Gegners leicht zur Seite ab, gerade so viel, dass sie an deinem Gesicht vorbeirutscht. Die Bewegung ist klein und kurz, und die Hand kehrt sofort in die Deckung zurück.",
+    "cues": [
+     "Mit der Handfläche ablenken",
+     "Nur so viel wie nötig",
+     "Sofort zurück in die Deckung"
+    ],
+    "mistakes": [
+     "Zu weit ausholen",
+     "Dem Schlag mit der Hand entgegengreifen"
+    ],
+    "drill": {
+     "label": "Ablenken pro Hand",
+     "say": "Jetzt bist du dran. Ablenken mit jeder Hand: zwanzig Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk4-4": {
+    "title": "Unterarmblock nach oben",
+    "say": "Wenn ein Schlag von oben herabkommt, hebst du den Unterarm schräg vor die Stirn. Der Unterarm ist geneigt wie ein Dach, damit die Kraft abgleitet und nicht direkt auf den Knochen trifft. Gleichzeitig machst du einen Schrägschritt nach vorn oder nach außen.",
+    "cues": [
+     "Unterarm schräg vor der Stirn",
+     "Geneigt wie ein Dach",
+     "Mit Schrägschritt"
+    ],
+    "mistakes": [
+     "Unterarm waagrecht: Er bekommt die volle Wucht ab",
+     "Auf der Stelle stehen bleiben"
+    ],
+    "drill": {
+     "label": "Block nach oben pro Arm",
+     "say": "Jetzt bist du dran. Block nach oben mit jedem Arm: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk4-5": {
+    "title": "Winkelausweichen – Schrägschritt",
+    "say": "Die beste Verteidigung ist, nicht dort zu stehen, wo der Schlag ankommt. Während du ablenkst, machst du gleichzeitig einen Schrägschritt von fünfundvierzig Grad zur Außenseite des Schlagarms. Du verlässt die Angriffslinie und stehst in einer sichereren Position, von der aus du entkommen kannst.",
+    "cues": [
+     "Ablenken + Schrägschritt 45°",
+     "Zur Außenseite des Schlagarms",
+     "Aus dem sicheren Winkel weg"
+    ],
+    "mistakes": [
+     "Gerade zurückweichen: Der Gegner kann leicht nachsetzen",
+     "Zur Innenseite, vor die andere Hand des Gegners treten"
+    ],
+    "drill": {
+     "label": "Ablenken + Ausweichen pro Seite",
+     "say": "Jetzt bist du dran. Ablenken und ausweichen zu jeder Seite: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk4-6": {
+    "title": "Langsame Partnerübung",
+    "say": "Übe mit einem Trainingspartner, beide tragen Handschuhe. Wer angreift, schlägt ganz langsam, mit nur zwanzig Prozent Kraft, und zielt auf die Handschuhe, nicht aufs Gesicht. Wer abwehrt, nennt die Technik, die er gerade benutzt: hohe Deckung, Ablenken, Ausweichen. Erst wenn alles sitzt und du ruhig bleibst, wirst du nach und nach schneller.",
+    "cues": [
+     "Handschuhe, 20 % Kraft",
+     "Technik beim Ausführen benennen",
+     "Erst richtig, dann schnell"
+    ],
+    "mistakes": [
+     "Zu früh schneller werden",
+     "Dem Partner richtig ins Gesicht schlagen"
+    ],
+    "drill": {
+     "label": "Langsame Partnerübung",
+     "say": "Jetzt bist du dran. Langsame Partnerübung, sechzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was ist richtiges Ablenken?",
+    "a": [
+     "Klein ablenken, gerade genug, dann zurück in die Deckung",
+     "Weit ausholen",
+     "Den Schlag mit dem Gesicht abfangen"
+    ],
+    "why": "Die Bewegung ist klein und schnell und öffnet die Deckung nicht."
+   },
+   {
+    "q": "Wie hältst du den Unterarm gegen einen Schlag von oben?",
+    "a": [
+     "Waagrecht",
+     "Schräg, geneigt wie ein Dach",
+     "Unten vor dem Bauch"
+    ],
+    "why": "Geneigt wie ein Dach, damit die Kraft abgleitet."
+   },
+   {
+    "q": "In welche Richtung gehst du beim Winkelausweichen?",
+    "a": [
+     "45° schräg zur Außenseite des Schlagarms",
+     "Gerade zurück",
+     "Gar nicht, stehen bleiben"
+    ],
+    "why": "Raus aus der Angriffslinie und hinein in den sicheren Winkel."
+   },
+   {
+    "q": "Mit wie viel Kraft schlägt der Angreifer bei der Partnerübung?",
+    "a": [
+     "Mit voller Kraft",
+     "Etwa 20 %",
+     "50 %"
+    ],
+    "why": "Langsam üben, um es richtig und sicher zu lernen."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Grundschläge an der Pratze",
+  "sub": "Faust, gerader Schlag, Handballenstoß, Fronttritt, Kombination",
+  "intro": "Ein guter Schlag muss nicht schön sein, nur richtig, kompakt und sicher für dich selbst. Heute üben wir an der Pratze, niemals an einem echten Menschen.",
+  "safety": "Bandagen wickeln, Handschuhe tragen. Nur auf Pratzen oder den Sandsack schlagen.",
+  "outro": "Deine Schläge haben jetzt Kraft und Disziplin. Nächste Lektion: Befreiung aus dem Handgelenkgriff.",
+  "home": "Hausaufgabe: Drei Einheiten pro Woche, jede mit fünf Runden zu dreißig Sekunden an Pratze oder Sandsack.",
+  "steps": {
+   "tk5-1": {
+    "title": "Die richtige Faust",
+    "say": "Roll die vier Finger in die Handfläche ein. Der Daumen liegt fest außen über Zeige- und Mittelfinger, niemals eingeklemmt innen. Beim Treffer ist das Handgelenk gerade in Linie mit dem Unterarm, und die Kraft geht über die Knöchel von Zeige- und Mittelfinger. Anfänger wickeln immer Bandagen und tragen Handschuhe.",
+    "cues": [
+     "4 Finger in die Handfläche rollen",
+     "Daumen außen anlegen",
+     "Handgelenk in Linie mit dem Unterarm"
+    ],
+    "mistakes": [
+     "Daumen in der Faust einklemmen",
+     "Handgelenk knickt beim Treffer ab"
+    ],
+    "drill": {
+     "label": "Faust richtig schließen – öffnen",
+     "say": "Jetzt bist du dran. Faust richtig schließen und öffnen: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk5-2": {
+    "title": "Gerade mit der Führhand",
+    "say": "Aus der Kampfstellung schießt du die vordere Faust auf dem kürzesten Weg gerade nach vorn. Kurz vor dem Treffer drehst du die Faust ein, die Schulter hebt sich und schützt das Kinn. Die andere Hand bleibt am Gesicht. Nach dem Schlag ziehst du auf demselben Weg zurück, genauso schnell wie hin.",
+    "cues": [
+     "Kürzester gerader Weg",
+     "Faust beim Treffer eindrehen",
+     "Schnell zurück, andere Hand bleibt in Deckung"
+    ],
+    "mistakes": [
+     "Zum Schwungholen die Hand zurückziehen",
+     "Hintere Hand sinkt ab"
+    ],
+    "drill": {
+     "label": "Führhand-Gerade",
+     "say": "Jetzt bist du dran. Gerade mit der Führhand: zwanzig Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk5-3": {
+    "title": "Gerade mit der Schlaghand",
+    "say": "Drück dich von der hinteren Ferse ab, dreh Hüfte und Schulter ein und schieß die hintere Faust gerade ins Ziel. Der hintere Fußballen dreht mit, als würdest du eine Glut austreten. Die Kraft kommt aus Beinen und Hüfte, nicht nur aus dem Arm. Dann sofort zurück in die Deckung.",
+    "cues": [
+     "Vom hinteren Bein abdrücken",
+     "Hüfte – Schulter – hinterer Fußballen drehen ein",
+     "Sofort zurück in die Deckung"
+    ],
+    "mistakes": [
+     "Nur mit dem Arm schlagen, ohne Hüftdrehung",
+     "Zu weit nach vorn lehnen, Gleichgewicht verlieren"
+    ],
+    "drill": {
+     "label": "Schlaghand-Gerade",
+     "say": "Jetzt bist du dran. Gerade mit der Schlaghand: zwanzig Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk5-4": {
+    "title": "Handballenstoß",
+    "say": "Klapp das Handgelenk nach hinten, öffne die Hand, die Finger sind leicht gebeugt. Du triffst mit dem Handballen, auf einer geraden Linie wie bei einem Faustschlag. In einer echten Notwehrsituation ist das für die Hand sicherer als die bloße Faust, weil keine Fingerknöchel auf harten Knochen prallen.",
+    "cues": [
+     "Handgelenk zurück, Hand offen",
+     "Mit dem Handballen treffen",
+     "Gerade Linie wie ein Faustschlag"
+    ],
+    "mistakes": [
+     "Mit den Fingerinnenseiten treffen",
+     "Finger steif durchstrecken"
+    ],
+    "drill": {
+     "label": "Handballenstoß pro Seite",
+     "say": "Jetzt bist du dran. Handballenstoß zu jeder Seite: fünfzehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk5-5": {
+    "title": "Fronttritt (Push Kick)",
+    "say": "Zieh das Knie des hinteren Beins hoch bis auf Hüfthöhe. Dann stößt du die Ferse gerade nach vorn, als würdest du eine Tür auftreten, und schiebst die Hüfte mit. Das Ziel ist der Bauch, hier das Schlagpolster. Zieh das Bein zurück und setz es in der Stellung ab. Dieser Tritt soll den Angreifer wegstoßen und Abstand schaffen, damit du entkommen kannst.",
+    "cues": [
+     "Knie hoch auf Hüfthöhe",
+     "Mit der Ferse stoßen, Hüfte mitschieben",
+     "Bein zurück in die Stellung"
+    ],
+    "mistakes": [
+     "Mit den Zehen treten",
+     "Zu weit nach hinten lehnen"
+    ],
+    "drill": {
+     "label": "Fronttritt pro Bein",
+     "say": "Jetzt bist du dran. Fronttritt mit jedem Bein: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk5-6": {
+    "title": "Kombination und Lösen",
+    "say": "Jetzt setzen wir alles zu einer Kombination zusammen: Führhand, Schlaghand, Fronttritt, dann zwei Schritte zurück in den Handzaun. Übe drei Runden, jede Runde dreißig Sekunden an der Pratze, mit zwanzig Sekunden Pause. Schlag jede Technik sauber. Erst richtig, dann schnell.",
+    "cues": [
+     "Führhand – Schlaghand – Fronttritt",
+     "2 Schritte zurück, Handzaun",
+     "3 Runden × 30 Sekunden, 20 Sekunden Pause"
+    ],
+    "mistakes": [
+     "Nach der Kombination das Zurückgehen vergessen",
+     "Hektisch schlagen, die Stellung verlieren"
+    ],
+    "drill": {
+     "label": "Kombinationsrunde",
+     "say": "Jetzt bist du dran. Kombinationsrunde: drei Runden zu je dreißig Sekunden, zwanzig Sekunden Pause dazwischen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wo liegt der Daumen, wenn du eine Faust machst?",
+    "a": [
+     "Innen eingeklemmt",
+     "Außen über Zeige- und Mittelfinger",
+     "Ausgestreckt"
+    ],
+    "why": "Ist der Daumen innen eingeklemmt, bricht er leicht."
+   },
+   {
+    "q": "Woher kommt die Kraft der Schlaghand-Geraden?",
+    "a": [
+     "Nur aus dem Arm",
+     "Aus Beinen und Hüfte",
+     "Aus dem Nacken"
+    ],
+    "why": "Das Bein drückt ab, die Hüfte dreht, Schulter und Arm folgen."
+   },
+   {
+    "q": "Was ist der Hauptzweck des Fronttritts in der Selbstverteidigung?",
+    "a": [
+     "Abstand schaffen, um zu entkommen",
+     "Zum Kopf treten",
+     "Technik vorführen"
+    ],
+    "why": "Du stößt den Angreifer weg, damit du sicher gehen kannst."
+   },
+   {
+    "q": "Warum ist der Handballenstoß sicherer für die Hand?",
+    "a": [
+     "Keine Fingerknöchel prallen auf harten Knochen",
+     "Weil er langsam ist",
+     "Weil er leicht ist"
+    ],
+    "why": "Der Handballen ist stabil, das Verletzungsrisiko für die Hand ist gering."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Befreiung aus dem Handgelenkgriff",
+  "sub": "Daumenprinzip, gleichseitiger Griff, Kreuzgriff, beidhändiger Griff",
+  "intro": "Am Handgelenk gepackt zu werden, ist eine sehr häufige Situation. Du brauchst keine Kraft, nur das richtige Verständnis für die Schwachstelle der gegnerischen Hand.",
+  "safety": "Der Partner greift mit mäßiger Kraft. Langsam lösen, nicht ruckartig reißen, damit kein Gelenk schmerzt.",
+  "outro": "Deine Hand kann sich jetzt selbst befreien. Nächste Lektion: Befreiung aus Umklammerungen und Griffen von vorn.",
+  "home": "Hausaufgabe: Übe eine Woche lang jeden Tag zehn Befreiungen pro Griffart, mit jemandem aus deiner Familie.",
+  "steps": {
+   "tk6-1": {
+    "title": "Das Daumenprinzip",
+    "say": "Wenn du am Handgelenk gepackt wirst, ist die schwächste Stelle der gegnerischen Hand die Lücke zwischen Daumen und den übrigen Fingern. Setz nicht Kraft gegen Kraft. Dreh den Unterarm so, dass die schmale Knochenseite deines Handgelenks zu dieser Lücke zeigt. Dann ziehst du kräftig in Richtung Daumen heraus.",
+    "cues": [
+     "Den Daumen des Gegners finden",
+     "Handgelenk zur Daumenlücke drehen",
+     "Kräftig in Daumenrichtung herausziehen"
+    ],
+    "mistakes": [
+     "Gerade nach hinten ziehen, Kräftemessen",
+     "Zur Seite der vier Finger herausziehen"
+    ],
+    "drill": {
+     "label": "Daumenrichtung finden",
+     "say": "Jetzt bist du dran. Daumenrichtung finden: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk6-2": {
+    "title": "Gleichseitiger Griff",
+    "say": "Ivan packt mit seiner linken Hand mein rechtes Handgelenk. Ich senke meinen Schwerpunkt, beuge den Ellbogen und ziehe den Arm dicht an meinen Körper. Ich drehe den Unterarm, sodass das Handgelenk zu Ivans Daumen zeigt, und reiße es dann kräftig nach oben, in Richtung meiner Schulter. Die Hand ist frei. Sofort hebe ich beide Hände zum Handzaun und gehe zurück.",
+    "cues": [
+     "Schwerpunkt senken, Ellbogen beugen",
+     "Handgelenk zum Daumen drehen",
+     "Zur eigenen Schulter reißen, dann Handzaun"
+    ],
+    "mistakes": [
+     "Beim Befreien den Arm durchstrecken",
+     "Nach dem Befreien nah dranbleiben"
+    ],
+    "drill": {
+     "label": "Gleichseitiger Griff pro Hand",
+     "say": "Jetzt bist du dran. Befreiung aus dem gleichseitigen Griff mit jeder Hand: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk6-3": {
+    "title": "Kreuzgriff",
+    "say": "Beim Kreuzgriff, zum Beispiel wenn die rechte Hand des Gegners dein rechtes Handgelenk packt, liegt sein Daumen oben. Dreh dein Handgelenk nach oben, schneide quer durch die Daumenlücke und zieh zur gegenüberliegenden Schulter. Kombiniere das mit einem schrägen Schritt zurück.",
+    "cues": [
+     "Daumen des Gegners liegt oben",
+     "Nach oben drehen, durch die Daumenlücke schneiden",
+     "Zur gegenüberliegenden Schulter ziehen + schräg zurück"
+    ],
+    "mistakes": [
+     "Nach unten ziehen, weg von der Lücke",
+     "Den Schritt vergessen"
+    ],
+    "drill": {
+     "label": "Kreuzgriff pro Hand",
+     "say": "Jetzt bist du dran. Befreiung aus dem Kreuzgriff mit jeder Hand: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk6-4": {
+    "title": "Beidhändiger Griff",
+    "say": "Wenn du mit beiden Händen gepackt wirst, reicht die Kraft einer Hand nicht aus. Schieb deine freie Hand zwischen die Arme des Gegners und greif deine eigene Faust. Dann reißt du mit der Kraft beider Arme und mit einer Schulterdrehung kräftig nach oben, durch die Lücke zwischen den beiden Daumen.",
+    "cues": [
+     "Freie Hand dazwischenschieben",
+     "Die eigene Faust greifen",
+     "Beide Arme + Schulterdrehung, nach oben reißen"
+    ],
+    "mistakes": [
+     "Versuchen, eine Hand allein herauszuziehen",
+     "Zur Seite reißen statt nach oben"
+    ],
+    "drill": {
+     "label": "Beidhändiger Griff",
+     "say": "Jetzt bist du dran. Befreiung aus dem beidhändigen Griff: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk6-5": {
+    "title": "Nach der Befreiung",
+    "say": "Mit dem Befreien ist es nicht vorbei. Geh sofort auf Abstand, heb beide Hände zum Handzaun und ruf laut: Stopp! Der Ruf macht die Leute in der Nähe aufmerksam und zeigt, dass du keinen Kampf willst. Das Ziel der Selbstverteidigung ist immer, dich sicher zu befreien und zu gehen.",
+    "cues": [
+     "Sofort auf Abstand gehen",
+     "Handzaun",
+     "Laut rufen: Stopp!"
+    ],
+    "mistakes": [
+     "Stehen bleiben und streiten",
+     "Sich umdrehen und weglaufen, solange man noch zu nah ist"
+    ],
+    "drill": {
+     "label": "Befreien – zurück – rufen",
+     "say": "Jetzt bist du dran. Befreien, zurückgehen, rufen: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wo ist die Schwachstelle einer greifenden Hand?",
+    "a": [
+     "In der Handfläche",
+     "In der Lücke zwischen Daumen und Fingern",
+     "Am kleinen Finger"
+    ],
+    "why": "Die Daumenlücke ist die Öffnung, durch die du am leichtesten herauskommst."
+   },
+   {
+    "q": "Was tust du, wenn du mit beiden Händen gepackt wirst?",
+    "a": [
+     "Eine Hand mit aller Kraft herausziehen",
+     "Die eigene Hand greifen und mit beiden Armen nach oben reißen",
+     "Stillhalten"
+    ],
+    "why": "Beide Arme plus Schulterdrehung sind stärker als die beiden Hände des Gegners."
+   },
+   {
+    "q": "Was tust du nach der Befreiung als Erstes?",
+    "a": [
+     "Abstand nehmen, Handzaun, laut rufen",
+     "Sofort zurückschlagen",
+     "Streiten"
+    ],
+    "why": "Das Ziel der Selbstverteidigung ist, sicher zu sein und zu gehen."
+   },
+   {
+    "q": "Solltest du Kraft gegen Kraft setzen?",
+    "a": [
+     "Ja",
+     "Nein, nutze die Daumenrichtung"
+    ],
+    "why": "Richtige Technik schlägt Kraft."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Befreiung aus Umklammerung & Griff von vorn",
+  "sub": "Umklammerung von hinten mit gefangenen Armen, mit freien Armen, Kragengriff von vorn, Stoppsignal",
+  "intro": "Fest umklammert zu werden, ist das beängstigendste Gefühl. Das Geheimnis liegt in einem tiefen Schwerpunkt und beweglichen Beinen. Wir üben langsam und sicher, und wir respektieren immer das Stoppsignal.",
+  "safety": "Der Partner umklammert mit mäßiger Kraft. Nie wirklich am Hals würgen. Zwei Mal abklopfen heißt Stopp.",
+  "outro": "Du weißt jetzt, wie du dich aus den unangenehmsten Griffen befreist. Die letzte Lektion dieses Teils: Gleichgewicht brechen und sicher werfen.",
+  "home": "Hausaufgabe: Zwei Einheiten pro Woche, jede Situation acht Mal pro Seite, immer mit vereinbartem Stoppsignal.",
+  "steps": {
+   "tk7-1": {
+    "title": "Das Stoppsignal",
+    "say": "Vor jeder Partnerübung vereinbart ihr ein Stoppsignal. Zwei Mal auf den Partner oder auf die Matte klopfen, oder laut sagen: Stopp. Wenn du dieses Signal hörst oder spürst, lässt du sofort los. Jeder muss dieses Signal ohne Ausnahme respektieren. Nur wer sicher trainiert, kann lange trainieren.",
+    "cues": [
+     "2 Mal abklopfen oder sagen: Stopp",
+     "Sofort loslassen",
+     "Ohne Ausnahme respektieren"
+    ],
+    "mistakes": [
+     "Nach dem Signal noch ein bisschen weitermachen",
+     "Vor dem Training nichts vereinbaren"
+    ],
+    "drill": {
+     "label": "Signal vereinbaren",
+     "say": "Jetzt bist du dran. Signal vereinbaren: drei Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk7-2": {
+    "title": "Umklammerung von hinten – Schwerpunkt senken",
+    "say": "Wenn du von hinten umklammert wirst und deine Arme in der Umklammerung gefangen sind: Senk sofort deinen Schwerpunkt, beug die Knie und schieb die Hüfte nach hinten. Gleichzeitig drückst du beide Ellbogen zur Seite, um die Umklammerung zu lockern. Mit tiefem Schwerpunkt kann dich der Gegner nur sehr schwer hochheben.",
+    "cues": [
+     "Sofort den Schwerpunkt senken",
+     "Hüfte nach hinten schieben",
+     "Ellbogen nach außen, Umklammerung lockern"
+    ],
+    "mistakes": [
+     "Aufrecht stehen bleiben, man wird leicht hochgehoben",
+     "In Panik zappeln"
+    ],
+    "drill": {
+     "label": "Schwerpunkt senken, Griff lockern",
+     "say": "Jetzt bist du dran. Schwerpunkt senken, Umklammerung lockern: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk7-3": {
+    "title": "Umklammerung von hinten – herausdrehen",
+    "say": "Sobald die Umklammerung lockerer ist, machst du mit einem Fuß einen Schritt zur Seite, gehst noch tiefer, drehst Hüfte und Schulter und schlüpfst aus den Armen heraus. Dreh dich zum Gegner um, heb die Hände zum Handzaun und geh dann auf Abstand. Übe langsam mit deinem Partner, der nur mit mäßiger Kraft umklammert.",
+    "cues": [
+     "Mit einem Fuß seitlich treten",
+     "Tief gehen, Hüfte drehen, herausschlüpfen",
+     "Zum Gegner drehen, Handzaun, Abstand"
+    ],
+    "mistakes": [
+     "Drehen, solange der Schwerpunkt noch hoch ist",
+     "Nach der Befreiung in der Nähe bleiben"
+    ],
+    "drill": {
+     "label": "Befreiung von hinten pro Seite",
+     "say": "Jetzt bist du dran. Befreiung aus der Umklammerung von hinten zu jeder Seite: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk7-4": {
+    "title": "Umklammerung von hinten – Arme frei",
+    "say": "Wenn deine Arme außerhalb der Umklammerung sind, senkst du trotzdem zuerst deinen Schwerpunkt. Dann greifst du die Hände des Gegners vor deinem Bauch und löst sie, damit sich die Arme öffnen. Gleichzeitig drehst du dich heraus. Geh auf Abstand und halte den Handzaun.",
+    "cues": [
+     "Zuerst den Schwerpunkt senken",
+     "Hände des Gegners vor dem Bauch lösen",
+     "Herausdrehen, Abstand nehmen"
+    ],
+    "mistakes": [
+     "An den Händen des Gegners kratzen, ohne tief zu gehen",
+     "Sich umdrehen und weggehen, solange man noch dicht dran ist"
+    ],
+    "drill": {
+     "label": "Befreiung von hinten, Arme frei",
+     "say": "Jetzt bist du dran. Befreiung aus der Umklammerung von hinten mit freien Armen: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk7-5": {
+    "title": "Kragengriff von vorn",
+    "say": "Wenn der Gegner dich von vorn mit beiden Händen am Kragen packt: Kinn an und Schultern hoch, um den Hals zu schützen. Streck einen Arm gerade nach oben über den Kopf. Dann drehst du dich kräftig zur Seite, sodass Schulter und Arm über beide Arme des Gegners drücken und den Griff sprengen. Geh sofort einen Schritt zurück und heb den Handzaun. Beim Üben packt der Partner nur den Kragen und drückt niemals auf den Hals.",
+    "cues": [
+     "Kinn an, Schultern hoch",
+     "Einen Arm gerade nach oben strecken",
+     "Kräftig drehen, über beide Arme drücken, zurück"
+    ],
+    "mistakes": [
+     "Die Arme des Gegners mit Kraft wegziehen",
+     "Drehen, ohne den Arm hochzustrecken"
+    ],
+    "drill": {
+     "label": "Befreiung aus Kragengriff pro Seite",
+     "say": "Jetzt bist du dran. Befreiung aus dem Kragengriff zu jeder Seite: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was tust du als Erstes, wenn du von hinten umklammert wirst?",
+    "a": [
+     "Den Schwerpunkt senken",
+     "Hochspringen",
+     "Den Kopf nach hinten werfen"
+    ],
+    "why": "Mit tiefem Schwerpunkt kann der Gegner dich nur schwer hochheben."
+   },
+   {
+    "q": "Was ist das Stoppsignal bei der Partnerübung?",
+    "a": [
+     "Zwei Mal abklopfen oder sagen: Stopp",
+     "Irgendetwas laut schreien",
+     "Ein Signal ist nicht nötig"
+    ],
+    "why": "Vorher vereinbaren und ohne Ausnahme respektieren."
+   },
+   {
+    "q": "Womit befreist du dich aus dem Kragengriff von vorn?",
+    "a": [
+     "Mit der Zugkraft beider Arme",
+     "Arm hoch, dann kräftig drehen und darüber drücken",
+     "Stillhalten und warten"
+    ],
+    "why": "Die Drehung des ganzen Körpers ist stärker als die beiden Arme des Gegners."
+   },
+   {
+    "q": "Was darf der Partner beim Üben der Befreiung aus dem Kragengriff tun?",
+    "a": [
+     "Wirklich am Hals würgen",
+     "Nur den Kragen packen, nicht würgen"
+    ],
+    "why": "Absolute Sicherheit für den Halsbereich."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Gleichgewicht brechen & werfen",
+  "sub": "Standbasis, Jackengriff, Beinsichel nach hinten, Beinsteller nach vorn, Kontrolle",
+  "intro": "Das ist der Kern des Sambo-Ringens: Du nutzt das Gleichgewicht des Gegners, um ihn zu Boden zu bringen. Übe nur, wenn du das Fallen sicher beherrschst, auf dicker Matte und unter Anleitung.",
+  "safety": "Pflicht: Lektion Sicheres Fallen beherrscht, dicke Matte, Trainer dabei, langsames Tempo.",
+  "outro": "Glückwunsch! Du hast die Grundlagen des Zweigs Nahkampf-Selbstverteidigung abgeschlossen. Der Teil für Fortgeschrittene wartet auf dich, mit realistischeren Situationen.",
+  "home": "Hausaufgabe: Zwei Einheiten pro Woche auf dicker Matte und unter Anleitung, jede Technik sechs Mal langsam.",
+  "steps": {
+   "tk8-1": {
+    "title": "Standbasis und Gleichgewicht brechen",
+    "say": "Der Gegner steht stabil auf zwei Beinen. Die Linie zwischen seinen Füßen ist seine Standbasis. Wenn du quer zu dieser Linie schiebst oder ziehst, verliert er sehr leicht das Gleichgewicht. Übe mit deinem Partner: Greif Ärmel und Kragen, dann schieb, zieh und dreh ihn leicht in acht Richtungen. Spür den Moment, in dem sein ganzes Gewicht auf die Fersen oder auf die Fußballen geht.",
+    "cues": [
+     "Standbasis = Linie zwischen den Füßen",
+     "Quer zur Standbasis schieben/ziehen",
+     "Spüren, wann das Gewicht auf Fersen oder Ballen geht"
+    ],
+    "mistakes": [
+     "Entlang der Standbasis schieben",
+     "Mit steifen Armen arbeiten"
+    ],
+    "drill": {
+     "label": "Schieben – ziehen in 8 Richtungen",
+     "say": "Jetzt bist du dran. Schieben und ziehen in acht Richtungen, sechzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   },
+   "tk8-2": {
+    "title": "Grundgriff an der Jacke",
+    "say": "Der Grundgriff im Sambo-Ringen: Deine linke Hand greift den rechten Ärmel deines Partners, direkt unter dem Ellbogen. Deine rechte Hand greift sein linkes Revers auf Brusthöhe. Die Ellbogen sind locker, nicht steif. Du stehst mit geradem Rücken, die Füße schulterbreit, bereit zur Bewegung.",
+    "cues": [
+     "Linke Hand: Ärmel unter dem Ellbogen",
+     "Rechte Hand: Revers auf Brusthöhe",
+     "Ellbogen locker, Rücken gerade"
+    ],
+    "mistakes": [
+     "Rundrücken, Kopf gesenkt",
+     "Ellbogen steif durchgestreckt"
+    ],
+    "drill": {
+     "label": "In den Griff gehen",
+     "say": "Jetzt bist du dran. In den Griff gehen: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk8-3": {
+    "title": "Beinsichel nach hinten",
+    "say": "Zieh deinen Partner nach hinten rechts, aus seiner Sicht, sodass sein Gewicht auf die rechte Ferse geht. Setz deinen linken Fuß dicht neben die Außenseite seines rechten Fußes. Dein rechtes Bein schwingt durch und fegt seine rechte Wade von hinten weg, während dein Oberkörper ihn nach hinten drückt. Dein Partner fällt mit der gelernten Rückwärtsfalltechnik. Du hältst während des ganzen Falls seinen Ärmel und ziehst leicht nach oben, damit sein Rücken sanft auf der Matte ankommt.",
+    "cues": [
+     "Gewicht des Partners auf seine rechte Ferse bringen",
+     "Dicht herantreten, Wade von hinten wegfegen",
+     "Ärmel halten, Partner sanft fallen lassen"
+    ],
+    "mistakes": [
+     "Fegen, bevor das Gewicht auf dem Bein liegt",
+     "Ärmel loslassen, während der Partner fällt"
+    ],
+    "drill": {
+     "label": "Beinsichel nach hinten (langsam) pro Seite",
+     "say": "Jetzt bist du dran. Beinsichel nach hinten, langsam, zu jeder Seite: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk8-4": {
+    "title": "Beinsteller nach vorn",
+    "say": "Zieh deinen Partner nach vorn, schräg zu seiner rechten Seite. Dreh dich ein und stell deinen rechten Fuß quer vor sein rechtes Fußgelenk. Zieh den Ärmel weiter in einem Bogen nach unten. Er stolpert über dein Bein, fällt nach vorn und rollt über die Schulter ab, genau wie bei der Vorwärtsrolle.",
+    "cues": [
+     "Nach vorn ziehen – schräg rechts",
+     "Bein blockt vor dem Fußgelenk",
+     "Im Bogen nach unten ziehen"
+    ],
+    "mistakes": [
+     "Gegen das Fußgelenk treten statt zu blocken",
+     "Zu kräftig gerade zu Boden ziehen"
+    ],
+    "drill": {
+     "label": "Beinsteller nach vorn (langsam) pro Seite",
+     "say": "Jetzt bist du dran. Beinsteller nach vorn, langsam, zu jeder Seite: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk8-5": {
+    "title": "Kontrolle nach dem Wurf",
+    "say": "Wenn dein Partner gefallen ist, lass nicht sofort los. Halt seinen Ärmel, steh stabil, behalte ihn im Blick und hilf ihm dann auf. Wer wirft, trägt Verantwortung für den, der fällt. Würfe übst du nur auf dicker Matte, unter Aufsicht eines Trainers, in langsamem Tempo und immer mit Respekt vor dem Stoppsignal.",
+    "cues": [
+     "Ärmel halten, stabil stehen",
+     "Den Partner im Blick behalten",
+     "Dem Partner aufhelfen"
+    ],
+    "mistakes": [
+     "Beim Werfen sofort loslassen",
+     "Auf den Partner fallen"
+    ],
+    "drill": {
+     "label": "Langsam werfen + aufhelfen",
+     "say": "Jetzt bist du dran. Langsam werfen und aufhelfen: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "In welche Richtung schiebst oder ziehst du, um das Gleichgewicht zu brechen?",
+    "a": [
+     "Entlang der Linie zwischen den Füßen",
+     "Quer zur Linie zwischen den Füßen",
+     "Gerade nach unten"
+    ],
+    "why": "Quer zur Standbasis ist der Gegner am schwächsten."
+   },
+   {
+    "q": "Wohin muss das Gewicht deines Partners bei der Beinsichel nach hinten gehen?",
+    "a": [
+     "Auf die Fußballen",
+     "Auf die Ferse des gefegten Beins",
+     "Auf das andere Bein"
+    ],
+    "why": "Nur ein Bein, das das Gewicht trägt, lässt sich wegfegen."
+   },
+   {
+    "q": "Welche Verantwortung hat der Werfende?",
+    "a": [
+     "Den Ärmel halten und den Fall des Partners kontrollieren",
+     "Sofort loslassen",
+     "Sich auf ihn fallen lassen"
+    ],
+    "why": "Durch die Kontrolle fällt dein Partner sicher."
+   },
+   {
+    "q": "Was sind die Voraussetzungen, um Würfe zu üben?",
+    "a": [
+     "Sicheres Fallen beherrschen, dicke Matte, Trainer dabei",
+     "Egal wo",
+     "Schnell üben, damit man sich daran gewöhnt"
+    ],
+    "why": "Sicherheit ist eine Pflichtvoraussetzung."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Treffer auf Schwachstellen zur Flucht",
+  "sub": "Augenwischer, Knie in den Unterleib, Tritt ans Knie – nur um den Fluchtweg zu öffnen",
+  "intro": "Wenn du wirklich angegriffen wirst und nicht weglaufen kannst, brauchst du eine einfache Technik, die den Angreifer für eine Sekunde stocken lässt. Diese eine Sekunde ist dein Fluchtweg. Heute üben wir an der Pratze, niemals am Trainingspartner.",
+  "safety": "Nur auf Pratzen oder Schlagpolster. Niemals Augen, Unterleib oder Kniegelenk des Partners berühren.",
+  "outro": "Du hast jetzt Techniken, die dir den Fluchtweg öffnen. Merk dir gut: Du schlägst, um wegzulaufen, nicht um zu gewinnen. Nächste Lektion: Ellbogen und Knie auf kurze Distanz.",
+  "home": "Hausaufgabe: Drei Einheiten pro Woche, drei Runden Kombination an der Pratze, zum Schluss jeweils loslaufen.",
+  "steps": {
+   "tk9-1": {
+    "title": "Das Prinzip: Schlagen, um zu fliehen",
+    "say": "Das erste Prinzip: Treffer auf Schwachstellen setzt du nur ein, wenn du wirklich angegriffen wirst und es keinen anderen Ausweg gibt. Das Ziel ist nicht zu gewinnen, sondern den Angreifer für einen Moment stocken zu lassen. Ein Treffer, dann schaffst du sofort Abstand und läufst dorthin, wo viele Menschen sind. Bleib nicht da, um weiterzukämpfen.",
+    "cues": [
+     "Nur bei einem echten Angriff",
+     "Ein Treffer, um den Weg zu öffnen",
+     "Nach dem Treffer weglaufen"
+    ],
+    "mistakes": [
+     "Weiterkämpfen, obwohl der Fluchtweg offen ist",
+     "Zuschlagen, obwohl man noch gehen könnte"
+    ],
+    "drill": {
+     "label": "Handzaun – zurück – laufen",
+     "say": "Jetzt bist du dran. Handzaun, zurück, laufen: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk9-2": {
+    "title": "Augenwischer mit den Fingern",
+    "say": "Aus dem Handzaun ist deine vordere Hand schon nah am Gesicht des Gegners. Die Finger sind leicht gebeugt und locker. Sie wischen schnell quer über die Augenpartie, als würdest du Wasser von der Hand schütteln, und kommen dann zurück. Diese Technik braucht keine Kraft, nur Tempo. Wer getroffen wird, schließt reflexartig die Augen und weicht zurück. Beim Üben wischst du nur über den Handschuh, den dein Partner vor sein Gesicht hält.",
+    "cues": [
+     "Start aus dem Handzaun",
+     "Finger gebeugt, locker, quer wischen",
+     "Schnell, zurückziehen, Abstand nehmen"
+    ],
+    "mistakes": [
+     "Finger steif strecken: Sie verrenken sich leicht",
+     "Von weit her ausholen, die Absicht wird sichtbar"
+    ],
+    "drill": {
+     "label": "Wischer auf den Handschuh pro Hand",
+     "say": "Jetzt bist du dran. Wischer auf den Handschuh mit jeder Hand: fünfzehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk9-3": {
+    "title": "Knie in den Unterleib (auf das Polster)",
+    "say": "Wenn der Angreifer ganz nah herankommt und dich auf kürzeste Distanz packt, halten deine beiden Hände seine Schultern oder seinen Kragen. Zieh ihn nach unten und stoß gleichzeitig das Knie des hinteren Beins gerade nach oben. Die Hüfte schiebt nach vorn. Beim Üben hält dein Partner ein dickes Polster vor den Unterbauch, und du stößt das Knie ins Polster. Danach stößt du ihn weg und gehst auf Abstand.",
+    "cues": [
+     "Beide Hände an den Schultern, nach unten ziehen",
+     "Hinteres Knie hochstoßen, Hüfte vor",
+     "Wegstoßen, Abstand nehmen"
+    ],
+    "mistakes": [
+     "Beim Kniestoß nach hinten lehnen",
+     "Mit dem Knie stoßen, bevor du im Gleichgewicht bist"
+    ],
+    "drill": {
+     "label": "Kniestoß ins Polster pro Bein",
+     "say": "Jetzt bist du dran. Kniestoß ins Polster mit jedem Bein: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk9-4": {
+    "title": "Tritt ans Knie und Schienbein",
+    "say": "Wenn der Angreifer von weitem auf dich zustürmt, stoppt ein tiefer Fersentritt gegen sein Knie oder sein vorderes Schienbein seinen Schwung. Heb das Knie des vorderen Beins leicht an, stoß die Ferse schräg nach vorn unten und zieh das Bein zurück. Tiefe Tritte sind schwer abzuwehren und halten dich gut im Gleichgewicht. Beim Üben trittst du nur gegen ein tief gehaltenes Polster.",
+    "cues": [
+     "Knie leicht anheben",
+     "Ferse schräg nach vorn unten stoßen",
+     "Bein zurück, Abstand nehmen"
+    ],
+    "mistakes": [
+     "Hoch zum Bauch treten: langsam, und du fällst leicht",
+     "Mit den Zehen treten"
+    ],
+    "drill": {
+     "label": "Tiefer Tritt ins Polster pro Bein",
+     "say": "Jetzt bist du dran. Tiefer Tritt ins Polster mit jedem Bein: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk9-5": {
+    "title": "Kombination: Wischer – Tritt – Flucht",
+    "say": "Jetzt setzen wir alles zu einer Kette zusammen: aus dem Handzaun ein Augenwischer auf den Handschuh, ein tiefer Tritt ins Polster, dann umdrehen und drei Schritte laufen. Übe zuerst langsam und sauber, dann immer schneller. Ruf am Ende jedes Mal laut: Stopp! Diese Reflexkette muss deinem Körper zur Gewohnheit werden.",
+    "cues": [
+     "Handzaun → Wischer → Tritt",
+     "Umdrehen, 3 Schritte laufen",
+     "Laut rufen: Stopp!"
+    ],
+    "mistakes": [
+     "Am Ende der Kette das Laufen vergessen",
+     "Nach dem Tritt wieder nah herangehen"
+    ],
+    "drill": {
+     "label": "Kombinationsrunde",
+     "say": "Jetzt bist du dran. Kombinationsrunde: drei Runden zu je dreißig Sekunden, zwanzig Sekunden Pause dazwischen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was ist das Ziel eines Treffers auf eine Schwachstelle?",
+    "a": [
+     "Den Kampf gewinnen",
+     "Den Angreifer stocken lassen, damit du fliehen kannst",
+     "Den Gegner bestrafen"
+    ],
+    "why": "Du schlägst, um den Weg zu öffnen, und läufst dann in Sicherheit."
+   },
+   {
+    "q": "Wie hältst du die Finger beim Augenwischer?",
+    "a": [
+     "Steif gestreckt",
+     "Leicht gebeugt, locker, schnell wischen",
+     "Fest zur Faust geballt"
+    ],
+    "why": "Lockere Finger sind schnell und verrenken sich nicht."
+   },
+   {
+    "q": "Wohin geht der tiefe Tritt?",
+    "a": [
+     "Ans Knie oder ans vordere Schienbein",
+     "An den Kopf",
+     "In den Rücken"
+    ],
+    "why": "Ein tiefer Tritt ist schnell, schwer abzuwehren und stoppt den Ansturm."
+   },
+   {
+    "q": "Wohin schlägst du beim Üben mit deinem Partner?",
+    "a": [
+     "Auf den Partner, aber nur leicht",
+     "Nur auf Pratzen oder Polster"
+    ],
+    "why": "Triff niemals die echten Schwachstellen deines Partners."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Ellbogen & Knie auf kurze Distanz",
+  "sub": "Waagrechter Ellbogen, Aufwärtsellbogen, gerades Knie, Nacken-Schulter-Kontrolle",
+  "intro": "Wenn der Gegner ganz nah ist, hat die Faust keinen Platz mehr zum Ausholen. Dann sind Ellbogen und Knie die stärksten natürlichen Waffen deines Körpers. Wir üben an der Pratze, zuerst die richtige Technik, dann die Kraft.",
+  "safety": "Nur auf dicke Pratzen schlagen. Wer die Pratze hält, muss sie fest halten und stabil stehen.",
+  "outro": "Die kurze Distanz ist nicht mehr zum Fürchten. Nächste Lektion: Takedowns abwehren und sicher aufstehen.",
+  "home": "Hausaufgabe: Drei Einheiten pro Woche, drei Runden auf kurze Distanz an der Pratze.",
+  "steps": {
+   "tk10-1": {
+    "title": "Waagrechter Ellbogen",
+    "say": "Aus der Kampfstellung beugst du den vorderen Arm. Der Unterarm ist parallel zum Boden, die Hand ist dicht am Ohr. Dreh Hüfte und Schulter ein und zieh den Ellbogen waagrecht durch, wie eine Tür, die zuschlägt. Du triffst mit dem Knochen direkt unter dem Ellbogen. Die andere Hand schützt weiter das Gesicht. Nach dem Schlag sofort zurück in die Deckung.",
+    "cues": [
+     "Hand am Ohr, Unterarm waagrecht",
+     "Hüfte drehen, waagrecht durchziehen",
+     "Mit dem Knochen unter dem Ellbogen treffen"
+    ],
+    "mistakes": [
+     "Mit gestrecktem Arm ausholen",
+     "Vergessen, das Gesicht mit der anderen Hand zu schützen"
+    ],
+    "drill": {
+     "label": "Waagrechter Ellbogen pro Arm",
+     "say": "Jetzt bist du dran. Waagrechter Ellbogen mit jedem Arm: fünfzehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk10-2": {
+    "title": "Aufwärtsellbogen",
+    "say": "Wenn der Gegner mit gesenktem Kopf auf dich zustürmt, ist ein Ellbogen von unten nach oben sehr wirksam. Beug den Arm fest, die Faust berührt die Schulter. Dann drückst du dich mit den Beinen ab und schießt den Ellbogen senkrecht vor deinem Gesicht nach oben. Beim Üben hält dein Partner einen Handschuh mit der Fläche nach unten auf Brusthöhe.",
+    "cues": [
+     "Fest beugen, Faust an der Schulter",
+     "Mit den Beinen abdrücken, gerade nach oben",
+     "Andere Hand schützt das Gesicht"
+    ],
+    "mistakes": [
+     "Schräg nach außen schlagen",
+     "Nur mit dem Arm arbeiten, ohne Beinabdruck"
+    ],
+    "drill": {
+     "label": "Aufwärtsellbogen pro Arm",
+     "say": "Jetzt bist du dran. Aufwärtsellbogen mit jedem Arm: zwölf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk10-3": {
+    "title": "Nacken-Schulter-Kontrolle",
+    "say": "Auf kürzester Distanz legst du beide Hände übereinander hinter den Nacken des Gegners. Die Ellbogen kommen vor seiner Brust zusammen. Zieh seinen Kopf nach unten und drück die Ellbogen nach innen. Mit dieser Kontrolle steuerst du das Gleichgewicht des Gegners. Beim Üben ziehst du nur leicht und langsam, und dein Partner kann jederzeit abklopfen, um zu stoppen.",
+    "cues": [
+     "Hände übereinander hinter dem Nacken",
+     "Ellbogen vor der Brust des Gegners zusammen",
+     "Leicht und langsam nach unten ziehen"
+    ],
+    "mistakes": [
+     "Finger ineinander verschränken: Sie können leicht eingeklemmt werden",
+     "Ruckartig am Nacken des Partners reißen"
+    ],
+    "drill": {
+     "label": "Nacken-Schulter-Kontrolle halten",
+     "say": "Jetzt bist du dran. Halte die Nacken-Schulter-Kontrolle dreißig Sekunden lang. Die Uhr zählt herunter."
+    }
+   },
+   "tk10-4": {
+    "title": "Gerades Knie aus der Kontrolle",
+    "say": "Aus der Nacken-Schulter-Kontrolle ziehst du den Gegner nach unten und stößt das Knie gerade nach oben in das Polster, das dein Partner vor den Bauch hält. Schieb die Hüfte nach vorn und steh aufrecht auf dem Standbein. Nach zwei Kniestößen stößt du ihn kräftig weg und gehst auf Abstand.",
+    "cues": [
+     "Nacken-Schulter-Kontrolle",
+     "Nach unten ziehen, Knie gerade hochstoßen",
+     "Zwei Knie, dann wegstoßen, Abstand nehmen"
+    ],
+    "mistakes": [
+     "Sich selbst mit nach vorn krümmen",
+     "Auf den Zehen des Standbeins stehen, Gleichgewicht verlieren"
+    ],
+    "drill": {
+     "label": "Knie ins Polster pro Bein",
+     "say": "Jetzt bist du dran. Knie ins Polster mit jedem Bein: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk10-5": {
+    "title": "Kombination auf kurze Distanz",
+    "say": "Jetzt alles zusammen: waagrechter Ellbogen, Aufwärtsellbogen, in die Kontrolle, zwei Kniestöße, wegstoßen, zurück in den Handzaun. Übe drei Runden, jede Runde dreißig Sekunden an der Pratze. Atme beim Schlagen kurz und stoßweise aus.",
+    "cues": [
+     "Waagrechter Ellbogen → Aufwärtsellbogen",
+     "Kontrolle → 2 Knie",
+     "Wegstoßen, Handzaun, stoßweise ausatmen"
+    ],
+    "mistakes": [
+     "Beim Schlagen die Luft anhalten",
+     "Vergessen, wegzustoßen und Abstand zu schaffen"
+    ],
+    "drill": {
+     "label": "Runde auf kurze Distanz",
+     "say": "Jetzt bist du dran. Runde auf kurze Distanz: drei Runden zu je dreißig Sekunden, zwanzig Sekunden Pause dazwischen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Womit triffst du beim waagrechten Ellbogen?",
+    "a": [
+     "Mit dem Knochen direkt unter dem Ellbogen",
+     "Mit der Hand",
+     "Mit der Schulter"
+    ],
+    "why": "Der harte Knochen direkt unter dem Ellbogen ist die stabilste Trefferfläche."
+   },
+   {
+    "q": "Wie liegen die Hände bei der Nacken-Schulter-Kontrolle?",
+    "a": [
+     "Finger ineinander verschränkt",
+     "Übereinander hinter dem Nacken"
+    ],
+    "why": "Verschränkte Finger werden leicht eingeklemmt. Übereinandergelegte Hände sind sicherer."
+   },
+   {
+    "q": "Was tust du nach zwei Kniestößen?",
+    "a": [
+     "Wegstoßen und auf Abstand gehen",
+     "Weiter festhalten",
+     "Hinsetzen"
+    ],
+    "why": "Schaff immer Abstand, um zu entkommen."
+   },
+   {
+    "q": "Wie atmest du bei schnellen Schlagfolgen?",
+    "a": [
+     "Luft anhalten",
+     "Bei jedem Schlag kurz und stoßweise ausatmen"
+    ],
+    "why": "Stoßweises Ausatmen hält dich bei Kräften und ruhig."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Takedowns abwehren & aufstehen",
+  "sub": "Beinangriff abwehren, Hüfte draufdrücken, technisches Aufstehen, Abstand halten mit Tritten",
+  "intro": "In einer Schlägerei ist es am gefährlichsten, zu Boden gebracht zu werden. Heute lernst du, dich nicht umreißen zu lassen. Und wenn du doch fällst, stehst du in wenigen Sekunden sicher wieder auf.",
+  "safety": "Auf dicker Matte üben. Der Partner greift langsam an, ohne mit dem Kopf zu rammen.",
+  "outro": "Jetzt bringt man dich nur noch sehr schwer zu Boden, und du weißt, wie du sicher aufstehst. Nächste Lektion: Befreiung, wenn du am Boden unten liegst.",
+  "home": "Hausaufgabe: Jeden Tag zehn Mal technisches Aufstehen pro Seite, und zwei Mal pro Woche Sprawl mit Partner üben.",
+  "steps": {
+   "tk11-1": {
+    "title": "Beinangriff abwehren (Sprawl)",
+    "say": "Wenn der Gegner tief abtaucht und nach deinen Beinen greift: Schieß beide Beine blitzschnell nach hinten, senk die Hüfte auf seinen oberen Rücken und blockiere mit beiden Händen seine Schultern. Dein Körpergewicht lastet auf ihm, deine Beine sind weit weg, außer Reichweite. Das nennt man Sprawl. Übe es langsam mit deinem Partner auf der Matte.",
+    "cues": [
+     "Beide Beine nach hinten schießen",
+     "Hüfte auf den oberen Rücken senken",
+     "Hände blocken die Schultern des Gegners"
+    ],
+    "mistakes": [
+     "Aufrecht zurückweichen: Die Beine werden leicht gepackt",
+     "Hüfte bleibt hoch, der Gegner bekommt die Beine trotzdem"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Jetzt bist du dran. Sprawl: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk11-2": {
+    "title": "Lösen nach dem Sprawl",
+    "say": "Nach einem erfolgreichen Sprawl bleib nicht lange auf ihm liegen. Drück mit beiden Händen gegen seine Schultern, spring auf, geh zwei Schritte zurück und komm in die Kampfstellung, die Hände vor dem Gesicht. Das Ziel bleibt die Flucht.",
+    "cues": [
+     "Mit den Händen gegen die Schultern drücken",
+     "Aufspringen, 2 Schritte zurück",
+     "Zurück in die Stellung, Gesicht schützen"
+    ],
+    "mistakes": [
+     "Zu lange obenauf liegen bleiben",
+     "Direkt vor dem Gegner aufstehen"
+    ],
+    "drill": {
+     "label": "Sprawl – aufspringen – zurück",
+     "say": "Jetzt bist du dran. Sprawl, aufspringen, zurück: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk11-3": {
+    "title": "Vom Boden aus Abstand halten",
+    "say": "Wenn du auf dem Rücken liegst und der Gegner steht: Leg dich auf eine Hüfte, eine Hand stützt sich auf der Matte ab, die andere schützt das Gesicht. Das obere Bein ist angewinkelt und bereit, gegen Knie oder Bauch zu treten, wenn er heranstürmt. Dreh dich mit ihm mit und richte deine Füße immer auf den Gegner. Lass ihn nicht um dich herum an deinen Kopf kommen.",
+    "cues": [
+     "Seitlich liegen, eine Hand stützt, eine schützt",
+     "Oberes Bein angewinkelt, bereit zum Tritt",
+     "Mitdrehen, Füße immer zum Gegner"
+    ],
+    "mistakes": [
+     "Flach auf dem Rücken liegen",
+     "Den Gegner zum Kopf herumgehen lassen"
+    ],
+    "drill": {
+     "label": "Mit dem Partner mitdrehen",
+     "say": "Jetzt bist du dran. Dreh dich dreißig Sekunden lang mit deinem Partner mit. Die Uhr zählt herunter."
+    }
+   },
+   "tk11-4": {
+    "title": "Technisches Aufstehen",
+    "say": "So stehst du sicher auf: Die hintere Hand stützt sich hinter der Hüfte auf der Matte ab, die vordere Hand schützt das Gesicht. Drück die Hüfte hoch und zieh das Standbein unter dem Körper hindurch nach hinten. Setz den Fuß weit hinten ab, komm in die Stellung, und erst dann richtest du dich auf. Du schützt immer dein Gesicht und stehst vom Gegner weg auf, niemals direkt vor ihm.",
+    "cues": [
+     "Hintere Hand stützt, vordere Hand schützt das Gesicht",
+     "Hüfte hoch, Bein nach hinten durchziehen",
+     "Nach hinten aufstehen, in die Stellung"
+    ],
+    "mistakes": [
+     "Mit beiden Händen hochdrücken, das Gesicht ist ungeschützt",
+     "Beim Aufstehen auf den Gegner zugehen"
+    ],
+    "drill": {
+     "label": "Technisches Aufstehen pro Seite",
+     "say": "Jetzt bist du dran. Technisches Aufstehen zu jeder Seite: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk11-5": {
+    "title": "Kombination: Fallen – Abstand – Aufstehen",
+    "say": "Jetzt alles zusammen: sauber nach hinten fallen, auf die Seite drehen, mit Tritten Abstand halten, technisch aufstehen, auf Abstand gehen und in den Handzaun. Prüf nach jeder Wiederholung, ob du dein Gesicht die ganze Zeit geschützt hast. Fünf Mal pro Seite üben.",
+    "cues": [
+     "Rückwärtsfall → auf die Seite",
+     "Mit Tritten Abstand halten",
+     "Technisches Aufstehen → Handzaun"
+    ],
+    "mistakes": [
+     "Hastig aufstehen, solange der Gegner noch nah ist",
+     "Vergessen, das Gesicht zu schützen"
+    ],
+    "drill": {
+     "label": "Fallen – aufstehen pro Seite",
+     "say": "Jetzt bist du dran. Fallen und aufstehen zu jeder Seite: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was tust du, wenn jemand nach deinen Beinen greift?",
+    "a": [
+     "Beide Beine nach hinten schießen, Hüfte draufdrücken",
+     "Aufrecht stehen bleiben und warten",
+     "Hochspringen"
+    ],
+    "why": "Beim Sprawl sind die Beine weit weg, und dein Gewicht lastet auf dem Gegner."
+   },
+   {
+    "q": "Wohin zeigen deine Füße, wenn du am Boden liegst?",
+    "a": [
+     "Zum Gegner",
+     "Nach oben",
+     "Nach hinten"
+    ],
+    "why": "Die Füße zeigen zum Gegner, damit du ihn mit Tritten auf Abstand halten kannst."
+   },
+   {
+    "q": "Was macht die vordere Hand beim technischen Aufstehen?",
+    "a": [
+     "Sie stützt sich am Boden ab",
+     "Sie schützt das Gesicht"
+    ],
+    "why": "Schütze beim Aufstehen immer dein Gesicht."
+   },
+   {
+    "q": "Stehst du vom Gegner weg oder auf ihn zu auf?",
+    "a": [
+     "Vom Gegner weg",
+     "Auf ihn zu"
+    ],
+    "why": "Steh vom Gegner weg auf, das ist sicherer."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Befreiung am Boden",
+  "sub": "Hüftflucht (Shrimp), Brücke und Rolle, Befreiung unter dem Gegner, Beindeckung (Guard)",
+  "intro": "Wenn du am Boden unten liegst, keine Panik. Es gibt einfache Bewegungen aus dem Sambo-Ringen, mit denen du den Spieß umdrehst. Wir üben langsam, dein Partner drückt nur mit mäßiger Kraft, und wir respektieren immer das Stoppsignal.",
+  "safety": "Dicke Matte. Wer oben ist, legt nicht sein ganzes Gewicht auf und drückt nie auf den Hals. Zwei Mal abklopfen heißt Stopp.",
+  "outro": "Du kannst dich jetzt am Boden befreien. In der nächsten Lektion geht es um ein ernstes Thema: ein Angreifer mit Messer.",
+  "home": "Hausaufgabe: Jeden Tag zwei Minuten Hüftflucht, und zwei Mal pro Woche lockeres Ringen.",
+  "steps": {
+   "tk12-1": {
+    "title": "Hüftflucht (Shrimp)",
+    "say": "Leg dich auf den Rücken, beide Knie angewinkelt. Drück einen Fuß in die Matte und schieb die Hüfte nach hinten weg. Gleichzeitig drehst du dich auf die Seite, und beide Hände drücken nach vorn, als würdest du etwas Schweres wegschieben. Dein Körper ist gekrümmt wie eine Garnele. Dann zurück auf den Rücken und das Ganze zur anderen Seite. Das ist die wichtigste Bewegung am Boden: Sie schafft Platz.",
+    "cues": [
+     "Fuß in die Matte, Hüfte nach hinten schieben",
+     "Auf die Seite drehen, Hände drücken nach vorn",
+     "Ständig die Seite wechseln"
+    ],
+    "mistakes": [
+     "Flach auf dem Rücken liegen, ohne die Hüfte zu drehen",
+     "Nur mit den Händen drücken, ohne die Hüfte zu bewegen"
+    ],
+    "drill": {
+     "label": "Hüftflucht über die Matte",
+     "say": "Jetzt bist du dran. Hüftflucht über die Matte, vierzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   },
+   "tk12-2": {
+    "title": "Brücke und Rolle aus der Mount-Position",
+    "say": "Wenn der Gegner auf deinem Bauch sitzt: Schütz zuerst mit beiden Händen dein Gesicht. Dann klemmst du einen Arm des Gegners fest an deinen Körper, und der Fuß derselben Seite blockiert sein Bein von außen. Drück die Hüfte kräftig nach oben, mach eine Brücke über die Schulter auf der Seite des festgehaltenen Arms und roll den Gegner zur Seite. Du kommst nach oben, stehst dann auf und gehst auf Abstand.",
+    "cues": [
+     "Zuerst das Gesicht schützen",
+     "Einen Arm festhalten + Bein derselben Seite blocken",
+     "Hüftbrücke, über diese Schulter rollen"
+    ],
+    "mistakes": [
+     "Mit den Händen gegen die Brust des Gegners drücken",
+     "Gerade hochbrücken, ohne Arm und Bein festzuhalten"
+    ],
+    "drill": {
+     "label": "Brücke und Rolle pro Seite",
+     "say": "Jetzt bist du dran. Brücke und Rolle zu jeder Seite: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk12-3": {
+    "title": "Ellbogen-Knie-Befreiung unter dem Gegner",
+    "say": "Wenn das Rollen nicht klappt: Leg dich auf die Seite, bring den Ellbogen dicht ans Knie und klemm den Ellbogen gegen die Hüfte des Gegners. Mach eine Hüftflucht, um Platz zu schaffen, und schieb dein Knie zwischen dich und ihn. Sobald das Knie drin ist, holst du die Beine in die Beindeckung und hältst den Gegner mit beiden Beinen auf Abstand.",
+    "cues": [
+     "Auf der Seite, Ellbogen am Knie",
+     "Hüftflucht schafft Platz",
+     "Knie hineinschieben, Beine in die Deckung"
+    ],
+    "mistakes": [
+     "Mit gestrecktem Arm drücken: Der Arm wird leicht gehebelt",
+     "Flach auf dem Rücken liegen"
+    ],
+    "drill": {
+     "label": "Ellbogen-Knie-Befreiung pro Seite",
+     "say": "Jetzt bist du dran. Ellbogen-Knie-Befreiung zu jeder Seite: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk12-4": {
+    "title": "Beindeckung und aufstehen",
+    "say": "Wenn deine beiden Beine zwischen dir und dem Gegner sind, bist du in der Beindeckung. Setz die Füße auf seine Hüfte und drück ihn weg. Sobald du Platz hast, legst du dich auf die Seite und stehst technisch auf, wie in der vorigen Lektion. Unten zu liegen heißt nicht verloren zu haben, solange du deine Beine zwischen euch hältst.",
+    "cues": [
+     "Beide Beine zwischen dir und dem Gegner",
+     "Füße drücken gegen die Hüfte, Abstand schaffen",
+     "Technisches Aufstehen"
+    ],
+    "mistakes": [
+     "Die Beine wegnehmen und den Gegner herankommen lassen",
+     "Aufstehen, bevor genug Abstand da ist"
+    ],
+    "drill": {
+     "label": "Beindeckung – wegdrücken – aufstehen",
+     "say": "Jetzt bist du dran. Beindeckung, wegdrücken, aufstehen: sechs Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk12-5": {
+    "title": "Kontrolliertes lockeres Ringen",
+    "say": "Jetzt folgt zwei Minuten kontrolliertes, lockeres Ringen. Einer beginnt unten, einer oben. Wer unten ist, hat nur eine Aufgabe: sich befreien und aufstehen. Wer oben ist, hält nur fest, ohne Hebel und ohne Würgen. Fünfzig Prozent Kraft. Zwei Mal abklopfen heißt sofort Stopp.",
+    "cues": [
+     "Unten: befreien und aufstehen",
+     "Oben: nur halten, kein Hebel, kein Würgen",
+     "50 % Kraft, zwei Mal abklopfen heißt Stopp"
+    ],
+    "mistakes": [
+     "Von Anfang an mit voller Kraft arbeiten",
+     "Das Stoppsignal nicht respektieren"
+    ],
+    "drill": {
+     "label": "Runde lockeres Ringen",
+     "say": "Jetzt bist du dran. Lockeres Ringen: zwei Runden zu je sechzig Sekunden, dreißig Sekunden Pause dazwischen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was ist die wichtigste Bewegung am Boden?",
+    "a": [
+     "Die Hüftflucht",
+     "Still liegen",
+     "Nach oben schlagen"
+    ],
+    "why": "Die Hüftflucht schafft Platz, um dich zu befreien."
+   },
+   {
+    "q": "Zu welcher Seite rollst du bei Brücke und Rolle?",
+    "a": [
+     "Zur Seite des Arms und Beins, die du festhältst und blockierst",
+     "Zu einer beliebigen Seite"
+    ],
+    "why": "Mit festgehaltenem Arm und blockiertem Bein kann sich der Gegner nicht abstützen."
+   },
+   {
+    "q": "Solltest du unten mit gestreckten Armen gegen die Brust des Gegners drücken?",
+    "a": [
+     "Ja",
+     "Nein, der Arm wird leicht gehebelt"
+    ],
+    "why": "Halte die Ellbogen dicht am Körper."
+   },
+   {
+    "q": "Was darf der Obere beim lockeren Ringen tun?",
+    "a": [
+     "Hebeln und würgen",
+     "Nur halten, kein Hebel, kein Würgen"
+    ],
+    "why": "Wir üben sicher und kontrolliert."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Bedrohung mit dem Messer",
+  "sub": "Goldene Regeln, Hindernis als Schild, Deckung, Armkontrolle, Flucht – mit Gummimesser",
+  "intro": "Hör gut zu, das ist heute das Wichtigste: Ein Messer ist sehr gefährlich, auch für jemanden, der seit vielen Jahren Kampfsport trainiert. Wenn der Räuber nur deine Sachen will, gib sie ihm. Sachen kann man neu kaufen, ein Leben nicht. Die folgenden Techniken sind nur für den Fall, dass es keine andere Wahl mehr gibt.",
+  "safety": "Nur mit Gummimesser oder stumpfem Kunststoffmesser üben. Niemals mit einem echten Messer.",
+  "outro": "Merk dir gut: Weglaufen ist der Sieg. Nächste Lektion: ruhig bleiben, wenn du mit einer Schusswaffe bedroht wirst.",
+  "home": "Hausaufgabe: Eine Einheit pro Woche Situationstraining mit dem Gummimesser, langsam und sicher, immer mit Weglaufen am Ende.",
+  "steps": {
+   "tk13-1": {
+    "title": "Goldene Regeln",
+    "say": "Drei goldene Regeln. Erstens: Wenn er deine Sachen will, gib sie sofort her, wirf die Geldbörse weit weg und lauf in die entgegengesetzte Richtung. Zweitens: Halte so viel Abstand wie möglich und such einen Fluchtweg. Drittens: Nur wenn du angegriffen wirst und nicht weglaufen kannst, setzt du Techniken ein. Und denk daran: In der Realität wird fast jeder verletzt, der sich einem Messer stellt. Weglaufen ist der Sieg.",
+    "cues": [
+     "Sachen hergeben, weit wegwerfen, laufen",
+     "Abstand halten, Fluchtweg suchen",
+     "Techniken sind der letzte Ausweg"
+    ],
+    "mistakes": [
+     "Die Sachen festhalten wollen",
+     "Selbstsicher auf den Messerträger losgehen"
+    ],
+    "drill": {
+     "label": "Geldbörse werfen – laufen (Situationstraining)",
+     "say": "Jetzt bist du dran. Geldbörse werfen und weglaufen, als Situationstraining: drei Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk13-2": {
+    "title": "Ein Hindernis als Schild",
+    "say": "Alles, was du in der Hand hast, kann ein Schild sein: ein Rucksack, eine um den Arm gewickelte Jacke, ein Stuhl, eine Tasche. Halte das Hindernis zwischen dir und der Messerspitze, greif es fest mit beiden Händen und geh rückwärts in Richtung Ausgang. Das Hindernis hält das Messer von deinem Körper fern und gibt dir Zeit zum Weglaufen.",
+    "cues": [
+     "Rucksack, Jacke, Stuhl als Schild",
+     "Hindernis zwischen dir und dem Messer",
+     "Rückwärts zum Ausgang"
+    ],
+    "mistakes": [
+     "Das Hindernis wegwerfen, um mit bloßen Händen zu kämpfen",
+     "In eine Ecke zurückweichen"
+    ],
+    "drill": {
+     "label": "Rucksack als Schild, zurück zum Ausgang",
+     "say": "Jetzt bist du dran. Halte den Rucksack als Schild und geh dreißig Sekunden lang rückwärts zum Ausgang. Die Uhr zählt herunter."
+    }
+   },
+   "tk13-3": {
+    "title": "Deckung und Haltung",
+    "say": "Wenn du kein Hindernis hast: Heb beide Arme vor das Gesicht, die Innenseiten der Unterarme zeigen zu dir. Die Ellbogen schützen die Rippen, der Oberkörper ist leicht gebeugt, das Kinn ist angezogen. Du stehst schräg, um eine kleinere Zielfläche zu bieten. Deine Augen sind auf die Hand mit dem Messer gerichtet, nicht auf das Gesicht des Gegners.",
+    "cues": [
+     "Unterarme vor dem Gesicht, Innenseite zu dir",
+     "Schräg stehen, leicht gebeugt, Kinn an",
+     "Blick auf die Messerhand"
+    ],
+    "mistakes": [
+     "Mit der Handfläche abwehren",
+     "Ins Gesicht schauen statt auf die Hand"
+    ],
+    "drill": {
+     "label": "In die Deckungshaltung",
+     "say": "Jetzt bist du dran. In die Deckungshaltung: zehn Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk13-4": {
+    "title": "Blocken und den Arm kontrollieren",
+    "say": "Wenn ein Stich kommt und du nicht ausweichen kannst: Block den Messerarm mit beiden Unterarmen und mach gleichzeitig einen Schrägschritt nach außen. Klemm diesen Arm sofort mit beiden Händen fest an deinen Körper, kontrolliere das Handgelenk und halte die Klinge von dir weg. Deine beiden Hände gegen seine eine. Übe ganz langsam mit dem Gummimesser.",
+    "cues": [
+     "Mit beiden Unterarmen blocken + Schrägschritt",
+     "Den Messerarm fest umklammern",
+     "Beide Hände kontrollieren das Handgelenk, Klinge weg von dir"
+    ],
+    "mistakes": [
+     "Nur eine Hand benutzen",
+     "Den Arm mittendrin loslassen"
+    ],
+    "drill": {
+     "label": "Blocken – kontrollieren (langsam) pro Seite",
+     "say": "Jetzt bist du dran. Blocken und kontrollieren, langsam, zu jeder Seite: acht Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk13-5": {
+    "title": "Befreien und weglaufen",
+    "say": "Wenn du den Arm unter Kontrolle hast, versuch nicht, das Messer an dich zu reißen. Tritt tief gegen das Knie wie in Lektion neun, stoß den Gegner kräftig weg und lauf dorthin, wo viele Menschen sind. Ruf um Hilfe und alarmiere die Polizei. Danach untersuchst du deinen Körper: Wer durch ein Messer verletzt wird, spürt es oft nicht sofort.",
+    "cues": [
+     "Nicht versuchen, das Messer zu nehmen",
+     "Tiefer Tritt, wegstoßen, laufen",
+     "Hilfe rufen, Polizei alarmieren, auf Verletzungen prüfen"
+    ],
+    "mistakes": [
+     "Versuchen, das Messer zu entreißen",
+     "Den Gegner verfolgen"
+    ],
+    "drill": {
+     "label": "Kontrollieren – wegstoßen – laufen (langsam)",
+     "say": "Jetzt bist du dran. Kontrollieren, wegstoßen, weglaufen, langsam: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Jemand mit einem Messer verlangt deine Geldbörse. Was tust du?",
+    "a": [
+     "Kämpfen, um die Geldbörse zu behalten",
+     "Geldbörse hergeben, weit wegwerfen, laufen"
+    ],
+    "why": "Sachen kann man neu kaufen, ein Leben nicht."
+   },
+   {
+    "q": "Was kann dir als Schild dienen?",
+    "a": [
+     "Rucksack, Jacke, Stuhl",
+     "Nichts"
+    ],
+    "why": "Ein Hindernis hält das Messer von deinem Körper fern."
+   },
+   {
+    "q": "Wohin schaust du, wenn du einem Messer gegenüberstehst?",
+    "a": [
+     "Ins Gesicht des Gegners",
+     "Auf die Hand mit dem Messer"
+    ],
+    "why": "Die Gefahr steckt in der Hand mit dem Messer."
+   },
+   {
+    "q": "Was tust du, wenn du den Messerarm unter Kontrolle hast?",
+    "a": [
+     "Versuchen, das Messer zu nehmen",
+     "Wegstoßen, laufen, Hilfe rufen"
+    ],
+    "why": "Das Ziel ist, sicher zu entkommen, nicht die Waffe zu erobern."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Bedrohung mit der Schusswaffe",
+  "sub": "Ruhe, Kooperation, Beobachtung, Deckung, Flucht – mit Übungswaffe aus Kunststoff",
+  "intro": "In dieser Lektion geht es mehr um Ruhe als um Technik. Wenn du einer Schusswaffe gegenüberstehst, hängt dein Leben von einem kühlen Kopf ab. Wir benutzen eine orangefarbene Kunststoffwaffe, die nur zum Üben gedacht ist.",
+  "safety": "Nur orangefarbene Übungswaffen aus Kunststoff. Keine echten Waffen, keine Luftdruckwaffen und nichts, was echt aussieht.",
+  "outro": "Ein kühler Kopf ist deine stärkste Waffe. Die letzte Lektion des Zweigs: Zusammenfassung und Reflexe.",
+  "home": "Hausaufgabe: Jeden Tag drei Minuten Box-Atmung, und übe unterwegs das Merkspiel.",
+  "steps": {
+   "tk14-1": {
+    "title": "Atmen und ruhig bleiben",
+    "say": "Wenn eine Waffe auf dich gerichtet ist, schlägt dein Herz sehr schnell. Mach die Box-Atmung: vier Sekunden einatmen, vier Sekunden halten, vier Sekunden ausatmen, vier Sekunden halten. Schon ein oder zwei Atemzüge machen deinen Kopf klarer. Wer ruhig ist, sieht den Ausweg. Wer in Panik ist, sieht ihn nicht.",
+    "cues": [
+     "4 ein – 4 halten – 4 aus – 4 halten",
+     "Ein oder zwei Atemzüge reichen",
+     "Nur wer ruhig ist, sieht den Ausweg"
+    ],
+    "mistakes": [
+     "Hastig atmen",
+     "Plötzliche Bewegungen"
+    ],
+    "drill": {
+     "label": "Box-Atmung im Viertakt",
+     "say": "Jetzt bist du dran. Box-Atmung im Viertakt, vierundsechzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   },
+   "tk14-2": {
+    "title": "Kooperieren und Hände zeigen",
+    "say": "Wenn er deine Sachen will: Kooperiere. Heb beide offenen Hände auf Schulterhöhe und sag langsam und deutlich: In Ordnung, ich gebe es dir. Kündige jede Bewegung vorher an: Ich hole jetzt die Geldbörse aus meiner rechten Tasche. Leg die Sachen ab oder wirf sie weit weg. Starr ihm nicht ins Gesicht und streite nicht.",
+    "cues": [
+     "Beide Hände offen, auf Schulterhöhe",
+     "Langsam sprechen, jede Bewegung ankündigen",
+     "Sachen hergeben, nicht streiten"
+    ],
+    "mistakes": [
+     "Plötzlich in die Tasche greifen",
+     "Streiten, zurückdrohen"
+    ],
+    "drill": {
+     "label": "Situationstraining: Kooperieren",
+     "say": "Jetzt bist du dran. Situationstraining Kooperieren: drei Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk14-3": {
+    "title": "Sichtschutz und Deckung",
+    "say": "Unterscheide zwei Dinge. Sichtschutz verbirgt dich nur vor Blicken, wie ein Busch oder ein Vorhang. Deckung hält Kugeln auf, wie eine Betonwand, ein Pfeiler oder der Motorblock eines Autos. Wenn du die Chance zur Flucht hast, lauf zur Deckung, lauf im Zickzack und nicht geradeaus, und halte dich tief.",
+    "cues": [
+     "Sichtschutz ≠ Deckung",
+     "Zur Deckung laufen",
+     "Im Zickzack laufen, tief bleiben"
+    ],
+    "mistakes": [
+     "Sich hinter einer Holztür oder einem Busch verstecken und sich sicher fühlen",
+     "In gerader Linie weglaufen"
+    ],
+    "drill": {
+     "label": "Im Zickzack zur Deckung laufen",
+     "say": "Jetzt bist du dran. Im Zickzack zur Deckung laufen: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk14-4": {
+    "title": "Beobachten und merken",
+    "say": "Während du kooperierst, beobachte unauffällig: Größe, Kleidung, Stimme, die Richtung, in die er verschwindet. Wenn er weg ist, bleib an einem sicheren Ort, ruf sofort die Polizei und erzähl alles, woran du dich erinnerst. Verfolge ihn niemals.",
+    "cues": [
+     "Unauffällig beobachten: Statur, Kleidung, Stimme, Fluchtrichtung",
+     "An einem sicheren Ort bleiben",
+     "Polizei rufen, nicht verfolgen"
+    ],
+    "mistakes": [
+     "Den Räuber verfolgen",
+     "Ihm unverwandt ins Gesicht starren"
+    ],
+    "drill": {
+     "label": "Merkspiel: eine Person beschreiben",
+     "say": "Jetzt bist du dran. Merkspiel: Beschreib dreißig Sekunden lang eine Person. Die Uhr zählt herunter."
+    }
+   },
+   "tk14-5": {
+    "title": "Der letzte Ausweg",
+    "say": "Nur wenn du sicher bist, dass er schießen wird, obwohl du kooperiert hast, denkst du an den letzten Ausweg: den Lauf von dir und allen anderen wegdrücken, ihn mit beiden Händen festhalten und dann einen Weg zur Flucht suchen. Diese Technik ist extrem riskant und darf nur direkt bei einem zertifizierten Trainer mit Übungswaffe gelernt werden. In fast allen Situationen sind Kooperieren und Beobachten die beste Wahl, um zu überleben.",
+    "cues": [
+     "Nur wenn sicher ist, dass geschossen wird",
+     "Lauf vom Körper wegdrücken, mit beiden Händen halten",
+     "Nur direkt beim Trainer lernen"
+    ],
+    "mistakes": [
+     "Handeln, obwohl nur deine Sachen verlangt werden",
+     "Allein nach Video üben, ohne Anleitung"
+    ],
+    "drill": {
+     "label": "Die Regeln wiederholen",
+     "say": "Jetzt bist du dran. Die Regeln wiederholen: drei Mal. Ich zähle den Takt für dich."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Was ist Box-Atmung?",
+    "a": [
+     "4 ein – 4 halten – 4 aus – 4 Sekunden halten",
+     "Sehr lange die Luft anhalten"
+    ],
+    "why": "Gleichmäßiges Atmen senkt den Puls und macht den Kopf klar."
+   },
+   {
+    "q": "Jemand bedroht dich mit einer Waffe und will deine Sachen. Was tust du?",
+    "a": [
+     "Mich wehren",
+     "Kooperieren, Bewegungen ankündigen, Sachen hergeben"
+    ],
+    "why": "Deine Sachen sind weniger wert als dein Leben."
+   },
+   {
+    "q": "Was ist Deckung, die Kugeln aufhält?",
+    "a": [
+     "Ein Busch",
+     "Betonwand, Pfeiler"
+    ],
+    "why": "Ein Busch ist nur Sichtschutz und hält keine Kugeln auf."
+   },
+   {
+    "q": "Was tust du, nachdem der Räuber verschwunden ist?",
+    "a": [
+     "Ihn verfolgen",
+     "An einem sicheren Ort bleiben und die Polizei rufen"
+    ],
+    "why": "Verfolge niemals jemanden, der bewaffnet ist."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Zusammenfassung & Reflexe",
+  "sub": "Situationsketten, kontrolliertes Partnertraining, Dehnen zur Regeneration",
+  "intro": "Die letzte Lektion. Wir machen aus allem, was du gelernt hast, Reflexe. Wenn es wirklich passiert, hast du keine Zeit zum Nachdenken. Dein Körper muss von selbst wissen, was zu tun ist.",
+  "safety": "Handschuhe tragen, Zahnschutz, wenn vorhanden. Partnertraining mit 30–50 % Kraft, unter Aufsicht eines Trainers.",
+  "outro": "Glückwunsch, Kämpfer! Du hast den ganzen Zweig Nahkampf-Selbstverteidigung abgeschlossen, Grundlagen und Fortgeschrittene. Leg jetzt die Abschlussprüfung des Zweigs ab, um das Abzeichen Stahlwolf zu bekommen.",
+  "home": "Hausaufgabe: Drei Einheiten pro Woche, in denen du den ganzen Zweig wiederholst, jede dreißig Minuten lang, immer mit Aufwärmen und Dehnen.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflexe an beweglichen Pratzen",
+    "say": "Dein Partner hält zwei Pratzen, bewegt sich um dich herum und hält sie überraschend an verschiedene Stellen. Pratze auf Gesichtshöhe: gerader Schlag. Pratze tief: Fronttritt. Pratze schwingt zu deinem Kopf: hohe Deckung. Reagiere sofort, ohne nachzudenken.",
+    "cues": [
+     "Pratze auf Gesichtshöhe → gerader Schlag",
+     "Pratze tief → Fronttritt",
+     "Pratze schwingt heran → hohe Deckung"
+    ],
+    "mistakes": [
+     "Stehen und warten, ohne sich zu bewegen",
+     "Nach jeder Technik die Hände sinken lassen"
+    ],
+    "drill": {
+     "label": "Reflexrunde",
+     "say": "Jetzt bist du dran. Reflexrunde: drei Runden zu je fünfundvierzig Sekunden, zwanzig Sekunden Pause dazwischen."
+    }
+   },
+   "tk15-2": {
+    "title": "Situation: am Handgelenk gepackt",
+    "say": "Situation eins. Dein Partner packt überraschend dein Handgelenk und zieht. Dein Reflex: Schwerpunkt senken, in Daumenrichtung befreien, Handzaun, auf Abstand gehen und laut rufen: Stopp! Dann umdrehen und drei Schritte laufen. Fünf Mal wiederholen, und dein Partner greift jedes Mal anders.",
+    "cues": [
+     "Schwerpunkt senken, in Daumenrichtung befreien",
+     "Handzaun, laut rufen",
+     "3 Schritte laufen"
+    ],
+    "mistakes": [
+     "Kraft gegen Kraft",
+     "Rufen und Laufen vergessen"
+    ],
+    "drill": {
+     "label": "Situation Handgelenkgriff",
+     "say": "Jetzt bist du dran. Situation Handgelenkgriff: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk15-3": {
+    "title": "Situation: Umklammerung von hinten",
+    "say": "Situation zwei. Dein Partner umklammert dich von hinten. Dein Reflex: Schwerpunkt senken, Ellbogen nach außen, Seitschritt, herausdrehen, Fronttritt in das Polster, das eine dritte Person hält, dann laufen. Nach jeder Wiederholung tauscht ihr die Rollen. Fünf Mal für jeden.",
+    "cues": [
+     "Schwerpunkt senken, Ellbogen nach außen",
+     "Seitschritt, herausdrehen",
+     "Fronttritt, laufen"
+    ],
+    "mistakes": [
+     "Aufrecht stehen bleiben",
+     "Drehen, solange der Schwerpunkt noch hoch ist"
+    ],
+    "drill": {
+     "label": "Situation Umklammerung von hinten",
+     "say": "Jetzt bist du dran. Situation Umklammerung von hinten: fünf Wiederholungen. Ich zähle den Takt für dich."
+    }
+   },
+   "tk15-4": {
+    "title": "Kontrolliertes Partnertraining",
+    "say": "Leichtes Partnertraining, drei Runden, jede Runde eine Minute. Nur gerade Schläge auf Handschuhe und Schultern und ganz leichte Fronttritte zum Bauch, mit dreißig Prozent Kraft. Keine Treffer ins Gesicht, keine Treffer auf Schwachstellen. Das Ziel ist, Blick, Beinarbeit und Ruhe zu trainieren, wenn dich wirklich jemand angreift.",
+    "cues": [
+     "30 % Kraft, nicht ins Gesicht",
+     "Blick, Beinarbeit und Ruhe trainieren",
+     "Vorher und nachher Handschuhe abklatschen"
+    ],
+    "mistakes": [
+     "Härter werden, wenn man getroffen wird",
+     "Bei Treffern die Augen schließen"
+    ],
+    "drill": {
+     "label": "Partnerrunde",
+     "say": "Jetzt bist du dran. Partnerrunde: drei Runden zu je sechzig Sekunden, dreißig Sekunden Pause dazwischen."
+    }
+   },
+   "tk15-5": {
+    "title": "Dehnen und Regeneration",
+    "say": "Nach einem harten Training dehnst du dich zehn Minuten lang. Dehne die Oberschenkelvorderseite, die Oberschenkelrückseite, die Hüfte, die Schultern und den Rücken, jede Position dreißig Sekunden, und atme aus, wenn du tiefer in die Dehnung gehst. Trink Wasser, iss genug und schlaf genug. Muskeln wachsen, wenn du dich ausruhst, nicht während du trainierst.",
+    "cues": [
+     "Jede Position 30 Sekunden",
+     "Beim Tiefergehen ausatmen",
+     "Wasser trinken, genug essen, genug schlafen"
+    ],
+    "mistakes": [
+     "Beim Dehnen wippen",
+     "Die Regeneration auslassen"
+    ],
+    "drill": {
+     "label": "Dehnen zur Regeneration",
+     "say": "Jetzt bist du dran. Dehnen zur Regeneration, hundertzwanzig Sekunden lang. Die Uhr zählt herunter."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Die Pratze wird tief auf Bauchhöhe gehalten. Was ist dein Reflex?",
+    "a": [
+     "Fronttritt",
+     "Hohe Deckung"
+    ],
+    "why": "Ein tiefes Ziel ist für den Fronttritt gedacht."
+   },
+   {
+    "q": "Mit wie viel Kraft arbeitest du im kontrollierten Partnertraining?",
+    "a": [
+     "Etwa 30 %",
+     "Mit voller Kraft"
+    ],
+    "why": "Wir trainieren sicher unsere Fähigkeiten und kämpfen nicht richtig."
+   },
+   {
+    "q": "Wie endet jede Selbstverteidigungssituation?",
+    "a": [
+     "Stehen bleiben und weiterkämpfen",
+     "Laut rufen, Abstand schaffen und weglaufen"
+    ],
+    "why": "Das Ziel der Selbstverteidigung ist Sicherheit."
+   },
+   {
+    "q": "Wann wachsen Muskeln?",
+    "a": [
+     "Beim Ausruhen, mit genug Essen und Schlaf",
+     "Nur beim Training"
+    ],
+    "why": "Regeneration ist ein Teil des Trainings."
+   }
+  ]
+ }
+}

@@ -2,7 +2,7 @@
 import * as A from "./audio.js";
 import * as St from "./store.js";
 import { I, LOGO, RANKS, insignia, medal, ring } from "./icons.js";
-import { t, setLang, L } from "./i18n.js";
+import { t, setLang, L, LANGS, langInfo, detectLang, fx } from "./i18n.js";
 import { mountFeet } from "./feet.js";
 import { mountForce } from "./force.js";
 
@@ -18,22 +18,39 @@ let routeId = 0;
 
 // ---------------------------------------------------------------- khởi động
 async function boot() {
-  setLang(St.S().lang);
-  const lang = L();
+  if (!St.S().lang) { St.S().lang = detectLang(); St.save(); }
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && LANGS.some((x) => x.code === q) && q !== St.S().lang) { St.S().lang = q; St.save(); }
+  const lang = await setLang(St.S().lang);
   const get = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); });
-  const [manifest, lines, cat] = await Promise.all([
+  const tr8 = (f) => (lang === "vi" ? Promise.resolve(null) : get(`content/i18n/${lang}/${f}`).catch(() => null));
+  const [manifest, linesVi, cat, oLines, oTracks, oLessons, oForce] = await Promise.all([
     get(`assets/voice/${lang}/manifest.json`).catch(() => ({})),
-    get(`content/lines-${lang}.json`),
-    get(`content/tracks-${lang}.json`),
+    get("content/lines-vi.json"),
+    get("content/tracks-vi.json"),
+    tr8("lines.json"), tr8("tracks.json"), tr8("lessons.json"), tr8("force.json"),
   ]);
-  D.tracks = cat.tracks;
+  D.tracks = cat.tracks.map((x) => ({ ...x, ...(oTracks?.[x.id] || {}) }));
   D.covers = cat.covers;
-  Object.assign(D.text, lines);
+  Object.assign(D.text, linesVi, oLines || {});
   for (const tr of D.tracks.filter((x) => x.file)) {
     const data = await get(`content/${tr.file}`);
     D.order[tr.id] = data.lessons;
     data.lessons.forEach((l, i) => {
       l.track = tr.id; l.no = i + 1;
+      // vị trí chuyển clip: đổi từ "số thứ tự câu" (theo lời giảng gốc) sang "tỉ lệ thời gian lời giảng" để dùng cho mọi ngôn ngữ
+      l.steps.forEach((s) => { if (s.segs) s.segs.forEach((g) => { g.frac = sentFrac(s.say, g.at); }); });
+      const o = oLessons?.[l.id];
+      if (o) {
+        for (const k of ["title", "sub", "intro", "safety", "outro", "home"]) if (o[k]) l[k] = o[k];
+        l.steps.forEach((s) => {
+          const os = o.steps?.[s.id];
+          if (!os) return;
+          for (const k of ["title", "say", "cues", "mistakes"]) if (os[k]) s[k] = os[k];
+          if (os.drill) s.drill = { ...s.drill, ...os.drill };
+        });
+        if (Array.isArray(o.quiz)) l.quiz = l.quiz.map((qq, k) => ({ ...qq, ...(o.quiz[k] || {}) }));
+      }
       D.lessons[l.id] = l;
       D.text[`${l.id}-intro`] = l.intro;
       D.text[`${l.id}-outro`] = l.outro;
@@ -44,8 +61,11 @@ async function boot() {
   }
   // video thầy nói khớp khẩu hình (Kie.ai InfiniTalk), có thì dùng, không có thì dùng clip "đang nói"
   try { (await get(`assets/video/sync/${lang}/index.json`)).forEach((k) => D.sync.add(k)); } catch { /* chưa có */ }
-  try { D.force = await get(`content/force-${lang}.json`); } catch { /* chưa có */ }
-  A.setup(manifest, `assets/voice/${lang}/`);
+  try {
+    D.force = await get("content/force-vi.json");
+    if (oForce) for (const [clip, labels] of Object.entries(oForce)) (D.force[clip] || []).forEach((c, i) => { if (labels[i]) c.l = labels[i]; });
+  } catch { /* chưa có */ }
+  A.setup(manifest, `assets/voice/${lang}/`, { lang, text: (k) => D.text[k] || "" });
   A.configure(St.S().settings);
   A.onSpeak(setTalking);
   window.addEventListener("hashchange", route);
@@ -95,6 +115,43 @@ function render(html, { tab = null } = {}) {
 function buildTabbar() {
   const tabs = [["home", I.home, t("tabHome")], ["track/tay-khong", I.map, t("tabMap")], ["drills", I.bolt, t("tabDrill")], ["me", I.user, t("tabMe")]];
   $("#tabbar").innerHTML = tabs.map(([h, ic, lb]) => `<button data-tab="${h.split("/")[0]}" data-go="#/${h}">${ic}<span>${lb}</span></button>`).join("");
+}
+
+// Bảng chọn ngôn ngữ. Đổi ngôn ngữ → lưu rồi tải lại trang (nội dung, giọng, phông, hướng chữ đều đổi theo).
+document.addEventListener("click", (e) => {
+  if (!e.target.closest("[data-lang-open]")) return;
+  A.sfx("tap");
+  openLangSheet();
+});
+async function openLangSheet() {
+  let voiced = [];
+  try { voiced = await fetch("assets/voice/index.json").then((r) => r.json()); } catch { /* chưa có */ }
+  const ov = $("#overlay");
+  ov.innerHTML = `<div class="modal-bg lang-bg"><div class="card modal langsheet" role="dialog" aria-label="${t("langPick")}">
+    <div class="ls-head"><h2>${t("langPick")}</h2><button class="icon-btn" id="lsx" aria-label="${t("back")}">${I.close}</button></div>
+    <div class="ls-grid">${LANGS.map((x) => `<button class="ls-item ${x.code === L() ? "on" : ""}" data-lang="${x.code}" lang="${x.code}" dir="${x.rtl ? "rtl" : "ltr"}">
+      <b>${esc(x.name)}</b><small>${x.code.toUpperCase()}${voiced.includes(x.code) ? ` · ${I.mic}` : ""}</small></button>`).join("")}</div>
+    <p class="fineprint">${I.mic} ${t("voiceRecorded")}</p>
+  </div></div>`;
+  // nạp phông của mọi chữ viết để tên ngôn ngữ hiển thị đúng
+  const fams = [...new Set(LANGS.map((x) => x.font).filter(Boolean))];
+  if (!document.getElementById("font-all")) {
+    const link = document.createElement("link");
+    link.id = "font-all"; link.rel = "stylesheet";
+    link.href = `https://fonts.googleapis.com/css2?${fams.map((f) => `family=${encodeURIComponent(f)}:wght@600`).join("&")}&display=swap`;
+    document.head.appendChild(link);
+  }
+  $("#lsx").onclick = () => { ov.innerHTML = ""; };
+  $(".lang-bg").onclick = (e) => { if (e.target.classList.contains("lang-bg")) ov.innerHTML = ""; };
+  $$(".ls-item").forEach((b) => b.onclick = () => {
+    const c = b.dataset.lang;
+    if (c === L()) { ov.innerHTML = ""; return; }
+    A.stop();
+    St.S().lang = c; St.save();
+    const u = new URL(location.href); u.searchParams.delete("lang");
+    location.replace(u.toString());
+    setTimeout(() => location.reload(), 50);
+  });
 }
 
 // Chạm vào bất cứ phần tử nào có data-go để chuyển màn hình.
@@ -210,7 +267,14 @@ function setTalking(on, key) {
   }
 }
 
-const sentences = (text) => text.match(/[^.!?:]+[.!?:]*\s*/g) || [text];
+const sentences = (text) => text.match(/[^.!?:。！？؟।။]+[.!?:。！？؟।။]*\s*/g) || [text];
+// "at" = số thứ tự câu (có thể lẻ) trong lời giảng gốc → tỉ lệ 0..1 theo độ dài chữ
+function sentFrac(text, at) {
+  const w = sentences(text).map((x) => x.length);
+  const total = w.reduce((x, y) => x + y, 0) || 1;
+  const i = Math.floor(at), f = at - i;
+  return (w.slice(0, i).reduce((x, y) => x + y, 0) + (w[i] || 0) * f) / total;
+}
 
 // Thầy nói câu `key`, phụ đề chạy theo từng câu trong ô `box` (nếu có).
 function speak(key, box, cap, onPos) {
@@ -230,7 +294,7 @@ function speak(key, box, cap, onPos) {
       if (pos < acc + weights[i]) { idx = i; frac = (pos - acc) / weights[i]; break; }
       acc += weights[i];
     }
-    if (onPos) onPos(idx + frac);
+    if (onPos) onPos(pos / total);
     if (!box || idx === lastIdx) return;
     lastIdx = idx;
     $$(".s", box).forEach((s, i) => { s.className = `s ${i < idx ? "past" : i === idx ? "now" : ""}`; });
@@ -263,6 +327,7 @@ function screenStart() {
   render(`<section class="start">
     <div class="hero">${coachHTML({ bubble: false })}
       <div class="logo">${LOGO}<h1>${t("brand")}</h1><p>${t("tagline")}</p></div>
+      <button class="langbtn start-lang" data-lang-open>${I.globe}<span>${esc(langInfo(L()).name)}</span></button>
     </div>
     <div class="panel">
       <div class="card speech-card" style="position:relative;padding:0;min-height:0">
@@ -336,10 +401,11 @@ function nextLesson() {
 function topbar({ back = null, title = "" } = {}) {
   const st = St.streak();
   const left = back
-    ? `<button class="icon-btn" data-go="${back}" aria-label="Quay lại">${I.back}</button><div class="title">${title}</div>`
+    ? `<button class="icon-btn" data-go="${back}" aria-label="${t("back")}">${I.back}</button><div class="title">${title}</div>`
     : `<div class="brand">${LOGO}<div><b>${t("brand")}</b><small>${t("tagline")}</small></div></div>`;
   return `<header class="topbar">${left}<div class="stat-row">
-      <span class="pill" title="Chuỗi ngày tập">${I.flame}${st}</span>
+      ${back ? "" : `<button class="pill langpill" data-lang-open aria-label="${t("langH")}">${I.globe}${L().toUpperCase()}</button>`}
+      <span class="pill" title="${t("streakTitle")}">${I.flame}${st}</span>
       <span class="pill">${I.spark}${St.S().xp}</span></div></header>`;
 }
 
@@ -445,18 +511,18 @@ function screenLesson(id) {
   const ls = D.order[l.track];
   if (!St.unlocked(ls, ls.indexOf(l))) { toast(t("lessonLockedToast")); return go(`#/track/${l.track}`); }
   const Ls = St.lessonState(id);
-  render(`${topbar({ back: `#/track/${l.track}`, title: `<span class="eyebrow">Bài ${l.no}</span><h1>${esc(l.title)}</h1>` })}
+  render(`${topbar({ back: `#/track/${l.track}`, title: `<span class="eyebrow">${t("lessonN", l.no)}</span><h1>${esc(l.title)}</h1>` })}
     <div class="wrap lesson-intro">
       <div style="display:grid;gap:14px">
         <div class="cover" style="background-image:url(assets/img/kf/${D.covers[l.id] || l.steps[0].id}.webp)">
-          <div class="ctext"><span class="eyebrow">Bài ${l.no} · ${esc(D.tracks.find((x) => x.id === l.track).title)}</span><h1>${esc(l.title)}</h1>
+          <div class="ctext"><span class="eyebrow">${t("lessonN", l.no)} · ${esc(D.tracks.find((x) => x.id === l.track).title)}</span><h1>${esc(l.title)}</h1>
             <div class="facts"><span class="pill">${I.clock}${t("min", l.minutes)}</span><span class="pill">${I.list}${t("steps", l.steps.length)}</span><span class="pill">${I.target}${t("level", l.level)}</span><span class="pill">${I.spark}${l.xp} XP</span></div>
           </div></div>
         <div class="card" style="overflow:hidden">${coachHTML({ cls: "mini" })}</div>
       </div>
       <div style="display:grid;gap:14px">
         <div class="safety">${I.warn}<div><b>${t("safetyH")}:</b> ${esc(l.safety)}</div></div>
-        ${l.home ? `<div class="homework">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^Bài tập về nhà:\s*/, ""))}</div></div>` : ""}
+        ${l.home ? `<div class="homework">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^[^:：]{1,40}[:：]\s*/, ""))}</div></div>` : ""}
         <div class="card chapters"><div class="panel-h">${t("chapters")}</div>
           ${l.steps.map((st, i) => `<button class="chap" data-go="#/play/${l.id}/${i}"><img src="assets/img/kf/${st.id}.webp" alt="" loading="lazy"><span class="n ${Ls.seen.includes(i) ? "seen" : ""}">${i + 1}</span><span class="t">${esc(st.title)}</span>${I.next}</button>`).join("")}
           <button class="chap" data-go="#/quiz/${l.id}"><span class="n">${I.quiz}</span><span class="t">${t("toQuiz")}</span>${I.next}</button>
@@ -493,15 +559,15 @@ function screenPlay(id, idx) {
   const d = st.drill;
   const drillLabel = d.type === "reps" ? t("reps", d.n) : d.type === "rounds" ? t("rounds", d.rounds, d.n) : t("secs", d.n);
   // các clip của bước: mỗi clip ứng với một đoạn lời giảng (at = số thứ tự câu)
-  const segs = (st.segs || [{ at: 0, file: st.id }]).map((g) => ({ at: g.at, diagram: !!g.diagram, file: g.diagram ? null : g.file || `${st.id}-${g.key}` }));
+  const segs = (st.segs || [{ frac: 0, file: st.id }]).map((g) => ({ at: g.frac ?? 0, diagram: !!g.diagram, file: g.diagram ? null : g.file || `${st.id}-${g.key}` }));
   const firstFile = (segs.find((g) => g.file) || { file: st.id }).file;
   const nextHref = last ? `#/quiz/${l.id}` : `#/play/${l.id}/${idx + 1}`;
-  render(`${topbar({ back: `#/lesson/${l.id}`, title: `<span class="eyebrow">Bài ${l.no} · ${t("step")} ${idx + 1}/${l.steps.length}</span><h1>${esc(l.title)}</h1>` })}
+  render(`${topbar({ back: `#/lesson/${l.id}`, title: `<span class="eyebrow">${t("lessonN", l.no)} · ${t("step")} ${idx + 1}/${l.steps.length}</span><h1>${esc(l.title)}</h1>` })}
     <div class="wrap player">
       <div class="left">
         <div class="stage">
           <video id="vid" ${segs[0].file ? `src="assets/video/${segs[0].file}.mp4"` : ""} poster="assets/img/kf/${firstFile}.webp" muted ${segs.length > 1 ? "" : "loop"} playsinline autoplay preload="auto" class="${view.mirror ? "mirror" : ""}"></video>
-          <div class="slowtag" id="slowtag">0,5×</div>
+          <div class="slowtag" id="slowtag">0${t("decimal")}5×</div>
           ${segs.some((g) => g.diagram) ? `<div class="stagefeet ${segs[0].diagram ? "" : "off"}" id="stagefeet"></div>` : ""}
           <div class="pip coach live ${St.S().settings.pip ? "" : "hide"}" style="background-image:url(assets/img/coach.webp)">
             <video class="idle" src="assets/video/coach-idle.mp4" muted loop playsinline autoplay preload="auto"></video>
@@ -514,7 +580,7 @@ function screenPlay(id, idx) {
             ${segs.some((g) => g.file && D.force[g.file]) ? `<button class="icon-btn ${St.S().settings.force !== false ? "on" : ""}" id="bForce" aria-label="${t("forceBtn")}" title="${t("forceBtn")}">${I.arrow}</button>` : ""}
             <button class="icon-btn ${view.mirror ? "on" : ""}" id="bMirror" aria-label="${t("mirror")}" title="${t("mirror")}">${I.mirror}</button></div>
           <div class="ctrl">
-            <button class="icon-btn" id="bPlay" aria-label="Phát / dừng">${I.pause}</button>
+            <button class="icon-btn" id="bPlay" aria-label="${t("playPause")}">${I.pause}</button>
             <button class="icon-btn" id="bReplay" aria-label="${t("replay")}" title="${t("replay")}">${I.replay}</button>
             <button class="icon-btn ${St.S().settings.pip ? "on" : ""}" id="bPip" aria-label="${t("pip")}" title="${t("pip")}">${I.user}</button>
             <button class="icon-btn" id="bFull" aria-label="${t("full")}" title="${t("full")}">${I.expand}</button>
@@ -527,7 +593,7 @@ function screenPlay(id, idx) {
         <div class="step-title"><h2>${idx + 1}. ${esc(st.title)}</h2></div>
         <label class="autorow ${autoOn() ? "on" : ""}" id="autorow"><span>${I.play}<span><b>${t("autoTeach")}</b><small>${autoOn() ? t("autoTeachOn") : t("autoTeachOff")}</small></span></span><button class="switch ${autoOn() ? "on" : ""}" id="bAuto" aria-label="${t("autoTeach")}"></button></label>
         <div class="card subtitle"><div class="who">${t("coach")} <span class="eq" style="visibility:hidden"><i></i><i></i><i></i></span><span class="grow"></span>
-          <span class="rates">${[0.85, 1, 1.15].map((r) => `<button class="rate ${A.rate() === r ? "on" : ""}" data-rate="${r}">${String(r).replace(".", ",")}×</button>`).join("")}</span></div><div id="sub"></div></div>
+          <span class="rates">${[0.85, 1, 1.15].map((r) => `<button class="rate ${A.rate() === r ? "on" : ""}" data-rate="${r}">${String(r).replace(".", t("decimal"))}×</button>`).join("")}</span></div><div id="sub"></div></div>
         <button class="btn ghost block" id="bDrill">${I.bolt}${t("practice")} · ${drillLabel}</button>
         <div class="card cues"><div class="panel-h">${t("cuesH")}</div>
           ${st.cues.map((c, i) => `<button class="cue ${checks[i] ? "on" : ""}" data-i="${i}"><span class="box"></span><span>${esc(c)}</span></button>`).join("")}</div>
@@ -594,7 +660,7 @@ function screenPlay(id, idx) {
   }
   $("#bSlow").onclick = () => {
     view.slow = !view.slow; applyView(); A.sfx("tap");
-    const tag = $("#slowtag"); tag.textContent = view.slow ? "0,5×" : "1×"; tag.classList.add("show"); setTimeout(() => tag.classList.remove("show"), 700);
+    const tag = $("#slowtag"); tag.textContent = view.slow ? `0${t("decimal")}5×` : "1×"; tag.classList.add("show"); setTimeout(() => tag.classList.remove("show"), 700);
   };
   $("#bMirror").onclick = () => { view.mirror = !view.mirror; applyView(); A.sfx("tap"); };
   const bPlay = $("#bPlay");
@@ -722,7 +788,7 @@ function openDrill(st, { auto = false, dock = false } = {}) {
       <circle id="dr" cx="60" cy="60" r="${R}" stroke="#e8d3a6" stroke-width="8" fill="none" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg>
       <div class="big"><b id="dn">${d.type === "reps" ? 0 : d.n}</b><small id="du">${d.type === "reps" ? `/ ${d.n} ${t("count")}` : t("seconds")}</small></div></div>
     <div class="drill-call" id="dc"></div>
-    ${d.type === "reps" ? `<div class="tempo">${t("tempo")}: <button class="btn ghost sm" data-tp="3.2">Chậm</button><button class="btn ghost sm" data-tp="2.4">Vừa</button><button class="btn ghost sm" data-tp="1.7">Nhanh</button></div>` : ""}
+    ${d.type === "reps" ? `<div class="tempo">${t("tempo")}: <button class="btn ghost sm" data-tp="3.2">${t("tempoSlow")}</button><button class="btn ghost sm" data-tp="2.4">${t("tempoMid")}</button><button class="btn ghost sm" data-tp="1.7">${t("tempoFast")}</button></div>` : ""}
     <div class="dbtns"><button class="btn ghost" id="dx">${auto ? t("skip") : t("stop")}</button><button class="btn" id="dg">${I.play}${t("go")}</button></div>
   </div></div>`;
   return new Promise((resolve) => {
@@ -783,8 +849,9 @@ function openDrill(st, { auto = false, dock = false } = {}) {
             num.textContent = Math.ceil(left);
             setRing(1 - left / d.n);
             if (d.type === "calls" && Date.now() >= nextCall && left > 1) {
-              const c = d.calls[Math.floor(Math.random() * d.calls.length)];
-              const key = { "Tiến!": "call_tien", "Lùi!": "call_lui", "Sang trái!": "call_trai", "Sang phải!": "call_phai", "Xoay!": "call_xoay" }[c];
+              const ci = Math.floor(Math.random() * d.calls.length);
+              const c = d.calls[ci];
+              const key = ["call_tien", "call_lui", "call_trai", "call_phai", "call_xoay"][ci];
               call.textContent = c; A.say(key); A.sfx("tick");
               nextCall = Date.now() + 2200 + Math.random() * 800;
             }
@@ -922,7 +989,7 @@ function showResult(l, score) {
       ${res.gained ? `<div class="xpgain" id="xpg">+0 XP</div>` : ""}
       ${res.rankUp != null ? `<div class="card reward">${insignia(res.rankUp)}<div><span class="eyebrow">${t("rankUp")}</span><h3>${rankName(res.rankUp)}</h3></div></div>` : ""}
       ${res.badges.map((b) => `<div class="card reward">${medal(b === "streak3" ? "flame3" : b === "streak7" ? "flame7" : b)}<div><span class="eyebrow">${t("newBadge")}</span><h3>${t("badges")[b][0]}</h3><span class="muted">${t("badges")[b][1]}</span></div></div>`).join("")}
-      ${res.pass && l.home ? `<div class="homework" style="width:100%;text-align:left">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^Bài tập về nhà:\s*/, ""))}</div></div>` : ""}
+      ${res.pass && l.home ? `<div class="homework" style="width:100%;text-align:left">${I.clock}<div><b>${t("homeH")}</b> ${esc(l.home.replace(/^[^:：]{1,40}[:：]\s*/, ""))}</div></div>` : ""}
       <div class="card rankcard" style="width:100%">${insignia(r.lvl)}<div class="info"><b>${rankName(r.lvl)}</b><div class="xpbar"><i style="width:${Math.round(r.pct * 100)}%"></i></div></div></div>
       <div style="display:grid;gap:10px;width:100%">
         ${res.pass && nx ? `<button class="btn block" data-go="#/lesson/${nx.id}">${t("nextLesson")}: ${esc(nx.title)} ${I.next}</button>` : ""}
@@ -961,18 +1028,18 @@ async function certificate(name, trackTitle) {
   await new Promise((r) => { logo.onload = r; logo.onerror = r; });
   try { x.drawImage(logo, W / 2 - 90, 100, 180, 180); } catch { /* bỏ qua */ }
   x.textAlign = "center"; x.fillStyle = gold;
-  x.font = "600 30px Oswald, sans-serif"; x.fillText(t("brand").split("").join(" "), W / 2, 330);
-  x.font = "700 78px Oswald, sans-serif"; x.fillText(t("certTitle"), W / 2, 440);
-  x.fillStyle = "#a9ab9b"; x.font = "400 30px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certGiven"), W / 2, 520);
-  x.fillStyle = "#eeece3"; x.font = "700 86px 'Be Vietnam Pro', sans-serif"; x.fillText(name, W / 2, 630);
-  x.fillStyle = "#a9ab9b"; x.font = "400 30px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certFor"), W / 2, 710);
-  x.fillStyle = gold; x.font = "600 46px Oswald, sans-serif"; x.fillText(`${trackTitle.toUpperCase()} · ${t("badges").grad[0].toUpperCase()}`, W / 2, 780);
+  x.font = `600 30px Oswald, ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(/^[\p{Script=Latin}\p{Script=Cyrillic}\p{Script=Greek}\s-]+$/u.test(t("brand")) ? t("brand").split("").join(" ") : t("brand"), W / 2, 330);
+  x.font = `700 78px Oswald, ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(t("certTitle"), W / 2, 440);
+  x.fillStyle = "#a9ab9b"; x.font = `400 30px 'Be Vietnam Pro', ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(t("certGiven"), W / 2, 520);
+  x.fillStyle = "#eeece3"; x.font = `700 86px 'Be Vietnam Pro', ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(name, W / 2, 630);
+  x.fillStyle = "#a9ab9b"; x.font = `400 30px 'Be Vietnam Pro', ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(t("certFor"), W / 2, 710);
+  x.fillStyle = gold; x.font = `600 46px Oswald, ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(`${trackTitle.toUpperCase()} · ${t("badges").grad[0].toUpperCase()}`, W / 2, 780);
   const d = new Date();
-  x.fillStyle = "#a9ab9b"; x.font = "400 26px 'Be Vietnam Pro', sans-serif";
+  x.fillStyle = "#a9ab9b"; x.font = `400 26px 'Be Vietnam Pro', ${fx() ? `'${fx()}', ` : ""}sans-serif`;
   x.fillText(`${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`, W * 0.27, 960);
   x.fillText(t("coach"), W * 0.73, 960);
   x.strokeStyle = "rgba(232,211,166,.4)"; x.beginPath(); x.moveTo(W * 0.17, 910); x.lineTo(W * 0.37, 910); x.moveTo(W * 0.63, 910); x.lineTo(W * 0.83, 910); x.stroke();
-  x.fillStyle = "#74776a"; x.font = "400 20px 'Be Vietnam Pro', sans-serif"; x.fillText(t("certNote"), W / 2, 1040);
+  x.fillStyle = "#74776a"; x.font = `400 20px 'Be Vietnam Pro', ${fx() ? `'${fx()}', ` : ""}sans-serif`; x.fillText(t("certNote"), W / 2, 1040);
   const a = document.createElement("a");
   a.download = "soi-taiga-chung-nhan.png";
   a.href = c.toDataURL("image/png");
@@ -1013,7 +1080,7 @@ function screenDrills() {
       <div class="home-hero" style="position:relative">${coachHTML({ cls: "wide" })}</div>
       <div class="section-h"><h2>${t("drillsH")}</h2>${rows.length ? `<button class="btn sm" id="rnd">${I.bolt}${t("randomDrill")}</button>` : ""}</div>
       <p class="muted" style="margin:-6px 2px 4px">${rows.length ? t("drillsSub") : t("drillsEmpty")}</p>
-      <div class="drills">${rows.map(({ l, st }, i) => `<button class="card drill-row" data-k="${i}"><img src="assets/img/kf/${st.id}.webp" alt="" loading="lazy"><span class="t">${esc(st.drill.label)}<small>Bài ${l.no} · ${esc(st.title)} · ${label(st.drill)}</small></span>${I.play}</button>`).join("")}</div>
+      <div class="drills">${rows.map(({ l, st }, i) => `<button class="card drill-row" data-k="${i}"><img src="assets/img/kf/${st.id}.webp" alt="" loading="lazy"><span class="t">${esc(st.drill.label)}<small>${t("lessonN", l.no)} · ${esc(st.title)} · ${label(st.drill)}</small></span>${I.play}</button>`).join("")}</div>
       ${rows.length ? "" : `<button class="btn block" data-go="#/lesson/tk1">${I.play}${esc(D.lessons.tk1.title)}</button>`}
     </div>`, { tab: "drills" });
   $(".coach.wide").style.aspectRatio = "16 / 9";
@@ -1043,6 +1110,7 @@ function screenMe() {
           <span class="muted" style="font-size:12.5px">${r.nxt ? t("toNext", r.nxt.xp - s.xp, t("ranks")[r.nxt.id]) : t("maxRank")}</span></div>
         <div class="card"><div class="panel-h">${t("calH")}</div><div class="cal">${cells.join("")}</div></div>
         <div class="card settings"><div class="panel-h" style="padding-left:0">${t("settingsH")}</div>
+          <div class="set-row"><span>${t("langH")}</span><button class="btn ghost sm" data-lang-open>${I.globe}${esc(langInfo(L()).name)}</button></div>
           ${sw("voice", t("setVoice"))}${sw("sfx", t("setSfx"))}${sw("ambient", t("setAmb"))}${sw("autoTeach", t("autoTeach"))}${sw("pip", t("pip"))}
           <div class="set-row"><span class="muted" style="font-size:12.5px">${t("disclaimer")}</span></div>
           <div class="set-row"><button class="btn ghost sm" id="reset">${t("resetBtn")}</button></div></div>
@@ -1066,5 +1134,5 @@ function screenMe() {
 
 boot().catch((e) => {
   console.error(e);
-  app.innerHTML = `<div class="wrap" style="padding-top:40px"><div class="card" style="padding:20px">Không tải được dữ liệu. Hãy tải lại trang.</div></div>`;
+  app.innerHTML = `<div class="wrap" style="padding-top:40px"><div class="card" style="padding:20px">${(() => { try { return t("loadError"); } catch { return "Error"; } })()}</div></div>`;
 });

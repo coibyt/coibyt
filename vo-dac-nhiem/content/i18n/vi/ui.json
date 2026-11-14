@@ -219,5 +219,6 @@
  "langH": "Ngôn ngữ",
  "langPick": "Chọn ngôn ngữ học",
  "voiceDevice": "Giọng đọc của máy (chưa có giọng thầy thu sẵn cho ngôn ngữ này)",
- "decimal": ","
+ "decimal": ",",
+ "voiceRecorded": "Có giọng huấn luyện viên thu sẵn. Ngôn ngữ khác dùng giọng đọc của máy."
 }
