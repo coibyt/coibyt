@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Khởi động & hơi thở",
+  "sub": "Xoay khớp, làm nóng, thở dẫn bước, thở xả, căng – chùng",
+  "intro": "Bài đầu tiên. Chưa có đòn thế nào cả. Một chiến binh giỏi bắt đầu từ khớp xương ấm và hơi thở bình tĩnh. Hãy làm theo tôi từng bước.",
+  "safety": "Khởi động trước mọi buổi tập. Đau nhói ở khớp là dừng ngay.",
+  "outro": "Tốt lắm. Khớp đã ấm, hơi thở đã vào nhịp. Buổi sau ta học thế đứng và bộ pháp.",
+  "home": "Bài tập về nhà: mỗi sáng, khởi động và thở theo bước mười phút, liên tục bảy ngày.",
+  "steps": {
+   "tk1-1": {
+    "title": "Xoay khớp từ trên xuống",
+    "say": "Đứng thẳng, hai chân rộng bằng vai. Xoay cổ thật chậm, năm vòng mỗi chiều. Tiếp theo xoay vai, xoay khuỷu tay, xoay cổ tay. Rồi xoay hông, xoay gối và cổ chân. Đi lần lượt từ trên xuống dưới, động tác tròn và mềm, không giật. Khớp có ấm thì cơ thể mới an toàn khi ngã và khi ra đòn.",
+    "cues": [
+     "Từ trên xuống: cổ → vai → khuỷu → cổ tay → hông → gối → cổ chân",
+     "Mỗi khớp 5 vòng mỗi chiều",
+     "Chậm, tròn, không giật"
+    ],
+    "mistakes": [
+     "Xoay cổ quá nhanh, ngửa cổ ra sau quá mạnh",
+     "Nín thở khi xoay"
+    ],
+    "drill": {
+     "label": "Xoay khớp",
+     "say": "Đến lượt bạn. Xoay khớp trong chín mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk1-2": {
+    "title": "Làm nóng cơ thể",
+    "say": "Chạy tại chỗ, nâng cao gối trong ba mươi giây. Tiếp theo là mười cái squat: hạ hông xuống như ngồi vào ghế, lưng thẳng, gối hướng theo mũi chân. Rồi mười cái chống đẩy, ai chưa quen thì chống gối. Mục tiêu là cơ thể ấm lên và hơi thở nhanh hơn một chút, chứ không phải tập đến kiệt sức.",
+    "cues": [
+     "30 giây chạy nâng gối",
+     "10 squat: lưng thẳng, gối theo mũi chân",
+     "10 chống đẩy (được chống gối)"
+    ],
+    "mistakes": [
+     "Gối đổ vào trong khi squat",
+     "Võng lưng khi chống đẩy"
+    ],
+    "drill": {
+     "label": "Squat",
+     "say": "Đến lượt bạn. Squat: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk1-3": {
+    "title": "Hơi thở dẫn bước",
+    "say": "Đây là bài thở quen thuộc của các hệ võ thực chiến Nga. Đi bộ đều. Hít vào bằng mũi trong bốn bước, thở ra bằng miệng trong bốn bước. Sau một phút, giảm xuống ba bước, rồi hai bước, rồi một bước. Sau đó tăng ngược trở lại bốn bước. Nhớ kỹ: hơi thở dẫn chuyển động. Không bao giờ nín thở.",
+    "cues": [
+     "Hít mũi 4 bước – thở miệng 4 bước",
+     "Giảm dần 4 → 3 → 2 → 1, rồi tăng lại",
+     "Vai thả lỏng, không nín thở"
+    ],
+    "mistakes": [
+     "Nín thở khi đổi nhịp",
+     "Nhún vai lên khi hít vào"
+    ],
+    "drill": {
+     "label": "Đi bộ thở theo bước",
+     "say": "Đến lượt bạn. Đi bộ thở theo bước trong một trăm hai mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk1-4": {
+    "title": "Thở xả khi gắng sức",
+    "say": "Khi mệt hoặc căng thẳng, hãy thở ngắn và nhanh: hít vào bằng mũi, thở ra mạnh bằng miệng, nhiều lần liên tiếp, giống như thổi tắt ngọn nến. Tập thử ngay: giữ tư thế chống đẩy ở trên cao trong hai mươi giây và thở xả liên tục. Bạn sẽ thấy cơ bớt căng cứng, đầu óc tỉnh táo hơn.",
+    "cues": [
+     "Hít mũi ngắn – thổi ra miệng mạnh",
+     "Liên tục như thổi nến",
+     "Giữ plank cao 20 giây khi thở"
+    ],
+    "mistakes": [
+     "Thở dồn dập đến chóng mặt: chậm lại",
+     "Hông võng xuống khi giữ plank"
+    ],
+    "drill": {
+     "label": "Plank cao + thở xả",
+     "say": "Đến lượt bạn. Plank cao + thở xả trong hai mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk1-5": {
+    "title": "Căng – chùng toàn thân",
+    "say": "Nằm ngửa trên thảm. Hít vào, siết chặt hai bàn chân trong ba giây, rồi thở ra và thả lỏng hoàn toàn. Lần lượt đi lên bắp chân, đùi, bụng, nắm tay, vai và cả khuôn mặt. Cuối cùng siết toàn thân một lần rồi thả. Người biết thả lỏng sẽ chịu va chạm tốt hơn, di chuyển nhanh hơn và ít chấn thương hơn.",
+    "cues": [
+     "Hít vào – siết 3 giây",
+     "Thở ra – thả lỏng hoàn toàn",
+     "Từ bàn chân lên tới mặt"
+    ],
+    "mistakes": [
+     "Siết quá mạnh đến chuột rút",
+     "Quên thở ra khi thả"
+    ],
+    "drill": {
+     "label": "Căng – chùng",
+     "say": "Đến lượt bạn. Căng – chùng trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Khi xoay khớp, nên đi theo thứ tự nào?",
+    "a": [
+     "Từ trên xuống: cổ, vai… tới cổ chân",
+     "Ngẫu nhiên, khớp nào cũng được",
+     "Chỉ cần xoay cổ chân"
+    ],
+    "why": "Đi từ trên xuống giúp không bỏ sót khớp nào."
+   },
+   {
+    "q": "Trong bài thở dẫn bước, hít vào bằng gì?",
+    "a": [
+     "Bằng miệng",
+     "Bằng mũi",
+     "Nín thở rồi hít"
+    ],
+    "why": "Hít bằng mũi, thở ra bằng miệng, theo nhịp bước chân."
+   },
+   {
+    "q": "Thở xả dùng khi nào?",
+    "a": [
+     "Khi mệt hoặc căng thẳng",
+     "Chỉ khi ngủ",
+     "Không bao giờ"
+    ],
+    "why": "Thở ngắn, mạnh giúp giảm căng cơ và giữ tỉnh táo khi gắng sức."
+   },
+   {
+    "q": "Vì sao cần biết thả lỏng?",
+    "a": [
+     "Để trông đẹp hơn",
+     "Chịu va chạm tốt hơn, di chuyển nhanh hơn, ít chấn thương",
+     "Để khỏi phải khởi động"
+    ],
+    "why": "Cơ căng cứng phản ứng chậm và dễ chấn thương hơn."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Thế đứng & bộ pháp",
+  "sub": "Hàng rào tay, thế chiến đấu, bước trượt, xoay trụ",
+  "intro": "Đôi chân quyết định tất cả. Đứng vững thì mới đỡ được, mới đánh được, mới thoát được. Hôm nay ta xây nền móng.",
+  "safety": "Tập trên nền phẳng, không trơn. Bước ngắn và chắc.",
+  "outro": "Nền móng đã có. Đôi chân vững là nửa trận đấu. Bài sau: học cách ngã an toàn.",
+  "home": "Bài tập về nhà: mỗi ngày mười phút đứng thế và di chuyển, ba hiệp, trong bảy ngày.",
+  "steps": {
+   "tk2-1": {
+    "title": "Thế cảnh giác – hàng rào tay",
+    "say": "Khi có người tiến lại gần với thái độ gây hấn, đừng nắm đấm vội. Đứng hơi chéo người, chân thuận lùi về sau nửa bước. Hai bàn tay mở, đưa ra trước ngực, lòng bàn tay hướng về phía trước, như đang nói: bình tĩnh nào. Hai tay là hàng rào giữ khoảng cách. Trông bạn không hung hăng, nhưng thật ra đã sẵn sàng.",
+    "cues": [
+     "Đứng chéo, chân thuận lùi nửa bước",
+     "Hai bàn tay mở trước ngực",
+     "Giữ khoảng cách, giọng bình tĩnh"
+    ],
+    "mistakes": [
+     "Nắm đấm ngay: dễ leo thang xung đột",
+     "Đứng thẳng mặt, hai chân song song"
+    ],
+    "drill": {
+     "label": "Vào thế hàng rào",
+     "say": "Đến lượt bạn. Vào thế hàng rào: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk2-2": {
+    "title": "Thế đứng chiến đấu",
+    "say": "Người thuận tay phải: chân trái trước, chân phải sau. Hai bàn chân cách nhau rộng hơn vai một chút, mũi chân trước hơi chếch vào trong, gót chân sau hơi nhấc. Gối chùng, trọng lượng chia đều hai chân. Hai tay lên trước mặt, khuỷu tay khép che sườn, cằm thu xuống, mắt nhìn qua hai nắm tay. Người thuận tay trái thì làm ngược lại.",
+    "cues": [
+     "Chân trái trước (thuận tay phải)",
+     "Gối chùng, gót sau hơi nhấc",
+     "Tay che mặt, khuỷu che sườn, cằm thu"
+    ],
+    "mistakes": [
+     "Hai chân cùng trên một đường thẳng: dễ mất thăng bằng",
+     "Hất cằm lên, hạ tay xuống"
+    ],
+    "drill": {
+     "label": "Vào thế chiến đấu",
+     "say": "Đến lượt bạn. Vào thế chiến đấu: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk2-3": {
+    "title": "Bước trượt tiến – lùi",
+    "say": "Muốn tiến: chân trước bước đi trước một bước ngắn, chân sau trượt theo đúng khoảng cách ấy. Muốn lùi: chân sau lùi trước, chân trước rút theo. Bàn chân lướt sát mặt đất, không nhảy. Không bao giờ để hai chân bắt chéo hay chụm lại. Sau mỗi bước, bạn vẫn đúng thế đứng ban đầu.",
+    "cues": [
+     "Tiến: chân trước đi trước",
+     "Lùi: chân sau đi trước",
+     "Khoảng cách hai chân không đổi"
+    ],
+    "mistakes": [
+     "Bắt chéo chân",
+     "Nhảy lên thay vì trượt"
+    ],
+    "drill": {
+     "label": "Bước tiến – lùi",
+     "say": "Đến lượt bạn. Bước tiến – lùi: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk2-4": {
+    "title": "Bước ngang",
+    "say": "Sang trái thì chân trái đi trước, sang phải thì chân phải đi trước, chân còn lại trượt theo. Giữ khoảng cách hai chân không đổi, tay vẫn che mặt. Trên nền bùn trơn, bước càng ngắn càng chắc.",
+    "cues": [
+     "Sang trái: chân trái trước",
+     "Sang phải: chân phải trước",
+     "Bước ngắn trên nền trơn"
+    ],
+    "mistakes": [
+     "Chân sau bước qua chân trước",
+     "Hạ tay khi di chuyển"
+    ],
+    "drill": {
+     "label": "Bước ngang",
+     "say": "Đến lượt bạn. Bước ngang: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk2-5": {
+    "title": "Xoay trụ đổi góc",
+    "say": "Đứng thế chiến đấu. Lấy mũi chân trước làm trụ, xoay chân sau theo vòng cung một phần tư vòng tròn. Cả người đổi góc chín mươi độ, ra khỏi đường lao tới của đối phương. Xoay bên này mười lần, rồi đổi chiều.",
+    "cues": [
+     "Trụ trên mũi chân trước",
+     "Chân sau quét vòng cung",
+     "Đổi góc 90°, tay vẫn thủ"
+    ],
+    "mistakes": [
+     "Trụ bằng gót chân",
+     "Đứng thẳng người khi xoay"
+    ],
+    "drill": {
+     "label": "Xoay trụ mỗi chiều",
+     "say": "Đến lượt bạn. Xoay trụ mỗi chiều: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk2-6": {
+    "title": "Di chuyển theo khẩu lệnh",
+    "say": "Bây giờ hãy di chuyển theo khẩu lệnh của tôi trong ba mươi giây: tiến, lùi, trái, phải, xoay. Giữ tay, giữ cằm, giữ hơi thở đều. Đôi chân nhanh nhưng thân trên luôn bình tĩnh.",
+    "cues": [
+     "Tiến – lùi – trái – phải – xoay",
+     "Tay và cằm luôn đúng vị trí",
+     "Thở đều"
+    ],
+    "mistakes": [
+     "Nhìn xuống chân",
+     "Bước quá dài"
+    ],
+    "drill": {
+     "label": "Bộ pháp theo khẩu lệnh",
+     "say": "Đến lượt bạn. Di chuyển theo khẩu lệnh của tôi trong ba mươi giây. Nghe kỹ nhé.",
+     "calls": [
+      "Tiến!",
+      "Lùi!",
+      "Sang trái!",
+      "Sang phải!",
+      "Xoay!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Thế hàng rào tay dùng để làm gì?",
+    "a": [
+     "Giữ khoảng cách mà không tỏ ra hung hăng",
+     "Đấm ngay đối phương",
+     "Khoanh tay chờ"
+    ],
+    "why": "Hai bàn tay mở giữ khoảng cách và làm dịu tình huống."
+   },
+   {
+    "q": "Muốn lùi, chân nào đi trước?",
+    "a": [
+     "Chân trước",
+     "Chân sau",
+     "Cả hai cùng nhảy"
+    ],
+    "why": "Hướng nào thì chân gần hướng đó đi trước."
+   },
+   {
+    "q": "Lỗi nguy hiểm nhất khi di chuyển là gì?",
+    "a": [
+     "Bắt chéo hai chân",
+     "Bước ngắn",
+     "Giữ tay che mặt"
+    ],
+    "why": "Chân bắt chéo làm bạn mất thăng bằng rất dễ."
+   },
+   {
+    "q": "Khi xoay trụ, trụ trên phần nào của chân trước?",
+    "a": [
+     "Gót chân",
+     "Mũi chân",
+     "Mép ngoài bàn chân"
+    ],
+    "why": "Trụ trên mũi chân giúp xoay nhẹ và nhanh."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Ngã an toàn",
+  "sub": "Nguyên tắc ngã, ngã ngửa, ngã nghiêng, lộn trước",
+  "intro": "Ở trại này, ai cũng phải học ngã trước khi học quật. Ngã đúng cách là kỹ năng cứu mạng, kể cả khi bạn trượt chân trên đường trơn.",
+  "safety": "Chỉ tập trên đệm dày. Cằm luôn thu. Có người hướng dẫn khi tập lộn.",
+  "outro": "Bạn đã biết ngã. Từ hôm nay, mặt đất không còn đáng sợ nữa. Bài sau: che chắn và đỡ đòn.",
+  "home": "Bài tập về nhà: mỗi ngày mười lần ngã ngửa và mười lần ngã nghiêng mỗi bên trên đệm dày, trong một tuần.",
+  "steps": {
+   "tk3-1": {
+    "title": "Ba nguyên tắc vàng",
+    "say": "Ba nguyên tắc vàng khi ngã. Một: cằm luôn thu sát ngực, để đầu không bao giờ đập xuống đất. Hai: lưng cuộn tròn như bánh xe, để bạn lăn chứ không đập phẳng xuống. Ba: cánh tay đập xuống thảm cùng lúc với thân người, để chia nhỏ lực va chạm. Luôn tập trên đệm dày. Tuyệt đối không tập trên nền cứng.",
+    "cues": [
+     "Cằm thu sát ngực",
+     "Lưng tròn như bánh xe",
+     "Tay đập thảm cùng lúc với thân"
+    ],
+    "mistakes": [
+     "Chống tay thẳng xuống đất khi ngã: dễ gãy cổ tay",
+     "Ngửa đầu ra sau"
+    ],
+    "drill": {
+     "label": "Cuộn lưng, thu cằm",
+     "say": "Đến lượt bạn. Cuộn lưng, thu cằm: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk3-2": {
+    "title": "Ngã ngửa từ tư thế ngồi",
+    "say": "Ngồi trên thảm, hai chân duỗi ra trước, hai tay đưa ra trước. Cằm thu, lưng cuộn tròn, lăn ngửa ra sau. Khi lưng trên chạm thảm, hai cánh tay duỗi thẳng, đập mạnh xuống thảm, chếch khoảng bốn mươi lăm độ so với thân, lòng bàn tay úp. Thở ra khi chạm thảm. Lăn trở về tư thế ngồi. Tập mười lần.",
+    "cues": [
+     "Ngồi, tay đưa ra trước",
+     "Lăn ngửa, cằm thu",
+     "Đập hai tay chếch 45°, lòng bàn tay úp, thở ra"
+    ],
+    "mistakes": [
+     "Đập tay quá xa hoặc sát người",
+     "Đập khuỷu tay xuống thay vì cả cánh tay"
+    ],
+    "drill": {
+     "label": "Ngã ngửa từ ngồi",
+     "say": "Đến lượt bạn. Ngã ngửa từ ngồi: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk3-3": {
+    "title": "Ngã ngửa từ ngồi xổm",
+    "say": "Ngồi xổm, hai tay đưa ra trước. Hạ mông xuống thảm, sát gót chân, rồi lăn tròn ra sau giống bài trước và đập hai tay. Không ngồi phịch xuống. Không để lưng thẳng đập phẳng. Khi đã chắc, đứng lên rồi ngồi xổm xuống liên tục để tập nhanh dần.",
+    "cues": [
+     "Mông hạ sát gót chân",
+     "Lăn tròn, không đập phẳng",
+     "Đập tay, thở ra"
+    ],
+    "mistakes": [
+     "Ngồi phịch xuống xa gót",
+     "Đầu bật ngửa chạm thảm"
+    ],
+    "drill": {
+     "label": "Ngã ngửa từ ngồi xổm",
+     "say": "Đến lượt bạn. Ngã ngửa từ ngồi xổm: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk3-4": {
+    "title": "Ngã nghiêng",
+    "say": "Từ tư thế ngồi xổm, duỗi chân phải chéo qua trước chân trái, hạ người nghiêng sang bên phải. Hông phải, rồi lưng bên phải chạm thảm theo thứ tự, cánh tay phải đập xuống thảm. Cằm thu, đầu không chạm thảm. Rồi đổi bên. Đây là kiểu ngã hay gặp nhất khi bị quật.",
+    "cues": [
+     "Duỗi chân chéo qua trước",
+     "Hông → lưng chạm thảm theo thứ tự",
+     "Tay cùng bên đập thảm"
+    ],
+    "mistakes": [
+     "Chống khuỷu tay xuống",
+     "Đầu đập nghiêng xuống thảm"
+    ],
+    "drill": {
+     "label": "Ngã nghiêng mỗi bên",
+     "say": "Đến lượt bạn. Ngã nghiêng mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk3-5": {
+    "title": "Lộn trước qua vai",
+    "say": "Quỳ một gối trên thảm, chân phải ở trước. Tay phải cong thành vòng cung như vành bánh xe, đặt cạnh ngoài cánh tay xuống thảm. Nhìn qua vai trái. Lăn chéo từ vai phải xuống hông trái. Không lăn qua đỉnh đầu, không lăn thẳng theo cột sống. Kết thúc bằng tư thế ngồi vững hoặc đứng dậy, tay đưa lên che mặt.",
+    "cues": [
+     "Tay tạo vòng cung như bánh xe",
+     "Lăn chéo: vai phải → hông trái",
+     "Không lăn qua đầu, đứng dậy che mặt"
+    ],
+    "mistakes": [
+     "Lăn thẳng qua đỉnh đầu: rất nguy hiểm cho cổ",
+     "Tay gập lại làm đầu chạm thảm"
+    ],
+    "drill": {
+     "label": "Lộn trước mỗi bên",
+     "say": "Đến lượt bạn. Lộn trước mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Khi ngã, cằm phải thế nào?",
+    "a": [
+     "Ngửa lên",
+     "Thu sát ngực",
+     "Quay sang bên"
+    ],
+    "why": "Thu cằm để đầu không đập xuống đất."
+   },
+   {
+    "q": "Cánh tay đập thảm chếch khoảng bao nhiêu độ so với thân?",
+    "a": [
+     "Khoảng 45°",
+     "Sát người 0°",
+     "Thẳng lên trời"
+    ],
+    "why": "Khoảng 45°: chia lực tốt mà không đập khuỷu tay."
+   },
+   {
+    "q": "Khi lộn trước, đường lăn đi thế nào?",
+    "a": [
+     "Thẳng qua đỉnh đầu",
+     "Chéo từ vai xuống hông bên kia",
+     "Lăn ngang"
+    ],
+    "why": "Lăn chéo qua vai để bảo vệ cổ và cột sống."
+   },
+   {
+    "q": "Tập ngã ở đâu?",
+    "a": [
+     "Nền bê tông cho quen",
+     "Trên đệm dày",
+     "Cầu thang"
+    ],
+    "why": "Luôn tập trên đệm dày, an toàn là trên hết."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Che chắn & đỡ đòn",
+  "sub": "Thủ cao, ôm đầu, gạt đỡ, đỡ cẳng tay, né góc",
+  "intro": "Trước khi học đánh, phải học không bị đánh trúng. Phòng thủ tốt nhất là đơn giản, nhỏ gọn, và luôn đi kèm di chuyển.",
+  "safety": "Tập đôi đeo găng, bạn tập ra đòn chậm, chỉ hai mươi phần trăm sức.",
+  "outro": "Bạn đã có tấm khiên. Bài sau ta học đòn đánh cơ bản trên đích đỡ.",
+  "home": "Bài tập về nhà: mỗi ngày năm phút tập che chắn trước gương, hai lần một tuần tập đôi chậm.",
+  "steps": {
+   "tk4-1": {
+    "title": "Thủ cao",
+    "say": "Từ thế chiến đấu, đưa hai nắm tay lên ngang trán, hai cẳng tay dựng đứng trước mặt như hai tấm khiên. Khuỷu tay khép, cằm thu, vai nhô lên che hàm. Đây là tư thế che chắn chắc chắn nhất khi đòn đến quá nhanh và bạn không kịp nhìn.",
+    "cues": [
+     "Nắm tay ngang trán",
+     "Cẳng tay dựng như khiên",
+     "Cằm thu, vai che hàm"
+    ],
+    "mistakes": [
+     "Nhắm mắt khi che",
+     "Khuỷu tay mở rộng để lộ sườn"
+    ],
+    "drill": {
+     "label": "Vào thủ cao",
+     "say": "Đến lượt bạn. Vào thủ cao: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk4-2": {
+    "title": "Ôm đầu che kín",
+    "say": "Khi bị dồn ép nhiều đòn liên tiếp: hai bàn tay ôm lấy phía sau đầu, hai khuỷu tay khép lại trước mặt, cúi người, gập gối. Đầu nằm gọn trong lồng hai cánh tay. Nhưng không được đứng yên lâu ở tư thế này. Che, rồi di chuyển ngay ra khỏi góc tấn công.",
+    "cues": [
+     "Hai tay ôm sau đầu",
+     "Khuỷu khép trước mặt",
+     "Che rồi di chuyển ngay"
+    ],
+    "mistakes": [
+     "Đứng yên chịu đòn",
+     "Quay lưng lại"
+    ],
+    "drill": {
+     "label": "Ôm đầu rồi thoát ngang",
+     "say": "Đến lượt bạn. Ôm đầu rồi thoát ngang: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk4-3": {
+    "title": "Gạt đỡ",
+    "say": "Khi một cú đấm thẳng lao tới mặt, đừng đỡ cứng. Dùng lòng bàn tay gạt nhẹ cổ tay hoặc nắm đấm của đối phương lệch sang một bên, chỉ vừa đủ để nó trượt qua mặt bạn. Động tác nhỏ và ngắn, tay trở về vị trí thủ ngay lập tức.",
+    "cues": [
+     "Gạt bằng lòng bàn tay",
+     "Chỉ vừa đủ lệch đòn",
+     "Về thủ ngay"
+    ],
+    "mistakes": [
+     "Vung tay gạt quá rộng",
+     "Với tay ra đón đòn"
+    ],
+    "drill": {
+     "label": "Gạt đỡ mỗi tay",
+     "say": "Đến lượt bạn. Gạt đỡ mỗi tay: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk4-4": {
+    "title": "Đỡ cẳng tay lên trên",
+    "say": "Khi đòn bổ từ trên cao xuống, đưa cẳng tay lên chéo trước trán, cẳng tay nghiêng như mái nhà, để lực trượt đi chứ không dồn thẳng vào xương. Cùng lúc đó, bước chéo lên phía trước hoặc ra ngoài.",
+    "cues": [
+     "Cẳng tay chéo trước trán",
+     "Nghiêng như mái nhà",
+     "Kèm bước chéo"
+    ],
+    "mistakes": [
+     "Cẳng tay nằm ngang: chịu trọn lực",
+     "Đứng yên tại chỗ"
+    ],
+    "drill": {
+     "label": "Đỡ lên trên mỗi tay",
+     "say": "Đến lượt bạn. Đỡ lên trên mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk4-5": {
+    "title": "Né góc – bước chéo",
+    "say": "Phòng thủ tốt nhất là không đứng ở chỗ đòn đánh tới. Khi gạt đỡ, đồng thời bước chéo bốn mươi lăm độ ra phía ngoài tay đánh của đối phương. Bạn rời khỏi đường tấn công và đứng ở vị trí an toàn hơn để thoát đi.",
+    "cues": [
+     "Gạt + bước chéo 45°",
+     "Ra phía ngoài tay đánh",
+     "Từ góc an toàn, thoát đi"
+    ],
+    "mistakes": [
+     "Lùi thẳng về sau: đối phương đuổi theo dễ",
+     "Bước vào phía trong tay kia của đối phương"
+    ],
+    "drill": {
+     "label": "Gạt + né góc mỗi bên",
+     "say": "Đến lượt bạn. Gạt + né góc mỗi bên: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk4-6": {
+    "title": "Tập đôi chậm",
+    "say": "Tập với bạn tập, cả hai đeo găng. Người đánh ra đòn thật chậm, chỉ hai mươi phần trăm sức, nhắm vào găng chứ không nhắm vào mặt. Người đỡ gọi tên kỹ thuật mình dùng: thủ cao, gạt, né góc. Khi đã đúng và bình tĩnh, mới tăng tốc dần.",
+    "cues": [
+     "Đeo găng, 20% sức",
+     "Gọi tên kỹ thuật khi làm",
+     "Đúng rồi mới nhanh"
+    ],
+    "mistakes": [
+     "Tăng tốc quá sớm",
+     "Đánh thật vào mặt bạn tập"
+    ],
+    "drill": {
+     "label": "Tập đôi chậm",
+     "say": "Đến lượt bạn. Tập đôi chậm trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Gạt đỡ đúng là:",
+    "a": [
+     "Gạt nhỏ vừa đủ lệch đòn rồi về thủ",
+     "Vung tay thật rộng",
+     "Đón đòn bằng mặt"
+    ],
+    "why": "Động tác nhỏ, nhanh, không mở hở thế thủ."
+   },
+   {
+    "q": "Khi đỡ đòn bổ từ trên xuống, cẳng tay đặt thế nào?",
+    "a": [
+     "Nằm ngang",
+     "Chéo, nghiêng như mái nhà",
+     "Hạ xuống bụng"
+    ],
+    "why": "Nghiêng như mái nhà để lực trượt đi."
+   },
+   {
+    "q": "Né góc là bước theo hướng nào?",
+    "a": [
+     "Chéo 45° ra ngoài tay đánh",
+     "Lùi thẳng",
+     "Đứng yên"
+    ],
+    "why": "Ra khỏi đường tấn công và tới góc an toàn."
+   },
+   {
+    "q": "Khi tập đôi, người đánh dùng bao nhiêu sức?",
+    "a": [
+     "Hết sức",
+     "Khoảng 20%",
+     "50%"
+    ],
+    "why": "Tập chậm để học đúng và an toàn."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Đòn cơ bản trên đích đỡ",
+  "sub": "Nắm đấm, đấm thẳng, gót bàn tay, đá đẩy, tổ hợp",
+  "intro": "Đòn đánh tốt không cần đẹp, chỉ cần đúng, gọn và an toàn cho chính bạn. Hôm nay ta tập trên đích đỡ, không bao giờ vào người thật.",
+  "safety": "Quấn băng tay, đeo găng. Chỉ đánh vào đích đỡ hoặc bao cát.",
+  "outro": "Đòn đã có lực và có kỷ luật. Bài sau: thoát khỏi bị nắm cổ tay.",
+  "home": "Bài tập về nhà: ba buổi một tuần, mỗi buổi năm hiệp ba mươi giây đánh vào đích đỡ hoặc bao cát.",
+  "steps": {
+   "tk5-1": {
+    "title": "Nắm đấm đúng",
+    "say": "Cuộn bốn ngón tay vào lòng bàn tay. Ngón cái gập chặt bên ngoài ngón trỏ và ngón giữa, không bao giờ kẹp bên trong. Khi chạm đích, cổ tay thẳng hàng với cẳng tay, lực đi vào hai khớp đốt của ngón trỏ và ngón giữa. Người mới tập luôn quấn băng tay và đeo găng.",
+    "cues": [
+     "Cuộn 4 ngón vào lòng bàn tay",
+     "Ngón cái gập bên ngoài",
+     "Cổ tay thẳng hàng cẳng tay"
+    ],
+    "mistakes": [
+     "Kẹp ngón cái bên trong nắm tay",
+     "Gập cổ tay khi chạm đích"
+    ],
+    "drill": {
+     "label": "Nắm – mở bàn tay đúng",
+     "say": "Đến lượt bạn. Nắm – mở bàn tay đúng: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk5-2": {
+    "title": "Đấm thẳng tay trước",
+    "say": "Từ thế chiến đấu, phóng thẳng nắm tay trước ra theo đường ngắn nhất. Xoay úp nắm tay khi gần chạm đích, vai nâng lên che cằm. Tay kia vẫn ở cạnh mặt. Đấm xong, rút về đúng đường cũ, nhanh như lúc ra.",
+    "cues": [
+     "Đường thẳng ngắn nhất",
+     "Xoay úp nắm tay khi chạm",
+     "Rút về nhanh, tay kia giữ thủ"
+    ],
+    "mistakes": [
+     "Kéo tay ra sau lấy đà",
+     "Hạ tay sau xuống"
+    ],
+    "drill": {
+     "label": "Đấm tay trước",
+     "say": "Đến lượt bạn. Đấm tay trước: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk5-3": {
+    "title": "Đấm thẳng tay sau",
+    "say": "Đẩy từ gót chân sau, xoay hông và vai, phóng nắm tay sau thẳng tới đích. Mũi chân sau xoay theo, như đang dụi tắt một đốm lửa. Sức mạnh đến từ chân và hông, không chỉ từ cánh tay. Rồi rút về thế thủ ngay.",
+    "cues": [
+     "Đẩy từ chân sau",
+     "Xoay hông – vai – mũi chân sau",
+     "Rút về thủ ngay"
+    ],
+    "mistakes": [
+     "Chỉ dùng tay, không xoay hông",
+     "Ngả người quá trước, mất thăng bằng"
+    ],
+    "drill": {
+     "label": "Đấm tay sau",
+     "say": "Đến lượt bạn. Đấm tay sau: hai mươi lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk5-4": {
+    "title": "Đòn gót bàn tay",
+    "say": "Ngửa cổ tay ra sau, mở bàn tay, các ngón co nhẹ. Đánh bằng phần gót bàn tay, đường đi thẳng như cú đấm. Trong tình huống tự vệ ngoài đời, đòn này an toàn cho tay hơn nắm đấm trần, vì không có khớp ngón tay nào va vào xương cứng.",
+    "cues": [
+     "Ngửa cổ tay, mở bàn tay",
+     "Đánh bằng gót bàn tay",
+     "Đường thẳng như cú đấm"
+    ],
+    "mistakes": [
+     "Đánh bằng lòng ngón tay",
+     "Duỗi thẳng cứng các ngón"
+    ],
+    "drill": {
+     "label": "Gót bàn tay mỗi bên",
+     "say": "Đến lượt bạn. Gót bàn tay mỗi bên: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk5-5": {
+    "title": "Đá đẩy trước",
+    "say": "Co gối chân sau lên cao ngang hông. Rồi đạp thẳng gót chân ra trước, như đạp tung một cánh cửa, đẩy hông theo. Đích là vùng bụng, ở đây là chiếc khiên đỡ. Thu chân về và đặt xuống trong thế đứng. Mục đích của đòn này là đẩy kẻ tấn công ra xa, tạo khoảng cách để bạn thoát đi.",
+    "cues": [
+     "Co gối cao ngang hông",
+     "Đạp bằng gót, đẩy hông",
+     "Thu chân về thế đứng"
+    ],
+    "mistakes": [
+     "Đá bằng mũi chân",
+     "Ngả người ra sau quá nhiều"
+    ],
+    "drill": {
+     "label": "Đá đẩy mỗi chân",
+     "say": "Đến lượt bạn. Đá đẩy mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk5-6": {
+    "title": "Tổ hợp và thoát ly",
+    "say": "Bây giờ ghép lại thành tổ hợp: đấm tay trước, đấm tay sau, đá đẩy, rồi lùi hai bước về thế hàng rào tay. Tập ba hiệp, mỗi hiệp ba mươi giây vào đích đỡ, nghỉ hai mươi giây. Đánh rõ ràng từng đòn. Đúng rồi mới nhanh.",
+    "cues": [
+     "Tay trước – tay sau – đá đẩy",
+     "Lùi 2 bước, hàng rào tay",
+     "3 hiệp × 30 giây, nghỉ 20 giây"
+    ],
+    "mistakes": [
+     "Quên lùi ra sau tổ hợp",
+     "Đánh vội, mất thế đứng"
+    ],
+    "drill": {
+     "label": "Hiệp tổ hợp",
+     "say": "Đến lượt bạn. Hiệp tổ hợp: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Ngón cái đặt ở đâu khi nắm đấm?",
+    "a": [
+     "Kẹp bên trong",
+     "Gập bên ngoài ngón trỏ và ngón giữa",
+     "Duỗi thẳng"
+    ],
+    "why": "Kẹp bên trong dễ gãy ngón cái."
+   },
+   {
+    "q": "Sức mạnh cú đấm tay sau đến từ đâu?",
+    "a": [
+     "Chỉ từ cánh tay",
+     "Từ chân và hông",
+     "Từ cổ"
+    ],
+    "why": "Đẩy chân, xoay hông, vai và tay đi theo."
+   },
+   {
+    "q": "Mục đích chính của đá đẩy trong tự vệ?",
+    "a": [
+     "Tạo khoảng cách để thoát",
+     "Đá vào đầu",
+     "Khoe kỹ thuật"
+    ],
+    "why": "Đẩy kẻ tấn công ra xa để bạn rời đi an toàn."
+   },
+   {
+    "q": "Vì sao đòn gót bàn tay an toàn cho tay hơn?",
+    "a": [
+     "Không có khớp ngón va vào xương cứng",
+     "Vì nó chậm",
+     "Vì đánh nhẹ"
+    ],
+    "why": "Gót bàn tay chắc, ít rủi ro chấn thương bàn tay."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Thoát nắm cổ tay",
+  "sub": "Nguyên tắc ngón cái, nắm cùng bên, nắm chéo, hai tay nắm",
+  "intro": "Bị nắm cổ tay là tình huống rất hay gặp. Không cần sức mạnh, chỉ cần hiểu đúng điểm yếu của bàn tay đối phương.",
+  "safety": "Bạn tập nắm vừa sức. Thoát chậm, không giật mạnh làm đau khớp.",
+  "outro": "Bàn tay bạn đã biết tự giải thoát. Bài sau: thoát khi bị ôm và bị nắm phía trước.",
+  "home": "Bài tập về nhà: mỗi ngày mười lần thoát nắm cho mỗi kiểu, tập cùng người thân, trong một tuần.",
+  "steps": {
+   "tk6-1": {
+    "title": "Nguyên tắc ngón cái",
+    "say": "Khi bị nắm cổ tay, điểm yếu nhất của bàn tay đối phương là khe hở giữa ngón cái và các ngón còn lại. Đừng giằng co sức với sức. Hãy xoay cẳng tay để phần xương mỏng của cổ tay hướng vào khe hở ấy, rồi rút mạnh ra theo hướng ngón cái.",
+    "cues": [
+     "Tìm ngón cái của đối phương",
+     "Xoay cổ tay vào khe ngón cái",
+     "Rút mạnh theo hướng ngón cái"
+    ],
+    "mistakes": [
+     "Kéo thẳng ra sau, giằng co",
+     "Rút về phía bốn ngón tay"
+    ],
+    "drill": {
+     "label": "Tìm hướng ngón cái",
+     "say": "Đến lượt bạn. Tìm hướng ngón cái: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk6-2": {
+    "title": "Bị nắm cùng bên",
+    "say": "Ivan nắm cổ tay phải của tôi bằng tay trái. Tôi hạ trọng tâm, gập khuỷu tay, kéo tay về sát người mình. Xoay cẳng tay để cổ tay hướng vào ngón cái của Ivan, rồi giật mạnh lên trên, về phía vai của tôi. Tay thoát ra. Lập tức giơ hai tay hàng rào và lùi lại.",
+    "cues": [
+     "Hạ trọng tâm, gập khuỷu",
+     "Xoay cổ tay vào ngón cái",
+     "Giật về phía vai mình, rồi hàng rào tay"
+    ],
+    "mistakes": [
+     "Duỗi thẳng tay khi thoát",
+     "Đứng sát lại sau khi thoát"
+    ],
+    "drill": {
+     "label": "Thoát nắm cùng bên mỗi tay",
+     "say": "Đến lượt bạn. Thoát nắm cùng bên mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk6-3": {
+    "title": "Bị nắm chéo",
+    "say": "Khi bị nắm chéo, ví dụ tay phải đối phương nắm cổ tay phải của bạn, ngón cái của họ nằm ở phía trên. Xoay cổ tay của bạn lên trên, cắt ngang qua khe ngón cái, kéo về phía vai đối diện. Kết hợp với một bước lùi chéo.",
+    "cues": [
+     "Ngón cái đối phương ở phía trên",
+     "Xoay lên, cắt qua khe ngón cái",
+     "Kéo về vai đối diện + lùi chéo"
+    ],
+    "mistakes": [
+     "Kéo xuống dưới, ngược hướng khe hở",
+     "Quên bước chân"
+    ],
+    "drill": {
+     "label": "Thoát nắm chéo mỗi tay",
+     "say": "Đến lượt bạn. Thoát nắm chéo mỗi tay: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk6-4": {
+    "title": "Bị nắm bằng hai tay",
+    "say": "Khi bị nắm bằng cả hai tay, một tay của bạn không đủ sức. Hãy luồn bàn tay tự do vào giữa hai cánh tay của đối phương, nắm lấy nắm tay của chính mình. Rồi dùng sức của cả hai tay, cộng với lực xoay vai, giật mạnh lên trên, qua khe hở của hai ngón cái.",
+    "cues": [
+     "Tay tự do luồn vào giữa",
+     "Nắm lấy nắm tay của mình",
+     "Hai tay + xoay vai, giật lên"
+    ],
+    "mistakes": [
+     "Cố rút một tay đơn độc",
+     "Giật ngang thay vì lên trên"
+    ],
+    "drill": {
+     "label": "Thoát nắm hai tay",
+     "say": "Đến lượt bạn. Thoát nắm hai tay: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk6-5": {
+    "title": "Sau khi thoát",
+    "say": "Thoát ra không phải là hết. Lập tức lùi xa, giơ hai tay hàng rào, và hô thật to: Dừng lại! Tiếng hô thu hút người xung quanh và cho thấy bạn không muốn đánh nhau. Mục tiêu của tự vệ luôn là thoát ra an toàn và rời đi.",
+    "cues": [
+     "Lùi xa ngay",
+     "Hàng rào tay",
+     "Hô to: Dừng lại!"
+    ],
+    "mistakes": [
+     "Đứng lại tranh cãi",
+     "Quay lưng bỏ chạy khi còn quá gần"
+    ],
+    "drill": {
+     "label": "Thoát – lùi – hô",
+     "say": "Đến lượt bạn. Thoát – lùi – hô: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Điểm yếu của bàn tay đang nắm là:",
+    "a": [
+     "Lòng bàn tay",
+     "Khe giữa ngón cái và các ngón",
+     "Ngón út"
+    ],
+    "why": "Khe ngón cái là chỗ hở dễ thoát nhất."
+   },
+   {
+    "q": "Bị nắm bằng hai tay, nên làm gì?",
+    "a": [
+     "Rút một tay thật mạnh",
+     "Nắm lấy tay mình, dùng hai tay giật lên",
+     "Đứng yên"
+    ],
+    "why": "Hai tay cộng xoay vai thắng được hai tay đối phương."
+   },
+   {
+    "q": "Sau khi thoát, việc đầu tiên là:",
+    "a": [
+     "Lùi xa, hàng rào tay, hô to",
+     "Đánh trả ngay",
+     "Tranh cãi"
+    ],
+    "why": "Mục tiêu tự vệ là an toàn và rời đi."
+   },
+   {
+    "q": "Có nên giằng co sức với sức?",
+    "a": [
+     "Có",
+     "Không, hãy dùng đúng hướng ngón cái"
+    ],
+    "why": "Kỹ thuật đúng thắng sức mạnh."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Thoát ôm & nắm phía trước",
+  "sub": "Ôm sau khóa tay, ôm sau tay tự do, nắm cổ áo phía trước, tín hiệu dừng",
+  "intro": "Bị ôm chặt là cảm giác đáng sợ nhất. Bí quyết nằm ở trọng tâm thấp và đôi chân linh hoạt. Ta tập chậm, an toàn, và luôn tôn trọng tín hiệu dừng.",
+  "safety": "Bạn tập ôm vừa sức. Không bao giờ siết cổ thật. Vỗ hai lần là dừng.",
+  "outro": "Bạn đã biết thoát khỏi những thế nắm khó chịu nhất. Bài cuối nhánh này: phá thăng bằng và quật ngã an toàn.",
+  "home": "Bài tập về nhà: hai buổi một tuần, mỗi tình huống tám lần mỗi bên, luôn có tín hiệu dừng.",
+  "steps": {
+   "tk7-1": {
+    "title": "Tín hiệu dừng",
+    "say": "Trước mọi bài tập đôi, hãy thống nhất tín hiệu dừng. Vỗ tay vào người bạn tập hoặc vào thảm hai lần, hoặc nói to: Dừng. Khi nghe hoặc cảm thấy tín hiệu này, buông ra ngay lập tức. Người tập phải tôn trọng tín hiệu này tuyệt đối. Tập an toàn thì mới tập lâu dài được.",
+    "cues": [
+     "Vỗ 2 lần hoặc nói: Dừng",
+     "Buông ngay lập tức",
+     "Tôn trọng tuyệt đối"
+    ],
+    "mistakes": [
+     "Cố thêm một chút sau tín hiệu",
+     "Không thống nhất trước khi tập"
+    ],
+    "drill": {
+     "label": "Thống nhất tín hiệu",
+     "say": "Đến lượt bạn. Thống nhất tín hiệu: ba lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk7-2": {
+    "title": "Bị ôm sau – hạ trọng tâm",
+    "say": "Khi bị ôm từ phía sau mà hai tay bị khóa bên trong vòng ôm: lập tức hạ thấp trọng tâm, chùng gối, đẩy hông ra sau. Cùng lúc đó, mở rộng hai khuỷu tay ra hai bên để nới vòng ôm. Trọng tâm thấp làm đối phương rất khó nhấc bổng bạn lên.",
+    "cues": [
+     "Hạ trọng tâm ngay",
+     "Đẩy hông ra sau",
+     "Mở rộng khuỷu tay nới vòng ôm"
+    ],
+    "mistakes": [
+     "Đứng thẳng người, dễ bị nhấc bổng",
+     "Hoảng loạn giãy giụa"
+    ],
+    "drill": {
+     "label": "Hạ trọng tâm, nới vòng ôm",
+     "say": "Đến lượt bạn. Hạ trọng tâm, nới vòng ôm: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk7-3": {
+    "title": "Bị ôm sau – xoay thoát",
+    "say": "Khi vòng ôm đã nới ra, bước một chân sang ngang, hạ người thấp hơn nữa, xoay hông và vai, luồn ra khỏi vòng tay. Quay lại đối mặt với đối phương, hai tay hàng rào, rồi lùi xa. Tập chậm với bạn tập, người ôm chỉ ôm vừa sức.",
+    "cues": [
+     "Bước ngang một chân",
+     "Hạ thấp, xoay hông luồn ra",
+     "Đối mặt, hàng rào, lùi xa"
+    ],
+    "mistakes": [
+     "Xoay khi trọng tâm còn cao",
+     "Ở lại gần sau khi thoát"
+    ],
+    "drill": {
+     "label": "Thoát ôm sau mỗi bên",
+     "say": "Đến lượt bạn. Thoát ôm sau mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk7-4": {
+    "title": "Bị ôm sau – hai tay tự do",
+    "say": "Nếu hai tay của bạn ở bên ngoài vòng ôm: vẫn hạ trọng tâm trước tiên. Rồi nắm lấy bàn tay của đối phương ở trước bụng, gỡ cho vòng tay mở ra, đồng thời xoay người thoát ra ngoài. Lùi xa và giữ hàng rào tay.",
+    "cues": [
+     "Hạ trọng tâm trước",
+     "Gỡ bàn tay đối phương trước bụng",
+     "Xoay thoát, lùi xa"
+    ],
+    "mistakes": [
+     "Cào cấu tay đối phương mà không hạ thấp",
+     "Quay lưng bỏ đi khi còn sát"
+    ],
+    "drill": {
+     "label": "Thoát ôm sau tay tự do",
+     "say": "Đến lượt bạn. Thoát ôm sau tay tự do: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk7-5": {
+    "title": "Bị nắm cổ áo phía trước",
+    "say": "Khi đối phương dùng hai tay túm cổ áo của bạn từ phía trước: thu cằm, nâng vai để bảo vệ cổ. Giơ thẳng một cánh tay lên cao qua đầu, rồi xoay mạnh người sang một bên, để vai và cánh tay đè qua hai cánh tay đối phương, phá vòng nắm. Lập tức bước lùi và giơ hàng rào tay. Khi tập: bạn tập chỉ túm cổ áo, tuyệt đối không bóp vào cổ.",
+    "cues": [
+     "Thu cằm, nâng vai",
+     "Giơ thẳng một tay lên cao",
+     "Xoay mạnh người, đè qua hai tay, lùi ra"
+    ],
+    "mistakes": [
+     "Kéo hai tay đối phương ra bằng sức",
+     "Xoay mà không giơ tay cao"
+    ],
+    "drill": {
+     "label": "Thoát nắm cổ áo mỗi bên",
+     "say": "Đến lượt bạn. Thoát nắm cổ áo mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Bị ôm từ phía sau, việc đầu tiên là gì?",
+    "a": [
+     "Hạ thấp trọng tâm",
+     "Nhảy lên",
+     "Ngửa đầu ra sau"
+    ],
+    "why": "Trọng tâm thấp khiến đối phương khó nhấc bổng bạn."
+   },
+   {
+    "q": "Tín hiệu dừng trong tập đôi là:",
+    "a": [
+     "Vỗ hai lần hoặc nói: Dừng",
+     "Hét to bất kỳ",
+     "Không cần tín hiệu"
+    ],
+    "why": "Thống nhất trước và tôn trọng tuyệt đối."
+   },
+   {
+    "q": "Thoát nắm cổ áo phía trước dùng gì?",
+    "a": [
+     "Sức kéo hai tay",
+     "Giơ tay cao rồi xoay mạnh người đè qua",
+     "Đứng yên chờ"
+    ],
+    "why": "Xoay cả thân người mạnh hơn sức hai cánh tay đối phương."
+   },
+   {
+    "q": "Khi tập thoát nắm cổ áo, bạn tập được phép:",
+    "a": [
+     "Bóp cổ thật",
+     "Chỉ túm cổ áo, không bóp cổ"
+    ],
+    "why": "An toàn tuyệt đối với vùng cổ."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Phá thăng bằng & quật ngã",
+  "sub": "Chân đế, thế nắm áo, gạt chân sau, ngáng chân trước, kiểm soát",
+  "intro": "Đây là tinh hoa của vật Sambo: dùng thăng bằng của đối phương để đưa họ xuống đất. Chỉ tập khi đã ngã thành thạo, trên đệm dày, có người hướng dẫn.",
+  "safety": "Bắt buộc: đã thuần thục bài Ngã an toàn, đệm dày, có huấn luyện viên, tốc độ chậm.",
+  "outro": "Chúc mừng! Bạn đã hoàn thành phần Cơ bản của nhánh Cận chiến tự vệ. Phần Nâng cao đang chờ bạn, với những tình huống thật hơn.",
+  "home": "Bài tập về nhà: hai buổi một tuần trên đệm dày, có người hướng dẫn, mỗi kỹ thuật sáu lần chậm.",
+  "steps": {
+   "tk8-1": {
+    "title": "Chân đế và phá thăng bằng",
+    "say": "Đối phương đứng vững nhờ hai chân. Đường nối giữa hai bàn chân là chân đế. Đẩy hoặc kéo theo hướng vuông góc với đường ấy, đối phương sẽ mất thăng bằng rất dễ. Tập với bạn tập: nắm tay áo và cổ áo, đẩy, kéo, xoay nhẹ theo tám hướng. Cảm nhận khoảnh khắc trọng lượng của họ dồn hết lên gót chân hoặc mũi chân.",
+    "cues": [
+     "Chân đế = đường nối hai bàn chân",
+     "Đẩy/kéo vuông góc chân đế",
+     "Cảm nhận trọng lượng dồn lên gót hoặc mũi"
+    ],
+    "mistakes": [
+     "Đẩy dọc theo chân đế",
+     "Dùng sức tay cứng đờ"
+    ],
+    "drill": {
+     "label": "Đẩy – kéo 8 hướng",
+     "say": "Đến lượt bạn. Đẩy – kéo 8 hướng trong sáu mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk8-2": {
+    "title": "Thế nắm áo cơ bản",
+    "say": "Thế nắm cơ bản của vật Sambo: tay trái nắm tay áo bên phải của bạn tập, ngay dưới khuỷu. Tay phải nắm ve áo bên trái, ngang ngực. Khuỷu tay mềm, không cứng đờ. Đứng thẳng lưng, hai chân rộng bằng vai, sẵn sàng di chuyển.",
+    "cues": [
+     "Tay trái: tay áo dưới khuỷu",
+     "Tay phải: ve áo ngang ngực",
+     "Khuỷu mềm, lưng thẳng"
+    ],
+    "mistakes": [
+     "Khom lưng, cúi đầu",
+     "Khóa cứng khuỷu tay"
+    ],
+    "drill": {
+     "label": "Vào thế nắm áo",
+     "say": "Đến lượt bạn. Vào thế nắm áo: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk8-3": {
+    "title": "Gạt chân sau",
+    "say": "Kéo bạn tập về phía sau bên phải của họ, để trọng lượng dồn lên gót chân phải. Bước chân trái của bạn lên sát cạnh ngoài chân phải của họ. Chân phải của bạn vung qua, gạt bắp chân phải của họ từ phía sau, trong khi thân trên đẩy họ ra sau. Bạn tập ngã ngửa đúng kỹ thuật đã học. Bạn giữ tay áo của họ suốt cú ngã, kéo nhẹ lên, để lưng họ chạm thảm từ từ.",
+    "cues": [
+     "Dồn trọng lượng lên gót phải của bạn tập",
+     "Bước sát, gạt bắp chân từ phía sau",
+     "Giữ tay áo, cho họ ngã nhẹ"
+    ],
+    "mistakes": [
+     "Gạt khi trọng lượng chưa dồn lên chân đó",
+     "Buông tay áo khi bạn tập đang ngã"
+    ],
+    "drill": {
+     "label": "Gạt chân sau (chậm) mỗi bên",
+     "say": "Đến lượt bạn. Gạt chân sau (chậm) mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk8-4": {
+    "title": "Ngáng chân trước",
+    "say": "Kéo bạn tập về phía trước, chếch bên phải của họ. Xoay người, đặt chân phải của bạn chắn ngang trước cổ chân phải của họ. Tiếp tục kéo tay áo theo một vòng cung xuống dưới. Họ vấp qua chân bạn và ngã về phía trước, lăn qua vai đúng như bài lộn trước.",
+    "cues": [
+     "Kéo về trước – chếch phải",
+     "Chân chắn trước cổ chân",
+     "Kéo vòng cung xuống dưới"
+    ],
+    "mistakes": [
+     "Đá vào cổ chân thay vì chắn",
+     "Kéo thẳng xuống đất quá mạnh"
+    ],
+    "drill": {
+     "label": "Ngáng chân trước (chậm) mỗi bên",
+     "say": "Đến lượt bạn. Ngáng chân trước (chậm) mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk8-5": {
+    "title": "Kiểm soát sau khi quật",
+    "say": "Sau khi bạn tập ngã, đừng buông tay ngay. Giữ tay áo của họ, đứng vững, mắt nhìn họ, rồi đỡ họ đứng dậy. Người quật có trách nhiệm với người ngã. Chỉ tập quật ngã trên đệm dày, có huấn luyện viên theo dõi, tốc độ chậm, và luôn tôn trọng tín hiệu dừng.",
+    "cues": [
+     "Giữ tay áo, đứng vững",
+     "Mắt nhìn bạn tập",
+     "Đỡ bạn tập dậy"
+    ],
+    "mistakes": [
+     "Buông tay ngay khi ném",
+     "Ngã đè lên bạn tập"
+    ],
+    "drill": {
+     "label": "Quật chậm + đỡ dậy",
+     "say": "Đến lượt bạn. Quật chậm + đỡ dậy: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Muốn phá thăng bằng, nên đẩy/kéo theo hướng nào?",
+    "a": [
+     "Dọc theo đường nối hai chân",
+     "Vuông góc với đường nối hai chân",
+     "Thẳng xuống đất"
+    ],
+    "why": "Hướng vuông góc với chân đế là hướng yếu nhất."
+   },
+   {
+    "q": "Khi gạt chân sau, trọng lượng bạn tập phải dồn lên đâu?",
+    "a": [
+     "Mũi chân",
+     "Gót chân bị gạt",
+     "Chân kia"
+    ],
+    "why": "Chân mang trọng lượng mới bị gạt đổ được."
+   },
+   {
+    "q": "Người quật có trách nhiệm gì?",
+    "a": [
+     "Giữ tay áo, kiểm soát cú ngã của bạn tập",
+     "Buông ngay",
+     "Ngã đè lên"
+    ],
+    "why": "Kiểm soát giúp bạn tập ngã an toàn."
+   },
+   {
+    "q": "Điều kiện để tập quật ngã:",
+    "a": [
+     "Đã ngã thành thạo, đệm dày, có huấn luyện viên",
+     "Tập ở đâu cũng được",
+     "Tập nhanh cho quen"
+    ],
+    "why": "An toàn là điều kiện bắt buộc."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Đòn vào điểm yếu để thoát thân",
+  "sub": "Quẹt mắt, gối hạ bộ, đạp gối – chỉ để mở đường thoát",
+  "intro": "Khi bị tấn công thật và không thể chạy, bạn cần một đòn đơn giản đủ làm kẻ tấn công khựng lại trong một giây. Một giây đó là đường thoát của bạn. Hôm nay ta tập trên đích đỡ, tuyệt đối không vào người bạn tập.",
+  "safety": "Chỉ đánh vào đích đỡ hoặc khiên. Không bao giờ chạm mắt, hạ bộ hay khớp gối của bạn tập.",
+  "outro": "Bạn đã có những đòn mở đường thoát. Nhớ kỹ: đánh để chạy, không đánh để thắng. Bài sau: khuỷu tay và gối ở cự ly gần.",
+  "home": "Bài tập về nhà: ba buổi một tuần, ba hiệp liên hoàn trên đích đỡ, kết thúc bằng chạy.",
+  "steps": {
+   "tk9-1": {
+    "title": "Nguyên tắc: đánh để chạy",
+    "say": "Nguyên tắc đầu tiên: đòn vào điểm yếu chỉ dùng khi bạn bị tấn công thật, không còn cách nào khác. Mục đích không phải để thắng, mà để kẻ tấn công khựng lại trong một khoảnh khắc. Đánh một đòn, rồi lập tức tạo khoảng cách và chạy về nơi đông người. Không ở lại đánh tiếp.",
+    "cues": [
+     "Chỉ khi bị tấn công thật",
+     "Một đòn để mở đường",
+     "Đánh xong là chạy"
+    ],
+    "mistakes": [
+     "Ở lại đánh tiếp sau khi đã có đường thoát",
+     "Ra đòn khi vẫn còn có thể rời đi"
+    ],
+    "drill": {
+     "label": "Hàng rào tay – lùi – chạy",
+     "say": "Đến lượt bạn. Hàng rào tay – lùi – chạy: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk9-2": {
+    "title": "Quẹt mắt bằng ngón tay",
+    "say": "Từ thế hàng rào tay, bàn tay trước đã ở sẵn gần mặt đối phương. Các ngón tay hơi cong, thả lỏng, quẹt nhanh ngang qua vùng mắt, như phẩy nước khỏi tay, rồi rút về. Đòn này không cần sức, chỉ cần nhanh. Người bị quẹt sẽ nhắm mắt và lùi lại theo phản xạ. Khi tập, chỉ quẹt vào găng đỡ mà bạn tập giơ ngang mặt.",
+    "cues": [
+     "Xuất phát từ hàng rào tay",
+     "Ngón tay cong, thả lỏng, quẹt ngang",
+     "Nhanh rồi rút về, lùi ra"
+    ],
+    "mistakes": [
+     "Duỗi cứng ngón tay: dễ trật khớp ngón",
+     "Vung tay từ xa, lộ ý đồ"
+    ],
+    "drill": {
+     "label": "Quẹt vào găng mỗi tay",
+     "say": "Đến lượt bạn. Quẹt vào găng mỗi tay: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk9-3": {
+    "title": "Gối vào vùng hạ bộ (trên khiên)",
+    "say": "Khi kẻ tấn công áp sát và túm lấy bạn ở cự ly rất gần, hai tay bạn giữ lấy vai hoặc cổ áo họ. Kéo xuống, đồng thời thúc gối chân sau thẳng lên. Hông đẩy về phía trước. Khi tập, bạn tập giữ khiên dày trước bụng dưới, bạn thúc gối vào khiên. Thúc xong, đẩy họ ra và lùi xa.",
+    "cues": [
+     "Hai tay giữ vai, kéo xuống",
+     "Thúc gối chân sau lên, đẩy hông",
+     "Đẩy ra, lùi xa"
+    ],
+    "mistakes": [
+     "Ngả người ra sau khi thúc gối",
+     "Thúc gối khi chưa giữ được thăng bằng"
+    ],
+    "drill": {
+     "label": "Thúc gối vào khiên mỗi chân",
+     "say": "Đến lượt bạn. Thúc gối vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk9-4": {
+    "title": "Đạp gối, đạp ống chân",
+    "say": "Khi kẻ tấn công lao tới từ xa, một cú đạp thấp bằng gót chân vào đầu gối hoặc ống chân trước của họ sẽ chặn đà lao tới. Nâng gối chân trước lên thấp, đạp thẳng gót chân xuống chéo về phía trước, rồi rút chân về. Đòn thấp khó bị đỡ và giữ cho bạn thăng bằng tốt. Khi tập, chỉ đạp vào khiên đặt thấp.",
+    "cues": [
+     "Nâng gối thấp",
+     "Đạp gót chân chéo xuống phía trước",
+     "Rút chân, lùi ra"
+    ],
+    "mistakes": [
+     "Đá cao lên bụng: chậm và dễ ngã",
+     "Đạp bằng mũi chân"
+    ],
+    "drill": {
+     "label": "Đạp thấp vào khiên mỗi chân",
+     "say": "Đến lượt bạn. Đạp thấp vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk9-5": {
+    "title": "Liên hoàn: quẹt – đạp – chạy",
+    "say": "Ghép lại thành một chuỗi: từ hàng rào tay, quẹt mắt vào găng, đạp thấp vào khiên, rồi quay người chạy ba bước. Tập chậm cho đúng, rồi nhanh dần. Mỗi lần kết thúc, hô to: Dừng lại! Chuỗi phản xạ này phải trở thành thói quen của cơ thể.",
+    "cues": [
+     "Hàng rào → quẹt → đạp",
+     "Quay người chạy 3 bước",
+     "Hô to: Dừng lại!"
+    ],
+    "mistakes": [
+     "Quên chạy ở cuối chuỗi",
+     "Đứng sát lại sau đòn đạp"
+    ],
+    "drill": {
+     "label": "Hiệp liên hoàn",
+     "say": "Đến lượt bạn. Hiệp liên hoàn: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Mục đích của đòn vào điểm yếu là gì?",
+    "a": [
+     "Thắng trận đấu",
+     "Làm kẻ tấn công khựng lại để bạn chạy thoát",
+     "Trừng phạt đối phương"
+    ],
+    "why": "Đánh để mở đường, rồi chạy về nơi an toàn."
+   },
+   {
+    "q": "Quẹt mắt nên dùng ngón tay thế nào?",
+    "a": [
+     "Duỗi thẳng cứng",
+     "Cong nhẹ, thả lỏng, quẹt nhanh",
+     "Nắm chặt"
+    ],
+    "why": "Ngón tay thả lỏng vừa nhanh vừa không bị trật khớp."
+   },
+   {
+    "q": "Đạp thấp vào đâu?",
+    "a": [
+     "Đầu gối hoặc ống chân trước",
+     "Đầu",
+     "Lưng"
+    ],
+    "why": "Đòn thấp nhanh, khó đỡ, chặn đà lao tới."
+   },
+   {
+    "q": "Khi tập với bạn, bạn đánh vào đâu?",
+    "a": [
+     "Vào người bạn tập, nhẹ thôi",
+     "Chỉ vào đích đỡ hoặc khiên"
+    ],
+    "why": "Tuyệt đối không đánh vào điểm yếu thật của bạn tập."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Khuỷu tay & gối cự ly gần",
+  "sub": "Khuỷu ngang, khuỷu hất lên, gối thẳng, khống chế cổ – vai",
+  "intro": "Khi bị áp sát, nắm đấm không còn chỗ để vung. Lúc đó khuỷu tay và đầu gối là vũ khí tự nhiên mạnh nhất của cơ thể. Ta tập trên đích đỡ, đúng kỹ thuật trước, lực sau.",
+  "safety": "Chỉ đánh vào đích đỡ dày. Người giữ đích phải giữ chắc và đứng vững.",
+  "outro": "Cự ly gần không còn đáng sợ. Bài sau: chống bị vật ngã và đứng dậy an toàn.",
+  "home": "Bài tập về nhà: ba buổi một tuần, ba hiệp cự ly gần trên đích đỡ.",
+  "steps": {
+   "tk10-1": {
+    "title": "Khuỷu tay ngang",
+    "say": "Từ thế chiến đấu, gập khuỷu tay trước, cẳng tay song song với mặt đất, bàn tay sát tai. Xoay hông và vai, quét khuỷu tay ngang qua như cánh cửa đóng sầm lại. Điểm chạm là phần xương ngay dưới khuỷu. Tay kia vẫn che mặt. Đánh xong, về ngay thế thủ.",
+    "cues": [
+     "Bàn tay sát tai, cẳng tay ngang",
+     "Xoay hông, quét ngang",
+     "Chạm bằng phần xương dưới khuỷu"
+    ],
+    "mistakes": [
+     "Vung cả cánh tay duỗi thẳng",
+     "Quên che mặt bằng tay kia"
+    ],
+    "drill": {
+     "label": "Khuỷu ngang mỗi tay",
+     "say": "Đến lượt bạn. Khuỷu ngang mỗi tay: mười lăm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk10-2": {
+    "title": "Khuỷu tay hất lên",
+    "say": "Khi đối phương cúi đầu lao vào, khuỷu tay hất từ dưới lên rất hiệu quả. Gập chặt khuỷu tay, nắm tay chạm vai, rồi đẩy chân và hất khuỷu thẳng lên theo đường dọc trước mặt. Khi tập, bạn tập giữ găng úp xuống ngang ngực.",
+    "cues": [
+     "Gập chặt, nắm tay chạm vai",
+     "Đẩy chân, hất thẳng lên",
+     "Tay kia che mặt"
+    ],
+    "mistakes": [
+     "Hất chéo ra ngoài",
+     "Chỉ dùng tay, không đẩy chân"
+    ],
+    "drill": {
+     "label": "Khuỷu hất lên mỗi tay",
+     "say": "Đến lượt bạn. Khuỷu hất lên mỗi tay: mười hai lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk10-3": {
+    "title": "Khống chế cổ – vai",
+    "say": "Ở cự ly ôm sát, hai bàn tay chồng lên nhau đặt sau gáy đối phương, hai khuỷu tay khép lại trước ngực họ. Kéo đầu họ xuống, khuỷu tay ép vào trong. Thế khống chế này giúp bạn điều khiển thăng bằng của đối phương. Khi tập, kéo nhẹ, chậm, và bạn tập luôn có thể vỗ tay xin dừng.",
+    "cues": [
+     "Hai tay chồng sau gáy",
+     "Khuỷu khép trước ngực đối phương",
+     "Kéo xuống nhẹ, chậm"
+    ],
+    "mistakes": [
+     "Đan các ngón tay vào nhau: dễ bị kẹt ngón",
+     "Giật mạnh cổ bạn tập"
+    ],
+    "drill": {
+     "label": "Giữ thế khống chế cổ – vai",
+     "say": "Đến lượt bạn. Giữ thế khống chế cổ – vai trong ba mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk10-4": {
+    "title": "Gối thẳng trong thế khống chế",
+    "say": "Từ thế khống chế cổ vai, kéo đối phương xuống và thúc gối thẳng lên vào khiên mà bạn tập giữ trước bụng. Đẩy hông về phía trước, đứng thẳng trên chân trụ. Sau hai cú gối, đẩy mạnh họ ra và lùi xa.",
+    "cues": [
+     "Khống chế cổ – vai",
+     "Kéo xuống, thúc gối thẳng lên",
+     "Hai gối rồi đẩy ra, lùi xa"
+    ],
+    "mistakes": [
+     "Cúi gập người theo",
+     "Đứng trên mũi chân trụ, mất thăng bằng"
+    ],
+    "drill": {
+     "label": "Gối vào khiên mỗi chân",
+     "say": "Đến lượt bạn. Gối vào khiên mỗi chân: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk10-5": {
+    "title": "Liên hoàn cự ly gần",
+    "say": "Ghép lại: khuỷu ngang, khuỷu hất lên, vào thế khống chế, hai cú gối, đẩy ra, lùi về hàng rào tay. Tập ba hiệp, mỗi hiệp ba mươi giây với đích đỡ. Giữ hơi thở xả ngắn trong lúc đánh.",
+    "cues": [
+     "Khuỷu ngang → khuỷu lên",
+     "Khống chế → 2 gối",
+     "Đẩy ra, hàng rào tay, thở xả"
+    ],
+    "mistakes": [
+     "Nín thở khi đánh",
+     "Quên đẩy ra tạo khoảng cách"
+    ],
+    "drill": {
+     "label": "Hiệp cự ly gần",
+     "say": "Đến lượt bạn. Hiệp cự ly gần: ba hiệp, mỗi hiệp ba mươi giây, nghỉ hai mươi giây giữa hiệp."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Khuỷu tay ngang chạm bằng phần nào?",
+    "a": [
+     "Phần xương ngay dưới khuỷu",
+     "Bàn tay",
+     "Vai"
+    ],
+    "why": "Phần xương cứng ngay dưới khuỷu là điểm chạm chắc nhất."
+   },
+   {
+    "q": "Trong thế khống chế cổ – vai, hai bàn tay đặt thế nào?",
+    "a": [
+     "Đan các ngón vào nhau",
+     "Chồng lên nhau sau gáy"
+    ],
+    "why": "Đan ngón tay dễ bị kẹt, chồng tay an toàn hơn."
+   },
+   {
+    "q": "Sau hai cú gối, nên làm gì?",
+    "a": [
+     "Đẩy ra và lùi xa",
+     "Ôm chặt tiếp",
+     "Ngồi xuống"
+    ],
+    "why": "Luôn tạo khoảng cách để thoát."
+   },
+   {
+    "q": "Khi ra đòn liên tục, hơi thở thế nào?",
+    "a": [
+     "Nín thở",
+     "Thở xả ngắn theo từng đòn"
+    ],
+    "why": "Thở xả giúp không đuối sức và giữ bình tĩnh."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Chống vật ngã & đứng dậy",
+  "sub": "Chống ôm chân, đè hông, đứng dậy kỹ thuật, đạp giữ khoảng cách",
+  "intro": "Trong một cuộc ẩu đả, nguy hiểm nhất là bị vật xuống đất. Hôm nay bạn học cách không bị kéo ngã, và nếu đã ngã thì đứng dậy an toàn trong vài giây.",
+  "safety": "Tập trên đệm dày. Bạn tập lao vào chậm, không húc đầu.",
+  "outro": "Giờ bạn rất khó bị vật xuống, và biết đứng dậy an toàn. Bài sau: thoát hiểm khi đã bị đè dưới đất.",
+  "home": "Bài tập về nhà: mỗi ngày mười lần đứng dậy kỹ thuật mỗi bên, hai buổi một tuần tập chống vật với bạn.",
+  "steps": {
+   "tk11-1": {
+    "title": "Chống ôm chân",
+    "say": "Khi đối phương cúi thấp lao vào ôm chân bạn: bật hai chân ra sau thật nhanh, hạ hông đè xuống lưng trên của họ, hai tay chặn vai họ. Trọng lượng cơ thể bạn đè lên họ, chân bạn ở xa ngoài tầm với. Đây gọi là chống vật. Tập chậm với bạn tập trên đệm.",
+    "cues": [
+     "Bật hai chân ra sau",
+     "Hạ hông đè lên lưng trên",
+     "Tay chặn vai đối phương"
+    ],
+    "mistakes": [
+     "Lùi thẳng đứng: dễ bị ôm chân",
+     "Để hông cao, đối phương vẫn kéo được chân"
+    ],
+    "drill": {
+     "label": "Bật chân chống vật",
+     "say": "Đến lượt bạn. Bật chân chống vật: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk11-2": {
+    "title": "Thoát ra sau khi chống vật",
+    "say": "Sau khi chống vật thành công, đừng nằm đè lâu. Đẩy hai tay vào vai đối phương, bật người đứng dậy, bước lùi ra sau hai bước và trở về thế đứng chiến đấu, hai tay che mặt. Mục tiêu vẫn là thoát ra.",
+    "cues": [
+     "Đẩy tay vào vai",
+     "Bật dậy, lùi 2 bước",
+     "Về thế đứng, che mặt"
+    ],
+    "mistakes": [
+     "Nằm đè quá lâu",
+     "Đứng dậy ngay trước mặt đối phương"
+    ],
+    "drill": {
+     "label": "Chống vật – bật dậy – lùi",
+     "say": "Đến lượt bạn. Chống vật – bật dậy – lùi: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk11-3": {
+    "title": "Đạp giữ khoảng cách từ dưới đất",
+    "say": "Nếu bạn đã ngã ngửa và đối phương đang đứng: nằm nghiêng một bên hông, một tay chống thảm, một tay che mặt. Chân trên co lại sẵn sàng, đạp vào đầu gối hoặc bụng nếu họ lao vào. Xoay người theo họ, luôn hướng bàn chân về phía đối phương, không để họ vòng ra sau đầu bạn.",
+    "cues": [
+     "Nằm nghiêng, tay chống, tay che",
+     "Chân trên co, sẵn sàng đạp",
+     "Xoay theo, chân luôn hướng về đối phương"
+    ],
+    "mistakes": [
+     "Nằm ngửa phẳng lưng",
+     "Để đối phương vòng ra phía đầu"
+    ],
+    "drill": {
+     "label": "Xoay theo bạn tập",
+     "say": "Đến lượt bạn. Xoay theo bạn tập trong ba mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk11-4": {
+    "title": "Đứng dậy kỹ thuật",
+    "say": "Để đứng dậy an toàn: tay sau chống thảm phía sau hông, tay trước che mặt. Đẩy hông lên, rút chân trụ qua dưới người về phía sau. Đặt chân xuống xa, vào thế đứng, rồi mới đứng thẳng. Bạn luôn che mặt và đứng dậy lùi xa đối phương, không đứng thẳng ngay trước mặt họ.",
+    "cues": [
+     "Tay sau chống, tay trước che mặt",
+     "Đẩy hông, rút chân về sau",
+     "Đứng dậy lùi xa, vào thế"
+    ],
+    "mistakes": [
+     "Chống hai tay đứng dậy, mặt bỏ trống",
+     "Đứng dậy tiến về phía đối phương"
+    ],
+    "drill": {
+     "label": "Đứng dậy kỹ thuật mỗi bên",
+     "say": "Đến lượt bạn. Đứng dậy kỹ thuật mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk11-5": {
+    "title": "Liên hoàn: ngã – giữ khoảng cách – đứng dậy",
+    "say": "Ghép lại: ngã ngửa đúng kỹ thuật, xoay nghiêng, đạp giữ khoảng cách, đứng dậy kỹ thuật, lùi xa và hàng rào tay. Mỗi lần làm xong, kiểm tra mình có luôn che mặt không. Tập năm lần mỗi bên.",
+    "cues": [
+     "Ngã ngửa → nằm nghiêng",
+     "Đạp giữ khoảng cách",
+     "Đứng dậy kỹ thuật → hàng rào tay"
+    ],
+    "mistakes": [
+     "Vội đứng dậy khi đối phương còn sát",
+     "Quên che mặt"
+    ],
+    "drill": {
+     "label": "Chuỗi ngã – đứng dậy mỗi bên",
+     "say": "Đến lượt bạn. Chuỗi ngã – đứng dậy mỗi bên: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Bị lao vào ôm chân, nên làm gì?",
+    "a": [
+     "Bật hai chân ra sau, hạ hông đè xuống",
+     "Đứng thẳng chờ",
+     "Nhảy lên"
+    ],
+    "why": "Chống vật: chân ra xa, trọng lượng đè lên đối phương."
+   },
+   {
+    "q": "Nằm dưới đất, bàn chân phải hướng về đâu?",
+    "a": [
+     "Về phía đối phương",
+     "Lên trời",
+     "Ra sau"
+    ],
+    "why": "Chân hướng về đối phương để đạp giữ khoảng cách."
+   },
+   {
+    "q": "Đứng dậy kỹ thuật thì tay trước làm gì?",
+    "a": [
+     "Chống đất",
+     "Che mặt"
+    ],
+    "why": "Luôn bảo vệ mặt khi đứng dậy."
+   },
+   {
+    "q": "Đứng dậy nên lùi hay tiến về phía đối phương?",
+    "a": [
+     "Lùi xa",
+     "Tiến tới"
+    ],
+    "why": "Đứng dậy lùi xa để an toàn."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Thoát hiểm dưới đất",
+  "sub": "Di chuyển con tôm, bắc cầu lật, thoát khi bị đè, thủ chân",
+  "intro": "Nếu bị đè dưới đất, đừng hoảng. Có những chuyển động đơn giản của vật Sambo giúp bạn lật ngược tình thế. Ta tập chậm, bạn tập đè vừa sức, và luôn tôn trọng tín hiệu dừng.",
+  "safety": "Đệm dày. Người đè không dồn hết trọng lượng, không đè lên cổ. Vỗ hai lần là dừng.",
+  "outro": "Bạn đã biết thoát dưới đất. Bài sau, một chủ đề nghiêm túc: đối mặt kẻ cầm dao.",
+  "home": "Bài tập về nhà: mỗi ngày hai phút di chuyển con tôm, hai buổi một tuần tập vật mềm.",
+  "steps": {
+   "tk12-1": {
+    "title": "Di chuyển con tôm",
+    "say": "Nằm ngửa, hai gối co. Đạp một chân xuống thảm, đẩy hông lùi về phía sau, đồng thời xoay người nghiêng sang một bên, hai tay đẩy ra trước như đẩy một vật nặng. Cơ thể bạn cong như con tôm. Rồi về nằm ngửa và làm sang bên kia. Đây là chuyển động quan trọng nhất khi ở dưới đất: nó tạo khoảng trống.",
+    "cues": [
+     "Đạp chân, đẩy hông lùi",
+     "Nghiêng người, tay đẩy ra trước",
+     "Đổi bên liên tục"
+    ],
+    "mistakes": [
+     "Nằm ngửa phẳng không xoay hông",
+     "Đẩy bằng tay mà không đẩy hông"
+    ],
+    "drill": {
+     "label": "Di chuyển con tôm dọc thảm",
+     "say": "Đến lượt bạn. Di chuyển con tôm dọc thảm trong bốn mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk12-2": {
+    "title": "Bắc cầu lật khi bị cưỡi trên bụng",
+    "say": "Khi bị ngồi đè trên bụng: hai tay che mặt trước tiên. Rồi giữ chặt một cánh tay của đối phương sát người bạn, bàn chân cùng bên đặt chặn ngoài chân của họ. Đẩy hông thật mạnh lên cao, bắc cầu qua vai bên phía tay bị giữ, lật đối phương sang bên. Bạn bật lên ở thế trên, rồi đứng dậy lùi ra.",
+    "cues": [
+     "Che mặt trước",
+     "Giữ một tay + chặn chân cùng bên",
+     "Bắc cầu hông, lật qua vai bên đó"
+    ],
+    "mistakes": [
+     "Đẩy bằng tay lên ngực đối phương",
+     "Bắc cầu thẳng lên mà không giữ tay và chân"
+    ],
+    "drill": {
+     "label": "Bắc cầu lật mỗi bên",
+     "say": "Đến lượt bạn. Bắc cầu lật mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk12-3": {
+    "title": "Khuỷu – gối thoát khi bị đè",
+    "say": "Nếu không lật được: nằm nghiêng, đặt khuỷu tay sát gối, chèn khuỷu vào hông đối phương. Di chuyển con tôm để tạo khoảng trống, luồn gối vào giữa bạn và họ. Khi gối đã chèn được, đưa chân vào thủ, giữ đối phương ở xa bằng hai chân.",
+    "cues": [
+     "Nằm nghiêng, khuỷu chạm gối",
+     "Con tôm tạo khoảng trống",
+     "Luồn gối, đưa chân vào thủ"
+    ],
+    "mistakes": [
+     "Duỗi thẳng tay đẩy: dễ bị khoá tay",
+     "Nằm ngửa phẳng"
+    ],
+    "drill": {
+     "label": "Khuỷu – gối thoát mỗi bên",
+     "say": "Đến lượt bạn. Khuỷu – gối thoát mỗi bên: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk12-4": {
+    "title": "Thủ chân và đứng dậy",
+    "say": "Khi đã có hai chân giữa bạn và đối phương, bạn đang ở thế thủ chân. Đặt bàn chân lên hông họ, đẩy xa. Khi có khoảng trống, chuyển sang nằm nghiêng và đứng dậy kỹ thuật như bài trước. Ở dưới đất không phải là thua, chỉ cần bạn giữ được chân giữa hai người.",
+    "cues": [
+     "Hai chân giữa bạn và đối phương",
+     "Bàn chân đẩy hông, tạo khoảng cách",
+     "Đứng dậy kỹ thuật"
+    ],
+    "mistakes": [
+     "Bỏ chân ra, để đối phương áp sát",
+     "Đứng dậy khi chưa có khoảng cách"
+    ],
+    "drill": {
+     "label": "Thủ chân – đẩy – đứng dậy",
+     "say": "Đến lượt bạn. Thủ chân – đẩy – đứng dậy: sáu lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk12-5": {
+    "title": "Vật mềm có kiểm soát",
+    "say": "Bây giờ là vật mềm có kiểm soát trong hai phút. Một người bắt đầu ở dưới, một người ở trên. Người dưới chỉ có một nhiệm vụ: thoát ra và đứng dậy. Người trên chỉ giữ, không khoá tay, không siết cổ. Năm mươi phần trăm sức. Vỗ hai lần là dừng ngay.",
+    "cues": [
+     "Người dưới: thoát và đứng dậy",
+     "Người trên: chỉ giữ, không khoá, không siết",
+     "50% sức, vỗ hai lần là dừng"
+    ],
+    "mistakes": [
+     "Dùng hết sức ngay từ đầu",
+     "Không tôn trọng tín hiệu dừng"
+    ],
+    "drill": {
+     "label": "Hiệp vật mềm",
+     "say": "Đến lượt bạn. Hiệp vật mềm: hai hiệp, mỗi hiệp sáu mươi giây, nghỉ ba mươi giây giữa hiệp."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Chuyển động quan trọng nhất khi ở dưới đất là gì?",
+    "a": [
+     "Di chuyển con tôm",
+     "Nằm im",
+     "Đấm lên"
+    ],
+    "why": "Con tôm tạo khoảng trống để thoát."
+   },
+   {
+    "q": "Bắc cầu lật: lật về phía nào?",
+    "a": [
+     "Phía tay và chân đã bị bạn giữ, chặn",
+     "Phía bất kỳ"
+    ],
+    "why": "Đối phương không thể chống bằng tay và chân đã bị khoá."
+   },
+   {
+    "q": "Khi bị đè, có nên duỗi thẳng tay đẩy ngực đối phương?",
+    "a": [
+     "Có",
+     "Không, dễ bị khoá tay"
+    ],
+    "why": "Giữ khuỷu tay sát người."
+   },
+   {
+    "q": "Trong vật mềm, người ở trên được làm gì?",
+    "a": [
+     "Khoá tay, siết cổ",
+     "Chỉ giữ, không khoá, không siết"
+    ],
+    "why": "Tập an toàn, có kiểm soát."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Đối mặt kẻ cầm dao",
+  "sub": "Nguyên tắc vàng, vật cản, che chắn, kiểm soát tay, thoát – dao cao su",
+  "intro": "Nghe kỹ điều quan trọng nhất hôm nay: dao rất nguy hiểm, kể cả với người tập võ lâu năm. Nếu kẻ cướp chỉ muốn tài sản, hãy đưa cho họ. Tài sản mua lại được, mạng sống thì không. Những kỹ thuật sau chỉ dành cho khi không còn lựa chọn nào khác.",
+  "safety": "Chỉ tập bằng dao cao su hoặc dao nhựa cùn. Không bao giờ tập bằng dao thật.",
+  "outro": "Hãy nhớ kỹ: chạy là chiến thắng. Bài sau: giữ bình tĩnh khi bị đe doạ bằng súng.",
+  "home": "Bài tập về nhà: mỗi tuần một buổi tập tình huống với dao cao su, chậm và an toàn, luôn kết thúc bằng chạy.",
+  "steps": {
+   "tk13-1": {
+    "title": "Nguyên tắc vàng",
+    "say": "Ba nguyên tắc vàng. Một: nếu họ đòi tài sản, đưa ngay, ném ví ra xa rồi chạy hướng ngược lại. Hai: giữ khoảng cách càng xa càng tốt, và tìm đường chạy. Ba: chỉ khi bị tấn công mà không thể chạy, mới dùng kỹ thuật. Và nhớ: trong thực tế, hầu như ai đối đầu với dao cũng bị thương. Chạy là chiến thắng.",
+    "cues": [
+     "Đưa tài sản, ném xa, chạy",
+     "Giữ khoảng cách, tìm lối thoát",
+     "Kỹ thuật là phương án cuối cùng"
+    ],
+    "mistakes": [
+     "Cố giữ tài sản",
+     "Tự tin lao vào kẻ cầm dao"
+    ],
+    "drill": {
+     "label": "Ném ví – chạy (tập tình huống)",
+     "say": "Đến lượt bạn. Ném ví – chạy (tập tình huống): ba lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk13-2": {
+    "title": "Dùng vật cản làm khiên",
+    "say": "Bất cứ thứ gì trong tay đều có thể làm khiên: ba lô, áo khoác cuộn quanh tay, ghế, túi xách. Giữ vật cản giữa bạn và mũi dao, hai tay cầm chắc, lùi về phía lối thoát. Vật cản giữ dao xa cơ thể bạn, cho bạn thời gian để chạy.",
+    "cues": [
+     "Ba lô, áo khoác, ghế làm khiên",
+     "Giữ vật cản giữa bạn và dao",
+     "Lùi về phía lối thoát"
+    ],
+    "mistakes": [
+     "Vứt vật cản đi để đánh tay không",
+     "Lùi vào góc tường"
+    ],
+    "drill": {
+     "label": "Giữ khiên ba lô, lùi về lối thoát",
+     "say": "Đến lượt bạn. Giữ khiên ba lô, lùi về lối thoát trong ba mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk13-3": {
+    "title": "Che chắn và tư thế",
+    "say": "Nếu không có vật cản: hai cánh tay giơ trước mặt, mặt trong cẳng tay quay về phía mình, khuỷu tay che sườn, người hơi khom, cằm thu. Bạn đứng chéo người để thu nhỏ mục tiêu. Mắt nhìn vào bàn tay cầm dao, không nhìn mặt đối phương.",
+    "cues": [
+     "Cẳng tay trước mặt, mặt trong quay vào",
+     "Đứng chéo, khom nhẹ, cằm thu",
+     "Mắt nhìn tay cầm dao"
+    ],
+    "mistakes": [
+     "Đưa lòng bàn tay ra đỡ",
+     "Nhìn vào mặt thay vì nhìn tay"
+    ],
+    "drill": {
+     "label": "Vào tư thế che chắn",
+     "say": "Đến lượt bạn. Vào tư thế che chắn: mười lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk13-4": {
+    "title": "Chặn và kiểm soát cánh tay",
+    "say": "Khi bị đâm tới và không thể tránh: chặn cánh tay cầm dao bằng cả hai cẳng tay, đồng thời bước chéo ra ngoài. Lập tức ôm chặt cánh tay đó vào người bằng cả hai tay, kiểm soát cổ tay, giữ lưỡi dao hướng ra xa. Hai tay của bạn chống lại một tay của họ. Tập thật chậm với dao cao su.",
+    "cues": [
+     "Chặn bằng hai cẳng tay + bước chéo",
+     "Ôm chặt cánh tay cầm dao",
+     "Hai tay kiểm soát cổ tay, dao hướng ra xa"
+    ],
+    "mistakes": [
+     "Chỉ dùng một tay",
+     "Buông cánh tay ra giữa chừng"
+    ],
+    "drill": {
+     "label": "Chặn – kiểm soát (chậm) mỗi bên",
+     "say": "Đến lượt bạn. Chặn – kiểm soát (chậm) mỗi bên: tám lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk13-5": {
+    "title": "Thoát và chạy",
+    "say": "Khi đã kiểm soát được cánh tay, đừng cố giành dao. Đạp thấp vào đầu gối như bài chín, đẩy mạnh đối phương ra, rồi chạy về nơi đông người, gọi giúp đỡ và báo công an. Sau đó kiểm tra cơ thể: người bị thương do dao thường không cảm thấy ngay.",
+    "cues": [
+     "Không cố giành dao",
+     "Đạp thấp, đẩy ra, chạy",
+     "Gọi giúp đỡ, báo công an, kiểm tra vết thương"
+    ],
+    "mistakes": [
+     "Cố cướp dao",
+     "Đuổi theo đối phương"
+    ],
+    "drill": {
+     "label": "Kiểm soát – đẩy – chạy (chậm)",
+     "say": "Đến lượt bạn. Kiểm soát – đẩy – chạy (chậm): năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Kẻ cầm dao đòi ví của bạn. Bạn làm gì?",
+    "a": [
+     "Đánh nhau giữ ví",
+     "Đưa ví, ném xa, chạy"
+    ],
+    "why": "Tài sản mua lại được, mạng sống thì không."
+   },
+   {
+    "q": "Vật nào có thể làm khiên?",
+    "a": [
+     "Ba lô, áo khoác, ghế",
+     "Không có gì"
+    ],
+    "why": "Vật cản giữ dao xa cơ thể bạn."
+   },
+   {
+    "q": "Khi đối mặt dao, mắt nhìn vào đâu?",
+    "a": [
+     "Mặt đối phương",
+     "Bàn tay cầm dao"
+    ],
+    "why": "Mối nguy nằm ở bàn tay cầm dao."
+   },
+   {
+    "q": "Sau khi kiểm soát được tay cầm dao, nên làm gì?",
+    "a": [
+     "Cố giành dao",
+     "Đẩy ra, chạy, gọi giúp đỡ"
+    ],
+    "why": "Mục tiêu là thoát an toàn, không phải giành vũ khí."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Bị đe doạ bằng súng",
+  "sub": "Bình tĩnh, tuân thủ, quan sát, vật che chắn, thoát hiểm – súng nhựa tập",
+  "intro": "Bài này nói về sự bình tĩnh nhiều hơn là đòn thế. Khi đối diện súng, sự sống của bạn phụ thuộc vào cái đầu lạnh. Ta dùng súng nhựa màu cam, loại chỉ để tập.",
+  "safety": "Chỉ dùng súng nhựa tập màu cam. Không dùng súng thật, súng hơi hay đồ giống thật.",
+  "outro": "Cái đầu lạnh là vũ khí mạnh nhất của bạn. Bài cuối nhánh: tổng hợp và phản xạ.",
+  "home": "Bài tập về nhà: mỗi ngày ba phút thở hộp, và tập trò ghi nhớ khi ra đường.",
+  "steps": {
+   "tk14-1": {
+    "title": "Thở và giữ bình tĩnh",
+    "say": "Khi bị chĩa súng, tim bạn sẽ đập rất nhanh. Hãy thở hộp: hít vào bốn giây, giữ bốn giây, thở ra bốn giây, giữ bốn giây. Chỉ một hai nhịp thở đã giúp đầu óc bạn sáng ra. Người bình tĩnh nhìn thấy lối thoát, người hoảng loạn thì không.",
+    "cues": [
+     "Hít 4 – giữ 4 – thở 4 – giữ 4",
+     "Một hai nhịp là đủ",
+     "Bình tĩnh mới thấy lối thoát"
+    ],
+    "mistakes": [
+     "Thở dồn dập",
+     "Cử động đột ngột"
+    ],
+    "drill": {
+     "label": "Thở hộp 4 nhịp",
+     "say": "Đến lượt bạn. Thở hộp 4 nhịp trong sáu mươi tư giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk14-2": {
+    "title": "Tuân thủ và giơ tay",
+    "say": "Nếu họ đòi tài sản: tuân thủ. Giơ hai bàn tay mở ngang vai, nói chậm và rõ: được, tôi đưa đây. Báo trước mỗi cử động: tôi sẽ lấy ví trong túi bên phải. Đặt tài sản xuống hoặc ném ra xa. Không nhìn chằm chằm vào mặt họ, không tranh cãi.",
+    "cues": [
+     "Hai tay mở, ngang vai",
+     "Nói chậm, báo trước mỗi cử động",
+     "Đưa tài sản, không tranh cãi"
+    ],
+    "mistakes": [
+     "Cử động bất ngờ vào túi",
+     "Tranh cãi, đe doạ lại"
+    ],
+    "drill": {
+     "label": "Tập tình huống tuân thủ",
+     "say": "Đến lượt bạn. Tập tình huống tuân thủ: ba lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk14-3": {
+    "title": "Che khuất và che chắn",
+    "say": "Phân biệt hai thứ. Che khuất là thứ che bạn khỏi tầm mắt, như bụi cây hay tấm rèm. Che chắn là thứ chặn được đạn, như tường bê tông, cột trụ, khối máy xe. Khi có cơ hội chạy, chạy về phía vật che chắn, chạy chéo chứ không chạy thẳng, và giữ người thấp.",
+    "cues": [
+     "Che khuất ≠ che chắn",
+     "Chạy về phía vật che chắn",
+     "Chạy chéo, người thấp"
+    ],
+    "mistakes": [
+     "Nấp sau cánh cửa gỗ hay bụi cây và nghĩ là an toàn",
+     "Chạy thẳng một đường"
+    ],
+    "drill": {
+     "label": "Chạy chéo về vật che chắn",
+     "say": "Đến lượt bạn. Chạy chéo về vật che chắn: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk14-4": {
+    "title": "Quan sát và ghi nhớ",
+    "say": "Trong lúc tuân thủ, hãy âm thầm quan sát: chiều cao, quần áo, giọng nói, hướng họ bỏ đi. Khi họ đã đi, ở yên tại chỗ an toàn, gọi công an ngay, và kể lại mọi thứ bạn nhớ. Đừng bao giờ đuổi theo.",
+    "cues": [
+     "Quan sát âm thầm: dáng, áo, giọng, hướng đi",
+     "Ở yên chỗ an toàn",
+     "Gọi công an, không đuổi theo"
+    ],
+    "mistakes": [
+     "Đuổi theo kẻ cướp",
+     "Nhìn chằm chằm vào mặt họ"
+    ],
+    "drill": {
+     "label": "Trò ghi nhớ: tả lại một người",
+     "say": "Đến lượt bạn. Trò ghi nhớ: tả lại một người trong ba mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   },
+   "tk14-5": {
+    "title": "Phương án cuối cùng",
+    "say": "Chỉ khi chắc chắn họ sẽ bắn dù bạn đã tuân thủ, mới nghĩ tới phương án cuối cùng: đẩy nòng súng lệch khỏi người bạn và mọi người, giữ chặt bằng hai tay, rồi tìm cách thoát. Đây là kỹ thuật rủi ro rất cao, chỉ được học trực tiếp với huấn luyện viên có chứng chỉ, bằng súng tập. Trong hầu hết tình huống, tuân thủ và quan sát là lựa chọn sống sót tốt nhất.",
+    "cues": [
+     "Chỉ khi chắc chắn bị bắn",
+     "Đẩy nòng lệch khỏi người, giữ hai tay",
+     "Học trực tiếp với huấn luyện viên"
+    ],
+    "mistakes": [
+     "Hành động khi chỉ bị đòi tài sản",
+     "Tự tập theo video mà không có người hướng dẫn"
+    ],
+    "drill": {
+     "label": "Nhắc lại các nguyên tắc",
+     "say": "Đến lượt bạn. Nhắc lại các nguyên tắc: ba lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Thở hộp là gì?",
+    "a": [
+     "Hít 4 – giữ 4 – thở 4 – giữ 4 giây",
+     "Nín thở thật lâu"
+    ],
+    "why": "Nhịp thở đều giúp hạ nhịp tim, đầu óc tỉnh táo."
+   },
+   {
+    "q": "Bị chĩa súng đòi tài sản, nên làm gì?",
+    "a": [
+     "Chống trả",
+     "Tuân thủ, báo trước cử động, đưa tài sản"
+    ],
+    "why": "Tài sản không đáng giá bằng mạng sống."
+   },
+   {
+    "q": "Vật nào là che chắn (chặn được đạn)?",
+    "a": [
+     "Bụi cây",
+     "Tường bê tông, cột trụ"
+    ],
+    "why": "Bụi cây chỉ che khuất, không chặn được đạn."
+   },
+   {
+    "q": "Sau khi kẻ cướp bỏ đi, bạn nên:",
+    "a": [
+     "Đuổi theo",
+     "Ở yên chỗ an toàn và gọi công an"
+    ],
+    "why": "Không bao giờ đuổi theo người có vũ khí."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Tổng hợp & phản xạ",
+  "sub": "Tình huống liên hoàn, tập đôi có kiểm soát, giãn cơ hồi phục",
+  "intro": "Bài cuối cùng. Ta ghép mọi thứ đã học thành phản xạ. Khi tình huống xảy ra, bạn sẽ không có thời gian suy nghĩ. Cơ thể phải tự biết làm gì.",
+  "safety": "Đeo găng, bảo vệ răng nếu có. Tập đôi ở 30–50% sức, có người hướng dẫn quan sát.",
+  "outro": "Chúc mừng chiến binh! Bạn đã hoàn thành trọn nhánh Cận chiến tự vệ, cả phần cơ bản lẫn nâng cao. Hãy làm bài thi tốt nghiệp nhánh để nhận huy hiệu Sói Thép.",
+  "home": "Bài tập về nhà: ba buổi một tuần ôn toàn bộ nhánh, mỗi buổi ba mươi phút, luôn khởi động và giãn cơ.",
+  "steps": {
+   "tk15-1": {
+    "title": "Phản xạ với đích đỡ di động",
+    "say": "Bạn tập cầm hai găng đỡ, di chuyển quanh bạn, và bất ngờ giơ găng lên ở những vị trí khác nhau. Găng giơ ngang mặt: đấm thẳng. Găng giơ thấp: đá đẩy. Găng vung vào đầu bạn: thủ cao. Phản ứng ngay, không suy nghĩ.",
+    "cues": [
+     "Găng ngang mặt → đấm thẳng",
+     "Găng thấp → đá đẩy",
+     "Găng vung tới → thủ cao"
+    ],
+    "mistakes": [
+     "Đứng chờ, không di chuyển",
+     "Hạ tay sau mỗi đòn"
+    ],
+    "drill": {
+     "label": "Hiệp phản xạ",
+     "say": "Đến lượt bạn. Hiệp phản xạ: ba hiệp, mỗi hiệp bốn mươi lăm giây, nghỉ hai mươi giây giữa hiệp."
+    }
+   },
+   "tk15-2": {
+    "title": "Tình huống: bị nắm tay",
+    "say": "Tình huống một. Bạn tập bất ngờ nắm cổ tay bạn và kéo. Phản xạ: hạ trọng tâm, thoát theo hướng ngón cái, hàng rào tay, lùi xa, hô to: Dừng lại! Rồi quay người chạy ba bước. Làm lại năm lần, mỗi lần bạn tập nắm một kiểu khác nhau.",
+    "cues": [
+     "Hạ trọng tâm, thoát hướng ngón cái",
+     "Hàng rào tay, hô to",
+     "Chạy 3 bước"
+    ],
+    "mistakes": [
+     "Giằng co sức với sức",
+     "Quên hô và chạy"
+    ],
+    "drill": {
+     "label": "Tình huống nắm tay",
+     "say": "Đến lượt bạn. Tình huống nắm tay: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk15-3": {
+    "title": "Tình huống: bị ôm sau",
+    "say": "Tình huống hai. Bạn tập ôm bạn từ phía sau. Phản xạ: hạ trọng tâm, mở khuỷu, bước ngang, xoay thoát, đá đẩy vào khiên mà người thứ ba giữ, rồi chạy. Đổi vai sau mỗi lần. Năm lần mỗi người.",
+    "cues": [
+     "Hạ trọng tâm, mở khuỷu",
+     "Bước ngang, xoay thoát",
+     "Đá đẩy, chạy"
+    ],
+    "mistakes": [
+     "Đứng thẳng người",
+     "Xoay khi trọng tâm còn cao"
+    ],
+    "drill": {
+     "label": "Tình huống ôm sau",
+     "say": "Đến lượt bạn. Tình huống ôm sau: năm lần. Tôi sẽ đếm nhịp cho bạn."
+    }
+   },
+   "tk15-4": {
+    "title": "Tập đôi có kiểm soát",
+    "say": "Tập đôi nhẹ ba hiệp, mỗi hiệp một phút. Chỉ đấm thẳng vào găng và vai, đá đẩy vào bụng thật nhẹ, ba mươi phần trăm sức. Không đánh vào mặt, không đánh vào điểm yếu. Mục tiêu là luyện mắt, bộ pháp và sự bình tĩnh khi có người tấn công thật.",
+    "cues": [
+     "30% sức, không vào mặt",
+     "Luyện mắt, bộ pháp, bình tĩnh",
+     "Chạm găng chào nhau trước và sau"
+    ],
+    "mistakes": [
+     "Tăng lực khi bị trúng đòn",
+     "Nhắm mắt khi bị đánh"
+    ],
+    "drill": {
+     "label": "Hiệp tập đôi",
+     "say": "Đến lượt bạn. Hiệp tập đôi: ba hiệp, mỗi hiệp sáu mươi giây, nghỉ ba mươi giây giữa hiệp."
+    }
+   },
+   "tk15-5": {
+    "title": "Giãn cơ và hồi phục",
+    "say": "Sau buổi tập nặng, giãn cơ mười phút. Giãn đùi trước, đùi sau, hông, vai và lưng, mỗi tư thế ba mươi giây, thở ra khi giãn sâu hơn. Uống nước, ăn đủ và ngủ đủ. Cơ bắp lớn lên khi bạn nghỉ ngơi, không phải khi bạn tập.",
+    "cues": [
+     "Mỗi tư thế 30 giây",
+     "Thở ra khi giãn sâu hơn",
+     "Uống nước, ăn đủ, ngủ đủ"
+    ],
+    "mistakes": [
+     "Nhún giật khi giãn",
+     "Bỏ qua phần hồi phục"
+    ],
+    "drill": {
+     "label": "Giãn cơ hồi phục",
+     "say": "Đến lượt bạn. Giãn cơ hồi phục trong một trăm hai mươi giây. Đồng hồ sẽ đếm ngược."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Găng giơ thấp ngang bụng thì phản xạ là gì?",
+    "a": [
+     "Đá đẩy",
+     "Thủ cao"
+    ],
+    "why": "Đích thấp dành cho đá đẩy."
+   },
+   {
+    "q": "Tập đôi có kiểm soát dùng bao nhiêu sức?",
+    "a": [
+     "Khoảng 30%",
+     "Hết sức"
+    ],
+    "why": "Luyện kỹ năng an toàn, không phải đánh thật."
+   },
+   {
+    "q": "Kết thúc mỗi tình huống tự vệ luôn là:",
+    "a": [
+     "Đứng lại đấu tiếp",
+     "Hô to, tạo khoảng cách và chạy"
+    ],
+    "why": "Mục tiêu của tự vệ là an toàn."
+   },
+   {
+    "q": "Cơ bắp lớn lên khi nào?",
+    "a": [
+     "Khi nghỉ ngơi, ăn ngủ đủ",
+     "Chỉ khi tập"
+    ],
+    "why": "Hồi phục là một phần của luyện tập."
+   }
+  ]
+ }
+}

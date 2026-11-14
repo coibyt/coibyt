@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Cận chiến tự vệ",
+  "sub": "Lấy cảm hứng từ Systema và vật Sambo: hơi thở, bộ pháp, ngã an toàn, che chắn, đòn cơ bản, thoát hiểm, quật ngã."
+ },
+ "ngu-trang": {
+  "title": "Ngụy trang & ẩn mình",
+  "sub": "Đồ ghillie, sơn mặt, ẩn nấp, di chuyển không tiếng động, xoá dấu vết, tiếp cận không bị phát hiện.",
+  "preview": [
+   "Bốn yếu tố lộ: hình dáng, bóng, ánh sáng, chuyển động",
+   "Sơn mặt ngụy trang",
+   "Tự làm đồ ghillie",
+   "Chọn chỗ ẩn nấp",
+   "Bò thấp, bò cao, đi bước cáo",
+   "Di chuyển không tiếng động",
+   "Xoá dấu vết",
+   "Quan sát mà không bị phát hiện"
+  ]
+ },
+ "ban-sung": {
+  "title": "Bắn súng thể thao",
+  "sub": "Bốn quy tắc an toàn, cầm súng tập đúng cách, tư thế đứng – quỳ – nằm, ngắm và thở, lịch sử súng.",
+  "preview": [
+   "Bốn quy tắc an toàn",
+   "Cầm súng tập đúng cách",
+   "Tư thế đứng, quỳ, nằm",
+   "Đường ngắm và hơi thở",
+   "Bóp cò mượt",
+   "Lịch sử bắn súng thể thao"
+  ]
+ },
+ "dong-doi": {
+  "title": "Phối hợp đồng đội",
+  "sub": "Ra hiệu bằng tay, liên lạc ngắn gọn, đội hình di chuyển và yểm trợ nhau trong airsoft, paintball.",
+  "preview": [
+   "Ký hiệu tay cơ bản",
+   "Liên lạc ngắn gọn bằng bộ đàm",
+   "Đội hình di chuyển",
+   "Quan sát theo khu vực",
+   "Trò chơi phối hợp đội"
+  ]
+ },
+ "the-luc": {
+  "title": "Thể lực & sinh tồn",
+  "sub": "Hành quân mang vác, bơi an toàn, quản lý mệt mỏi, tìm nước, thức ăn, lửa và chỗ trú ở rừng, sa mạc, biển.",
+  "preview": [
+   "Sức mạnh bằng trọng lượng cơ thể",
+   "Hành quân mang vác an toàn",
+   "Vượt tường gỗ, leo dây",
+   "Bơi và nổi an toàn",
+   "Quản lý mệt mỏi, thiếu ngủ",
+   "Tìm và lọc nước",
+   "Lửa và chỗ trú",
+   "Sinh tồn ở rừng, sa mạc, biển"
+  ]
+ },
+ "so-cuu": {
+  "title": "Sơ cứu chiến trường",
+  "sub": "Cầm máu, đặt garo, băng ép, xử lý sốc, hồi sức tim phổi, sơ cứu khi thiếu vật tư.",
+  "preview": [
+   "Đánh giá an toàn hiện trường",
+   "Ép cầm máu trực tiếp",
+   "Đặt garo đúng cách",
+   "Nhét gạc và băng ép",
+   "Giữ đường thở, tư thế hồi phục",
+   "Phòng sốc và hạ thân nhiệt",
+   "Hồi sức tim phổi (CPR)",
+   "Sơ cứu khi thiếu vật tư"
+  ]
+ },
+ "tam-ly": {
+  "title": "Bản lĩnh tinh thần",
+  "sub": "Giữ bình tĩnh khi nguy hiểm, thở chống hoảng loạn, kiểm soát nỗi sợ, rèn quan sát và trí nhớ.",
+  "preview": [
+   "Thở hộp chống hoảng loạn",
+   "Kiểm soát nỗi sợ",
+   "Tự nói chuyện tích cực",
+   "Quan sát và ghi nhớ (trò Kim)",
+   "Ra quyết định khi bị áp lực"
+  ]
+ }
+}
