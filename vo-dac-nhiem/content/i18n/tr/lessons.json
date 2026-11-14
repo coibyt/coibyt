@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Isınma ve nefes",
+  "sub": "Eklem çevirme, ısınma, adımlı nefes, boşaltma nefesi, ger – gevşe",
+  "intro": "İlk ders. Henüz hiçbir teknik yok. İyi bir savaşçı, ısınmış eklemlerle ve sakin bir nefesle başlar. Adım adım benimle birlikte yap.",
+  "safety": "Her antrenmandan önce ısın. Eklemde keskin bir ağrı olursa hemen dur.",
+  "outro": "Çok iyi. Eklemler ısındı, nefes ritme oturdu. Gelecek derste duruşu ve ayak çalışmasını öğreneceğiz.",
+  "home": "Ev ödevi: yedi gün boyunca her sabah on dakika ısınma ve adımlı nefes yap.",
+  "steps": {
+   "tk1-1": {
+    "title": "Yukarıdan aşağı eklem çevirme",
+    "say": "Dik dur, ayakların omuz genişliğinde açık. Boynunu çok yavaşça çevir, her yöne beş tur. Sonra omuzlarını, dirseklerini ve bileklerini çevir. Ardından kalçanı, dizlerini ve ayak bileklerini çevir. Yukarıdan aşağıya sırayla ilerle. Hareketler yuvarlak ve yumuşak olsun, sarsma yok. Eklemler ısındığında beden de düşerken ve vururken güvende olur.",
+    "cues": [
+     "Yukarıdan aşağı: boyun → omuz → dirsek → bilek → kalça → diz → ayak bileği",
+     "Her eklem için her yöne 5 tur",
+     "Yavaş, yuvarlak, sarsmadan"
+    ],
+    "mistakes": [
+     "Boynu çok hızlı çevirmek, başı geriye fazla atmak",
+     "Çevirirken nefesi tutmak"
+    ],
+    "drill": {
+     "label": "Eklem çevirme",
+     "say": "Sıra sende. Doksan saniye boyunca eklemlerini çevir. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk1-2": {
+    "title": "Vücudu ısıtma",
+    "say": "Otuz saniye yerinde diz çekerek koş. Sonra on squat yap. Kalçanı sandalyeye oturur gibi indir, sırtın düz, dizlerin ayak uçlarının yönünde olsun. Ardından on şınav çek. Alışık değilsen dizlerinin üzerinde yapabilirsin. Amaç vücudu ısıtmak ve nefesi biraz hızlandırmak. Kendini tüketmek değil.",
+    "cues": [
+     "30 saniye diz çekerek koşu",
+     "10 squat: sırt düz, diz ayak ucu yönünde",
+     "10 şınav (dizler üzerinde olabilir)"
+    ],
+    "mistakes": [
+     "Squat sırasında dizlerin içe kapanması",
+     "Şınavda belin çökmesi"
+    ],
+    "drill": {
+     "label": "Squat",
+     "say": "Sıra sende. Squat: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk1-3": {
+    "title": "Adımlı nefes",
+    "say": "Bu, Rus gerçek dövüş sistemlerinin bilinen bir nefes çalışmasıdır. Düzenli bir tempoda yürü. Dört adım boyunca burnundan nefes al, dört adım boyunca ağzından ver. Bir dakika sonra üç adıma in, sonra iki adıma, sonra bir adıma. Ardından tekrar dört adıma çık. İyi hatırla: hareketi nefes yönetir. Nefesini asla tutma.",
+    "cues": [
+     "Burundan 4 adım al – ağızdan 4 adım ver",
+     "Azalt 4 → 3 → 2 → 1, sonra yine artır",
+     "Omuzlar gevşek, nefes tutma yok"
+    ],
+    "mistakes": [
+     "Ritim değişirken nefesi tutmak",
+     "Nefes alırken omuzları kaldırmak"
+    ],
+    "drill": {
+     "label": "Adımlı nefesle yürüyüş",
+     "say": "Sıra sende. Yüz yirmi saniye boyunca adımlı nefesle yürü. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk1-4": {
+    "title": "Zorlanırken boşaltma nefesi",
+    "say": "Yorulduğunda ya da gerildiğinde kısa ve hızlı nefes al. Burnundan al, ağzından güçlüce ver, art arda birkaç kez, bir mumu üfleyip söndürür gibi. Hemen dene. Yirmi saniye boyunca yüksek şınav pozisyonunda kal ve sürekli boşaltma nefesi yap. Kasların daha az kasıldığını, zihninin daha açık olduğunu fark edeceksin.",
+    "cues": [
+     "Burundan kısa al – ağızdan güçlü üfle",
+     "Mum üfler gibi, art arda",
+     "Bu nefesle 20 saniye yüksek plankta kal"
+    ],
+    "mistakes": [
+     "Başın dönene kadar hızlı solumak: yavaşla",
+     "Plankta kalçanın çökmesi"
+    ],
+    "drill": {
+     "label": "Yüksek plank + boşaltma nefesi",
+     "say": "Sıra sende. Yirmi saniye boyunca yüksek plank ve boşaltma nefesi. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk1-5": {
+    "title": "Tüm vücut ger – gevşe",
+    "say": "Matın üzerine sırtüstü uzan. Nefes al, iki ayağını üç saniye sıkıca ger. Sonra nefes ver ve tamamen gevşe. Sırayla baldırlara, uyluklara, karnına, yumruklarına, omuzlarına ve yüzüne kadar çık. Sonunda bütün vücudunu bir kez ger ve bırak. Gevşemeyi bilen kişi darbelere daha iyi dayanır, daha hızlı hareket eder ve daha az sakatlanır.",
+    "cues": [
+     "Nefes al – 3 saniye ger",
+     "Nefes ver – tamamen gevşe",
+     "Ayaklardan yüze kadar"
+    ],
+    "mistakes": [
+     "Kramp girecek kadar sert germek",
+     "Gevşerken nefes vermeyi unutmak"
+    ],
+    "drill": {
+     "label": "Ger – gevşe",
+     "say": "Sıra sende. Altmış saniye boyunca ger ve gevşe. Zamanlayıcı geri sayacak."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Eklemleri çevirirken hangi sırayı izlemelisin?",
+    "a": [
+     "Yukarıdan aşağı: boyun, omuz… ayak bileğine kadar",
+     "Rastgele, hangi eklem olursa",
+     "Sadece ayak bileklerini çevirmek yeter"
+    ],
+    "why": "Yukarıdan aşağı gitmek, hiçbir eklemi atlamamanı sağlar."
+   },
+   {
+    "q": "Adımlı nefeste nefesi nereden alırsın?",
+    "a": [
+     "Ağızdan",
+     "Burundan",
+     "Önce tutar, sonra alırım"
+    ],
+    "why": "Burundan al, ağızdan ver, adımlarının ritmine göre."
+   },
+   {
+    "q": "Boşaltma nefesi ne zaman kullanılır?",
+    "a": [
+     "Yorgunken ya da gerginken",
+     "Sadece uyurken",
+     "Hiçbir zaman"
+    ],
+    "why": "Kısa ve güçlü nefes, zorlanırken kas gerginliğini azaltır ve zihni açık tutar."
+   },
+   {
+    "q": "Gevşemeyi bilmek neden önemli?",
+    "a": [
+     "Daha iyi görünmek için",
+     "Darbelere daha iyi dayanmak, daha hızlı hareket etmek, daha az sakatlanmak",
+     "Isınmadan kurtulmak için"
+    ],
+    "why": "Kasılmış kaslar daha yavaş tepki verir ve daha kolay sakatlanır."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Duruş ve ayak çalışması",
+  "sub": "El bariyeri, dövüş duruşu, kayarak adım, pivot dönüş",
+  "intro": "Her şeyi ayaklar belirler. Sağlam durursan savunabilir, vurabilir ve kurtulabilirsin. Bugün temeli atıyoruz.",
+  "safety": "Düz ve kaymayan bir zeminde çalış. Adımların kısa ve sağlam olsun.",
+  "outro": "Temel atıldı. Sağlam ayaklar, dövüşün yarısıdır. Sonraki ders: güvenli düşmeyi öğreneceğiz.",
+  "home": "Ev ödevi: yedi gün boyunca her gün on dakika duruş ve hareket çalış, üç raunt.",
+  "steps": {
+   "tk2-1": {
+    "title": "Tetik duruşu – el bariyeri",
+    "say": "Biri sana saldırgan bir tavırla yaklaştığında hemen yumruk yapma. Hafif çapraz dur, güçlü tarafındaki ayağını yarım adım geri al. Açık ellerini göğsünün önüne getir, avuç içleri öne baksın, sanki sakin ol der gibi. Ellerin, mesafeyi koruyan bir bariyerdir. Saldırgan görünmezsin, ama aslında hazırsındır.",
+    "cues": [
+     "Çapraz dur, güçlü taraftaki ayak yarım adım geride",
+     "Açık eller göğsün önünde",
+     "Mesafeyi koru, sesin sakin olsun"
+    ],
+    "mistakes": [
+     "Hemen yumruk yapmak: çatışmayı tırmandırabilir",
+     "Tam karşıya dönük, ayaklar paralel durmak"
+    ],
+    "drill": {
+     "label": "Bariyer duruşuna geç",
+     "say": "Sıra sende. Bariyer duruşuna geç: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk2-2": {
+    "title": "Dövüş duruşu",
+    "say": "Sağ elini kullanıyorsan sol ayağın önde, sağ ayağın arkada. Ayakların arası omuz genişliğinden biraz fazla olsun. Ön ayağın ucu hafifçe içe dönük, arka topuk hafifçe kalkık. Dizler esnek, ağırlık iki ayağa eşit dağılmış. Ellerin yüzünün önünde, dirsekler kaburgaları kapatsın. Çene içeride, gözlerin yumruklarının üzerinden baksın. Solaksan tersini yap.",
+    "cues": [
+     "Sol ayak önde (sağ elini kullanan)",
+     "Dizler esnek, arka topuk hafifçe kalkık",
+     "Eller yüzü, dirsekler kaburgaları korur, çene içeride"
+    ],
+    "mistakes": [
+     "İki ayak aynı çizgide: dengeyi kolayca kaybedersin",
+     "Çeneyi kaldırmak, elleri indirmek"
+    ],
+    "drill": {
+     "label": "Dövüş duruşuna geç",
+     "say": "Sıra sende. Dövüş duruşuna geç: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk2-3": {
+    "title": "İleri – geri kayarak adım",
+    "say": "İlerlemek için önce ön ayak kısa bir adım atar, arka ayak tam o mesafe kadar kayarak gelir. Geri gitmek için önce arka ayak geri gider, ön ayak onu takip eder. Ayaklar yere yakın kayar, zıplama yok. Ayaklarını asla çaprazlama ve birleştirme. Her adımdan sonra yine ilk duruşundasın.",
+    "cues": [
+     "İleri: önce ön ayak",
+     "Geri: önce arka ayak",
+     "Ayaklar arası mesafe değişmez"
+    ],
+    "mistakes": [
+     "Ayakları çaprazlamak",
+     "Kaymak yerine zıplamak"
+    ],
+    "drill": {
+     "label": "İleri – geri adım",
+     "say": "Sıra sende. İleri ve geri adım: yirmi tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk2-4": {
+    "title": "Yana adım",
+    "say": "Sola giderken önce sol ayak, sağa giderken önce sağ ayak gider. Diğer ayak kayarak gelir. Ayakların arasındaki mesafe değişmesin, ellerin yüzünü korumaya devam etsin. Kaygan çamurlu zeminde adım ne kadar kısaysa o kadar sağlamdır.",
+    "cues": [
+     "Sola: önce sol ayak",
+     "Sağa: önce sağ ayak",
+     "Kaygan zeminde kısa adım"
+    ],
+    "mistakes": [
+     "Arka ayağın ön ayağın üzerinden geçmesi",
+     "Hareket ederken elleri indirmek"
+    ],
+    "drill": {
+     "label": "Yana adım",
+     "say": "Sıra sende. Yana adım: yirmi tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivot dönüşle açı değiştirme",
+    "say": "Dövüş duruşunda dur. Ön ayağının ucunu eksen yap, arka ayağınla çeyrek daire çiz. Tüm vücudun doksan derece açı değiştirir ve rakibin saldırı çizgisinden çıkar. Bu yöne on kez dön, sonra yön değiştir.",
+    "cues": [
+     "Ön ayak ucu üzerinde dön",
+     "Arka ayak yay çizer",
+     "90° açı değiştir, gard açılmasın"
+    ],
+    "mistakes": [
+     "Topuk üzerinde dönmek",
+     "Dönerken dikleşmek"
+    ],
+    "drill": {
+     "label": "Her yöne pivot dönüş",
+     "say": "Sıra sende. Her yöne pivot dönüş: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk2-6": {
+    "title": "Komutla hareket",
+    "say": "Şimdi otuz saniye boyunca komutlarıma göre hareket et: ileri, geri, sola, sağa, dön. Ellerini koru, çeneni koru, nefesini düzenli tut. Ayaklar hızlı, ama üst gövde her zaman sakin.",
+    "cues": [
+     "İleri – geri – sola – sağa – dön",
+     "Eller ve çene her zaman yerinde",
+     "Düzenli nefes"
+    ],
+    "mistakes": [
+     "Ayaklara bakmak",
+     "Çok uzun adım atmak"
+    ],
+    "drill": {
+     "label": "Komutla ayak çalışması",
+     "say": "Sıra sende. Otuz saniye boyunca komutlarıma göre hareket et. İyi dinle.",
+     "calls": [
+      "İleri!",
+      "Geri!",
+      "Sola!",
+      "Sağa!",
+      "Dön!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "El bariyeri duruşu ne işe yarar?",
+    "a": [
+     "Saldırgan görünmeden mesafeyi korumaya",
+     "Rakibe hemen yumruk atmaya",
+     "Kollarını bağlayıp beklemeye"
+    ],
+    "why": "Açık eller mesafeyi korur ve durumu yatıştırır."
+   },
+   {
+    "q": "Geri giderken önce hangi ayak hareket eder?",
+    "a": [
+     "Ön ayak",
+     "Arka ayak",
+     "İki ayak birlikte zıplar"
+    ],
+    "why": "Hangi yöne gidiyorsan, o yöne yakın olan ayak önce gider."
+   },
+   {
+    "q": "Hareket ederken en tehlikeli hata nedir?",
+    "a": [
+     "Ayakları çaprazlamak",
+     "Kısa adım atmak",
+     "Elleri yüzde tutmak"
+    ],
+    "why": "Çaprazlanan ayaklar dengeni çok kolay bozar."
+   },
+   {
+    "q": "Pivot dönüşte ön ayağının hangi kısmı üzerinde dönersin?",
+    "a": [
+     "Topuk",
+     "Ayak ucu",
+     "Ayağın dış kenarı"
+    ],
+    "why": "Ayak ucu üzerinde dönmek, dönüşü hafif ve hızlı yapar."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Güvenli düşüş",
+  "sub": "Düşme ilkeleri, geriye düşüş, yana düşüş, öne yuvarlanma",
+  "intro": "Bu kampta herkes yere indirmeyi öğrenmeden önce düşmeyi öğrenir. Doğru düşmek hayat kurtaran bir beceridir, kaygan bir yolda ayağın kaydığında bile.",
+  "safety": "Sadece kalın minderde çalış. Çene her zaman içeride. Yuvarlanma çalışırken yanında bir eğitmen olsun.",
+  "outro": "Artık düşmeyi biliyorsun. Bugünden sonra yer seni korkutmayacak. Sonraki ders: korunma ve blok.",
+  "home": "Ev ödevi: bir hafta boyunca her gün kalın minderde on geriye düşüş ve her iki yana onar yana düşüş yap.",
+  "steps": {
+   "tk3-1": {
+    "title": "Üç altın kural",
+    "say": "Düşerken üç altın kural var. Bir: çeneni göğsüne yapıştır, böylece başın asla yere çarpmaz. İki: sırtını bir tekerlek gibi yuvarlak tut, böylece düz çarpmak yerine yuvarlanırsın. Üç: kolun gövdenle aynı anda minderi vursun, böylece darbenin gücü dağılır. Her zaman kalın minderde çalış. Sert zeminde kesinlikle çalışma.",
+    "cues": [
+     "Çene göğse yapışık",
+     "Sırt tekerlek gibi yuvarlak",
+     "Kol, gövdeyle aynı anda minderi vurur"
+    ],
+    "mistakes": [
+     "Düşerken düz kolla yere dayanmak: bilek kolayca kırılır",
+     "Başı geriye atmak"
+    ],
+    "drill": {
+     "label": "Sırtı yuvarla, çeneyi sok",
+     "say": "Sıra sende. Sırtını yuvarla, çeneni sok: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk3-2": {
+    "title": "Oturarak geriye düşüş",
+    "say": "Minderde otur, bacakların önde uzanmış, kolların önde. Çeneni sok, sırtını yuvarla ve geriye doğru yuvarlan. Sırtının üst kısmı mindere değdiğinde kollarını düz uzat ve minderi güçlüce vur. Kollar gövdeyle yaklaşık kırk beş derece açı yapsın, avuçlar aşağı baksın. Minderi vururken nefes ver. Yuvarlanarak oturuşa geri dön. On kez tekrarla.",
+    "cues": [
+     "Otur, kollar önde",
+     "Geriye yuvarlan, çene içeride",
+     "Kollarla 45° vur, avuçlar aşağı, nefes ver"
+    ],
+    "mistakes": [
+     "Kolları çok uzağa ya da gövdeye çok yakın vurmak",
+     "Tüm kol yerine dirsekle vurmak"
+    ],
+    "drill": {
+     "label": "Oturarak geriye düşüş",
+     "say": "Sıra sende. Oturarak geriye düşüş: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk3-3": {
+    "title": "Çömelerek geriye düşüş",
+    "say": "Çömel, kolların önde. Kalçanı topuklarının hemen yanına, mindere indir. Sonra önceki çalışmadaki gibi geriye yuvarlan ve kollarınla vur. Kendini yere bırakarak oturma. Sırtının düz şekilde çarpmasına izin verme. Kendinden emin olunca kalk ve tekrar çömel, giderek hızlan.",
+    "cues": [
+     "Kalça topuklara yakın iner",
+     "Yuvarlan, düz çarpma",
+     "Kollarla vur, nefes ver"
+    ],
+    "mistakes": [
+     "Topuklardan uzağa, kendini bırakarak oturmak",
+     "Başın geriye savrulup mindere çarpması"
+    ],
+    "drill": {
+     "label": "Çömelerek geriye düşüş",
+     "say": "Sıra sende. Çömelerek geriye düşüş: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk3-4": {
+    "title": "Yana düşüş",
+    "say": "Çömelmiş pozisyondan sağ bacağını sol bacağının önünden çapraz uzat ve gövdeni sağa doğru indir. Önce sağ kalçan, sonra sırtının sağ tarafı sırayla mindere değsin. Sağ kolun minderi vursun. Çene içeride, baş mindere değmez. Sonra taraf değiştir. Yere indirildiğinde en sık karşılaşılan düşüş budur.",
+    "cues": [
+     "Bacağı önden çapraz uzat",
+     "Kalça → sırt sırayla mindere",
+     "Aynı taraftaki kol minderi vurur"
+    ],
+    "mistakes": [
+     "Dirseğe dayanmak",
+     "Başın yana çarpması"
+    ],
+    "drill": {
+     "label": "Her iki yana düşüş",
+     "say": "Sıra sende. Her iki yana düşüş: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk3-5": {
+    "title": "Omuz üstünden öne yuvarlanma",
+    "say": "Minderde tek dizinin üzerine çök, sağ ayağın önde. Sağ kolunu bir tekerlek çemberi gibi yay şeklinde bük ve kolunun dış kenarını mindere koy. Sol omzunun üzerinden bak. Sağ omzundan sol kalçana doğru çapraz yuvarlan. Başının üzerinden yuvarlanma, omurga boyunca düz yuvarlanma. Sağlam bir oturuşla ya da ayağa kalkarak bitir, ellerin yüzünü korusun.",
+    "cues": [
+     "Kol tekerlek gibi yay yapar",
+     "Çapraz yuvarlan: sağ omuz → sol kalça",
+     "Başın üstünden geçme, kalkınca yüzü koru"
+    ],
+    "mistakes": [
+     "Başın tepesinden düz yuvarlanmak: boyun için çok tehlikeli",
+     "Kolun bükülüp başın mindere değmesi"
+    ],
+    "drill": {
+     "label": "Her iki yana öne yuvarlanma",
+     "say": "Sıra sende. Her iki yana öne yuvarlanma: altı tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Düşerken çenen nasıl olmalı?",
+    "a": [
+     "Yukarı kalkık",
+     "Göğse yapışık",
+     "Yana dönük"
+    ],
+    "why": "Çeneyi sokmak, başın yere çarpmasını önler."
+   },
+   {
+    "q": "Minderi vuran kol, gövdeyle yaklaşık kaç derece açı yapar?",
+    "a": [
+     "Yaklaşık 45°",
+     "Gövdeye yapışık, 0°",
+     "Dik yukarı"
+    ],
+    "why": "Yaklaşık kırk beş derece: kuvveti iyi dağıtır ve dirseği çarpmaz."
+   },
+   {
+    "q": "Öne yuvarlanırken yuvarlanma yolu nasıldır?",
+    "a": [
+     "Başın tepesinden düz",
+     "Omuzdan karşı kalçaya çapraz",
+     "Yan yan"
+    ],
+    "why": "Boynu ve omurgayı korumak için omuz üzerinden çapraz yuvarlanırsın."
+   },
+   {
+    "q": "Düşüş nerede çalışılır?",
+    "a": [
+     "Alışmak için beton zeminde",
+     "Kalın minderde",
+     "Merdivende"
+    ],
+    "why": "Her zaman kalın minderde çalış. Önce güvenlik gelir."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Korunma ve blok",
+  "sub": "Yüksek gard, başı kapatma, saptırma, ön kol bloğu, açıyla kaçış",
+  "intro": "Vurmayı öğrenmeden önce vurulmamayı öğrenmelisin. En iyi savunma basit ve kompakttır, ve her zaman hareketle birlikte gelir.",
+  "safety": "Partnerle eldivenli çalış. Partnerin yavaş vurur, gücünün sadece yüzde yirmisiyle.",
+  "outro": "Artık bir kalkanın var. Sonraki derste pedlere temel vuruşları öğreneceğiz.",
+  "home": "Ev ödevi: her gün beş dakika ayna karşısında korunma çalış, haftada iki kez de partnerle yavaş çalış.",
+  "steps": {
+   "tk4-1": {
+    "title": "Yüksek gard",
+    "say": "Dövüş duruşundan iki yumruğunu alın hizasına kaldır. Ön kolların yüzünün önünde iki kalkan gibi dik dursun. Dirsekler kapalı, çene içeride, omuzlar yukarıda çeneyi korusun. Darbe çok hızlı geldiğinde ve görmeye vaktin olmadığında, en sağlam korunma pozisyonu budur.",
+    "cues": [
+     "Yumruklar alın hizasında",
+     "Ön kollar kalkan gibi dik",
+     "Çene içeride, omuzlar çeneyi korur"
+    ],
+    "mistakes": [
+     "Korunurken gözleri kapatmak",
+     "Dirsekleri açıp kaburgaları açıkta bırakmak"
+    ],
+    "drill": {
+     "label": "Yüksek garda geç",
+     "say": "Sıra sende. Yüksek garda geç: on beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk4-2": {
+    "title": "Başı tamamen kapatma",
+    "say": "Art arda birçok darbeyle sıkıştırıldığında iki elinle başının arkasını kavra. Dirseklerini yüzünün önünde birleştir, öne eğil, dizlerini bük. Başın, iki kolunun oluşturduğu kafesin içinde kalsın. Ama bu pozisyonda uzun süre kıpırdamadan durma. Kapat, sonra hemen saldırı açısından çık.",
+    "cues": [
+     "İki el başın arkasında",
+     "Dirsekler yüzün önünde kapalı",
+     "Kapat ve hemen hareket et"
+    ],
+    "mistakes": [
+     "Yerinde durup darbeleri yemek",
+     "Sırtını dönmek"
+    ],
+    "drill": {
+     "label": "Kapat ve yana çık",
+     "say": "Sıra sende. Başını kapat ve yana çık: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk4-3": {
+    "title": "Saptırma",
+    "say": "Yüzüne düz bir yumruk geldiğinde sert blok yapma. Avucunla rakibin bileğini ya da yumruğunu hafifçe yana it. Sadece yüzünün yanından geçip gidecek kadar. Hareket küçük ve kısa olsun, elin hemen garda dönsün.",
+    "cues": [
+     "Avuç içiyle saptır",
+     "Darbeyi ancak kaydıracak kadar",
+     "Hemen garda dön"
+    ],
+    "mistakes": [
+     "Kolu çok geniş savurmak",
+     "Darbeyi karşılamak için kolu uzatmak"
+    ],
+    "drill": {
+     "label": "Her elle saptırma",
+     "say": "Sıra sende. Her elle saptırma: yirmi tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk4-4": {
+    "title": "Ön kolla yukarı blok",
+    "say": "Darbe yukarıdan aşağı indiğinde ön kolunu alnının önüne çapraz kaldır. Ön kolun bir çatı gibi eğimli olsun, böylece kuvvet kemiğe dik binmez, kayıp gider. Aynı anda öne ya da dışarı çapraz bir adım at.",
+    "cues": [
+     "Ön kol alnın önünde çapraz",
+     "Çatı gibi eğimli",
+     "Çapraz adımla birlikte"
+    ],
+    "mistakes": [
+     "Ön kol yatay: tüm kuvveti üstlenir",
+     "Yerinde kalmak"
+    ],
+    "drill": {
+     "label": "Her elle yukarı blok",
+     "say": "Sıra sende. Her elle yukarı blok: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk4-5": {
+    "title": "Açıyla kaçış – çapraz adım",
+    "say": "En iyi savunma, darbenin geldiği yerde olmamaktır. Saptırırken aynı anda, rakibin vuran kolunun dış tarafına kırk beş derece çapraz adım at. Saldırı çizgisinden çıkarsın ve uzaklaşmak için daha güvenli bir konumda durursun.",
+    "cues": [
+     "Saptırma + 45° çapraz adım",
+     "Vuran kolun dış tarafına",
+     "Güvenli açıdan uzaklaş"
+    ],
+    "mistakes": [
+     "Düz geriye kaçmak: rakip kolayca takip eder",
+     "Rakibin diğer kolunun iç tarafına girmek"
+    ],
+    "drill": {
+     "label": "Her iki yana saptırma + açı",
+     "say": "Sıra sende. Her iki yana saptırma ve açıyla kaçış: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk4-6": {
+    "title": "Partnerle yavaş çalışma",
+    "say": "Partnerinle çalış, ikiniz de eldiven giyin. Vuran kişi çok yavaş vurur, gücünün sadece yüzde yirmisiyle, yüze değil eldivene nişan alır. Savunan kişi kullandığı tekniğin adını söyler: yüksek gard, saptırma, açıyla kaçış. Doğru ve sakin yapınca hızı yavaş yavaş artır.",
+    "cues": [
+     "Eldiven giy, %20 güç",
+     "Yaparken tekniğin adını söyle",
+     "Önce doğru, sonra hızlı"
+    ],
+    "mistakes": [
+     "Hızı çok erken artırmak",
+     "Partnerin yüzüne gerçekten vurmak"
+    ],
+    "drill": {
+     "label": "Partnerle yavaş çalışma",
+     "say": "Sıra sende. Altmış saniye boyunca partnerle yavaş çalış. Zamanlayıcı geri sayacak."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Doğru saptırma hangisidir?",
+    "a": [
+     "Darbeyi kaydıracak kadar küçük bir saptırma, sonra garda dönüş",
+     "Kolu çok geniş savurmak",
+     "Darbeyi yüzle karşılamak"
+    ],
+    "why": "Küçük ve hızlı bir hareket, gardını açmaz."
+   },
+   {
+    "q": "Yukarıdan inen bir darbeyi bloklarken ön kolun nasıl durur?",
+    "a": [
+     "Yatay",
+     "Çapraz, çatı gibi eğimli",
+     "Karın hizasına indirilmiş"
+    ],
+    "why": "Çatı gibi eğimli olursa kuvvet kayıp gider."
+   },
+   {
+    "q": "Açıyla kaçışta hangi yöne adım atılır?",
+    "a": [
+     "Vuran kolun dışına 45° çapraz",
+     "Düz geriye",
+     "Yerinde kalınır"
+    ],
+    "why": "Saldırı çizgisinden çıkıp güvenli bir açıya geçersin."
+   },
+   {
+    "q": "Partnerle çalışırken vuran kişi ne kadar güç kullanır?",
+    "a": [
+     "Tüm gücünü",
+     "Yaklaşık %20",
+     "%50"
+    ],
+    "why": "Doğru ve güvenli öğrenmek için yavaş çalışırız."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Pedde temel vuruşlar",
+  "sub": "Yumruk yapmak, düz yumruk, avuç topuğu, itme tekmesi, kombinasyon",
+  "intro": "İyi bir vuruşun güzel olması gerekmez. Doğru, kompakt ve senin için güvenli olması yeter. Bugün pedlere çalışıyoruz, asla gerçek bir insana değil.",
+  "safety": "El bandajı sar, eldiven giy. Sadece pede ya da kum torbasına vur.",
+  "outro": "Vuruşların artık hem güçlü hem disiplinli. Sonraki ders: bilekten tutulunca kurtulma.",
+  "home": "Ev ödevi: haftada üç kez, her seferinde otuz saniyelik beş raunt pede ya da kum torbasına vur.",
+  "steps": {
+   "tk5-1": {
+    "title": "Doğru yumruk",
+    "say": "Dört parmağını avucunun içine kıvır. Başparmağın, işaret ve orta parmağının dışına sıkıca katlansın. Asla içeride sıkıştırma. Hedefe değdiğinde bileğin ön kolunla düz bir çizgide olsun, kuvvet işaret ve orta parmağın iki eklemine gitsin. Yeni başlayanlar her zaman el bandajı sarar ve eldiven giyer.",
+    "cues": [
+     "4 parmak avucun içine kıvrık",
+     "Başparmak dışarıda katlı",
+     "Bilek ön kolla düz bir çizgide"
+    ],
+    "mistakes": [
+     "Başparmağı yumruğun içine sıkıştırmak",
+     "Hedefe değerken bileği bükmek"
+    ],
+    "drill": {
+     "label": "Eli doğru kapat – aç",
+     "say": "Sıra sende. Elini doğru şekilde kapat ve aç: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk5-2": {
+    "title": "Ön el düz yumruk",
+    "say": "Dövüş duruşundan ön yumruğunu en kısa yoldan düz ileri fırlat. Hedefe yaklaşırken yumruğunu aşağı çevir, omzun kalkıp çeneni korusun. Diğer elin yüzünün yanında kalsın. Vurduktan sonra çıktığı kadar hızlı, aynı yoldan geri çek.",
+    "cues": [
+     "En kısa düz yol",
+     "Değerken yumruğu aşağı çevir",
+     "Hızlı geri çek, diğer el gardda"
+    ],
+    "mistakes": [
+     "Güç almak için kolu geriye çekmek",
+     "Arka eli indirmek"
+    ],
+    "drill": {
+     "label": "Ön el yumruğu",
+     "say": "Sıra sende. Ön el yumruğu: yirmi tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk5-3": {
+    "title": "Arka el düz yumruk",
+    "say": "Arka topuğundan it, kalçanı ve omzunu döndür, arka yumruğunu düz hedefe fırlat. Arka ayağının ucu da döner, sanki bir kıvılcımı ezip söndürüyormuşsun gibi. Güç yalnızca koldan değil, bacaklardan ve kalçadan gelir. Sonra hemen garda dön.",
+    "cues": [
+     "Arka ayaktan it",
+     "Kalça – omuz – arka ayak ucu döner",
+     "Hemen garda dön"
+    ],
+    "mistakes": [
+     "Kalçayı döndürmeden sadece kolu kullanmak",
+     "Öne fazla eğilip dengeyi kaybetmek"
+    ],
+    "drill": {
+     "label": "Arka el yumruğu",
+     "say": "Sıra sende. Arka el yumruğu: yirmi tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk5-4": {
+    "title": "Avuç topuğu vuruşu",
+    "say": "Bileğini geriye bük, elini aç, parmaklar hafifçe kıvrık. Avucunun topuk kısmıyla vur, yol bir yumruk gibi düz olsun. Gerçek hayattaki bir savunma durumunda bu vuruş, çıplak yumruktan daha güvenlidir. Çünkü hiçbir parmak eklemi sert kemiğe çarpmaz.",
+    "cues": [
+     "Bileği geriye bük, eli aç",
+     "Avuç topuğuyla vur",
+     "Yumruk gibi düz yol"
+    ],
+    "mistakes": [
+     "Parmakların iç yüzüyle vurmak",
+     "Parmakları kaskatı uzatmak"
+    ],
+    "drill": {
+     "label": "Her elle avuç topuğu",
+     "say": "Sıra sende. Her elle avuç topuğu vuruşu: on beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk5-5": {
+    "title": "Ön itme tekmesi",
+    "say": "Arka bacağının dizini kalça hizasına kadar yukarı çek. Sonra bir kapıyı tekmeyle açar gibi topuğunu düz ileri it, kalçanı da ver. Hedef karın bölgesi, burada tekme pedi. Bacağını geri topla ve duruşa indir. Bu tekmenin amacı saldırganı uzağa itmek ve kaçman için mesafe yaratmaktır.",
+    "cues": [
+     "Dizi kalça hizasına çek",
+     "Topukla it, kalçayı ver",
+     "Bacağı topla, duruşa dön"
+    ],
+    "mistakes": [
+     "Ayak ucuyla tekme atmak",
+     "Geriye fazla yaslanmak"
+    ],
+    "drill": {
+     "label": "Her bacakla itme tekmesi",
+     "say": "Sıra sende. Her bacakla itme tekmesi: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk5-6": {
+    "title": "Kombinasyon ve uzaklaşma",
+    "say": "Şimdi bunları bir kombinasyonda birleştir: ön el yumruğu, arka el yumruğu, itme tekmesi, sonra iki adım geri çekilip el bariyeri duruşuna geç. Pede üç raunt çalış. Her raunt otuz saniye, araları yirmi saniye dinlenme. Her vuruşu net yap. Önce doğru, sonra hızlı.",
+    "cues": [
+     "Ön el – arka el – itme tekmesi",
+     "2 adım geri, el bariyeri",
+     "3 raunt × 30 saniye, 20 saniye dinlenme"
+    ],
+    "mistakes": [
+     "Kombinasyondan sonra geri çekilmeyi unutmak",
+     "Acele vurup duruşu kaybetmek"
+    ],
+    "drill": {
+     "label": "Kombinasyon rauntu",
+     "say": "Sıra sende. Kombinasyon: üç raunt, her raunt otuz saniye, raunt arası yirmi saniye dinlenme."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Yumruk yaparken başparmak nerede durur?",
+    "a": [
+     "İçeride sıkışık",
+     "İşaret ve orta parmağın dışında katlı",
+     "Düz uzanmış"
+    ],
+    "why": "İçeride sıkıştırılan başparmak kolayca kırılır."
+   },
+   {
+    "q": "Arka el yumruğunun gücü nereden gelir?",
+    "a": [
+     "Sadece koldan",
+     "Bacaklardan ve kalçadan",
+     "Boyundan"
+    ],
+    "why": "Bacakla it, kalçayı döndür. Omuz ve kol onu takip eder."
+   },
+   {
+    "q": "Kendini savunmada itme tekmesinin asıl amacı nedir?",
+    "a": [
+     "Kaçmak için mesafe yaratmak",
+     "Başa tekme atmak",
+     "Teknik gösterisi yapmak"
+    ],
+    "why": "Saldırganı uzağa itersin, böylece güvenle uzaklaşabilirsin."
+   },
+   {
+    "q": "Avuç topuğu vuruşu el için neden daha güvenlidir?",
+    "a": [
+     "Hiçbir parmak eklemi sert kemiğe çarpmaz",
+     "Çünkü yavaştır",
+     "Çünkü hafif vurulur"
+    ],
+    "why": "Avuç topuğu sağlamdır, elin sakatlanma riski azdır."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Bilek tutuşundan kurtulma",
+  "sub": "Başparmak kuralı, aynı taraf tutuş, çapraz tutuş, iki elle tutuş",
+  "intro": "Bilekten tutulmak çok sık yaşanan bir durumdur. Güce gerek yok. Sadece rakibin elindeki zayıf noktayı doğru anlaman yeter.",
+  "safety": "Partnerin makul bir güçle tutsun. Yavaş kurtul, eklemi acıtacak sert çekişler yapma.",
+  "outro": "Elin artık kendini kurtarmayı biliyor. Sonraki ders: sarılmadan ve önden tutuştan kurtulma.",
+  "home": "Ev ödevi: bir hafta boyunca her gün, her tutuş türü için on kez kurtulma çalış, bir aile üyesiyle birlikte.",
+  "steps": {
+   "tk6-1": {
+    "title": "Başparmak kuralı",
+    "say": "Bileğin tutulduğunda rakibin elindeki en zayıf nokta, başparmakla diğer parmaklar arasındaki boşluktur. Güce güçle karşılık verme. Ön kolunu döndür, bileğinin ince kemik kısmı o boşluğa baksın. Sonra başparmak yönünde güçlüce çekip çık.",
+    "cues": [
+     "Rakibin başparmağını bul",
+     "Bileği başparmak boşluğuna çevir",
+     "Başparmak yönünde güçlüce çek"
+    ],
+    "mistakes": [
+     "Düz geriye çekip güç yarışına girmek",
+     "Dört parmak tarafına doğru çekmek"
+    ],
+    "drill": {
+     "label": "Başparmak yönünü bul",
+     "say": "Sıra sende. Başparmak yönünü bul: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk6-2": {
+    "title": "Aynı taraftan tutuş",
+    "say": "İvan sol eliyle benim sağ bileğimi tutuyor. Ağırlık merkezimi indiriyorum, dirseğimi büküp kolumu kendime doğru çekiyorum. Ön kolumu döndürüyorum, bileğim İvan'ın başparmağına bakıyor. Sonra güçlüce yukarı, kendi omzuma doğru çekiyorum. Elim kurtuldu. Hemen iki elimi bariyer olarak kaldırıp geri çekiliyorum.",
+    "cues": [
+     "Ağırlık merkezini indir, dirseği bük",
+     "Bileği başparmağa çevir",
+     "Kendi omzuna doğru çek, sonra el bariyeri"
+    ],
+    "mistakes": [
+     "Kurtulurken kolu düz uzatmak",
+     "Kurtulduktan sonra yakın durmak"
+    ],
+    "drill": {
+     "label": "Her elle aynı taraf tutuştan kurtulma",
+     "say": "Sıra sende. Her elle aynı taraf tutuştan kurtulma: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk6-3": {
+    "title": "Çapraz tutuş",
+    "say": "Çapraz tutuşta, örneğin rakip sağ eliyle senin sağ bileğini tuttuğunda, başparmağı üstte kalır. Bileğini yukarı çevir, başparmak boşluğunu keserek karşı omzuna doğru çek. Bunu çapraz bir geri adımla birleştir.",
+    "cues": [
+     "Rakibin başparmağı üstte",
+     "Yukarı çevir, başparmak boşluğunu kes",
+     "Karşı omza çek + çapraz geri adım"
+    ],
+    "mistakes": [
+     "Boşluğun tersine, aşağı çekmek",
+     "Ayak adımını unutmak"
+    ],
+    "drill": {
+     "label": "Her elle çapraz tutuştan kurtulma",
+     "say": "Sıra sende. Her elle çapraz tutuştan kurtulma: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk6-4": {
+    "title": "İki elle tutuş",
+    "say": "İki elle tutulduğunda tek elin yeterince güçlü değildir. Boştaki elini rakibin iki kolunun arasından geçir ve kendi yumruğunu kavra. Sonra iki kolunun gücüyle, omuz dönüşünü de katarak, iki başparmağın arasındaki boşluktan güçlüce yukarı çek.",
+    "cues": [
+     "Boştaki el araya girer",
+     "Kendi yumruğunu kavra",
+     "İki kol + omuz dönüşü, yukarı çek"
+    ],
+    "mistakes": [
+     "Tek kolu yalnız başına çekmeye çalışmak",
+     "Yukarı yerine yana çekmek"
+    ],
+    "drill": {
+     "label": "İki elle tutuştan kurtulma",
+     "say": "Sıra sende. İki elle tutuştan kurtulma: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk6-5": {
+    "title": "Kurtulduktan sonra",
+    "say": "Kurtulmak işin sonu değil. Hemen uzaklaş, iki elini bariyer olarak kaldır ve yüksek sesle bağır: Dur! Bu bağırış çevredeki insanların dikkatini çeker ve kavga istemediğini gösterir. Kendini savunmanın amacı her zaman güvenle kurtulup oradan ayrılmaktır.",
+    "cues": [
+     "Hemen uzaklaş",
+     "El bariyeri",
+     "Yüksek sesle: Dur!"
+    ],
+    "mistakes": [
+     "Durup tartışmak",
+     "Daha çok yakınken sırtını dönüp kaçmak"
+    ],
+    "drill": {
+     "label": "Kurtul – uzaklaş – bağır",
+     "say": "Sıra sende. Kurtul, uzaklaş, bağır: beş tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Tutan bir elin zayıf noktası neresidir?",
+    "a": [
+     "Avuç içi",
+     "Başparmakla diğer parmaklar arasındaki boşluk",
+     "Serçe parmak"
+    ],
+    "why": "Başparmak boşluğu, kurtulmanın en kolay olduğu açıklıktır."
+   },
+   {
+    "q": "İki elle tutulduğunda ne yapmalısın?",
+    "a": [
+     "Tek kolu çok güçlü çekmek",
+     "Kendi elini kavrayıp iki kolla yukarı çekmek",
+     "Kıpırdamadan durmak"
+    ],
+    "why": "İki kol ve omuz dönüşü, rakibin iki elini yener."
+   },
+   {
+    "q": "Kurtulduktan sonra ilk iş nedir?",
+    "a": [
+     "Uzaklaşmak, el bariyeri, yüksek sesle bağırmak",
+     "Hemen karşılık vermek",
+     "Tartışmak"
+    ],
+    "why": "Kendini savunmanın amacı güvende olmak ve oradan ayrılmaktır."
+   },
+   {
+    "q": "Güce güçle karşılık vermeli misin?",
+    "a": [
+     "Evet",
+     "Hayır, doğru başparmak yönünü kullan"
+    ],
+    "why": "Doğru teknik, kaba gücü yener."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Sarılmadan ve önden tutuştan kurtulma",
+  "sub": "Kollar kilitli arkadan sarılma, kollar serbest arkadan sarılma, önden yakadan tutma, durma işareti",
+  "intro": "Sımsıkı sarılmak, insanı en çok korkutan durumdur. Sırrı alçak ağırlık merkezinde ve çevik ayaklarda. Yavaş ve güvenli çalışırız, durma işaretine her zaman saygı gösteririz.",
+  "safety": "Partnerin makul bir güçle sarılsın. Boğaz asla gerçekten sıkılmaz. İki kez hafifçe vurmak, dur demektir.",
+  "outro": "En rahatsız edici tutuşlardan kurtulmayı artık biliyorsun. Bu bölümün son dersi: dengeyi bozma ve güvenli yere indirme.",
+  "home": "Ev ödevi: haftada iki kez, her durum için her iki tarafa sekizer tekrar çalış, her zaman bir durma işaretiyle.",
+  "steps": {
+   "tk7-1": {
+    "title": "Durma işareti",
+    "say": "Her partner çalışmasından önce bir durma işaretinde anlaşın. Partnerine ya da mindere iki kez hafifçe vur, ya da yüksek sesle söyle: Dur. Bu işareti duyduğunda ya da hissettiğinde hemen bırak. Herkes bu işarete kesinlikle uymalı. Güvenli çalışan, uzun yıllar çalışabilir.",
+    "cues": [
+     "2 kez hafifçe vur ya da söyle: Dur",
+     "Hemen bırak",
+     "Kesinlikle uy"
+    ],
+    "mistakes": [
+     "İşaretten sonra biraz daha zorlamak",
+     "Çalışmadan önce anlaşmamak"
+    ],
+    "drill": {
+     "label": "İşarette anlaş",
+     "say": "Sıra sende. Durma işaretinde anlaş: üç tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk7-2": {
+    "title": "Arkadan sarılma – ağırlığı indir",
+    "say": "Arkadan sarıldığında ve kolların bu sarılmanın içinde kilitli kaldığında, hemen ağırlık merkezini indir. Dizlerini bük, kalçanı geriye it. Aynı anda dirseklerini iki yana açarak sarılmayı gevşet. Alçak ağırlık merkezi, rakibin seni yerden kaldırmasını çok zorlaştırır.",
+    "cues": [
+     "Ağırlık merkezini hemen indir",
+     "Kalçayı geriye it",
+     "Dirsekleri açıp sarılmayı gevşet"
+    ],
+    "mistakes": [
+     "Dik durmak: kolayca kaldırılırsın",
+     "Panikle çırpınmak"
+    ],
+    "drill": {
+     "label": "Ağırlığı indir, sarılmayı gevşet",
+     "say": "Sıra sende. Ağırlık merkezini indir, sarılmayı gevşet: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk7-3": {
+    "title": "Arkadan sarılma – dönerek kurtulma",
+    "say": "Sarılma gevşeyince bir ayağınla yana adım at, daha da alçal. Kalçanı ve omzunu döndür, kolların arasından sıyrılıp çık. Rakibine dönüp yüzleş, iki elin bariyerde, sonra uzaklaş. Partnerinle yavaş çalış, sarılan kişi makul bir güç kullansın.",
+    "cues": [
+     "Bir ayakla yana adım",
+     "Alçal, kalçayı döndürüp sıyrıl",
+     "Yüzleş, bariyer, uzaklaş"
+    ],
+    "mistakes": [
+     "Ağırlık merkezi yüksekken dönmek",
+     "Kurtulduktan sonra yakında kalmak"
+    ],
+    "drill": {
+     "label": "Her iki yana arkadan sarılmadan kurtulma",
+     "say": "Sıra sende. Her iki yana arkadan sarılmadan kurtulma: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk7-4": {
+    "title": "Arkadan sarılma – kollar serbest",
+    "say": "Kolların sarılmanın dışındaysa yine önce ağırlık merkezini indir. Sonra rakibin karnının önündeki ellerini kavra ve çözerek kolları aç. Aynı anda dönerek dışarı çık. Uzaklaş ve el bariyerini koru.",
+    "cues": [
+     "Önce ağırlığı indir",
+     "Karnın önündeki elleri çöz",
+     "Dönerek çık, uzaklaş"
+    ],
+    "mistakes": [
+     "Alçalmadan rakibin kollarını tırmalamak",
+     "Daha çok yakınken sırtını dönüp gitmek"
+    ],
+    "drill": {
+     "label": "Kollar serbestken arkadan sarılmadan kurtulma",
+     "say": "Sıra sende. Kolların serbestken arkadan sarılmadan kurtulma: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk7-5": {
+    "title": "Önden yakadan tutulma",
+    "say": "Rakip iki eliyle yakanı önden kavradığında çeneni sok, boynunu korumak için omuzlarını kaldır. Bir kolunu başının üzerinden dik yukarı kaldır. Sonra gövdeni güçlüce bir yana döndür, omzun ve kolun rakibin iki kolunun üzerinden bastırsın ve tutuşu kırsın. Hemen geri adım at ve el bariyerini kaldır. Çalışırken partnerin sadece yakayı tutar, boyna kesinlikle bastırmaz.",
+    "cues": [
+     "Çene içeride, omuzlar yukarıda",
+     "Bir kolu dik yukarı kaldır",
+     "Gövdeyi güçlüce döndür, iki kolun üzerinden bastır, geri çekil"
+    ],
+    "mistakes": [
+     "Rakibin iki kolunu zorla ayırmaya çalışmak",
+     "Kolu yukarı kaldırmadan dönmek"
+    ],
+    "drill": {
+     "label": "Her iki yana yakadan kurtulma",
+     "say": "Sıra sende. Her iki yana yakadan kurtulma: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Arkadan sarıldığında ilk iş nedir?",
+    "a": [
+     "Ağırlık merkezini indirmek",
+     "Zıplamak",
+     "Başı geriye atmak"
+    ],
+    "why": "Alçak ağırlık merkezi, rakibin seni kaldırmasını zorlaştırır."
+   },
+   {
+    "q": "Partner çalışmasında durma işareti nedir?",
+    "a": [
+     "İki kez hafifçe vurmak ya da Dur demek",
+     "Rastgele bir şey bağırmak",
+     "İşarete gerek yok"
+    ],
+    "why": "Önceden anlaşılır ve kesinlikle uyulur."
+   },
+   {
+    "q": "Önden yakadan tutulunca neyle kurtulursun?",
+    "a": [
+     "İki kolla çekerek",
+     "Kolu yukarı kaldırıp gövdeyi güçlüce döndürerek, üzerinden bastırarak",
+     "Kıpırdamadan bekleyerek"
+    ],
+    "why": "Tüm gövdenin dönüşü, rakibin iki kolunun gücünden daha güçlüdür."
+   },
+   {
+    "q": "Yakadan kurtulma çalışırken partnerin ne yapabilir?",
+    "a": [
+     "Boğazı gerçekten sıkabilir",
+     "Sadece yakayı tutar, boğazı sıkmaz"
+    ],
+    "why": "Boyun bölgesinde güvenlik mutlaktır."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Dengeyi bozma ve yere indirme",
+  "sub": "Taban çizgisi, ceket tutuşu, arkadan süpürme, önden çelme, kontrol",
+  "intro": "Sambo güreşinin özü budur: rakibin kendi dengesini kullanarak onu yere indirmek. Sadece düşmeyi iyice öğrendiysen, kalın minderde ve bir eğitmen eşliğinde çalış.",
+  "safety": "Zorunlu: Güvenli düşüş dersinde ustalaşmış olmak, kalın minder, antrenör gözetimi, yavaş tempo.",
+  "outro": "Tebrikler! Yakın dövüşle savunma dalının Temel bölümünü tamamladın. Seni daha gerçekçi durumlarla İleri bölüm bekliyor.",
+  "home": "Ev ödevi: haftada iki kez kalın minderde, bir eğitmen eşliğinde, her tekniği altı kez yavaşça çalış.",
+  "steps": {
+   "tk8-1": {
+    "title": "Taban çizgisi ve dengeyi bozma",
+    "say": "Rakip iki ayağı sayesinde dengede durur. İki ayağını birleştiren çizgiye taban çizgisi denir. Bu çizgiye dik yönde itersen ya da çekersen, rakip dengesini çok kolay kaybeder. Partnerinle çalış. Kolundan ve yakasından tut, sekiz yöne it, çek ve hafifçe döndür. Ağırlığının tamamen topuklarına ya da ayak uçlarına bindiği anı hisset.",
+    "cues": [
+     "Taban çizgisi = iki ayağı birleştiren çizgi",
+     "Taban çizgisine dik it ya da çek",
+     "Ağırlığın topuğa ya da ayak ucuna bindiğini hisset"
+    ],
+    "mistakes": [
+     "Taban çizgisi boyunca itmek",
+     "Kaskatı kol gücü kullanmak"
+    ],
+    "drill": {
+     "label": "8 yöne itme – çekme",
+     "say": "Sıra sende. Altmış saniye boyunca sekiz yöne it ve çek. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk8-2": {
+    "title": "Temel ceket tutuşu",
+    "say": "Sambo güreşinin temel tutuşu şöyledir. Sol elin, partnerinin sağ kolunun yenini dirseğin hemen altından tutar. Sağ elin, sol yakasını göğüs hizasından tutar. Dirsekler yumuşak, kaskatı değil. Sırtın düz, ayakların omuz genişliğinde, harekete hazırsın.",
+    "cues": [
+     "Sol el: dirseğin altından yen",
+     "Sağ el: göğüs hizasından yaka",
+     "Dirsekler yumuşak, sırt düz"
+    ],
+    "mistakes": [
+     "Sırtı kamburlaştırmak, başı eğmek",
+     "Dirsekleri kilitlemek"
+    ],
+    "drill": {
+     "label": "Ceket tutuşuna geç",
+     "say": "Sıra sende. Ceket tutuşuna geç: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk8-3": {
+    "title": "Arkadan süpürme",
+    "say": "Partnerini kendi sağ arka çaprazına doğru çek, ağırlığı sağ topuğuna binsin. Sol ayağınla onun sağ ayağının dış yanına, yakına adım at. Sağ bacağını savur ve onun sağ baldırını arkadan süpür. Bu sırada üst gövdenle onu geriye it. Partnerin öğrendiği tekniğe uygun şekilde geriye düşer. Düşüş boyunca kolunun yenini tut ve hafifçe yukarı çek, sırtı mindere yavaşça değsin.",
+    "cues": [
+     "Ağırlığı partnerin sağ topuğuna bindir",
+     "Yakın adım at, baldırı arkadan süpür",
+     "Yeni tut, yumuşak düşmesini sağla"
+    ],
+    "mistakes": [
+     "Ağırlık o ayağa binmeden süpürmek",
+     "Partner düşerken yeni bırakmak"
+    ],
+    "drill": {
+     "label": "Her iki yana arkadan süpürme (yavaş)",
+     "say": "Sıra sende. Her iki yana yavaş arkadan süpürme: altı tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk8-4": {
+    "title": "Önden çelme",
+    "say": "Partnerini öne, kendi sağ ön çaprazına doğru çek. Dön ve sağ ayağını onun sağ ayak bileğinin önüne engel olarak koy. Yeni bir yay çizerek aşağı doğru çekmeye devam et. Partnerin ayağına takılır ve öne düşer, tıpkı öne yuvarlanma dersindeki gibi omzunun üzerinden yuvarlanır.",
+    "cues": [
+     "Öne – sağ çapraza çek",
+     "Ayak, bileğin önünde engel",
+     "Yay çizerek aşağı çek"
+    ],
+    "mistakes": [
+     "Engel olmak yerine bileğe tekme atmak",
+     "Düz yere doğru çok sert çekmek"
+    ],
+    "drill": {
+     "label": "Her iki yana önden çelme (yavaş)",
+     "say": "Sıra sende. Her iki yana yavaş önden çelme: altı tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk8-5": {
+    "title": "Yere indirdikten sonra kontrol",
+    "say": "Partnerin düştükten sonra elini hemen bırakma. Yenini tut, sağlam dur, gözün onun üzerinde olsun, sonra kalkmasına yardım et. Yere indiren kişi, düşen kişiden sorumludur. Yere indirmeyi sadece kalın minderde, bir antrenörün gözetiminde ve yavaş tempoda çalış. Durma işaretine her zaman uy.",
+    "cues": [
+     "Yeni tut, sağlam dur",
+     "Gözün partnerinde",
+     "Kalkmasına yardım et"
+    ],
+    "mistakes": [
+     "Atar atmaz eli bırakmak",
+     "Partnerin üzerine düşmek"
+    ],
+    "drill": {
+     "label": "Yavaş indirme + kaldırma",
+     "say": "Sıra sende. Yavaşça yere indir ve kalkmasına yardım et: beş tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Dengeyi bozmak için hangi yöne itmeli ya da çekmelisin?",
+    "a": [
+     "İki ayağı birleştiren çizgi boyunca",
+     "İki ayağı birleştiren çizgiye dik",
+     "Düz yere doğru"
+    ],
+    "why": "Taban çizgisine dik yön, en zayıf yöndür."
+   },
+   {
+    "q": "Arkadan süpürmede partnerin ağırlığı nereye binmelidir?",
+    "a": [
+     "Ayak ucuna",
+     "Süpürülen ayağın topuğuna",
+     "Diğer ayağa"
+    ],
+    "why": "Ancak ağırlık taşıyan ayak süpürülüp devrilebilir."
+   },
+   {
+    "q": "Yere indiren kişinin sorumluluğu nedir?",
+    "a": [
+     "Yeni tutup partnerin düşüşünü kontrol etmek",
+     "Hemen bırakmak",
+     "Üzerine düşmek"
+    ],
+    "why": "Kontrol, partnerin güvenle düşmesini sağlar."
+   },
+   {
+    "q": "Yere indirme çalışmasının koşulları nelerdir?",
+    "a": [
+     "Düşmeyi iyi bilmek, kalın minder, antrenör",
+     "Her yerde çalışılabilir",
+     "Alışmak için hızlı çalışmak"
+    ],
+    "why": "Güvenlik zorunlu bir koşuldur."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Kurtulmak için zayıf noktalara vuruş",
+  "sub": "Göze parmak savurma, kasığa diz, dize tekme – sadece kaçış yolu açmak için",
+  "intro": "Gerçekten saldırıya uğradığında ve kaçamadığında, saldırganı bir saniyeliğine durduracak basit bir vuruşa ihtiyacın var. O bir saniye, senin kaçış yolundur. Bugün pede ve kalkana çalışıyoruz, partnerine kesinlikle değil.",
+  "safety": "Sadece pede ya da kalkana vur. Partnerinin gözüne, kasığına ya da diz eklemine asla dokunma.",
+  "outro": "Artık kaçış yolu açan vuruşların var. İyi hatırla: kaçmak için vurursun, kazanmak için değil. Sonraki ders: yakın mesafede dirsek ve diz.",
+  "home": "Ev ödevi: haftada üç kez, pede üç raunt seri çalış, her seriyi koşarak bitir.",
+  "steps": {
+   "tk9-1": {
+    "title": "İlke: kaçmak için vur",
+    "say": "İlk ilke şu: zayıf noktalara vuruş, sadece gerçekten saldırıya uğradığında ve başka hiçbir yol kalmadığında kullanılır. Amaç kazanmak değil, saldırganı bir anlığına durdurmaktır. Bir kez vur, sonra hemen mesafe aç ve kalabalık bir yere koş. Kalıp dövüşmeye devam etme.",
+    "cues": [
+     "Sadece gerçek bir saldırıda",
+     "Yol açmak için tek vuruş",
+     "Vur ve koş"
+    ],
+    "mistakes": [
+     "Kaçış yolu açıldıktan sonra kalıp vurmaya devam etmek",
+     "Uzaklaşmak henüz mümkünken vurmak"
+    ],
+    "drill": {
+     "label": "El bariyeri – geri çekil – koş",
+     "say": "Sıra sende. El bariyeri, geri çekil, koş: beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk9-2": {
+    "title": "Parmaklarla göze savurma",
+    "say": "El bariyeri duruşunda öndeki elin zaten rakibin yüzüne yakındır. Parmaklar hafifçe kıvrık ve gevşek olsun. Göz hizasından yatay olarak hızla geçir, elinden su silkeler gibi, sonra geri çek. Bu vuruş güç değil, sadece hız ister. Gözüne dokunulan kişi refleksle gözlerini kapatır ve geri çekilir. Çalışırken sadece partnerinin yüz hizasında tuttuğu lapaya savur.",
+    "cues": [
+     "El bariyerinden başla",
+     "Parmaklar kıvrık, gevşek, yatay savur",
+     "Hızlı vur, geri çek, uzaklaş"
+    ],
+    "mistakes": [
+     "Parmakları kaskatı uzatmak: parmak kolayca çıkar",
+     "Kolu uzaktan savurup niyetini belli etmek"
+    ],
+    "drill": {
+     "label": "Her elle lapaya savurma",
+     "say": "Sıra sende. Her elle lapaya savurma: on beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk9-3": {
+    "title": "Kasık bölgesine diz (kalkana)",
+    "say": "Saldırgan çok yakına girip seni tuttuğunda, iki elinle onun omuzlarını ya da yakasını kavra. Aşağı çek, aynı anda arka bacağının dizini dik yukarı fırlat. Kalçanı öne it. Çalışırken partnerin alt karnının önünde kalın bir kalkan tutar, sen dizini kalkana vurursun. Vurduktan sonra onu it ve uzaklaş.",
+    "cues": [
+     "İki elle omuzları tut, aşağı çek",
+     "Arka dizi yukarı fırlat, kalçayı it",
+     "İt ve uzaklaş"
+    ],
+    "mistakes": [
+     "Diz atarken geriye yaslanmak",
+     "Dengeni bulmadan diz atmak"
+    ],
+    "drill": {
+     "label": "Her bacakla kalkana diz",
+     "say": "Sıra sende. Her bacakla kalkana diz: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk9-4": {
+    "title": "Dize ve kaval kemiğine tekme",
+    "say": "Saldırgan uzaktan üzerine atıldığında, onun dizine ya da ön kaval kemiğine topukla atılan alçak bir tekme, hücumunu durdurur. Ön dizini biraz kaldır, topuğunu öne ve aşağı doğru çapraz it, sonra bacağını geri çek. Alçak tekme zor bloklanır ve dengeni iyi korur. Çalışırken sadece alçakta tutulan kalkana tekme at.",
+    "cues": [
+     "Dizi biraz kaldır",
+     "Topuğu öne ve aşağı çapraz it",
+     "Bacağı çek, uzaklaş"
+    ],
+    "mistakes": [
+     "Karına yüksek tekme: yavaştır, düşmek kolaydır",
+     "Ayak ucuyla vurmak"
+    ],
+    "drill": {
+     "label": "Her bacakla kalkana alçak tekme",
+     "say": "Sıra sende. Her bacakla kalkana alçak tekme: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk9-5": {
+    "title": "Seri: savur – tekme – koş",
+    "say": "Hepsini bir seride birleştir. El bariyerinden lapaya göz savurması yap, kalkana alçak tekme at, sonra dönüp üç adım koş. Önce doğru olsun diye yavaş çalış, sonra giderek hızlan. Her serinin sonunda yüksek sesle bağır: Dur! Bu refleks zinciri, vücudunun alışkanlığı olmalı.",
+    "cues": [
+     "Bariyer → savurma → tekme",
+     "Dön ve 3 adım koş",
+     "Yüksek sesle: Dur!"
+    ],
+    "mistakes": [
+     "Serinin sonunda koşmayı unutmak",
+     "Tekmeden sonra yakına gelmek"
+    ],
+    "drill": {
+     "label": "Seri raundu",
+     "say": "Sıra sende. Seri: üç raunt, her raunt otuz saniye, raunt arası yirmi saniye dinlenme."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Zayıf noktalara vuruşun amacı nedir?",
+    "a": [
+     "Dövüşü kazanmak",
+     "Saldırganı bir anlığına durdurup kaçmak",
+     "Rakibi cezalandırmak"
+    ],
+    "why": "Yol açmak için vurursun, sonra güvenli bir yere koşarsın."
+   },
+   {
+    "q": "Göze savururken parmaklar nasıl olmalı?",
+    "a": [
+     "Kaskatı ve düz",
+     "Hafifçe kıvrık, gevşek, hızlı savrulan",
+     "Sıkıca yumruk yapılmış"
+    ],
+    "why": "Gevşek parmaklar hem hızlıdır hem de çıkmaz."
+   },
+   {
+    "q": "Alçak tekme nereye atılır?",
+    "a": [
+     "Dize ya da ön kaval kemiğine",
+     "Başa",
+     "Sırta"
+    ],
+    "why": "Alçak tekme hızlıdır, zor bloklanır ve hücumu durdurur."
+   },
+   {
+    "q": "Partnerle çalışırken nereye vurursun?",
+    "a": [
+     "Partnerine, ama hafifçe",
+     "Sadece pede ya da kalkana"
+    ],
+    "why": "Partnerinin gerçek zayıf noktalarına kesinlikle vurulmaz."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Yakın mesafede dirsek ve diz",
+  "sub": "Yatay dirsek, yukarı dirsek, düz diz, boyun – omuz kontrolü",
+  "intro": "Sıkıştırıldığında yumruğu savuracak yer kalmaz. O zaman dirsekler ve dizler vücudun en güçlü doğal silahlarıdır. Pede çalışıyoruz. Önce doğru teknik, sonra güç.",
+  "safety": "Sadece kalın pede vur. Pedi tutan kişi onu sıkıca tutmalı ve sağlam durmalı.",
+  "outro": "Yakın mesafe artık korkutucu değil. Sonraki ders: yere indirilmeye karşı savunma ve güvenli kalkış.",
+  "home": "Ev ödevi: haftada üç kez, pede üç raunt yakın mesafe çalış.",
+  "steps": {
+   "tk10-1": {
+    "title": "Yatay dirsek",
+    "say": "Dövüş duruşundan ön kolunu dirsekten bük. Ön kolun yere paralel, elin kulağının yanında olsun. Kalçanı ve omzunu döndür, dirseğini çarparak kapanan bir kapı gibi yatay olarak savur. Temas noktası, dirseğin hemen altındaki kemiktir. Diğer elin yüzünü korumaya devam eder. Vurduktan sonra hemen garda dön.",
+    "cues": [
+     "El kulağın yanında, ön kol yatay",
+     "Kalçayı döndür, yatay savur",
+     "Dirseğin altındaki kemikle vur"
+    ],
+    "mistakes": [
+     "Tüm kolu düz uzatıp savurmak",
+     "Diğer elle yüzü korumayı unutmak"
+    ],
+    "drill": {
+     "label": "Her elle yatay dirsek",
+     "say": "Sıra sende. Her elle yatay dirsek: on beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk10-2": {
+    "title": "Yukarı dirsek",
+    "say": "Rakip başını eğip üzerine atıldığında, aşağıdan yukarı dirsek çok etkilidir. Dirseğini sıkıca bük, yumruğun omzuna değsin. Sonra bacaklarınla it ve dirseğini yüzünün önünden dikey bir çizgide yukarı fırlat. Çalışırken partnerin bir lapayı göğüs hizasında, yüzü aşağı bakacak şekilde tutar.",
+    "cues": [
+     "Sıkıca bük, yumruk omza değsin",
+     "Bacakla it, dik yukarı fırlat",
+     "Diğer el yüzü korur"
+    ],
+    "mistakes": [
+     "Çapraz dışarı savurmak",
+     "Bacakla itmeden sadece kolu kullanmak"
+    ],
+    "drill": {
+     "label": "Her elle yukarı dirsek",
+     "say": "Sıra sende. Her elle yukarı dirsek: on iki tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk10-3": {
+    "title": "Boyun – omuz kontrolü",
+    "say": "Göğüs göğüse mesafede iki elini üst üste koyup rakibin ensesine yerleştir. Dirseklerini onun göğsünün önünde birleştir. Başını aşağı çek, dirseklerini içe doğru sık. Bu kontrol, rakibin dengesini yönetmeni sağlar. Çalışırken hafif ve yavaş çek. Partnerin her an hafifçe vurarak durmayı isteyebilir.",
+    "cues": [
+     "İki el ensede üst üste",
+     "Dirsekler rakibin göğsünün önünde kapalı",
+     "Hafif ve yavaş aşağı çek"
+    ],
+    "mistakes": [
+     "Parmakları birbirine geçirmek: parmaklar kolayca sıkışır",
+     "Partnerin boynunu sertçe çekmek"
+    ],
+    "drill": {
+     "label": "Boyun – omuz kontrolünü koru",
+     "say": "Sıra sende. Otuz saniye boyunca boyun ve omuz kontrolünü koru. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk10-4": {
+    "title": "Kontrol pozisyonunda düz diz",
+    "say": "Boyun ve omuz kontrolünden rakibi aşağı çek ve partnerinin karnının önünde tuttuğu kalkana dizini dik yukarı fırlat. Kalçanı öne it, destek bacağının üzerinde dik dur. İki dizden sonra onu güçlüce it ve uzaklaş.",
+    "cues": [
+     "Boyun – omuz kontrolü",
+     "Aşağı çek, dizi dik yukarı fırlat",
+     "İki diz, sonra it ve uzaklaş"
+    ],
+    "mistakes": [
+     "Gövdeyi de öne bükmek",
+     "Destek ayağının ucunda durup dengeyi kaybetmek"
+    ],
+    "drill": {
+     "label": "Her bacakla kalkana diz",
+     "say": "Sıra sende. Her bacakla kalkana diz: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk10-5": {
+    "title": "Yakın mesafe serisi",
+    "say": "Hepsini birleştir: yatay dirsek, yukarı dirsek, kontrol pozisyonuna geç, iki diz, it, el bariyerine geri çekil. Pede üç raunt çalış, her raunt otuz saniye. Vururken kısa boşaltma nefesini sürdür.",
+    "cues": [
+     "Yatay dirsek → yukarı dirsek",
+     "Kontrol → 2 diz",
+     "İt, el bariyeri, boşaltma nefesi"
+    ],
+    "mistakes": [
+     "Vururken nefesi tutmak",
+     "Mesafe açmak için itmeyi unutmak"
+    ],
+    "drill": {
+     "label": "Yakın mesafe rauntu",
+     "say": "Sıra sende. Yakın mesafe: üç raunt, her raunt otuz saniye, raunt arası yirmi saniye dinlenme."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Yatay dirsekte hangi kısımla vurulur?",
+    "a": [
+     "Dirseğin hemen altındaki kemikle",
+     "Elle",
+     "Omuzla"
+    ],
+    "why": "Dirseğin hemen altındaki sert kemik, en sağlam temas noktasıdır."
+   },
+   {
+    "q": "Boyun ve omuz kontrolünde eller nasıl konur?",
+    "a": [
+     "Parmaklar birbirine geçirilir",
+     "Ensede üst üste konur"
+    ],
+    "why": "Geçirilen parmaklar kolayca sıkışır, üst üste konan eller daha güvenlidir."
+   },
+   {
+    "q": "İki dizden sonra ne yapmalısın?",
+    "a": [
+     "İtip uzaklaşmak",
+     "Sıkı tutmaya devam etmek",
+     "Yere oturmak"
+    ],
+    "why": "Kurtulmak için her zaman mesafe açarsın."
+   },
+   {
+    "q": "Art arda vururken nasıl nefes alırsın?",
+    "a": [
+     "Nefesimi tutarım",
+     "Her vuruşta kısa boşaltma nefesi veririm"
+    ],
+    "why": "Boşaltma nefesi gücünün tükenmesini önler ve seni sakin tutar."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Yere indirmeye karşı savunma ve kalkış",
+  "sub": "Bacak dalışına savunma, kalçayla bastırma, teknik kalkış, tekmeyle mesafe koruma",
+  "intro": "Bir kavgada en tehlikeli şey yere indirilmektir. Bugün yere çekilmemeyi öğreneceksin. Düşersen de birkaç saniyede güvenle ayağa kalkmayı.",
+  "safety": "Kalın minderde çalış. Partnerin yavaşça dalar, kafa vurmaz.",
+  "outro": "Artık seni yere indirmek çok zor, güvenle kalkmayı da biliyorsun. Sonraki ders: yerde altta kaldığında kurtulma.",
+  "home": "Ev ödevi: her gün her iki tarafa on teknik kalkış yap, haftada iki kez de partnerle yere indirme savunması çalış.",
+  "steps": {
+   "tk11-1": {
+    "title": "Bacak dalışına savunma",
+    "say": "Rakip eğilip bacaklarına dalmak için üzerine atıldığında, iki bacağını çok hızlı geriye fırlat. Kalçanı onun sırtının üst kısmına indirip bastır, ellerinle omuzlarını engelle. Vücut ağırlığın onun üzerine biner, bacakların ise uzakta, erişemeyeceği yerdedir. Buna sprawl denir. Partnerinle minderde yavaş çalış.",
+    "cues": [
+     "İki bacağı geriye fırlat",
+     "Kalçayı sırtın üst kısmına bastır",
+     "Ellerle rakibin omuzlarını engelle"
+    ],
+    "mistakes": [
+     "Dik şekilde geri kaçmak: bacaklar kolayca yakalanır",
+     "Kalçayı yüksek tutmak: rakip yine de bacağı çekebilir"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Sıra sende. Bacakları geriye fırlatıp sprawl yap: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk11-2": {
+    "title": "Sprawl sonrası kurtulma",
+    "say": "Sprawl başarılı olduktan sonra rakibin üzerinde uzun süre kalma. Ellerinle onun omuzlarından it, hızla ayağa kalk, iki adım geri çekil ve dövüş duruşuna dön, ellerin yüzünü korusun. Amaç yine kurtulmaktır.",
+    "cues": [
+     "Ellerle omuzlardan it",
+     "Hızla kalk, 2 adım geri",
+     "Duruşa dön, yüzü koru"
+    ],
+    "mistakes": [
+     "Rakibin üzerinde çok uzun kalmak",
+     "Rakibin tam önünde ayağa kalkmak"
+    ],
+    "drill": {
+     "label": "Sprawl – kalk – geri çekil",
+     "say": "Sıra sende. Sprawl, kalk, geri çekil: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk11-3": {
+    "title": "Yerden tekmeyle mesafe koruma",
+    "say": "Sırtüstü düştüysen ve rakip ayaktaysa, bir kalçanın üzerine yan yat. Bir elin mindere dayansın, diğeri yüzünü korusun. Üstteki bacağın bükülü ve hazır olsun. Üzerine atılırsa dizine ya da karnına tekme at. Onunla birlikte dön, ayaklarını her zaman rakibe doğru tut. Başının arkasına dolaşmasına izin verme.",
+    "cues": [
+     "Yan yat, bir el dayanır, bir el korur",
+     "Üst bacak bükülü, tekmeye hazır",
+     "Onunla dön, ayaklar hep rakibe dönük"
+    ],
+    "mistakes": [
+     "Sırtüstü düz yatmak",
+     "Rakibin baş tarafına dolaşmasına izin vermek"
+    ],
+    "drill": {
+     "label": "Partnerinle birlikte dön",
+     "say": "Sıra sende. Otuz saniye boyunca partnerinle birlikte dön. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk11-4": {
+    "title": "Teknik kalkış",
+    "say": "Güvenle kalkmak için arka elini kalçanın arkasında mindere daya, ön elinle yüzünü koru. Kalçanı kaldır, destek bacağını gövdenin altından geriye geçir. Ayağını uzağa bas, duruşa geç, ancak ondan sonra doğrul. Her zaman yüzünü koruyarak ve rakipten uzaklaşarak kalkarsın, tam önünde dikilmezsin.",
+    "cues": [
+     "Arka el dayanır, ön el yüzü korur",
+     "Kalçayı kaldır, bacağı geriye çek",
+     "Uzaklaşarak kalk, duruşa geç"
+    ],
+    "mistakes": [
+     "İki elle yere dayanıp kalkmak, yüz açıkta",
+     "Rakibe doğru ilerleyerek kalkmak"
+    ],
+    "drill": {
+     "label": "Her iki yana teknik kalkış",
+     "say": "Sıra sende. Her iki yana teknik kalkış: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk11-5": {
+    "title": "Seri: düş – mesafe koru – kalk",
+    "say": "Hepsini birleştir: tekniğe uygun geriye düş, yana dön, tekmeyle mesafeyi koru, teknik kalkış yap, uzaklaş ve el bariyerini kaldır. Her seferden sonra yüzünü hep koruyup korumadığını kontrol et. Her iki tarafa beş kez çalış.",
+    "cues": [
+     "Geriye düş → yan yat",
+     "Tekmeyle mesafe koru",
+     "Teknik kalkış → el bariyeri"
+    ],
+    "mistakes": [
+     "Rakip daha dibindeyken aceleyle kalkmak",
+     "Yüzü korumayı unutmak"
+    ],
+    "drill": {
+     "label": "Her iki yana düş – kalk serisi",
+     "say": "Sıra sende. Her iki yana düş ve kalk serisi: beş tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Rakip bacaklarına daldığında ne yapmalısın?",
+    "a": [
+     "İki bacağı geriye fırlatıp kalçayla bastırmak",
+     "Dik durup beklemek",
+     "Zıplamak"
+    ],
+    "why": "Sprawl: bacaklar uzağa gider, ağırlığın rakibin üzerine biner."
+   },
+   {
+    "q": "Yerde yatarken ayakların nereye bakmalı?",
+    "a": [
+     "Rakibe doğru",
+     "Yukarı",
+     "Geriye"
+    ],
+    "why": "Ayaklar rakibe dönük olur ki tekmeyle mesafeyi koruyabilesin."
+   },
+   {
+    "q": "Teknik kalkışta ön elin ne yapar?",
+    "a": [
+     "Yere dayanır",
+     "Yüzü korur"
+    ],
+    "why": "Kalkarken yüzünü her zaman koru."
+   },
+   {
+    "q": "Kalkarken rakipten uzaklaşmalı mısın, ona doğru mu ilerlemelisin?",
+    "a": [
+     "Uzaklaşmalıyım",
+     "İlerlemeliyim"
+    ],
+    "why": "Güvende olmak için uzaklaşarak kalkarsın."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Yerde kurtulma",
+  "sub": "Karides hareketi, köprüyle çevirme, alttan kurtulma, bacak savunması",
+  "intro": "Yerde altta kalırsan panik yapma. Sambo güreşinin bazı basit hareketleri durumu tersine çevirmene yardım eder. Yavaş çalışırız, partnerin makul bir güçle bastırır ve durma işaretine her zaman uyarız.",
+  "safety": "Kalın minder. Üstteki kişi tüm ağırlığını vermez, boyna bastırmaz. İki kez hafifçe vurmak, dur demektir.",
+  "outro": "Artık yerde kurtulmayı biliyorsun. Sonraki derste ciddi bir konu var: bıçaklı bir saldırganla yüz yüze gelmek.",
+  "home": "Ev ödevi: her gün iki dakika karides hareketi yap, haftada iki kez de yumuşak güreş çalış.",
+  "steps": {
+   "tk12-1": {
+    "title": "Karides hareketi",
+    "say": "Sırtüstü yat, dizlerin bükülü. Bir ayağınla mindere bas, kalçanı geriye it. Aynı anda gövdeni bir yana döndür, ağır bir şeyi itiyormuş gibi iki elinle öne it. Vücudun bir karides gibi kıvrılır. Sonra sırtüstü dön ve diğer tarafa yap. Yerdeyken en önemli hareket budur, çünkü boşluk yaratır.",
+    "cues": [
+     "Ayakla bas, kalçayı geriye it",
+     "Yana dön, ellerle öne it",
+     "Sürekli taraf değiştir"
+    ],
+    "mistakes": [
+     "Kalçayı döndürmeden düz sırtüstü yatmak",
+     "Kalçayla değil sadece ellerle itmek"
+    ],
+    "drill": {
+     "label": "Minder boyunca karides",
+     "say": "Sıra sende. Kırk saniye boyunca minder boyunca karides hareketi yap. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk12-2": {
+    "title": "Üstüne oturulunca köprüyle çevirme",
+    "say": "Biri karnının üzerine oturup seni bastırdığında, önce iki elinle yüzünü koru. Sonra rakibin bir kolunu sıkıca kendi gövdene yapıştır. Aynı taraftaki ayağını onun ayağının dış yanına koyup kilitle. Kalçanı çok güçlü bir şekilde yukarı it, tuttuğun kolun tarafındaki omzunun üzerinden köprü kur ve rakibi yana çevir. Üste çıkarsın, sonra kalkıp uzaklaşırsın.",
+    "cues": [
+     "Önce yüzü koru",
+     "Bir kolu tut + aynı taraftaki ayağı kilitle",
+     "Kalçayla köprü kur, o taraftaki omzun üzerinden çevir"
+    ],
+    "mistakes": [
+     "Rakibin göğsünü ellerle itmek",
+     "Kolu ve ayağı tutmadan düz yukarı köprü kurmak"
+    ],
+    "drill": {
+     "label": "Her iki yana köprüyle çevirme",
+     "say": "Sıra sende. Her iki yana köprüyle çevirme: altı tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk12-3": {
+    "title": "Altta kalınca dirsek – diz kaçışı",
+    "say": "Çeviremiyorsan yan yat, dirseğini dizine yaklaştır ve dirseğini rakibin kalçasına daya. Karides hareketiyle boşluk yarat, dizini aranıza sok. Dizini soktuğunda bacaklarınla savunmaya geç ve rakibi iki bacağınla uzakta tut.",
+    "cues": [
+     "Yan yat, dirsek dize değsin",
+     "Karidesle boşluk yarat",
+     "Dizi sok, bacak savunmasına geç"
+    ],
+    "mistakes": [
+     "Kolları düz uzatıp itmek: kol kilidine kolayca yakalanırsın",
+     "Düz sırtüstü yatmak"
+    ],
+    "drill": {
+     "label": "Her iki yana dirsek – diz kaçışı",
+     "say": "Sıra sende. Her iki yana dirsek diz kaçışı: altı tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk12-4": {
+    "title": "Bacak savunması ve kalkış",
+    "say": "İki bacağın seninle rakibin arasındaysa, bacak savunmasındasın demektir. Ayağını onun kalçasına daya ve uzağa it. Boşluk açılınca yan yatışa geç ve önceki dersteki gibi teknik kalkış yap. Yerde olmak kaybetmek demek değildir. Yeter ki bacaklarını ikinizin arasında tut.",
+    "cues": [
+     "İki bacak seninle rakibin arasında",
+     "Ayakla kalçayı it, mesafe aç",
+     "Teknik kalkış"
+    ],
+    "mistakes": [
+     "Bacakları çekip rakibin yaklaşmasına izin vermek",
+     "Mesafe açılmadan kalkmak"
+    ],
+    "drill": {
+     "label": "Bacak savunması – it – kalk",
+     "say": "Sıra sende. Bacak savunması, it, kalk: altı tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk12-5": {
+    "title": "Kontrollü yumuşak güreş",
+    "say": "Şimdi iki dakika kontrollü yumuşak güreş yapacağız. Biri altta, biri üstte başlar. Alttakinin tek bir görevi var: kurtulmak ve ayağa kalkmak. Üstteki sadece tutar, kol kilidi yapmaz, boğaz sıkmaz. Gücün yüzde ellisi. İki kez hafifçe vurulunca hemen dur.",
+    "cues": [
+     "Alttaki: kurtul ve kalk",
+     "Üstteki: sadece tutar, kilit yok, sıkma yok",
+     "%50 güç, iki hafif vuruş dur demektir"
+    ],
+    "mistakes": [
+     "Daha baştan tüm gücü kullanmak",
+     "Durma işaretine uymamak"
+    ],
+    "drill": {
+     "label": "Yumuşak güreş rauntu",
+     "say": "Sıra sende. Yumuşak güreş: iki raunt, her raunt altmış saniye, raunt arası otuz saniye dinlenme."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Yerdeyken en önemli hareket hangisidir?",
+    "a": [
+     "Karides hareketi",
+     "Hareketsiz yatmak",
+     "Yukarı yumruk atmak"
+    ],
+    "why": "Karides hareketi, kurtulmak için boşluk yaratır."
+   },
+   {
+    "q": "Köprüyle çevirmede hangi tarafa çevirirsin?",
+    "a": [
+     "Tuttuğun kolun ve kilitlediğin ayağın tarafına",
+     "Herhangi bir tarafa"
+    ],
+    "why": "Rakip, kilitlenmiş kolu ve ayağıyla kendini destekleyemez."
+   },
+   {
+    "q": "Altta kaldığında kollarını düz uzatıp rakibin göğsünü itmeli misin?",
+    "a": [
+     "Evet",
+     "Hayır, kol kilidine kolayca yakalanırsın"
+    ],
+    "why": "Dirseklerini gövdene yakın tut."
+   },
+   {
+    "q": "Yumuşak güreşte üstteki kişi ne yapabilir?",
+    "a": [
+     "Kol kilidi yapabilir, boğaz sıkabilir",
+     "Sadece tutar, kilit yapmaz, sıkmaz"
+    ],
+    "why": "Güvenli ve kontrollü çalışırız."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Bıçaklı saldırganla yüz yüze",
+  "sub": "Altın kurallar, engel kullanma, korunma, kol kontrolü, kaçış – lastik bıçakla",
+  "intro": "Bugünün en önemli noktasını iyi dinle: bıçak çok tehlikelidir, yıllardır dövüş sanatı çalışan biri için bile. Soyguncu sadece eşyalarını istiyorsa, ver. Eşya yeniden alınır, hayat alınmaz. Aşağıdaki teknikler sadece başka hiçbir seçenek kalmadığında içindir.",
+  "safety": "Sadece lastik bıçakla ya da kör plastik bıçakla çalış. Asla gerçek bıçakla çalışma.",
+  "outro": "İyi hatırla: kaçmak, kazanmaktır. Sonraki ders: silahla tehdit edildiğinde sakin kalmak.",
+  "home": "Ev ödevi: haftada bir kez lastik bıçakla senaryo çalış, yavaş ve güvenli, her seferinde koşarak bitir.",
+  "steps": {
+   "tk13-1": {
+    "title": "Altın kurallar",
+    "say": "Üç altın kural var. Bir: eşyalarını isterlerse hemen ver, cüzdanı uzağa at ve ters yöne koş. İki: mesafeyi olabildiğince uzak tut ve kaçış yolu ara. Üç: tekniği sadece saldırıya uğradığında ve kaçamadığında kullan. Ve unutma: gerçekte bıçağa karşı koyan neredeyse herkes yaralanır. Kaçmak, kazanmaktır.",
+    "cues": [
+     "Eşyayı ver, uzağa at, koş",
+     "Mesafeyi koru, çıkış yolu ara",
+     "Teknik son çaredir"
+    ],
+    "mistakes": [
+     "Eşyayı elde tutmaya çalışmak",
+     "Kendine güvenip bıçaklı kişinin üzerine atılmak"
+    ],
+    "drill": {
+     "label": "Cüzdanı at – koş (senaryo)",
+     "say": "Sıra sende. Senaryo çalışması, cüzdanı at ve koş: üç tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk13-2": {
+    "title": "Engeli kalkan olarak kullanma",
+    "say": "Elindeki her şey kalkan olabilir: sırt çantası, koluna sarılmış bir mont, sandalye, el çantası. Engeli seninle bıçağın ucu arasında tut, iki elinle sıkıca kavra ve çıkışa doğru geri çekil. Engel, bıçağı vücudundan uzak tutar ve sana kaçmak için zaman kazandırır.",
+    "cues": [
+     "Sırt çantası, mont, sandalye kalkan olur",
+     "Engeli seninle bıçak arasında tut",
+     "Çıkışa doğru geri çekil"
+    ],
+    "mistakes": [
+     "Çıplak elle dövüşmek için engeli atmak",
+     "Duvar köşesine doğru geri çekilmek"
+    ],
+    "drill": {
+     "label": "Çanta kalkanıyla çıkışa geri çekil",
+     "say": "Sıra sende. Otuz saniye boyunca sırt çantasını kalkan gibi tut ve çıkışa doğru geri çekil. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk13-3": {
+    "title": "Korunma ve duruş",
+    "say": "Elinde engel yoksa iki kolunu yüzünün önüne kaldır. Ön kollarının iç yüzü sana dönük olsun, dirsekler kaburgaları korusun. Gövden hafif öne eğik, çenen içeride. Hedefi küçültmek için çapraz durursun. Gözlerin rakibin yüzüne değil, bıçağı tutan eline baksın.",
+    "cues": [
+     "Ön kollar yüzün önünde, iç yüz sana dönük",
+     "Çapraz dur, hafif eğil, çene içeride",
+     "Gözler bıçağı tutan elde"
+    ],
+    "mistakes": [
+     "Avuç içini uzatıp karşılamak",
+     "Ele değil yüze bakmak"
+    ],
+    "drill": {
+     "label": "Korunma duruşuna geç",
+     "say": "Sıra sende. Korunma duruşuna geç: on tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk13-4": {
+    "title": "Kolu durdurma ve kontrol",
+    "say": "Bıçak üzerine geldiğinde ve kaçamıyorsan, bıçağı tutan kolu iki ön kolunla durdur, aynı anda dışarı çapraz adım at. Hemen o kolu iki elinle gövdene sıkıca bastır, bileği kontrol et, bıçağın ucunu uzağa çevir. Senin iki elin onun tek eline karşı. Lastik bıçakla çok yavaş çalış.",
+    "cues": [
+     "İki ön kolla durdur + çapraz adım",
+     "Bıçaklı kolu sıkıca gövdene bastır",
+     "İki elle bileği kontrol et, bıçak dışa dönük"
+    ],
+    "mistakes": [
+     "Sadece tek el kullanmak",
+     "Kolu yarı yolda bırakmak"
+    ],
+    "drill": {
+     "label": "Her iki yana durdur – kontrol et (yavaş)",
+     "say": "Sıra sende. Her iki yana yavaşça durdur ve kontrol et: sekiz tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk13-5": {
+    "title": "Kurtul ve koş",
+    "say": "Kolu kontrol ettiğinde bıçağı almaya çalışma. Dokuzuncu dersteki gibi dizine alçak bir tekme at, rakibi güçlüce it, sonra kalabalık bir yere koş. Yardım iste ve polise haber ver. Ardından vücudunu kontrol et: bıçakla yaralanan kişi bunu çoğu zaman hemen hissetmez.",
+    "cues": [
+     "Bıçağı almaya çalışma",
+     "Alçak tekme, it, koş",
+     "Yardım iste, polise haber ver, yarana bak"
+    ],
+    "mistakes": [
+     "Bıçağı kapmaya çalışmak",
+     "Rakibin peşine düşmek"
+    ],
+    "drill": {
+     "label": "Kontrol et – it – koş (yavaş)",
+     "say": "Sıra sende. Yavaşça kontrol et, it ve koş: beş tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Bıçaklı biri cüzdanını istiyor. Ne yaparsın?",
+    "a": [
+     "Cüzdanı korumak için dövüşürüm",
+     "Cüzdanı veririm, uzağa atarım, koşarım"
+    ],
+    "why": "Eşya yeniden alınır, hayat alınmaz."
+   },
+   {
+    "q": "Hangi eşya kalkan olabilir?",
+    "a": [
+     "Sırt çantası, mont, sandalye",
+     "Hiçbir şey"
+    ],
+    "why": "Engel, bıçağı vücudundan uzak tutar."
+   },
+   {
+    "q": "Bıçakla karşılaştığında gözlerin nereye bakar?",
+    "a": [
+     "Rakibin yüzüne",
+     "Bıçağı tutan ele"
+    ],
+    "why": "Tehlike, bıçağı tutan eldedir."
+   },
+   {
+    "q": "Bıçaklı kolu kontrol ettikten sonra ne yapmalısın?",
+    "a": [
+     "Bıçağı almaya çalışmak",
+     "İtmek, koşmak, yardım istemek"
+    ],
+    "why": "Amaç silahı almak değil, güvenle kurtulmaktır."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Silahla tehdit edilmek",
+  "sub": "Sakinlik, itaat, gözlem, siper, kaçış – plastik eğitim tabancası",
+  "intro": "Bu ders tekniklerden çok sakinlikle ilgili. Bir silahla karşılaştığında hayatın soğukkanlılığına bağlıdır. Sadece eğitim için yapılmış turuncu plastik tabanca kullanıyoruz.",
+  "safety": "Sadece turuncu plastik eğitim tabancası kullan. Gerçek silah, havalı tabanca ya da gerçeğine benzeyen bir şey kullanma.",
+  "outro": "Soğukkanlılık, en güçlü silahındır. Dalın son dersi: genel tekrar ve refleksler.",
+  "home": "Ev ödevi: her gün üç dakika kutu nefesi yap, dışarı çıktığında da hafıza oyununu oyna.",
+  "steps": {
+   "tk14-1": {
+    "title": "Nefes al ve sakin kal",
+    "say": "Sana silah doğrultulduğunda kalbin çok hızlı atacak. Kutu nefesi yap: dört saniye nefes al, dört saniye tut, dört saniye ver, dört saniye tut. Sadece bir iki nefes bile zihnini açar. Sakin insan çıkış yolunu görür, panikleyen görmez.",
+    "cues": [
+     "Al 4 – tut 4 – ver 4 – tut 4",
+     "Bir iki nefes yeter",
+     "Sakin olan çıkış yolunu görür"
+    ],
+    "mistakes": [
+     "Hızlı hızlı solumak",
+     "Ani hareketler yapmak"
+    ],
+    "drill": {
+     "label": "4 zamanlı kutu nefesi",
+     "say": "Sıra sende. Altmış dört saniye boyunca dört zamanlı kutu nefesi yap. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk14-2": {
+    "title": "İtaat et ve elleri kaldır",
+    "say": "Eşyalarını isterlerse itaat et. Açık ellerini omuz hizasına kaldır, yavaş ve net konuş: tamam, veriyorum. Her hareketini önceden söyle: cüzdanımı sağ cebimden alacağım. Eşyaları yere bırak ya da uzağa at. Yüzüne dik dik bakma, tartışma.",
+    "cues": [
+     "Açık eller, omuz hizasında",
+     "Yavaş konuş, her hareketi önceden söyle",
+     "Eşyayı ver, tartışma"
+    ],
+    "mistakes": [
+     "Cebe aniden uzanmak",
+     "Tartışmak, karşılık olarak tehdit etmek"
+    ],
+    "drill": {
+     "label": "İtaat senaryosu",
+     "say": "Sıra sende. İtaat senaryosu: üç tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk14-3": {
+    "title": "Gizlenme yeri ve siper",
+    "say": "İki şeyi birbirinden ayır. Gizlenme yeri, seni görüşten saklayan şeydir, bir çalı ya da perde gibi. Siper ise kurşunu durdurabilen şeydir, beton duvar, kolon ya da bir aracın motor bloğu gibi. Kaçma fırsatı doğduğunda siperin olduğu yere koş. Düz değil çapraz koş ve gövdeni alçak tut.",
+    "cues": [
+     "Gizlenme yeri ≠ siper",
+     "Sipere doğru koş",
+     "Çapraz koş, gövde alçakta"
+    ],
+    "mistakes": [
+     "Ahşap bir kapının ya da çalının arkasına saklanıp güvende olduğunu sanmak",
+     "Tek bir düz çizgide koşmak"
+    ],
+    "drill": {
+     "label": "Sipere çapraz koşu",
+     "say": "Sıra sende. Sipere doğru çapraz koşu: beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk14-4": {
+    "title": "Gözlem ve hafıza",
+    "say": "İtaat ederken sessizce gözlem yap: boyu, kıyafetleri, sesi, uzaklaştığı yön. Gittikten sonra güvenli bir yerde kal, hemen polisi ara ve hatırladığın her şeyi anlat. Asla peşinden gitme.",
+    "cues": [
+     "Sessizce gözle: boy, kıyafet, ses, gidiş yönü",
+     "Güvenli bir yerde kal",
+     "Polisi ara, peşinden gitme"
+    ],
+    "mistakes": [
+     "Soyguncunun peşine düşmek",
+     "Yüzüne dik dik bakmak"
+    ],
+    "drill": {
+     "label": "Hafıza oyunu: bir kişiyi tarif et",
+     "say": "Sıra sende. Hafıza oyunu: otuz saniye içinde bir kişiyi tarif et. Zamanlayıcı geri sayacak."
+    }
+   },
+   "tk14-5": {
+    "title": "Son çare",
+    "say": "Ancak itaat etmene rağmen ateş edeceklerinden emin olduğunda son çareyi düşün. Namluyu kendinden ve diğer insanlardan uzağa it, iki elinle sıkıca tut, sonra kurtulmanın bir yolunu ara. Bu çok yüksek riskli bir tekniktir. Sadece sertifikalı bir antrenörden, yüz yüze ve eğitim tabancasıyla öğrenilir. Çoğu durumda itaat etmek ve gözlem yapmak, hayatta kalmak için en iyi seçimdir.",
+    "cues": [
+     "Sadece ateş edileceğinden eminsen",
+     "Namluyu vücuttan uzağa it, iki elle tut",
+     "Antrenörden yüz yüze öğren"
+    ],
+    "mistakes": [
+     "Sadece eşya istendiğinde harekete geçmek",
+     "Eğitmen olmadan videodan kendi kendine çalışmak"
+    ],
+    "drill": {
+     "label": "Kuralları tekrarla",
+     "say": "Sıra sende. Kuralları tekrarla: üç tekrar. Senin için ritmi sayacağım."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Kutu nefesi nedir?",
+    "a": [
+     "Al 4 – tut 4 – ver 4 – tut 4 saniye",
+     "Nefesi çok uzun süre tutmak"
+    ],
+    "why": "Düzenli nefes kalp atışını yavaşlatır, zihni açık tutar."
+   },
+   {
+    "q": "Silah doğrultulup eşyaların istendiğinde ne yapmalısın?",
+    "a": [
+     "Karşı koymak",
+     "İtaat etmek, hareketleri önceden söylemek, eşyaları vermek"
+    ],
+    "why": "Eşyalar bir hayat kadar değerli değildir."
+   },
+   {
+    "q": "Hangisi siperdir, yani kurşunu durdurur?",
+    "a": [
+     "Çalı",
+     "Beton duvar, kolon"
+    ],
+    "why": "Çalı sadece gizler, kurşunu durdurmaz."
+   },
+   {
+    "q": "Soyguncu gittikten sonra ne yapmalısın?",
+    "a": [
+     "Peşinden gitmek",
+     "Güvenli bir yerde kalıp polisi aramak"
+    ],
+    "why": "Silahlı birinin peşinden asla gidilmez."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Genel tekrar ve refleksler",
+  "sub": "Zincirleme senaryolar, kontrollü partner çalışması, esneme ve toparlanma",
+  "intro": "Son ders. Öğrendiğimiz her şeyi refleks haline getiriyoruz. Bir olay yaşandığında düşünmeye vaktin olmaz. Vücudun ne yapacağını kendisi bilmeli.",
+  "safety": "Eldiven giy, varsa dişlik tak. Partnerle %30–50 güçte çalış, bir eğitmen gözetiminde.",
+  "outro": "Tebrikler, savaşçı! Yakın dövüşle savunma dalını, temel ve ileri bölümleriyle eksiksiz tamamladın. Çelik Kurt rozetini kazanmak için dal mezuniyet sınavına gir.",
+  "home": "Ev ödevi: haftada üç kez, her seferinde otuz dakika tüm dalı tekrar et. Her zaman ısın ve esne.",
+  "steps": {
+   "tk15-1": {
+    "title": "Hareketli lapayla refleks",
+    "say": "Partnerin iki lapa tutar, etrafında dolaşır ve aniden lapaları farklı yerlerde kaldırır. Lapa yüz hizasındaysa düz yumruk at. Lapa alçaktaysa itme tekmesi at. Lapa başına doğru savrulursa yüksek gard al. Düşünmeden, hemen tepki ver.",
+    "cues": [
+     "Lapa yüz hizasında → düz yumruk",
+     "Lapa alçakta → itme tekmesi",
+     "Lapa savrulursa → yüksek gard"
+    ],
+    "mistakes": [
+     "Hareket etmeden beklemek",
+     "Her vuruştan sonra elleri indirmek"
+    ],
+    "drill": {
+     "label": "Refleks rauntu",
+     "say": "Sıra sende. Refleks: üç raunt, her raunt kırk beş saniye, raunt arası yirmi saniye dinlenme."
+    }
+   },
+   "tk15-2": {
+    "title": "Senaryo: bilekten tutulma",
+    "say": "Birinci senaryo. Partnerin aniden bileğini tutar ve çeker. Refleks: ağırlık merkezini indir, başparmak yönünde kurtul, el bariyeri, uzaklaş ve yüksek sesle bağır: Dur! Sonra dönüp üç adım koş. Beş kez tekrarla, her seferinde partnerin farklı bir tutuş kullansın.",
+    "cues": [
+     "Ağırlığı indir, başparmak yönünde kurtul",
+     "El bariyeri, yüksek sesle bağır",
+     "3 adım koş"
+    ],
+    "mistakes": [
+     "Güce güçle karşılık vermek",
+     "Bağırmayı ve koşmayı unutmak"
+    ],
+    "drill": {
+     "label": "Bilek tutuşu senaryosu",
+     "say": "Sıra sende. Bilek tutuşu senaryosu: beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk15-3": {
+    "title": "Senaryo: arkadan sarılma",
+    "say": "İkinci senaryo. Partnerin sana arkadan sarılır. Refleks: ağırlık merkezini indir, dirsekleri aç, yana adım at, dönerek kurtul, üçüncü bir kişinin tuttuğu kalkana itme tekmesi at, sonra koş. Her seferden sonra rolleri değiştirin. Her kişi beş kez.",
+    "cues": [
+     "Ağırlığı indir, dirsekleri aç",
+     "Yana adım, dönerek kurtul",
+     "İtme tekmesi, koş"
+    ],
+    "mistakes": [
+     "Dik durmak",
+     "Ağırlık merkezi yüksekken dönmek"
+    ],
+    "drill": {
+     "label": "Arkadan sarılma senaryosu",
+     "say": "Sıra sende. Arkadan sarılma senaryosu: beş tekrar. Senin için ritmi sayacağım."
+    }
+   },
+   "tk15-4": {
+    "title": "Kontrollü partner çalışması",
+    "say": "Üç raunt hafif partner çalışması, her raunt bir dakika. Sadece eldivene ve omza düz yumruk, karına çok hafif itme tekmesi, gücün yüzde otuzu. Yüze vurmak yok, zayıf noktalara vurmak yok. Amaç, biri gerçekten saldırırken gözlerini, ayak çalışmanı ve sakinliğini geliştirmek.",
+    "cues": [
+     "%30 güç, yüze vuruş yok",
+     "Göz, ayak çalışması, sakinlik",
+     "Önce ve sonra eldivenle selamlaş"
+    ],
+    "mistakes": [
+     "Darbe yiyince gücü artırmak",
+     "Vurulurken gözleri kapatmak"
+    ],
+    "drill": {
+     "label": "Partner rauntu",
+     "say": "Sıra sende. Partner çalışması: üç raunt, her raunt altmış saniye, raunt arası otuz saniye dinlenme."
+    }
+   },
+   "tk15-5": {
+    "title": "Esneme ve toparlanma",
+    "say": "Ağır bir antrenmandan sonra on dakika esne. Ön uyluk, arka uyluk, kalça, omuzlar ve sırt için esneme yap, her pozisyonda otuz saniye kal. Esnemeyi derinleştirirken nefes ver. Su iç, iyi beslen ve iyi uyu. Kaslar antrenman yaparken değil, dinlenirken büyür.",
+    "cues": [
+     "Her pozisyonda 30 saniye",
+     "Derinleştirirken nefes ver",
+     "Su iç, iyi beslen, iyi uyu"
+    ],
+    "mistakes": [
+     "Esnerken yaylanıp sarsmak",
+     "Toparlanma kısmını atlamak"
+    ],
+    "drill": {
+     "label": "Toparlanma esnemesi",
+     "say": "Sıra sende. Yüz yirmi saniye boyunca toparlanma esnemesi yap. Zamanlayıcı geri sayacak."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Lapa karın hizasında alçakta tutulursa refleksin ne olur?",
+    "a": [
+     "İtme tekmesi",
+     "Yüksek gard"
+    ],
+    "why": "Alçak hedef itme tekmesi içindir."
+   },
+   {
+    "q": "Kontrollü partner çalışmasında ne kadar güç kullanılır?",
+    "a": [
+     "Yaklaşık %30",
+     "Tüm güç"
+    ],
+    "why": "Gerçekten dövüşmek için değil, beceriyi güvenle geliştirmek için çalışırız."
+   },
+   {
+    "q": "Her savunma senaryosu her zaman nasıl biter?",
+    "a": [
+     "Kalıp dövüşmeye devam ederek",
+     "Yüksek sesle bağırıp mesafe açarak ve koşarak"
+    ],
+    "why": "Kendini savunmanın amacı güvende olmaktır."
+   },
+   {
+    "q": "Kaslar ne zaman büyür?",
+    "a": [
+     "Dinlenirken, iyi beslenip iyi uyurken",
+     "Sadece antrenman yaparken"
+    ],
+    "why": "Toparlanma, antrenmanın bir parçasıdır."
+   }
+  ]
+ }
+}

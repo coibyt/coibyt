@@ -219,5 +219,6 @@
  "langH": "Dil",
  "langPick": "Öğrenme dilini seç",
  "voiceDevice": "Cihazın okuma sesi (bu dil için antrenörün kayıtlı sesi henüz yok)",
- "decimal": ","
+ "decimal": ",",
+ "voiceRecorded": "Antrenörün kayıtlı sesi mevcut. Diğer diller cihazın okuma sesini kullanır."
 }

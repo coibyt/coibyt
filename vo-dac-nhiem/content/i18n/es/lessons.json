@@ -721,5 +721,665 @@
     "why": "La base de la palma es firme y hay menos riesgo de lesionarte la mano."
    }
   ]
+ },
+ "tk6": {
+  "title": "Liberarse de agarres de muñeca",
+  "sub": "Regla del pulgar, agarre del mismo lado, agarre cruzado, agarre con las dos manos",
+  "intro": "Que te agarren de la muñeca es una situación muy frecuente. No hace falta fuerza: solo entender bien el punto débil de la mano del rival.",
+  "safety": "El compañero agarra con fuerza moderada. Libérate despacio, sin tirones bruscos que dañen la articulación.",
+  "outro": "Tu mano ya sabe liberarse sola. Próxima lección: escapar de abrazos y de agarres por delante.",
+  "home": "Tarea para casa: cada día, diez liberaciones de cada tipo de agarre, con alguien de tu familia, durante una semana.",
+  "steps": {
+   "tk6-1": {
+    "title": "La regla del pulgar",
+    "say": "Cuando te agarran de la muñeca, el punto más débil de la mano del rival es el hueco entre el pulgar y los demás dedos. No luches fuerza contra fuerza. Gira el antebrazo para que la parte estrecha de tu muñeca apunte hacia ese hueco, y tira con fuerza en la dirección del pulgar.",
+    "cues": [
+     "Busca el pulgar del rival",
+     "Gira la muñeca hacia el hueco del pulgar",
+     "Tira fuerte en la dirección del pulgar"
+    ],
+    "mistakes": [
+     "Tirar recto hacia atrás, forcejeando",
+     "Tirar hacia los cuatro dedos"
+    ],
+    "drill": {
+     "label": "Buscar la dirección del pulgar",
+     "say": "Te toca. Buscar la dirección del pulgar: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk6-2": {
+    "title": "Agarre del mismo lado",
+    "say": "Iván me agarra la muñeca derecha con su mano izquierda. Bajo el centro de gravedad, doblo el codo y acerco el brazo a mi cuerpo. Giro el antebrazo para que la muñeca apunte hacia su pulgar, y tiro con fuerza hacia arriba, hacia mi hombro. La mano queda libre. Al instante, levanto las dos manos en barrera y retrocedo.",
+    "cues": [
+     "Baja el centro de gravedad, dobla el codo",
+     "Gira la muñeca hacia el pulgar",
+     "Tira hacia tu hombro y luego barrera de manos"
+    ],
+    "mistakes": [
+     "Estirar el brazo al liberarte",
+     "Quedarte cerca después de liberarte"
+    ],
+    "drill": {
+     "label": "Liberación del mismo lado, cada mano",
+     "say": "Te toca. Liberación del mismo lado, con cada mano: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk6-3": {
+    "title": "Agarre cruzado",
+    "say": "En un agarre cruzado, por ejemplo cuando la mano derecha del rival agarra tu muñeca derecha, su pulgar queda por encima. Gira tu muñeca hacia arriba, cortando a través del hueco del pulgar, y tira hacia el hombro contrario. Acompáñalo con un paso atrás en diagonal.",
+    "cues": [
+     "El pulgar del rival queda arriba",
+     "Gira hacia arriba, corta por el hueco del pulgar",
+     "Tira hacia el hombro contrario + paso atrás en diagonal"
+    ],
+    "mistakes": [
+     "Tirar hacia abajo, en contra del hueco",
+     "Olvidar mover los pies"
+    ],
+    "drill": {
+     "label": "Liberación del agarre cruzado, cada mano",
+     "say": "Te toca. Liberación del agarre cruzado, con cada mano: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk6-4": {
+    "title": "Agarre con las dos manos",
+    "say": "Cuando te agarran con las dos manos, una sola mano tuya no tiene fuerza suficiente. Mete la mano libre entre los brazos del rival y agarra tu propio puño. Luego, con la fuerza de los dos brazos y el giro del hombro, tira con fuerza hacia arriba, por el hueco entre los dos pulgares.",
+    "cues": [
+     "La mano libre entra por el medio",
+     "Agarra tu propio puño",
+     "Dos brazos + giro de hombro, tira hacia arriba"
+    ],
+    "mistakes": [
+     "Intentar sacar una mano sola",
+     "Tirar hacia un lado en vez de hacia arriba"
+    ],
+    "drill": {
+     "label": "Liberación del agarre con dos manos",
+     "say": "Te toca. Liberación del agarre con dos manos: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk6-5": {
+    "title": "Después de liberarte",
+    "say": "Liberarte no es el final. Aléjate al instante, levanta las manos en barrera y grita bien fuerte: ¡Alto! El grito atrae a la gente de alrededor y deja claro que no quieres pelear. El objetivo de la defensa personal es siempre salir a salvo e irte.",
+    "cues": [
+     "Aléjate enseguida",
+     "Barrera de manos",
+     "Grita fuerte: ¡Alto!"
+    ],
+    "mistakes": [
+     "Quedarte a discutir",
+     "Darte la vuelta y huir cuando aún estás demasiado cerca"
+    ],
+    "drill": {
+     "label": "Liberarse – retroceder – gritar",
+     "say": "Te toca. Liberarse, retroceder y gritar: cinco veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "El punto débil de una mano que agarra es:",
+    "a": [
+     "La palma",
+     "El hueco entre el pulgar y los demás dedos",
+     "El meñique"
+    ],
+    "why": "El hueco del pulgar es la abertura por donde es más fácil escapar."
+   },
+   {
+    "q": "Si te agarran con las dos manos, ¿qué haces?",
+    "a": [
+     "Tirar con fuerza de una sola mano",
+     "Agarrar tu propia mano y tirar hacia arriba con los dos brazos",
+     "Quedarte quieto"
+    ],
+    "why": "Tus dos brazos, junto con el giro del hombro, vencen a las dos manos del rival."
+   },
+   {
+    "q": "Después de liberarte, lo primero es:",
+    "a": [
+     "Alejarte, barrera de manos, gritar fuerte",
+     "Devolver el golpe enseguida",
+     "Discutir"
+    ],
+    "why": "El objetivo de la defensa personal es estar a salvo e irte."
+   },
+   {
+    "q": "¿Conviene luchar fuerza contra fuerza?",
+    "a": [
+     "Sí",
+     "No, usa la dirección correcta del pulgar"
+    ],
+    "why": "La técnica correcta vence a la fuerza."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Escapes de abrazos y agarres por delante",
+  "sub": "Abrazo por la espalda con brazos atrapados, abrazo por la espalda con brazos libres, agarre de solapas por delante, señal de parada",
+  "intro": "Que te inmovilicen con un abrazo fuerte es una de las sensaciones que más miedo dan. El secreto: un centro de gravedad bajo y unos pies ligeros. Entrenamos despacio, con seguridad, y respetando siempre la señal de parada.",
+  "safety": "El compañero abraza con fuerza moderada. Nunca se aprieta el cuello de verdad. Dos palmadas significan parar.",
+  "outro": "Ya sabes liberarte de los agarres más incómodos. Última lección de esta parte: desequilibrar y derribar con seguridad.",
+  "home": "Tarea para casa: dos sesiones por semana, ocho repeticiones de cada situación por lado, siempre con señal de parada.",
+  "steps": {
+   "tk7-1": {
+    "title": "La señal de parada",
+    "say": "Antes de cualquier ejercicio por parejas, acuerda con tu compañero una señal de parada. Dos palmadas en el cuerpo del compañero o en el tatami, o decir en voz alta: ¡Para! Cuando oigas o sientas esa señal, suelta al instante. Todos deben respetar esta señal sin excepción. Solo entrenando con seguridad se puede entrenar durante años.",
+    "cues": [
+     "2 palmadas o decir: ¡Para!",
+     "Suelta al instante",
+     "Respeto absoluto"
+    ],
+    "mistakes": [
+     "Apretar un poco más después de la señal",
+     "No acordar la señal antes de empezar"
+    ],
+    "drill": {
+     "label": "Acordar la señal",
+     "say": "Te toca. Acordar la señal: tres veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk7-2": {
+    "title": "Abrazo por la espalda – bajar el centro de gravedad",
+    "say": "Si te abrazan por la espalda con los brazos atrapados dentro del abrazo: baja enseguida el centro de gravedad, flexiona las rodillas y saca la cadera hacia atrás. Al mismo tiempo, abre los codos hacia los lados para aflojar el abrazo. Con el centro de gravedad bajo, al rival le cuesta muchísimo levantarte del suelo.",
+    "cues": [
+     "Baja el centro de gravedad enseguida",
+     "Cadera hacia atrás",
+     "Abre los codos para aflojar el abrazo"
+    ],
+    "mistakes": [
+     "Quedarte erguido: te levantan con facilidad",
+     "Forcejear con pánico"
+    ],
+    "drill": {
+     "label": "Bajar el centro y aflojar el abrazo",
+     "say": "Te toca. Bajar el centro y aflojar el abrazo: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk7-3": {
+    "title": "Abrazo por la espalda – escape girando",
+    "say": "Cuando el abrazo ya se ha aflojado, da un paso lateral con una pierna, baja todavía más el cuerpo, gira la cadera y los hombros, y sal deslizándote de entre sus brazos. Date la vuelta para quedar de frente al rival, con las manos en barrera, y toma distancia. Practica despacio con tu compañero; quien abraza lo hace solo con fuerza moderada.",
+    "cues": [
+     "Paso lateral con una pierna",
+     "Baja más, gira la cadera y sal",
+     "De frente, barrera, toma distancia"
+    ],
+    "mistakes": [
+     "Girar con el centro de gravedad aún alto",
+     "Quedarte cerca después de escapar"
+    ],
+    "drill": {
+     "label": "Escape del abrazo por la espalda, cada lado",
+     "say": "Te toca. Escape del abrazo por la espalda, por cada lado: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk7-4": {
+    "title": "Abrazo por la espalda – brazos libres",
+    "say": "Si tus brazos quedan fuera del abrazo: igualmente, primero baja el centro de gravedad. Luego agarra las manos del rival delante de tu abdomen, despégalas para abrir el abrazo y, a la vez, gira el cuerpo para salir. Aléjate y mantén la barrera de manos.",
+    "cues": [
+     "Primero baja el centro de gravedad",
+     "Despega las manos del rival delante del abdomen",
+     "Gira para salir, aléjate"
+    ],
+    "mistakes": [
+     "Arañar las manos del rival sin bajar el centro",
+     "Darte la vuelta para irte cuando aún estás pegado"
+    ],
+    "drill": {
+     "label": "Escape con brazos libres",
+     "say": "Te toca. Escape con brazos libres: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk7-5": {
+    "title": "Agarre de solapas por delante",
+    "say": "Cuando el rival te agarra del cuello de la ropa con las dos manos, desde delante: recoge la barbilla y sube los hombros para proteger el cuello. Levanta un brazo recto por encima de la cabeza, y luego gira con fuerza el cuerpo hacia un lado, para que tu hombro y tu brazo pasen por encima de los dos brazos del rival y rompan el agarre. Al instante, da un paso atrás y levanta la barrera de manos. Al practicar, tu compañero solo agarra la ropa; nunca aprieta el cuello.",
+    "cues": [
+     "Barbilla recogida, hombros arriba",
+     "Levanta un brazo recto",
+     "Gira fuerte, pasa por encima de sus brazos, retrocede"
+    ],
+    "mistakes": [
+     "Intentar separar los brazos del rival a la fuerza",
+     "Girar sin levantar bien el brazo"
+    ],
+    "drill": {
+     "label": "Escape del agarre de solapas, cada lado",
+     "say": "Te toca. Escape del agarre de solapas, por cada lado: ocho veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Si te abrazan por la espalda, ¿qué haces primero?",
+    "a": [
+     "Bajar el centro de gravedad",
+     "Saltar",
+     "Echar la cabeza hacia atrás"
+    ],
+    "why": "Con el centro de gravedad bajo, al rival le cuesta levantarte."
+   },
+   {
+    "q": "La señal de parada en el trabajo por parejas es:",
+    "a": [
+     "Dos palmadas o decir: ¡Para!",
+     "Gritar cualquier cosa",
+     "No hace falta ninguna señal"
+    ],
+    "why": "Se acuerda antes de empezar y se respeta sin excepción."
+   },
+   {
+    "q": "¿Qué usas para escapar de un agarre de solapas por delante?",
+    "a": [
+     "La fuerza de los dos brazos tirando",
+     "Levantar el brazo y girar con fuerza todo el cuerpo por encima",
+     "Quedarte quieto esperando"
+    ],
+    "why": "Girar todo el cuerpo tiene más fuerza que los dos brazos del rival."
+   },
+   {
+    "q": "Al practicar el escape del agarre de solapas, tu compañero puede:",
+    "a": [
+     "Apretar el cuello de verdad",
+     "Solo agarrar la ropa, sin apretar el cuello"
+    ],
+    "why": "Seguridad absoluta en la zona del cuello."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Desequilibrio y derribos",
+  "sub": "Base de apoyo, agarre, barrido trasero, zancadilla delantera, control",
+  "intro": "Esta es la esencia de la lucha Sambo: usar el equilibrio del rival para llevarlo al suelo. Practícalo solo cuando ya domines las caídas, sobre colchoneta gruesa y con un instructor.",
+  "safety": "Obligatorio: dominar la lección Caídas seguras, colchoneta gruesa, entrenador presente, velocidad lenta.",
+  "outro": "¡Felicidades! Has completado el nivel Básico de la rama Defensa personal cuerpo a cuerpo. El nivel Avanzado te espera, con situaciones de mayor realismo.",
+  "home": "Tarea para casa: dos sesiones por semana sobre colchoneta gruesa, con instructor, seis repeticiones lentas de cada técnica.",
+  "steps": {
+   "tk8-1": {
+    "title": "Base de apoyo y desequilibrio",
+    "say": "El rival se mantiene firme gracias a sus dos piernas. La línea que une sus pies es su base de apoyo. Si empujas o tiras en perpendicular a esa línea, pierde el equilibrio con mucha facilidad. Practica con tu compañero: agarra la manga y el cuello de la ropa; empuja, tira y gira suavemente en ocho direcciones. Siente el instante en que todo su peso carga sobre los talones o sobre las puntas de los pies.",
+    "cues": [
+     "Base de apoyo = línea que une los pies",
+     "Empuja o tira en perpendicular a la base",
+     "Siente el peso cargar en talones o puntas"
+    ],
+    "mistakes": [
+     "Empujar a lo largo de la base de apoyo",
+     "Usar los brazos rígidos"
+    ],
+    "drill": {
+     "label": "Empujar y tirar en 8 direcciones",
+     "say": "Te toca. Empujar y tirar en ocho direcciones durante sesenta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk8-2": {
+    "title": "Agarre básico",
+    "say": "El agarre básico de la lucha Sambo: la mano izquierda sujeta la manga derecha del compañero, justo debajo del codo. La mano derecha sujeta la solapa izquierda, a la altura del pecho. Codos flexibles, no rígidos. Espalda recta, pies a la anchura de los hombros, listo para moverte.",
+    "cues": [
+     "Mano izquierda: manga, bajo el codo",
+     "Mano derecha: solapa, a la altura del pecho",
+     "Codos flexibles, espalda recta"
+    ],
+    "mistakes": [
+     "Encorvar la espalda y bajar la cabeza",
+     "Bloquear los codos, rígidos"
+    ],
+    "drill": {
+     "label": "Tomar el agarre",
+     "say": "Te toca. Tomar el agarre: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk8-3": {
+    "title": "Barrido trasero",
+    "say": "Lleva a tu compañero hacia su diagonal trasera derecha, para que su peso cargue sobre el talón derecho. Pon tu pie izquierdo pegado al exterior de su pie derecho. Tu pierna derecha pasa y barre su pantorrilla derecha desde atrás, mientras tu tronco lo empuja en la misma dirección. Tu compañero cae de espaldas con la técnica que ya aprendió. Tú sujetas su manga durante toda la caída, tirando un poco hacia arriba, para que su espalda llegue al tatami suavemente.",
+    "cues": [
+     "Carga el peso del compañero sobre su talón derecho",
+     "Paso pegado, barre la pantorrilla desde atrás",
+     "Sujeta la manga, deja que caiga suave"
+    ],
+    "mistakes": [
+     "Barrer cuando el peso aún no ha cargado en esa pierna",
+     "Soltar la manga mientras tu compañero cae"
+    ],
+    "drill": {
+     "label": "Barrido trasero (lento) por lado",
+     "say": "Te toca. Barrido trasero, lento, por cada lado: seis veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk8-4": {
+    "title": "Zancadilla delantera",
+    "say": "Lleva a tu compañero hacia delante, en diagonal hacia su derecha. Gira el cuerpo y coloca tu pie derecho cruzado delante de su tobillo derecho. Sigue tirando de la manga en un arco hacia abajo. Tropieza con tu pierna y cae hacia delante, rodando sobre el hombro, igual que en la voltereta.",
+    "cues": [
+     "Tira hacia delante – en diagonal a su derecha",
+     "Pierna cruzada delante del tobillo",
+     "Tira en arco hacia abajo"
+    ],
+    "mistakes": [
+     "Patear el tobillo en lugar de bloquearlo",
+     "Tirar recto hacia el suelo con demasiada fuerza"
+    ],
+    "drill": {
+     "label": "Zancadilla delantera (lenta) por lado",
+     "say": "Te toca. Zancadilla delantera, lenta, por cada lado: seis veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk8-5": {
+    "title": "Control después del derribo",
+    "say": "Cuando tu compañero cae, no lo sueltes enseguida. Sujeta su manga, mantente firme, míralo, y luego ayúdalo a levantarse. Quien derriba es responsable de quien cae. Practica los derribos solo sobre colchoneta gruesa, con un entrenador vigilando, a velocidad lenta, y respetando siempre la señal de parada.",
+    "cues": [
+     "Sujeta la manga, mantente firme",
+     "Mira a tu compañero",
+     "Ayúdalo a levantarse"
+    ],
+    "mistakes": [
+     "Soltar justo al proyectar",
+     "Caer encima del compañero"
+    ],
+    "drill": {
+     "label": "Derribo lento + ayudar a levantarse",
+     "say": "Te toca. Derribo lento y ayudar a levantarse: cinco veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Para desequilibrar, ¿en qué dirección empujas o tiras?",
+    "a": [
+     "A lo largo de la línea que une los pies",
+     "En perpendicular a la línea que une los pies",
+     "Recto hacia el suelo"
+    ],
+    "why": "La dirección perpendicular a la base de apoyo es la más débil."
+   },
+   {
+    "q": "En el barrido trasero, ¿dónde tiene que cargar el peso del compañero?",
+    "a": [
+     "En la punta del pie",
+     "En el talón de la pierna que barres",
+     "En la otra pierna"
+    ],
+    "why": "Solo se puede barrer la pierna que soporta el peso."
+   },
+   {
+    "q": "¿De qué es responsable quien derriba?",
+    "a": [
+     "De sujetar la manga y controlar la caída del compañero",
+     "De soltar enseguida",
+     "De caer encima"
+    ],
+    "why": "El control ayuda a que tu compañero caiga con seguridad."
+   },
+   {
+    "q": "Condiciones para practicar derribos:",
+    "a": [
+     "Dominar las caídas, colchoneta gruesa, entrenador presente",
+     "Se puede practicar en cualquier sitio",
+     "Practicar deprisa para acostumbrarse"
+    ],
+    "why": "La seguridad es una condición obligatoria."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Golpes a puntos débiles para escapar",
+  "sub": "Barrido a los ojos, rodillazo a la entrepierna, patada a la rodilla – solo para abrir una vía de escape",
+  "intro": "Si te atacan de verdad y no puedes huir, necesitas un golpe sencillo que frene al agresor durante un segundo. Ese segundo es tu vía de escape. Hoy entrenamos sobre almohadillas; nunca, bajo ningún concepto, contra el cuerpo del compañero.",
+  "safety": "Golpea solo almohadillas o escudos. Nunca toques los ojos, la entrepierna ni las rodillas de tu compañero.",
+  "outro": "Ya tienes golpes que te abren el camino para escapar. Recuerda bien: golpeas para huir, no para ganar. Próxima lección: codos y rodillas a corta distancia.",
+  "home": "Tarea para casa: tres sesiones por semana, tres rondas de la secuencia sobre almohadillas, terminando siempre con una carrera.",
+  "steps": {
+   "tk9-1": {
+    "title": "El principio: golpear para huir",
+    "say": "Primer principio: los golpes a puntos débiles solo se usan cuando te atacan de verdad y no hay otra salida. El objetivo no es ganar, sino que el agresor se frene un instante. Das un golpe, y enseguida creas distancia y corres hacia donde haya gente. No te quedes a seguir peleando.",
+    "cues": [
+     "Solo si te atacan de verdad",
+     "Un golpe para abrir camino",
+     "Golpeas y corres"
+    ],
+    "mistakes": [
+     "Quedarte peleando cuando ya tienes salida",
+     "Golpear cuando todavía puedes irte"
+    ],
+    "drill": {
+     "label": "Barrera – retroceder – correr",
+     "say": "Te toca. Barrera, retroceder y correr: cinco veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk9-2": {
+    "title": "Barrido de dedos a los ojos",
+    "say": "Desde la barrera de manos, tu mano delantera ya está cerca de la cara del rival. Con los dedos un poco curvados y sueltos, barre con rapidez la zona de los ojos, de lado a lado, como si te sacudieras agua de la mano, y recoge. Este golpe no necesita fuerza, solo velocidad. Quien lo recibe cierra los ojos y retrocede por reflejo. Al practicar, barre solo la manopla que tu compañero sostiene a la altura de la cara.",
+    "cues": [
+     "Sales desde la barrera de manos",
+     "Dedos curvados y sueltos, barre de lado",
+     "Rápido, recoge y retrocede"
+    ],
+    "mistakes": [
+     "Dedos rígidos y estirados: te puedes dislocar un dedo",
+     "Tomar impulso desde lejos y delatar la intención"
+    ],
+    "drill": {
+     "label": "Barrido a la manopla, cada mano",
+     "say": "Te toca. Barrido a la manopla, con cada mano: quince veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk9-3": {
+    "title": "Rodillazo a la entrepierna (al escudo)",
+    "say": "Cuando el agresor se te echa encima y te agarra muy de cerca, sujeta con las dos manos sus hombros o el cuello de su ropa. Tira hacia abajo y, al mismo tiempo, sube con fuerza la rodilla de la pierna trasera. Empuja la cadera hacia delante. Al practicar, tu compañero sostiene un escudo grueso delante del bajo vientre, y tú golpeas el escudo con la rodilla. Después del rodillazo, empújalo y aléjate.",
+    "cues": [
+     "Las dos manos en los hombros, tira hacia abajo",
+     "Sube la rodilla trasera, empuja la cadera",
+     "Empuja y aléjate"
+    ],
+    "mistakes": [
+     "Echarte hacia atrás al dar el rodillazo",
+     "Dar el rodillazo sin tener aún el equilibrio"
+    ],
+    "drill": {
+     "label": "Rodillazo al escudo, cada pierna",
+     "say": "Te toca. Rodillazo al escudo, con cada pierna: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk9-4": {
+    "title": "Patada a la rodilla y a la espinilla",
+    "say": "Cuando el agresor se lanza hacia ti desde lejos, una patada baja con el talón a su rodilla o a su espinilla delantera frena su impulso. Sube un poco la rodilla de la pierna delantera, empuja el talón en diagonal, hacia abajo y hacia delante, y recoge la pierna. Un golpe bajo es difícil de bloquear y te mantiene bien equilibrado. Al practicar, golpea solo un escudo colocado a poca altura.",
+    "cues": [
+     "Rodilla baja",
+     "Talón en diagonal, hacia abajo y adelante",
+     "Recoge la pierna, retrocede"
+    ],
+    "mistakes": [
+     "Patear alto al abdomen: es lento y te puedes caer",
+     "Golpear con la punta del pie"
+    ],
+    "drill": {
+     "label": "Patada baja al escudo, cada pierna",
+     "say": "Te toca. Patada baja al escudo, con cada pierna: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk9-5": {
+    "title": "Secuencia: barrido – patada – carrera",
+    "say": "Unimos todo en una secuencia: desde la barrera de manos, barrido a los ojos sobre la manopla, patada baja al escudo, y luego te giras y corres tres pasos. Practica despacio para hacerlo bien, y luego ve subiendo el ritmo. Al final de cada repetición, grita fuerte: ¡Alto! Esta cadena de reflejos tiene que convertirse en un hábito de tu cuerpo.",
+    "cues": [
+     "Barrera → barrido → patada",
+     "Gírate y corre 3 pasos",
+     "Grita fuerte: ¡Alto!"
+    ],
+    "mistakes": [
+     "Olvidar correr al final de la secuencia",
+     "Volver a acercarte después de la patada"
+    ],
+    "drill": {
+     "label": "Ronda de secuencia",
+     "say": "Te toca. Ronda de secuencia: tres rondas de treinta segundos, con veinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Cuál es el objetivo de los golpes a puntos débiles?",
+    "a": [
+     "Ganar la pelea",
+     "Frenar al agresor para que puedas huir",
+     "Castigar al rival"
+    ],
+    "why": "Golpeas para abrir camino, y luego corres a un lugar seguro."
+   },
+   {
+    "q": "En el barrido a los ojos, ¿cómo pones los dedos?",
+    "a": [
+     "Rígidos y estirados",
+     "Un poco curvados, sueltos, barriendo rápido",
+     "Con el puño cerrado"
+    ],
+    "why": "Con los dedos sueltos ganas velocidad y no te dislocas ningún dedo."
+   },
+   {
+    "q": "¿A dónde va la patada baja?",
+    "a": [
+     "A la rodilla o a la espinilla delantera",
+     "A la cabeza",
+     "A la espalda"
+    ],
+    "why": "Un golpe bajo es veloz, difícil de bloquear y frena el impulso del agresor."
+   },
+   {
+    "q": "Al practicar con tu compañero, ¿dónde golpeas?",
+    "a": [
+     "En su cuerpo, pero suave",
+     "Solo en almohadillas o escudos"
+    ],
+    "why": "Nunca golpees los puntos débiles reales de tu compañero."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Codos y rodillas a corta distancia",
+  "sub": "Codazo horizontal, codazo ascendente, rodillazo recto, control de cuello y hombros",
+  "intro": "Cuando te tienen encima, el puño no tiene espacio para golpear. En ese momento, los codos y las rodillas son las armas naturales más potentes del cuerpo. Entrenamos sobre almohadillas: primero la técnica, después la fuerza.",
+  "safety": "Golpea solo almohadillas gruesas. Quien sostiene la almohadilla debe sujetarla bien y estar firme.",
+  "outro": "La corta distancia ya no da miedo. Próxima lección: defenderte de los derribos y levantarte con seguridad.",
+  "home": "Tarea para casa: tres sesiones por semana, tres rondas a corta distancia sobre almohadillas.",
+  "steps": {
+   "tk10-1": {
+    "title": "Codazo horizontal",
+    "say": "Desde la guardia, dobla el codo delantero, con el antebrazo paralelo al suelo y la mano junto a la oreja. Gira la cadera y el hombro, y barre con el codo en horizontal, como una puerta que se cierra de golpe. La zona de impacto es el hueso justo debajo del codo. La otra mano sigue cubriendo la cara. Después del golpe, vuelve enseguida a la guardia.",
+    "cues": [
+     "Mano junto a la oreja, antebrazo horizontal",
+     "Gira la cadera, barre en horizontal",
+     "Impacta con el hueso bajo el codo"
+    ],
+    "mistakes": [
+     "Lanzar todo el brazo estirado",
+     "Olvidar cubrir la cara con la otra mano"
+    ],
+    "drill": {
+     "label": "Codazo horizontal, cada brazo",
+     "say": "Te toca. Codazo horizontal, con cada brazo: quince veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk10-2": {
+    "title": "Codazo ascendente",
+    "say": "Cuando el rival se lanza hacia ti con la cabeza baja, el codazo de abajo arriba es muy eficaz. Dobla bien el codo, con el puño tocando el hombro, y empuja con las piernas mientras subes el codo recto, en vertical, delante de la cara. Al practicar, tu compañero sostiene una manopla boca abajo a la altura del pecho.",
+    "cues": [
+     "Codo bien doblado, puño en el hombro",
+     "Empuja con las piernas, sube recto",
+     "La otra mano cubre la cara"
+    ],
+    "mistakes": [
+     "Subir en diagonal hacia fuera",
+     "Usar solo el brazo, sin empujar con las piernas"
+    ],
+    "drill": {
+     "label": "Codazo ascendente, cada brazo",
+     "say": "Te toca. Codazo ascendente, con cada brazo: doce veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk10-3": {
+    "title": "Control de cuello y hombros",
+    "say": "A distancia de abrazo, coloca las manos una sobre otra detrás de la nuca del rival, con los codos cerrados delante de su pecho. Tira de su cabeza hacia abajo y aprieta los codos hacia dentro. Este control te permite manejar el equilibrio del rival. Al practicar, tira suave y despacio; tu compañero siempre puede dar palmadas para pedir que pares.",
+    "cues": [
+     "Manos una sobre otra detrás de la nuca",
+     "Codos cerrados delante de su pecho",
+     "Tira hacia abajo, suave y despacio"
+    ],
+    "mistakes": [
+     "Entrelazar los dedos: se te pueden quedar atrapados",
+     "Dar tirones fuertes del cuello del compañero"
+    ],
+    "drill": {
+     "label": "Mantener el control de cuello y hombros",
+     "say": "Te toca. Mantén el control de cuello y hombros durante treinta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk10-4": {
+    "title": "Rodillazo recto desde el control",
+    "say": "Desde el control de cuello y hombros, tira del rival hacia abajo y sube la rodilla recta hacia el escudo que tu compañero sostiene delante del abdomen. Empuja la cadera hacia delante y mantente erguido sobre la pierna de apoyo. Después de dos rodillazos, empújalo con fuerza y aléjate.",
+    "cues": [
+     "Control de cuello y hombros",
+     "Tira hacia abajo, sube la rodilla recta",
+     "Dos rodillazos, empuja y aléjate"
+    ],
+    "mistakes": [
+     "Doblarte hacia delante con él",
+     "Ponerte de puntillas sobre el pie de apoyo y perder el equilibrio"
+    ],
+    "drill": {
+     "label": "Rodillazo al escudo, cada pierna",
+     "say": "Te toca. Rodillazo al escudo, con cada pierna: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk10-5": {
+    "title": "Secuencia a corta distancia",
+    "say": "Lo unimos: codazo horizontal, codazo ascendente, entrada al control, dos rodillazos, empujar, y retroceder a la barrera de manos. Haz tres rondas de treinta segundos con almohadillas. Mantén la respiración en ráfaga, corta, mientras golpeas.",
+    "cues": [
+     "Codazo horizontal → codazo ascendente",
+     "Control → 2 rodillazos",
+     "Empuja, barrera de manos, respiración en ráfaga"
+    ],
+    "mistakes": [
+     "Aguantar la respiración al golpear",
+     "Olvidar empujar para crear distancia"
+    ],
+    "drill": {
+     "label": "Ronda a corta distancia",
+     "say": "Te toca. Ronda a corta distancia: tres rondas de treinta segundos, con veinte segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Con qué parte impacta el codazo horizontal?",
+    "a": [
+     "El hueso justo debajo del codo",
+     "La mano",
+     "El hombro"
+    ],
+    "why": "El hueso duro justo debajo del codo es el punto de impacto más sólido."
+   },
+   {
+    "q": "En el control de cuello y hombros, ¿cómo colocas las manos?",
+    "a": [
+     "Con los dedos entrelazados",
+     "Una sobre otra detrás de la nuca"
+    ],
+    "why": "Los dedos entrelazados se pueden quedar atrapados; con una mano sobre otra es más seguro."
+   },
+   {
+    "q": "Después de dos rodillazos, ¿qué haces?",
+    "a": [
+     "Empujar y alejarte",
+     "Seguir abrazando fuerte",
+     "Sentarte"
+    ],
+    "why": "Crea siempre distancia para escapar."
+   },
+   {
+    "q": "Cuando golpeas sin parar, ¿cómo respiras?",
+    "a": [
+     "Aguantando la respiración",
+     "Con respiración en ráfaga, corta, en cada golpe"
+    ],
+    "why": "La respiración en ráfaga evita que te quedes sin fuerzas y te mantiene en calma."
+   }
+  ]
  }
 }
