@@ -11,7 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from kie import RAW, create, credit, fetch, wait  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PUBLIC = "https://babelisa.com/lab/soi-taiga/assets/voice/{lang}/{f}"
+PUBLIC = "https://babelisa.com/soi-taiga/assets/voice/{lang}/{f}"
 PROMPT = ("A charismatic, confident, handsome military instructor talking directly to the camera like a great teacher: expressive face and eyebrows, "
           "natural lip movement matching the speech, natural head movement and blinking, calm open-hand gestures at chest height that match what he says")
 lock = threading.Lock()

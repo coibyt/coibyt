@@ -1,5 +1,5 @@
 // Sinh tự động bởi tools/build_sw.py — đừng sửa tay.
-const VERSION = "29d13a0457";
+const VERSION = "d58c7be507";
 const SHELL = [
 "./",
 "index.html",
@@ -118,6 +118,7 @@ const SHELL = [
 "assets/img/kf/tk9-3.webp",
 "assets/img/kf/tk9-4.webp",
 "assets/img/kf/tk9-5.webp",
+"assets/img/og.jpg",
 "assets/sfx/silence.mp3",
 "assets/video/coach-idle.mp4",
 "assets/video/coach-talk.mp4"

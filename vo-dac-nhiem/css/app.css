@@ -595,3 +595,9 @@ body:has(.modal-bg.dock) #toast { bottom: auto; top: calc(70px + env(safe-area-i
 
 .force-legend { transition: opacity .5s; }
 .force.legend-off .force-legend { opacity: 0; }
+
+/* đoạn giới thiệu cho máy tìm kiếm / khi chưa chạy JavaScript (ứng dụng thay thế khi khởi động) */
+.seo-intro { max-width: 760px; margin: 0 auto; padding: 40px 18px; color: var(--muted); }
+.seo-intro h1 { color: var(--gold-2); font-size: 28px; margin-bottom: 12px; }
+.seo-intro h2 { color: var(--text); font-size: 18px; margin: 18px 0 8px; }
+.seo-intro li { margin: 4px 0; }

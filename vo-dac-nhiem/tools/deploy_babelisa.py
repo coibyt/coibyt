@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Chép bản web vào repo Babelisa: public/lab/soi-taiga/ (Babelisa tự deploy khi đẩy lên main).
+"""Chép bản web vào repo Babelisa: public/soi-taiga/ (Babelisa tự deploy khi đẩy lên main).
    python3 tools/deploy_babelisa.py <đường-dẫn-repo-babelisa>"""
 import pathlib, shutil, subprocess, sys
 SRC = pathlib.Path(__file__).resolve().parent.parent
-DST = pathlib.Path(sys.argv[1]).resolve() / "public/lab/soi-taiga"
+DST = pathlib.Path(sys.argv[1]).resolve() / "public/soi-taiga"
 subprocess.run([sys.executable, str(SRC / "tools/build_sw.py")], check=True)
 if DST.exists():
     shutil.rmtree(DST)
