@@ -36,6 +36,11 @@
   <link rel="preload" as="image" href="splash/logo.webp">
 
   <title>Toán Lớp 3 &amp; Tiếng Anh: Cô Mai</title>
+  <!-- Cho Google tìm thấy: địa chỉ chính, dữ liệu có cấu trúc (ứng dụng giáo dục miễn phí), sơ đồ trang. -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://babelisa.com/lab/toan3-9yt2a3py/">
+  <link rel="sitemap" type="application/xml" href="https://babelisa.com/lab/toan3-9yt2a3py/sitemap.xml">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Toán Lớp 3 & Tiếng Anh: Cô Mai", "applicationCategory": "EducationalApplication", "operatingSystem": "Web, Android", "inLanguage": ["vi", "en"], "url": "https://babelisa.com/lab/toan3-9yt2a3py/", "image": "https://babelisa.com/lab/toan3-9yt2a3py/og-image.jpg", "description": "Học Toán lớp 3 kèm Tiếng Anh cùng cô giáo biết nói: video bài giảng, 1000+ bài tập có lời giải, 65 đề kiểm tra, gameshow Toán học.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}</script>
   <link rel="manifest" href="manifest.json">
   <style>
     html, body { margin: 0; height: 100%; background: #2B1470; }
@@ -51,6 +56,8 @@
       opacity: .55; mix-blend-mode: screen;
     }
     #splash > * { position: relative; }
+    .toc-link { position: absolute; bottom: 18px; color: rgba(255,255,255,.8); font-size: 14px; font-weight: 600; text-decoration: none; }
+    h1.title { margin: 4px 0 0; }
     .logo { width: min(52vw, 230px); filter: drop-shadow(0 10px 30px rgba(255, 201, 60, .55)); animation: float 3s ease-in-out infinite; }
     @keyframes float { 0%, 100% { transform: translateY(0) rotate(-1.5deg); } 50% { transform: translateY(-12px) rotate(1.5deg); } }
     .glow { position: absolute; width: 320px; height: 320px; top: calc(50% - 250px); border-radius: 50%;
@@ -70,15 +77,18 @@
     @keyframes rise { 0% { transform: translateY(0) scale(.6); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(-70vh) scale(1.1); opacity: 0; } }
     @media (prefers-reduced-motion: reduce) { .logo, .glow, .bar i, .spark { animation: none; } }
   </style>
+  <!-- Nút "Khoá học" nổi: về bảng khoá học /khoa-hoc/ hoặc sảnh Babelisa (babelisa/public/js/course-nav.js) -->
+  <script src="/js/course-nav.js" defer></script>
 </head>
 <body>
-  <div id="splash" role="status" aria-label="Đang mở Ong Vàng Toán 3">
+  <div id="splash" role="status" aria-label="Đang mở Toán Lớp 3 cùng cô Mai">
     <div class="glow"></div>
-    <img class="logo" src="splash/logo.webp" alt="Ong Vàng Toán 3">
-    <div class="title">Ong Vàng Toán 3</div>
-    <div class="sub">Lớp học Toán cùng cô Mai</div>
+    <img class="logo" src="splash/logo.webp" alt="Toán Lớp 3 và Tiếng Anh – học cùng cô Mai">
+    <h1 class="title">Toán Lớp 3</h1>
+    <div class="sub">Học Toán &amp; Tiếng Anh cùng cô Mai</div>
     <div class="bar"><i></i></div>
     <div class="tip" id="tip">Đang mở lớp học…</div>
+    <a class="toc-link" href="https://babelisa.com/toan-lop-3/">Mục lục bài học Toán lớp 3 ›</a>
   </div>
   <script>
     (function () {
@@ -110,6 +120,12 @@
       });
     })();
   </script>
+  <noscript>
+    <h1>Toán Lớp 3 &amp; Tiếng Anh – học cùng Cô Mai</h1>
+    <p>Ứng dụng học Toán lớp 3 có cô giáo biết nói: video bài giảng cho mọi bài, hơn 1000 bài tập có lời giải từng bước,
+    65 đề kiểm tra, gameshow Toán học và chế độ Toán + Tiếng Anh song ngữ. Miễn phí, không quảng cáo.</p>
+    <p><a href="https://babelisa.com/toan-lop-3/">Xem mục lục bài học Toán lớp 3: lý thuyết, ví dụ, bài tập có đáp án</a></p>
+  </noscript>
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>

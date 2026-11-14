@@ -17,6 +17,10 @@ rm -rf "$PUB" "$BIN"; mkdir -p "$PUB" "$BIN/canvaskit/chromium"
   -exec install -D -m 644 {} "$PUB/{}" \;)
 install -m 644 "$SRC/canvaskit/canvaskit.wasm" "$BIN/canvaskit/canvaskit.wasm"
 install -m 644 "$SRC/canvaskit/chromium/canvaskit.wasm" "$BIN/canvaskit/chromium/canvaskit.wasm"
-# Bản thử riêng: không cho máy tìm kiếm lập chỉ mục.
-sed -i 's#<meta charset="UTF-8">#<meta charset="UTF-8">\n  <meta name="robots" content="noindex, nofollow">#' "$PUB/index.html"
+# Cho Google lập chỉ mục (trang game, trang giới thiệu /hoc/ và sitemap.xml) — không thêm noindex nữa.
 du -sh "$PUB" "$BIN"
+# Trang giới thiệu Toán lớp 3 ở địa chỉ đẹp babelisa.com/toan-lop-3/ (địa chỉ chính cho Google; app vẫn ở /lab/<SLUG>/).
+if [ "$SLUG" = "toan3-9yt2a3py" ] && [ -f "$SRC/hoc/index.html" ]; then
+  install -D -m 644 "$SRC/hoc/index.html" "$BAB/public/toan-lop-3/index.html"
+  echo "trang giới thiệu → public/toan-lop-3/index.html"
+fi
