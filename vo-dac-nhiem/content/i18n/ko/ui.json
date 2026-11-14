@@ -219,5 +219,6 @@
  "langH": "언어",
  "langPick": "학습 언어 선택",
  "voiceDevice": "기기 음성 (이 언어는 아직 코치 녹음 음성이 없어요)",
- "decimal": "."
+ "decimal": ".",
+ "voiceRecorded": "코치의 녹음 음성이 있어요. 다른 언어는 기기 음성을 사용해요."
 }

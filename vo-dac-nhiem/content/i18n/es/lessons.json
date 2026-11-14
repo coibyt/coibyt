@@ -1381,5 +1381,653 @@
     "why": "La respiración en ráfaga evita que te quedes sin fuerzas y te mantiene en calma."
    }
   ]
+ },
+ "tk11": {
+  "title": "Defensa contra derribos y levantarse",
+  "sub": "Defensa contra el agarre de piernas, aplastar con la cadera, levantada técnica, patada para mantener la distancia",
+  "intro": "En una pelea callejera, lo más peligroso es que te lleven al suelo. Hoy aprendes a que no te derriben y, si ya has caído, a levantarte con seguridad en pocos segundos.",
+  "safety": "Practica sobre colchoneta gruesa. El compañero entra despacio, sin embestir con la cabeza.",
+  "outro": "Ahora es muy difícil derribarte, y sabes levantarte con seguridad. Próxima lección: escapar cuando ya te tienen inmovilizado en el suelo.",
+  "home": "Tarea para casa: cada día, diez levantadas técnicas por lado, y dos sesiones por semana de defensa contra derribos con tu compañero.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl contra el agarre de piernas",
+    "say": "Cuando el rival se agacha y se lanza a agarrarte las piernas: lanza las dos piernas hacia atrás muy deprisa, baja la cadera y aplasta la parte alta de su espalda, con las manos bloqueando sus hombros. El peso de tu cuerpo cae sobre él, y tus piernas quedan lejos, fuera de su alcance. Esto se llama sprawl. Practica despacio con tu compañero sobre la colchoneta.",
+    "cues": [
+     "Lanza las dos piernas atrás",
+     "Baja la cadera sobre la parte alta de su espalda",
+     "Manos bloqueando los hombros del rival"
+    ],
+    "mistakes": [
+     "Retroceder erguido: te agarran las piernas con facilidad",
+     "Dejar la cadera alta: el rival aún puede tirar de tus piernas"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Te toca. Sprawl: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk11-2": {
+    "title": "Salir después del sprawl",
+    "say": "Después de un buen sprawl, no te quedes mucho tiempo encima. Empuja con las manos en los hombros del rival, levántate de un impulso, retrocede dos pasos y vuelve a la guardia de combate, con las manos cubriendo la cara. El objetivo sigue siendo escapar.",
+    "cues": [
+     "Empuja con las manos en sus hombros",
+     "Levántate de un impulso, retrocede 2 pasos",
+     "Vuelve a la guardia, cubre la cara"
+    ],
+    "mistakes": [
+     "Quedarte encima demasiado tiempo",
+     "Levantarte justo delante del rival"
+    ],
+    "drill": {
+     "label": "Sprawl – levantarse – retroceder",
+     "say": "Te toca. Sprawl, levantarte y retroceder: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk11-3": {
+    "title": "Patada para mantener la distancia desde el suelo",
+    "say": "Si has caído de espaldas y el rival está de pie: ponte de lado, sobre una cadera, con una mano apoyada en el tatami y la otra cubriendo la cara. La pierna de arriba, flexionada y lista para patear su rodilla o su abdomen si se lanza sobre ti. Gira el cuerpo siguiéndolo, con los pies siempre apuntando hacia el rival, y no dejes que rodee tu cabeza.",
+    "cues": [
+     "De lado, una mano apoyada, la otra cubre",
+     "Pierna de arriba flexionada, lista para patear",
+     "Gira con él, los pies siempre hacia el rival"
+    ],
+    "mistakes": [
+     "Quedarte boca arriba con la espalda plana",
+     "Dejar que el rival rodee hacia tu cabeza"
+    ],
+    "drill": {
+     "label": "Girar siguiendo al compañero",
+     "say": "Te toca. Girar siguiendo al compañero durante treinta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk11-4": {
+    "title": "Levantada técnica",
+    "say": "Para levantarte con seguridad: apoya la mano trasera en el tatami, por detrás de la cadera, y cubre la cara con la mano delantera. Empuja la cadera hacia arriba y retira la pierna de apoyo por debajo del cuerpo. Apoya el pie lejos, en guardia, y solo entonces ponte erguido. Cubre siempre la cara y levántate tomando distancia del rival, nunca justo delante de él.",
+    "cues": [
+     "Mano trasera apoyada, mano delantera cubre la cara",
+     "Empuja la cadera, retira la pierna hacia atrás",
+     "Levántate tomando distancia, en guardia"
+    ],
+    "mistakes": [
+     "Levantarte apoyando las dos manos, con la cara al descubierto",
+     "Levantarte yendo hacia el rival"
+    ],
+    "drill": {
+     "label": "Levantada técnica por lado",
+     "say": "Te toca. Levantada técnica por cada lado: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk11-5": {
+    "title": "Secuencia: caída – distancia – levantada",
+    "say": "Lo unimos: caída hacia atrás con buena técnica, giro de lado, patada para mantener la distancia, levantada técnica, alejarte y barrera de manos. Cada vez que termines, comprueba si te has cubierto la cara todo el tiempo. Haz cinco por lado.",
+    "cues": [
+     "Caída atrás → de lado",
+     "Patada para mantener la distancia",
+     "Levantada técnica → barrera de manos"
+    ],
+    "mistakes": [
+     "Levantarte con prisa cuando el rival aún está pegado",
+     "Olvidar cubrir la cara"
+    ],
+    "drill": {
+     "label": "Cadena caída – levantada por lado",
+     "say": "Te toca. Cadena de caída y levantada, por cada lado: cinco veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Si se lanzan a agarrarte las piernas, ¿qué haces?",
+    "a": [
+     "Lanzar las piernas atrás y aplastar con la cadera",
+     "Quedarte erguido esperando",
+     "Saltar"
+    ],
+    "why": "Sprawl: las piernas lejos y tu peso encima del rival."
+   },
+   {
+    "q": "En el suelo, ¿hacia dónde apuntan tus pies?",
+    "a": [
+     "Hacia el rival",
+     "Hacia el cielo",
+     "Hacia atrás"
+    ],
+    "why": "Los pies apuntan al rival para mantener la distancia con patadas."
+   },
+   {
+    "q": "En la levantada técnica, ¿qué hace la mano delantera?",
+    "a": [
+     "Se apoya en el suelo",
+     "Cubre la cara"
+    ],
+    "why": "Protege siempre la cara al levantarte."
+   },
+   {
+    "q": "Al levantarte, ¿te alejas o te acercas al rival?",
+    "a": [
+     "Me alejo",
+     "Me acerco"
+    ],
+    "why": "Levántate alejándote, para estar seguro."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Escapes en el suelo",
+  "sub": "Camarón, puente y volteo, escapes bajo el rival, guardia con las piernas",
+  "intro": "Si te inmovilizan en el suelo, no entres en pánico. Hay movimientos sencillos de la lucha Sambo que te ayudan a dar la vuelta a la situación. Entrenamos despacio; el compañero aplica un peso moderado, y siempre se respeta la señal de parada.",
+  "safety": "Colchoneta gruesa. Quien está encima no carga todo su peso ni presiona el cuello. Dos palmadas significan parar.",
+  "outro": "Ya sabes escapar en el suelo. En la próxima lección, un tema serio: enfrentarte a alguien con un cuchillo.",
+  "home": "Tarea para casa: cada día, dos minutos de camarón, y dos sesiones por semana de lucha suave.",
+  "steps": {
+   "tk12-1": {
+    "title": "El camarón",
+    "say": "Acuéstate boca arriba con las rodillas flexionadas. Apoya un pie en el tatami, empuja la cadera hacia atrás y, al mismo tiempo, gira el cuerpo de lado, empujando con las manos hacia delante como si apartaras algo pesado. Tu cuerpo se curva como un camarón. Luego vuelve boca arriba y hazlo hacia el otro lado. Es el movimiento clave en el suelo: crea espacio.",
+    "cues": [
+     "Empuja con el pie, cadera hacia atrás",
+     "Cuerpo de lado, manos empujan hacia delante",
+     "Cambia de lado sin parar"
+    ],
+    "mistakes": [
+     "Quedarte boca arriba sin girar la cadera",
+     "Empujar con las manos sin mover la cadera"
+    ],
+    "drill": {
+     "label": "Camarón a lo largo del tatami",
+     "say": "Te toca. Camarón a lo largo del tatami durante cuarenta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk12-2": {
+    "title": "Puente y volteo desde la montada",
+    "say": "Cuando el rival está sentado sobre tu abdomen: primero, cubre la cara con las dos manos. Luego sujeta con fuerza uno de sus brazos pegado a tu cuerpo, y coloca el pie del mismo lado bloqueando su pierna por fuera. Empuja la cadera hacia arriba con mucha fuerza, haz un puente sobre el hombro del lado del brazo que sujetas, y vuelca al rival hacia ese lado. Quedas encima; luego te levantas y te alejas.",
+    "cues": [
+     "Primero cubre la cara",
+     "Sujeta un brazo + bloquea la pierna del mismo lado",
+     "Puente de cadera, volteo sobre ese hombro"
+    ],
+    "mistakes": [
+     "Empujar con las manos contra el pecho del rival",
+     "Hacer el puente recto sin sujetar el brazo ni la pierna"
+    ],
+    "drill": {
+     "label": "Puente y volteo por lado",
+     "say": "Te toca. Puente y volteo por cada lado: seis veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk12-3": {
+    "title": "Escape codo – rodilla bajo el rival",
+    "say": "Si no puedes voltearlo: ponte de lado, lleva el codo junto a la rodilla y encaja el codo contra la cadera del rival. Haz el camarón para crear espacio y mete la rodilla entre tú y él. Cuando la rodilla esté dentro, pasa a la guardia con las piernas, y mantén al rival lejos con las dos piernas.",
+    "cues": [
+     "De lado, codo junto a la rodilla",
+     "Camarón para crear espacio",
+     "Mete la rodilla, pasa a la guardia"
+    ],
+    "mistakes": [
+     "Estirar los brazos para empujar: te pueden hacer una llave de brazo",
+     "Quedarte boca arriba con la espalda plana"
+    ],
+    "drill": {
+     "label": "Escape codo – rodilla por lado",
+     "say": "Te toca. Escape de codo y rodilla, por cada lado: seis veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk12-4": {
+    "title": "Guardia con las piernas y levantarse",
+    "say": "Cuando ya tienes las dos piernas entre tú y el rival, estás en guardia. Apoya los pies en sus caderas y empújalo lejos. Cuando haya espacio, ponte de lado y haz la levantada técnica, como en la lección anterior. Estar en el suelo no es perder, siempre que mantengas las piernas entre los dos.",
+    "cues": [
+     "Las dos piernas entre tú y el rival",
+     "Pies en sus caderas, crea distancia",
+     "Levantada técnica"
+    ],
+    "mistakes": [
+     "Quitar las piernas y dejar que el rival se pegue",
+     "Levantarte sin haber creado distancia"
+    ],
+    "drill": {
+     "label": "Guardia – empujar – levantarse",
+     "say": "Te toca. Guardia, empujar y levantarte: seis veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk12-5": {
+    "title": "Lucha suave controlada",
+    "say": "Ahora, lucha suave controlada durante dos minutos. Uno empieza abajo y el otro arriba. El de abajo tiene una sola misión: escapar y levantarse. El de arriba solo sujeta, sin llaves de brazo y sin estrangulaciones. Cincuenta por ciento de fuerza. Dos palmadas, y se para de inmediato.",
+    "cues": [
+     "Abajo: escapar y levantarse",
+     "Arriba: solo sujetar, sin llaves ni estrangulaciones",
+     "50% de fuerza, dos palmadas para parar"
+    ],
+    "mistakes": [
+     "Usar toda la fuerza desde el principio",
+     "No respetar la señal de parada"
+    ],
+    "drill": {
+     "label": "Ronda de lucha suave",
+     "say": "Te toca. Ronda de lucha suave: dos rondas de sesenta segundos, con treinta segundos de descanso entre rondas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Cuál es el movimiento más importante en el suelo?",
+    "a": [
+     "El camarón",
+     "Quedarse quieto",
+     "Golpear hacia arriba"
+    ],
+    "why": "El camarón crea espacio para escapar."
+   },
+   {
+    "q": "En el puente y volteo, ¿hacia qué lado volteas?",
+    "a": [
+     "Hacia el lado del brazo y la pierna que sujetas y bloqueas",
+     "Hacia cualquier lado"
+    ],
+    "why": "El rival no puede apoyarse con el brazo y la pierna que tienes bloqueados."
+   },
+   {
+    "q": "Cuando te inmovilizan, ¿conviene estirar los brazos para empujar el pecho del rival?",
+    "a": [
+     "Sí",
+     "No, te pueden hacer una llave de brazo"
+    ],
+    "why": "Mantén los codos pegados al cuerpo."
+   },
+   {
+    "q": "En la lucha suave, ¿qué puede hacer el de arriba?",
+    "a": [
+     "Hacer llaves de brazo y estrangular",
+     "Solo sujetar, sin llaves ni estrangulaciones"
+    ],
+    "why": "Se entrena con seguridad y con control."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Frente a un agresor con cuchillo",
+  "sub": "Reglas de oro, objetos como barrera, protección, control del brazo, escape – cuchillo de goma",
+  "intro": "Escucha bien lo más importante de hoy: un cuchillo es muy peligroso, incluso para quien lleva años entrenando artes marciales. Si el atracador solo quiere tus cosas, entrégaselas. Las cosas se pueden volver a comprar; la vida, no. Las técnicas que siguen son solo para cuando no queda ninguna otra opción.",
+  "safety": "Practica solo con cuchillos de goma o de plástico sin filo. Nunca entrenes con un cuchillo real.",
+  "outro": "Recuérdalo bien: huir es ganar. Próxima lección: mantener la calma cuando te amenazan con un arma de fuego.",
+  "home": "Tarea para casa: una sesión por semana de práctica de situaciones con cuchillo de goma, despacio y con seguridad, terminando siempre con una carrera.",
+  "steps": {
+   "tk13-1": {
+    "title": "Reglas de oro",
+    "say": "Tres reglas de oro. Primera: si te piden tus cosas, entrégalas enseguida; lanza la cartera lejos y corre en dirección contraria. Segunda: mantén la mayor distancia posible y busca por dónde huir. Tercera: solo si te atacan y no puedes huir, usas la técnica. Y recuerda: en la vida real, casi todo el que se enfrenta a un cuchillo sale herido. Huir es ganar.",
+    "cues": [
+     "Entrega tus cosas, lánzalas lejos, corre",
+     "Mantén la distancia, busca una salida",
+     "La técnica es el último recurso"
+    ],
+    "mistakes": [
+     "Intentar quedarte con tus cosas",
+     "Lanzarte con confianza contra alguien armado con un cuchillo"
+    ],
+    "drill": {
+     "label": "Lanzar la cartera – correr (simulación)",
+     "say": "Te toca. Lanzar la cartera y correr, en simulación: tres veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk13-2": {
+    "title": "Usar objetos como escudo",
+    "say": "Cualquier cosa que tengas en las manos puede servir de escudo: una mochila, una chaqueta enrollada en el brazo, una silla, un bolso. Mantén el objeto entre tú y la punta del cuchillo, sujétalo firme con las dos manos y retrocede hacia la salida. El objeto mantiene el cuchillo lejos de tu cuerpo y te da tiempo para huir.",
+    "cues": [
+     "Mochila, chaqueta, silla como escudo",
+     "El objeto entre tú y el cuchillo",
+     "Retrocede hacia la salida"
+    ],
+    "mistakes": [
+     "Tirar el objeto para pelear con las manos vacías",
+     "Retroceder hacia una esquina"
+    ],
+    "drill": {
+     "label": "Escudo con mochila, retroceder a la salida",
+     "say": "Te toca. Escudo con la mochila, retrocediendo hacia la salida, durante treinta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk13-3": {
+    "title": "Protección y postura",
+    "say": "Si no tienes ningún objeto: levanta los brazos delante de la cara, con la cara interna de los antebrazos hacia ti, los codos cubriendo las costillas, el cuerpo algo encorvado y la barbilla recogida. Colócate de lado para ser un blanco más pequeño. Mira la mano que sostiene el cuchillo, no la cara del rival.",
+    "cues": [
+     "Antebrazos delante de la cara, cara interna hacia ti",
+     "De lado, algo encorvado, barbilla recogida",
+     "Mira la mano del cuchillo"
+    ],
+    "mistakes": [
+     "Poner las palmas para parar",
+     "Mirar la cara en lugar de la mano"
+    ],
+    "drill": {
+     "label": "Postura de protección",
+     "say": "Te toca. Postura de protección: diez veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk13-4": {
+    "title": "Bloquear y controlar el brazo",
+    "say": "Si te lanzan una puñalada y no puedes evitarla: bloquea el brazo armado con los dos antebrazos y, a la vez, da un paso en diagonal hacia fuera. Al instante, abraza con fuerza ese brazo contra tu cuerpo con los dos brazos, controla la muñeca y mantén la hoja apuntando lejos de ti. Tus dos brazos contra uno solo del rival. Practica muy despacio con un cuchillo de goma.",
+    "cues": [
+     "Bloquea con los dos antebrazos + paso en diagonal",
+     "Abraza fuerte el brazo armado",
+     "Dos manos controlan la muñeca, la hoja hacia fuera"
+    ],
+    "mistakes": [
+     "Usar solo una mano",
+     "Soltar el brazo a mitad de camino"
+    ],
+    "drill": {
+     "label": "Bloquear – controlar (lento) por lado",
+     "say": "Te toca. Bloquear y controlar, despacio, por cada lado: ocho veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk13-5": {
+    "title": "Escapar y correr",
+    "say": "Cuando ya controlas el brazo, no intentes quitarle el cuchillo. Da una patada baja a la rodilla, como en la lección nueve, empuja con fuerza al rival y corre hacia donde haya gente; pide ayuda y avisa a la policía. Después, revisa tu cuerpo: quien recibe una herida de cuchillo a menudo no la siente en el momento.",
+    "cues": [
+     "No intentes quitarle el cuchillo",
+     "Patada baja, empuja, corre",
+     "Pide ayuda, avisa a la policía, revisa si hay heridas"
+    ],
+    "mistakes": [
+     "Intentar arrebatar el cuchillo",
+     "Perseguir al rival"
+    ],
+    "drill": {
+     "label": "Controlar – empujar – correr (lento)",
+     "say": "Te toca. Controlar, empujar y correr, despacio: cinco veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Un agresor con cuchillo te pide la cartera. ¿Qué haces?",
+    "a": [
+     "Pelear para conservar la cartera",
+     "Entregarla, lanzarla lejos y correr"
+    ],
+    "why": "Las cosas se pueden volver a comprar; la vida, no."
+   },
+   {
+    "q": "¿Qué objetos pueden servir de escudo?",
+    "a": [
+     "Una mochila, una chaqueta, una silla",
+     "Ninguno"
+    ],
+    "why": "El objeto mantiene el cuchillo lejos de tu cuerpo."
+   },
+   {
+    "q": "Frente a un cuchillo, ¿a dónde miras?",
+    "a": [
+     "A la cara del rival",
+     "A la mano que sostiene el cuchillo"
+    ],
+    "why": "El peligro está en la mano que sostiene el cuchillo."
+   },
+   {
+    "q": "Después de controlar el brazo armado, ¿qué haces?",
+    "a": [
+     "Intentar quitarle el cuchillo",
+     "Empujar, correr y pedir ayuda"
+    ],
+    "why": "El objetivo es escapar a salvo, no quitarle el arma."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Amenaza con arma de fuego",
+  "sub": "Calma, obedecer, observar, cobertura, escape – pistola de plástico de entrenamiento",
+  "intro": "Esta lección trata más de la calma que de las técnicas. Frente a un arma, tu vida depende de tener la cabeza fría. Usamos una pistola de plástico naranja, de las que solo sirven para entrenar.",
+  "safety": "Usa solo pistolas de entrenamiento de plástico naranja. Nada de armas reales, de aire comprimido ni réplicas realistas.",
+  "outro": "La cabeza fría es tu arma más poderosa. Última lección de la rama: repaso y reflejos.",
+  "home": "Tarea para casa: cada día, tres minutos de respiración cuadrada, y practica el juego de memoria cuando salgas a la calle.",
+  "steps": {
+   "tk14-1": {
+    "title": "Respirar y mantener la calma",
+    "say": "Cuando te apuntan con un arma, el corazón te va a latir muy deprisa. Haz la respiración cuadrada: inhala cuatro segundos, aguanta cuatro segundos, exhala cuatro segundos, aguanta cuatro segundos. Con solo una o dos respiraciones, tu mente se aclara. Quien está tranquilo ve la salida; quien pierde los nervios, no.",
+    "cues": [
+     "Inhala 4 – aguanta 4 – exhala 4 – aguanta 4",
+     "Una o dos respiraciones bastan",
+     "Con calma se ve la salida"
+    ],
+    "mistakes": [
+     "Respirar de forma agitada",
+     "Hacer movimientos bruscos"
+    ],
+    "drill": {
+     "label": "Respiración cuadrada de 4 tiempos",
+     "say": "Te toca. Respiración cuadrada de cuatro tiempos durante sesenta y cuatro segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk14-2": {
+    "title": "Obedecer y levantar las manos",
+    "say": "Si te piden tus cosas: obedece. Levanta las dos manos abiertas a la altura de los hombros y habla despacio y claro: de acuerdo, te lo doy. Avisa antes de cada movimiento: voy a sacar la cartera del bolsillo derecho. Deja tus cosas en el suelo o lánzalas lejos. No le mires fijamente a la cara y no discutas.",
+    "cues": [
+     "Manos abiertas, a la altura de los hombros",
+     "Habla despacio, avisa antes de cada movimiento",
+     "Entrega tus cosas, no discutas"
+    ],
+    "mistakes": [
+     "Meter la mano en el bolsillo de repente",
+     "Discutir o amenazar"
+    ],
+    "drill": {
+     "label": "Simulación de obediencia",
+     "say": "Te toca. Simulación de obediencia: tres veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk14-3": {
+    "title": "Ocultación y cobertura",
+    "say": "Distingue dos cosas. La ocultación es lo que te esconde de la vista, como un arbusto o una cortina. La cobertura es lo que detiene una bala, como un muro de hormigón, una columna o el bloque del motor de un vehículo. Cuando tengas ocasión de huir, corre hacia la cobertura, en diagonal y no en línea recta, y mantén el cuerpo bajo.",
+    "cues": [
+     "Ocultación ≠ cobertura",
+     "Corre hacia la cobertura",
+     "En diagonal, con el cuerpo bajo"
+    ],
+    "mistakes": [
+     "Esconderte tras una puerta de madera o un arbusto y creer que estás a salvo",
+     "Correr en línea recta"
+    ],
+    "drill": {
+     "label": "Carrera en diagonal hacia la cobertura",
+     "say": "Te toca. Carrera en diagonal hacia la cobertura: cinco veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk14-4": {
+    "title": "Observar y recordar",
+    "say": "Mientras obedeces, observa en silencio: la estatura, la ropa, la voz, la dirección por la que se va. Cuando se haya ido, quédate en un lugar seguro, llama a la policía enseguida y cuenta todo lo que recuerdes. Nunca lo persigas.",
+    "cues": [
+     "Observa en silencio: estatura, ropa, voz, dirección",
+     "Quédate en un lugar seguro",
+     "Llama a la policía, no lo persigas"
+    ],
+    "mistakes": [
+     "Perseguir al atracador",
+     "Mirarle fijamente a la cara"
+    ],
+    "drill": {
+     "label": "Juego de memoria: describir a una persona",
+     "say": "Te toca. Juego de memoria: describe a una persona durante treinta segundos. Comienza la cuenta regresiva."
+    }
+   },
+   "tk14-5": {
+    "title": "El último recurso",
+    "say": "Solo si estás seguro de que va a disparar aunque hayas obedecido, piensa en el último recurso: desviar el cañón lejos de tu cuerpo y de los demás, sujetarlo con fuerza con las dos manos y buscar una forma de escapar. Es una técnica de altísimo riesgo, que solo se aprende en persona con un instructor certificado y con un arma de entrenamiento. En casi todas las situaciones, obedecer y observar es la mejor opción para sobrevivir.",
+    "cues": [
+     "Solo si es seguro que va a disparar",
+     "Desvía el cañón lejos de las personas, sujeta con las dos manos",
+     "Apréndelo en persona con un instructor"
+    ],
+    "mistakes": [
+     "Actuar cuando solo te piden tus cosas",
+     "Practicar solo con videos, sin un instructor"
+    ],
+    "drill": {
+     "label": "Repasar los principios",
+     "say": "Te toca. Repasar los principios: tres veces. Yo te llevo la cuenta."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "¿Qué es la respiración cuadrada?",
+    "a": [
+     "Inhalar 4 – aguantar 4 – exhalar 4 – aguantar 4 segundos",
+     "Aguantar la respiración mucho tiempo"
+    ],
+    "why": "Un ritmo regular de respiración baja el pulso y aclara la mente."
+   },
+   {
+    "q": "Te apuntan con un arma y te piden tus cosas. ¿Qué haces?",
+    "a": [
+     "Resistirte",
+     "Obedecer, avisar antes de moverte, entregar tus cosas"
+    ],
+    "why": "Tus cosas no valen tanto como tu vida."
+   },
+   {
+    "q": "¿Qué sirve de cobertura, es decir, detiene las balas?",
+    "a": [
+     "Un arbusto",
+     "Un muro de hormigón, una columna"
+    ],
+    "why": "Un arbusto solo te oculta; no detiene las balas."
+   },
+   {
+    "q": "Cuando el atracador se va, debes:",
+    "a": [
+     "Perseguirlo",
+     "Quedarte en un lugar seguro y llamar a la policía"
+    ],
+    "why": "Nunca persigas a alguien armado."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Repaso y reflejos",
+  "sub": "Situaciones encadenadas, trabajo por parejas controlado, estiramientos de recuperación",
+  "intro": "Última lección. Vamos a convertir todo lo aprendido en reflejos. Cuando ocurra una situación real, no vas a tener tiempo de pensar. Tu cuerpo tiene que saber solo lo que hacer.",
+  "safety": "Guantes, y protector bucal si tienes. Trabajo por parejas al 30–50% de fuerza, con un instructor observando.",
+  "outro": "¡Felicidades, guerrero! Has completado toda la rama Defensa personal cuerpo a cuerpo, tanto el nivel básico como el avanzado. Haz el examen final de la rama para conseguir la insignia Lobo de Acero.",
+  "home": "Tarea para casa: tres sesiones por semana repasando toda la rama, de treinta minutos cada una, siempre con calentamiento y estiramientos.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflejos con manoplas en movimiento",
+    "say": "Tu compañero sostiene dos manoplas, se mueve a tu alrededor y, de repente, las levanta en distintas posiciones. Manopla a la altura de la cara: directo. Manopla baja: patada de empuje. Manopla que viene hacia tu cabeza: guardia alta. Reacciona al instante, sin pensar.",
+    "cues": [
+     "Manopla a la altura de la cara → directo",
+     "Manopla baja → patada de empuje",
+     "Manopla que viene → guardia alta"
+    ],
+    "mistakes": [
+     "Quedarte esperando sin moverte",
+     "Bajar las manos después de cada golpe"
+    ],
+    "drill": {
+     "label": "Ronda de reflejos",
+     "say": "Te toca. Ronda de reflejos: tres rondas de cuarenta y cinco segundos, con veinte segundos de descanso entre rondas."
+    }
+   },
+   "tk15-2": {
+    "title": "Situación: agarre de muñeca",
+    "say": "Situación uno. Tu compañero te agarra la muñeca de repente y tira. Reflejo: baja el centro de gravedad, libérate en la dirección del pulgar, barrera de manos, aléjate y grita fuerte: ¡Alto! Luego date la vuelta y corre tres pasos. Repite cinco veces; cada vez, tu compañero agarra de una forma distinta.",
+    "cues": [
+     "Baja el centro, libérate hacia el pulgar",
+     "Barrera de manos, grita fuerte",
+     "Corre 3 pasos"
+    ],
+    "mistakes": [
+     "Luchar fuerza contra fuerza",
+     "Olvidar gritar y correr"
+    ],
+    "drill": {
+     "label": "Situación de agarre de muñeca",
+     "say": "Te toca. Situación de agarre de muñeca: cinco veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk15-3": {
+    "title": "Situación: abrazo por la espalda",
+    "say": "Situación dos. Tu compañero te abraza por la espalda. Reflejo: baja el centro de gravedad, abre los codos, paso lateral, gira para escapar, patada de empuje al escudo que sostiene una tercera persona, y corre. Cambia de papel después de cada repetición. Cinco veces cada uno.",
+    "cues": [
+     "Baja el centro, abre los codos",
+     "Paso lateral, gira para escapar",
+     "Patada de empuje, corre"
+    ],
+    "mistakes": [
+     "Quedarte erguido",
+     "Girar con el centro de gravedad aún alto"
+    ],
+    "drill": {
+     "label": "Situación de abrazo por la espalda",
+     "say": "Te toca. Situación de abrazo por la espalda: cinco veces. Yo te llevo la cuenta."
+    }
+   },
+   "tk15-4": {
+    "title": "Trabajo por parejas controlado",
+    "say": "Trabajo ligero por parejas, tres rondas de un minuto. Solo directos a los guantes y a los hombros, y patadas de empuje muy suaves al abdomen, al treinta por ciento de fuerza. Nada de golpes a la cara ni a los puntos débiles. El objetivo es entrenar la vista, el juego de pies y la calma cuando alguien te ataca de verdad.",
+    "cues": [
+     "30% de fuerza, nada a la cara",
+     "Entrena la vista, el juego de pies, la calma",
+     "Choca los guantes para saludar antes y después"
+    ],
+    "mistakes": [
+     "Subir la fuerza cuando te golpean",
+     "Cerrar los ojos al recibir un golpe"
+    ],
+    "drill": {
+     "label": "Ronda por parejas",
+     "say": "Te toca. Ronda por parejas: tres rondas de sesenta segundos, con treinta segundos de descanso entre rondas."
+    }
+   },
+   "tk15-5": {
+    "title": "Estiramientos y recuperación",
+    "say": "Después de un entrenamiento duro, estira diez minutos. Estira la parte delantera y la trasera del muslo, la cadera, los hombros y la espalda, treinta segundos en cada postura, y exhala al profundizar el estiramiento. Bebe agua, come bien y duerme lo suficiente. El músculo crece cuando descansas, no cuando entrenas.",
+    "cues": [
+     "30 segundos por postura",
+     "Exhala al profundizar",
+     "Bebe agua, come bien, duerme lo suficiente"
+    ],
+    "mistakes": [
+     "Dar rebotes al estirar",
+     "Saltarte la recuperación"
+    ],
+    "drill": {
+     "label": "Estiramientos de recuperación",
+     "say": "Te toca. Estiramientos de recuperación durante ciento veinte segundos. Comienza la cuenta regresiva."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Manopla baja, a la altura del abdomen: ¿qué reflejo usas?",
+    "a": [
+     "Patada de empuje",
+     "Guardia alta"
+    ],
+    "why": "Un objetivo bajo es para la patada de empuje."
+   },
+   {
+    "q": "¿Con cuánta fuerza se hace el trabajo por parejas controlado?",
+    "a": [
+     "Un 30% aproximadamente",
+     "Con toda la fuerza"
+    ],
+    "why": "Entrenas la habilidad con seguridad; no es una pelea de verdad."
+   },
+   {
+    "q": "Cada situación de defensa personal termina siempre con:",
+    "a": [
+     "Quedarte a seguir peleando",
+     "Gritar fuerte, crear distancia y correr"
+    ],
+    "why": "El objetivo de la defensa personal es la seguridad."
+   },
+   {
+    "q": "¿Cuándo crece el músculo?",
+    "a": [
+     "Al descansar, comer y dormir bien",
+     "Solo al entrenar"
+    ],
+    "why": "La recuperación es parte del entrenamiento."
+   }
+  ]
  }
 }
