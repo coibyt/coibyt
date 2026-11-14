@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { renderPdf } from "@/lib/print/pdf.server";
+import { prisma } from "@/lib/prisma";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
 import type { Op, Page } from "@/lib/print/ops";
 
@@ -96,8 +97,10 @@ export async function POST(req: Request) {
     });
   } catch (err) {
     console.error("[tool pdf]", err);
-    // TEMP: the reason, to find out why the server can't draw the PDF.
-    const detail = (err instanceof Error ? `${err.name}: ${err.message}` : String(err)).slice(0, 400);
-    return NextResponse.json({ error: "RENDER_FAILED", detail }, { status: 500 });
+    // The browser then makes the PDF itself (see pdf-client.ts). Keep the
+    // reason, so a failing server can be diagnosed afterwards.
+    const reason = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    await prisma.toolEvent.create({ data: { tool: "render_pdf", event: `fail: ${reason}`.slice(0, 180) } }).catch(() => {});
+    return NextResponse.json({ error: "RENDER_FAILED" }, { status: 500 });
   }
 }
