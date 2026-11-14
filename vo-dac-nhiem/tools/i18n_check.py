@@ -12,7 +12,8 @@ import json, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BASE = ROOT / "content/i18n"
 FILES = ["ui.json", "lines.json", "tracks.json", "lessons.json", "force.json"]
-VI_CHARS = set("ạảãàáâậầấẩẫăắằặẳẵđêếềểễệôốồổỗộơớờởỡợưứừửữựỉĩịủũụỳỷỹỵẻẽẹỏõọ")
+# chỉ những chữ RIÊNG của tiếng Việt (bỏ à á â ã è é ê ì í ò ó ô õ ù ú ý vì tiếng Pháp/Bồ Đào Nha/Tây Ban Nha/Ý cũng dùng)
+VI_CHARS = set("ạảậầấẩẫăắằặẳẵđếềểễệốồổỗộơớờởỡợưứừửữựỉĩịủũụỳỷỹỵẻẽẹỏọ")
 MARKS = ["{0}", "{1}", "<b>", "</b>", "①", "②", "③", "④"]
 
 
