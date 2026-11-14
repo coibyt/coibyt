@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Opwarmen & ademhaling",
+  "sub": "Gewrichten losdraaien, opwarmen, ademen op je passen, uitblazen, aanspannen – ontspannen",
+  "intro": "De eerste les. Nog geen enkele techniek. Een goede strijder begint met warme gewrichten en een rustige ademhaling. Doe me stap voor stap na.",
+  "safety": "Warm op voor elke training. Stop meteen bij een stekende pijn in een gewricht.",
+  "outro": "Heel goed. Je gewrichten zijn warm en je ademhaling heeft haar ritme gevonden. Volgende keer leren we de houding en het voetenwerk.",
+  "home": "Huiswerk: warm elke ochtend op en adem tien minuten op je passen, zeven dagen achter elkaar.",
+  "steps": {
+   "tk1-1": {
+    "title": "Gewrichten losdraaien van boven naar beneden",
+    "say": "Sta rechtop, je voeten op schouderbreedte. Draai je nek heel langzaam, vijf keer in elke richting. Draai daarna je schouders, je ellebogen en je polsen. Dan je heupen, je knieën en je enkels. Werk van boven naar beneden, met ronde en soepele bewegingen, zonder rukken. Alleen met warme gewrichten is je lichaam veilig bij het vallen en bij het uitvoeren van technieken.",
+    "cues": [
+     "Van boven naar beneden: nek → schouders → ellebogen → polsen → heupen → knieën → enkels",
+     "Elk gewricht 5 keer per richting",
+     "Langzaam, rond, zonder rukken"
+    ],
+    "mistakes": [
+     "De nek te snel draaien, het hoofd te hard naar achteren kantelen",
+     "De adem inhouden tijdens het draaien"
+    ],
+    "drill": {
+     "label": "Gewrichten draaien",
+     "say": "Jij bent aan de beurt. Draai je gewrichten los, negentig seconden lang. De klok telt af."
+    }
+   },
+   "tk1-2": {
+    "title": "Het lichaam opwarmen",
+    "say": "Loop op de plaats met hoge knieën, dertig seconden lang. Daarna tien squats: zak met je heupen omlaag alsof je op een stoel gaat zitten, je rug recht, je knieën in de richting van je tenen. Dan tien keer opdrukken. Ben je dat nog niet gewend, doe het dan op je knieën. Het doel is dat je lichaam warm wordt en je iets sneller ademt, niet dat je jezelf uitput.",
+    "cues": [
+     "30 seconden lopen met hoge knieën",
+     "10 squats: rug recht, knieën richting tenen",
+     "10 keer opdrukken (mag op de knieën)"
+    ],
+    "mistakes": [
+     "Knieën die naar binnen zakken bij de squat",
+     "Een holle rug bij het opdrukken"
+    ],
+    "drill": {
+     "label": "Squats",
+     "say": "Jij bent aan de beurt. Squats, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk1-3": {
+    "title": "Ademen op je passen",
+    "say": "Dit is een bekende ademoefening uit de Russische vechtsystemen. Wandel in een rustig tempo. Adem vier passen lang in door je neus, en vier passen lang uit door je mond. Ga na een minuut naar drie passen, dan twee passen, dan één pas. Bouw daarna weer op naar vier passen. Onthoud dit goed: de adem stuurt de beweging. Houd nooit je adem in.",
+    "cues": [
+     "4 passen in door de neus – 4 passen uit door de mond",
+     "Afbouwen 4 → 3 → 2 → 1, dan weer opbouwen",
+     "Schouders los, adem niet inhouden"
+    ],
+    "mistakes": [
+     "De adem inhouden bij het wisselen van ritme",
+     "De schouders optrekken bij het inademen"
+    ],
+    "drill": {
+     "label": "Wandelen en ademen op je passen",
+     "say": "Jij bent aan de beurt. Wandel en adem op je passen, honderdtwintig seconden lang. De klok telt af."
+    }
+   },
+   "tk1-4": {
+    "title": "Uitblazen bij inspanning",
+    "say": "Ben je moe of gespannen, adem dan kort en snel: in door je neus, krachtig uit door je mond, een paar keer achter elkaar, alsof je een kaarsje uitblaast. Probeer het meteen: houd twintig seconden de hoge opdrukpositie vast en blaas steeds krachtig uit. Je merkt dat je spieren minder verkrampen en dat je hoofd helderder wordt.",
+    "cues": [
+     "Kort in door de neus – krachtig uit door de mond",
+     "Steeds door, alsof je een kaars uitblaast",
+     "Houd een hoge plank 20 seconden vast terwijl je ademt"
+    ],
+    "mistakes": [
+     "Zo gejaagd ademen dat je duizelig wordt: doe het rustiger",
+     "De heupen laten zakken in de plank"
+    ],
+    "drill": {
+     "label": "Hoge plank + uitblazen",
+     "say": "Jij bent aan de beurt. Hoge plank met uitblazen, twintig seconden lang. De klok telt af."
+    }
+   },
+   "tk1-5": {
+    "title": "Het hele lichaam aanspannen – ontspannen",
+    "say": "Ga op je rug op de mat liggen. Adem in, span je voeten drie seconden stevig aan, adem dan uit en ontspan volledig. Werk zo omhoog langs je kuiten, je dijen, je buik, je vuisten, je schouders en ook je gezicht. Span tot slot één keer je hele lichaam aan en laat dan los. Wie kan ontspannen, vangt klappen beter op, beweegt sneller en raakt minder snel geblesseerd.",
+    "cues": [
+     "Inademen – 3 seconden aanspannen",
+     "Uitademen – volledig ontspannen",
+     "Van je voeten tot je gezicht"
+    ],
+    "mistakes": [
+     "Zo hard aanspannen dat je kramp krijgt",
+     "Vergeten uit te ademen bij het loslaten"
+    ],
+    "drill": {
+     "label": "Aanspannen – ontspannen",
+     "say": "Jij bent aan de beurt. Aanspannen en ontspannen, zestig seconden lang. De klok telt af."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "In welke volgorde draai je je gewrichten los?",
+    "a": [
+     "Van boven naar beneden: nek, schouders… tot de enkels",
+     "Willekeurig, elk gewricht is goed",
+     "Alleen de enkels"
+    ],
+    "why": "Van boven naar beneden werken zorgt dat je geen gewricht overslaat."
+   },
+   {
+    "q": "Waardoor adem je in bij het ademen op je passen?",
+    "a": [
+     "Door de mond",
+     "Door de neus",
+     "Eerst inhouden, dan inademen"
+    ],
+    "why": "In door de neus, uit door de mond, op het ritme van je passen."
+   },
+   {
+    "q": "Wanneer gebruik je het uitblazen?",
+    "a": [
+     "Als je moe of gespannen bent",
+     "Alleen tijdens het slapen",
+     "Nooit"
+    ],
+    "why": "Kort en krachtig ademen verlaagt de spierspanning en houdt je helder bij inspanning."
+   },
+   {
+    "q": "Waarom moet je kunnen ontspannen?",
+    "a": [
+     "Om er beter uit te zien",
+     "Je vangt klappen beter op, beweegt sneller en raakt minder snel geblesseerd",
+     "Zodat je niet hoeft op te warmen"
+    ],
+    "why": "Gespannen spieren reageren trager en raken sneller geblesseerd."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Houding & voetenwerk",
+  "sub": "Handenhek, gevechtshouding, schuifpas, pivoteren",
+  "intro": "Je benen bepalen alles. Alleen als je stevig staat, kun je afweren, raken en ontsnappen. Vandaag leggen we het fundament.",
+  "safety": "Train op een vlakke ondergrond die niet glad is. Maak korte, stevige passen.",
+  "outro": "Het fundament ligt er. Stevige benen zijn het halve gevecht. Volgende les: veilig leren vallen.",
+  "home": "Huiswerk: elke dag tien minuten in de houding staan en bewegen, drie rondes, zeven dagen lang.",
+  "steps": {
+   "tk2-1": {
+    "title": "Alerte houding – het handenhek",
+    "say": "Komt er iemand agressief op je af, bal dan niet meteen je vuisten. Ga iets schuin staan en zet je sterke been een halve pas naar achteren. Houd je handen open voor je borst, de handpalmen naar voren, alsof je zegt: rustig aan. Je handen zijn een hek dat afstand houdt. Je ziet er niet agressief uit, maar je bent wel klaar.",
+    "cues": [
+     "Schuin staan, sterk been een halve pas terug",
+     "Beide handen open voor de borst",
+     "Afstand houden, rustige stem"
+    ],
+    "mistakes": [
+     "Meteen de vuisten ballen: het conflict escaleert snel",
+     "Recht van voren staan, voeten naast elkaar"
+    ],
+    "drill": {
+     "label": "Het handenhek innemen",
+     "say": "Jij bent aan de beurt. Neem het handenhek aan, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk2-2": {
+    "title": "De gevechtshouding",
+    "say": "Ben je rechtshandig: linkervoet voor, rechtervoet achter. Je voeten iets breder dan je schouders, de tenen van je voorste voet iets naar binnen, de hiel van je achterste voet iets opgetild. Knieën licht gebogen, je gewicht verdeeld over beide benen. Handen omhoog voor je gezicht, ellebogen tegen je flanken, kin omlaag, en je kijkt over je vuisten heen. Ben je linkshandig, doe dan alles gespiegeld.",
+    "cues": [
+     "Linkervoet voor (rechtshandig)",
+     "Knieën licht gebogen, achterste hiel iets omhoog",
+     "Handen voor het gezicht, ellebogen tegen de flanken, kin omlaag"
+    ],
+    "mistakes": [
+     "Beide voeten op één rechte lijn: je verliest snel je evenwicht",
+     "De kin omhoog, de handen omlaag"
+    ],
+    "drill": {
+     "label": "De gevechtshouding innemen",
+     "say": "Jij bent aan de beurt. Neem de gevechtshouding aan, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk2-3": {
+    "title": "Schuifpas vooruit – achteruit",
+    "say": "Wil je vooruit, dan zet je voorste voet eerst een korte pas, en je achterste voet schuift precies dezelfde afstand bij. Wil je achteruit, dan gaat je achterste voet eerst, en je voorste voet schuift mee terug. Je voeten glijden vlak over de grond, je springt niet. Kruis je voeten nooit en zet ze nooit tegen elkaar. Na elke pas sta je weer in precies dezelfde houding.",
+    "cues": [
+     "Vooruit: voorste voet eerst",
+     "Achteruit: achterste voet eerst",
+     "De afstand tussen je voeten blijft gelijk"
+    ],
+    "mistakes": [
+     "De voeten kruisen",
+     "Springen in plaats van schuiven"
+    ],
+    "drill": {
+     "label": "Pas vooruit – achteruit",
+     "say": "Jij bent aan de beurt. Schuifpas vooruit en achteruit, twintig keer. Ik tel voor je mee."
+    }
+   },
+   "tk2-4": {
+    "title": "Zijwaartse pas",
+    "say": "Naar links gaat je linkervoet eerst, naar rechts gaat je rechtervoet eerst, en de andere voet schuift bij. Houd de afstand tussen je voeten gelijk, en je handen blijven voor je gezicht. Op gladde modder geldt: hoe korter je pas, hoe steviger je staat.",
+    "cues": [
+     "Naar links: linkervoet eerst",
+     "Naar rechts: rechtervoet eerst",
+     "Korte passen op een gladde ondergrond"
+    ],
+    "mistakes": [
+     "De achterste voet stapt over de voorste heen",
+     "De handen laten zakken tijdens het bewegen"
+    ],
+    "drill": {
+     "label": "Zijwaartse pas",
+     "say": "Jij bent aan de beurt. Zijwaartse pas, twintig keer. Ik tel voor je mee."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivoteren en van hoek wisselen",
+    "say": "Sta in de gevechtshouding. Draai op de bal van je voorste voet en laat je achterste voet een kwartcirkel beschrijven. Je hele lichaam draait negentig graden, weg uit de aanvalslijn van je tegenstander. Draai tien keer naar deze kant, en dan de andere kant op.",
+    "cues": [
+     "Draaien op de bal van de voorste voet",
+     "De achterste voet beschrijft een boog",
+     "90° draaien, de dekking blijft staan"
+    ],
+    "mistakes": [
+     "Op de hiel draaien",
+     "Rechtop gaan staan tijdens het draaien"
+    ],
+    "drill": {
+     "label": "Pivoteren per richting",
+     "say": "Jij bent aan de beurt. Pivoteren, tien keer per richting. Ik tel voor je mee."
+    }
+   },
+   "tk2-6": {
+    "title": "Bewegen op commando",
+    "say": "Beweeg nu dertig seconden lang op mijn commando's: vooruit, achteruit, links, rechts, draaien. Houd je handen op hun plek, je kin omlaag en je ademhaling rustig. Je voeten zijn snel, maar je bovenlichaam blijft altijd kalm.",
+    "cues": [
+     "Vooruit – achteruit – links – rechts – draaien",
+     "Handen en kin altijd op hun plek",
+     "Rustig ademen"
+    ],
+    "mistakes": [
+     "Naar je voeten kijken",
+     "Te grote passen maken"
+    ],
+    "drill": {
+     "label": "Voetenwerk op commando",
+     "say": "Jij bent aan de beurt. Beweeg dertig seconden lang op mijn commando's. Luister goed.",
+     "calls": [
+      "Vooruit!",
+      "Achteruit!",
+      "Naar links!",
+      "Naar rechts!",
+      "Draaien!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Waarvoor dient het handenhek?",
+    "a": [
+     "Afstand houden zonder agressief over te komen",
+     "De tegenstander meteen slaan",
+     "Met de armen over elkaar afwachten"
+    ],
+    "why": "Open handen houden afstand en kalmeren de situatie."
+   },
+   {
+    "q": "Je wilt achteruit. Welke voet gaat eerst?",
+    "a": [
+     "De voorste voet",
+     "De achterste voet",
+     "Je springt met beide tegelijk"
+    ],
+    "why": "De voet die het dichtst bij de looprichting staat, gaat eerst."
+   },
+   {
+    "q": "Wat is de gevaarlijkste fout bij het bewegen?",
+    "a": [
+     "De voeten kruisen",
+     "Korte passen maken",
+     "De handen voor het gezicht houden"
+    ],
+    "why": "Met gekruiste voeten verlies je heel makkelijk je evenwicht."
+   },
+   {
+    "q": "Op welk deel van je voorste voet draai je bij het pivoteren?",
+    "a": [
+     "De hiel",
+     "De bal van de voet",
+     "De buitenkant van de voet"
+    ],
+    "why": "Op de bal van je voet draai je licht en snel."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Veilig vallen",
+  "sub": "Valprincipes, achterwaartse val, zijwaartse val, voorwaartse rol",
+  "intro": "In dit kamp leert iedereen eerst vallen, en pas daarna werpen. Goed kunnen vallen kan je leven redden, ook als je uitglijdt op een gladde straat.",
+  "safety": "Train alleen op een dikke mat. Houd je kin altijd omlaag. Oefen de rol alleen onder begeleiding.",
+  "outro": "Je kunt nu vallen. Vanaf vandaag is de grond niet meer eng. Volgende les: dekken en afweren.",
+  "home": "Huiswerk: elke dag tien achterwaartse vallen en tien zijwaartse vallen per kant op een dikke mat, een week lang.",
+  "steps": {
+   "tk3-1": {
+    "title": "Drie gouden regels",
+    "say": "Drie gouden regels bij het vallen. Eén: houd je kin tegen je borst, zodat je hoofd nooit op de grond slaat. Twee: maak je rug rond als een wiel, zodat je rolt en niet plat neerkomt. Drie: sla met je arm op de mat op hetzelfde moment dat je lichaam neerkomt, zodat de klap wordt verdeeld. Train altijd op een dikke mat. Train nooit op een harde ondergrond.",
+    "cues": [
+     "Kin tegen de borst",
+     "Rug rond als een wiel",
+     "Arm slaat tegelijk met het lichaam op de mat"
+    ],
+    "mistakes": [
+     "Je vallen opvangen met een gestrekte arm: je breekt snel je pols",
+     "Het hoofd naar achteren laten vallen"
+    ],
+    "drill": {
+     "label": "Rug rond, kin in",
+     "say": "Jij bent aan de beurt. Rug rond, kin in, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk3-2": {
+    "title": "Achterwaartse val vanuit zit",
+    "say": "Ga op de mat zitten, je benen gestrekt voor je, je armen naar voren. Kin omlaag, rug rond, en rol naar achteren. Als je bovenrug de mat raakt, strek je je armen en sla je ze krachtig op de mat, ongeveer vijfenveertig graden van je lichaam, met de handpalmen naar beneden. Adem uit als je de mat raakt. Rol terug tot je weer zit. Doe dit tien keer.",
+    "cues": [
+     "Zitten, armen naar voren",
+     "Naar achteren rollen, kin omlaag",
+     "Beide armen slaan op 45°, handpalmen omlaag, uitademen"
+    ],
+    "mistakes": [
+     "De armen te ver weg of te dicht tegen het lichaam slaan",
+     "Met de elleboog slaan in plaats van met de hele arm"
+    ],
+    "drill": {
+     "label": "Achterwaartse val vanuit zit",
+     "say": "Jij bent aan de beurt. Achterwaartse val vanuit zit, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk3-3": {
+    "title": "Achterwaartse val vanuit hurkzit",
+    "say": "Ga in hurkzit zitten, je armen naar voren. Zet je billen op de mat, vlak bij je hielen, en rol dan rond naar achteren zoals in de vorige oefening, en sla met beide armen. Plof niet neer. Laat je rug niet recht en plat neerkomen. Gaat het goed, kom dan omhoog en zak steeds opnieuw in hurkzit, zodat je het tempo kunt opvoeren.",
+    "cues": [
+     "Billen vlak bij de hielen",
+     "Rond rollen, niet plat neerkomen",
+     "Armen slaan, uitademen"
+    ],
+    "mistakes": [
+     "Ver van de hielen neerploffen",
+     "Het hoofd slaat naar achteren op de mat"
+    ],
+    "drill": {
+     "label": "Achterwaartse val vanuit hurkzit",
+     "say": "Jij bent aan de beurt. Achterwaartse val vanuit hurkzit, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk3-4": {
+    "title": "Zijwaartse val",
+    "say": "Strek vanuit hurkzit je rechterbeen schuin voor je linkerbeen langs, en laat je lichaam naar rechts zakken. Eerst je rechterheup, dan de rechterkant van je rug raakt de mat, en je rechterarm slaat op de mat. Kin omlaag, je hoofd raakt de mat niet. Wissel dan van kant. Dit is de val die je het vaakst maakt als je geworpen wordt.",
+    "cues": [
+     "Been schuin voor je langs strekken",
+     "Heup → rug raakt de mat, in die volgorde",
+     "De arm aan dezelfde kant slaat op de mat"
+    ],
+    "mistakes": [
+     "Op je elleboog landen",
+     "Het hoofd slaat zijwaarts op de mat"
+    ],
+    "drill": {
+     "label": "Zijwaartse val per kant",
+     "say": "Jij bent aan de beurt. Zijwaartse val, acht keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk3-5": {
+    "title": "Voorwaartse rol over de schouder",
+    "say": "Kniel op één knie op de mat, je rechtervoet voor. Buig je rechterarm in een boog, als de rand van een wiel, en zet de buitenkant van je arm op de mat. Kijk over je linkerschouder. Rol schuin van je rechterschouder naar je linkerheup. Rol niet over je kruin en niet recht over je ruggengraat. Eindig stevig zittend of kom overeind, met je handen omhoog voor je gezicht.",
+    "cues": [
+     "De arm vormt een boog als een wiel",
+     "Schuin rollen: rechterschouder → linkerheup",
+     "Niet over het hoofd, overeind komen met dekking"
+    ],
+    "mistakes": [
+     "Recht over je kruin rollen: heel gevaarlijk voor je nek",
+     "De arm klapt in en je hoofd raakt de mat"
+    ],
+    "drill": {
+     "label": "Voorwaartse rol per kant",
+     "say": "Jij bent aan de beurt. Voorwaartse rol, zes keer per kant. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat doe je met je kin als je valt?",
+    "a": [
+     "Omhoog",
+     "Tegen de borst",
+     "Opzij draaien"
+    ],
+    "why": "Houd je kin in, zodat je hoofd niet op de grond slaat."
+   },
+   {
+    "q": "Onder welke hoek ongeveer sla je met je arm op de mat, ten opzichte van je lichaam?",
+    "a": [
+     "Ongeveer 45°",
+     "Tegen het lichaam, 0°",
+     "Recht omhoog"
+    ],
+    "why": "Ongeveer vijfenveertig graden: zo verdeel je de klap goed zonder op je elleboog te slaan."
+   },
+   {
+    "q": "Welke lijn volg je bij een voorwaartse rol?",
+    "a": [
+     "Recht over de kruin",
+     "Schuin van de schouder naar de andere heup",
+     "Zijwaarts rollen"
+    ],
+    "why": "Schuin over de schouder rollen beschermt je nek en je ruggengraat."
+   },
+   {
+    "q": "Waar oefen je het vallen?",
+    "a": [
+     "Op beton, om eraan te wennen",
+     "Op een dikke mat",
+     "Op de trap"
+    ],
+    "why": "Train altijd op een dikke mat. Veiligheid gaat voor alles."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Dekken & afweren",
+  "sub": "Hoge dekking, hoofd afschermen, pareren, onderarmblok, hoek maken",
+  "intro": "Voordat je leert slaan, moet je leren niet geraakt te worden. De beste verdediging is eenvoudig en compact, en altijd gecombineerd met bewegen.",
+  "safety": "Train in tweetallen met handschoenen aan. Je partner slaat langzaam, met maar twintig procent kracht.",
+  "outro": "Je hebt nu een schild. Volgende les leren we de basistechnieken op de pads.",
+  "home": "Huiswerk: elke dag vijf minuten dekken voor de spiegel, en twee keer per week langzaam in tweetallen trainen.",
+  "steps": {
+   "tk4-1": {
+    "title": "Hoge dekking",
+    "say": "Breng vanuit de gevechtshouding je vuisten omhoog tot op voorhoofdshoogte, je onderarmen rechtop voor je gezicht als twee schilden. Ellebogen bij elkaar, kin omlaag, schouders iets opgetrokken om je kaak te beschermen. Dit is de stevigste dekking als een aanval te snel komt en je hem niet op tijd ziet.",
+    "cues": [
+     "Vuisten op voorhoofdshoogte",
+     "Onderarmen rechtop als een schild",
+     "Kin omlaag, schouders beschermen de kaak"
+    ],
+    "mistakes": [
+     "Je ogen sluiten tijdens het dekken",
+     "Ellebogen wijd, zodat je flanken openliggen"
+    ],
+    "drill": {
+     "label": "Hoge dekking innemen",
+     "say": "Jij bent aan de beurt. Neem de hoge dekking aan, vijftien keer. Ik tel voor je mee."
+    }
+   },
+   "tk4-2": {
+    "title": "Hoofd volledig afschermen",
+    "say": "Word je met veel slagen achter elkaar onder druk gezet, leg dan beide handen op je achterhoofd, breng je ellebogen voor je gezicht bij elkaar, buig voorover en buig je knieën. Je hoofd zit veilig in de kooi van je armen. Maar blijf niet lang zo staan. Dek af, en beweeg meteen weg uit de aanvalshoek.",
+    "cues": [
+     "Beide handen op het achterhoofd",
+     "Ellebogen dicht voor het gezicht",
+     "Afdekken en meteen bewegen"
+    ],
+    "mistakes": [
+     "Blijven staan en de klappen incasseren",
+     "Je rug toekeren"
+    ],
+    "drill": {
+     "label": "Afschermen en zijwaarts wegstappen",
+     "say": "Jij bent aan de beurt. Scherm je hoofd af en stap zijwaarts weg, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk4-3": {
+    "title": "Pareren",
+    "say": "Komt er een rechte stoot op je gezicht af, blokkeer dan niet hard. Duw met je handpalm de pols of vuist van je tegenstander licht opzij, net genoeg zodat hij langs je gezicht glijdt. Een kleine, korte beweging, en je hand gaat meteen terug in de dekking.",
+    "cues": [
+     "Pareren met de handpalm",
+     "Net genoeg om de stoot af te leiden",
+     "Meteen terug in de dekking"
+    ],
+    "mistakes": [
+     "Een te grote zwaai bij het pareren",
+     "Naar de stoot toe reiken"
+    ],
+    "drill": {
+     "label": "Pareren per hand",
+     "say": "Jij bent aan de beurt. Pareren, twintig keer per hand. Ik tel voor je mee."
+    }
+   },
+   "tk4-4": {
+    "title": "Onderarmblok omhoog",
+    "say": "Komt er een slag van bovenaf, breng dan je onderarm schuin voor je voorhoofd, schuin als een dak, zodat de kracht wegglijdt en niet recht op het bot komt. Stap tegelijk schuin naar voren of naar buiten.",
+    "cues": [
+     "Onderarm schuin voor het voorhoofd",
+     "Schuin als een dak",
+     "Met een schuine stap erbij"
+    ],
+    "mistakes": [
+     "De onderarm horizontaal: je vangt de volle kracht op",
+     "Op dezelfde plek blijven staan"
+    ],
+    "drill": {
+     "label": "Blok omhoog per arm",
+     "say": "Jij bent aan de beurt. Blok omhoog, tien keer per arm. Ik tel voor je mee."
+    }
+   },
+   "tk4-5": {
+    "title": "Hoek maken – schuin wegstappen",
+    "say": "De beste verdediging is niet staan waar de aanval naartoe gaat. Stap tijdens het pareren tegelijk vijfenveertig graden schuin naar de buitenkant van de slaande arm van je tegenstander. Zo ben je weg uit de aanvalslijn en sta je op een veiligere plek om te ontsnappen.",
+    "cues": [
+     "Pareren + 45° schuin stappen",
+     "Naar de buitenkant van de slaande arm",
+     "Vanuit de veilige hoek ontsnappen"
+    ],
+    "mistakes": [
+     "Recht naar achteren gaan: je tegenstander volgt je makkelijk",
+     "Naar binnen stappen, richting de andere arm van je tegenstander"
+    ],
+    "drill": {
+     "label": "Pareren + hoek maken per kant",
+     "say": "Jij bent aan de beurt. Pareren en hoek maken, tien keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk4-6": {
+    "title": "Langzaam in tweetallen",
+    "say": "Train met je partner, allebei met handschoenen aan. Wie aanvalt, slaat heel langzaam, met maar twintig procent kracht, en mikt op de handschoen, niet op het gezicht. Wie verdedigt, noemt de techniek die hij gebruikt: hoge dekking, pareren, hoek maken. Pas als het goed gaat en je rustig blijft, voer je het tempo langzaam op.",
+    "cues": [
+     "Handschoenen aan, 20% kracht",
+     "Noem de techniek terwijl je hem doet",
+     "Eerst goed, dan pas snel"
+    ],
+    "mistakes": [
+     "Te vroeg het tempo opvoeren",
+     "Je partner echt in het gezicht slaan"
+    ],
+    "drill": {
+     "label": "Langzaam in tweetallen",
+     "say": "Jij bent aan de beurt. Langzaam in tweetallen, zestig seconden lang. De klok telt af."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat is goed pareren?",
+    "a": [
+     "Een kleine beweging, net genoeg om de stoot af te leiden, en terug in de dekking",
+     "Een grote zwaai met je arm",
+     "De stoot met je gezicht opvangen"
+    ],
+    "why": "Een kleine, snelle beweging die je dekking niet openzet."
+   },
+   {
+    "q": "Hoe houd je je onderarm bij een slag van bovenaf?",
+    "a": [
+     "Horizontaal",
+     "Schuin, als een dak",
+     "Omlaag naar je buik"
+    ],
+    "why": "Schuin als een dak, zodat de kracht wegglijdt."
+   },
+   {
+    "q": "In welke richting stap je bij het hoek maken?",
+    "a": [
+     "45° schuin naar de buitenkant van de slaande arm",
+     "Recht naar achteren",
+     "Je blijft staan"
+    ],
+    "why": "Weg uit de aanvalslijn, naar een veilige hoek."
+   },
+   {
+    "q": "Hoeveel kracht gebruikt de aanvaller bij het trainen in tweetallen?",
+    "a": [
+     "Volle kracht",
+     "Ongeveer 20%",
+     "50%"
+    ],
+    "why": "Train langzaam, zodat je het goed en veilig leert."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Basistechnieken op de pads",
+  "sub": "Vuist, rechte stoot, palmstoot, duwtrap, combinatie",
+  "intro": "Een goede techniek hoeft niet mooi te zijn, alleen juist, compact en veilig voor jezelf. Vandaag trainen we op de pads, nooit op een echt persoon.",
+  "safety": "Wikkel je handen in bandages en draag handschoenen. Sla alleen op pads of een bokszak.",
+  "outro": "Je technieken hebben nu kracht en discipline. Volgende les: loskomen uit een polsgreep.",
+  "home": "Huiswerk: drie trainingen per week, elke keer vijf rondes van dertig seconden op de pads of een bokszak.",
+  "steps": {
+   "tk5-1": {
+    "title": "Een goede vuist",
+    "say": "Rol je vier vingers op in je handpalm. Je duim ligt stevig gevouwen over je wijs- en middelvinger, nooit ertussen of erin. Bij het raken is je pols recht in lijn met je onderarm, en de kracht gaat via de knokkels van je wijs- en middelvinger. Beginners wikkelen hun handen altijd in en dragen handschoenen.",
+    "cues": [
+     "4 vingers oprollen in de handpalm",
+     "Duim gevouwen aan de buitenkant",
+     "Pols in lijn met de onderarm"
+    ],
+    "mistakes": [
+     "De duim binnen in de vuist klemmen",
+     "De pols knikken bij het raken"
+    ],
+    "drill": {
+     "label": "Vuist goed maken en openen",
+     "say": "Jij bent aan de beurt. Maak een goede vuist en open je hand weer, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk5-2": {
+    "title": "Rechte stoot met de voorhand",
+    "say": "Schiet vanuit de gevechtshouding je voorste vuist recht naar voren, langs de kortste weg. Draai je vuist plat vlak voor het raken, en trek je schouder op om je kin te beschermen. Je andere hand blijft naast je gezicht. Trek je vuist daarna langs dezelfde weg terug, net zo snel als hij ging.",
+    "cues": [
+     "De kortste rechte lijn",
+     "Vuist plat draaien bij het raken",
+     "Snel terug, andere hand blijft in de dekking"
+    ],
+    "mistakes": [
+     "Je arm eerst naar achteren halen voor vaart",
+     "De achterhand laten zakken"
+    ],
+    "drill": {
+     "label": "Stoot met de voorhand",
+     "say": "Jij bent aan de beurt. Stoot met de voorhand, twintig keer. Ik tel voor je mee."
+    }
+   },
+   "tk5-3": {
+    "title": "Rechte stoot met de achterhand",
+    "say": "Zet af vanaf je achterste hiel, draai je heup en je schouder, en schiet je achterste vuist recht op het doel af. De bal van je achterste voet draait mee, alsof je een gloeiend kooltje uittrapt. De kracht komt uit je benen en je heupen, niet alleen uit je arm. Ga dan meteen terug in de dekking.",
+    "cues": [
+     "Afzetten vanaf de achterste voet",
+     "Heup – schouder – achterste voet draaien",
+     "Meteen terug in de dekking"
+    ],
+    "mistakes": [
+     "Alleen je arm gebruiken, zonder heupdraai",
+     "Te ver naar voren leunen en je evenwicht verliezen"
+    ],
+    "drill": {
+     "label": "Stoot met de achterhand",
+     "say": "Jij bent aan de beurt. Stoot met de achterhand, twintig keer. Ik tel voor je mee."
+    }
+   },
+   "tk5-4": {
+    "title": "Palmstoot",
+    "say": "Buig je pols naar achteren, open je hand en buig je vingers licht. Sla met de muis van je hand, in een rechte lijn, net als een stoot. Bij zelfverdediging in het echte leven is dit veiliger voor je hand dan een blote vuist, omdat er geen knokkel tegen hard bot aan komt.",
+    "cues": [
+     "Pols naar achteren, hand open",
+     "Slaan met de muis van je hand",
+     "Een rechte lijn, net als een stoot"
+    ],
+    "mistakes": [
+     "Met de vingers slaan",
+     "De vingers stijf strekken"
+    ],
+    "drill": {
+     "label": "Palmstoot per kant",
+     "say": "Jij bent aan de beurt. Palmstoot, vijftien keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk5-5": {
+    "title": "Voorwaartse duwtrap",
+    "say": "Trek de knie van je achterste been op tot heuphoogte. Trap dan je hiel recht naar voren, alsof je een deur open trapt, en duw je heup mee. Het doel is de buik, hier is dat het trapkussen. Trek je been terug en zet het neer in je houding. Het doel van deze trap is de aanvaller wegduwen en afstand maken, zodat je kunt ontsnappen.",
+    "cues": [
+     "Knie hoog tot heuphoogte",
+     "Trappen met de hiel, heup mee duwen",
+     "Been terug in de houding"
+    ],
+    "mistakes": [
+     "Trappen met je tenen",
+     "Te ver naar achteren leunen"
+    ],
+    "drill": {
+     "label": "Duwtrap per been",
+     "say": "Jij bent aan de beurt. Duwtrap, tien keer per been. Ik tel voor je mee."
+    }
+   },
+   "tk5-6": {
+    "title": "Combinatie en afstand nemen",
+    "say": "Nu zetten we het samen in een combinatie: stoot met de voorhand, stoot met de achterhand, duwtrap, en dan twee passen terug in het handenhek. Train drie rondes van dertig seconden op de pads, met twintig seconden rust. Maak elke techniek duidelijk af. Eerst goed, dan pas snel.",
+    "cues": [
+     "Voorhand – achterhand – duwtrap",
+     "2 passen terug, handenhek",
+     "3 rondes × 30 seconden, 20 seconden rust"
+    ],
+    "mistakes": [
+     "Vergeten terug te stappen na de combinatie",
+     "Overhaast slaan en je houding verliezen"
+    ],
+    "drill": {
+     "label": "Combinatierondes",
+     "say": "Jij bent aan de beurt. Combinatierondes: drie rondes van dertig seconden, met twintig seconden rust ertussen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Waar zit je duim als je een vuist maakt?",
+    "a": [
+     "Binnen in de vuist geklemd",
+     "Gevouwen over je wijs- en middelvinger",
+     "Gestrekt"
+    ],
+    "why": "Zit je duim binnen in je vuist, dan breek je hem snel."
+   },
+   {
+    "q": "Waar komt de kracht van de stoot met de achterhand vandaan?",
+    "a": [
+     "Alleen uit de arm",
+     "Uit de benen en de heupen",
+     "Uit de nek"
+    ],
+    "why": "Je zet af met je been en draait je heup, je schouder en je arm volgen."
+   },
+   {
+    "q": "Wat is het belangrijkste doel van de duwtrap bij zelfverdediging?",
+    "a": [
+     "Afstand maken om te ontsnappen",
+     "Tegen het hoofd trappen",
+     "Je techniek laten zien"
+    ],
+    "why": "Je duwt de aanvaller weg, zodat je veilig kunt vertrekken."
+   },
+   {
+    "q": "Waarom is de palmstoot veiliger voor je hand?",
+    "a": [
+     "Er komt geen knokkel tegen hard bot aan",
+     "Omdat hij langzaam is",
+     "Omdat je zacht slaat"
+    ],
+    "why": "De muis van je hand is stevig, dus de kans op een handblessure is klein."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Loskomen uit een polsgreep",
+  "sub": "Het duimprincipe, greep aan dezelfde kant, kruisgreep, greep met twee handen",
+  "intro": "Bij je pols worden vastgepakt gebeurt heel vaak. Je hebt geen kracht nodig, je moet alleen het zwakke punt van de hand van je tegenstander begrijpen.",
+  "safety": "Je partner pakt met gematigde kracht vast. Maak je langzaam los, ruk niet zo hard dat je een gewricht pijn doet.",
+  "outro": "Je hand weet nu hoe ze zichzelf bevrijdt. Volgende les: loskomen uit een omklemming en een greep van voren.",
+  "home": "Huiswerk: elke dag tien keer loskomen per type greep, samen met iemand uit je omgeving, een week lang.",
+  "steps": {
+   "tk6-1": {
+    "title": "Het duimprincipe",
+    "say": "Pakt iemand je pols vast, dan is het zwakste punt van zijn hand de opening tussen zijn duim en zijn andere vingers. Ga geen krachtmeting aan. Draai je onderarm zo dat het smalle bot van je pols naar die opening wijst, en trek je dan krachtig los in de richting van zijn duim.",
+    "cues": [
+     "Zoek de duim van je tegenstander",
+     "Draai je pols naar de duimopening",
+     "Krachtig lostrekken richting de duim"
+    ],
+    "mistakes": [
+     "Recht naar achteren trekken en gaan touwtrekken",
+     "Lostrekken naar de vier vingers toe"
+    ],
+    "drill": {
+     "label": "De duimrichting vinden",
+     "say": "Jij bent aan de beurt. Zoek de richting van de duim, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk6-2": {
+    "title": "Greep aan dezelfde kant",
+    "say": "Ivan pakt mijn rechterpols met zijn linkerhand. Ik zak door mijn knieën, buig mijn elleboog en trek mijn arm dicht tegen mijn lichaam. Ik draai mijn onderarm zodat mijn pols naar de duim van Ivan wijst, en ruk dan krachtig omhoog, richting mijn eigen schouder. Mijn hand is los. Meteen breng ik beide handen omhoog in het handenhek en stap ik terug.",
+    "cues": [
+     "Zwaartepunt omlaag, elleboog buigen",
+     "Pols naar de duim draaien",
+     "Rukken richting je eigen schouder, dan het handenhek"
+    ],
+    "mistakes": [
+     "Je arm strekken bij het loskomen",
+     "Na het loskomen dicht bij de ander blijven staan"
+    ],
+    "drill": {
+     "label": "Greep aan dezelfde kant, per hand",
+     "say": "Jij bent aan de beurt. Loskomen uit een greep aan dezelfde kant, tien keer per hand. Ik tel voor je mee."
+    }
+   },
+   "tk6-3": {
+    "title": "Kruisgreep",
+    "say": "Bij een kruisgreep, bijvoorbeeld als de rechterhand van je tegenstander je rechterpols vastpakt, zit zijn duim bovenaan. Draai je pols omhoog, dwars door de duimopening, en trek naar je andere schouder. Combineer dat met een schuine pas naar achteren.",
+    "cues": [
+     "De duim van je tegenstander zit bovenaan",
+     "Omhoog draaien, dwars door de duimopening",
+     "Naar de andere schouder trekken + schuin terugstappen"
+    ],
+    "mistakes": [
+     "Omlaag trekken, weg van de opening",
+     "Je voetenwerk vergeten"
+    ],
+    "drill": {
+     "label": "Kruisgreep, per hand",
+     "say": "Jij bent aan de beurt. Loskomen uit een kruisgreep, tien keer per hand. Ik tel voor je mee."
+    }
+   },
+   "tk6-4": {
+    "title": "Greep met twee handen",
+    "say": "Pakt iemand je met twee handen vast, dan is één arm niet sterk genoeg. Steek je vrije hand tussen de armen van je tegenstander door en pak je eigen vuist vast. Gebruik dan de kracht van allebei je armen, plus een draai van je schouders, en ruk krachtig omhoog, door de opening tussen zijn twee duimen.",
+    "cues": [
+     "Vrije hand ertussen steken",
+     "Je eigen vuist vastpakken",
+     "Twee armen + schouderdraai, omhoog rukken"
+    ],
+    "mistakes": [
+     "Proberen één arm alleen los te trekken",
+     "Zijwaarts rukken in plaats van omhoog"
+    ],
+    "drill": {
+     "label": "Greep met twee handen",
+     "say": "Jij bent aan de beurt. Loskomen uit een greep met twee handen, acht keer. Ik tel voor je mee."
+    }
+   },
+   "tk6-5": {
+    "title": "Na het loskomen",
+    "say": "Los zijn betekent niet dat het voorbij is. Stap meteen ver terug, breng je handen omhoog in het handenhek, en roep heel hard: Stop! Dat roepen trekt de aandacht van mensen in de buurt en laat zien dat je niet wilt vechten. Het doel van zelfverdediging is altijd veilig loskomen en weggaan.",
+    "cues": [
+     "Meteen ver terugstappen",
+     "Handenhek",
+     "Hard roepen: Stop!"
+    ],
+    "mistakes": [
+     "Blijven staan en ruziemaken",
+     "Je omdraaien en wegrennen terwijl je nog te dichtbij bent"
+    ],
+    "drill": {
+     "label": "Loskomen – terug – roepen",
+     "say": "Jij bent aan de beurt. Loskomen, terugstappen en roepen, vijf keer. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat is het zwakke punt van een hand die vastpakt?",
+    "a": [
+     "De handpalm",
+     "De opening tussen de duim en de vingers",
+     "De pink"
+    ],
+    "why": "De duimopening is de plek waar je het makkelijkst loskomt."
+   },
+   {
+    "q": "Wat doe je als iemand je met twee handen vastpakt?",
+    "a": [
+     "Eén arm heel hard lostrekken",
+     "Je eigen hand vastpakken en met twee armen omhoog rukken",
+     "Stil blijven staan"
+    ],
+    "why": "Twee armen plus een schouderdraai winnen van de twee handen van je tegenstander."
+   },
+   {
+    "q": "Wat doe je als eerste na het loskomen?",
+    "a": [
+     "Ver terugstappen, handenhek, hard roepen",
+     "Meteen terugslaan",
+     "Ruziemaken"
+    ],
+    "why": "Het doel van zelfverdediging is veilig zijn en weggaan."
+   },
+   {
+    "q": "Moet je kracht tegen kracht zetten?",
+    "a": [
+     "Ja",
+     "Nee, gebruik de juiste richting: naar de duim"
+    ],
+    "why": "Een goede techniek wint het van kracht."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Loskomen uit omklemmingen & grepen van voren",
+  "sub": "Omklemming van achteren over de armen, omklemming met vrije armen, greep in de kraag van voren, stopsignaal",
+  "intro": "Stevig omklemd worden voelt het engst van alles. Het geheim zit in een laag zwaartepunt en beweeglijke benen. We trainen langzaam en veilig, en we respecteren altijd het stopsignaal.",
+  "safety": "Je partner omklemt je met gematigde kracht. Knijp nooit echt iemands keel dicht. Twee keer tikken betekent stoppen.",
+  "outro": "Je weet nu hoe je loskomt uit de vervelendste grepen. De laatste les van dit deel: iemand uit balans brengen en veilig werpen.",
+  "home": "Huiswerk: twee trainingen per week, elke situatie acht keer per kant, altijd met een afgesproken stopsignaal.",
+  "steps": {
+   "tk7-1": {
+    "title": "Het stopsignaal",
+    "say": "Spreek voor elke partneroefening een stopsignaal af. Tik twee keer op je partner of op de mat, of zeg hardop: Stop. Hoor of voel je dat signaal, laat dan meteen los. Iedereen die traint, moet dit signaal altijd en zonder uitzondering respecteren. Alleen als je veilig traint, kun je lang blijven trainen.",
+    "cues": [
+     "2 keer tikken of zeggen: Stop",
+     "Meteen loslaten",
+     "Altijd en zonder uitzondering respecteren"
+    ],
+    "mistakes": [
+     "Na het signaal nog even doorduwen",
+     "Vooraf niets afspreken"
+    ],
+    "drill": {
+     "label": "Het signaal afspreken",
+     "say": "Jij bent aan de beurt. Spreek het signaal af, drie keer. Ik tel voor je mee."
+    }
+   },
+   "tk7-2": {
+    "title": "Omklemd van achteren – zwaartepunt omlaag",
+    "say": "Word je van achteren omklemd en zitten je armen vast binnen de omklemming, laat dan meteen je zwaartepunt zakken, buig je knieën en duw je heupen naar achteren. Duw tegelijk je ellebogen naar opzij om de greep losser te maken. Met een laag zwaartepunt kan je tegenstander je heel moeilijk optillen.",
+    "cues": [
+     "Meteen het zwaartepunt omlaag",
+     "Heupen naar achteren duwen",
+     "Ellebogen opzij om de greep los te maken"
+    ],
+    "mistakes": [
+     "Rechtop blijven staan: je wordt makkelijk opgetild",
+     "In paniek gaan spartelen"
+    ],
+    "drill": {
+     "label": "Zwaartepunt omlaag, greep losser",
+     "say": "Jij bent aan de beurt. Zwaartepunt omlaag en de greep losser maken, acht keer. Ik tel voor je mee."
+    }
+   },
+   "tk7-3": {
+    "title": "Omklemd van achteren – wegdraaien",
+    "say": "Is de omklemming losser, zet dan één voet opzij, zak nog lager, draai je heupen en je schouders, en glip uit de armen. Draai je om naar je tegenstander, handen omhoog in het handenhek, en stap ver terug. Oefen langzaam met je partner, die je maar met gematigde kracht vasthoudt.",
+    "cues": [
+     "Eén voet opzij",
+     "Lager zakken, heupen draaien en eruit glippen",
+     "Omdraaien, handenhek, ver terugstappen"
+    ],
+    "mistakes": [
+     "Draaien terwijl je zwaartepunt nog hoog is",
+     "Na het loskomen dichtbij blijven"
+    ],
+    "drill": {
+     "label": "Uit omklemming van achteren, per kant",
+     "say": "Jij bent aan de beurt. Loskomen uit een omklemming van achteren, acht keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk7-4": {
+    "title": "Omklemd van achteren – armen vrij",
+    "say": "Zijn je armen buiten de omklemming, laat dan nog steeds eerst je zwaartepunt zakken. Pak daarna de hand van je tegenstander voor je buik, wrik de armen open en draai je tegelijk naar buiten los. Stap ver terug en houd je handenhek omhoog.",
+    "cues": [
+     "Eerst het zwaartepunt omlaag",
+     "De hand van je tegenstander voor je buik loswrikken",
+     "Losdraaien, ver terugstappen"
+    ],
+    "mistakes": [
+     "Aan de handen krabben zonder lager te zakken",
+     "Je omdraaien en weglopen terwijl je nog vlakbij bent"
+    ],
+    "drill": {
+     "label": "Omklemming met vrije armen",
+     "say": "Jij bent aan de beurt. Loskomen uit een omklemming met vrije armen, acht keer. Ik tel voor je mee."
+    }
+   },
+   "tk7-5": {
+    "title": "Greep in de kraag van voren",
+    "say": "Grijpt je tegenstander met twee handen je kraag van voren vast, houd dan je kin omlaag en trek je schouders op om je nek te beschermen. Steek één arm recht omhoog boven je hoofd, en draai je lichaam dan krachtig opzij, zodat je schouder en je arm over beide armen van je tegenstander heen drukken en de greep breken. Stap meteen terug en breng je handenhek omhoog. Bij het oefenen pakt je partner alleen je kraag vast, en knijpt hij nooit in je keel.",
+    "cues": [
+     "Kin omlaag, schouders op",
+     "Eén arm recht omhoog",
+     "Krachtig draaien, over beide armen drukken, terugstappen"
+    ],
+    "mistakes": [
+     "Met kracht de armen van je tegenstander wegtrekken",
+     "Draaien zonder je arm hoog te heffen"
+    ],
+    "drill": {
+     "label": "Kraaggreep, per kant",
+     "say": "Jij bent aan de beurt. Loskomen uit een kraaggreep, acht keer per kant. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Je wordt van achteren omklemd. Wat doe je als eerste?",
+    "a": [
+     "Je zwaartepunt laten zakken",
+     "Omhoog springen",
+     "Je hoofd naar achteren gooien"
+    ],
+    "why": "Met een laag zwaartepunt kan je tegenstander je moeilijk optillen."
+   },
+   {
+    "q": "Wat is het stopsignaal bij partneroefeningen?",
+    "a": [
+     "Twee keer tikken of zeggen: Stop",
+     "Zomaar iets hard roepen",
+     "Een signaal is niet nodig"
+    ],
+    "why": "Spreek het vooraf af en respecteer het altijd, zonder uitzondering."
+   },
+   {
+    "q": "Hoe kom je los uit een greep in je kraag van voren?",
+    "a": [
+     "Trekken met je twee armen",
+     "Arm hoog heffen en dan krachtig draaien en eroverheen drukken",
+     "Stil blijven staan en afwachten"
+    ],
+    "why": "Je hele lichaam draaien is sterker dan de twee armen van je tegenstander."
+   },
+   {
+    "q": "Wat mag je partner doen bij het oefenen van de kraaggreep?",
+    "a": [
+     "Echt je keel dichtknijpen",
+     "Alleen de kraag vastpakken, nooit in de keel knijpen"
+    ],
+    "why": "Met de nek ga je altijd absoluut veilig om."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Uit balans brengen & werpen",
+  "sub": "Steunbasis, greep in de jas, beenveeg van achteren, struikelworp naar voren, controle",
+  "intro": "Dit is de kern van het Sambo-worstelen: het evenwicht van je tegenstander gebruiken om hem naar de grond te brengen. Train dit alleen als je goed kunt vallen, op een dikke mat en onder begeleiding.",
+  "safety": "Verplicht: je beheerst de les Veilig vallen, een dikke mat, een coach erbij, langzaam tempo.",
+  "outro": "Gefeliciteerd! Je hebt het Basisdeel van de route Zelfverdediging op korte afstand afgerond. Het deel voor Gevorderden wacht op je, met situaties die dichter bij de werkelijkheid komen.",
+  "home": "Huiswerk: twee trainingen per week op een dikke mat, onder begeleiding, elke techniek zes keer langzaam.",
+  "steps": {
+   "tk8-1": {
+    "title": "Steunbasis en uit balans brengen",
+    "say": "Je tegenstander staat stevig dankzij zijn twee benen. De lijn tussen zijn voeten is zijn steunbasis. Duw of trek haaks op die lijn, en hij verliest heel makkelijk zijn evenwicht. Oefen met je partner: pak zijn mouw en zijn kraag vast, en duw, trek en draai licht in acht richtingen. Voel het moment waarop al zijn gewicht naar zijn hielen of naar zijn tenen gaat.",
+    "cues": [
+     "Steunbasis = de lijn tussen beide voeten",
+     "Duwen/trekken haaks op de steunbasis",
+     "Voel het gewicht naar de hielen of de tenen gaan"
+    ],
+    "mistakes": [
+     "In de lengte van de steunbasis duwen",
+     "Met stijve armen kracht zetten"
+    ],
+    "drill": {
+     "label": "Duwen – trekken in 8 richtingen",
+     "say": "Jij bent aan de beurt. Duwen en trekken in acht richtingen, zestig seconden lang. De klok telt af."
+    }
+   },
+   "tk8-2": {
+    "title": "De basisgreep in de jas",
+    "say": "De basisgreep van het Sambo-worstelen: je linkerhand pakt de rechtermouw van je partner, net onder de elleboog. Je rechterhand pakt zijn linkerrevers, op borsthoogte. Je ellebogen zijn soepel, niet stijf. Sta met een rechte rug, je voeten op schouderbreedte, klaar om te bewegen.",
+    "cues": [
+     "Linkerhand: mouw onder de elleboog",
+     "Rechterhand: revers op borsthoogte",
+     "Soepele ellebogen, rechte rug"
+    ],
+    "mistakes": [
+     "Een kromme rug, het hoofd gebogen",
+     "De ellebogen op slot zetten"
+    ],
+    "drill": {
+     "label": "De greep in de jas nemen",
+     "say": "Jij bent aan de beurt. Neem de greep in de jas, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk8-3": {
+    "title": "Beenveeg van achteren",
+    "say": "Trek je partner naar zijn rechterachterkant, zodat zijn gewicht op zijn rechterhiel komt. Zet je linkervoet vlak naast de buitenkant van zijn rechtervoet. Je rechterbeen zwaait langs en veegt zijn rechterkuit van achteren weg, terwijl je bovenlichaam hem naar achteren duwt. Je partner valt achterover met de techniek die je hebt geleerd. Je houdt zijn mouw vast tijdens de hele val en trekt hem licht omhoog, zodat zijn rug rustig op de mat komt.",
+    "cues": [
+     "Gewicht van je partner op zijn rechterhiel",
+     "Dichtbij stappen, de kuit van achteren wegvegen",
+     "Mouw vasthouden, hem zacht laten vallen"
+    ],
+    "mistakes": [
+     "Vegen voordat het gewicht op dat been staat",
+     "De mouw loslaten terwijl je partner valt"
+    ],
+    "drill": {
+     "label": "Beenveeg van achteren (langzaam), per kant",
+     "say": "Jij bent aan de beurt. Beenveeg van achteren, langzaam, zes keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk8-4": {
+    "title": "Struikelworp naar voren",
+    "say": "Trek je partner naar voren, schuin naar zijn rechterkant. Draai je lichaam en zet je rechtervoet dwars voor zijn rechterenkel. Blijf aan de mouw trekken, in een boog naar beneden. Hij struikelt over je been en valt naar voren, en rolt over zijn schouder, precies zoals bij de voorwaartse rol.",
+    "cues": [
+     "Naar voren trekken – schuin naar rechts",
+     "Voet blokkeert voor de enkel",
+     "In een boog omlaag trekken"
+    ],
+    "mistakes": [
+     "Tegen de enkel trappen in plaats van blokkeren",
+     "Te hard recht naar de grond trekken"
+    ],
+    "drill": {
+     "label": "Struikelworp (langzaam), per kant",
+     "say": "Jij bent aan de beurt. Struikelworp naar voren, langzaam, zes keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk8-5": {
+    "title": "Controle na de worp",
+    "say": "Laat na de val van je partner niet meteen los. Houd zijn mouw vast, blijf stevig staan, kijk hem aan, en help hem dan overeind. Wie werpt, is verantwoordelijk voor wie valt. Train werpen alleen op een dikke mat, met een coach die toekijkt, in een langzaam tempo, en respecteer altijd het stopsignaal.",
+    "cues": [
+     "Mouw vasthouden, stevig staan",
+     "Kijk je partner aan",
+     "Help je partner overeind"
+    ],
+    "mistakes": [
+     "Meteen loslaten bij het werpen",
+     "Bovenop je partner vallen"
+    ],
+    "drill": {
+     "label": "Langzaam werpen + overeind helpen",
+     "say": "Jij bent aan de beurt. Langzaam werpen en je partner overeind helpen, vijf keer. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "In welke richting duw of trek je om iemand uit balans te brengen?",
+    "a": [
+     "Langs de lijn tussen de voeten",
+     "Haaks op de lijn tussen de voeten",
+     "Recht naar de grond"
+    ],
+    "why": "Haaks op de steunbasis is de zwakste richting."
+   },
+   {
+    "q": "Waar moet het gewicht van je partner zijn bij de beenveeg van achteren?",
+    "a": [
+     "Op de tenen",
+     "Op de hiel van het been dat je veegt",
+     "Op het andere been"
+    ],
+    "why": "Alleen het been dat het gewicht draagt, kun je wegvegen."
+   },
+   {
+    "q": "Waarvoor is degene die werpt verantwoordelijk?",
+    "a": [
+     "De mouw vasthouden en de val van je partner controleren",
+     "Meteen loslaten",
+     "Er bovenop vallen"
+    ],
+    "why": "Door controle valt je partner veilig."
+   },
+   {
+    "q": "Wat zijn de voorwaarden om werpen te trainen?",
+    "a": [
+     "Je kunt goed vallen, een dikke mat, een coach erbij",
+     "Het kan overal",
+     "Snel trainen om eraan te wennen"
+    ],
+    "why": "Veiligheid is een harde voorwaarde."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Technieken op zwakke plekken om te ontsnappen",
+  "sub": "Vegen langs de ogen, knie naar het kruis, trap op de knie – alleen om een uitweg te maken",
+  "intro": "Word je echt aangevallen en kun je niet wegrennen, dan heb je een eenvoudige techniek nodig die de aanvaller één seconde laat stokken. Die ene seconde is jouw uitweg. Vandaag trainen we op de pads, nooit op je partner.",
+  "safety": "Sla alleen op pads of een schild. Raak nooit de ogen, het kruis of de knieën van je partner.",
+  "outro": "Je hebt nu technieken om een uitweg te maken. Onthoud het goed: je slaat om te rennen, niet om te winnen. Volgende les: ellebogen en knieën op korte afstand.",
+  "home": "Huiswerk: drie trainingen per week, drie rondes van de reeks op de pads, en eindig steeds met wegrennen.",
+  "steps": {
+   "tk9-1": {
+    "title": "Het principe: slaan om te rennen",
+    "say": "Het eerste principe: technieken op zwakke plekken gebruik je alleen als je echt wordt aangevallen en er geen andere uitweg is. Het doel is niet winnen, maar de aanvaller even laten stokken. Eén techniek, en dan meteen afstand maken en rennen naar een plek met veel mensen. Blijf niet staan om verder te vechten.",
+    "cues": [
+     "Alleen bij een echte aanval",
+     "Eén techniek om een uitweg te maken",
+     "Na de slag meteen rennen"
+    ],
+    "mistakes": [
+     "Blijven vechten terwijl je al een uitweg hebt",
+     "Toeslaan terwijl je nog gewoon weg kunt gaan"
+    ],
+    "drill": {
+     "label": "Handenhek – terug – rennen",
+     "say": "Jij bent aan de beurt. Handenhek, terugstappen en rennen, vijf keer. Ik tel voor je mee."
+    }
+   },
+   "tk9-2": {
+    "title": "Met je vingers langs de ogen vegen",
+    "say": "Vanuit het handenhek is je voorste hand al dicht bij het gezicht van je tegenstander. Je vingers zijn licht gebogen en ontspannen, en je veegt snel dwars langs de ogen, alsof je water van je hand schudt, en dan trek je terug. Dit vraagt geen kracht, alleen snelheid. Wie zo geraakt wordt, sluit uit reflex zijn ogen en deinst terug. Bij het oefenen veeg je alleen langs de handschoen die je partner voor zijn gezicht houdt.",
+    "cues": [
+     "Vertrekken vanuit het handenhek",
+     "Vingers gebogen en ontspannen, dwars vegen",
+     "Snel terugtrekken, terugstappen"
+    ],
+    "mistakes": [
+     "Stijf gestrekte vingers: je ontwricht ze snel",
+     "Van ver uithalen, zodat je je bedoeling verraadt"
+    ],
+    "drill": {
+     "label": "Langs de handschoen vegen, per hand",
+     "say": "Jij bent aan de beurt. Veeg langs de handschoen, vijftien keer per hand. Ik tel voor je mee."
+    }
+   },
+   "tk9-3": {
+    "title": "Knie naar het kruis (op het schild)",
+    "say": "Komt de aanvaller heel dichtbij en grijpt hij je op zeer korte afstand vast, houd dan met beide handen zijn schouders of zijn kraag vast. Trek omlaag en stoot tegelijk de knie van je achterste been recht omhoog. Duw je heup naar voren. Bij het oefenen houdt je partner een dik schild voor zijn onderbuik, en stoot je je knie tegen dat schild. Duw hem daarna weg en stap ver terug.",
+    "cues": [
+     "Beide handen op de schouders, omlaag trekken",
+     "Knie van het achterste been omhoog, heup mee",
+     "Wegduwen, ver terugstappen"
+    ],
+    "mistakes": [
+     "Achterover leunen bij de kniestoot",
+     "Een kniestoot geven terwijl je nog niet in evenwicht bent"
+    ],
+    "drill": {
+     "label": "Kniestoot op het schild, per been",
+     "say": "Jij bent aan de beurt. Kniestoot op het schild, tien keer per been. Ik tel voor je mee."
+    }
+   },
+   "tk9-4": {
+    "title": "Trap op de knie of het scheenbeen",
+    "say": "Stormt de aanvaller van een afstand op je af, dan stopt een lage trap met je hiel op zijn knie of zijn voorste scheenbeen zijn vaart. Til de knie van je voorste been laag op, trap je hiel schuin naar voren en omlaag, en trek je been terug. Een lage trap is moeilijk te blokkeren en houdt je goed in evenwicht. Bij het oefenen trap je alleen op een laag gehouden schild.",
+    "cues": [
+     "Knie laag optillen",
+     "Hiel schuin naar voren en omlaag trappen",
+     "Been terugtrekken, terugstappen"
+    ],
+    "mistakes": [
+     "Hoog naar de buik trappen: traag en je valt snel",
+     "Met je tenen trappen"
+    ],
+    "drill": {
+     "label": "Lage trap op het schild, per been",
+     "say": "Jij bent aan de beurt. Lage trap op het schild, tien keer per been. Ik tel voor je mee."
+    }
+   },
+   "tk9-5": {
+    "title": "Reeks: vegen – trappen – rennen",
+    "say": "Zet het samen in één reeks: vanuit het handenhek veeg je langs de handschoen, je trapt laag op het schild, en dan draai je je om en ren je drie passen. Oefen eerst langzaam en goed, en dan steeds sneller. Roep na elke keer hard: Stop! Deze reflexreeks moet een gewoonte van je lichaam worden.",
+    "cues": [
+     "Handenhek → vegen → trappen",
+     "Omdraaien en 3 passen rennen",
+     "Hard roepen: Stop!"
+    ],
+    "mistakes": [
+     "Vergeten te rennen aan het eind van de reeks",
+     "Na de trap weer dichtbij gaan staan"
+    ],
+    "drill": {
+     "label": "Reeksrondes",
+     "say": "Jij bent aan de beurt. Reeksrondes: drie rondes van dertig seconden, met twintig seconden rust ertussen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat is het doel van technieken op zwakke plekken?",
+    "a": [
+     "Het gevecht winnen",
+     "De aanvaller laten stokken zodat je kunt ontsnappen",
+     "De tegenstander straffen"
+    ],
+    "why": "Je slaat om een uitweg te maken en rent dan naar een veilige plek."
+   },
+   {
+    "q": "Hoe houd je je vingers bij het vegen langs de ogen?",
+    "a": [
+     "Stijf gestrekt",
+     "Licht gebogen, ontspannen, en snel vegen",
+     "Stevig tot een vuist"
+    ],
+    "why": "Ontspannen vingers zijn snel en raken niet ontwricht."
+   },
+   {
+    "q": "Waar richt je de lage trap op?",
+    "a": [
+     "De knie of het voorste scheenbeen",
+     "Het hoofd",
+     "De rug"
+    ],
+    "why": "Een lage trap is snel, moeilijk te blokkeren en stopt de vaart van de aanval."
+   },
+   {
+    "q": "Waar sla je op als je met je partner oefent?",
+    "a": [
+     "Op je partner, maar zachtjes",
+     "Alleen op de pads of het schild"
+    ],
+    "why": "Sla nooit op de echte zwakke plekken van je partner."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Ellebogen & knieën op korte afstand",
+  "sub": "Horizontale elleboog, opwaartse elleboog, rechte knie, nekklem",
+  "intro": "Sta je dicht op elkaar, dan heeft een vuist geen ruimte meer om uit te halen. Op dat moment zijn je ellebogen en knieën de sterkste natuurlijke wapens van je lichaam. We trainen op de pads, eerst de juiste techniek, pas daarna kracht.",
+  "safety": "Sla alleen op dikke pads. Wie de pads vasthoudt, houdt ze stevig vast en staat stabiel.",
+  "outro": "De korte afstand is niet meer eng. Volgende les: niet naar de grond gewerkt worden en veilig opstaan.",
+  "home": "Huiswerk: drie trainingen per week, drie rondes op korte afstand op de pads.",
+  "steps": {
+   "tk10-1": {
+    "title": "Horizontale elleboog",
+    "say": "Buig vanuit de gevechtshouding je voorste elleboog, je onderarm evenwijdig aan de grond, je hand vlak bij je oor. Draai je heup en je schouder, en zwaai je elleboog horizontaal langs, als een deur die dichtslaat. Je raakt met het bot net onder je elleboog. Je andere hand blijft je gezicht beschermen. Ga daarna meteen terug in de dekking.",
+    "cues": [
+     "Hand bij het oor, onderarm horizontaal",
+     "Heup draaien, horizontaal zwaaien",
+     "Raken met het bot onder de elleboog"
+    ],
+    "mistakes": [
+     "Met je hele arm gestrekt uithalen",
+     "Vergeten je gezicht met je andere hand te beschermen"
+    ],
+    "drill": {
+     "label": "Horizontale elleboog, per arm",
+     "say": "Jij bent aan de beurt. Horizontale elleboog, vijftien keer per arm. Ik tel voor je mee."
+    }
+   },
+   "tk10-2": {
+    "title": "Opwaartse elleboog",
+    "say": "Duikt je tegenstander met zijn hoofd omlaag op je af, dan werkt een elleboog van onderaf omhoog heel goed. Buig je elleboog stevig, je vuist tegen je schouder, zet af met je benen en stoot je elleboog recht omhoog, verticaal voor je gezicht langs. Bij het oefenen houdt je partner een handschoen naar beneden gericht op borsthoogte.",
+    "cues": [
+     "Stevig gebogen, vuist tegen de schouder",
+     "Afzetten met de benen, recht omhoog",
+     "Andere hand beschermt het gezicht"
+    ],
+    "mistakes": [
+     "Schuin naar buiten uithalen",
+     "Alleen je arm gebruiken, zonder af te zetten met je benen"
+    ],
+    "drill": {
+     "label": "Opwaartse elleboog, per arm",
+     "say": "Jij bent aan de beurt. Opwaartse elleboog, twaalf keer per arm. Ik tel voor je mee."
+    }
+   },
+   "tk10-3": {
+    "title": "De nekklem",
+    "say": "Sta je heel dicht op elkaar, leg dan je handen op elkaar achter in de nek van je tegenstander, met je ellebogen dicht bij elkaar voor zijn borst. Trek zijn hoofd omlaag en druk je ellebogen naar binnen. Met deze klem stuur je het evenwicht van je tegenstander. Trek bij het oefenen zacht en langzaam, en je partner kan altijd afkloppen om te stoppen.",
+    "cues": [
+     "Handen op elkaar in de nek",
+     "Ellebogen dicht voor de borst van je tegenstander",
+     "Zacht en langzaam omlaag trekken"
+    ],
+    "mistakes": [
+     "Je vingers in elkaar vlechten: ze raken snel klem",
+     "Hard aan de nek van je partner rukken"
+    ],
+    "drill": {
+     "label": "De nekklem vasthouden",
+     "say": "Jij bent aan de beurt. Houd de nekklem vast, dertig seconden lang. De klok telt af."
+    }
+   },
+   "tk10-4": {
+    "title": "Rechte knie vanuit de nekklem",
+    "say": "Trek je tegenstander vanuit de nekklem omlaag en stoot je knie recht omhoog tegen het schild dat je partner voor zijn buik houdt. Duw je heup naar voren en sta rechtop op je standbeen. Duw hem na twee kniestoten krachtig weg en stap ver terug.",
+    "cues": [
+     "Nekklem",
+     "Omlaag trekken, knie recht omhoog",
+     "Twee knieën, dan wegduwen en ver terugstappen"
+    ],
+    "mistakes": [
+     "Zelf mee voorover buigen",
+     "Op de tenen van je standbeen staan en je evenwicht verliezen"
+    ],
+    "drill": {
+     "label": "Knie op het schild, per been",
+     "say": "Jij bent aan de beurt. Knie op het schild, tien keer per been. Ik tel voor je mee."
+    }
+   },
+   "tk10-5": {
+    "title": "Reeks op korte afstand",
+    "say": "Zet het samen: horizontale elleboog, opwaartse elleboog, de nekklem, twee kniestoten, wegduwen, en terug in het handenhek. Train drie rondes van dertig seconden op de pads. Blaas tijdens het slaan steeds kort uit.",
+    "cues": [
+     "Horizontale elleboog → opwaartse elleboog",
+     "Nekklem → 2 knieën",
+     "Wegduwen, handenhek, uitblazen"
+    ],
+    "mistakes": [
+     "Je adem inhouden bij het slaan",
+     "Vergeten weg te duwen om afstand te maken"
+    ],
+    "drill": {
+     "label": "Rondes op korte afstand",
+     "say": "Jij bent aan de beurt. Rondes op korte afstand: drie rondes van dertig seconden, met twintig seconden rust ertussen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Waarmee raak je bij de horizontale elleboog?",
+    "a": [
+     "Het bot net onder de elleboog",
+     "De hand",
+     "De schouder"
+    ],
+    "why": "Het harde bot net onder je elleboog is het stevigste raakpunt."
+   },
+   {
+    "q": "Hoe leg je je handen bij de nekklem?",
+    "a": [
+     "Vingers in elkaar gevlochten",
+     "Op elkaar, achter in de nek"
+    ],
+    "why": "Gevlochten vingers raken snel klem, handen op elkaar is veiliger."
+   },
+   {
+    "q": "Wat doe je na twee kniestoten?",
+    "a": [
+     "Wegduwen en ver terugstappen",
+     "Blijven vastklemmen",
+     "Gaan zitten"
+    ],
+    "why": "Maak altijd afstand om te ontsnappen."
+   },
+   {
+    "q": "Hoe adem je als je technieken achter elkaar uitvoert?",
+    "a": [
+     "Adem inhouden",
+     "Bij elke slag kort uitblazen"
+    ],
+    "why": "Door uit te blazen raak je niet uitgeput en blijf je kalm."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Sprawlen & opstaan",
+  "sub": "Beenaanval sprawlen, heupen erop, technisch opstaan, afstand houden met trappen",
+  "intro": "In een vechtpartij is het gevaarlijkste om naar de grond gewerkt te worden. Vandaag leer je hoe je voorkomt dat je onderuit wordt getrokken, en als je toch valt, hoe je in een paar seconden veilig opstaat.",
+  "safety": "Train op een dikke mat. Je partner valt langzaam aan en ramt niet met zijn hoofd.",
+  "outro": "Nu krijgen ze je heel moeilijk naar de grond, en weet je hoe je veilig opstaat. Volgende les: ontsnappen als je al op de grond onder iemand ligt.",
+  "home": "Huiswerk: elke dag tien keer technisch opstaan per kant, en twee keer per week het sprawlen oefenen met een partner.",
+  "steps": {
+   "tk11-1": {
+    "title": "Een beenaanval sprawlen",
+    "say": "Duikt je tegenstander laag naar je benen, schiet dan razendsnel met beide benen naar achteren, laat je heupen op zijn bovenrug zakken en blokkeer zijn schouders met je handen. Je lichaamsgewicht drukt op hem, en je benen zijn ver buiten zijn bereik. Dit heet sprawlen. Oefen het langzaam met je partner op de mat.",
+    "cues": [
+     "Beide benen naar achteren schieten",
+     "Heupen op de bovenrug laten zakken",
+     "Handen blokkeren de schouders van je tegenstander"
+    ],
+    "mistakes": [
+     "Rechtop naar achteren stappen: je benen worden makkelijk gepakt",
+     "Je heupen hoog houden, zodat je tegenstander je benen nog kan pakken"
+    ],
+    "drill": {
+     "label": "Sprawlen",
+     "say": "Jij bent aan de beurt. Sprawlen, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk11-2": {
+    "title": "Loskomen na het sprawlen",
+    "say": "Is het sprawlen gelukt, blijf dan niet lang op hem liggen. Duw met je handen op zijn schouders, spring overeind, stap twee passen naar achteren en ga terug in de gevechtshouding, met je handen voor je gezicht. Het doel blijft ontsnappen.",
+    "cues": [
+     "Handen op de schouders duwen",
+     "Overeind springen, 2 passen terug",
+     "Terug in de houding, gezicht dekken"
+    ],
+    "mistakes": [
+     "Te lang op hem blijven liggen",
+     "Recht voor je tegenstander opstaan"
+    ],
+    "drill": {
+     "label": "Sprawlen – overeind – terug",
+     "say": "Jij bent aan de beurt. Sprawlen, overeind springen en terugstappen, acht keer. Ik tel voor je mee."
+    }
+   },
+   "tk11-3": {
+    "title": "Afstand houden met trappen vanaf de grond",
+    "say": "Ben je achterover gevallen en staat je tegenstander nog, ga dan op één heup op je zij liggen, met één hand op de mat en één hand voor je gezicht. Je bovenste been is opgetrokken en klaar om te trappen tegen zijn knie of zijn buik als hij op je af komt. Draai met hem mee, houd je voeten altijd naar je tegenstander gericht, en laat hem niet om je heen naar je hoofd lopen.",
+    "cues": [
+     "Op je zij, één hand steunt, één hand dekt",
+     "Bovenste been opgetrokken, klaar om te trappen",
+     "Meedraaien, voeten altijd naar je tegenstander"
+    ],
+    "mistakes": [
+     "Plat op je rug liggen",
+     "Je tegenstander om je heen naar je hoofd laten lopen"
+    ],
+    "drill": {
+     "label": "Meedraaien met je partner",
+     "say": "Jij bent aan de beurt. Draai mee met je partner, dertig seconden lang. De klok telt af."
+    }
+   },
+   "tk11-4": {
+    "title": "Technisch opstaan",
+    "say": "Zo sta je veilig op: je achterste hand steunt op de mat achter je heup, je voorste hand beschermt je gezicht. Duw je heup omhoog en trek je standbeen onder je door naar achteren. Zet je voet ver weg neer, in je houding, en kom pas dan rechtop. Je dekt altijd je gezicht en je staat op terwijl je van je tegenstander weg beweegt, nooit recht voor hem.",
+    "cues": [
+     "Achterste hand steunt, voorste hand dekt het gezicht",
+     "Heup omhoog, been naar achteren trekken",
+     "Weg van je tegenstander opstaan, in je houding"
+    ],
+    "mistakes": [
+     "Met beide handen afzetten, zodat je gezicht onbeschermd is",
+     "Opstaan in de richting van je tegenstander"
+    ],
+    "drill": {
+     "label": "Technisch opstaan, per kant",
+     "say": "Jij bent aan de beurt. Technisch opstaan, acht keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk11-5": {
+    "title": "Reeks: vallen – afstand houden – opstaan",
+    "say": "Zet het samen: val technisch goed achterover, draai op je zij, houd afstand met trappen, sta technisch op, stap ver terug en breng je handenhek omhoog. Controleer na elke keer of je je gezicht steeds hebt gedekt. Doe het vijf keer per kant.",
+    "cues": [
+     "Achterwaartse val → op je zij",
+     "Afstand houden met trappen",
+     "Technisch opstaan → handenhek"
+    ],
+    "mistakes": [
+     "Haastig opstaan terwijl je tegenstander nog vlakbij is",
+     "Vergeten je gezicht te dekken"
+    ],
+    "drill": {
+     "label": "Reeks vallen – opstaan, per kant",
+     "say": "Jij bent aan de beurt. De reeks vallen en opstaan, vijf keer per kant. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Iemand duikt naar je benen. Wat doe je?",
+    "a": [
+     "Beide benen naar achteren schieten en je heupen erop laten zakken",
+     "Rechtop blijven staan en afwachten",
+     "Omhoog springen"
+    ],
+    "why": "Sprawlen: je benen ver weg, je gewicht op je tegenstander."
+   },
+   {
+    "q": "Je ligt op de grond. Waar wijzen je voeten naartoe?",
+    "a": [
+     "Naar je tegenstander",
+     "Naar de lucht",
+     "Naar achteren"
+    ],
+    "why": "Je voeten wijzen naar je tegenstander, zodat je met trappen afstand kunt houden."
+   },
+   {
+    "q": "Wat doet je voorste hand bij het technisch opstaan?",
+    "a": [
+     "Op de grond steunen",
+     "Het gezicht dekken"
+    ],
+    "why": "Bescherm altijd je gezicht als je opstaat."
+   },
+   {
+    "q": "Sta je op terwijl je naar achteren gaat, of naar je tegenstander toe?",
+    "a": [
+     "Ver naar achteren",
+     "Naar voren"
+    ],
+    "why": "Sta op terwijl je ver naar achteren gaat, dan ben je veilig."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Ontsnappen op de grond",
+  "sub": "De garnaal, brug en rol, loskomen als iemand op je ligt, guard",
+  "intro": "Lig je op de grond met iemand bovenop je, raak dan niet in paniek. Met een paar eenvoudige bewegingen uit het Sambo-worstelen draai je de situatie om. We trainen langzaam, je partner drukt met gematigde kracht, en we respecteren altijd het stopsignaal.",
+  "safety": "Een dikke mat. Wie bovenop ligt, legt niet zijn volle gewicht erop en drukt nooit op de nek. Twee keer tikken betekent stoppen.",
+  "outro": "Je weet nu hoe je op de grond loskomt. Volgende les, een serieus onderwerp: tegenover iemand met een mes staan.",
+  "home": "Huiswerk: elke dag twee minuten de garnaal oefenen, en twee keer per week zacht worstelen.",
+  "steps": {
+   "tk12-1": {
+    "title": "De garnaal",
+    "say": "Lig op je rug, met beide knieën opgetrokken. Zet één voet op de mat, duw je heup naar achteren, en draai tegelijk op je zij, terwijl je je handen naar voren duwt alsof je iets zwaars wegduwt. Je lichaam krult zich als een garnaal. Ga dan terug op je rug en doe het naar de andere kant. Dit is de belangrijkste beweging op de grond: zo maak je ruimte.",
+    "cues": [
+     "Voet zet af, heup naar achteren",
+     "Op je zij, handen duwen naar voren",
+     "Steeds van kant wisselen"
+    ],
+    "mistakes": [
+     "Plat op je rug liggen zonder je heup te draaien",
+     "Met je handen duwen zonder je heup mee te duwen"
+    ],
+    "drill": {
+     "label": "Garnaal over de lengte van de mat",
+     "say": "Jij bent aan de beurt. De garnaal over de lengte van de mat, veertig seconden lang. De klok telt af."
+    }
+   },
+   "tk12-2": {
+    "title": "Brug en rol als iemand op je buik zit",
+    "say": "Zit iemand schrijlings op je buik, bescherm dan eerst je gezicht met beide handen. Klem daarna één arm van je tegenstander stevig tegen je lichaam, en zet je voet aan dezelfde kant tegen de buitenkant van zijn been. Stoot je heup krachtig omhoog, maak een brug over de schouder aan de kant van de vastgeklemde arm, en rol je tegenstander opzij. Je komt bovenop terecht, en dan sta je op en stap je terug.",
+    "cues": [
+     "Eerst je gezicht dekken",
+     "Eén arm klemmen + het been aan dezelfde kant blokkeren",
+     "Heupbrug, rol over de schouder aan die kant"
+    ],
+    "mistakes": [
+     "Met je handen tegen de borst van je tegenstander duwen",
+     "Recht omhoog bruggen zonder arm en been vast te zetten"
+    ],
+    "drill": {
+     "label": "Brug en rol, per kant",
+     "say": "Jij bent aan de beurt. Brug en rol, zes keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk12-3": {
+    "title": "Elleboog-knie-ontsnapping als iemand op je ligt",
+    "say": "Lukt het rollen niet, ga dan op je zij liggen, breng je elleboog naar je knie en zet je elleboog tegen de heup van je tegenstander. Maak de garnaalbeweging om ruimte te maken, en schuif je knie tussen jou en hem in. Zit je knie ertussen, breng dan je benen in de guard en houd je tegenstander met beide benen op afstand.",
+    "cues": [
+     "Op je zij, elleboog bij de knie",
+     "Garnaal om ruimte te maken",
+     "Knie ertussen, benen in de guard"
+    ],
+    "mistakes": [
+     "Met gestrekte armen duwen: je loopt snel in een armklem",
+     "Plat op je rug liggen"
+    ],
+    "drill": {
+     "label": "Elleboog-knie-ontsnapping, per kant",
+     "say": "Jij bent aan de beurt. De elleboog-knie-ontsnapping, zes keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk12-4": {
+    "title": "Guard en opstaan",
+    "say": "Heb je beide benen tussen jou en je tegenstander, dan zit je in de guard. Zet je voeten op zijn heupen en duw hem weg. Heb je ruimte, ga dan op je zij liggen en sta technisch op, zoals in de vorige les. Op de grond liggen betekent niet dat je verloren hebt, zolang je je benen maar tussen jullie in houdt.",
+    "cues": [
+     "Beide benen tussen jou en je tegenstander",
+     "Voeten duwen tegen de heupen, afstand maken",
+     "Technisch opstaan"
+    ],
+    "mistakes": [
+     "Je benen weghalen, zodat je tegenstander dichtbij kan komen",
+     "Opstaan voordat je afstand hebt"
+    ],
+    "drill": {
+     "label": "Guard – duwen – opstaan",
+     "say": "Jij bent aan de beurt. Guard, wegduwen en opstaan, zes keer. Ik tel voor je mee."
+    }
+   },
+   "tk12-5": {
+    "title": "Gecontroleerd zacht worstelen",
+    "say": "Nu gaan we twee minuten gecontroleerd zacht worstelen. De een begint onder, de ander boven. Wie onder ligt, heeft maar één taak: loskomen en opstaan. Wie boven ligt, houdt alleen vast, zonder armklemmen en zonder verwurgingen. Vijftig procent kracht. Twee keer tikken betekent meteen stoppen.",
+    "cues": [
+     "Onder: loskomen en opstaan",
+     "Boven: alleen vasthouden, geen klemmen, geen verwurgingen",
+     "50% kracht, twee keer tikken is stoppen"
+    ],
+    "mistakes": [
+     "Meteen vanaf het begin volle kracht zetten",
+     "Het stopsignaal niet respecteren"
+    ],
+    "drill": {
+     "label": "Rondes zacht worstelen",
+     "say": "Jij bent aan de beurt. Rondes zacht worstelen: twee rondes van zestig seconden, met dertig seconden rust ertussen."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat is de belangrijkste beweging op de grond?",
+    "a": [
+     "De garnaal",
+     "Stil blijven liggen",
+     "Omhoog stoten"
+    ],
+    "why": "Met de garnaal maak je ruimte om te ontsnappen."
+   },
+   {
+    "q": "Brug en rol: naar welke kant rol je?",
+    "a": [
+     "Naar de kant van de arm en het been die je hebt vastgezet",
+     "Maakt niet uit"
+    ],
+    "why": "Je tegenstander kan zich niet opvangen met een arm en een been die vastzitten."
+   },
+   {
+    "q": "Ligt er iemand op je, moet je dan met gestrekte armen tegen zijn borst duwen?",
+    "a": [
+     "Ja",
+     "Nee, dan loop je snel in een armklem"
+    ],
+    "why": "Houd je ellebogen dicht bij je lichaam."
+   },
+   {
+    "q": "Wat mag degene die boven ligt bij zacht worstelen?",
+    "a": [
+     "Armklemmen en verwurgingen",
+     "Alleen vasthouden, geen klemmen, geen verwurgingen"
+    ],
+    "why": "Train veilig en gecontroleerd."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Tegenover iemand met een mes",
+  "sub": "Gouden regels, obstakels, dekking, de arm controleren, ontsnappen – rubberen mes",
+  "intro": "Luister goed naar het belangrijkste van vandaag: een mes is heel gevaarlijk, ook voor wie al jaren vechtsport doet. Wil een overvaller alleen je spullen, geef ze dan. Spullen kun je opnieuw kopen, je leven niet. De volgende technieken zijn alleen voor als er geen andere keuze meer is.",
+  "safety": "Train alleen met een rubberen mes of een bot plastic mes. Train nooit met een echt mes.",
+  "outro": "Onthoud dit goed: wegrennen is winnen. Volgende les: kalm blijven als je met een vuurwapen wordt bedreigd.",
+  "home": "Huiswerk: één keer per week een situatie oefenen met een rubberen mes, langzaam en veilig, en altijd eindigen met wegrennen.",
+  "steps": {
+   "tk13-1": {
+    "title": "Gouden regels",
+    "say": "Drie gouden regels. Eén: eisen ze je spullen, geef ze meteen, gooi je portemonnee ver weg en ren de andere kant op. Twee: houd zoveel mogelijk afstand en zoek een uitweg. Drie: alleen als je wordt aangevallen en niet kunt wegrennen, gebruik je technieken. En onthoud: in het echt raakt bijna iedereen die het tegen een mes opneemt gewond. Wegrennen is winnen.",
+    "cues": [
+     "Spullen afgeven, ver weggooien, rennen",
+     "Afstand houden, een uitweg zoeken",
+     "Technieken zijn het allerlaatste redmiddel"
+    ],
+    "mistakes": [
+     "Proberen je spullen te houden",
+     "Vol zelfvertrouwen op iemand met een mes af gaan"
+    ],
+    "drill": {
+     "label": "Portemonnee gooien – rennen (situatie)",
+     "say": "Jij bent aan de beurt. Oefen de situatie: portemonnee weggooien en rennen, drie keer. Ik tel voor je mee."
+    }
+   },
+   "tk13-2": {
+    "title": "Een obstakel als schild",
+    "say": "Alles wat je in je handen hebt, kan een schild zijn: een rugzak, een jas om je arm gewikkeld, een stoel, een tas. Houd het obstakel tussen jou en de punt van het mes, houd het met beide handen stevig vast, en ga achteruit richting de uitgang. Het obstakel houdt het mes weg van je lichaam en geeft je tijd om weg te rennen.",
+    "cues": [
+     "Rugzak, jas of stoel als schild",
+     "Het obstakel tussen jou en het mes houden",
+     "Achteruit richting de uitgang"
+    ],
+    "mistakes": [
+     "Het obstakel weggooien om met blote handen te vechten",
+     "Achteruit een hoek in gaan"
+    ],
+    "drill": {
+     "label": "Rugzak als schild, achteruit naar de uitgang",
+     "say": "Jij bent aan de beurt. Houd de rugzak als schild en ga achteruit naar de uitgang, dertig seconden lang. De klok telt af."
+    }
+   },
+   "tk13-3": {
+    "title": "Dekking en houding",
+    "say": "Heb je geen obstakel, houd dan beide armen voor je gezicht, de binnenkant van je onderarmen naar jezelf gedraaid, ellebogen tegen je flanken, licht voorovergebogen, kin omlaag. Je staat schuin om een zo klein mogelijk doelwit te zijn. Je kijkt naar de hand met het mes, niet naar het gezicht van je tegenstander.",
+    "cues": [
+     "Onderarmen voor het gezicht, binnenkant naar jezelf",
+     "Schuin staan, licht gebogen, kin omlaag",
+     "Kijk naar de hand met het mes"
+    ],
+    "mistakes": [
+     "Je handpalmen gebruiken om af te weren",
+     "Naar het gezicht kijken in plaats van naar de hand"
+    ],
+    "drill": {
+     "label": "De dekkingshouding innemen",
+     "say": "Jij bent aan de beurt. Neem de dekkingshouding aan, tien keer. Ik tel voor je mee."
+    }
+   },
+   "tk13-4": {
+    "title": "Blokkeren en de arm controleren",
+    "say": "Wordt er naar je gestoken en kun je niet uitwijken, blokkeer dan de arm met het mes met allebei je onderarmen, en stap tegelijk schuin naar buiten. Klem die arm meteen met beide handen stevig tegen je lichaam, controleer de pols, en houd het lemmet van je af gericht. Jouw twee handen tegen één hand van hem. Oefen heel langzaam met een rubberen mes.",
+    "cues": [
+     "Blokkeren met twee onderarmen + schuin stappen",
+     "De arm met het mes stevig vastklemmen",
+     "Twee handen controleren de pols, het mes wijst van je af"
+    ],
+    "mistakes": [
+     "Maar één hand gebruiken",
+     "De arm halverwege loslaten"
+    ],
+    "drill": {
+     "label": "Blokkeren – controleren (langzaam), per kant",
+     "say": "Jij bent aan de beurt. Blokkeren en controleren, langzaam, acht keer per kant. Ik tel voor je mee."
+    }
+   },
+   "tk13-5": {
+    "title": "Loskomen en rennen",
+    "say": "Heb je de arm onder controle, probeer het mes dan niet af te pakken. Trap laag op de knie, zoals in les negen, duw je tegenstander krachtig weg, en ren dan naar een plek met veel mensen, roep om hulp en bel de politie. Controleer daarna je lichaam: wie door een mes gewond raakt, voelt dat vaak niet meteen.",
+    "cues": [
+     "Niet proberen het mes af te pakken",
+     "Laag trappen, wegduwen, rennen",
+     "Om hulp roepen, de politie bellen, op wonden controleren"
+    ],
+    "mistakes": [
+     "Proberen het mes af te pakken",
+     "Je tegenstander achternagaan"
+    ],
+    "drill": {
+     "label": "Controleren – duwen – rennen (langzaam)",
+     "say": "Jij bent aan de beurt. Controleren, wegduwen en rennen, langzaam, vijf keer. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Iemand met een mes eist je portemonnee. Wat doe je?",
+    "a": [
+     "Vechten om je portemonnee te houden",
+     "Portemonnee afgeven, ver weggooien, rennen"
+    ],
+    "why": "Spullen kun je opnieuw kopen, je leven niet."
+   },
+   {
+    "q": "Wat kun je als schild gebruiken?",
+    "a": [
+     "Een rugzak, een jas, een stoel",
+     "Niets"
+    ],
+    "why": "Een obstakel houdt het mes weg van je lichaam."
+   },
+   {
+    "q": "Waar kijk je naar als je tegenover een mes staat?",
+    "a": [
+     "Het gezicht van je tegenstander",
+     "De hand met het mes"
+    ],
+    "why": "Het gevaar zit in de hand die het mes vasthoudt."
+   },
+   {
+    "q": "Wat doe je als je de arm met het mes onder controle hebt?",
+    "a": [
+     "Proberen het mes af te pakken",
+     "Wegduwen, rennen, om hulp roepen"
+    ],
+    "why": "Het doel is veilig ontsnappen, niet het wapen afpakken."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Bedreigd met een vuurwapen",
+  "sub": "Kalm blijven, meewerken, observeren, dekking, ontsnappen – plastic oefenwapen",
+  "intro": "Deze les gaat meer over kalmte dan over technieken. Sta je tegenover een vuurwapen, dan hangt je leven af van een koel hoofd. We gebruiken een oranje plastic wapen, alleen bedoeld om mee te oefenen.",
+  "safety": "Gebruik alleen een oranje plastic oefenwapen. Geen echt wapen, geen luchtbuks en niets wat echt lijkt.",
+  "outro": "Een koel hoofd is je sterkste wapen. De laatste les van de route: alles samen en reflexen.",
+  "home": "Huiswerk: elke dag drie minuten vierkantsademhaling, en oefen het onthoudspel als je buiten bent.",
+  "steps": {
+   "tk14-1": {
+    "title": "Ademen en kalm blijven",
+    "say": "Wordt er een vuurwapen op je gericht, dan gaat je hart heel snel kloppen. Gebruik de vierkantsademhaling: vier seconden inademen, vier seconden vasthouden, vier seconden uitademen, vier seconden vasthouden. Na één of twee ademhalingen wordt je hoofd al helderder. Wie kalm is, ziet een uitweg. Wie in paniek is, niet.",
+    "cues": [
+     "In 4 – vast 4 – uit 4 – vast 4",
+     "Eén of twee ademhalingen is genoeg",
+     "Alleen kalm zie je een uitweg"
+    ],
+    "mistakes": [
+     "Gejaagd ademen",
+     "Plotselinge bewegingen maken"
+    ],
+    "drill": {
+     "label": "Vierkantsademhaling in 4 tellen",
+     "say": "Jij bent aan de beurt. Vierkantsademhaling in vier tellen, vierenzestig seconden lang. De klok telt af."
+    }
+   },
+   "tk14-2": {
+    "title": "Meewerken en je handen laten zien",
+    "say": "Eisen ze je spullen, werk dan mee. Houd je open handen op schouderhoogte en zeg langzaam en duidelijk: oké, ik geef het je. Zeg vooraf wat je gaat doen: ik pak mijn portemonnee uit mijn rechterzak. Leg je spullen neer of gooi ze ver weg. Staar niet naar hun gezicht en ga niet in discussie.",
+    "cues": [
+     "Handen open, op schouderhoogte",
+     "Langzaam praten, elke beweging vooraf aankondigen",
+     "Spullen afgeven, geen discussie"
+    ],
+    "mistakes": [
+     "Onverwacht in je zak grijpen",
+     "In discussie gaan, terug dreigen"
+    ],
+    "drill": {
+     "label": "Situatie: meewerken",
+     "say": "Jij bent aan de beurt. Oefen de situatie meewerken, drie keer. Ik tel voor je mee."
+    }
+   },
+   "tk14-3": {
+    "title": "Zichtdekking en dekking",
+    "say": "Maak onderscheid tussen twee dingen. Zichtdekking verbergt je alleen voor de ogen, zoals een struik of een gordijn. Dekking houdt kogels tegen, zoals een betonnen muur, een pilaar of het motorblok van een auto. Krijg je de kans om te rennen, ren dan naar dekking, ren zigzag en niet in een rechte lijn, en blijf laag.",
+    "cues": [
+     "Zichtdekking ≠ dekking",
+     "Ren naar dekking",
+     "Zigzag rennen, laag blijven"
+    ],
+    "mistakes": [
+     "Je verstoppen achter een houten deur of een struik en denken dat je veilig bent",
+     "In een rechte lijn rennen"
+    ],
+    "drill": {
+     "label": "Zigzag naar dekking rennen",
+     "say": "Jij bent aan de beurt. Ren zigzag naar dekking, vijf keer. Ik tel voor je mee."
+    }
+   },
+   "tk14-4": {
+    "title": "Observeren en onthouden",
+    "say": "Terwijl je meewerkt, observeer je ongemerkt: lengte, kleding, stem, en de richting waarin ze weggaan. Zijn ze weg, blijf dan op een veilige plek, bel meteen de politie, en vertel alles wat je je herinnert. Ga ze nooit achterna.",
+    "cues": [
+     "Ongemerkt observeren: postuur, kleding, stem, richting",
+     "Op een veilige plek blijven",
+     "De politie bellen, niet achternagaan"
+    ],
+    "mistakes": [
+     "De overvaller achternagaan",
+     "Naar hun gezicht staren"
+    ],
+    "drill": {
+     "label": "Onthoudspel: iemand beschrijven",
+     "say": "Jij bent aan de beurt. Het onthoudspel: beschrijf iemand, dertig seconden lang. De klok telt af."
+    }
+   },
+   "tk14-5": {
+    "title": "Het allerlaatste redmiddel",
+    "say": "Alleen als je zeker weet dat ze zullen schieten, ook al werk je mee, denk je aan het allerlaatste redmiddel: de loop wegduwen van jou en van andere mensen, hem met twee handen stevig vasthouden, en dan proberen te ontsnappen. Dit is een techniek met een heel hoog risico, die je alleen persoonlijk leert bij een gecertificeerde coach, met een oefenwapen. In bijna alle situaties is meewerken en observeren de beste keuze om te overleven.",
+    "cues": [
+     "Alleen als je zeker weet dat er geschoten wordt",
+     "De loop wegduwen van mensen, met twee handen vasthouden",
+     "Persoonlijk leren bij een coach"
+    ],
+    "mistakes": [
+     "In actie komen terwijl ze alleen je spullen willen",
+     "Zelf oefenen met een video, zonder begeleiding"
+    ],
+    "drill": {
+     "label": "De principes herhalen",
+     "say": "Jij bent aan de beurt. Herhaal de principes, drie keer. Ik tel voor je mee."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Wat is vierkantsademhaling?",
+    "a": [
+     "In 4 – vast 4 – uit 4 – vast 4 seconden",
+     "Heel lang je adem inhouden"
+    ],
+    "why": "Een rustig ademritme verlaagt je hartslag en houdt je hoofd helder."
+   },
+   {
+    "q": "Iemand richt een vuurwapen op je en eist je spullen. Wat doe je?",
+    "a": [
+     "Terugvechten",
+     "Meewerken, je bewegingen aankondigen, je spullen afgeven"
+    ],
+    "why": "Spullen zijn niet zoveel waard als je leven."
+   },
+   {
+    "q": "Wat is dekking, dus iets wat kogels tegenhoudt?",
+    "a": [
+     "Een struik",
+     "Een betonnen muur, een pilaar"
+    ],
+    "why": "Een struik geeft alleen zichtdekking en houdt geen kogels tegen."
+   },
+   {
+    "q": "De overvaller is weggegaan. Wat doe je?",
+    "a": [
+     "Hem achternagaan",
+     "Op een veilige plek blijven en de politie bellen"
+    ],
+    "why": "Ga nooit iemand achterna die een wapen heeft."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Alles samen & reflexen",
+  "sub": "Doorlopende situaties, gecontroleerd sparren, stretchen en herstel",
+  "intro": "De laatste les. We maken van alles wat je hebt geleerd een reflex. Als het echt gebeurt, heb je geen tijd om na te denken. Je lichaam moet vanzelf weten wat het moet doen.",
+  "safety": "Draag handschoenen, en een gebitsbeschermer als je die hebt. Spar op dertig tot vijftig procent kracht, met een instructeur die toekijkt.",
+  "outro": "Gefeliciteerd, strijder! Je hebt de hele route Zelfverdediging op korte afstand afgerond, zowel de basis als het gevorderde deel. Doe nu het eindexamen van de route en verdien de badge Stalen Wolf.",
+  "home": "Huiswerk: drie keer per week de hele route herhalen, elke keer dertig minuten, en altijd opwarmen en stretchen.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflexen met bewegende pads",
+    "say": "Je partner houdt twee pads vast, beweegt om je heen, en houdt ze onverwacht op verschillende plekken omhoog. Een pad op gezichtshoogte: rechte stoot. Een lage pad: duwtrap. Een pad die naar je hoofd zwaait: hoge dekking. Reageer meteen, zonder na te denken.",
+    "cues": [
+     "Pad op gezichtshoogte → rechte stoot",
+     "Lage pad → duwtrap",
+     "Pad zwaait aan → hoge dekking"
+    ],
+    "mistakes": [
+     "Stilstaan en afwachten, zonder te bewegen",
+     "Je handen laten zakken na elke techniek"
+    ],
+    "drill": {
+     "label": "Reflexrondes",
+     "say": "Jij bent aan de beurt. Reflexrondes: drie rondes van vijfenveertig seconden, met twintig seconden rust ertussen."
+    }
+   },
+   "tk15-2": {
+    "title": "Situatie: een polsgreep",
+    "say": "Situatie één. Je partner pakt onverwacht je pols en trekt. Je reflex: zwaartepunt omlaag, loskomen in de richting van de duim, handenhek, ver terugstappen, en hard roepen: Stop! Draai je dan om en ren drie passen. Doe het vijf keer, en je partner pakt je elke keer op een andere manier vast.",
+    "cues": [
+     "Zwaartepunt omlaag, loskomen richting de duim",
+     "Handenhek, hard roepen",
+     "3 passen rennen"
+    ],
+    "mistakes": [
+     "Kracht tegen kracht zetten",
+     "Vergeten te roepen en te rennen"
+    ],
+    "drill": {
+     "label": "Situatie polsgreep",
+     "say": "Jij bent aan de beurt. De situatie polsgreep, vijf keer. Ik tel voor je mee."
+    }
+   },
+   "tk15-3": {
+    "title": "Situatie: omklemd van achteren",
+    "say": "Situatie twee. Je partner omklemt je van achteren. Je reflex: zwaartepunt omlaag, ellebogen naar buiten, zijwaarts stappen, losdraaien, een duwtrap tegen het schild dat een derde persoon vasthoudt, en dan rennen. Wissel na elke keer van rol. Vijf keer per persoon.",
+    "cues": [
+     "Zwaartepunt omlaag, ellebogen naar buiten",
+     "Zijwaarts stappen, losdraaien",
+     "Duwtrap, rennen"
+    ],
+    "mistakes": [
+     "Rechtop blijven staan",
+     "Draaien terwijl je zwaartepunt nog hoog is"
+    ],
+    "drill": {
+     "label": "Situatie omklemming van achteren",
+     "say": "Jij bent aan de beurt. De situatie omklemming van achteren, vijf keer. Ik tel voor je mee."
+    }
+   },
+   "tk15-4": {
+    "title": "Gecontroleerd sparren",
+    "say": "Spar licht, drie rondes van één minuut. Alleen rechte stoten op de handschoenen en de schouders, en heel lichte duwtrappen op de buik, met dertig procent kracht. Niet naar het gezicht, niet op zwakke plekken. Het doel is je ogen, je voetenwerk en je kalmte trainen terwijl iemand je echt aanvalt.",
+    "cues": [
+     "30% kracht, niet naar het gezicht",
+     "Ogen, voetenwerk en kalmte trainen",
+     "Handschoenen tegen elkaar als groet, ervoor en erna"
+    ],
+    "mistakes": [
+     "Harder gaan slaan als je geraakt wordt",
+     "Je ogen sluiten als je wordt aangevallen"
+    ],
+    "drill": {
+     "label": "Sparrondes",
+     "say": "Jij bent aan de beurt. Sparrondes: drie rondes van zestig seconden, met dertig seconden rust ertussen."
+    }
+   },
+   "tk15-5": {
+    "title": "Stretchen en herstel",
+    "say": "Stretch na een zware training tien minuten. Rek de voorkant en de achterkant van je dijen, je heupen, je schouders en je rug, elke houding dertig seconden, en adem uit terwijl je dieper gaat. Drink water, eet genoeg en slaap genoeg. Je spieren groeien als je rust, niet als je traint.",
+    "cues": [
+     "Elke houding 30 seconden",
+     "Uitademen als je dieper gaat",
+     "Water drinken, genoeg eten, genoeg slapen"
+    ],
+    "mistakes": [
+     "Verend stretchen met schokjes",
+     "Het herstel overslaan"
+    ],
+    "drill": {
+     "label": "Stretchen voor herstel",
+     "say": "Jij bent aan de beurt. Stretchen voor herstel, honderdtwintig seconden lang. De klok telt af."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Je partner houdt een pad laag, op buikhoogte. Wat is je reflex?",
+    "a": [
+     "Duwtrap",
+     "Hoge dekking"
+    ],
+    "why": "Een laag doel is voor de duwtrap."
+   },
+   {
+    "q": "Hoeveel kracht gebruik je bij gecontroleerd sparren?",
+    "a": [
+     "Ongeveer 30%",
+     "Volle kracht"
+    ],
+    "why": "Je traint je vaardigheden veilig, je vecht niet echt."
+   },
+   {
+    "q": "Hoe eindigt elke zelfverdedigingssituatie altijd?",
+    "a": [
+     "Blijven staan en doorvechten",
+     "Hard roepen, afstand maken en rennen"
+    ],
+    "why": "Het doel van zelfverdediging is veiligheid."
+   },
+   {
+    "q": "Wanneer groeien je spieren?",
+    "a": [
+     "Als je rust, genoeg eet en slaapt",
+     "Alleen tijdens het trainen"
+    ],
+    "why": "Herstel is een deel van de training."
+   }
+  ]
+ }
+}

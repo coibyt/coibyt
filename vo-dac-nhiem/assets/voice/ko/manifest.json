@@ -1,4 +1,12 @@
 {
+"auto_off": {
+"d": 4545,
+"f": "auto_off-e879e109.mp3"
+},
+"auto_on": {
+"d": 3761,
+"f": "auto_on-527018cf.mp3"
+},
 "badge": {
 "d": 1854,
 "f": "badge-85c6745d.mp3"
@@ -195,6 +203,10 @@
 "d": 4728,
 "f": "plan_done-c0b982c0.mp3"
 },
+"prac-tk1-1": {
+"d": 6739,
+"f": "prac-tk1-1-f3e5c03a.mp3"
+},
 "practice_intro": {
 "d": 3448,
 "f": "practice_intro-87a64edf.mp3"
@@ -238,6 +250,26 @@
 "right_4": {
 "d": 2324,
 "f": "right_4-fb5357e1.mp3"
+},
+"tk1-1": {
+"d": 23928,
+"f": "tk1-1-26392b56.mp3"
+},
+"tk1-2": {
+"d": 23745,
+"f": "tk1-2-34580ae7.mp3"
+},
+"tk1-home": {
+"d": 6373,
+"f": "tk1-home-08422f0e.mp3"
+},
+"tk1-intro": {
+"d": 11389,
+"f": "tk1-intro-bf282835.mp3"
+},
+"tk1-outro": {
+"d": 7993,
+"f": "tk1-outro-7eabf5ac.mp3"
 },
 "track_ban-sung": {
 "d": 5041,

@@ -26,7 +26,9 @@ async function boot() {
   const get = (u) => fetch(u).then((r) => { if (!r.ok) throw new Error(u); return r.json(); });
   const tr8 = (f) => (lang === "vi" ? Promise.resolve(null) : get(`content/i18n/${lang}/${f}`).catch(() => null));
   const [manifest, linesVi, cat, oLines, oTracks, oLessons, oForce] = await Promise.all([
-    get(`assets/voice/${lang}/manifest.json`).catch(() => ({})),
+    // chỉ dùng giọng thu sẵn khi ngôn ngữ đã thu ĐỦ (assets/voice/index.json); thu dở thì dùng trọn giọng của máy, không trộn hai giọng
+    fetch("assets/voice/index.json").then((r) => r.json()).catch(() => ["vi"])
+      .then((full) => (full.includes(lang) ? get(`assets/voice/${lang}/manifest.json`) : {})).catch(() => ({})),
     get("content/lines-vi.json"),
     get("content/tracks-vi.json"),
     tr8("lines.json"), tr8("tracks.json"), tr8("lessons.json"), tr8("force.json"),

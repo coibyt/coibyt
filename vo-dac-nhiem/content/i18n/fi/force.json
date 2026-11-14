@@ -1,0 +1,65 @@
+{
+ "tk2-3-fw": [
+  "① ETUjalka astuu ensin",
+  "② TAKAjalka liukuu perään"
+ ],
+ "tk2-3-bw": [
+  "① Taakse: TAKAjalka ensin",
+  "② ETUjalka vetäytyy perään"
+ ],
+ "tk4-3": [
+  "Tuleva lyönti",
+  "Ohjaa sivuun"
+ ],
+ "tk4-5": [
+  "Hyökkäys tulee",
+  "Viistoaskel 45° ulos"
+ ],
+ "tk5-2": [
+  "Suora – lyhin reitti",
+  "Takaisin samaa reittiä"
+ ],
+ "tk5-3": [
+  "Lantion kierto",
+  "Takakäden suora",
+  "Takajalan päkiä kääntyy"
+ ],
+ "tk5-5": [
+  "① Polvi ylös",
+  "② Kantapää eteen, lantio työntää"
+ ],
+ "tk6-2": [
+  "Peukalon välistä olkaa kohti"
+ ],
+ "tk7-5": [
+  "① Kädet suoraan ylös",
+  "② Kierto, paino käsien yli"
+ ],
+ "tk8-1": [
+  "Työntö – kohtisuoraan tukeen",
+  "Veto"
+ ],
+ "tk8-3": [
+  "Pyyhkäisy pohkeesta takaa",
+  "Ylävartalo taakse"
+ ],
+ "tk8-4": [
+  "Jalka nilkan eteen esteeksi",
+  "Veto kaarena alas"
+ ],
+ "tk9-4": [
+  "Matala kantapotku polveen",
+  "Matala kantapotku polveen"
+ ],
+ "tk10-1": [
+  "Vaakasuora kyynärpää",
+  "Vaakasuora kyynärpää"
+ ],
+ "tk11-1": [
+  "Jalat ponnistavat taakse",
+  "Lantio painaa alas"
+ ],
+ "tk12-2": [
+  "Lantiosilta, kierto olan yli"
+ ]
+}

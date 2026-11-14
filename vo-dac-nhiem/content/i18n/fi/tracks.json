@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Lähitaistelu ja itsepuolustus",
+  "sub": "Systeman ja Sambo-painin innoittama: hengitys, jalkatyö, turvallinen kaatuminen, suojaus, perusiskut, vapautumiset ja heitot."
+ },
+ "ngu-trang": {
+  "title": "Naamiointi ja piiloutuminen",
+  "sub": "Ghillie-puku, kasvomaali, piiloutuminen, äänetön liikkuminen, jälkien peittäminen ja huomaamaton lähestyminen.",
+  "preview": [
+   "Neljä paljastavaa tekijää: muoto, varjo, valo, liike",
+   "Naamiointimaali kasvoihin",
+   "Tee oma ghillie-puku",
+   "Piilopaikan valinta",
+   "Matala ryömintä, korkea ryömintä, ketunaskel",
+   "Äänetön liikkuminen",
+   "Jälkien peittäminen",
+   "Tarkkailu huomaamatta"
+  ]
+ },
+ "ban-sung": {
+  "title": "Urheiluammunta",
+  "sub": "Neljä turvasääntöä, harjoitusaseen oikea ote, pysty-, polvi- ja makuuasento, tähtäys ja hengitys, ammunnan historiaa.",
+  "preview": [
+   "Neljä turvasääntöä",
+   "Harjoitusaseen oikea ote",
+   "Pysty-, polvi- ja makuuasento",
+   "Tähtäyslinja ja hengitys",
+   "Tasainen liipaisu",
+   "Urheiluammunnan historia"
+  ]
+ },
+ "dong-doi": {
+  "title": "Ryhmätyö",
+  "sub": "Käsimerkit, lyhyt ja selkeä viestintä, liikkumismuodostelmat ja toisten tukeminen airsoftissa ja paintballissa.",
+  "preview": [
+   "Peruskäsimerkit",
+   "Lyhyt viestintä radiopuhelimella",
+   "Liikkumismuodostelmat",
+   "Sektoritarkkailu",
+   "Ryhmätyöpelit"
+  ]
+ },
+ "the-luc": {
+  "title": "Kunto ja selviytyminen",
+  "sub": "Marssi kantamuksen kanssa, turvallinen uinti, väsymyksen hallinta, veden, ruoan, tulen ja suojan löytäminen metsässä, aavikolla ja merellä.",
+  "preview": [
+   "Voimaa omalla kehonpainolla",
+   "Turvallinen marssi kantamuksen kanssa",
+   "Puuseinän ylitys, köysikiipeily",
+   "Turvallinen uinti ja kellunta",
+   "Väsymyksen ja univajeen hallinta",
+   "Veden etsiminen ja suodatus",
+   "Tuli ja suoja",
+   "Selviytyminen metsässä, aavikolla ja merellä"
+  ]
+ },
+ "so-cuu": {
+  "title": "Taistelukentän ensiapu",
+  "sub": "Verenvuodon tyrehdyttäminen, kiristysside, painesidos, sokin hoito, elvytys ja ensiapu vähin välinein.",
+  "preview": [
+   "Tapahtumapaikan turvallisuuden arviointi",
+   "Suora painanta verenvuotoon",
+   "Kiristyssiteen oikea asettaminen",
+   "Haavan tamponointi ja painesidos",
+   "Hengitystien avaaminen, kylkiasento",
+   "Sokin ja alilämpöisyyden ehkäisy",
+   "Painelu-puhalluselvytys (PPE)",
+   "Ensiapu vähin välinein"
+  ]
+ },
+ "tam-ly": {
+  "title": "Henkinen vahvuus",
+  "sub": "Rauhallisuus vaaratilanteessa, paniikkia ehkäisevä hengitys, pelon hallinta, havainnointi ja muisti.",
+  "preview": [
+   "Laatikkohengitys paniikkia vastaan",
+   "Pelon hallinta",
+   "Myönteinen sisäinen puhe",
+   "Havainnointi ja muistaminen (Kimin peli)",
+   "Päätöksenteko paineen alla"
+  ]
+ }
+}

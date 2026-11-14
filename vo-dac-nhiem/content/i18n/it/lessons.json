@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Riscaldamento e respiro",
+  "sub": "Rotazioni articolari, riscaldamento, respiro col passo, respiro di scarico, tensione e rilassamento",
+  "intro": "Prima lezione. Ancora nessuna tecnica. Un buon guerriero parte da articolazioni calde e da un respiro calmo. Segui me, passo dopo passo.",
+  "safety": "Riscaldati prima di ogni allenamento. Se senti una fitta a un'articolazione, fermati subito.",
+  "outro": "Molto bene. Le articolazioni sono calde, il respiro ha preso il ritmo. La prossima volta impariamo la guardia e il lavoro di gambe.",
+  "home": "Compiti a casa: ogni mattina, dieci minuti di riscaldamento e di respiro col passo, per sette giorni di fila.",
+  "steps": {
+   "tk1-1": {
+    "title": "Rotazioni articolari dall'alto in basso",
+    "say": "Stai dritto, piedi alla larghezza delle spalle. Ruota il collo molto lentamente, cinque giri per lato. Poi ruota le spalle, i gomiti e i polsi. Poi le anche, le ginocchia e le caviglie. Procedi dall'alto verso il basso, con movimenti rotondi e morbidi, senza strappi. Solo con le articolazioni calde il corpo è al sicuro quando cadi e quando colpisci.",
+    "cues": [
+     "Dall'alto in basso: collo → spalle → gomiti → polsi → anche → ginocchia → caviglie",
+     "Ogni articolazione: 5 giri per lato",
+     "Lento, rotondo, senza strappi"
+    ],
+    "mistakes": [
+     "Ruotare il collo troppo in fretta, piegare la testa troppo indietro",
+     "Trattenere il respiro durante le rotazioni"
+    ],
+    "drill": {
+     "label": "Rotazioni articolari",
+     "say": "Tocca a te. Rotazioni articolari per novanta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk1-2": {
+    "title": "Riscaldare il corpo",
+    "say": "Corri sul posto a ginocchia alte per trenta secondi. Poi dieci squat: scendi con le anche come se ti sedessi su una sedia, schiena dritta, ginocchia nella direzione delle punte dei piedi. Poi dieci piegamenti. Se non sei ancora abituato, appoggia le ginocchia. L'obiettivo è scaldare il corpo e respirare un po' più in fretta, non allenarsi fino allo sfinimento.",
+    "cues": [
+     "30 secondi di corsa a ginocchia alte",
+     "10 squat: schiena dritta, ginocchia sulle punte",
+     "10 piegamenti (anche sulle ginocchia)"
+    ],
+    "mistakes": [
+     "Ginocchia che cedono verso l'interno nello squat",
+     "Schiena inarcata nei piegamenti"
+    ],
+    "drill": {
+     "label": "Squat",
+     "say": "Tocca a te. Squat: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk1-3": {
+    "title": "Respiro guidato dal passo",
+    "say": "Questo è un esercizio di respiro tipico dei sistemi di combattimento russi. Cammina con passo regolare. Inspira dal naso per quattro passi, espira dalla bocca per quattro passi. Dopo un minuto, scendi a tre passi, poi a due, poi a uno. Poi risali fino a quattro passi. Ricorda bene: è il respiro che guida il movimento. Non trattenere mai il respiro.",
+    "cues": [
+     "Inspira dal naso 4 passi, espira dalla bocca 4 passi",
+     "Scendi 4 → 3 → 2 → 1, poi risali",
+     "Spalle rilassate, non trattenere il respiro"
+    ],
+    "mistakes": [
+     "Trattenere il respiro quando cambi ritmo",
+     "Alzare le spalle quando inspiri"
+    ],
+    "drill": {
+     "label": "Camminata col respiro",
+     "say": "Tocca a te. Cammina respirando al ritmo dei passi per centoventi secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk1-4": {
+    "title": "Respiro di scarico sotto sforzo",
+    "say": "Quando sei stanco o teso, respira in modo breve e rapido: inspira dal naso, espira con forza dalla bocca, più volte di seguito, come per spegnere una candela. Provalo subito: tieni la posizione alta del piegamento per venti secondi e respira così senza fermarti. Sentirai i muscoli meno rigidi e la mente più lucida.",
+    "cues": [
+     "Inspira breve dal naso, soffia forte dalla bocca",
+     "Di continuo, come per spegnere una candela",
+     "Tieni il plank alto 20 secondi mentre respiri"
+    ],
+    "mistakes": [
+     "Respirare così in fretta da avere le vertigini: rallenta",
+     "Anche che cedono verso il basso nel plank"
+    ],
+    "drill": {
+     "label": "Plank alto + respiro di scarico",
+     "say": "Tocca a te. Plank alto con respiro di scarico per venti secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk1-5": {
+    "title": "Tensione e rilassamento di tutto il corpo",
+    "say": "Sdraiati sulla schiena sul tappetino. Inspira e contrai forte i piedi per tre secondi, poi espira e rilassa del tutto. Sali poi ai polpacci, alle cosce, alla pancia, ai pugni, alle spalle e infine al viso. Alla fine contrai tutto il corpo una volta e lascia andare. Chi sa rilassarsi assorbe meglio i colpi, si muove più veloce e si fa male di meno.",
+    "cues": [
+     "Inspira: contrai per 3 secondi",
+     "Espira: rilassa del tutto",
+     "Dai piedi fino al viso"
+    ],
+    "mistakes": [
+     "Contrarre così forte da avere un crampo",
+     "Dimenticare di espirare quando rilassi"
+    ],
+    "drill": {
+     "label": "Tensione e rilassamento",
+     "say": "Tocca a te. Tensione e rilassamento per sessanta secondi. Il timer fa il conto alla rovescia."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "In che ordine si fanno le rotazioni articolari?",
+    "a": [
+     "Dall'alto in basso: collo, spalle… fino alle caviglie",
+     "A caso, un'articolazione vale l'altra",
+     "Basta ruotare le caviglie"
+    ],
+    "why": "Andare dall'alto in basso aiuta a non saltare nessuna articolazione."
+   },
+   {
+    "q": "Nel respiro guidato dal passo, da dove inspiri?",
+    "a": [
+     "Dalla bocca",
+     "Dal naso",
+     "Trattieni il fiato e poi inspiri"
+    ],
+    "why": "Inspiri dal naso ed espiri dalla bocca, al ritmo dei passi."
+   },
+   {
+    "q": "Quando si usa il respiro di scarico?",
+    "a": [
+     "Quando sei stanco o teso",
+     "Solo quando dormi",
+     "Mai"
+    ],
+    "why": "Un respiro breve e forte riduce la tensione muscolare e ti tiene lucido sotto sforzo."
+   },
+   {
+    "q": "Perché bisogna sapersi rilassare?",
+    "a": [
+     "Per sembrare più belli",
+     "Si assorbono meglio i colpi, ci si muove più veloci, ci si fa male di meno",
+     "Per non doversi riscaldare"
+    ],
+    "why": "Un muscolo rigido reagisce più lentamente e si infortuna più facilmente."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Guardia e lavoro di gambe",
+  "sub": "Barriera con le mani, guardia, passo scivolato, perno",
+  "intro": "Le gambe decidono tutto. Solo se stai saldo puoi difenderti, colpire e fuggire. Oggi costruiamo le fondamenta.",
+  "safety": "Allenati su un fondo piano e non scivoloso. Passi brevi e sicuri.",
+  "outro": "Le fondamenta ci sono. Gambe salde sono metà del combattimento. Prossima lezione: imparare a cadere in sicurezza.",
+  "home": "Compiti a casa: ogni giorno dieci minuti di guardia e spostamenti, in tre round, per sette giorni.",
+  "steps": {
+   "tk2-1": {
+    "title": "Posizione di allerta: la barriera con le mani",
+    "say": "Quando qualcuno si avvicina con fare aggressivo, non chiudere subito i pugni. Mettiti un po' di sbieco, con la gamba forte arretrata di mezzo passo. Mani aperte davanti al petto, palmi in avanti, come a dire: calma. Le mani sono una barriera che tiene la distanza. Non sembri aggressivo, ma in realtà sei già pronto.",
+    "cues": [
+     "Di sbieco, gamba forte indietro di mezzo passo",
+     "Mani aperte davanti al petto",
+     "Tieni la distanza, voce calma"
+    ],
+    "mistakes": [
+     "Chiudere subito i pugni: il conflitto si inasprisce",
+     "Stare frontale, con i piedi paralleli"
+    ],
+    "drill": {
+     "label": "In barriera",
+     "say": "Tocca a te. Mettiti in barriera: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk2-2": {
+    "title": "Guardia di combattimento",
+    "say": "Se sei destrimane: piede sinistro avanti, piede destro dietro. I piedi un po' più larghi delle spalle, la punta del piede anteriore leggermente verso l'interno, il tallone posteriore un po' sollevato. Ginocchia morbide, peso diviso tra le due gambe. Mani alte davanti al viso, gomiti stretti a coprire i fianchi, mento basso, sguardo sopra i pugni. Se sei mancino, fai il contrario.",
+    "cues": [
+     "Piede sinistro avanti (destrimani)",
+     "Ginocchia morbide, tallone posteriore sollevato",
+     "Mani a coprire il viso, gomiti sui fianchi, mento basso"
+    ],
+    "mistakes": [
+     "Piedi sulla stessa linea: perdi facilmente l'equilibrio",
+     "Mento alto, mani basse"
+    ],
+    "drill": {
+     "label": "In guardia",
+     "say": "Tocca a te. Mettiti in guardia: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk2-3": {
+    "title": "Passo scivolato avanti e indietro",
+    "say": "Per avanzare: il piede anteriore fa per primo un passo corto, il piede posteriore scivola della stessa distanza. Per arretrare: il piede posteriore arretra per primo, il piede anteriore lo segue. I piedi scivolano rasoterra, senza saltare. Non incrociare né avvicinare mai i piedi. Dopo ogni passo, sei di nuovo nella stessa guardia di prima.",
+    "cues": [
+     "Avanti: parte il piede anteriore",
+     "Indietro: parte il piede posteriore",
+     "Distanza tra i piedi invariata"
+    ],
+    "mistakes": [
+     "Incrociare i piedi",
+     "Saltare invece di scivolare"
+    ],
+    "drill": {
+     "label": "Passi avanti e indietro",
+     "say": "Tocca a te. Passi avanti e indietro: venti volte. Ti do io il ritmo."
+    }
+   },
+   "tk2-4": {
+    "title": "Passo laterale",
+    "say": "Verso sinistra parte il piede sinistro, verso destra parte il piede destro, l'altro piede scivola dietro. Tieni invariata la distanza tra i piedi e le mani a coprire il viso. Sul fango scivoloso, più il passo è corto, più è sicuro.",
+    "cues": [
+     "A sinistra: parte il piede sinistro",
+     "A destra: parte il piede destro",
+     "Passi corti sul terreno scivoloso"
+    ],
+    "mistakes": [
+     "Il piede posteriore scavalca quello anteriore",
+     "Abbassare le mani mentre ti muovi"
+    ],
+    "drill": {
+     "label": "Passo laterale",
+     "say": "Tocca a te. Passo laterale: venti volte. Ti do io il ritmo."
+    }
+   },
+   "tk2-5": {
+    "title": "Perno per cambiare angolo",
+    "say": "Mettiti in guardia. Fai perno sull'avampiede anteriore e ruota il piede posteriore lungo un arco di un quarto di cerchio. Tutto il corpo cambia angolo di novanta gradi ed esce dalla linea d'attacco dell'avversario. Ruota dieci volte da un lato, poi cambia direzione.",
+    "cues": [
+     "Perno sull'avampiede anteriore",
+     "Il piede posteriore traccia un arco",
+     "Cambia angolo di 90°, mani in guardia"
+    ],
+    "mistakes": [
+     "Fare perno sul tallone",
+     "Raddrizzare il busto durante la rotazione"
+    ],
+    "drill": {
+     "label": "Perno per lato",
+     "say": "Tocca a te. Perno per ogni lato: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk2-6": {
+    "title": "Spostamenti a comando",
+    "say": "Ora muoviti seguendo i miei comandi per trenta secondi: avanti, indietro, sinistra, destra, ruota. Tieni le mani, il mento e un respiro regolare. Le gambe sono veloci, ma il busto resta sempre calmo.",
+    "cues": [
+     "Avanti, indietro, sinistra, destra, ruota",
+     "Mani e mento sempre al loro posto",
+     "Respiro regolare"
+    ],
+    "mistakes": [
+     "Guardarsi i piedi",
+     "Passi troppo lunghi"
+    ],
+    "drill": {
+     "label": "Gambe a comando",
+     "say": "Tocca a te. Muoviti seguendo i miei comandi per trenta secondi. Ascolta bene.",
+     "calls": [
+      "Avanti!",
+      "Indietro!",
+      "A sinistra!",
+      "A destra!",
+      "Ruota!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "A che cosa serve la barriera con le mani?",
+    "a": [
+     "A tenere la distanza senza sembrare aggressivo",
+     "A colpire subito l'avversario",
+     "Ad aspettare a braccia conserte"
+    ],
+    "why": "Le mani aperte tengono la distanza e calmano la situazione."
+   },
+   {
+    "q": "Per arretrare, quale piede parte per primo?",
+    "a": [
+     "Il piede anteriore",
+     "Il piede posteriore",
+     "Si salta con tutti e due"
+    ],
+    "why": "In qualsiasi direzione, parte per primo il piede più vicino a quella direzione."
+   },
+   {
+    "q": "Qual è l'errore più pericoloso negli spostamenti?",
+    "a": [
+     "Incrociare i piedi",
+     "Fare passi corti",
+     "Tenere le mani a coprire il viso"
+    ],
+    "why": "Con i piedi incrociati perdi l'equilibrio molto facilmente."
+   },
+   {
+    "q": "Nel perno, su quale parte del piede anteriore ruoti?",
+    "a": [
+     "Sul tallone",
+     "Sull'avampiede",
+     "Sul bordo esterno del piede"
+    ],
+    "why": "Ruotare sull'avampiede rende il perno leggero e veloce."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Cadute sicure",
+  "sub": "Principi della caduta, caduta all'indietro, caduta laterale, capriola in avanti",
+  "intro": "In questo campo tutti imparano a cadere prima di imparare a proiettare. Saper cadere è un'abilità che salva la vita, anche quando scivoli su una strada bagnata.",
+  "safety": "Allenati solo su materassini spessi. Mento sempre basso. Con un istruttore presente per le capriole.",
+  "outro": "Ora sai cadere. Da oggi il terreno non fa più paura. Prossima lezione: protezione e parate.",
+  "home": "Compiti a casa: ogni giorno dieci cadute all'indietro e dieci cadute laterali per lato su un materassino spesso, per una settimana.",
+  "steps": {
+   "tk3-1": {
+    "title": "Le tre regole d'oro",
+    "say": "Tre regole d'oro per cadere. Uno: il mento resta sempre stretto al petto, così la testa non sbatte mai a terra. Due: la schiena si arrotonda come una ruota, così rotoli invece di sbattere di piatto. Tre: il braccio batte sul tappeto insieme al corpo, per distribuire la forza dell'impatto. Allenati sempre su un materassino spesso. Mai, in nessun caso, su un fondo duro.",
+    "cues": [
+     "Mento stretto al petto",
+     "Schiena rotonda come una ruota",
+     "Il braccio batte il tappeto insieme al corpo"
+    ],
+    "mistakes": [
+     "Appoggiare la mano a braccio teso quando cadi: rischi di romperti il polso",
+     "Buttare la testa all'indietro"
+    ],
+    "drill": {
+     "label": "Schiena rotonda, mento basso",
+     "say": "Tocca a te. Schiena rotonda, mento basso: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk3-2": {
+    "title": "Caduta all'indietro da seduto",
+    "say": "Siediti sul tappeto, gambe tese in avanti, braccia in avanti. Mento basso, schiena arrotondata, rotola all'indietro. Quando la parte alta della schiena tocca il tappeto, distendi le braccia e batti con forza sul tappeto, a circa quarantacinque gradi dal corpo, palmi verso il basso. Espira quando tocchi il tappeto. Torna rotolando a sederti. Fallo dieci volte.",
+    "cues": [
+     "Seduto, braccia in avanti",
+     "Rotola indietro, mento basso",
+     "Batti le braccia a 45°, palmi in giù, espira"
+    ],
+    "mistakes": [
+     "Battere le braccia troppo lontane o troppo vicine al corpo",
+     "Battere il gomito invece di tutto il braccio"
+    ],
+    "drill": {
+     "label": "Caduta indietro da seduto",
+     "say": "Tocca a te. Caduta all'indietro da seduto: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk3-3": {
+    "title": "Caduta all'indietro da accosciato",
+    "say": "Accosciati, con le braccia in avanti. Abbassa il sedere sul tappeto, vicino ai talloni, poi rotola all'indietro come nell'esercizio prima e batti le braccia. Non lasciarti cadere di peso. Non sbattere la schiena dritta di piatto. Quando sei sicuro, alzati e riaccosciati di continuo, per andare sempre più veloce.",
+    "cues": [
+     "Sedere giù vicino ai talloni",
+     "Rotola, non sbattere di piatto",
+     "Batti le braccia, espira"
+    ],
+    "mistakes": [
+     "Lasciarsi cadere lontano dai talloni",
+     "La testa scatta indietro e tocca il tappeto"
+    ],
+    "drill": {
+     "label": "Caduta indietro da accosciato",
+     "say": "Tocca a te. Caduta all'indietro da accosciato: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk3-4": {
+    "title": "Caduta laterale",
+    "say": "Da accosciato, distendi la gamba destra in diagonale davanti alla sinistra e abbassati di lato verso destra. Prima l'anca destra, poi il lato destro della schiena toccano il tappeto, in quest'ordine, e il braccio destro batte sul tappeto. Mento basso, la testa non tocca il tappeto. Poi cambia lato. È la caduta più frequente quando vieni proiettato.",
+    "cues": [
+     "Distendi la gamba in diagonale davanti",
+     "Anca → schiena toccano il tappeto in ordine",
+     "Il braccio dello stesso lato batte il tappeto"
+    ],
+    "mistakes": [
+     "Appoggiarsi sul gomito",
+     "Sbattere la testa di lato sul tappeto"
+    ],
+    "drill": {
+     "label": "Caduta laterale per lato",
+     "say": "Tocca a te. Caduta laterale per ogni lato: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk3-5": {
+    "title": "Capriola in avanti sulla spalla",
+    "say": "Mettiti in ginocchio su un ginocchio, con il piede destro avanti. Curva il braccio destro ad arco come il cerchione di una ruota e appoggia il lato esterno del braccio sul tappeto. Guarda oltre la spalla sinistra. Rotola in diagonale dalla spalla destra all'anca sinistra. Non rotolare sulla sommità della testa, non rotolare dritto lungo la colonna. Finisci seduto in modo stabile o in piedi, con le mani alte a coprire il viso.",
+    "cues": [
+     "Il braccio forma un arco come una ruota",
+     "Rotola in diagonale: spalla destra → anca sinistra",
+     "Non rotolare sulla testa, rialzati coprendo il viso"
+    ],
+    "mistakes": [
+     "Rotolare dritto sulla sommità della testa: molto pericoloso per il collo",
+     "Il braccio si piega e la testa tocca il tappeto"
+    ],
+    "drill": {
+     "label": "Capriola per lato",
+     "say": "Tocca a te. Capriola in avanti per ogni lato: sei volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Quando cadi, come deve stare il mento?",
+    "a": [
+     "In alto",
+     "Stretto al petto",
+     "Girato di lato"
+    ],
+    "why": "Il mento basso impedisce alla testa di sbattere a terra."
+   },
+   {
+    "q": "A circa quanti gradi dal corpo batte il braccio sul tappeto?",
+    "a": [
+     "Circa 45°",
+     "Attaccato al corpo, 0°",
+     "Dritto verso il cielo"
+    ],
+    "why": "Circa quarantacinque gradi: distribuisci bene la forza senza sbattere il gomito."
+   },
+   {
+    "q": "Nella capriola in avanti, che traiettoria segui?",
+    "a": [
+     "Dritto sulla sommità della testa",
+     "In diagonale dalla spalla all'anca opposta",
+     "Rotolando di lato"
+    ],
+    "why": "Rotoli in diagonale sulla spalla per proteggere il collo e la colonna."
+   },
+   {
+    "q": "Dove ci si allena a cadere?",
+    "a": [
+     "Sul cemento, per abituarsi",
+     "Su un materassino spesso",
+     "Sulle scale"
+    ],
+    "why": "Allenati sempre su un materassino spesso: la sicurezza prima di tutto."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Protezione e parate",
+  "sub": "Guardia alta, copertura della testa, deviazione, parata con l'avambraccio, uscita d'angolo",
+  "intro": "Prima di imparare a colpire, devi imparare a non farti colpire. La difesa migliore è semplice, compatta, e va sempre insieme allo spostamento.",
+  "safety": "In coppia con i guantoni, il compagno colpisce piano, solo al venti per cento della forza.",
+  "outro": "Ora hai il tuo scudo. Nella prossima lezione impariamo i colpi base sui colpitori.",
+  "home": "Compiti a casa: ogni giorno cinque minuti di protezione davanti allo specchio, e due volte a settimana lavoro lento in coppia.",
+  "steps": {
+   "tk4-1": {
+    "title": "Guardia alta",
+    "say": "Dalla guardia, porta i pugni all'altezza della fronte, con gli avambracci verticali davanti al viso come due scudi. Gomiti stretti, mento basso, spalle alzate a coprire la mascella. È la protezione più solida quando i colpi arrivano troppo veloci e non fai in tempo a vederli.",
+    "cues": [
+     "Pugni all'altezza della fronte",
+     "Avambracci verticali come scudi",
+     "Mento basso, spalle a coprire la mascella"
+    ],
+    "mistakes": [
+     "Chiudere gli occhi mentre ti copri",
+     "Gomiti larghi che scoprono i fianchi"
+    ],
+    "drill": {
+     "label": "In guardia alta",
+     "say": "Tocca a te. Mettiti in guardia alta: quindici volte. Ti do io il ritmo."
+    }
+   },
+   "tk4-2": {
+    "title": "Copertura totale della testa",
+    "say": "Quando ti arrivano addosso molti colpi di seguito: le mani avvolgono la nuca, i gomiti si chiudono davanti al viso, piegati in avanti e fletti le ginocchia. La testa sta dentro la gabbia delle braccia. Ma non restare fermo a lungo in questa posizione. Copriti, poi esci subito dalla linea d'attacco.",
+    "cues": [
+     "Mani dietro la nuca",
+     "Gomiti chiusi davanti al viso",
+     "Copriti e muoviti subito"
+    ],
+    "mistakes": [
+     "Restare fermo a prendere colpi",
+     "Girare le spalle"
+    ],
+    "drill": {
+     "label": "Copertura e uscita laterale",
+     "say": "Tocca a te. Copri la testa ed esci di lato: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk4-3": {
+    "title": "Deviazione",
+    "say": "Quando un pugno dritto arriva verso il viso, non bloccarlo di forza. Con il palmo, spingi leggermente di lato il polso o il pugno dell'avversario, quanto basta perché ti scivoli accanto al viso. Il movimento è piccolo e corto, e la mano torna subito in guardia.",
+    "cues": [
+     "Devia con il palmo",
+     "Quanto basta a spostare il colpo",
+     "Torna subito in guardia"
+    ],
+    "mistakes": [
+     "Movimento di deviazione troppo ampio",
+     "Allungare la mano incontro al colpo"
+    ],
+    "drill": {
+     "label": "Deviazione per mano",
+     "say": "Tocca a te. Deviazione con ogni mano: venti volte. Ti do io il ritmo."
+    }
+   },
+   "tk4-4": {
+    "title": "Parata alta con l'avambraccio",
+    "say": "Quando un colpo scende dall'alto, porta l'avambraccio in diagonale davanti alla fronte, inclinato come un tetto, così la forza scivola via invece di schiacciarsi sull'osso. Nello stesso momento, fai un passo in diagonale in avanti o verso l'esterno.",
+    "cues": [
+     "Avambraccio in diagonale davanti alla fronte",
+     "Inclinato come un tetto",
+     "Con un passo in diagonale"
+    ],
+    "mistakes": [
+     "Avambraccio orizzontale: prendi tutta la forza",
+     "Restare fermo sul posto"
+    ],
+    "drill": {
+     "label": "Parata alta per braccio",
+     "say": "Tocca a te. Parata alta con ogni braccio: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk4-5": {
+    "title": "Uscita d'angolo: il passo diagonale",
+    "say": "La difesa migliore è non trovarsi dove arriva il colpo. Mentre devii, fai insieme un passo in diagonale a quarantacinque gradi, verso l'esterno del braccio che colpisce. Esci dalla linea d'attacco e ti trovi in una posizione più sicura per allontanarti.",
+    "cues": [
+     "Deviazione + passo diagonale a 45°",
+     "Verso l'esterno del braccio che colpisce",
+     "Dall'angolo sicuro, allontanati"
+    ],
+    "mistakes": [
+     "Arretrare dritto: l'avversario ti insegue facilmente",
+     "Entrare all'interno, verso l'altro braccio dell'avversario"
+    ],
+    "drill": {
+     "label": "Deviazione + uscita per lato",
+     "say": "Tocca a te. Deviazione e uscita d'angolo per ogni lato: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk4-6": {
+    "title": "Lavoro lento in coppia",
+    "say": "Allenati con un compagno, tutti e due con i guantoni. Chi attacca colpisce molto piano, solo al venti per cento della forza, mirando ai guantoni e non al viso. Chi difende dice il nome della tecnica che usa: guardia alta, deviazione, uscita d'angolo. Solo quando è tutto corretto e calmo, aumenta pian piano la velocità.",
+    "cues": [
+     "Guantoni, 20% della forza",
+     "Di' il nome della tecnica mentre la fai",
+     "Prima corretto, poi veloce"
+    ],
+    "mistakes": [
+     "Accelerare troppo presto",
+     "Colpire davvero il viso del compagno"
+    ],
+    "drill": {
+     "label": "Lavoro lento in coppia",
+     "say": "Tocca a te. Lavoro lento in coppia per sessanta secondi. Il timer fa il conto alla rovescia."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Una deviazione corretta è:",
+    "a": [
+     "Un piccolo gesto che sposta il colpo, poi torni in guardia",
+     "Un ampio movimento del braccio",
+     "Prendere il colpo in faccia"
+    ],
+    "why": "Il gesto è piccolo e veloce, e non apre la guardia."
+   },
+   {
+    "q": "Contro un colpo che scende dall'alto, come metti l'avambraccio?",
+    "a": [
+     "Orizzontale",
+     "In diagonale, inclinato come un tetto",
+     "Abbassato sulla pancia"
+    ],
+    "why": "Inclinato come un tetto, così la forza scivola via."
+   },
+   {
+    "q": "In che direzione fai il passo nell'uscita d'angolo?",
+    "a": [
+     "In diagonale a 45°, all'esterno del braccio che colpisce",
+     "Dritto indietro",
+     "Resti fermo"
+    ],
+    "why": "Esci dalla linea d'attacco e raggiungi un angolo sicuro."
+   },
+   {
+    "q": "Nel lavoro in coppia, quanta forza usa chi attacca?",
+    "a": [
+     "Tutta la forza",
+     "Circa il 20%",
+     "Il 50%"
+    ],
+    "why": "Si va piano per imparare bene e in sicurezza."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Colpi base sui colpitori",
+  "sub": "Pugno, diretto, colpo di palmo, calcio frontale di spinta, combinazioni",
+  "intro": "Un buon colpo non deve essere bello: deve essere corretto, compatto e sicuro per te. Oggi lavoriamo sui colpitori, mai su una persona vera.",
+  "safety": "Fasce alle mani e guantoni. Colpisci solo i colpitori o il sacco.",
+  "outro": "I tuoi colpi ora hanno forza e disciplina. Prossima lezione: liberarsi da una presa al polso.",
+  "home": "Compiti a casa: tre sedute a settimana, ognuna con cinque round da trenta secondi sui colpitori o sul sacco.",
+  "steps": {
+   "tk5-1": {
+    "title": "Il pugno corretto",
+    "say": "Chiudi le quattro dita nel palmo. Il pollice si piega stretto all'esterno, sopra l'indice e il medio, mai chiuso all'interno. Quando colpisci, il polso è in linea con l'avambraccio e la forza passa dalle nocche dell'indice e del medio. Chi è alle prime armi usa sempre le fasce e i guantoni.",
+    "cues": [
+     "Chiudi le 4 dita nel palmo",
+     "Pollice piegato all'esterno",
+     "Polso in linea con l'avambraccio"
+    ],
+    "mistakes": [
+     "Chiudere il pollice dentro il pugno",
+     "Piegare il polso all'impatto"
+    ],
+    "drill": {
+     "label": "Chiudi e apri la mano",
+     "say": "Tocca a te. Chiudi e apri la mano nel modo giusto: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk5-2": {
+    "title": "Diretto col braccio anteriore",
+    "say": "Dalla guardia, lancia il pugno anteriore dritto, sulla via più corta. Ruota il pugno verso il basso poco prima dell'impatto e alza la spalla a coprire il mento. L'altra mano resta accanto al viso. Dopo il colpo, rientra sulla stessa linea, veloce come all'andata.",
+    "cues": [
+     "La linea dritta più corta",
+     "Ruota il pugno all'impatto",
+     "Rientra veloce, l'altra mano in guardia"
+    ],
+    "mistakes": [
+     "Caricare tirando il braccio indietro",
+     "Abbassare la mano posteriore"
+    ],
+    "drill": {
+     "label": "Diretto anteriore",
+     "say": "Tocca a te. Diretto col braccio anteriore: venti volte. Ti do io il ritmo."
+    }
+   },
+   "tk5-3": {
+    "title": "Diretto col braccio posteriore",
+    "say": "Spingi dal tallone posteriore, ruota l'anca e la spalla, e lancia il pugno posteriore dritto sul bersaglio. La punta del piede posteriore ruota insieme, come se spegnessi un mozzicone. La forza viene dalle gambe e dall'anca, non solo dal braccio. Poi torna subito in guardia.",
+    "cues": [
+     "Spingi dalla gamba posteriore",
+     "Ruota anca, spalla e piede posteriore",
+     "Torna subito in guardia"
+    ],
+    "mistakes": [
+     "Usare solo il braccio, senza ruotare l'anca",
+     "Sbilanciarsi troppo in avanti e perdere l'equilibrio"
+    ],
+    "drill": {
+     "label": "Diretto posteriore",
+     "say": "Tocca a te. Diretto col braccio posteriore: venti volte. Ti do io il ritmo."
+    }
+   },
+   "tk5-4": {
+    "title": "Colpo col palmo",
+    "say": "Piega il polso all'indietro, apri la mano e fletti un poco le dita. Colpisci con la base del palmo, sulla stessa linea dritta di un pugno. In una vera situazione di autodifesa, questo colpo è più sicuro per la mano del pugno nudo, perché nessuna nocca sbatte contro un osso duro.",
+    "cues": [
+     "Polso piegato indietro, mano aperta",
+     "Colpisci con la base del palmo",
+     "Linea dritta come un pugno"
+    ],
+    "mistakes": [
+     "Colpire con l'interno delle dita",
+     "Tenere le dita tese e rigide"
+    ],
+    "drill": {
+     "label": "Colpo di palmo per lato",
+     "say": "Tocca a te. Colpo col palmo per ogni lato: quindici volte. Ti do io il ritmo."
+    }
+   },
+   "tk5-5": {
+    "title": "Calcio frontale di spinta",
+    "say": "Solleva il ginocchio della gamba posteriore fino all'altezza dell'anca. Poi spingi il tallone dritto in avanti, come per sfondare una porta, e porta avanti l'anca. Il bersaglio è la zona della pancia, qui lo scudo da calci. Ritira la gamba e appoggiala in guardia. Lo scopo di questo calcio è allontanare l'aggressore e creare la distanza per fuggire.",
+    "cues": [
+     "Ginocchio alto all'altezza dell'anca",
+     "Spingi col tallone, porta avanti l'anca",
+     "Ritira la gamba in guardia"
+    ],
+    "mistakes": [
+     "Calciare con la punta del piede",
+     "Inclinarsi troppo all'indietro"
+    ],
+    "drill": {
+     "label": "Calcio di spinta per gamba",
+     "say": "Tocca a te. Calcio frontale di spinta con ogni gamba: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk5-6": {
+    "title": "Combinazione e disimpegno",
+    "say": "Ora uniamo tutto in una combinazione: diretto anteriore, diretto posteriore, calcio di spinta, poi due passi indietro in barriera con le mani. Fai tre round da trenta secondi sui colpitori, con venti secondi di pausa. Ogni colpo deve essere netto. Prima corretto, poi veloce.",
+    "cues": [
+     "Anteriore, posteriore, calcio di spinta",
+     "2 passi indietro, barriera con le mani",
+     "3 round × 30 secondi, pausa 20 secondi"
+    ],
+    "mistakes": [
+     "Dimenticare di arretrare dopo la combinazione",
+     "Colpire di fretta e perdere la guardia"
+    ],
+    "drill": {
+     "label": "Round di combinazioni",
+     "say": "Tocca a te. Round di combinazioni: tre round da trenta secondi, con venti secondi di pausa tra un round e l'altro."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Dove va il pollice quando chiudi il pugno?",
+    "a": [
+     "Chiuso all'interno",
+     "Piegato all'esterno, sopra l'indice e il medio",
+     "Teso"
+    ],
+    "why": "Chiuso all'interno, il pollice si rompe facilmente."
+   },
+   {
+    "q": "Da dove viene la forza del diretto posteriore?",
+    "a": [
+     "Solo dal braccio",
+     "Dalle gambe e dall'anca",
+     "Dal collo"
+    ],
+    "why": "Spingi con la gamba, ruoti l'anca, e la spalla e il braccio seguono."
+   },
+   {
+    "q": "Qual è lo scopo principale del calcio di spinta nell'autodifesa?",
+    "a": [
+     "Creare distanza per fuggire",
+     "Colpire alla testa",
+     "Mettersi in mostra"
+    ],
+    "why": "Allontani l'aggressore per andartene in sicurezza."
+   },
+   {
+    "q": "Perché il colpo col palmo è più sicuro per la mano?",
+    "a": [
+     "Nessuna nocca sbatte contro un osso duro",
+     "Perché è lento",
+     "Perché colpisce piano"
+    ],
+    "why": "La base del palmo è solida e il rischio di farsi male alla mano è basso."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Liberarsi dalla presa al polso",
+  "sub": "Regola del pollice, presa dallo stesso lato, presa incrociata, presa a due mani",
+  "intro": "Farsi afferrare il polso è una situazione molto comune. Non serve forza: basta capire bene il punto debole della mano dell'avversario.",
+  "safety": "Il compagno afferra con forza moderata. Liberati piano, senza strattoni che fanno male alle articolazioni.",
+  "outro": "La tua mano ora sa liberarsi da sola. Prossima lezione: liberarsi da abbracci e prese frontali.",
+  "home": "Compiti a casa: ogni giorno dieci liberazioni per ogni tipo di presa, con un familiare, per una settimana.",
+  "steps": {
+   "tk6-1": {
+    "title": "La regola del pollice",
+    "say": "Quando ti afferrano il polso, il punto più debole della mano dell'avversario è lo spazio tra il pollice e le altre dita. Non fare forza contro forza. Ruota l'avambraccio in modo che la parte sottile del polso punti verso quello spazio, poi tira via con decisione verso il pollice.",
+    "cues": [
+     "Trova il pollice dell'avversario",
+     "Ruota il polso verso lo spazio del pollice",
+     "Tira via deciso verso il pollice"
+    ],
+    "mistakes": [
+     "Tirare dritto indietro, facendo forza",
+     "Tirare verso le quattro dita"
+    ],
+    "drill": {
+     "label": "Trova la direzione del pollice",
+     "say": "Tocca a te. Trova la direzione del pollice: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk6-2": {
+    "title": "Presa dallo stesso lato",
+    "say": "Ivan mi afferra il polso destro con la mano sinistra. Abbasso il baricentro, piego il gomito e porto il braccio vicino al corpo. Ruoto l'avambraccio in modo che il polso punti verso il pollice di Ivan, poi strappo con forza verso l'alto, verso la mia spalla. Il braccio è libero. Subito alzo le mani a barriera e arretro.",
+    "cues": [
+     "Abbassa il baricentro, piega il gomito",
+     "Ruota il polso verso il pollice",
+     "Strappa verso la tua spalla, poi barriera con le mani"
+    ],
+    "mistakes": [
+     "Tendere il braccio mentre ti liberi",
+     "Restare vicino dopo esserti liberato"
+    ],
+    "drill": {
+     "label": "Presa stesso lato, per mano",
+     "say": "Tocca a te. Liberati dalla presa dallo stesso lato, con ogni mano: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk6-3": {
+    "title": "Presa incrociata",
+    "say": "Nella presa incrociata, per esempio quando la mano destra dell'avversario ti afferra il polso destro, il suo pollice sta sopra. Ruota il polso verso l'alto, passa attraverso lo spazio del pollice e tira verso la spalla opposta. Insieme a un passo indietro in diagonale.",
+    "cues": [
+     "Il pollice dell'avversario è sopra",
+     "Ruota in alto, passa nello spazio del pollice",
+     "Tira verso la spalla opposta + passo indietro in diagonale"
+    ],
+    "mistakes": [
+     "Tirare verso il basso, lontano dallo spazio",
+     "Dimenticare il passo"
+    ],
+    "drill": {
+     "label": "Presa incrociata, per mano",
+     "say": "Tocca a te. Liberati dalla presa incrociata, con ogni mano: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk6-4": {
+    "title": "Presa a due mani",
+    "say": "Quando ti afferrano con tutte e due le mani, un braccio solo non ha abbastanza forza. Infila la mano libera tra le braccia dell'avversario e afferra il tuo stesso pugno. Poi, con la forza di entrambe le braccia e la rotazione delle spalle, strappa con forza verso l'alto, attraverso lo spazio tra i due pollici.",
+    "cues": [
+     "La mano libera entra in mezzo",
+     "Afferra il tuo stesso pugno",
+     "Due braccia + rotazione delle spalle, strappa in alto"
+    ],
+    "mistakes": [
+     "Cercare di liberare un braccio da solo",
+     "Strappare di lato invece che in alto"
+    ],
+    "drill": {
+     "label": "Presa a due mani",
+     "say": "Tocca a te. Liberati dalla presa a due mani: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk6-5": {
+    "title": "Dopo la liberazione",
+    "say": "Liberarsi non basta. Arretra subito, alza le mani a barriera e grida forte: Fermo! Il grido attira l'attenzione delle persone intorno e mostra che non vuoi combattere. Lo scopo dell'autodifesa è sempre uscirne sani e salvi e andarsene.",
+    "cues": [
+     "Allontanati subito",
+     "Barriera con le mani",
+     "Grida forte: Fermo!"
+    ],
+    "mistakes": [
+     "Restare lì a discutere",
+     "Girarsi e scappare quando sei ancora troppo vicino"
+    ],
+    "drill": {
+     "label": "Liberati, arretra, grida",
+     "say": "Tocca a te. Liberati, arretra, grida: cinque volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Il punto debole della mano che afferra è:",
+    "a": [
+     "Il palmo",
+     "Lo spazio tra il pollice e le altre dita",
+     "Il mignolo"
+    ],
+    "why": "Lo spazio del pollice è l'apertura da cui ci si libera più facilmente."
+   },
+   {
+    "q": "Se ti afferrano con due mani, che cosa fai?",
+    "a": [
+     "Tiri via un braccio con tutta la forza",
+     "Afferri la tua mano e strappi in alto con due braccia",
+     "Resti fermo"
+    ],
+    "why": "Due braccia più la rotazione delle spalle vincono sulle due mani dell'avversario."
+   },
+   {
+    "q": "Dopo esserti liberato, la prima cosa da fare è:",
+    "a": [
+     "Allontanarti, barriera con le mani, gridare forte",
+     "Contrattaccare subito",
+     "Discutere"
+    ],
+    "why": "Lo scopo dell'autodifesa è restare al sicuro e andarsene."
+   },
+   {
+    "q": "Conviene fare forza contro forza?",
+    "a": [
+     "Sì",
+     "No, usa la direzione giusta del pollice"
+    ],
+    "why": "La tecnica giusta vince sulla forza."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Liberarsi da abbracci e prese frontali",
+  "sub": "Abbraccio da dietro a braccia bloccate, abbraccio da dietro a braccia libere, presa al bavero davanti, segnale di stop",
+  "intro": "Essere stretti in un abbraccio è la sensazione che fa più paura. Il segreto sta in un baricentro basso e in gambe agili. Ci alleniamo piano, in sicurezza, e rispettiamo sempre il segnale di stop.",
+  "safety": "Il compagno abbraccia con forza moderata. Non stringere mai davvero il collo. Due battute significano stop.",
+  "outro": "Ora sai liberarti dalle prese più fastidiose. Ultima lezione di questa parte: sbilanciare e proiettare in sicurezza.",
+  "home": "Compiti a casa: due sedute a settimana, otto volte per ogni situazione e per ogni lato, sempre con il segnale di stop.",
+  "steps": {
+   "tk7-1": {
+    "title": "Il segnale di stop",
+    "say": "Prima di ogni esercizio in coppia, mettetevi d'accordo sul segnale di stop. Batti due volte la mano sul compagno o sul tappeto, oppure di' ad alta voce: Stop. Quando senti o percepisci questo segnale, lascia subito la presa. Chi si allena deve rispettare questo segnale in modo assoluto. Solo allenandoti in sicurezza puoi allenarti a lungo.",
+    "cues": [
+     "Batti 2 volte o di': Stop",
+     "Lascia subito la presa",
+     "Rispetto assoluto"
+    ],
+    "mistakes": [
+     "Insistere ancora un po' dopo il segnale",
+     "Non accordarsi prima di iniziare"
+    ],
+    "drill": {
+     "label": "Concordate il segnale",
+     "say": "Tocca a te. Concordate il segnale: tre volte. Ti do io il ritmo."
+    }
+   },
+   "tk7-2": {
+    "title": "Abbraccio da dietro: abbassa il baricentro",
+    "say": "Quando ti abbracciano da dietro e le tue braccia sono bloccate dentro la presa: abbassa subito il baricentro, piega le ginocchia, spingi le anche indietro. Nello stesso momento, allarga i gomiti ai lati per allentare l'abbraccio. Con un baricentro basso, per l'avversario è molto difficile sollevarti.",
+    "cues": [
+     "Abbassa subito il baricentro",
+     "Spingi le anche indietro",
+     "Allarga i gomiti per allentare la presa"
+    ],
+    "mistakes": [
+     "Restare dritto: ti sollevano facilmente",
+     "Dimenarsi nel panico"
+    ],
+    "drill": {
+     "label": "Baricentro giù, allenta la presa",
+     "say": "Tocca a te. Abbassa il baricentro e allenta la presa: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk7-3": {
+    "title": "Abbraccio da dietro: ruota ed esci",
+    "say": "Quando l'abbraccio si è allentato, fai un passo di lato con un piede, abbassati ancora di più, ruota anche e spalle e sgusciagli fuori dalle braccia. Girati verso l'avversario, mani a barriera, poi allontanati. Allenati piano con il compagno, che abbraccia solo con forza moderata.",
+    "cues": [
+     "Un piede di lato",
+     "Abbassati, ruota le anche ed esci",
+     "Fronte all'avversario, barriera, allontanati"
+    ],
+    "mistakes": [
+     "Ruotare con il baricentro ancora alto",
+     "Restare vicino dopo esserti liberato"
+    ],
+    "drill": {
+     "label": "Abbraccio da dietro, per lato",
+     "say": "Tocca a te. Liberati dall'abbraccio da dietro, per ogni lato: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk7-4": {
+    "title": "Abbraccio da dietro: braccia libere",
+    "say": "Se le tue braccia sono fuori dall'abbraccio: per prima cosa, abbassa comunque il baricentro. Poi afferra la mano dell'avversario davanti alla tua pancia e staccala per aprire la presa, ruotando nello stesso momento per uscire. Allontanati e tieni le mani a barriera.",
+    "cues": [
+     "Prima abbassa il baricentro",
+     "Stacca la mano dell'avversario davanti alla pancia",
+     "Ruota ed esci, allontanati"
+    ],
+    "mistakes": [
+     "Graffiare le mani dell'avversario senza abbassarti",
+     "Girarsi e andarsene quando sei ancora attaccato"
+    ],
+    "drill": {
+     "label": "Da dietro, braccia libere",
+     "say": "Tocca a te. Liberati dall'abbraccio da dietro con le braccia libere: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk7-5": {
+    "title": "Presa al bavero davanti",
+    "say": "Quando l'avversario ti afferra il bavero da davanti con due mani: abbassa il mento e alza le spalle per proteggere il collo. Alza un braccio dritto sopra la testa, poi ruota il corpo con forza da un lato, così la spalla e il braccio schiacciano le braccia dell'avversario e rompono la presa. Subito arretra e alza le mani a barriera. In allenamento: il compagno afferra solo il bavero, e non stringe mai, in nessun caso, il collo.",
+    "cues": [
+     "Mento basso, spalle alte",
+     "Un braccio dritto in alto",
+     "Ruota con forza, schiaccia le braccia, arretra"
+    ],
+    "mistakes": [
+     "Staccare le braccia dell'avversario di forza",
+     "Ruotare senza alzare il braccio"
+    ],
+    "drill": {
+     "label": "Presa al bavero, per lato",
+     "say": "Tocca a te. Liberati dalla presa al bavero, per ogni lato: otto volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Se ti abbracciano da dietro, qual è la prima cosa da fare?",
+    "a": [
+     "Abbassare il baricentro",
+     "Saltare",
+     "Buttare la testa indietro"
+    ],
+    "why": "Con il baricentro basso, l'avversario fatica a sollevarti."
+   },
+   {
+    "q": "Il segnale di stop nel lavoro in coppia è:",
+    "a": [
+     "Due battute o dire: Stop",
+     "Un urlo qualsiasi",
+     "Non serve un segnale"
+    ],
+    "why": "Si concorda prima e si rispetta in modo assoluto."
+   },
+   {
+    "q": "Per liberarti da una presa al bavero davanti, che cosa usi?",
+    "a": [
+     "La forza delle braccia per tirare",
+     "Alzi il braccio e ruoti con forza, schiacciando le sue braccia",
+     "Resti fermo ad aspettare"
+    ],
+    "why": "La rotazione di tutto il corpo è più forte delle due braccia dell'avversario."
+   },
+   {
+    "q": "Quando provate la liberazione dal bavero, il compagno può:",
+    "a": [
+     "Stringere davvero il collo",
+     "Solo afferrare il bavero, senza stringere il collo"
+    ],
+    "why": "La sicurezza del collo è assoluta."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Sbilanciamento e proiezioni",
+  "sub": "Base d'appoggio, presa sulla giacca, falciata posteriore, sgambetto frontale, controllo",
+  "intro": "Questa è l'essenza della lotta Sambo: usare l'equilibrio dell'avversario per portarlo a terra. Allenati solo quando sai già cadere bene, su materassini spessi, con un istruttore.",
+  "safety": "Obbligatorio: padroneggiare la lezione Cadute sicure, materassini spessi, allenatore presente, velocità lenta.",
+  "outro": "Complimenti! Hai completato la parte Base del percorso Autodifesa corpo a corpo. Ti aspetta la parte Avanzata, con situazioni più realistiche.",
+  "home": "Compiti a casa: due sedute a settimana su materassini spessi, con un istruttore, sei ripetizioni lente per ogni tecnica.",
+  "steps": {
+   "tk8-1": {
+    "title": "Base d'appoggio e sbilanciamento",
+    "say": "L'avversario sta in piedi grazie alle due gambe. La linea che unisce i due piedi è la base d'appoggio. Se spingi o tiri perpendicolarmente a quella linea, l'avversario perde l'equilibrio molto facilmente. Allenati con il compagno: afferra manica e bavero, spingi, tira e ruota piano in otto direzioni. Senti il momento in cui tutto il suo peso va sui talloni o sulle punte.",
+    "cues": [
+     "Base d'appoggio = linea tra i due piedi",
+     "Spingi/tira perpendicolare alla base",
+     "Senti il peso che va sui talloni o sulle punte"
+    ],
+    "mistakes": [
+     "Spingere lungo la base d'appoggio",
+     "Usare le braccia rigide"
+    ],
+    "drill": {
+     "label": "Spinta e trazione in 8 direzioni",
+     "say": "Tocca a te. Spingi e tira in otto direzioni per sessanta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk8-2": {
+    "title": "La presa base sulla giacca",
+    "say": "La presa base della lotta Sambo: la mano sinistra afferra la manica destra del compagno, appena sotto il gomito. La mano destra afferra il bavero sinistro, all'altezza del petto. Gomiti morbidi, non rigidi. Schiena dritta, piedi alla larghezza delle spalle, pronto a muoverti.",
+    "cues": [
+     "Mano sinistra: manica sotto il gomito",
+     "Mano destra: bavero all'altezza del petto",
+     "Gomiti morbidi, schiena dritta"
+    ],
+    "mistakes": [
+     "Schiena curva, testa bassa",
+     "Gomiti bloccati e rigidi"
+    ],
+    "drill": {
+     "label": "Prendi la presa",
+     "say": "Tocca a te. Prendi la presa sulla giacca: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk8-3": {
+    "title": "Falciata posteriore",
+    "say": "Tira il compagno verso il suo lato posteriore destro, così il suo peso va sul tallone destro. Porta il piede sinistro vicino al lato esterno del suo piede destro. La tua gamba destra passa e falcia il suo polpaccio destro da dietro, mentre il busto lo spinge indietro. Il compagno cade all'indietro con la tecnica che ha imparato. Tieni la sua manica per tutta la caduta, tirando un po' verso l'alto, così la sua schiena tocca il tappeto piano.",
+    "cues": [
+     "Porta il peso del compagno sul tallone destro",
+     "Avvicinati, falcia il polpaccio da dietro",
+     "Tieni la manica, fallo cadere piano"
+    ],
+    "mistakes": [
+     "Falciare prima che il peso sia su quella gamba",
+     "Lasciare la manica mentre il compagno cade"
+    ],
+    "drill": {
+     "label": "Falciata posteriore (lenta) per lato",
+     "say": "Tocca a te. Falciata posteriore, lenta, per ogni lato: sei volte. Ti do io il ritmo."
+    }
+   },
+   "tk8-4": {
+    "title": "Sgambetto frontale",
+    "say": "Tira il compagno in avanti, verso il suo lato destro. Ruota il corpo e metti il tuo piede destro di traverso davanti alla sua caviglia destra. Continua a tirare la manica lungo un arco verso il basso. Lui inciampa sulla tua gamba e cade in avanti, rotolando sulla spalla proprio come nella capriola.",
+    "cues": [
+     "Tira in avanti, verso la sua destra",
+     "Il piede blocca davanti alla caviglia",
+     "Tira ad arco verso il basso"
+    ],
+    "mistakes": [
+     "Calciare la caviglia invece di bloccarla",
+     "Tirare dritto a terra con troppa forza"
+    ],
+    "drill": {
+     "label": "Sgambetto frontale (lento) per lato",
+     "say": "Tocca a te. Sgambetto frontale, lento, per ogni lato: sei volte. Ti do io il ritmo."
+    }
+   },
+   "tk8-5": {
+    "title": "Controllo dopo la proiezione",
+    "say": "Dopo che il compagno è caduto, non lasciarlo subito. Tieni la manica, resta stabile, guardalo, poi aiutalo a rialzarsi. Chi proietta è responsabile di chi cade. Allenati alle proiezioni solo su materassini spessi, con un allenatore che controlla, a velocità lenta, e rispettando sempre il segnale di stop.",
+    "cues": [
+     "Tieni la manica, resta stabile",
+     "Guarda il compagno",
+     "Aiutalo a rialzarsi"
+    ],
+    "mistakes": [
+     "Lasciare la presa appena proietti",
+     "Cadergli addosso"
+    ],
+    "drill": {
+     "label": "Proiezione lenta + aiuto",
+     "say": "Tocca a te. Proiezione lenta, poi aiuta il compagno a rialzarsi: cinque volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Per sbilanciare, in che direzione spingi o tiri?",
+    "a": [
+     "Lungo la linea tra i due piedi",
+     "Perpendicolare alla linea tra i due piedi",
+     "Dritto verso terra"
+    ],
+    "why": "La direzione perpendicolare alla base d'appoggio è la più debole."
+   },
+   {
+    "q": "Nella falciata posteriore, dove deve trovarsi il peso del compagno?",
+    "a": [
+     "Sulle punte",
+     "Sul tallone della gamba falciata",
+     "Sull'altra gamba"
+    ],
+    "why": "Solo la gamba che porta il peso si può falciare."
+   },
+   {
+    "q": "Di che cosa è responsabile chi proietta?",
+    "a": [
+     "Tenere la manica e controllare la caduta del compagno",
+     "Lasciare subito",
+     "Cadergli addosso"
+    ],
+    "why": "Il controllo aiuta il compagno a cadere in sicurezza."
+   },
+   {
+    "q": "Le condizioni per allenarsi alle proiezioni:",
+    "a": [
+     "Saper già cadere bene, materassini spessi, un allenatore",
+     "Va bene ovunque",
+     "Andare veloci per abituarsi"
+    ],
+    "why": "La sicurezza è una condizione obbligatoria."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Colpi ai punti deboli per fuggire",
+  "sub": "Sfregata agli occhi, ginocchiata all'inguine, calcio al ginocchio: solo per aprirti una via di fuga",
+  "intro": "Quando subisci un'aggressione vera e non puoi scappare, ti serve un colpo semplice che blocchi l'aggressore per un secondo. Quel secondo è la tua via di fuga. Oggi lavoriamo sui colpitori, e mai, in nessun caso, sul compagno.",
+  "safety": "Colpisci solo i colpitori o lo scudo. Non toccare mai occhi, inguine o ginocchia del compagno.",
+  "outro": "Ora hai i colpi che ti aprono una via di fuga. Ricorda bene: colpisci per scappare, non per vincere. Prossima lezione: gomiti e ginocchia a distanza ravvicinata.",
+  "home": "Compiti a casa: tre sedute a settimana, tre round di sequenze sui colpitori, finendo sempre con una corsa.",
+  "steps": {
+   "tk9-1": {
+    "title": "Il principio: colpisci per scappare",
+    "say": "Primo principio: i colpi ai punti deboli si usano solo quando subisci un'aggressione vera e non hai altra scelta. Lo scopo non è vincere, ma fermare l'aggressore per un istante. Colpisci una volta, poi crea subito distanza e corri verso un posto pieno di gente. Non restare lì a combattere.",
+    "cues": [
+     "Solo in un'aggressione vera",
+     "Un colpo per aprirti la strada",
+     "Colpisci e scappa"
+    ],
+    "mistakes": [
+     "Restare a combattere quando hai già una via di fuga",
+     "Colpire quando potresti ancora andartene"
+    ],
+    "drill": {
+     "label": "Barriera, arretra, corri",
+     "say": "Tocca a te. Barriera con le mani, arretra, corri: cinque volte. Ti do io il ritmo."
+    }
+   },
+   "tk9-2": {
+    "title": "Sfregata agli occhi con le dita",
+    "say": "Dalla barriera con le mani, la mano anteriore è già vicina al viso dell'avversario. Le dita leggermente curve e rilassate passano veloci di traverso sugli occhi, come per scrollarsi l'acqua dalla mano, poi tornano indietro. Questo colpo non richiede forza, solo velocità. Chi lo subisce chiude gli occhi e arretra d'istinto. In allenamento, sfrega solo il colpitore che il compagno tiene all'altezza del viso.",
+    "cues": [
+     "Parti dalla barriera con le mani",
+     "Dita curve e rilassate, passa di traverso",
+     "Veloce, poi rientra e arretra"
+    ],
+    "mistakes": [
+     "Dita tese e rigide: rischi di slogarti un dito",
+     "Caricare il braccio da lontano, svelando le tue intenzioni"
+    ],
+    "drill": {
+     "label": "Sfregata sul colpitore, per mano",
+     "say": "Tocca a te. Sfregata sul colpitore, con ogni mano: quindici volte. Ti do io il ritmo."
+    }
+   },
+   "tk9-3": {
+    "title": "Ginocchiata all'inguine (sullo scudo)",
+    "say": "Quando l'aggressore ti si incolla e ti afferra a distanza molto ravvicinata, le tue mani tengono le sue spalle o il suo bavero. Tira verso il basso e, nello stesso momento, spingi in alto il ginocchio della gamba posteriore. Le anche spingono in avanti. In allenamento, il compagno tiene uno scudo spesso davanti al basso ventre, e tu colpisci lo scudo col ginocchio. Dopo il colpo, spingilo via e allontanati.",
+    "cues": [
+     "Mani sulle spalle, tira verso il basso",
+     "Ginocchio posteriore in alto, spingi le anche",
+     "Spingi via, allontanati"
+    ],
+    "mistakes": [
+     "Inclinarsi indietro durante la ginocchiata",
+     "Colpire col ginocchio senza essere in equilibrio"
+    ],
+    "drill": {
+     "label": "Ginocchiata sullo scudo, per gamba",
+     "say": "Tocca a te. Ginocchiata sullo scudo, con ogni gamba: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk9-4": {
+    "title": "Calcio al ginocchio e allo stinco",
+    "say": "Quando l'aggressore ti si lancia contro da lontano, un calcio basso di tallone al ginocchio o allo stinco della sua gamba anteriore ferma lo slancio. Alza poco il ginocchio della gamba anteriore, spingi il tallone dritto, in diagonale verso il basso e in avanti, poi ritira la gamba. Un colpo basso è difficile da parare e ti lascia in buon equilibrio. In allenamento, calcia solo uno scudo tenuto in basso.",
+    "cues": [
+     "Ginocchio alzato poco",
+     "Tallone in diagonale, in basso e in avanti",
+     "Ritira la gamba, arretra"
+    ],
+    "mistakes": [
+     "Calciare alto alla pancia: lento e rischi di cadere",
+     "Calciare con la punta del piede"
+    ],
+    "drill": {
+     "label": "Calcio basso sullo scudo, per gamba",
+     "say": "Tocca a te. Calcio basso sullo scudo, con ogni gamba: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk9-5": {
+    "title": "Sequenza: sfregata, calcio, fuga",
+    "say": "Mettiamo tutto in una sequenza: dalla barriera con le mani, sfregata agli occhi sul colpitore, calcio basso sullo scudo, poi girati e corri per tre passi. Prima piano, per farlo bene, poi sempre più veloce. Alla fine di ogni ripetizione, grida forte: Fermo! Questa catena di riflessi deve diventare un'abitudine del corpo.",
+    "cues": [
+     "Barriera → sfregata → calcio",
+     "Girati e corri per 3 passi",
+     "Grida forte: Fermo!"
+    ],
+    "mistakes": [
+     "Dimenticare la corsa alla fine",
+     "Riavvicinarsi dopo il calcio"
+    ],
+    "drill": {
+     "label": "Round di sequenze",
+     "say": "Tocca a te. Round di sequenze: tre round da trenta secondi, con venti secondi di pausa tra un round e l'altro."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Qual è lo scopo dei colpi ai punti deboli?",
+    "a": [
+     "Vincere il combattimento",
+     "Fermare l'aggressore perché tu possa scappare",
+     "Punire l'avversario"
+    ],
+    "why": "Colpisci per aprirti la strada, poi corri verso un posto sicuro."
+   },
+   {
+    "q": "Per la sfregata agli occhi, come tieni le dita?",
+    "a": [
+     "Tese e rigide",
+     "Leggermente curve, rilassate, veloci",
+     "Strette a pugno"
+    ],
+    "why": "Le dita rilassate sono veloci e non si slogano."
+   },
+   {
+    "q": "Dove va il calcio basso?",
+    "a": [
+     "Al ginocchio o allo stinco della gamba anteriore",
+     "Alla testa",
+     "Alla schiena"
+    ],
+    "why": "Un colpo basso è veloce, difficile da parare e ferma lo slancio."
+   },
+   {
+    "q": "Quando ti alleni con il compagno, dove colpisci?",
+    "a": [
+     "Sul compagno, ma piano",
+     "Solo sui colpitori o sullo scudo"
+    ],
+    "why": "Non colpire mai, in nessun caso, i veri punti deboli del compagno."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Gomiti e ginocchia a distanza ravvicinata",
+  "sub": "Gomitata orizzontale, gomitata dal basso, ginocchiata dritta, controllo collo-spalle",
+  "intro": "Quando l'avversario ti è addosso, il pugno non ha più spazio per partire. In quel momento gomiti e ginocchia sono le armi naturali più forti del corpo. Lavoriamo sui colpitori: prima la tecnica giusta, poi la forza.",
+  "safety": "Colpisci solo colpitori spessi. Chi tiene il colpitore deve tenerlo saldo e stare ben piantato.",
+  "outro": "La distanza ravvicinata non fa più paura. Prossima lezione: difendersi dalle prese alle gambe e rialzarsi in sicurezza.",
+  "home": "Compiti a casa: tre sedute a settimana, tre round a distanza ravvicinata sui colpitori.",
+  "steps": {
+   "tk10-1": {
+    "title": "Gomitata orizzontale",
+    "say": "Dalla guardia, piega il gomito anteriore, con l'avambraccio parallelo al terreno e la mano vicino all'orecchio. Ruota anca e spalla e fai passare il gomito in orizzontale, come una porta che sbatte. Il punto d'impatto è l'osso appena sotto il gomito. L'altra mano continua a coprire il viso. Dopo il colpo, torna subito in guardia.",
+    "cues": [
+     "Mano vicino all'orecchio, avambraccio orizzontale",
+     "Ruota l'anca, passa in orizzontale",
+     "Colpisci con l'osso sotto il gomito"
+    ],
+    "mistakes": [
+     "Caricare con tutto il braccio teso",
+     "Dimenticare di coprire il viso con l'altra mano"
+    ],
+    "drill": {
+     "label": "Gomitata orizzontale, per braccio",
+     "say": "Tocca a te. Gomitata orizzontale con ogni braccio: quindici volte. Ti do io il ritmo."
+    }
+   },
+   "tk10-2": {
+    "title": "Gomitata dal basso verso l'alto",
+    "say": "Quando l'avversario si lancia in avanti a testa bassa, la gomitata dal basso verso l'alto è molto efficace. Piega bene il gomito, il pugno tocca la spalla, poi spingi con le gambe e sali col gomito dritto, in verticale davanti al viso. In allenamento, il compagno tiene un guanto rivolto verso il basso all'altezza del petto.",
+    "cues": [
+     "Gomito ben piegato, pugno sulla spalla",
+     "Spingi con le gambe, sali dritto",
+     "L'altra mano copre il viso"
+    ],
+    "mistakes": [
+     "Salire in diagonale verso l'esterno",
+     "Usare solo il braccio, senza spinta delle gambe"
+    ],
+    "drill": {
+     "label": "Gomitata dal basso, per braccio",
+     "say": "Tocca a te. Gomitata dal basso con ogni braccio: dodici volte. Ti do io il ritmo."
+    }
+   },
+   "tk10-3": {
+    "title": "Controllo collo-spalle",
+    "say": "A distanza di abbraccio, metti le mani una sopra l'altra dietro la nuca dell'avversario e chiudi i gomiti davanti al suo petto. Tira giù la sua testa e stringi i gomiti verso l'interno. Questo controllo ti permette di gestire l'equilibrio dell'avversario. In allenamento, tira piano e lentamente, e il compagno deve sempre poter battere la mano per chiedere lo stop.",
+    "cues": [
+     "Mani sovrapposte dietro la nuca",
+     "Gomiti chiusi davanti al suo petto",
+     "Tira giù piano, lentamente"
+    ],
+    "mistakes": [
+     "Intrecciare le dita: rischi di bloccartele",
+     "Strattonare il collo del compagno"
+    ],
+    "drill": {
+     "label": "Tieni il controllo collo-spalle",
+     "say": "Tocca a te. Tieni il controllo collo-spalle per trenta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk10-4": {
+    "title": "Ginocchiata dritta dal controllo",
+    "say": "Dal controllo collo-spalle, tira giù l'avversario e porta il ginocchio dritto in alto sullo scudo che il compagno tiene davanti alla pancia. Spingi le anche in avanti e resta dritto sulla gamba d'appoggio. Dopo due ginocchiate, spingilo via con forza e allontanati.",
+    "cues": [
+     "Controllo collo-spalle",
+     "Tira giù, ginocchio dritto in alto",
+     "Due ginocchiate, poi spingi via e allontanati"
+    ],
+    "mistakes": [
+     "Piegarsi in avanti insieme a lui",
+     "Stare sulla punta del piede d'appoggio e perdere l'equilibrio"
+    ],
+    "drill": {
+     "label": "Ginocchiata sullo scudo, per gamba",
+     "say": "Tocca a te. Ginocchiata sullo scudo con ogni gamba: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk10-5": {
+    "title": "Sequenza a distanza ravvicinata",
+    "say": "Mettiamo tutto insieme: gomitata orizzontale, gomitata dal basso, entra nel controllo, due ginocchiate, spingi via, torna in barriera con le mani. Fai tre round da trenta secondi sui colpitori. Mentre colpisci, mantieni il respiro di scarico, breve.",
+    "cues": [
+     "Gomitata orizzontale → gomitata dal basso",
+     "Controllo → 2 ginocchiate",
+     "Spingi via, barriera con le mani, respiro di scarico"
+    ],
+    "mistakes": [
+     "Trattenere il respiro mentre colpisci",
+     "Dimenticare di spingere via per creare distanza"
+    ],
+    "drill": {
+     "label": "Round a distanza ravvicinata",
+     "say": "Tocca a te. Round a distanza ravvicinata: tre round da trenta secondi, con venti secondi di pausa tra un round e l'altro."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Con quale parte colpisce la gomitata orizzontale?",
+    "a": [
+     "L'osso appena sotto il gomito",
+     "La mano",
+     "La spalla"
+    ],
+    "why": "L'osso duro appena sotto il gomito è il punto d'impatto più solido."
+   },
+   {
+    "q": "Nel controllo collo-spalle, come metti le mani?",
+    "a": [
+     "Con le dita intrecciate",
+     "Una sopra l'altra dietro la nuca"
+    ],
+    "why": "Con le dita intrecciate rischi di bloccartele, con le mani sovrapposte sei più sicuro."
+   },
+   {
+    "q": "Dopo due ginocchiate, che cosa fai?",
+    "a": [
+     "Spingi via e ti allontani",
+     "Continui a stringere",
+     "Ti siedi"
+    ],
+    "why": "Crea sempre distanza per fuggire."
+   },
+   {
+    "q": "Quando colpisci di continuo, come respiri?",
+    "a": [
+     "Trattieni il respiro",
+     "Respiro di scarico breve a ogni colpo"
+    ],
+    "why": "Il respiro di scarico ti evita di sfinirti e ti tiene calmo."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Difesa dalle prese alle gambe e rialzata",
+  "sub": "Sprawl contro la presa alle gambe, anche giù, rialzata tecnica, calci per tenere la distanza",
+  "intro": "In una rissa, la cosa più pericolosa è essere portati a terra. Oggi impari a non farti trascinare giù, e se cadi, a rialzarti in sicurezza in pochi secondi.",
+  "safety": "Allenati su materassini spessi. Il compagno entra piano, senza dare testate.",
+  "outro": "Ora è molto difficile portarti a terra, e sai rialzarti in sicurezza. Prossima lezione: liberarsi quando sei già bloccato a terra.",
+  "home": "Compiti a casa: ogni giorno dieci rialzate tecniche per lato, e due sedute a settimana di sprawl con un compagno.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl contro la presa alle gambe",
+    "say": "Quando l'avversario si abbassa e si lancia per afferrarti le gambe: spara le gambe indietro velocissimo, abbassa le anche sulla parte alta della sua schiena e blocca le sue spalle con le mani. Il tuo peso lo schiaccia e le tue gambe restano lontane, fuori portata. Questo si chiama sprawl. Allenati piano con il compagno, sul materassino.",
+    "cues": [
+     "Spara le gambe indietro",
+     "Anche giù sulla parte alta della schiena",
+     "Mani a bloccare le spalle dell'avversario"
+    ],
+    "mistakes": [
+     "Arretrare stando dritto: ti prendono facilmente le gambe",
+     "Anche alte: l'avversario riesce ancora a tirarti le gambe"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Tocca a te. Sprawl: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk11-2": {
+    "title": "Uscire dopo lo sprawl",
+    "say": "Dopo uno sprawl riuscito, non restare a lungo sopra di lui. Spingi con le mani sulle sue spalle, rialzati di scatto, fai due passi indietro e torna in guardia, con le mani a coprire il viso. L'obiettivo resta sempre quello di andartene.",
+    "cues": [
+     "Spingi con le mani sulle spalle",
+     "Rialzati di scatto, 2 passi indietro",
+     "Torna in guardia, copri il viso"
+    ],
+    "mistakes": [
+     "Restare troppo a lungo sopra",
+     "Rialzarsi proprio davanti all'avversario"
+    ],
+    "drill": {
+     "label": "Sprawl, rialzati, arretra",
+     "say": "Tocca a te. Sprawl, rialzati, arretra: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk11-3": {
+    "title": "Calci da terra per tenere la distanza",
+    "say": "Se sei caduto sulla schiena e l'avversario è in piedi: mettiti su un fianco, una mano appoggiata al tappeto e l'altra a coprire il viso. La gamba di sopra è piegata e pronta a calciare al ginocchio o alla pancia, se si avvicina. Ruota insieme a lui, con i piedi sempre rivolti verso l'avversario, e non lasciare che ti giri intorno fino alla tua testa.",
+    "cues": [
+     "Su un fianco, una mano a terra, una a coprire",
+     "Gamba di sopra piegata, pronta a calciare",
+     "Ruota con lui, piedi sempre verso l'avversario"
+    ],
+    "mistakes": [
+     "Stare sdraiato di schiena, piatto",
+     "Lasciare che l'avversario arrivi dal lato della testa"
+    ],
+    "drill": {
+     "label": "Ruota seguendo il compagno",
+     "say": "Tocca a te. Ruota seguendo il compagno per trenta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk11-4": {
+    "title": "Rialzata tecnica",
+    "say": "Per rialzarti in sicurezza: la mano posteriore si appoggia al tappeto dietro l'anca, la mano anteriore copre il viso. Spingi su le anche e fai passare la gamba d'appoggio sotto il corpo, all'indietro. Appoggia il piede lontano, in guardia, e solo allora alzati dritto. Copri sempre il viso e rialzati allontanandoti dall'avversario, mai proprio davanti a lui.",
+    "cues": [
+     "Mano posteriore a terra, mano anteriore sul viso",
+     "Spingi le anche, porta la gamba indietro",
+     "Rialzati lontano, in guardia"
+    ],
+    "mistakes": [
+     "Rialzarsi con tutte e due le mani a terra, viso scoperto",
+     "Rialzarsi andando verso l'avversario"
+    ],
+    "drill": {
+     "label": "Rialzata tecnica per lato",
+     "say": "Tocca a te. Rialzata tecnica per ogni lato: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk11-5": {
+    "title": "Sequenza: caduta, distanza, rialzata",
+    "say": "Mettiamo tutto insieme: caduta all'indietro con la tecnica giusta, girati sul fianco, calcia per tenere la distanza, rialzata tecnica, allontanati e barriera con le mani. Ogni volta che finisci, controlla di aver sempre coperto il viso. Fallo cinque volte per lato.",
+    "cues": [
+     "Caduta indietro → sul fianco",
+     "Calci per tenere la distanza",
+     "Rialzata tecnica → barriera con le mani"
+    ],
+    "mistakes": [
+     "Rialzarsi di fretta con l'avversario ancora vicino",
+     "Dimenticare di coprire il viso"
+    ],
+    "drill": {
+     "label": "Caduta e rialzata, per lato",
+     "say": "Tocca a te. Sequenza di caduta e rialzata, per ogni lato: cinque volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Se si lanciano ad afferrarti le gambe, che cosa fai?",
+    "a": [
+     "Spari le gambe indietro e abbassi le anche",
+     "Resti dritto ad aspettare",
+     "Salti"
+    ],
+    "why": "Sprawl: gambe lontane, il tuo peso schiaccia l'avversario."
+   },
+   {
+    "q": "Quando sei a terra, verso dove devono puntare i piedi?",
+    "a": [
+     "Verso l'avversario",
+     "Verso il cielo",
+     "Indietro"
+    ],
+    "why": "I piedi puntano verso l'avversario per calciare e tenere la distanza."
+   },
+   {
+    "q": "Nella rialzata tecnica, che cosa fa la mano anteriore?",
+    "a": [
+     "Si appoggia a terra",
+     "Copre il viso"
+    ],
+    "why": "Proteggi sempre il viso quando ti rialzi."
+   },
+   {
+    "q": "Rialzandoti, vai indietro o verso l'avversario?",
+    "a": [
+     "Indietro, lontano",
+     "Verso di lui"
+    ],
+    "why": "Ti rialzi allontanandoti, per restare al sicuro."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Uscite da terra",
+  "sub": "Spostamento a gambero, ponte e ribaltamento, uscita da sotto, guardia con le gambe",
+  "intro": "Se sei bloccato a terra, niente panico. Ci sono movimenti semplici della lotta Sambo che ti aiutano a ribaltare la situazione. Ci alleniamo piano, il compagno ti blocca con forza moderata, e rispettiamo sempre il segnale di stop.",
+  "safety": "Materassini spessi. Chi sta sopra non scarica tutto il peso e non preme sul collo. Due battute significano stop.",
+  "outro": "Ora sai liberarti da terra. Nella prossima lezione, un tema serio: affrontare chi impugna un coltello.",
+  "home": "Compiti a casa: ogni giorno due minuti di spostamento a gambero, e due sedute a settimana di lotta leggera.",
+  "steps": {
+   "tk12-1": {
+    "title": "Spostamento a gambero",
+    "say": "Sdraiati sulla schiena, con le ginocchia piegate. Spingi un piede sul tappeto, porta le anche indietro e intanto girati su un fianco, con le mani che spingono in avanti come contro un oggetto pesante. Il tuo corpo si curva come un gambero. Poi torna sulla schiena e fallo dall'altro lato. È il movimento più importante a terra: crea spazio.",
+    "cues": [
+     "Spingi col piede, porta le anche indietro",
+     "Girati sul fianco, mani che spingono avanti",
+     "Cambia lato di continuo"
+    ],
+    "mistakes": [
+     "Restare piatto sulla schiena senza ruotare le anche",
+     "Spingere con le mani senza spingere con le anche"
+    ],
+    "drill": {
+     "label": "Gambero lungo il tappeto",
+     "say": "Tocca a te. Spostamento a gambero lungo il tappeto per quaranta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk12-2": {
+    "title": "Ponte e ribaltamento da sotto la montata",
+    "say": "Quando l'avversario ti sta seduto sulla pancia: prima di tutto, copri il viso con le mani. Poi blocca un suo braccio stretto contro il tuo corpo e metti il piede dello stesso lato all'esterno della sua gamba. Spingi le anche in alto con tutta la forza, fai un ponte sulla spalla dal lato del braccio bloccato e ribalta l'avversario di lato. Ti ritrovi sopra, poi ti rialzi e ti allontani.",
+    "cues": [
+     "Prima copri il viso",
+     "Blocca un braccio + blocca la gamba dello stesso lato",
+     "Ponte con le anche, ribalta su quella spalla"
+    ],
+    "mistakes": [
+     "Spingere con le mani sul suo petto",
+     "Fare il ponte dritto senza bloccare braccio e gamba"
+    ],
+    "drill": {
+     "label": "Ponte e ribaltamento per lato",
+     "say": "Tocca a te. Ponte e ribaltamento per ogni lato: sei volte. Ti do io il ritmo."
+    }
+   },
+   "tk12-3": {
+    "title": "Uscita gomito-ginocchio da sotto",
+    "say": "Se non riesci a ribaltarlo: girati su un fianco, porta il gomito vicino al ginocchio e incastralo contro l'anca dell'avversario. Fai lo spostamento a gambero per creare spazio e infila il ginocchio tra te e lui. Quando il ginocchio è dentro, porta le gambe in guardia e tieni l'avversario lontano con le due gambe.",
+    "cues": [
+     "Sul fianco, gomito contro il ginocchio",
+     "Gambero per creare spazio",
+     "Infila il ginocchio, gambe in guardia"
+    ],
+    "mistakes": [
+     "Spingere a braccio teso: rischi una leva al braccio",
+     "Restare piatto sulla schiena"
+    ],
+    "drill": {
+     "label": "Gomito-ginocchio per lato",
+     "say": "Tocca a te. Uscita gomito-ginocchio per ogni lato: sei volte. Ti do io il ritmo."
+    }
+   },
+   "tk12-4": {
+    "title": "Guardia con le gambe e rialzata",
+    "say": "Quando hai le due gambe tra te e l'avversario, sei in guardia. Appoggia i piedi sulle sue anche e spingilo lontano. Quando c'è spazio, passa sul fianco e fai la rialzata tecnica come nella lezione precedente. Stare a terra non vuol dire perdere, se tieni le gambe tra te e lui.",
+    "cues": [
+     "Due gambe tra te e l'avversario",
+     "Piedi sulle anche, crea distanza",
+     "Rialzata tecnica"
+    ],
+    "mistakes": [
+     "Togliere le gambe e lasciarlo avvicinare",
+     "Rialzarsi senza avere distanza"
+    ],
+    "drill": {
+     "label": "Guardia, spingi, rialzati",
+     "say": "Tocca a te. Guardia con le gambe, spingi, rialzati: sei volte. Ti do io il ritmo."
+    }
+   },
+   "tk12-5": {
+    "title": "Lotta leggera controllata",
+    "say": "Ora due minuti di lotta leggera controllata. Uno comincia sotto, l'altro sopra. Chi sta sotto ha un solo compito: liberarsi e rialzarsi. Chi sta sopra tiene soltanto: niente leve, niente strangolamenti. Il cinquanta per cento della forza. Due battute significano stop immediato.",
+    "cues": [
+     "Sotto: liberati e rialzati",
+     "Sopra: tieni soltanto, niente leve, niente strangolamenti",
+     "50% della forza, due battute significano stop"
+    ],
+    "mistakes": [
+     "Usare tutta la forza fin dall'inizio",
+     "Non rispettare il segnale di stop"
+    ],
+    "drill": {
+     "label": "Round di lotta leggera",
+     "say": "Tocca a te. Round di lotta leggera: due round da sessanta secondi, con trenta secondi di pausa tra un round e l'altro."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Qual è il movimento più importante quando sei a terra?",
+    "a": [
+     "Lo spostamento a gambero",
+     "Restare immobili",
+     "Tirare pugni verso l'alto"
+    ],
+    "why": "Il gambero crea lo spazio per liberarti."
+   },
+   {
+    "q": "Nel ponte e ribaltamento, da che lato ribalti?",
+    "a": [
+     "Dal lato del braccio e della gamba che hai bloccato",
+     "Da un lato qualsiasi"
+    ],
+    "why": "L'avversario non può puntellarsi con il braccio e la gamba bloccati."
+   },
+   {
+    "q": "Quando sei bloccato sotto, conviene spingere sul suo petto a braccia tese?",
+    "a": [
+     "Sì",
+     "No, rischi una leva al braccio"
+    ],
+    "why": "Tieni i gomiti vicino al corpo."
+   },
+   {
+    "q": "Nella lotta leggera, che cosa può fare chi sta sopra?",
+    "a": [
+     "Leve al braccio e strangolamenti",
+     "Tenere soltanto, niente leve, niente strangolamenti"
+    ],
+    "why": "Ci si allena in sicurezza e con controllo."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Di fronte a chi impugna un coltello",
+  "sub": "Regole d'oro, ostacoli, protezione, controllo del braccio, fuga: coltello di gomma",
+  "intro": "Ascolta bene la cosa più importante di oggi: il coltello è molto pericoloso, anche per chi pratica arti marziali da anni. Se il rapinatore vuole solo i tuoi beni, daglieli. Le cose si ricomprano, la vita no. Le tecniche che seguono sono solo per quando non hai nessun'altra scelta.",
+  "safety": "Allenati solo con coltelli di gomma o di plastica senza filo. Mai, in nessun caso, con un coltello vero.",
+  "outro": "Ricordalo bene: scappare è vincere. Prossima lezione: mantenere la calma sotto la minaccia di un'arma da fuoco.",
+  "home": "Compiti a casa: una seduta a settimana di simulazioni con il coltello di gomma, piano e in sicurezza, finendo sempre con la fuga.",
+  "steps": {
+   "tk13-1": {
+    "title": "Le regole d'oro",
+    "say": "Tre regole d'oro. Uno: se ti chiedono i tuoi beni, consegnali subito, lancia il portafoglio lontano e scappa nella direzione opposta. Due: tieni la distanza più grande possibile e cerca una via di fuga. Tre: usa le tecniche solo se vieni aggredito e non puoi scappare. E ricorda: nella realtà, quasi tutti quelli che affrontano un coltello restano feriti. Scappare è vincere.",
+    "cues": [
+     "Consegna i beni, lancia lontano, scappa",
+     "Tieni la distanza, cerca una via di fuga",
+     "La tecnica è l'ultima risorsa"
+    ],
+    "mistakes": [
+     "Cercare di tenersi i propri beni",
+     "Lanciarsi con troppa sicurezza contro chi ha un coltello"
+    ],
+    "drill": {
+     "label": "Lancia il portafoglio e scappa (simulazione)",
+     "say": "Tocca a te. Simulazione: lancia il portafoglio e scappa. Tre volte. Ti do io il ritmo."
+    }
+   },
+   "tk13-2": {
+    "title": "Usare un ostacolo come scudo",
+    "say": "Qualsiasi cosa tu abbia in mano può fare da scudo: uno zaino, una giacca avvolta intorno al braccio, una sedia, una borsa. Tieni l'ostacolo tra te e la punta del coltello, afferralo saldamente con due mani e arretra verso la via di fuga. L'ostacolo tiene il coltello lontano dal tuo corpo e ti dà il tempo di scappare.",
+    "cues": [
+     "Zaino, giacca, sedia come scudo",
+     "Tieni l'ostacolo tra te e il coltello",
+     "Arretra verso la via di fuga"
+    ],
+    "mistakes": [
+     "Buttare via l'ostacolo per combattere a mani nude",
+     "Arretrare in un angolo"
+    ],
+    "drill": {
+     "label": "Scudo con lo zaino, verso l'uscita",
+     "say": "Tocca a te. Tieni lo zaino come scudo e arretra verso la via di fuga per trenta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk13-3": {
+    "title": "Protezione e postura",
+    "say": "Se non hai un ostacolo: alza gli avambracci davanti al viso, con l'interno degli avambracci rivolto verso di te, i gomiti a coprire i fianchi, il corpo un po' piegato in avanti e il mento basso. Mettiti di sbieco per offrire un bersaglio più piccolo. Guarda la mano che tiene il coltello, non il viso dell'avversario.",
+    "cues": [
+     "Avambracci davanti al viso, interno verso di te",
+     "Di sbieco, un po' piegato, mento basso",
+     "Guarda la mano col coltello"
+    ],
+    "mistakes": [
+     "Parare con il palmo della mano",
+     "Guardare il viso invece della mano"
+    ],
+    "drill": {
+     "label": "In posizione di protezione",
+     "say": "Tocca a te. Mettiti in posizione di protezione: dieci volte. Ti do io il ritmo."
+    }
+   },
+   "tk13-4": {
+    "title": "Bloccare e controllare il braccio",
+    "say": "Quando arriva un affondo e non puoi evitarlo: blocca il braccio armato con tutti e due gli avambracci, e intanto fai un passo in diagonale verso l'esterno. Subito stringi quel braccio contro il tuo corpo con entrambe le mani, controlla il polso e tieni la lama rivolta lontano. Le tue due mani contro una sola delle sue. Allenati molto piano, con il coltello di gomma.",
+    "cues": [
+     "Blocca con due avambracci + passo in diagonale",
+     "Stringi forte il braccio armato",
+     "Due mani controllano il polso, lama rivolta lontano"
+    ],
+    "mistakes": [
+     "Usare una mano sola",
+     "Lasciare il braccio a metà"
+    ],
+    "drill": {
+     "label": "Blocca e controlla (lento) per lato",
+     "say": "Tocca a te. Blocca e controlla, piano, per ogni lato: otto volte. Ti do io il ritmo."
+    }
+   },
+   "tk13-5": {
+    "title": "Liberarsi e scappare",
+    "say": "Quando controlli il braccio, non cercare di prendere il coltello. Calcia basso al ginocchio come nella lezione nove, spingi via l'avversario con forza, poi corri verso un posto pieno di gente, chiedi aiuto e chiama la polizia. Poi controlla il tuo corpo: chi viene ferito da un coltello spesso non se ne accorge subito.",
+    "cues": [
+     "Non cercare di prendere il coltello",
+     "Calcio basso, spingi via, scappa",
+     "Chiedi aiuto, chiama la polizia, controlla le ferite"
+    ],
+    "mistakes": [
+     "Cercare di strappare il coltello",
+     "Inseguire l'avversario"
+    ],
+    "drill": {
+     "label": "Controlla, spingi, scappa (lento)",
+     "say": "Tocca a te. Controlla, spingi e scappa, piano: cinque volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Un uomo con un coltello ti chiede il portafoglio. Che cosa fai?",
+    "a": [
+     "Lotti per tenerti il portafoglio",
+     "Glielo dai, lo lanci lontano, scappi"
+    ],
+    "why": "Le cose si ricomprano, la vita no."
+   },
+   {
+    "q": "Che cosa può fare da scudo?",
+    "a": [
+     "Uno zaino, una giacca, una sedia",
+     "Niente"
+    ],
+    "why": "L'ostacolo tiene il coltello lontano dal tuo corpo."
+   },
+   {
+    "q": "Davanti a un coltello, dove guardi?",
+    "a": [
+     "Il viso dell'avversario",
+     "La mano che tiene il coltello"
+    ],
+    "why": "Il pericolo sta nella mano che tiene il coltello."
+   },
+   {
+    "q": "Dopo aver controllato il braccio armato, che cosa fai?",
+    "a": [
+     "Cerchi di prendere il coltello",
+     "Spingi via, scappi, chiedi aiuto"
+    ],
+    "why": "Lo scopo è mettersi in salvo, non conquistare l'arma."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Minacciati con un'arma da fuoco",
+  "sub": "Calma, obbedienza, osservazione, coperture, fuga: pistola di plastica da allenamento",
+  "intro": "Questa lezione parla di calma più che di tecnica. Davanti a una pistola, la tua vita dipende da una mente fredda. Usiamo una pistola di plastica arancione, fatta solo per l'allenamento.",
+  "safety": "Usa solo pistole da allenamento in plastica arancione. Niente armi vere, ad aria compressa o repliche realistiche.",
+  "outro": "La mente fredda è la tua arma più forte. Ultima lezione del percorso: sintesi e riflessi.",
+  "home": "Compiti a casa: ogni giorno tre minuti di respirazione quadrata, e il gioco della memoria quando esci per strada.",
+  "steps": {
+   "tk14-1": {
+    "title": "Respirare e restare calmi",
+    "say": "Quando ti puntano contro una pistola, il cuore batte fortissimo. Fai la respirazione quadrata: inspira per quattro secondi, trattieni per quattro secondi, espira per quattro secondi, trattieni per quattro secondi. Bastano uno o due cicli per schiarirti la mente. Chi è calmo vede la via d'uscita, chi è nel panico no.",
+    "cues": [
+     "Inspira 4, trattieni 4, espira 4, trattieni 4",
+     "Bastano uno o due cicli",
+     "Solo con la calma vedi la via d'uscita"
+    ],
+    "mistakes": [
+     "Respirare affannosamente",
+     "Fare movimenti bruschi"
+    ],
+    "drill": {
+     "label": "Respirazione quadrata in 4 tempi",
+     "say": "Tocca a te. Respirazione quadrata in quattro tempi per sessantaquattro secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk14-2": {
+    "title": "Obbedire e alzare le mani",
+    "say": "Se ti chiedono i tuoi beni: obbedisci. Alza le mani aperte all'altezza delle spalle e di' piano e chiaramente: va bene, te lo do. Annuncia ogni movimento prima di farlo: prendo il portafoglio dalla tasca destra. Appoggia i beni a terra o lanciali lontano. Non fissarlo in faccia e non discutere.",
+    "cues": [
+     "Mani aperte all'altezza delle spalle",
+     "Parla piano, annuncia ogni movimento",
+     "Consegna i beni, non discutere"
+    ],
+    "mistakes": [
+     "Infilare la mano in tasca all'improvviso",
+     "Discutere o minacciare a tua volta"
+    ],
+    "drill": {
+     "label": "Simulazione di obbedienza",
+     "say": "Tocca a te. Simulazione di obbedienza: tre volte. Ti do io il ritmo."
+    }
+   },
+   "tk14-3": {
+    "title": "Occultamento e copertura",
+    "say": "Distingui due cose. L'occultamento ti nasconde alla vista, come un cespuglio o una tenda. La copertura ferma i proiettili, come un muro di cemento, un pilastro, il blocco motore di un'auto. Quando hai l'occasione di scappare, corri verso una copertura, a zigzag e non in linea retta, e tieniti basso.",
+    "cues": [
+     "Occultamento ≠ copertura",
+     "Corri verso una copertura",
+     "Corri a zigzag, tieniti basso"
+    ],
+    "mistakes": [
+     "Nascondersi dietro una porta di legno o un cespuglio credendosi al sicuro",
+     "Correre in linea retta"
+    ],
+    "drill": {
+     "label": "Corsa a zigzag verso la copertura",
+     "say": "Tocca a te. Corri a zigzag verso la copertura: cinque volte. Ti do io il ritmo."
+    }
+   },
+   "tk14-4": {
+    "title": "Osservare e ricordare",
+    "say": "Mentre obbedisci, osserva senza farti notare: altezza, vestiti, voce, direzione in cui se ne va. Quando se n'è andato, resta in un posto sicuro, chiama subito la polizia e racconta tutto ciò che ricordi. Non inseguirlo mai.",
+    "cues": [
+     "Osserva di nascosto: corporatura, vestiti, voce, direzione",
+     "Resta in un posto sicuro",
+     "Chiama la polizia, non inseguire"
+    ],
+    "mistakes": [
+     "Inseguire il rapinatore",
+     "Fissarlo in faccia"
+    ],
+    "drill": {
+     "label": "Gioco della memoria: descrivi una persona",
+     "say": "Tocca a te. Gioco della memoria: descrivi una persona in trenta secondi. Il timer fa il conto alla rovescia."
+    }
+   },
+   "tk14-5": {
+    "title": "L'ultima risorsa",
+    "say": "Solo se sei sicuro che sparerà anche se hai obbedito, pensa all'ultima risorsa: devia la canna lontano da te e dagli altri, tienila stretta con due mani, poi cerca di fuggire. È una tecnica ad altissimo rischio, che si impara solo di persona con un istruttore certificato, usando un'arma da allenamento. Nella maggior parte dei casi, obbedire e osservare è la scelta migliore per sopravvivere.",
+    "cues": [
+     "Solo se sei sicuro che sparerà",
+     "Devia la canna dalle persone, tienila con due mani",
+     "Si impara di persona con un istruttore"
+    ],
+    "mistakes": [
+     "Agire quando ti chiedono solo i tuoi beni",
+     "Allenarsi da soli con un video, senza istruttore"
+    ],
+    "drill": {
+     "label": "Ripeti i principi",
+     "say": "Tocca a te. Ripeti i principi: tre volte. Ti do io il ritmo."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Che cos'è la respirazione quadrata?",
+    "a": [
+     "Inspira 4, trattieni 4, espira 4, trattieni 4 secondi",
+     "Trattenere il respiro a lungo"
+    ],
+    "why": "Un respiro regolare abbassa il battito del cuore e ti tiene lucido."
+   },
+   {
+    "q": "Ti puntano contro una pistola e ti chiedono i tuoi beni. Che cosa fai?",
+    "a": [
+     "Reagisci",
+     "Obbedisci, annunci i movimenti, consegni i beni"
+    ],
+    "why": "Nessun bene vale quanto la vita."
+   },
+   {
+    "q": "Che cosa è una copertura, cioè ferma i proiettili?",
+    "a": [
+     "Un cespuglio",
+     "Un muro di cemento, un pilastro"
+    ],
+    "why": "Il cespuglio ti nasconde soltanto, ma non ferma i proiettili."
+   },
+   {
+    "q": "Dopo che il rapinatore se n'è andato, devi:",
+    "a": [
+     "Inseguirlo",
+     "Restare in un posto sicuro e chiamare la polizia"
+    ],
+    "why": "Non inseguire mai una persona armata."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Sintesi e riflessi",
+  "sub": "Situazioni concatenate, lavoro in coppia controllato, stretching di recupero",
+  "intro": "Ultima lezione. Mettiamo insieme tutto ciò che hai imparato e lo trasformiamo in riflessi. Quando succede davvero, non avrai tempo per pensare. Il corpo deve sapere da solo che cosa fare.",
+  "safety": "Guantoni, e paradenti se ce l'hai. Lavoro in coppia al 30–50% della forza, con un istruttore che osserva.",
+  "outro": "Complimenti, guerriero! Hai completato tutto il percorso Autodifesa corpo a corpo, sia la parte base sia quella avanzata. Fai l'esame finale del percorso per ottenere il distintivo Lupo d'Acciaio.",
+  "home": "Compiti a casa: tre sedute a settimana di ripasso di tutto il percorso, ognuna di trenta minuti, sempre con riscaldamento e stretching.",
+  "steps": {
+   "tk15-1": {
+    "title": "Riflessi con colpitori in movimento",
+    "say": "Il compagno tiene due colpitori, ti gira intorno e all'improvviso li alza in punti diversi. Colpitore all'altezza del viso: diretto. Colpitore in basso: calcio di spinta. Colpitore che arriva verso la tua testa: guardia alta. Reagisci subito, senza pensare.",
+    "cues": [
+     "Colpitore all'altezza del viso → diretto",
+     "Colpitore in basso → calcio di spinta",
+     "Colpitore che arriva → guardia alta"
+    ],
+    "mistakes": [
+     "Restare fermo ad aspettare",
+     "Abbassare le mani dopo ogni colpo"
+    ],
+    "drill": {
+     "label": "Round di riflessi",
+     "say": "Tocca a te. Round di riflessi: tre round da quarantacinque secondi, con venti secondi di pausa tra un round e l'altro."
+    }
+   },
+   "tk15-2": {
+    "title": "Situazione: presa al polso",
+    "say": "Situazione uno. Il compagno ti afferra il polso all'improvviso e tira. Riflesso: abbassa il baricentro, liberati verso il pollice, barriera con le mani, allontanati e grida forte: Fermo! Poi girati e corri per tre passi. Ripeti cinque volte, e ogni volta il compagno usa una presa diversa.",
+    "cues": [
+     "Baricentro giù, liberati verso il pollice",
+     "Barriera con le mani, grida forte",
+     "Corri per 3 passi"
+    ],
+    "mistakes": [
+     "Fare forza contro forza",
+     "Dimenticare di gridare e correre"
+    ],
+    "drill": {
+     "label": "Situazione presa al polso",
+     "say": "Tocca a te. Situazione presa al polso: cinque volte. Ti do io il ritmo."
+    }
+   },
+   "tk15-3": {
+    "title": "Situazione: abbraccio da dietro",
+    "say": "Situazione due. Il compagno ti abbraccia da dietro. Riflesso: abbassa il baricentro, apri i gomiti, passo laterale, ruota ed esci, calcio di spinta sullo scudo tenuto da una terza persona, poi scappa. Scambiatevi i ruoli dopo ogni ripetizione. Cinque volte a testa.",
+    "cues": [
+     "Baricentro giù, apri i gomiti",
+     "Passo laterale, ruota ed esci",
+     "Calcio di spinta, scappa"
+    ],
+    "mistakes": [
+     "Restare dritto",
+     "Ruotare con il baricentro ancora alto"
+    ],
+    "drill": {
+     "label": "Situazione abbraccio da dietro",
+     "say": "Tocca a te. Situazione abbraccio da dietro: cinque volte. Ti do io il ritmo."
+    }
+   },
+   "tk15-4": {
+    "title": "Lavoro in coppia controllato",
+    "say": "Lavoro leggero in coppia, tre round da un minuto. Solo diretti sui guantoni e sulle spalle, e calci di spinta alla pancia molto leggeri, al trenta per cento della forza. Niente colpi al viso, niente colpi ai punti deboli. Lo scopo è allenare lo sguardo, il lavoro di gambe e la calma quando qualcuno attacca davvero.",
+    "cues": [
+     "30% della forza, niente viso",
+     "Allena sguardo, gambe, calma",
+     "Toccate i guantoni per salutarvi prima e dopo"
+    ],
+    "mistakes": [
+     "Aumentare la forza quando vieni colpito",
+     "Chiudere gli occhi quando ti colpiscono"
+    ],
+    "drill": {
+     "label": "Round in coppia",
+     "say": "Tocca a te. Round in coppia: tre round da sessanta secondi, con trenta secondi di pausa tra un round e l'altro."
+    }
+   },
+   "tk15-5": {
+    "title": "Stretching e recupero",
+    "say": "Dopo un allenamento duro, fai dieci minuti di stretching. Allunga la parte anteriore e posteriore della coscia, le anche, le spalle e la schiena, trenta secondi per posizione, espirando quando vai più a fondo. Bevi acqua, mangia bene e dormi abbastanza. I muscoli crescono quando riposi, non quando ti alleni.",
+    "cues": [
+     "30 secondi per posizione",
+     "Espira quando vai più a fondo",
+     "Bevi, mangia bene, dormi abbastanza"
+    ],
+    "mistakes": [
+     "Molleggiare durante lo stretching",
+     "Saltare il recupero"
+    ],
+    "drill": {
+     "label": "Stretching di recupero",
+     "say": "Tocca a te. Stretching di recupero per centoventi secondi. Il timer fa il conto alla rovescia."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Il colpitore è in basso, all'altezza della pancia. Qual è il riflesso?",
+    "a": [
+     "Calcio di spinta",
+     "Guardia alta"
+    ],
+    "why": "Il bersaglio basso è per il calcio di spinta."
+   },
+   {
+    "q": "Quanta forza si usa nel lavoro in coppia controllato?",
+    "a": [
+     "Circa il 30%",
+     "Tutta la forza"
+    ],
+    "why": "Si allena l'abilità in sicurezza, non si combatte davvero."
+   },
+   {
+    "q": "Ogni situazione di autodifesa finisce sempre con:",
+    "a": [
+     "Restare a combattere",
+     "Gridare forte, creare distanza e scappare"
+    ],
+    "why": "Lo scopo dell'autodifesa è la sicurezza."
+   },
+   {
+    "q": "Quando crescono i muscoli?",
+    "a": [
+     "Quando riposi, mangi e dormi abbastanza",
+     "Solo quando ti alleni"
+    ],
+    "why": "Il recupero fa parte dell'allenamento."
+   }
+  ]
+ }
+}

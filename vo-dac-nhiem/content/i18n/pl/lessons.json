@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Rozgrzewka i oddech",
+  "sub": "Krążenia stawów, rozgrzanie, oddech w rytmie kroków, oddech rozładowujący, napięcie i rozluźnienie",
+  "intro": "Pierwsza lekcja. Na razie żadnych technik. Dobry wojownik zaczyna od rozgrzanych stawów i spokojnego oddechu. Rób wszystko za mną, krok po kroku.",
+  "safety": "Rozgrzewaj się przed każdym treningiem. Przy ostrym bólu w stawie natychmiast przerwij.",
+  "outro": "Bardzo dobrze. Stawy są rozgrzane, oddech złapał rytm. Na następnym treningu poznamy postawę i pracę nóg.",
+  "home": "Praca domowa: każdego ranka dziesięć minut rozgrzewki i oddychania w rytmie kroków, przez siedem dni z rzędu.",
+  "steps": {
+   "tk1-1": {
+    "title": "Krążenia stawów od góry do dołu",
+    "say": "Stań prosto, stopy na szerokość barków. Bardzo powoli krąż głową, po pięć razy w każdą stronę. Potem krążenia barków, łokci i nadgarstków. Następnie bioder, kolan i kostek. Idź po kolei od góry do dołu. Ruchy są okrągłe i miękkie, bez szarpania. Tylko rozgrzane stawy są bezpieczne przy upadku i przy zadawaniu ciosów.",
+    "cues": [
+     "Od góry: szyja → barki → łokcie → nadgarstki → biodra → kolana → kostki",
+     "Każdy staw 5 razy w każdą stronę",
+     "Powoli, okrężnie, bez szarpania"
+    ],
+    "mistakes": [
+     "Zbyt szybkie krążenie głową, zbyt mocne odchylanie jej do tyłu",
+     "Wstrzymywanie oddechu podczas krążeń"
+    ],
+    "drill": {
+     "label": "Krążenia stawów",
+     "say": "Twoja kolej. Krążenia stawów przez dziewięćdziesiąt sekund. Zegar odlicza czas."
+    }
+   },
+   "tk1-2": {
+    "title": "Rozgrzanie ciała",
+    "say": "Biegnij w miejscu, wysoko unosząc kolana, przez trzydzieści sekund. Potem dziesięć przysiadów: opuszczaj biodra, jakbyś siadał na krześle, plecy proste, kolana w linii z palcami stóp. Następnie dziesięć pompek. Jeśli jeszcze nie dajesz rady, rób je z kolan. Celem jest rozgrzać ciało i trochę przyspieszyć oddech, a nie zmęczyć się do wyczerpania.",
+    "cues": [
+     "30 sekund biegu z wysokim unoszeniem kolan",
+     "10 przysiadów: plecy proste, kolana w linii z palcami",
+     "10 pompek (można z kolan)"
+    ],
+    "mistakes": [
+     "Kolana uciekają do środka w przysiadzie",
+     "Plecy zapadają się przy pompkach"
+    ],
+    "drill": {
+     "label": "Przysiady",
+     "say": "Twoja kolej. Przysiady: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk1-3": {
+    "title": "Oddech prowadzi krok",
+    "say": "To dobrze znane ćwiczenie oddechowe z rosyjskich systemów walki. Idź równym krokiem. Wdech nosem na cztery kroki, wydech ustami na cztery kroki. Po minucie zejdź do trzech kroków, potem do dwóch, potem do jednego. Następnie wracaj stopniowo do czterech. Zapamiętaj: oddech prowadzi ruch. Nigdy nie wstrzymuj oddechu.",
+    "cues": [
+     "Wdech nosem 4 kroki – wydech ustami 4 kroki",
+     "Stopniowo 4 → 3 → 2 → 1, potem z powrotem w górę",
+     "Luźne barki, bez wstrzymywania oddechu"
+    ],
+    "mistakes": [
+     "Wstrzymywanie oddechu przy zmianie rytmu",
+     "Unoszenie barków przy wdechu"
+    ],
+    "drill": {
+     "label": "Marsz z oddechem w rytmie kroków",
+     "say": "Twoja kolej. Marsz z oddechem w rytmie kroków przez sto dwadzieścia sekund. Zegar odlicza czas."
+    }
+   },
+   "tk1-4": {
+    "title": "Oddech rozładowujący przy wysiłku",
+    "say": "Gdy jesteś zmęczony albo spięty, oddychaj krótko i szybko: wdech nosem, mocny wydech ustami, wiele razy pod rząd, jakbyś zdmuchiwał świeczkę. Spróbuj od razu: utrzymaj górną pozycję pompki przez dwadzieścia sekund i cały czas oddychaj w ten sposób. Poczujesz, że mięśnie mniej się spinają, a głowa jest jaśniejsza.",
+    "cues": [
+     "Krótki wdech nosem – mocny wydech ustami",
+     "Bez przerwy, jak przy zdmuchiwaniu świeczki",
+     "Wysoka deska 20 sekund z tym oddechem"
+    ],
+    "mistakes": [
+     "Oddech tak szybki, że kręci się w głowie: zwolnij",
+     "Biodra opadają w desce"
+    ],
+    "drill": {
+     "label": "Wysoka deska + oddech rozładowujący",
+     "say": "Twoja kolej. Wysoka deska z oddechem rozładowującym przez dwadzieścia sekund. Zegar odlicza czas."
+    }
+   },
+   "tk1-5": {
+    "title": "Napięcie i rozluźnienie całego ciała",
+    "say": "Połóż się na plecach na macie. Weź wdech i mocno napnij stopy na trzy sekundy, potem zrób wydech i całkowicie je rozluźnij. Idź po kolei w górę: łydki, uda, brzuch, pięści, barki i cała twarz. Na koniec napnij całe ciało naraz i puść. Kto umie się rozluźnić, lepiej znosi uderzenia, porusza się szybciej i rzadziej doznaje kontuzji.",
+    "cues": [
+     "Wdech – napnij na 3 sekundy",
+     "Wydech – całkowicie rozluźnij",
+     "Od stóp aż po twarz"
+    ],
+    "mistakes": [
+     "Napięcie tak mocne, że łapie skurcz",
+     "Brak wydechu przy rozluźnianiu"
+    ],
+    "drill": {
+     "label": "Napięcie i rozluźnienie",
+     "say": "Twoja kolej. Napięcie i rozluźnienie przez sześćdziesiąt sekund. Zegar odlicza czas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "W jakiej kolejności wykonujesz krążenia stawów?",
+    "a": [
+     "Od góry: szyja, barki… aż po kostki",
+     "Dowolnie, każdy staw się nada",
+     "Wystarczą same kostki"
+    ],
+    "why": "Kolejność od góry do dołu sprawia, że nie pominiesz żadnego stawu."
+   },
+   {
+    "q": "Jak robisz wdech w ćwiczeniu oddechu w rytmie kroków?",
+    "a": [
+     "Ustami",
+     "Nosem",
+     "Najpierw wstrzymuję oddech, potem wdech"
+    ],
+    "why": "Wdech nosem, wydech ustami, w rytmie kroków."
+   },
+   {
+    "q": "Kiedy stosujesz oddech rozładowujący?",
+    "a": [
+     "Gdy jestem zmęczony lub spięty",
+     "Tylko podczas snu",
+     "Nigdy"
+    ],
+    "why": "Krótki, mocny oddech zmniejsza napięcie mięśni i pomaga zachować jasny umysł przy wysiłku."
+   },
+   {
+    "q": "Dlaczego warto umieć się rozluźnić?",
+    "a": [
+     "Żeby lepiej wyglądać",
+     "Lepiej znosisz uderzenia, szybciej się poruszasz, rzadziej masz kontuzje",
+     "Żeby nie musieć się rozgrzewać"
+    ],
+    "why": "Spięte mięśnie reagują wolniej i łatwiej ulegają kontuzjom."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Postawa i praca nóg",
+  "sub": "Płot z rąk, postawa bojowa, krok dostawny, obrót na osi",
+  "intro": "Nogi decydują o wszystkim. Tylko gdy stoisz pewnie, możesz się obronić, uderzyć i uciec. Dziś budujemy fundament.",
+  "safety": "Ćwicz na płaskim, nieśliskim podłożu. Kroki krótkie i pewne.",
+  "outro": "Fundament gotowy. Pewne nogi to połowa walki. Następna lekcja: jak bezpiecznie upadać.",
+  "home": "Praca domowa: codziennie dziesięć minut postawy i poruszania się, trzy rundy, przez siedem dni.",
+  "steps": {
+   "tk2-1": {
+    "title": "Postawa czujności – płot z rąk",
+    "say": "Gdy ktoś podchodzi do ciebie agresywnie, nie zaciskaj od razu pięści. Stań lekko bokiem, silniejsza noga pół kroku z tyłu. Otwarte dłonie wysuń przed klatkę piersiową, wnętrzem do przodu, jakbyś mówił: spokojnie. Ręce tworzą płot, który trzyma dystans. Nie wyglądasz groźnie, ale tak naprawdę jesteś już gotowy.",
+    "cues": [
+     "Bokiem, silniejsza noga pół kroku w tył",
+     "Otwarte dłonie przed klatką piersiową",
+     "Trzymaj dystans, mów spokojnie"
+    ],
+    "mistakes": [
+     "Od razu zaciśnięte pięści: konflikt łatwo eskaluje",
+     "Stanie przodem, stopy równolegle"
+    ],
+    "drill": {
+     "label": "Wejście w płot",
+     "say": "Twoja kolej. Wejście w płot: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk2-2": {
+    "title": "Postawa bojowa",
+    "say": "Osoba praworęczna: lewa noga z przodu, prawa z tyłu. Stopy nieco szerzej niż barki, palce przedniej stopy lekko skierowane do środka, pięta tylnej lekko uniesiona. Kolana ugięte, ciężar ciała rozłożony równo na obie nogi. Ręce przed twarzą, łokcie przy bokach osłaniają żebra, broda schowana, wzrok ponad pięściami. Osoba leworęczna robi odwrotnie.",
+    "cues": [
+     "Lewa noga z przodu (praworęczni)",
+     "Kolana ugięte, tylna pięta lekko w górze",
+     "Ręce chronią twarz, łokcie żebra, broda schowana"
+    ],
+    "mistakes": [
+     "Obie stopy na jednej linii: łatwo stracić równowagę",
+     "Uniesiona broda, opuszczone ręce"
+    ],
+    "drill": {
+     "label": "Wejście w postawę bojową",
+     "say": "Twoja kolej. Wejście w postawę bojową: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk2-3": {
+    "title": "Krok dostawny naprzód i w tył",
+    "say": "Naprzód: przednia noga robi pierwsza krótki krok, a tylna dosuwa się dokładnie o tyle samo. W tył: najpierw cofa się tylna noga, a przednia dosuwa się za nią. Stopy suną tuż przy ziemi, bez podskoków. Nigdy nie krzyżuj nóg i nie zsuwaj ich razem. Po każdym kroku stoisz w tej samej postawie co na początku.",
+    "cues": [
+     "Naprzód: pierwsza idzie przednia noga",
+     "W tył: pierwsza idzie tylna noga",
+     "Odstęp między stopami bez zmian"
+    ],
+    "mistakes": [
+     "Krzyżowanie nóg",
+     "Podskakiwanie zamiast sunięcia"
+    ],
+    "drill": {
+     "label": "Krok naprzód i w tył",
+     "say": "Twoja kolej. Krok naprzód i w tył: dwadzieścia razy. Będę ci liczyć."
+    }
+   },
+   "tk2-4": {
+    "title": "Krok w bok",
+    "say": "W lewo pierwsza idzie lewa noga, w prawo pierwsza idzie prawa, a druga noga się dosuwa. Odstęp między stopami bez zmian, ręce nadal osłaniają twarz. Na śliskim błocie im krótszy krok, tym pewniejszy.",
+    "cues": [
+     "W lewo: najpierw lewa noga",
+     "W prawo: najpierw prawa noga",
+     "Krótkie kroki na śliskim podłożu"
+    ],
+    "mistakes": [
+     "Tylna noga przechodzi przed przednią",
+     "Opuszczanie rąk w ruchu"
+    ],
+    "drill": {
+     "label": "Krok w bok",
+     "say": "Twoja kolej. Krok w bok: dwadzieścia razy. Będę ci liczyć."
+    }
+   },
+   "tk2-5": {
+    "title": "Obrót na osi – zmiana kąta",
+    "say": "Stań w postawie bojowej. Palce przedniej stopy są osią, a tylna noga zatacza łuk o ćwierć koła. Całe ciało zmienia kąt o dziewięćdziesiąt stopni i schodzi z linii ataku przeciwnika. Dziesięć obrotów w jedną stronę, potem zmiana kierunku.",
+    "cues": [
+     "Oś na palcach przedniej stopy",
+     "Tylna noga zatacza łuk",
+     "Zmiana kąta o 90°, garda w górze"
+    ],
+    "mistakes": [
+     "Obrót na pięcie",
+     "Prostowanie się w trakcie obrotu"
+    ],
+    "drill": {
+     "label": "Obrót na osi w każdą stronę",
+     "say": "Twoja kolej. Obrót na osi w każdą stronę: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk2-6": {
+    "title": "Ruch na komendę",
+    "say": "Teraz poruszaj się na moje komendy przez trzydzieści sekund: naprzód, w tył, w lewo, w prawo, obrót. Pilnuj rąk, pilnuj brody, oddychaj równo. Nogi są szybkie, ale góra ciała zawsze pozostaje spokojna.",
+    "cues": [
+     "Naprzód – w tył – w lewo – w prawo – obrót",
+     "Ręce i broda zawsze na swoim miejscu",
+     "Równy oddech"
+    ],
+    "mistakes": [
+     "Patrzenie pod nogi",
+     "Zbyt długie kroki"
+    ],
+    "drill": {
+     "label": "Praca nóg na komendę",
+     "say": "Twoja kolej. Poruszaj się na moje komendy przez trzydzieści sekund. Słuchaj uważnie.",
+     "calls": [
+      "Naprzód!",
+      "W tył!",
+      "W lewo!",
+      "W prawo!",
+      "Obrót!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Do czego służy płot z rąk?",
+    "a": [
+     "Trzyma dystans, a ja nie wyglądam agresywnie",
+     "Do natychmiastowego ciosu",
+     "Do czekania ze skrzyżowanymi rękami"
+    ],
+    "why": "Otwarte dłonie trzymają dystans i łagodzą sytuację."
+   },
+   {
+    "q": "Gdy się cofasz, która noga idzie pierwsza?",
+    "a": [
+     "Przednia",
+     "Tylna",
+     "Obie naraz, podskokiem"
+    ],
+    "why": "Pierwsza rusza ta noga, która jest bliżej kierunku ruchu."
+   },
+   {
+    "q": "Jaki błąd w poruszaniu się jest najgroźniejszy?",
+    "a": [
+     "Krzyżowanie nóg",
+     "Krótkie kroki",
+     "Ręce osłaniające twarz"
+    ],
+    "why": "Skrzyżowane nogi bardzo łatwo odbierają ci równowagę."
+   },
+   {
+    "q": "Na jakiej części przedniej stopy robisz obrót?",
+    "a": [
+     "Na pięcie",
+     "Na palcach",
+     "Na zewnętrznej krawędzi stopy"
+    ],
+    "why": "Obrót na palcach jest lekki i szybki."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Bezpieczne padanie",
+  "sub": "Zasady padania, pad w tył, pad na bok, przewrót w przód",
+  "intro": "W tym obozie każdy uczy się padać, zanim nauczy się rzucać. Prawidłowy upadek to umiejętność, która ratuje życie, nawet gdy poślizgniesz się na śliskiej drodze.",
+  "safety": "Ćwicz tylko na grubej macie. Broda zawsze schowana. Przewroty tylko pod okiem instruktora.",
+  "outro": "Umiesz już padać. Od dziś ziemia przestaje być straszna. Następna lekcja: osłona i blokowanie ciosów.",
+  "home": "Praca domowa: codziennie dziesięć padów w tył i dziesięć padów na bok na każdą stronę, na grubej macie, przez tydzień.",
+  "steps": {
+   "tk3-1": {
+    "title": "Trzy złote zasady",
+    "say": "Trzy złote zasady padania. Pierwsza: broda zawsze przyciśnięta do klatki piersiowej, żeby głowa nigdy nie uderzyła o ziemię. Druga: plecy zaokrąglone jak koło, żebyś się toczył, a nie uderzał płasko. Trzecia: ręce uderzają w matę w tej samej chwili co tułów, żeby rozłożyć siłę uderzenia. Zawsze ćwicz na grubej macie. Nigdy nie ćwicz na twardym podłożu.",
+    "cues": [
+     "Broda przy klatce piersiowej",
+     "Plecy okrągłe jak koło",
+     "Ręce uderzają w matę razem z tułowiem"
+    ],
+    "mistakes": [
+     "Podpieranie się prostą ręką przy upadku: łatwo złamać nadgarstek",
+     "Odchylanie głowy do tyłu"
+    ],
+    "drill": {
+     "label": "Okrągłe plecy, schowana broda",
+     "say": "Twoja kolej. Okrągłe plecy i schowana broda: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk3-2": {
+    "title": "Pad w tył z siadu",
+    "say": "Usiądź na macie, nogi wyprostowane przed sobą, ręce wyciągnięte do przodu. Broda schowana, plecy zaokrąglone, przetocz się do tyłu. Gdy górna część pleców dotknie maty, wyprostowane ręce mocno uderzają w matę, pod kątem około czterdziestu pięciu stopni do tułowia, dłońmi w dół. Przy kontakcie z matą zrób wydech. Przetocz się z powrotem do siadu. Zrób dziesięć powtórzeń.",
+    "cues": [
+     "Siad, ręce przed sobą",
+     "Przetocz się w tył, broda schowana",
+     "Uderz rękami pod kątem 45°, dłonie w dół, wydech"
+    ],
+    "mistakes": [
+     "Ręce uderzają za daleko albo za blisko ciała",
+     "Uderzanie łokciem zamiast całą ręką"
+    ],
+    "drill": {
+     "label": "Pad w tył z siadu",
+     "say": "Twoja kolej. Pad w tył z siadu: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk3-3": {
+    "title": "Pad w tył z przysiadu",
+    "say": "Zrób głęboki przysiad, ręce wyciągnięte do przodu. Opuść pośladki na matę tuż przy piętach, potem przetocz się do tyłu jak w poprzednim ćwiczeniu i uderz rękami. Nie siadaj ciężko. Nie pozwól, żeby proste plecy uderzyły płasko. Gdy poczujesz się pewnie, wstawaj i wracaj do przysiadu bez przerwy, coraz szybciej.",
+    "cues": [
+     "Pośladki tuż przy piętach",
+     "Toczenie, bez płaskiego uderzenia",
+     "Uderzenie rękami, wydech"
+    ],
+    "mistakes": [
+     "Ciężkie siadanie daleko od pięt",
+     "Głowa odskakuje do tyłu i uderza w matę"
+    ],
+    "drill": {
+     "label": "Pad w tył z przysiadu",
+     "say": "Twoja kolej. Pad w tył z przysiadu: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk3-4": {
+    "title": "Pad na bok",
+    "say": "Z przysiadu wysuń prawą nogę skośnie przed lewą i opuść ciało na prawy bok. Najpierw prawe biodro, potem prawa strona pleców dotykają maty, a prawa ręka uderza w matę. Broda schowana, głowa nie dotyka maty. Potem zmień stronę. To najczęstszy rodzaj upadku przy rzucie.",
+    "cues": [
+     "Noga wysunięta skośnie do przodu",
+     "Biodro → plecy dotykają maty po kolei",
+     "Ręka z tej samej strony uderza w matę"
+    ],
+    "mistakes": [
+     "Podpieranie się łokciem",
+     "Uderzenie głową o matę z boku"
+    ],
+    "drill": {
+     "label": "Pad na bok na każdą stronę",
+     "say": "Twoja kolej. Pad na bok na każdą stronę: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk3-5": {
+    "title": "Przewrót w przód przez bark",
+    "say": "Uklęknij na jedno kolano, prawa noga z przodu. Prawą rękę wygnij w łuk jak obręcz koła i połóż ją zewnętrzną krawędzią na macie. Spójrz przez lewy bark. Przetocz się skośnie, od prawego barku do lewego biodra. Nie tocz się przez czubek głowy ani prosto wzdłuż kręgosłupa. Zakończ w stabilnym siadzie albo wstań, z rękami w górze osłaniającymi twarz.",
+    "cues": [
+     "Ręka tworzy łuk jak koło",
+     "Toczenie skośne: prawy bark → lewe biodro",
+     "Nie przez głowę, wstań z osłoną twarzy"
+    ],
+    "mistakes": [
+     "Toczenie prosto przez czubek głowy: bardzo niebezpieczne dla szyi",
+     "Ręka się załamuje i głowa dotyka maty"
+    ],
+    "drill": {
+     "label": "Przewrót w przód na każdą stronę",
+     "say": "Twoja kolej. Przewrót w przód na każdą stronę: sześć razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Jak trzymasz brodę przy upadku?",
+    "a": [
+     "Uniesioną",
+     "Przyciśniętą do klatki piersiowej",
+     "Odwróconą w bok"
+    ],
+    "why": "Chowasz brodę, żeby głowa nie uderzyła o ziemię."
+   },
+   {
+    "q": "Pod jakim kątem do tułowia ręka uderza w matę?",
+    "a": [
+     "Około 45°",
+     "Przy ciele, 0°",
+     "Prosto w górę"
+    ],
+    "why": "Około czterdziestu pięciu stopni. Siła dobrze się rozkłada, a łokieć nie uderza o matę."
+   },
+   {
+    "q": "Jak biegnie linia toczenia w przewrocie w przód?",
+    "a": [
+     "Prosto przez czubek głowy",
+     "Skośnie od barku do przeciwległego biodra",
+     "W bok"
+    ],
+    "why": "Toczysz się skośnie przez bark, żeby chronić szyję i kręgosłup."
+   },
+   {
+    "q": "Gdzie ćwiczysz padanie?",
+    "a": [
+     "Na betonie, żeby się przyzwyczaić",
+     "Na grubej macie",
+     "Na schodach"
+    ],
+    "why": "Zawsze na grubej macie. Bezpieczeństwo przede wszystkim."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Osłona i blokowanie",
+  "sub": "Wysoka garda, osłona głowy, odbicie ciosu, blok przedramieniem, zejście z linii",
+  "intro": "Zanim nauczysz się uderzać, musisz nauczyć się nie dać się trafić. Najlepsza obrona jest prosta, zwarta i zawsze idzie w parze z ruchem.",
+  "safety": "W parach ćwiczcie w rękawicach. Partner uderza powoli, tylko na dwadzieścia procent siły.",
+  "outro": "Masz już swoją tarczę. Na następnej lekcji poznamy podstawowe ciosy na tarczy treningowej.",
+  "home": "Praca domowa: codziennie pięć minut osłon przed lustrem, dwa razy w tygodniu powolny trening w parze.",
+  "steps": {
+   "tk4-1": {
+    "title": "Wysoka garda",
+    "say": "Z postawy bojowej unieś obie pięści na wysokość czoła, a przedramiona ustaw pionowo przed twarzą jak dwie tarcze. Łokcie przy sobie, broda schowana, barki uniesione osłaniają szczękę. To najpewniejsza osłona, gdy cios nadchodzi zbyt szybko i nie zdążysz go zobaczyć.",
+    "cues": [
+     "Pięści na wysokości czoła",
+     "Przedramiona pionowo jak tarcze",
+     "Broda schowana, barki chronią szczękę"
+    ],
+    "mistakes": [
+     "Zamykanie oczu przy osłonie",
+     "Rozstawione łokcie odsłaniają żebra"
+    ],
+    "drill": {
+     "label": "Wejście w wysoką gardę",
+     "say": "Twoja kolej. Wejście w wysoką gardę: piętnaście razy. Będę ci liczyć."
+    }
+   },
+   "tk4-2": {
+    "title": "Pełna osłona głowy",
+    "say": "Gdy ktoś zasypuje cię seriami ciosów, obejmij dłońmi tył głowy, a łokcie złącz przed twarzą. Pochyl się i ugnij kolana. Głowa chowa się w klatce z rąk. Ale nie stój długo w tej pozycji. Osłoń się, a potem od razu zejdź z linii ataku.",
+    "cues": [
+     "Dłonie obejmują tył głowy",
+     "Łokcie złączone przed twarzą",
+     "Osłoń się i od razu się przesuń"
+    ],
+    "mistakes": [
+     "Stanie w miejscu i przyjmowanie ciosów",
+     "Odwracanie się plecami"
+    ],
+    "drill": {
+     "label": "Osłona głowy i wyjście w bok",
+     "say": "Twoja kolej. Osłona głowy i wyjście w bok: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk4-3": {
+    "title": "Odbicie ciosu",
+    "say": "Gdy prosty cios leci w twoją twarz, nie blokuj go na twardo. Wnętrzem dłoni lekko odbij nadgarstek albo pięść przeciwnika w bok, tylko tyle, żeby cios przeleciał obok twarzy. Ruch jest mały i krótki, a ręka od razu wraca do gardy.",
+    "cues": [
+     "Odbijasz wnętrzem dłoni",
+     "Tylko tyle, by zboczyć cios",
+     "Od razu wróć do gardy"
+    ],
+    "mistakes": [
+     "Zbyt szeroki zamach ręką",
+     "Wychodzenie ręką naprzeciw ciosu"
+    ],
+    "drill": {
+     "label": "Odbicie każdą ręką",
+     "say": "Twoja kolej. Odbicie każdą ręką: dwadzieścia razy. Będę ci liczyć."
+    }
+   },
+   "tk4-4": {
+    "title": "Blok przedramieniem w górę",
+    "say": "Gdy cios spada z góry, unieś przedramię skośnie przed czołem. Przedramię jest pochylone jak dach, żeby siła ześlizgnęła się w bok, a nie uderzyła prosto w kość. W tym samym momencie zrób skośny krok do przodu albo na zewnątrz.",
+    "cues": [
+     "Przedramię skośnie przed czołem",
+     "Pochylone jak dach",
+     "Razem ze skośnym krokiem"
+    ],
+    "mistakes": [
+     "Przedramię poziomo: przyjmuje całą siłę",
+     "Stanie w miejscu"
+    ],
+    "drill": {
+     "label": "Blok w górę każdą ręką",
+     "say": "Twoja kolej. Blok w górę każdą ręką: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk4-5": {
+    "title": "Zejście z linii – krok skośny",
+    "say": "Najlepsza obrona to nie stać tam, gdzie leci cios. Odbijając cios, zrób jednocześnie skośny krok pod kątem czterdziestu pięciu stopni, na zewnątrz uderzającej ręki przeciwnika. Schodzisz z linii ataku i stoisz w bezpieczniejszym miejscu, z którego możesz się wycofać.",
+    "cues": [
+     "Odbicie + krok skośny 45°",
+     "Na zewnątrz uderzającej ręki",
+     "Z bezpiecznego kąta wycofaj się"
+    ],
+    "mistakes": [
+     "Cofanie się prosto do tyłu: przeciwnik łatwo cię dogoni",
+     "Krok do środka, pod drugą rękę przeciwnika"
+    ],
+    "drill": {
+     "label": "Odbicie + zejście z linii na każdą stronę",
+     "say": "Twoja kolej. Odbicie i zejście z linii na każdą stronę: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk4-6": {
+    "title": "Powolny trening w parze",
+    "say": "Ćwicz z partnerem, obaj w rękawicach. Atakujący uderza bardzo powoli, tylko na dwadzieścia procent siły, i celuje w rękawicę, a nie w twarz. Broniący się nazywa na głos technikę, której używa: wysoka garda, odbicie, zejście z linii. Dopiero gdy wszystko jest poprawne i spokojne, stopniowo przyspieszacie.",
+    "cues": [
+     "Rękawice, 20% siły",
+     "Nazywaj technikę na głos",
+     "Najpierw poprawnie, potem szybko"
+    ],
+    "mistakes": [
+     "Zbyt wczesne przyspieszanie",
+     "Prawdziwe uderzenia w twarz partnera"
+    ],
+    "drill": {
+     "label": "Powolny trening w parze",
+     "say": "Twoja kolej. Powolny trening w parze przez sześćdziesiąt sekund. Zegar odlicza czas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Prawidłowe odbicie ciosu to:",
+    "a": [
+     "Mały ruch, tylko by zboczyć cios, i powrót do gardy",
+     "Bardzo szeroki zamach ręką",
+     "Przyjęcie ciosu na twarz"
+    ],
+    "why": "Ruch jest mały i szybki, nie otwiera gardy."
+   },
+   {
+    "q": "Jak ustawiasz przedramię przy bloku ciosu z góry?",
+    "a": [
+     "Poziomo",
+     "Skośnie, pochylone jak dach",
+     "Opuszczone do brzucha"
+    ],
+    "why": "Pochylone jak dach, żeby siła się ześlizgnęła."
+   },
+   {
+    "q": "W którą stronę robisz krok przy zejściu z linii?",
+    "a": [
+     "Skośnie 45° na zewnątrz uderzającej ręki",
+     "Prosto do tyłu",
+     "Zostaję w miejscu"
+    ],
+    "why": "Schodzisz z linii ataku i stajesz pod bezpiecznym kątem."
+   },
+   {
+    "q": "Z jaką siłą uderza atakujący w treningu w parze?",
+    "a": [
+     "Z całej siły",
+     "Około 20%",
+     "50%"
+    ],
+    "why": "Ćwiczysz powoli, żeby uczyć się poprawnie i bezpiecznie."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Podstawowe ciosy na tarczy",
+  "sub": "Pięść, cios prosty, uderzenie nasadą dłoni, kopnięcie odpychające, kombinacja",
+  "intro": "Dobry cios nie musi być ładny. Ma być poprawny, zwarty i bezpieczny dla ciebie. Dziś ćwiczymy na tarczy treningowej, nigdy na żywym człowieku.",
+  "safety": "Owiń dłonie bandażami, załóż rękawice. Uderzaj tylko w tarczę albo w worek treningowy.",
+  "outro": "Twoje ciosy mają już siłę i dyscyplinę. Następna lekcja: uwalnianie się z chwytu za nadgarstek.",
+  "home": "Praca domowa: trzy treningi w tygodniu, na każdym pięć rund po trzydzieści sekund uderzeń w tarczę albo worek.",
+  "steps": {
+   "tk5-1": {
+    "title": "Prawidłowa pięść",
+    "say": "Zwiń cztery palce do wnętrza dłoni. Kciuk zegnij mocno na zewnątrz palca wskazującego i środkowego, nigdy nie chowaj go do środka. W chwili trafienia nadgarstek jest w jednej linii z przedramieniem, a siła idzie w kostki palca wskazującego i środkowego. Początkujący zawsze bandażują dłonie i zakładają rękawice.",
+    "cues": [
+     "Zwiń 4 palce do wnętrza dłoni",
+     "Kciuk zgięty na zewnątrz",
+     "Nadgarstek w linii z przedramieniem"
+    ],
+    "mistakes": [
+     "Kciuk schowany w pięści",
+     "Zgięty nadgarstek przy trafieniu"
+    ],
+    "drill": {
+     "label": "Prawidłowe zaciskanie i otwieranie dłoni",
+     "say": "Twoja kolej. Prawidłowe zaciskanie i otwieranie dłoni: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk5-2": {
+    "title": "Prosty przednią ręką",
+    "say": "Z postawy bojowej wyrzuć przednią pięść prosto, najkrótszą drogą. Tuż przed trafieniem obróć pięść knykciami do góry, a bark unieś, żeby osłonić brodę. Druga ręka zostaje przy twarzy. Po ciosie wróć tą samą drogą, tak samo szybko, jak wyszedłeś.",
+    "cues": [
+     "Najkrótsza prosta droga",
+     "Obrót pięści w chwili trafienia",
+     "Szybki powrót, druga ręka w gardzie"
+    ],
+    "mistakes": [
+     "Cofanie ręki do tyłu dla zamachu",
+     "Opuszczanie tylnej ręki"
+    ],
+    "drill": {
+     "label": "Prosty przednią ręką",
+     "say": "Twoja kolej. Prosty przednią ręką: dwadzieścia razy. Będę ci liczyć."
+    }
+   },
+   "tk5-3": {
+    "title": "Prosty tylną ręką",
+    "say": "Odepchnij się od pięty tylnej nogi, obróć biodra i bark, i wyrzuć tylną pięść prosto w cel. Palce tylnej stopy obracają się razem z tobą, jakbyś gasił niedopałek. Siła płynie z nóg i bioder, nie tylko z ręki. Potem od razu wróć do gardy.",
+    "cues": [
+     "Odepchnięcie z tylnej nogi",
+     "Obrót bioder – barku – tylnej stopy",
+     "Od razu powrót do gardy"
+    ],
+    "mistakes": [
+     "Sama ręka, bez obrotu bioder",
+     "Zbyt mocne pochylenie do przodu, utrata równowagi"
+    ],
+    "drill": {
+     "label": "Prosty tylną ręką",
+     "say": "Twoja kolej. Prosty tylną ręką: dwadzieścia razy. Będę ci liczyć."
+    }
+   },
+   "tk5-4": {
+    "title": "Uderzenie nasadą dłoni",
+    "say": "Odegnij nadgarstek do tyłu, otwórz dłoń, palce lekko zgięte. Uderzasz nasadą dłoni, prosto, tak jak przy ciosie pięścią. W prawdziwej sytuacji samoobrony to uderzenie jest bezpieczniejsze dla ręki niż goła pięść, bo żadna kostka palca nie trafia w twardą kość.",
+    "cues": [
+     "Nadgarstek odgięty, dłoń otwarta",
+     "Uderzenie nasadą dłoni",
+     "Prosta linia jak przy ciosie"
+    ],
+    "mistakes": [
+     "Uderzanie wnętrzem palców",
+     "Sztywno wyprostowane palce"
+    ],
+    "drill": {
+     "label": "Nasada dłoni, każda strona",
+     "say": "Twoja kolej. Uderzenie nasadą dłoni na każdą stronę: piętnaście razy. Będę ci liczyć."
+    }
+   },
+   "tk5-5": {
+    "title": "Kopnięcie odpychające w przód",
+    "say": "Unieś kolano tylnej nogi wysoko, na wysokość bioder. Potem wypchnij piętę prosto przed siebie, jakbyś wyważał drzwi, i dopchnij biodrem. Celem jest brzuch, a tutaj tarcza. Cofnij nogę i postaw ją z powrotem w postawie. To kopnięcie służy do odepchnięcia napastnika, żeby zrobić dystans i uciec.",
+    "cues": [
+     "Kolano wysoko, na wysokość bioder",
+     "Pchnięcie piętą, dopchnięcie biodrem",
+     "Noga wraca do postawy"
+    ],
+    "mistakes": [
+     "Kopanie palcami stopy",
+     "Zbyt mocne odchylenie do tyłu"
+    ],
+    "drill": {
+     "label": "Kopnięcie odpychające każdą nogą",
+     "say": "Twoja kolej. Kopnięcie odpychające każdą nogą: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk5-6": {
+    "title": "Kombinacja i odejście",
+    "say": "Teraz łączymy wszystko w kombinację: prosty przednią ręką, prosty tylną, kopnięcie odpychające, potem dwa kroki w tył do płotu z rąk. Trzy rundy po trzydzieści sekund na tarczy, dwadzieścia sekund przerwy. Każdy cios wyraźnie. Najpierw poprawnie, potem szybko.",
+    "cues": [
+     "Przednia ręka – tylna ręka – kopnięcie odpychające",
+     "2 kroki w tył, płot z rąk",
+     "3 rundy × 30 sekund, przerwa 20 sekund"
+    ],
+    "mistakes": [
+     "Brak odejścia po kombinacji",
+     "Pośpiech i utrata postawy"
+    ],
+    "drill": {
+     "label": "Runda kombinacji",
+     "say": "Twoja kolej. Runda kombinacji: trzy rundy po trzydzieści sekund, dwadzieścia sekund przerwy między rundami."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Gdzie jest kciuk, gdy zaciskasz pięść?",
+    "a": [
+     "Schowany w środku",
+     "Zgięty na zewnątrz palca wskazującego i środkowego",
+     "Wyprostowany"
+    ],
+    "why": "Schowany w środku kciuk łatwo złamać."
+   },
+   {
+    "q": "Skąd pochodzi siła prostego tylną ręką?",
+    "a": [
+     "Tylko z ręki",
+     "Z nóg i bioder",
+     "Z szyi"
+    ],
+    "why": "Odpychasz się nogą, obracasz biodra, a bark i ręka idą za nimi."
+   },
+   {
+    "q": "Jaki jest główny cel kopnięcia odpychającego w samoobronie?",
+    "a": [
+     "Zrobić dystans, żeby uciec",
+     "Kopnąć w głowę",
+     "Popisać się techniką"
+    ],
+    "why": "Odpychasz napastnika, żeby bezpiecznie odejść."
+   },
+   {
+    "q": "Dlaczego uderzenie nasadą dłoni jest bezpieczniejsze dla ręki?",
+    "a": [
+     "Żadna kostka palca nie trafia w twardą kość",
+     "Bo jest wolne",
+     "Bo jest słabe"
+    ],
+    "why": "Nasada dłoni jest mocna, a ryzyko urazu dłoni małe."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Uwolnienie z chwytu za nadgarstek",
+  "sub": "Zasada kciuka, chwyt jednoimienny, chwyt skrzyżny, chwyt oburącz",
+  "intro": "Chwyt za nadgarstek to bardzo częsta sytuacja. Nie potrzebujesz siły. Wystarczy, że rozumiesz słaby punkt dłoni przeciwnika.",
+  "safety": "Partner trzyma z umiarkowaną siłą. Uwalniaj się powoli, bez gwałtownych szarpnięć, które bolą stawy.",
+  "outro": "Twoja ręka potrafi już sama się uwolnić. Następna lekcja: uwalnianie się z obejmowania i z chwytu z przodu.",
+  "home": "Praca domowa: codziennie dziesięć uwolnień z każdego rodzaju chwytu, z kimś bliskim, przez tydzień.",
+  "steps": {
+   "tk6-1": {
+    "title": "Zasada kciuka",
+    "say": "Gdy ktoś trzyma cię za nadgarstek, najsłabszym punktem jego dłoni jest szczelina między kciukiem a pozostałymi palcami. Nie siłuj się siłą na siłę. Obróć przedramię tak, żeby wąska kość nadgarstka była skierowana w tę szczelinę, i mocno wyciągnij rękę w stronę kciuka.",
+    "cues": [
+     "Znajdź kciuk przeciwnika",
+     "Obróć nadgarstek w szczelinę przy kciuku",
+     "Mocno wyciągnij w stronę kciuka"
+    ],
+    "mistakes": [
+     "Ciągnięcie prosto do tyłu, przepychanka",
+     "Wyciąganie w stronę czterech palców"
+    ],
+    "drill": {
+     "label": "Szukanie kierunku kciuka",
+     "say": "Twoja kolej. Szukanie kierunku kciuka: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk6-2": {
+    "title": "Chwyt jednoimienny",
+    "say": "Iwan chwyta mój prawy nadgarstek lewą ręką. Obniżam środek ciężkości, zginam łokieć i przyciągam rękę do siebie. Obracam przedramię tak, żeby nadgarstek był skierowany w kciuk Iwana, i mocno szarpię w górę, w stronę mojego barku. Ręka jest wolna. Od razu unoszę ręce w płot i się cofam.",
+    "cues": [
+     "Niżej środek ciężkości, zgięty łokieć",
+     "Obróć nadgarstek w stronę kciuka",
+     "Szarpnij do własnego barku, potem płot z rąk"
+    ],
+    "mistakes": [
+     "Prostowanie ręki przy uwalnianiu",
+     "Zostawanie blisko po uwolnieniu"
+    ],
+    "drill": {
+     "label": "Chwyt jednoimienny, każda ręka",
+     "say": "Twoja kolej. Uwolnienie z chwytu jednoimiennego każdą ręką: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk6-3": {
+    "title": "Chwyt skrzyżny",
+    "say": "Przy chwycie skrzyżnym, na przykład gdy prawa ręka przeciwnika trzyma twój prawy nadgarstek, jego kciuk jest na górze. Obróć nadgarstek w górę, przetnij szczelinę przy kciuku i pociągnij w stronę przeciwległego barku. Połącz to ze skośnym krokiem w tył.",
+    "cues": [
+     "Kciuk przeciwnika jest na górze",
+     "Obrót w górę, przez szczelinę przy kciuku",
+     "Do przeciwległego barku + skośny krok w tył"
+    ],
+    "mistakes": [
+     "Ciągnięcie w dół, w przeciwną stronę niż szczelina",
+     "Zapominanie o kroku"
+    ],
+    "drill": {
+     "label": "Chwyt skrzyżny, każda ręka",
+     "say": "Twoja kolej. Uwolnienie z chwytu skrzyżnego każdą ręką: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk6-4": {
+    "title": "Chwyt oburącz",
+    "say": "Gdy ktoś trzyma cię obiema rękami, jedna twoja ręka nie ma dość siły. Wsuń wolną dłoń między ręce przeciwnika i złap własną pięść. Potem siłą obu rąk, razem z obrotem barków, mocno szarpnij w górę, przez szczelinę między jego kciukami.",
+    "cues": [
+     "Wolna ręka wchodzi pomiędzy",
+     "Złap własną pięść",
+     "Dwie ręce + obrót barków, szarpnięcie w górę"
+    ],
+    "mistakes": [
+     "Próba wyrwania jednej ręki w pojedynkę",
+     "Szarpnięcie w bok zamiast w górę"
+    ],
+    "drill": {
+     "label": "Uwolnienie z chwytu oburącz",
+     "say": "Twoja kolej. Uwolnienie z chwytu oburącz: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk6-5": {
+    "title": "Po uwolnieniu",
+    "say": "Uwolnienie to nie koniec. Od razu odsuń się daleko, unieś ręce w płot i krzyknij bardzo głośno: Stop! Krzyk zwraca uwagę ludzi wokół i pokazuje, że nie chcesz walczyć. Celem samoobrony jest zawsze bezpiecznie się uwolnić i odejść.",
+    "cues": [
+     "Od razu odsuń się daleko",
+     "Płot z rąk",
+     "Głośny krzyk: Stop!"
+    ],
+    "mistakes": [
+     "Zostawanie na miejscu i kłótnia",
+     "Ucieczka plecami, gdy napastnik jest jeszcze za blisko"
+    ],
+    "drill": {
+     "label": "Uwolnienie – odskok – krzyk",
+     "say": "Twoja kolej. Uwolnienie, odskok i krzyk: pięć razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Słaby punkt trzymającej dłoni to:",
+    "a": [
+     "Wnętrze dłoni",
+     "Szczelina między kciukiem a palcami",
+     "Mały palec"
+    ],
+    "why": "Szczelina przy kciuku to miejsce, przez które najłatwiej się uwolnić."
+   },
+   {
+    "q": "Co robisz, gdy ktoś trzyma cię obiema rękami?",
+    "a": [
+     "Z całej siły wyrywam jedną rękę",
+     "Łapię własną dłoń i szarpię w górę obiema rękami",
+     "Stoję bez ruchu"
+    ],
+    "why": "Dwie ręce razem z obrotem barków pokonują dwie ręce przeciwnika."
+   },
+   {
+    "q": "Co robisz najpierw po uwolnieniu?",
+    "a": [
+     "Odsuwam się daleko, płot z rąk, głośny krzyk",
+     "Od razu oddaję cios",
+     "Kłócę się"
+    ],
+    "why": "Celem samoobrony jest bezpieczeństwo i odejście."
+   },
+   {
+    "q": "Czy warto siłować się siłą na siłę?",
+    "a": [
+     "Tak",
+     "Nie, wykorzystaj właściwy kierunek kciuka"
+    ],
+    "why": "Prawidłowa technika wygrywa z siłą."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Uwolnienie z obejmowania i chwytu z przodu",
+  "sub": "Obejmowanie od tyłu z rękami w środku, z wolnymi rękami, chwyt za kołnierz z przodu, sygnał stop",
+  "intro": "Mocne objęcie to jedno z najbardziej przerażających uczuć. Sekret tkwi w nisko opuszczonym środku ciężkości i ruchliwych nogach. Ćwiczymy powoli, bezpiecznie i zawsze szanujemy sygnał stop.",
+  "safety": "Partner obejmuje z umiarkowaną siłą. Nigdy naprawdę nie ściskaj szyi. Dwa klepnięcia oznaczają stop.",
+  "outro": "Umiesz już uwolnić się z najbardziej nieprzyjemnych chwytów. Ostatnia lekcja tej części: wytrącanie z równowagi i bezpieczne rzuty.",
+  "home": "Praca domowa: dwa treningi w tygodniu, każda sytuacja osiem razy na każdą stronę, zawsze z ustalonym sygnałem stop.",
+  "steps": {
+   "tk7-1": {
+    "title": "Sygnał stop",
+    "say": "Przed każdym ćwiczeniem w parze ustalcie sygnał stop. Dwa klepnięcia w partnera albo w matę, albo głośne słowo: stop. Gdy usłyszysz lub poczujesz ten sygnał, natychmiast puść. Każdy ćwiczący musi bezwzględnie szanować ten sygnał. Tylko bezpieczny trening pozwala trenować przez długie lata.",
+    "cues": [
+     "2 klepnięcia albo słowo: stop",
+     "Natychmiast puść",
+     "Bezwzględny szacunek dla sygnału"
+    ],
+    "mistakes": [
+     "Dociskanie jeszcze trochę po sygnale",
+     "Brak ustalenia sygnału przed treningiem"
+    ],
+    "drill": {
+     "label": "Ustalenie sygnału",
+     "say": "Twoja kolej. Ustalenie sygnału: trzy razy. Będę ci liczyć."
+    }
+   },
+   "tk7-2": {
+    "title": "Obejmowanie od tyłu – niski środek ciężkości",
+    "say": "Gdy ktoś obejmuje cię od tyłu, a twoje ręce są uwięzione w środku: natychmiast obniż środek ciężkości, ugnij kolana, wypchnij biodra do tyłu. Jednocześnie rozłóż łokcie na boki, żeby poluzować uchwyt. Przy niskim środku ciężkości przeciwnikowi bardzo trudno cię podnieść.",
+    "cues": [
+     "Od razu obniż środek ciężkości",
+     "Biodra do tyłu",
+     "Łokcie na boki, poluzuj uchwyt"
+    ],
+    "mistakes": [
+     "Wyprostowana sylwetka: łatwo cię podnieść",
+     "Panika i szamotanie się"
+    ],
+    "drill": {
+     "label": "Niżej środek ciężkości, poluzuj uchwyt",
+     "say": "Twoja kolej. Obniż środek ciężkości i poluzuj uchwyt: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk7-3": {
+    "title": "Obejmowanie od tyłu – obrót i wyjście",
+    "say": "Gdy uchwyt się poluzuje, zrób krok jedną nogą w bok, zejdź jeszcze niżej, obróć biodra i barki, i wyślizgnij się z objęcia. Odwróć się twarzą do przeciwnika, ręce w płot, potem odsuń się daleko. Ćwicz powoli z partnerem. Obejmujący trzyma tylko z umiarkowaną siłą.",
+    "cues": [
+     "Krok jedną nogą w bok",
+     "Nisko, obrót bioder, wyślizgnięcie",
+     "Przodem do przeciwnika, płot, odsuń się"
+    ],
+    "mistakes": [
+     "Obrót przy wciąż wysokim środku ciężkości",
+     "Zostawanie blisko po uwolnieniu"
+    ],
+    "drill": {
+     "label": "Uwolnienie z obejmowania od tyłu, każda strona",
+     "say": "Twoja kolej. Uwolnienie z obejmowania od tyłu na każdą stronę: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk7-4": {
+    "title": "Obejmowanie od tyłu – wolne ręce",
+    "say": "Jeśli twoje ręce są na zewnątrz objęcia, i tak najpierw obniż środek ciężkości. Potem złap dłoń przeciwnika przed swoim brzuchem i rozerwij uchwyt, jednocześnie obracając się i wychodząc na zewnątrz. Odsuń się daleko i trzymaj płot z rąk.",
+    "cues": [
+     "Najpierw niski środek ciężkości",
+     "Rozerwij dłonie przeciwnika przed brzuchem",
+     "Obrót, wyjście, odsuń się"
+    ],
+    "mistakes": [
+     "Drapanie rąk przeciwnika bez obniżenia się",
+     "Odwracanie się plecami, gdy napastnik jest tuż obok"
+    ],
+    "drill": {
+     "label": "Uwolnienie z obejmowania od tyłu, wolne ręce",
+     "say": "Twoja kolej. Uwolnienie z obejmowania od tyłu z wolnymi rękami: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk7-5": {
+    "title": "Chwyt za kołnierz z przodu",
+    "say": "Gdy przeciwnik chwyta oburącz twój kołnierz z przodu: schowaj brodę, unieś barki, żeby chronić szyję. Wyprostuj jedną rękę wysoko nad głowę, potem mocno obróć ciało w bok, tak żeby bark i ręka przygniotły obie ręce przeciwnika i rozbiły chwyt. Od razu zrób krok w tył i unieś ręce w płot. Na treningu partner trzyma tylko za kołnierz i nigdy nie ściska szyi.",
+    "cues": [
+     "Broda schowana, barki w górę",
+     "Jedna ręka prosto w górę",
+     "Mocny obrót ciała, nacisk na ręce, odejście"
+    ],
+    "mistakes": [
+     "Odrywanie rąk przeciwnika siłą",
+     "Obrót bez uniesienia ręki"
+    ],
+    "drill": {
+     "label": "Uwolnienie z chwytu za kołnierz, każda strona",
+     "say": "Twoja kolej. Uwolnienie z chwytu za kołnierz na każdą stronę: osiem razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Co robisz najpierw, gdy ktoś obejmuje cię od tyłu?",
+    "a": [
+     "Obniżam środek ciężkości",
+     "Podskakuję",
+     "Odchylam głowę do tyłu"
+    ],
+    "why": "Przy niskim środku ciężkości przeciwnikowi trudno cię podnieść."
+   },
+   {
+    "q": "Sygnał stop w treningu w parze to:",
+    "a": [
+     "Dwa klepnięcia albo słowo: stop",
+     "Dowolny głośny krzyk",
+     "Sygnał nie jest potrzebny"
+    ],
+    "why": "Ustalacie go wcześniej i bezwzględnie szanujecie."
+   },
+   {
+    "q": "Czego używasz, by uwolnić się z chwytu za kołnierz z przodu?",
+    "a": [
+     "Siły obu rąk",
+     "Uniesienia ręki i mocnego obrotu ciała z naciskiem",
+     "Stania i czekania"
+    ],
+    "why": "Obrót całego ciała jest silniejszy niż obie ręce przeciwnika."
+   },
+   {
+    "q": "Co wolno partnerowi przy ćwiczeniu uwolnienia z chwytu za kołnierz?",
+    "a": [
+     "Naprawdę ściskać szyję",
+     "Tylko trzymać za kołnierz, bez ściskania szyi"
+    ],
+    "why": "Szyja musi być zawsze całkowicie bezpieczna."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Wytrącanie z równowagi i rzuty",
+  "sub": "Podstawa, uchwyt za kurtkę, podcięcie od tyłu, podstawienie nogi z przodu, kontrola",
+  "intro": "To esencja zapasów Sambo: wykorzystać równowagę przeciwnika, żeby sprowadzić go na ziemię. Ćwicz tylko wtedy, gdy już dobrze umiesz padać, na grubej macie, pod okiem instruktora.",
+  "safety": "Obowiązkowo: opanowana lekcja Bezpieczne padanie, gruba mata, obecność trenera, wolne tempo.",
+  "outro": "Gratulacje! Ukończyłeś część podstawową ścieżki Samoobrona w walce wręcz. Czeka na ciebie część zaawansowana, z bardziej realistycznymi sytuacjami.",
+  "home": "Praca domowa: dwa treningi w tygodniu na grubej macie, pod okiem instruktora, każda technika sześć razy, powoli.",
+  "steps": {
+   "tk8-1": {
+    "title": "Podstawa i wytrącanie z równowagi",
+    "say": "Przeciwnik stoi pewnie dzięki dwóm nogom. Linia łącząca jego stopy to podstawa. Gdy pchasz albo ciągniesz prostopadle do tej linii, przeciwnik bardzo łatwo traci równowagę. Ćwicz z partnerem: trzymaj rękaw i kołnierz, pchaj, ciągnij i lekko obracaj w ośmiu kierunkach. Wyczuj moment, w którym cały jego ciężar przechodzi na pięty albo na palce.",
+    "cues": [
+     "Podstawa = linia łącząca stopy",
+     "Pchaj albo ciągnij prostopadle do podstawy",
+     "Wyczuj ciężar na piętach albo palcach"
+    ],
+    "mistakes": [
+     "Pchanie wzdłuż linii podstawy",
+     "Sztywne ręce i sama siła"
+    ],
+    "drill": {
+     "label": "Pchanie i ciągnięcie w 8 kierunkach",
+     "say": "Twoja kolej. Pchanie i ciągnięcie w ośmiu kierunkach przez sześćdziesiąt sekund. Zegar odlicza czas."
+    }
+   },
+   "tk8-2": {
+    "title": "Podstawowy uchwyt za kurtkę",
+    "say": "Podstawowy uchwyt w zapasach Sambo: lewa ręka trzyma prawy rękaw partnera, tuż pod łokciem. Prawa ręka trzyma lewą klapę kurtki, na wysokości klatki piersiowej. Łokcie miękkie, nie sztywne. Plecy proste, stopy na szerokość barków, gotowość do ruchu.",
+    "cues": [
+     "Lewa ręka: rękaw pod łokciem",
+     "Prawa ręka: klapa na wysokości klatki",
+     "Miękkie łokcie, proste plecy"
+    ],
+    "mistakes": [
+     "Zgarbione plecy, opuszczona głowa",
+     "Sztywno zablokowane łokcie"
+    ],
+    "drill": {
+     "label": "Wejście w uchwyt",
+     "say": "Twoja kolej. Wejście w uchwyt: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk8-3": {
+    "title": "Podcięcie od tyłu",
+    "say": "Pociągnij partnera do tyłu, w stronę jego prawego tylnego rogu, żeby jego ciężar przeszedł na prawą piętę. Postaw lewą stopę tuż przy zewnętrznej stronie jego prawej stopy. Twoja prawa noga przechodzi łukiem i podcina jego prawą łydkę od tyłu, a tułów jednocześnie pcha go do tyłu. Partner pada w tył techniką, którą już znasz. Przez cały upadek trzymasz jego rękaw i lekko go podciągasz, żeby jego plecy łagodnie dotknęły maty.",
+    "cues": [
+     "Ciężar partnera na jego prawej pięcie",
+     "Krok blisko, podcięcie łydki od tyłu",
+     "Trzymaj rękaw, niech upadnie łagodnie"
+    ],
+    "mistakes": [
+     "Podcinanie, zanim ciężar przejdzie na tę nogę",
+     "Puszczanie rękawa, gdy partner pada"
+    ],
+    "drill": {
+     "label": "Podcięcie od tyłu (powoli), każda strona",
+     "say": "Twoja kolej. Powolne podcięcie od tyłu na każdą stronę: sześć razy. Będę ci liczyć."
+    }
+   },
+   "tk8-4": {
+    "title": "Podstawienie nogi z przodu",
+    "say": "Pociągnij partnera do przodu, skośnie w stronę jego prawej strony. Obróć się i postaw prawą nogę w poprzek przed jego prawą kostką. Dalej ciągnij rękaw łukiem w dół. Partner potyka się o twoją nogę i pada do przodu, przetaczając się przez bark, tak jak w przewrocie w przód.",
+    "cues": [
+     "Ciągnij do przodu – skośnie w prawo",
+     "Noga blokuje kostkę z przodu",
+     "Ciągnij łukiem w dół"
+    ],
+    "mistakes": [
+     "Kopanie w kostkę zamiast blokowania",
+     "Zbyt mocne ciągnięcie prosto w ziemię"
+    ],
+    "drill": {
+     "label": "Podstawienie nogi (powoli), każda strona",
+     "say": "Twoja kolej. Powolne podstawienie nogi na każdą stronę: sześć razy. Będę ci liczyć."
+    }
+   },
+   "tk8-5": {
+    "title": "Kontrola po rzucie",
+    "say": "Gdy partner upadnie, nie puszczaj go od razu. Trzymaj rękaw, stój pewnie, patrz na niego, a potem pomóż mu wstać. Rzucający odpowiada za tego, kto pada. Rzuty ćwicz tylko na grubej macie, pod okiem trenera, w wolnym tempie i zawsze szanuj sygnał stop.",
+    "cues": [
+     "Trzymaj rękaw, stój pewnie",
+     "Patrz na partnera",
+     "Pomóż partnerowi wstać"
+    ],
+    "mistakes": [
+     "Puszczanie od razu przy rzucie",
+     "Upadanie na partnera"
+    ],
+    "drill": {
+     "label": "Powolny rzut + pomoc przy wstawaniu",
+     "say": "Twoja kolej. Powolny rzut i pomoc przy wstawaniu: pięć razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "W jakim kierunku pchasz albo ciągniesz, żeby wytrącić z równowagi?",
+    "a": [
+     "Wzdłuż linii łączącej stopy",
+     "Prostopadle do linii łączącej stopy",
+     "Prosto w dół, w ziemię"
+    ],
+    "why": "Kierunek prostopadły do podstawy jest najsłabszy."
+   },
+   {
+    "q": "Gdzie musi być ciężar partnera przy podcięciu od tyłu?",
+    "a": [
+     "Na palcach",
+     "Na pięcie podcinanej nogi",
+     "Na drugiej nodze"
+    ],
+    "why": "Tylko nogę, która niesie ciężar, da się podciąć."
+   },
+   {
+    "q": "Za co odpowiada rzucający?",
+    "a": [
+     "Trzyma rękaw i kontroluje upadek partnera",
+     "Od razu puszcza",
+     "Upada na partnera"
+    ],
+    "why": "Kontrola pozwala partnerowi bezpiecznie upaść."
+   },
+   {
+    "q": "Warunki, by ćwiczyć rzuty:",
+    "a": [
+     "Dobrze opanowane padanie, gruba mata, obecność trenera",
+     "Można ćwiczyć wszędzie",
+     "Szybko, żeby się przyzwyczaić"
+    ],
+    "why": "Bezpieczeństwo to warunek obowiązkowy."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Ciosy w słabe punkty, by uciec",
+  "sub": "Smagnięcie po oczach, kolano w krocze, kopnięcie w kolano – tylko po to, by otworzyć drogę ucieczki",
+  "intro": "Gdy ktoś naprawdę cię atakuje, a nie możesz uciec, potrzebujesz prostego ciosu, który zatrzyma napastnika na jedną sekundę. Ta jedna sekunda to twoja droga ucieczki. Dziś ćwiczymy na tarczy, nigdy na partnerze.",
+  "safety": "Uderzaj tylko w tarczę lub osłonę. Nigdy nie dotykaj oczu, krocza ani kolan partnera.",
+  "outro": "Masz już ciosy, które otwierają drogę ucieczki. Zapamiętaj: uderzasz, żeby uciec, a nie żeby wygrać. Następna lekcja: łokcie i kolana na bliskim dystansie.",
+  "home": "Praca domowa: trzy treningi w tygodniu, trzy rundy serii na tarczy, zakończone biegiem.",
+  "steps": {
+   "tk9-1": {
+    "title": "Zasada: uderz i uciekaj",
+    "say": "Pierwsza zasada: ciosów w słabe punkty używasz tylko wtedy, gdy naprawdę ktoś cię atakuje i nie ma innego wyjścia. Celem nie jest wygrana, tylko zatrzymanie napastnika na krótką chwilę. Jeden cios, a potem od razu zrób dystans i biegnij tam, gdzie są ludzie. Nie zostawaj, żeby walczyć dalej.",
+    "cues": [
+     "Tylko przy prawdziwym ataku",
+     "Jeden cios, by otworzyć drogę",
+     "Po ciosie uciekasz"
+    ],
+    "mistakes": [
+     "Dalsza walka, gdy droga ucieczki jest już otwarta",
+     "Uderzanie, gdy wciąż można po prostu odejść"
+    ],
+    "drill": {
+     "label": "Płot z rąk – odskok – bieg",
+     "say": "Twoja kolej. Płot z rąk, odskok i bieg: pięć razy. Będę ci liczyć."
+    }
+   },
+   "tk9-2": {
+    "title": "Smagnięcie palcami po oczach",
+    "say": "Z płotu z rąk przednia dłoń jest już blisko twarzy przeciwnika. Palce lekko zgięte i rozluźnione szybko smagają w poprzek oczu, jakbyś strząsał wodę z dłoni, a potem wracają. Ten cios nie wymaga siły, tylko szybkości. Trafiony odruchowo zamyka oczy i się cofa. Na treningu smagaj tylko w rękawicę, którą partner trzyma na wysokości twarzy.",
+    "cues": [
+     "Start z płotu z rąk",
+     "Palce zgięte, luźne, smagnięcie w poprzek",
+     "Szybko, powrót ręki, odskok"
+    ],
+    "mistakes": [
+     "Sztywno wyprostowane palce: łatwo je zwichnąć",
+     "Zamach z daleka zdradza zamiar"
+    ],
+    "drill": {
+     "label": "Smagnięcie w rękawicę każdą ręką",
+     "say": "Twoja kolej. Smagnięcie w rękawicę każdą ręką: piętnaście razy. Będę ci liczyć."
+    }
+   },
+   "tk9-3": {
+    "title": "Kolano w krocze (na tarczy)",
+    "say": "Gdy napastnik przywiera do ciebie i chwyta cię z bardzo bliska, obiema rękami złap go za barki albo za kołnierz. Ściągnij go w dół i jednocześnie wybij kolano tylnej nogi prosto w górę. Biodra idą do przodu. Na treningu partner trzyma grubą tarczę przed dolną częścią brzucha, a ty uderzasz kolanem w tarczę. Potem odepchnij go i odsuń się daleko.",
+    "cues": [
+     "Ręce na barkach, ściągnij w dół",
+     "Kolano tylnej nogi w górę, biodra do przodu",
+     "Odepchnij, odsuń się daleko"
+    ],
+    "mistakes": [
+     "Odchylanie się do tyłu przy uderzeniu kolanem",
+     "Uderzenie kolanem bez złapania równowagi"
+    ],
+    "drill": {
+     "label": "Kolano w tarczę każdą nogą",
+     "say": "Twoja kolej. Kolano w tarczę każdą nogą: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk9-4": {
+    "title": "Kopnięcie w kolano i w goleń",
+    "say": "Gdy napastnik rzuca się na ciebie z daleka, niskie kopnięcie piętą w jego kolano albo w goleń przedniej nogi zatrzyma jego rozpęd. Unieś nisko kolano przedniej nogi, wypchnij piętę skośnie w dół i do przodu, a potem cofnij nogę. Niskie kopnięcie trudno zablokować i pozwala ci zachować dobrą równowagę. Na treningu kopiesz tylko w nisko trzymaną tarczę.",
+    "cues": [
+     "Kolano nisko",
+     "Pięta skośnie w dół i do przodu",
+     "Cofnij nogę, odsuń się"
+    ],
+    "mistakes": [
+     "Wysokie kopnięcie w brzuch: wolne i łatwo upaść",
+     "Kopanie palcami stopy"
+    ],
+    "drill": {
+     "label": "Niskie kopnięcie w tarczę każdą nogą",
+     "say": "Twoja kolej. Niskie kopnięcie w tarczę każdą nogą: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk9-5": {
+    "title": "Seria: smagnięcie – kopnięcie – ucieczka",
+    "say": "Połącz wszystko w jedną serię: z płotu z rąk smagnięcie po oczach w rękawicę, niskie kopnięcie w tarczę, potem obrót i trzy kroki biegu. Najpierw powoli i poprawnie, potem coraz szybciej. Na koniec każdej serii krzyknij głośno: Stop! Ta seria odruchów musi stać się nawykiem twojego ciała.",
+    "cues": [
+     "Płot → smagnięcie → kopnięcie",
+     "Obrót i 3 kroki biegu",
+     "Głośny krzyk: Stop!"
+    ],
+    "mistakes": [
+     "Brak biegu na końcu serii",
+     "Zostawanie blisko po kopnięciu"
+    ],
+    "drill": {
+     "label": "Runda serii",
+     "say": "Twoja kolej. Runda serii: trzy rundy po trzydzieści sekund, dwadzieścia sekund przerwy między rundami."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Jaki jest cel ciosu w słaby punkt?",
+    "a": [
+     "Wygrać walkę",
+     "Zatrzymać napastnika, żebyś mógł uciec",
+     "Ukarać przeciwnika"
+    ],
+    "why": "Uderzasz, żeby otworzyć drogę, a potem biegniesz w bezpieczne miejsce."
+   },
+   {
+    "q": "Jak układasz palce przy smagnięciu po oczach?",
+    "a": [
+     "Sztywno wyprostowane",
+     "Lekko zgięte, luźne, szybkie smagnięcie",
+     "Zaciśnięte w pięść"
+    ],
+    "why": "Luźne palce są szybkie i nie ulegają zwichnięciu."
+   },
+   {
+    "q": "Gdzie kierujesz niskie kopnięcie?",
+    "a": [
+     "W kolano albo goleń przedniej nogi",
+     "W głowę",
+     "W plecy"
+    ],
+    "why": "Niskie kopnięcie jest szybkie, trudne do zablokowania i zatrzymuje rozpęd."
+   },
+   {
+    "q": "W co uderzasz, gdy ćwiczysz z partnerem?",
+    "a": [
+     "W partnera, ale lekko",
+     "Tylko w tarczę lub osłonę"
+    ],
+    "why": "Nigdy nie uderzaj w prawdziwe słabe punkty partnera."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Łokcie i kolana na bliskim dystansie",
+  "sub": "Łokieć poziomy, łokieć w górę, proste kolano, klincz za szyję i barki",
+  "intro": "Gdy ktoś jest tuż przy tobie, pięść nie ma miejsca na zamach. Wtedy łokcie i kolana to najsilniejsza naturalna broń twojego ciała. Ćwiczymy na tarczy: najpierw poprawna technika, potem siła.",
+  "safety": "Uderzaj tylko w grubą tarczę. Trzymający tarczę musi ją trzymać pewnie i stać stabilnie.",
+  "outro": "Bliski dystans nie jest już straszny. Następna lekcja: obrona przed obaleniem i bezpieczne wstawanie.",
+  "home": "Praca domowa: trzy treningi w tygodniu, trzy rundy na bliskim dystansie na tarczy.",
+  "steps": {
+   "tk10-1": {
+    "title": "Łokieć poziomy",
+    "say": "Z postawy bojowej zegnij przednią rękę w łokciu, przedramię równolegle do ziemi, dłoń przy uchu. Obróć biodra i bark i przetnij łokciem poziomo, jak drzwi, które się zatrzaskują. Trafiasz kością tuż poniżej łokcia. Druga ręka nadal osłania twarz. Po uderzeniu od razu wróć do gardy.",
+    "cues": [
+     "Dłoń przy uchu, przedramię poziomo",
+     "Obrót bioder, cięcie poziome",
+     "Trafienie kością tuż pod łokciem"
+    ],
+    "mistakes": [
+     "Zamach całą wyprostowaną ręką",
+     "Brak osłony twarzy drugą ręką"
+    ],
+    "drill": {
+     "label": "Łokieć poziomy każdą ręką",
+     "say": "Twoja kolej. Łokieć poziomy każdą ręką: piętnaście razy. Będę ci liczyć."
+    }
+   },
+   "tk10-2": {
+    "title": "Łokieć w górę",
+    "say": "Gdy przeciwnik naciera z pochyloną głową, łokieć od dołu w górę jest bardzo skuteczny. Mocno zegnij rękę, pięść dotyka barku. Potem odepchnij się nogami i wyrzuć łokieć prosto w górę, pionowo przed twarzą. Na treningu partner trzyma rękawicę zwróconą w dół, na wysokości klatki piersiowej.",
+    "cues": [
+     "Mocno zgięta ręka, pięść przy barku",
+     "Odepchnięcie nogami, prosto w górę",
+     "Druga ręka osłania twarz"
+    ],
+    "mistakes": [
+     "Uderzenie skośnie na zewnątrz",
+     "Sama ręka, bez pracy nóg"
+    ],
+    "drill": {
+     "label": "Łokieć w górę każdą ręką",
+     "say": "Twoja kolej. Łokieć w górę każdą ręką: dwanaście razy. Będę ci liczyć."
+    }
+   },
+   "tk10-3": {
+    "title": "Klincz za szyję i barki",
+    "say": "W bliskim zwarciu połóż dłonie jedna na drugiej na karku przeciwnika, a łokcie złącz przed jego klatką piersiową. Ściągaj jego głowę w dół, łokcie dociskaj do środka. Ten chwyt pozwala ci kontrolować równowagę przeciwnika. Na treningu ciągnij lekko i powoli, a partner zawsze może odklepać i poprosić o stop.",
+    "cues": [
+     "Dłonie jedna na drugiej na karku",
+     "Łokcie złączone przed klatką przeciwnika",
+     "Ściągaj w dół lekko i powoli"
+    ],
+    "mistakes": [
+     "Splatanie palców: łatwo je przyciąć",
+     "Gwałtowne szarpanie szyi partnera"
+    ],
+    "drill": {
+     "label": "Utrzymanie klinczu za szyję i barki",
+     "say": "Twoja kolej. Utrzymaj klincz za szyję i barki przez trzydzieści sekund. Zegar odlicza czas."
+    }
+   },
+   "tk10-4": {
+    "title": "Proste kolano z klinczu",
+    "say": "Z klinczu za szyję i barki ściągnij przeciwnika w dół i wybij kolano prosto w górę, w tarczę, którą partner trzyma przed brzuchem. Biodra do przodu, stoisz prosto na nodze podporowej. Po dwóch kolanach mocno go odepchnij i odsuń się daleko.",
+    "cues": [
+     "Klincz za szyję i barki",
+     "Ściągnij w dół, kolano prosto w górę",
+     "Dwa kolana, odepchnij, odsuń się"
+    ],
+    "mistakes": [
+     "Pochylanie się razem z przeciwnikiem",
+     "Stanie na palcach nogi podporowej i utrata równowagi"
+    ],
+    "drill": {
+     "label": "Kolano w tarczę każdą nogą",
+     "say": "Twoja kolej. Kolano w tarczę każdą nogą: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk10-5": {
+    "title": "Seria na bliskim dystansie",
+    "say": "Łączymy: łokieć poziomy, łokieć w górę, wejście w klincz, dwa kolana, odepchnięcie i powrót do płotu z rąk. Trzy rundy po trzydzieści sekund na tarczy. W trakcie uderzeń utrzymuj krótki oddech rozładowujący.",
+    "cues": [
+     "Łokieć poziomy → łokieć w górę",
+     "Klincz → 2 kolana",
+     "Odepchnij, płot z rąk, oddech rozładowujący"
+    ],
+    "mistakes": [
+     "Wstrzymywanie oddechu przy uderzeniach",
+     "Brak odepchnięcia, żeby zrobić dystans"
+    ],
+    "drill": {
+     "label": "Runda na bliskim dystansie",
+     "say": "Twoja kolej. Runda na bliskim dystansie: trzy rundy po trzydzieści sekund, dwadzieścia sekund przerwy między rundami."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Czym trafiasz przy łokciu poziomym?",
+    "a": [
+     "Kością tuż pod łokciem",
+     "Dłonią",
+     "Barkiem"
+    ],
+    "why": "Twarda kość tuż pod łokciem to najpewniejsza powierzchnia uderzenia."
+   },
+   {
+    "q": "Jak układasz dłonie w klinczu za szyję i barki?",
+    "a": [
+     "Splecione palce",
+     "Jedna na drugiej na karku"
+    ],
+    "why": "Splecione palce łatwo przyciąć. Dłonie położone jedna na drugiej są bezpieczniejsze."
+   },
+   {
+    "q": "Co robisz po dwóch kolanach?",
+    "a": [
+     "Odpycham i odsuwam się daleko",
+     "Dalej mocno trzymam",
+     "Siadam"
+    ],
+    "why": "Zawsze rób dystans, żeby uciec."
+   },
+   {
+    "q": "Jak oddychasz przy serii uderzeń?",
+    "a": [
+     "Wstrzymuję oddech",
+     "Krótki oddech rozładowujący przy każdym uderzeniu"
+    ],
+    "why": "Oddech rozładowujący chroni przed opadnięciem z sił i pomaga zachować spokój."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Obrona przed obaleniem i wstawanie",
+  "sub": "Sprawl przeciw chwytowi za nogi, docisk biodrami, techniczne wstawanie, kopnięcia na dystans",
+  "intro": "W bójce najgroźniejsze jest sprowadzenie do parteru. Dziś nauczysz się nie dać się obalić, a jeśli już upadniesz, bezpiecznie wstać w kilka sekund.",
+  "safety": "Ćwicz na grubej macie. Partner wchodzi powoli i nie taranuje głową.",
+  "outro": "Teraz bardzo trudno cię obalić, a do tego umiesz bezpiecznie wstać. Następna lekcja: wydostawanie się, gdy ktoś przygniata cię do ziemi.",
+  "home": "Praca domowa: codziennie dziesięć technicznych wstań na każdą stronę, dwa razy w tygodniu obrona przed obaleniem z partnerem.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl przeciw chwytowi za nogi",
+    "say": "Gdy przeciwnik nisko się pochyla i rzuca się, żeby złapać cię za nogi: bardzo szybko wyrzuć obie nogi do tyłu, opuść biodra i dociśnij jego górną część pleców, a rękami zablokuj jego barki. Ciężar twojego ciała przygniata go, a twoje nogi są daleko, poza jego zasięgiem. To się nazywa sprawl. Ćwicz powoli z partnerem na macie.",
+    "cues": [
+     "Wyrzuć obie nogi do tyłu",
+     "Biodra w dół, docisk na górę pleców",
+     "Ręce blokują barki przeciwnika"
+    ],
+    "mistakes": [
+     "Cofanie się w pionie: łatwo dać się złapać za nogi",
+     "Biodra zbyt wysoko, przeciwnik wciąż może złapać nogi"
+    ],
+    "drill": {
+     "label": "Wyrzut nóg – sprawl",
+     "say": "Twoja kolej. Sprawl z wyrzutem nóg: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk11-2": {
+    "title": "Odejście po sprawlu",
+    "say": "Po udanym sprawlu nie zostawaj długo na przeciwniku. Odepchnij się rękami od jego barków, poderwij się na nogi, zrób dwa kroki w tył i wróć do postawy bojowej, z rękami osłaniającymi twarz. Celem nadal jest ucieczka.",
+    "cues": [
+     "Odepchnij się od barków",
+     "Poderwij się, 2 kroki w tył",
+     "Postawa, osłona twarzy"
+    ],
+    "mistakes": [
+     "Zbyt długie leżenie na przeciwniku",
+     "Wstawanie tuż przed jego twarzą"
+    ],
+    "drill": {
+     "label": "Sprawl – poderwanie – odejście",
+     "say": "Twoja kolej. Sprawl, poderwanie się i odejście: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk11-3": {
+    "title": "Kopnięcia na dystans z ziemi",
+    "say": "Jeśli upadłeś na plecy, a przeciwnik stoi: połóż się na boku, jedna ręka opiera się o matę, druga osłania twarz. Górna noga jest ugięta i gotowa, żeby kopnąć w kolano albo brzuch, jeśli przeciwnik się rzuci. Obracaj się za nim, zawsze stopami w jego stronę, i nie pozwól mu obejść cię od strony głowy.",
+    "cues": [
+     "Na boku, jedna ręka podpiera, druga osłania",
+     "Górna noga ugięta, gotowa do kopnięcia",
+     "Obracaj się, stopy zawsze w stronę przeciwnika"
+    ],
+    "mistakes": [
+     "Leżenie płasko na plecach",
+     "Przeciwnik obchodzi cię od strony głowy"
+    ],
+    "drill": {
+     "label": "Obracanie się za partnerem",
+     "say": "Twoja kolej. Obracaj się za partnerem przez trzydzieści sekund. Zegar odlicza czas."
+    }
+   },
+   "tk11-4": {
+    "title": "Techniczne wstawanie",
+    "say": "Aby bezpiecznie wstać: tylna ręka opiera się o matę za biodrem, przednia osłania twarz. Unieś biodra i przeciągnij nogę pod sobą do tyłu. Postaw ją daleko, wejdź w postawę i dopiero wtedy się wyprostuj. Zawsze osłaniasz twarz i wstajesz, oddalając się od przeciwnika, a nie prosto przed nim.",
+    "cues": [
+     "Tylna ręka podpiera, przednia osłania twarz",
+     "Biodra w górę, noga do tyłu",
+     "Wstajesz, oddalając się, prosto w postawę"
+    ],
+    "mistakes": [
+     "Wstawanie na obu rękach z odsłoniętą twarzą",
+     "Wstawanie w stronę przeciwnika"
+    ],
+    "drill": {
+     "label": "Techniczne wstawanie, każda strona",
+     "say": "Twoja kolej. Techniczne wstawanie na każdą stronę: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk11-5": {
+    "title": "Seria: upadek – dystans – wstawanie",
+    "say": "Łączymy: prawidłowy pad w tył, obrót na bok, kopnięcia na dystans, techniczne wstawanie, odejście i płot z rąk. Po każdym powtórzeniu sprawdź, czy cały czas osłaniałeś twarz. Pięć razy na każdą stronę.",
+    "cues": [
+     "Pad w tył → na bok",
+     "Kopnięcia na dystans",
+     "Techniczne wstawanie → płot z rąk"
+    ],
+    "mistakes": [
+     "Pospieszne wstawanie, gdy przeciwnik jest wciąż blisko",
+     "Brak osłony twarzy"
+    ],
+    "drill": {
+     "label": "Seria upadek – wstawanie, każda strona",
+     "say": "Twoja kolej. Seria od upadku do wstania na każdą stronę: pięć razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Co robisz, gdy ktoś rzuca się, by złapać cię za nogi?",
+    "a": [
+     "Wyrzucam nogi do tyłu, opuszczam biodra i dociskam",
+     "Stoję prosto i czekam",
+     "Podskakuję"
+    ],
+    "why": "Sprawl to nogi daleko i ciężar ciała na przeciwniku."
+   },
+   {
+    "q": "Gdy leżysz na ziemi, gdzie kierujesz stopy?",
+    "a": [
+     "W stronę przeciwnika",
+     "W górę",
+     "Do tyłu"
+    ],
+    "why": "Stopy skierowane do przeciwnika pozwalają kopnięciami trzymać go na dystans."
+   },
+   {
+    "q": "Co robi przednia ręka przy technicznym wstawaniu?",
+    "a": [
+     "Opiera się o ziemię",
+     "Osłania twarz"
+    ],
+    "why": "Przy wstawaniu zawsze chroń twarz."
+   },
+   {
+    "q": "Wstając, oddalasz się od przeciwnika czy idziesz w jego stronę?",
+    "a": [
+     "Oddalam się",
+     "Idę w jego stronę"
+    ],
+    "why": "Wstawaj, oddalając się, dla bezpieczeństwa."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Wydostawanie się z parteru",
+  "sub": "Krewetka, mostek z przetoczeniem, ucieczka spod przygniecenia, garda",
+  "intro": "Jeśli ktoś przygniata cię do ziemi, nie panikuj. Proste ruchy z zapasów Sambo pomogą ci odwrócić sytuację. Ćwiczymy powoli, partner przygniata z umiarkowaną siłą, a sygnał stop zawsze jest szanowany.",
+  "safety": "Gruba mata. Górny nie przenosi całego ciężaru i nie naciska na szyję. Dwa klepnięcia oznaczają stop.",
+  "outro": "Umiesz już wydostać się z parteru. Następna lekcja to poważny temat: napastnik z nożem.",
+  "home": "Praca domowa: codziennie dwie minuty krewetki, dwa razy w tygodniu lekki sparing w parterze.",
+  "steps": {
+   "tk12-1": {
+    "title": "Krewetka",
+    "say": "Połóż się na plecach, kolana ugięte. Zaprzyj jedną stopę o matę, wypchnij biodra do tyłu i jednocześnie obróć się na bok, a rękami odpychaj przed siebie, jakbyś pchał coś ciężkiego. Twoje ciało wygina się jak krewetka. Potem wróć na plecy i zrób to samo na drugą stronę. To najważniejszy ruch w parterze, bo tworzy wolną przestrzeń.",
+    "cues": [
+     "Zaprzyj stopę, biodra do tyłu",
+     "Obrót na bok, ręce odpychają do przodu",
+     "Ciągła zmiana stron"
+    ],
+    "mistakes": [
+     "Płaskie leżenie bez obrotu bioder",
+     "Odpychanie samymi rękami, bez bioder"
+    ],
+    "drill": {
+     "label": "Krewetka wzdłuż maty",
+     "say": "Twoja kolej. Krewetka wzdłuż maty przez czterdzieści sekund. Zegar odlicza czas."
+    }
+   },
+   "tk12-2": {
+    "title": "Mostek z przetoczeniem spod dosiadu",
+    "say": "Gdy ktoś siedzi na twoim brzuchu, najpierw osłoń twarz rękami. Potem mocno przyciśnij jedną rękę przeciwnika do swojego ciała, a stopę z tej samej strony postaw tak, by zablokować jego nogę z zewnątrz. Bardzo mocno wypchnij biodra w górę, zrób mostek w stronę barku po stronie przytrzymanej ręki i przetocz przeciwnika na bok. Lądujesz na górze, a potem wstajesz i się odsuwasz.",
+    "cues": [
+     "Najpierw osłoń twarz",
+     "Przytrzymaj rękę + zablokuj nogę z tej samej strony",
+     "Mostek biodrami, przetoczenie przez ten bark"
+    ],
+    "mistakes": [
+     "Odpychanie rękami w klatkę przeciwnika",
+     "Mostek prosto w górę bez trzymania ręki i nogi"
+    ],
+    "drill": {
+     "label": "Mostek z przetoczeniem, każda strona",
+     "say": "Twoja kolej. Mostek z przetoczeniem na każdą stronę: sześć razy. Będę ci liczyć."
+    }
+   },
+   "tk12-3": {
+    "title": "Łokieć do kolana – ucieczka spod przygniecenia",
+    "say": "Jeśli nie da się przetoczyć: obróć się na bok, przyłóż łokieć do kolana i wbij łokieć w biodro przeciwnika. Zrób krewetkę, żeby stworzyć przestrzeń, i wsuń kolano między siebie a niego. Gdy kolano jest już w środku, wprowadź nogi do gardy i trzymaj przeciwnika z dala obiema nogami.",
+    "cues": [
+     "Na boku, łokieć przy kolanie",
+     "Krewetka tworzy przestrzeń",
+     "Wsuń kolano, wejdź do gardy"
+    ],
+    "mistakes": [
+     "Odpychanie wyprostowaną ręką: łatwo o dźwignię",
+     "Płaskie leżenie na plecach"
+    ],
+    "drill": {
+     "label": "Łokieć do kolana, każda strona",
+     "say": "Twoja kolej. Ucieczka łokieć do kolana na każdą stronę: sześć razy. Będę ci liczyć."
+    }
+   },
+   "tk12-4": {
+    "title": "Garda i wstawanie",
+    "say": "Gdy masz obie nogi między sobą a przeciwnikiem, jesteś w gardzie. Postaw stopy na jego biodrach i odepchnij go daleko. Gdy pojawi się przestrzeń, obróć się na bok i wstań technicznie, jak w poprzedniej lekcji. Bycie na ziemi nie oznacza przegranej, dopóki twoje nogi są między wami.",
+    "cues": [
+     "Obie nogi między tobą a przeciwnikiem",
+     "Stopy odpychają biodra, robisz dystans",
+     "Techniczne wstawanie"
+    ],
+    "mistakes": [
+     "Opuszczenie nóg i dopuszczenie przeciwnika blisko",
+     "Wstawanie, zanim jest dystans"
+    ],
+    "drill": {
+     "label": "Garda – odepchnięcie – wstawanie",
+     "say": "Twoja kolej. Garda, odepchnięcie i wstawanie: sześć razy. Będę ci liczyć."
+    }
+   },
+   "tk12-5": {
+    "title": "Lekki sparing pod kontrolą",
+    "say": "Teraz lekki sparing w parterze pod kontrolą, przez dwie minuty. Jedna osoba zaczyna na dole, druga na górze. Dolny ma tylko jedno zadanie: wydostać się i wstać. Górny tylko trzyma, bez dźwigni i bez duszenia. Pięćdziesiąt procent siły. Dwa klepnięcia oznaczają natychmiastowy stop.",
+    "cues": [
+     "Dolny: wydostań się i wstań",
+     "Górny: tylko trzyma, bez dźwigni, bez duszenia",
+     "50% siły, dwa klepnięcia to stop"
+    ],
+    "mistakes": [
+     "Pełna siła od samego początku",
+     "Brak szacunku dla sygnału stop"
+    ],
+    "drill": {
+     "label": "Runda lekkiego sparingu",
+     "say": "Twoja kolej. Runda lekkiego sparingu: dwie rundy po sześćdziesiąt sekund, trzydzieści sekund przerwy między rundami."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Jaki ruch jest najważniejszy w parterze?",
+    "a": [
+     "Krewetka",
+     "Leżenie bez ruchu",
+     "Ciosy w górę"
+    ],
+    "why": "Krewetka tworzy przestrzeń do ucieczki."
+   },
+   {
+    "q": "W którą stronę przetaczasz przeciwnika przy mostku?",
+    "a": [
+     "W stronę ręki i nogi, które trzymasz i blokujesz",
+     "W dowolną stronę"
+    ],
+    "why": "Przeciwnik nie podeprze się ręką i nogą, które są zablokowane."
+   },
+   {
+    "q": "Czy pod przygnieceniem warto odpychać klatkę przeciwnika wyprostowaną ręką?",
+    "a": [
+     "Tak",
+     "Nie, łatwo o dźwignię na rękę"
+    ],
+    "why": "Trzymaj łokcie blisko ciała."
+   },
+   {
+    "q": "Co wolno górnemu w lekkim sparingu?",
+    "a": [
+     "Zakładać dźwignie, dusić",
+     "Tylko trzymać, bez dźwigni, bez duszenia"
+    ],
+    "why": "Trening ma być bezpieczny i kontrolowany."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Napastnik z nożem",
+  "sub": "Złote zasady, przeszkoda jako tarcza, osłona, kontrola ręki, ucieczka – gumowy nóż",
+  "intro": "Posłuchaj uważnie najważniejszej rzeczy dzisiaj: nóż jest bardzo niebezpieczny, nawet dla kogoś, kto trenuje od wielu lat. Jeśli napastnik chce tylko twoich rzeczy, oddaj mu je. Rzeczy można odkupić, życia nie. Poniższe techniki są tylko na sytuację, gdy nie ma już żadnego innego wyjścia.",
+  "safety": "Ćwicz wyłącznie gumowym nożem albo tępym nożem z plastiku. Nigdy nie ćwicz prawdziwym nożem.",
+  "outro": "Zapamiętaj dobrze: ucieczka to zwycięstwo. Następna lekcja: jak zachować spokój, gdy ktoś grozi ci bronią palną.",
+  "home": "Praca domowa: raz w tygodniu trening sytuacyjny z gumowym nożem, powoli i bezpiecznie, zawsze zakończony ucieczką.",
+  "steps": {
+   "tk13-1": {
+    "title": "Złote zasady",
+    "say": "Trzy złote zasady. Pierwsza: jeśli żąda twoich rzeczy, oddaj je od razu, rzuć portfel daleko i uciekaj w przeciwną stronę. Druga: trzymaj jak największy dystans i szukaj drogi ucieczki. Trzecia: technik używasz tylko wtedy, gdy ktoś cię atakuje, a ucieczka jest niemożliwa. I pamiętaj: w rzeczywistości prawie każdy, kto staje przeciwko nożowi, zostaje ranny. Ucieczka to zwycięstwo.",
+    "cues": [
+     "Oddaj rzeczy, rzuć daleko, uciekaj",
+     "Trzymaj dystans, szukaj wyjścia",
+     "Technika to ostateczność"
+    ],
+    "mistakes": [
+     "Próba zatrzymania swoich rzeczy",
+     "Pewne siebie rzucanie się na uzbrojonego w nóż"
+    ],
+    "drill": {
+     "label": "Rzut portfelem – ucieczka (scenka)",
+     "say": "Twoja kolej. Scenka: rzucasz portfel i uciekasz. Trzy razy. Będę ci liczyć."
+    }
+   },
+   "tk13-2": {
+    "title": "Przeszkoda jako tarcza",
+    "say": "Wszystko, co masz w rękach, może być tarczą: plecak, kurtka owinięta wokół ręki, krzesło, torba. Trzymaj przeszkodę między sobą a ostrzem, mocno, obiema rękami, i cofaj się w stronę wyjścia. Przeszkoda trzyma nóż z dala od twojego ciała i daje ci czas na ucieczkę.",
+    "cues": [
+     "Plecak, kurtka, krzesło jako tarcza",
+     "Przeszkoda między tobą a nożem",
+     "Cofaj się w stronę wyjścia"
+    ],
+    "mistakes": [
+     "Odrzucanie przeszkody, by walczyć gołymi rękami",
+     "Cofanie się w róg ściany"
+    ],
+    "drill": {
+     "label": "Plecak jako tarcza, odwrót do wyjścia",
+     "say": "Twoja kolej. Trzymaj plecak jak tarczę i cofaj się do wyjścia przez trzydzieści sekund. Zegar odlicza czas."
+    }
+   },
+   "tk13-3": {
+    "title": "Osłona i postawa",
+    "say": "Jeśli nie masz żadnej przeszkody: unieś obie ręce przed twarz, wewnętrzną stroną przedramion do siebie, łokcie osłaniają żebra, lekko się pochyl, broda schowana. Stań bokiem, żeby zmniejszyć cel. Patrz na rękę z nożem, a nie na twarz przeciwnika.",
+    "cues": [
+     "Przedramiona przed twarzą, wewnętrzną stroną do siebie",
+     "Bokiem, lekko pochylony, broda schowana",
+     "Wzrok na ręce z nożem"
+    ],
+    "mistakes": [
+     "Wystawianie wnętrza dłoni do bloku",
+     "Patrzenie w twarz zamiast na rękę"
+    ],
+    "drill": {
+     "label": "Wejście w postawę osłonową",
+     "say": "Twoja kolej. Wejście w postawę osłonową: dziesięć razy. Będę ci liczyć."
+    }
+   },
+   "tk13-4": {
+    "title": "Zatrzymanie i kontrola ręki",
+    "say": "Gdy ktoś pcha nożem w twoją stronę, a nie da się uniknąć ciosu: zatrzymaj uzbrojoną rękę obydwoma przedramionami i jednocześnie zrób skośny krok na zewnątrz. Od razu mocno przyciśnij tę rękę do siebie obiema rękami, kontroluj nadgarstek, ostrze kieruj od siebie. Twoje dwie ręce przeciw jego jednej. Ćwicz bardzo powoli, gumowym nożem.",
+    "cues": [
+     "Zatrzymanie dwoma przedramionami + krok skośny",
+     "Mocno przyciśnij uzbrojoną rękę",
+     "Dwie ręce kontrolują nadgarstek, ostrze od siebie"
+    ],
+    "mistakes": [
+     "Używanie tylko jednej ręki",
+     "Puszczanie ręki w połowie"
+    ],
+    "drill": {
+     "label": "Zatrzymanie – kontrola (powoli), każda strona",
+     "say": "Twoja kolej. Powolne zatrzymanie i kontrola na każdą stronę: osiem razy. Będę ci liczyć."
+    }
+   },
+   "tk13-5": {
+    "title": "Uwolnienie i ucieczka",
+    "say": "Gdy kontrolujesz już rękę, nie próbuj odebrać noża. Kopnij nisko w kolano, jak w lekcji dziewiątej, mocno odepchnij przeciwnika, a potem biegnij tam, gdzie są ludzie, wołaj o pomoc i zawiadom policję. Potem sprawdź swoje ciało: osoba zraniona nożem często nie czuje tego od razu.",
+    "cues": [
+     "Nie próbuj odebrać noża",
+     "Niskie kopnięcie, odepchnięcie, ucieczka",
+     "Wołaj o pomoc, zawiadom policję, sprawdź rany"
+    ],
+    "mistakes": [
+     "Próba wyrwania noża",
+     "Gonienie przeciwnika"
+    ],
+    "drill": {
+     "label": "Kontrola – odepchnięcie – ucieczka (powoli)",
+     "say": "Twoja kolej. Powoli: kontrola, odepchnięcie i ucieczka. Pięć razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Napastnik z nożem żąda twojego portfela. Co robisz?",
+    "a": [
+     "Walczę, żeby zatrzymać portfel",
+     "Oddaję portfel, rzucam go daleko i uciekam"
+    ],
+    "why": "Rzeczy można odkupić, życia nie."
+   },
+   {
+    "q": "Co może posłużyć jako tarcza?",
+    "a": [
+     "Plecak, kurtka, krzesło",
+     "Nic"
+    ],
+    "why": "Przeszkoda trzyma nóż z dala od twojego ciała."
+   },
+   {
+    "q": "Gdzie patrzysz, gdy stoisz naprzeciw noża?",
+    "a": [
+     "W twarz przeciwnika",
+     "Na rękę z nożem"
+    ],
+    "why": "Zagrożenie jest w ręce, która trzyma nóż."
+   },
+   {
+    "q": "Co robisz, gdy już kontrolujesz uzbrojoną rękę?",
+    "a": [
+     "Próbuję odebrać nóż",
+     "Odpycham, uciekam, wołam o pomoc"
+    ],
+    "why": "Celem jest bezpieczna ucieczka, a nie zdobycie broni."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Groźba bronią palną",
+  "sub": "Spokój, uległość, obserwacja, osłona, ucieczka – plastikowa broń treningowa",
+  "intro": "Ta lekcja jest bardziej o spokoju niż o technikach. Gdy stoisz przed lufą, twoje życie zależy od chłodnej głowy. Używamy pomarańczowej plastikowej broni, przeznaczonej tylko do treningu.",
+  "safety": "Używaj tylko pomarańczowej plastikowej broni treningowej. Żadnej prawdziwej broni, wiatrówek ani realistycznych replik.",
+  "outro": "Chłodna głowa to twoja najsilniejsza broń. Ostatnia lekcja ścieżki: podsumowanie i odruchy.",
+  "home": "Praca domowa: codziennie trzy minuty oddechu pudełkowego i ćwiczenie pamięci, gdy wychodzisz z domu.",
+  "steps": {
+   "tk14-1": {
+    "title": "Oddech i spokój",
+    "say": "Gdy ktoś celuje w ciebie z broni, serce bije bardzo szybko. Oddychaj pudełkowo: wdech przez cztery sekundy, zatrzymanie na cztery sekundy, wydech przez cztery sekundy, zatrzymanie na cztery sekundy. Już jeden czy dwa takie oddechy rozjaśniają głowę. Spokojny człowiek widzi drogę wyjścia, spanikowany nie.",
+    "cues": [
+     "Wdech 4 – zatrzymaj 4 – wydech 4 – zatrzymaj 4",
+     "Jeden, dwa cykle wystarczą",
+     "Tylko spokojny widzi wyjście"
+    ],
+    "mistakes": [
+     "Szybki, urywany oddech",
+     "Gwałtowne ruchy"
+    ],
+    "drill": {
+     "label": "Oddech pudełkowy na 4",
+     "say": "Twoja kolej. Oddech pudełkowy na cztery przez sześćdziesiąt cztery sekundy. Zegar odlicza czas."
+    }
+   },
+   "tk14-2": {
+    "title": "Uległość i uniesione ręce",
+    "say": "Jeśli żąda twoich rzeczy: podporządkuj się. Unieś otwarte dłonie na wysokość barków i powiedz powoli i wyraźnie: dobrze, już daję. Zapowiadaj każdy ruch: wyjmę portfel z prawej kieszeni. Połóż rzeczy na ziemi albo rzuć je daleko. Nie wpatruj się w jego twarz i nie kłóć się.",
+    "cues": [
+     "Otwarte dłonie na wysokości barków",
+     "Mów powoli, zapowiadaj każdy ruch",
+     "Oddaj rzeczy, nie kłóć się"
+    ],
+    "mistakes": [
+     "Nagły ruch ręką do kieszeni",
+     "Kłótnia, groźby w odpowiedzi"
+    ],
+    "drill": {
+     "label": "Scenka podporządkowania się",
+     "say": "Twoja kolej. Scenka podporządkowania się: trzy razy. Będę ci liczyć."
+    }
+   },
+   "tk14-3": {
+    "title": "Zasłona i osłona",
+    "say": "Rozróżniaj dwie rzeczy. Zasłona ukrywa cię przed wzrokiem, jak krzak albo zasłona w oknie. Osłona zatrzymuje kule, jak betonowa ściana, filar czy blok silnika samochodu. Gdy pojawi się szansa na ucieczkę, biegnij w stronę osłony, zygzakiem, a nie po prostej, i trzymaj się nisko.",
+    "cues": [
+     "Zasłona ≠ osłona",
+     "Biegnij w stronę osłony",
+     "Zygzakiem, nisko"
+    ],
+    "mistakes": [
+     "Chowanie się za drewnianymi drzwiami albo krzakiem w przekonaniu, że to bezpieczne",
+     "Bieg po prostej linii"
+    ],
+    "drill": {
+     "label": "Bieg zygzakiem do osłony",
+     "say": "Twoja kolej. Bieg zygzakiem do osłony: pięć razy. Będę ci liczyć."
+    }
+   },
+   "tk14-4": {
+    "title": "Obserwacja i zapamiętywanie",
+    "say": "Podporządkowując się, po cichu obserwuj: wzrost, ubranie, głos, kierunek, w którym odchodzi. Gdy już odejdzie, zostań w bezpiecznym miejscu, od razu zadzwoń na policję i opowiedz wszystko, co pamiętasz. Nigdy go nie goń.",
+    "cues": [
+     "Obserwuj po cichu: sylwetka, ubranie, głos, kierunek",
+     "Zostań w bezpiecznym miejscu",
+     "Dzwoń na policję, nie goń"
+    ],
+    "mistakes": [
+     "Gonienie napastnika",
+     "Wpatrywanie się w jego twarz"
+    ],
+    "drill": {
+     "label": "Ćwiczenie pamięci: opisz osobę",
+     "say": "Twoja kolej. Ćwiczenie pamięci: opisz jedną osobę w trzydzieści sekund. Zegar odlicza czas."
+    }
+   },
+   "tk14-5": {
+    "title": "Ostateczność",
+    "say": "Dopiero gdy masz pewność, że strzeli, mimo że się podporządkowałeś, możesz myśleć o ostateczności: odepchnąć lufę od siebie i od innych ludzi, mocno ją przytrzymać obiema rękami i szukać drogi ucieczki. To technika bardzo wysokiego ryzyka. Można się jej uczyć tylko osobiście, z certyfikowanym trenerem, na broni treningowej. W niemal każdej sytuacji podporządkowanie się i obserwacja dają największą szansę przeżycia.",
+    "cues": [
+     "Tylko gdy masz pewność, że strzeli",
+     "Lufa od ciała, trzymaj obiema rękami",
+     "Ucz się tylko osobiście z trenerem"
+    ],
+    "mistakes": [
+     "Działanie, gdy chodzi tylko o rzeczy",
+     "Samodzielna nauka z filmów bez instruktora"
+    ],
+    "drill": {
+     "label": "Powtórz zasady",
+     "say": "Twoja kolej. Powtórz zasady na głos: trzy razy. Będę ci liczyć."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Na czym polega oddech pudełkowy?",
+    "a": [
+     "Wdech 4 – zatrzymanie 4 – wydech 4 – zatrzymanie 4 sekundy",
+     "Bardzo długie wstrzymanie oddechu"
+    ],
+    "why": "Równy rytm oddechu obniża tętno i pozwala zachować jasny umysł."
+   },
+   {
+    "q": "Ktoś grozi ci bronią i żąda twoich rzeczy. Co robisz?",
+    "a": [
+     "Stawiam opór",
+     "Podporządkowuję się, zapowiadam ruchy, oddaję rzeczy"
+    ],
+    "why": "Żadne rzeczy nie są warte więcej niż życie."
+   },
+   {
+    "q": "Co jest osłoną, czyli zatrzymuje kule?",
+    "a": [
+     "Krzak",
+     "Betonowa ściana, filar"
+    ],
+    "why": "Krzak tylko zasłania, nie zatrzyma kuli."
+   },
+   {
+    "q": "Gdy napastnik odejdzie, powinieneś:",
+    "a": [
+     "Ruszyć za nim w pościg",
+     "Zostać w bezpiecznym miejscu i zadzwonić na policję"
+    ],
+    "why": "Nigdy nie goń kogoś, kto ma broń."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Podsumowanie i odruchy",
+  "sub": "Sytuacje w serii, kontrolowany trening w parze, rozciąganie i regeneracja",
+  "intro": "Ostatnia lekcja. Łączymy wszystko, czego się nauczyłeś, w odruchy. Gdy coś się wydarzy, nie będzie czasu na myślenie. Ciało musi samo wiedzieć, co robić.",
+  "safety": "Rękawice, ochraniacz na zęby, jeśli masz. Trening w parze na 30–50% siły, pod okiem instruktora.",
+  "outro": "Gratulacje, wojowniku! Ukończyłeś całą ścieżkę Samoobrona w walce wręcz, część podstawową i zaawansowaną. Podejdź do egzaminu końcowego, aby zdobyć odznakę Stalowy Wilk.",
+  "home": "Praca domowa: trzy treningi w tygodniu z powtórką całej ścieżki, każdy po trzydzieści minut, zawsze z rozgrzewką i rozciąganiem.",
+  "steps": {
+   "tk15-1": {
+    "title": "Odruchy z ruchomą tarczą",
+    "say": "Partner trzyma dwie łapy, porusza się wokół ciebie i niespodziewanie wystawia je w różnych miejscach. Łapa na wysokości twarzy: cios prosty. Łapa nisko: kopnięcie odpychające. Łapa leci w twoją głowę: wysoka garda. Reaguj od razu, bez myślenia.",
+    "cues": [
+     "Łapa na wysokości twarzy → cios prosty",
+     "Łapa nisko → kopnięcie odpychające",
+     "Łapa leci w głowę → wysoka garda"
+    ],
+    "mistakes": [
+     "Stanie i czekanie bez ruchu",
+     "Opuszczanie rąk po każdym ciosie"
+    ],
+    "drill": {
+     "label": "Runda odruchów",
+     "say": "Twoja kolej. Runda odruchów: trzy rundy po czterdzieści pięć sekund, dwadzieścia sekund przerwy między rundami."
+    }
+   },
+   "tk15-2": {
+    "title": "Sytuacja: chwyt za rękę",
+    "say": "Sytuacja pierwsza. Partner niespodziewanie chwyta cię za nadgarstek i ciągnie. Odruch: obniż środek ciężkości, uwolnij się w stronę kciuka, płot z rąk, odsuń się i krzyknij głośno: Stop! Potem obróć się i zrób trzy kroki biegu. Powtórz pięć razy, za każdym razem partner chwyta inaczej.",
+    "cues": [
+     "Niżej środek ciężkości, uwolnienie w stronę kciuka",
+     "Płot z rąk, głośny krzyk",
+     "3 kroki biegu"
+    ],
+    "mistakes": [
+     "Siłowanie się siłą na siłę",
+     "Brak krzyku i ucieczki"
+    ],
+    "drill": {
+     "label": "Sytuacja: chwyt za rękę",
+     "say": "Twoja kolej. Sytuacja z chwytem za rękę: pięć razy. Będę ci liczyć."
+    }
+   },
+   "tk15-3": {
+    "title": "Sytuacja: obejmowanie od tyłu",
+    "say": "Sytuacja druga. Partner obejmuje cię od tyłu. Odruch: obniż środek ciężkości, rozłóż łokcie, krok w bok, obrót i wyjście, kopnięcie odpychające w tarczę, którą trzyma trzecia osoba, i ucieczka. Po każdym powtórzeniu zamieńcie się rolami. Pięć razy każdy.",
+    "cues": [
+     "Niżej środek ciężkości, łokcie na boki",
+     "Krok w bok, obrót i wyjście",
+     "Kopnięcie odpychające, ucieczka"
+    ],
+    "mistakes": [
+     "Wyprostowana sylwetka",
+     "Obrót przy wciąż wysokim środku ciężkości"
+    ],
+    "drill": {
+     "label": "Sytuacja: obejmowanie od tyłu",
+     "say": "Twoja kolej. Sytuacja z obejmowaniem od tyłu: pięć razy. Będę ci liczyć."
+    }
+   },
+   "tk15-4": {
+    "title": "Kontrolowany trening w parze",
+    "say": "Lekki trening w parze: trzy rundy po minucie. Tylko ciosy proste w rękawice i barki oraz bardzo lekkie kopnięcia odpychające w brzuch, na trzydzieści procent siły. Żadnych ciosów w twarz ani w słabe punkty. Celem jest trening oka, pracy nóg i spokoju, gdy ktoś naprawdę atakuje.",
+    "cues": [
+     "30% siły, nie w twarz",
+     "Trening oka, pracy nóg, spokoju",
+     "Przybicie rękawic przed i po"
+    ],
+    "mistakes": [
+     "Mocniejsze uderzenia po przyjęciu ciosu",
+     "Zamykanie oczu przy ciosie"
+    ],
+    "drill": {
+     "label": "Runda w parze",
+     "say": "Twoja kolej. Runda w parze: trzy rundy po sześćdziesiąt sekund, trzydzieści sekund przerwy między rundami."
+    }
+   },
+   "tk15-5": {
+    "title": "Rozciąganie i regeneracja",
+    "say": "Po ciężkim treningu rozciągaj się przez dziesięć minut. Rozciągnij przód i tył uda, biodra, barki i plecy, każdą pozycję przez trzydzieści sekund, z wydechem, gdy pogłębiasz rozciąganie. Pij wodę, dobrze się odżywiaj i wysypiaj. Mięśnie rosną, gdy odpoczywasz, a nie gdy trenujesz.",
+    "cues": [
+     "Każda pozycja 30 sekund",
+     "Wydech przy pogłębianiu",
+     "Woda, jedzenie, sen"
+    ],
+    "mistakes": [
+     "Sprężynowanie przy rozciąganiu",
+     "Pomijanie regeneracji"
+    ],
+    "drill": {
+     "label": "Rozciąganie regeneracyjne",
+     "say": "Twoja kolej. Rozciąganie regeneracyjne przez sto dwadzieścia sekund. Zegar odlicza czas."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Jaki jest odruch, gdy łapa jest nisko, na wysokości brzucha?",
+    "a": [
+     "Kopnięcie odpychające",
+     "Wysoka garda"
+    ],
+    "why": "Niski cel jest na kopnięcie odpychające."
+   },
+   {
+    "q": "Z jaką siłą ćwiczysz w kontrolowanym treningu w parze?",
+    "a": [
+     "Około 30%",
+     "Z całej siły"
+    ],
+    "why": "Ćwiczysz umiejętności bezpiecznie, to nie jest prawdziwa walka."
+   },
+   {
+    "q": "Jak zawsze kończy się każda sytuacja samoobrony?",
+    "a": [
+     "Zostaję i walczę dalej",
+     "Głośny krzyk, dystans i ucieczka"
+    ],
+    "why": "Celem samoobrony jest bezpieczeństwo."
+   },
+   {
+    "q": "Kiedy rosną mięśnie?",
+    "a": [
+     "Gdy odpoczywam, dobrze jem i śpię",
+     "Tylko podczas treningu"
+    ],
+    "why": "Regeneracja jest częścią treningu."
+   }
+  ]
+ }
+}

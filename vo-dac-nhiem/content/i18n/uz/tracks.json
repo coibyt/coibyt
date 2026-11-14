@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Yaqin jangda oʻzini himoya qilish",
+  "sub": "Sistema va sambo kurashidan ilhomlangan: nafas, qadamlar, xavfsiz yiqilish, himoya, asosiy zarbalar, qutulish, yiqitish."
+ },
+ "ngu-trang": {
+  "title": "Niqoblanish va yashirinish",
+  "sub": "Gilli kostyum, yuzni boʻyash, pana joy, shovqinsiz harakat, izlarni yoʻqotish, sezdirmay yaqinlashish.",
+  "preview": [
+   "Toʻrt fosh qiluvchi omil: shakl, soya, yorugʻlik, harakat",
+   "Niqoblovchi yuz boʻyogʻi",
+   "Gilli kostyumni oʻzingiz tikish",
+   "Pana joy tanlash",
+   "Past va baland emaklash, tulki qadami",
+   "Shovqinsiz harakatlanish",
+   "Izlarni yoʻqotish",
+   "Sezdirmasdan kuzatish"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sport otishmasi",
+  "sub": "Toʻrt xavfsizlik qoidasi, mashq qurolini toʻgʻri ushlash, tik turib, tizzalab va yotib otish, nishonga olish va nafas, otishma tarixi.",
+  "preview": [
+   "Toʻrt xavfsizlik qoidasi",
+   "Mashq qurolini toʻgʻri ushlash",
+   "Tik turib, tizzalab, yotib",
+   "Nishon chizigʻi va nafas",
+   "Tepkini silliq bosish",
+   "Sport otishmasi tarixi"
+  ]
+ },
+ "dong-doi": {
+  "title": "Jamoaviy hamkorlik",
+  "sub": "Qoʻl ishoralari, qisqa aloqa, harakat saflari va airsoft, peyntbolda bir-birini qoʻllab-quvvatlash.",
+  "preview": [
+   "Asosiy qoʻl ishoralari",
+   "Ratsiya orqali qisqa aloqa",
+   "Harakatlanish saflari",
+   "Hududlar boʻyicha kuzatish",
+   "Jamoaviy hamkorlik oʻyinlari"
+  ]
+ },
+ "the-luc": {
+  "title": "Jismoniy tayyorgarlik va omon qolish",
+  "sub": "Yuk bilan marsh, xavfsiz suzish, charchoqni boshqarish, oʻrmon, choʻl va dengizda suv, ovqat, olov va boshpana topish.",
+  "preview": [
+   "Oʻz vazn bilan kuch mashqlari",
+   "Yuk bilan xavfsiz marsh",
+   "Yogʻoch devordan oshish, arqonga tirmashish",
+   "Xavfsiz suzish va suvda qalqish",
+   "Charchoq va uyqusizlikni boshqarish",
+   "Suv topish va tozalash",
+   "Olov va boshpana",
+   "Oʻrmon, choʻl va dengizda omon qolish"
+  ]
+ },
+ "so-cuu": {
+  "title": "Jang maydonida birinchi yordam",
+  "sub": "Qon ketishini toʻxtatish, jgut qoʻyish, bosuvchi bogʻlam, shokka qarshi yordam, yurak-oʻpka reanimatsiyasi, vositalar yetishmaganda yordam.",
+  "preview": [
+   "Hodisa joyining xavfsizligini baholash",
+   "Toʻgʻridan-toʻgʻri bosib qonni toʻxtatish",
+   "Jgutni toʻgʻri qoʻyish",
+   "Yarani tamponlash va bosuvchi bogʻlam",
+   "Nafas yoʻlini ochiq tutish, tiklanish holati",
+   "Shok va sovqotishning oldini olish",
+   "Yurak-oʻpka reanimatsiyasi (YOʻR)",
+   "Vositalar yetishmaganda birinchi yordam"
+  ]
+ },
+ "tam-ly": {
+  "title": "Ruhiy chidamlilik",
+  "sub": "Xavf ostida xotirjamlik, vahimaga qarshi nafas, qoʻrquvni boshqarish, kuzatuvchanlik va xotirani charxlash.",
+  "preview": [
+   "Vahimaga qarshi «quti» nafasi",
+   "Qoʻrquvni boshqarish",
+   "Oʻzingiz bilan ijobiy suhbat",
+   "Kuzatish va eslab qolish (Kim oʻyini)",
+   "Bosim ostida qaror qabul qilish"
+  ]
+ }
+}

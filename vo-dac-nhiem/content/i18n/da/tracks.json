@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Nærkamp og selvforsvar",
+  "sub": "Inspireret af Systema og Sambo-brydning: åndedræt, fodarbejde, sikre fald, dækning, grundslag, frigørelser og kast."
+ },
+ "ngu-trang": {
+  "title": "Camouflage & skjul",
+  "sub": "Ghilliedragt, camouflagemaling, skjul, lydløs bevægelse, sletning af spor og at nærme sig uden at blive opdaget.",
+  "preview": [
+   "Fire ting, der afslører dig: form, skygge, lys, bevægelse",
+   "Camouflagemaling i ansigtet",
+   "Lav din egen ghilliedragt",
+   "Vælg et godt skjul",
+   "Lav kravlen, høj kravlen, rævegang",
+   "Lydløs bevægelse",
+   "Slet dine spor",
+   "Iagttag uden at blive opdaget"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sportsskydning",
+  "sub": "Fire sikkerhedsregler, korrekt greb om træningsvåbnet, stående – knælende – liggende stilling, sigte og vejrtrækning, skydningens historie.",
+  "preview": [
+   "Fire sikkerhedsregler",
+   "Korrekt greb om træningsvåbnet",
+   "Stående, knælende og liggende",
+   "Sigtelinje og vejrtrækning",
+   "Blødt aftræk",
+   "Sportsskydningens historie"
+  ]
+ },
+ "dong-doi": {
+  "title": "Holdsamarbejde",
+  "sub": "Håndsignaler, kort og klar kommunikation, formationer og gensidig dækning i airsoft og paintball.",
+  "preview": [
+   "Grundlæggende håndsignaler",
+   "Kort kommunikation over radio",
+   "Formationer i bevægelse",
+   "Observation i sektorer",
+   "Samarbejdslege for hold"
+  ]
+ },
+ "the-luc": {
+  "title": "Fysik & overlevelse",
+  "sub": "March med oppakning, sikker svømning, styring af træthed, at finde vand, mad, ild og ly i skov, ørken og ved havet.",
+  "preview": [
+   "Styrke med egen kropsvægt",
+   "Sikker march med oppakning",
+   "Over træmuren, klatring i reb",
+   "Sikker svømning og flydning",
+   "Træthed og søvnmangel",
+   "Find og filtrér vand",
+   "Ild og ly",
+   "Overlevelse i skov, ørken og ved havet"
+  ]
+ },
+ "so-cuu": {
+  "title": "Førstehjælp i felten",
+  "sub": "Stop blødninger, tourniquet, trykforbinding, behandling af chok, hjerte-lunge-redning og førstehjælp med få forsyninger.",
+  "preview": [
+   "Vurdér sikkerheden på stedet",
+   "Direkte tryk mod blødning",
+   "Læg en tourniquet korrekt",
+   "Tamponering og trykforbinding",
+   "Frie luftveje, stabilt sideleje",
+   "Forebyg chok og nedkøling",
+   "Hjerte-lunge-redning (HLR)",
+   "Førstehjælp med få forsyninger"
+  ]
+ },
+ "tam-ly": {
+  "title": "Mental styrke",
+  "sub": "Bevar roen i farlige situationer, vejrtrækning mod panik, styr frygten, træn iagttagelse og hukommelse.",
+  "preview": [
+   "Firkantvejrtrækning mod panik",
+   "Styr frygten",
+   "Positiv selvsnak",
+   "Iagttagelse og hukommelse (Kims leg)",
+   "Beslutninger under pres"
+  ]
+ }
+}
