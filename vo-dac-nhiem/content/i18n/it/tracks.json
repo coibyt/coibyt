@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Autodifesa corpo a corpo",
+  "sub": "Ispirata al Systema e alla lotta Sambo: respiro, lavoro di gambe, cadute sicure, protezione, colpi base, liberazioni, proiezioni."
+ },
+ "ngu-trang": {
+  "title": "Mimetismo e occultamento",
+  "sub": "Tuta ghillie, trucco mimetico, nascondersi, muoversi senza rumore, cancellare le tracce, avvicinarsi senza farsi scoprire.",
+  "preview": [
+   "I quattro elementi che ti tradiscono: forma, ombra, luce, movimento",
+   "Trucco mimetico per il viso",
+   "Costruisci la tua tuta ghillie",
+   "Scegliere il nascondiglio",
+   "Strisciare basso, strisciare alto, passo della volpe",
+   "Muoversi senza rumore",
+   "Cancellare le tracce",
+   "Osservare senza farsi scoprire"
+  ]
+ },
+ "ban-sung": {
+  "title": "Tiro sportivo",
+  "sub": "Le quattro regole di sicurezza, impugnatura corretta dell'arma da allenamento, posizioni in piedi, in ginocchio e a terra, mira e respiro, storia del tiro.",
+  "preview": [
+   "Le quattro regole di sicurezza",
+   "Impugnare correttamente l'arma da allenamento",
+   "Posizioni in piedi, in ginocchio, a terra",
+   "Linea di mira e respiro",
+   "Scatto fluido del grilletto",
+   "Storia del tiro sportivo"
+  ]
+ },
+ "dong-doi": {
+  "title": "Lavoro di squadra",
+  "sub": "Segnali con le mani, comunicazione breve, formazioni di movimento e copertura reciproca nel softair e nel paintball.",
+  "preview": [
+   "Segnali con le mani di base",
+   "Comunicazione breve via radio",
+   "Formazioni di movimento",
+   "Osservazione per settori",
+   "Giochi di squadra"
+  ]
+ },
+ "the-luc": {
+  "title": "Forma fisica e sopravvivenza",
+  "sub": "Marce con carico, nuoto sicuro, gestione della fatica, ricerca di acqua, cibo, fuoco e riparo in foresta, deserto e mare.",
+  "preview": [
+   "Forza a corpo libero",
+   "Marcia con carico in sicurezza",
+   "Superare il muro di legno, salire sulla fune",
+   "Nuotare e galleggiare in sicurezza",
+   "Gestire fatica e mancanza di sonno",
+   "Trovare e filtrare l'acqua",
+   "Fuoco e riparo",
+   "Sopravvivenza in foresta, deserto e mare"
+  ]
+ },
+ "so-cuu": {
+  "title": "Primo soccorso sul campo",
+  "sub": "Fermare le emorragie, laccio emostatico, bendaggio compressivo, gestione dello shock, rianimazione cardiopolmonare, soccorso con pochi materiali.",
+  "preview": [
+   "Valutare la sicurezza della scena",
+   "Compressione diretta dell'emorragia",
+   "Applicare correttamente il laccio emostatico",
+   "Tamponamento e bendaggio compressivo",
+   "Vie aeree libere, posizione laterale di sicurezza",
+   "Prevenire shock e ipotermia",
+   "Rianimazione cardiopolmonare (RCP)",
+   "Soccorso con pochi materiali"
+  ]
+ },
+ "tam-ly": {
+  "title": "Forza mentale",
+  "sub": "Restare calmi nel pericolo, respirare contro il panico, controllare la paura, allenare osservazione e memoria.",
+  "preview": [
+   "Respirazione quadrata contro il panico",
+   "Controllare la paura",
+   "Dialogo interiore positivo",
+   "Osservare e ricordare (gioco di Kim)",
+   "Decidere sotto pressione"
+  ]
+ }
+}

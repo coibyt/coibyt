@@ -1,0 +1,2033 @@
+{
+ "tk1": {
+  "title": "Uppvärmning & andning",
+  "sub": "Ledrotationer, uppvärmning, stegandning, utandningsstötar, spänn och slappna av",
+  "intro": "Första lektionen. Inga tekniker än. En bra krigare börjar med varma leder och en lugn andning. Gör som jag, steg för steg.",
+  "safety": "Värm upp före varje pass. Känner du en skarp smärta i en led slutar du direkt.",
+  "outro": "Mycket bra. Lederna är varma och andningen har hittat takten. Nästa gång lär vi oss kampställning och fotarbete.",
+  "home": "Hemuppgift: varje morgon värmer du upp och gör stegandning i tio minuter, sju dagar i rad.",
+  "steps": {
+   "tk1-1": {
+    "title": "Ledrotationer uppifrån och ner",
+    "say": "Stå rak med fötterna axelbrett isär. Rulla nacken mycket långsamt, fem varv åt varje håll. Rotera sedan axlarna, armbågarna och handlederna. Sedan höfterna, knäna och fotlederna. Gå uppifrån och ner, med runda och mjuka rörelser, utan ryck. Först när lederna är varma är kroppen säker när du faller och slår.",
+    "cues": [
+     "Uppifrån och ner: nacke → axlar → armbågar → handleder → höfter → knän → fotleder",
+     "5 varv åt varje håll per led",
+     "Långsamt, runt, utan ryck"
+    ],
+    "mistakes": [
+     "Rulla nacken för snabbt eller böja huvudet för hårt bakåt",
+     "Hålla andan under rotationerna"
+    ],
+    "drill": {
+     "label": "Ledrotationer",
+     "say": "Nu är det din tur. Ledrotationer i nittio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk1-2": {
+    "title": "Värm upp kroppen",
+    "say": "Spring på stället med höga knän i trettio sekunder. Sedan tio knäböj: sänk höften som om du satte dig på en stol, rak rygg, knäna i linje med tårna. Sedan tio armhävningar. Är du ovan gör du dem på knä. Målet är att bli varm och andas lite snabbare, inte att köra slut på dig.",
+    "cues": [
+     "30 sekunder höga knän",
+     "10 knäböj: rak rygg, knäna över tårna",
+     "10 armhävningar (gärna på knä)"
+    ],
+    "mistakes": [
+     "Knäna faller inåt i knäböjen",
+     "Svankad rygg i armhävningarna"
+    ],
+    "drill": {
+     "label": "Knäböj",
+     "say": "Nu är det din tur. Knäböj: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk1-3": {
+    "title": "Stegandning",
+    "say": "Det här är en välkänd andningsövning i de ryska stridssystemen. Gå i jämn takt. Andas in genom näsan på fyra steg och ut genom munnen på fyra steg. Efter en minut går du ner till tre steg, sedan två, sedan ett. Sedan bygger du upp igen till fyra steg. Kom ihåg: andningen leder rörelsen. Håll aldrig andan.",
+    "cues": [
+     "In genom näsan 4 steg, ut genom munnen 4 steg",
+     "Minska 4 → 3 → 2 → 1, öka sedan igen",
+     "Avslappnade axlar, håll inte andan"
+    ],
+    "mistakes": [
+     "Hålla andan när takten byts",
+     "Dra upp axlarna vid inandningen"
+    ],
+    "drill": {
+     "label": "Gång med stegandning",
+     "say": "Nu är det din tur. Gång med stegandning i hundratjugo sekunder. Klockan räknar ner."
+    }
+   },
+   "tk1-4": {
+    "title": "Utandningsstötar vid ansträngning",
+    "say": "När du är trött eller spänd andas du kort och snabbt: in genom näsan och kraftigt ut genom munnen, många gånger i rad, som när du blåser ut ett ljus. Prova direkt: håll den höga armhävningspositionen i tjugo sekunder och andas med korta stötar hela tiden. Du märker att musklerna blir mindre stela och att huvudet blir klarare.",
+    "cues": [
+     "Kort in genom näsan, kraftigt ut genom munnen",
+     "Oavbrutet, som att blåsa ut ett ljus",
+     "Håll hög planka i 20 sekunder medan du andas"
+    ],
+    "mistakes": [
+     "Andas så hetsigt att det snurrar: sakta ner",
+     "Höften sjunker i plankan"
+    ],
+    "drill": {
+     "label": "Hög planka + andningsstötar",
+     "say": "Nu är det din tur. Hög planka med andningsstötar i tjugo sekunder. Klockan räknar ner."
+    }
+   },
+   "tk1-5": {
+    "title": "Spänn och slappna av i hela kroppen",
+    "say": "Ligg på rygg på mattan. Andas in och spänn båda fötterna i tre sekunder. Andas sedan ut och slappna av helt. Gå uppåt i tur och ordning: vader, lår, mage, händer, axlar och till sist ansiktet. Spänn till slut hela kroppen en gång och släpp. Den som kan slappna av tål smällar bättre, rör sig snabbare och skadar sig mindre.",
+    "cues": [
+     "Andas in och spänn i 3 sekunder",
+     "Andas ut och slappna av helt",
+     "Från fötterna upp till ansiktet"
+    ],
+    "mistakes": [
+     "Spänna så hårt att du får kramp",
+     "Glömma att andas ut när du släpper"
+    ],
+    "drill": {
+     "label": "Spänn och slappna av",
+     "say": "Nu är det din tur. Spänn och slappna av i sextio sekunder. Klockan räknar ner."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "I vilken ordning gör man ledrotationerna?",
+    "a": [
+     "Uppifrån och ner: nacke, axlar… till fotleder",
+     "Hur som helst, vilken led som helst",
+     "Bara fotlederna räcker"
+    ],
+    "why": "Uppifrån och ner gör att du inte missar någon led."
+   },
+   {
+    "q": "Hur andas du in vid stegandning?",
+    "a": [
+     "Genom munnen",
+     "Genom näsan",
+     "Håller andan och andas sedan in"
+    ],
+    "why": "In genom näsan och ut genom munnen, i takt med stegen."
+   },
+   {
+    "q": "När använder du andningsstötar?",
+    "a": [
+     "När du är trött eller spänd",
+     "Bara när du sover",
+     "Aldrig"
+    ],
+    "why": "Korta, kraftiga andetag minskar muskelspänningen och håller dig klar i huvudet när du anstränger dig."
+   },
+   {
+    "q": "Varför behöver du kunna slappna av?",
+    "a": [
+     "För att se bättre ut",
+     "Du tål smällar bättre, rör dig snabbare och skadar dig mindre",
+     "För att slippa värma upp"
+    ],
+    "why": "Spända muskler reagerar långsammare och skadas lättare."
+   }
+  ]
+ },
+ "tk2": {
+  "title": "Kampställning & fotarbete",
+  "sub": "Handstaket, kampställning, glidsteg, pivotering",
+  "intro": "Fötterna avgör allt. Står du stadigt kan du blockera, slå och ta dig därifrån. I dag bygger vi grunden.",
+  "safety": "Träna på ett plant underlag som inte är halt. Korta, stadiga steg.",
+  "outro": "Grunden är lagd. Stadiga fötter är halva striden. Nästa lektion: att falla säkert.",
+  "home": "Hemuppgift: tio minuter ställning och förflyttning varje dag, tre ronder, i sju dagar.",
+  "steps": {
+   "tk2-1": {
+    "title": "Vaksam ställning – handstaketet",
+    "say": "När någon närmar sig dig aggressivt ska du inte knyta nävarna för tidigt. Stå lite snett och dra din starka fot ett halvt steg bakåt. Håll händerna öppna framför bröstet, med handflatorna framåt, som om du sa: lugn nu. Händerna är ett staket som håller avståndet. Du ser inte aggressiv ut, men i själva verket är du redo.",
+    "cues": [
+     "Stå snett, starka foten ett halvt steg bak",
+     "Öppna händer framför bröstet",
+     "Håll avståndet, tala lugnt"
+    ],
+    "mistakes": [
+     "Knyta nävarna direkt: konflikten trappas lätt upp",
+     "Stå rakt framåt med fötterna parallellt"
+    ],
+    "drill": {
+     "label": "Ta handstaketet",
+     "say": "Nu är det din tur. Ta handstaketet: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk2-2": {
+    "title": "Kampställning",
+    "say": "Är du högerhänt står du med vänster fot fram och höger fot bak. Fötterna lite bredare än axlarna, främre tårna något inåtvinklade och bakre hälen lätt lyft. Böj knäna lite och fördela vikten jämnt på båda fötterna. Händerna upp framför ansiktet, armbågarna in mot revbenen, hakan nedåt och blicken över nävarna. Är du vänsterhänt gör du tvärtom.",
+    "cues": [
+     "Vänster fot fram (högerhänt)",
+     "Böjda knän, bakre hälen lätt lyft",
+     "Händerna skyddar ansiktet, armbågarna revbenen, hakan nedåt"
+    ],
+    "mistakes": [
+     "Fötterna på samma linje: lätt att tappa balansen",
+     "Lyfta hakan och sänka händerna"
+    ],
+    "drill": {
+     "label": "Ta kampställning",
+     "say": "Nu är det din tur. Ta kampställning: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk2-3": {
+    "title": "Glidsteg framåt och bakåt",
+    "say": "Framåt: främre foten tar först ett kort steg, och bakre foten glider efter exakt lika långt. Bakåt: bakre foten backar först, och främre foten dras efter. Fötterna glider tätt över marken, du hoppar inte. Låt aldrig fötterna korsas eller gå ihop. Efter varje steg står du i samma ställning som från början.",
+    "cues": [
+     "Framåt: främre foten först",
+     "Bakåt: bakre foten först",
+     "Samma avstånd mellan fötterna"
+    ],
+    "mistakes": [
+     "Korsa fötterna",
+     "Hoppa i stället för att glida"
+    ],
+    "drill": {
+     "label": "Steg framåt och bakåt",
+     "say": "Nu är det din tur. Steg framåt och bakåt: tjugo gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk2-4": {
+    "title": "Sidosteg",
+    "say": "Åt vänster går vänster fot först, åt höger går höger fot först, och den andra foten glider efter. Håll samma avstånd mellan fötterna och händerna kvar framför ansiktet. På hal lera gäller: ju kortare steg, desto stadigare.",
+    "cues": [
+     "Åt vänster: vänster fot först",
+     "Åt höger: höger fot först",
+     "Korta steg på halt underlag"
+    ],
+    "mistakes": [
+     "Bakre foten kliver förbi den främre",
+     "Sänka händerna när du rör dig"
+    ],
+    "drill": {
+     "label": "Sidosteg",
+     "say": "Nu är det din tur. Sidosteg: tjugo gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk2-5": {
+    "title": "Pivotera och byt vinkel",
+    "say": "Stå i kampställning. Vrid på tårna på främre foten och svep bakre foten i en båge, en kvarts cirkel. Hela kroppen byter vinkel nittio grader och kommer ur motståndarens anfallslinje. Vrid tio gånger åt ena hållet, byt sedan riktning.",
+    "cues": [
+     "Vrid på främre fotens tår",
+     "Bakre foten sveper i en båge",
+     "Byt vinkel 90°, behåll garden"
+    ],
+    "mistakes": [
+     "Vrida på hälen",
+     "Räta upp kroppen när du vrider"
+    ],
+    "drill": {
+     "label": "Pivotering åt varje håll",
+     "say": "Nu är det din tur. Pivotering åt varje håll: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk2-6": {
+    "title": "Förflyttning på kommando",
+    "say": "Nu rör du dig efter mina kommandon i trettio sekunder: framåt, bakåt, vänster, höger, vrid. Håll händerna uppe, hakan nere och andningen jämn. Fötterna är snabba, men överkroppen är alltid lugn.",
+    "cues": [
+     "Framåt – bakåt – vänster – höger – vrid",
+     "Händer och haka alltid på plats",
+     "Jämn andning"
+    ],
+    "mistakes": [
+     "Titta ner på fötterna",
+     "Ta för långa steg"
+    ],
+    "drill": {
+     "label": "Fotarbete på kommando",
+     "say": "Nu är det din tur. Rör dig efter mina kommandon i trettio sekunder. Lyssna noga.",
+     "calls": [
+      "Framåt!",
+      "Bakåt!",
+      "Vänster!",
+      "Höger!",
+      "Vrid!"
+     ]
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad är handstaketet till för?",
+    "a": [
+     "Att hålla avståndet utan att verka aggressiv",
+     "Att slå motståndaren direkt",
+     "Att stå med armarna i kors och vänta"
+    ],
+    "why": "Öppna händer håller avståndet och lugnar ner situationen."
+   },
+   {
+    "q": "Vilken fot går först när du backar?",
+    "a": [
+     "Främre foten",
+     "Bakre foten",
+     "Båda hoppar samtidigt"
+    ],
+    "why": "Foten närmast den riktning du ska åt går först."
+   },
+   {
+    "q": "Vilket är det farligaste felet när du förflyttar dig?",
+    "a": [
+     "Att korsa fötterna",
+     "Att ta korta steg",
+     "Att hålla händerna framför ansiktet"
+    ],
+    "why": "Med korsade fötter tappar du mycket lätt balansen."
+   },
+   {
+    "q": "Vilken del av främre foten vrider du på när du pivoterar?",
+    "a": [
+     "Hälen",
+     "Tårna",
+     "Fotens ytterkant"
+    ],
+    "why": "Att vrida på tårna gör vridningen lätt och snabb."
+   }
+  ]
+ },
+ "tk3": {
+  "title": "Säkra fall",
+  "sub": "Fallprinciper, bakåtfall, sidofall, framåtrullning",
+  "intro": "I det här lägret måste alla lära sig falla innan de lär sig kasta. Att falla rätt är en livräddande färdighet, även när du halkar på en hal gata.",
+  "safety": "Träna bara på tjock matta. Hakan alltid indragen. Ha en instruktör med när du tränar rullningar.",
+  "outro": "Nu kan du falla. Från och med i dag är marken inget att vara rädd för. Nästa lektion: skydd och blockeringar.",
+  "home": "Hemuppgift: tio bakåtfall och tio sidofall åt varje sida på tjock matta varje dag, i en vecka.",
+  "steps": {
+   "tk3-1": {
+    "title": "Tre gyllene regler",
+    "say": "Tre gyllene regler när du faller. Ett: hakan alltid tätt mot bröstet, så att huvudet aldrig slår i marken. Två: ryggen rundad som ett hjul, så att du rullar i stället för att slå i platt. Tre: armen slår i mattan samtidigt som kroppen, så att kraften i stöten sprids ut. Träna alltid på tjock matta. Träna aldrig på hårt underlag.",
+    "cues": [
+     "Hakan tätt mot bröstet",
+     "Rundad rygg som ett hjul",
+     "Armen slår i mattan samtidigt som kroppen"
+    ],
+    "mistakes": [
+     "Ta emot dig med raka armar: handleden bryts lätt",
+     "Fälla huvudet bakåt"
+    ],
+    "drill": {
+     "label": "Runda ryggen, dra in hakan",
+     "say": "Nu är det din tur. Runda ryggen och dra in hakan: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk3-2": {
+    "title": "Bakåtfall från sittande",
+    "say": "Sitt på mattan med benen raka framåt och armarna framåt. Dra in hakan, runda ryggen och rulla bakåt. När övre delen av ryggen når mattan slår du i mattan kraftigt med raka armar, ungefär fyrtiofem grader ut från kroppen, med handflatorna nedåt. Andas ut när du landar. Rulla tillbaka upp till sittande. Gör det tio gånger.",
+    "cues": [
+     "Sitt, armarna framåt",
+     "Rulla bakåt, hakan indragen",
+     "Slå med armarna i 45°, handflatorna ner, andas ut"
+    ],
+    "mistakes": [
+     "Slå för långt ut eller för nära kroppen",
+     "Slå med armbågen i stället för hela armen"
+    ],
+    "drill": {
+     "label": "Bakåtfall från sittande",
+     "say": "Nu är det din tur. Bakåtfall från sittande: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk3-3": {
+    "title": "Bakåtfall från huksittande",
+    "say": "Sätt dig på huk med armarna framåt. Sänk rumpan mot mattan, tätt intill hälarna, rulla sedan runt bakåt som i förra övningen och slå med armarna. Dunsa inte ner. Låt inte en rak rygg slå i platt. När det sitter, res dig upp och gå ner på huk igen, om och om igen, för att gradvis öka tempot.",
+    "cues": [
+     "Rumpan ner tätt intill hälarna",
+     "Rulla runt, slå inte i platt",
+     "Slå med armarna, andas ut"
+    ],
+    "mistakes": [
+     "Dunsa ner långt från hälarna",
+     "Huvudet slår bakåt i mattan"
+    ],
+    "drill": {
+     "label": "Bakåtfall från huk",
+     "say": "Nu är det din tur. Bakåtfall från huk: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk3-4": {
+    "title": "Sidofall",
+    "say": "Från huksittande sträcker du höger ben snett framför vänster ben och sänker kroppen åt höger sida. Höger höft och sedan höger sida av ryggen når mattan i tur och ordning, och höger arm slår i mattan. Hakan indragen, huvudet rör inte mattan. Byt sedan sida. Det här är det vanligaste fallet när du blir kastad.",
+    "cues": [
+     "Sträck benet snett framför",
+     "Höft → rygg mot mattan i tur och ordning",
+     "Armen på samma sida slår i mattan"
+    ],
+    "mistakes": [
+     "Ta emot dig på armbågen",
+     "Huvudet slår i mattan från sidan"
+    ],
+    "drill": {
+     "label": "Sidofall åt varje sida",
+     "say": "Nu är det din tur. Sidofall åt varje sida: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk3-5": {
+    "title": "Framåtrullning över axeln",
+    "say": "Stå på ett knä på mattan med höger fot framför. Böj höger arm till en båge, som en hjulfälg, och sätt armens utsida mot mattan. Titta över vänster axel. Rulla snett från höger axel ner till vänster höft. Rulla inte över hjässan och inte rakt längs ryggraden. Avsluta i stabilt sittande eller ställ dig upp, med händerna uppe framför ansiktet.",
+    "cues": [
+     "Armen bildar en båge som ett hjul",
+     "Rulla snett: höger axel → vänster höft",
+     "Inte över huvudet, res dig med garden uppe"
+    ],
+    "mistakes": [
+     "Rulla rakt över hjässan: mycket farligt för nacken",
+     "Armen viker sig så att huvudet når mattan"
+    ],
+    "drill": {
+     "label": "Framåtrullning åt varje sida",
+     "say": "Nu är det din tur. Framåtrullning åt varje sida: sex gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Hur ska hakan vara när du faller?",
+    "a": [
+     "Uppåt",
+     "Tätt mot bröstet",
+     "Vriden åt sidan"
+    ],
+    "why": "Dra in hakan så att huvudet inte slår i marken."
+   },
+   {
+    "q": "Hur många grader ut från kroppen slår armen i mattan, ungefär?",
+    "a": [
+     "Ungefär 45°",
+     "Tätt intill kroppen, 0°",
+     "Rakt upp i luften"
+    ],
+    "why": "Ungefär fyrtiofem grader sprider kraften bra utan att armbågen slår i."
+   },
+   {
+    "q": "Vilken väg tar du när du rullar framåt?",
+    "a": [
+     "Rakt över hjässan",
+     "Snett från axeln ner till motsatta höften",
+     "Rulla i sidled"
+    ],
+    "why": "Rulla snett över axeln för att skydda nacken och ryggraden."
+   },
+   {
+    "q": "Var tränar du fall?",
+    "a": [
+     "På betong, för att vänja dig",
+     "På tjock matta",
+     "I en trappa"
+    ],
+    "why": "Träna alltid på tjock matta. Säkerheten går först."
+   }
+  ]
+ },
+ "tk4": {
+  "title": "Skydd & blockeringar",
+  "sub": "Hög gard, huvudskydd, parering, underarmsblock, vinkelsteg",
+  "intro": "Innan du lär dig slå måste du lära dig att inte bli träffad. Det bästa försvaret är enkelt, kompakt och kombineras alltid med rörelse.",
+  "safety": "Träna i par med handskar. Partnern slår långsamt, med bara tjugo procent kraft.",
+  "outro": "Nu har du en sköld. Nästa lektion lär vi oss grundslag mot mitts.",
+  "home": "Hemuppgift: fem minuter skyddsträning framför spegeln varje dag, och långsam parträning två gånger i veckan.",
+  "steps": {
+   "tk4-1": {
+    "title": "Hög gard",
+    "say": "Från kampställning lyfter du båda nävarna till pannhöjd, med underarmarna lodrätt framför ansiktet som två sköldar. Armbågarna ihop, hakan indragen och axlarna uppdragna för att skydda käken. Det här är den säkraste skyddsställningen när slagen kommer för snabbt för att du ska hinna se dem.",
+    "cues": [
+     "Nävarna i pannhöjd",
+     "Underarmarna lodrätt som sköldar",
+     "Hakan in, axlarna skyddar käken"
+    ],
+    "mistakes": [
+     "Blunda när du skyddar dig",
+     "Armbågarna isär så att revbenen blottas"
+    ],
+    "drill": {
+     "label": "Ta hög gard",
+     "say": "Nu är det din tur. Ta hög gard: femton gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk4-2": {
+    "title": "Täck huvudet helt",
+    "say": "När du pressas av många slag i rad: lägg båda händerna om bakhuvudet, för ihop armbågarna framför ansiktet, böj dig framåt och böj knäna. Huvudet ligger skyddat i buren av dina armar. Men stå inte kvar länge i den här ställningen. Skydda dig, och rör dig sedan direkt ut ur anfallsvinkeln.",
+    "cues": [
+     "Båda händerna om bakhuvudet",
+     "Armbågarna ihop framför ansiktet",
+     "Skydda dig och rör dig direkt"
+    ],
+    "mistakes": [
+     "Stå still och ta emot slagen",
+     "Vända ryggen till"
+    ],
+    "drill": {
+     "label": "Täck huvudet och gå åt sidan",
+     "say": "Nu är det din tur. Täck huvudet och gå åt sidan: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk4-3": {
+    "title": "Parering",
+    "say": "När en rak stöt kommer mot ansiktet ska du inte blockera hårt. Led med handflatan lätt bort motståndarens handled eller knytnäve åt sidan, precis så mycket att slaget glider förbi ansiktet. Rörelsen är liten och kort, och handen går genast tillbaka till garden.",
+    "cues": [
+     "Parera med handflatan",
+     "Bara så mycket att slaget går förbi",
+     "Tillbaka i garden direkt"
+    ],
+    "mistakes": [
+     "Svepa för brett med handen",
+     "Sträcka ut handen för att möta slaget"
+    ],
+    "drill": {
+     "label": "Parering med varje hand",
+     "say": "Nu är det din tur. Parering med varje hand: tjugo gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk4-4": {
+    "title": "Underarmsblock uppåt",
+    "say": "När ett slag kommer uppifrån lyfter du underarmen snett framför pannan, lutad som ett tak, så att kraften glider av i stället för att gå rakt in i benet. Samtidigt tar du ett snett steg framåt eller utåt.",
+    "cues": [
+     "Underarmen snett framför pannan",
+     "Lutad som ett tak",
+     "Med ett snett steg"
+    ],
+    "mistakes": [
+     "Underarmen vågrät: tar hela kraften",
+     "Stå kvar på samma ställe"
+    ],
+    "drill": {
+     "label": "Block uppåt med varje arm",
+     "say": "Nu är det din tur. Block uppåt med varje arm: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk4-5": {
+    "title": "Vinkelsteg – kliv snett",
+    "say": "Det bästa försvaret är att inte stå där slaget kommer. När du parerar kliver du samtidigt snett fyrtiofem grader ut, på utsidan av motståndarens slagarm. Du lämnar anfallslinjen och står i en säkrare position för att ta dig därifrån.",
+    "cues": [
+     "Parera + kliv snett 45°",
+     "Ut på slagarmens utsida",
+     "Från den säkra vinkeln, ta dig därifrån"
+    ],
+    "mistakes": [
+     "Backa rakt bakåt: motståndaren följer lätt efter",
+     "Kliva in mot motståndarens andra arm"
+    ],
+    "drill": {
+     "label": "Parera + vinkelsteg åt varje sida",
+     "say": "Nu är det din tur. Parera och ta ett vinkelsteg åt varje sida: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk4-6": {
+    "title": "Långsam parträning",
+    "say": "Träna med en partner, båda med handskar. Den som slår gör det mycket långsamt, med bara tjugo procent kraft, och siktar på handskarna, inte på ansiktet. Den som försvarar säger högt namnet på tekniken: hög gard, parering, vinkelsteg. Först när det är rätt och lugnt ökar ni tempot, lite i taget.",
+    "cues": [
+     "Handskar, 20 % kraft",
+     "Säg teknikens namn när du gör den",
+     "Rätt först, snabbt sedan"
+    ],
+    "mistakes": [
+     "Öka tempot för tidigt",
+     "Slå på riktigt mot partnerns ansikte"
+    ],
+    "drill": {
+     "label": "Långsam parträning",
+     "say": "Nu är det din tur. Långsam parträning i sextio sekunder. Klockan räknar ner."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "En korrekt parering är:",
+    "a": [
+     "En liten rörelse, precis nog för att leda bort slaget, sedan tillbaka i garden",
+     "Ett riktigt brett svep med handen",
+     "Att ta emot slaget med ansiktet"
+    ],
+    "why": "En liten, snabb rörelse som inte öppnar garden."
+   },
+   {
+    "q": "Hur håller du underarmen när du blockerar ett slag uppifrån?",
+    "a": [
+     "Vågrätt",
+     "Snett, lutad som ett tak",
+     "Nere vid magen"
+    ],
+    "why": "Lutad som ett tak, så att kraften glider av."
+   },
+   {
+    "q": "Åt vilket håll kliver du i ett vinkelsteg?",
+    "a": [
+     "Snett 45° ut på slagarmens utsida",
+     "Rakt bakåt",
+     "Du står still"
+    ],
+    "why": "Ut ur anfallslinjen och till en säker vinkel."
+   },
+   {
+    "q": "Hur mycket kraft använder den som slår i parträningen?",
+    "a": [
+     "Full kraft",
+     "Ungefär 20 %",
+     "50 %"
+    ],
+    "why": "Träna långsamt för att lära dig rätt och säkert."
+   }
+  ]
+ },
+ "tk5": {
+  "title": "Grundslag mot mitts",
+  "sub": "Knytnäve, raka slag, handflatsslag, frontspark, kombination",
+  "intro": "Ett bra slag behöver inte vara snyggt, bara korrekt, kompakt och säkert för dig själv. I dag tränar vi mot mitts, aldrig mot en riktig människa.",
+  "safety": "Linda händerna och ta på handskar. Slå bara mot mitts eller säck.",
+  "outro": "Slagen har både kraft och disciplin. Nästa lektion: att ta sig loss ur handledsgrepp.",
+  "home": "Hemuppgift: tre pass i veckan, med fem ronder på trettio sekunder mot mitts eller säck varje pass.",
+  "steps": {
+   "tk5-1": {
+    "title": "Rätt knytnäve",
+    "say": "Rulla in de fyra fingrarna i handflatan. Tummen viks hårt på utsidan av pekfingret och långfingret, aldrig instoppad inuti. När du träffar är handleden i linje med underarmen, och kraften går in i knogarna på pekfingret och långfingret. Som nybörjare lindar du alltid händerna och använder handskar.",
+    "cues": [
+     "Rulla in 4 fingrar i handflatan",
+     "Tummen på utsidan",
+     "Handleden i linje med underarmen"
+    ],
+    "mistakes": [
+     "Ha tummen inne i näven",
+     "Böja handleden vid träffen"
+    ],
+    "drill": {
+     "label": "Knyt och öppna handen rätt",
+     "say": "Nu är det din tur. Knyt och öppna handen rätt: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk5-2": {
+    "title": "Rak stöt med främre handen",
+    "say": "Från kampställning skjuter du främre näven rakt fram, den kortaste vägen. Vrid näven så att handryggen kommer uppåt strax före träffen, och lyft axeln för att skydda hakan. Den andra handen stannar vid ansiktet. Efter slaget drar du tillbaka samma väg, lika snabbt som du slog.",
+    "cues": [
+     "Rak och kortaste vägen",
+     "Vrid näven vid träffen",
+     "Snabbt tillbaka, andra handen i garden"
+    ],
+    "mistakes": [
+     "Dra handen bakåt för att ta sats",
+     "Sänka bakre handen"
+    ],
+    "drill": {
+     "label": "Rak stöt med främre handen",
+     "say": "Nu är det din tur. Rak stöt med främre handen: tjugo gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk5-3": {
+    "title": "Rak stöt med bakre handen",
+    "say": "Tryck ifrån med bakre hälen, vrid höft och axel och skjut bakre näven rakt mot målet. Bakre foten vrider med, som när du fimpar en glöd. Kraften kommer från benen och höften, inte bara från armen. Gå sedan genast tillbaka till garden.",
+    "cues": [
+     "Tryck ifrån med bakre foten",
+     "Vrid höft – axel – bakre foten",
+     "Tillbaka i garden direkt"
+    ],
+    "mistakes": [
+     "Bara använda armen, inte vrida höften",
+     "Luta dig för långt fram och tappa balansen"
+    ],
+    "drill": {
+     "label": "Rak stöt med bakre handen",
+     "say": "Nu är det din tur. Rak stöt med bakre handen: tjugo gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk5-4": {
+    "title": "Handflatsslag",
+    "say": "Böj handleden bakåt, öppna handen och kröka fingrarna lätt. Slå med handflatans nedre del, handroten, i en rak linje som en stöt. I en verklig självförsvarssituation är det här slaget säkrare för handen än en bar knytnäve, eftersom inga knogar slår mot hårt ben.",
+    "cues": [
+     "Böj handleden bakåt, öppna handen",
+     "Slå med handroten",
+     "Rak linje som en stöt"
+    ],
+    "mistakes": [
+     "Slå med fingrarnas insida",
+     "Sträcka fingrarna stelt"
+    ],
+    "drill": {
+     "label": "Handflatsslag med varje hand",
+     "say": "Nu är det din tur. Handflatsslag med varje hand: femton gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk5-5": {
+    "title": "Frontspark",
+    "say": "Lyft bakre benets knä högt, i höfthöjd. Tryck sedan hälen rakt fram, som när du sparkar upp en dörr, och skjut med höften. Målet är magen, här är det en sparksköld. Dra tillbaka benet och sätt ner det i ställningen. Syftet med sparken är att trycka bort angriparen och skapa avstånd så att du kan ta dig därifrån.",
+    "cues": [
+     "Knät högt, i höfthöjd",
+     "Tryck med hälen, skjut med höften",
+     "Dra tillbaka benet till ställningen"
+    ],
+    "mistakes": [
+     "Sparka med tårna",
+     "Luta dig för mycket bakåt"
+    ],
+    "drill": {
+     "label": "Frontspark med varje ben",
+     "say": "Nu är det din tur. Frontspark med varje ben: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk5-6": {
+    "title": "Kombination och reträtt",
+    "say": "Nu sätter vi ihop en kombination: rak stöt med främre handen, rak stöt med bakre handen, frontspark, och sedan två steg bakåt till handstaketet. Kör tre ronder, trettio sekunder mot mitts i varje rond, med tjugo sekunders vila. Gör varje slag tydligt. Rätt först, snabbt sedan.",
+    "cues": [
+     "Främre hand – bakre hand – frontspark",
+     "2 steg bakåt, handstaketet",
+     "3 ronder × 30 sekunder, 20 sekunders vila"
+    ],
+    "mistakes": [
+     "Glömma att backa efter kombinationen",
+     "Slå för hastigt och tappa ställningen"
+    ],
+    "drill": {
+     "label": "Kombinationsrond",
+     "say": "Nu är det din tur. Kombinationsronder: tre ronder på trettio sekunder, med tjugo sekunders vila mellan ronderna."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Var har du tummen när du knyter näven?",
+    "a": [
+     "Instoppad inuti",
+     "Vikt på utsidan av pekfingret och långfingret",
+     "Rakt utsträckt"
+    ],
+    "why": "Med tummen inuti bryts den lätt."
+   },
+   {
+    "q": "Var kommer kraften i den raka stöten med bakre handen ifrån?",
+    "a": [
+     "Bara från armen",
+     "Från benen och höften",
+     "Från nacken"
+    ],
+    "why": "Tryck med benet, vrid höften, så följer axel och arm med."
+   },
+   {
+    "q": "Vad är huvudsyftet med frontsparken i självförsvar?",
+    "a": [
+     "Att skapa avstånd så att du kan ta dig därifrån",
+     "Att sparka mot huvudet",
+     "Att visa upp tekniken"
+    ],
+    "why": "Tryck bort angriparen så att du kan lämna platsen säkert."
+   },
+   {
+    "q": "Varför är handflatsslaget säkrare för handen?",
+    "a": [
+     "Inga knogar slår mot hårt ben",
+     "För att det är långsamt",
+     "För att det är löst"
+    ],
+    "why": "Handroten är stark, och risken att skada handen är liten."
+   }
+  ]
+ },
+ "tk6": {
+  "title": "Ta sig loss ur handledsgrepp",
+  "sub": "Tumprincipen, grepp på samma sida, korsgrepp, grepp med två händer",
+  "intro": "Att bli greppad om handleden är väldigt vanligt. Du behöver ingen styrka, bara förstå var svagheten i motståndarens hand finns.",
+  "safety": "Partnern greppar med lagom kraft. Ta dig loss långsamt, utan hårda ryck som skadar lederna.",
+  "outro": "Nu kan din hand befria sig själv. Nästa lektion: att ta sig loss ur omfamningar och grepp framifrån.",
+  "home": "Hemuppgift: tio frigörelser per grepptyp varje dag, tillsammans med någon i familjen, i en vecka.",
+  "steps": {
+   "tk6-1": {
+    "title": "Tumprincipen",
+    "say": "När någon greppar din handled är den svagaste punkten i deras hand öppningen mellan tummen och de andra fingrarna. Bråka inte kraft mot kraft. Vrid underarmen så att den smala delen av handleden pekar mot öppningen, och dra dig sedan kraftigt loss i tummens riktning.",
+    "cues": [
+     "Hitta motståndarens tumme",
+     "Vrid handleden mot tumöppningen",
+     "Dra kraftigt mot tummen"
+    ],
+    "mistakes": [
+     "Dra rakt bakåt och slita emot",
+     "Dra mot de fyra fingrarna"
+    ],
+    "drill": {
+     "label": "Hitta tummens riktning",
+     "say": "Nu är det din tur. Hitta tummens riktning: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk6-2": {
+    "title": "Grepp på samma sida",
+    "say": "Ivan greppar min högra handled med sin vänstra hand. Jag sänker tyngdpunkten, böjer armbågen och drar armen tätt in mot kroppen. Jag vrider underarmen så att handleden pekar mot Ivans tumme, och rycker sedan kraftigt uppåt, mot min egen axel. Handen är fri. Direkt lyfter jag händerna till handstaketet och backar.",
+    "cues": [
+     "Sänk tyngdpunkten, böj armbågen",
+     "Vrid handleden mot tummen",
+     "Ryck mot din egen axel, sedan handstaketet"
+    ],
+    "mistakes": [
+     "Sträcka ut armen när du tar dig loss",
+     "Stå kvar nära efteråt"
+    ],
+    "drill": {
+     "label": "Loss ur grepp på samma sida, varje hand",
+     "say": "Nu är det din tur. Ta dig loss ur grepp på samma sida, med varje hand: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk6-3": {
+    "title": "Korsgrepp",
+    "say": "Vid ett korsgrepp, till exempel när motståndarens högra hand greppar din högra handled, ligger deras tumme ovanpå. Vrid din handled uppåt, skär igenom tumöppningen och dra mot motsatta axeln. Kombinera med ett snett steg bakåt.",
+    "cues": [
+     "Motståndarens tumme ligger ovanpå",
+     "Vrid uppåt, skär igenom tumöppningen",
+     "Dra mot motsatta axeln + snett steg bakåt"
+    ],
+    "mistakes": [
+     "Dra nedåt, bort från öppningen",
+     "Glömma fötterna"
+    ],
+    "drill": {
+     "label": "Loss ur korsgrepp, varje hand",
+     "say": "Nu är det din tur. Ta dig loss ur korsgrepp, med varje hand: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk6-4": {
+    "title": "Grepp med två händer",
+    "say": "När någon greppar med båda händerna räcker inte kraften i en arm. För in din fria hand mellan motståndarens armar och ta tag i din egen knytnäve. Använd sedan kraften i båda armarna, tillsammans med en vridning av axlarna, och ryck kraftigt uppåt genom öppningen mellan de två tummarna.",
+    "cues": [
+     "Fria handen in mellan armarna",
+     "Ta tag i din egen knytnäve",
+     "Båda armarna + vrid axlarna, ryck uppåt"
+    ],
+    "mistakes": [
+     "Försöka dra loss med en arm ensam",
+     "Rycka åt sidan i stället för uppåt"
+    ],
+    "drill": {
+     "label": "Loss ur grepp med två händer",
+     "say": "Nu är det din tur. Ta dig loss ur grepp med två händer: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk6-5": {
+    "title": "När du har tagit dig loss",
+    "say": "Det är inte över när du är loss. Backa genast undan, lyft händerna till handstaketet och ropa högt: Stopp! Ropet drar till sig uppmärksamhet från folk runt omkring och visar att du inte vill slåss. Målet med självförsvar är alltid att ta sig loss säkert och lämna platsen.",
+    "cues": [
+     "Backa undan direkt",
+     "Handstaketet",
+     "Ropa högt: Stopp!"
+    ],
+    "mistakes": [
+     "Stanna kvar och bråka",
+     "Vända ryggen och springa medan du är för nära"
+    ],
+    "drill": {
+     "label": "Loss – backa – ropa",
+     "say": "Nu är det din tur. Ta dig loss, backa och ropa: fem gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Svagheten i en hand som greppar är:",
+    "a": [
+     "Handflatan",
+     "Öppningen mellan tummen och fingrarna",
+     "Lillfingret"
+    ],
+    "why": "Tumöppningen är den lättaste vägen ut."
+   },
+   {
+    "q": "Vad gör du när någon greppar med två händer?",
+    "a": [
+     "Drar loss en arm riktigt hårt",
+     "Tar tag i din egen hand och rycker uppåt med båda armarna",
+     "Står still"
+    ],
+    "why": "Två armar och en vridning av axlarna vinner över motståndarens två händer."
+   },
+   {
+    "q": "Det första du gör när du har tagit dig loss är:",
+    "a": [
+     "Backar undan, tar handstaketet och ropar högt",
+     "Slår tillbaka direkt",
+     "Börjar bråka"
+    ],
+    "why": "Målet med självförsvar är att vara säker och lämna platsen."
+   },
+   {
+    "q": "Ska du slita kraft mot kraft?",
+    "a": [
+     "Ja",
+     "Nej, använd tummens riktning"
+    ],
+    "why": "Rätt teknik vinner över styrka."
+   }
+  ]
+ },
+ "tk7": {
+  "title": "Loss ur omfamningar & grepp framifrån",
+  "sub": "Bakifrån med låsta armar, bakifrån med fria armar, kragtag framifrån, stoppsignal",
+  "intro": "Att bli hårt omfamnad är den läskigaste känslan av alla. Hemligheten ligger i en låg tyngdpunkt och rörliga fötter. Vi tränar långsamt och säkert, och vi respekterar alltid stoppsignalen.",
+  "safety": "Partnern håller om med lagom kraft. Tryck aldrig på riktigt mot halsen. Två klappar betyder stopp.",
+  "outro": "Nu kan du ta dig loss ur de obehagligaste greppen. Grenens sista grundlektion: att bryta balansen och kasta säkert.",
+  "home": "Hemuppgift: två pass i veckan, åtta gånger per situation och sida, alltid med stoppsignal.",
+  "steps": {
+   "tk7-1": {
+    "title": "Stoppsignalen",
+    "say": "Kom överens om en stoppsignal före varje parövning. Klappa två gånger på partnern eller på mattan, eller säg högt: Stopp. När du hör eller känner signalen släpper du direkt. Alla måste respektera signalen helt och hållet. Bara den som tränar säkert kan träna länge.",
+    "cues": [
+     "Klappa 2 gånger eller säg: Stopp",
+     "Släpp direkt",
+     "Respektera den helt och hållet"
+    ],
+    "mistakes": [
+     "Fortsätta lite till efter signalen",
+     "Inte komma överens innan ni börjar"
+    ],
+    "drill": {
+     "label": "Kom överens om signalen",
+     "say": "Nu är det din tur. Kom överens om signalen: tre gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk7-2": {
+    "title": "Grepp bakifrån – sänk tyngdpunkten",
+    "say": "När någon tar tag om dig bakifrån och dina armar är låsta inne i greppet: sänk genast tyngdpunkten, böj knäna och skjut höften bakåt. Samtidigt för du ut armbågarna åt sidorna för att lossa greppet. Med låg tyngdpunkt är det mycket svårt för motståndaren att lyfta upp dig.",
+    "cues": [
+     "Sänk tyngdpunkten direkt",
+     "Skjut höften bakåt",
+     "För ut armbågarna och lossa greppet"
+    ],
+    "mistakes": [
+     "Stå rak, då är du lätt att lyfta",
+     "Sprattla i panik"
+    ],
+    "drill": {
+     "label": "Sänk tyngdpunkten, lossa greppet",
+     "say": "Nu är det din tur. Sänk tyngdpunkten och lossa greppet: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk7-3": {
+    "title": "Grepp bakifrån – vrid dig loss",
+    "say": "När greppet har lossnat kliver du ut åt sidan med en fot, sänker dig ännu mer, vrider höft och axlar och slingrar dig ut ur armarna. Vänd dig mot motståndaren, ta handstaketet och backa undan. Träna långsamt med en partner, som bara håller om med lagom kraft.",
+    "cues": [
+     "Kliv ut åt sidan med en fot",
+     "Gå ner lågt, vrid höften och slingra dig ut",
+     "Vänd dig om, handstaketet, backa undan"
+    ],
+    "mistakes": [
+     "Vrida medan tyngdpunkten fortfarande är hög",
+     "Stanna kvar nära efteråt"
+    ],
+    "drill": {
+     "label": "Loss ur grepp bakifrån, varje sida",
+     "say": "Nu är det din tur. Ta dig loss ur grepp bakifrån, åt varje sida: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk7-4": {
+    "title": "Grepp bakifrån – fria armar",
+    "say": "Om dina armar är utanför greppet: sänk ändå tyngdpunkten först. Ta sedan tag i motståndarens händer framför magen och bänd upp greppet, samtidigt som du vrider dig ut. Backa undan och håll handstaketet uppe.",
+    "cues": [
+     "Sänk tyngdpunkten först",
+     "Bänd loss motståndarens händer framför magen",
+     "Vrid dig loss, backa undan"
+    ],
+    "mistakes": [
+     "Riva i motståndarens händer utan att gå ner lågt",
+     "Vända ryggen och gå medan du är för nära"
+    ],
+    "drill": {
+     "label": "Loss bakifrån med fria armar",
+     "say": "Nu är det din tur. Ta dig loss bakifrån med fria armar: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk7-5": {
+    "title": "Kragtag framifrån",
+    "say": "När motståndaren greppar din krage framifrån med båda händerna: dra in hakan och lyft axlarna för att skydda halsen. Sträck en arm rakt upp över huvudet, och vrid sedan kroppen kraftigt åt sidan, så att axeln och armen pressar över motståndarens båda armar och bryter greppet. Backa genast och ta handstaketet. När ni tränar: partnern greppar bara kragen och klämmer aldrig om halsen.",
+    "cues": [
+     "Hakan in, axlarna upp",
+     "Sträck en arm rakt upp",
+     "Vrid kraftigt, pressa över armarna, backa"
+    ],
+    "mistakes": [
+     "Försöka dra isär motståndarens armar med ren kraft",
+     "Vrida utan att sträcka armen högt"
+    ],
+    "drill": {
+     "label": "Loss ur kragtag, varje sida",
+     "say": "Nu är det din tur. Ta dig loss ur kragtag, åt varje sida: åtta gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad gör du först när någon tar tag om dig bakifrån?",
+    "a": [
+     "Sänker tyngdpunkten",
+     "Hoppar upp",
+     "Fäller huvudet bakåt"
+    ],
+    "why": "Med låg tyngdpunkt blir det svårt för motståndaren att lyfta dig."
+   },
+   {
+    "q": "Stoppsignalen i parträning är:",
+    "a": [
+     "Två klappar eller att säga: Stopp",
+     "Vilket rop som helst",
+     "Det behövs ingen signal"
+    ],
+    "why": "Kom överens i förväg och respektera den helt och hållet."
+   },
+   {
+    "q": "Vad använder du för att ta dig loss ur ett kragtag framifrån?",
+    "a": [
+     "Kraften i båda armarna",
+     "Sträcker armen högt och vrider kroppen kraftigt över greppet",
+     "Står still och väntar"
+    ],
+    "why": "En vridning med hela kroppen är starkare än motståndarens två armar."
+   },
+   {
+    "q": "När ni tränar loss ur kragtag får partnern:",
+    "a": [
+     "Klämma åt halsen på riktigt",
+     "Bara greppa kragen, aldrig klämma om halsen"
+    ],
+    "why": "Halsen ska alltid vara helt säker."
+   }
+  ]
+ },
+ "tk8": {
+  "title": "Bryta balansen & kasta",
+  "sub": "Stödbas, jackgrepp, bakre benhakning, främre benspärr, kontroll",
+  "intro": "Det här är kärnan i Sambobrottning: att använda motståndarens balans för att föra ner dem på marken. Träna bara när du behärskar fallen, på tjock matta och med en instruktör.",
+  "safety": "Krav: du behärskar lektionen Säkra fall, tjock matta, tränare närvarande, långsamt tempo.",
+  "outro": "Grattis! Du har klarat grunddelen av grenen Närkamp och självförsvar. Fortsättningsdelen väntar på dig, med mer verklighetsnära situationer.",
+  "home": "Hemuppgift: två pass i veckan på tjock matta, med en instruktör, sex långsamma repetitioner per teknik.",
+  "steps": {
+   "tk8-1": {
+    "title": "Stödbas och balansbrytning",
+    "say": "Motståndaren står stadigt tack vare sina två fötter. Linjen mellan fötterna är stödbasen. Tryck eller dra vinkelrätt mot den linjen, så tappar motståndaren balansen mycket lätt. Träna med en partner: greppa ärmen och kragen, tryck, dra och vrid lätt i åtta riktningar. Känn efter det ögonblick då hela deras vikt hamnar på hälarna eller på tårna.",
+    "cues": [
+     "Stödbas = linjen mellan fötterna",
+     "Tryck eller dra vinkelrätt mot stödbasen",
+     "Känn när vikten hamnar på hälar eller tår"
+    ],
+    "mistakes": [
+     "Trycka längs med stödbasen",
+     "Använda stela armar"
+    ],
+    "drill": {
+     "label": "Tryck – drag i 8 riktningar",
+     "say": "Nu är det din tur. Tryck och drag i åtta riktningar i sextio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk8-2": {
+    "title": "Grundläggande jackgrepp",
+    "say": "Sambons grundgrepp: din vänstra hand greppar partnerns högra ärm, strax under armbågen. Din högra hand greppar vänster slag på jackan, i brösthöjd. Armbågarna mjuka, inte stela. Stå med rak rygg och fötterna axelbrett isär, redo att röra dig.",
+    "cues": [
+     "Vänster hand: ärmen under armbågen",
+     "Höger hand: slaget i brösthöjd",
+     "Mjuka armbågar, rak rygg"
+    ],
+    "mistakes": [
+     "Kuta med ryggen och böja huvudet",
+     "Låsa armbågarna"
+    ],
+    "drill": {
+     "label": "Ta jackgreppet",
+     "say": "Nu är det din tur. Ta jackgreppet: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk8-3": {
+    "title": "Bakre benhakning",
+    "say": "Dra partnern bakåt mot deras högra sida, så att vikten hamnar på höger häl. Kliv fram med din vänstra fot tätt intill utsidan av deras högra fot. Ditt högra ben svingar förbi och sveper deras högra vad bakifrån, medan din överkropp trycker dem bakåt. Partnern faller bakåt med den teknik ni har lärt er. Du håller kvar greppet i ärmen under hela fallet och drar lätt uppåt, så att ryggen når mattan mjukt.",
+    "cues": [
+     "Partnerns vikt på höger häl",
+     "Kliv tätt intill, svep vaden bakifrån",
+     "Håll i ärmen, låt partnern falla mjukt"
+    ],
+    "mistakes": [
+     "Svepa innan vikten har hamnat på den foten",
+     "Släppa ärmen medan partnern faller"
+    ],
+    "drill": {
+     "label": "Bakre benhakning (långsamt), varje sida",
+     "say": "Nu är det din tur. Bakre benhakning, långsamt, åt varje sida: sex gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk8-4": {
+    "title": "Främre benspärr",
+    "say": "Dra partnern framåt, snett åt deras högra sida. Vrid dig och sätt din högra fot som en spärr framför deras högra vrist. Fortsätt dra i ärmen i en båge nedåt. De snubblar över din fot och faller framåt, och rullar över axeln precis som i framåtrullningen.",
+    "cues": [
+     "Dra framåt – snett åt höger",
+     "Foten spärrar framför vristen",
+     "Dra i en båge nedåt"
+    ],
+    "mistakes": [
+     "Sparka på vristen i stället för att spärra",
+     "Dra för hårt rakt ner mot marken"
+    ],
+    "drill": {
+     "label": "Främre benspärr (långsamt), varje sida",
+     "say": "Nu är det din tur. Främre benspärr, långsamt, åt varje sida: sex gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk8-5": {
+    "title": "Kontroll efter kastet",
+    "say": "När partnern har fallit ska du inte släppa direkt. Håll kvar i ärmen, stå stadigt, titta på partnern och hjälp dem sedan upp. Den som kastar har ansvar för den som faller. Träna kast bara på tjock matta, med en tränare som ser på, i långsamt tempo, och respektera alltid stoppsignalen.",
+    "cues": [
+     "Håll i ärmen, stå stadigt",
+     "Titta på partnern",
+     "Hjälp partnern upp"
+    ],
+    "mistakes": [
+     "Släppa direkt vid kastet",
+     "Falla ovanpå partnern"
+    ],
+    "drill": {
+     "label": "Långsamt kast + hjälp upp",
+     "say": "Nu är det din tur. Kasta långsamt och hjälp upp: fem gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "I vilken riktning trycker eller drar du för att bryta balansen?",
+    "a": [
+     "Längs med linjen mellan fötterna",
+     "Vinkelrätt mot linjen mellan fötterna",
+     "Rakt ner mot marken"
+    ],
+    "why": "Vinkelrätt mot stödbasen är den svagaste riktningen."
+   },
+   {
+    "q": "Var måste partnerns vikt ligga när du gör bakre benhakning?",
+    "a": [
+     "På tårna",
+     "På hälen på foten du sveper",
+     "På andra foten"
+    ],
+    "why": "Bara foten som bär vikten kan svepas undan."
+   },
+   {
+    "q": "Vilket ansvar har den som kastar?",
+    "a": [
+     "Att hålla i ärmen och kontrollera partnerns fall",
+     "Att släppa direkt",
+     "Att falla ovanpå"
+    ],
+    "why": "Kontroll gör att partnern faller säkert."
+   },
+   {
+    "q": "Villkor för att träna kast:",
+    "a": [
+     "Du behärskar fallen, tjock matta, tränare närvarande",
+     "Var som helst går bra",
+     "Kör snabbt för att vänja dig"
+    ],
+    "why": "Säkerheten är ett absolut krav."
+   }
+  ]
+ },
+ "tk9": {
+  "title": "Slag mot svaga punkter för att komma loss",
+  "sub": "Ögonsvep, knä mot skrevet, spark mot knät – bara för att öppna en flyktväg",
+  "intro": "När du blir angripen på riktigt och inte kan springa behöver du ett enkelt slag som får angriparen att tveka en sekund. Den sekunden är din väg ut. I dag tränar vi mot mitts, aldrig mot partnern.",
+  "safety": "Slå bara mot mitts eller sköld. Rör aldrig partnerns ögon, skrev eller knäleder.",
+  "outro": "Nu har du slag som öppnar en flyktväg. Kom ihåg: du slår för att springa, inte för att vinna. Nästa lektion: armbågar och knän på nära håll.",
+  "home": "Hemuppgift: tre pass i veckan, tre ronder kombinationer mot mitts, och avsluta alltid med att springa.",
+  "steps": {
+   "tk9-1": {
+    "title": "Principen: slå för att springa",
+    "say": "Första principen: slag mot svaga punkter använder du bara när du blir angripen på riktigt och inte har något annat val. Syftet är inte att vinna, utan att få angriparen att tveka ett ögonblick. Slå ett slag, skapa sedan genast avstånd och spring till en plats med mycket folk. Stanna inte kvar och fortsätt slåss.",
+    "cues": [
+     "Bara vid ett verkligt angrepp",
+     "Ett slag för att öppna vägen",
+     "Slå och spring sedan"
+    ],
+    "mistakes": [
+     "Stanna och fortsätta slåss när vägen ut är öppen",
+     "Slå när du fortfarande kan gå därifrån"
+    ],
+    "drill": {
+     "label": "Handstaketet – backa – spring",
+     "say": "Nu är det din tur. Handstaketet, backa och spring: fem gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk9-2": {
+    "title": "Ögonsvep med fingrarna",
+    "say": "Från handstaketet är din främre hand redan nära motståndarens ansikte. Fingrarna lätt böjda och avslappnade sveper snabbt tvärs över ögonen, som när du snärtar bort vatten från handen, och dras sedan tillbaka. Slaget kräver ingen kraft, bara snabbhet. Den som träffas blundar och backar av reflex. När ni tränar sveper du bara mot en mitts som partnern håller i ansiktshöjd.",
+    "cues": [
+     "Starta från handstaketet",
+     "Böjda, avslappnade fingrar, svep tvärs över",
+     "Snabbt och tillbaka, backa undan"
+    ],
+    "mistakes": [
+     "Stela, raka fingrar: de går lätt ur led",
+     "Ta sats långt ifrån och avslöja avsikten"
+    ],
+    "drill": {
+     "label": "Svep mot mitts, varje hand",
+     "say": "Nu är det din tur. Svep mot mitts, med varje hand: femton gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk9-3": {
+    "title": "Knä mot skrevet (på sköld)",
+    "say": "När angriparen kommer tätt inpå och greppar dig på mycket nära håll håller du med båda händerna i deras axlar eller krage. Dra nedåt och stöt samtidigt bakre benets knä rakt uppåt. Skjut höften framåt. När ni tränar håller partnern en tjock sköld framför nedre delen av magen, och du stöter knät mot skölden. Efter stöten trycker du bort dem och backar undan.",
+    "cues": [
+     "Båda händerna i axlarna, dra nedåt",
+     "Stöt bakre knät uppåt, skjut höften",
+     "Tryck bort, backa undan"
+    ],
+    "mistakes": [
+     "Luta dig bakåt när du stöter med knät",
+     "Stöta med knät innan du har balansen"
+    ],
+    "drill": {
+     "label": "Knästöt mot sköld, varje ben",
+     "say": "Nu är det din tur. Knästöt mot sköld, med varje ben: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk9-4": {
+    "title": "Spark mot knä och smalben",
+    "say": "När angriparen rusar mot dig på avstånd stoppar en låg hälspark mot främre knät eller smalbenet farten. Lyft främre knät lågt, tryck hälen rakt ut snett nedåt framåt, och dra sedan tillbaka foten. Låga sparkar är svåra att blockera och ger dig god balans. När ni tränar sparkar du bara mot en sköld som hålls lågt.",
+    "cues": [
+     "Lyft knät lågt",
+     "Tryck hälen snett nedåt framåt",
+     "Dra tillbaka foten, backa undan"
+    ],
+    "mistakes": [
+     "Sparka högt mot magen: långsamt och lätt att ramla",
+     "Sparka med tårna"
+    ],
+    "drill": {
+     "label": "Låg spark mot sköld, varje ben",
+     "say": "Nu är det din tur. Låg spark mot sköld, med varje ben: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk9-5": {
+    "title": "Kombination: svep – spark – spring",
+    "say": "Sätt ihop det till en kedja: från handstaketet sveper du mot mitts, gör en låg spark mot skölden, och vänder dig sedan om och springer tre steg. Träna långsamt för att göra rätt, och öka sedan tempot. Ropa högt varje gång du är klar: Stopp! Den här reflexkedjan ska sitta i kroppen som en vana.",
+    "cues": [
+     "Handstaketet → svep → spark",
+     "Vänd dig om och spring 3 steg",
+     "Ropa högt: Stopp!"
+    ],
+    "mistakes": [
+     "Glömma att springa i slutet av kedjan",
+     "Stanna kvar nära efter sparken"
+    ],
+    "drill": {
+     "label": "Kombinationsrond",
+     "say": "Nu är det din tur. Kombinationsronder: tre ronder på trettio sekunder, med tjugo sekunders vila mellan ronderna."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad är syftet med slag mot svaga punkter?",
+    "a": [
+     "Att vinna striden",
+     "Att få angriparen att tveka så att du kan fly",
+     "Att straffa motståndaren"
+    ],
+    "why": "Slå för att öppna vägen och spring sedan i säkerhet."
+   },
+   {
+    "q": "Hur ska fingrarna vara i ett ögonsvep?",
+    "a": [
+     "Raka och stela",
+     "Lätt böjda, avslappnade, med ett snabbt svep",
+     "Hårt knutna"
+    ],
+    "why": "Avslappnade fingrar är snabba och går inte ur led."
+   },
+   {
+    "q": "Var sätter du den låga sparken?",
+    "a": [
+     "Mot främre knät eller smalbenet",
+     "Mot huvudet",
+     "Mot ryggen"
+    ],
+    "why": "En låg spark är snabb, svår att blockera och stoppar farten."
+   },
+   {
+    "q": "Vad slår du på när du tränar med en partner?",
+    "a": [
+     "På partnern, men lätt",
+     "Bara på mitts eller sköld"
+    ],
+    "why": "Slå aldrig mot partnerns verkliga svaga punkter."
+   }
+  ]
+ },
+ "tk10": {
+  "title": "Armbågar & knän på nära håll",
+  "sub": "Sidledes armbåge, uppåtgående armbåge, rak knästöt, nack- och axelkontroll",
+  "intro": "När någon kommer tätt inpå finns det inget utrymme att svinga en knytnäve. Då är armbågar och knän kroppens starkaste naturliga vapen. Vi tränar mot mitts, med rätt teknik först och kraft sedan.",
+  "safety": "Slå bara mot tjocka mitts. Den som håller mitts ska hålla stadigt och stå stabilt.",
+  "outro": "Närstrid är inget att vara rädd för längre. Nästa lektion: att stoppa nedtagningar och resa sig säkert.",
+  "home": "Hemuppgift: tre pass i veckan, tre ronder närstrid mot mitts.",
+  "steps": {
+   "tk10-1": {
+    "title": "Sidledes armbåge",
+    "say": "Från kampställning böjer du främre armbågen, med underarmen parallell med marken och handen tätt intill örat. Vrid höft och axlar och svep armbågen tvärs över, som en dörr som slås igen. Träffytan är benet strax nedanför armbågen. Den andra handen skyddar fortfarande ansiktet. Efter slaget går du direkt tillbaka till garden.",
+    "cues": [
+     "Handen vid örat, underarmen vågrät",
+     "Vrid höften, svep tvärs över",
+     "Träffa med benet under armbågen"
+    ],
+    "mistakes": [
+     "Svinga hela armen rakt utsträckt",
+     "Glömma att skydda ansiktet med andra handen"
+    ],
+    "drill": {
+     "label": "Sidledes armbåge, varje arm",
+     "say": "Nu är det din tur. Sidledes armbåge, med varje arm: femton gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk10-2": {
+    "title": "Uppåtgående armbåge",
+    "say": "När motståndaren rusar in med huvudet nedåt är en armbåge underifrån och upp mycket effektiv. Böj armbågen hårt så att näven når axeln, tryck ifrån med benen och för armbågen rakt uppåt i en lodrät linje framför ansiktet. När ni tränar håller partnern en mitts med ytan nedåt i brösthöjd.",
+    "cues": [
+     "Böj hårt, näven mot axeln",
+     "Tryck ifrån med benen, rakt uppåt",
+     "Andra handen skyddar ansiktet"
+    ],
+    "mistakes": [
+     "Slå snett utåt",
+     "Bara använda armen, inte benen"
+    ],
+    "drill": {
+     "label": "Uppåtgående armbåge, varje arm",
+     "say": "Nu är det din tur. Uppåtgående armbåge, med varje arm: tolv gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk10-3": {
+    "title": "Nack- och axelkontroll",
+    "say": "På clinchavstånd lägger du händerna ovanpå varandra bakom motståndarens nacke, med armbågarna ihop framför deras bröst. Dra ner huvudet och pressa armbågarna inåt. Det här greppet låter dig styra motståndarens balans. När ni tränar drar du lätt och långsamt, och partnern kan alltid klappa för att be om stopp.",
+    "cues": [
+     "Händerna ovanpå varandra bakom nacken",
+     "Armbågarna ihop framför motståndarens bröst",
+     "Dra ner lätt och långsamt"
+    ],
+    "mistakes": [
+     "Fläta ihop fingrarna: de fastnar lätt",
+     "Rycka hårt i partnerns nacke"
+    ],
+    "drill": {
+     "label": "Håll nack- och axelkontrollen",
+     "say": "Nu är det din tur. Håll nack- och axelkontrollen i trettio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk10-4": {
+    "title": "Rak knästöt från kontrollen",
+    "say": "Från nack- och axelkontrollen drar du motståndaren nedåt och stöter knät rakt uppåt mot skölden som partnern håller framför magen. Skjut höften framåt och stå rak på stödbenet. Efter två knästötar trycker du bort dem kraftigt och backar undan.",
+    "cues": [
+     "Nack- och axelkontroll",
+     "Dra nedåt, stöt knät rakt uppåt",
+     "Två knän, tryck sedan bort, backa undan"
+    ],
+    "mistakes": [
+     "Böja dig framåt med kroppen",
+     "Stå på tårna på stödbenet och tappa balansen"
+    ],
+    "drill": {
+     "label": "Knä mot sköld, varje ben",
+     "say": "Nu är det din tur. Knä mot sköld, med varje ben: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk10-5": {
+    "title": "Kombination på nära håll",
+    "say": "Sätt ihop det: sidledes armbåge, uppåtgående armbåge, ta kontrollen, två knästötar, tryck bort och backa till handstaketet. Kör tre ronder, trettio sekunder mot mitts i varje rond. Andas med korta utandningsstötar medan du slår.",
+    "cues": [
+     "Sidledes armbåge → armbåge uppåt",
+     "Kontroll → 2 knän",
+     "Tryck bort, handstaketet, andningsstötar"
+    ],
+    "mistakes": [
+     "Hålla andan när du slår",
+     "Glömma att trycka bort och skapa avstånd"
+    ],
+    "drill": {
+     "label": "Rond på nära håll",
+     "say": "Nu är det din tur. Ronder på nära håll: tre ronder på trettio sekunder, med tjugo sekunders vila mellan ronderna."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad träffar du med i en sidledes armbåge?",
+    "a": [
+     "Benet strax nedanför armbågen",
+     "Handen",
+     "Axeln"
+    ],
+    "why": "Det hårda benet strax nedanför armbågen är den stadigaste träffytan."
+   },
+   {
+    "q": "Hur placerar du händerna i nack- och axelkontrollen?",
+    "a": [
+     "Flätar ihop fingrarna",
+     "Ovanpå varandra bakom nacken"
+    ],
+    "why": "Hopflätade fingrar fastnar lätt, händerna ovanpå varandra är säkrare."
+   },
+   {
+    "q": "Vad gör du efter två knästötar?",
+    "a": [
+     "Trycker bort och backar undan",
+     "Fortsätter hålla hårt",
+     "Sätter dig ner"
+    ],
+    "why": "Skapa alltid avstånd så att du kan ta dig därifrån."
+   },
+   {
+    "q": "Hur andas du när du slår flera slag i rad?",
+    "a": [
+     "Håller andan",
+     "Korta utandningsstötar i takt med varje slag"
+    ],
+    "why": "Andningsstötarna hindrar dig från att tröttna och hjälper dig att hålla dig lugn."
+   }
+  ]
+ },
+ "tk11": {
+  "title": "Stoppa nedtagningar & resa sig",
+  "sub": "Sprawl mot bentag, pressa med höften, teknisk resning, sparka för att hålla avstånd",
+  "intro": "I ett slagsmål är det farligaste att bli nedbrottad. I dag lär du dig att inte bli dragen omkull, och om du ändå hamnar på marken, att resa dig säkert på några sekunder.",
+  "safety": "Träna på tjock matta. Partnern rusar in långsamt och skallar aldrig.",
+  "outro": "Nu är du mycket svår att brotta ner, och du vet hur du reser dig säkert. Nästa lektion: att ta sig loss när du ligger fast på marken.",
+  "home": "Hemuppgift: tio tekniska resningar åt varje sida varje dag, och sprawlträning med en partner två gånger i veckan.",
+  "steps": {
+   "tk11-1": {
+    "title": "Sprawl mot bentag",
+    "say": "När motståndaren går ner lågt och rusar in för att ta tag i dina ben: skjut båda fötterna bakåt blixtsnabbt, sänk höften och pressa ner mot deras övre rygg, och spärra deras axlar med händerna. Din kroppsvikt pressar ner dem, och dina ben är långt utom räckhåll. Det här kallas sprawl. Träna långsamt med en partner på mattan.",
+    "cues": [
+     "Skjut båda fötterna bakåt",
+     "Sänk höften mot övre ryggen",
+     "Händerna spärrar motståndarens axlar"
+    ],
+    "mistakes": [
+     "Backa upprätt: dina ben blir lätta att ta",
+     "Höften för högt, motståndaren når fortfarande benen"
+    ],
+    "drill": {
+     "label": "Sprawl",
+     "say": "Nu är det din tur. Sprawl: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk11-2": {
+    "title": "Ta dig loss efter sprawlen",
+    "say": "När sprawlen har lyckats ska du inte ligga kvar och pressa länge. Tryck med händerna mot motståndarens axlar, studsa upp, ta två steg bakåt och gå tillbaka till kampställning, med händerna framför ansiktet. Målet är fortfarande att ta sig därifrån.",
+    "cues": [
+     "Tryck med händerna mot axlarna",
+     "Studsa upp, 2 steg bakåt",
+     "Tillbaka i ställning, skydda ansiktet"
+    ],
+    "mistakes": [
+     "Ligga kvar och pressa för länge",
+     "Resa sig rakt framför motståndaren"
+    ],
+    "drill": {
+     "label": "Sprawl – studsa upp – backa",
+     "say": "Nu är det din tur. Sprawla, studsa upp och backa: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk11-3": {
+    "title": "Håll avstånd med sparkar från marken",
+    "say": "Om du har fallit bakåt och motståndaren står upp: ligg på ena höften, med en hand i mattan och en hand framför ansiktet. Det övre benet är uppdraget och redo att sparka mot knät eller magen om de rusar in. Vrid dig efter dem och håll alltid fötterna riktade mot motståndaren. Låt dem aldrig komma runt till ditt huvud.",
+    "cues": [
+     "Ligg på sidan, en hand i mattan, en skyddar",
+     "Övre benet uppdraget, redo att sparka",
+     "Vrid dig efter, fötterna alltid mot motståndaren"
+    ],
+    "mistakes": [
+     "Ligga platt på rygg",
+     "Låta motståndaren komma runt till ditt huvud"
+    ],
+    "drill": {
+     "label": "Vrid dig efter partnern",
+     "say": "Nu är det din tur. Vrid dig efter partnern i trettio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk11-4": {
+    "title": "Teknisk resning",
+    "say": "Så här reser du dig säkert: bakre handen i mattan bakom höften, främre handen framför ansiktet. Lyft höften och för stödbenet bakåt under kroppen. Sätt ner foten långt bak, i ställning, och först då reser du dig helt. Du skyddar alltid ansiktet och reser dig bort från motståndaren, aldrig rakt framför dem.",
+    "cues": [
+     "Bakre handen i mattan, främre skyddar ansiktet",
+     "Lyft höften, för benet bakåt",
+     "Res dig bort från motståndaren, i ställning"
+    ],
+    "mistakes": [
+     "Resa sig med båda händerna i mattan och ansiktet oskyddat",
+     "Resa sig framåt mot motståndaren"
+    ],
+    "drill": {
+     "label": "Teknisk resning åt varje sida",
+     "say": "Nu är det din tur. Teknisk resning åt varje sida: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk11-5": {
+    "title": "Kombination: fall – håll avstånd – res dig",
+    "say": "Sätt ihop det: fall bakåt med rätt teknik, vrid dig över på sidan, håll avstånd med sparkar, gör en teknisk resning, backa undan och ta handstaketet. Kontrollera efter varje gång att du hela tiden skyddade ansiktet. Gör det fem gånger åt varje sida.",
+    "cues": [
+     "Bakåtfall → ligg på sidan",
+     "Håll avstånd med sparkar",
+     "Teknisk resning → handstaketet"
+    ],
+    "mistakes": [
+     "Resa sig för hastigt medan motståndaren är nära",
+     "Glömma att skydda ansiktet"
+    ],
+    "drill": {
+     "label": "Fall och resning, varje sida",
+     "say": "Nu är det din tur. Fall och resning, åt varje sida: fem gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad gör du när någon rusar in för att ta dina ben?",
+    "a": [
+     "Skjuter båda fötterna bakåt och pressar ner med höften",
+     "Står upprätt och väntar",
+     "Hoppar upp"
+    ],
+    "why": "Sprawl: benen långt bort och vikten ovanpå motståndaren."
+   },
+   {
+    "q": "När du ligger på marken, vart ska fötterna peka?",
+    "a": [
+     "Mot motståndaren",
+     "Upp i luften",
+     "Bakåt"
+    ],
+    "why": "Fötterna mot motståndaren så att du kan sparka och hålla avståndet."
+   },
+   {
+    "q": "Vad gör främre handen i en teknisk resning?",
+    "a": [
+     "Stöder mot marken",
+     "Skyddar ansiktet"
+    ],
+    "why": "Skydda alltid ansiktet när du reser dig."
+   },
+   {
+    "q": "Ska du resa dig bort från motståndaren eller mot dem?",
+    "a": [
+     "Bort från dem",
+     "Mot dem"
+    ],
+    "why": "Res dig bort från motståndaren för säkerhets skull."
+   }
+  ]
+ },
+ "tk12": {
+  "title": "Ta sig loss på marken",
+  "sub": "Räkan, brygga och rulla, loss under press, benförsvar",
+  "intro": "Om du ligger fast på marken, få inte panik. Det finns enkla rörelser från Sambobrottning som hjälper dig att vända på läget. Vi tränar långsamt, partnern pressar med lagom kraft, och vi respekterar alltid stoppsignalen.",
+  "safety": "Tjock matta. Den som ligger ovanpå lägger inte all sin vikt och pressar aldrig mot halsen. Två klappar betyder stopp.",
+  "outro": "Nu kan du ta dig loss på marken. Nästa lektion har ett allvarligt tema: att möta någon med kniv.",
+  "home": "Hemuppgift: två minuter räkan varje dag, och lätt brottning två gånger i veckan.",
+  "steps": {
+   "tk12-1": {
+    "title": "Räkan",
+    "say": "Ligg på rygg med båda knäna böjda. Tryck ena foten i mattan och skjut höften bakåt, samtidigt som du vrider dig över på sidan och trycker händerna framåt, som om du sköt bort något tungt. Kroppen kröks som en räka. Gå sedan tillbaka till ryggläge och gör det åt andra hållet. Det här är den viktigaste rörelsen på marken: den skapar utrymme.",
+    "cues": [
+     "Tryck med foten, skjut höften bakåt",
+     "Vrid dig på sidan, händerna trycker framåt",
+     "Byt sida hela tiden"
+    ],
+    "mistakes": [
+     "Ligga platt på rygg utan att vrida höften",
+     "Trycka med händerna utan att flytta höften"
+    ],
+    "drill": {
+     "label": "Räkan längs mattan",
+     "say": "Nu är det din tur. Räkan längs mattan i fyrtio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk12-2": {
+    "title": "Brygga och rulla när någon sitter på dig",
+    "say": "När någon sitter ovanpå din mage: skydda först ansiktet med båda händerna. Lås sedan fast en av motståndarens armar tätt intill din kropp, och sätt foten på samma sida som en spärr utanför deras fot. Tryck höften kraftigt uppåt, gör en brygga över axeln på den sida där armen är låst, och rulla motståndaren åt sidan. Du hamnar ovanpå, och sedan reser du dig och backar undan.",
+    "cues": [
+     "Skydda ansiktet först",
+     "Lås en arm + spärra foten på samma sida",
+     "Höftbrygga, rulla över axeln på den sidan"
+    ],
+    "mistakes": [
+     "Trycka med händerna mot motståndarens bröst",
+     "Brygga rakt upp utan att låsa arm och fot"
+    ],
+    "drill": {
+     "label": "Brygga och rulla, varje sida",
+     "say": "Nu är det din tur. Brygga och rulla, åt varje sida: sex gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk12-3": {
+    "title": "Armbåge–knä-flykt under press",
+    "say": "Om du inte kan rulla: lägg dig på sidan, för armbågen tätt mot knät och kila in armbågen mot motståndarens höft. Använd räkan för att skapa utrymme och för in knät mellan dig och motståndaren. När knät är inne för du in benen i benförsvar och håller motståndaren på avstånd med båda benen.",
+    "cues": [
+     "Ligg på sidan, armbågen mot knät",
+     "Räkan skapar utrymme",
+     "För in knät, sedan benen i benförsvar"
+    ],
+    "mistakes": [
+     "Trycka med raka armar: lätt att få ett armlås",
+     "Ligga platt på rygg"
+    ],
+    "drill": {
+     "label": "Armbåge–knä-flykt, varje sida",
+     "say": "Nu är det din tur. Armbåge och knä, flykt åt varje sida: sex gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk12-4": {
+    "title": "Benförsvar och resning",
+    "say": "När du har båda benen mellan dig och motståndaren är du i benförsvar. Sätt fötterna mot deras höfter och tryck bort dem. När det finns utrymme vrider du dig över på sidan och gör en teknisk resning som i förra lektionen. Att ligga på marken betyder inte att du har förlorat, så länge du håller benen mellan er.",
+    "cues": [
+     "Båda benen mellan dig och motståndaren",
+     "Fötterna trycker mot höften, skapa avstånd",
+     "Teknisk resning"
+    ],
+    "mistakes": [
+     "Ta bort benen så att motståndaren kommer nära",
+     "Resa dig innan du har avstånd"
+    ],
+    "drill": {
+     "label": "Benförsvar – tryck – res dig",
+     "say": "Nu är det din tur. Benförsvar, tryck bort och res dig: sex gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk12-5": {
+    "title": "Kontrollerad lätt brottning",
+    "say": "Nu kör vi kontrollerad lätt brottning i två minuter. En börjar underst och en överst. Den som ligger under har bara en uppgift: att ta sig loss och resa sig. Den som ligger ovanpå håller bara fast, utan armlås och utan strypningar. Femtio procent kraft. Två klappar betyder stopp direkt.",
+    "cues": [
+     "Underst: ta dig loss och res dig",
+     "Överst: håll bara, inga lås, inga strypningar",
+     "50 % kraft, två klappar betyder stopp"
+    ],
+    "mistakes": [
+     "Ta i med full kraft från början",
+     "Inte respektera stoppsignalen"
+    ],
+    "drill": {
+     "label": "Brottningsrond",
+     "say": "Nu är det din tur. Brottningsronder: två ronder på sextio sekunder, med trettio sekunders vila mellan ronderna."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vilken är den viktigaste rörelsen på marken?",
+    "a": [
+     "Räkan",
+     "Att ligga still",
+     "Att slå uppåt"
+    ],
+    "why": "Räkan skapar utrymme så att du kan ta dig loss."
+   },
+   {
+    "q": "Brygga och rulla: åt vilket håll rullar du?",
+    "a": [
+     "Mot den sida där du har låst armen och spärrat foten",
+     "Åt vilket håll som helst"
+    ],
+    "why": "Motståndaren kan inte ta emot sig med en arm och en fot som är låsta."
+   },
+   {
+    "q": "När någon pressar dig, ska du trycka mot deras bröst med raka armar?",
+    "a": [
+     "Ja",
+     "Nej, då får du lätt ett armlås"
+    ],
+    "why": "Håll armbågarna tätt intill kroppen."
+   },
+   {
+    "q": "Vad får den som ligger ovanpå göra i lätt brottning?",
+    "a": [
+     "Armlås och strypningar",
+     "Bara hålla fast, inga lås och inga strypningar"
+    ],
+    "why": "Träna säkert och kontrollerat."
+   }
+  ]
+ },
+ "tk13": {
+  "title": "Möta någon med kniv",
+  "sub": "Gyllene regler, hinder, skydd, armkontroll, flykt – gummikniv",
+  "intro": "Lyssna noga på det viktigaste i dag: en kniv är mycket farlig, även för den som har tränat kampsport i många år. Om rånaren bara vill ha dina saker, ge dem till honom. Saker kan du köpa nya, men inte ett liv. Teknikerna som följer är bara till för när du inte har något annat val.",
+  "safety": "Träna bara med gummikniv eller trubbig plastkniv. Träna aldrig med en riktig kniv.",
+  "outro": "Kom ihåg: att springa är att vinna. Nästa lektion: att behålla lugnet när någon hotar dig med ett skjutvapen.",
+  "home": "Hemuppgift: ett situationspass i veckan med gummikniv, långsamt och säkert, och avsluta alltid med att springa.",
+  "steps": {
+   "tk13-1": {
+    "title": "Gyllene regler",
+    "say": "Tre gyllene regler. Ett: om de kräver dina saker, ge dem direkt, kasta plånboken långt bort och spring åt motsatt håll. Två: håll så stort avstånd som möjligt och leta efter en väg ut. Tre: använd tekniker bara när du blir angripen och inte kan springa. Och kom ihåg: i verkligheten blir nästan alla som möter en kniv skadade. Att springa är att vinna.",
+    "cues": [
+     "Ge dina saker, kasta långt, spring",
+     "Håll avståndet, hitta en väg ut",
+     "Tekniken är sista utvägen"
+    ],
+    "mistakes": [
+     "Försöka behålla dina saker",
+     "Kasta dig självsäkert mot den som har kniven"
+    ],
+    "drill": {
+     "label": "Kasta plånboken – spring (situationsövning)",
+     "say": "Nu är det din tur. Kasta plånboken och spring, som situationsövning: tre gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk13-2": {
+    "title": "Använd ett hinder som sköld",
+    "say": "Allt du har i händerna kan bli en sköld: en ryggsäck, en jacka lindad runt armen, en stol, en väska. Håll hindret mellan dig och knivspetsen, med ett stadigt grepp med båda händerna, och backa mot en väg ut. Hindret håller kniven borta från kroppen och ger dig tid att springa.",
+    "cues": [
+     "Ryggsäck, jacka, stol som sköld",
+     "Håll hindret mellan dig och kniven",
+     "Backa mot en väg ut"
+    ],
+    "mistakes": [
+     "Kasta bort hindret för att slåss med bara händerna",
+     "Backa in i ett hörn"
+    ],
+    "drill": {
+     "label": "Ryggsäck som sköld, backa mot utgången",
+     "say": "Nu är det din tur. Håll ryggsäcken som sköld och backa mot utgången i trettio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk13-3": {
+    "title": "Skydd och ställning",
+    "say": "Om du inte har något hinder: håll armarna framför ansiktet med underarmarnas insida vänd mot dig, armbågarna skyddar revbenen, kroppen lätt framåtböjd och hakan indragen. Stå snett för att göra dig till ett mindre mål. Titta på handen som håller kniven, inte på motståndarens ansikte.",
+    "cues": [
+     "Underarmarna framför ansiktet, insidan inåt",
+     "Stå snett, lätt framåtböjd, hakan in",
+     "Titta på knivhanden"
+    ],
+    "mistakes": [
+     "Ta emot med handflatorna",
+     "Titta på ansiktet i stället för på handen"
+    ],
+    "drill": {
+     "label": "Ta skyddsställningen",
+     "say": "Nu är det din tur. Ta skyddsställningen: tio gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk13-4": {
+    "title": "Blockera och kontrollera armen",
+    "say": "När ett stick kommer och du inte kan undvika det: blockera knivarmen med båda underarmarna och kliv samtidigt snett utåt. Lås direkt armen hårt mot din kropp med båda händerna, kontrollera handleden och håll bladet riktat bort från dig. Dina två händer mot en av deras. Träna mycket långsamt med gummikniv.",
+    "cues": [
+     "Blockera med båda underarmarna + snett steg",
+     "Lås knivarmen hårt",
+     "Båda händerna kontrollerar handleden, kniven riktad bort"
+    ],
+    "mistakes": [
+     "Bara använda en hand",
+     "Släppa armen halvvägs"
+    ],
+    "drill": {
+     "label": "Blockera – kontrollera (långsamt), varje sida",
+     "say": "Nu är det din tur. Blockera och kontrollera, långsamt, åt varje sida: åtta gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk13-5": {
+    "title": "Ta dig loss och spring",
+    "say": "När du har kontroll över armen ska du inte försöka ta kniven. Gör en låg spark mot knät som i lektion nio, tryck bort motståndaren kraftigt, och spring sedan till en plats med mycket folk, ropa på hjälp och ring polisen. Kontrollera sedan kroppen: den som får ett knivhugg känner det ofta inte direkt.",
+    "cues": [
+     "Försök inte ta kniven",
+     "Låg spark, tryck bort, spring",
+     "Ropa på hjälp, ring polisen, leta efter skador"
+    ],
+    "mistakes": [
+     "Försöka rycka åt dig kniven",
+     "Jaga motståndaren"
+    ],
+    "drill": {
+     "label": "Kontrollera – tryck bort – spring (långsamt)",
+     "say": "Nu är det din tur. Kontrollera, tryck bort och spring, långsamt: fem gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Någon med kniv kräver din plånbok. Vad gör du?",
+    "a": [
+     "Slåss för att behålla plånboken",
+     "Ger plånboken, kastar den långt bort och springer"
+    ],
+    "why": "Saker kan du köpa nya, men inte ett liv."
+   },
+   {
+    "q": "Vad kan användas som sköld?",
+    "a": [
+     "Ryggsäck, jacka, stol",
+     "Ingenting"
+    ],
+    "why": "Ett hinder håller kniven borta från din kropp."
+   },
+   {
+    "q": "Vart tittar du när du möter en kniv?",
+    "a": [
+     "På motståndarens ansikte",
+     "På handen som håller kniven"
+    ],
+    "why": "Faran sitter i handen som håller kniven."
+   },
+   {
+    "q": "Vad gör du när du har kontroll över knivhanden?",
+    "a": [
+     "Försöker ta kniven",
+     "Trycker bort, springer och ropar på hjälp"
+    ],
+    "why": "Målet är att komma loss säkert, inte att ta vapnet."
+   }
+  ]
+ },
+ "tk14": {
+  "title": "Hotad med skjutvapen",
+  "sub": "Lugn, följa order, iaktta, skydd, flykt – övningsvapen i plast",
+  "intro": "Den här lektionen handlar mer om lugn än om tekniker. När du står inför ett vapen hänger ditt liv på att du håller huvudet kallt. Vi använder ett orange plastvapen, som bara är till för träning.",
+  "safety": "Använd bara orange övningsvapen i plast. Aldrig riktiga vapen, luftvapen eller något som ser äkta ut.",
+  "outro": "Ett kallt huvud är ditt starkaste vapen. Grenens sista lektion: sammanfattning och reflexer.",
+  "home": "Hemuppgift: tre minuter fyrkantsandning varje dag, och öva minnesleken när du är ute.",
+  "steps": {
+   "tk14-1": {
+    "title": "Andas och behåll lugnet",
+    "say": "När någon riktar ett vapen mot dig kommer hjärtat att slå väldigt fort. Gör fyrkantsandning: andas in i fyra sekunder, håll i fyra sekunder, andas ut i fyra sekunder, håll i fyra sekunder. Bara ett eller två andetag gör huvudet klarare. Den som är lugn ser vägen ut, den som är i panik gör det inte.",
+    "cues": [
+     "In 4 – håll 4 – ut 4 – håll 4",
+     "Ett eller två andetag räcker",
+     "Bara lugn ser vägen ut"
+    ],
+    "mistakes": [
+     "Andas hetsigt",
+     "Göra plötsliga rörelser"
+    ],
+    "drill": {
+     "label": "Fyrkantsandning i 4 takter",
+     "say": "Nu är det din tur. Fyrkantsandning i fyra takter i sextiofyra sekunder. Klockan räknar ner."
+    }
+   },
+   "tk14-2": {
+    "title": "Följ order och lyft händerna",
+    "say": "Om de kräver dina saker: gör som de säger. Lyft båda händerna öppna i axelhöjd och säg långsamt och tydligt: okej, här får du. Säg till före varje rörelse: jag tar fram plånboken ur högra fickan. Lägg ner sakerna eller kasta dem långt bort. Stirra inte på deras ansikte och börja inte argumentera.",
+    "cues": [
+     "Öppna händer i axelhöjd",
+     "Tala långsamt, säg till före varje rörelse",
+     "Ge dina saker, argumentera inte"
+    ],
+    "mistakes": [
+     "Plötsligt sticka handen i fickan",
+     "Argumentera eller hota tillbaka"
+    ],
+    "drill": {
+     "label": "Situationsövning: följ order",
+     "say": "Nu är det din tur. Situationsövning, följ order: tre gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk14-3": {
+    "title": "Skyl och skydd",
+    "say": "Skilj på två saker. Skyl är det som döljer dig för blickar, som en buske eller en gardin. Skydd är det som stoppar kulor, som en betongvägg, en pelare eller motorblocket i en bil. När du får chansen att springa, spring mot skydd, snett och inte rakt, och håll dig låg.",
+    "cues": [
+     "Skyl ≠ skydd",
+     "Spring mot skydd",
+     "Spring snett, håll dig låg"
+    ],
+    "mistakes": [
+     "Gömma dig bakom en trädörr eller en buske och tro att du är säker",
+     "Springa i en rak linje"
+    ],
+    "drill": {
+     "label": "Spring snett mot skydd",
+     "say": "Nu är det din tur. Spring snett mot skydd: fem gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk14-4": {
+    "title": "Iaktta och minns",
+    "say": "Medan du följer order iakttar du i tysthet: längd, kläder, röst och åt vilket håll de försvinner. När de har gått stannar du kvar på en säker plats, ringer polisen direkt och berättar allt du minns. Jaga aldrig efter dem.",
+    "cues": [
+     "Iaktta i tysthet: kropp, kläder, röst, riktning",
+     "Stanna på en säker plats",
+     "Ring polisen, jaga inte"
+    ],
+    "mistakes": [
+     "Jaga efter rånaren",
+     "Stirra på deras ansikte"
+    ],
+    "drill": {
+     "label": "Minneslek: beskriv en person",
+     "say": "Nu är det din tur. Minneslek: beskriv en person på trettio sekunder. Klockan räknar ner."
+    }
+   },
+   "tk14-5": {
+    "title": "Sista utvägen",
+    "say": "Bara om du är säker på att de kommer att skjuta trots att du har följt order kan du tänka på den sista utvägen: tryck bort pipan från dig och andra, håll fast den hårt med båda händerna, och försök sedan ta dig loss. Det här är en teknik med mycket hög risk, som bara får läras in på plats med en certifierad tränare och med övningsvapen. I nästan alla situationer är det bästa sättet att överleva att följa order och iaktta.",
+    "cues": [
+     "Bara om du är säker på att de skjuter",
+     "Tryck pipan bort från kroppen, håll med båda händerna",
+     "Lär dig på plats med en tränare"
+    ],
+    "mistakes": [
+     "Agera när de bara kräver dina saker",
+     "Träna själv efter videor utan instruktör"
+    ],
+    "drill": {
+     "label": "Repetera principerna",
+     "say": "Nu är det din tur. Repetera principerna: tre gånger. Jag räknar takten åt dig."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Vad är fyrkantsandning?",
+    "a": [
+     "In 4 – håll 4 – ut 4 – håll 4 sekunder",
+     "Hålla andan riktigt länge"
+    ],
+    "why": "En jämn andning sänker pulsen och gör dig klar i huvudet."
+   },
+   {
+    "q": "Någon riktar ett vapen mot dig och kräver dina saker. Vad gör du?",
+    "a": [
+     "Gör motstånd",
+     "Följer order, säger till före varje rörelse och ger dina saker"
+    ],
+    "why": "Inga saker är värda lika mycket som ett liv."
+   },
+   {
+    "q": "Vad räknas som skydd, alltså något som stoppar kulor?",
+    "a": [
+     "En buske",
+     "En betongvägg, en pelare"
+    ],
+    "why": "En buske ger bara skyl. Den stoppar inte kulor."
+   },
+   {
+    "q": "När rånaren har gått ska du:",
+    "a": [
+     "Jaga efter",
+     "Stanna på en säker plats och ringa polisen"
+    ],
+    "why": "Jaga aldrig någon som är beväpnad."
+   }
+  ]
+ },
+ "tk15": {
+  "title": "Sammanfattning & reflexer",
+  "sub": "Kedjesituationer, kontrollerad parträning, stretching för återhämtning",
+  "intro": "Sista lektionen. Vi sätter ihop allt du har lärt dig till reflexer. När något händer har du ingen tid att tänka. Kroppen måste själv veta vad den ska göra.",
+  "safety": "Handskar och tandskydd om du har. Parträning på 30–50 % kraft, med en instruktör som ser på.",
+  "outro": "Grattis, krigare! Du har klarat hela grenen Närkamp och självförsvar, både grunddelen och fortsättningsdelen. Gör nu grenens slutprov för att få märket Stålvarg.",
+  "home": "Hemuppgift: tre pass i veckan där du repeterar hela grenen, trettio minuter varje pass, och värm alltid upp och stretcha.",
+  "steps": {
+   "tk15-1": {
+    "title": "Reflexer mot rörliga mitts",
+    "say": "Partnern håller två mitts, rör sig runt dig och lyfter plötsligt mitts på olika ställen. En mitts i ansiktshöjd: rak stöt. En låg mitts: frontspark. En mitts som svingas mot ditt huvud: hög gard. Reagera direkt, utan att tänka.",
+    "cues": [
+     "Mitts i ansiktshöjd → rak stöt",
+     "Låg mitts → frontspark",
+     "Mitts svingas mot dig → hög gard"
+    ],
+    "mistakes": [
+     "Stå och vänta utan att röra dig",
+     "Sänka händerna efter varje slag"
+    ],
+    "drill": {
+     "label": "Reflexrond",
+     "say": "Nu är det din tur. Reflexronder: tre ronder på fyrtiofem sekunder, med tjugo sekunders vila mellan ronderna."
+    }
+   },
+   "tk15-2": {
+    "title": "Situation: handledsgrepp",
+    "say": "Situation ett. Partnern greppar plötsligt din handled och drar. Reflexen: sänk tyngdpunkten, ta dig loss i tummens riktning, handstaketet, backa undan och ropa högt: Stopp! Vänd dig sedan om och spring tre steg. Gör om det fem gånger, och varje gång greppar partnern på ett nytt sätt.",
+    "cues": [
+     "Sänk tyngdpunkten, loss mot tummen",
+     "Handstaketet, ropa högt",
+     "Spring 3 steg"
+    ],
+    "mistakes": [
+     "Slita kraft mot kraft",
+     "Glömma att ropa och springa"
+    ],
+    "drill": {
+     "label": "Situation handledsgrepp",
+     "say": "Nu är det din tur. Situation handledsgrepp: fem gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk15-3": {
+    "title": "Situation: grepp bakifrån",
+    "say": "Situation två. Partnern tar tag om dig bakifrån. Reflexen: sänk tyngdpunkten, för ut armbågarna, kliv åt sidan, vrid dig loss, gör en frontspark mot skölden som en tredje person håller, och spring. Byt roller efter varje gång. Fem gånger var.",
+    "cues": [
+     "Sänk tyngdpunkten, för ut armbågarna",
+     "Kliv åt sidan, vrid dig loss",
+     "Frontspark, spring"
+    ],
+    "mistakes": [
+     "Stå rak",
+     "Vrida medan tyngdpunkten fortfarande är hög"
+    ],
+    "drill": {
+     "label": "Situation grepp bakifrån",
+     "say": "Nu är det din tur. Situation grepp bakifrån: fem gånger. Jag räknar takten åt dig."
+    }
+   },
+   "tk15-4": {
+    "title": "Kontrollerad parträning",
+    "say": "Lätt parträning i tre ronder, en minut per rond. Bara raka stötar mot handskar och axlar, och mycket lätta frontsparkar mot magen, med trettio procent kraft. Inga slag mot ansiktet och inga slag mot svaga punkter. Målet är att träna blicken, fotarbetet och lugnet när någon faktiskt angriper dig.",
+    "cues": [
+     "30 % kraft, inget mot ansiktet",
+     "Träna blick, fotarbete och lugn",
+     "Handskhälsning före och efter"
+    ],
+    "mistakes": [
+     "Öka kraften när du blir träffad",
+     "Blunda när du blir träffad"
+    ],
+    "drill": {
+     "label": "Parträningsrond",
+     "say": "Nu är det din tur. Parträningsronder: tre ronder på sextio sekunder, med trettio sekunders vila mellan ronderna."
+    }
+   },
+   "tk15-5": {
+    "title": "Stretching och återhämtning",
+    "say": "Efter ett tungt pass stretchar du i tio minuter. Stretcha framsida lår, baksida lår, höfter, axlar och rygg, trettio sekunder i varje position, och andas ut när du går djupare. Drick vatten, ät ordentligt och sov tillräckligt. Musklerna växer när du vilar, inte när du tränar.",
+    "cues": [
+     "30 sekunder per position",
+     "Andas ut när du går djupare",
+     "Drick vatten, ät och sov ordentligt"
+    ],
+    "mistakes": [
+     "Gunga och rycka när du stretchar",
+     "Hoppa över återhämtningen"
+    ],
+    "drill": {
+     "label": "Stretching för återhämtning",
+     "say": "Nu är det din tur. Stretching för återhämtning i hundratjugo sekunder. Klockan räknar ner."
+    }
+   }
+  },
+  "quiz": [
+   {
+    "q": "Om en mitts hålls lågt i maghöjd, vad är reflexen?",
+    "a": [
+     "Frontspark",
+     "Hög gard"
+    ],
+    "why": "Det låga målet är till för frontsparken."
+   },
+   {
+    "q": "Hur mycket kraft använder ni i kontrollerad parträning?",
+    "a": [
+     "Ungefär 30 %",
+     "Full kraft"
+    ],
+    "why": "Ni tränar färdigheter säkert, ni slåss inte på riktigt."
+   },
+   {
+    "q": "Varje självförsvarssituation slutar alltid med att du:",
+    "a": [
+     "Stannar och fortsätter slåss",
+     "Ropar högt, skapar avstånd och springer"
+    ],
+    "why": "Målet med självförsvar är säkerhet."
+   },
+   {
+    "q": "När växer musklerna?",
+    "a": [
+     "När du vilar, äter och sover ordentligt",
+     "Bara när du tränar"
+    ],
+    "why": "Återhämtning är en del av träningen."
+   }
+  ]
+ }
+}

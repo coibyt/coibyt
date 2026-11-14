@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Samoobrona w walce wręcz",
+  "sub": "Inspiracja: Systema i zapasy Sambo. Oddech, praca nóg, bezpieczne padanie, osłona, podstawowe ciosy, uwalnianie się, rzuty."
+ },
+ "ngu-trang": {
+  "title": "Kamuflaż i ukrycie",
+  "sub": "Strój ghillie, malowanie twarzy, ukrycie, bezszelestne poruszanie się, zacieranie śladów, niezauważone podejście.",
+  "preview": [
+   "Cztery rzeczy, które zdradzają: kształt, cień, światło, ruch",
+   "Kamuflujące malowanie twarzy",
+   "Własnoręczny strój ghillie",
+   "Wybór kryjówki",
+   "Czołganie nisko, wysoko, lisi krok",
+   "Bezszelestne poruszanie się",
+   "Zacieranie śladów",
+   "Obserwacja bez bycia zauważonym"
+  ]
+ },
+ "ban-sung": {
+  "title": "Strzelectwo sportowe",
+  "sub": "Cztery zasady bezpieczeństwa, prawidłowy chwyt broni treningowej, postawa stojąca, klęcząca i leżąca, celowanie i oddech, historia broni.",
+  "preview": [
+   "Cztery zasady bezpieczeństwa",
+   "Prawidłowy chwyt broni treningowej",
+   "Postawa stojąca, klęcząca, leżąca",
+   "Linia celowania i oddech",
+   "Płynne ściąganie spustu",
+   "Historia strzelectwa sportowego"
+  ]
+ },
+ "dong-doi": {
+  "title": "Współpraca w zespole",
+  "sub": "Sygnały ręczne, zwięzła łączność, szyki marszowe i wzajemna osłona w airsofcie i paintballu.",
+  "preview": [
+   "Podstawowe sygnały ręczne",
+   "Zwięzła łączność przez radiotelefon",
+   "Szyki marszowe",
+   "Obserwacja sektorowa",
+   "Gry zespołowe"
+  ]
+ },
+ "the-luc": {
+  "title": "Kondycja i przetrwanie",
+  "sub": "Marsz z obciążeniem, bezpieczne pływanie, radzenie sobie ze zmęczeniem, szukanie wody, jedzenia, ognia i schronienia w lesie, na pustyni i nad morzem.",
+  "preview": [
+   "Siła z ciężarem własnego ciała",
+   "Bezpieczny marsz z obciążeniem",
+   "Pokonywanie drewnianej ściany, wspinanie po linie",
+   "Bezpieczne pływanie i utrzymywanie się na wodzie",
+   "Radzenie sobie ze zmęczeniem i brakiem snu",
+   "Szukanie i filtrowanie wody",
+   "Ogień i schronienie",
+   "Przetrwanie w lesie, na pustyni, na morzu"
+  ]
+ },
+ "so-cuu": {
+  "title": "Pierwsza pomoc na polu walki",
+  "sub": "Tamowanie krwawienia, zakładanie stazy, opatrunek uciskowy, postępowanie we wstrząsie, resuscytacja, pierwsza pomoc przy braku sprzętu.",
+  "preview": [
+   "Ocena bezpieczeństwa miejsca zdarzenia",
+   "Bezpośredni ucisk na ranę",
+   "Prawidłowe zakładanie stazy",
+   "Tamponada rany i opatrunek uciskowy",
+   "Udrożnienie dróg oddechowych, pozycja bezpieczna",
+   "Zapobieganie wstrząsowi i wychłodzeniu",
+   "Resuscytacja krążeniowo-oddechowa (RKO)",
+   "Pierwsza pomoc przy braku sprzętu"
+  ]
+ },
+ "tam-ly": {
+  "title": "Siła psychiczna",
+  "sub": "Spokój w niebezpieczeństwie, oddech przeciw panice, panowanie nad strachem, trening spostrzegawczości i pamięci.",
+  "preview": [
+   "Oddech pudełkowy przeciw panice",
+   "Panowanie nad strachem",
+   "Pozytywna rozmowa z samym sobą",
+   "Obserwacja i zapamiętywanie (gra Kima)",
+   "Decyzje pod presją"
+  ]
+ }
+}

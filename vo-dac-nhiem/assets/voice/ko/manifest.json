@@ -51,6 +51,22 @@
 "d": 992,
 "f": "drill_switch-bd3a6486.mp3"
 },
+"exam_fail": {
+"d": 8228,
+"f": "exam_fail-fb134472.mp3"
+},
+"exam_intro": {
+"d": 10422,
+"f": "exam_intro-7655cafd.mp3"
+},
+"exam_locked": {
+"d": 4780,
+"f": "exam_locked-159ff733.mp3"
+},
+"exam_pass": {
+"d": 7888,
+"f": "exam_pass-6dc1cc14.mp3"
+},
 "gate": {
 "d": 12303,
 "f": "gate-de83d177.mp3"
@@ -79,9 +95,97 @@
 "d": 3813,
 "f": "home_streak-656a2a54.mp3"
 },
+"lesson_end_auto": {
+"d": 6243,
+"f": "lesson_end_auto-f9946c43.mp3"
+},
 "lesson_locked": {
 "d": 4780,
 "f": "lesson_locked-2ff405d9.mp3"
+},
+"n1": {
+"d": 679,
+"f": "n1-ab41882b.mp3"
+},
+"n10": {
+"d": 731,
+"f": "n10-381f314c.mp3"
+},
+"n11": {
+"d": 940,
+"f": "n11-056db781.mp3"
+},
+"n12": {
+"d": 809,
+"f": "n12-efc02d46.mp3"
+},
+"n13": {
+"d": 757,
+"f": "n13-6cfe1c0a.mp3"
+},
+"n14": {
+"d": 731,
+"f": "n14-120f6e40.mp3"
+},
+"n15": {
+"d": 966,
+"f": "n15-cb9933cd.mp3"
+},
+"n16": {
+"d": 1097,
+"f": "n16-e26dd140.mp3"
+},
+"n17": {
+"d": 862,
+"f": "n17-7005c577.mp3"
+},
+"n18": {
+"d": 940,
+"f": "n18-29acd426.mp3"
+},
+"n19": {
+"d": 731,
+"f": "n19-6f6cefff.mp3"
+},
+"n2": {
+"d": 574,
+"f": "n2-217395a5.mp3"
+},
+"n20": {
+"d": 757,
+"f": "n20-412950a7.mp3"
+},
+"n3": {
+"d": 470,
+"f": "n3-18ec07f5.mp3"
+},
+"n4": {
+"d": 417,
+"f": "n4-aa68cb3f.mp3"
+},
+"n5": {
+"d": 548,
+"f": "n5-5fc34582.mp3"
+},
+"n6": {
+"d": 757,
+"f": "n6-a7cb1095.mp3"
+},
+"n7": {
+"d": 626,
+"f": "n7-dfe89606.mp3"
+},
+"n8": {
+"d": 653,
+"f": "n8-900096ec.mp3"
+},
+"n9": {
+"d": 574,
+"f": "n9-7577fbb6.mp3"
+},
+"next_step": {
+"d": 2742,
+"f": "next_step-f8797875.mp3"
 },
 "plan": {
 "d": 4937,
@@ -138,6 +242,22 @@
 "track_ban-sung": {
 "d": 5041,
 "f": "track_ban-sung-97420e6c.mp3"
+},
+"track_dong-doi": {
+"d": 6191,
+"f": "track_dong-doi-3e4df973.mp3"
+},
+"track_ngu-trang": {
+"d": 10448,
+"f": "track_ngu-trang-2323d09c.mp3"
+},
+"track_so-cuu": {
+"d": 10318,
+"f": "track_so-cuu-9b48dbd2.mp3"
+},
+"track_tam-ly": {
+"d": 7314,
+"f": "track_tam-ly-a72c0aef.mp3"
 },
 "track_tay-khong": {
 "d": 11311,

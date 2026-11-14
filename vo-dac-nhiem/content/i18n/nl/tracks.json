@@ -1,0 +1,82 @@
+{
+ "tay-khong": {
+  "title": "Zelfverdediging op korte afstand",
+  "sub": "Geïnspireerd door Systema en Sambo-worstelen: ademhaling, voetenwerk, veilig vallen, afweren, basistechnieken, ontsnappen en worpen."
+ },
+ "ngu-trang": {
+  "title": "Camouflage & verbergen",
+  "sub": "Ghillie-pak, gezichtsverf, dekking zoeken, geruisloos bewegen, sporen wissen en ongezien naderen.",
+  "preview": [
+   "Vier dingen die je verraden: vorm, schaduw, licht, beweging",
+   "Camouflageverf op je gezicht",
+   "Zelf een ghillie-pak maken",
+   "Een schuilplek kiezen",
+   "Laag kruipen, hoog kruipen, vossenpas",
+   "Geruisloos bewegen",
+   "Sporen wissen",
+   "Observeren zonder gezien te worden"
+  ]
+ },
+ "ban-sung": {
+  "title": "Sportschieten",
+  "sub": "De vier veiligheidsregels, een oefenwapen goed vasthouden, staand – knielend – liggend, richten en ademen, geschiedenis van het wapen.",
+  "preview": [
+   "De vier veiligheidsregels",
+   "Een oefenwapen goed vasthouden",
+   "Staand, knielend, liggend",
+   "Vizierlijn en ademhaling",
+   "Soepel de trekker overhalen",
+   "Geschiedenis van het sportschieten"
+  ]
+ },
+ "dong-doi": {
+  "title": "Teamwork",
+  "sub": "Handsignalen, korte communicatie, formaties en elkaar dekken bij airsoft en paintball.",
+  "preview": [
+   "Basis-handsignalen",
+   "Kort communiceren via de portofoon",
+   "Formaties in beweging",
+   "Observeren per sector",
+   "Samenwerkingsspellen"
+  ]
+ },
+ "the-luc": {
+  "title": "Conditie & overleven",
+  "sub": "Marsen met bepakking, veilig zwemmen, omgaan met vermoeidheid, water, voedsel, vuur en onderdak vinden in bos, woestijn en op zee.",
+  "preview": [
+   "Kracht met je eigen lichaamsgewicht",
+   "Veilig marsen met bepakking",
+   "Over een houten wand, touwklimmen",
+   "Veilig zwemmen en drijven",
+   "Omgaan met vermoeidheid en slaaptekort",
+   "Water vinden en filteren",
+   "Vuur en onderdak",
+   "Overleven in bos, woestijn en op zee"
+  ]
+ },
+ "so-cuu": {
+  "title": "Eerste hulp op het slagveld",
+  "sub": "Bloedingen stelpen, een tourniquet aanleggen, drukverband, shock behandelen, reanimeren, eerste hulp met weinig middelen.",
+  "preview": [
+   "Veiligheid ter plaatse beoordelen",
+   "Directe druk op de wond",
+   "Een tourniquet goed aanleggen",
+   "Wond opvullen en drukverband",
+   "Luchtweg vrijhouden, stabiele zijligging",
+   "Shock en onderkoeling voorkomen",
+   "Reanimatie (CPR)",
+   "Eerste hulp met weinig middelen"
+  ]
+ },
+ "tam-ly": {
+  "title": "Mentale kracht",
+  "sub": "Kalm blijven bij gevaar, ademen tegen paniek, angst beheersen, waarneming en geheugen trainen.",
+  "preview": [
+   "Box breathing tegen paniek",
+   "Angst beheersen",
+   "Positief tegen jezelf praten",
+   "Observeren en onthouden (Kim-spel)",
+   "Beslissen onder druk"
+  ]
+ }
+}

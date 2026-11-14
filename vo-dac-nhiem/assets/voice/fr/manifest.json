@@ -1,6 +1,206 @@
 {
+"badge": {
+"d": 1724,
+"f": "badge-c5acb299.mp3"
+},
+"call_lui": {
+"d": 626,
+"f": "call_lui-e166043c.mp3"
+},
+"call_phai": {
+"d": 705,
+"f": "call_phai-8a10836f.mp3"
+},
+"call_tien": {
+"d": 679,
+"f": "call_tien-17670f16.mp3"
+},
+"call_trai": {
+"d": 679,
+"f": "call_trai-89a84cbc.mp3"
+},
+"call_xoay": {
+"d": 653,
+"f": "call_xoay-12e9a310.mp3"
+},
+"drill_10s": {
+"d": 1280,
+"f": "drill_10s-bb33e876.mp3"
+},
+"drill_end": {
+"d": 1724,
+"f": "drill_end-367415d1.mp3"
+},
+"drill_reps_done": {
+"d": 1750,
+"f": "drill_reps_done-f96db8e0.mp3"
+},
+"drill_rest": {
+"d": 2246,
+"f": "drill_rest-81bf2d77.mp3"
+},
+"drill_round": {
+"d": 1724,
+"f": "drill_round-88edaac1.mp3"
+},
+"drill_start": {
+"d": 1776,
+"f": "drill_start-4721d3d6.mp3"
+},
+"drill_switch": {
+"d": 1018,
+"f": "drill_switch-928bf1e5.mp3"
+},
+"gate": {
+"d": 12042,
+"f": "gate-e34a1e5f.mp3"
+},
+"home_1": {
+"d": 2716,
+"f": "home_1-324e63f8.mp3"
+},
 "home_2": {
 "d": 4545,
 "f": "home_2-5601e696.mp3"
+},
+"home_3": {
+"d": 3343,
+"f": "home_3-541d2e1d.mp3"
+},
+"home_4": {
+"d": 3134,
+"f": "home_4-f09a7a13.mp3"
+},
+"home_done": {
+"d": 5903,
+"f": "home_done-e4138513.mp3"
+},
+"home_streak": {
+"d": 2768,
+"f": "home_streak-339b31c2.mp3"
+},
+"lesson_locked": {
+"d": 3369,
+"f": "lesson_locked-768775ec.mp3"
+},
+"n1": {
+"d": 208,
+"f": "n1-c4b1200e.mp3"
+},
+"n10": {
+"d": 679,
+"f": "n10-b08bf26f.mp3"
+},
+"n2": {
+"d": 470,
+"f": "n2-26bc3724.mp3"
+},
+"n3": {
+"d": 470,
+"f": "n3-8ffdb905.mp3"
+},
+"n4": {
+"d": 548,
+"f": "n4-7a5c3c03.mp3"
+},
+"n5": {
+"d": 731,
+"f": "n5-804f11ea.mp3"
+},
+"n6": {
+"d": 679,
+"f": "n6-3c9133a6.mp3"
+},
+"n7": {
+"d": 679,
+"f": "n7-a8b8f8de.mp3"
+},
+"n8": {
+"d": 626,
+"f": "n8-62d05c61.mp3"
+},
+"n9": {
+"d": 626,
+"f": "n9-425e7a23.mp3"
+},
+"plan": {
+"d": 3004,
+"f": "plan-f8208348.mp3"
+},
+"plan_done": {
+"d": 4127,
+"f": "plan_done-f078606c.mp3"
+},
+"practice_intro": {
+"d": 2298,
+"f": "practice_intro-166f1185.mp3"
+},
+"profile": {
+"d": 4519,
+"f": "profile-009b5e46.mp3"
+},
+"quiz_intro": {
+"d": 4493,
+"f": "quiz_intro-2f22d57d.mp3"
+},
+"quiz_pass": {
+"d": 2168,
+"f": "quiz_pass-d1593a0a.mp3"
+},
+"quiz_perfect": {
+"d": 2011,
+"f": "quiz_perfect-9304fe64.mp3"
+},
+"quiz_retry": {
+"d": 5250,
+"f": "quiz_retry-26048eae.mp3"
+},
+"rank_up": {
+"d": 3369,
+"f": "rank_up-5cb30846.mp3"
+},
+"right_1": {
+"d": 705,
+"f": "right_1-ecf189c6.mp3"
+},
+"right_2": {
+"d": 1515,
+"f": "right_2-435fa716.mp3"
+},
+"right_3": {
+"d": 2560,
+"f": "right_3-ca947381.mp3"
+},
+"right_4": {
+"d": 1619,
+"f": "right_4-41f54876.mp3"
+},
+"track_ban-sung": {
+"d": 5198,
+"f": "track_ban-sung-c471c215.mp3"
+},
+"track_tay-khong": {
+"d": 9090,
+"f": "track_tay-khong-5905e039.mp3"
+},
+"track_the-luc": {
+"d": 8333,
+"f": "track_the-luc-587cd805.mp3"
+},
+"welcome": {
+"d": 16979,
+"f": "welcome-10c065cd.mp3"
+},
+"wrong_1": {
+"d": 2220,
+"f": "wrong_1-6ab20905.mp3"
+},
+"wrong_2": {
+"d": 3265,
+"f": "wrong_2-70435764.mp3"
+},
+"wrong_3": {
+"d": 1985,
+"f": "wrong_3-32238419.mp3"
 }
 }
