@@ -9,8 +9,8 @@
 - `proc.py` + `ballet_layers_cfg.json`: tách lớp quần áo bằng cách so ảnh có váy với ảnh gốc (khác biệt điểm ảnh); tóc dùng
   "chroma" (tóc màu xanh lá chroma-key). `kie.py`: gọi kie.ai (proxy tự gắn khoá). `tts_models.py`: giọng 11max
   (khoá lấy từ biến môi trường MAX11_API_KEY, proxy tự gắn; giọng cô Vy = "trang_slow").
-- Bản trên babelisa: `babelisa/public/be-tap-ve.html` = `index.html` + `<meta name="robots" content="noindex, nofollow">`
-  sau `<meta charset>` + `<script src="/js/course-nav.js" defer></script>` trước `</head>` (đừng làm mất 2 dòng này).
+- Bản trên babelisa: `babelisa/public/be-tap-ve.html` = `index.html` + `<script src="/js/course-nav.js" defer></script>` trước `</head>`.
+  Game đã MỞ CÔNG KHAI cho Google (từ 14/11/2026): KHÔNG thêm `noindex` nữa. Tiêu đề / mô tả / OG / JSON-LD nằm trong `<head>` của `src_index.html`.
 
 ## Ba lê v2 (phòng thay đồ mới + video bài học)
 - Tải ảnh gốc độ phân giải cao từ `ballet_raw/kie_urls.json` vào thư mục `full/` (hoặc đặt `BALLET_FULL`), rồi:
